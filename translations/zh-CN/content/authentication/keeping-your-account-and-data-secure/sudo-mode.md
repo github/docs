@@ -1,6 +1,6 @@
 ---
-title: Sudo mode
-intro: 'To confirm access to your account before you perform a potentially sensitive action, {% data variables.location.product_location %} prompts for authentication.'
+title: Sudo 模式
+intro: '为了在你执行可能敏感的操作之前确认你帐户的访问权限，{% data variables.product.product_location %} 会提示进行身份验证。'
 redirect_from:
   - /articles/sudo-mode
   - /github/authenticating-to-github/sudo-mode
@@ -13,81 +13,83 @@ miniTocMaxHeadingLevel: 3
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 909552ff2252e14430050541da5f6bae582f66b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147540824'
 ---
+## 关于 sudo 模式
 
-## About sudo mode
+为了在你对 {% data variables.product.product_location %} 执行可能敏感的操作时维护帐户的安全，即使你已登录，也必须进行身份验证。 例如，{% data variables.product.company_short %} 认为以下操作是敏感操作，因为每个操作都可能允许新用户或系统访问你的帐户。
 
-To maintain the security of your account when you perform a potentially sensitive action on {% data variables.location.product_location %}, you must authenticate even though you're already signed in. For example, {% data variables.product.company_short %} considers the following actions sensitive because each action could allow a new person or system to access your account.
+- 修改关联的电子邮件地址
+- 授权第三方应用程序
+- 添加新的 SSH 密钥
 
-- Modification of an associated email address
-- Authorization of a third-party application
-- Addition of a new SSH key
-
-After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+当你经过身份验证来执行敏感操作后，会话暂时处于“sudo 模式”。 在 sudo 模式下，无需身份验证即可执行敏感操作。 {% data variables.product.product_name %} 将等待几小时，然后再次提示你进行身份验证。 在此期间，你执行的任何敏感操作都将重置计时器。
 
 {% ifversion ghes %}
 
 {% note %}
 
-**Note**: If {% data variables.location.product_location %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
+注意：如果 {% data variables.product.product_location %} 使用 CAS 或 SAML SSO 等外部身份验证方法，你不会收到进入 sudo 模式的提示。 更多信息请联系站点管理员。
 
 {% endnote %}
 
 {% endif %}
 
-"sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
+“sudo”是指 Unix 系统上的一个程序，该名称是“superuser do”的缩写 。 有关详细信息，请参阅维基百科上的 [sudo](https://wikipedia.org/wiki/Sudo)。
 
-## Confirming access for sudo mode
+## 确认对 sudo 模式的访问权限
 
-To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
+要确认对 sudo 模式的访问权限，{% ifversion totp-and-mobile-sudo-challenge %}可以{% else %}必须{% endif %}使用密码进行身份验证。{% ifversion totp-and-mobile-sudo-challenge %}或者可选择使用其他身份验证方法，例如{% ifversion fpt or ghec %}安全密钥、{% data variables.product.prodname_mobile %} 或 2FA 代码{% elsif ghes %}安全密钥或 2FA 代码{% endif %}。{% endif %}
 
 {%- ifversion totp-and-mobile-sudo-challenge %}
-- [Confirming access using a security key](#confirming-access-using-a-security-key)
-{%- ifversion fpt or ghec %}
-- [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
-{%- endif %}
-- [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
-- [Confirming access using your password](#confirming-access-using-your-password)
-{%- endif %}
+- [使用安全密钥确认访问权限](#confirming-access-using-a-security-key) {%- ifversion fpt or ghec %}
+- [使用 GitHub Mobile 确认访问权限](#confirming-access-using-github-mobile) {%- endif %}
+- [使用 2FA 代码确认访问权限](#confirming-access-using-a-2fa-code)
+- [使用密码确认访问权限](#confirming-access-using-your-password) {%- endif %}
 
 {% ifversion totp-and-mobile-sudo-challenge %}
 
-### Confirming access using a security key
+### 使用安全密钥确认访问权限
 
-You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+必须使用安全密钥为帐户配置双因素身份验证 (2FA)，才能使用安全密钥确认帐户是否拥有对 sudo 模式的访问权限。 有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
 
-When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
+当系统提示对 sudo 模式进行身份验证时，请单击“使用安全密钥”，然后按照提示进行操作。
 
-![Screenshot of security key option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
+![sudo 模式的安全密钥选项的屏幕截图](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
 
 {% ifversion fpt or ghec %}
 
-### Confirming access using {% data variables.product.prodname_mobile %}
+### 使用 {% data variables.product.prodname_mobile %} 确认访问权限
 
-You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
+必须安装并登录 {% data variables.product.prodname_mobile %}，才能使用该应用确认帐户是否拥有对 sudo 模式的访问权限。 有关详细信息，请参阅“[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)”。
 
-1. When prompted to authenticate for sudo mode, click **Use GitHub Mobile**.
+1. 当系统提示对 sudo 模式进行身份验证时，请单击“使用 GitHub Mobile”。
 
-   ![Screenshot of {% data variables.product.prodname_mobile %} option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
-1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_mobile %} will display numbers that you must enter on {% data variables.location.product_location %} to approve the request.
+   ![sudo 模式的 {% data variables.product.prodname_mobile %} 选项的屏幕截图](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
+1. 打开 {% data variables.product.prodname_mobile %}。 {% data variables.product.prodname_mobile %} 将显示必须在 {% data variables.product.product_location %} 上输入才能批准请求的数字。
 
-   ![Screenshot of numbers from {% data variables.product.prodname_mobile %} to enter on {% data variables.product.product_name %} to approve sudo mode access](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
-1. On {% data variables.product.product_name %}, type the numbers displayed in {% data variables.product.prodname_mobile %}.
-
-{% endif %}
-
-### Confirming access using a 2FA code
-
-You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
-
-When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
-
-![Screenshot of 2FA code prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_2fa_code.png)
-
-### Confirming access using your password
+   ![{% data variables.product.prodname_mobile %} 中数字的屏幕截图，该数字用于在 {% data variables.product.product_name %} 上输入来审核 sudo 模式访问权限](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
+1. 在 {% data variables.product.product_name %} 上，键入 {% data variables.product.prodname_mobile %} 中显示的数字。
 
 {% endif %}
 
-When prompted to authenticate for sudo mode, type your password, then click **Confirm**.
+### 使用 2FA 代码确认访问权限
 
-![Screenshot of password prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_password.png)
+必须使用 TOTP 移动应用{% ifversion fpt or ghec %}或短信{% endif %}配置 2FA，才能使用 2FA 代码确认帐户是否拥有对 sudo 模式的访问权限。 有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”。
+
+当系统提示对 sudo 模式进行身份验证时，请键入 TOTP 移动应用{% ifversion fpt or ghec %}或短信{% endif %}中的验证码，然后单击“验证”。
+
+![sudo 模式的 2FA 代码提示的屏幕截图](/assets/images/help/settings/sudo_mode_prompt_2fa_code.png)
+
+### 使用密码确认访问权限
+
+{% endif %}
+
+当系统提示对 sudo 模式进行身份验证时，请键入密码，然后单击“确认”。
+
+![sudo 模式的密码提示的屏幕截图](/assets/images/help/settings/sudo_mode_prompt_password.png)

@@ -1,0 +1,93 @@
+date: '2021-03-03'
+friendlyDate: '2021년 3월 3일'
+title: '2021년 3월 3일 주'
+currentWeek: false
+sections:
+  features:
+    - heading: 'GitHub Actions 베타'
+      notes:
+        - |[{% data variables.product.prodname_actions %}](https://github.com/features/actions)는 CI/CD 및 워크플로 자동화를 위한 강력하고 유연한 솔루션입니다. 자세한 내용은 “[{% data variables.product.prodname_actions %} 소개](/actions/learn-github-actions/introduction-to-github-actions)”를 참조하세요.
+
+
+
+이 업그레이드 중에 {% data variables.product.prodname_actions %}가 사용하도록 설정된 경우 “GitHub Actions”라는 이름의 두 조직(@**actions** 및 @**github**)이 {% data variables.product.product_location %}에 표시됩니다. 이러한 조직은 {% data variables.product.prodname_actions %}에서 필수입니다. 감사 로그에서 이러한 조직을 만들기 위해 @**ghost** 및 @**actions**라는 이름의 사용자가 작업자로 표시됩니다.
+
+|
+    - heading: 'GitHub Packages 베타'
+      notes:
+        - |[{% data variables.product.prodname_registry %}](https://github.com/features/packages)는 기본적으로 {% data variables.product.prodname_actions %}, Actions, 웹 후크와 통합된 패키지 호스팅 서비스입니다. 코드, 연속 통합, 배포 솔루션을 포함하는 [엔드투엔드 DevOps 워크플로](/github-ae@latest/packages/quickstart)를 만듭니다. 이 베타 중에 {% data variables.product.prodname_registry %}가 {% data variables.product.product_name %} 고객에게 무료로 제공됩니다.
+
+|
+    - heading: 'GitHub Advanced Security 베타'
+      notes:
+        - |{% data variables.product.prodname_GH_advanced_security %}는 베타 버전으로 사용 가능하며 코드 검사 및 비밀 검사가 포함됩니다. 이 베타 중에 {% data variables.product.prodname_GH_advanced_security %} 기능이 {% data variables.product.product_name %} 고객에게 무료로 제공됩니다. 리포지토리 및 조직 관리자는 설정에 있는 보안 및 분석 탭에서 {% data variables.product.prodname_GH_advanced_security %} 사용을 옵트인할 수 있습니다.
+
+
+
+{% data variables.product.prodname_ghe_managed %}에서 {% data variables.product.prodname_GH_advanced_security %} [코드 검사](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) 및 [비밀 검사](/github/administering-a-repository/about-secret-scanning)에 대해 자세히 알아봅니다.
+
+|
+    - heading: IDP(ID 공급자)에서 팀 관리
+      notes:
+        - |SCIM(System for Cross-domain Identity Management)을 사용하는 고객은 이제 Azure Active Directory에서 {% data variables.product.company_short %} 팀과 보안 그룹을 동기화할 수 있습니다.  팀이 보안 그룹으로 연결되면 할당된 보안 그룹에서 사용자가 추가되거나 제거될 경우 {% data variables.product.product_name %}에서 구성원 자격이 자동으로 업데이트됩니다.
+
+|
+    - heading: IP 허용 목록 정보 베타
+      notes:
+        - |[{% data variables.product.company_short %} IP 허용 목록](/admin/configuration/restricting-network-traffic-to-your-enterprise)은 관리자별 IP 범위에서 CIDR 표기법으로 정의된 트래픽을 필터링할 수 있는 기능을 제공합니다. 허용 목록은 보안 > 설정에서 엔터프라이즈 또는 조직 계정 수준에서 정의됩니다. 엔터프라이즈 계정 및 조직에 있는 리소스에 접근하려고 하는 모든 트래픽은 IP 허용 목록에 의해 필터링됩니다. 이 기능은 GHAE 테넌트 전체에 대한 트래픽을 필터링하는 네트워크 보안 그룹 변경을 요청하는 기능에 추가로 제공됩니다.
+
+|
+  changes:
+    - heading: 개발자 변경 내용
+      notes:
+        - |조직의 리포지토리에서 {% data variables.product.prodname_pages %} 사이트의 [이제 조직 소유자는 게시를 사용하지 않도록 설정할 수 있음](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) 기존 사이트를 게시 취소하지는 않습니다.
+
+|
+        - "{% data variables.product.prodname_pages %}를 사용하는 리포지토리는 [모든 분기를 빌드 및 배포할 수 있음](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)할 수 있습니다."
+        - "이슈 또는 끌어오기 요청을 작성할 때 `return` 또는 `enter`를 누르면 글머리 기호, 숫자, 작업에 대한 목록 구문이 자동 완성됩니다."
+        - 이제 리포지토리 페이지의 리포지토리에서 디렉터리를 삭제할 수 있습니다. 디렉터리로 이동할 때 “파일 추가” 단추 옆에 있는 새 kebab 단추를 누르면 디렉터리 삭제 옵션이 표시됩니다.
+        - "이제 “#”을 입력하여 여러 단어를 검색하면 더 쉽고 빠르게 [참조 이슈 또는 끌어오기 요청](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests)합니다."
+
+    - heading: 관리 변경
+      notes:
+        - "이제 엔터프라이즈 소유자가 필수 메시지를 게시할 수 있습니다. 이 메시지는 모든 사용자에게 표시되며 이를 확인해야 합니다. 이 기능은 중요한 정보, 서비스 약관 또는 정책을 표시하는 데 사용할 수 있습니다."
+        - "{% data variables.product.prodname_github_app%} 단일 파일 경로 권한으로 이제 [최대 10개 파일을 지원](/developers/apps/creating-a-github-app-using-url-parameters)할 수 있습니다."
+        - "{% data variables.product.prodname_github_app%}을 구성할 때 권한 부여 콜백 URL은 필수 필드입니다. 이제 통합자가 여러 콜백 URL을 지정하도록 허용할 수 있습니다. 요청의 콜백 URL이 나열되지 않으면 {% data variables.product.product_name %}는 인증을 거부합니다."
+        - "[새 API 엔드포인트](/rest/reference/apps#create-a-scoped-access-token)를 사용하면 특정 리포지토리로 범위가 지정된 사용자-서버 토큰에 대해 사용자-서버 토큰을 교환할 수 있습니다."
+        - "이제 [팀 구성원을 팀 유지 관리자로 승격하고 팀 유지 관리자를 팀 구성원으로 강등할 경우](/admin/user-management/audited-actions#teams) 이벤트가 감사 로그에 기록됩니다."
+        - "이제 [OAuth 디바이스 권한 부여 흐름](/developers/apps/authorizing-oauth-apps#device-flow)이 지원됩니다. 이를 통해 보조 시스템을 사용하여 CLI 클라이언트 또는 개발자 도구를 인증할 수 있습니다."
+        - SCIM 프로비저닝이 사용하도록 설정된 경우 사용자는 더 이상 자신의 계정을 삭제할 수 없습니다.
+
+    - heading: 기본 분기 이름 바꾸기
+      notes:
+        - |엔터프라이즈 및 조직 소유자는 이제 새 리포지토리에 대한 기본 분기 이름을 설정할 수 있습니다. 엔터프라이즈 소유자는 모든 조직에서 선택한 기본 분기 이름을 적용하거나 개별 조직이 자체 이름을 선택하도록 허용할 수도 있습니다.
+
+
+
+기존 리포지토리는 이 설정의 영향을 받지 않으며 해당 기본 분기 이름은 변경되지 않습니다.
+
+
+
+이 변경은 기본 분기 이름을 바꾸려는 프로젝트 및 유지 관리자를 지원하기 위해 {% data variables.product.company_short %}가 변경한 많은 내용 중 하나입니다. 자세한 내용은 [github/renaming](https://github.com/github/renaming)을 참조하세요.
+
+|
+  bugs:
+    - heading: 버그 수정
+      notes:
+        - 사용자는 더 이상 프로필에서 백업 메일 주소를 설정할 수 없습니다. 메일 주소는 IdP를 통해서만 설정됩니다.
+        - IdP를 통해 인증을 구성하면 더 이상 2단계 인증을 사용하도록 설정할 수 없습니다.
+        - |{% data variables.product.product_name %}에서 더 이상 Azure Boards에 연결할 수 없습니다.
+
+|
+        - API에서 버전 헤더가 누락되었고 “GitHub AE”로 설정되었습니다.
+        - 문서 링크가 수정되었습니다.
+        - 엔터프라이즈 설정 내에서 감사 로그 전달 구성에 실패했습니다.
+        - gists로 이동 시 500 오류가 발생할 수 있습니다.
+        - 지원 메일 또는 URL을 저장하지 못했습니다. 이제 몇 분 후에 저장됩니다.
+        - 조직 수준 끌어오기 요청 템플릿이 조직에 있는 모든 끌어오기 요청에 적용되지 않았습니다.
+
+  known_issues:
+    - heading: 알려진 문제
+      notes:
+        - "지리적 위치 데이터가 감사 로그에 표시되지 않습니다. 그렇지 않으면, 각 이벤트와 관련된 IP 주소에서 위치 정보가 파악될 수 있습니다."
+        - "리포지토리에 패키지가 없는 경우 해당 리포지토리 페이지의 {% data variables.product.prodname_registry %} 링크에 잘못된 검색 페이지가 표시됩니다."

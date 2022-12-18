@@ -1,7 +1,7 @@
 ---
-title: Workflow syntax for GitHub Actions
+title: Синтаксис рабочего процесса для GitHub Actions
 shortTitle: Workflow syntax
-intro: A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.
+intro: 'Рабочий процесс — это настраиваемый автоматизированный процесс, состоящий из одного или нескольких заданий. Чтобы определить конфигурацию рабочего процесса, необходимо создать YAML-файл.'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -14,36 +14,39 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: ca5a79fbaeeafa474283cbabd67108cb22b6f985
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192051'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о синтаксисе YAML для рабочих процессов
 
-## About YAML syntax for workflows
+Файлы рабочего процесса используют синтаксис YAML и должны иметь расширение файла `.yml` или `.yaml`. {% data reusables.actions.learn-more-about-yaml %}
 
-Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file extension. {% data reusables.actions.learn-more-about-yaml %}
-
-You must store workflow files in the `.github/workflows` directory of your repository.
+Файлы рабочего процесса необходимо хранить в каталоге `.github/workflows` репозитория.
 
 ## `name`
 
-The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's "Actions" tab. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
+имя рабочего процесса. {% data variables.product.prodname_dotcom %} отображает имена рабочих процессов на вкладке "Действия" репозитория. Если опустить `name`, {% data variables.product.prodname_dotcom %} задает путь к файлу рабочего процесса относительно корня репозитория.
 
 {% ifversion actions-run-name %}
 ## `run-name`
 
-The name for workflow runs generated from the workflow. {% data variables.product.prodname_dotcom %} displays the workflow run name in the list of workflow runs on your repository's "Actions" tab. If `run-name` is omitted or is only whitespace, then the run name is set to event-specific information for the workflow run. For example, for a workflow triggered by a `push` or `pull_request` event, it is set as the commit message.
+Имя для запусков рабочих процессов, созданных из рабочего процесса. {% data variables.product.prodname_dotcom %} отображает имя запуска рабочего процесса в списке выполнений рабочих процессов на вкладке "Действия" репозитория. Если `run-name` параметр опущен или является только пробелом, то для имени запуска задается информация о конкретном событии для выполнения рабочего процесса. Например, для рабочего процесса, активированного событием `push` или `pull_request` , он задается в качестве сообщения о фиксации.
 
-This value can include expressions and can reference the [`github`](/actions/learn-github-actions/contexts#github-context) and [`inputs`](/actions/learn-github-actions/contexts#inputs-context) contexts.
+Это значение может включать выражения и может ссылаться на [`github`](/actions/learn-github-actions/contexts#github-context) контексты и [`inputs`](/actions/learn-github-actions/contexts#inputs-context) .
 
-### Example
+### Пример
 
 {% raw %}
 ```yaml
 run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
 ## `on`
 
@@ -72,23 +75,23 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+Используйте `on.workflow_call` для определения входных и выходных данных для многократно используемого рабочего процесса. Вы также можете сопоставить секреты, доступные для вызываемого рабочего процесса. Дополнительные сведения о повторно используемых рабочих процессах см. в разделе [Повторное использованием рабочих процессов](/actions/using-workflows/reusing-workflows).
 
 ### `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+При использовании ключевого слова `workflow_call` можно дополнительно указать входные данные, передаваемые вызываемому рабочему процессу из вызывающего рабочего процесса. Дополнительные сведения о ключевом слове `workflow_call` см. в разделе [События, активирующие рабочие процессы](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events).
 
-In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
+Помимо доступных стандартных входных параметров `on.workflow_call.inputs` требует параметр `type`. Дополнительные сведения см. на веб-сайте [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
-If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
+Если параметр `default` не задан, значение по умолчанию для входных данных — `false` для логического значения, `0` для числа и `""` для строки.
 
-Within the called workflow, you can use the `inputs` context to refer to an input.
+В вызываемом рабочем процессе можно использовать контекст `inputs` для ссылки на входные данные.
 
-If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
+Если вызывающий рабочий процесс передает входные данные, которые не указаны в вызываемом рабочем процессе, это приведет к ошибке.
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -111,19 +114,19 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/learn-github-actions/reusing-workflows).
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
-Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+Требуется, если входные данные определены для ключевого слова `on.workflow_call`. Значение этого параметра — строка, указывающая тип входных данных. Должен иметь значение `boolean`, `number` или `string`.
 
 ### `on.workflow_call.outputs`
 
-A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
+Карта выходных данных для вызываемого рабочего процесса. Выходные данные вызываемого рабочего процесса доступны для всех нижестоящих заданий в рабочем процессе вызывающего объекта. У каждых выходных данных есть идентификатор, необязательный `description,` и `value.` Для `value` необходимо задать значение выходных данных из задания в рамках вызываемого рабочего процесса.
 
-In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
+В приведенном ниже примере для этого многократно используемого рабочего процесса определяются два набора выходных данных: `workflow_output1` и `workflow_output2`. Они сопоставляются с выходными данными `job_output1` и `job_output2` из вызываемого задания`my_job`.
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -140,17 +143,17 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+Сведения о том, как ссылаться на выходные данные задания, см. в разделе [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/learn-github-actions/reusing-workflows).
 
 ### `on.workflow_call.secrets`
 
-A map of the secrets that can be used in the called workflow.
+Карта секретов, которые можно использовать в вызываемом рабочем процессе.
 
-Within the called workflow, you can use the `secrets` context to refer to a secret.
+В вызываемом рабочем процессе можно использовать контекст `secrets` для ссылки на секрет.
 
-If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
+Если вызывающий рабочий процесс передает секрет, который не указан в вызываемом рабочем процессе, это приведет к ошибке.
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -175,11 +178,11 @@ jobs:
 
 #### `on.workflow_call.secrets.<secret_id>`
 
-A string identifier to associate with the secret.
+Строковый идентификатор, связанный с секретом.
 
 #### `on.workflow_call.secrets.<secret_id>.required`
 
-A boolean specifying whether the secret must be supplied.
+Логическое значение, указывающее, должен ли быть предоставлен секрет.
 {% endif %}
 
 ## `on.workflow_run.<branches|branches-ignore>`
@@ -196,13 +199,13 @@ A boolean specifying whether the secret must be supplied.
 
 ## `env`
 
-A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+Переменные среды `map`, доступные для шагов всех заданий в рабочем процессе. Можно также задать переменные среды, доступные только для шагов одного задания или для одного шага. Дополнительные сведения см. в разделах [`jobs.<job_id>.env`](#jobsjob_idenv) и [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
-Variables in the `env` map cannot be defined in terms of other variables in the map.
+Переменные на схеме `env` не могут быть определены с точки зрения других переменных на карте.
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### Пример
 
 ```yaml
 env:
@@ -263,11 +266,11 @@ env:
 
 ## `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+Переменные среды `map`, доступные для всех шагов задания. Можно также задать переменные среды для всего рабочего процесса или отдельного шага. Дополнительные сведения см. в разделах [`env`](#env) и [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### Пример
 
 ```yaml
 jobs:
@@ -286,11 +289,11 @@ jobs:
 
 ## `jobs.<job_id>.steps`
 
-A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
+Задание содержит последовательность задач, называемых шагами (`steps`). Шаги могут выполнять команды, задачи установки или действия в репозитории, общедоступном репозитории или в реестре Docker. Не все шаги выполняют действия, но все действия выполняются как шаги. Каждый шаг выполняется в собственном процессе в среде средства выполнения и имеет доступ к рабочей области и файловой системе. Так как шаги выполняются в собственном процессе, изменения переменных среды не сохраняются между шагами. {% data variables.product.prodname_dotcom %} предоставляет встроенные шаги по настройке и выполнению задания.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+Вы можете выполнять неограниченное количество шагов, если не превышаете лимиты по использованию рабочих процессов. Дополнительные сведения см. в разделе {% ifversion fpt or ghec or ghes %}[Лимиты использования и выставления счетов](/actions/reference/usage-limits-billing-and-administration) для средств выполнения тестов, размещенных в {% data variables.product.prodname_dotcom %} и {% endif %}"[Сведения о средствах выполнения тестов локального размещения](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}, где описываются лимиты по использованию средства выполнения тестов локального размещения.{% elsif ghae %}.{% endif %}
 
-### Example
+### Пример
 
 {% raw %}
 ```yaml
@@ -316,17 +319,17 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].id`
 
-A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+Уникальный идентификатор шага. Вы можете использовать `id` для ссылки на шаг в контекстах. Дополнительные сведения см. в разделе «[Контексты](/actions/learn-github-actions/contexts)».
 
 ### `jobs.<job_id>.steps[*].if`
 
-You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+Условное выражение `if` можно использовать для предотвращения выполнения шага, если условие не выполняется. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} Дополнительные сведения см. в разделе [Выражения](/actions/learn-github-actions/expressions).
 
-#### Example: Using contexts
+#### Пример. Использование контекстов
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+ Этот шаг выполняется, только если типом события является `pull_request`, а действием — `unassigned`.
 
  ```yaml
 steps:
@@ -335,9 +338,9 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### Example: Using status check functions
+#### Пример. Использование функций проверки состояния
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
+`my backup step` выполняется только при сбое предыдущего шага задания. Дополнительные сведения см. в разделе [Выражения](/actions/learn-github-actions/expressions#status-check-functions).
 
 ```yaml
 steps:
@@ -348,11 +351,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-#### Example: Using secrets
+#### Пример. Использование секретов
 
-Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
+На секреты нельзя напрямую ссылаться в условных выражениях `if:`. Вместо этого рекомендуется задать секреты в качестве переменных среды на уровне задания, а затем создать ссылки на переменные среды для условного выполнения шагов в задании.
 
-If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+Если секрет не задан, возвращаемое значение выражения, которое ссылается на этот секрет (например, {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} в примере) будет пустой строкой.
 
 {% raw %}
 ```yaml
@@ -371,26 +374,26 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Подробнее см. в разделе [Доступность контекста](/actions/learn-github-actions/contexts#context-availability) и [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
 ### `jobs.<job_id>.steps[*].name`
 
-A name for your step to display on {% data variables.product.prodname_dotcom %}.
+Имя шага, которое будет отображаться на {% data variables.product.prodname_dotcom %}.
 
 ### `jobs.<job_id>.steps[*].uses`
 
-Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+Выбирает действие, которое будет выполняться как часть шага вашего задания. Действие — это многократно используемая единица кода. Вы можете использовать действие, определенное в том же репозитории, что и рабочий процесс, в общедоступном репозитории или в [опубликованном образе контейнера Docker](https://hub.docker.com/).
 
-We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- If the action publishes major version tags, you should expect to receive critical fixes and security patches while still retaining compatibility. Note that this behavior is at the discretion of the action's author.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+Мы настоятельно рекомендуем включить версию используемого вами действия, указав ссылку на Git, SHA или тег Docker. Если вы не укажете версию, это может нарушить ваши рабочие процессы или вызвать непредвиденное поведение, когда владелец действия будет публиковать обновление.
+- Использование SHA фиксации выпущенной версии действия является самым безопасным для стабильности и защиты.
+- Если действие публикует теги основного номера версий, вам следует ожидать получения критических исправлений и обновлений для системы безопасности. При этом совместимость сохранится. Обратите внимание, что это поведение выполняется по усмотрению автора действия.
+- Использование ветви действия по умолчанию может быть удобным, но если кто-то выпустит новую основную версию с критическим изменением, ваш рабочий процесс может прерваться.
 
-Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+Для некоторых действий требуются вводы, заданные с помощью ключевого слова [`with`](#jobsjob_idstepswith). Просмотрите файл README действия, чтобы определить необходимые входные данные.
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+Действия — это файлы JavaScript или контейнеры Docker. Если используемое действие является контейнером Docker, необходимо запустить задание в среде Linux. Дополнительные сведения см. по адресу [`runs-on`](#jobsjob_idruns-on).
 
-#### Example: Using versioned actions
+#### Пример. Использование действий с версиями
 
 ```yaml
 steps:
@@ -404,11 +407,11 @@ steps:
   - uses: actions/checkout@main
 ```
 
-#### Example: Using a public action
+#### Пример. Использование общедоступного действия
 
 `{owner}/{repo}@{ref}`
 
-You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+Вы можете указать ветвь, ссылку или SHA в общедоступном репозитории данных {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 jobs:
@@ -422,11 +425,11 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### Example: Using a public action in a subdirectory
+#### Пример. Использование общедоступного действия в подкаталоге
 
 `{owner}/{repo}/{path}@{ref}`
 
-A subdirectory in a public {% data variables.product.prodname_dotcom %} repository at a specific branch, ref, or SHA.
+Подкаталог в общедоступном репозитории {% data variables.product.prodname_dotcom %} в определенной ветви, ссылке или SHA.
 
 ```yaml
 jobs:
@@ -436,11 +439,11 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Example: Using an action in the same repository as the workflow
+#### Пример. Использование действия в том же репозитории, что и рабочий процесс
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+Путь к каталогу, содержащему действие в репозитории рабочего процесса. Перед использованием действия необходимо извлечь репозиторий.
 
 ```yaml
 jobs:
@@ -452,11 +455,11 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Example: Using a Docker Hub action
+#### Пример. Использование действия Docker Hub
 
 `docker://{image}:{tag}`
 
-A Docker image published on [Docker Hub](https://hub.docker.com/).
+Образ Docker, опубликованный в [Docker Hub](https://hub.docker.com/).
 
 ```yaml
 jobs:
@@ -467,11 +470,11 @@ jobs:
 ```
 
 {% ifversion fpt or ghec %}
-#### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+#### Пример. Использование {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+Образ Docker в {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -481,11 +484,11 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-#### Example: Using a Docker public registry action
+#### Пример. Использование действия общедоступного реестра Docker
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in a public registry. This example uses the Google Container Registry at `gcr.io`.
+Образ Docker в общедоступном реестре. В этом примере используется реестр контейнеров Google: `gcr.io`.
 
 ```yaml
 jobs:
@@ -495,11 +498,11 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Example: Using an action inside a different private repository than the workflow
+#### Пример. Использование действия в частном репозитории, отличном от того, где выполняется рабочий процесс
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as an encrypted secret. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+Рабочий процесс должен извлечь частный репозиторий и ссылаться на действие локально. Создайте {% data variables.product.pat_generic %} и добавьте маркер в качестве зашифрованного секрета. Дополнительные сведения см. в [разделах Создание {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)и [Зашифрованные секреты](/actions/reference/encrypted-secrets).
 
-Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+Замените `PERSONAL_ACCESS_TOKEN` в примере именем секрета.
 
 ```yaml
 jobs:
@@ -518,20 +521,20 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].run`
 
-Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
+Используется для запуска программы командной строки с помощью оболочки операционной системы. Если `name` не указано, в качестве имени шага по умолчанию используется текст, указанный в команде `run`.
 
-Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
+Команды выполняются с помощью оболочки, не требующей входа, по умолчанию. Вы можете выбрать другую оболочку и настроить ее для выполнения команд. Дополнительные сведения см. на веб-сайте [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
-Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
+Каждое ключевое слово `run` представляет новый процесс и оболочку в среде средства выполнения. При предоставлении команд с несколькими строками каждая строка выполняется в той же оболочке. Пример:
 
-* A single-line command:
+* Команда с одной строкой:
 
   ```yaml
   - name: Install Dependencies
     run: npm install
   ```
 
-* A multi-line command:
+* Команда с несколькими строками:
 
   ```yaml
   - name: Clean install dependencies and build
@@ -540,7 +543,7 @@ Each `run` keyword represents a new process and shell in the runner environment.
       npm run build
   ```
 
-Using the `working-directory` keyword, you can specify the working directory of where to run the command.
+С помощью ключевого слова `working-directory` можно указать рабочий каталог, в котором будет выполняться команда.
 
 ```yaml
 - name: Clean temp directory
@@ -550,20 +553,20 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### `jobs.<job_id>.steps[*].shell`
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+Параметры оболочки по умолчанию можно переопределить в операционной системе средства выполнения с помощью ключевого слова `shell`. Можно использовать встроенные ключевые слова `shell` или определить пользовательский набор параметров оболочки. Команда оболочки, выполняемая внутри системы, исполняет временный файл, содержащий команды, указанные в ключевом слове `run`.
 
-| Supported platform | `shell` parameter | Description | Command run internally |
+| Поддерживаемая платформа | Параметр `shell` | Описание | Выполнение команды внутри системы |
 |--------------------|-------------------|-------------|------------------------|
-| Linux / macOS | unspecified | The default shell on non-Windows platforms. Note that this runs a different command to when `bash` is specified explicitly. If `bash` is not found in the path, this is treated as `sh`. | `bash -e {0}` |
-| All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
-| All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
-| All | `python` | Executes the python command. | `python {0}` |
-| Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
-| Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows | `pwsh` | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead.| `pwsh -command ". '{0}'"`. |
-| Windows | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
+| Linux / macOS | unspecified | Оболочка по умолчанию на платформах, отличных от Windows. Обратите внимание, что при этом выполняется другая команда, чем когда указать `bash` явно. Если `bash` не удается найти в пути, выполняется обработка в качестве `sh`. | `bash -e {0}` |
+| Все | `bash` | Оболочка по умолчанию на платформах, отличных от Windows, с резервным вариантом `sh`. При указании оболочки Bash на Windows используется оболочка Bash, включенная в Git для Windows. | `bash --noprofile --norc -eo pipefail {0}` |
+| Все | `pwsh` | PowerShell Core. {% data variables.product.prodname_dotcom %} добавляет расширение `.ps1` к имени скрипта. | `pwsh -command ". '{0}'"` |
+| Все | `python` | Выполняет команду Python. | `python {0}` |
+| Linux / macOS | `sh` | Резервное поведение для платформ, отличных от Windows, если оболочка не указана и `bash` не найден в пути. | `sh -e {0}` |
+| Windows | `cmd` | {% data variables.product.prodname_dotcom %} добавляет расширение `.cmd` к имени скрипта и заменяет `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows | `pwsh` | Это оболочка по умолчанию, используемая в Windows. PowerShell Core. {% data variables.product.prodname_dotcom %} добавляет расширение `.ps1` к имени скрипта. Если в локальном средстве выполнения Windows не установлен _PowerShell Core_, будет использоваться _PowerShell Desktop_.| `pwsh -command ". '{0}'"`. |
+| Windows | `powershell` | PowerShell Desktop. {% data variables.product.prodname_dotcom %} добавляет расширение `.ps1` к имени скрипта. | `powershell -command ". '{0}'"`. |
 
-#### Example: Running a script using bash
+#### Пример. Выполнение скрипта с помощью Bash
 
 ```yaml
 steps:
@@ -572,7 +575,7 @@ steps:
     shell: bash
 ```
 
-#### Example: Running a script using Windows `cmd`
+#### Пример. Выполнение скрипта с помощью Windows `cmd`
 
 ```yaml
 steps:
@@ -581,7 +584,7 @@ steps:
     shell: cmd
 ```
 
-#### Example: Running a script using PowerShell Core
+#### Пример. Выполнение скрипта с помощью PowerShell Core
 
 ```yaml
 steps:
@@ -590,7 +593,7 @@ steps:
     shell: pwsh
 ```
 
-#### Example: Using PowerShell Desktop to run a script
+#### Пример. Использование PowerShell Desktop для запуска скрипта
 
 ```yaml
 steps:
@@ -599,7 +602,7 @@ steps:
     shell: powershell
 ```
 
-#### Example: Running a python script
+#### Пример. Выполнение скрипта Python
 
 ```yaml
 steps:
@@ -610,11 +613,11 @@ steps:
     shell: python
 ```
 
-#### Custom shell
+#### Пользовательская оболочка
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+Вы можете задать для значения `shell` строку шаблона с помощью `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} интерпретирует первое слово строки, отделенное пробелом, как команду и вставляет имя файла для временного скрипта в `{0}`.
 
-For example:
+Пример:
 
 ```yaml
 steps:
@@ -624,39 +627,36 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner.
+Используемая команда, в этом примере `perl`, должна быть установлена в средстве выполнения.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% elsif fpt or ghec %}
-For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% elsif fpt or ghec %} Сведения о программном обеспечении, включенном в средства выполнения, размещенные на GitHub, см. в разделе [Спецификации для средств выполнения, размещенных на GitHub](/actions/reference/specifications-for-github-hosted-runners#supported-software).
 {% endif %}
 
-#### Exit codes and error action preference
+#### Коды выхода и настройки действий в случае ошибок
 
-For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
+Для встроенных ключевых слов оболочки мы предоставляем следующие значения по умолчанию, выполняемые средствами выполнения, размещенными на {% data variables.product.prodname_dotcom %}. Эти рекомендации следует использовать при выполнении скриптов оболочки.
 
 - `bash`/`sh`:
-  - Fail-fast behavior using `set -eo pipefail`: This option is set when `shell: bash` is explicitly specified. It is not applied by default.
-  - You can take full control over shell parameters by providing a template string to the shell options. For example, `bash {0}`.
-  - sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
+  - Поведение с завершением работы при первой ошибке с использованием `set -eo pipefail`: этот параметр задается, если `shell: bash` указано в явном виде. Оно не применяется по умолчанию.
+  - Вы можете получить полный контроль над параметрами оболочки, указав строку шаблона для параметров оболочки. Например, `bash {0}`.
+  - Оболочки в стиле sh используют код выхода последней команды, выполняемой в скрипте, что также является поведением по умолчанию для действий. Средство выполнения сообщит о состоянии шага (сбой/успешно) в зависимости от этого кода выхода.
 
 - `powershell`/`pwsh`
-  - Fail-fast behavior when possible. For `pwsh` and `powershell` built-in shell, we will prepend `$ErrorActionPreference = 'stop'` to script contents.
-  - We append `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` to powershell scripts so action statuses reflect the script's last exit code.
-  - Users can always opt out by not using the built-in shell, and providing a custom shell option like: `pwsh -File {0}`, or `powershell -Command "& '{0}'"`, depending on need.
+  - Используйте завершение работы при первой ошибке по возможности. Для `pwsh` и встроенной оболочки `powershell` мы добавим `$ErrorActionPreference = 'stop'` к содержимому скрипта.
+  - Мы добавляем `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` к скриптам PowerShell, чтобы состояния действий отражали последний код выхода скрипта.
+  - Пользователи всегда могут отказаться от использования встроенной оболочки и предоставить настраиваемый параметр оболочки, например: `pwsh -File {0}` или `powershell -Command "& '{0}'"`, в зависимости от необходимости.
 
 - `cmd`
-  - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
+  - Кажется, что единственный способ настроить завершение работы при первой ошибке, — написать скрипт для проверки каждого кода ошибки и соответствующего реагирования. Так как мы не можем предоставить это поведение по умолчанию, необходимо записать это поведение в скрипт.
+  - `cmd.exe` завершит работу с уровнем ошибки последней выполняемой программы и вернет код ошибки средству выполнения. Это поведение внутренне согласуется с предыдущим поведением по умолчанию `sh` и `pwsh` и является `cmd.exe` по умолчанию, поэтому это поведение остается неизменным.
 
 ### `jobs.<job_id>.steps[*].with`
 
-A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
+`map` параметров ввода, определяемых действием. Каждый параметр ввода представляет собой пару "ключ-значение". Входные параметры задаются как переменные среды. Переменная имеет префикс `INPUT_` и преобразуется в верхний регистр.
 
-#### Example
+#### Пример
 
-Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
+Определяет три входных параметра (`first_name`, `middle_name` и `last_name`), определенные действием `hello_world`. Эти входные переменные будут доступны для действия `hello-world` как переменные среды `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME` и `INPUT_LAST_NAME`.
 
 ```yaml
 jobs:
@@ -672,9 +672,9 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].with.args`
 
-A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
+Строка `string`, определяющая входные данные для контейнера Docker. {% data variables.product.prodname_dotcom %} передает `args` в `ENTRYPOINT` контейнера при запуске контейнера. `array of strings` не поддерживается этим параметром.
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -687,17 +687,17 @@ steps:
 ```
 {% endraw %}
 
-The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
+`args` используются вместо инструкции `CMD` в `Dockerfile`. Если вы используете `CMD` в `Dockerfile`, следуйте этим рекомендациям, упорядоченным по предпочтительности:
 
-1. Document required arguments in the action's README and omit them from the `CMD` instruction.
-1. Use defaults that allow using the action without specifying any `args`.
-1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
+1. Задокументируйте обязательные аргументы в README действия и опустите их из инструкции `CMD`.
+1. Используйте значения по умолчанию, позволяющие использовать действие без указания `args`.
+1. Если действие предоставляет флаг `--help` или что-то подобное, используйте его по умолчанию, чтобы действие документировало само себя.
 
 ### `jobs.<job_id>.steps[*].with.entrypoint`
 
-Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
+Переопределяет параметр `ENTRYPOINT` Docker в `Dockerfile` или задает его, если он еще не был указан. В отличие от инструкции Docker `ENTRYPOINT`, которая имеет форму оболочки и выполнения, ключевое слово `entrypoint` принимает только одну строку, определяющую исполняемый файл для запуска.
 
-#### Example
+#### Пример
 
 ```yaml
 steps:
@@ -707,17 +707,17 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+Ключевое слово `entrypoint` предназначено для использования с действиями контейнера Docker, но его также можно использовать с действиями JavaScript, которые не определяют входные данные.
 
 ### `jobs.<job_id>.steps[*].env`
 
-Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
+Задает переменные среды для шагов, используемых в среде средства выполнения. Можно также задать переменные среды для всего рабочего процесса или задания. Дополнительные сведения см. в разделах [`env`](#env) и [`jobs.<job_id>.env`](#jobsjob_idenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Открытые действия могут указывать ожидаемые переменные среды в файле README. При задании секрета в переменной среды необходимо использовать контекст `secrets`. Дополнительные сведения см. в разделе [Использование переменных среды](/actions/automating-your-workflow-with-github-actions/using-environment-variables) и [Контексты](/actions/learn-github-actions/contexts).
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -732,41 +732,41 @@ steps:
 
 ### `jobs.<job_id>.steps[*].continue-on-error`
 
-Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
+Предотвращает сбой задания при сбое шага. Задайте значение `true`, чтобы задание считалось выполненным при сбое этого шага.
 
 ### `jobs.<job_id>.steps[*].timeout-minutes`
 
-The maximum number of minutes to run the step before killing the process.
+Максимальное количество минут для выполнения шага перед завершением процесса.
 
 ## `jobs.<job_id>.timeout-minutes`
 
-The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
+Максимальное количество минут, в течение которых задание должно выполняться, пока {% data variables.product.prodname_dotcom %} автоматически не отменит его. Значение по умолчанию: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+Если время ожидания превышает ограничение по времени выполнения задания для средства выполнения, задание будет отменено, когда будет достигнуто ограничение времени выполнения. Дополнительные сведения об ограничениях по времени выполнения заданий см. в разделе {% ifversion fpt or ghec or ghes %}[Лимиты использования и выставления счетов](/actions/reference/usage-limits-billing-and-administration#usage-limits) для средств выполнения, размещенных на {% data variables.product.prodname_dotcom %} и {% endif %}"[Сведения о локальных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}, где описываются лимиты по использованию локального средства выполнения.{% elsif ghae %}.{% endif %}
 
 {% note %}
 
-**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[About the `GITHUB_TOKEN` secret](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+**Примечание.** {% data reusables.actions.github-token-expiration %} Для локальных средств выполнения маркер может быть ограничивающим фактором, если время ожидания задания превышает 24 часа. Дополнительные сведения о `GITHUB_TOKEN` см. в разделе [Сведения о секрете `GITHUB_TOKEN`](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret).
 
 {% endnote %}
 
 ## `jobs.<job_id>.strategy`
 
-Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Используйте `jobs.<job_id>.strategy` для применения стратегии матрицы к заданиям. {% data reusables.actions.jobs.about-matrix-strategy %} Дополнительные сведения см. в разделе [Использование матрицы для заданий](/actions/using-jobs/using-a-matrix-for-your-jobs).
 
 ### `jobs.<job_id>.strategy.matrix`
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-#### Example: Using a single-dimension matrix
+#### Пример. Использование матрицы с одним измерением
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-#### Example: Using a multi-dimension matrix
+#### Пример. Использование матрицы с несколькими измерениями
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-#### Example: Using contexts to create matrices
+#### Пример. Использование контекстов для создания матриц
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
@@ -774,11 +774,11 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 {% data reusables.actions.jobs.matrix-include %}
 
-#### Example: Expanding configurations
+#### Пример. Развертывание конфигураций
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-#### Example: Adding configurations
+#### Пример. Добавление конфигураций
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
@@ -796,11 +796,11 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 ## `jobs.<job_id>.continue-on-error`
 
-Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
+Предотвращает сбой выполнения рабочего процесса при сбое задания. Установите значение `true`, чтобы разрешить выполнение рабочего процесса в случае сбоя этого задания.
 
-### Example: Preventing a specific failing matrix job from failing a workflow run
+### Пример. Предотвращение сбоя рабочего процесса в случае сбоя определенного задания матрицы
 
-You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
+Можно разрешить сбой определенных заданий в матрице без сбоя всего рабочего процесса. Например, можно разрешить сбой экспериментального задания, у которого для `node` задано `15`, без сбоя рабочего процесса.
 
 {% raw %}
 ```yaml
@@ -853,17 +853,17 @@ strategy:
 
 {% data reusables.actions.docker-container-os-support %}
 
-Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
+Используется для размещения контейнеров служб для задания в рабочем процессе. Контейнеры служб полезны для создания баз данных или служб кэша, таких как Redis. Средство выполнения автоматически создает сеть Docker и управляет жизненным циклом контейнеров служб.
 
-If you configure your job to run in a container, or your step uses container actions, you don't need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.
+Если вы настраиваете задание для выполнения в контейнере или шаг использует действия контейнера, вам не нужно сопоставлять порты для доступа к службе или действию. Docker автоматически предоставляет все порты между контейнерами в одной сети моста, определяемой пользователем Docker. Вы можете напрямую ссылаться на контейнер службы по имени узла. Имя узла автоматически сопоставляется с именем метки, настроенной для службы в рабочем процессе.
 
-If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
+Если вы настраиваете задание для запуска непосредственно на компьютере средства выполнения, а шаг не использует действие контейнера, необходимо сопоставить все необходимые порты контейнера службы Docker с узлом Docker (компьютер средства выполнения). Доступ к контейнеру службы можно получить с помощью localhost и сопоставленного порта.
 
-For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
+Дополнительные сведения о различиях между контейнерами сетевых служб см. в разделе [Сведения о контейнерах служб](/actions/automating-your-workflow-with-github-actions/about-service-containers).
 
-### Example: Using localhost
+### Пример. Использование localhost
 
-This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+В этом примере создаются две службы: nginx и redis. При указании порта узла Docker (но не порта контейнера) порт контейнера случайным образом назначается свободному порту. {% data variables.product.prodname_dotcom %} задает назначенный порт контейнера в контексте {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}. В этом примере можно получить доступ к портам контейнера службы с помощью контекстов {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} и {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
 
 ```yaml
 services:
@@ -881,13 +881,13 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
+Образ Docker для использования в качестве контейнера для выполнения действия. Значением может быть имя образа Docker Hub или имя реестра.
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -907,23 +907,23 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.env`
 
-Sets a `map` of environment variables in the service container.
+Задает `map` переменных среды в контейнере службы.
 
 ### `jobs.<job_id>.services.<service_id>.ports`
 
-Sets an `array` of ports to expose on the service container.
+Задает `array` портов для предоставления в контейнере службы.
 
 ### `jobs.<job_id>.services.<service_id>.volumes`
 
-Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
+Задает `array` тома для используемого контейнера службы. Тома можно использовать для совместного использования данных между службами или другими этапами в задании. Можно указать именованные тома Docker, анонимные тома Docker или подключения привязок на узле.
 
-To specify a volume, you specify the source and destination path:
+Чтобы указать том, укажите путь к источнику и назначению:
 
 `<source>:<destinationPath>`.
 
-The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
+`<source>` — это имя тома или абсолютный путь на хост-компьютере, а `<destinationPath>` — это абсолютный путь в контейнере.
 
-#### Example
+#### Пример
 
 ```yaml
 volumes:
@@ -934,38 +934,38 @@ volumes:
 
 ### `jobs.<job_id>.services.<service_id>.options`
 
-Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+Дополнительные параметры ресурса контейнера Docker. Список параметров см. в статье "[Параметры `docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)".
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**Предупреждение.** Параметр `--network` на поддерживается.
 
 {% endwarning %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}Use one of the following syntaxes:{% endif %}
+Расположение и версия повторно используемого файла рабочего процесса для запуска в качестве задания. {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} Используйте один из следующих синтаксисов:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-### Example
+### Пример
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/learn-github-actions/reusing-workflows).
 
 ### `jobs.<job_id>.with`
 
-When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
+Если задание используется для вызова многократно используемого рабочего процесса, можно использовать `with` для предоставления карты входных данных, передаваемых в вызываемый рабочий процесс.
 
-Any inputs that you pass must match the input specifications defined in the called workflow.
+Все входные данные, которые вы передаете, должны соответствовать спецификациям ввода, определенным в вызываемом рабочем процессе.
 
-Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+В отличие от [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), входные данные, которые вы передаете с `jobs.<job_id>.with`, не доступны как переменные среды в вызываемом рабочем процессе. Вместо этого можно ссылаться на входные данные с помощью контекста `inputs`.
 
-#### Example
+#### Пример
 
 ```yaml
 jobs:
@@ -977,17 +977,17 @@ jobs:
 
 ### `jobs.<job_id>.with.<input_id>`
 
-A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) in the called workflow.
+Пара, состоящая из строкового идентификатора для входных данных и значения входных данных. Идентификатор должен соответствовать имени входных данных, определенных [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) в вызываемом рабочем процессе. Тип данных значения должен соответствовать типу, определенному [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) в вызываемом рабочем процессе.
 
-Allowed expression contexts: `github`, and `needs`.
+Допустимые контексты выражений: `github` и `needs`.
 
 ### `jobs.<job_id>.secrets`
 
-When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+Если задание используется для вызова многократно используемого рабочего процесса, можно использовать `secrets` для предоставления карты секретов, передаваемых в вызываемый рабочий процесс.
 
-Any secrets that you pass must match the names defined in the called workflow.
+Все секретные данные, которые вы передаете, должны соответствовать именам, определенным в вызываемом рабочем процессе.
 
-#### Example
+#### Пример
 
 {% raw %}
 ```yaml
@@ -1003,9 +1003,9 @@ jobs:
 
 ### `jobs.<job_id>.secrets.inherit`
 
-Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
+Используйте ключевое слово `inherit` для передачи всех секретов вызывающего рабочего процесса в вызываемой рабочий процесс. Сюда входят все секреты, к которым у вызывающего рабочего процесса есть доступ, то есть секреты организации, репозитория и среды. Ключевое слово `inherit` можно использовать для передачи секретов между репозиториями в одной организации или между организациями в пределах одного предприятия.
 
-#### Example
+#### Пример
 
 {% raw %}
 
@@ -1037,23 +1037,23 @@ jobs:
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 
-A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
+Пара, состоящая из строкового идентификатора для секрета и значения секрета. Идентификатор должен соответствовать имени секрета, определенного [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) в вызываемом рабочем процессе.
 
-Allowed expression contexts: `github`, `needs`, and `secrets`.
+Допустимые контексты выражений: `github`, `needs` и `secrets`.
 {% endif %}
 
-## Filter pattern cheat sheet
+## Памятка по шаблонам фильтров
 
-You can use special characters in path, branch, and tag filters.
+Специальные символы можно использовать в фильтрах путей, ветвей и тегов.
 
-- `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
-- `**`: Matches zero or more of any character.
-- `?`: Matches zero or one of the preceding character.
-- `+`: Matches one or more of the preceding character.
-- `[]` Matches one character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
-- `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.
+- `*`: соответствует нулю или нескольким символам, но не соответствует символу `/`. Например, `Octo*` соответствует `Octocat`.
+- `**`: соответствует нулю или более символам.
+- `?`: соответствует нулю или одному из предыдущих символов.
+- `+`: соответствует одному или нескольким предыдущим символам.
+- `[]`: соответствует одному символу, указанному в квадратных скобках или включенному в диапазоны. Диапазоны могут включать только `a-z`, `A-Z` и `0-9`. Например, диапазон `[0-9a-z]` соответствует любой цифре или строчной букве. Например, `[CB]at` соответствует `Cat` или `Bat`, а `[1-2]00` соответствует `100` и `200`.
+- `!`: в начале шаблона приводит к отмене предыдущих положительных шаблонов. Если не является первым символом, не имеет особого значения.
 
-The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes. Also, if you use a [flow sequence](https://yaml.org/spec/1.2.2/#flow-sequences) with a pattern containing `[` and/or `]`, the pattern must be enclosed in quotes.
+Символы `*`, `[` и `!` являются специальными символами в YAML. Если вы начинаете шаблон с `*`, `[` или `!`, необходимо заключить шаблон в кавычки. Кроме того, при использовании [последовательности потоков](https://yaml.org/spec/1.2.2/#flow-sequences) с шаблоном, содержащим `[` и (или) `]`шаблон должен быть заключен в кавычки.
 
 ```yaml
 # Valid
@@ -1072,39 +1072,39 @@ branches: [ main, 'release/v[0-9].[0-9]' ]
 branches: [ main, release/v[0-9].[0-9] ]
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
+Дополнительные сведения о синтаксисе фильтра ветвей, тегов и путей см. в статьях [`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore), [`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore) и [`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore).
 
-### Patterns to match branches and tags
+### Шаблоны для сопоставления ветвей и тегов
 
-| Pattern | Description | Example matches |
+| Модель | Описание | Примеры совпадений |
 |---------|------------------------|---------|
-| `feature/*` | The `*` wildcard matches any character, but does not match slash (`/`). |  `feature/my-branch`<br/><br/>`feature/your-branch` |
-| `feature/**` | The `**` wildcard matches any character including slash (`/`) in branch and tag names. | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
-| `main`<br/><br/>`releases/mona-the-octocat` | Matches the exact name of a branch or tag name. | `main`<br/><br/>`releases/mona-the-octocat` |
-| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `main`<br/><br/>`releases` |
-| `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | `all/the/branches`<br/><br/>`every/tag` |
-| `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature` |
-| `v2*` | Matches branch and tag names that start with `v2`. | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
-| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning branches and tags with major version 1 or 2. | `v1.10.1`<br/><br/>`v2.0.0` |
+| `feature/*` | Подстановочный знак `*` соответствует любому символу, но не соответствует косой черте (`/`). |  `feature/my-branch`<br/><br/>`feature/your-branch` |
+| `feature/**` | Подстановочный знак `**` соответствует любому символу, включая косую черту (`/`), в именах ветвей и тегов. | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octocat` | Соответствует точному имени ветви или тега. | `main`<br/><br/>`releases/mona-the-octocat` |
+| `'*'` | Соответствует всем именам ветвей и тегов, которые не содержат косую черту (`/`). Символ `*` является специальным символом в YAML. При запуске шаблона с `*` необходимо использовать кавычки. | `main`<br/><br/>`releases` |
+| `'**'` | Соответствует всем именам ветвей и тегов. Это поведение по умолчанию, если вы не используете фильтр `branches` или `tags`. | `all/the/branches`<br/><br/>`every/tag` |
+| `'*feature'` | Символ `*` является специальным символом в YAML. При запуске шаблона с `*` необходимо использовать кавычки. | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature` |
+| `v2*` | Соответствует именам ветвей и тегов, начинающимся с `v2`. | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
+| `v[12].[0-9]+.[0-9]+` | Соответствует всем ветвям и тегам семантического управления версиями с основной версией 1 или 2. | `v1.10.1`<br/><br/>`v2.0.0` |
 
-### Patterns to match file paths
+### Шаблоны для сопоставления путей к файлам
 
-Path patterns must match the whole path, and start from the repository's root.
+Шаблоны путей должны соответствовать всему пути и начинаться с корневого каталога репозитория.
 
-| Pattern | Description of matches | Example matches |
+| Модель | Описание совпадений | Примеры совпадений |
 |---------|------------------------|-----------------|
-| `'*'` | The `*` wildcard matches any character, but does not match slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `README.md`<br/><br/>`server.rb` |
-| `'*.jsx?'` | The `?` character matches zero or one of the preceding character. | `page.js`<br/><br/>`page.jsx` |
-| `'**'` | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter. | `all/the/files.md` |
-| `'*.js'` | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository. | `app.js`<br/><br/>`index.js`
-| `'**.js'` | Matches all `.js` files in the repository. | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js` |
-| `docs/*`  | All files within the root of the `docs` directory, at the root of the repository. | `docs/README.md`<br/><br/>`docs/file.txt` |
-| `docs/**` | Any files in the `/docs` directory at the root of the repository. | `docs/README.md`<br/><br/>`docs/mona/octocat.txt` |
-| `docs/**/*.md` | A file with a `.md` suffix anywhere in the `docs` directory. | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`
-| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
-| `'**/README.md'` | A README.md file anywhere in the repository. | `README.md`<br/><br/>`js/README.md`
-| `'**/*src/**'` | Any file in a folder with a `src` suffix anywhere in the repository. | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
-| `'**/*-post.md'` | A file with the suffix `-post.md` anywhere in the repository. | `my-post.md`<br/><br/>`path/their-post.md` |
-| `'**/migrate-*.sql'` | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository. | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql` |
-| `*.md`<br/><br/>`!README.md` | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
-| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths. | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`|
+| `'*'` | Подстановочный знак `*` соответствует любому символу, но не соответствует косой черте (`/`). Символ `*` является специальным символом в YAML. При запуске шаблона с `*` необходимо использовать кавычки. | `README.md`<br/><br/>`server.rb` |
+| `'*.jsx?'` | Символ `?` соответствует нулю или одному из предыдущих символов. | `page.js`<br/><br/>`page.jsx` |
+| `'**'` | Подстановочный знак `**` соответствует любому символу, включая косую черту (`/`). Это поведение по умолчанию, если вы не используете фильтр `path`. | `all/the/files.md` |
+| `'*.js'` | Подстановочный знак `*` соответствует любому символу, но не соответствует косой черте (`/`). Соответствует всем файлам `.js` в корне репозитория. | `app.js`<br/><br/>`index.js`
+| `'**.js'` | Соответствует всем файлам `.js` в репозитории. | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js` |
+| `docs/*`  | Все файлы в корне каталога `docs` в корне репозитория. | `docs/README.md`<br/><br/>`docs/file.txt` |
+| `docs/**` | Любые файлы в каталоге `/docs` в корне репозитория. | `docs/README.md`<br/><br/>`docs/mona/octocat.txt` |
+| `docs/**/*.md` | Файл с суффиксом `.md` в любом месте каталога `docs`. | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`
+| `'**/docs/**'`   | Любые файлы в каталоге `docs` в любом месте репозитория. | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
+| `'**/README.md'` | Файл README.md в любом месте репозитория. | `README.md`<br/><br/>`js/README.md`
+| `'**/*src/**'` | Любой файл в папке с суффиксом `src` в любом месте репозитория. | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
+| `'**/*-post.md'` | Файл с суффиксом `-post.md` в любом месте репозитория. | `my-post.md`<br/><br/>`path/their-post.md` |
+| `'**/migrate-*.sql'` | Файл с префиксом `migrate-` и суффиксом `.sql` в любом месте репозитория. | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql` |
+| `*.md`<br/><br/>`!README.md` | Использование восклицательного знака (`!`) перед шаблоном отменяет его. Если файл соответствует шаблону, а также соответствует отрицательному шаблону, определенному позже в файле, файл не будет включен. | `hello.md`<br/><br/>_Не соответствует_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | Шаблоны проверяются последовательно. Шаблон, который отрицает предыдущий шаблон, будет повторно включать пути к файлам. | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`|

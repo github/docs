@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 82a8b8c29ea38d57f0481146f2a857c2dcba8413
-ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160726'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192695'
 ---
 ## 关于 {% data variables.product.prodname_emus %}
 
@@ -65,7 +65,7 @@ ms.locfileid: '148160726'
 
 {% data variables.product.prodname_emus %} 支持以下 IdP{% ifversion oidc-for-emu %} 和身份验证方法：
 
-|                                  | SAML                                          | OIDC（beta 版本）                                   |
+|                                  | SAML                                          | OIDC                                          |
 |----------------------------------|-----------------------------------------------|-----------------------------------------------|
 | Azure Active Directory           | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %} |
 | Okta                             | {% octicon "check" aria-label="Check icon" %} |                                               |
@@ -94,7 +94,6 @@ ms.locfileid: '148160726'
 * {% data reusables.enterprise-accounts.emu-forks %}
 * 只能在 {% data variables.enterprise.prodname_emu_enterprise %} 拥有的组织中创建专用和内部存储库，具体取决于组织和企业存储库可见性设置。 
 * {% data variables.enterprise.prodname_managed_users_caps %} 在使用 {% data variables.product.prodname_pages %} 方面受到限制。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)”。
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## {% data variables.product.prodname_emus %} 入门
 
@@ -114,7 +113,7 @@ ms.locfileid: '148160726'
   
 3. 你以设置用户身份登录后，我们建议你启用双因素身份验证。 有关详细信息，请参阅“[配置双因素身份验证](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”。
 
-1. 首先，请配置 {% ifversion oidc-for-emu %} 成员如何进行身份验证。 如果使用 Azure Active Directory 作为标识提供者，可以在 OpenID Connect (OIDC) 和安全断言标记语言 (SAML) 之间进行选择。 这两个选项都为成员提供无缝登录体验，但只有 OIDC 包括对条件访问策略 (CAP) 的支持。 如果使用 Okta 作为标识提供者，则可以使用 SAML 对成员进行身份验证。{% else %}SAML SSO 适用于企业。 有关详细信息，请参阅“[为 Enterprise 托管用户配置 SAML 单一登录](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)”。{% endif %}
+1. 首先，请配置 {% ifversion oidc-for-emu %} 成员如何进行身份验证。 如果使用 Azure Active Directory 作为标识提供者，可以在 OpenID Connect (OIDC) 和安全断言标记语言 (SAML) 之间进行选择。 建议使用 OIDC，其中包括对条件访问策略 (CAP) 的支持。 如果需要从一个租户预配具有 {% data variables.enterprise.prodname_managed_users %} 的多个企业，则必须在第一个之后为每个企业使用 SAML。 如果使用 Okta 作为标识提供者，则可以使用 SAML 对成员进行身份验证。{% else %}SAML SSO 适用于企业。 有关详细信息，请参阅“[为 Enterprise 托管用户配置 SAML 单一登录](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)”。{% endif %}
   
   {% ifversion oidc-for-emu %}
   

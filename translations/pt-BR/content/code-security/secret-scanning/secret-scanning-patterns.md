@@ -13,12 +13,12 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
-ms.openlocfilehash: 68dd1338fc1812cd2fc40ba38949434a04986f86
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5684239d27daef532adf9aec79309d7430525a9e
+ms.sourcegitcommit: fc8b57e068b6922b45318029e22ceb3d6c1c3087
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147578639'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184501'
 ---
 {% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
@@ -36,7 +36,7 @@ ms.locfileid: '147578639'
 
 ## Segredos compatíveis com padrões de parceiros
 
-O {% data variables.product.product_name %} atualmente verifica repositórios públicos para encontrar segredos emitidos pelos seguintes provedores de serviços. Para obter mais informações sobre o {% data variables.product.prodname_secret_scanning_partner %}, confira "[Sobre o {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)".
+Atualmente, o {% data variables.product.product_name %} verifica os repositórios públicos em busca de segredos emitidos pelos provedores de serviços a seguir e alerta o provedor relevante sempre que um segredo é detectado em um commit. Para obter mais informações sobre o {% data variables.product.prodname_secret_scanning_partner %}, confira "[Sobre o {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)".
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 

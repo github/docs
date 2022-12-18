@@ -1,1 +1,9 @@
-When you use the repository's `GITHUB_TOKEN` to perform tasks, events triggered by the `GITHUB_TOKEN`{% ifversion actions-token-updated-triggers %}, with the exception of `workflow_dispatch` and `repository_dispatch`,{% endif %} will not create a new workflow run. This prevents you from accidentally creating recursive workflow runs. For example, if a workflow run pushes code using the repository's `GITHUB_TOKEN`, a new workflow will not run even when the repository contains a workflow configured to run when `push` events occur.
+---
+ms.openlocfilehash: 9c62e7c7c015ddaf1fb84d7c27eadce9e1a42487
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145114778"
+---
+Al usar `GITHUB_TOKEN` del repositorio para realizar tareas, los eventos desencadenados por `GITHUB_TOKEN` no crearán una ejecución de flujo de trabajo. Esto impide que crees ejecuciones de flujo de trabajo recursivas por accidente. Por ejemplo, si una ejecución de flujo de trabajo inserta código mediante `GITHUB_TOKEN` del repositorio, un nuevo flujo de trabajo no se ejecutará incluso cuando el repositorio contenga un flujo de trabajo configurado para ejecutarse cuando se produzcan eventos `push`.

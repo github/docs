@@ -1,65 +1,70 @@
 ---
-title: Quickstart for writing on GitHub
-intro: 'Learn advanced formatting features by creating a {% ifversion ghae %}gist to describe yourself{% else %}README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.'
+title: GitHub 上での書き込みに関するクイックスタート
+intro: '{% ifversion ghae %}自分に関する gist{% else %}自分の {% data variables.product.prodname_dotcom %} プロファイルの README{% endif %} を作成して、高度な書式設定機能について学習します。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
+ms.openlocfilehash: a023d55dd4d7bd41af329a4eaac1e2408af96294
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107174'
 ---
+## はじめに
 
-## Introduction
+Markdown は、プレーンテキストを書式設定するための読みやすく書きやすい言語です。 Markdown 構文を追加の HTML タグと共に使用して、{% data variables.product.prodname_dotcom %} のリポジトリの README や、pull request や issue に関するコメントなどの場所での書き込みを書式設定できます。 このガイドでは、{% ifversion ghae %}gist を作成{% else %}{% data variables.product.prodname_dotcom %} プロファイルの README を作成または編集{% endif %}することで、いくつかの高度な書式設定機能について説明します。
 
-Markdown is an easy-to-read, easy-to-write language for formatting plain text. You can use Markdown syntax, along with some additional HTML tags, to format your writing on {% data variables.product.prodname_dotcom %}, in places like repository READMEs and comments on pull requests and issues. In this guide, you'll learn some advanced formatting features by creating {% ifversion ghae %}a gist{% else %}or editing a README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.
-
-If you're new to Markdown, you might want to start with "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)" or the [Communicate using Markdown](https://github.com/skills/communicate-using-markdown) {% data variables.product.prodname_learning %} course.
+Markdown を初めて使用する場合は、「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」または「[Markdown を使用したコミュニケーション](https://github.com/skills/communicate-using-markdown)」の {% data variables.product.prodname_learning %} コースから始めるとよいでしょう。
 
 {% ifversion not ghae %}
 
-If you already have a profile README, you can follow this guide by adding some features to your existing README, or by creating a gist with a Markdown file called something like `about-me.md`. For more information, see "[Creating gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
+既にプロファイルの README がある場合は、既存の README にいくつかの機能を追加するか、`about-me.md` のような名前の Markdown ファイルを使用して gist を作成することで、このガイドに従うことができます。 詳しくは、「[Gist の作成](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)」を参照してください。
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Creating a gist
+## Gist の作成
 
-Gists let you store or share code snippets and other pieces of information with others on {% data variables.location.product_location %}. To use formatting features in gists, add a gist file with a `.md` extension.
+gist を使用すると、{% data variables.location.product_location %} 上でコード スニペットやその他の情報を保存または他のユーザーと共有できます。 gist で書式設定機能を使用するには、拡張子 `.md` の付いた gist ファイルを追加します。
 
-1. Navigate to your {% data variables.gists.gist_homepage %}.
-1. Optionally, type a description for the gist, such as "About me."
-1. In the **Filename including extension...** field, type `about-me.md`.
+1. {% data variables.gists.gist_homepage %}に移動します。
+1. 必要に応じて、gist の説明 (「About me」など) を入力します。
+1. **[拡張子を含むファイル名]** フィールドに「`about-me.md`」と入力します。
 
-For more information, see "[Creating gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
+詳しくは、「[Gist の作成](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)」を参照してください。
 
 {% else %}
 
-## Creating or editing your profile README
+## プロファイルの README を作成または編集する
 
-Your profile README lets you share information about yourself with the community on {% data variables.location.product_location %}. The README is displayed at the top of your profile page.
+プロファイルの README を作成すると、{% data variables.location.product_location %} で自分に関する情報をコミュニティと共有できます。 README はプロファイル ページの上部に表示されます。
 
-If you don't already have a profile README, you can add one.
+プロファイルの README がまだない場合は、追加できます。
 
-1. Create a repository with the same name as your {% data variables.product.prodname_dotcom %} username, initializing the repository with a `README.md` file. For more information, see "[Managing your profile README](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme)."
-1. Edit the `README.md` file and delete the template text (beginning `### Hi there`) that is automatically added when you create the file.
+1. {% data variables.product.prodname_dotcom %} ユーザー名と同じ名前のリポジトリを作成し、そのリポジトリを `README.md` ファイルで初期化します。 詳細については、「[プロファイルの README を管理する](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme)」を参照してください。
+1. `README.md` ファイルを編集し、ファイルの作成時に自動的に追加される (`### Hi there` で始まる) テンプレート テキストを削除します。
 
-If you already have a profile README, you can edit it from your profile page.
+既にプロファイルの README がある場合は、プロファイル ページからそれを編集できます。
 
 {% data reusables.profile.navigating-to-profile %}
-1. Click the {% octicon "pencil" aria-label="The Pencil icon" %} next to your profile README.
+1. プロファイルの README の横にある {% octicon "pencil" aria-label="The Pencil icon" %} をクリックします。
 
-   ![Screenshot of a profile page, with the pencil icon highlighted next to the profile README](/assets/images/help/profile/edit-profile-readme.png)
+   ![プロファイル ページのスクリーンショット。プロファイルの README の横にある鉛筆アイコンが強調表示されている](/assets/images/help/profile/edit-profile-readme.png)
 
 {% endif %}
 
-## Adding an image to suit your visitors
+## 訪問者に合わせた画像を追加する
 
-You can include images in your communication on {% data variables.product.prodname_dotcom %}. Here, you'll add a responsive image, such as a banner, to the top of your {% ifversion ghae %}gist{% else %}profile README{% endif %}. 
+{% data variables.product.prodname_dotcom %} でのコミュニケーションに画像を含めることができます。 ここでは、{% ifversion ghae %}gist{% else %}プロファイルの README{% endif %} の上部に、バナーなどの応答性の高い画像を追加します。 
 
-By using the HTML `<picture>` element with the `prefers-color-scheme` media feature, you can add an image that changes depending on whether a visitor is using light or dark mode. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+`prefers-color-scheme` メディア機能で HTML の `<picture>` 要素を使用すると、訪問者がライト モードとダーク モードのどちらを使用しているかに応じて変化する画像を追加できます。 詳細については、「[テーマ設定を管理する](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)」を参照してください。
 
-1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
+1. 次のマークアップをコピーし、{% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} ファイルに貼り付けます。
    
    ```HTML{:copy}
    <picture>
@@ -68,37 +73,37 @@ By using the HTML `<picture>` element with the `prefers-color-scheme` media feat
     <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
    </picture>
    ```
-1. Replace the placeholders in the markup with the URLs of your chosen images. Alternatively, to try the feature first, you can copy the URLs from our example below.
+1. マークアップ内のプレースホルダーを、選んだ画像の URL に置き換えます。 または、最初にこの機能を試すには、次に示す例から URL をコピーできます。
 
-   - Replace `YOUR-DARKMODE-IMAGE` with the URL of an image to display for visitors using dark mode.
-   - Replace `YOUR-LIGHTMODE-IMAGE` with the URL of an image to display for visitors using light mode.
-   - Replace `YOUR-DEFAULT-IMAGE` with the URL of an image to display in case neither of the other images can be matched, for example if the visitor is using a browser that does not support the `prefers-color-scheme` feature.
-1. To make the image accessible for visitors who are using a screen reader, replace `YOUR-ALT-TEXT` with a description of the image.
-1. To check the image has rendered correctly, click the **Preview** tab.
+   - `YOUR-DARKMODE-IMAGE` は、ダーク モードを使用している訪問者に対して表示する画像の URL に置き換えます。
+   - `YOUR-LIGHTMODE-IMAGE` は、ライト モードを使用している訪問者に対して表示する画像の URL に置き換えます。
+   - `YOUR-DEFAULT-IMAGE` は、他の画像のいずれも一致しない場合に表示する画像の URL に置き換えます (たとえば、訪問者が使用しているブラウザーで `prefers-color-scheme` 機能がサポートされていない場合など)。
+1. スクリーン リーダーを使用している訪問者が画像にアクセスできるようにするには、`YOUR-ALT-TEXT` を画像の説明に置き換えます。
+1. 画像が正しくレンダリングされたことを確認するには、 **[プレビュー]** タブをクリックします。
 
-For more information on using images in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+Markdown での画像の使い方について詳しくは、「[基本的な書き方とフォーマットの構文](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)」を参照してください。
 
-### Example
+### 例
 
 {% data reusables.getting-started.picture-element-example %}
 
-### How it looks
+### 外観
 
-![Screenshot of the Preview tab in light mode, with an image of a smiling sun displayed](/assets/images/help/profile/lightmode-image-example.png)
+![ライト モードの [プレビュー] タブのスクリーンショット。笑顔の太陽の画像が表示されている](/assets/images/help/profile/lightmode-image-example.png)
 
-## Adding a table
+## テーブルを追加する
 
-You can use Markdown tables to organize information. Here, you'll use a table to introduce yourself by ranking something, such as your most-used programming languages or frameworks, the things you're spending your time learning, or your favorite hobbies. When a table column contains numbers, it's useful to right-align the column by using the syntax `--:` below the header row.
+Markdown のテーブルを使用して情報を整理できます。 ここでは、テーブルを使用して、よく使っているプログラミング言語やフレームワーク、学習に時間を費やしていること、好きな趣味など、何かをランク付けして自己紹介します。 テーブル列に数値が含まれている場合は、ヘッダー行の下で構文 `--:` を使用して列を右揃えにすると便利です。
 
-1. Return to the **Edit {% ifversion ghae %}new {% endif %}file** tab. 
-1. To introduce yourself, two lines below the `</picture>` tag, add an `## About me` header and a short paragraph about yourself, like the following.
+1. **[{% ifversion ghae %}新しい{% endif %}ファイルの編集]** タブに戻ります。 
+1. 自己紹介するには、次のように、`</picture>` タグの 2 行下で、`## About me` ヘッダーと自分に関する短い段落を追加します。
    
    ```Markdown
    ## About me
 
    Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotcom %}'s mascot.
    ```
-1. Two lines below this paragraph, insert a table by copying and pasting the following markup.
+1. この段落の 2 行下に、次のマークアップをコピーして貼り付けてテーブルを挿入します。
    
    ```Markdown{:copy}
    | Rank | THING-TO-RANK |
@@ -107,12 +112,12 @@ You can use Markdown tables to organize information. Here, you'll use a table to
    |     2|               |
    |     3|               |
    ```
-1. In the column on the right, replace `THING-TO-RANK` with "Languages," "Hobbies," or anything else, and fill in the column with your list of things.
-1. To check the table has rendered correctly, click the **Preview** tab.
+1. 右側の列で、`THING-TO-RANK` を "Languages"、"Hobbies" などに置き換え、列に項目の一覧を入力します。
+1. テーブルが正しくレンダリングされたことを確認するには、 **[プレビュー]** タブをクリックします。
 
-For more information, see "[Organizing information with tables](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)."
+詳しくは、「[情報を表に編成する](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)」を参照してください。
 
-### Example
+### 例
 
 ```Markdown
 ## About me
@@ -126,15 +131,15 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 |     3| SQL       |
 ```
 
-### How it looks
+### 外観
 
-![Screenshot of the Preview tab, showing an "About me" heading and a rendered table with a list of languages](/assets/images/help/profile/markdown-table-example.png)
+![[プレビュー] タブのスクリーンショット。"About me" という見出しと、言語の一覧を含むレンダリングされたテーブルが表示されている](/assets/images/help/profile/markdown-table-example.png)
 
-## Adding a collapsed section
+## 折りたたみセクションを追加する
 
-To keep your content tidy, you can use the `<details>` tag to create an expandible collapsed section. 
+コンテンツを整理しておくために、`<details>` タグを使用して、展開可能な折りたたまれたセクションを作成できます。 
 
-1. To create a collapsed section for the table you created, wrap your table in `<details>` tags like in the following example.
+1. 作成したテーブルの折りたたまれたセクションを作成するには、次の例のように、テーブルを `<details>` タグ内にラップします。
    
    ```HTML{:copy}
    <details>
@@ -144,15 +149,15 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
    </details>
    ```
-1. Between the `<summary>` tags, replace `THINGS-TO-RANK` with whatever you ranked in your table.
-1. Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag.
+1. `<summary>` タグの間で、`THINGS-TO-RANK` を、テーブルでランク付けしたものに置き換えます。
+1. 必要に応じて、セクションを既定で開いているように表示するには、`open` 属性を `<details>` タグに追加します。
 
    ```HTML
    <details open>
    ```
-1. To check the collapsed section has rendered correctly, click the **Preview** tab.
+1. 折りたたまれたセクションが正しくレンダリングされたことを確認するには、 **[プレビュー]** タブをクリックします。
 
-### Example
+### 例
 
 ```HTML
 <details>
@@ -167,29 +172,29 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 </details>
 ```
 
-### How it looks
+### 外観
 
-![Screenshot of the Preview tab, with a collapsed section called "My top languages" marked by a dropdown arrow](/assets/images/help/profile/collapsed-section-example.png)
+![[プレビュー] タブのスクリーンショット。ドロップダウン矢印でマークされた、"My top languages" という名前の折りたたまれたセクションがある](/assets/images/help/profile/collapsed-section-example.png)
 
-## Adding a quote
+## 引用文を追加する
 
-Markdown has many other options for formatting your content. Here, you'll add a horizontal rule to divide your page and a blockquote to format your favorite quote.
+Markdown には、コンテンツを書式設定するための他の多くのオプションがあります。 ここでは、ページとブロック引用を分割する横罫線を追加し、お気に入りの引用文を書式設定します。
 
-1. At the bottom of your file, two lines below the `</details>` tag, add a horizontal rule by typing three or more dashes.
+1. ファイル下部の `</details>` タグの 2 行下に、3 個以上のダッシュを入力して横罫線を追加します。
 
    ```Markdown
    ---
    ```
-1. Below the `---` line, add a quote by typing markup like the following.
+1. `---` 行の下に、次のようなマークアップを入力して引用文を追加します。
    
    ```Markdown
    > QUOTE
    ```
 
-   Replace `QUOTE` with a quote of your choice. Alternatively, copy the quote from our example below.
-1. To check everything has rendered correctly, click the **Preview** tab.
+   `QUOTE` を任意の名前に置き換えます。 または、次の例から引用文をコピーします。
+1. すべてが正しくレンダリングされたことを確認するには、 **[プレビュー]** タブをクリックします。
 
-### Example
+### 例
 
 ```Markdown
 ---
@@ -198,24 +203,24 @@ Markdown has many other options for formatting your content. Here, you'll add a 
 — Mona the Octocat
 ```
 
-### How it looks
+### 外観
 
-![Screenshot of the Preview tab, with an indented quote below a thick horizontal line](/assets/images/help/profile/markdown-quote-example.png)
+![[プレビュー] タブのスクリーンショット。太い横線の下にインデントされた引用文が表示されている](/assets/images/help/profile/markdown-quote-example.png)
 
-## Adding a comment
+## コメントを追加する
 
-You can use HTML comment syntax to add a comment that will be hidden in the output. Here, you'll add a comment to remind yourself to update your {% ifversion ghae %}gist{% else %}README{% endif %} later.
+HTML コメント構文を使用して、出力で非表示になるコメントを追加できます。 ここでは、後で {% ifversion ghae %}gist{% else %}README{% endif %} を更新するのを忘れないようにするためのコメントを追加します。
 
-1. Two lines below the `## About me` header, insert a comment by using the following markup.
+1. `## About me` ヘッダーの 2 行下に、次のマークアップを使用してコメントを挿入します。
 
    <pre>
    &lt;!-- COMMENT --&gt;
    </pre>
    
-   Replace `COMMENT` with a "to-do" item you remind yourself to do something later (for example, to add more items to the table).
-1. To check your comment is hidden in the output, click the **Preview** tab.
+   `COMMENT` を、後で何かをする (たとえば、テーブルに項目を追加する) ことを忘れないようにするための "To Do" 項目に置き換えます。
+1. コメントが出力で非表示になっていることを確認するには、 **[プレビュー]** タブをクリックします。
 
-### Example
+### 例
 
 <pre>
 ## About me
@@ -223,22 +228,22 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 &lt;!-- TO DO: add more details about me later --&gt;
 </pre>
 
-## Saving your work
+## 作業を保存する
 
-When you're happy with your changes, save your {% ifversion ghae %}gist. 
+変更に問題がなければ、{% ifversion ghae %}gist を保存します。 
 
-- To keep your gist hidden from search engines but visible to anyone you share the URL with, click **Create secret gist** 
-- If you're happy for your gist to be visible to anyone on {% data variables.location.product_location %}, click **Create internal gist**
+- gist を検索エンジンから隠したまま、URL を共有している相手には表示されるようにするには、 **[シークレット gist の作成]** をクリックします。 
+- {% data variables.location.product_location %} 上のあらゆるユーザーに gist を表示してよければ、 **[内部 gist の作成]** をクリックします
 
-{% else %}profile README by clicking **Commit changes**. 
+{% else %}プロファイルの README を ( **[変更のコミット]** をクリックして) 保存します。 
 
-Committing directly to the `main` branch will make your changes visible to any visitor on your profile. If you want to save your work but aren't ready to make it visible on your profile, you can select **Create a new branch for this commit and start a pull request**.
+`main` ブランチに直接コミットすると、プロファイルのすべての訪問者に変更が表示されます。 作業内容を保存するが、プロファイルに表示する準備ができていない場合は、 **[このコミット用に新しいブランチを作成して pull request を開始する]** を選ぶことができます。
 
-![Screenshot of the "Commit changes" section](/assets/images/help/profile/readme-commit-changes.png)
+![[変更のコミット] セクションのスクリーンショット](/assets/images/help/profile/readme-commit-changes.png)
 
 {% endif %}
 
-## Next steps
+## 次の手順
 
-- Continue to learn about advanced formatting features. For example, see {% ifversion fpt or ghec %}"[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" and {% endif %}"[Creating and highlighting codeblocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
-- Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[Communicating on {% data variables.product.prodname_dotcom %}](/get-started/quickstart/communicating-on-github)."
+- 高度な書式設定機能について引き続き学習しましょう。 たとえば、{% ifversion fpt or ghec %}「[ダイアグラムの作成](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)」および{% endif %}「[コードブロックの作成と強調表示](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)」を参照してください。
+- GitHub 全体 (issue、pull request、ディスカッション) でコミュニケーションを取る際に、新しいスキルを使用します。 詳しくは、「[{% data variables.product.prodname_dotcom %} でのコミュニケーション](/get-started/quickstart/communicating-on-github)」を参照してください。

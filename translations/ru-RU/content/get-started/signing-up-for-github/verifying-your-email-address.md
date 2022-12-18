@@ -1,6 +1,6 @@
 ---
-title: Verifying your email address
-intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
+title: Подтверждение адреса электронной почты
+intro: 'Проверка основного адреса электронной почты обеспечивает усиленную безопасность, позволяя сотрудникам {% data variables.product.prodname_dotcom %} оказать вам помощь, если вы забыли пароль, и предоставить вам доступ к дополнительным функциям {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/troubleshooting-email-verification
   - /articles/setting-up-email-verification
@@ -13,59 +13,64 @@ versions:
 topics:
   - Accounts
 shortTitle: Verify your email address
+ms.openlocfilehash: 32456b34fbb307fd45e474b3924935fb5519935a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098439'
 ---
-## About email verification
+## Сведения о подтверждении адреса электронной почты
 
-You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
+Адрес электронной почты можно подтвердить после регистрации новой учетной записи или добавления нового адреса. Если адрес электронной почты недоступен, его подтверждение невозможно.
 
-If you do not verify your email address, you will not be able to:
-  - Create or fork repositories
-  - Create issues or pull requests
-  - Comment on issues, pull requests, or commits
-  - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate {% data variables.product.pat_generic %}s
-  - Receive email notifications
-  - Star repositories
-  - Create or update project boards, including adding cards
-  - Create or update gists
-  - Create or use {% data variables.product.prodname_actions %}
-  - Sponsor developers with {% data variables.product.prodname_sponsors %}
+Без подтверждения адреса электронной почты вы не сможете выполнять следующие действия:
+  - Создавать репозитории и их вилки
+  - Создавать проблемы и запросы на вытягивание
+  - Оставлять комментарии по проблемам, запросам на вытягивание или фиксациям
+  - Выполнять авторизацию приложений {% data variables.product.prodname_oauth_app %}
+  - Создание {% данных variables.product.pat_generic %}s
+  - Получать уведомления по электронной почте
+  - Добавлять репозитории в избранное
+  - Создавать и обновлять доски проектов, включая карточки
+  - Создавать и обновлять gist
+  - Создавать и использовать {% data variables.product.prodname_actions %}
+  - Поддерживать разработчиков финансово с помощью {% data variables.product.prodname_sponsors %}
 
 {% warning %}
 
-**Warnings**:
+**Предупреждения**
 
 - {% data reusables.user-settings.no-verification-disposable-emails %}
 - {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
-## Verifying your email address
+## Подтверждение адреса электронной почты
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-1. Under your email address, click **Resend verification email**.
-  ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
-  ![Banner confirming that your email was verified](/assets/images/help/settings/email-verification-confirmation-banner.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+1. Нажмите **Повторно отправить письмо для подтверждения** под адресом электронной почты.
+  ![Ссылка повторной отправки письма для подтверждения](/assets/images/help/settings/email-verify-button.png)
+4. {% data variables.product.prodname_dotcom %} отправит вам письмо, содержащее ссылку. Щелкнув эту ссылку, вы попадете на панель мониторинга {% data variables.product.prodname_dotcom %} и увидите баннер с подтверждением.
+  ![Баннер с подтверждением проверки адреса электронной почты](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
-## Troubleshooting email verification
+## Устранение неполадок с подтверждением адреса электронной почты
 
-### Unable to send verification email
+### Не удалось отправить письмо для подтверждения
 
 {% data reusables.user-settings.no-verification-disposable-emails %}
 
-### Error page after clicking verification link
+### Открывается страница ошибки после перехода по ссылке для подтверждения
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+Ссылка для подтверждения действительна 24 часа. Если вы не подтвердите адрес электронной почты в течение 24 часов, запросите другую ссылку для подтверждения адреса. Дополнительные сведения см. в статье "[Проверка адреса электронной почты](/articles/verifying-your-email-address)".
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
+Если щелкнуть ссылку в сообщении с подтверждением в течение 24 часов и отправиться на страницу ошибки, убедитесь, что вы вошли в правильную учетную запись на {% данных variables.location.product_location %}.
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
-2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
-4. Click on the verification link in the email we sent you.
+1. {% данных variables.product.signout_link %} вашей личной учетной записи на {% данных variables.location.product_location %}.
+2. Выполните выход и перезапустите браузер.
+3. {% данных variables.product.signin_link %} к вашей личной учетной записи на {% данных variables.location.product_location %}.
+4. Щелкните ссылку для подтверждения, полученную в письме.
 
-## Further reading
+## Дополнительные материалы
 
-- "[Changing your primary email address](/articles/changing-your-primary-email-address)"
+- ["Изменение основного адреса электронной почты"](/articles/changing-your-primary-email-address)

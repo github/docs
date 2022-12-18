@@ -1,25 +1,25 @@
 ---
 title: Configurar un remoto para una bifurcación
-intro: 'Debes configurar un remoto que apunte al repositorio ascendente en Git para [sincronizar los cambios que realizas en una bifurcación](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) con el repositorio original. Esto también te permite sincronizar los cambios en el repositorio original con la bifurcación.'
+intro: Debes configurar un remoto que apunte al repositorio ascendente en Git para [sincronizar los cambios que realizas en una bifurcación](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) con el repositorio original. Esto también te permite sincronizar los cambios en el repositorio original con la bifurcación.
 redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
-  - /articles/configuring-a-remote-for-a-fork
-  - /github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
-  - /github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
+- /github/collaborating-with-issues-and-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
+- /articles/configuring-a-remote-for-a-fork
+- /github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
+- /github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - Pull requests
+- Pull requests
 shortTitle: Configure a remote
 ms.openlocfilehash: d474b56a9b1881d9511ccf9e239bb54e26967784
 ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/10/2022
-ms.locfileid: '145139493'
+ms.locfileid: "145139493"
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Enumera el repositorio remoto configurado actualmente para tu bifurcación.

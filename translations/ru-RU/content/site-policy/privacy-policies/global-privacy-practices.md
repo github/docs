@@ -1,5 +1,5 @@
 ---
-title: Global Privacy Practices
+title: Глобальная практика конфиденциальности
 redirect_from:
   - /eu-safe-harbor
   - /articles/global-privacy-practices
@@ -9,68 +9,73 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: ae61cf1fe48e925cbb1b691b44fcdf277aaa7b1b
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099160'
 ---
+Дата вступления в силу: 22 июля 2020 г.
 
-Effective date: July 22, 2020
+GitHub обеспечивает такой же высокий стандарт защиты конфиденциальности, как описано в [Заявлении о конфиденциальности](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices) — всем нашим пользователям и клиентам по всему миру, независимо от страны их происхождения или местонахождения, и GitHub гордится уровнем уведомления, выбора, подотчетности, безопасности, целостности данных, доступа и средств правовой защиты, который мы предоставляем. 
 
-GitHub provides the same high standard of privacy protection—as described in GitHub’s [Privacy Statement](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices)—to all our users and customers around the world, regardless of their country of origin or location, and GitHub is proud of the level of notice, choice, accountability, security, data integrity, access, and recourse we provide. 
+GitHub также соблюдает определенные правовые рамки, касающиеся передачи данных из Европейской экономической зоны, Великобритании и Швейцарии (совместно именуемые «ЕС») в США. Когда GitHub занимается такой передачей, GitHub полагается на Стандартные договорные положения как на юридический механизм, помогающий гарантировать, что ваши права и средства защиты передаются вместе с вашей персональной информацией. Кроме того, GitHub сертифицирован в рамках соглашений о правилах обмена конфиденциальной информацией, заключенными между ЕС и США, а также Швейцарией и США. Чтобы узнать больше о решениях Европейской комиссии по международной передаче данных, см. эту статью на [веб-сайте Европейской комиссии](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
-GitHub also complies with certain legal frameworks relating to the transfer of data from the European Economic Area, the United Kingdom, and Switzerland (collectively, “EU”) to the United States. When GitHub engages in such transfers, GitHub relies on Standard Contractual Clauses as the legal mechanism to help ensure your rights and protections travel with your personal information. In addition, GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks. To learn more about the European Commission’s decisions on international data transfer, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
+## Стандартные договорные положения
 
-## Standard Contractual Clauses
+GitHub полагается на одобренные Европейской комиссией стандартные договорные положения («SCC») в качестве правового механизма для передачи данных из ЕС. SCC — это договорные обязательства между компаниями, передающими персональные данные, они обязывают эти компании защищать конфиденциальность и безопасность таких данных. GitHub внедрил SCC, чтобы необходимые потоки данных могли быть защищены при передаче за пределы ЕС в страны, которые, по мнению Европейской комиссии, не обеспечивают адекватную защиту персональных данных, включая защиту передачи данных в Соединенные Штаты. 
 
-GitHub relies on the European Commission-approved Standard Contractual Clauses (“SCCs”) as a legal mechanism for data transfers from the EU. SCCs are contractual commitments between companies transferring personal data, binding them to protect the privacy and security of such data. GitHub adopted SCCs so that the necessary data flows can be protected when transferred outside the EU to countries which have not been deemed by the European Commission to adequately protect personal data, including protecting data transfers to the United States. 
-
-To learn more about SCCs, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en). 
+Чтобы узнать больше о SCC, см. эту статью на [веб-сайте Европейской комиссии](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en). 
 
 ## Privacy Shield Framework
 
-GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks and the commitments they entail, although GitHub does not rely on the EU-US Privacy Shield Framework as a legal basis for transfers of personal information in light of the judgment of the Court of Justice of the EU in Case C-311/18.
+GitHub сертифицирован в рамках соглашений о правилах обмена конфиденциальной информацией, заключенными между ЕС и США, а также Швейцарией и США (Privacy Shield Frameworks), и вытекающих из них обязательств, хотя GitHub не использует соглашение о правилах обмена конфиденциальной информацией, заключенное между ЕС и США в качестве правовой основы передачи персональной информации в свете судебного решения Суда Европейского союза в деле C-311/18.
 
-The EU-US and Swiss-US Privacy Shield Frameworks are set forth by the US Department of Commerce regarding the collection, use, and retention of personal information transferred from the European Union, the UK, and Switzerland to the United States. GitHub has certified to the Department of Commerce that it adheres to the Privacy Shield Principles. If our vendors or affiliates process personal information on our behalf in a manner inconsistent with the principles of either Privacy Shield Framework, GitHub remains liable unless we prove we are not responsible for the event giving rise to the damage.
+Соглашения о правилах обмена конфиденциальной информацией, заключенными между ЕС и США, а также Швейцарией и США, установлены Министерством торговли США в отношении сбора, использования и хранения персональной информации, передаваемой из Европейского Союза, Великобритании и Швейцарии в Соединенные Штаты. GitHub гарантировала Министерству торговли США, что придерживается Принципов соглашения Privacy Shield. Если наши подрядчики или аффилированные лица обрабатывают персональную информацию от нашего имени с нарушением принципов любого соглашения Privacy Shield Framework, GitHub несет ответственность за любые нарушения, если мы не докажем, что не мы являемся виновниками события, в результате которого возник ущерб.
 
-For purposes of our certifications under the Privacy Shield Frameworks, if there is any conflict between the terms in these Global Privacy Practices and the Privacy Shield Principles, the Privacy Shield Principles shall govern. To learn more about the Privacy Shield program, and to view our certification, visit the [Privacy Shield website](https://www.privacyshield.gov/).
+Для целей нашей сертификации в соответствии с соглашениями Privacy Shield Framework в случае противоречия между положениями настоящих Глобальных правил обеспечения конфиденциальности и Принципами соглашений Privacy Shield преимущественную силу имеют Принципы соглашений Privacy Shield. Чтобы узнать больше о программе Privacy Shield и ознакомиться с нашей сертификацией, посетите [веб-сайт программы Privacy Shield](https://www.privacyshield.gov/).
 
-The Privacy Shield Frameworks are based on seven principles, and GitHub adheres to them in the following ways:
+Соглашения Privacy Shield Frameworks основаны на семи принципах, и GitHub придерживается их следующим образом:
 
-- **Notice**
-  - We let you know when we're collecting your personal information.
-  - We let you know, in our [Privacy Statement](/articles/github-privacy-statement/), what purposes we have for collecting and using your information, who we share that information with and under what restrictions, and what access you have to your data.
-  - We let you know that we're participating in the Privacy Shield framework, and what that means to you.
-  - We have a {% data variables.contact.contact_privacy %} where you can contact us with questions about your privacy.
-  - We let you know about your right to invoke binding arbitration, provided at no cost to you, in the unlikely event of a dispute.
-  - We let you know that we are subject to the jurisdiction of the Federal Trade Commission.
-- **Choice**
-  - We let you choose what happens to your data. Before we use your data for a purpose other than the one for which you gave it to us, we will let you know and get your permission.
-  - We will provide you with reasonable mechanisms to make your choices.
-- **Accountability for Onward Transfer**
-  - When we transfer your information to third party vendors that are processing it on our behalf, we are only sending your data to third parties, under contract with us, that will safeguard it consistently with our Privacy Statement. When we transfer your data to our vendors under Privacy Shield, we remain responsible for it.
-  - We share only the amount of data with our third party vendors as is necessary to complete their transaction.
-- **Security**
-  - We will protect your personal information with [all reasonable and appropriate security measures](https://github.com/security).
-- **Data Integrity and Purpose Limitation**
-  - We only collect your data for the purposes relevant for providing our services to you.
-  - We collect as little information about you as we can, unless you choose to give us more.
-  - We take reasonable steps to ensure that the data we have about you is accurate, current, and reliable for its intended use.
-- **Access**
-  - You are always able to access the data we have about you in your [user profile](https://github.com/settings/profile). You may access, update, alter, or delete your information there.
-- **Recourse, Enforcement and Liability**
-  - If you have questions about our privacy practices, you can reach us with our {% data variables.contact.contact_privacy %} and we will respond within 45 days at the latest.
-  - In the unlikely event of a dispute that we cannot resolve, you have access to binding arbitration at no cost to you. Please see our [Privacy Statement](/articles/github-privacy-statement/) for more information.
-  - We will conduct regular audits of our relevant privacy practices to verify compliance with the promises we have made.
-  - We require our employees to respect our privacy promises, and violation of our privacy policies is subject to disciplinary action up to and including termination of employment.
+- **Уведомление**
+  - Мы сообщаем вам, когда мы собираем вашу персональную информацию.
+  - Мы сообщаем вам в нашем [Заявлении о конфиденциальности](/articles/github-privacy-statement/), в каких целях мы собираем и используем вашу информацию, кому мы передаем эту информацию и с какими ограничениями, а также какой у вас есть доступ к вашим данным.
+  - Мы сообщаем вам, что мы участвуем в программе Privacy Shield и что это значит для вас.
+  - У нас есть {% data variable.contact.contact_privacy %}, где вы можете связаться с нами по вопросам о вашей конфиденциальности.
+  - Мы информируем вас о том, что вы имеете право на обращение в обязательный арбитраж, предоставляемый бесплатно для вас, в маловероятном случае возникновения спора.
+  - Мы сообщаем вам, что мы подпадаем под юрисдикцию Федеральной торговой комиссии.
+- **Выбор**
+  - Мы позволяем вам выбирать, что происходит с вашими данными. Прежде чем мы используем ваши данные в целях, отличных от тех, для которых вы их нам предоставили, мы сообщим вам об этом и получим ваше разрешение.
+  - Мы предоставим вам разумные механизмы для выбора.
+- **Ответственность за дальнейшую передачу**
+  - Когда мы передаем вашу информацию сторонним поставщикам, которые обрабатывают ее от нашего имени, мы отправляем ваши данные третьим лицам только на основании договора с нами, который будет защищать их в соответствии с нашим Заявлением о конфиденциальности. Когда мы передаем ваши данные нашим поставщикам в соответствии с Privacy Shield, мы остаемся ответственными за это.
+  - Мы передаем нашим сторонним поставщикам только тот объем данных, который необходим для завершения их транзакции.
+- **Безопасность**
+  - Мы защитим вашу персональную информацию с помощью [всех разумных и надлежащих мер безопасности](https://github.com/security).
+- **Целостность данных и целевое ограничение**
+  - Мы собираем ваши данные только для целей, необходимых для предоставления вам наших услуг.
+  - Мы собираем как можно меньше информации о вас, если только вы не решите предоставить нам больше.
+  - Мы принимаем разумные меры, чтобы гарантировать, что имеющиеся у нас данные о вас являются точными, актуальными и надежными для использования по назначению.
+- **Доступ**
+  - Вы всегда можете получить доступ к данным, которые у нас есть о вас, в своем [профиле пользователя](https://github.com/settings/profile). Вы можете получить доступ, обновить, изменить или удалить свою информацию там.
+- **Обращение, правоприменение и ответственность**
+  - Если у вас есть вопросы о наших методах обеспечения конфиденциальности, вы можете связаться с нами через {% data variable.contact.contact_privacy %} и мы ответим в течение 45 дней.
+  - В маловероятном случае возникновения спора, который мы не сможем разрешить, у вас есть доступ к обязательному арбитражу бесплатно для вас. Дополнительные сведения см. в [заявлении о конфиденциальности](/articles/github-privacy-statement/).
+  - Мы будем проводить регулярные проверки наших соответствующих методов обеспечения конфиденциальности, чтобы убедиться в соблюдении данных нами обещаний.
+  - Мы требуем от наших сотрудников соблюдения наших обещаний о конфиденциальности, а нарушение нашей политики конфиденциальности влечет за собой дисциплинарные меры вплоть до увольнения.
 
 
-### Dispute resolution process
+### Процесс разрешения споров
 
-As further explained in the [Resolving Complaints](/github/site-policy/github-privacy-statement#resolving-complaints) section of our [Privacy Statement](/github/site-policy/github-privacy-statement), we encourage you to contact us should you have a Privacy Shield-related (or general privacy-related) complaint. For any complaints that cannot be resolved with GitHub directly, we have selected to cooperate with the relevant EU Data Protection Authority, or a panel established by the European data protection authorities, for resolving disputes with EU individuals, and with the Swiss Federal Data Protection and Information Commissioner (FDPIC) for resolving disputes with Swiss individuals. Please contact us if you’d like us to direct you to your data protection authority contacts.
+Как поясняется далее в разделе [Разрешение жалоб](/github/site-policy/github-privacy-statement#resolving-complaints) нашего [Заявления о конфиденциальности](/github/site-policy/github-privacy-statement), мы рекомендуем вам связаться с нами, если у вас есть жалоба, связанная с Privacy Shield (или общей конфиденциальностью). Для любых жалоб, которые не могут быть разрешены с помощью GitHub напрямую, мы решили сотрудничать с соответствующим органом по защите данных ЕС или комиссией, созданной европейскими органами по защите данных, для разрешения споров с лицами из ЕС, а также со Швейцарским федеральным органом по защите данных и Уполномоченный по информации (FDPIC) для разрешения споров со швейцарскими гражданами. Пожалуйста, свяжитесь с нами, если вы хотите, чтобы мы направили вас к контактным лицам вашего органа по защите данных.
 
-Additionally, if you are a resident of an EU member state, you have the right to file a complaint with your local supervisory authority.
+Кроме того, если вы являетесь резидентом государства-члена ЕС, вы имеете право подать жалобу в местный надзорный орган.
 
-### Independent arbitration
+### Независимый арбитраж
 
-Under certain limited circumstances, EU, European Economic Area (EEA), Swiss, and UK individuals may invoke binding Privacy Shield arbitration as a last resort if all other forms of dispute resolution have been unsuccessful. To learn more about this method of resolution and its availability to you, please read more about [Privacy Shield](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). Arbitration is not mandatory; it is a tool you can use if you so choose.
+При определенных ограниченных обстоятельствах лица из стран ЕС, Европейской экономической зоны (ЕЭЗ), Швейцарии и Великобритании могут в крайнем случае обратиться в обязывающий арбитраж Privacy Shield, если все другие формы разрешения споров не увенчались успехом. Чтобы узнать больше об этом методе разрешения и его доступности для вас, пожалуйста, прочитайте больше о [Privacy Shield](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). Арбитраж не является обязательным; это инструмент, который вы можете использовать, если захотите.
 
-We are subject to the jurisdiction of the US Federal Trade Commission (FTC).
+Мы подпадаем под юрисдикцию Федеральной торговой комиссии США.
   
-Please see our [Privacy Statement](/articles/github-privacy-statement/) for more information.
+Дополнительные сведения см. в [заявлении о конфиденциальности](/articles/github-privacy-statement/).

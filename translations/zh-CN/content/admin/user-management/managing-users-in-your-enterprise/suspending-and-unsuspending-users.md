@@ -1,5 +1,5 @@
 ---
-title: Suspending and unsuspending users
+title: 挂起和取消挂起用户
 redirect_from:
   - /enterprise/admin/articles/suspending-a-user
   - /enterprise/admin/articles/unsuspending-a-user
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/articles/suspending-and-unsuspending-users
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
-intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.location.product_location %}.'
+intro: '如果用户离开公司或者调动到公司的其他部门，你应当移除或修改他们访问 {% data variables.product.product_location %} 的能力。'
 versions:
   ghes: '*'
 type: how_to
@@ -18,10 +18,16 @@ topics:
   - Security
   - User account
 shortTitle: Manage user suspension
+ms.openlocfilehash: d888678438f62fb585dac1cab4905ff02d8eb824
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331902'
 ---
-If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
+如果员工从公司离职，您可以暂停他们的 {% data variables.product.prodname_ghe_server %} 帐户，打开您的 {% data variables.product.prodname_enterprise %} 许可中的用户许可，同时保存他们创建的议题、评论、仓库、Gist 及其他数据。 被挂起的用户既无法登录您的实例，也无法推送或拉取代码。
 
-When you suspend a user, the change takes effect immediately with no notification to the user. If the user attempts to pull or push to a repository, they'll receive this error:
+在您挂起用户时，变更将立即生效，并且不会通知用户。 如果用户尝试拉取仓库或推送到仓库，他们将收到此错误消息：
 
 ```shell
 $ git clone git@[hostname]:john-doe/test-repo.git
@@ -30,74 +36,65 @@ ERROR: Your account is suspended. Please check with your installation administra
 fatal: The remote end hung up unexpectedly
 ```
 
-Before suspending site administrators, you must demote them to regular users. For more information, see "[Promoting or demoting a site administrator](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)."
+在挂起站点管理员之前，您必须将其降级为普通用户。 有关详细信息，请参阅“[推广或降级网站管理员](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)”。
 
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+注意：如果为 {% data variables.product.product_location %} [启用了 LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)，则从 LDAP 目录服务器中删除用户时会将其自动挂起。 为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
 
 {% endtip %}
 
-## Suspending a user from the user admin dashboard
+## 从用户管理员仪表板挂起用户
+
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %} {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
+5. 在红色“危险区域”框的“帐户暂停”下，单击“暂停”。
+![“挂起”按钮](/assets/images/enterprise/site-admin-settings/suspend.png)
+6. 提供挂起用户的原因。
+![挂起原因](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
+
+## 从用户管理员仪表板取消挂起用户
+
+挂起用户后，取消挂起用户的操作将立即可用。 用户将不会收到通知。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user %}
-{% data reusables.enterprise_site_admin_settings.click-user %}
-{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "Account suspension," in the red Danger Zone box, click **Suspend**.
-![Suspend button](/assets/images/enterprise/site-admin-settings/suspend.png)
-6. Provide a reason to suspend the user.
-![Suspend reason](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
+3. 在左侧边栏中，单击“挂起用户”。
+![“挂起用户”选项卡](/assets/images/enterprise/site-admin-settings/user/suspended-users-tab.png)
+2. 单击您想要取消挂起的用户帐户的名称。
+![挂起用户](/assets/images/enterprise/site-admin-settings/user/suspended-user.png) {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
+4. 在红色“危险区域”框的“帐户暂停”下，单击“取消挂起”。
+![“取消挂起”按钮](/assets/images/enterprise/site-admin-settings/unsuspend.png)
+5. 提供取消挂起用户的原因。
+![取消挂起原因](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-## Unsuspending a user from the user admin dashboard
-
-As when suspending a user, unsuspending a user takes effect immediately. The user will not be notified.
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Suspended users**.
-![Suspended users tab](/assets/images/enterprise/site-admin-settings/user/suspended-users-tab.png)
-2. Click the name of the user account that you would like to unsuspend.
-![Suspended user](/assets/images/enterprise/site-admin-settings/user/suspended-user.png)
-{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. Under "Account suspension," in the red Danger Zone box, click **Unsuspend**.
-![Unsuspend button](/assets/images/enterprise/site-admin-settings/unsuspend.png)
-5. Provide a reason to unsuspend the user.
-![Unsuspend reason](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
-
-## Suspending a user from the command line
+## 从命令行挂起用户
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
+2. 使用要挂起的用户名运行 [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend)。
   ```shell
-  $ ghe-user-suspend USERNAME
+  $ ghe-user-suspend <em>username</em>
   ```
 
-## Creating a custom message for suspended users
+## 为挂起的用户创建自定义消息
 
-You can create a custom message that suspended users will see when attempting to sign in.
+您可以创建自定义消息，被挂起的用户会在尝试登录时看到此消息。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}
-5. Click **Add message**.
-![Add message](/assets/images/enterprise/site-admin-settings/add-message.png)
-6. Type your message into the **Suspended user message** box. You can type Markdown, or use the Markdown toolbar to style your message.
-![Suspended user message](/assets/images/enterprise/site-admin-settings/suspended-user-message.png)
-7. Click the **Preview** button under the **Suspended user message** field to see the rendered message.
-![Preview button](/assets/images/enterprise/site-admin-settings/suspended-user-message-preview-button.png)
-8. Review the rendered message.
-![Suspended user message rendered](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
-{% data reusables.enterprise_site_admin_settings.save-changes %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
+5. 单击“添加消息”。
+![添加消息](/assets/images/enterprise/site-admin-settings/add-message.png)
+6. 在“挂起的用户消息”框中键入消息。 您可以输入 Markdown，或者使用 Markdown 工具栏设置消息的样式。
+![已挂起用户消息](/assets/images/enterprise/site-admin-settings/suspended-user-message.png)
+7. 在“已挂起用户消息”字段下，单击“预览”按钮，以查看呈现的消息。
+![预览按钮](/assets/images/enterprise/site-admin-settings/suspended-user-message-preview-button.png)
+8. 预览显示的消息。
+![呈现的已挂起用户消息](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png) {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-## Unsuspending a user from the command line
+## 从命令行取消挂起用户
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+2. 使用用户名运行 [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) 以取消挂起。
   ```shell
-  $ ghe-user-unsuspend USERNAME
+  $ ghe-user-unsuspend <em>username</em>
   ```
 
-## Further reading
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+## 延伸阅读
+- “[挂起用户](/rest/reference/enterprise-admin#suspend-a-user)”

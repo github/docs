@@ -1,0 +1,6 @@
+gist_homepage: >-
+  {% ifversion fpt or ghec %}[gist 홈페이지](https://gist.github.com/){% elsif ghae %}gist 홈페이지, `http(s)://gist.[호스트 이름]`{% else %}gist 홈페이지, `http(s)://[호스트 이름]/gist` 또는 `http(s)://gist.[호스트 이름]` 하위 도메인이 사용하도록 설정된 경우{% endif %}
+gist_search_url: >-
+  {% ifversion fpt or ghec %}[Gist 검색](https://gist.github.com/search){% elsif ghae %}Gist 검색, `http(s)://gist.[호스트 이름]/search`{% else %}Gist 검색, `http(s)://[호스트 이름]/gist/search` 또는 `http(s)://gist.[호스트 이름]/search` 하위 도메인이 사용하도록 설정된 경우{% endif %}
+discover_url: >-
+  {% ifversion fpt or ghec %}[검색](https://gist.github.com/discover){% elsif ghae %}검색, `http(s)://gist.[호스트 이름]/discover`{% else %}검색, `http(s)://[호스트 이름]/gist/discover` 또는 `http(s)://gist.[호스트 이름]/discover` 하위 도메인이 사용하도록 설정된 경우{% endif %}

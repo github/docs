@@ -11,18 +11,20 @@ topics:
   - Infrastructure
   - Storage
 shortTitle: Google Cloud Storage
-ms.openlocfilehash: abbac860ed3f6f1caaec1152b426762535b8fba4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 33ecb0adfb0786a4308bba80ecc6467fc7adb4e5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108727'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192951'
 ---
 {% note %}
 
 注意：{% data variables.product.prodname_actions %} 对 Google Cloud Storage 的支持目前处于 beta 版，可能会更改。
 
 {% endnote %}
+
+{% data reusables.actions.enterprise-storage-about %}
 
 ## 先决条件
 

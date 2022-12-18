@@ -13,13 +13,15 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 shortTitle: Azure Blob storage
-ms.openlocfilehash: b6abccdfea0d33b387fc3ec6df563fcbaf57f861
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 856748a3219be7789f0339c43210ca204fe56d91
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108627'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192975'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## 先决条件
 
 在启用 {% data variables.product.prodname_actions %} 之前，请确保您已完成以下步骤：

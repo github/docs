@@ -1,6 +1,6 @@
 ---
-title: Initializing the cluster
-intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
+title: クラスタの初期化
+intro: '{% data variables.product.prodname_ghe_server %} クラスタはライセンスを使用して設定し、管理シェル (SSH) を使用して初期化する必要があります。'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -11,46 +11,50 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: 91394d1d39301f77bc49a87012e04c3d5e9c3b60
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167089'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-## Installing {% data variables.product.prodname_ghe_server %}
+## {% data variables.product.prodname_ghe_server %}のインストール
 
-1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
+1. 各クラスタノードで {% data variables.product.prodname_ghe_server %} をプロビジョニングしてインストールします。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+2. 管理シェルまたは DHCP を使用し、各ノードの IP アドレス **のみ** を構成します。 その他の設定は行わないでください。
 
-## Configuring the first node
+## 最初のノードの設定
 
-1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
-2. In your web browser, visit `https://<ip address>:8443/setup/`.
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+1. `cluster.conf` で MySQL プライマリとして指定されるノードに接続します。 詳しくは、「[クラスター構成ファイルについて](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
+2. Web ブラウザーで `https://<ip address>:8443/setup/` に移動します。
+{% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-## Initializing the cluster
+## クラスタの初期化
 
-To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+クラスターを初期化するためには、クラスター設定ファイル (`cluster.conf`) が必要です。 詳しくは、「[クラスター構成ファイルについて](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
 
-1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
-2. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
+1. 構成された最初のノードから `ghe-cluster-config-init` を実行します。  実行すると、クラスタ設定ファイルに設定されていないノードがある場合にクラスタを初期化します。
+2. `ghe-cluster-config-apply` を実行する。 これにより、`cluster.conf` ファイルを検証して各ノードファイルに設定を適用し、各ノードで設定されたサービスを起動します。
 
-To check the status of a running cluster use the `ghe-cluster-status` command.
+実行中のクラスターの状態を確認するには、`ghe-cluster-status` コマンドを使います。
 
-## About the cluster configuration file
+## クラスタ設定ファイルについて
 
-The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
-For more information, see "[About cluster nodes](/enterprise/admin/guides/clustering/about-cluster-nodes)."
+クラスタ設定ファイル (`cluster.conf`) は、クラスター中のノードと、その上で動作するサービスを定義します。
+詳しくは、「[クラスター ノードについて](/enterprise/admin/guides/clustering/about-cluster-nodes)」を参照してください。
 
-This example `cluster.conf` defines a cluster with 11 nodes.
+この例 `cluster.conf` では、11 のノードでクラスターを定義します。
 
-  - Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
-  - Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
-  - Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
-  - Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
+  - `ghes-front-end-node-\*` と呼ばれる 2 つのノードによって、クライアント要求に応答するサービスが実行されます。
+  - `ghes-database-node-\*` と呼ばれる 3 つのノードによって、データベース データのストレージ、取得、レプリケーションを行うサービスが実行されます。
+  - `ghes-search-node-\*` と呼ばれる 3 つのノードによって、検索機能を行うサービスが実行されます。
+  - `ghes-storage-node-\*` と呼ばれる 3 つのノードによって、データのストレージ、取得、レプリケーションを行うサービスが実行されます。
 
-The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
+ノードの名前には、ホスト名として有効な任意の名前を選択できます。 この名前は各ノードのホスト名として設定され、各ノードの `/etc/hosts` に追加され、各ノードがローカルでお互いを解決できるようにします。
 
-Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
+`mysql-server` と `mysql-master` 経由で MySQL プライマリとして構成した最初のクラスター ノードを指定します。
 
 ```ini
 [cluster]
@@ -155,7 +159,7 @@ Specify the first cluster node you configured as the MySQL primary via `mysql-se
   metrics-server = true
 ```
 
-Create the file `/data/user/common/cluster.conf` on the configured first node. For example, using `vim`:
+構成された最初のノードでファイル `/data/user/common/cluster.conf` を作成します。 たとえば、`vim` を使用する場合は次のようになります。
 
    ```shell
    ghe-data-node-1:~$ sudo vim /data/user/common/cluster.conf

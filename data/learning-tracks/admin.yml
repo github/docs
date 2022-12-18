@@ -9,7 +9,7 @@ get_started_with_github_ae:
     - /admin/overview/about-data-residency
     - /admin/configuration/configuring-your-enterprise/deploying-github-ae
     - /admin/configuration/initializing-github-ae
-    - /admin/configuration/restricting-network-traffic-to-your-enterprise
+    - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
     - /admin/github-actions/getting-started-with-github-actions-for-github-ae
 
 deploy_an_instance:

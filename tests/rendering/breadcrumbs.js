@@ -1,10 +1,8 @@
 import { jest } from '@jest/globals'
 
 import { getDOM, getJSON } from '../helpers/e2etest.js'
+import { describeIfDocsEarlyAccess } from '../helpers/conditional-runs.js'
 
-// TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
-const describeInternalOnly =
-  process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 // Breadcrumbs were moved to the Header and in the Menu for mobile, so there are now double the Breadcrumbs
 describe('breadcrumbs', () => {
   jest.setTimeout(300 * 1000)
@@ -85,7 +83,7 @@ describe('breadcrumbs', () => {
     })
   })
 
-  describeInternalOnly('early access rendering', () => {
+  describeIfDocsEarlyAccess('early access rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/early-access/github/articles/using-gist-playground')
       expect($('[data-testid=breadcrumbs]')).toHaveLength(2)

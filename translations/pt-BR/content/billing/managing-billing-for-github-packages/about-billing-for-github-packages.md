@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub Packages
-intro: 'If you want to use {% data variables.product.prodname_registry %} beyond the storage or data transfer included in your account, you will be billed for additional usage.'
+title: Sobre a cobrança de pacotes do GitHub
+intro: 'Se você quiser usar {% data variables.product.prodname_registry %} além do armazenamento ou transferência de dados incluídos em sua conta, você será cobrado pelo uso adicional.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
@@ -13,67 +13,88 @@ topics:
   - Packages
   - Spending limits
 shortTitle: About billing
+ms.openlocfilehash: 809065836c17701003917cb679ffc81cceb1b47f
+ms.sourcegitcommit: 9b6371e5d55e4078c717e68536eca1fcd44a45e5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180215'
 ---
-## About billing for {% data variables.product.prodname_registry %}
+## Sobre a cobrança do {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
-{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.package_registry.packages-spending-limit-brief %} Para obter mais informações, confira "[Sobre os limites de gastos](#about-spending-limits)".
 
 {% note %}
 
-**Billing update for container image storage:** The period of free use for container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} has been extended. If you are using {% data variables.product.prodname_container_registry %} you'll be informed at least one month in advance of billing commencing and you'll be given an estimate of how much you should expect to pay. For more information about the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+**Atualização de cobrança para o armazenamento de imagens de contêiner:** o período de uso gratuito para o armazenamento de imagens de contêiner e a largura de banda para o {% data variables.product.prodname_container_registry %} foi estendido. Se estiver usando {% data variables.product.prodname_container_registry %}, você será informado com pelo menos um mês antes de começar a cobrar e receberá uma estimativa de quanto espera pagar. Para obter mais informações sobre o {% data variables.product.prodname_container_registry %}, confira "[Como trabalhar com o registro de contêiner](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
 
 {% endnote %}
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %} Se você comprou o {% data variables.product.prodname_enterprise %} por meio de um Contrato Enterprise da Microsoft, conecte sua ID de Assinatura do Azure à sua conta corporativa para habilitar e pagar pelo uso do {% data variables.product.prodname_registry %} além dos valores, incluindo com a sua conta. Para obter mais informações, confira "[Como conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
 {% endif %}
 
-Data transfer resets every month, while storage usage does not.
+A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
 
-Product | Storage | Data transfer (per month)
+Produto | Armazenamento | Transferência de dados (por mês)
 ------- | ------- | ---------
-{% data variables.product.prodname_free_user %} | 500MB | 1GB
+{% data variables.product.prodname_free_user %} | 500MB | 1 GB
 {% data variables.product.prodname_pro %} | 2GB | 10GB
-{% data variables.product.prodname_free_team %} for organizations | 500MB | 1GB |
+{% data variables.product.prodname_free_team %} para organizações | 500MB | 1 GB |
 {% data variables.product.prodname_team %} | 2GB | 10GB
 {% data variables.product.prodname_ghe_cloud %} | 50GB | 100GB
 
-All data transferred out, when triggered by {% data variables.product.prodname_actions %}, and data transferred in from any source is free. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.
+Todos os dados transferidos, quando acionados por {% data variables.product.prodname_actions %}, e os dados transferidos de qualquer fonte são gratuitos. Determinamos que você está baixando pacotes usando o {% data variables.product.prodname_actions %} ao fazer logon no {% data variables.product.prodname_registry %} usando um `GITHUB_TOKEN`.
 
-||Hosted|Self-Hosted|
+||Hospedado|Auto-hospedado|
 |-|-|-|
-|Access using a `GITHUB_TOKEN`|Free|Free|
-|Access using a {% data variables.product.pat_generic %}|Free|$|
+|Acesso por meio de um `GITHUB_TOKEN`|Gratuita|Gratuita|
+|Acessar usando um {% data variables.product.pat_generic %}|Gratuita|$|
 
-Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+O uso do armazenamento é compartilhado com artefatos de construção produzidos por {% data variables.product.prodname_actions %} para repositórios de sua conta. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 
-{% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where the package is published. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and $0.50 USD per GB of data transfer.
+O {% data variables.product.prodname_dotcom %} cobra o uso da conta que possui o repositório onde o pacote é publicado. Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de US$ 0, você pagará US$ 0,008 por GB de armazenamento por dia e US$ 0,50 por GB de transferência de dados.
 
-For example, if your organization uses {% data variables.product.prodname_team %}, allows unlimited spending, uses 150GB of storage, and has 50GB of data transfer out during a month, the organization would have overages of 148GB for storage and 40GB for data transfer for that month. The storage overage would cost $0.008 USD per GB per day or approximately $37 USD for a 31-day month. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
+Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. O excedente de armazenamento custaria US$ 0,008 por GB por dia ou aproximadamente US$ 37 por mês de 31 dias. O excesso para transferência de dados custaria US$ 0,50 ou US$ 20 por GB.
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
+No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.
 
-{% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
+O {% data variables.product.prodname_dotcom %} calcula seu uso de armazenamento a cada mês com base no uso por hora por GB durante cada mês. Por exemplo, se durante o mês de março você utilizar 3 GB em 10 dias e 12 GB nos 21 dias subsequentes, o uso do armazenamento será de:
 
-- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
-- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
-- 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
-- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
+- 3 GB x 10 dias x (24 horas por dia) = 720 GB-Horas
+- 12 GB x 21 dias x (24 horas por dia) = 6,048 GB-Horas
+- 720 GB-Horas + 6.048 GB-Horas = 6.768 GB-Horas no total
+- 6\.768 GB-Horas / (744 horas por mês) = 9,0967 GB-Meses
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
+No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu armazenamento para o MB mais próximo. Portanto, seu uso de armazenamento em março seria de 9,097 GB.
 
-Your {% data variables.product.prodname_registry %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Você também pode usar esse cálculo no meio de um ciclo de cobrança para estimar qual seria seu uso total no mês. Por exemplo, se você tiver uma organização que usa o {% data variables.product.prodname_team %} e fornece 2 GB de armazenamento gratuito, e você usar 0 GB nos primeiros 5 dias de abril, 1,5 GB nos 10 dias posteriores e planejar usar 3 GB nos últimos 15 dias do ciclo de cobrança, seu uso de armazenamento projetado no mês seria:
+
+- 0 GB x 5 dias x (24 horas por dia) = 0 GB-Horas
+- 0,5 GB x 10 dias x (24 horas por dia) = 120 GB-Horas
+- 3 GB x 15 dias x (24 horas por dia) = 1.080 GB-Horas
+- 0 GB-Horas + 120 GB-Horas + 1.080 GB-Horas = 1.200 GB-Horas no total
+- 1\.200 GB-Horas / (744 horas por mês) = 1,6 GB-Meses
+
+O uso projetado de 1,6 GB de armazenamento no mês não excederia seu limite de 2 GB, embora o valor real do armazenamento tenha excedido esse limite por um breve período.
+
+Se uso de {% data variables.product.prodname_registry %} compartilha a data de cobrança, o método de pagamento e o recibo que já existem para sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% data reusables.user-settings.context_switcher %}
 
-## About spending limits
+## Sobre limites de gastos
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)."
+Para evitar exceder seu limite de gastos, o {% data variables.product.prodname_dotcom %} verifica o consumo de armazenamento continuamente ao longo do mês examinando seu uso atual e calculando qual será o uso projetado ao final do mês se nenhuma alteração for feita antes desse período. Se em algum momento durante o ciclo de cobrança o uso mensal projetado exceder seu limite de gastos, tanto {% data variables.product.prodname_registry %} quando {% data variables.product.prodname_actions %} serão desabilitados para evitar excedentes.
+
+Você deve definir um limite de gastos que abranja o uso máximo de armazenamento projetado em qualquer ponto do ciclo de cobrança. Por exemplo, imagine que você tenha uma organização que use o {% data variables.product.prodname_team %} e defina um limite de gastos de US$ 50. O {% data variables.product.prodname_team %} fornece 2 GB de armazenamento gratuito. Para qualquer quantia de armazenamento usada acima desse valor, o {% data variables.product.prodname_dotcom %} vai cobrar US$ 0,008 por GB por dia, ou aproximadamente US$ 0,25 por GB por mês de 31 dias. Isso significa que o limite de gastos de US$ 50 definido deverá pagar 200 GB extras de armazenamento nesse período. Se no décimo dia do ciclo de cobrança você atingir 202 GB de armazenamento, o próximo push de um pacote ou artefato de {% data variables.product.prodname_actions %} falhará, pois você atingiu o valor máximo de armazenamento que pode ser pago pelo limite de gastos nesse ciclo de cobrança, mesmo que seu consumo médio do período seja inferior a 202 GB.
+
+Para evitar atingir o limite de gastos no ciclo de cobrança atual, você pode excluir parte do seu uso de armazenamento atual a fim de reduzir o uso projetado no restante do mês. Esse método é mais eficaz no início do ciclo de cobrança. Quanto mais perto você estiver do fim de um ciclo de cobrança, menos impacto esse método terá sobre o uso mensal projetado.
+
+Para obter mais informações sobre como gerenciar e alterar o limite de gastos da sua conta, confira "[Como gerenciar seu limite de gastos do {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)".
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

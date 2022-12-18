@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating Dependabot alerts
-intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
+title: Dependabot アラートの表示と更新
+intro: '{% data variables.product.product_name %} がプロジェクト内の安全ではない依存関係を発見した場合は、詳細をリポジトリの [Dependabot アラート] タブで確認できます。 その後、プロジェクトを更新してこのアラートを解決することができます。'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -21,212 +21,195 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: 8bf53452bd6518f5525d67994f3e6711ef33de0d
+ms.sourcegitcommit: 7e2b5213fd15d91222725ecab5ee28cef378d3ad
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185552'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+リポジトリの [{% data variables.product.prodname_dependabot_alerts %}] タブには、オープンおよびクローズされたすべての {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} および対応する {% data variables.product.prodname_dependabot_security_updates %}{% endif %} が一覧表示されます。 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}パッケージ、エコシステム、マニフェストごとにアラートをフィルター処理できます。 {% endif %} アラートの一覧を並べ替えたり、特定のアラートをクリックしてその詳細を表示したりすることができます。 {% ifversion dependabot-bulk-alerts %}アラートを 1 つずつ、または一度に複数のアラートを無視したり、もう一度開いたりすることもできます。{% else %}アラートを無視したり、もう一度開いたりすることもできます。 {% endif %} 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。 
 
-Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} filter alerts by package, ecosystem, or manifest. You can {% endif %} sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." 
-
-{% ifversion fpt or ghec or ghes %}
-You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_alerts %} と依存関係グラフを使用するリポジトリの自動セキュリティ更新を有効にすることができます。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」を参照してください。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-## About updates for vulnerable dependencies in your repository
+## リポジトリ内の脆弱性のある依存関係の更新について
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+コードベースで既知のセキュリティ リスクのある依存関係が検出されると、{% data variables.product.product_name %} によって {% data variables.product.prodname_dependabot_alerts %} が生成されます。 {% data variables.product.prodname_dependabot_security_updates %} が有効になっているリポジトリの場合、{% data variables.product.product_name %} がデフォルトのブランチで脆弱性のある依存関係を検出すると、{% data variables.product.prodname_dependabot %} はそれを修正するためのプルリクエストを作成します。 プルリクエストは、脆弱性を回避するために必要最低限の安全なバージョンに依存関係をアップグレードします。
 
-Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
+各 {% data variables.product.prodname_dependabot %} アラートには一意の数値識別子があり、[{% data variables.product.prodname_dependabot_alerts %}] タブには、検出された各脆弱性に対するアラートが一覧表示されます。 従来の {% data variables.product.prodname_dependabot_alerts %}では、依存関係ごとに脆弱性がグループ化され、依存関係ごとに 1 つのアラートが生成されていました。 従来の {% data variables.product.prodname_dependabot %} アラートに移動すると、そのパッケージに対してフィルター処理された [{% data variables.product.prodname_dependabot_alerts %}] タブにリダイレクトされます。 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}ユーザー インターフェイスで使用できるさまざまなフィルターと並べ替えオプションを使って、{% data variables.product.prodname_dependabot_alerts %} をフィルター処理して並べ替えることができます。 詳しい情報については、以下の「[{% data variables.product.prodname_dependabot_alerts %}の優先順位付け](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)」を参照してください。
 
-## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %}の優先順位付け
 
-{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
+{% data variables.product.company_short %} は、{% data variables.product.prodname_dependabot_alerts %}の修正の優先順位を付けるのに役立ちます。 {% ifversion dependabot-most-important-sort-option %} 既定では、{% data variables.product.prodname_dependabot_alerts %}は重要度で並べ替えられています。 "最重要" 並べ替え順序は、最初に注目する {% data variables.product.prodname_dependabot_alerts %}の優先順位を付けるのに役立ちます。 アラートは、潜在的な影響、実用性、関連性に基づいてランク付けされます。 Github の優先順位付けの計算は常に改善されており、CVSS スコア、依存関係スコープ、アラートに対して脆弱な関数呼び出しが見つかるかどうかなどの要因が含まれています。
 
-![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
-{% endif %}
+!["最も重要" の並べ替えが表示されている [並べ替え] ドロップダウンのスクリーンショット。](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png) {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
 
-In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+検索バーで使用できるフィルターに加えて、アラート一覧の上部にあるドロップダウン メニューを使用して、{% data variables.product.prodname_dependabot_alerts %}を並べ替えたりフィルター処理したりできます。 検索バーでは、アラートと関連するセキュリティ アドバイザリのフルテキスト検索も可能です。 セキュリティ アドバイザリの名前または説明の一部を検索して、そのセキュリティ アドバイザリに関連するリポジトリのアラートを返すことができます。 たとえば、`yaml.load() API could execute arbitrary code` の検索では、アドバイザリの説明に検索文字列が表示されるので、"[PyYAML によって安全でない方法で YAML 文字列が逆シリアル化され、任意のコード実行につながります](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" にリンクされた {% data variables.product.prodname_dependabot_alerts %}が返されます。
 
 {% endif %}
 
-{% ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
-You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+{% ifversion dependabot-bulk-alerts %} ![[{% data variables.product.prodname_dependabot_alerts %}] タブのフィルターと並べ替えメニューのスクリーンショット。](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %} 一覧の上部にあるドロップダウン メニューでフィルターを選び、適用するフィルターをクリックできます。
+   ![[{% data variables.product.prodname_dependabot_alerts %}] タブのフィルターと並べ替えメニューのスクリーンショット](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
-## Supported ecosystems and manifests for dependency scope
+## 依存関係スコープでサポートされるエコシステムとマニフェスト
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
 
-Alerts for packages listed as development dependencies are marked with the `Development` label on the {% data variables.product.prodname_dependabot_alerts %} page and are also available for filtering via the `scope` filter.
+開発時の依存関係として一覧表示されるパッケージに対するアラートは、{% data variables.product.prodname_dependabot_alerts %} ページに `Development` ラベルでマークされて表示され、`scope` フィルターでフィルター処理することもできます。
 
-![Screenshot showing the "Development" label in the list of alerts](/assets/images/help/repository/dependabot-alerts-development-label.png)
+![アラートの一覧の "Development" ラベルを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-development-label.png)
 
-The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
+開発スコープ パッケージに対するアラートのアラート詳細ページには、`Development` ラベルを含む [タグ] セクションが表示されます。
 
-![Screenshot showing the "Tags" section in the alert details page](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+![アラート詳細ページの [タグ] セクションを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
-## About the detection of calls to vulnerable functions
+## 脆弱性のある関数の呼び出しの検出について
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
 
-When {% data variables.product.prodname_dependabot %} tells you that your repository uses a vulnerable dependency, you need to determine what the vulnerable functions are and check whether you are using them. Once you have this information, then you can determine how urgently you need to upgrade to a secure version of the dependency. 
+{% data variables.product.prodname_dependabot %} により、リポジトリで脆弱性のある依存関係を使用していることが示される場合は、脆弱性のある関数が何であるかを判断し、それらを使用しているかどうかを確認する必要があります。 この情報を取得したら、セキュリティで保護されたバージョンの依存関係へのアップグレードをどの程度早急に行う必要があるかを判断できます。 
 
-For supported languages, {% data variables.product.prodname_dependabot %} automatically detects whether you use a vulnerable function and adds the label "Vulnerable call" to affected alerts. You can use this information in the {% data variables.product.prodname_dependabot_alerts %} view to triage and prioritize remediation work more effectively.
+サポートされている言語では、{% data variables.product.prodname_dependabot %} により、脆弱性のある関数を使用しているかどうかが自動的に検出され、影響を受けるアラートに "脆弱性のある呼び出し" というラベルが追加されます。 {% data variables.product.prodname_dependabot_alerts %} ビューでこの情報を使用して、修復作業をより効果的にトリアージし、優先順位を付けることができます。
 
 {% note %}
 
-**Note:** During the beta release, this feature is available only for new Python advisories created *after* April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
+**メモ:** ベータ リリース中、この機能は、2022 年 4 月 14 日 *より後* に作成された新しい Python アドバイザリと、履歴 Python アドバイザリのサブセットでのみ使用できます。 {% data variables.product.prodname_dotcom %} では、追加の履歴 Python アドバイザリ間でデータをバックフィルする作業を行っています。このアドバイザリは、ローリング ベースで追加されます。 脆弱性のある呼び出しは、{% data variables.product.prodname_dependabot_alerts %} ページでのみ強調表示されます。
 
 {% endnote %}
 
-![Screenshot showing an alert with the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+!["脆弱性のある呼び出し" ラベルを持つアラートを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
-You can filter the view to show only alerts where {% data variables.product.prodname_dependabot %} detected at least one call to a vulnerable function using the `has:vulnerable-calls` filter in the search field.
+検索フィールドで `has:vulnerable-calls` フィルターを使用して、{% data variables.product.prodname_dependabot %} で脆弱性のある関数の呼び出しが少なくとも 1 回検出されたアラートのみを表示するように、ビューをフィルター処理できます。
 
-For alerts where vulnerable calls are detected, the alert details page shows additional information:
+脆弱性のある呼び出しが検出されたアラートについて、アラートの詳細ページに追加情報が表示されます。
 
-- One or more code blocks showing where the function is used.
-- An annotation listing the function itself, with a link to the line where the function is called.
+- 関数が使用される場所を示す 1 つ以上のコード ブロック。
+- 関数自体を一覧表示する注釈。関数が呼び出される行へのリンクを含みます。
 
-![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
+!["脆弱性のある呼び出し" ラベルを持つアラートの詳細ページを示すスクリーンショット](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
-For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-alerts)" below.
+詳しい情報については、以下の「[アラートの確認と修正](#reviewing-and-fixing-alerts)」を参照してください。
 
 {% endif %}
 
-## Viewing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %} の表示
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
-{%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
-1. Click the alert that you would like to view.{% ifversion dependabot-bulk-alerts %}
-   ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
-   ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 必要に応じて、アラートをフィルター処理するには、ドロップダウン メニューでフィルターを選び、適用するフィルターをクリックします。 検索バーにフィルターを入力することもできます。 アラートのフィルター処理と並べ替えについて詳しくは、「[{% data variables.product.prodname_dependabot_alerts %}の優先順位付け](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)」を参照してください。
+{%- ifversion dependabot-bulk-alerts %} ![[{% data variables.product.prodname_dependabot_alerts %}] タブの [フィルター] および [並べ替え] メニューのスクリーンショット。](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %} ![[{% data variables.product.prodname_dependabot_alerts %}] タブの [フィルター] および [並べ替え] メニューのスクリーンショット。](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+1. 表示するアラートをクリックします。{% ifversion dependabot-bulk-alerts %} ![アラートの一覧で選ばれたアラート](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %} ![アラートの一覧で選ばれたアラート](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Click the alert you'd like to view.
-  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list.png)
-{% endif %}
+{% else %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 表示したいアラートをクリックします。
+  ![アラート リストで選択されたアラート](/assets/images/help/graphs/click-alert-in-alerts-list.png) {% endif %}
 
-## Reviewing and fixing alerts
+## アラートの確認と修正
 
-It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+すべての依存関係にセキュリティ上の弱点がないことを確認することが重要です。 {% data variables.product.prodname_dependabot %} によって依存関係で脆弱性 {% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %} が検出された場合、プロジェクトの露出レベルを評価し、アプリケーションをセキュリティで保護するための修復手順を決定する必要があります。
 
-If a patched version of the dependency is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert. 
+依存関係の修正プログラムが適用されたバージョンを利用できる場合は、{% data variables.product.prodname_dependabot %} pull request を生成して、{% data variables.product.prodname_dependabot %} アラートからこの依存関係を直接更新できます。 {% data variables.product.prodname_dependabot_security_updates %}が有効になっている場合は、Dependabot アラートで Pull Request がリンクされている可能性があります。 
 
-In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security advisory.
+修正プログラムが適用されたバージョンが利用できない場合や、セキュリティで保護されたバージョンに更新できない場合は、{% data variables.product.prodname_dependabot %} によって追加情報が共有され、次の手順を決定できます。 {% data variables.product.prodname_dependabot %} アラートをクリックして表示すると、影響を受ける関数を含め、依存関係に関するセキュリティ アドバイザリの詳細情報を確認できます。 これにより、自分のコードが、影響を受ける関数を呼び出すかどうかを確認できます。 この情報は、リスク レベルをさらに厳密に評価し、回避策を決定したり、セキュリティ アドバイザリによって表されるリスクを受け入れられるかどうかを判断したりするのに役立ちます。
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
-For supported languages, {% data variables.product.prodname_dependabot %} detects calls to vulnerable functions for you. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
+サポートされている言語では、{% data variables.product.prodname_dependabot %} によって脆弱性のある関数の呼び出しが検出されます。 "脆弱性のある呼び出し" ラベルを持つアラートを表示すると、詳細情報には関数の名前と、それを呼び出すコードへのリンクが含まれます。 多くの場合、さらに詳細を確認せずに、この情報に基づいて決定を下すことができます。
 
 {% endif %}
 
-### Fixing vulnerable dependencies
+### 脆弱性のある依存関係を修正する
 
-1. View the details for an alert. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
+1. アラートの詳細を表示します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} の表示](#viewing-dependabot-alerts)」 (上記) を参照してください。
 {% ifversion fpt or ghec or ghes %}
-1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request.
-  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
+1. {% data variables.product.prodname_dependabot_security_updates %}が有効になっている場合は、依存関係を修正する Pull Request へのリンクが存在する可能性があります。 または、アラートの詳細ページの上部にある **[{% data variables.product.prodname_dependabot %} セキュリティ更新プログラムを作成する]** をクリックして Pull Request を作成することもできます。
+  ![[Create {% data variables.product.prodname_dependabot %} security update] ボタン](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. {% data variables.product.prodname_dependabot_security_updates %}を使用しない場合は、必要に応じて、ページの情報を使用してアップグレード先の依存関係のバージョンを決定し、セキュリティで保護されたバージョンに依存関係を更新する Pull Request を作成することができます。
 {% elsif ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
+1. ページの情報を使用してアップグレード先の依存関係のバージョンを決定し、マニフェストへの Pull Request、またはセキュリティで保護されたバージョンへのロック ファイルを作成することができます。
 {% endif %}
-1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. 
+1. 依存関係を更新して脆弱性を解決する準備ができたら、プルリクエストをマージしてください。 
 
-{% ifversion fpt or ghec or ghes %}
-   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot %} によって発行される各 pull request には、{% data variables.product.prodname_dependabot %} の制御に使用できるコマンドの情報が含まれています。 詳細については、「[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」(依存関係の更新に対するプル リクエストの管理) を参照してください。
 {% endif %}
 
-## Dismissing {% data variables.product.prodname_dependabot_alerts %}
+## {% data variables.product.prodname_dependabot_alerts %}を無視する
 
 {% tip %}
 
-**Tip:** You can only dismiss open alerts.
+**ヒント:** 無視できるのは、オープン アラートのみです。
 {% endtip %}
 
-If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
+依存関係をアップグレードするための広範な作業をスケジュールする場合や、アラートを修正する必要がないと判断した場合は、アラートを無視できます。 既に評価済みのアラートを無視すると、新しいアラートが表示されたときに簡単にトリアージできます。
 
-1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
-1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
-{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
-   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
-1. Click **Dismiss alert**.
-{% else %}
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
-{% ifversion dependabot-bulk-alerts %}
+1. アラートの詳細を表示します。 詳細については、「[脆弱性のある依存関係を表示する](#viewing-dependabot-alerts)」(上記) を参照してください。
+1. [無視] ドロップダウンを選び、アラートを無視する理由をクリックします。{% ifversion reopen-dependabot-alerts %} 無視された未修正のアラートは、後でもう一度開くことができます。{% endif %} {% ifversion dependabot-alerts-dismissal-comment %}1. 必要に応じて、無視のコメントを追加します。 無視のコメントはアラート タイムラインに追加され、監査と報告の間に正当な理由として使用できます。 GraphQL API を使用して、コメントを取得または設定できます。 コメントは `dismissComment` フィールドに含まれています。 詳しくは、GraphQL API ドキュメントの「[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)」を参照してください。
+![[無視] ドロップダウンでアラートを無視する方法と、無視コメントを追加するオプションを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. **[アラートを無視]** をクリックします。
+{% else %} ![[無視] ドロップダウンを使用してアラートを無視する理由を選ぶ](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %} {% ifversion dependabot-bulk-alerts %}
 
-### Dismissing multiple alerts at once
+### 複数のアラートを一度に却下する
 
-1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
-2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. You can also type filters into the search bar.
-3. To the left of each alert title, select the alerts that you want to dismiss.
-   ![Screenshot of open alerts with checkboxes emphasized](/assets/images/help/graphs/select-multiple-alerts.png)
-4. Optionally, at the top of the list of alerts, select all alerts on the page.
-   ![Screenshot of all open alerts selected](/assets/images/help/graphs/select-all-alerts.png)
-5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
-   ![Screenshot of open alerts page with "Dismiss alerts" drop-down emphasized](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+1. オープンの {% data variables.product.prodname_dependabot_alerts %} を表示します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} の表示](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)」を参照してください。
+2. 必要に応じて、ドロップダウン メニューを選び、適用するフィルターをクリックして、アラートの一覧をフィルター処理します。 検索バーにフィルターを入力することもできます。
+3. 各アラートのタイトルの左側で、無視するアラートを選びます。
+   ![チェックボックスが強調表示されているオープン アラートのスクリーンショット](/assets/images/help/graphs/select-multiple-alerts.png)
+4. 必要に応じて、アラートの一覧の上部で、ページ上のすべてのアラートを選びます。
+   ![オープン アラートがすべて選ばれているスクリーンショット](/assets/images/help/graphs/select-all-alerts.png)
+5. [アラートを無視する] ドロップダウンを選び、アラートを無視する理由をクリックします。
+   ![[アラートを無視する] ドロップダウンが強調表示されているオープン アラートのページのスクリーンショット](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
 
 {% ifversion reopen-dependabot-alerts %}
 
-## Viewing and updating closed alerts
+## クローズされたアラートの表示と更新
 
-You can view all open alerts, and you can reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
+開いているすべてのアラートを表示し、以前に却下したアラートをもう一度開くことができます。 既に修復済みのクローズされたアラートをもう一度開くことはできません。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. To just view closed alerts, click **Closed**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. クローズされたアラートのみを表示するには、 **[Closed]** をクリックします。
 
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
-   {%- else %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png)
-   {%- endif %}
-1. Click the alert that you would like to view or update.
+   {%- ifversion dependabot-bulk-alerts %}![[Closed]\(クローズ済み\) オプションを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){%- else %}![[Closed]\(クローズ済み\) オプションを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-closed.png){%- endif %}
+1. 表示または更新するアラートをクリックします。
 
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
-   {%- else %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
-2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
+   {%- ifversion dependabot-bulk-alerts %}![強調表示された dependabot アラートを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){%- else %}![強調表示された dependabot アラートを示すスクリーンショット](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){%- endif %}
+2. 必要に応じて、却下されたアラートを再度開く場合は、 **[Reopen]** をクリックします。 既に修正されたアラートをもう一度開くことはできません。
 
-   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
-   ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}![[Reopen]\(もう一度開く\) ボタンを示すスクリーンショット](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
 
-### Reopening multiple alerts at once
+### 一度に複数のアラートをもう一度開く
 
-1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen.
-   ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
-3. Optionally, at the top of the list of alerts, select all closed alerts on the page.
-   ![Screenshot of closed alerts with all alerts selected](/assets/images/help/graphs/select-all-closed-alerts.png)
-4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
-   ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
+1. クローズされた {% data variables.product.prodname_dependabot_alerts %} を表示します。 詳しい情報については、「[クローズされたアラートの表示と更新](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)」 (上記) を参照してください。
+2. 各アラートのタイトルの左側で、もう一度開くアラートを選びます。
+   ![チェックボックスが強調表示されている、クローズされたアラートのスクリーンショット](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. 必要に応じて、アラートの一覧の上部で、ページ上のすべてのクローズされたアラートを選びます。
+   ![すべてのアラートが選択された、クローズされたアラートのスクリーンショット](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. **[再度開く]** をクリックして、アラートをもう一度開きます。 既に修正されたアラートをもう一度開くことはできません。
+   ![[再度開く] ボタンが強調表示されている、クローズされたアラートのスクリーンショット](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}
+
+ 
+## {% data variables.product.prodname_dependabot_alerts %} の監査ログの確認
+
+組織{% ifversion not fpt %}またはエンタープライズ{% endif %}のメンバーが {% data variables.product.prodname_dependabot_alerts %} に関連するアクションを実行した場合は、監査ログでそのアクションを確認できます。 ログへのアクセスについて詳しくは、[組織の監査ログの確認](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)に関するページ{% ifversion not fpt %}と「[エンタープライズの監査ログにアクセスする](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」を参照してください。{% else %}。{% endif %} {% ifversion dependabot-alerts-audit-log %}
+
+![Dependabot アラートを示す監査ログのスクリーンショット](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
+
+{% data variables.product.prodname_dependabot_alerts %} に関する監査ログのイベントには、だれがアクションを実行したか、何のアクションか、いつアクションを実行したか、などの詳細が含まれます。 {% ifversion dependabot-alerts-audit-log %}イベントには、アラート自体へのリンクも含まれます。 組織のメンバーがアラートを無視すると、イベントには無視の理由とコメントが表示されます。{% endif %}{% data variables.product.prodname_dependabot_alerts %} アクションについて詳しくは、「[組織の監査ログの確認](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions)」{% ifversion not fpt %}と「[エンタープライズの監査ログ イベント](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)」{% else %}{% endif %}の `repository_vulnerability_alert` カテゴリを参照してください。

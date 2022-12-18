@@ -1,6 +1,6 @@
 ---
-title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+title: GitHub アカウントに GPG キーを追加する
+intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} で新しい (または既存の) GPG キーを使用するようにアカウントを構成するには、アカウントのキーも必要です。'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -19,54 +19,55 @@ topics:
   - Identity
   - Access management
 shortTitle: Add a GPG key
+ms.openlocfilehash: db832d4e02ea5f19303b3178fb669967238e661b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147369341'
 ---
+## アカウントへの GPG キーの追加について
 
-## About addition of GPG keys to your account
+{% data variables.product.product_name %} でアカウントに関連付けられているコミットに署名するには、個人アカウントに公開 GPG キーを追加します。 キーを追加する前に、既存のキーを確認する必要があります。 既存のキーが見つからない場合は、新しいキーを生成してコピーできます。 詳しい情報については、「[既存の GPG キーの確認](/articles/checking-for-existing-gpg-keys)」と「[新しい GPG キーを生成する](/articles/generating-a-new-gpg-key)」を参照してください。
 
-To sign commits associated with your account on {% data variables.product.product_name %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)" and "[Generating a new GPG key](/articles/generating-a-new-gpg-key)."
+{% data variables.product.product_name %} でアカウントに複数の公開キーを追加できます。 対応する秘密キーのいずれかによって署名されたコミットは、検証済みとして表示されます。 公開キーを削除すると、対応する秘密キーによって署名されたコミットは検証済みとして表示されなくなります。
 
-You can add multiple public keys to your account on {% data variables.product.product_name %}. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+{% ifversion upload-expired-or-revoked-gpg-key %} できるだけ多くのコミットを検証するために、期限切れキーと取り消されたキーを追加できます。 キーが他のすべての検証要件を満たしている場合、対応する秘密キーのいずれかによって以前に署名されたコミットは検証済みとして表示され、署名キーが期限切れか、取り消されたことを示します。
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
-
-![A verified commit whose key expired](/assets/images/help/settings/gpg-verified-with-expired-key.png)
-{% endif %}
+![キーの有効期限が切れている検証済みコミット](/assets/images/help/settings/gpg-verified-with-expired-key.png) {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, {% data variables.product.product_name %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.product_name %}. Until a matching GPG key is added to {% data variables.product.product_name %}, it cannot verify your signatures.
+署名を検証する際、{% data variables.product.product_name %} によって、署名が抽出され、そのキー ID の解析が試みられます。 次に、キー ID が、{% data variables.product.product_name %} に追加されたキーと照合されます。 一致する GPG キーが {% data variables.product.product_name %} に追加されるまで、署名を検証することはできません。
 
-## Adding a GPG key
+## GPG キーの追加
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. **[新しい GPG キー]** をクリックします。
+   ![GPG キー ボタン](/assets/images/help/settings/gpg-add-gpg-key.png)
+4. "キー" フィールドに、[GPG キーを生成](/articles/generating-a-new-gpg-key)したときにコピーした GPG キーを貼り付けます。
+   ![キー フィールド](/assets/images/help/settings/gpg-key-paste.png)
+5. **[GPG キーの追加]** をクリックします。
+   ![[キーの追加] ボタン](/assets/images/help/settings/gpg-add-key.png)
+6. 処理を確認するには、{% data variables.product.product_name %}のパスワードを入力します。
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-{% else %}
-## Updating an expired GPG key
+{% ifversion upload-expired-or-revoked-gpg-key %} {% else %}
+## 期限切れ GPG キーを更新する
 
-When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.
+署名を検証するとき、{% data variables.product.product_name %} は、キーが取り消しまたは期限切れになっていないか確認します。 もしサインインのキーが取り消しまたは期限切れになっている場合、{% data variables.product.product_name %} は、お客様の署名を検証できません。
 
-If your key is expired, you must [update its expiration](https://www.gnupg.org/gph/en/manual.html#AEN329), export the new key, delete the expired key in your account on {% data variables.product.product_name %}, and add the new key to your account as described above. Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.
+キーの有効期限が切れている場合は、[有効期限を更新](https://www.gnupg.org/gph/en/manual.html#AEN329)し、新しいキーをエクスポートし、{% data variables.product.product_name %} でアカウントの期限切れキーを削除し、上記の方法で新しいキーをアカウントに追加する必要があります。 キーが他のすべての検証の要件を満たしている限り、過去のコミットとタグは、検証済みとして表示されます。
 
-If your key is revoked, use the primary key or another key that is not revoked to sign your commits.
+キーが取り消されている場合、プライマリーまたは取り消されていない他のキーを使って、コミットに署名します。
 
-If your key is invalid and you don't use another valid key in your key set, but instead generate a new GPG key with a new set of credentials, then your commits made with the revoked or expired key will continue to show as unverified. Also, your new credentials will not be able to re-sign or verify your old commits and tags.
+キーが無効でキーセットに他に有効なキーを所有していないが、新しいクレデンシャルのセットで新しい GPG キーを作成した場合、取り消されたまたは期限切れのキーで作成されたコミットは、未検証として表示され続けます。 また、新しい資格情報で古いコミットとタグを再署名または検証することはできなくなります。
 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits and tags using GPG keys](/articles/signing-commits-and-tags-using-gpg)"
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
+- 「[既存の GPG キーの確認](/articles/checking-for-existing-gpg-keys)」
+- 「[新しい GPG キーを生成する](/articles/generating-a-new-gpg-key)」
+- 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
+- 「[GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)」
+- [GPG キーを使ったコミットとタグへの署名](/articles/signing-commits-and-tags-using-gpg)に関する記事
+- 「[コミット署名の検証について](/articles/about-commit-signature-verification)」

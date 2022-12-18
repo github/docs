@@ -5,12 +5,12 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
-ms.openlocfilehash: e1c1abed5ce4ebf82c19b29fef9a005fbe4c7a02
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 408126833cbf7fa8cd4a71d172f6550e82f795a2
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106851'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185167'
 ---
 ## 关于将 LMS 注册到课堂
 
@@ -63,8 +63,8 @@ ms.locfileid: '148106851'
    - “颁发者标识符”：`https://canvas.instructure.com`
    - “域”：画布实例的基 URL
    - “客户端 ID”：创建的开发人员密钥中“详细信息”下的“客户端 ID”
-   - “OIDC 授权终结点”：Canvas 实例的基 URL，其末尾添加了 `/login/oauth2/token`。
-   - “OAuth 2.0 令牌检索 URL”：Canvas 实例的基 URL，其末尾添加了 `/api/lti/authorize_redirect`。
+   - “OIDC 授权终结点”：Canvas 实例的基 URL，其末尾添加了 `/api/lti/authorize_redirect`。
+   - “OAuth 2.0 令牌检索 URL”：Canvas 实例的基 URL，其末尾添加了 `/login/oauth2/token`。
    - “密钥集 UEL”：Canvas 实例的基 URL，其末尾添加了 `/api/lti/security/jwks`。
 
   ![使用 GitHub Classroom 注册 Canvas 实例](/assets/images/help/classroom/register-canvas-with-github-classroom.png)

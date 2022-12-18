@@ -1,21 +1,21 @@
 ---
 title: Жизненный цикл codespace
-intro: 'Вы можете разрабатывать в среде {% data variables.product.prodname_github_codespaces %} и поддерживать данные на протяжении всего жизненного цикла codespace.'
+intro: Вы можете разрабатывать в среде {% data variables.product.prodname_github_codespaces %} и поддерживать данные на протяжении всего жизненного цикла codespace.
 versions:
   fpt: '*'
   ghec: '*'
 type: overview
 topics:
-  - Codespaces
-  - Developer
+- Codespaces
+- Developer
 redirect_from:
-  - /codespaces/developing-in-codespaces/codespaces-lifecycle
-ms.openlocfilehash: bf3174d3a2a91db5a817d2d7298e3ffae229e9bb
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+- /codespaces/developing-in-codespaces/codespaces-lifecycle
+ms.openlocfilehash: 660ced63e34c6de8025c65946542baca43534cfe
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160263'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180798"
 ---
 ## Сведения о жизненном цикле пространства кода
 
@@ -45,25 +45,9 @@ ms.locfileid: '148160263'
 
 ## Перестроение пространства кода
 
-Вы можете перестроить пространство кода, чтобы восстановить исходное состояние, как если бы вы создали новое пространство кода. В большинстве случаев вместо перестроения пространства кода можно просто создать новое пространство кода. Скорее всего, вы перестроите codespace для реализации изменений в конфигурации контейнера разработки. При перестроении пространства кода все контейнеры Docker, образы, тома и кэши очищаются, а затем пространство кода перестраивается.
+Вы можете перестроить codespace, чтобы реализовать изменения в конфигурации контейнера разработки. В большинстве случаев вместо перестроения пространства кода можно просто создать новое пространство кода. По умолчанию при перестроении codespace {% data variables.product.prodname_github_codespaces %} будет повторно использовать образы из кэша, чтобы ускорить процесс перестроения. Кроме того, можно выполнить полную перестройку, которая очищает кэш и перестраивает контейнер со свежими образами.
 
-Если вам нужно сохранить какие-либо из этих данных, можно создать в нужном расположении в контейнере символьную ссылку на постоянный каталог. Например, в каталоге `.devcontainer` можно создать каталог `config`, который будет сохранен при перестроении. Затем вы можете связать символьной ссылкой каталог `config` и его содержимое как `postCreateCommand` в файле `devcontainer.json`.
-
-```json  
-{
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
-    "postCreateCommand": ".devcontainer/postCreate.sh"
-}
-```
-
-В приведенном ниже примере файла `postCreate.sh` содержимое каталога `config` связано символической ссылкой с домашним каталогом.
-
-```bash
-#!/bin/bash
-ln -sf $PWD/.devcontainer/config $HOME/config && set +x
-```
-
-Дополнительные сведения см. в статье [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).
+Дополнительные сведения см. в разделах [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace) и [Выполнение полной перестройки контейнера](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container).
 
 ## Остановка пространства кода
 

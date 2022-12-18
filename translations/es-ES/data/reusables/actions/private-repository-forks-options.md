@@ -1,4 +1,12 @@
-- **Run workflows from fork pull requests** - Allows users to run workflows from fork pull requests, using a `GITHUB_TOKEN` with read-only permission, and with no access to secrets.
-- **Send write tokens to workflows from pull requests** - Allows pull requests from forks to use a `GITHUB_TOKEN` with write permission.
-- **Send secrets to workflows from pull requests** - Makes all secrets available to the pull request.{% ifversion actions-private-fork-workflow-approvals %}
-- **Require approval for fork pull request workflows** - Workflow runs on pull requests from collaborators without write permission will require approval from someone with write permission before they will run.{% endif %}
+---
+ms.openlocfilehash: d9874c3884e3191a0296272fbead8f30b7630e5a
+ms.sourcegitcommit: fdc4466e89467a7b13239e26c6042dc1428946b6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163837"
+---
+- **Ejecutar flujos de trabajo desde solicitudes de incorporación de cambios de bifurcación**: permite a los usuarios ejecutar flujos de trabajo desde solicitudes de incorporación de cambios de bifurcación, utilizando un `GITHUB_TOKEN` con permiso de solo lectura y sin acceso a secretos.
+- **Enviar tokens de escritura a flujos de trabajo desde solicitudes de incorporación de cambios**: permite que las solicitudes de incorporación de cambios de bifurcaciones usen un `GITHUB_TOKEN` con permiso de escritura.
+- **Enviar secretos a flujos de trabajo desde solicitudes de incorporación de cambios**: hace que todos los secretos estén disponibles para la solicitud de incorporación de cambios.{% ifversion actions-private-fork-workflow-approvals %}
+- **Requerir aprobación para flujos de trabajo de solicitud de incorporación de cambios de bifurcación**: las ejecuciones de flujo de trabajo en solicitudes de incorporación de cambios de colaboradores sin permiso de escritura requerirá la aprobación de alguien con permiso de escritura antes de que se ejecuten. {% endif %}

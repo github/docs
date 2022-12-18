@@ -7,12 +7,12 @@ permissions: 'Organization owners who are admins for a classroom can create and 
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
-ms.openlocfilehash: ef1db8e95be1e35ae747f5a42d1105205980af32
-ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
+ms.openlocfilehash: 71c5f5eaf97ba58e25921c1e2be6fc638550dfa8
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/15/2022
-ms.locfileid: '148046493'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179763'
 ---
 ## Сведения о групповых заданиях
 
@@ -79,6 +79,8 @@ ms.locfileid: '148046493'
 ![Параметры для команд, участвующих в групповом задании](/assets/images/help/classroom/assignments-define-teams.png)
 
 ### Выбор видимости для репозиториев задания
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
@@ -157,5 +159,5 @@ ms.locfileid: '148046493'
 ## Дополнительные материалы
 
 - [{% data variables.product.prodname_global_campus %} для преподавателей](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- "[Подключение системного курса по управлению обучением к аудитории](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
+- "[Подключение курса системы управления обучением к аудитории](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
 - [Использование существующих команд в групповых заданиях](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) в сообществе {% data variables.product.prodname_education %}

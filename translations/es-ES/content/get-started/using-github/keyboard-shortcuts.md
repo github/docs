@@ -1,6 +1,6 @@
 ---
-title: Keyboard shortcuts
-intro: 'Nearly every page on {% data variables.product.prodname_dotcom %} has a keyboard shortcut to perform actions faster.'
+title: Accesos directos del teclado
+intro: 'Prácticamente, todas las páginas de {% data variables.product.prodname_dotcom %} tienen métodos abreviados de teclado para realizar acciones más rápido.'
 redirect_from:
   - /articles/using-keyboard-shortcuts
   - /categories/75/articles
@@ -13,233 +13,217 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: ad75d2afe5750ee2596d2695334ab5c7101aee79
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180781'
 ---
-## About keyboard shortcuts
+## Acerca de los atajos del teclado
 
-Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
+Al escribir <kbd>?</kbd> en {% data variables.product.prodname_dotcom %} se abre un cuadro de diálogo en el que se enumeran los métodos abreviados de teclado disponibles para esa página. Puedes aprovechar estos atajos del teclado para realizar acciones en todo el sitio sin recurrir al mouse para navegar.
 
-{% ifversion keyboard-shortcut-accessibility-setting %}
-You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)."{% endif %}
+{% ifversion keyboard-shortcut-accessibility-setting %} Puedes deshabilitar los métodos abreviados de teclado de teclas de caracteres, a la vez que permites los que usan teclas modificadores en la configuración de accesibilidad. Para más información, vea "[Administración de la configuración de accesibilidad](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)".{% endif %}
 
-Below is a list of some of the available keyboard shortcuts.
-{% ifversion command-palette %}
-The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+{% ifversion command-palette %} En {% data variables.product.prodname_command_palette %}, también se proporciona acceso rápida a una amplia variedad de acciones, sin necesidad de recordar los métodos abreviados de teclado. Para más información, vea "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 
-## Site wide shortcuts
+En las secciones siguientes se enumeran algunos de los métodos abreviados de teclado disponibles, organizados por las páginas donde puedes usarlos en {% data variables.location.product_location %}.
 
-| Keyboard shortcut | Description
+## Atajos en todo el sitio
+
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-|<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
-|<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
-{% ifversion command-palette %}|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+|<kbd>S</kbd> o <kbd>/</kbd> | Se concentra en la barra de búsqueda. Para más información, vea "[Acerca de la búsqueda en {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".
+|<kbd>G</kbd> <kbd>N</kbd> | Dirige a tus notificaciones. Para más información, vea "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)".
+|<kbd>Esc</kbd> | Cuando se concentra en la hovercard de un usuario, de una propuesta o de una solicitud de extracción, se cierra la hovercard y se vuelve a centrar en el elemento en el que está la hovercard
+{% ifversion command-palette %}|<kbd>Comando</kbd>+<kbd>K</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Abre la {% data variables.product.prodname_command_palette %}. Si va a editar texto de Markdown, abra la paleta de comandos con <kbd>Comando</kbd>+<kbd>Opción</kbd>+<kbd>K</kbd> o <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. Para más información, vea "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 
-## Repositories
+## Repositorios
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>G</kbd> <kbd>C</kbd> | Go to the **Code** tab
-|<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
-|<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
-|<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
-|<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
-|<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
-|<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
+|<kbd>G</kbd> <kbd>C</kbd> | Ir a la pestaña **Código**
+|<kbd>G</kbd> <kbd>I</kbd> | Ir a la pestaña **Incidencias**. Para más información, vea "[Acerca de las incidencias](/articles/about-issues)".
+|<kbd>G</kbd> <kbd>P</kbd> | Ir la pestaña **Solicitudes de incorporación de cambios**. Para más información, vea "[Acerca de las solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".{% ifversion fpt or ghes or ghec %}
+|<kbd>G</kbd> <kbd>A</kbd> | Ir a la pestaña **Acciones**. Para más información, vea "[Acerca de las acciones](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
+|<kbd>G</kbd> <kbd>B</kbd> | Ir a la pestaña **Proyectos**. Para más información, vea "[Acerca de los paneles de proyecto](/articles/about-project-boards)".
+|<kbd>G</kbd> <kbd>W</kbd> | Ir a la pestaña **Wiki**. Para obtener más información, consulta "[Acerca de las wikis](/communities/documenting-your-project-with-wikis/about-wikis)".{% ifversion discussions %}
+|<kbd>G</kbd> <kbd>G</kbd> | Ir a la pestaña **Debates**. Para más información, vea "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".{% endif %}
 
-## Source code editing
+## Edición del código fuente
 
-| Keyboard shortcut | Description
-|-----------|------------{% ifversion fpt or ghec %}
-|<kbd>.</kbd> | Opens a repository or pull request in the web-based editor in the same browser tab. You must be signed in to use the editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."
-|<kbd>></kbd> | Opens a repository or pull request in the web-based editor in a new browser tab. You must be signed in to use the editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
-|<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
-|<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote{% endif %}
-|<kbd>E</kbd> | Open source code file in the **Edit file** tab
-|<kbd>Command</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) | Start searching in file editor
-|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Find next
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> (Windows/Linux) | Find previous
-|<kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> (Windows/Linux) | Replace
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Windows/Linux) | Replace all
-|<kbd>Alt</kbd>+<kbd>G</kbd> | Jump to line
-|<kbd>Command</kbd>+<kbd>Z</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Z</kbd> (Windows/Linux) | Undo
-|<kbd>Command</kbd>+<kbd>Y</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Y</kbd> (Windows/Linux) | Redo
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
-|<kbd>Command</kbd>+<kbd>S</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>S</kbd> (Windows/Linux) | Write a commit message
+| Método abreviado de teclado | Descripción |-----------|------------{% ifversion fpt or ghec %} |<kbd>.</kbd> | Abre un repositorio o una solicitud de incorporación de cambios en el editor basado en web en la misma pestaña del explorador. Debes haber iniciado sesión para usar el editor. Para obtener más información, consulta "[Editor basado en web](/codespaces/developing-in-codespaces/web-based-editor)".
+|<kbd>></kbd>| Abre un repositorio o una solicitud de incorporación de cambios en el editor basado en web en una pestaña nueva del explorador. Debes haber iniciado sesión para usar el editor. Para más información, vea "[Editor basado en web](/codespaces/developing-in-codespaces/web-based-editor)".{% endif %} |<kbd>Comando</kbd>+<kbd>B</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserta formato de Markdown para texto en negrita |<kbd>Comando</kbd>+<kbd>I</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserta formato de Markdown para texto en cursiva |<kbd>Comando</kbd>+<kbd>K</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) Inserta formato de Markdown para crear un vínculo{% ifversion fpt or ghec or ghae or ghes > 3.3 %}|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>7</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserta formato de Markdown para una lista ordenada |<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>8</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserta formato de Markdown para una lista sin ordenar |<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>.</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserta formato de Markdown para una cita{% endif %} |<kbd>E</kbd> | Abrir el archivo de código fuente en la pestaña **Editar archivo** |<kbd>Comando</kbd>+<kbd>F</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) | Iniciar la búsqueda en el editor de archivos |<kbd>Comando</kbd>+<kbd>G</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Buscar siguiente |<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>G</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>G</kbd> (Windows/Linux) | Buscar siguiente |<kbd>Comando</kbd>+<kbd>Opción</kbd>+<kbd>F</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>F</kbd> (Windows/Linux) | Reemplazar |<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>Opción</kbd>+<kbd>F</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>R</kbd> (Windows/Linux) | Reemplazar todo |<kbd>Alt</kbd>+<kbd>G</kbd> | Ir a la línea |<kbd>Comando</kbd>+<kbd>Z</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Z</kbd> (Windows/Linux) | Deshacer |<kbd>Comando</kbd>+<kbd>Y</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Y</kbd> (Windows/Linux) | Rehacer |<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>P</kbd> | Alterna entre las pestañas **Editar archivo** y **Vista previa de los cambios** |<kbd>Comando</kbd>+<kbd>S</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>S</kbd> (Windows/Linux) | Escribir un mensaje de confirmación
 
-For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
+Para obtener más métodos abreviados de teclado, vea la [documentación de CodeMirror](https://codemirror.net/doc/manual.html#commands).
 
-## Source code browsing
+## Exploración del código fuente
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>T</kbd> | Activates the file finder
-|<kbd>L</kbd> | Jump to a line in your code
-|<kbd>W</kbd> | Switch to a new branch or tag
-|<kbd>Y</kbd> | Expand a URL to its canonical form. For more information, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
-|<kbd>I</kbd> | Show or hide comments on diffs. For more information, see "[Commenting on the diff of a pull request](/articles/commenting-on-the-diff-of-a-pull-request)."
-|<kbd>A</kbd> | Show or hide annotations on diffs
-|<kbd>B</kbd> | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."
+|<kbd>T</kbd> | Activa el buscador de archivos
+|<kbd>L</kbd> | Salta a una línea de tu código
+|<kbd>W</kbd> | Cambia a una rama o etiqueta nueva
+|<kbd>S</kbd> | Expande una URL a su forma canónica. Para más información, vea "[Obtención de vínculos permanentes en archivos](/articles/getting-permanent-links-to-files)".
+|<kbd>I</kbd> | Muestra u oculta comentarios en diferencias. Para más información, vea "[Comentarios sobre la diferencia de una solicitud de incorporación de cambios](/articles/commenting-on-the-diff-of-a-pull-request)".
+|<kbd>A</kbd> | Muestra u oculta las anotaciones en los diffs
+|<kbd>B</kbd> | Abre la visualización del último responsable. Para más información, vea "[Seguimiento de cambios en un archivo](/articles/tracing-changes-in-a-file)".
 
-## Comments
+## Comentarios
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
-|<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
-|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae > 3.3 or ghes or ghec %}
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
-|<kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Creates a Markdown link when applied over highlighted text{% endif %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list
-|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Submits a comment
-|<kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote{% ifversion fpt or ghec %}
-|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
-|<kbd>R</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
+|<kbd>Comando</kbd>+<kbd>B</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserta el formato Markdown para el texto en negrita
+|<kbd>Comando</kbd>+<kbd>I</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserta el formato Markdown para el texto en cursiva
+|<kbd>Comando</kbd>+<kbd>E</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserta formato de Markdown para el código o un comando dentro de una línea{% ifversion fpt or ghae > 3.3 or ghes or ghec %}.
+|<kbd>Comando</kbd>+<kbd>K</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserta formato de Markdown para crear un vínculo{% endif %}{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}.
+|<kbd>Comando</kbd>+<kbd>V</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Crea un vínculo de Markdown cuando se aplica sobre texto resaltado{% endif %}
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>P</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>P</kbd> (Windows/Linux) | Alterna entre las pestañas de comentarios **Escribir** y **Vista previa**{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
+|<kbd>Command</kbd>+<kbd>Mayús</kbd>+<kbd>V</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>V</kbd> (Windows/Linux) | Pega el vínculo HTML como texto sin formato{% endif %}.
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>Opción</kbd>+<kbd>V</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pega el vínculo HTML como texto sin formato.
+|<kbd>Command</kbd>+<kbd>Mayús</kbd>+<kbd>7</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserta formato de lenguaje de marcado para una lista ordenada
+|<kbd>Command</kbd>+<kbd>Mayús</kbd>+<kbd>8</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserta formato de Markdown para una lista sin ordenar.
+|<kbd>Command</kbd>+<kbd>Entrar</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Entrar</kbd> (Windows/Linux) | Envía un comentario
+|<kbd>Ctrl</kbd>+ <kbd>.</kbd> y, después, <kbd>Ctrl</kbd>+<kbd>[número de respuesta guardado]</kbd> | Abre el menú de respuestas guardadas y luego completa automáticamente el campo de comentarios con una respuesta guardada. Para más información, vea "[Acerca de las respuestas guardadas](/articles/about-saved-replies)".
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>.</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserta formato de Markdown para una cita{% ifversion fpt or ghec %}
+|<kbd>Comando</kbd>+<kbd>G</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Inserta una sugerencia. Para más información, vea "[Revisión de los cambios propuestos en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)". |{% endif %}
+|<kbd>R</kbd> | Cita el texto seleccionado en tu respuesta. Para más información, vea "[Sintaxis básica de escritura y formato](/articles/basic-writing-and-formatting-syntax#quoting-text)". |
 
-## Issue and pull request lists
+## Listas de propuestas y solicitudes de extracción
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>C</kbd> | Create an issue
-|<kbd>Command</kbd>+<kbd>/</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>/</kbd> (Windows/Linux) | Focus your cursor on the issues or pull requests search bar. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."||
-|<kbd>U</kbd> | Filter by author
-|<kbd>L</kbd> | Filter by or edit labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
-|<kbd>Alt</kbd> and click | While filtering by labels, exclude labels. For more information, see "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)."
-|<kbd>M</kbd> | Filter by or edit milestones. For more information, see "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)."
-|<kbd>A</kbd> | Filter by or edit assignee. For more information, see "[Filtering issues and pull requests by assignees](/articles/filtering-issues-and-pull-requests-by-assignees)."
-|<kbd>O</kbd> or <kbd>Enter</kbd> | Open issue
+|<kbd>C</kbd> | Crear un problema
+|<kbd>Comando</kbd>+<kbd>/</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>/</kbd> (Windows/Linux) | Hace que el cursor se concentre en la barra de propuestas o solicitudes de respuesta. Para más información, vea "[Filtrado y búsqueda de incidencias y solicitudes de incorporación de cambios](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)".||
+|<kbd>U</kbd> | Filtra por autor
+|<kbd>L</kbd> | Filtra por etiquetas o edita etiquetas. Para más información, vea "[Filtrado de incidencias y solicitudes de incorporación de cambios por etiquetas](/articles/filtering-issues-and-pull-requests-by-labels)".
+|<kbd>Alt</kbd> y clic | Al filtrar por etiquetas, excluye etiquetas. Para más información, vea "[Filtrado de incidencias y solicitudes de incorporación de cambios por etiquetas](/articles/filtering-issues-and-pull-requests-by-labels)".
+|<kbd>M</kbd> | Filtra por hitos o edita hitos. Para más información, vea "[Filtrado de incidencias y solicitudes de incorporación de cambios por hito](/articles/filtering-issues-and-pull-requests-by-milestone)".
+|<kbd>A</kbd> | Filtra por asignatario s o edita asignatarios. Para más información, vea "[Filtrado de incidencias y solicitudes de incorporación de cambios por usuarios asignados](/articles/filtering-issues-and-pull-requests-by-assignees)".
+|<kbd>O</kbd> o <kbd>Entrar</kbd> | Propuesta abierta
 
-## Issues and pull requests
-| Keyboard shortcut | Description
+## Propuestas y solicitudes de extracción
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Q</kbd> | Request a reviewer. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review/)."
-|<kbd>M</kbd> | Set a milestone. For more information, see "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)."
-|<kbd>L</kbd> | Apply a label. For more information, see "[Applying labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests/)."
-|<kbd>A</kbd> | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)."
-|<kbd>X</kbd> | Link an issue or pull request from the same repository. For more information, see "[Linking a pull request to an issue](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue/)."
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** tabs{% ifversion fpt or ghec %}
-|<kbd>Alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>Alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
-|<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
-|<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
+|<kbd>Q</kbd> | Solicita un revisor. Para más información, vea "[Solicitud de la revisión de una solicitud de incorporación de cambios](/articles/requesting-a-pull-request-review/)".
+|<kbd>M</kbd> | Establece un hito. Para más información, vea "[Asociación de hitos con incidencias y solicitudes de incorporación de cambios](/articles/associating-milestones-with-issues-and-pull-requests/)".
+|<kbd>L</kbd> | Aplica una etiqueta. Para más información, vea "[Aplicación de etiquetas a incidencias y solicitudes de incorporación de cambios](/articles/applying-labels-to-issues-and-pull-requests/)".
+|<kbd>A</kbd> | Establece un asignatario. Para más información, vea "[Asignación de incidencias y solicitudes de incorporación de cambios a otros usuarios de {% data variables.product.company_short %} ](/articles/assigning-issues-and-pull-requests-to-other-github-users/)".
+|<kbd>X</kbd> | Vincula una propuesta o solicitud de cambios desde el mismo repositorio. Para más información, vea "[Vinculación de una solicitud de incorporación de cambios a una incidencia](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue/)".
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>P</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>P</kbd> (Windows/Linux) | Alterna entre las pestañas **Escribir** y **Vista previa**{% ifversion fpt or ghec %}
+|<kbd>Alt</kbd> y clic | Al crear una incidencia desde una lista de tareas, mantenga presionada la tecla <kbd>Alt</kbd> y haga clic en {% octicon "issue-opened" aria-label="The issue opened icon" %} en la esquina superior derecha de la tarea para abrir el formulario de nueva incidencia en la pestaña actual. Para más información, vea "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+|<kbd>Mayús</kbd> y clic | Al crear una incidencia desde una lista de tareas, mantenga presionada la tecla <kbd>Mayús</kbd> y haga clic en {% octicon "issue-opened" aria-label="The issue opened icon" %} en la esquina superior derecha de la tarea para abrir el formulario de nueva incidencia en una pestaña nueva. Para más información, vea "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+|<kbd>Comando</kbd> y clic (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd> y clic (Windows/Linux) | Al crear una incidencia desde una lista de tareas, mantenga presionadas la teclas <kbd>Comando</kbd> o <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>, y haga clic en {% octicon "issue-opened" aria-label="The issue opened icon" %} en la esquina superior derecha de la tarea para abrir el formulario de nueva incidencia en la nueva ventana. Para más información, vea "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".{% endif %}
 
-## Changes in pull requests
+## Pestaña "Archivos cambiados" en las solicitudes de incorporación de cambios
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>C</kbd> | Open the list of commits in the pull request
-|<kbd>T</kbd> | Open the list of changed files in the pull request
-|<kbd>J</kbd> | Move selection down in the list
-|<kbd>K</kbd> | Move selection up in the list
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Add a single comment on a pull request diff |
-|<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|
-|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|
+|<kbd>C</kbd> | Abre el menú desplegable **Confirmaciones** para filtrar qué confirmaciones se muestran en las diferencias.
+|<kbd>T</kbd> | Mueve el cursor al campo "Filtrar archivos modificados"
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>Entrar</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>Entrar</kbd> (Windows/Linux) | Envíe un comentario de revisión |
+|<kbd>Opción</kbd> y haga clic en (Mac) o <kbd>Alt</kbd> y haga clic (Windows/Linux) | Para alternar entre contraer y expandir todos los comentarios de revisión obsoletos o resueltos en una solicitud de incorporación de cambios, (por ejemplo, manteniendo presionada la tecla <kbd>Alt</kbd> y haz clic en **Mostrar obsoleto** u **Ocultar obsoleto**) |
+|Clic y después, <kbd>Mayús</kbd> y clic | Para realizar comentarios en varias líneas de una solicitud de incorporación de cambios, haga clic en un número de línea, mantenga presionada la tecla <kbd>Mayús</kbd> y, después, haga clic en otro número de línea. Para más información, vea "[Comentarios en una solicitud de incorporación de cambios](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)".|
 
 {% ifversion projects-v2 %}
 
 ## {% data variables.projects.projects_v2_caps %}
 
-### Navigating a project
+### Navegación por un proyecto
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
-|<kbd>←</kbd> | Move cell focus to the left
-|<kbd>→</kbd> | Move cell focus to the right
-|<kbd>↑</kbd> | Move cell focus up
-|<kbd>↓</kbd> | Move cell focus down
+|<kbd>Comando</kbd>+<kbd>f</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Campo de filtro de enfoque
+|<kbd>←</kbd> | Mover el enfoque sobre la celda a la izquierda
+|<kbd>→</kbd> | Mover el enfoque sobre la celda a la derecha
+|<kbd>↑</kbd> | Mover el enfoque sobre la celda hacia arriba
+|<kbd>↓</kbd> | Mover el enfoque sobre la celda hacia abajo
 
-### Manipulating a project
+### Manipulación de un proyecto
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Enter</kbd> | Toggle edit mode for the focused cell
-|<kbd>Escape</kbd> | Cancel editing for the focused cell
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
-|<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
-|<kbd>Space</kbd> | Open selected item
-|<kbd>e</kbd> | Archive selected items
+|<kbd>Entrar</kbd> | Alternar el modo de edición de la celda enfocada
+|<kbd>Escape</kbd> | Cancelar la edición de la celda enfocada
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>\</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>\</kbd> (Windows/Linux) | Abrir el menú de acciones de fila
+|<kbd>Mayúsculas</kbd>+<kbd>Espacio</kbd> | Seleccionar elemento
+|<kbd>Espacio</kbd> | Abrir elemento seleccionado
+|<kbd>e</kbd> | Archivar elementos seleccionados
 
 {% endif %}
 
 ## {% data variables.product.prodname_projects_v1_caps %}
 
-### Moving a column
+### Mover una columna
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Enter</kbd> or <kbd>Space</kbd> | Start moving the focused column
-|<kbd>Esc</kbd> | Cancel the move in progress
-|<kbd>Enter</kbd> | Complete the move in progress
-|<kbd>←</kbd> or <kbd>H</kbd> | Move column to the left
-|<kbd>Command</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Move column to the leftmost position
-|<kbd>→</kbd> or <kbd>L</kbd> | Move column to the right
-|<kbd>Command</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Move column to the rightmost position
+|<kbd>Entrar</kbd> o <kbd>Espacio</kbd> | Comienza a mover la columna enfocada
+|<kbd>Esc</kbd> | Cancela el movimiento en curso
+|<kbd>Entrar</kbd> | Completa el movimiento en curso
+|<kbd>←</kbd> o <kbd>H</kbd> | Mueve la columna hacia la izquierda
+|<kbd>Comando</kbd>+<kbd>←</kbd> o <kbd>Comando</kbd>+<kbd>H</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> o <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Mueve la columna hacia la posición más a la izquierda
+|<kbd>→</kbd> o <kbd>L</kbd> | Mueve la columna hacia la derecha
+|<kbd>Comando</kbd>+<kbd>→</kbd> o <kbd>Comando</kbd>+<kbd>L</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> o <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Mueve la columna hacia la posición más a la derecha
 
-### Moving a card
+### Mover una tarjeta
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Enter</kbd> or <kbd>Space</kbd> | Start moving the focused card
-|<kbd>Esc</kbd> | Cancel the move in progress
-|<kbd>Enter</kbd> | Complete the move in progress
-|<kbd>↓</kbd> or <kbd>J</kbd> | Move card down
-|<kbd>Command</kbd>+<kbd>↓</kbd> or <kbd>Command</kbd>+<kbd>J</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> or <kbd>Ctrl</kbd>+<kbd>J</kbd> (Windows/Linux) | Move card to the bottom of the column
-|<kbd>↑</kbd> or <kbd>K</kbd> | Move card up
-|<kbd>Command</kbd>+<kbd>↑</kbd> or <kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Move card to the top of the column
-|<kbd>←</kbd> or <kbd>H</kbd> | Move card to the bottom of the column on the left
-|<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Shift</kbd>+<kbd>H</kbd> | Move card to the top of the column on the left
-|<kbd>Command</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Move card to the bottom of the leftmost column
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>←</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | Move card to the top of the leftmost column
-|<kbd>→</kbd> | Move card to the bottom of the column on the right
-|<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Shift</kbd>+<kbd>L</kbd> | Move card to the top of the column on the right
-|<kbd>Command</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Move card to the bottom of the rightmost column
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | Move card to the bottom of the rightmost column
+|<kbd>Entrar</kbd> o <kbd>Espacio</kbd> | Comienza a mover la tarjeta focalizada
+|<kbd>Esc</kbd> | Cancela el movimiento en curso
+|<kbd>Entrar</kbd> | Completa el movimiento en curso
+|<kbd>↓</kbd> o <kbd>J</kbd> | Mueve la tarjeta hacia abajo
+|<kbd>Comando</kbd>+<kbd>↓</kbd> o <kbd>Comando</kbd>+<kbd>J</kbd> (Mac), o </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> o <kbd>Ctrl</kbd>+<kbd>J</kbd> (Windows/Linux) | Mueve una tarjeta hacia la parte de abajo de la columna
+|<kbd>↑</kbd> o <kbd>K</kbd> | Mueve una tarjeta hacia arriba
+|<kbd>Comando</kbd>+<kbd>↑</kbd> o <kbd>Comando</kbd>+<kbd>K</kbd> (Mac), o </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> o <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Mueve una tarjeta hacia la parte de arriba de la columna
+|<kbd>←</kbd> o <kbd>H</kbd> | Mueve una tarjeta hacia la parte de abajo de la columna de la izquierda
+|<kbd>Mayús</kbd>+<kbd>←</kbd> o <kbd>Mayús</kbd>+<kbd>H</kbd> | Mueve una tarjeta hacia la parte de arriba de la columna de la izquierda
+|<kbd>Comando</kbd>+<kbd>←</kbd> o <kbd>Comando</kbd>+<kbd>H</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> o <kbd>Ctrl</kbd>+<kbd>H</kbd> (Windows/Linux) | Mueve una tarjeta hacia la parte de abajo de la columna de más a la izquierda
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>←</kbd> o <kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>H</kbd> (Mac), o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>←</kbd> o <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>H</kbd> (Windows/Linux) | Mueve una tarjeta hacia la parte de arriba de la columna de más a la izquierda
+|<kbd>→</kbd> | Mueve una tarjeta hacia la parte de abajo de la columna de la derecha
+|<kbd>Mayús</kbd>+<kbd>→</kbd> o <kbd>Mayús</kbd>+<kbd>L</kbd> | Mueve una tarjeta hacia la parte de arriba de la columna de la derecha
+|<kbd>Comando</kbd>+<kbd>→</kbd> o <kbd>Comando</kbd>+<kbd>L</kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> o <kbd>Ctrl</kbd>+<kbd>L</kbd> (Windows/Linux) | Mueve una tarjeta hacia la parte de abajo de la columna de más a la derecha
+|<kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>→</kbd> o <kbd>Comando</kbd>+<kbd>Mayús</kbd>+<kbd>L</kbd> (Mac), o </br> <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>→</kbd> o <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>L</kbd> (Windows/Linux) | Mueve una tarjeta hacia la parte de abajo de la columna de más a la derecha
 
-### Previewing a card
+### Previsualizar una tarjeta
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Esc</kbd> | Close the card preview pane
+|<kbd>Esc</kbd> | Elige el panel de vista previa de la tarjeta
 
 {% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_actions %}
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>Space </kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Space</kbd> (Windows/Linux) | In the workflow editor, get suggestions for your workflow file.
-|<kbd>G</kbd> <kbd>F</kbd> | Go to the workflow file
-|<kbd>Shift</kbd>+<kbd>T</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
-|<kbd>Shift</kbd>+<kbd>F</kbd> or <kbd>F</kbd> | Toggle full-screen logs
-|<kbd>Esc</kbd> | Exit full-screen logs
+|<kbd>Comando</kbd>+<kbd>Espacio </kbd> (Mac) o </br> <kbd>Ctrl</kbd>+<kbd>Espacio</kbd> (Windows/Linux) | En el editor del flujo de trabajo, obtén las sugerencias para tu archivo de flujo de trabajo.
+|<kbd>G</kbd> <kbd>F</kbd> | Ir al archivo de flujo de trabajo
+|<kbd>Mayús</kbd>+<kbd>T</kbd> o <kbd>T</kbd> | Activa las marcas de tiempo en las bitácoras
+|<kbd>Mayús</kbd>+<kbd>F</kbd> o <kbd>F</kbd> | Activa las bitácoras de pantalla completa
+|<kbd>Esc</kbd> | Sal de las bitácoras de pantalla completa
 
 {% endif %}
 
-## Notifications
+## Notificaciones
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>E</kbd> | Mark as done
-|<kbd>Shift</kbd>+<kbd>U</kbd>| Mark as unread
-|<kbd>Shift</kbd>+<kbd>I</kbd>| Mark as read
-|<kbd>Shift</kbd>+<kbd>M</kbd> | Unsubscribe
+|<kbd>E</kbd> | Marcar como completado
+|<kbd>Mayús</kbd>+<kbd>U</kbd>| Marcar como no leído
+|<kbd>Mayús</kbd>+<kbd>I</kbd>| Marcar como leído
+|<kbd>Mayús</kbd>+<kbd>M</kbd> | Cancelar suscripción
 
-## Network graph
+## Gráfica de Red
 
-| Keyboard shortcut | Description
+| Método abreviado de teclado | Descripción
 |-----------|------------
-|<kbd>←</kbd> or <kbd>H</kbd> | Scroll left
-|<kbd>→</kbd> or <kbd>L</kbd> | Scroll right
-|<kbd>↑</kbd> or <kbd>K</kbd> | Scroll up
-|<kbd>↓</kbd> or <kbd>J</kbd> | Scroll down
-|<kbd>Shift</kbd>+<kbd>←</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>H</kbd> (Windows/Linux) | Scroll all the way left
-|<kbd>Shift</kbd>+<kbd>→</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>L</kbd> (Windows/Linux) | Scroll all the way right
-|<kbd>Shift</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>K</kbd> (Windows/Linux) | Scroll all the way up
-|<kbd>Shift</kbd>+<kbd>↓</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>J</kbd> (Windows/Linux) | Scroll all the way down
+|<kbd>←</kbd> o <kbd>H</kbd> | Desplazarse a la izquierda
+|<kbd>→</kbd> o <kbd>L</kbd> | Desplazarse a la derecha
+|<kbd>↑</kbd> o <kbd>K</kbd> | Desplazarse hacia arriba
+|<kbd>↓</kbd> o <kbd>J</kbd> | Desplazarse hacia abajo
+|<kbd>Mayús</kbd>+<kbd>←</kbd> (Mac) o </br> <kbd>Mayús</kbd>+<kbd>H</kbd> (Windows/Linux) | Desplaza todo hacia la izquierda
+|<kbd>Mayús</kbd>+<kbd>→</kbd> (Mac) o </br> <kbd>Mayús</kbd>+<kbd>L</kbd> (Windows/Linux) | Desplaza todo hacia la derecha
+|<kbd>Mayús</kbd>+<kbd>↑</kbd> (Mac) o </br> <kbd>Mayús</kbd>+<kbd>K</kbd> (Windows/Linux) | Desplaza todo hacia arriba
+|<kbd>Mayús</kbd>+<kbd>↓</kbd> (Mac) o </br> <kbd>Mayús</kbd>+<kbd>J</kbd> (Windows/Linux) | Desplaza todo hacia abajo

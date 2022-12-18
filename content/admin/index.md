@@ -64,7 +64,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
-  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-enterprise-accounts{% endif %}'
+  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
 changelog:
   label: enterprise
@@ -73,7 +73,7 @@ featuredLinks:
     - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
     - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
     - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
-    - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
     - '{% ifversion ghes %}/admin/enterprise-management/creating-a-high-availability-replica{% endif %}'
     - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'

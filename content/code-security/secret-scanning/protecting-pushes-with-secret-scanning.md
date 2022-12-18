@@ -22,13 +22,14 @@ shortTitle: Enable push protection
 
 ## About push protection for secrets
 
-Up to now, {% data variables.product.prodname_secret_scanning_GHAS %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %}
+Up to now, {% data variables.product.prodname_secret_scanning %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %} {% ifversion secret-scanning-push-protection-custom-patterns %}{% data variables.product.prodname_secret_scanning_caps %} can also check pushes for custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %}
 
 If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
-- generates an alert.
-- creates an alert in the "Security" tab of the repository.
+- creates an alert in the "Security" tab of the repository in the state described in the table below.
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
-- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
+- sends an email alert to organization owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
+
+{% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
 For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
@@ -38,11 +39,14 @@ For you to use {% data variables.product.prodname_secret_scanning %} as a push p
 
 Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 
+{% ifversion secret-scanning-enterprise-level-api %}
+Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[Enable or disable security features for an enterprise](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
+
 {% ifversion secret-scanning-enterprise-level %}
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for your enterprise
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security and analysis**. 
+1. In the left sidebar, click **Code security and analysis**.
 {% data reusables.advanced-security.secret-scanning-push-protection-enterprise %}
 {% endif %}
 
@@ -66,9 +70,9 @@ Organization owners, security managers, and repository administrators can enable
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}
 
-Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret. 
+Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
-{% ifversion push-protection-custom-link-orgs %} 
+{% ifversion push-protection-custom-link-orgs %}
 
 Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
 
@@ -85,6 +89,16 @@ Organization admins can provide a custom link that will be displayed when a push
 If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
+
+{% ifversion ghes < 3.6 or ghae < 3.6 %}
+
+{% tip %}
+
+**Tip:** You can use {% data variables.product.prodname_secret_scanning %} as a push protection from the web UI, as well as the command line, in {% data variables.product.product_name %} version 3.6 or later.
+
+{% endtip %}
+
+{% endif %}
 
 ### Allowing a blocked secret to be pushed
 
@@ -107,7 +121,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
-{% ifversion push-protection-custom-link-orgs %} 
+{% ifversion push-protection-custom-link-orgs %}
 
 Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
 {% endif %}
@@ -118,7 +132,7 @@ You can remove the secret from the file using the web UI. Once you remove the se
 
 ### Bypassing push protection for a secret
 
-{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)." 
+{% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[Pushing a branch blocked by push protection](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)."
 
 If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
@@ -136,5 +150,6 @@ If you confirm a secret is real and that you intend to fix it later, you should 
   ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
 1. Click **Allow secret**.
+
 
 {% endif %}

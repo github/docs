@@ -1,0 +1,25 @@
+date: '12/10/2021'
+sections:
+  security_fixes:
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'Les hooks de pré-réception personnalisés pouvaient échouer en raison de limites de mémoire virtuelle ou de temps UC trop restrictives. {% comment %} https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'La tentative d’effacer tous les paramètres de configuration existants avec « ghe-cleanup-settings » ne parvenait pas à redémarrer le service de la console de gestion. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Pendant le démontage de la réplication via « ghe-repl-teardown », Memcached ne pouvait pas être redémarré. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Pendant les périodes de forte charge, les utilisateurs recevaient des codes d’état HTTP 503 quand les services en amont échouaient aux contrôles d’intégrité internes. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Il était interdit aux environnements de hook de pré-réception d’appeler la commande cat via BusyBox sur Alpine. {% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'Le mot de passe des bases de données externes était journalisé en texte en clair. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'Un message d’erreur « jq » erroné pouvait s’afficher lors de l’exécution de « ghe-config-apply ». {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Le basculement d’un centre de données de cluster primaire vers un centre de données de cluster secondaire réussit, mais le basculement vers le centre de données de cluster primaire d’origine ne permet pas de promouvoir les indices Elasticsearch. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'La page Administration de site pour les exécuteurs de dépôt auto-hébergés retournait une erreur HTTP 500. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - 'Dans certains cas, les administrateurs GitHub Enterprise qui tentaient d’afficher la page « Utilisateurs inactifs » recevaient la réponse « 502 Bad Gateway » ou « 504 Gateway Timeout ». {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'Suppression plus efficace des journaux de Webhook qui se trouvent en dehors de la fenêtre de conservation des journaux de Webhook. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

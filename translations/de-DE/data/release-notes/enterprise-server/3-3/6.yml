@@ -1,0 +1,50 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - 'MITTEL: In der Verwaltungskonsole von {% data variables.product.prodname_ghe_server %} wurde ein Sicherheitsrisiko aufgrund von Pfadausnahmen identifiziert, wodurch CSRF-Schutzmaßnahmen umgangen werden konnten. Dieses Sicherheitsrisiko betraf alle Versionen von {% data variables.product.prodname_ghe_server %} vor Version 3.5 und wurde in den Versionen 3.1.19, 3.2.11, 3.3.6 und 3.4.1 behoben. Dieses Sicherheitsrisiko wurde über das {% data variables.product.prodname_dotcom %} Bug Bounty Program gemeldet und weist die Kennung CVE-2022-23732 auf.'
+    - 'MITTEL: In den Branches 1.x und 2.x von „yajil“ wurde ein Sicherheitsrisiko aufgrund eines Ganzzahlüberlaufs identifiziert, wodurch es bei größeren Eingaben (~2 GB) zu Beschädigungen des nachfolgenden Heapspeichers kommt. Dieses Sicherheitsrisiko wurde intern gemeldet und weist die Kennung CVE-2022-24795 auf. '
+    - "Wurde {% data variables.product.prodname_actions %} aktiviert, konnten Supportbundles vertrauliche Daten enthalten." 
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Bei der Aktivierung von {% data variables.product.prodname_dependabot %} führte ein Fehler dazu, dass einige Sicherheitshinweise vorübergehend als nicht mehr zutreffend gelesen wurden." 
+    - "Minio-Prozesse würden eine hohe CPU-Auslastung aufweisen, wenn eine alte Konfigurationsoption nach dem Upgrade von {% data variables.product.prodname_ghe_server %} vorhanden war." 
+    - "In den Datenschutzeinstellungen der Verwaltungskonsole wurden die Optionen zur Aktivierung von „TLS 1.0“ und „TLS 1.1“ angezeigt, obwohl diese Protokollversionen bereits in einem früheren Release entfernt wurden."
+    - "In einer Umgebung mit Hochverfügbarkeit wurden für die Konfiguration der MSSQL-Replikation zusätzliche manuelle Schritte erforderlich, wenn {% data variables.product.prodname_actions %} zum ersten Mal aktiviert wurde."
+    - Eine Teilmenge interner Konfigurationsdateien wird nach einem Hotpatch zuverlässiger aktualisiert. 
+    - Mit dem Skript „ghe-run-migrations“ ließen sich in einigen Fällen keine korrekten temporären Zertifikatnamen erzeugen. 
+    - "In einer Clusterumgebung konnten bei Git LFS-Vorgängen Fehler aufgrund fehlerhafter interner API-Aufrufe auftreten, die mehrere Webknoten durchlaufen haben."
+    - "Für Pre-Receive-Hooks, die „gpg --import“ verwendet haben, wurde das Zeitlimit aufgrund unzureichender syscall-Berechtigungen überschritten."
+    - In einigen Clustertopologien standen Informationen zur Webhookübermittlung nicht zur Verfügung. 
+    - Beim Ausführen von Migrationen war bei Elasticsearch-Integritätsprüfungen ein gelber Status nicht zulässig. 
+    - Repositorys würden auf der Webbenutzeroberfläche eine nicht funktionierende Registerkarte „Diskussionen“ anzeigen. 
+    - "Organisationen, die als Folge der Umwandlung eines Benutzerkontos in ein Organisationskonto erstellt wurden, wurden dem globalen Unternehmenskonto nicht hinzugefügt." 
+    - "Links zu Seiten, auf die der Zugriff nicht möglich ist, wurden entfernt." 
+    - "Das Bereitstellungsdiagramm {% data variables.product.prodname_actions %} würde beim Rendern eines ausstehenden Auftrags einen Fehler anzeigen." 
+    - "Bei einigen Instanzen kam es zu einer hohen CPU-Auslastung, da viele unnötige Hintergrundaufträge in die Warteschlange gestellt wurden." 
+    - "Bei Aufträgen zur Synchronisierung von LDAP-Benutzern würde ein Fehler auftreten, wenn sie versuchten, GPG-Schlüssel zu synchronisieren, die zuvor synchronisiert worden waren." 
+    - "Das Verfolgen eines Links zu einem Pull Request aus dem Pull Request-Dashboard des Benutzers führte dazu, dass der Repositoryheader nicht geladen wurde." 
+    - "Wurde einem Pull Request ein Team als Prüfer hinzugefügt, kam es gelegentlich zu einer falschen Angabe der Anzahl der Teammitglieder." 
+    - "Der API-Endpunkt zum Entfernen von Teammitgliedern würde mit einem Fehler reagieren, wenn versucht wurde, ein Mitglied zu entfernen, das extern über eine SCIM-Gruppe verwaltet wird." 
+    - "Bei der Konfiguration von {% data variables.product.prodname_github_connect %} konnte bei einer großen Anzahl inaktiver Benutzer ein Fehler auftreten." 
+    - Auf der Benutzeroberfläche des Websiteadministrators war die Seite „Feature- & Betaregistrierungen“ fälschlicherweise verfügbar. 
+    - In der Fußzeile der Website wurde der Status des Links „Websiteadministratormodus“ beim Klicken nicht geändert. 
+    - 'Beim Befehl „spokesctl cache-policy rm“ tritt nicht mehr mit der Meldung „error: failed to delete cache policy“ ein Fehler auf.'
+  changes:
+    - Die Verbindungsbeschränkungen im Arbeitsspeicher wurden für eine bessere Unterstützung großer Clustertopologien erhöht. 
+    - Die API für Abhängigkeitsdiagramme wurde bisher mit einem statisch definierten Port ausgeführt. 
+    - Die Standardanzahl von Shards für clusterbezogene Elasticsearch-Shardeinstellungen wurde aktualisiert. 
+    - Bei der Filterung von Unternehmensmitgliedern nach Organisationsrolle auf der Seite „Personen“ wurde der Text für die Einträge im Dropdownmenü verbessert. 
+    - Die Teamrollen „Selektierung“ und „Verwalten“ werden während der Migration von Repositorys beibehalten. 
+    - Für Webanforderungen durch Unternehmensbesitzer wurde die Leistung erhöht. 
+  known_issues:
+    - "Nach einem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.3 wird {% data variables.product.prodname_actions %} möglicherweise nicht automatisch gestartet. Zur Behandlung dieses Problems stellst du die Verbindung mit der Appliance über SSH her und führst den Befehl „ghe-actions-start“ aus."
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data variables.product.prodname_actions %}-Speichereinstellungen können nicht in der {% data variables.enterprise.management_console %} validiert und gespeichert werden, wenn die Option zum Erzwingen des Pfadformats ausgewählt ist. Sie müssen stattdessen mit dem Befehlszeilen-Hilfsprogramm „ghe-actions-precheck“ konfiguriert werden.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3-Instanzen, die in Azure installiert und mit mehr als 32 CPU-Kernen bereitgestellt wurden, werden aufgrund eines Fehlers im aktuellen Linux-Kernel nicht gestartet. [Aktualisiert: 08.04.2022]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

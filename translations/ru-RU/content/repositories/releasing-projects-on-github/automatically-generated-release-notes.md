@@ -13,12 +13,12 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
-ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: aee951e6f57492240b5baf8870578409945aefdc
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147432019'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185197'
 ---
 ## Сведения об автоматическом создании заметок о выпуске
 
@@ -67,7 +67,9 @@ ms.locfileid: '147432019'
 | `changelog.categories[*].exclude.labels` | Список меток, исключающих запрос на вытягивание из данной категории. |
 | `changelog.categories[*].exclude.authors` | Список дескрипторов входа пользователей или ботов, запросы на вытягивание которых должны быть исключены из данной категории. |
 
-### Пример конфигурации
+### Примеры конфигураций
+
+Конфигурация для репозитория, который помечает выпуски semver
 
 {% raw %}
 ```yaml{:copy}
@@ -91,6 +93,26 @@ changelog:
     - title: Other Changes
       labels:
         - "*"
+```
+{% endraw %}
+
+Конфигурация для репозитория, который не помечает запросы на вытягивание, но в котором мы хотим разделить {% data variables.product.prodname_dependabot %} автоматические запросы на вытягивание в заметках о выпуске (`labels: '*'` требуется для отображения категории catchall).
+
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
 ```
 {% endraw %}
 

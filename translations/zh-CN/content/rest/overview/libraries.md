@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: aa139c0d25354260ccf688079f3e15a871b627bd
-ms.sourcegitcommit: 0ed77777360ec29eee7cd4fc212ae36fdd97c0bc
+ms.openlocfilehash: 5f633132edddb17ae129a3feba791ab8ec780366
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148160960'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191876'
 ---
 ![Gundamcat](/assets/images/gundamcat.png)
 
@@ -24,10 +24,9 @@ ms.locfileid: '148160960'
 
 使用官方的 Octokit 库，或者使用任何适用的第三方库。
 
-- Python → [octokit.py](https://github.com/khornberg/octokit.py)
 - Ruby → [octokit.rb](https://github.com/octokit/octokit.rb)
 - .NET → [octokit.net](https://github.com/octokit/octokit.net)
-- JavaScript → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+- JavaScript → [octokit.js](https://github.com/octokit/octokit.js)
 
 ## 第三方库
 
@@ -35,7 +34,7 @@ ms.locfileid: '148160960'
 
 | 库名称 | 存储库 |
 |---|---|
-|Tentacles| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|Tentacles| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
@@ -131,6 +130,7 @@ ms.locfileid: '148160960'
 |**github-flask**|[github-flask（官方网站）](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |githubkit|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|octokit.py|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

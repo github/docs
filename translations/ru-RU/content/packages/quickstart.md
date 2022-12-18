@@ -8,12 +8,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
-ms.openlocfilehash: a3e4869253e91766eaf44a06dcc71f92d59433fd
-ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.openlocfilehash: 887c4ee6c5e6b3e2c391c2d5754cfcb2787e4b86
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/04/2022
-ms.locfileid: '148009892'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181261'
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -69,7 +69,7 @@ ms.locfileid: '148009892'
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
           - run: npm ci
           - run: npm test
 
@@ -83,7 +83,7 @@ ms.locfileid: '148009892'
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
               registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish

@@ -12,12 +12,12 @@ topics:
   - Teams
 shortTitle: Manage allowed IP addresses
 permissions: Organization owners can manage allowed IP addresses for an organization.
-ms.openlocfilehash: 5d0a9bbc9b2207e088e2051025a8844e7cf0dbec
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: f0484aae26b5acb8bac07c7b002af2d623d7dfef
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147888094'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184032'
 ---
 ## Acerca de las direcciones IP permitidas
 
@@ -35,7 +35,7 @@ Puedes restringir el acceso a los recursos privados de la organización configur
 
 Si configuras una lista de direcciones permitidas, también puedes elegir agregar automáticamente a ella cualquier dirección IP que hayas configurado para las {% data variables.product.prodname_github_apps %} que instales en tu organización. El creador de una {% data variables.product.prodname_github_app %} puede configurar una lista de direcciones permitidas para su aplicación, las cuales especifiquen las direcciones IP en las cuales se ejecuta esta. Al heredar la lista de direcciones permitidas en la tuya, estás evitando las solicitudes de conexión de la aplicación que se está rehusando. Para obtener más información, vea "[Habilitación del acceso por {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)".
 
-También puedes configurar las direcciones IP permitidas para las organizaciones en una cuenta empresarial. Para más información, vea "[Aplicación de directivas de configuración de seguridad en la empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
+También puedes configurar las direcciones IP permitidas en el nivel de cuenta empresarial y todas las organizaciones que pertenecen a la empresa heredan las entradas de la lista de permitidos de la cuenta de empresa. {% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %} Para más información, consulta "[Aplicación de directivas de configuración de seguridad en la empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 ## Agregar una dirección IP permitida
 
@@ -77,12 +77,11 @@ Para más información sobre cómo crear una lista de permitidos para una {% dat
 1. Haga clic en **Update**(Actualizar).
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-{% ifversion ip-allow-list-address-check %}
 ## Comprobación de permiso para una dirección IP
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.identity-and-permissions.check-ip-address-step %} {% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
 ## Eliminar una dirección IP permitida
 

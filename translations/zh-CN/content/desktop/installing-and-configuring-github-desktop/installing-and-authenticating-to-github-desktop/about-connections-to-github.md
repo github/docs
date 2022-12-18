@@ -1,18 +1,24 @@
 ---
-title: About connections to GitHub
-intro: '{% data variables.product.prodname_desktop %} uses HTTPS to securely exchange data with {% data variables.product.prodname_dotcom %}.'
+title: 关于连接到 GitHub
+intro: '{% data variables.product.prodname_desktop %} 使用 HTTPS 与 {% data variables.product.prodname_dotcom %} 安全地交换数据。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
 versions:
   fpt: '*'
 shortTitle: About connections
+ms.openlocfilehash: 94f1e7db78504a115b233f17485f1b12299a1e11
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099239'
 ---
-{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
+当您对远程仓库执行拉取、推送、克隆和复刻操作时，{% data variables.product.prodname_desktop %} 将连接到 {% data variables.product.prodname_dotcom %}。 要从 {% data variables.product.prodname_desktop %} 连接到 {% data variables.product.prodname_dotcom %}，您必须验证您的帐户。 有关详细信息，请参阅“[向 {% data variables.product.prodname_dotcom %} 进行身份验证](/desktop/getting-started-with-github-desktop/authenticating-to-github)”。
 
-After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or {% data variables.product.pat_generic %}) and uses the credentials to authenticate for each connection to the remote repository.
+在向 {% data variables.product.prodname_dotcom %} 验证后，您可以通过 {% data variables.product.prodname_desktop %} 连接远程仓库。 {% data variables.product.prodname_desktop %} 缓存您的凭据（用户名和密码或个人访问令牌），并使用凭据验证到远程存储库的每个连接。
 
-{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+{% data variables.product.prodname_desktop %} 使用 HTTPS 连接到 {% data variables.product.prodname_dotcom %}。 如果使用 {% data variables.product.prodname_desktop %} 访问使用 SSH 克隆的仓库，可能会遇到错误。 要连接到使用 SSH 克隆的仓库，请更改远程 URL。 有关详细信息，请参阅“[管理远程存储库](/github/getting-started-with-github/managing-remote-repositories)”。
 
-## Further reading
-- "[Cloning and forking repositories from GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"
+## 延伸阅读
+- [从 GitHub Desktop 克隆和复刻存储库](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)

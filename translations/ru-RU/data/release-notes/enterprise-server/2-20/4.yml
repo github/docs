@@ -1,0 +1,18 @@
+date: '25.03.2020'
+sections:
+  bugs:
+    - 'Запросы на проверку подлинности SAML и метаданные не являются жестко кодированными, из-за чего некоторые поставщики удостоверений некорректно обрабатывают запросы на проверку подлинности, инициированные поставщиком службы. {% comment %} https://github.com/github/github/pull/137150, https://github.com/github/github/pull/136770, https://github.com/github/github/issues/136766 {% endcomment %}'
+    - 'Операции экспорта `ghe-migrator` не содержат пользователей вех, и это могло вызвать нарушение операций импорта. {% comment %} https://github.com/github/github/pull/138100, https://github.com/github/github/pull/137987, https://github.com/github/github/issues/137779 {% endcomment %}'
+    - 'При передаче объекта gist выдается исключение во время работы перехватчика последующего получения. {% comment %} https://github.com/github/github/pull/138460, https://github.com/github/github/pull/138313 {% endcomment %}'
+    - '`ghe-repl-status` может завершиться сбоем при попытке отобразить репозитории, которые реплицированы не полностью. {% comment %} https://github.com/github/github/pull/138463, https://github.com/github/github/pull/138388 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'При передаче объекта gist выдается исключение во время работы перехватчика последующего получения. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'При обновлении с предыдущий версий рабочие роли фонового задания не порождаются, из-за чего не работают основные функции, такие как объединение запросов на вытягивание. (обновлено 07.04.2020) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. (updated 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Граф зависимостей не обнаруживает зависимости при развертывании в конфигурации кластера с несколькими узлами Redis. (updated 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

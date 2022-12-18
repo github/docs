@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: f5910f3cfdeeb148dc92ee537de4c26551a02f26
-ms.sourcegitcommit: ab0ae13cc28587f0302181d58a9519d88c7c1ef9
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2022
-ms.locfileid: '148101712'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179672'
 ---
 {% note %}
 
@@ -248,7 +248,15 @@ body:
 | `description` | Описание набора флажков, отображаемых в форме. Поддерживает форматирование Markdown. | Необязательно | Строка | Пустая строка | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | Массив флажков, которые может выбрать пользователь. Сведения о синтаксисе см. далее. | Обязательно | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### Проверки
+
+{% data reusables.form-schema.validations-intro %}
+
+| Ключ | Описание | Обязательно | Тип | По умолчанию | Допустимые значения |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### Пример
 

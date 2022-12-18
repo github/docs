@@ -1,1 +1,9 @@
-By default all dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot %} version updates. In addition, {% data variables.product.prodname_dependabot %} security updates also update vulnerable dependencies that are defined in lock files. You can use `allow` and `ignore` to customize which dependencies to maintain. {% data variables.product.prodname_dependabot %} checks for all allowed dependencies and then filters out any ignored dependencies or versions. So a dependency that is matched by both an `allow` and an `ignore` will be ignored.
+---
+ms.openlocfilehash: 082f3b30b23ed6c8b2a7a4261cace89e32f0a8c9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145138842"
+---
+Predeterminadamente, todas las dependencias que se definen explícitamente en un manifiesto o archivo fijado se mantienen actualizadas. Puede usar `allow` y `ignore` para personalizar las dependencias que se deben mantener con las actualizaciones de versión. El {% data variables.product.prodname_dependabot %} revisa las dependencias permitidas y después filtra cualquier dependencia o versión ignorada. Por tanto, una dependencia que coincida con `allow` y `ignore` se omitirá.

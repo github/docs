@@ -6,7 +6,7 @@
 //
 // [end-readme]
 
-import { stat, readFile, writeFile, readdir } from 'fs/promises'
+import { stat, readdir } from 'fs/promises'
 import path from 'path'
 import { program } from 'commander'
 import { execSync } from 'child_process'
@@ -14,12 +14,11 @@ import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
 
 import { decorate } from './utils/decorator.js'
-import { getSchemas } from './utils/get-openapi-schemas.js'
+import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
 
 const TEMP_DOCS_DIR = path.join(process.cwd(), 'openapiTmp')
 const DOCS_DEREF_OPENAPI_DIR = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const GITHUB_REP_DIR = path.join(process.cwd(), '../github')
-const OPEN_API_RELEASES_DIR = path.join(GITHUB_REP_DIR, '/app/api/description/config/releases')
 
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')
@@ -29,39 +28,47 @@ program
   )
   .option(
     '-v --versions <VERSIONS...>',
-    'A list of undeprecated, published versions to build, separated by a space. Example "ghes-3.1" or "api.github.com github.ae"'
+    'A list of undeprecated, published versions to build, separated by a space. Example `-v ghes-3.1` or `-v api.github.com github.ae`'
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
   .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
+  .option(
+    '-k --keep-dereferenced-files',
+    'Keeps the dereferenced files after the script runs. You will need to delete them manually.'
+  )
+  .option('-n --next', 'Generate the next OpenAPI calendar-date version.')
   .parse(process.argv)
 
-const { decorateOnly, versions, includeUnpublished, includeDeprecated } = program.opts()
-const versionsArray = versions ? versions.split(' ') : []
-
-await validateInputParameters()
+const {
+  decorateOnly,
+  versions,
+  includeUnpublished,
+  includeDeprecated,
+  keepDereferencedFiles,
+  next,
+} = program.opts()
 
 main()
 
 async function main() {
-  // When the input parameter type is decorate-only, use the
-  // `github/docs-internal` repo to generate a list of schema files.
-  // Otherwise, use the `github/github` list of config files
-  const schemas = decorateOnly
-    ? await readdir(DOCS_DEREF_OPENAPI_DIR)
-    : await getSchemas(OPEN_API_RELEASES_DIR, includeDeprecated, includeUnpublished, versionsArray)
-
+  await validateInputParameters()
   // Generate the dereferenced OpenAPI schema files
   if (!decorateOnly) {
-    await getBundledFiles(schemas)
+    await getBundledFiles()
   }
+
+  const schemas = await readdir(DOCS_DEREF_OPENAPI_DIR)
   // Decorate the dereferenced files in a format ingestible by docs.github.com
   await decorate(schemas)
   console.log(
     '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*`.\n\n'
   )
+  if (!keepDereferencedFiles) {
+    rimraf.sync(DOCS_DEREF_OPENAPI_DIR)
+  }
 }
 
-async function getBundledFiles(schemas) {
+async function getBundledFiles() {
   // Get the github/github repo branch name and pull latest
   const githubBranch = execSync('git rev-parse --abbrev-ref HEAD', { cwd: GITHUB_REP_DIR })
     .toString()
@@ -82,13 +89,10 @@ async function getBundledFiles(schemas) {
   )
   // Format the command supplied to the bundle script in `github/github`
   const bundlerOptions = await getBundlerOptions()
-
+  const bundleCommand = `bundle -v -w${next ? ' -n' : ''} -o ${TEMP_DOCS_DIR} ${bundlerOptions}`
   try {
-    console.log(`bundle -o ${TEMP_DOCS_DIR} ${bundlerOptions}`)
-    execSync(
-      `${path.join(GITHUB_REP_DIR, 'bin/openapi')} bundle -o ${TEMP_DOCS_DIR} ${bundlerOptions}`,
-      { stdio: 'inherit' }
-    )
+    console.log(bundleCommand)
+    execSync(`${path.join(GITHUB_REP_DIR, 'bin/openapi')} ${bundleCommand}`, { stdio: 'inherit' })
   } catch (error) {
     console.error(error)
     const errorMsg =
@@ -96,22 +100,16 @@ async function getBundledFiles(schemas) {
     throw new Error(errorMsg)
   }
 
+  // Moving the dereferenced files to the docs directory creates a consistent
+  // place to generate the decorated files from. This is where they will be
+  // delivered in automated pull requests and because of that we move them
+  // to the same location during local development.
+  await mkdirp(DOCS_DEREF_OPENAPI_DIR)
   execSync(
     `find ${TEMP_DOCS_DIR} -type f -name "*deref.json" -exec mv '{}' ${DOCS_DEREF_OPENAPI_DIR} ';'`
   )
 
   rimraf.sync(TEMP_DOCS_DIR)
-
-  // When running in development mode, the the info.version
-  // property in the dereferenced schema is replaced with the branch
-  // name of the `github/github` checkout. A CI test
-  // checks the version and fails if it's not a semantic version.
-  for (const filename of schemas) {
-    const schema = JSON.parse(await readFile(path.join(DOCS_DEREF_OPENAPI_DIR, filename)))
-
-    schema.info.version = `${githubBranch} !!DEVELOPMENT MODE - DO NOT MERGE!!`
-    await writeFile(path.join(DOCS_DEREF_OPENAPI_DIR, filename), JSON.stringify(schema, null, 2))
-  }
 }
 
 async function getBundlerOptions() {
@@ -133,9 +131,8 @@ async function getBundlerOptions() {
 async function validateInputParameters() {
   // The `--versions` and `--decorate-only` options cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  const numberOfOptions = Object.keys(program.opts()).length
-  if (numberOfOptions > 1 && (decorateOnly || versions)) {
-    const errorMsg = `🛑 You cannot use the versions and decorate-only options with any other options.\nThe decorate-only switch will decorate all dereferenced schemas files in the docs-internal repo.\nThis script doesn't support generating individual deprecated or unpublished schemas.\nPlease reach out to #docs-engineering if this is a use case that you need.`
+  if ((includeDeprecated || includeUnpublished) && (decorateOnly || versions)) {
+    const errorMsg = `🛑 You cannot use the versions option with the include-unpublished or include-deprecated options. This is not currently supported in the bundler.\nYou cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
@@ -148,5 +145,8 @@ async function validateInputParameters() {
       const errorMsg = `🛑 The ${GITHUB_REP_DIR} does not exist. Make sure you have a codespace with a checkout of \`github/github\` at the same level as your \`github/docs-internal \`repo before running this script. See this documentation for details: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs.`
       throw new Error(errorMsg)
     }
+  }
+  if (versions && versions.length) {
+    await validateVersionsOptions(versions)
   }
 }

@@ -1,6 +1,6 @@
 ---
-title: Authorizing OAuth Apps
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: Авторизация приложений OAuth
+intro: 'Вы можете подключить удостоверение {% data variables.product.product_name %} к сторонним приложениям с помощью OAuth. При авторизации {% data variables.product.prodname_oauth_app %} следует убедиться в том, что вы доверяете приложению, проверить, кем оно разработано, и просмотреть типы сведений, к которым приложению требуется доступ.'
 redirect_from:
   - /articles/authorizing-oauth-apps
   - /github/authenticating-to-github/authorizing-oauth-apps
@@ -13,89 +13,95 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 7d116f8fc5117cdcbdbd5582e007351c47b2d55d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184023'
 ---
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+Когда {% data variables.product.prodname_oauth_app %} хочет идентифицировать вас по вашей учетной записи в {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, вы увидите страницу с контактными данными разработчика приложения и списком запрашиваемых данных.
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/articles/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+**Совет**. Прежде чем авторизовать {% data variables.product.prodname_oauth_app %}, необходимо [подтвердить свой адрес электронной почты](/articles/verifying-your-email-address).
 
 {% endtip %}
 
 {% endif %}
 
-## {% data variables.product.prodname_oauth_app %} access
+## Доступ к {% data variables.product.prodname_oauth_app %}
 
-{% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %} могут иметь доступ на *чтение* или *запись* к данным {% data variables.product.product_name %}.
 
-- **Read access** only allows an app to *look at* your data.
-- **Write access** allows an app to *change* your data.
+- **Доступ на чтение** позволяет приложению только *просматривать* данные.
+- **Доступ на запись** позволяет приложению *изменять* данные.
 
 {% tip %}
 
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
+**Совет**. {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
-### About OAuth scopes
+### Сведения об областях OAuth
 
-*Scopes* are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
+*Области* — это именованные группы разрешений, которые {% data variables.product.prodname_oauth_app %} может запрашивать для доступа к открытым и закрытым данным.
 
-When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Если необходимо использовать {% data variables.product.prodname_oauth_app %} в интеграции с {% data variables.product.product_name %}, это приложение сообщит требуемый тип доступа к данным. Если вы предоставляете доступ к приложению, приложение сможет выполнять действия от вашего имени, например чтение или изменение данных. Например, если вы хотите использовать приложение, которое запрашивает область действия `user:email`, приложение будет иметь доступ к частным адресам электронной почты только для чтения. Дополнительные сведения см. в разделе [Сведения об областях для {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps).
 
 {% tip %}
 
-**Note:** Currently, you can't scope source code access to read-only.
+**Примечание**. В настоящее время невозможно предоставить доступ к исходному коду только для чтения.
 
 {% endtip %}
 
 {% data reusables.apps.oauth-token-limit %}
 
-### Types of requested data
+### Типы запрашиваемых данных
 
-{% data variables.product.prodname_oauth_apps %} can request several types of data.
+{% data variables.product.prodname_oauth_apps %} могут запрашивать несколько типов данных.
 
-| Type of data | Description |
+| Тип данных | Описание |
 | --- | --- |
-| Commit status | You can grant access for an app to report your commit status. Commit status access allows apps to determine if a build is a successful against a specific commit. Apps won't have access to your code, but they can read and write status information against a specific commit. |
-| Deployments | Deployment status access allows apps to determine if a deployment is successful against a specific commit for public and private repositories. Apps won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows apps to read or write to both your public and secret Gists. |
-| Hooks | [Webhooks](/webhooks) access allows apps to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows apps to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
-| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
-| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
-| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |{% ifversion projects-oauth-scope %}
-| Projects | Access to user and organization {% data variables.projects.projects_v2 %}. Apps can request either read/write or read only access. |{% endif %}
+| Состояние фиксации | Вы можете предоставить приложению доступ к сведениям о состоянии фиксации. Доступ к состоянию фиксации позволяет приложениям определять, была ли сборка для определенной фиксации выполнена успешно. У приложений не будет доступа к коду, но они смогут считывать сведения о состоянии определенной фиксации и записывать их. |
+| Развернутые приложения | Доступ к состоянию развертывания позволяет приложениям определять, было ли развертывание для определенной фиксации в общедоступном или частном репозитории выполнено успешно. У приложений не будет доступа к коду. |
+| Gist | Доступ к [gist](https://gist.github.com) позволяет приложениям осуществлять как чтение из общедоступных и секретных gist, так и запись в них. |
+| Обработчики | Доступ к [веб-перехватчикам](/webhooks) позволяет приложениям считывать конфигурации перехватчиков в управляемых вами репозиториях и записывать их. |
+| Уведомления | Доступ к уведомлениям позволяет приложениям считывать уведомления {% data variables.product.product_name %}, например комментарии к проблемам и запросам на вытягивание. Однако приложения по-прежнему не имеют доступа к содержимому репозиториев. |
+| Организации и группы | Доступ к организации и командам позволяет приложениям получать доступ к организации и командам и управлять членством в них. |
+| Персональные данные пользователя | Данные пользователя включают в себя сведения в профиле пользователя, такие как имя, адрес электронной почты и местонахождение. |
+| Репозитории | Сведения о репозитории включают в себя имена участников, созданные ветви и существующие файлы в репозитории. Приложения могут запрашивать доступ к общедоступным или частным репозиториям на уровне пользователя. |
+| Удаление репозитория | Приложения могут запрашивать удаление управляемых вами репозиториев, но у них нет доступа к коду. |{% ifversion projects-oauth-scope %}
+| Проекты | Здесь доступны {% data variables.projects.projects_v2 %} пользователя и организации. Приложения могут запрашивать доступ на чтение/запись или только на чтение. |{% endif %}
 
-## Requesting updated permissions
+## Запрос обновленных разрешений
 
-When {% data variables.product.prodname_oauth_apps %} request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
+Когда {% data variables.product.prodname_oauth_apps %} запрашивают новые права доступа, они уведомляют вас о различиях между текущими и новыми разрешениями.
 
 {% ifversion fpt or ghec %}
 
-## {% data variables.product.prodname_oauth_apps %} and organizations
+## {% data variables.product.prodname_oauth_apps %} и организации
 
-When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
+При авторизации {% data variables.product.prodname_oauth_app %} для личной учетной записи можно увидеть, как авторизация повлияет на каждую организацию, в которую вы входите.
 
-- **For organizations *with* {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/articles/approving-oauth-apps-for-your-organization) yourself.
+- **Для организаций *с* ограничениями доступа {% data variables.product.prodname_oauth_app %} можно запросить утверждение приложения к использованию в организации ее администраторами.** Если организация не утвердит приложение, оно сможет получить доступ только к общедоступным ресурсам организации. Если вы являетесь администратором организации, то можете [утвердить приложение](/articles/approving-oauth-apps-for-your-organization) самостоятельно.
 
-- **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
+- **Для организаций *без* ограничений доступа {% data variables.product.prodname_oauth_app %} приложение автоматически авторизуется для доступа к ресурсам организации.** Поэтому следует внимательно следить за тем, какие {% data variables.product.prodname_oauth_apps %} утверждаются для доступа к ресурсам личных учетных записей, а также к любым ресурсам организации.
 
-If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
+Если вы принадлежите к каким-либо организациям с включенным единым входом SAML и создали связанное удостоверение для этой организации путем проверки подлинности с помощью SAML в прошлом, у вас должен быть активный сеанс SAML для каждой организации при каждой авторизации {% data variables.product.prodname_oauth_app %}.
 
 {% note %}
 
-**Note:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize the app.
+**Примечание:** Если у вас возникли проблемы с авторизованным {% data variables.product.prodname_oauth_app %} или {% data variables.product.prodname_github_app %} доступом к организации, защищенной с помощью SAML, может потребоваться отозвать приложение из [вашего авторизованного {% data variables.product.prodname_github_apps %}](https://github.com/settings/applications) или [авторизованного {% data variables.product.prodname_oauth_apps %}](https://github.com/settings/apps/authorizations)  посетите страницу организации, чтобы пройти проверку подлинности и установить активный сеанс SAML, а затем попытаться повторно авторизовать приложение, перейдя к нему.
 
 {% endnote %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
-- "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
+- [Сведения об ограничениях доступа {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)
+- [Авторизация приложений GitHub](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)
+- [Поддержка {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-support)
 
 {% endif %}

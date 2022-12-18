@@ -13,7 +13,7 @@ versions:
 ---
 {% for glossary in glossaries %}
   ### {{ glossary.term }}
-  {{ glossary.description}}
+  {{ glossary.description }}
   ---
 {% endfor %}
 

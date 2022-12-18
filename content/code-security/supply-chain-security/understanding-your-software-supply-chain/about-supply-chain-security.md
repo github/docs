@@ -104,6 +104,12 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 {% endif %}
 
+{% ifversion dependabot-actions-support %}
+
+{% data reusables.dependabot.dependabot-actions-support %} For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+
+{% endif %}
+
 #### What are Dependabot alerts
 
 {% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. 

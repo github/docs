@@ -8,7 +8,7 @@ introLinks:
 featuredLinks:
   guides:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
-    - /codespaces/developing-in-codespaces/the-codespace-lifecycle
+    - /codespaces/getting-started/the-codespace-lifecycle
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
     - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
@@ -53,11 +53,11 @@ children:
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
-ms.openlocfilehash: 62723c1d4bf684e67420149c96586a91e7583031
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 242931386711938cb1eb5e9b84ad66a581ecb1eb
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160435'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188305'
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Managing your sponsorship tiers
-intro: 'You can add a new sponsorship tier, or edit or retire an existing tier.'
+title: Управление уровнями спонсорского предложения
+intro: 'Вы можете добавить новый уровень спонсорской поддержки, изменить или прекратить использовать существующий уровень.'
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
@@ -13,85 +13,77 @@ topics:
   - Open Source
   - Sponsors profile
 shortTitle: Manage payment tiers
+ms.openlocfilehash: e41218f175063a20964ce690f3328af91291aaf6
+ms.sourcegitcommit: 474603237fcc20c82947e5c8c68624749c445b21
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/03/2022
+ms.locfileid: '148008750'
 ---
-
-## About sponsorship tiers
+## Сведения об уровнях спонсорского предложения
 
 {% data reusables.sponsors.tier-details %}
 
 {% data reusables.sponsors.maximum-tier %}
 
-## Adding a tier
+## Добавление уровня
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
-   - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
-   - To create tiers without using with any of the draft suggestions, click **Skip this step**.
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+1. Если вы впервые настраиваете уровни, рекомендуем ознакомиться с примерами уровней, чтобы узнать, как настроили открытый код другие участники {% data variables.product.prodname_sponsors %}. Решите, хотите ли вы начать с некоторых предлагаемых черновых уровней (их можно настроить в редакторе уровней).
+   - Чтобы использовать предлагаемый уровень, выберите награды, которые вы хотите включить в черновой уровень/уровни. Затем нажмите **Перейти к редактору уровней**.
+   - Чтобы создать уровни без использования черновых вариантов, щелкните **Пропустить этот шаг**.
      
-     ![Screenshot of "Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
+     ![Снимок экрана: параметр "Пропустить этот шаг" и кнопка "Перейти к редактору уровня"](/assets/images/help/sponsors/tier-editor-button.png)
 
-1. Optionally, in the text boxes under "Custom amounts", type a recommended or minimum sponsorship amount. The minimum amount applies to both recurring and one-time sponsorships.
+1. При необходимости в текстовых полях в поле "Пользовательские суммы" введите рекомендуемую или минимальную сумму спонсорства. Минимальная сумма применяется как к повторяющимся, так и к однократным спонсорствам.
 
-   ![Screenshot of custom amounts fields](/assets/images/help/sponsors/custom-amounts.png)
+   ![Снимок экрана: поля настраиваемых объемов](/assets/images/help/sponsors/custom-amounts.png)
 
-1. Optionally, to edit a draft tier, find the draft tier and click **Edit**.
+1. В случае необходимости изменить черновой уровень найдите этот уровень и нажмите **Изменить**.
 
-   ![Screenshot of edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
+   ![Снимок экрана: кнопка "Изменить" рядом с уровнем черновика](/assets/images/help/sponsors/draft-tier-edit.png)
 
-{% data reusables.sponsors.click-add-tier %}
-{% data reusables.sponsors.tier-price-description %}
-{% data reusables.sponsors.add-welcome-message %}
-{% data reusables.sponsors.save-tier-draft %}
-{% data reusables.sponsors.review-and-publish-tier %}
+{% данных reusables.sponsors.click-add-tier %} {% данных reusables.sponsors.tier-price-description %} {% данных reusables.sponsors.add-welcome-message %} {% данных reusables.sponsors.save-tier-draft %} {% данных reusables.sponsors.review-and-publish-tier %}
 
-## Editing or retiring a tier
+## Изменение уровня или прекращение его использования
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-{% data reusables.sponsors.edit-tier %}
-  {% note %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %} {% data reusables.sponsors.edit-tier %} {% note %}
 
-  **Note:** To see ideas of tier descriptions, scroll down.
+  **Примечание.** Прокрутите вниз, чтобы просмотреть варианты описания уровней.
 
-  {% endnote %}
-{% data reusables.sponsors.tier-price-description %}
-{% data reusables.sponsors.tier-update %}
-{% data reusables.sponsors.retire-tier %}
+  {% endnote %} {% data reusables.sponsors.tier-price-description %} {% data reusables.sponsors.tier-update %} {% data reusables.sponsors.retire-tier %}
 
-## Adding a repository to a sponsorship tier
+## Добавление репозитория на уровень спонсорского предложения
 
 {% data reusables.sponsors.sponsors-only-repos %}
 
-### About adding repositories to a sponsorship tier
+### Сведения о добавлении репозитория на уровень спонсорского предложения
 
-To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
+Чтобы добавить репозиторий на уровень, убедитесь, что репозиторий является частным и принадлежит организации, а у вас для него есть доступ администратора.
 
-When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled. 
+При добавлении репозитория на уровень {% data variables.product.company_short %} автоматически отправляет приглашения новым спонсорам и удаляет доступ при отмене спонсорского предложения. 
 
-Only personal accounts, not organizations, can be invited to private repositories associated with a sponsorship tier.
+В частные репозитории, связанные с уровнем спонсорского предложения, можно пригласить только личные учетные записи, но не организации.
 
-You can also manually add or remove collaborators to the repository, and {% data variables.product.company_short %} will not override these in the sync. 
+Вы также можете вручную добавлять участников совместной работы в репозитории или удалять их, а {% data variables.product.company_short %} не будет их переопределять в синхронизации. 
 
-### About transfers for repositories that are added to sponsorship tiers
+### Сведения о передаче для репозиториев, добавленных на уровни спонсорских предложений
 
-If you transfer a repository that has been added to a sponsorship tier, sponsors who have access to the repository through the tier may be affected.
+Передача репозитория, добавленного на уровень спонсорского предложения, может повлиять на спонсоров, имеющих доступ к репозиторию через этот уровень.
 
-- If the sponsored profile is for an organization and the repository is transferred to a different organization, current sponsors will be transferred, but new sponsors will not be added. The new owner of the repository can remove existing sponsors.
-- If the sponsored profile is for a personal account, the repository is transferred to an organization, and the personal account has admin access to the new repository, existing sponsors will be transferred, and new sponsors will continue to be added to the repository.
-- If the repository is transferred to a personal account, all sponsors will be removed and new sponsors will not be added to the repository.
+- Если профиль со спонсорским предложением предназначен для организации, а репозиторий передается в другую организацию, текущие спонсоры будут переданы, но новые спонсоры не будут добавлены. Новый владелец репозитория может удалить существующих спонсоров.
+- Если профиль со спонсорским предложением предназначен для личной учетной записи, репозиторий передается в организацию, а личная учетная запись предоставляет доступ администратора к новому репозиторию, существующие спонсоры будут переданы, а новые спонсоры будут по-прежнему добавляться в репозиторий.
+- Если репозиторий передается в личную учетную запись, будут удалены все спонсоры, а новые не будут добавлены в репозиторий.
 
-### Adding a repository a sponsorship tier
+### Добавление репозитория на уровень спонсорского предложения
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-{% data reusables.sponsors.edit-tier %}
-1. Select **Grant sponsors access to a private repository**.
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %} {% data reusables.sponsors.edit-tier %}
+1. Выберите **Предоставить спонсорам доступ к частному репозиторию**.
 
-   ![Screenshot of checkbox to grant sponsors access to a private repository](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
+   ![Снимок экрана, на котором изображен флажок для предоставления спонсорам доступа к частному репозиторию](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
 
-1. Select the dropdown menu and click the repository you want to add.
+1. Выберите раскрывающееся меню и нажмите репозиторий, который нужно добавить.
 
-   ![Screenshot of dropdown menu to choose the repository to grant sponsors access to](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+   ![Снимок экрана, где изображено раскрывающееся меню для выбора репозитория, к которому нужно предоставить доступ спонсорам](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
 
 {% data reusables.sponsors.tier-update %}

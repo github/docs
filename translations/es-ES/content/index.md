@@ -17,6 +17,31 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
+  - /early-access/github/enforcing-best-practices-with-github-policies
+  - /github/enforcing-best-practices-with-github-policies/index
+  - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /early-access/github/enforcing-best-practices-with-github-policies/constraints
+  - /github/enforcing-best-practices-with-github-policies/constraints
+  - /early-access/github/enforcing-best-practices-with-github-policies/contexts
+  - /github/enforcing-best-practices-with-github-policies/contexts
+  - /early-access/github/enforcing-best-practices-with-github-policies/expressions
+  - /github/enforcing-best-practices-with-github-policies/expressions
+  - /early-access/github/enforcing-best-practices-with-github-policies/getting-started
+  - /early-access/github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /early-access/github/enforcing-best-practices-with-github-policies/onboarding
+  - /github/enforcing-best-practices-with-github-policies/onboarding
+  - /early-access/github/enforcing-best-practices-with-github-policies/overview
+  - /github/enforcing-best-practices-with-github-policies/overview
+  - /early-access/github/enforcing-best-practices-with-github-policies/release-notes
+  - /github/enforcing-best-practices-with-github-policies/release-notes
+  - /early-access/github/enforcing-best-practices-with-github-policies/resources
+  - /github/enforcing-best-practices-with-github-policies/resources
+  - /early-access/github/enforcing-best-practices-with-github-policies/sharing
+  - /github/enforcing-best-practices-with-github-policies/sharing
+  - /early-access/github/enforcing-best-practices-with-github-policies/syntax
+  - /github/enforcing-best-practices-with-github-policies/syntax
 versions: '*'
 children:
   - search
@@ -117,7 +142,7 @@ externalProducts:
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs'
+    href: 'https://electronjs.org/docs/latest'
     external: true
   codeql:
     id: codeql
@@ -129,11 +154,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
-ms.openlocfilehash: c76f5cd822d9b7bed7129626283552892366b57a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: e72ace58cb674661cbde635f97cf7ff0ab70433a
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158873'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183976'
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
+title: 连接到专用网络
+intro: '可以将 {% data variables.product.prodname_github_codespaces %} 连接到专用网络上的资源，包括包注册表、许可证服务器和本地数据库。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,51 +9,56 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+ms.openlocfilehash: 92b8f2b9ea438a4cc799aec1969ff6773f90c298
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159441'
 ---
+## 关于代码空间网络
 
-## About codespace networking
+默认情况下，您的代码空间有权访问公共 Internet 上的所有资源，包括包管理器、许可证服务器、数据库和云平台 API，但它们无权访问专用网络上的资源。
 
-By default, your codespaces have access to all resources on the public internet, including package managers, license servers, databases, and cloud platform APIs, but they have no access to resources on private networks.
+## 连接到专用网络上的资源
 
-## Connecting to resources on a private network
+目前，在 {% data variables.product.prodname_github_codespaces %} 内访问专用网络上的资源有两种方法。
+- 使用 {% data variables.product.prodname_cli %} 扩展将本地计算机配置为远程资源的网关。
+- 使用 VPN。 
 
-There are currently two methods of accessing resources on a private network within {% data variables.product.prodname_github_codespaces %}.
-- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
-- Using a VPN. 
-
-### Using the GitHub CLI extension to access remote resources
+### 使用 GitHub CLI 扩展访问远程资源
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+注意：{% data variables.product.prodname_cli %} 扩展目前为 beta 版本，可能会有变动。 
 
 {% endnote %}
 
-The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+可以使用 {% data variables.product.prodname_cli %} 扩展在 codespace 和本地计算机之间创建网桥，以便 codespace 可以访问可从计算机访问的任何远程资源。 codespace 使用本地计算机作为网络网关访问这些资源。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_cli %} 访问远程资源](https://github.com/github/gh-net#codespaces-network-bridge)”。
 
    
    
 
-### Using a VPN to access resources behind a private network
+### 使用 VPN 访问专用网络后面的资源
 
-As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
+作为 {% data variables.product.prodname_cli %} 扩展的替代方法，可以使用 VPN 从 codespace 内访问专用网络后面的资源。
 
-We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from {% data variables.product.prodname_github_codespaces %}](https://github.com/codespaces-contrib/codespaces-openvpn)."
+建议使用 [OpenVPN](https://openvpn.net/) 等 VPN工具访问专用网络上的资源。 有关详细信息，请参阅“[从 {% data variables.product.prodname_github_codespaces %} 使用 OpenVPN 客户端](https://github.com/codespaces-contrib/codespaces-openvpn)”。
 
-There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_github_codespaces %}.
+还有一些第三方解决方案虽然没有得到 {% data variables.product.prodname_dotcom %} 的明确认可，但提供了如何与 {% data variables.product.prodname_github_codespaces %} 集成的示例。
 
-These third party solutions include:
+这些第三方解决方案包括：
 
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
 
-### Allowlisting private resources for codespaces
+### 将代码空间的私有资源列入允许列表
 
-While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
+虽然 {% data variables.product.prodname_dotcom %} 在其 Meta API 上发布多个产品的 IP 范围，但代码空间 IP 是动态分配的，这意味着您的代码空间不能保证每天具有相同的 IP 地址。 我们强烈建议用户不要允许列出整个 IP 范围，因为这样用户能够过于宽泛地访问所有代码空间（包括与您的代码空间无关的用户）。
 
-For more information about the Meta API, see "[Meta](/rest/reference/meta)."
+有关 Meta API 的详细信息，请参阅“[Meta](/rest/reference/meta)”。
 
-## Restricting access to the public internet
+## 限制对公共互联网的访问
 
-At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
+目前，没有办法限制代码空间访问公共互联网，或者限制经过适当身份验证的用户访问转发端口。
 
-For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."
+有关如何保护 codespace 的详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 中的安全性](/codespaces/codespaces-reference/security-in-github-codespaces)”。

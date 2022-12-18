@@ -1,5 +1,5 @@
 ---
-title: Authorizing OAuth Apps
+title: Авторизация приложений OAuth
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
@@ -16,67 +16,73 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
+ms.openlocfilehash: d35b65add4259df72d9ae8b179829a148abd7174
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106713'
 ---
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+Реализация OAuth в {% data variables.product.product_name %} поддерживает стандартный [тип предоставления кода авторизации](https://tools.ietf.org/html/rfc6749#section-4.1) и [предоставление авторизации устройствам](https://tools.ietf.org/html/rfc8628) OAuth 2.0 для приложений, у которых нет доступа к веб-браузеру.
 
-If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
+Если вы хотите пропустить стандартную авторизацию приложения, например при его тестировании, можно воспользоваться [процессом не для веб-приложения](#non-web-application-flow).
 
-To authorize your OAuth app, consider which authorization flow best fits your app.
+Решите, какой процесс авторизации лучше всего подходит вашему приложению OAuth.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+- [Процесс для веб-приложения](#web-application-flow): служит для авторизации пользователей для стандартных приложений OAuth, работающих в браузере. ([Тип неявного предоставления разрешений](https://tools.ietf.org/html/rfc6749#section-4.2) не поддерживается.)
+- [Процесс для устройства](#device-flow): используется для автономных приложений, таких как средства CLI.
 
-## Web application flow
+## Процесс для веб-приложения
 
 {% note %}
 
-**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+**Примечание**. Если вы создаете приложение GitHub, то также можете использовать процесс для веб-приложения OAuth, но в процедуре настройки есть ряд важных отличий. Дополнительные сведения см. в разделе [Идентификация и авторизация пользователей для приложений GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 
 {% endnote %}
 
-The web application flow to authorize users for your app is:
+Процесс для веб-приложения, позволяющий авторизовать пользователей для использования приложения, состоит из следующих шагов:
 
-1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your app accesses the API with the user's access token
+1. Пользователи перенаправляются для запроса удостоверения GitHub.
+2. Пользователи перенаправляются из GitHub обратно на сайт.
+3. Приложение обращается к API с маркером доступа пользователя.
 
-### 1. Request a user's GitHub identity
+### 1. Запрос удостоверения GitHub пользователя
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
+Когда приложение GitHub указывает параметр `login`, оно предлагает пользователям определенную учетную запись для входа и авторизации приложения.
 
-#### Parameters
+#### Параметры
 
-Name | Type | Description
+Имя | Тип | Описание
 -----|------|--------------
-`client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
-`redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`scope`|`string` | A space-delimited list of [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
+`client_id`|`string` | **Обязательно**. Идентификатор клиента, полученный от GitHub при {% ifversion fpt or ghec %}[регистрации](https://github.com/settings/applications/new){% else %}регистрации{% endif %}.
+`redirect_uri`|`string` | URL-адрес в приложении, на который пользователи будут направляться после авторизации. См. дополнительные сведения ниже о [URL-адресах перенаправления](#redirect-urls).
+`login` | `string` | Предлагает определенную учетную запись для входа и авторизации приложения.
+`scope`|`string` | Разделенный пробелами список [областей](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). Если значение не указано, по умолчанию `scope` представляет собой пустой список пользователей, которые не авторизовали ни одну область для приложения. Пользователям, авторизовавшим области для приложения, не будет отображаться страница авторизации OAuth со списком областей. Вместо этого данный шаг процесса будет автоматически завершен с набором областей, которые пользователь авторизовал для приложения. Например, если пользователь уже дважды выполнил веб-процесс и авторизовал один токен с областью `user`, а другой — с областью `repo`, третий веб-процесс без указания `scope` получит токен с областью `user` и `repo`.
 `state` | `string` | {% data reusables.apps.state_description %}
-`allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+`allow_signup`|`string` | Предоставляется ли пользователям, не прошедшим проверку подлинности, возможность регистрации на GitHub во время процесса OAuth. Значение по умолчанию — `true`. Используйте значение `false`, когда политика запрещает регистрацию.
 
-### 2. Users are redirected back to your site by GitHub
+### 2. Перенаправление пользователей из GitHub обратно на ваш сайт
 
-If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
+Если пользователь принимает запрос, {% data variables.product.product_name %} перенаправляет его обратно на ваш сайт с временным кодом в параметре `code`, а также с состоянием, указанным на предыдущем шаге в параметре `state`. Срок действия временного кода истекает через 10 минут. Если состояния не совпадают, значит запрос создала третья сторона и следует прервать процесс.
 
-Exchange this `code` for an access token:
+Код в параметре `code` обменивается на маркер доступа:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+#### Параметры
 
-Name | Type | Description
+Имя | Тип | Описание
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`code` | `string` | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+`client_id` | `string` | **Обязательный.** Идентификатор клиента, полученный из {% data variables.product.product_name %} для {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | **Обязательный.** Секрет клиента, полученный из {% data variables.product.product_name %} для {% data variables.product.prodname_oauth_app %}.
+`code` | `string` | **Обязательный.** Код, полученный в качестве ответа на шаге 1.
+`redirect_uri` | `string` | URL-адрес в приложении, на который пользователи будут направляться после авторизации.
 
-#### Response
+#### Ответ
 
-By default, the response takes the following form:
+По умолчанию ответ имеет следующую форму:
 
 ```
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
@@ -102,57 +108,57 @@ Accept: application/xml
 </OAuth>
 ```
 
-### 3. Use the access token to access the API
+### 3. Использование маркера доступа для доступа к API
 
-The access token allows you to make requests to the API on a behalf of a user.
+Маркер доступа позволяет выполнять запросы к API от имени пользователя.
 
     Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
-For example, in curl you can set the Authorization header like this:
+Например, в curl можно задать заголовок авторизации следующим образом:
 
 ```shell
 curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-## Device flow
+## Процесс для устройства
 
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**Примечание**. Процесс для устройства находится в стадии общедоступной бета-версии и может быть изменен.
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+Процесс для устройства позволяет авторизовать пользователей для автономного приложения, например средства CLI или диспетчера учетных данных GIT.
 
 {% ifversion device-flow-is-opt-in %}
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[Modifying an OAuth App](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" for GitHub Apps.
+Прежде чем использовать процесс для устройства с целью авторизации и идентификации пользователей, необходимо сначала включить его в параметрах приложения. Дополнительные сведения о включении процесса для устройства в приложении см. в разделе [Изменение приложения OAuth](/developers/apps/managing-oauth-apps/modifying-an-oauth-app) для приложений OAuth или [Изменение приложения GitHub](/developers/apps/managing-github-apps/modifying-a-github-app) для приложений GitHub.
 
 {% endif %}
 
-### Overview of the device flow
+### Общая схема процесса для устройства
 
-1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+1. Приложение запрашивает коды проверки устройства и пользователя и получает URL-адрес авторизации, по которому пользователь должен будет ввести код проверки пользователя.
+2. Приложение предлагает пользователю ввести код проверки пользователя на странице {% data variables.product.device_authorization_url %}.
+3.  Приложение опрашивает состояние проверки подлинности пользователя. После того как пользователь авторизует устройство, приложение сможет выполнять вызовы API с новым маркером доступа.
 
-### Step 1: App requests the device and user verification codes from GitHub
+### Шаг 1. Приложение запрашивает коды проверки устройства и пользователя на GitHub
 
     POST {% data variables.product.oauth_host_code %}/login/device/code
 
-Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
+Приложение должно запросить код проверки пользователя и URL-адрес проверки, который приложение будет использовать для запроса проверки подлинности пользователя на следующем шаге. Запрос также возвращает код проверки устройства, который приложение должно использовать для получения маркера доступа и проверки состояния проверки подлинности пользователя.
 
-#### Input Parameters
+#### Входные параметры
 
-Name | Type | Description
+Имя | Тип | Описание
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
-`scope` | `string` | The scope that your app is requesting access to.
+`client_id` | `string` | **Обязательный.** Идентификатор клиента, полученный из {% data variables.product.product_name %} для приложения.
+`scope` | `string` | Область, к которой приложение запрашивает доступ.
 
-#### Response
+#### Ответ
 
-By default, the response takes the following form:
+По умолчанию ответ имеет следующую форму:
 
 ```
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
@@ -182,43 +188,43 @@ Accept: application/xml
 </OAuth>
 ```
 
-#### Response parameters
+#### Параметры ответа
 
-Name | Type | Description
+Имя | Тип | Описание
 -----|------|--------------
-`device_code` | `string` | The device verification code is 40 characters and used to verify the device.
-`user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
-`verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.
-`expires_in` | `integer`| The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.
-`interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error.
+`device_code` | `string` | Код проверки устройства состоит из 40 символов и служит для проверки устройства.
+`user_code` | `string` | Код проверки пользователя отображается на устройстве, чтобы пользователь мог ввести его в браузере. Он состоит из восьми символов с дефисом в середине.
+`verification_uri` | `string` | URL-адрес проверки, по которому пользователи должны ввести `user_code`: {% data variables.product.device_authorization_url %}.
+`expires_in` | `integer`| Количество секунд до окончания срока действия `device_code` и `user_code`. Значение по умолчанию равно 900 секундам или 15 минутам.
+`interval` | `integer` | Минимальное количество секунд, которое должно пройти, прежде чем можно будет выполнить новый запрос маркера доступа (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) для завершения авторизации устройства. Например, если интервал равен пяти, вы не сможете выполнить новый запрос, пока не пройдут пять секунд. Если вы выполните более одного запроса в течение пяти секунд, то достигнете предела частоты запросов и получите ошибку `slow_down`.
 
-### Step 2: Prompt the user to enter the user code in a browser
+### Шаг 2. Запрос на ввод кода проверки пользователя в браузере
 
-Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
+Устройство отобразит код проверки пользователя и предложит пользователю ввести его на странице {% data variables.product.device_authorization_url %}.
 
-  ![Field to enter the user verification code displayed on your device](/assets/images/github-apps/device_authorization_page_for_user_code.png)
+  ![Поле для ввода кода проверки пользователя, отображаемого на устройстве](/assets/images/github-apps/device_authorization_page_for_user_code.png)
 
-### Step 3: App polls GitHub to check if the user authorized the device
+### Шаг 3. Опрос GitHub приложением с целью проверки авторизации устройства пользователем
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
+Приложение будет выполнять запросы на авторизацию устройства `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, пока не истечет срок действия кода проверки устройства или пользователя либо пока пользователь не авторизует приложение успешно с помощью допустимого кода проверки пользователя. Чтобы избежать ошибок ограничения частоты запросов, приложение должно использовать минимальный интервал (`interval`) опроса, полученный на шаге 1. Дополнительные сведения см. в разделе [Ограничения частоты запросов для процесса для устройства](#rate-limits-for-the-device-flow).
 
-The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {% data variables.product.oauth_host_code %}/login/device/code`.
+Пользователь должен ввести действительный код в течение 15 минут (900 секунд). По истечении 15 минут вам потребуется запросить новый код авторизации устройства с помощью `POST {% data variables.product.oauth_host_code %}/login/device/code`.
 
-Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
+После авторизации пользователем приложение получит маркер доступа, с помощью которого можно выполнять запросы к API от имени пользователя.
 
-#### Input parameters
+#### Входные параметры
 
-Name | Type | Description
+Имя | Тип | Описание
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
-`grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
+`client_id` | `string` | **Обязательный.** Идентификатор клиента, полученный из {% data variables.product.product_name %} для {% data variables.product.prodname_oauth_app %}.
+`device_code` | `string` | **Обязательный.** Код проверки устройства, полученный в ответ на запрос `POST {% data variables.product.oauth_host_code %}/login/device/code`.
+`grant_type` | `string` | **Обязательный.** Тип предоставления разрешения должен быть `urn:ietf:params:oauth:grant-type:device_code`.
 
-#### Response
+#### Ответ
 
-By default, the response takes the following form:
+По умолчанию ответ имеет следующую форму:
 
 ```
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
@@ -244,48 +250,40 @@ Accept: application/xml
 </OAuth>
 ```
 
-### Rate limits for the device flow
+### Ограничения частоты вызовов для процесса для устройства
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+Пользователь может отправлять код проверки в браузере не чаще чем 50 раз в час для каждого приложения.
 
-If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
+При выполнении еще одного запроса маркера доступа (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) до истечения минимального интервала времени между запросами (или `interval`) будет достигнут предел частоты запросов и получен ответ с ошибкой `slow_down`. Ответ об ошибке `slow_down` добавляет пять секунд к последнему интервалу `interval`. Дополнительные сведения см. в разделе [Коды ошибок процесса для устройства](#errors-for-the-device-flow).
 
-### Error codes for the device flow
+### Коды ошибок процесса для устройства
 
-| Error code | Description |
+| Код ошибки | Описание |
 |----|----|
-| `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request. |
-| `slow_down` | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use.
-| `expired_token` | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.
-| `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
-| `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.
-| `incorrect_device_code` | The device_code provided is not valid.
-| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
+| `authorization_pending`| Эта ошибка возникает, если запрос авторизации ожидает завершения и пользователь еще не ввел код проверки пользователя. Приложение должно продолжать выполнять запрос `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` без превышения интервала [`interval`](#response-parameters), то есть перед следующим запросом должно пройти минимальное количество секунд. |
+| `slow_down` | При получении ошибки `slow_down` к минимальному интервалу времени `interval` между запросами `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` добавляются пять дополнительных секунд. Например, если начальный требуемый интервал между запросами составлял пять секунд и вы получили ответ с ошибкой `slow_down`, необходимо подождать не менее 10 секунд, прежде чем выполнять новый запрос маркера доступа OAuth. В ответе с ошибкой указывается новый интервал `interval`, который необходимо выждать.
+| `expired_token` | Если истек срок действия кода устройства, возникнет ошибка `token_expired`. Необходимо запросить новый код устройства.
+| `unsupported_grant_type` | Тип предоставления разрешения должен быть `urn:ietf:params:oauth:grant-type:device_code` и включен в качестве входного параметра при запросе маркера OAuth `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
+| `incorrect_client_credentials` | Для процесса для устройства необходимо передать идентификатор клиента приложения, который можно найти на странице параметров приложения. `client_secret` не требуется для процесса для устройства.
+| `incorrect_device_code` | Указанный код проверки устройства недействителен.
+| `access_denied` | Если пользователь нажимает кнопку "Отмена" в процессе авторизации, вы получаете ошибку `access_denied` и пользователь больше не сможет использовать код проверки.{% ifversion device-flow-is-opt-in %}
+| `device_flow_disabled` | Процесс для устройства не включен в параметрах приложения. Дополнительные сведения см. в разделе [Процесс для устройства](#device-flow).{% endif %}
 
-For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
+Дополнительные сведения см. в разделе [Предоставление разрешения на авторизацию устройства OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5).
 
-## Non-Web application flow
+## Процесс не для веб-приложения
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
+Проверка подлинности не для веб-приложения доступна в некоторых ситуациях, таких как тестирование. При необходимости можно использовать [обычную проверку подлинности](/rest/overview/other-authentication-methods#basic-authentication) для создания {% данных variables.product.pat_generic %} с помощью [страницы параметров {% данных variables.product.pat_generic %}s](/articles/creating-an-access-token-for-command-line-use). Этот метод позволяет пользователю отозвать доступ в любое время.
 
-{% ifversion fpt or ghes or ghec %}
-{% note %}
+{% ifversion fpt or ghes or ghec %} {% note %}
 
-**Note:** When using the non-web application flow to create an OAuth2 token, make sure to understand how to [work with
-two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) if
-you or your users have two-factor authentication enabled.
+**Примечание**. При использовании процесса не для веб-приложения с целью создания токена OAuth2 необходимо понимать [принципы работы двухфакторной проверки подлинности](/rest/overview/other-authentication-methods#working-with-two-factor-authentication), если она включена у вас или у ваших пользователей.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## Redirect URLs
+## URL-адреса перенаправления
 
-The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the OAuth Application
-settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
-match the callback URL. The redirect URL's path must reference a
-subdirectory of the callback URL.
+Параметр `redirect_uri` не обязателен. Если он не задан, GitHub будет перенаправлять пользователей на URL-адрес обратного вызова, настроенный в параметрах приложения OAuth. Если он указан, узел URL-адреса перенаправления (за исключением вложенных доменов) и порт должны точно соответствовать URL-адресу обратного вызова. Путь URL-адреса перенаправления должен вести в подкаталог URL-адреса обратного вызова.
 
     CALLBACK: http://example.com/path
 
@@ -299,33 +297,33 @@ subdirectory of the callback URL.
     BAD:  http://oauth.example.com:8080/path
     BAD:  http://example.org
 
-### Loopback redirect urls
+### URL-адреса перенаправления замыкания на себя
 
-The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
+Необязательный `redirect_uri` параметр также можно использовать для URL-адресов замыкания на себя. Если приложение указывает URL-адрес замыкания на себя и порт, после авторизации пользователей приложения будет перенаправлено на указанный URL-адрес и порт. Не `redirect_uri` нужно совпадать с портом, указанным в URL-адресе обратного вызова для приложения.
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+Для URL-адреса обратного вызова `http://127.0.0.1/path` можно использовать следующий `redirect_uri`:
 
 ```
 http://127.0.0.1:1234/path
 ```
 
-Note that OAuth RFC [recommends not to use `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), but instead to use loopback literal `127.0.0.1` or IPv6 `::1`.
+Обратите внимание, что OAuth RFC [рекомендует не использовать `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), а использовать литерал `127.0.0.1` замыкания на себя или IPv6 `::1`.
 
-## Creating multiple tokens for OAuth Apps
+## Создание нескольких токенов для приложений OAuth
 
-You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.
+Вы можете создать несколько токенов для определенных сочетаний пользователя, приложения и области, которые будут предназначены для конкретных вариантов использования.
 
-This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
+Это полезно, если один из рабочих процессов, поддерживаемых приложением OAuth, использует GitHub для входа и требует только базовых сведений о пользователе. Другой рабочий процесс может требовать доступа к частным репозиториям пользователя. Используя несколько токенов, приложение OAuth может выполнять веб-процесс для каждого варианта использования, запрашивая только необходимые области. Если пользователь использует приложение только для входа, ему никогда не требуется предоставлять приложению OAuth доступ к частным репозиториям.
 
 {% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
-## Directing users to review their access
+## Перенаправление пользователей для проверки доступа
 
-You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.
+Вы можете предоставлять ссылку на сведения об авторизации для приложения OAuth, чтобы пользователи могли просматривать и отзывать авторизации.
 
-To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
+Чтобы создать эту ссылку, вам потребуется идентификатор `client_id` приложения OAuth, полученный от GitHub при регистрации приложения.
 
 ```
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
@@ -333,17 +331,17 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 {% tip %}
 
-**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[Discovering resources for a user](/rest/guides/discovering-resources-for-a-user)."
+**Совет**. Дополнительные сведения о ресурсах, к которым приложение OAuth может получать доступ от имени пользователя, см. в разделе [Обнаружение ресурсов для пользователя](/rest/guides/discovering-resources-for-a-user).
 
 {% endtip %}
 
-## Troubleshooting
+## Устранение неполадок
 
-* "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"
-* "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* [Устранение ошибок запросов на авторизацию](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)
+* [Устранение ошибок при запросе маркеров доступа для приложения OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)
+* "[Ошибки потока устройств](#error-codes-for-the-device-flow)"
+* "[Срок действия маркера и отзыв](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
-## Further reading
+## Дополнительные материалы
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
+- [Сведения о проверке подлинности для {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)

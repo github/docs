@@ -1,26 +1,27 @@
-date: '2022-08-30'
+date: '30-08-2022'
 sections:
   bugs:
-    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository. 
-    - Duplicate administrative SSH keys could appear in both the Management Console and the `/home/admin/.ssh/authorized_keys` file.
-    - The site admin page for individual users at <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contained functionality not intended for GitHub Enterprise Server.  
-    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
-    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
-    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
-    - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
+    - "Tras desbloquear un repositorio para su acceso temporal, un administrador de sitio no podía administrar los ajustes de los productos de seguridad en el repositorio." 
+    - Podían aparecer claves SSH administrativas duplicadas en la Consola de administración y en el archivo `/home/admin/.ssh/authorized_keys`.
+    - "La página de administración del sitio de usuarios individuales en <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contenía funciones no dirigidas a GitHub Enterprise Server."  
+    - "En algunos casos, la ejecución de `ghe-cluster-config-apply` podía replicar una configuración vacía en nodos existentes de un clúster." 
+    - "En algunos casos, las ejecuciones de configuración que se iniciaban con `ghe-config-apply` no se completaban, o devolvían un error de tipo `Container count mismatch`." 
+    - "Después de actualizar un certificado TLS autofirmado en una instancia de GitHub Enterprise Server, los elementos de la interfaz de usuario de algunas páginas de la interfaz web no aparecían." 
+    - "En algunos casos, las tareas en segundo plano se bloqueaban porque se utilizaba una biblioteca simultáneamente a pesar de no ser segura para subprocesos."
   changes:
-    - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."
-    - APIs that contain the `organization` or `org` route now accept either the organization's slug or ID. Previously, the APIs only accepted slugs, which caused `Link` headers for GitHub Advanced Security endpoints to be inaccessible. For more information, see "[Organizations](https://docs.github.com/rest/orgs/orgs)" in the REST API documentation. 
-    - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
+    - "Se ha acelerado la generación de conjuntos de soporte gracias a un saneamiento de registros en paralelo. Si desea más información sobre los conjuntos de soporte, consulte \"[Facilitar información al equipo de soporte de GitHub](/support/contacting-github-support/providing-data-to-github-support)\"."
+    - "Las API que contienen la ruta `organization` o `org` ahora aceptan el slug o el ID de la organización. Anteriormente, las API solo aceptaban slugs, lo que provocaba que los encabezados de enlaces de puntos de conexión de GitHub Advanced Security no fueran accesibles. Para más información, consulte \"[Organizaciones](https://docs.github.com/rest/orgs/orgs)\" en la documento de la API REST." 
+    - "El registro de auditoría empresarial incluye ahora más eventos generados por el usuario, como `project.create`. La API REST también devuelve eventos adicionales generados por el usuario, como `repo.create`. Para más información, consulte \"[Acceso al registro de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)\" y \"[Uso de la API de registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)\"."
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - |Después de registrar un ejecutor autohospedado con el parámetro "--ephemeral" en más de un nivel (por ejemplo, de empresa y de organización), el ejecutor puede quedarse bloqueado en un estado de inactividad y requerir un nuevo registro. [Actualizado: 17-06-2022]
+
+|
+    - "Tras actualizar a {% data variables.product.prodname_ghe_server %} 3.4, puede parecer que faltan versiones en los repositorios. Esto puede ocurrir si las migraciones de índices de Elasticsearch necesarias no se han completado correctamente."
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 82a8b8c29ea38d57f0481146f2a857c2dcba8413
-ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160725'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192694'
 ---
 ## Sobre os {% data variables.product.prodname_emus %}
 
@@ -65,7 +65,7 @@ Para descobrir como um membro foi adicionado a uma organização, você pode fil
 
 O {% data variables.product.prodname_emus %} dá suporte aos seguintes métodos de autenticação e IdPs{% ifversion oidc-for-emu %}:
 
-|                                  | SAML                                          | OIDC (beta)                                   |
+|                                  | SAML                                          | OIDC                                          |
 |----------------------------------|-----------------------------------------------|-----------------------------------------------|
 | Azure Active Directory           | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %} |
 | Okta                             | {% octicon "check" aria-label="Check icon" %} |                                               |
@@ -94,7 +94,6 @@ Os {% data variables.enterprise.prodname_managed_users_caps %} só podem contrib
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Apenas repositórios privados e internos podem ser criados em organizações pertencentes a um {% data variables.enterprise.prodname_emu_enterprise %}, dependendo das configurações de visibilidade da organização e do repositório corporativo. 
 * Os {% data variables.enterprise.prodname_managed_users_caps %} são limitados quanto ao uso de {% data variables.product.prodname_pages %}. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Introdução aos {% data variables.product.prodname_emus %}
 
@@ -114,7 +113,7 @@ Para que os desenvolvedores possam usar o {% data variables.product.prodname_ghe
   
 3. Depois que você entrar como o usuário de configuração, recomendamos que habilite a autenticação de dois fatores. Para obter mais informações, confira "[Como configurar a autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
 
-1. Para começar, configure {% ifversion oidc-for-emu %}como os membros serão autenticados. Se você estiver usando o Azure Active Directory como provedor de identidade, poderá escolher entre o OIDC (OpenID Connect) e o SAML (Security Assertion Markup Language). As duas opções oferecem uma experiência de entrada perfeita aos membros, mas apenas o OIDC inclui suporte para CAP (políticas de acesso condicional). Se você estiver usando o Okta como provedor de identidade, poderá usar o SAML para autenticar os membros.{% else %} SSO do SAML para sua empresa. Para obter mais informações, confira "[Como configurar o logon único do SAML para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+1. Para começar, configure {% ifversion oidc-for-emu %}como os membros serão autenticados. Se você estiver usando o Azure Active Directory como provedor de identidade, poderá escolher entre o OIDC (OpenID Connect) e o SAML (Security Assertion Markup Language). Recomendamos o OIDC, que inclui suporte para CAP (Políticas de Acesso Condicional). Se você precisar de várias empresas com {% data variables.enterprise.prodname_managed_users %} provisionados por meio de um locatário, será necessário usar SAML para cada empresa após a primeira. Se você estiver usando o Okta como provedor de identidade, poderá usar o SAML para autenticar os membros.{% else %} SSO do SAML para sua empresa. Para obter mais informações, confira "[Como configurar o logon único do SAML para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
   
   {% ifversion oidc-for-emu %}
   

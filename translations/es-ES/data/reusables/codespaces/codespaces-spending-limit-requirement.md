@@ -1,7 +1,15 @@
+---
+ms.openlocfilehash: 7d64df6146c09aa6cd5fc997ccb96022fab29501
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159233"
+---
 {% note %}
 
-**Note:** You must set a non-zero spending limit on your personal, organization, or enterprise account before the account can be billed for use of {% data variables.product.prodname_github_codespaces %}.
+**Nota:** Debes establecer un límite de gasto distinto de cero en tu cuenta personal, de organización o de empresa para que se pueda facturar a la cuenta por el uso de {% data variables.product.prodname_github_codespaces %}.
 
 {% endnote %}
 
-By default, all accounts have a {% data variables.product.prodname_github_codespaces %} spending limit of $0 USD. This prevents new codespaces being created, or existing codespaces being opened, if doing so would incur a billable cost to your personal, organization, or enterprise account. For personal accounts, codespaces can always be created and used if the account has not reached the limit of its monthly included usage. For organizations and enterprises, the default spending limit means that, to allow people to create codespaces that are billed to the organization, or its parent enterprise, the limit must be changed to a value above $0 USD.
+De forma predeterminada, todas las cuentas tienen un límite de gasto de {% data variables.product.prodname_github_codespaces %} de 0 USD. Esto impide que se creen codespaces o que se abran codespaces existentes, si esto supone que se incurra en un costo facturable para la cuenta personal, de organización o de empresa. En el caso de las cuentas personales, siempre se pueden crear y usar codespaces si la cuenta no ha alcanzado el límite de uso mensual incluido. En el caso de las organizaciones y las empresas, el límite de gasto predeterminado significa que, para que los usuarios puedan crear codespaces que se facturan a la organización, o a su empresa matriz, el límite debe cambiarse a un valor superior a 0 USD.

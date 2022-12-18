@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 0a42d7b90fd6973a0d52e7cff8dfc3082de11135
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 64c92d2427b9be166d820bf3fcb23d39d449a295
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145096436"
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163426"
 ---
-Projetos mantidos e gerenciados por um único proprietário da organização podem facilmente tornar-se inacessíveis se o proprietário da organização não estiver acessível. Recomendamos que uma organização tenha, pelo menos, duas pessoas com permissões de *proprietário* para garantir que ninguém perca o acesso a um projeto.
+Se uma organização tiver apenas um proprietário, os projetos dela poderão ficar inacessíveis se ele estiver inacessível. Para garantir que ninguém perca o acesso a um projeto, atribua a pelo menos duas pessoas em cada organização a função de proprietário.

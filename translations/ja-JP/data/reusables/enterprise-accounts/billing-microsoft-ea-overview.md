@@ -1,1 +1,9 @@
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for any {% data variables.product.prodname_github_codespaces %} usage, and for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} usage beyond the amounts included with your account.
+---
+ms.openlocfilehash: a946c9f584b5ba850347f35b8a578e3997c7d632
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145124069"
+---
+Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合は、自分の Azure サブスクリプション ID を Enterprise アカウントに接続して、{% data variables.product.prodname_codespaces %} の使用、および自分のアカウントに含まれている金額を超える {% data variables.product.prodname_actions %} または {% data variables.product.prodname_registry %} の使用を、有効にして支払いを行うことができます。

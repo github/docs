@@ -1,6 +1,6 @@
 ---
-title: Other authentication methods
-intro: You can use basic authentication for testing in a non-production environment.
+title: Другие методы проверки подлинности
+intro: Базовую проверку подлинности можно использовать для тестирования в нерабочей среде.
 redirect_from:
   - /v3/auth
 versions:
@@ -11,88 +11,76 @@ versions:
 topics:
   - API
 shortTitle: Other authentication methods
+ms.openlocfilehash: a979c5e688f6f6942a56c9cff55386bb72a92e57
+ms.sourcegitcommit: f392aa98511e0889d96af2e4a56e67f8adfb025f
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172720'
 ---
-
-
-{% ifversion fpt or ghes or ghec %}
-While the API provides multiple methods for authentication, we strongly
-recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) for production applications. The other
-methods provided are intended to be used for scripts or testing (i.e., cases
-where full OAuth would be overkill). Third party applications that rely on
-{% data variables.product.product_name %} for authentication should not ask for or collect {% data variables.product.product_name %} credentials.
-Instead, they should use the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+{% ifversion fpt or ghes or ghec %} Хотя API предоставляет несколько методов проверки подлинности, для рабочих приложений настоятельно рекомендуется использовать [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Другие методы предназначены для скриптов или тестирования (т. е. для случаев, когда возможности OAuth избыточны). Сторонние приложения, использующие {% data variables.product.product_name %} для проверки подлинности, не должны запрашивать или собирать учетные данные {% data variables.product.product_name %}.
+Вместо этого они должны использовать [веб-поток OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 {% endif %}
 
 {% ifversion ghae %}
 
-To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a {% data variables.product.pat_generic %} through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+Для проверки подлинности рекомендуется использовать маркеры [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) , такие как {% data variables.product.pat_generic %} через [веб-поток OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 {% endif %}
 
-## Basic Authentication
+## Обычная проверка подлинности
 
-The API supports Basic Authentication as defined in
-[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) with a few slight differences.
-The main difference is that the RFC requires unauthenticated requests to be
-answered with `401 Unauthorized` responses. In many places, this would disclose
-the existence of user data. Instead, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responds with `404 Not Found`.
-This may cause problems for HTTP libraries that assume a `401 Unauthorized`
-response. The solution is to manually craft the `Authorization` header.
+API поддерживает обычную проверку подлинности согласно [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) с небольшими отличиями.
+Основное отличие заключается в том, что согласно требованиям RFC на запросы, не прошедшие проверку подлинности, должен предоставляться ответ `401 Unauthorized`. Во многих случаях это позволяет узнать о существовании пользовательских данных. Вместо этого API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} возвращает ответ `404 Not Found`.
+Это может привести к проблемам при использовании библиотек HTTP, предполагающих ответ `401 Unauthorized`. Решением может быть формирование заголовка `Authorization` вручную.
 
-### Via {% data variables.product.pat_generic %}s
+### Через {% data variables.product.pat_generic %}s
 
-We recommend you use {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} to authenticate to the GitHub API.
+Для проверки подлинности в API GitHub рекомендуется использовать {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %}.
 
 ```shell
 $ curl -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
-This approach is useful if your tools only support Basic Authentication but you want to take advantage of {% data variables.product.pat_generic %} security features.
+Этот подход полезен, если ваши средства поддерживают только обычную проверку подлинности, но вы хотите воспользоваться преимуществами функций безопасности {% data variables.product.pat_generic %}.
 
-### Via username and password
+{% ifversion not ghae %}
+### Имя пользователя и пароль
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec %} {% note %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or {% data variables.product.pat_generic %}, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+**Примечание**. На {% data variables.product.prodname_dotcom %} поддержка проверки пароля в API прекращена с 13 ноября 2020 г. для всех учетных записей {% data variables.product.prodname_dotcom_the_website %}, включая планы {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} и {% data variables.product.prodname_ghe_cloud %}. Теперь необходимо пройти проверку подлинности в API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} с помощью маркера API, например маркера доступа OAuth, маркера доступа для установки приложения GitHub или {% data variables.product.pat_generic %}, в зависимости от того, что необходимо сделать с маркером. Дополнительные сведения см. в разделе [Устранение неполадок](/rest/overview/troubleshooting#basic-authentication-errors).
  
-{% endnote %}
+{% endnote %} {% else %}
 
-{% endif %}
+Чтобы использовать обычную проверку подлинности с API {% data variables.product.product_name %}, просто отправьте имя пользователя и пароль, связанные с учетной записью.
 
-{% ifversion ghes %}
-To use Basic Authentication with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, simply send the username and
-password associated with the account.
-
-For example, if you're accessing the API via [cURL][curl], the following command
-would authenticate you if you replace `<username>` with your {% data variables.product.product_name %} username.
-(cURL will prompt you to enter the password.)
+Например, если вы обращаетесь к API через [cURL][curl], приведенная ниже команда выполнит проверку подлинности, если вы замените `<username>` на свое имя пользователя {% data variables.product.product_name %}.
+(cURL предложит ввести пароль.)
 
 ```shell
 $ curl -u USERNAME {% data variables.product.api_url_pre %}/user
 ```
-If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
-
-{% endif %}
+Если у вас включена двухфакторная проверка подлинности, убедитесь в том, что вы знаете [принципы ее работы](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
-### Authenticating for SAML SSO
+### Проверка подлинности для единого входа SAML
 
 {% note %}
 
-**Note:** Integrations and OAuth applications that generate tokens on behalf of others are automatically authorized.
+**Примечание**. Интеграции и приложения OAuth, которые создают токены от чьего-то имени, авторизуются автоматически.
 
 {% endnote %}
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+**Примечание.** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-If you're using the API to access an organization that enforces [SAML SSO][saml-sso] for authentication, you'll need to create a {% data variables.product.pat_generic %} and [authorize the token][allowlist] for that organization. Visit the URL specified in `X-GitHub-SSO` to authorize the token for the organization.
+Если вы используете API для доступа к организации, которая применяет единый [вход SAML][saml-sso] для проверки подлинности, необходимо создать {% data variables.product.pat_generic %} и [авторизовать маркер][allowlist] для этой организации. Перейдите по URL-адресу, указанному в `X-GitHub-SSO`, чтобы авторизовать токен для организации.
 
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
@@ -104,7 +92,7 @@ $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre
 }
 ```
 
-When requesting data that could come from multiple organizations (for example, [requesting a list of issues created by the user][user-issues]), the `X-GitHub-SSO` header indicates which organizations require you to authorize your {% data variables.product.pat_generic %}:
+При запросе данных, которые могут поступать из нескольких организаций (например, [запрос списка проблем, созданных пользователем][user-issues]), `X-GitHub-SSO` заголовок указывает, какие организации требуют авторизовать {% data variables.product.pat_generic %}:
 
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/user/issues
@@ -112,26 +100,26 @@ $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```
 
-The value `organizations` is a comma-separated list of organization IDs for organizations require authorization of your {% data variables.product.pat_generic %}.
+Значение `organizations` представляет собой разделенный запятыми список идентификаторов организаций для организаций, требующих авторизации {% data variables.product.pat_generic %}.
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Working with two-factor authentication
+## Работа с двухфакторной проверкой подлинности
 
-When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a {% data variables.product.pat_generic %}{% ifversion ghes %} or OAuth token instead of your username and password{% endif %}.
+Если включена двухфакторная проверка [подлинности, обычная проверка подлинности](#basic-authentication) для _большинства_ конечных точек в REST API требует использования {% data variables.product.pat_generic %}{% ifversion ghes %} или маркера OAuth вместо имени пользователя и пароля{% endif %}.
 
-You can generate a new {% data variables.product.pat_generic %} {% ifversion fpt or ghec %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} or with the "[Create a new authorization][/rest/reference/oauth-authorizations#create-a-new-authorization]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.{% ifversion ghes %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+Вы можете создать новый {% data variables.product.pat_generic %} {% ifversion fpt or ghec %}с помощью [параметров разработчика {% data variables.product.product_name %}](https://github.com/settings/tokens/new) {% endif %}{% ifversion ghes %} или с помощью Конечная точка "[Создать новую авторизацию][/rest/reference/oauth-authorizations#create-a-new-authorization]" в API авторизации OAuth для создания нового маркера OAuth{% endif %}. Дополнительные сведения см. в разделе [Создание {% data variables.product.pat_generic %} для командной строки](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line). Затем эти токены используются для [проверки подлинности с помощью токена OAuth][oauth-auth] в API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.{% ifversion ghes %} Пройти проверку подлинности с помощью имени пользователя и пароля нужно всего один раз — при создании токена OAuth или использовании API авторизации OAuth.{% endif %}
 
 {% endif %}
 
 {% ifversion ghes %}
-### Using the OAuth Authorizations API with two-factor authentication
+### Использование API авторизации OAuth с двухфакторной проверкой подлинности
 
-When you make calls to the OAuth Authorizations API, Basic Authentication requires that you use a one-time password (OTP) and your username and password instead of tokens. When you attempt to authenticate with the OAuth Authorizations API, the server will respond with a `401 Unauthorized` and one of these headers to let you know that you need a two-factor authentication code:
+При вызове API авторизации OAuth обычная проверка подлинности требует использования одноразовых паролей (OTP) и имени пользователя и пароля вместо токенов. При попытке пройти проверку подлинности с помощью API авторизации OAuth сервер вернет ответ `401 Unauthorized` и один из следующих заголовков, чтобы сообщить вам о том, что нужен код двухфакторной проверки подлинности:
 
-`X-GitHub-OTP: required; SMS` or `X-GitHub-OTP: required; app`.  
+`X-GitHub-OTP: required; SMS` или `X-GitHub-OTP: required; app`.  
 
-This header tells you how your account receives its two-factor authentication codes. Depending how you set up your account, you will either receive your OTP codes via SMS or you will use an application like Google Authenticator or 1Password. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)." Pass the OTP in the header:
+В этом заголовке указано, как ваша учетная запись получает коды двухфакторной проверки подлинности. В зависимости от того, как настроена учетная запись, вы получаете коды OTP через SMS или используете специальное приложение, например Google Authenticator или 1Password. Подробнее: [Настройка двухфакторной проверки подлинности](/articles/configuring-two-factor-authentication). Передайте одноразовый пароль в заголовке:
 
 ```shell
 $ curl --request POST \

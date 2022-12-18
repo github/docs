@@ -1,11 +1,18 @@
-{% ifversion fpt or ghec %}
-{% note %}
+---
+ms.openlocfilehash: efa96c86f8e6393265a4052e0ce6d650a21805b4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107339"
+---
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** {% data variables.product.company_short %} improved security by dropping older, insecure key types on March 15, 2022.
+注意：{% data variables.product.company_short %} 通过在 2022 年 3 月 15 日删除旧的、不安全的密钥类型来提高安全性。
 
-As of that date, DSA keys (`ssh-dss`) are no longer supported. You cannot add new DSA keys to your personal account on {% data variables.location.product_location %}.
+自该日期起，不再支持 DSA 密钥 (`ssh-dss`)。 无法在 {% data variables.location.product_location %}上向个人帐户添加新的 DSA 密钥。
 
-RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue to use any signature algorithm. RSA keys generated after that date must use a SHA-2 signature algorithm. Some older clients may need to be upgraded in order to use SHA-2 signatures.
+2021 年 11 月 2 日之前带有 `valid_after` 的 RSA 密钥 (`ssh-rsa`) 可以继续使用任何签名算法。 在该日期之后生成的 RSA 密钥必须使用 SHA-2 签名算法。 一些较旧的客户端可能需要升级才能使用 SHA-2 签名。
 
 {% endnote %}
 
@@ -13,15 +20,15 @@ RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue t
 
 {% note %}
 
-**Note**: By default with {% data variables.product.product_name %} 3.6 and later, as of the cutoff date of midnight UTC on August 1, 2022, SSH connections that satisfy **both** of the following conditions will fail.
+注意：默认情况下，若使用 {% data variables.product.product_name %} 3.6 及更高版本，则截至 2022 年 8 月 1 日午夜 (UTC)，同时满足以下两个条件的 SSH 连接将失败 。
 
 <br/>
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
-{% data variables.product.product_name %} 3.6 and later also does not support SSH connections that use DSA, HMAC-SHA-1, or CBC ciphers. RSA SSH keys uploaded before the cutoff date can continue to authenticate using the SHA-1 hash function as long as the key remains valid. For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+{% data variables.product.product_name %} 3.6 及更高版本也不支持使用 DSA、HMAC-SHA-1 或 CBC 密码的 SSH 连接。 只要密钥保持有效，在截止日期之前上传的 RSA SSH 密钥便可以继续使用 SHA-1 哈希函数进行身份验证。 有关查找所使用的 {% data variables.product.product_name %} 版本的详细信息，请参阅“[关于 {% data variables.product.prodname_docs %} 的版本](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)”。
 
-Your site administrator can adjust the cutoff date for connections using RSA-SHA-1, and may block all connections using RSA-SHA-1. For more information, contact your site administrator or see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."
+站点管理员可以使用 RSA-SHA-1 调整连接的截止日期，也可以使用 RSA-SHA-1 阻止所有连接。 有关详细信息，请联系站点管理员，或参阅“[配置与实例的 SSH 连接](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)”。
 
 {% endnote %}
 

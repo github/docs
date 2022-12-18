@@ -1,6 +1,6 @@
 ---
-title: Working with the Docker registry
-intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry.{% endif %}'
+title: 使用 Docker 注册表
+intro: '{% ifversion fpt or ghec %}Docker 注册表现已被 {% data variables.product.prodname_container_registry %} 取代。{% else %}您可以使用 {% data variables.product.prodname_registry %} Docker 注册表推送和拉取您的 Docker 映像。{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -15,165 +15,143 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Docker registry
+ms.openlocfilehash: f5d37e74f93535fd48f3400ef0b504825aadc657
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888450'
 ---
-
 <!-- Main versioning block. Short page for dotcom -->
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
+{% data variables.product.prodname_dotcom %} 的 Docker 注册表（使用命名空间 `docker.pkg.github.com`）已被 {% data variables.product.prodname_container_registry %} 替换（使用命名空间 `https://ghcr.io`）。 {% data variables.product.prodname_container_registry %} 为 Docker 映像提供粒度权限和存储优化等优点。
 
-Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+先前存储在 Docker 注册表中的 Docker 映像将自动迁移到 {% data variables.product.prodname_container_registry %}。 有关详细信息，请参阅“[从 Docker 注册表迁移到 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)”和“[使用 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)。”
 
 {% else %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## About Docker support
+## 关于 Docker 支持
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
+安装或发布 Docker 映像时，Docker 注册表目前不支持外部层，例如 Windows 映像。
 
-## Authenticating to {% data variables.product.prodname_registry %}
+## 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### 使用个人访问令牌进行身份验证
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
+可以使用 `docker` 登录命令，通过 Docker 向 {% data variables.product.prodname_registry %} 验证。
 
-To keep your credentials secure, we recommend you save your {% data variables.product.pat_generic %} in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
+为确保凭据安全，我们建议将个人访问令牌保存在计算机的本地文件中，然后使用 Docker 的 `--password-stdin` 标志从本地文件读取令牌。
 
-{% ifversion fpt or ghec %}
-{% raw %}
+{% ifversion fpt or ghec %} {% raw %}
   ```shell
-  $ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+  $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
   ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
-{% ifversion ghes or ghae %}
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
-{% raw %}
+{% ifversion ghes or ghae %} {% ifversion ghes %} 如果实例启用了子域隔离：{% endif %} {% raw %}
  ```shell
- $ cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
+ $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
 ```
-{% endraw %}
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% endraw %} {% ifversion ghes %} 如果实例禁用了子域隔离：
 
 {% raw %}
  ```shell
- $ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
+ $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>USERNAME</em> --password-stdin
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
+要使用此示例登录命令，请将 `USERNAME` 替换为 {% data variables.product.product_name %} 用户名{% ifversion ghes or ghae %}，将 `HOSTNAME` 替换为 {% data variables.product.product_location %} 的 URL，{% endif %}并将 `~/TOKEN.txt` 替换为用于 {% data variables.product.product_name %} 的个人访问令牌的文件路径。
 
-For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
+有关详细信息，请参阅“[Docker 登录](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)”。
 
-## Publishing an image
+## 发布映像
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% note %}
 
-**Note:** Image names must only use lowercase letters.
+注意：映像名称只能使用小写字母。
 
 {% endnote %}
 
-{% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
+{% data variables.product.prodname_registry %} 支持每个仓库的多个顶层 Docker 镜像。 仓库可以拥有任意数量的映像标记。 在发布或安装大于 10GB 的 Docker 映像（每个图层上限为 5GB）时，可能会遇到服务降级的情况。 有关详细信息，请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。
 
 {% data reusables.package_registry.viewing-packages %}
 
-1. Determine the image name and ID for your docker image using `docker images`.
+1. 使用 `docker images` 确定 Docker 映像的名称和 ID。
   ```shell
   $ docker images
   > <&nbsp>
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
-  > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
+  > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *VERSION* with package version at build time.
+2. 使用 Docker 映像 ID、标记和 Docker 映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}并将 VERSION 替换为生成时的包版本    。
   {% ifversion fpt or ghec %}
   ```shell
-  $ docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+  $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% else %}
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
+  {% else %} {% ifversion ghes %} 如果实例启用了子域隔离：{% endif %}
   ```shell
-  $ docker tag IMAGE_ID docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+  $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
+  {% ifversion ghes %} 如果实例禁用了子域隔离：
   ```shell
-  $ docker tag IMAGE_ID HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+  $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% endif %}
-  {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+  {% endif %} {% endif %}
+3. 如果尚未为包生成 Docker 映像，请生成映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，将 VERSION 替换为生成时的包版本，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %}并将 PATH 替换为映像路径（如果映像未在当前工作目录中）     。
   {% ifversion fpt or ghec %}
   ```shell
-  $ docker build -t docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+  $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% else %}
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
+  {% else %} {% ifversion ghes %} 如果实例启用了子域隔离：{% endif %}
   ```shell
-  $ docker build -t docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+  $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
+  {% ifversion ghes %} 如果实例禁用了子域隔离：
   ```shell
-  $ docker build -t HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+  $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
-  {% endif %}
-  {% endif %}
-4. Publish the image to {% data variables.product.prodname_registry %}.
+  {% endif %} {% endif %}
+4. 将映像发布到 {% data variables.product.prodname_registry %}。
   {% ifversion fpt or ghec %}
   ```shell
-  $ docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+  $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% else %}
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
+  {% else %} {% ifversion ghes %} 如果实例启用了子域隔离：{% endif %}
   ```shell
-  $ docker push docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+  $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
+  {% ifversion ghes %} 如果实例禁用了子域隔离：
   ```shell
-  $ docker push HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+  $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-  {% endif %}
-  {% endif %}
-  {% note %}
+  {% endif %} {% endif %} {% note %}
 
-  **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
+  注意：必须使用 `IMAGE_NAME:VERSION` 而不是 `IMAGE_NAME:SHA` 推送映像。
 
   {% endnote %}
 
-### Example publishing a Docker image
+### 发布 Docker 映像的示例
 
-{% ifversion ghes %}
-These examples assume your instance has subdomain isolation enabled.
+{% ifversion ghes %} 这些示例假设实例已启用子域隔离。
 {% endif %}
 
-You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
+可以使用映像 ID 将 `monalisa` 映像的 1.0 版本发布到 `octocat/octo-app` 存储库。
 
 {% ifversion fpt or ghec %}
 ```shell
@@ -198,15 +176,15 @@ $ docker images
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
 # Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
-$ docker tag c75bebcdd211 docker.HOSTNAME/octocat/octo-app/monalisa:1.0
+$ docker tag c75bebcdd211 docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
-$ docker push docker.HOSTNAME/octocat/octo-app/monalisa:1.0
+$ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 
 {% endif %}
 
-You can publish a new Docker image for the first time and name it `monalisa`.
+首次可以发布新的 Docker 映像并将其命名为 `monalisa`。
 
 {% ifversion fpt or ghec %}
 ```shell
@@ -222,47 +200,43 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```shell
 # Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
-$ docker build -t docker.HOSTNAME/octocat/octo-app/monalisa:1.0 .
+$ docker build -t docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0 .
 
 # Push the image to {% data variables.product.prodname_registry %}
-$ docker push docker.HOSTNAME/octocat/octo-app/monalisa:1.0
+$ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-## Downloading an image
+## 下载图像
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 OWNER 替换为拥有存储库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的存储库的名称，将 IMAGE_NAME 替换为包或映像的名称，{% ifversion ghes or ghae %}将 HOSTNAME 替换为 {% data variables.product.product_location %} 的主机名，{% endif %} 并将 TAG_NAME 替换为要安装的映像的标记    。
 
 {% ifversion fpt or ghec %}
 ```shell
-$ docker pull docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
+$ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} 如果实例启用了子域隔离：{% endif %}
 ```shell
-$ docker pull docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
+$ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} 如果实例禁用了子域隔离：
 ```shell
-$ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
+$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% endif %}
-{% endif %}
+{% endif %} {% endif %}
 
 {% note %}
 
-**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
+注意：必须使用 `IMAGE_NAME:VERSION` 而不是 `IMAGE_NAME:SHA` 拉取映像。
 
 {% endnote %}
 
-## Further reading
+## 延伸阅读
 
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- [删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)
 
 {% endif %}  <!-- End of main versioning block -->

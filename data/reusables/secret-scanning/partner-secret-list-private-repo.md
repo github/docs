@@ -24,8 +24,11 @@ Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% en
 Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %} | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
+Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key, azure_ml_web_service_classic_identifiable_key{% endif %}
 Azure | Azure SAS Token | azure_sas_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure Search Admin Key | azure_search_admin_key
+Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae < 3.4 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
@@ -61,6 +64,8 @@ Dynatrace | Dynatrace Internal Token | dynatrace_internal_token
 EasyPost | EasyPost Production API Key | easypost_production_api_key
 EasyPost | EasyPost Test API Key | easypost_test_api_key
 Fastly | Fastly API Token | fastly_api_token
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Figma | Figma {% data variables.product.pat_generic_title_case %} | figma_pat{% endif %}
 Finicity | Finicity App Key | finicity_app_key
 Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
 Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key
@@ -78,7 +83,8 @@ GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key
 Google | Google API Key | google_api_key
-Google | Google Cloud Private Key ID | 
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+Google | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
 Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
 Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
@@ -87,7 +93,12 @@ Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
 Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
 Grafana | Grafana API Key | grafana_api_key
+Grafana | Grafana Cloud API Key | grafana_cloud_api_key
+Grafana | Grafana Cloud API Token | grafana_cloud_api_token
+Grafana | Grafana Project API Key | grafana_project_api_key
+Grafana | Grafana Project Service Account Token | grafana_project_service_account_token{% endif %}
 HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
 HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
@@ -194,6 +205,8 @@ Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret
 Supabase | Supabase Service Key | supabase_service_key{% endif %}
 Tableau | Tableau {% data variables.product.pat_generic_title_case %} | tableau_personal_access_token
 Telegram | Telegram Bot Token | telegram_bot_token
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Telnyx | Telnyx API V2 Key | telnyx_api_v2_key{% endif %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Twilio | Twilio Access Token | twilio_access_token{% endif %}

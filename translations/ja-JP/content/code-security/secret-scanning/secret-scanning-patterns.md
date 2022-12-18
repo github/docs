@@ -13,12 +13,12 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
-ms.openlocfilehash: 68dd1338fc1812cd2fc40ba38949434a04986f86
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5684239d27daef532adf9aec79309d7430525a9e
+ms.sourcegitcommit: fc8b57e068b6922b45318029e22ceb3d6c1c3087
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147578643'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184505'
 ---
 {% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
@@ -36,7 +36,7 @@ ms.locfileid: '147578643'
 
 ## パートナー パターンでサポートされるシークレット
 
-現在 {% data variables.product.product_name %} は、パブリックリポジトリをスキャンして、次のサービスプロバイダが発行したシークレットを探します。 {% data variables.product.prodname_secret_scanning_partner %} について詳しくは、「[{% data variables.product.prodname_secret_scanning_partner %} について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」をご覧ください。
+現在、{% data variables.product.product_name %} では、パブリック リポジトリで次のサービス プロバイダーによって発行されたシークレットをスキャンし、コミットでシークレットが検出されるたびに関連するサービス プロバイダーに警告します。 {% data variables.product.prodname_secret_scanning_partner %} について詳しくは、「[{% data variables.product.prodname_secret_scanning_partner %} について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」をご覧ください。
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 

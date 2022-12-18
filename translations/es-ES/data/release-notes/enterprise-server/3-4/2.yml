@@ -1,86 +1,93 @@
 date: '2022-04-20'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - Los paquetes se actualizaron a las últimas versiones de seguridad. 
   bugs:
-    - Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname. 
-    - When a manifest file was deleted from a repository, the manifest would not be removed from the repository's "Dependency graph" page. 
-    - Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases. 
-    - Rotated log files with the extension `.backup` would accumulate in directories containing system logs.
-    - In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.
-    - Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel. 
-    - Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.
-    - When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list. 
-    - The `/stafftools/users/ip_addresses/:address` page responded with a `500 Internal Server Error` when attempting to display the page for an IPv6 address. 
-    - Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed. 
+    - "Se ha resuelto una regresión que podría dar lugar a errores de coherencia para recuperar artefactos y descargar archivos de registro de {% data variables.product.prodname_actions %}. En algunas circunstancias, dejamos de resolver direcciones URL para comunicaciones internas que usaban \"localhost\" y, en su lugar, utilizamos incorrectamente el nombre de host de la instancia." 
+    - "Al eliminarse un archivo de manifiesto de un repositorio, el manifiesto no se quitaría de la página \"Gráfico de dependencias\" del repositorio." 
+    - Actualizar los nodos en un par de alta disponibilidad con un paquete de actualización podría hacer que Elasticsearch entrara en un estado incoherente en algunos casos. 
+    - "Los archivos de registro rotados con la extensión \".backup\" se acumularían en directorios con registros del sistema."
+    - "En algunas topologías de clúster, las utilidades de la línea de comandos \"ghe-spokesctl\" y \"ghe-btop\" no se ejecutaron."
+    - "Los índices de Elasticsearch podrían duplicarse durante una actualización de paquetes, debido a la ejecución de un servicio \"elasticsearch-upgrade\" varias veces en paralelo." 
+    - Los servidores de caché del repositorio podrían servir datos desde ubicaciones no pertenecientes a la memoria caché incluso estando disponibles los datos en la ubicación de caché local.
+    - "Al convertir una cuenta de usuario en una organización, si la cuenta de usuario era propietaria de la cuenta de empresa de {% data variables.product.prodname_ghe_server %}, la organización convertida aparecería de forma incorrecta en la lista de propietarios de la empresa." 
+    - "La página \"/stafftools/users/ip_addresses/:address\" respondió con \"500 Internal Server Error\" al intentar mostrar la página para una dirección IPv6." 
+    - La creación de un token de OAuth de suplantación mediante la API REST de administración empresarial generó un error al existir ya una integración coincidente con el identificador de aplicación OAuth. 
  
   changes:
-    - Added support for replica domain names that are more than 63 characters. 
-    - Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log. 
-    - If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.
+    - Se ha agregado compatibilidad con nombres de dominio de réplica de más de 63 caracteres. 
+    - "Los errores de configuración que detienen una ejecución de aplicación de configuración se envían ahora al terminal, además del registro de configuración." 
+    - "Si las características de {% data variables.product.prodname_GH_advanced_security %} están habilitadas en tu instancia, el rendimiento de los trabajos en segundo plano ha mejorado al procesar lotes para las contribuciones al repositorio."
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces de recepción previa podrían ocasionar errores en algunos de ellos.
+    - |Después de registrar un ejecutor autohospedado con el parámetro "--ephemeral" en más de un nivel (por ejemplo, de empresa y de organización), el ejecutor puede quedarse bloqueado en un estado de inactividad y requerir un nuevo registro. [Actualizado: 2022-06-17]
+
+|
+    - "Tras actualizar a {% data variables.product.prodname_ghe_server %} 3.4, puede parecer que faltan versiones en los repositorios. Esto puede ocurrir si las migraciones de índices de Elasticsearch no se han completado correctamente."
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+    - heading: Obsoletización de GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.1
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 se retiró del mercado el 16 de febrero de 2022**. Esto significa que, después de esta fecha, ya no se publicarán revisiones, ni siquiera para problemas de seguridad críticos. Para obtener un rendimiento y una seguridad mejorados, y nuevas características, [actualiza a la versión más reciente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) lo antes posible.'
+    - heading: Obsoletización de GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 se retirará del mercado el 3 de junio de 2022**. Esto significa que, después de esta fecha, ya no se publicarán revisiones, ni siquiera para problemas de seguridad críticos. Para obtener un rendimiento y una seguridad mejorados, y nuevas características, [actualiza a la versión más reciente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) lo antes posible.'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: Obsoletización del soporte técnico para XenServer Hypervisor
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "A partir de {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} en XenServer ha quedado en desuso y ya no recibirá soporte técnico. Si tienes preguntas, ponte en contacto con el [servicio soporte técnico de GitHub](https://support.github.com)."
 
-    - heading: Deprecation of the Content Attachments API preview
+    - heading: Obsoletización de la versión preliminar de Content Attachments API
       notes:
         #
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - "Debido a su bajo uso, hemos dejado de utilizar la versión preliminar de Content References API en {% data variables.product.prodname_ghe_server %} 3.4. Anteriormente se accedía a la API con el encabezado \"corsair-preview\". Los usuarios todavía pueden navegar a direcciones URL externas sin esta API. Todos los usos registrados de Content References API ya no recibirán una notificación de webhook de las direcciones URL desde los dominios registrados y ya no devolveremos códigos de respuesta válidos de intentos de actualización de datos adjuntos de contenido existente."
 
-    - heading: Deprecation of the Codes of Conduct API preview
+    - heading: Obsoletización de la versión preliminar de Codes of Conduct API
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - 'La versión preliminar de Codes of Conduct API, a la que se accedía con el encabezado "scarlet-witch-preview", está en desuso y ya no se puede acceder a ella en {% data variables.product.prodname_ghe_server %} 3.4. En su lugar recomendamos usar el punto de conexión "[Obtener las métricas de perfil de la comunidad](/rest/reference/repos#get-community-profile-metrics)" para recuperar información sobre el código de conducta de un repositorio. Para obtener más información, consulta "[Aviso de desuso: Versión preliminar de Codes of Conduct API](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" en el registro de cambios de {% data variables.product.prodname_dotcom %}.'
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: Obsoletización de los puntos de conexión de OAuth Application API y la autenticación de API mediante parámetros de consulta
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+        - |Desde {% data variables.product.prodname_ghe_server %} 3.4, se han quitado los [puntos de conexión de la versión en desuso de OAuth Application API](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected). Si ves mensajes de error 404 en estos puntos de conexión, convierte el código a las versiones de OAuth Application API que no tengan "access_tokens" en la dirección URL. También hemos deshabilitado el uso de la autenticación de API mediante parámetros de consulta. En su lugar, recomendamos el uso de la [autenticación de API en el encabezado de solicitud](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
 
-    - heading: Deprecation of the CodeQL runner
+|
+    - heading: Obsoletización del ejecutor de CodeQL
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "El ejecutor de {% data variables.product.prodname_codeql %} está en desuso en {% data variables.product.prodname_ghe_server %} 3.4 y ya no se admite. El desuso solo afecta a los usuarios que utilizan el escaneo de código de {% data variables.product.prodname_codeql %} en sistemas de CI/CD de terceros; los usuarios de {% data variables.product.prodname_actions %} no se ven afectados. Se recomienda encarecidamente que los clientes migren a la CLI de {% data variables.product.prodname_codeql %}, que es un reemplazo con muchas características del ejecutor de {% data variables.product.prodname_codeql %}. Para más información consulta el [registro de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)."
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: Obsoletización de extensiones bit-cache personalizadas
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+        - |Desde {% data variables.product.prodname_ghe_server %} 3.1, la compatibilidad con las extensiones bit-cache propietarias de {% data variables.product.company_short %} se empezó a eliminar gradualmente. Estas extensiones están en desuso en {% data variables.product.prodname_ghe_server %} 3.3 y versiones posteriores.
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
-    
-    - heading: Theme picker for GitHub Pages has been removed
+Todos los repositorios que ya estuvieran presentes y activos en {% data variables.product.product_location %} con la versión 3.1 o 3.2 se actualizarán de forma automática.
+
+
+
+Es posible que los repositorios que no estuvieran presentes ni activos antes de actualizar a {% data variables.product.prodname_ghe_server %} 3.3 no tengan un rendimiento óptimo hasta que se ejecute una tarea de mantenimiento del repositorio y sea correcta.
+
+
+
+Para iniciar manualmente una tarea de mantenimiento del repositorio, navega a "https://<nombre_de_host>/stafftools/repositories/<propietario>/<repositorio>/network" en cada repositorio afectado y haz clic en el botón Programar.
+
+|
+    - heading: El selector de temas de GitHub Pages se ha quitado
       notes:
-        - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
-        
+        - |El selector de temas de GitHub Pages se ha quitado de la configuración de Pages. Para obtener más información sobre la configuración de temas de GitHub Pages, consulta "[Agregar un tema a tu sitio de GitHub Pages con Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - 'En {% data variables.product.prodname_ghe_server %} 3.4 se necesita, al menos, [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) para [Copias de seguridad y recuperación ante desastres](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

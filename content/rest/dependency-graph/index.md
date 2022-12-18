@@ -1,6 +1,6 @@
 ---
 title: Dependency Graph
-intro: 'With the Dependency Graph API, you can view dependency changes and their security impact on your repository.'
+intro: 'Use the REST API to view dependency changes and their security impact on your repository.'
 versions:
   fpt: '*'
   ghes: '>=3.6'

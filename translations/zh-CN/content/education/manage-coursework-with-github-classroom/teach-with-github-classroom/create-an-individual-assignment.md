@@ -8,12 +8,12 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: 4f5fab2f63ff686762a4fb6ccd5964b7f4d9cb3c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1ffa725be4e42695b297545f65c998b14ed8e000
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573866'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179743'
 ---
 ## 关于个人作业
 
@@ -59,6 +59,8 @@ ms.locfileid: '147573866'
 在“个人或小组作业”下，选择下拉菜单，并单击“个人作业”。 创建作业后不可更改作业类型。 如果想要创建小组作业，请参阅“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
 
 ### 选择作业仓库的可见性
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
@@ -136,4 +138,4 @@ ms.locfileid: '147573866'
 ## 延伸阅读
 
 - [教师版 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- [将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)
+- [将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)

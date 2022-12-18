@@ -441,11 +441,11 @@ If you have a workflow that generates more than one {% data variables.product.pr
 {% raw %}
 ``` yaml
 packs:
-  # Use these packs for JavaScript analysis
+  # Use these packs for JavaScript and TypeScript analysis
   javascript:
     - scope/js-pack1
     - scope/js-pack2
-  # Use these packs for Java analysis
+  # Use these packs for Java and Kotlin analysis
   java:
     - scope/java-pack1
     - scope/java-pack2@v1.0.0

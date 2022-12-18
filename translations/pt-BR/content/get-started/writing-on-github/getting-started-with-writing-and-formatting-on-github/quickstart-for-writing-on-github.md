@@ -1,65 +1,70 @@
 ---
-title: Quickstart for writing on GitHub
-intro: 'Learn advanced formatting features by creating a {% ifversion ghae %}gist to describe yourself{% else %}README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.'
+title: Guia de início rápido de gravação no GitHub
+intro: 'Conheça os recursos avançados de formatação criando um {% ifversion ghae %}gist para se descrever{% else %}LEIAME para seu perfil do {% data variables.product.prodname_dotcom %}{% endif %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
+ms.openlocfilehash: a023d55dd4d7bd41af329a4eaac1e2408af96294
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107170'
 ---
+## Introdução
 
-## Introduction
+O Markdown é uma linguagem fácil de ler e de gravar para formatar texto sem formatação. Você pode usar a sintaxe Markdown, juntamente com algumas tags HTML adicionais, para formatar a escrita no {% data variables.product.prodname_dotcom %}, em locais como LEIAMEs do repositório e comentários sobre solicitações de pull e problemas. Neste guia, você aprenderá alguns recursos avançados de formatação criando {% ifversion ghae %}um gist{% else %}ou editando um LEIAME do seu perfil do {% data variables.product.prodname_dotcom %}{% endif %}.
 
-Markdown is an easy-to-read, easy-to-write language for formatting plain text. You can use Markdown syntax, along with some additional HTML tags, to format your writing on {% data variables.product.prodname_dotcom %}, in places like repository READMEs and comments on pull requests and issues. In this guide, you'll learn some advanced formatting features by creating {% ifversion ghae %}a gist{% else %}or editing a README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.
-
-If you're new to Markdown, you might want to start with "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)" or the [Communicate using Markdown](https://github.com/skills/communicate-using-markdown) {% data variables.product.prodname_learning %} course.
+Se você é novo em Markdown, pode começar com o curso "[Sintaxe básica de escrita e formatação](/articles/basic-writing-and-formatting-syntax)" ou com o curso [Comunicar usando Markdown](https://github.com/skills/communicate-using-markdown) do {% data variables.product.prodname_learning %}.
 
 {% ifversion not ghae %}
 
-If you already have a profile README, you can follow this guide by adding some features to your existing README, or by creating a gist with a Markdown file called something like `about-me.md`. For more information, see "[Creating gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
+Se você já tiver um LEIAME do perfil, poderá seguir este guia adicionando alguns recursos ao LEIAME existente ou criando um gist com um arquivo Markdown nomeado de modo semelhante a `about-me.md`. Para obter mais informações, confira "[Como criar gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)".
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Creating a gist
+## Criar um gist
 
-Gists let you store or share code snippets and other pieces of information with others on {% data variables.location.product_location %}. To use formatting features in gists, add a gist file with a `.md` extension.
+Os gists permitem que você armazene ou compartilhe snippets de código e outras informações com outras pessoas em {% data variables.location.product_location %}. Para usar recursos de formatação em gists, adicione um arquivo gist com uma extensão `.md`.
 
-1. Navigate to your {% data variables.gists.gist_homepage %}.
-1. Optionally, type a description for the gist, such as "About me."
-1. In the **Filename including extension...** field, type `about-me.md`.
+1. Navegue até sua {% data variables.gists.gist_homepage %}.
+1. Opcionalmente, digite uma descrição para o gist, como "Sobre mim".
+1. No campo **Nome do arquivo, incluindo extensão...** , digite `about-me.md`.
 
-For more information, see "[Creating gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
+Para obter mais informações, confira "[Como criar gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)".
 
 {% else %}
 
-## Creating or editing your profile README
+## Como criar ou editar o perfil LEIAME
 
-Your profile README lets you share information about yourself with the community on {% data variables.location.product_location %}. The README is displayed at the top of your profile page.
+O LEIAME do perfil permite compartilhar informações sobre si mesmo com a comunidade em {% data variables.location.product_location %}. O LEIAME é exibido na parte superior da página de perfil.
 
-If you don't already have a profile README, you can add one.
+Se você ainda não tem um LEIAME de perfil, adicione-o.
 
-1. Create a repository with the same name as your {% data variables.product.prodname_dotcom %} username, initializing the repository with a `README.md` file. For more information, see "[Managing your profile README](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme)."
-1. Edit the `README.md` file and delete the template text (beginning `### Hi there`) that is automatically added when you create the file.
+1. Crie um repositório com o mesmo nome que o do usuário do {% data variables.product.prodname_dotcom %}, inicializando o repositório com um arquivo `README.md`. Para obter mais informações, confira "[Como gerenciar o LEIAME do seu perfil](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme)".
+1. Edite o arquivo `README.md` e exclua o texto do modelo (começando com `### Hi there`) que é adicionado automaticamente quando você cria o arquivo.
 
-If you already have a profile README, you can edit it from your profile page.
+Se você já tem um LEIAME de perfil, edite-o na página de perfil.
 
 {% data reusables.profile.navigating-to-profile %}
-1. Click the {% octicon "pencil" aria-label="The Pencil icon" %} next to your profile README.
+1. Clique no {% octicon "pencil" aria-label="The Pencil icon" %} ao lado do LEIAME do perfil.
 
-   ![Screenshot of a profile page, with the pencil icon highlighted next to the profile README](/assets/images/help/profile/edit-profile-readme.png)
+   ![Captura de tela de uma página de perfil, com o ícone de lápis realçado ao lado do LEIAME do perfil](/assets/images/help/profile/edit-profile-readme.png)
 
 {% endif %}
 
-## Adding an image to suit your visitors
+## Como adicionar uma imagem adequada para os visitantes
 
-You can include images in your communication on {% data variables.product.prodname_dotcom %}. Here, you'll add a responsive image, such as a banner, to the top of your {% ifversion ghae %}gist{% else %}profile README{% endif %}. 
+Você pode incluir imagens em sua comunicação no {% data variables.product.prodname_dotcom %}. Aqui, você adicionará uma imagem responsiva, como uma faixa, à parte superior do {% ifversion ghae %}gist{% else %}LEIAME do perfil{% endif %}. 
 
-By using the HTML `<picture>` element with the `prefers-color-scheme` media feature, you can add an image that changes depending on whether a visitor is using light or dark mode. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+Usando o elemento HTML `<picture>` com o recurso de mídia `prefers-color-scheme`, você pode adicionar uma imagem que muda de acordo com o modo claro ou escuro usado pelo visitante. Para obter mais informações, confira "[Como gerenciar suas configurações de tema](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)".
 
-1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
+1. Copie e cole a marcação a seguir no arquivo {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %}.
    
    ```HTML{:copy}
    <picture>
@@ -68,37 +73,37 @@ By using the HTML `<picture>` element with the `prefers-color-scheme` media feat
     <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
    </picture>
    ```
-1. Replace the placeholders in the markup with the URLs of your chosen images. Alternatively, to try the feature first, you can copy the URLs from our example below.
+1. Substitua os espaços reservados na marcação pelas URLs das imagens escolhidas. Como alternativa, para experimentar o recurso primeiro, copie as URLs do exemplo abaixo.
 
-   - Replace `YOUR-DARKMODE-IMAGE` with the URL of an image to display for visitors using dark mode.
-   - Replace `YOUR-LIGHTMODE-IMAGE` with the URL of an image to display for visitors using light mode.
-   - Replace `YOUR-DEFAULT-IMAGE` with the URL of an image to display in case neither of the other images can be matched, for example if the visitor is using a browser that does not support the `prefers-color-scheme` feature.
-1. To make the image accessible for visitors who are using a screen reader, replace `YOUR-ALT-TEXT` with a description of the image.
-1. To check the image has rendered correctly, click the **Preview** tab.
+   - Substitua `YOUR-DARKMODE-IMAGE` pela URL de uma imagem a ser exibida para visitantes que usam o modo escuro.
+   - Substitua `YOUR-LIGHTMODE-IMAGE` pela URL de uma imagem a ser exibida para visitantes que usam o modo claro.
+   - Substitua `YOUR-DEFAULT-IMAGE` pela URL de uma imagem a ser exibida caso nenhuma das outras imagens seja correspondida, por exemplo, se o visitante estiver usando um navegador sem suporte ao recurso `prefers-color-scheme`.
+1. Para tornar a imagem acessível a visitantes que estejam usando um leitor de tela, substitua `YOUR-ALT-TEXT` por uma descrição da imagem.
+1. Para verificar se a imagem foi renderizada corretamente, clique na guia **Visualização**.
 
-For more information on using images in Markdown, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+Para obter mais informações sobre o uso de imagens em Markdown, confira "[Sintaxe básica de escrita e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)".
 
-### Example
+### Exemplo
 
 {% data reusables.getting-started.picture-element-example %}
 
-### How it looks
+### A aparência
 
-![Screenshot of the Preview tab in light mode, with an image of a smiling sun displayed](/assets/images/help/profile/lightmode-image-example.png)
+![Captura de tela da guia Visualização no modo claro, com a imagem de um sol sorridente exibida](/assets/images/help/profile/lightmode-image-example.png)
 
-## Adding a table
+## Como adicionar uma tabela
 
-You can use Markdown tables to organize information. Here, you'll use a table to introduce yourself by ranking something, such as your most-used programming languages or frameworks, the things you're spending your time learning, or your favorite hobbies. When a table column contains numbers, it's useful to right-align the column by using the syntax `--:` below the header row.
+Você pode usar tabelas Markdown para organizar informações. Aqui, você usará uma tabela para se apresentar classificando algo, como as linguagens ou as estruturas de programação que você mais usa, o que está aprendendo no momento ou seus hobbies favoritos. Quando uma coluna de tabela contém números, é bom alinhar a coluna à direita usando a sintaxe `--:` abaixo da linha de cabeçalho.
 
-1. Return to the **Edit {% ifversion ghae %}new {% endif %}file** tab. 
-1. To introduce yourself, two lines below the `</picture>` tag, add an `## About me` header and a short paragraph about yourself, like the following.
+1. Retorne à guia **Editar {% ifversion ghae %}novo {% endif %}arquivo**. 
+1. Para se apresentar, duas linhas abaixo da tag `</picture>`, adicione um cabeçalho `## About me` e um parágrafo curto sobre você, como o seguinte.
    
    ```Markdown
    ## About me
 
    Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotcom %}'s mascot.
    ```
-1. Two lines below this paragraph, insert a table by copying and pasting the following markup.
+1. Duas linhas abaixo desse parágrafo, insira uma tabela copiando e colando a marcação a seguir.
    
    ```Markdown{:copy}
    | Rank | THING-TO-RANK |
@@ -107,12 +112,12 @@ You can use Markdown tables to organize information. Here, you'll use a table to
    |     2|               |
    |     3|               |
    ```
-1. In the column on the right, replace `THING-TO-RANK` with "Languages," "Hobbies," or anything else, and fill in the column with your list of things.
-1. To check the table has rendered correctly, click the **Preview** tab.
+1. Na coluna à direita, substitua `THING-TO-RANK` por "Idiomas", "Hobbies" ou qualquer outra coisa, e preencha a coluna com sua lista de itens.
+1. Para verificar se a tabela foi renderizada corretamente, clique na guia **Visualização**.
 
-For more information, see "[Organizing information with tables](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)."
+Para obter mais informações, confira "[Como organizar informações com tabelas](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)".
 
-### Example
+### Exemplo
 
 ```Markdown
 ## About me
@@ -126,15 +131,15 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 |     3| SQL       |
 ```
 
-### How it looks
+### A aparência
 
-![Screenshot of the Preview tab, showing an "About me" heading and a rendered table with a list of languages](/assets/images/help/profile/markdown-table-example.png)
+![Captura de tela da guia Visualização, mostrando um título "Sobre mim" e uma tabela renderizada com uma lista de idiomas](/assets/images/help/profile/markdown-table-example.png)
 
-## Adding a collapsed section
+## Com adicionar uma seção recolhida
 
-To keep your content tidy, you can use the `<details>` tag to create an expandible collapsed section. 
+Para manter o conteúdo organizado, você pode usar a tag `<details>` para criar uma seção recolhida expansível. 
 
-1. To create a collapsed section for the table you created, wrap your table in `<details>` tags like in the following example.
+1. Para criar uma seção recolhida na tabela que você criou, coloque-a entre tags `<details>`, como no exemplo a seguir.
    
    ```HTML{:copy}
    <details>
@@ -144,15 +149,15 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
    </details>
    ```
-1. Between the `<summary>` tags, replace `THINGS-TO-RANK` with whatever you ranked in your table.
-1. Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag.
+1. Entre as tags `<summary>`, substitua `THINGS-TO-RANK` pelo que você classificou na tabela.
+1. Opcionalmente, para que a seção seja exibida como aberta por padrão, adicione o atributo `open` à tag `<details>`.
 
    ```HTML
    <details open>
    ```
-1. To check the collapsed section has rendered correctly, click the **Preview** tab.
+1. Para verificar se a seção recolhida foi renderizada corretamente, clique na guia **Visualização**.
 
-### Example
+### Exemplo
 
 ```HTML
 <details>
@@ -167,29 +172,29 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 </details>
 ```
 
-### How it looks
+### A aparência
 
-![Screenshot of the Preview tab, with a collapsed section called "My top languages" marked by a dropdown arrow](/assets/images/help/profile/collapsed-section-example.png)
+![Captura de tela da guia Visualização, com uma seção recolhida chamada "Meus idiomas principais" marcada por uma seta suspensa](/assets/images/help/profile/collapsed-section-example.png)
 
-## Adding a quote
+## Como adicionar uma citação
 
-Markdown has many other options for formatting your content. Here, you'll add a horizontal rule to divide your page and a blockquote to format your favorite quote.
+O Markdown tem muitas outras opções para formatar o conteúdo. Aqui, você adicionará uma regra horizontal para dividir a página e um blockquote para formatar sua cotação favorita.
 
-1. At the bottom of your file, two lines below the `</details>` tag, add a horizontal rule by typing three or more dashes.
+1. Na parte inferior do arquivo, duas linhas abaixo da tag `</details>`, adicione uma regra horizontal digitando três ou mais traços.
 
    ```Markdown
    ---
    ```
-1. Below the `---` line, add a quote by typing markup like the following.
+1. Abaixo da linha `---`, adicione uma citação digitando a marcação como a seguir.
    
    ```Markdown
    > QUOTE
    ```
 
-   Replace `QUOTE` with a quote of your choice. Alternatively, copy the quote from our example below.
-1. To check everything has rendered correctly, click the **Preview** tab.
+   Substitua `QUOTE` por uma citação da sua escolha. Como alternativa, copie a citação do exemplo abaixo.
+1. Para verificar se tudo foi renderizado corretamente, clique na guia **Visualização**.
 
-### Example
+### Exemplo
 
 ```Markdown
 ---
@@ -198,24 +203,24 @@ Markdown has many other options for formatting your content. Here, you'll add a 
 — Mona the Octocat
 ```
 
-### How it looks
+### A aparência
 
-![Screenshot of the Preview tab, with an indented quote below a thick horizontal line](/assets/images/help/profile/markdown-quote-example.png)
+![Captura de tela da guia Visualização, com uma citação recuada abaixo de uma linha horizontal grossa](/assets/images/help/profile/markdown-quote-example.png)
 
-## Adding a comment
+## Como adicionar um comentário
 
-You can use HTML comment syntax to add a comment that will be hidden in the output. Here, you'll add a comment to remind yourself to update your {% ifversion ghae %}gist{% else %}README{% endif %} later.
+Você pode usar a sintaxe de comentário HTML para adicionar um comentário que ficará oculto na saída. Aqui, você adicionará um comentário para se lembrar de atualizar o {% ifversion ghae %}gist{% else %}LEIAME{% endif %} mais tarde.
 
-1. Two lines below the `## About me` header, insert a comment by using the following markup.
+1. Duas linhas abaixo do cabeçalho `## About me`, insira um comentário usando a marcação a seguir.
 
    <pre>
    &lt;!-- COMMENT --&gt;
    </pre>
    
-   Replace `COMMENT` with a "to-do" item you remind yourself to do something later (for example, to add more items to the table).
-1. To check your comment is hidden in the output, click the **Preview** tab.
+   Substitua `COMMENT` por um item "pendente" que você quer se lembrar de fazer mais tarde (por exemplo, adicionar mais itens à tabela).
+1. Para verificar se o comentário está oculto na saída, clique na guia **Visualização**.
 
-### Example
+### Exemplo
 
 <pre>
 ## About me
@@ -223,22 +228,22 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 &lt;!-- TO DO: add more details about me later --&gt;
 </pre>
 
-## Saving your work
+## Salvando seu trabalho
 
-When you're happy with your changes, save your {% ifversion ghae %}gist. 
+Quando estiver satisfeito com as alterações, salve o {% ifversion ghae %}gist. 
 
-- To keep your gist hidden from search engines but visible to anyone you share the URL with, click **Create secret gist** 
-- If you're happy for your gist to be visible to anyone on {% data variables.location.product_location %}, click **Create internal gist**
+- Para manter o gist oculto dos mecanismos de pesquisa, mas visível para qualquer pessoa com quem você compartilhe a URL, clique em **Criar gist secreto** 
+- Se você quiser que o gist fique visível para qualquer pessoa em {% data variables.location.product_location %}, clique em **Criar gist interno**
 
-{% else %}profile README by clicking **Commit changes**. 
+{% else %}LEIAME do perfil clicando em **Fazer commit de alterações**. 
 
-Committing directly to the `main` branch will make your changes visible to any visitor on your profile. If you want to save your work but aren't ready to make it visible on your profile, you can select **Create a new branch for this commit and start a pull request**.
+Com a confirmação direta no branch `main`, suas alterações ficarão visíveis a qualquer visitante no perfil. Se você quiser salvar o trabalho, mas ainda não quiser deixá-lo visível no perfil, selecione **Criar um branch para esse commit e iniciar uma solicitação de pull**.
 
-![Screenshot of the "Commit changes" section](/assets/images/help/profile/readme-commit-changes.png)
+![Captura de tela da seção "Fazer commit de alterações"](/assets/images/help/profile/readme-commit-changes.png)
 
 {% endif %}
 
-## Next steps
+## Próximas etapas
 
-- Continue to learn about advanced formatting features. For example, see {% ifversion fpt or ghec %}"[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" and {% endif %}"[Creating and highlighting codeblocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
-- Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[Communicating on {% data variables.product.prodname_dotcom %}](/get-started/quickstart/communicating-on-github)."
+- Continue a aprender sobre os recursos de formatação avançada. Por exemplo, confira {% ifversion fpt or ghec %}"[Como criar diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" e {% endif %}"[Como criar e realçar blocos de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+- Use suas novas habilidades para se comunicar no GitHub, em problemas, solicitações de pull e discussões. Para obter mais informações, confira "[Como se comunicar no {% data variables.product.prodname_dotcom %}](/get-started/quickstart/communicating-on-github)".

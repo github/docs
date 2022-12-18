@@ -2,7 +2,7 @@
 title: Git 提交
 shortTitle: Commits
 allowTitleToDifferFromFilename: true
-intro: '可通过 Git 提交 API 在 {% data variables.product.product_name %} 上读取提交对象并将其写入 Git 数据库。'
+intro: '使用 REST API 与 {% data variables.product.product_name %} 上的 Git 数据库中的提交对象进行交互。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 2b0f1e07134b67be6c00f8bf1c65d9ccf0c2aac5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 07813929bac1dc0ff6093b302449f1f7beb905c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147063480'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192623'
 ---
-## 关于 Git 提交 API
+## 关于 Git 提交
 
-Git 提交是层次结构（[Git 树](/rest/reference/git#trees)）和 Git 存储库中文件内容 ([Git blob](/rest/reference/git#blobs)) 的快照。 通过这些终结点，可以在 {% data variables.product.product_name %} 上读取[提交对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects)并将其写入 Git 数据库。
+Git 提交是层次结构（[Git 树](/rest/reference/git#trees)）和 Git 存储库中文件内容 ([Git blob](/rest/reference/git#blobs)) 的快照。 通过这些终结点，可以在 {% data variables.product.product_name %} 上读取[提交对象](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_git_commit_objects)并将其写入 Git 数据库。

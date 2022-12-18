@@ -14,6 +14,9 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
 ---
+
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Prerequisites
 
 {% note %}

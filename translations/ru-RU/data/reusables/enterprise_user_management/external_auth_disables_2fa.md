@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 8892790c359353b634712895ee217b84965db88c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 8a1a48f6f0394be842a772c0c05735a33bf75919
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146332051"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193459"
 ---
-При использовании SAML или CAS двухфакторная аутентификация не поддерживается или не управляется устройством {% data variables.product.prodname_ghe_server %}, но может поддерживаться внешним поставщиком аутентификации. Двухфакторная проверка подлинности в организациях недоступна. Дополнительные сведения о применении двухфакторной проверки подлинности в организациях см. в разделе [Обязательная двухфакторная проверка подлинности в организации](/enterprise/user/articles/requiring-two-factor-authentication-in-your-organization/).
+При использовании SAML или CAS двухфакторная проверка подлинности не поддерживается и не управляется экземпляром {% data variables.product.prodname_ghe_server %}, но может поддерживаться внешним поставщиком проверки подлинности. Двухфакторная проверка подлинности в организациях недоступна. Дополнительные сведения о применении двухфакторной проверки подлинности в организациях см. в разделе [Обязательная двухфакторная проверка подлинности в организации](/enterprise/user/articles/requiring-two-factor-authentication-in-your-organization/).

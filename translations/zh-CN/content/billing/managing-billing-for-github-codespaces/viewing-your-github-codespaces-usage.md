@@ -1,7 +1,7 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: 查看 GitHub Codespaces 使用情况
 shortTitle: Viewing your usage
-intro: 'You can view the compute hours and storage used by {% data variables.product.prodname_github_codespaces %}.'
+intro: '可以查看 {% data variables.product.prodname_github_codespaces %} 使用的计算小时数和存储空间。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,63 +11,64 @@ topics:
   - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
+ms.openlocfilehash: 67e29ee71b1881ee2ae6e9ca872fd7969f86afca
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158739'
 ---
+## 查看个人帐户的 {% data variables.product.prodname_github_codespaces %} 使用情况
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your personal account
+可以查看当前月度计费周期中到目前为止，个人帐户中的已使用量。 如果已设置付款方式、设置支出限制并使用了所有包含的使用量，则还可以检查当前月份的帐单。
 
-You can see how much of the usage included in your personal account you have used so far in the current monthly billing cycle. If you have set up a payment method, set a spending limit, and used all of your included usage, you can also check your bill for the current month.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. 在“{% data variables.product.prodname_codespaces %}”下，可以查看当前计费月份到目前为止使用的 {% data variables.product.prodname_github_codespaces %} 计算使用量和 GB/月存储的核心小时数。
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Under "{% data variables.product.prodname_codespaces %}," you can see how many core hours of {% data variables.product.prodname_github_codespaces %} compute usage and GB-months of storage you have used so far in the current billing month.
+   ![个人使用量的初始视图的屏幕截图](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
-   ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
+   有关“核心小时数”和“GB/月”的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
-   For information about "core hours" and "GB-months," see "[About billing for {% data variables.product.prodname_github_codespaces %}](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+1. （可选）单击“使用小时数”和“存储”以查看更多详细信息 。
 
-1. Optionally, click **Usage hours** and **Storage** to see more details.
+   ![个人使用量的展开视图的屏幕截图](/assets/images/help/codespaces/view-personal-usage-expanded.png)
 
-   ![Screenshot of the expanded view of personal usage](/assets/images/help/codespaces/view-personal-usage-expanded.png)
+   “包含”列显示本月到目前为止帐户中已使用的免费计算使用核心小时数或 GB/月存储。 “付费”列显示已使用的计费核心小时数或 GB/月存储。 这些数字每小时更新一次。
 
-   The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
-
-   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. For more information, see "[Adding or editing a payment method](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
+   在上面的屏幕截图中，已使用当月包含的存储的全部配额。 使用完所有包含的计算使用量或存储（以先达到者为准）时，必须设置付款方式和支出限制才能在当前计费月份继续使用 {% data variables.product.prodname_github_codespaces %}。 有关详细信息，请参阅“[添加或编辑付款方式](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)”和“[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)”。
 
 {% data reusables.codespaces.usage-report-download %}
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization account
+## 查看组织帐户的 {% data variables.product.prodname_github_codespaces %} 使用情况
 
-Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for the organization.
+组织所有者和账单管理员可查看组织的 {% data variables.product.prodname_github_codespaces %} 使用情况。
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+1. 在“{% data variables.product.prodname_codespaces %}”下，查看本月到目前为止使用的计算小时数和存储的详细信息。
 
-   ![Screenshot of compute usage and storage details](/assets/images/help/billing/codespaces-compute-storage.png)
+   ![计算使用量和存储详细信息的屏幕截图](/assets/images/help/billing/codespaces-compute-storage.png)
 
-   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+   还可以查看和更新当前的支出限制。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)”。
 
    {% note %}
 
-   **Notes**: 
-   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
-   * The figures on this page are updated every hour.
+   **注释**： 
+   * 此处显示的成本是当前每月计费周期内的累计成本。 此页上显示的 {% data variables.product.prodname_github_codespaces %} 的计量成本会在每月计费周期开始时重置为零。 不显示前几个月的未结成本。
+   * 此页面上的数字每小时更新一次。
 
    {% endnote %}
 
 {% data reusables.codespaces.usage-report-download %}
 
 {% ifversion ghec %}
-## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
+## 查看企业帐户的 {% data variables.product.prodname_codespaces %} 使用情况
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
+企业所有者和帐单管理员可查看企业帐户的 {% data variables.product.prodname_github_codespaces %} 使用情况。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
-{% data reusables.codespaces.usage-report-download %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. 在“{% data variables.product.prodname_codespaces %} 每月使用情况”下，查看企业帐户中每个组织的使用详细信息。
+{% data reusables.codespaces.usage-report-download %} {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+- “[列出组织中的 codespace](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)”

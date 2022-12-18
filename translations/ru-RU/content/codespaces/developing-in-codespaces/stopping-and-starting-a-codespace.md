@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
-ms.openlocfilehash: 290a39d9d60420230bd9b11d5e2d10119ccc1c72
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158808'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188251'
 ---
 {% jetbrains %}
 
@@ -23,7 +23,7 @@ ms.locfileid: '148158808'
 
 {% endjetbrains %}
 
-## Сведения об остановке и запуске codespace
+## Сведения о остановке и запуске codespace
 
 {% data reusables.codespaces.stopping-a-codespace %}
 
@@ -34,7 +34,7 @@ ms.locfileid: '148158808'
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
- 1. Справа от пространства codespace, которое нужно остановить, щелкните значок с многоточием (**...**).
+ 1. Справа от codespace, которое вы хотите остановить, щелкните elipsis (**...**).
  1. Щелкните **Остановить codespace**.
    ![Снимок экрана: параметр остановки codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: '148158808'
 
 {% data reusables.cli.cli-learn-more %}
 
- Чтобы остановить codespace, `gh codespace stop` используйте подкоманду, а затем выберите пространство кода, которое нужно остановить, из отображаемого списка.
+ Чтобы остановить codespace, `gh codespace stop` используйте подкоманду, а затем выберите кодовое пространство, которое вы хотите остановить, из отображаемого списка.
 
  ```shell{:copy}
  gh codespace stop
@@ -55,17 +55,14 @@ ms.locfileid: '148158808'
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Введите `stop` и выберите **Codespaces: Остановить Codespace** в списке параметров.
-1. В списке codespaces выберите пространство кода, которое нужно остановить.
+1. Введите `stop` и выберите **Codespaces: Stop Codespace** в списке параметров.
+1. В списке codespaces выберите пространство codespace, которое требуется остановить.
 
 {% endvscode %}
 
 {% jetbrains %}
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. В окне инструментов {% data variables.product.prodname_github_codespaces %} щелкните значок остановки.
-
-   ![Снимок экрана: кнопка "Журнал"](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+Вы можете остановить codespace на странице "Ваши codespaces" (см. [инструкции веб-браузера](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) или с помощью {% data variables.product.prodname_cli %} (см. [инструкции по CLI](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
 
 {% endjetbrains %}
 
@@ -75,7 +72,7 @@ ms.locfileid: '148158808'
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
 1. Щелкните имя codespace, которое требуется перезапустить.
-![Снимок экрана остановленных codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
+![Снимок экрана: остановленные codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
 
 {% endwebui %}
 
@@ -83,13 +80,13 @@ ms.locfileid: '148158808'
 
 При перезапуске codespace его можно открыть в {% data variables.product.prodname_vscode %} или в браузере. 
 
- - Чтобы перезапустить codespace и открыть его в {% data variables.product.prodname_vscode %}, используйте `gh codespace code` подкоманду, а затем выберите пространство кода, которое требуется перезапустить, из отображаемого списка.
+ - Чтобы перезапустить codespace и открыть его в {% data variables.product.prodname_vscode %}, используйте `gh codespace code` подкоманду и выберите нужное пространство кода из отображаемого списка.
 
  ```shell{:copy} 
  gh codespace code
  ```
 
- - Чтобы перезапустить codespace и открыть его в браузере, используйте `gh codespace open --web` подкоманд и выберите нужное пространство кода из отображаемого списка.
+ - Чтобы перезапустить codespace и открыть его в браузере, используйте `gh codespace open --web` подкоманду, а затем выберите пространство codespace, которое требуется перезапустить, из отображаемого списка.
 
  ```shell{:copy}
  gh codespace open --web
@@ -101,7 +98,7 @@ ms.locfileid: '148158808'
 
 {% data reusables.vs-code.open-command-palette %}
 1. Введите `connect` и выберите **Codespaces: Подключиться к Codespace** в списке параметров.
-1. В списке codespace выберите пространство кода, которое требуется перезапустить.
+1. В списке codespaces выберите пространство codespace, которое требуется перезапустить.
 
 {% endvscode %}
 
@@ -113,4 +110,4 @@ ms.locfileid: '148158808'
 
 ## Дополнительные материалы
 
-- [Жизненный цикл codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [Жизненный цикл codespace](/codespaces/getting-started/the-codespace-lifecycle)

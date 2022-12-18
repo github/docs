@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Create a PR template
-ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: fa4d3cf78b63af147c85b8f6d77d7cca74e3853a
+ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145090184'
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190409'
 ---
 詳細については、「[Issue と pull request テンプレートについて](/articles/about-issue-and-pull-request-templates)」を参照してください。
 
@@ -39,7 +39,7 @@ ms.locfileid: '145090184'
   ![docs ディレクトリの新しい pull request テンプレート](/assets/images/help/repository/pr-template-file-name-docs.png)
     - ファイルを非表示のディレクトリに格納するには、pull request テンプレートを `.github/pull_request_template.md` という名前にします。
   ![非表示のディレクトリの新しい pull request テンプレート](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - pull request テンプレートを複数作成し、`template` クエリ パラメーターを使用して pull request の本文を埋めるテンプレートを指定するには、 *.github/PULL_REQUEST_TEMPLATE/* と入力し、続けてお使いの pull request テンプレートの名前を入力します。 たとえば、「 `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md` 」のように入力します。 ルートまたは `docs/` ディレクトリ内の `PULL_REQUEST_TEMPLATE` サブディレクトリに複数の pull request テンプレートを格納することもできます。 詳細については、[クエリ パラメーターを使用した Issue と pull request の自動化](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)に関するページを参照してください。
+    - pull request テンプレートを複数作成し、`template` クエリ パラメーターを使用して pull request の本文を埋めるテンプレートを指定するには、 *.github/PULL_REQUEST_TEMPLATE/* と入力し、続けてお使いの pull request テンプレートの名前を入力します。 たとえば、「 `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md` 」のように入力します。 ルートまたは `docs/` ディレクトリ内の `PULL_REQUEST_TEMPLATE` サブディレクトリに複数の pull request テンプレートを格納することもできます。 詳細については、「[クエリ パラメーターを使用して pull request を作成する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)」を参照してください。
   ![非表示ディレクトリ内の新しい複数の pull request テンプレート](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
 4. 新しいファイルの本文にプルリクエストテンプレートを追加します。 そこに盛り込むべき項目として、以下のようなものがあります:
     - ご自分のリポジトリ内の [関連する Issue への参照](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。

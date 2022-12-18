@@ -1,7 +1,7 @@
 ---
-title: Username considerations for external authentication
+title: 外部認証のユーザー名に関する考慮事項
 shortTitle: Username considerations
-intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.product_name %} follows certain rules to determine the username for each user account {% ifversion ghec or ghae %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+intro: '{% ifversion ghes or ghec %}{% ifversion ghes %}認証に CAS、LDAP、または SAML{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %} を使うとき、{% endif %}{% data variables.product.product_name %} は、特定のルールに従って、{% ifversion ghec or ghae %}Enterprise での{% elsif ghes %}インスタンスでの{% endif %}各ユーザー アカウントのユーザー名を決定します。'
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
@@ -14,154 +14,151 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 8a330fe790665ef360bc5a5841e20ec8df002eb0
+ms.sourcegitcommit: 00814c80b0f5fa76188c378a1196ef8fc5288113
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120752'
 ---
+{% ifversion ghec %} {% note %}
 
-{% ifversion ghec %}
-{% note %}
+**注:** この記事は、{% data variables.product.prodname_emus %} にのみ適用されます。 {% data variables.product.prodname_emus %} を使用せずに {% data variables.product.prodname_ghe_cloud %} を使用する場合、ユーザー名は {% data variables.product.prodname_dotcom %} ではなく、ユーザーによって作成されます。
 
-**Note:** This article only applies to {% data variables.product.prodname_emus %}. If you use {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, usernames are created by users, not {% data variables.product.prodname_dotcom %}.
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
-
-## About usernames with external authentication
+## 外部認証を使用するユーザー名について
 
 {% ifversion ghes %}
 
-You can configure external authentication for {% data variables.product.product_name %} using CAS, LDAP, or SAML. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+CAS、LDAP、または SAML を使用して、{% data variables.product.product_name %} の外部認証を構成できます。 詳細については、「[エンタープライズの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)」を参照してください。
 
-When you use external authentication, {% data variables.location.product_location %} automatically creates a username for each person when the person signs into {% data variables.location.product_location %} through your external authentication system for the first time.
+外部認証を使用する場合、{% data variables.location.product_location %} は、ユーザーが初めて外部認証システムを介して {% data variables.location.product_location %} にサインインしたときに、各ユーザーのユーザー名を自動的に作成します。
 
 {% elsif ghec %}
 
-If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)" and "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+{% data variables.product.prodname_emus %} のエンタープライズを使用する場合、エンタープライズのメンバーは、SAML ID プロバイダー (IdP) を介して {% data variables.product.prodname_dotcom %} にアクセスするように認証します。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)」および「[エンタープライズの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)」を参照してください。
 
-{% data variables.product.prodname_dotcom %} automatically creates a username for each person when their user account is provisioned via SCIM, by normalizing an identifier provided by your IdP, then adding an underscore and short code. If multiple identifiers are normalized into the same username, a username conflict occurs, and only the first user account is created. You can resolve username problems by making a change in your IdP so that the normalized usernames will be unique and within the 39-character limit.
+{% data variables.product.prodname_dotcom %} は、ユーザー アカウントが SCIM を介してプロビジョニングされるときに、IdP によって提供される識別子を正規化し、アンダースコアとショート コードを追加することで、各ユーザーのユーザー名を自動的に作成します。 複数の識別子が同じユーザー名に正規化されると、ユーザー名の競合が発生し、最初のユーザー アカウントのみが作成されます。 ユーザー名の問題を解決するには、正規化されたユーザー名が一意であり、39 文字の上限に収まるように IdP で変更を加えます。
 
 {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %}
 
 {% elsif ghae %}
 
-{% data variables.product.product_name %} uses SAML SSO for authentication, and automatically creates a username for each person when the person signs in through your identity provider (IdP) for the first time.
+{% data variables.product.product_name %} は認証に SAML SSO を使用し、ユーザーが初めて ID プロバイダー (IdP) を介してサインインするときに、各ユーザーのユーザー名を自動的に作成します。
 
 {% endif %}
 
 {% ifversion ghec %}
-## About usernames for {% data variables.enterprise.prodname_managed_users %}
+## {% data variables.enterprise.prodname_managed_users %} のユーザー名について
 
-When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **@<em>SHORT-CODE</em>_admin**. 
+{% data variables.enterprise.prodname_emu_enterprise %} を作成する際、エンタープライズのメンバーのユーザー名のサフィックスとして使用されるショート コードを選択します。 {% data reusables.enterprise-accounts.emu-shortcode %} SAML SSO を構成するセットアップ ユーザーのユーザー名は、 **@<em>SHORT-CODE</em>_admin** の形式になります。 
 
-When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**. The <em>IDP-USERNAME</em> component is formed by normalizing the SCIM `userName` attribute value sent from the IdP. 
+ID プロバイダーから新しいユーザーをプロビジョニングする場合、新しい {% data variables.enterprise.prodname_managed_user %} には、 **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>** の形式の {% data variables.product.prodname_dotcom %} ユーザー名が付きます。 <em>IDP-USERNAME</em> コンポーネントは、IdP から送信された SCIM `userName` 属性値を正規化することによって形成されます。 
 
-| Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
+| ID プロバイダー                 | {% data variables.product.prodname_dotcom %} のユーザー名  |
 |-----------------------------------|----------------------|
-| Azure Active Directory (Azure AD) | _IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
-| Okta                              | _IDP-USERNAME_ is the normalized username attribute provided by the IdP.               |
+| Azure Active Directory (Azure AD) | _IDP-USERNAME_ は、ゲスト アカウントの `#EXT#` を含まない UPN (ユーザー プリンシパル名) の `@` 文字の前の文字を正規化することによって形成されます。 |
+| Okta                              | _IDP-USERNAME_ は、IdP によって提供される、正規化されたユーザー名属性です。               |
 
-These rules may result in your IdP providing the same _IDP-USERNAME_ for multiple users. For example, for Azure AD, the following UPNs will result in the same username:
+これらの規則により、IdP が複数のユーザーに同じ _IDP-USERNAME_ を提供する可能性があります。 たとえば、Azure AD の場合、次の UPN は同じユーザー名になります。
 
 - `bob@contoso.com`
 - `bob@fabrikam.com`
 - `bob#EXT#fabrikamcom@contoso.com`
 
-This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username problems](#resolving-username-problems)."
+これによりユーザー名が競合し、最初のユーザーのみがプロビジョニングされます。 詳細については、「[ユーザー名の問題の解決](#resolving-username-problems)」を参照してください。
 {% endif %}
 
-Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} must not exceed 39 characters.
+ユーザー名{% ifversion ghec %} (アンダースコアと短いコードを含む) {% endif %}は 39 文字を超えてはなりません。
 
-## About username normalization
+## ユーザー名の正規化について
 
-Usernames for user accounts on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} can only contain alphanumeric characters and dashes (`-`).
+{% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} のユーザー アカウントのユーザー名には、英数字とダッシュ (`-`) のみを含めることができます。
 
-{% ifversion ghec %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom_the_website %}. If this value includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
-{% elsif ghes %}
-When you configure CAS, LDAP, or SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
-{% elsif ghae %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your IdP to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+{% ifversion ghec %}SAML 認証を構成すると、{% data variables.product.product_name %} は IdP から送信された SCIM `userName` 属性値を使用して、{% data variables.product.prodname_dotcom_the_website %} 上の対応するユーザー アカウントのユーザー名を決定します。 この値にサポートされていない文字が含まれている場合、{% data variables.product.product_name %} は、次の規則に従ってユーザー名を正規化します。
+{% elsif ghes %}CAS、LDAP、または SAML 認証を構成する場合、{% data variables.product.product_name %} は、外部認証プロバイダーのユーザー アカウントの識別子を使用して、{% data variables.product.product_name %} 上の対応するユーザー アカウントのユーザー名を決定します。 識別子にサポートされていない文字が含まれている場合、{% data variables.product.product_name %} は次の規則に従ってユーザー名を正規化します。
+{% elsif ghae %}SAML 認証を構成すると、{% data variables.product.product_name %} は IdP 上のユーザー アカウントの識別子を使用して、{% data variables.product.product_name %} の対応するユーザー アカウントのユーザー名を決定します。 識別子にサポートされていない文字が含まれている場合、{% data variables.product.product_name %} は次の規則に従ってユーザー名を正規化します。
 {% endif %}
 
-1. {% data variables.product.product_name %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
+1. {% data variables.product.product_name %} は、アカウントのユーザー名に含まれている非英数字をダッシュに変換します。 たとえば、`mona.the.octocat` というユーザー名は `mona-the-octocat` に正規化されます。 変換されたユーザ名の先頭及び末尾はダッシュであってはならないことに注意してください。 2つの連続するダッシュを含めることもできません。
 
-1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
+1. メール アドレスから作成されたユーザー名は、`@` 文字の前の正規化された文字から作成されます。
 
-1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator. 
+1. ドメイン アカウントから作成されるユーザー名は、`\\` 区切りの後の正規化された文字から作成されます。 
 
-1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username problems](#resolving-username-problems)."{% endif %}
+1. 複数のアカウントが変換後に同じ {% data variables.product.product_name %} のユーザー名になる場合、最初のユーザー アカウントだけが作成されます。 同じユーザ名のそれ以降のユーザは、サインインできません。 {% ifversion ghec %}詳細については、「[ユーザー名の問題の解決](#resolving-username-problems)」を参照してください。{% endif %}
 
-### Examples of username normalization
+### ユーザー名の正規化の例
 
-| Identifier on provider | Normalized username on {% data variables.product.prodname_dotcom %} | Result |
+| プロバイダーの識別子 | {% data variables.product.prodname_dotcom %} で正規化されたユーザー名 | 結果 |
 | :- | :- | :- |
-| The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is created successfully. |
-| !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it starts with a dash. |
-| The.Octocat! | `the-octocat-{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it ends with a dash. |
-| The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it contains two consecutive dashes. |
-| The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
+| The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名の作成は成功します。 |
+| !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名はダッシュで始まるので作成されません。 |
+| The.Octocat! | `the-octocat-{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名はダッシュで終わるので作成されません。 |
+| The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名には連続する2つのダッシュが含まれるので作成されません。 |
+| The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名は作成されません。 変換されたユーザ名は正当ですが、すでに存在しています。 |
+| `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名は作成されません。 変換されたユーザ名は正当ですが、すでに存在しています。 |
+| `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザ名は作成されません。 変換されたユーザ名は正当ですが、すでに存在しています。 |
+| `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | このユーザー名は、39 文字の制限を超えているため、作成されません。 |
 
 {% ifversion not ghec %}
-### About username normalization with SAML
+### SAML を使用したユーザー名の正規化について
 
-{% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.product_name %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
+{% ifversion ghes %}{% data variables.location.product_location %} に対して SAML 認証を構成した場合、{% endif %}{% data variables.product.product_name %} は、優先順位の降順で並べられた SAML 応答の次のアサーションの 1 つによって、各ユーザーのユーザー名を決定します。
 
-1. The custom `username` attribute, if defined and present
-1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
-1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
-1. The `NameID` element
+1. カスタム `username` 属性 (定義済みかつ存在する場合)
+1. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` アサーション (存在する場合)
+1. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` アサーション (存在する場合)
+1. `NameID` 要素
 
-{% data variables.product.product_name %} requires the `NameID` element even if other attributes are present. For more information, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes)."
+{% data variables.product.product_name %} には、他の属性が存在する場合でも `NameID` 要素が必要です。 詳細については、「[SAML 構成リファレンス](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes)」をご覧ください。
 
-{% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username {% ifversion ghae %}in{% else %}on{% endif %} {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
+{% data variables.product.product_name %} は、IdP からの `NameID` と {% data variables.location.product_location %} {% ifversion ghae %}内の{% else %}上の{% endif %}ユーザー名の間にマッピングを作成するため、`NameID` は永続的で一意であり、ユーザーのライフサイクルで変更される可能性はありません。
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the person will see an error message when signing into {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+**注**: IdP でユーザーの `NameID` が変更されない場合、ユーザーが {% data variables.location.product_location %} にサインインするときにエラー メッセージが表示されます。 ユーザーのアクセス権を復元するには、ユーザー アカウントの `NameID` マッピングを更新する必要があります。 詳細については、「[ユーザーの SAML `NameID` の更新](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)」を参照してください。
 
-{% endnote %}
-{% endif %}
-{% endif %}
+{% endnote %} {% endif %} {% endif %}
 
 {% ifversion ghec %}
-## Resolving username problems
+## ユーザー名の問題の解決
 
-When a new user is being provisioned, if the username is longer than 39 characters (including underscore and short code), or conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. 
+新しいユーザーをプロビジョニングするとき、ユーザー名 (アンダースコアとショート コードを含む) が 39 文字より長い場合、またはエンタープライズ内の既存のユーザーと競合する場合、プロビジョニングの試行は `409` エラーで失敗します。 
 
-To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
-- Change the `userName` attribute value for individual users that are causing problems
-- Change the `userName` attribute mapping for all users
-- Configure a custom `userName` attribute for all users
+この問題を解決するには、正規化されたすべてのユーザー名が文字数制限内に収まり、一意になるように、IdP で次のいずれかの変更を加える必要があります。
+- 問題を引き起こしている個々のユーザーの `userName` 属性値を変更します
+- 全ユーザーの `userName` 属性のマッピングを変更します
+- 全ユーザーのカスタムの `userName` 属性を構成します
 
-When you change the attribute mapping, usernames of existing {% data variables.enterprise.prodname_managed_users %} will be updated, but nothing else about the accounts will change, including activity history.
+属性のマッピングを変更すると、既存の {% data variables.enterprise.prodname_managed_users %} のユーザー名が更新されますが、アクティビティ履歴を含め、アカウントに関して他は何も変更されません。
 
 {% note %}
 
-**Note:** {% data variables.contact.github_support %} cannot provide assistance with customizing attribute mappings or configuring custom expressions. You can contact your IdP with any questions.
+**注:** {% data variables.contact.github_support %} は、属性マッピングのカスタマイズやカスタム式の構成に関するサポートを提供できません。 ご質問がある場合は、IdP にお問い合わせください。
 
 {% endnote %}
 
-### Resolving username problems with Azure AD
+### Azure AD に関するユーザー名の問題の解決
 
-To resolve username problems in Azure AD, either modify the User Principal Name value for the conflicting user or modify the attribute mapping for the `userName` attribute. If you modify the attribute mapping, you can choose an existing attribute or use an expression to ensure that all provisioned users have a unique normalized alias.
+Azure AD でユーザー名の問題を解決するには、競合しているユーザーのユーザー プリンシパル名の値を変更するか、`userName` 属性の属性マッピングを変更します。 属性マッピングを変更する場合は、既存の属性を選択するか、式を使用して、プロビジョニングされたすべてのユーザーが一意の正規化されたエイリアスを持っていることを確認できます。
 
-1. In Azure AD, open the {% data variables.product.prodname_emu_idp_application %} application.
-1. In the left sidebar, click **Provisioning**.
-1. Click **Edit Provisioning**.
-1. Expand **Mappings**, then click **Provision Azure Active Directory Users**.
-1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping. 
-1. Change the attribute mapping.
-   - To map an existing attribute in Azure AD to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
-   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.
+1. Azure ADで、{% data variables.product.prodname_emu_idp_application %} アプリケーションを開きます。
+1. 左側のサイドバーで、 **[プロビジョニング]** をクリックします。
+1. **[プロビジョニングの編集]** をクリックします。
+1. **[マッピング]** を展開し、 **[Azure Active Directory ユーザーをプロビジョニングする]** をクリックします。
+1. {% data variables.product.prodname_dotcom %} `userName` 属性マッピングをクリックします。 
+1. 属性マッピングを変更します。
+   - Azure AD の既存の属性を {% data variables.product.prodname_dotcom %} の `userName` 属性にマップするには、目的の属性フィールドをクリックします。 次に、プロビジョニング サイクルが約 40 分以内に発生するまで保存して待機します。
+   - 既存の属性の代わりに式を使用するには、Mapping 型を「式」に変更し、この値をすべてのユーザーに対して一意にするカスタム式を追加します。 たとえば、`[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]` を使用できます。 詳細については、Microsoft Docs の「[Azure Active Directory で属性マッピングの式を記述するためのリファレンス](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data)」を参照してください。
 
-### Resolving username problems with Okta
+### Okta に関するユーザー名の問題の解決
 
-To resolve username problems in Okta, update the attribute mapping settings for the {% data variables.product.prodname_emu_idp_application %} application.
+Okta でユーザー名の問題を解決するには、{% data variables.product.prodname_emu_idp_application %} アプリケーションの属性マッピング設定を更新します。
 
-1. In Okta, open the {% data variables.product.prodname_emu_idp_application %} application.
-1. Click **Sign On**.
-1. In the "Settings" section, click **Edit**.
-1. Update the "Application username format."
+1. Okta で {% data variables.product.prodname_emu_idp_application %} アプリケーションを開きます。
+1. **[サインオン]** をクリックします。
+1. [設定] セクションで **[編集]** をクリックします。
+1. "アプリケーション ユーザー名の形式" を更新します。
 {% endif %}

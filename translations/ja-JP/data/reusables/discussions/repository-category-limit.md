@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 7b782aa3d23143a62b07aedf0a07df3734173d44
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f58fb9410d93c9e50d33de5f1b12b9d6441ea561
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145137940"
+ms.lasthandoff: 11/30/2022
+ms.locfileid: "148185617"
 ---
-各リポジトリまたは Organization は、最大で 10 個のカテゴリを持つことができます。
+各リポジトリまたは組織は、最大で 25 個のカテゴリを持つことができます。

@@ -1,6 +1,6 @@
 ---
-title: Disabling or limiting GitHub Actions for your organization
-intro: 'Organization owners can disable, enable, and limit GitHub Actions for an organization.'
+title: Organization について GitHub Actions を無効化または制限する
+intro: Organization のオーナーは Organization の GitHub Actions を無効化、有効化、制限することができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
@@ -13,178 +13,103 @@ topics:
   - Teams
 shortTitle: Disable or limit actions
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: b72b1e412906b1a2ec7520a9c939d5adefee7dd7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064683'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Organization の {% data variables.product.prodname_actions %} 権限について
 
-## About {% data variables.product.prodname_actions %} permissions for your organization
+{% data reusables.actions.disabling-github-actions %} {% data variables.product.prodname_actions %} の詳細については、「[{% data variables.product.prodname_actions %} について](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。
 
-{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+Organization のすべてのリポジトリについて {% data variables.product.prodname_actions %} を有効化することができます。 {% data reusables.actions.enabled-actions-description %} 組織のすべてのリポジトリについて、{% data variables.product.prodname_actions %} を無効化できます。 {% data reusables.actions.disabled-actions-description %}
 
-You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.disabled-actions-description %}
+または、Organization 内のすべてのリポジトリに対して {% data variables.product.prodname_actions %} を有効にできますが、ワークフローが実行できるアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}にアクションを制限できます。
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+## Organization の {% data variables.product.prodname_actions %} 権限の管理
 
-## Managing {% data variables.product.prodname_actions %} permissions for your organization
-
-You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
+組織内のすべてのリポジトリに対して {% data variables.product.prodname_actions %} を無効にするか、特定のリポジトリのみを許可するかを選択できます。 また、パブリック アクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}の使用を制限して、{% ifversion ghec or ghes or ghae %}Enterprise{% else %}Organization{% endif %} 内に存在するローカル アクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}のみを使用できるようにすることもできます。
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**注:** 組織が、優先ポリシーのあるエンタープライズによって管理されている場合、これらの設定を管理できない場合があります。 詳細については、「[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise (エンタープライズでフォーク pull request のポリシーを適用する)](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Policies", select an option.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. [Policies] で、オプションを選択します。
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-   {%- endif %}
-1. Click **Save**.
+   {% ifversion actions-workflow-policy %} ![この Organization のアクション ポリシーを設定する](/assets/images/help/organizations/actions-policy-with-workflows.png) {%- else %} ![この Organization のアクション ポリシーを設定する](/assets/images/help/organizations/actions-policy.png) {%- endif %}
+1. **[保存]** をクリックします。
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. [ポリシー] で [{% data reusables.actions.policy-label-for-select-actions-workflows %}] を選び、必要なアクション{% ifversion actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を一覧に追加します。
 
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
-   {%- endif %}
-1. Click **Save**.
+   {% ifversion actions-workflow-policy %} ![許可リストにアクションと再利用可能なワークフローを追加する](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png) {%- elsif ghes %} ![アクションを許可リストに追加する](/assets/images/help/organizations/actions-policy-allow-list.png) {%- else %} ![アクションを許可リストに追加する](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png) {%- endif %}
+1. **[保存]** をクリックします。
 
 {% ifversion fpt or ghec %}
-## Configuring required approval for workflows from public forks
+## パブリックフォークからのワークフローに対する必須の承認の設定
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
+Organizationのこの動作は、以下の手順で設定できます。 この設定を変更すると、Enterpriseレベルでの設定が上書きされます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.workflows-from-public-fork-setting %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %} {% data reusables.actions.workflows-from-public-fork-setting %}
 
-{% data reusables.actions.workflow-run-approve-link %}
-{% endif %}
+{% data reusables.actions.workflow-run-approve-link %} {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Enabling workflows for private repository forks
+## プライベートリポジトリのフォークのワークフローを有効にする
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+{% ifversion ghec or ghae or ghes %}Enterpriseでポリシーが無効化されていると、それをOrganizationで有効化することはできません。{% endif %}Organizationでポリシーが無効化されていると、それをリポジトリで有効化することはできません。 Organizationがポリシーを有効化していると、そのポリシーを個々のリポジトリで無効化することはできません。
 
 {% data reusables.actions.private-repository-forks-options %}
 
-### Configuring the private fork policy for an organization
+### Organization のプライベートフォークポリシーを設定する
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.private-repository-forks-configure %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %} {% data reusables.actions.private-repository-forks-configure %} {% endif %}
 
-## Setting the permissions of the `GITHUB_TOKEN` for your organization
+## 組織の `GITHUB_TOKEN` のアクセス許可の設定
 
 {% data reusables.actions.workflow-permissions-intro %}
 
-You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you select a restrictive option as the default in your organization settings, the same option is selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings.
+組織またはリポジトリの設定で、`GITHUB_TOKEN` の既定のアクセス許可を設定できます。 Organization の設定でデフォルトとして制限付きのオプションを選択した場合、そのオプションは Organization 内のリポジトリの設定でも選択され、制限の緩いオプションは無効化されます。 Organization が {% data variables.product.prodname_enterprise %} に属しており、Enterprise 設定でさらに制約の強いデフォルトが選択されている場合、Organization の設定でより制限の緩いデフォルトは選択できません。
 
 {% data reusables.actions.workflow-permissions-modifying %}
 
-### Configuring the default `GITHUB_TOKEN` permissions
+### 既定の `GITHUB_TOKEN` のアクセス許可の構成
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo  %}
-By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% ifversion allow-actions-to-approve-pr-with-ent-repo  %} 既定では、新しい Organization を作成した場合、`GITHUB_TOKEN` には `contents` スコープの読み取りアクセス権のみが付与されます。
 {% endif %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. [ワークフローのアクセス許可] で、`GITHUB_TOKEN` に対して、すべてのスコープでの読み取りと書き込みアクセスを許可するか、`contents` スコープでの読み取りアクセスのみを許可するかを選択します。
 
-   {% ifversion allow-actions-to-approve-pr %}
-      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
-      {% else %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
-      {% endif %}
-   {% else %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
-   {% endif %}
-1. Click **Save** to apply the settings.
+   ![このOrganizationのGITHUB_TOKENの権限を設定](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+1. **[保存]** をクリックして設定を適用します。
 
 {% ifversion allow-actions-to-approve-pr %}
-### Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+### {% data variables.product.prodname_actions %} による pull request の{% ifversion allow-actions-to-approve-pr-with-ent-repo %}作成または{% endif %}承認を禁止する
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-By default, when you create a new organization, workflows are not allowed to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests.
+既定では、新しい Organization を作成するとき、ワークフローで pull request を{% ifversion allow-actions-to-approve-pr-with-ent-repo %}作成または{% endif %}承認することは許可されていません。
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", use the **Allow GitHub Actions to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.settings-sidebar-actions-general %}
+1. [ワークフローのアクセス許可] で、 **[GitHub Actions が pull request を{% ifversion allow-actions-to-approve-pr-with-ent-repo %}作成または{% endif %}承認するのを許可する]** 設定を使って、`GITHUB_TOKEN` が pull request を{% ifversion allow-actions-to-approve-pr-with-ent-repo %}作成または{% endif %}承認できるかどうかを構成します。
 
-   {% ifversion allow-actions-to-approve-pr %}
-      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
-      {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
-      {% endif %}
-   {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
-   {% endif %}
-1. Click **Save** to apply the settings.
-
-{% endif %}
-
-{% ifversion actions-cache-org-ui %}
-
-## Managing {% data variables.product.prodname_actions %} cache storage for your organization
-
-Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
-
-### Viewing {% data variables.product.prodname_actions %} cache storage by repository
-
-For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
-
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, click {% octicon "play" aria-label="The {% data variables.product.prodname_actions %} icon" %} **Actions**, then click **Caches**.
-1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
-
-{% ifversion actions-cache-admin-ui %}
-
-### Configuring {% data variables.product.prodname_actions %} cache storage for your organization
-
-{% data reusables.actions.cache-default-size %}
-
-You can configure the size limit for {% data variables.product.prodname_actions %} caches that will apply to each repository in your organization. The cache size limit for an organization cannot exceed the cache size limit set in the enterprise policy. Repository admins will be able to set a smaller limit in their repositories.
-
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
-
-{% endif %}
+   ![この組織の GITHUB_TOKEN pull request 承認アクセス許可を設定します](/assets/images/help/settings/actions-workflow-permissions-organization{% ifversion allow-actions-to-approve-pr %}-with-pr-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creation-{% endif %}approval{% endif %}.png)
+1. **[保存]** をクリックして設定を適用します。
 
 {% endif %}

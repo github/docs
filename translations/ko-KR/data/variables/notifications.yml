@@ -1,0 +1,4 @@
+no_reply_address: >-
+  {% ifversion fpt or ghec %}`noreply@github.com`{% else %} 사이트 관리자{% endif %}가 구성한 회신 없는 이메일 주소
+cc_address: >-
+  사이트 관리자{% endif %}가 구성한 회신 없는 이메일 주소 기반 {% ifversion fpt or ghec %}`@noreply.github.com`{% else %}

@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
+intro: Use a API REST para obter modelos `.gitignore` que podem ser usados para ignorar arquivos e diretórios.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/gitignore
+ms.openlocfilehash: a3d6d35014a0c6bc46102fa7abfa11659fff6fbf
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193038'
 ---
+## Sobre o gitignore
 
-## About the Gitignore API
+Quando você cria um repositório no {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} por meio da API, você pode especificar um [modelo .gitignore](/github/getting-started-with-github/ignoring-files) para aplicá-lo ao repositório após a criação. Você pode usar a API REST para obter modelos .gitignore do [repositório .gitignore](https://github.com/github/gitignore) do {% data variables.product.product_name %}.
 
-When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
-
-### Custom media types for gitignore
-
-You can use this custom media type when getting a gitignore template.
-
-    application/vnd.github.VERSION.raw
-
-For more information, see "[Media types](/rest/overview/media-types)."
+Você pode usar o tipo de mídia personalizado `application/vnd.github.raw` ao obter um modelo gitignore. Para obter mais informações, confira "[Tipos de mídia](/rest/overview/media-types)".

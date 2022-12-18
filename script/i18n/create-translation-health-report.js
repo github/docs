@@ -147,7 +147,6 @@ async function createReport() {
     gitref,
     datetime: new Date().toJSON(),
     totalPages: pages.length,
-    // totalErrorPages should be around en: 0, es: 1043, ja: 1004, pt: 995, cn: 1063
     totalErrorPages: pageErrors.length,
     pageErrors,
     // To group errors by message instead
@@ -160,4 +159,5 @@ async function createReport() {
   return report
 }
 
+console.warn = () => {} // shhh
 console.log(JSON.stringify(await createReport(), null, 2))

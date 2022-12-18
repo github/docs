@@ -10,7 +10,7 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import renderedContentLinkChecker from '../.github/actions/rendered-content-link-checker.js'
+import renderedContentLinkChecker from '../.github/actions-scripts/rendered-content-link-checker.js'
 import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
 import github from './helpers/github.js'
 
@@ -49,7 +49,7 @@ program
   )
   .option(
     '--report-author <AUTHOR>',
-    'Previous author of report PR for linking. (default: "docubot")'
+    'Previous author of report PR for linking. (default: "docs-bot")'
   )
   .option(
     '--report-label <LABEL>',
@@ -69,6 +69,7 @@ program
   .option('--bail', 'Exit on the first possible flaw')
   .option('--verbose-url <BASE_URL>', 'Print the absolute URL if set')
   .option('--fail-on-flaw', 'Throw error on link flaws (default: false)')
+  .option('--external-server-errors-as-warning', 'Treat server errors as warning (default: false)')
   .option('--max <number>', 'integer argument (default: none)', (value) => {
     const parsed = parseInt(value, 10)
     if (isNaN(parsed)) {

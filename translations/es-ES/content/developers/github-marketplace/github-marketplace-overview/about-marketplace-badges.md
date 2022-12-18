@@ -7,12 +7,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145092145'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186167'
 ---
 ## Para las GitHub Apps
 
@@ -39,7 +39,7 @@ Para obtener información sobre cómo buscar aplicaciones para usar, vea "[Búsq
 
 ## Para las GitHub Actions 
 
-Las acciones con la {% octicon "verified" aria-label="The verified badge" %} o la insignia de creador verificado indican que {% data variables.product.prodname_dotcom %} ha verificado al creador de esta acción como socio de la organización.
+Las acciones con la {% octicon "verified" aria-label="The verified badge" %} o la insignia de creador verificado indican que {% data variables.product.prodname_dotcom %} ha verificado al creador de esta acción como socio de la organización. Los partners pueden enviar un correo electrónico a <a href="mailto:partnerships@github.com">partnerships@github.com</a> para solicitar la insignia de creador verificado.
 
 ![Insignia de creador verificado para las GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 

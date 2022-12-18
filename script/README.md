@@ -300,13 +300,6 @@ This script creates the static GraphQL files for a new version.
 ---
 
 
-### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
-
-This script first copies the dereferenced schema from the previous GHES version for the new one. It then replaces references to the previous version's docs URL (e.g., enterprise-server@3.0) with the new version (e.g., enterprise-server@3.1). Finally, it generates a new decorated file from the new dereferenced file to ensure that the dereferenced and decorated files match.
-
----
-
-
 ### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
 
 This script creates new static webhook payload files for a new version.

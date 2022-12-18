@@ -1,86 +1,93 @@
 date: '2022-04-20'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - 包已更新到最新的安全版本。 
   bugs:
-    - Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname. 
-    - When a manifest file was deleted from a repository, the manifest would not be removed from the repository's "Dependency graph" page. 
-    - Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases. 
-    - Rotated log files with the extension `.backup` would accumulate in directories containing system logs.
-    - In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.
-    - Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel. 
-    - Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.
-    - When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list. 
-    - The `/stafftools/users/ip_addresses/:address` page responded with a `500 Internal Server Error` when attempting to display the page for an IPv6 address. 
-    - Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed. 
+    - "解决了一个可能导致检索生成工件和下载 {% data variables.product.prodname_actions %} 的日志存档始终失败的回归问题。在某些情况下，我们停止解析使用 `localhost` 的内部通信的 URL，反而错误地使用了实例主机名。" 
+    - 从存储库中删除清单文件时，不会从存储库的“依赖项关系图”页面中删除该清单。 
+    - 在某些情况下，使用升级包升级高可用性对中的节点可能会导致 Elasticsearch 进入不一致状态。 
+    - 扩展名为 `.backup` 的轮换日志文件将累积在包含系统日志的目录中。
+    - 在某些群集拓扑中，命令行实用程序 `ghe-spokesctl` 和 `ghe-btop` 无法运行。
+    - 由于 `elasticsearch-upgrade` 服务并行运行多次，因此 Elasticsearch 索引可能会在包升级期间重复。 
+    - 即使数据在本地缓存位置可用，存储库缓存服务器也可以提供来自非缓存位置的数据。
+    - "将用户帐户转换为组织帐户时，如果用户帐户是 {% data variables.product.prodname_ghe_server %} 企业帐户的所有者，则转换后的组织将无法正确显示在企业所有者列表中。" 
+    - "尝试显示 IPv6 地址的页面时，`/stafftools/users/ip_addresses/:address` 页面以“500 内部服务器错误”响应。" 
+    - 当与 OAuth 应用程序 ID 匹配的集成已存在时，使用企业管理 REST API 创建模拟 OAuth 标记会导致错误。 
  
   changes:
-    - Added support for replica domain names that are more than 63 characters. 
-    - Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log. 
-    - If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.
+    - 增加了对超过 63 个字符的副本域名的支持。 
+    - 除了配置日志之外，停止 config apply 运行的配置错误现在会输出到终端。 
+    - "如果在实例上启用了 {% data variables.product.prodname_GH_advanced_security %} 功能，则在处理存储库贡献的批次时，后台作业的性能会有所提高。"
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - |在多个级别（例如，企业和组织）使用 `--ephemeral` 参数注册自承载运行器后，运行器可能会陷入空闲状态并需要重新注册。[更新时间：2022-06-17]
+
+|
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.4 后，存储库中似乎缺少版本。当所需的 Elasticsearch 索引迁移未成功完成时，可能会发生这种情况。"
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+    - heading: 弃用 GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.1
+        - '{% data variables.product.prodname_ghe_server %} 3.0 已于 2022 年 2 月 16 日停用****。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - heading: 弃用 GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '{% data variables.product.prodname_ghe_server %} 3.1 将于 2022 年 6 月 3 日停用****。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)。'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: 弃用 XenServer Hypervisor 支持
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "从 {% data variables.product.prodname_ghe_server %} 3.3 开始，XenServer 上的 {% data variables.product.prodname_ghe_server %} 已弃用且不再受支持。如有问题或疑虑，请联系 [GitHub 支持](https://support.github.com)。"
 
-    - heading: Deprecation of the Content Attachments API preview
+    - heading: 弃用内容附件 API 预览版
       notes:
         #
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - "由于使用率低，我们已在 {% data variables.product.prodname_ghe_server %} 3.4 中弃用了内容引用 API 预览版。该 API 以前可以通过 `corsair-preview` 标头访问。用户可以在没有此 API 的情况下继续导航到外部 URL。内容引用 API 的任何注册使用将不再收到来自注册域的 URL 的 Webhook 通知，并且我们不再返回有效的响应代码来尝试更新现有内容附件。"
 
-    - heading: Deprecation of the Codes of Conduct API preview
+    - heading: 弃用行为准则 API 预览版
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - '可通过 `scarlet-witch-preview` 标头访问的行为准则 API 预览版已弃用，并且在 {% data variables.product.prodname_ghe_server %} 3.4 中不再可访问。我们建议使用“[获取社区配置文件指标](/rest/reference/repos#get-community-profile-metrics)”终结点来检索有关存储库行为准则的信息。有关详细信息，请参阅 {% data variables.product.prodname_dotcom %} 更改日志中的“[弃用通知：行为准则 API 预览版](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)”。'
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: 弃用 OAuth 应用程序 API 终结点和使用查询参数的 API 身份验证
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+        - |从 {% data variables.product.prodname_ghe_server %} 3.4 开始，[OAuth 应用程序 API 终结点的弃用版本](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected)已被删除。如果在这些终结点上遇到 404 错误消息，请将代码转换为 URL 中没有 `access_tokens` 的 OAuth 应用程序 API 版本。我们还禁用了使用查询参数的 API 身份验证。我们建议使用[请求标头中的 API 身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)。
 
-    - heading: Deprecation of the CodeQL runner
+|
+    - heading: 弃用 CodeQL 运行器
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "{% data variables.product.prodname_codeql %} 运行器在 {% data variables.product.prodname_ghe_server %} 3.4 中已弃用，不再受支持。弃用仅影响在第三方 CI/CD 系统中使用 {% data variables.product.prodname_codeql %} 代码扫描的用户；{% data variables.product.prodname_actions %} 用户不受影响。我们强烈建议客户迁移到 {% data variables.product.prodname_codeql %} CLI，它是 {% data variables.product.prodname_codeql %} 运行器功能完善的替代项。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)。"
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: 弃用自定义位缓存扩展
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+        - |从 {% data variables.product.prodname_ghe_server %} 3.1 开始，开始逐渐停用对 {% data variables.product.company_short %} 的专有位缓存扩展的支持。从 {% data variables.product.prodname_ghe_server %} 3.3 开始，这些扩展已被弃用。
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
-    
-    - heading: Theme picker for GitHub Pages has been removed
+运行版本 3.1 或 3.2 的 {% data variables.product.product_location %} 上已经存在并处于活动状态的任何存储库都将自动更新。
+
+
+
+在升级到 {% data variables.product.prodname_ghe_server %} 3.3 之前不存在且处于活动状态的存储库可能无法以最佳方式执行，直到运行存储库维护任务并成功完成。
+
+
+
+若要手动启动存储库维护任务，请浏览到 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` 查看每个受影响的存储库，然后单击“计划”按钮。
+
+|
+    - heading: GitHub Pages 主题选取器已删除
       notes:
-        - |
-          The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."
-        
+        - |GitHub Pages 主题选取器已从“页面设置”中删除。有关 GitHub Pages 主题配置的详细信息，请参阅“[使用 Jekyll 向 GitHub Pages 站点添加主题](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme -to-your-github-pages-site-using-jekyll)”。
+
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.4 至少需要 [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

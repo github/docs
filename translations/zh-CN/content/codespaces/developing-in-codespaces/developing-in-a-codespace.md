@@ -1,6 +1,6 @@
 ---
-title: Developing in a codespace
-intro: 'You can work in a codespace using your browser, {% data variables.product.prodname_vscode %}, a JetBrains IDE, or in a command shell.'
+title: 在代码空间中开发
+intro: '可以使用浏览器、{% data variables.product.prodname_vscode %}、JetBrains IDE 或在命令 shell 中在 codespace 中工作。'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
@@ -13,127 +13,129 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Develop in a codespace
+ms.openlocfilehash: e941373ade8c2f8365e7b654733b7ee029a6a7dd
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159067'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About development with {% data variables.product.prodname_github_codespaces %}
+## 关于使用 {% data variables.product.prodname_github_codespaces %} 进行开发
 
-You can develop code in a codespace using your choice of tool: 
+可以使用所选工具在 codespace 中开发代码： 
 
-* A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}.
-* One of the JetBrains IDEs, via the JetBrains Gateway.
-* The {% data variables.product.prodname_vscode %} desktop application.
-* A browser-based version of {% data variables.product.prodname_vscode %}.
+* 命令 shell，通过使用 {% data variables.product.prodname_cli %} 启动的 SSH 连接。
+* JetBrains IDE 之一，通过 JetBrains 网关。
+* {% data variables.product.prodname_vscode %} 桌面应用程序。
+* {% data variables.product.prodname_vscode %} 的基于浏览器的版本。
 
 {% webui %}
 
-The tabs in this article allow you to switch between information for each of these ways of working. You're currently on the tab for the web browser version of {% data variables.product.prodname_vscode %}.
+使用本文中的选项卡，可以在每种工作方式的信息之间切换。 你当前位于 {% data variables.product.prodname_vscode %} 的 Web 浏览器版本的选项卡上。
 
-## Working in a codespace in the browser
+## 在浏览器的 codespace 中工作
 
-Using {% data variables.product.prodname_codespaces %} in the browser provides you with a fully featured development experience. You can edit code, debug, use Git commands, and run your application.
+在浏览器中使用 {% data variables.product.prodname_codespaces %} 可提供功能齐全的开发体验。 可以编辑代码、调试、使用 Git 命令以及运行应用程序。
 
-![Annotated screenshot of a codespace in the browser](/assets/images/help/codespaces/codespace-overview-annotated.png)
+![浏览器中 codespace 的带有批注的屏幕截图](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
-{% data reusables.codespaces.vscode-interface-annotation %}
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
-{% data reusables.codespaces.developing-in-vscode %}
-{% data reusables.codespaces.navigating-to-a-codespace %}
+{% data reusables.codespaces.vscode-interface-annotation %} {% data reusables.codespaces.use-chrome %} 有关详细信息，请参阅“[对 {% data variables.product.prodname_github_codespaces %} 客户端进行故障排除](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)”。
+{% data reusables.codespaces.developing-in-vscode %} {% data reusables.codespaces.navigating-to-a-codespace %}
 
 {% endwebui %}
 
 {% vscode %}
 
-The tabs in this article allow you to switch between information for each of these ways of working. You're currently on the tab for {% data variables.product.prodname_vscode %}.
+使用本文中的选项卡，可以在每种工作方式的信息之间切换。 你当前位于 {% data variables.product.prodname_vscode %} 的选项卡上。
 
-## Working in a codespace in {% data variables.product.prodname_vscode_shortname %}
+## 在 {% data variables.product.prodname_vscode_shortname %} 的 codespace 中工作
 
-{% data variables.product.prodname_github_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_github_codespaces %} 为你提供完整的 {% data variables.product.prodname_vscode %} 开发体验。 {% data reusables.codespaces.use-visual-studio-features %}
 
-![Annotated screenshot of a codespace in VS Code](/assets/images/help/codespaces/codespace-annotated-vscode.png)
+![VS Code 中 codespace 的带批注的屏幕截图](/assets/images/help/codespaces/codespace-annotated-vscode.png)
 
 {% data reusables.codespaces.vscode-interface-annotation %}
 
-For more information on using {% data variables.product.prodname_vscode_shortname %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+有关使用 {% data variables.product.prodname_vscode_shortname %} 的详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的[用户界面指南](https://code.visualstudio.com/docs/getstarted/userinterface)。
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %} 
 
-For troubleshooting information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
-{% data reusables.codespaces.developing-in-vscode %}
-{% data reusables.codespaces.navigating-to-a-codespace %}
+有关故障排除信息，请参阅“[对 Codespaces 客户端进行故障排除](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)”。
+{% data reusables.codespaces.developing-in-vscode %} {% data reusables.codespaces.navigating-to-a-codespace %}
 
 {% endvscode %}
 
 {% jetbrains %}
 
-The tabs in this article allow you to switch between information for each of these ways of working. You're currently on the tab for JetBrains IDEs.
+使用本文中的选项卡，可以在每种工作方式的信息之间切换。 你当前位于 JetBrains IDE 的选项卡上。
 
-## Working in a codespace in a JetBrains IDE
+## 在 JetBrains IDE 中的 codespace 中工作
 
-To use {% data variables.product.prodname_github_codespaces %} with a JetBrains IDE you must have already installed JetBrains Gateway. For information about installing JetBrains Gateway, see [the JetBrains website](https://www.jetbrains.com/remote-development/gateway/).
+要将 {% data variables.product.prodname_github_codespaces %} 与 JetBrains IDE 一起使用，必须已安装 JetBrains 网关。 有关安装 JetBrains 网关的信息，请参阅 [JetBrains 网站](https://www.jetbrains.com/remote-development/gateway/)。
 
-You can work in a codespace using your choice of JetBrains IDE. After creating a codespace, you can use the JetBrains Gateway application to open the codespace in your preferred IDE.
+可以使用所选的 JetBrains IDE 在 codespace 中工作。 创建 codespace 后，可以使用 JetBrains 网关应用程序在首选 IDE 中打开 codespace。
 
-You can edit code, debug, and use Git commands while developing in a codespace with your JetBrains IDE. For more information about the various JetBrains IDEs, see the [JetBrains documentation](https://www.jetbrains.com/help/).
+使用 JetBrains IDE 在 codespace 中进行开发时，可以编辑代码、调试和使用 Git 命令。 有关各种 JetBrains IDE 的详细信息，请参阅 [JetBrains 文档](https://www.jetbrains.com/help/)。
 
-### IntelliJ IDEA user interface
+### IntelliJ IDEA 用户界面
 
-Within the {% data variables.product.prodname_github_codespaces %} documentation we use IntelliJ IDEA as a representative JetBrains IDE. Different JetBrains IDEs may have different layouts.
+在 {% data variables.product.prodname_github_codespaces %} 文档中，我们使用 IntelliJ IDEA 作为具有代表性的 JetBrains IDE。 不同的 JetBrains IDE 可能具有不同的布局。
 
-![Annotated screenshot of a codespace in JetBrains IntelliJ IDEA](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
+![JetBrains IntelliJ IDEA 中 codespace 的带批注的屏幕截图](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
 
-1. **Navigation bar** - This displays the path to the currently selected file or directory. Use the buttons to the right of the navigation bar to perform various actions, including building, running, or debugging the project, or running Git commands to commit and push your changes.
-2. **Project tool window** - This shows you the structure of your project and allows you to open files in the editor.
-3. **{% data variables.product.prodname_github_codespaces %} tool window** - This is displayed by clicking the {% data variables.product.prodname_github_codespaces %} plugin in the bar to the left of the tool window. It displays information about your codespace, including its display name and machine type. The buttons at the top of this tool window allow you to:
-   * Stop the codespace and disconnect
-   * Display the "Your codespaces" web page
-   * View the codespace creation logs
-   * Rebuild the dev container
-4. **Editor** - This is where you edit your files. You can right-click the tab for a file to access options such as moving the tab to a new window.
-5. **Terminal** - This is displayed by clicking **Terminal** in the tool window bar at the bottom of the main window (just above the status bar). The integrated terminal allows you to perform command-line tasks without having to switch to a dedicated terminal application.
-6. **Status bar** - Hover over the icon at the left of the status bar to see a list of tools. Click the icon to hide or show the tool window bars. The right side of the status bar shows information about the project, including the current Git branch.
+1. **导航栏** - 显示当前所选文件或目录的路径。 使用导航栏右侧的按钮执行各种操作，包括生成、运行或调试项目，或者运行 Git 命令以提交和推送更改。
+2. **项目工具窗口** - 显示项目的结构，并允许在编辑器中打开文件。
+3. **{% data variables.product.prodname_github_codespaces %} 工具窗口** - 单击工具窗口左侧栏中的 {% data variables.product.prodname_github_codespaces %} 插件即可显示。 它显示有关 codespace 的信息，包括其显示名称和计算机类型。 此工具窗口顶部的按钮可用于：
+   * 停止 codespace 并断开连接
+   * 显示“你的 codespace”网页
+   * 查看 codespace 创建日志
+   * 重新生成开发容器
+4. **编辑器** - 这是编辑文件的地方。 可以右键单击文件的选项卡以访问选项，例如将选项卡移动到新窗口。
+5. **终端** - 单击主窗口底部的工具窗口栏中的“终端”（状态栏正上方），即可显示。 通过集成终端，无需切换到专用终端应用程序即可执行命令行任务。
+6. **状态栏** - 将鼠标悬停在状态栏左侧的图标上可查看工具列表。 单击图标可隐藏或显示工具窗口栏。 状态栏的右侧显示有关项目的信息，包括当前 Git 分支。
 
-For more information about the IntelliJ IDEA user interface, see the [JetBrains documentation for IntelliJ IDEA](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html).
+有关 IntelliJ IDEA 用户界面的详细信息，请参阅 [IntelliJ IDEA 的 JetBrains 文档](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html)。
 
-### Customizing the codespaces for a repository
+### 自定义存储库的 codespace
 
-You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+可以通过创建或更新存储库的开发容器配置来自定义为存储库创建的 codespace。 可以从 codespace 中执行此操作。 更改开发容器配置后，可以通过为 codespace 重新生成 Docker 容器来将更改应用于当前 codespace。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。
 
-### Personalizing your codespace
+### 个性化代码空间
 
-You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository to personalize aspects of the codespace environment for any codespace that you create. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+可以使用 [dotfiles](https://dotfiles.github.io/tutorials/) 存储库为创建的任何 codespace 个性化 codespace 环境的各个方面。 有关详细信息，请参阅“[为帐户设置个性化的 {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)”。
 
-### Committing your changes
+### 提交更改
 
-Once you've made changes to your codespace, either new code or configuration changes, you'll want to commit and push your changes. Pushing changes to a repository ensures that anyone else who creates a codespace from this repository has the same configuration. This also means that any customization you do, to modify the configuration of codespaces created for a repository, will be available to everybody who uses the repository.
+在对 codespace 进行更改（无论是添加新代码还是更改配置）之后，需要提交和推送更改。 将更改推送到存储库可确保从此存储库创建 codespace 的其他任何人都具有相同的配置。 这也意味着，为修改为存储库创建的 codespace 的配置所做的任何自定义都将可供使用该存储库的所有人使用。
 
-For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)."
+有关详细信息，请参阅[在 codespace 中使用源代码管理](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)。
 
-## Further reading
+## 延伸阅读
 
-* "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-* "[Using the {% data variables.product.prodname_github_codespaces %} plugin for JetBrains](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
-* "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
+* “[在 JetBrains IDE 中使用 {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)”。
+* “[将 {% data variables.product.prodname_github_codespaces %} 插件用于 JetBrains](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)”
+* “[对 {% data variables.product.prodname_github_codespaces %} 客户端进行故障排除](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)”
 
 {% endjetbrains %}
 
 {% cli %}
 
-The tabs in this article allow you to switch between information for each of these ways of working. You're currently on the tab for {% data variables.product.prodname_cli %}.
+使用本文中的选项卡，可以在每种工作方式的信息之间切换。 当前位于 {% data variables.product.prodname_cli %} 的选项卡上。
 
-## Working in a codespace in a command shell
+## 在命令 shell 中的 codespace 中工作
 
 {% data reusables.cli.cli-learn-more %}
 
-You can use {% data variables.product.prodname_cli %} to create a new codespace, or start an existing codespace, and then SSH to it. Once connected, you can work on the command line using your preferred command-line tools.
+可以使用 {% data variables.product.prodname_cli %} 创建新的 codespace，或启动现有 codespace，然后通过 SSH 连接到它。 连接后，可以使用你喜欢的命令行工具在命令行上工作。
 
-After installing {% data variables.product.prodname_cli %} and authenticating with your {% data variables.product.prodname_dotcom %} account you can use the command `gh codespace [<SUBCOMMAND>...] --help` to browse the help information. Alternatively, you can view the same reference information at [https://cli.github.com/manual/gh_codespace](https://cli.github.com/manual/gh_codespace).
+安装 {% data variables.product.prodname_cli %} 并对 {% data variables.product.prodname_dotcom %} 帐户进行身份验证后，可以使用命令 `gh codespace [<SUBCOMMAND>...] --help` 浏览帮助信息。 或者，可以通过 [https://cli.github.com/manual/gh_codespace](https://cli.github.com/manual/gh_codespace) 查看相同的参考信息。
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with GitHub CLI](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)."
+有关详细信息，请参阅“[将 {% data variables.product.prodname_github_codespaces %} 与 GitHub CLI 结合使用](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)”。
 
 {% endcli %}

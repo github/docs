@@ -10,7 +10,7 @@ topics:
 ---
 
 
-API previews let you try out new APIs and changes to existing API methods before they become part of the official GitHub API.
+API previews let you try out new endpoints and changes to existing endpoints before they become part of the official {% data variables.product.prodname_dotcom %} API.
 
 During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
 
@@ -19,7 +19,7 @@ To access an API preview, you'll need to provide a custom [media type](/rest/ove
 {% ifversion ghes < 3.4 %}
 ## Content attachments
 
-You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
+You can now provide more information in {% data variables.product.prodname_dotcom %} for URLs that link to registered domains by using the API to manage {% data variables.product.prodname_unfurls %}. For more information, see "[Using content attachments](/apps/using-content-attachments/)."
 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)

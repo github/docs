@@ -1,6 +1,6 @@
 ---
-title: Using the audit log API for your enterprise
-intro: 'You can programmatically retrieve enterprise events with the REST or GraphQL API.'
+title: Использование API журнала аудита для предприятия
+intro: Вы можете программно получить корпоративные события с помощью REST или API GraphQL.
 shortTitle: Audit log API
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
@@ -14,28 +14,32 @@ topics:
   - Enterprise
   - Logging
   - API
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192660'
 ---
+## Использование API журнала аудита
 
-## Using the audit log API
+Вы можете взаимодействовать с журналом аудита с помощью API GraphQL или REST API. {% ifversion read-audit-scope %} Область можно использовать для `read:audit_log` доступа к журналу аудита через API.{ % endif %}
 
-You can interact with the audit log using the GraphQL API or the REST API.{% ifversion read-audit-scope %} You can use the `read:audit_log` scope to access the audit log via the APIs.{% endif %}
+Метки времени и поля даты в ответе API измеряются в [миллисекундах эпохи UTC](http://en.wikipedia.org/wiki/Unix_time).
 
-Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
+## Запрос API GraphQL журнала аудита
 
-## Querying the audit log GraphQL API
+Чтобы защитить интеллектуальную собственность и обеспечить соответствие требованиям вашего предприятия, можно использовать API GraphQL журнала аудита для хранения копий мониторинга и данных журнала аудита: {% data reusables.audit_log.audit-log-api-info %}
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audit-log-api-info %}
+Обратите внимание, что события Git невозможно получить с помощью API журнала аудита {% ifversion not ghec %}. API GraphQL{% else %}. Чтобы получить события Git, используйте REST API. Дополнительные сведения см. в действиях категории `git` в разделах [Действия журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions), а также [Администрирование предприятия](/rest/reference/enterprise-admin#audit-log) и Конечные точки журнала аудита [организаций](/rest/reference/orgs#get-the-audit-log-for-an-organization) в документации по REST API.{% endif %}
 
-Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. To retrieve Git events, use the REST API instead. For more information, see `git` category actions in "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)", and also the "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization) audit log endpoints in the REST API documentation."{% endif %}
+Ответ GraphQL может содержать данные за 90–120 дней.
 
-The GraphQL response can include data for up to 90 to 120 days.
+### Пример 1. Участники, добавленные в организации в предприятии или удаленные из них
 
-### Example 1: Members added to or removed from organizations in an enterprise
+Приведенный ниже запрос получает журналы аудита для предприятия `avocado-corp` и возвращает первые 10 организаций в предприятии, где выполнялось только добавление участников в организацию или удаление их из нее. Возвращаются первые 20 записей журнала аудита для каждой организации. 
 
-The query below fetches the audit logs for the `avocado-corp` enterprise and returns the first 10 organizations in the enterprise, where the only actions performed were adding or removing a member from an organization. The first 20 audit log entries for each organization are returned. 
-
-This query uses the [auditlog](/graphql/reference/objects) field from the Organization object, and the [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) and [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry) objects. The  {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an organization owner for each organization within the enterprise.
+Этот запрос использует поле [auditlog](/graphql/reference/objects) объекта Organization, а также объектов [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) и [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry). Учетной записи {% data variables.product.prodname_dotcom %}, запрашивающей журнал аудита предприятия, должна принадлежать каждая организация в пределах предприятия.
 
 ```shell
 {
@@ -69,14 +73,14 @@ This query uses the [auditlog](/graphql/reference/objects) field from the Organi
 }
 ```
 
-The GraphQL API will return at most 100 nodes per query. To retrieve additional results, you'll need to implement pagination. For more information, see "[Resource limitations](/graphql/overview/resource-limitations#node-limit)" in the GraphQL API documentation and [Pagination](https://graphql.org/learn/pagination/) in the official GraphQL documentation.
-### Example 2: Events in an organization, for a specific date and actor
+API GraphQL возвращает не более 100 узлов для одного запроса. Чтобы получить дополнительные результаты, необходимо выполнить разбиение на страницы. Дополнительные сведения см. в разделе [Ограничения ресурсов](/graphql/overview/resource-limitations#node-limit) в документации по API GraphQL и в разделе о [разбиении на страницы](https://graphql.org/learn/pagination/) в официальной документации по GraphQL.
+### Пример 2. События в организации для определенной даты и субъекта
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your query string with a space.
+Можно указать несколько фраз для поиска, например `created` или `actor`, разделив их в строке запроса пробелом.
 
-The query below fetches all the audit logs for the `avocado-corp` enterprise that relate to the `octo-org` organization, where the actions were performed by the `octocat` user on or after the 1 Jan, 2022. The first 20 audit log entries are returned, with the newest log entry appearing first. 
+Приведенный ниже запрос извлекает все журналы аудита для предприятия`avocado-corp`, связанного с организацией `octo-org`, где действия были выполнены пользователем `octocat` 1 января 2022 г. или после этой даты. Возвращаются первые 20 записей журнала аудита. Первой в списке появляется последняя запись журнала. 
 
-This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) interface. The {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an owner of the `octo-org` organization.
+Для этого запроса используется интерфейс [AuditEntry](/graphql/reference/interfaces#auditentry). Учетной записи {% data variables.product.prodname_dotcom %}, запрашивающей журнал аудита предприятия, должна принадлежать организация `octo-org`.
 
 ```shell
 {
@@ -104,20 +108,23 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 }
 ```
 
-For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
+Дополнительные примеры запросов см. в [репозитории примеров платформы](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-## Querying the audit log REST API
+## Запрос REST API журнала аудита
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
+Чтобы защитить интеллектуальную собственность и обеспечить соответствие требованиям вашего предприятия, можно использовать REST API журнала аудита для хранения копий мониторинга и данных журнала аудита: {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.retention-periods %}
 
-For more information about the audit log REST API, see "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+Дополнительные сведения о REST API журнала аудита см. в разделах [Администрирование предприятия](/rest/reference/enterprise-admin#audit-log) и [Организации](/rest/reference/orgs#get-the-audit-log-for-an-organization).
 
-### Example 1: All events in an enterprise, for a specific date, with pagination
+### Пример 1. Все события предприятия для определенной даты с разбиением на страницы
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
+Можно использовать разбиение на страницы или разбиение на страницы на основе курсоров. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
+
+#### Пример с разбивкой на страницы
+
+Приведенный ниже запрос ищет события журнала аудита, созданные 1 января 2022 г. на `avocado-corp` предприятии, и возвращает первую страницу с не более чем 100 элементами на страницу с помощью разбиения на страницы. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -125,14 +132,46 @@ curl -H "Authorization: Bearer TOKEN" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-### Example 2: Events for pull requests in an enterprise, for a specific date and actor
+#### Пример разбиения на страницы на основе курсора
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
+Приведенный ниже запрос ищет события журнала аудита, созданные 1 января 2022 г. на `avocado-corp` предприятии, и возвращает первую страницу с не более чем 100 элементами на страницу с использованием разбиения на страницы. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api). Флаг `--include` вызывает возврат заголовков вместе с ответом.
 
-The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
+```
+curl --include -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&per_page=100"
+```
+
+При наличии более 100 результатов заголовок `link` будет содержать URL-адреса для получения следующей, первой и предыдущей страниц результатов.
+
+```
+link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first", 
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
+```
+
+Скопируйте соответствующую ссылку на страницы в следующий запрос. Пример:
+
+```shell
+curl -I -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
+```
+
+### Пример 2. События для запросов на вытягивание в предприятии для определенной даты и субъекта
+
+Можно указать несколько фраз для поиска, например `created` или `actor`, разделив их в сформированном URL-адресе символом `+` или кодом `%20` символа ASCII.
+
+Приведенный ниже запрос выполняет поиск событий журнала аудита для запросов на вытягивание, где событие произошло 1 января 2022 г. или после этой даты в предприятии `avocado-corp`, а действие выполнил пользователь `octocat`:
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
+
+
+
+
+
+

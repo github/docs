@@ -1,7 +1,5 @@
-Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
-
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot %}**.
 1. On the {% data variables.product.prodname_copilot %} settings page, click **Enable {% data variables.product.prodname_copilot %}**.
 
    ![Screenshot of GitHub Copilot settings with Enable {% data variables.product.prodname_copilot %} button emphasized](/assets/images/help/copilot/copilot-settings-enable-button.png)

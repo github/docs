@@ -1,0 +1,22 @@
+date: '28/04/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - "Pendant les mises à niveau, le processus s’interrompait indéfiniment après « cleanup nomad job »."
+    - 'Échec de « ghe-cluster-failover » avec le message d’erreur « Trilogy::Error: trilogy_connect ».'
+    - '« ghe-cluster-status-mysql » affichait des avertissements sur les basculements en tant qu’erreurs.'
+    - Le script de configuration s’exécutant sur la réplication MySQL pouvait causer un réamorçage inutile de la base de données pendant le basculement de la base de données.
+    - '`config-apply` pouvait prendre plus de temps que nécessaire à cause de `rake db:migrate`, qui était appelé inutilement.'
+    - Orchestrator pouvait basculer sur un réplica MySQL qui ne répliquait pas à partir du primaire pendant la phase d’amorçage lorsque le primaire ne pouvait pas être connecté.
+    - Les organisations ou les projets présentant des erreurs bloquaient la migration et ne pouvaient pas être exclus.
+    - Les clients ayant plus de trois hôtes de stockage ne pouvaient pas effectuer une restauration vers leur cluster de reprise d’activité car les disques les plus saturés étaient sélectionnés à la place de nœuds vides.
+  changes:
+    - Les vérifications préalables autorisent tous les types d’instance AWS par défaut.
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin de fichier est supérieur à 255 caractères.
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

@@ -1,6 +1,6 @@
 ---
-title: Other authentication methods
-intro: You can use basic authentication for testing in a non-production environment.
+title: その他の認証方法
+intro: 本番環境以外でのテストには、Basic 認証を使用できます。
 redirect_from:
   - /v3/auth
 versions:
@@ -11,88 +11,76 @@ versions:
 topics:
   - API
 shortTitle: Other authentication methods
+ms.openlocfilehash: a979c5e688f6f6942a56c9cff55386bb72a92e57
+ms.sourcegitcommit: f392aa98511e0889d96af2e4a56e67f8adfb025f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172718'
 ---
-
-
-{% ifversion fpt or ghes or ghec %}
-While the API provides multiple methods for authentication, we strongly
-recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) for production applications. The other
-methods provided are intended to be used for scripts or testing (i.e., cases
-where full OAuth would be overkill). Third party applications that rely on
-{% data variables.product.product_name %} for authentication should not ask for or collect {% data variables.product.product_name %} credentials.
-Instead, they should use the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+{% ifversion fpt or ghes or ghec %} この API には認証のための方法が複数用意されていますが、運用アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト (完全な OAuth では過剰になる場合) に使うために提供されています。 認証に {% data variables.product.product_name %} を使うサードパーティのアプリケーションでは、{% data variables.product.product_name %} の認証情報を要求することも収集することもしてはなりません。
+代わりに、[OAuth Web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使う必要があります。
 
 {% endif %}
 
 {% ifversion ghae %}
 
-To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a {% data variables.product.pat_generic %} through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+認証には、[OAuth Web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を介した{% data variables.product.pat_generic %}などの [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) トークンを使うことをお勧めします。
 
 {% endif %}
 
-## Basic Authentication
+## 基本認証
 
-The API supports Basic Authentication as defined in
-[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) with a few slight differences.
-The main difference is that the RFC requires unauthenticated requests to be
-answered with `401 Unauthorized` responses. In many places, this would disclose
-the existence of user data. Instead, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responds with `404 Not Found`.
-This may cause problems for HTTP libraries that assume a `401 Unauthorized`
-response. The solution is to manually craft the `Authorization` header.
+API では、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている基本認証がサポートされていますが、わずかな相違点があります。
+主な相違点は、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要があるという点です。 これにより、多くの場所でユーザー データの存在が明らかになります。 その代わりに、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API は、`404 Not Found` で応答します。
+これにより、`401 Unauthorized` を応答を想定する HTTP ライブラリに問題が発生する可能性があります。 解決策は、`Authorization` ヘッダーを手動で作成することです。
 
-### Via {% data variables.product.pat_generic %}s
+### {% data variables.product.pat_generic %}の使用
 
-We recommend you use {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} to authenticate to the GitHub API.
+{% ifversion pat-v2%}{% data variables.product.pat_v2 %}{% else %}{% data variables.product.pat_generic %}{% endif %}を使って GitHub API に対する認証を行うことをお勧めします。
 
 ```shell
 $ curl -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
-This approach is useful if your tools only support Basic Authentication but you want to take advantage of {% data variables.product.pat_generic %} security features.
+この方法は、ツールは基本認証のみをサポートしているが、{% data variables.product.pat_generic %}のセキュリティ機能を利用したい場合に役立ちます。
 
-### Via username and password
+{% ifversion not ghae %}
+### ユーザ名とパスワードを使用する
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec %} {% note %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or {% data variables.product.pat_generic %}, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+**注:** {% data variables.product.prodname_dotcom %} は、2020 年 11 月 13 日以降、{% data variables.product.prodname_dotcom_the_website %} アカウントの API へのパスワード認証を廃止しました。これには、{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランに対するものが含まれます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API に対する認証は、トークンで行う必要があることに応じて、OAuth アクセス トークン、GitHub App インストール アクセス トークン、{% data variables.product.pat_generic %}などの API トークンを使って行う必要があります。 詳細については、[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)に関するページを参照してください。
  
-{% endnote %}
+{% endnote %} {% else %}
 
-{% endif %}
+{% data variables.product.product_name %} API で基本認証を使うには、アカウントに関連付けられているユーザー名とパスワードを送信するだけです。
 
-{% ifversion ghes %}
-To use Basic Authentication with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, simply send the username and
-password associated with the account.
-
-For example, if you're accessing the API via [cURL][curl], the following command
-would authenticate you if you replace `<username>` with your {% data variables.product.product_name %} username.
-(cURL will prompt you to enter the password.)
+たとえば、[cURL][curl] を介して API にアクセスする場合、`<username>` を実際の {% data variables.product.product_name %} ユーザー名に置き換えて次のコマンドを実行すると、認証が行われます。
+（cURL からパスワードの入力を求められます。）
 
 ```shell
 $ curl -u USERNAME {% data variables.product.api_url_pre %}/user
 ```
-If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
-
-{% endif %}
+ご自分が 2 要素認証を有効にしている場合は、[2 要素認証の使用](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)方法を理解していることを確認してください。
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
-### Authenticating for SAML SSO
+### SAML SSO を認証する
 
 {% note %}
 
-**Note:** Integrations and OAuth applications that generate tokens on behalf of others are automatically authorized.
+**注:** 他のユーザーに代わってトークンを生成するインテグレーションおよび OAuth アプリケーションは、自動的に承認されます。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+**注:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-If you're using the API to access an organization that enforces [SAML SSO][saml-sso] for authentication, you'll need to create a {% data variables.product.pat_generic %} and [authorize the token][allowlist] for that organization. Visit the URL specified in `X-GitHub-SSO` to authorize the token for the organization.
+API を使って、認証に [SAML SSO][saml-sso] を適用する組織にアクセスする場合は、{% data variables.product.pat_generic %}を作成し、その組織の[トークンを承認する][allowlist]必要があります。 `X-GitHub-SSO` で指定された URL にアクセスして、組織のトークンを承認します。
 
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
@@ -104,7 +92,7 @@ $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre
 }
 ```
 
-When requesting data that could come from multiple organizations (for example, [requesting a list of issues created by the user][user-issues]), the `X-GitHub-SSO` header indicates which organizations require you to authorize your {% data variables.product.pat_generic %}:
+複数の組織からのデータを要求する場合 (たとえば、[ユーザーが作成した issue のリストの要求][user-issues])、`X-GitHub-SSO` ヘッダーは{% data variables.product.pat_generic %}の承認を必要とする組織を示します。
 
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/user/issues
@@ -112,26 +100,26 @@ $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```
 
-The value `organizations` is a comma-separated list of organization IDs for organizations require authorization of your {% data variables.product.pat_generic %}.
+値 `organizations` は、{% data variables.product.pat_generic %}の承認が必要な組織を表す組織 ID のコンマ区切りのリストです。
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Working with two-factor authentication
+## 2 要素認証を使用する
 
-When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a {% data variables.product.pat_generic %}{% ifversion ghes %} or OAuth token instead of your username and password{% endif %}.
+2 要素認証を有効にしている場合、REST API での "ほとんどの" エンドポイントに対する[基本認証](#basic-authentication)では、{% data variables.product.pat_generic %}{% ifversion ghes %}またはユーザー名とパスワードではなく OAuth トークン{% endif %}を使う必要があります。
 
-You can generate a new {% data variables.product.pat_generic %} {% ifversion fpt or ghec %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} or with the "[Create a new authorization][/rest/reference/oauth-authorizations#create-a-new-authorization]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.{% ifversion ghes %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+{% ifversion fpt or ghec %}[{% data variables.product.product_name %} 開発者設定](https://github.com/settings/tokens/new)を使って、{% endif %}新しい{% data variables.product.pat_generic %}を生成できます。{% ifversion ghes %}または、OAuth Authorizations API の「[新しい承認を作成する][/rest/reference/oauth-authorizations#create-a-new-authorization]」エンドポイントで新しい OAuth トークンを生成できます。{% endif %} 詳しくは、[コマンド ライン用の{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)に関する記事をご覧ください。 そうすれば、それらのトークンを使用して、[OAuth トークンを使用した認証を ][oauth-auth]{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API で行うことができます。{% ifversion ghes %}ユーザー名とパスワードで認証する必要があるのは、OAuth トークンを作成するときまたは OAuth 認証 API を使用するときのみです。{% endif %}
 
 {% endif %}
 
 {% ifversion ghes %}
-### Using the OAuth Authorizations API with two-factor authentication
+### 2 要素認証で OAuth Authorizations API を使用する
 
-When you make calls to the OAuth Authorizations API, Basic Authentication requires that you use a one-time password (OTP) and your username and password instead of tokens. When you attempt to authenticate with the OAuth Authorizations API, the server will respond with a `401 Unauthorized` and one of these headers to let you know that you need a two-factor authentication code:
+OAuth Authorizations API を呼び出す場合、Basic 認証では、トークンの代わりにワンタイムパスワード（OTP）とユーザ名とパスワードを使用する必要があります。 OAuth Authorizations API で認証しようとすると、サーバーは `401 Unauthorized` とこれらのヘッダーの 1 つで応答し、2 要素認証コードが必要であることを通知します。
 
-`X-GitHub-OTP: required; SMS` or `X-GitHub-OTP: required; app`.  
+`X-GitHub-OTP: required; SMS` または `X-GitHub-OTP: required; app`。  
 
-This header tells you how your account receives its two-factor authentication codes. Depending how you set up your account, you will either receive your OTP codes via SMS or you will use an application like Google Authenticator or 1Password. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)." Pass the OTP in the header:
+このヘッダは、アカウントの 2 要素認証コードの受け取り方法を示します。 アカウントの設定方法に応じて、SMS 経由で OTP コードを受け取るか、Google 認証システムや 1Password などのアプリケーションを使用します。 詳細については、「[2 要素認証の構成](/articles/configuring-two-factor-authentication)」を参照してください。 ヘッダーで次のように OTP を渡します。
 
 ```shell
 $ curl --request POST \

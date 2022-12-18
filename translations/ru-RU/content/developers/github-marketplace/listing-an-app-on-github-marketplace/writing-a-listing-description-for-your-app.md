@@ -1,6 +1,6 @@
 ---
-title: Writing a listing description for your app
-intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
+title: Написание описания для вашего приложения
+intro: 'Чтобы [включить приложение](/marketplace/listing-on-github-marketplace/) в {% data variables.product.prodname_marketplace %}, необходимо создать для приложения описания и предоставить изображения, которые соответствуют рекомендациям GitHub.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
@@ -17,180 +17,186 @@ versions:
 topics:
   - Marketplace
 shortTitle: Write listing descriptions
+ms.openlocfilehash: 84be7e69295be0426e792e9db25c9e397bc00384
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099343'
 ---
-Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
+Ниже приведены рекомендации по полям, которые необходимо заполнить в разделе **Описание** черновика вашего описания.
 
-## Naming and links
+## Именование и ссылки
 
-### Listing name
+### Название описания
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name. 
+Название вашего описания появится на [главной странице {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Имя ограничено 255 символами и может отличаться от имени вашего приложения. Ваше описание не может иметь то же имя, что и существующая учетная запись для {% данных variables.location.product_location %}, если имя не является вашим именем пользователя или организации. 
 
-### Very short description
+### Очень краткое описание
 
-The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
+Сообщество увидит "очень краткое" описание под названием вашего приложения на [главной странице {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
-![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
+![Краткое описание приложения {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_short_description.png)
 
-#### Length
+#### Длина
 
-We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
+Мы рекомендуем краткие описания длиной до 40–80 символов. Хотя вам разрешено использовать больше символов, клиентам легче быстро читать и понимать краткие описания.
 
-#### Content
+#### Содержимое
 
-- Describe the app’s functionality. Don't use this space for a call to action. For example:
+- Опишите функциональность приложения. Не используйте это пространство для призыва к действию. Пример:
 
-  **DO:** Lightweight project management for GitHub issues
+  **ПРАВИЛЬНО**. Упрощение управления проектами для проблем GitHub
 
-  **DON'T:** Manage your projects and issues on GitHub
+  **НЕПРАВИЛЬНО**. Управляйте своими проектами и проблемами в GitHub
 
-  **Tip:** Add an "s" to the end of the verb in a call to action to turn it into an acceptable description: _Manages your projects and issues on GitHub_
+  **Совет**. Измените окончание глагола в призыве к действию таким образом, чтобы превратить его в приемлемое описание: _Управляет вашими проектами и проблемами на GitHub_
 
-- Don’t repeat the app’s name in the description.
+- Не повторяйте название приложения в описании.
 
-  **DO:** A container-native continuous integration tool
+  **ПРАВИЛЬНО**. Встроенный в контейнер инструмент непрерывной интеграции
 
-  **DON'T:** Skycap is a container-native continuous integration tool
+  **НЕПРАВИЛЬНО**. Skycap – это встроенный в контейнер инструмент непрерывной интеграции
 
-#### Formatting
+#### Форматирование
 
-- Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
+- Всегда используйте заглавные буквы в предложениях. Делайте заглавными только первую букву и имена собственные.
 
-- Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
+- Не используйте знаки препинания в конце краткого описания. Краткие описания не должны включать полных предложений и определенно не должны содержать более одного предложения.
 
-- Only capitalize proper nouns. For example:
+- Делайте заглавными только имена собственные. Пример:
 
-  **DO:** One-click delivery automation for web developers
+  **ПРАВИЛЬНО**. Автоматизация доставки одним щелчком для веб-разработчиков
 
-  **DON'T:** One-click delivery automation for Web Developers
+  **НЕПРАВИЛЬНО**. Автоматизация доставки одним щелчком для Веб-Разработчиков
 
-- Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+- Всегда используйте [запятую](https://en.wikipedia.org/wiki/Serial_comma) в списках.
 
-- Avoid referring to the GitHub community as "users."
+- Не называйте сообщество GitHub "пользователями".
 
-  **DO:** Create issues automatically for people in your organization
+  **ПРАВИЛЬНО**. Автоматическое создание задач для сотрудников вашей организации
 
-  **DON'T:** Create issues automatically for an organization's users
+  **НЕПРАВИЛЬНО**. Автоматическое создание задач для пользователей организации
 
-- Avoid acronyms unless they’re well established (such as API). For example:
+- Используйте аббревиатуры, только если они широко используются (например, API). Пример:
 
-  **DO:** Agile task boards, estimates, and reports without leaving GitHub
+  **ПРАВИЛЬНО**. Доски задач, оценки и отчеты Agile непосредственно в GitHub
 
-  **DON'T:** Agile task boards, estimates, and reports without leaving GitHub’s UI
+  **НЕПРАВИЛЬНО**. Доски задач, оценки и отчеты Agile непосредственно в UI GitHub
 
-### Categories
+### Категории
 
-Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
+Приложения в {% data variables.product.prodname_marketplace %} можно отображать по категориям. Выберите категорию, которая лучше всего описывает основные функции вашего приложения, в раскрывающемся списке **Основная категория** и при необходимости выберите **Дополнительную категорию**, подходящую вашему приложению.
 
-### Supported languages
+### Поддерживаемые языки
 
-If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
+Если ваше приложение работает только с определенными языками, выберите до 10 языков программирования, которые поддерживает ваше приложение. Эти языки отображаются на странице с описанием {% data variables.product.prodname_marketplace %} вашего приложения. Это поле является необязательным.
 
-### Listing URLs
+### URL-адреса описания
 
-**Required URLs**
-* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
-* **Privacy policy URL:** The web page that displays your app's privacy policy.
-* **Installation URL:** This field is shown for OAuth Apps only. (GitHub Apps don't use this URL because they use the optional Setup URL from the GitHub App's settings page instead.) When a customer purchases your OAuth App, GitHub will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[New purchases for OAuth Apps](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" for more details. Skip this field if you're listing a GitHub App.
+**Необходимые URL-адреса**
+* **URL-адрес службы поддержки клиентов**. URL-адрес веб-страницы, на которую будут переходить ваши клиенты, когда у них возникнут вопросы о технической поддержке, продуктах или учетных записях.
+* **URL-адрес политики конфиденциальности**. Веб-страница, на которой отображается политика конфиденциальности вашего приложения.
+* **URL-адрес установки**. Это поле отображается только для приложений OAuth. (Приложения GitHub не используют этот URL-адрес, так как вместо этого они используют необязательный URL-адрес установки со страницы настроек приложения GitHub.) Когда клиент покупает ваше приложение OAuth, GitHub перенаправляет клиентов на URL-адрес установки после того, как они установят приложение. Вам нужно будет перенаправить клиентов по адресу `https://github.com/login/oauth/authorize`, чтобы начать процесс авторизации OAuth. Дополнительные сведения см. в статье [Новые покупки приложений OAuth](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/). Пропустите это поле, если вы публикуете приложение GitHub.
 
-**Optional URLs**
-* **Company URL:** A link to your company's website.
-* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
-* **Documentation URL:** A link to documentation that teaches customers how to use your app.
+**Необязательные URL-адреса**
+* **URL-адрес компании**. Ссылка на веб-сайт вашей компании.
+* **URL-адрес состояния**. Ссылка на веб-страницу, на которой отображаются сведения о состоянии вашего приложения. На страницах со сведениями о состоянии может содержатся информация о текущих и прошлых отчетах об инцидентах, состоянии времени работы веб-приложений и запланированном обслуживании.
+* **URL-адрес документации**. Ссылка на документацию, которая обучает клиентов, как использовать ваше приложение.
 
-## Logo and feature card
+## Логотип и карточка функции
 
-{% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
+{% data variables.product.prodname_marketplace %} отображает все описания с квадратным изображением логотипа внутри круглой метки, чтобы визуально различать приложения.
 
-![GitHub Marketplace logo and badge images](/assets/images/marketplace/marketplace-logo-and-badge.png)
+![Логотип GitHub Marketplace и изображения значков](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
+Карточка функции состоит из логотипа вашего приложения, названия и пользовательского фонового изображения, которое отражает индивидуальность вашего бренда. {% data variables.product.prodname_marketplace %} отображает эту карточку, если ваше приложение является одним из четырех случайно выбранных приложений в верхней части [главной страницы](https://github.com/marketplace). Под карточкой функции каждого приложения отображается очень краткое описание.
 
-![Feature card](/assets/images/marketplace/marketplace_feature_card.png)
+![Карточка функции](/assets/images/marketplace/marketplace_feature_card.png)
 
-As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
+По мере передачи изображений и выбора цветов в вашем черновом описании {% data variables.product.prodname_marketplace %} будет отображаться предварительная версия вашего логотипа и карточки функции.
 
-#### Guidelines for logos
+#### Рекомендации по логотипам
 
-You must upload a custom image for the logo. For the badge, choose a background color.
+Необходимо передать пользовательское изображение для логотипа. Выберите цвет фона для значка.
 
-- Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
-- Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
-- For best results, upload a logo image with a transparent background.
-- To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
-- Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
+- Передайте изображение логотипа размером не менее 200 x 200 пикселей, чтобы логотип не нужно было масштабировать при публикации описания.
+- Логотипы будут обрезаны до квадрата. Рекомендуем передать квадратный файл изображения с вашим логотипом в центре.
+- Для достижения наилучших результатов передайте изображение логотипа с прозрачным фоном.
+- Чтобы значок идеально вписался, выберите для него цвет фона, который соответствует цвету фона (или прозрачности) изображения вашего логотипа.
+- Старайтесь не использовать логотипы со словами или текстом. Логотипы с текстом плохо масштабируются на маленьких экранах.
 
-#### Guidelines for feature cards
+#### Рекомендации по карточкам функций
 
-You must upload a custom background image for the feature card. For the app's name, choose a text color.
+Необходимо передать пользовательское фоновое изображение для карточки функции. Для названия приложения выберите цвет текста.
 
-- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
-- Background image measures 965 pixels x 482 pixels (width x height).
-- Choose a text color for your app's name that shows up clearly over the background image.
+- Используйте шаблон или текстуру на фоновом изображении, чтобы придать вашей карточке визуальную идентичнность и чтобы она выделялась на темном фоне главной страницы {% data variables.product.prodname_marketplace %}. Карточки функций должны отражать индивидуальность бренда вашего приложения.
+- Фоновое изображение имеет размеры 965 x 482 пикселей (ширина x высота).
+- Выберите цвет текста для названия вашего приложения, который четко выделяется на фоновом изображении.
 
-## Listing details
+## Listing Details (Сведения списка)
 
-To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
+Чтобы перейти на целевую страницу приложения, щелкните имя своего приложения на главной странице {% data variables.product.prodname_marketplace %} или на странице категории. На целевой странице отображается более подробное описание приложения, состоящее из двух частей: "Вводное описание" и "Подробное описание."
 
-Your "Introductory description" is displayed at the top of your app's {% data variables.product.prodname_marketplace %} landing page.
+Ваше "Вводное описание" отображается в верхней части целевой страницы {% data variables.product.prodname_marketplace %} вашего приложения.
 
-![{% data variables.product.prodname_marketplace %} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
+![Вводное описание {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_intro_description.png)
 
-Clicking **Read more...**, displays the "Detailed description."
+При нажатии **Подробнее...** отобразится "Подробное описание."
 
-![{% data variables.product.prodname_marketplace %} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
+![Подробное описание {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_detailed_description.png)
 
-Follow these guidelines for writing these descriptions.
+Следуйте этим рекомендациям для написания этих описаний.
 
-### Length
+### Длина
 
-We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
+При [публикации описания вашего приложения](/marketplace/listing-on-github-marketplace/) мы рекомендуем написать краткое изложение из 1–2 предложений длиной от 150 до 250 символов в обязательном поле "Вводное описание." Хотя разрешено использовать больше символов, клиентам легче быстро читать и понимать краткие сводки.
 
-You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
+Вы можете добавить дополнительные сведения в необязательное поле "Подробное описание." Вы увидите это описание, щелкнув **Подробнее...** под вводным описанием на целевой странице вашего приложения. Подробное описание состоит из 3–5 [ценностных предложений](https://en.wikipedia.org/wiki/Value_proposition), каждое из которых описывается 1–2 предложениями. Для этого описания можно использовать до 1000 символов.
 
-### Content
+### Содержимое
 
-- Always begin introductory descriptions with your app's name.
+- Всегда начинайте вводные описания с названия вашего приложения.
 
-- Always write descriptions and value propositions using the active voice.
+- Всегда пишите описания и ценностные предложения, используя живую речь.
 
-### Formatting
+### Форматирование
 
-- Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
+- Всегда используйте заглавные буквы в заголовках вашего ценностного предложения. Делайте заглавными только первую букву и имена собственные.
 
-- Use periods in your descriptions. Avoid exclamation marks.
+- Используйте точки в описаниях. Избегайте восклицательных знаков.
 
-- Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
+- Не используйте знаки препинания в конце заголовков вашего ценностного предложения. Заголовки ценностных предложений не должны содержать полные предложения и не должны включать больше одного предложения.
 
-- For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/articles/basic-writing-and-formatting-syntax/#headings) using Markdown. For example:
+- Для каждого ценностного предложения укажите заголовок, за которым следует абзац описания. Отформатируйте заголовок как [заголовок третьего уровня](/articles/basic-writing-and-formatting-syntax/#headings), используя Markdown. Пример:
 
-  ### Learn the skills you need
+  ### Освойте необходимые вам навыки
 
-  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
+  GitHub Skills поможет вам научиться пользоваться GitHub, более эффективно применять Markdown, устранять конфликты слияния и делать многое другое.
 
-- Only capitalize proper nouns.
+- Делайте заглавными только имена собственные.
 
-- Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+- Всегда используйте [запятую](https://en.wikipedia.org/wiki/Serial_comma) в списках.
 
-- Avoid referring to the GitHub community as "users."
+- Не называйте сообщество GitHub "пользователями".
 
-  **DO:** Create issues automatically for people in your organization
+  **ПРАВИЛЬНО**. Автоматическое создание задач для сотрудников вашей организации
 
-  **DON'T:** Create issues automatically for an organization's users
+  **НЕПРАВИЛЬНО**. Автоматическое создание задач для пользователей организации
 
-- Avoid acronyms unless they’re well established (such as API).
+- Используйте аббревиатуры, только если они широко используются (например, API).
 
-## Product screenshots
+## Снимок экрана продукта
 
-You can upload up to five screenshot images of your app to display on your app's landing page. Add an optional caption to each screenshot to provide context. After you upload your screenshots, you can drag them into the order you want them to be displayed on the landing page.
+Вы можете передать до пяти скриншотов своего приложения для отображения на целевой странице вашего приложения. Добавьте необязательный заголовок к каждому снимку экрана, чтобы предоставить контекст. После передачи снимков экрана вы можете перетащить их в том порядке, в котором они должны отображаться на целевой странице.
 
-### Guidelines for screenshots
+### Рекомендации по снимкам экрана
 
-- Images must be of high resolution (at least 1200px wide).
-- All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
-- Show as much of the user interface as possible so people can see what your app does.
-- When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
-- GitHub displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
-- Captions are most effective when they are short and snappy.
+- Изображения должны быть высокого разрешения (не менее 1200 пикселей по ширине).
+- Все изображения должны иметь одинаковую высоту и ширину (пропорции) во избежание скачков страницы, когда люди меняют одно изображение на другое.
+- Покажите как можно больше пользовательского интерфейса, чтобы люди могли видеть, на что способно ваше приложение.
+- Делая снимки экрана приложения в браузере, включайте только содержимое в окне отображения. Старайтесь не включать адресную строку, заголовок окна или значки панели инструментов, которые плохо масштабируются на экранах меньшего размера.
+- GitHub отображает загруженные вами снимки экрана в рамке на целевой странице вашего приложения, поэтому вам не нужно добавлять рамки или поля вокруг снимков экрана.
+- Заголовки наиболее эффективны, когда они короткие и емкие.
 
-![GitHub Marketplace screenshot image](/assets/images/marketplace/marketplace-screenshots.png)
+![Изображение снимка экрана GitHub Marketplace](/assets/images/marketplace/marketplace-screenshots.png)

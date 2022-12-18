@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786030'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193471'
 ---
 ## {% data variables.product.prodname_vs %} の {% data variables.product.prodname_copilot %} について
 
@@ -37,13 +37,20 @@ ms.locfileid: '147786030'
 {% data variables.product.prodname_copilot %} を使用するときに {% data variables.product.prodname_vs %} の既定のキーボード ショートカットを使用しない場合は、特定のコマンドごとに任意のキーボード ショートカットを使用してキーボード エディターでショートカットを再バインドできます。
 
 1. {% data variables.product.prodname_vs %} ツール バーの **[ツール]** で、 **[オプション]** をクリックします。
+   
    ![{% data variables.product.prodname_vs %} ツール バーの [オプション] オプションのスクリーンショット](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. [オプション] ダイアログの **[環境]** で、 **[キーボード]** をクリックします。
+   
    ![[オプション] ダイアログの [キーボード] オプションのスクリーンショット](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. [以下の文字列を含むコマンドを表示] で、再バインドするコマンドを検索します。
+   
    ![[以下の文字列を含むコマンドを表示] 検索バーのスクリーンショット](/assets/images/help/copilot/vs-show-commands-containing.png)
+
 1. [ショートカット キー] で、コマンドに割り当てるショートカットを入力し、 **[割り当て]** をクリックします。
-   ![キーボード ショートカットの割り当てのスクリーンショット](/assets/images/help/copilot/vs-rebind-shortcut.png)
+
+   ![キーボード ショートカットの割り当てのスクリーンショット](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

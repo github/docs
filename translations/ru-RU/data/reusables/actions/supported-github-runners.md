@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529275"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180672"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> или <code>ubuntu-20.04</code>
 </td>
+<td>
+В <code>ubuntu-latest</code> настоящее время метка переходит на образ средства выполнения тестов Ubuntu 22.04. Во время перехода метка может ссылаться на образ средства выполнения для Ubuntu 20.04 или 22.04. Дополнительные сведения см. в <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">этой записи блога {% data variables.product.prodname_dotcom %}</a>.
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> или <code>macos-11</code>
 </td>
 <td>
-В настоящее время метка <code>macos-latest</code> использует образ средства выполнения macOS 11.
+В <code>macos-latest</code> настоящее время метка переходит в образ средства выполнения тестов macOS Monterey 12. Во время перехода метка может ссылаться на образ средства выполнения для macOS 11 или 12. Дополнительные сведения см. в <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">этой записи блога {% data variables.product.prodname_dotcom %}</a>.
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ macOS Catalina 10.15 <sup>[нерекомендуемая]</sup>
 
 {% warning %}
 
-<b>Примечание.</b> Бета-версии и нерекомендуемые образы предоставляются на условиях "как есть", "со всеми неисправностями" и "при наличии". На них не распространяются соглашение об уровня обслуживания и гарантия. Для образов бета-версий может не оказываться поддержка.
+**Предупреждение:** Бета-версии и нерекомендуемые образы предоставляются "как есть", "со всеми сбоями" и "по мере доступности" и исключаются из соглашения об уровне обслуживания и гарантии. Для образов бета-версий может не оказываться поддержка.
 
 {% endwarning %}

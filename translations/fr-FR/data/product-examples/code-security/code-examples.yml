@@ -1,0 +1,86 @@
+# Code scanning configurations
+- title: Analyse de code CodeQL chez Microsoft
+  description: Exemple de workflow d’analyse de code pour l’action CodeQL à partir du référentiel Microsoft Open Source.
+  href: /microsoft/opensource.microsoft.com/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - javascript
+  tags:
+    - CodeQL
+    - Analyse du code
+    - GitHub Actions
+- title: Analyse de code CodeQL ART (Adversarial Robustness Toolbox)
+  description: Exemple de workflow d’analyse de code pour l’action CodeQL à partir du référentiel Trusted AI.
+  href: /Trusted-AI/adversarial-robustness-toolbox/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - python
+  tags:
+    - CodeQL
+    - Analyse du code
+    - GitHub Actions
+
+# Security policies
+- title: Modèle de stratégie de sécurité Microsoft
+  description: Exemple de stratégie de sécurité
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
+  tags:
+    - Stratégie de sécurité
+- title: Stratégie de sécurité Electron
+  description: Exemple de stratégie de sécurité
+  href: /electron/electron/blob/master/SECURITY.md
+  tags:
+    - Stratégie de sécurité
+
+# Example of security advisory in a major product
+- title: Avis de sécurité pour Rails
+  description: Avis de sécurité publié par Rails pour CVE-2020-15169.
+  href: /rails/rails/security/advisories/GHSA-cfjv-5498-mph5
+  tags:
+    - Avis de sécurité
+
+# Sample scripts for enabling Dependabot alerts and security updates across a whole organization
+- title: Activer automatiquement les alertes et mises à jour de sécurité Dependabot
+  description: Exemples de scripts pour activer les alertes et mises à jour de sécurité Dependabot au sein d’une organisation entière.
+  href: /github/enable-security-alerts-sample
+  tags:
+    - Dependabot
+    - Alertes
+    - Mises à jour de sécurité
+    - Organisation
+    - Scripts
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+# Dependabot configuration only relevant to GitHub.com and GHES 3.3+
+# Convert "languages" to "package-ecosystems" for Dependabot configurations
+- title: Configuration Super linter
+  description: Exemple de configuration de mises à jour de versions de Dependabot à partir du référentiel Super linter.
+  href: /github/super-linter/blob/master/.github/dependabot.yml
+  languages:
+    - github-actions
+    - npm
+    - bundler
+    - docker
+    - pip
+  tags:
+    - Dependabot
+    - Mises à jour de version
+    - Configuration
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+- title: PR de mise à jour de version de Dependabot
+  description: Exemple de demande de tirage (pull request) générée par la configuration des mises à jour de versions de Dependabot dans le référentiel Super linter.
+  href: /github/super-linter/pull/1398
+  languages:
+  tags:
+    - Dependabot
+    - Mises à jour de version
+    - Demandes de tirage
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'

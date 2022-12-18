@@ -211,7 +211,7 @@ You can define default interface settings for {% data variables.product.prodname
 
 ## Applying configuration changes to a codespace
 
-Changes to a configuration will be applied the next time you create a codespace. However, if you're using a codespace in a web browser, in {% data variables.product.prodname_vscode_shortname %}, or in a JetBrains IDE, you can apply configuration changes to the current codespace by rebuilding the container.
+Changes to a configuration will be applied the next time you create a codespace. However, you can apply your changes to an existing codespace by rebuilding the container. You can do this within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
 
 ### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
@@ -224,15 +224,19 @@ Changes to a configuration will be applied the next time you create a codespace.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.
    - To apply the changes, rebuild your container. 
 
-### Rebuilding the dev container in a JetBrains IDE
+### Using {% data variables.product.prodname_cli %} to rebuild a dev container
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the rebuild icon.
+If you've changed a dev container configuration outside of VS Code (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
 
-   ![Screenshot of the rebuild button](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. In a terminal, enter the following command.
 
-1. Click **Rebuild** when prompted to confirm that you want to rebuild the dev container. 
-1. Reopen the codespace in your JetBrains IDE.
+   ```
+   gh cs rebuild
+   ```
+
+   Your codespaces are listed.
+
+1. Use the arrow keys on your keyboard to highlight the required codespace, then press <kbd>Enter</kbd>.
 
 
 ## Further reading

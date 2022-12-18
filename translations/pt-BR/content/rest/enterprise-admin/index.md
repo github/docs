@@ -1,6 +1,6 @@
 ---
-title: GitHub Enterprise administration
-intro: You can use these endpoints to administer your enterprise.
+title: Administração do GitHub Enterprise
+intro: Você pode usar esses pontos de extremidade para administrar a empresa.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -20,6 +20,7 @@ children:
   - /announcement
   - /audit-log
   - /billing
+  - /code-security-and-analysis
   - /global-webhooks
   - /ldap
   - /license
@@ -31,54 +32,52 @@ children:
   - /repo-pre-receive-hooks
   - /users
   - /scim
+ms.openlocfilehash: 19688f806101c8022b64dfc21806b79338917353
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065589'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** This article applies to {% data variables.product.prodname_ghe_cloud %}. To see the {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} version, use the **{% data ui.pages.article_version %}** drop-down menu.
+**Observação:** este artigo se aplica ao {% data variables.product.prodname_ghe_cloud %}. Para ver a versão do {% data variables.product.prodname_ghe_managed %} ou do {% data variables.product.prodname_ghe_server %}, use o menu suspenso **{% data ui.pages.article_version %}** .
 
 {% endnote %}
 
 {% endif %}
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+### URLs do ponto de extremidade
 
-### Endpoint URLs
-
-REST API endpoints{% ifversion ghes %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
+Os pontos de extremidade da API REST{% ifversion ghes %}, exceto os pontos de extremidade da API do [Console de Gerenciamento](#management-console), {% endif %} têm a seguinte URL como prefixo:
 
 ```shell
 {% data variables.product.api_url_pre %}
 ```
 
-{% ifversion fpt or ghec %}
-When endpoints include `{enterprise}`, replace `{enterprise}` with the handle for your enterprise account, which is included in the URL for your enterprise settings. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `{enterprise}` with `octo-enterprise`.
+{% ifversion fpt or ghec %} Quando os pontos de extremidade incluírem `{enterprise}`, substitua `{enterprise}` pelo identificador da sua conta corporativa, que está incluído na URL das configurações corporativas. Por exemplo, se a sua conta corporativa estiver localizada em `https://github.com/enterprises/octo-enterprise`, substitua `{enterprise}` por `octo-enterprise`.
 {% endif %}
 
-{% ifversion ghes %}
-[Management Console](#management-console) API endpoints are only prefixed with a hostname:
+{% ifversion ghes %} Os pontos de extremidade da API do [Console de Gerenciamento](#management-console) só têm um nome do host como prefixo:
 
 ```shell
-http(s)://HOSTNAME/
+http(s)://<em>hostname</em>/
 ```
-{% endif %}
-{% ifversion ghae or ghes %}
-### Authentication
+{% endif %} {% ifversion ghae or ghes %}
+### Autenticação
 
-Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% ifversion ghes %}(which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% ifversion ghes %}
-OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+Os pontos de extremidade da API de instalação do {% data variables.product.product_name %} aceitam [os mesmos métodos de autenticação](/rest/overview/resources-in-the-rest-api#authentication) da API do GitHub.com. Você pode se autenticar com os **[tokens OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% ifversion ghes %}(que podem ser criados por meio da [API de Autorizações](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}ou com a **[autenticação básica](/rest/overview/resources-in-the-rest-api#basic-authentication)** . {% ifversion ghes %} Os tokens OAuth precisam ter o `site_admin` [escopo OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) quando usados com pontos de extremidade específicos do Enterprise.{% endif %}
 
-Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% ifversion ghes %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
+Os pontos de extremidade da API de administração do Enterprise só podem ser acessados por administradores do site autenticados do {% data variables.product.product_name %} {% ifversion ghes %}, exceto a API do [Console de Gerenciamento](#management-console), que exige a [senha do Console de Gerenciamento](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
 {% endif %}
 
 {% ifversion ghae or ghes %}
-### Version information
+### Informações da versão
 
-The current version of your enterprise is returned in the response header of every API:
-`X-GitHub-Enterprise-Version: {{currentVersion}}.0`
-You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
+A versão atual da sua empresa é retornada no cabeçalho de resposta de cada API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0`
+Leia também a versão atual chamando o [meta ponto de extremidade](/rest/reference/meta/).
 
 {% endif %}

@@ -1,30 +1,32 @@
 date: '2022-08-11'
 sections:
   security_fixes:
-    - |
-      **CRITICAL**: GitHub Enterprise Server's Elasticsearch container used a version of OpenJDK 8 that was vulnerable to an integer truncation issue when processing malicious XSLT stylesheets. The vulnerability is tracked as [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
-    - |
-      **HIGH**: Previously installed apps on user accounts were automatically granted permission to access an organization on scoped access tokens after the user account was transformed into an organization account. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |严重****：GitHub Enterprise Server 的 Elasticsearch 容器使用的 OpenJDK 8 版本在处理恶意 XSLT 样式表时容易出现整数截断问题。该漏洞的编号为 [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf)。
+
+|
+    - |高****：在用户帐户转换为组织帐户后，用户帐户上以前安装的应用程序会自动获得访问作用域内访问令牌上的组织的权限。此漏洞是通过 [GitHub Bug 赏金计划](https://bounty.github.com)报告的。
+
+|
   bugs:
-    - In some cases, GitHub Enterprise Server instances on AWS that used the `r4.4xlarge` instance type would fail to boot.
-    - In some cases, UI elements within a pull request's **Files changed** tab could overlap. 
-    - When a custom dormancy threshold was set for the instance, suspending all dormant users did not reliably respect the threshold. For more information about dormancy, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
-    - When calculating committers for GitHub Advanced Security, it was not possible to specify individual repositories. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
-    - In some cases, Elasticsearch's post-upgrade `es:upgrade` process could crash before completion.
-    - The script for migration to internal repositories failed to convert the visibility for public repositories to internal or private. For more information about the migration, see "[Migrating to internal repositories](/admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories)."
-    - Detection of GitHub Actions workflow files for the dependency graph was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)."
-    - The ability to reopen dismissed Dependabot alerts was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)."
-    - The ability to always suggest updates from the base branch to a pull request's HEAD was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
-    - The light high contrast theme was unavailable in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2, and 3.5.3, but is now available in 3.5.4. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+    - 在某些情况下，AWS 上使用 `r4.4xlarge` 实例类型的 GitHub Enterprise Server 实例将无法启动。
+    - 在某些情况下，拉取请求的“文件已更改”选项卡内的 UI 元素可能重叠****。 
+    - "当为实例设置自定义休眠阈值时，暂停所有休眠用户并不能可靠地遵从阈值。有关休眠的详细信息，请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。"
+    - "在为 GitHub Advanced Security 计算提交者时，无法指定各个存储库。有关详细信息，请参阅“[站点管理员仪表板](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)”。"
+    - "在某些情况下，Elasticsearch 的升级后 `es:upgrade` 进程可能会在完成前崩溃。"
+    - "迁移到内部存储库的脚本无法将公共存储库的可见性转换为内部或专用。有关迁移的详细信息，请参阅“[迁移到内部存储库](/admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories)”。"
+    - "在 GitHub Enterprise Server 3.5.0、3.5.1、3.5.2 和 3.5.3 中，无法检测依赖关系图的 GitHub Actions 工作流文件，但此功能现在在 3.5.4 中可用。有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)”。"
+    - "在 GitHub Enterprise Server 3.5.0、3.5.1 3.5.2 和 3.5.3 中，无法重新启动关闭的 Dependabot 警报，但此功能现在在 3.5.4 中可用。有关详细信息，请参阅“[查看和更新 Dependabot 警报](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)”。"
+    - "在 GitHub Enterprise Server 3.5.0、3.5.1 3.5.2 和 3.5.3 中，无法始终建议从基本分支到拉取请求的 HEAD 的更新，但此功能现在在 3.5.4 中可用。有关详细信息，请参阅“[管理更新拉取请求分支的建议](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)”。"
+    - "在 GitHub Enterprise Server 3.5.0、3.5.1 3.5.2 和 3.5.3 中，无法使用浅色高对比度主题，但此功能现在在 3.5.4 中可用。有关详细信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)”。"
   changes:
-    - '`pre_receive_hook.rejected_push` events were not displayed in the enterprise audit log.'
+    - '`pre_receive_hook.rejected_push` 事件未显示在企业审核日志中。'
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - 从不同主机上的备份恢复设备后，需要重新启动操作服务。
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -9,12 +9,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: c51d9275950bbf303caa1a03344ba8402618d65b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 47961c5dfeeb5f320bbac67ffb0573c31709bd5b
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145126797'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181286'
 ---
 ## Sobre a API do Gists
 
@@ -38,7 +38,7 @@ Além do conteúdo de um arquivo específico ser truncado, toda a lista de arqui
 
 Estes são os tipos de mídia compatíveis para buscar conteúdo geral.
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.base64
+    application/vnd.github.raw
+    application/vnd.github.base64
 
 Para obter mais informações, confira "[Tipos de mídia](/rest/overview/media-types)".

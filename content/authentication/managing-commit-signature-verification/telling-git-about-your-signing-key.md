@@ -113,7 +113,6 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.configure-ssh-signing %}
-{% data reusables.gpg.copy-ssh-public-key %}
 {% data reusables.gpg.paste-ssh-public-key %}
 
 {% endif %}

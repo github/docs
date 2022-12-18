@@ -1,30 +1,31 @@
 date: '2022-06-28'
 sections:
   security_fixes:
-    - "**MEDIUM**: Prevents an attack where an `org` query string parameter can be specified for a GitHub Enterprise Server URL that then gives access to another organization's active committers."
-    - "**MEDIUM**: Ensures that `github.company.com` and `github-company.com` are not evaluated by internal services as identical hostnames, preventing a potential server-side security forgery (SSRF) attack."
-    - "**LOW**: An attacker could access the Management Console with a path traversal attack via HTTP even if external firewall rules blocked HTTP access."
-    - Packages have been updated to the latest security versions.
+    - "**中**: GitHub Enterprise サーバーの URL に `org` クエリ文字列パラメーターを指定して、別の組織のアクティブなコミッターにアクセスできるようにする攻撃を防ぎます。"
+    - "**中**: サーバー側セキュリティ フォージェリ (SSRF) 攻撃の可能性を防ぐため、`github.company.com` と `github-company.com` が内部サービスによって同じホスト名として評価されないようにします。"
+    - "**低**: 外部ファイアウォール規則によって HTTP アクセスがブロックされている場合であっても、攻撃者は、HTTP 経由のパス トラバーサル攻撃で管理コンソールにアクセスできました。"
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - Files inside an artifact archive were unable to be opened after decompression due to restrictive permissions.
-    - Redis timeouts no longer halt database migrations while running `ghe-config-apply`.
-    - Background job processors would get stuck in a partially shut-down state, resulting in certain kinds of background jobs (like code scanning) appearing stuck.
-    - In some cases, site administrators were not automatically added as enterprise owners.
-    - A rendering issue could affect the dropdown list for filtering secret scanning alerts in a repository.
+    - アクセス許可に制限があるため、成果物アーカイブ内のファイルを展開後に開くことができませんでした。
+    - "`ghe-config-apply` の実行中に Redis のタイムアウトが発生した場合にデータベースの移行が停止しなくなりました。"
+    - バックグラウンド ジョブ プロセッサが部分的なシャットダウン状態でスタックし、結果として特定の種類のバックグラウンド ジョブ (Code Scanning など) がスタックしているように見えていました。
+    - サイト管理者が Enterprise 所有者として自動的に追加されないことがありました。
+    - レンダリングの issue が、リポジトリ内の Secret Scanning アラートをフィルター処理するドロップダウン リストに影響することがありました。
   changes:
-    - Improved the performance of Dependabot version updates after first enabled.
-    - The GitHub Pages build and synchronization timeouts are now configurable in the Management Console.
-    - Creating or updating check runs or check suites could return `500 Internal Server Error` if the value for certain fields, like the name, was too long.
-    - When [deploying cache-server nodes](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache), it is now mandatory to describe the datacenter topology (using the `--datacenter` argument) for every node in the system. This requirement prevents situations where leaving datacenter membership set to "default" leads to workloads being inappropriately balanced across multiple datacenters.
+    - 最初に有効にした後の Dependabot バージョン更新プログラムのパフォーマンスが向上しました。
+    - GitHub Pages のビルドと同期のタイムアウトは、管理コンソールで構成できるようになりました。
+    - 特定のフィールド (名前など) の値が長すぎた場合、チェック実行またはチェック スイートを作成または更新すると、`500 Internal Server Error` (500 内部サーバー エラー) が返されました。
+    - "[cache-server ノードのデプロイ](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache)時に、システム内のすべてのノードに対してデータセンター トポロジの記述 (`--datacenter` 引数の使用) は必須になりました。データセンターのメンバーシップを \"既定値\" に設定したままにしておくと、複数のデータセンター間でワークロードが不適切に分散されるという状況は、この要件によって回避されます。"
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration.
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - |`--ephemeral` パラメーターを指定し、複数のレベル (たとえば、Enterprise と Organization の両方で) セルフホステッド ランナーを登録した後、ランナーがアイドル状態で停止し、再登録が必要になる場合があります。
+
+|
+    - "{% data variables.product.prodname_ghe_server %} 3.4 にアップグレードした後、リリースがリポジトリに表示されない場合があります。これは、必要な Elasticsearch インデックスの移行が正常に完了していない場合に発生する可能性があります。"
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

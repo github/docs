@@ -5,7 +5,6 @@ intro: 'Okta を ID プロバイダー (IdP) として使用して、{% data var
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
-  feature: scim-for-ghes
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
@@ -17,12 +16,12 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 62a1436fcedc4d90f767d0c612e70810132aff58
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107517'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192674'
 ---
 {% data reusables.saml.okta-ae-sso-beta %}
 
@@ -31,6 +30,11 @@ ms.locfileid: '148107517'
 {% data variables.product.product_name %} の ID プロバイダー (IdP) として Okta を使用できます。これにより、Okta ユーザーは Okta 資格情報を使用して {% data variables.product.product_name %} にサインインできます。
 
 {% data variables.product.product_name %} の IdP として Okta を使用するために、Okta に {% data variables.product.product_name %} アプリを追加し、{% data variables.product.product_name %} で Okta を IdP として構成し、Okta ユーザーとグループのアクセス権をプロビジョニングできます。
+
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- "[チームへの Okta グループのマッピング](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
+
+SCIM を有効にすると、Okta で {% data variables.product.product_name %} アプリケーションを割り当てる任意のユーザーが次のプロビジョニング機能を使えるようになります。
 
 {% data reusables.scim.ghes-beta-note %}
 
@@ -42,6 +46,8 @@ ms.locfileid: '148107517'
 | ユーザ無効化のプッシュ | Okta でユーザーを非アクティブにすると、{% data variables.product.product_name %} で Enterprise からユーザーが停止されます。 |
 | プロフィール更新のプッシュ | Okta でユーザーのプロファイルを更新すると、{% data variables.product.product_name %} で Enterprise 内のユーザーのメンバーシップのメタデータが更新されます。 |
 | ユーザの再アクティブ化 | Okta でユーザーを再アクティブ化すると、{% data variables.product.product_name %} で Enterprise 内のユーザーの停止が解除されます。 |
+
+{% data variables.location.product_location %} での Enterprise の ID とアクセスの管理について詳しくは、「[Enterprise の ID とアクセスを管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise)」をご覧ください。
 
 ## 前提条件
 

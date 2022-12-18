@@ -16,12 +16,12 @@ type: overview
 topics:
   - Action development
   - Fundamentals
-ms.openlocfilehash: ac933a5014750f75373fafa7f8dd52333b79a469
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1e81bea551ceff1980b0bbe96202f60db0d0e7f2
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147154571'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191944'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '147154571'
 
 ## 操作的类型
 
-您可以创建 Docker 容器和 JavaScript 操作。 操作需要元数据文件来定义操作的输入、输出和主要进入点。 元数据文件名必须为 `action.yml` 或 `action.yaml`。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions)”。
+可以构建 Docker 容器、JavaScript 和复合操作。 操作需要元数据文件来定义操作的输入、输出和主要进入点。 元数据文件名必须为 `action.yml` 或 `action.yaml`。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions)”。
 
 | 类型 | 操作系统 |
 | ---- | ------------------- |

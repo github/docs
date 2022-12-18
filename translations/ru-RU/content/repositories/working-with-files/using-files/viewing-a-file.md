@@ -16,12 +16,12 @@ versions:
 topics:
   - Repositories
 shortTitle: View files and track file changes
-ms.openlocfilehash: bc27fc67cfd18eb20f8c612b81f4d6dd5da20913
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
-ms.translationtype: HT
+ms.openlocfilehash: 7d34e776cb1747ee749531e49abf6f0e3d052b3b
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146680992'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179862'
 ---
 ## Просмотр или копирование содержимого необработанного файла
 
@@ -92,3 +92,7 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}
+
+## `.git-blame-ignore-revs` Обход в представлении "Виноват"
+
+Если в представлении вины для файла отображается **игнорирование исправлений в .git-blame-ignore-revs, вы по-прежнему** можете обходить `.git-blame-ignore-revs` и просматривать обычное представление об ошибке. В URL-адресе добавьте `~` к SHA, и **игнорирование редакций в .git-blame-ignore-revs** исчезнет.

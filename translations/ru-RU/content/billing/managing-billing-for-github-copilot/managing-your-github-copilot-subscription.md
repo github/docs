@@ -1,52 +1,54 @@
 ---
-title: Managing your GitHub Copilot subscription
-intro: 'Set up your {% data variables.product.prodname_copilot %} trial and manage your subscription.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+title: Управление подпиской на GitHub Copilot
+intro: Настройте пробную версию {% data variables.product.prodname_copilot %} и управляйте подпиской.
 versions:
   feature: copilot
 type: how_to
 topics:
-  - Copilot
+- Copilot
 shortTitle: Your GitHub Copilot subscription
+ms.openlocfilehash: 9cdd9e46dcbfe433f5d0b6ba25bda4c798dca06b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884160"
 ---
-
-## Setting up a trial of {% data variables.product.prodname_copilot %} 
+## Настройка пробной версии {% data variables.product.prodname_copilot %} 
 
 {% data reusables.copilot.signup-procedure %}
 
-## Modifying your {% data variables.product.prodname_copilot %} subscription
+## Изменение подписки {% data variables.product.prodname_copilot %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
-   - If you are on a monthly billing cycle, select **Change to yearly billing**.
-   - If you are on a yearly billing cycle, select **Change to monthly billing**.
-   ![Screenshot of GitHub Copilot section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. В разделе {% data variables.product.prodname_copilot %} откройте раскрывающееся меню **Правка**.
+   - Если вы получаете счета каждый месяц, выберите **Изменить на ежегодное выставление счетов**.
+   - Если вы получаете счета каждый год, выберите **Изменить на ежемесячное выставление счетов**.
+   ![Снимок экрана: раздел GitHub Copilot на странице выставления счетов с выделенным раскрывающимся списком редактирования](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
    
 
-## Canceling your {% data variables.product.prodname_copilot %} subscription
+## Отмена подписки {% data variables.product.prodname_copilot %}
 
-You can cancel your {% data variables.product.prodname_copilot %} subscription at any time. If you cancel during your 60 day trial, you won't be charged. If you do not cancel your {% data variables.product.prodname_copilot %} subscription before the end of the 60 day trial, you will be charged according to the billing cycle you selected when setting up the trial.
+Вы можете в любое время изменить свою подписку {% data variables.product.prodname_copilot %}. При отмене в течение 60-дневной пробной версии плата не будет взиматься. Если вы не отмените подписку на {% data variables.product.prodname_copilot %} до окончания 60-дневной пробной версии, плата будет взиматься в соответствии с периодом выставления счетов, выбранным при настройке пробной версии.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
-   - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. В разделе {% data variables.product.prodname_copilot %} откройте раскрывающееся меню **Правка**.
+   - Если у вас есть платная подписка, нажмите кнопку **Отменить {% data variables.product.prodname_copilot %}** .
    
-   ![Screenshot of GitHub Copilot section on billing page with cancel GitHub Copilot option emphasized](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
+   ![Снимок экрана: раздел GitHub Copilot на странице выставления счетов с выделенным параметром отмены GitHub Copilot](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
 
-   - If you are within your 60 day trial period, click **Cancel trial**.
-   ![Screenshot of GitHub Copilot section on billing page with cancel trial option emphasized](/assets/images/help/copilot/copilot-cancel-trial.png)
+   - Если 60-дневный пробный период еще не закончился, нажмите кнопку **Отмена пробной версии**.
+   ![Снимок экрана: раздел GitHub Copilot на странице выставления счетов с выделенным параметром отмены пробной версии](/assets/images/help/copilot/copilot-cancel-trial.png)
 
-2. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**
+2. В диалоговом окне "Отменить {% data variables.product.prodname_copilot %}" щелкните **Я понимаю, отменить {% data variables.product.prodname_copilot %}**
 
-   ![Screenshot of GitHub Copilot cancel modal with I understand, cancel GitHub Copilot button emphasized](/assets/images/help/copilot/copilot-cancel-modal.png)
+   ![Снимок экрана: диалоговое окно отмены GitHub Copilot с кнопкой "Я понимаю, отменить GitHub Copilot"](/assets/images/help/copilot/copilot-cancel-modal.png)
 
-   - If you are within your 60 day trial period, click **I understand, cancel {% data variables.product.prodname_copilot %} trial**.
+   - Если 60-дневный пробный период еще не закончился, щелкните **Я понимаю, отменить пробный период {% data variables.product.prodname_copilot %}** .
 
-   ![Screenshot of GitHub Copilot cancel trial modal with I understand, cancel trial button emphasized](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
+   ![Снимок экрана: диалоговое окно отмены пробного периода GitHub Copilot с кнопкой "Я понимаю, отменить пробный период"](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
 
-## Further reading
+## Дополнительные сведения
 
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
-- [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
+- [Сведения о {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [Начало работы с {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)

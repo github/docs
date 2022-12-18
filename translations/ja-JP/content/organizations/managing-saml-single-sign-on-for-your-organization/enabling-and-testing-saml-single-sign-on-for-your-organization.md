@@ -10,12 +10,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Enable & test SAML SSO
-ms.openlocfilehash: f9b60931978f80de33c0e6a2d5268287e208040a
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: cbdf8c92ca61f9836876c34ae9dd3b9be0cd7ee4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145125662'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184086'
 ---
 ## SAMLシングルサインオンについて
 
@@ -28,6 +28,8 @@ SAML SSO を有効化しても強制はしない場合、SAML SSO を使用し�
 {% data reusables.saml.outside-collaborators-exemption %}
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
+
+{% data reusables.apps.reauthorize-apps-saml %}
 
 ## Organization 向けの SAML シングルサインオンを有効化してテストする
 

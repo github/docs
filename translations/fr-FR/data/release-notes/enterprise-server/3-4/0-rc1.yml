@@ -1,0 +1,304 @@
+date: '15-02-2022'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **Remarque :** Si {% data variables.product.product_location %} exécute une build de version finale (RC), vous ne pouvez pas effectuer de mise à niveau avec un patch à chaud. Nous vous recommandons d’exécuter les versions RC uniquement sur des environnements de test.
+  
+  {% endnote %}
+  
+  Pour les instructions de mise à niveau, consultez « [Mise à niveau de {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) ».
+  
+  > Cette mise en production est dédiée à notre collègue et ami John, qui a toujours été d’une aide précieuse. Vous allez beaucoup nous manquer.
+  >
+  > **John "Ralph" Wiebalk 1986–2021**
+sections:
+  features:
+    - heading: L’API REST d’analyse des secrets retourne maintenant des emplacements
+      notes:
+        # https://github.com/github/releases/issues/1642
+        - |Les clients de {% data variables.product.prodname_GH_advanced_security %} peuvent à présent utiliser l’API REST pour récupérer les détails de commit des secrets détectés lors d’analyses de dépôt privé. Le nouveau point de terminaison retourne les détails de la première détection d’un secret au sein d’un fichier, y compris l’emplacement du secret et le SHA de commit. Pour plus d’informations, consultez « [Analyse des secrets](/rest/reference/secret-scanning) » dans la documentation de l’API REST.
+
+|
+    - heading: Exporter les données de licence de la facturation basée sur le commiteur de GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/1757
+        - |Les propriétaires d’entreprise et d’organisation peuvent à présent exporter leurs données d’utilisation de licences {% data variables.product.prodname_GH_advanced_security %} dans un fichier CSV. Les données de facturation {% data variables.product.prodname_advanced_security %} peuvent également être récupérées via des points de terminaison de la facturation dans l’API REST. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/). »
+
+|
+    - heading: Workflows réutilisables GitHub Actions dans la version bêta publique
+      notes:
+        # https://github.com/github/releases/issues/1541
+        - |Vous pouvez à présent réutiliser des workflows entiers comme s’ils étaient une action. Cette fonctionnalité est disponible dans une version bêta publique. Au lieu de copier et coller des définitions de workflow dans des dépôts, vous pouvez maintenant référencer un workflow existant avec une simple ligne de configuration. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/). »
+
+|
+    - heading: Sécurité Dependabot et mises à jour des versions dans la version bêta publique
+      notes:
+        # https://github.com/github/releases/issues/2004
+        - |{% data variables.product.prodname_dependabot %} est maintenant disponible dans {% data variables.product.prodname_ghe_server %} 3.4 en tant que version bêta publique, offrant des mises à jour de version et des mises à jour de sécurité pour plusieurs écosystèmes connus. {% data variables.product.prodname_dependabot %} sur {% data variables.product.prodname_ghe_server %} exige {% data variables.product.prodname_actions %} et un pool d’exécuteurs auto-hébergés configurés pour utiliser {% data variables.product.prodname_dependabot %}. {% data variables.product.prodname_dependabot %} sur {% data variables.product.prodname_ghe_server %} exige également l’activation de {% data variables.product.prodname_github_connect %} et {% data variables.product.prodname_dependabot %} par un administrateur. Les commentaires et suggestions sur la version bêta peuvent être partagés dans la [discussion Feedback GitHub sur {% data variables.product.prodname_dependabot %}](https://github.com/community/community/discussions/categories/dependabot). Pour plus d’informations et pour essayer la version bêta, consultez « [Configuration des mises à jour de sécurité et de version {% data variables.product.prodname_dependabot %} dans votre entreprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates). »
+
+|
+  changes:
+    - heading: Changements au niveau de l’administration
+      notes:
+        # https://github.com/github/releases/issues/1657
+        - "Les utilisateurs peuvent maintenant choisir à quel nombre d’espaces est égal une tabulation, en définissant la taille de tabulation qu’ils préfèrent dans les paramètres « Apparence » de leur compte d’utilisateur. Tout code mis en retrait avec une tabulation s’affichera dans cette taille de tabulation."
+
+        # https://github.com/github/releases/issues/2062
+        - "L’enregistrement des connexions aux données {% data variables.product.prodname_github_connect %} comprend maintenant un décompte du nombre d’utilisateurs actifs et inactifs et la période d’inactivité configurée."
+
+    - heading: Changements au niveau des performances
+      notes:
+      # https://github.com/github/releases/issues/2031
+      - "WireGuard, utilisé pour sécuriser la communication entre les instances {% data variables.product.prodname_ghe_server %} dans une configuration à haute disponibilité, a été migré vers l’implémentation de noyau."
+
+    - heading: Changements au niveau des notifications
+      notes:
+      # https://github.com/github/releases/issues/1801
+      - "Les propriétaires d’organisation peuvent désormais se désabonner des e-mails de notification lorsque de nouvelles clés de déploiement sont ajoutées aux dépôts appartenant à leur organisation. Pour plus d’informations, consultez « [Configuration des notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) »."
+
+      # https://github.com/github/releases/issues/1714
+      - 'Les e-mails de notification des problèmes et demandes de tirage créés récemment incluent à présent « (Issue #xx) » ou « (PR #xx) » dans l’objet de l’e-mail, ce qui vous permet de reconnaître et de filtrer les e-mails qui font référence à ces types de problèmes.'
+
+    - heading: Changements au niveau de l’organisation
+      notes:
+        # https://github.com/github/releases/issues/1509
+        - "Les organisations peuvent à présent afficher le fichier « README.md » dans la Vue d’ensemble de leur profil. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/) »."
+
+        # https://github.com/github/releases/issues/1883
+        - "Les membres des organisations peuvent désormais afficher une liste des propriétaires de leur entreprise sous l’onglet « Personnes » de l’organisation. La liste des propriétaires de l’entreprise est à présent accessible à l’aide de l’API GraphQL. Pour plus d’informations, consultez le champ « [`enterpriseOwners`](/graphql/reference/objects#organization) » sous l’objet Organisation dans la documentation de l’API GraphQL."
+
+    - heading: Changements au niveau des dépôts
+      notes:
+        # https://github.com/github/releases/issues/1944
+        - |Une section « Gérer l’accès » est à présent affichée dans la page « Collaborateurs et équipes » dans les paramètres de votre dépôt. La nouvelle section permet aux administrateurs de dépôt de voir et de gérer plus facilement qui a accès à leur dépôt et le niveau d’accès accordé à chaque utilisateur. Les administrateurs peuvent maintenant :
+
+
+
+* Rechercher qui a accès au dépôt parmi tous les membres, équipes et collaborateurs.
+
+* Voir quand les membres ont des attributions de rôle mixtes, accordées directement à eux-mêmes ou indirectement via un équipe. Un nouvel avertissement « rôles mixtes » le montre, en indiquant le rôle de niveau le plus élevé accordé à l’utilisateur si son niveau d’autorisation est supérieur à celui du rôle qui lui est attribué.
+
+* Gérer l’accès aux dépôts populaires de manière fiable avec un système de pagination et moins de délais d’expiration lorsque des grands groupes d’utilisateurs y ont accès.
+
+|
+        # https://github.com/github/releases/issues/1748
+        - '{% data variables.product.prodname_ghe_server %} 3.4 présente des améliorations de l’expérience d’invitation à des dépôts, telles que des notifications pour des invitations à des dépôts privés, une invite d’interface utilisateur lorsque vous accédez à un dépôt privé pour lequel vous avez une invitation en attente et une bannière dans une page de présentation de dépôt public quand une invitation est en attente.'
+
+        # https://github.com/github/releases/issues/1739
+        - "Vous pouvez désormais utiliser des préfixes à un caractère pour des liens automatiques personnalisés. Les préfixes de lien automatique autorisent désormais aussi l’utilisation des caractères « . », « - », « _ », « + », « = », « : », « / » et « # », ainsi que les caractères alphanumériques. Pour plus d’informations sur les liens automatiques personnalisés, consultez « [Configuration de liens automatiques pour référencer des ressources externes](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources) »."
+
+        # https://github.com/github/releases/issues/1776
+        - Un fichier « CODE_OF_CONDUCT.md » à la racine d’un dépôt est à présent mis en évidence sur la barre latérale « À propos de » de la page de présentation du dépôt.
+
+    - heading: 'Changements au niveau des mises en production'
+      notes:
+        # https://github.com/github/releases/issues/1723
+        - '{% data variables.product.prodname_ghe_server %} 3.4 présente des améliorations de l’interface utilisateur Mise en production, notamment des notes de publication générées automatiquement qui affichent un récapitulatif de toutes les demandes de tirage pour une mise en production donnée. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-20-export-github-advanced-security-license-usage-data/) ».'
+
+        # https://github.com/github/releases/issues/1606
+        - "Lorsqu’une mise en production est publiée, une liste d’avatars est maintenant affichée en bas de la mise en production. Les avatars de tous les comptes d’utilisateur mentionnés dans les notes de publication sont affichés. Pour plus d’informations, consultez « [Gestion des mises en production dans un dépôt](/repositories/releasing-projects-on-github/managing-releases-in-a-repository) »."
+
+    - heading: 'Changements au niveau du Markdown'
+      notes:
+        # https://github.com/github/releases/issues/1779
+        - "Vous pouvez dès à présent utiliser la nouvelle page de paramètres « Accessibilité » pour gérer vos raccourcis clavier. Vous pouvez choisir de désactiver les raccourcis clavier qui n’utilisent qu’un seul caractère comme <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd> et <kbd>.</kbd> (la touche du point). Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/) »."
+
+        # https://github.com/github/releases/issues/1727
+        - "Vous pouvez maintenant choisir d’utiliser une police à largeur fixe dans les champs compatibles Markdown, notamment pour les commentaires sur les problèmes et les descriptions de demandes de tirage. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/) »."
+
+        # https://github.com/github/releases/issues/1761
+        - "Vous pouvez à présent coller une URL sur du texte sélectionné pour créer rapidement un lien Markdown. Cela fonctionne dans tous les champs compatibles Markdown, notamment pour les commentaires sur les problèmes et les descriptions de demandes de tirage. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/) »."
+
+        # https://github.com/github/releases/issues/1758
+        - "Vous pouvez désormais ajouter une URL d’image avec un thème, tel que « #gh-dark-mode-only », pour définir l’affichage de l’image Markdown dans une visionneuse. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/) »."
+
+        # https://github.com/github/releases/issues/1686
+        - "Lorsque vous créez ou modifiez un fichier gist avec l’extension de fichier de Markdown (« .md »), vous pouvez maintenant utiliser l’onglet « Prévisualiser » ou « Prévisualiser les changements » pour afficher un rendu Markdown du contenu du fichier. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/) »."
+
+        # https://github.com/github/releases/issues/1754
+        - "Lorsque vous entrez le nom d’un utilisateur {% data variables.product.prodname_dotcom %} dans des problèmes, des demandes de tirage et des discussions, le suggesteur @mention classe désormais les participants existants plus haut que les autres utilisateurs {% data variables.product.prodname_dotcom %}, de sorte que l’utilisateur que vous cherchez a plus de chances de se trouver dans la liste."
+
+        # https://github.com/github/releases/issues/1636
+        - "Les langues écrites de droite à gauche sont à présent prises en charge de manière native dans les fichiers, problèmes, demandes de tirage, discussions et commentaires Markdown."
+
+    - heading: 'Changements au niveau des problèmes et demandes de tirage'
+      notes:
+        # https://github.com/github/releases/issues/1731
+        - Le paramètre diff pour masquer les changements d’espaces sous l’onglet « Fichiers modifiés » de la demande de tirage est maintenant conservé pour votre compte d’utilisateur pour cette demande de tirage. Le paramètre que vous avez choisi est automatiquement réappliqué si vous partez de la page puis que vous revenez à l’onglet « Fichiers modifiés » de la même demande de tirage.
+
+        # https://github.com/github/releases/issues/1663
+        - "Lorsque vous utilisez une affectation automatique pour des revues de code de demande de tirage, vous pouvez désormais choisir de n’informer que les membres de l’équipe demandés, indépendamment de vos paramètres d’affectation automatique. Ce paramètre est utile dans les scénarios où un grand nombre d’utilisateurs sont affectés automatiquement alors que les utilisateurs ne nécessitent pas tous une notification. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/) »."
+
+    - heading: 'Changements au niveau des branches'
+      notes:
+        # https://github.com/github/releases/issues/1526
+        - "Les administrateurs d’organisation et de dépôt peuvent maintenant déclencher des webhooks pour écouter les changements apportés aux règles de protection des branches dans leurs dépôts. Pour plus d’informations, consultez l’événement « [branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)\" dans la documentation des événements et des charges utiles des webhooks."
+
+        # https://github.com/github/releases/issues/1759
+        - "Lors de la configuration de branches protégées, vous pouvez à présent mettre en place qu’une vérification d’état obligatoire soit fournie par une {% data variables.product.prodname_github_app %} spécifique. Si une autre application vient à fournir un état, ou un utilisateur via un état de commit, la fusion est empêchée. Cela garantit que toutes les modifications sont validées par l’application concernée. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/) »."
+
+        # https://github.com/github/releases/issues/1911
+        - "Seuls les utilisateurs disposant d’autorisations d’administrateur peuvent désormais renommer les branches protégées et modifier les règles de protection des branches. Avant, à l’exception de la branche par défaut, un collaborateur pouvait renommer une branche et, par conséquent, toutes les règles de protection des branches sans caractère générique qui s’appliquaient à cette branche étaient également renommées. Pour plus d’informations, consultez « [Renommage d’une branche](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch) » et « [Gestion d’une règle de protection des branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) »."
+
+        # https://github.com/github/releases/issues/1845
+        - "Les administrateurs peuvent désormais autoriser des utilisateurs et des équipes spécifiques à contourner les exigences des demandes de tirage. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/). »"
+
+        # https://github.com/github/releases/issues/1850
+        - "Les administrateurs peuvent désormais autoriser uniquement des utilisateurs et des équipes spécifiques à forcer une poussée vers un dépôt. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/) »."
+
+        # https://github.com/github/releases/issues/1796
+        - "Lorsque des demandes de tirage sont nécessaires pour tous les changements d’une branche protégée, les administrateurs peuvent désormais choisir si des révisions approuvées sont aussi une condition requise. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/) »."
+
+    - heading: 'Changements au niveau de GitHub Actions'
+      notes:
+        # https://github.com/github/releases/issues/1906
+        - 'Les workflows {% data variables.product.prodname_actions %} déclenchés par {% data variables.product.prodname_dependabot %} pour les événements « create », « deployment » et « deployment_status » reçoivent désormais systématiquement un jeton en lecture seule et pas de secrets. De la même manière, les workflows déclenchés par {% data variables.product.prodname_dependabot %} pour l’événement « pull_request_target » sur les demandes de tirage où la référence de base a été créée par {% data variables.product.prodname_dependabot %} reçoivent désormais systématiquement un jeton en lecture seule et pas de secrets. Ces changements ont pour but d’empêcher du code potentiellement dangereux de s’exécuter dans un workflow privilégié. Pour plus d’informations, consultez « [Automatisation de {% data variables.product.prodname_dependabot %} avec {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions) ».'
+
+        # https://github.com/github/releases/issues/1667
+        - "Le workflow qui s’exécute sur les événements « push » et « pull_request » déclenchés par {% data variables.product.prodname_dependabot %} respectent à présent les autorisations spécifiées dans vos workflows, ce qui vous permet de contrôler votre façon de gérer les mises à jour de dépendances automatiques. Les autorisations de jeton par défaut resteront en lecture seule. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/) »."
+
+        # https://github.com/github/releases/issues/1668
+        - 'Les workflows {% data variables.product.prodname_actions %} déclenchés par {% data variables.product.prodname_dependabot %} se verront désormais envoyer les secrets {% data variables.product.prodname_dependabot %}. Vous pouvez effectuer des tirages depuis des registres de packages privés dans votre CI en utilisant les mêmes secrets que vous avez configurés pour que {% data variables.product.prodname_dependabot %} les utilise, ce qui améliore le fonctionnement entre {% data variables.product.prodname_actions %} et {% data variables.product.prodname_dependabot %}. Pour plus d’informations, consultez « [Automatisation de {% data variables.product.prodname_dependabot %} avec {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions) ».'
+
+        # https://github.com/github/releases/issues/1615
+        - "Vous pouvez maintenant gérer des groupes d’exécuteurs et voir l’état de vos exécuteurs auto-hébergés dans les nouvelles pages Exécuteurs et Groupes d’exécuteurs de l’interface utilisateur. La page de paramètres Actions de votre dépôt ou organisation affiche désormais une vue récapitulative de vos exécuteurs et vous permet d’explorer un exécuteur spécifique pour le modifier ou voir le travail qu’il est en train d’exécuter. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/) »."
+
+        # https://github.com/github/releases/issues/1785
+        - 'Les auteurs d’actions peuvent maintenant faire exécuter leurs actions dans Node.js 16 en spécifiant [`runs.using` en tant que `node16` dans le `action.yml` de l’action](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). Cela vient s’ajouter à la prise en charge existante de Node.js 12. Les actions peuvent continuer à spécifier « runs.using: node12 » pour utiliser le runtime Node.js 12.'
+
+        # https://github.com/github/releases/issues/1799
+        - 'Pour les workflows déclenchés manuellement, {% data variables.product.prodname_actions %} prend désormais en charge les types d’entrée « choice », « boolean » et « environment » en plus du type par défaut « string ». Pour plus d’informations, consultez « [`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs) ».'
+
+        # https://github.com/github/releases/issues/1782
+        - "Les actions écrites en YAML, également appelées actions composites, prennent désormais en charge les conditionnels « if ». Ceci vous permet d’empêcher l’exécution d’étapes spécifiques, sauf si une condition a été remplie. Comme pour les étapes définies dans les workflows, vous pouvez utiliser n’importe quel contexte et n’importe quelle expression pris en charge pour créer un conditionnel."
+
+        # https://github.com/github/releases/issues/1919
+        - "Le comportement de l’ordre de recherche des exécuteurs auto-hébergés a changé : le premier exécuteur correspondant disponible, quel que soit le niveau, exécute le travail dans tous les cas. Ceci permet d’envoyer des travaux plus rapidement aux exécuteurs auto-hébergés, en particulier pour les organisations et les entreprises qui ont beaucoup d’exécuteurs auto-hébergés. Avant, lors de l’exécution d’un travail qui nécessitait un exécuteur auto-hébergé, {% data variables.product.prodname_actions %} recherchait des exécuteurs auto-hébergés dans l’ordre suivant : le dépôt, l’organisation et l’entreprise."
+
+        # https://github.com/github/releases/issues/1753
+        - "Les étiquettes des exécuteurs auto-hébergés {% data variables.product.prodname_actions %} peuvent désormais être listées, ajoutées et supprimées à l’aide de l’API REST. Pour plus d’informations sur l’utilisation des nouvelles API au niveau d’un dépôt, d’une organisation ou d’une entreprise, consultez « [Dépôts](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository) », « [Organisations](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization) » et « [Entreprises](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise) » dans la documentation de l’API REST."
+
+    - heading: 'Changements au niveau de Dependabot et du graphe des dépendances'
+      notes:
+        # https://github.com/github/releases/issues/1520
+        - Le graphe des dépendances prend désormais en charge la détection des dépendances Python dans les dépôts qui utilisent le gestionnaire de package Poetry. Les dépendances seront détectées dans les fichiers manifestes « pyproject.toml » et « poetry.lock ».
+
+        # https://github.com/github/releases/issues/1921
+        - "Lorsque vous configurez les mises à jour de sécurité et de version de {% data variables.product.prodname_dependabot %} sur GitHub Enterprise Server, nous vous recommandons d’activer également {% data variables.product.prodname_dependabot %} dans {% data variables.product.prodname_github_connect %}. Cela permettra à {% data variables.product.prodname_dependabot %} de récupérer une liste actualisée des dépendances et des vulnérabilités sur le {% data variables.product.prodname_dotcom_the_website %}, en demandant des informations, notamment les journaux des modifications des mises en production publiques du code open source duquel vous dépendez. Pour plus d’informations, consultez « [Activation des alertes du graphe des dépendances et de Dependabot pour votre entreprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise) »."
+
+        # https://github.com/github/releases/issues/1717
+        - 'Les alertes {% data variables.product.prodname_dependabot_alerts %} peuvent à présent être ignorées à l’aide de l’API GraphQL. Pour plus d’informations, consultez la mutation « [dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert) » dans la documentation de l’API GraphQL.'
+
+    - heading: 'Changements au niveau de l’analyse du code et des secrets'
+      notes:
+        # https://github.com/github/releases/issues/1802
+        - "L’interface CLI de {% data variables.product.prodname_codeql %} prend désormais en charge l’aide des requêtes rendues en Markdown dans les fichiers SARIF afin de pouvoir lire le texte de l’aide dans l’interface utilisateur de {% data variables.product.prodname_code_scanning %} lorsque la requête génère une alerte. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/) »."
+
+        # https://github.com/github/releases/issues/1790
+        - "L’interface CLI de {% data variables.product.prodname_codeql %} et l’extension {% data variables.product.prodname_vscode %} prennent désormais en charge la génération de bases de données et l’analyse de code sur des machines équipées d’Apple Silicon comme Apple M1. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/) »."
+
+        # https://github.com/github/releases/issues/1732
+        - |La profondeur de l’analyse de {% data variables.product.prodname_codeql %} a été améliorée grâce à la prise en charge de davantage de [bibliothèques et de frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) dans l’écosystème Python. Par conséquent, {% data variables.product.prodname_codeql %} peut maintenant détecter encore plus de sources potentielles de données utilisateur non fiables, les étapes par lesquelles passent ces données et les récepteurs potentiellement dangereux où les données peuvent finir. Il en découle une amélioration générale de la qualité des alertes {% data variables.product.prodname_code_scanning %}. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/) ».
+
+|
+        # https://github.com/github/releases/issues/1567
+        - "L’analyse du code avec {% data variables.product.prodname_codeql %} comprend maintenant une prise en charge bêta de l’analyse du code dans toutes les versions Ruby courantes, jusqu’à la version 3.02 incluse. Pour plus d’informations, consultez le « [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/) »."
+
+        # https://github.com/github/releases/issues/1764
+        - |Plusieurs améliorations ont été apportées à l’API {% data variables.product.prodname_code_scanning %} :
+
+
+
+* L’horodatage `fixed_at` a été ajouté aux alertes. Cet horodatage correspond à la première fois où l’alerte n’a pas été détectée dans une analyse.
+
+* Les résultats de l’alerte peuvent désormais être triés avec `sort` et `direction` sur `created`, `updated` ou `number`. Pour plus d’informations, consultez « [Lister les alertes d’analyse de code pour un dépôt](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) ».
+
+* Un en-tête `Last-Modified` a été ajouté à la réponse des alertes et des points de terminaison de l’alerte. Pour plus d’informations, consultez [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) dans la documentation de Mozilla.
+
+* Le champ `relatedLocations` a été ajouté à la réponse de SARIF lorsque vous demandez une étude de l’analyse du code. Le champ peut contenir des emplacements qui ne correspondent pas au premier emplacement de l’alerte. Découvrez un exemple dans la [spéc SARIF](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616) et pour plus d’informations, consultez « [Obtenir une étude de l’analyse du code pour un dépôt](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) ».
+
+* Les données `help` et `tags` ont été ajoutées à l’objet des règles d’alerte de réponse de webhook. Pour plus d’informations, consultez « [Alerte d’analyse du code dans les événements et charges utiles des webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert) ».
+
+* Les jetons d’accès personnel avec l’étendue « public_repo » disposent à présent de l’accès en écriture pour les points de terminaison de l’analyse de code sur les dépôts publics, si l’utilisateur dispose de l’autorisation.
+
+
+
+Pour plus d’informations, consultez « [Analyse du code](/rest/reference/code-scanning) » dans la documentation de l’API REST.
+
+|
+        # https://github.com/github/releases/issues/1943
+        - 'Les clients {% data variables.product.prodname_GH_advanced_security %} peuvent à présent utiliser l’API REST pour récupérer les résultats de l’analyse des secrets de dépôt privé au niveau de l’entreprise. Le nouveau point de terminaison vient en complément des points de terminaison existants au niveau du dépôt et au niveau de l’organisation. Pour plus d’informations, consultez « [Analyse des secrets](/rest/reference/secret-scanning) » dans la documentation de l’API REST.'
+
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "Sur une instance {% data variables.product.prodname_ghe_server %} qui vient d’être configurée sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont mal ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob a plus de 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent rechercher sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de la recherche sur GitHub.com."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait au profit d’améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous rétablirons le retour de cette valeur une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - Les services Actions doivent être redémarrés après la restauration d’une appliance à partir d’une sauvegarde effectuée sur un hôte différent.
+
+  deprecations:
+    - heading: Dépréciation de GitHub Enterprise Server 3.0
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 a été mis hors service le 16 février 2022**. Cela signifie qu’aucun correctif ne sera publié, même pour des problèmes de sécurité critiques, passé cette date. Pour de meilleures performances, une sécurité renforcée et de nouvelles fonctionnalités, [passez à la dernière version de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) dès que possible.'
+    - heading: Dépréciation de GitHub Enterprise Server 3.1
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 a été mis hors service le 3 juin 2022**. Cela signifie qu’aucun correctif ne sera publié, même pour des problèmes de sécurité critiques, passé cette date. Pour de meilleures performances, une sécurité renforcée et de nouvelles fonctionnalités, [passez à la dernière version de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) dès que possible.'
+
+    - heading: Dépréciation de la prise en charge de l’hyperviseur XenServer
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "Depuis {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} sur XenServer est déprécié et n’est plus pris en charge. Veuillez contacter le [Support GitHub](https://support.github.com) pour toute question ou préoccupation."
+
+    - heading: Dépréciation de la préversion de l’API d’attachements de contenu
+      notes:
+        #
+        - "En raison d’une faible utilisation, nous avons déprécié la préversion de l’API Références de contenu dans {% data variables.product.prodname_ghe_server %} 3.4. L’API était accessible avec l’en-tête `corsair-preview`. Les utilisateurs peuvent continuer à accéder à des URL externes sans cette API. Toutes les utilisations enregistrées de l’API Références de contenu ne recevront plus de notification par webhook pour les URL de votre ou vos domaines enregistrés, et nous ne renverrons plus de codes de réponse valides pour les tentatives de mise à jour des attachements de contenu existants."
+
+    - heading: Dépréciation de la préversion de l’API Codes de conduite
+      notes:
+        # https://github.com/github/releases/issues/1708
+        - 'La préversion de l’API Codes de conduite, qui était accessible avec l’en-tête `scarlet-witch-preview`, est déprécié et n’est plus accessible dans {% data variables.product.prodname_ghe_server %} 3.4. Nous recommandons plutôt d’utiliser le point de terminaison « [Obtenir les métriques du profil de la communauté](/rest/reference/repos#get-community-profile-metrics) » pour récupérer des informations sur le code de conduite d’un dépôt. Pour plus d’informations, consultez l’« [Avis de dépréciation : préversion de l’API Codes de conduite](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/) » dans le journal des modifications de {% data variables.product.prodname_dotcom %}.'
+
+    - heading: Dépréciation des points de terminaison de l’API d’application OAuth et de l’authentification de l’API à l’aide de paramètres de requête
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |Depuis {% data variables.product.prodname_ghe_server %} 3.4, les [versions dépréciées des points de terminaison de l’API d’application OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) ont été supprimées. Si vous rencontrez des messages d’erreur 404 sur ces points de terminaison, convertissez votre code dans des versions de l’API d’application OAuth qui n’ont pas `access_tokens` dans l’URL. Nous avons également désactivé l’utilisation de l’authentification de l’API avec des paramètres de requête. Nous recommandons plutôt d’utiliser [l’authentification de l’API dans l’en-tête de la requête](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+
+|
+    - heading: Dépréciation de l’exécuteur CodeQL
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "L’exécuteur {% data variables.product.prodname_codeql %} est déprécié dans {% data variables.product.prodname_ghe_server %} 3.4 et n’est plus pris en charge. Cette dépréciation ne concerne que les utilisateurs qui utilisent l’analyse du code de {% data variables.product.prodname_codeql %} dans des systèmes CI/CD tiers, les utilisateurs de {% data variables.product.prodname_actions %} ne sont pas concernés. Nous recommandons vivement aux clients de migrer vers l’interface CLI de {% data variables.product.prodname_codeql %}, qui remplace toutes les fonctionnalités de l’exécuteur {% data variables.product.prodname_codeql %}. Pour plus d’informations, consultez le [Journal des modifications de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)."
+
+    - heading: Dépréciation des extensions bit-cache personnalisées
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |Depuis {% data variables.product.prodname_ghe_server %} 3.1, la prise en charge des extensions bit-cache propriétaires de {% data variables.product.company_short %} a commencé à être progressivement retirée. Ces extensions sont dépréciées dans {% data variables.product.prodname_ghe_server %} 3.3 et ultérieur.
+
+
+
+Tous les dépôts qui étaient déjà présents et actifs sur {% data variables.product.product_location %} version 3.1 ou 3.2 ont été automatiquement mis à jour.
+
+
+
+Les dépôts qui n’étaient pas présents et actifs avant la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.3 peuvent ne pas fonctionner de manière optimale tant qu’une tâche de maintenance du dépôt n’a pas été exécutée et ne s’est pas terminée avec succès.
+
+
+
+Pour lancer manuellement une tâche de maintenance sur des dépôts, accédez à `https://<nom-hôte>/stafftools/repositories/<propriétaire>/<dépôt>/network` pour chaque dépôt affecté et cliquez sur le bouton Planifier.
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.4 requiert au moins [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) pour les [Sauvegardes et la reprise d’activité après sinistre](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

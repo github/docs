@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 65ef5b7ddead68864d8890f47e1ec5e8163a368b
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 69fce359695e2b23342e04a73397ac717d580b7b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147881949"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193455"
 ---
-- 検証済みの学生とオープンソースのメンテナンス担当者は、{% data variables.product.prodname_copilot %} を無料で使用できます。 
-- 学生またはオープンソースのメンテナンス担当者ではない場合は、1 回限りの 60 日間の試用版で {% data variables.product.prodname_copilot %} を無料で試すことができます。 無料試用版の後、継続して使うためには、有料のサブスクリプションが必要になります。 無料試用版を開始するには、課金情報を入力する必要があります。 詳細については、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
+- 検証済みの学生、教師とオープンソースのメンテナンス担当者は、{% data variables.product.prodname_copilot %} を無料で使えます。 
+- 学生、教師、またはオープンソースのメンテナンス担当者でない場合は、アクティブな無料試用版またはサブスクリプションが必要です。 詳しくは、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」をご覧ください。

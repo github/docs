@@ -73,7 +73,7 @@ featuredLinks:
     - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
     - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
     - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
-    - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
     - '{% ifversion ghes %}/admin/enterprise-management/creating-a-high-availability-replica{% endif %}'
     - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
@@ -125,11 +125,11 @@ children:
   - /guides
   - /release-notes
   - /all-releases
-ms.openlocfilehash: 3980ad01e56bf1e38dd6473c5e5246c6d45350eb
-ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
+ms.openlocfilehash: 0a84555b92c4645807d082f0d7f9348dfd3fc4bf
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2022
-ms.locfileid: '148111306'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148179979'
 ---
 

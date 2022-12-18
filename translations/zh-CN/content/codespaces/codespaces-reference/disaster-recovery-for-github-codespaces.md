@@ -1,6 +1,6 @@
 ---
-title: Disaster recovery for GitHub Codespaces
-intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
+title: GitHub Codespaces 的灾难恢复
+intro: 本文描述了当整个地区因重大自然灾害或大范围服务中断而中断时，灾难恢复情景的指导。
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,44 +9,49 @@ topics:
 shortTitle: Disaster recovery
 redirect_from:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
+ms.openlocfilehash: 9b892d6a24332e01174c819e2e88a91d1cdf9d65
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158811'
 ---
+我们努力确保你始终能够使用 {% data variables.product.prodname_github_codespaces %}。 但是，超出我们控制范围的力量有时会以导致计划外服务中断的方式影响服务。
 
-We work hard to make sure that {% data variables.product.prodname_github_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
+虽然灾难恢复情况很少发生，但我们建议您为整个区域出现中断的可能性做好准备。 如果整个区域遇到服务中断，则数据的本地冗余副本将暂时不可用。
 
-Although disaster recovery scenarios are rare occurrences, we recommend that you prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
-
-The following guidance provides options on how to handle service disruption to the entire region where your codespace is deployed.
+以下指南提供了如何处理部署代码空间的整个区域的服务中断的选项。
 
 {% note %}
 
-**Note:** You can reduce the potential impact of service-wide outages by pushing to remote repositories frequently.
+注意：可以通过频繁推送到远程存储库来减少服务中断的潜在影响。
 
 {% endnote %}
 
-## Option 1: Create a new codespace in another region
+## 选项 1：在另一个区域中创建新的代码空间
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+如果发生区域性断电，我们建议您在未受影响的区域中重新创建代码空间以继续工作。 此新代码将包含您上次推送到 {% data variables.product.prodname_dotcom %} 后的所有更改。 有关手动设置另一个区域的信息，请参阅“[为 {% data variables.product.prodname_github_codespaces %} 设置默认区域](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)”。
 
-You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+你可以通过在项目存储库中配置 `devcontainer.json` 来优化恢复时间，这样可定义工具、运行时间、框架、编辑器设置、扩展以及其他自动恢复开发环境所需的配置。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
-## Option 2: Wait for recovery
+## 选项 2：等待恢复
 
-In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
+在此情况下，不需要采取任何操作。 但要知道，我们正在努力还原服务的可用性。 
 
-You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
+你可以在[状态仪表板](https://www.githubstatus.com/)上查看当前服务状态。
 
-## Option 3: Clone the repository locally or edit in the browser
+## 选项 3：本地克隆存储库或在浏览器中编辑
 
-While {% data variables.product.prodname_github_codespaces %} provides the benefit of a pre-configured developer environmnent, your source code should always be accessible through the repository hosted on {% data variables.product.prodname_dotcom_the_website %}. In the event of a {% data variables.product.prodname_github_codespaces %} outage, you can still clone the repository locally or edit files in the {% data variables.product.company_short %} browser editor. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+虽然 {% data variables.product.prodname_github_codespaces %} 具有预配置的开发者环境的优点，但源代码应该始终可以通过 {% data variables.product.prodname_dotcom_the_website %} 托管的存储库访问。 如果发生 {% data variables.product.prodname_github_codespaces %} 中断，仍然可以本地克隆存储库或在 {% data variables.product.company_short %} 浏览器编辑器中编辑文件。 有关详细信息，请参阅“[编辑文件](/repositories/working-with-files/managing-files/editing-files)”。
 
-While this option does not configure a development environment for you, it will allow you to make changes to your source code as needed while you wait for the service disruption to resolve.
+虽然此选项没有为您配置开发环境， 但它允许您在等待服务中断解决时根据需要更改源代码。
 
-## Option 4: Use the Dev Containers extension and Docker for a local containerized environment
+## 选项 4：对本地容器化环境使用开发容器扩展和 Docker
 
-If your repository has a `devcontainer.json`, consider using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in {% data variables.product.prodname_vscode %} to build and attach to a local development container for your repository. The setup time for this option will vary depending on your local specifications and the complexity of your dev container setup. For more information, see "[Developing inside a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+如果存储库具有 `devcontainer.json`，请考虑在 {% data variables.product.prodname_vscode %} 中使用[开发容器扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)构建并连接到存储库的本地开发容器。 此选项的设置时间将因您本地规格和开发容器设置的复杂性而异。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[在容器中开发](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)”。
 
 {% note %}
 
-**Note:** Be sure your local setup meets the [minimum requirements](https://code.visualstudio.com/docs/remote/containers#_system-requirements) before attempting this option.
+注意：在尝试使用此选项之前，请确保本地设置满足[最低要求](https://code.visualstudio.com/docs/remote/containers#_system-requirements)。
 
 {% endnote %}

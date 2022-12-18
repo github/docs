@@ -1,7 +1,7 @@
 ---
-title: Migrating your enterprise to GitHub Actions
+title: 将企业迁移到 GitHub Actions
 shortTitle: Migrate to Actions
-intro: 'Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
+intro: '了解如何规划从其他提供商迁移到企业的 {% data variables.product.prodname_actions %}。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -10,78 +10,83 @@ type: how_to
 topics:
   - Actions
   - Enterprise
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159790'
 ---
+## 关于企业迁移到 {% data variables.product.prodname_actions %}
 
-## About enterprise migrations to {% data variables.product.prodname_actions %}
+要将企业从现有系统迁移到 {% data variables.product.prodname_actions %}，您可以规划迁移、完成迁移和停用现有系统。
 
-To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
+本指南介绍了迁移的具体注意事项。 有关向企业介绍 {% data variables.product.prodname_actions %} 的其他信息，请参阅“[向企业介绍 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)”。
 
-This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+## 规划迁移
 
-## Planning your migration
+在开始将企业迁移到 {% data variables.product.prodname_actions %} 之前，应确定将迁移哪些工作流程以及这些迁移将如何影响您的团队，然后规划如何以及何时完成迁移。
 
-Before you begin migrating your enterprise to {% data variables.product.prodname_actions %}, you should identify which workflows will be migrated and how those migrations will affect your teams, then plan how and when you will complete the migrations.
+### 利用迁移专家
 
-### Leveraging migration specialists
+{% data variables.product.company_short %} 可以帮助您进行迁移，并且您也可以购买 {% data variables.product.prodname_professional_services %}。 更多信息请联系您的专属代表或 {% data variables.contact.contact_enterprise_sales %}。
 
-{% data variables.product.company_short %} can help with your migration, and you may also benefit from purchasing {% data variables.product.prodname_professional_services %}. For more information, contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.
+### 确定和清点迁移目标
 
-### Identifying and inventorying migration targets
+在迁移到 {% data variables.product.prodname_actions %} 之前，您需要全面了解企业在现有系统中使用的工作流程。
 
-Before you can migrate to {% data variables.product.prodname_actions %}, you need to have a complete understanding of the workflows being used by your enterprise in your existing system.
+首先，创建企业内现有构建和发布工作流的清单，收集有关哪些工作流程正被使用但需要迁移以及哪些工作流程留在后面迁移的信息。
 
-First, create an inventory of the existing build and release workflows within your enterprise, gathering information about which workflows are being actively used and need to migrated and which can be left behind.
+接下来，了解当前提供商与 {% data variables.product.prodname_actions %} 之间的区别。 这将帮助您评估迁移每个工作流程时遇到的任何困难，以及您的企业在哪些方面可能会遇到功能差异。 有关详细信息，请参阅“[迁移到 {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)”。
 
-Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. For more information, see "[Migrating to {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)."
+使用此信息，您将能够确定哪些工作流程要迁移到 {% data variables.product.prodname_actions %}。
 
-With this information, you'll be able to determine which workflows you can and want to migrate to {% data variables.product.prodname_actions %}.
+### 确定迁移对团队的影响
 
-### Determine team impacts from migrations
+当您更改企业中使用的工具时，会影响团队的工作方式。 您需要考虑将工作流从现有系统迁移到 {% data variables.product.prodname_actions %} 将如何影响开发人员的日常工作。
 
-When you change the tools being used within your enterprise, you influence how your team works. You'll need to consider how moving a workflow from your existing systems to {% data variables.product.prodname_actions %} will affect your developers' day-to-day work.
+确定将受迁移影响的任何流程、集成和第三方工具，并为需要进行的任何更新制定计划。
 
-Identify any processes, integrations, and third-party tools that will be affected by your migration, and make a plan for any updates you'll need to make.
+请考虑迁移可能会如何影响您的合规性问题。 例如，您现有的凭据扫描和安全分析工具是与 {% data variables.product.prodname_actions %} 一起使用，还是需要使用新工具？
 
-Consider how the migration may affect your compliance concerns. For example, will your existing credential scanning and security analysis tools work with {% data variables.product.prodname_actions %}, or will you need to use new tools?
+识别现有系统中的网关和检查，并验证是否可以使用 {% data variables.product.prodname_actions %} 实施它们。
 
-Identify the gates and checks in your existing system and verify that you can implement them with {% data variables.product.prodname_actions %}.
+### 识别和验证迁移工具
 
-### Identifying and validating migration tools
+自动迁移工具可以将企业的工作流程从现有系统的语法转换为 {% data variables.product.prodname_actions %} 所需的语法。 确定第三方工具或者联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}，询问 {% data variables.product.company_short %} 可以提供的工具。 例如，可以使用 {% data variables.product.prodname_actions_importer %} 来规划 CI 管道、限定其范围以及将 CI 管道从各种受支持的服务迁移到 {% data variables.product.prodname_actions %}。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions_importer %} 自动执行迁移](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)”。
 
-Automated migration tools can translate your enterprise's workflows from the existing system's syntax to the syntax required by {% data variables.product.prodname_actions %}. Identify third-party tooling or contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %} to ask about tools that {% data variables.product.company_short %} can provide. For example, you can use the {% data variables.product.prodname_actions_importer %} to plan, scope, and migrate your CI pipelines to {% data variables.product.prodname_actions %} from various supported services. For more information, see "[Automating migration with {% data variables.product.prodname_actions_importer %}](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)."
+确定用于自动执行迁移的工具后，请通过在某些测试工作流程上运行该工具并验证结果是否符合预期来验证该工具。
 
-After you've identified a tool to automate your migrations, validate the tool by running the tool on some test workflows and verifying that the results are as expected.
+自动化工具应该能够迁移大部分工作流程，但您可能需要手动重写至少一小部分。 估计您需要完成的手动工作量。
 
-Automated tooling should be able to migrate the majority of your workflows, but you'll likely need to manually rewrite at least a small percentage. Estimate the amount of manual work you'll need to complete.
+### 确定迁移方法
 
-### Deciding on a migration approach
+确定最适合您的企业的迁移方法。 较小的团队可以使用“淘汰和替换”方法一次迁移所有工作流程。 对于大型企业，迭代方法可能更现实。 您可以选择让中央机构管理整个迁移过程，也可以要求各个团队通过迁移自己的工作流程进行自助服务。
 
-Determine the migration approach that will work best for your enterprise. Smaller teams may be able to migrate all their workflows at once, with a "rip-and-replace" approach. For larger enterprises, an iterative approach may be more realistic. You can choose to have a central body manage the entire migration or you can ask individual teams to self serve by migrating their own workflows.
+我们建议采用将主动管理与自助服务相结合的迭代方法。 从一小群早期采用者开始，他们可以充当您的内部拥护者。 确定一些足够全面的工作流程，以代表您的业务广度。 与早期采用者合作，将这些工作流程迁移到 {% data variables.product.prodname_actions %}，根据需要进行迭代。 这将让其他团队相信他们的工作流程也可以迁移。
 
-We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identify a handful of workflows that are comprehensive enough to represent the breadth of your business. Work with your early adopters to migrate those workflows to {% data variables.product.prodname_actions %}, iterating as needed. This will give other teams confidence that their workflows can be migrated, too.
+然后，使 {% data variables.product.prodname_actions %} 可供您的大型组织使用。 提供资源以帮助这些团队将自己的工作流程迁移到 {% data variables.product.prodname_actions %}，并在现有系统将要停用时通知团队。 
 
-Then, make {% data variables.product.prodname_actions %} available to your larger organization. Provide resources to help these teams migrate their own workflows to {% data variables.product.prodname_actions %}, and inform the teams when the existing systems will be retired. 
+最后，通知仍在使用旧系统的任何团队，以便在特定时间范围内完成迁移。 您可以指出其他团队的成功案例，以向他们保证迁移是可能的，也是可取的。
 
-Finally, inform any teams that are still using your old systems to complete their migrations within a specific timeframe. You can point to the successes of other teams to reassure them that migration is possible and desirable.
+### 定义迁移计划
 
-### Defining your migration schedule
+确定迁移方法后，请制定一个计划，说明每个团队何时将其工作流程迁移到 {% data variables.product.prodname_actions %}。
 
-After you decide on a migration approach, build a schedule that outlines when each of your teams will migrate their workflows to {% data variables.product.prodname_actions %}.
+首先，确定您希望迁移完成的日期。 例如，您可以计划在与当前提供商的合同结束时完成迁移。
 
-First, decide the date you'd like your migration to be complete. For example, you can plan to complete your migration by the time your contract with your current provider ends.
+然后，与您的团队合作，创建一个符合最后期限又不会牺牲团队目标的时间表。 查看业务的节奏以及您要求迁移的每个团队的工作负载。 与每个团队协调，了解他们的交付时间表，并制定一个计划，允许团队在不影响其交付能力的时间迁移其工作流程。
 
-Then, work with your teams to create a schedule that meets your deadline without sacrificing their team goals. Look at your business's cadence and the workload of each individual team you're asking to migrate. Coordinate with each team to understand their delivery schedules and create a plan that allows the team to migrate their workflows at a time that won't impact their ability to deliver.
+## 迁移到 {% data variables.product.prodname_actions %}
 
-## Migrating to {% data variables.product.prodname_actions %}
+当您准备好开始迁移时，请使用上面计划的自动化工具和手动重写将现有工作流程转换为 {% data variables.product.prodname_actions %}。
 
-When you're ready to start your migration, translate your existing workflows to {% data variables.product.prodname_actions %} using the automated tooling and manual rewriting you planned for above.
+您可能还希望维护现有系统中的旧构件，也许是通过编写脚本化进程来存档构件。
 
-You may also want to maintain old build artifacts from your existing system, perhaps by writing a scripted process to archive the artifacts.
+## 停用现有系统
 
-## Retiring existing systems
+迁移完成后，可以考虑停用现有系统。
 
-After your migration is complete, you can think about retiring your existing system.
+您可能希望在一段时间内并行运行这两个系统，同时验证 {% data variables.product.prodname_actions %} 配置是否稳定，而不会降低开发人员的体验。
 
-You may want to run both systems side-by-side for some period of time, while you verify that your {% data variables.product.prodname_actions %} configuration is stable, with no degradation of experience for developers.
-
-Eventually, decommission and shut off the old systems, and ensure that no one within your enterprise can turn the old systems back on.
+最终，停用并关闭旧系统，并确保企业内没有人可以重新打开旧系统。

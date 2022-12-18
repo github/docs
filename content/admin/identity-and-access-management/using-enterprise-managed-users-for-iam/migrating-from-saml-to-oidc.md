@@ -12,7 +12,7 @@ topics:
   - SSO
 ---
 
-{% data reusables.enterprise-accounts.oidc-beta-notice %}
+{% data reusables.enterprise-accounts.azure-emu-support-oidc %}
 
 ## About migrating your {% data variables.enterprise.prodname_emu_enterprise %} from SAML to OIDC
 

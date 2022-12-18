@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 130c705dad9367dbecb144ac281e8e58fa6d6cb7
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.openlocfilehash: dc4b17d3c5f283d72fcda54e4a95e8db2821714a
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147880369"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180100"
 ---
 Se você estiver usando uma lista de permissões, você também pode optar por adicionar automaticamente à sua lista de permissões todos os endereços IP configurados em {% data variables.product.prodname_github_apps %} que estão instalados na sua empresa. 
 
@@ -17,6 +17,6 @@ Para obter mais informações sobre como criar uma lista de permissões para um 
 Para habilitar a adição automática de endereço IP para {% data variables.product.prodname_github_apps %}:
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
-1. Em "Lista de IPs permitidos", selecione **Habilitar configuração da lista de IPs permitidos para Aplicativos do GitHub instalados**.
+1. Selecione **Habilitar configuração da lista de permissões de IP para Aplicativos do GitHub instalados**. Se você estiver usando {% data variables.product.prodname_emus %} com o OIDC, primeiro selecione **GitHub** como sua configuração de lista de permissões de IP, depois selecione **Habilitar configuração de lista de permissões de IP para Aplicativos do GitHub instalados**.
   ![Caixa de seleção usada para permitir endereços IP do Aplicativo do GitHub](/assets/images/help/security/enable-ip-allowlist-githubapps-checkbox.png)
 1. Clique em **Save** (Salvar).

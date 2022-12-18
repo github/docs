@@ -2,7 +2,7 @@
 title: '{% data variables.product.prodname_project_v1_caps %} 卡'
 shortTitle: Cards
 allowTitleToDifferFromFilename: true
-intro: '使用 {% data variables.product.prodname_project_v1 %} 卡 API，可以在 {% data variables.projects.projects_v1_board %} 上创建和管理卡。'
+intro: '使用 REST API 创建和管理 {% data variables.projects.projects_v1_board %} 上的卡片。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 5e923c48ae6b5026ad5eaf518320e33f477e1926
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 92e3e1c003656ce8a11dc5de4285336bb0331f7c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147881866'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193234'
 ---
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

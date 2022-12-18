@@ -1,237 +1,244 @@
 date: '2022-03-15'
 intro: |
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
-
-  > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
+  
+  アップグレードの手順については、「[{% data variables.product.prodname_ghe_server %} のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)」を参照してください。
+  
+  > このリリースを、いつも側にいて助けてくれた仕事仲間であり友人でもある John に捧げます。彼を失って淋しい限りです。
   >
   > **John "Ralph" Wiebalk 1986–2021**
-
 sections:
   features:
-    - heading: Secret scanning REST API now returns locations
+    - heading: Secret scanning REST API で場所が返されるようになった
       notes:
         # https://github.com/github/releases/issues/1642
-        - |
-          {% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve commit details of secrets detected in private repository scans. The new endpoint returns details of a secret's first detection within a file, including the secret's location and commit SHA. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.
+        - |{% data variables.product.prodname_GH_advanced_security %} をお使いのお客様はこの REST API を使用して、プライベート リポジトリ スキャンで検出されるシークレットのコミットの詳細を取得できるようになりました。新しいエンドポイントからは、シークレットの場所とコミット SHA を含め、ファイル内でのシークレットの最初の検出の詳細が返されます。詳しくは、REST API ドキュメントの「[シークレット スキャン](/rest/reference/secret-scanning)」を参照してください。
 
-    - heading: Export license data of committer-based billing for GitHub Advanced Security
+|
+    - heading: GitHub Advanced Security のコミッターベース課金のライセンス データをエクスポートする
       notes:
         # https://github.com/github/releases/issues/1757
-        - |
-          Enterprise and organization owners can now export their {% data variables.product.prodname_GH_advanced_security %} license usage data to a CSV file. The {% data variables.product.prodname_advanced_security %} billing data can also be retrieved via billing endpoints in the REST API. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)."
+        - |Enterprise と Organization では、{% data variables.product.prodname_GH_advanced_security %} ライセンスの使用状況データを CSV ファイルにエクスポートできるようになりました。また、REST API の課金エンドポイント経由で {% data variables.product.prodname_advanced_security %} 課金データを取得することもできます。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)を参照してください。
 
-    - heading: GitHub Actions reusable workflows in public beta
+|
+    - heading: バブリック ベータ版で再利用可能な GitHub Actions ワークフロー
       notes:
         # https://github.com/github/releases/issues/1541
-        - |
-          You can now reuse entire workflows as if they were an action. This feature is available in public beta. Instead of copying and pasting workflow definitions across repositories, you can now reference an existing workflow with a single line of configuration. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)."
+        - |ワークフロー全体を 1 つのアクションであるかのように再利用できるようになりました。この機能はパブリック ベータ版で利用できます。リポジトリ全体でワークフロー定義をコピーして貼り付けるのではなく、1 行の構成で既存のワークフローを参照できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)を参照してください。
 
-    - heading: Dependabot security and version updates in public beta
+|
+    - heading: パブリック ベータ版の Dependabot セキュリティとバージョンの更新
       notes:
         # https://github.com/github/releases/issues/2004
-        - |
-          {% data variables.product.prodname_dependabot %} is now available in {% data variables.product.prodname_ghe_server %} 3.4 as a public beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_dependabot %} to be enabled by an administrator. Beta feedback and suggestions can be shared in the [{% data variables.product.prodname_dependabot %} Feedback GitHub discussion](https://github.com/community/community/discussions/categories/dependabot). For more information and to try the beta, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+        - |{% data variables.product.prodname_dependabot %} は {% data variables.product.prodname_ghe_server %} 3.4 でパブリック ベータ版として利用できるようになりました。これにより、いくつかの一般的なエコシステムについて、バージョンの更新とセキュリティの更新の両方が提供されます。{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_dependabot %} では、{% data variables.product.prodname_actions %} と、{% data variables.product.prodname_dependabot %} の使用のために構成されたセルフホステッド ランナーのプールが必要です。また、{% data variables.product.prodname_ghe_server %} の{% data variables.product.prodname_dependabot %} では、{% data variables.product.prodname_github_connect %} と {% data variables.product.prodname_dependabot %} を管理者が有効にする必要があります。ベータ版に関するフィードバックと提案は [{% data variables.product.prodname_dependabot %} フィードバックについての GitHub ディスカッション](https://github.com/community/community/discussions/categories/dependabot)で共有できます。詳しい情報が必要な場合や、ベータ版をお試しになる場合は、[Enterprise での {% data variables.product.prodname_dependabot %} のセキュリティとバージョンの更新の設定](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)に関するページを参照してください。
 
-    - heading: SAML authentication supports encrypted assertions
+|
+    - heading: SAML 認証で暗号化されたアサーションがサポートされる
       notes:
         # https://github.com/github/releases/issues/1946
-        - |
-          If you use SAML authentication for {% data variables.product.prodname_ghe_server %}, you can now configure encrypted assertions from your IdP to improve security. Encrypted assertions add an additional layer of encryption when your IdP transmits information to {% data variables.location.product_location %}. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+        - |{% data variables.product.prodname_ghe_server %} に SAML 認証を使っている場合、IdP から暗号化されたアサーションを構成して、セキュリティを強化できるようになりました。IdP が {% data variables.product.product_location %} に情報を送信するとき、暗号化されたアサーションによって新しい暗号化のレイヤーが追加されます。詳しくは、[SAML の使用](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)に関する記事をご覧ください。
 
-    - heading: Edit files within pull requests in GitHub Mobile for iOS
-      notes:
-        # https://github.com/github/releases/issues/2514
-        - |
-          In GitHub Mobile for iOS 1.80.0 and later, users can now edit files within a pull request's topic branch. Support for editing files will come to GitHub Mobile for Android in a future release. [Updated: 2022-09-13]
-
+|
   changes:
-    - heading: Administration Changes
+    - heading: 管理の変更
       notes:
         # https://github.com/github/releases/issues/1657
-        - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
+        - "ユーザーは、タブと同じ数のスペースを選べるようになりました。その際に、ユーザー アカウントの [外観] 設定で希望するタブのサイズを設定します。その希望するタブのサイズを使用して、タブ インデントを含むすべてのコードがレンダリングされます。"
 
         # https://github.com/github/releases/issues/2062
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - "{% data variables.product.prodname_github_connect %} データベース接続レコードには、アクティブおよび休眠ユーザーの数と構成済みの休眠期間が含まれるようになりました。"
 
         # https://github.com/github/releases/issues/1722
-        - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
+        - "{% data variables.product.prodname_ghe_server %} にカスタム フッターを追加することで、ユーザーが Enterprise 固有のリンクにアクセスできるようにすることができます。詳しくは、「[ユーザー設定のフッターの構成](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)」をご覧ください。"
 
-    - heading: Performance Changes
+    - heading: パフォーマンスの変更
       notes:
       # https://github.com/github/releases/issues/2031
-      - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
+      - "高可用性構成で {% data variables.product.prodname_ghe_server %} インスタンス間の通信をセキュリティで保護するために使用される WireGuard が、カーネル実装に移行されました。"
 
-    - heading: Notification Changes
+    - heading: 通知の変更
       notes:
       # https://github.com/github/releases/issues/1801
-      - Organization owners can now unsubscribe from email notifications when new deploy keys are added to repositories belonging to their organizations. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+      - "Organization 所有者は、新しいデプロイ キーが、Organization に属しているリポジトリに追加されたときにメール通知の登録を解除できるようになりました。詳しくは、[通知の構成](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)に関するページを参照してください。"
 
       # https://github.com/github/releases/issues/1714
-      - 'Notification emails from newly created issues and pull requests now include `(Issue #xx)` or `(PR #xx)` in the email subject, so you can recognize and filter emails that reference these types of issues.'
+      - '新たに作成された issue と pull request からの通知メールの件名に `(Issue #xx)` または `(PR #xx)` が含まれるようになり、このような種類の issue を参照するメールを認識してフィルター処理できるようになりました。'
 
-    - heading: Organization Changes
+    - heading: Organization の変更
       notes:
         # https://github.com/github/releases/issues/1509
-        - Organizations can now display a `README.md` file on their profile Overview. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)."
+        - "Organization では、プロファイルの [概要] で`README.md` ファイルを表示できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)を参照してください。"
 
         # https://github.com/github/releases/issues/1883
-        - Members of organizations can now view a list of their enterprise owners under the organization's "People" tab. The enterprise owners list is also now accessible using the GraphQL API. For more information, see the "[`enterpriseOwners`](/graphql/reference/objects#organization)" field under the Organization object in the GraphQL API documentation.
+        - "Organization のメンバーは、Organization の [人] タブの下に Enterprise 所有者のリストを表示できるようになりました。また、Enterprise 所有者リストには、GraphQL API を使用してアクセスできるようになりました。詳しくは、GraphQL API ドキュメントの Organization オブジェクトの下にある [`enterpriseOwners`](/graphql/reference/objects#organization) フィールドを参照してください。"
 
-    - heading: Repositories changes
+    - heading: リポジトリの変更
       notes:
         # https://github.com/github/releases/issues/1944
-        - |
-          A "Manage Access" section is now shown on the "Collaborators and teams" page in your repository settings. The new section makes it easier for repository administrators to see and manage who has access to their repository, and the level of access granted to each user. Administrators can now:
+        - |[アクセスの管理] セクションが、リポジトリ設定の [コラボレーターとチーム] ページに表示されるようになりました。新しいセクションを使うと、リポジトリ管理者はリポジトリにアクセスできるユーザーと、各ユーザーに許可されているアクセスのレベルをより簡単に表示して管理できます。管理者は次のことをできるようになりました。
 
-          * Search all members, teams and collaborators who have access to the repository.
-          * View when members have mixed role assignments, granted to them directly as individuals or indirectly via a team. This is visualized through a new "mixed roles" warning, which displays the highest level role the user is granted if their permission level is higher than their assigned role.
-          * Manage access to popular repositories reliably, with page pagination and fewer timeouts when large groups of users have access.
 
+
+* リポジトリにアクセスできるすべてのメンバー、チーム、コラボレーターを検索する。
+
+* メンバーに混合ロールがいつ割り当てられ、個人として直接またはチームを介して間接的にアクセスが許可されたかを確認する。これは、新しい "混合ロール" 警告で視覚化され、アクセス許可レベルが割り当てられたロールよりも高い場合に、ユーザーに許可された最も高いレベルのロールが表示されます。
+
+* 確実に人気のあるリポジトリへのアクセスを管理する。この場合、ページネーションが行われ、ユーザーの大規模なグループによるアクセス時のタイムアウトが短くなります。
+
+|
         # https://github.com/github/releases/issues/1748
-        - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the repository invitation experience, such as notifications for private repository invites, a UI prompt when visiting a private repository you have a pending invitation for, and a banner on a public repository overview page when there is an pending invitation.'
+        - '{% data variables.product.prodname_ghe_server %} 3.4 では、プライベート リポジトリの招待の通知、保留中の招待があるプライベート リポジトリへのアクセス時の UI プロンプト、保留中の招待がある場合のパブリック リポジトリの概要ページ上のバナーなど、リポジトリの招待エクスペリエンスが改善されています。'
 
         # https://github.com/github/releases/issues/1739
-        - You can now use single-character prefixes for custom autolinks. Autolink prefixes also now allow `.`, `-`, `_`, `+`, `=`, `:`, `/`, and `#` characters, as well as alphanumerics. For more information about custom autolinks, see "[Configuring autolinks to reference external resources](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)."
+        - "カスタム自動リンクに単一文字のプレフィクスを使用できるようになりました。また、自動リンクのプレフィックスに、英数字だけでなく、`.`、`-`、`_`、`+`、`=`、`:`、`/`、`#` 文字を使用できるようになりました。カスタム自動リンクについて詳しくは、「[外部リソースを参照する自動リンクの構成](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)」を参照してください。"
 
         # https://github.com/github/releases/issues/1776
-        - A `CODE_OF_CONDUCT.md` file in the root of a repository is now highlighted in the "About" sidebar on the repository overview page.
+        - "リポジトリのルートの `CODE_OF_CONDUCT.md` ファイルが、リポジトリ概要ページの [バージョン情報] サイドバーで強調表示されるようになりました。"
 
-    - heading: 'Releases changes'
+    - heading: 'リリースの変更'
       notes:
         # https://github.com/github/releases/issues/1723
-        - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the Releases UI, such as automatically generated release notes which display a summary of all the pull requests for a given release. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.4 では、特定のリリースのすべての pull request の概要を示す自動生成リリース ノートなど、リリース UI が改善されています。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)を参照してください。'
 
         # https://github.com/github/releases/issues/1606
-        - When a release is published, an avatar list is now displayed at the bottom of the release. Avatars for all user accounts mentioned in the release notes are shown. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - "リリースの公開時に、そのリリースの下部にアバター リストが表示されるようになりました。リリース ノートに記載されているすべてのユーザー アカウントのアバターが表示されます。詳しくは、「[リポジトリのリリースを管理する](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)」を参照してください。"
 
-    - heading: 'Markdown changes'
+    - heading: 'Markdown の変更'
       notes:
         # https://github.com/github/releases/issues/1779
-        - You can now use the new "Accessibility" settings page to manage your keyboard shortcuts. You can choose to disable keyboard shortcuts that only use single characters like <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd>, and <kbd>.</kbd> (the period key). For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)."
+        - "新しい [アクセシビリティ] 設定ページを使用して、キーボード ショートカットを管理できるようになりました。<kbd>S</kbd>、<kbd>G</kbd> <kbd>C</kbd>、<kbd>.</kbd> (ピリオド キー) などの単一文字のみを使用するキーボード ショートカットを無効にすることを選べるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)を参照してください。"
 
         # https://github.com/github/releases/issues/1727
-        - You can now choose to use a fixed-width font in Markdown-enabled fields, like issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)."
+        - "issue のコメントや pull request の説明など、Markdown 対応フィールドで固定幅フォントを使用することを選べるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)を参照してください。"
 
         # https://github.com/github/releases/issues/1761
-        - You can now paste a URL on selected text to quickly create a Markdown link. This works in all Markdown-enabled fields, such as issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)."
+        - "選択したテキストに URL を貼り付けて、Markdown リンクをすばやく作成できるようになりました。これは、issue のコメントや pull request の説明など、Markdown 対応フィールドで機能します。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)を参照してください。"
 
         # https://github.com/github/releases/issues/1758
-        - An image URL can now be appended with a theme context, such as `#gh-dark-mode-only`, to define how the Markdown image is displayed to a viewer. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)."
+        - "閲覧者への Markdown イメージの表示方法を定義するために、イメージ URL に `#gh-dark-mode-only` などのテーマ コンテキストを付加できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)を参照してください。"
 
         # https://github.com/github/releases/issues/1686
-        - When creating or editing a gist file with the Markdown (`.md`) file extension, you can now use the "Preview" or "Preview Changes" tab to display a Markdown rendering of the file contents. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)."
+        - "Markdown (`.md`) ファイル拡張子が付いた gist ファイルの作成または編集時に、[プレビュー] または [プレビューの変更] タブを使用して、ファイル コンテンツの Markdown レンダリングを表示できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)を参照してください。"
 
         # https://github.com/github/releases/issues/1754
-        - When typing the name of a {% data variables.product.prodname_dotcom %} user in issues, pull requests and discussions, the @mention suggester now ranks existing participants higher than other {% data variables.product.prodname_dotcom %} users, so that it's more likely the user you're looking for will be listed.
+        - "issue、pull request、ディスカッションで {% data variables.product.prodname_dotcom %} の名前を入力したときに、@メンション suggester により、既存の参加者が他の {% data variables.product.prodname_dotcom %} ユーザーよりも上にランク付けされ、探しているユーザーが一覧表示される可能性が高くなりました。"
 
         # https://github.com/github/releases/issues/1636
-        - Right-to-left languages are now supported natively in Markdown files, issues, pull requests, discussions, and comments.
+        - Markdown ファイル、issue、pull request、ディスカッション、コメントで右から左に記述する言語がネイティブでサポートされるようになりました。
 
-    - heading: 'Issues and pull requests changes'
+    - heading: 'issue と pull request の変更'
       notes:
         # https://github.com/github/releases/issues/1731
-        - The diff setting to hide whitespace changes in the pull request "Files changed" tab is now retained for your user account for that pull request. The setting you have chosen is automatically reapplied if you navigate away from the page and then revisit the "Files changed" tab of the same pull request.
+        - "pull request の [変更されたファイル] タブの空白の変更を非表示にする diff 設定が、その pull request のユーザー アカウントに対して保持されるようになりました。選んだ設定は、ページから移動し、同じ pull request の [変更されたファイル] タブにアクセスした場合に自動的に再適用されます。"
 
         # https://github.com/github/releases/issues/1663
-        - When using auto assignment for pull request code reviews, you can now choose to only notify requested team members independently of your auto assignment settings. This setting is useful in scenarios where many users are auto assigned but not all users require notification. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)."
+        - "pull request コード レビューに対して自動割り当てを使用するときに、自動割り当て設定とは別に、要求されたチーム メンバーにのみ知らせることを選べるようになりました。この設定は、多くのユーザーが自動割り当てされるものの、すべてのユーザーが通知を必要としているわけでない場合に便利です。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)を参照してください。"
 
-    - heading: 'Branches changes'
+    - heading: 'ブランチの変更'
       notes:
         # https://github.com/github/releases/issues/1526
-        - Organization and repository administrators can now trigger webhooks to listen for changes to branch protection rules on their repositories. For more information, see the "[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)" event in the webhooks events and payloads documentation.
+        - "Organization とリポジトリの管理者は Webhook をトリガーし、リポジトリのブランチ保護ルールの変更をリッスンできるようになりました。詳しくは、Webhook のイベントとペイロード ドキュメントの「[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)」を参照してください。"
 
         # https://github.com/github/releases/issues/1759
-        - When configuring protected branches, you can now enforce that a required status check is provided by a specific {% data variables.product.prodname_github_app %}. If a status is then provided by a different application, or by a user via a commit status, merging is prevented. This ensures all changes are validated by the intended application. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)."
+        - "保護されたブランチを構成するときに、特定の {% data variables.product.prodname_github_app %} で必須の状態チェックが提供されるように強制できるようになりました。その後、状態が別のアプリケーション、またはコミットの状態に応じてユーザーによって提供された場合は、マージが妨げられます。これにより、すべての変更が目的のアプリケーションによって確実に検証されます。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)を参照してください。"
 
         # https://github.com/github/releases/issues/1911
-        - Only users with administrator permissions are now able to rename protected branches and modify branch protection rules. Previously, with the exception of the default branch, a collaborator could rename a branch and consequently any non-wildcard branch protection rules that applied to that branch were also renamed. For more information, see "[Renaming a branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+        - "保護されたブランチの名前を変更し、ブランチ保護ルールを変更できるのは、管理者権限を持つユーザーのみとなりました。以前は、既定のブランチを除き、コラボレーターがブランチの名前を変更できたため、そのブランチに適用されているワイルドカード以外のブランチ保護ルールの名前も変更されました。詳しくは、「[ブランチの名前を変更する](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)」と「[ブランチ保護ルールを管理する](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)」を参照してください。"
 
         # https://github.com/github/releases/issues/1845
-        - Administrators can now allow only specific users and teams to bypass pull request requirements. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)."
+        - "管理者は、特定のユーザーとチームのみに pull request の要件を回避することを許可できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)を参照してください。"
 
         # https://github.com/github/releases/issues/1850
-        - Administrators can now allow only specific users and teams to force push to a repository. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)."
+        - "管理者は、特定のユーザーとチームのみにリポジトリにフォース プッシュすることを許可できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)を参照してください。"
 
         # https://github.com/github/releases/issues/1796
-        - When requiring pull requests for all changes to a protected branch, administrators can now choose if approved reviews are also a requirement. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)."
+        - "保護されたブランチのすべての変更について pull request を必要とする場合、管理者は、承認済みレビューも必要とするかどうかを選べるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)を参照してください。"
 
-    - heading: 'GitHub Actions changes'
+    - heading: 'GitHub Actions の変更'
       notes:
         # https://github.com/github/releases/issues/1906
-        - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} for the `create`, `deployment`, and `deployment_status` events now always receive a read-only token and no secrets. Similarly, workflows triggered by {% data variables.product.prodname_dependabot %} for the `pull_request_target` event on pull requests where the base ref was created by {% data variables.product.prodname_dependabot %}, now always receive a read-only token and no secrets. These changes are designed to prevent potentially malicious code from executing in a privileged workflow. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
+        - '`create`、`deployment`、`deployment_status` イベントについて {% data variables.product.prodname_dependabot %} によってトリガーされる {% data variables.product.prodname_actions %} ワークフローでは、シークレットではなく、常に読み取り専用トークンが受け取られるようになりました。同様に、{% data variables.product.prodname_dependabot %} によってベース参照が作成された pull request の `pull_request_target` イベントについて {% data variables.product.prodname_dependabot %} によってトリガーされるワークフローでは、シークレットではなく、常に読み取り専用トークンが受け取られるようになりました。これらの変更は、悪意がある可能性のあるコードが特権のあるワークフローで実行されないようにするためのものです。詳しくは、「[{% data variables.product.prodname_actions %} による {% data variables.product.prodname_dependabot %} の自動化](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)」を参照してください。'
 
         # https://github.com/github/releases/issues/1667
-        - Workflow runs on `push` and `pull_request` events triggered by {% data variables.product.prodname_dependabot %} will now respect the permissions specified in your workflows, allowing you to control how you manage automatic dependency updates. The default token permissions will remain read-only. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)."
+        - "{% data variables.product.prodname_dependabot %} によってトリガーされる `push` と `pull_request` イベントでのワークフローの実行では、ユーザーのワークフローに指定されたアクセス許可が優先されるようになりました。これにより、ユーザーは自動依存関係更新の管理方法を制御できるようになります。既定のトークンのアクセス許可は読み取り専用のままになります。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)を参照してください。"
 
         # https://github.com/github/releases/issues/1668
-        - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} will now be sent the {% data variables.product.prodname_dependabot %} secrets. You can now pull from private package registries in your CI using the same secrets you have configured for {% data variables.product.prodname_dependabot %} to use, improving how {% data variables.product.prodname_actions %} and {% data variables.product.prodname_dependabot %} work together. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
+        - '{% data variables.product.prodname_dependabot %} によってトリガーされる {% data variables.product.prodname_actions %} ワークフローには、{% data variables.product.prodname_dependabot %} シークレットが送信されるようになりました。{% data variables.product.prodname_dependabot %} で使用するように構成したのと同じシークレットを使って、CI のプライベート パッケージ レジストリからプルできるようになりました。これにより、{% data variables.product.prodname_actions %} と {% data variables.product.prodname_dependabot %} との連携が改善されます。詳しくは、「[{% data variables.product.prodname_actions %} による {% data variables.product.prodname_dependabot %} の自動化](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)」を参照してください。'
 
         # https://github.com/github/releases/issues/1615
-        - You can now manage runner groups and see the status of your self-hosted runners using new Runners and Runner Groups pages in the UI. The Actions settings page for your repository or organization now shows a summary view of your runners, and allows you to deep dive into a specific runner to edit it or see what job it may be currently running. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)."
+        - "ランナー グループを管理し、UI の新しい [ランナー] と [ランナー グループ] ページを使って、セルフホステッド ランナーの状態を確認できるようになりました。リポジトリまたは Organization の Actions 設定ページに、ランナーの概要ビューが表示されるようになり、特定のランナーを深く掘り下げて編集したり、現在実行されている可能性のあるジョブを確認したりできるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)を参照してください。"
 
         # https://github.com/github/releases/issues/1785
-        - 'Actions authors can now have their action run in Node.js 16 by specifying [`runs.using` as `node16` in the action''s `action.yml`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). This is in addition to the existing Node.js 12 support; actions can continue to specify `runs.using: node12` to use the Node.js 12 runtime.'
+        - 'アクションの作成者は、自分のアクションを Node.js 16 で実行できるようになりました。その際に、[そのアクションの `action.yml` で `node16` として `runs.using`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions) を指定します。これは、既存の Node.js 12 サポートに追加されます。アクションでは引き続き `runs.using: node12` を指定して Node.js 12 ランタイムを使用できます。'
 
         # https://github.com/github/releases/issues/1799
-        - 'For manually triggered workflows, {% data variables.product.prodname_actions %} now supports the `choice`, `boolean`, and `environment` input types in addition to the default `string` type. For more information, see "[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)."'
+        - '手動でトリガーされたワークフローの場合、{% data variables.product.prodname_actions %} では、既定の `string` 型に加え、`choice`、`boolean`、`environment` 入力型がサポートされるようになりました。詳しくは、「[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)」を参照してください。'
 
         # https://github.com/github/releases/issues/1782
-        - Actions written in YAML, also known as composite actions, now support `if` conditionals. This lets you prevent specific steps from executing unless a condition has been met. Like steps defined in workflows, you can use any supported context and expression to create a conditional.
+        - YAML で記述されたアクション (複合アクションともいう) では、`if` 条件がサポートされるようになりました。これにより、条件が満たされなければ、特定の手順が行われないようにすることができます。ワークフローで定義されている手順と同様に、サポートされている任意のコンテキストや式を使って条件を作成できます。
 
         # https://github.com/github/releases/issues/1919
-        - The search order behavior for self-hosted runners has now changed, so that the first available matching runner at any level will run the job in all cases. This allows jobs to be sent to self-hosted runners much faster, especially for organizations and enterprises with lots of self-hosted runners. Previously, when running a job that required a self-hosted runner, {% data variables.product.prodname_actions %} would look for self-hosted runners in the repository, organization, and enterprise, in that order.
+        - "セルフホステッド ランナーの検索順の動作が変更され、どのような場合でも任意のレベルで最初に一致した使用可能なランナーでジョブが実行されるようになりました。特に多くのセルフホステッド ランナーが存在する Organization や Enterprise の場合、これにより、ジョブをセルフホステッド ランナーにはるかに高速に送信できるようになります。以前は、セルフホステッド ランナーを必要とするジョブを実行するときに、{% data variables.product.prodname_actions %} ではリポジトリ、Organization、Enterprise の順にセルフホステッド ランナーを探していました。"
 
         # https://github.com/github/releases/issues/1753
-        - Runner labels for {% data variables.product.prodname_actions %} self-hosted runners can now be listed, added and removed using the REST API. For more information about using the new APIs at a repository, organization, or enterprise level, see "[Repositories](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)", "[Organizations](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)", and "[Enterprises](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)" in the REST API documentation.
+        - "{% data variables.product.prodname_actions %} セルフホステッド ランナーのランナー ラベルは、REST API を使用して一覧表示し、追加および削除できるようになりました。リポジトリ、Organization、または Enterprise レベルでの新しい API の使用について詳しくは、REST API ドキュメントの「[リポジトリ](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)」、「[Organization](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)」、「[Enterprise](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)」を参照してください。"
 
-    - heading: 'Dependabot and Dependency graph changes'
+    - heading: 'Dependabot と依存関係グラフの変更'
       notes:
         # https://github.com/github/releases/issues/1520
-        - Dependency graph now supports detecting Python dependencies in repositories that use the Poetry package manager. Dependencies will be detected from both `pyproject.toml` and `poetry.lock` manifest files.
+        - Dependabot グラフでは、Poetry パッケージ マネージャーを使用するリポジトリでの Python 依存関係の検出がサポートされるようになりました。依存関係は、`pyproject.toml` と `poetry.lock` の両方のマニフェスト ファイルから検出されます。
 
         # https://github.com/github/releases/issues/1921
-        - When configuring {% data variables.product.prodname_dependabot %} security and version updates on GitHub Enterprise Server, we recommend you also enable {% data variables.product.prodname_dependabot %} in {% data variables.product.prodname_github_connect %}. This will allow {% data variables.product.prodname_dependabot %} to retrieve an updated list of dependencies and vulnerabilities from {% data variables.product.prodname_dotcom_the_website %}, by querying for information such as the changelogs of the public releases of open source code that you depend upon. For more information, see "[Enabling the dependency graph and Dependabot alerts for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+        - "GitHub Enterprise Server で {% data variables.product.prodname_dependabot %} のセキュリティとバージョンの更新を構成するときは、{% data variables.product.prodname_github_connect %} で {% data variables.product.prodname_dependabot %} も有効にすることをお勧めします。これにより、{% data variables.product.prodname_dependabot %} では、{% data variables.product.prodname_dotcom_the_website %} から依存関係と脆弱性の更新されたリストを取得できるようになります。その際は、依存するオープンソース コードのバブリック リリースの変更ログなどの情報のクエリを実行します。詳しくは、[Enterprise の依存関係グラフと Dependabot アラートの有効化](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)」に関するページを参照してください。"
 
         # https://github.com/github/releases/issues/1717
-        - '{% data variables.product.prodname_dependabot_alerts %} alerts can now be dismissed using the GraphQL API. For more information, see the "[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" mutation in the GraphQL API documentation.'
+        - '{% data variables.product.prodname_dependabot_alerts %} アラートは、GraphQL API を使用して無視できるようになりました。詳しくは、GraphQL API ドキュメントの「[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)」ミューテーションを参照してください。'
 
-    - heading: 'Code scanning and secret scanning changes'
+    - heading: 'コード スキャンとシークレット スキャンの変更'
       notes:
         # https://github.com/github/releases/issues/1802
-        - The {% data variables.product.prodname_codeql %} CLI now supports including markdown-rendered query help in SARIF files, so that the help text can be viewed in the {% data variables.product.prodname_code_scanning %} UI when the query generates an alert. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)."
+        - "{% data variables.product.prodname_codeql %} CLI では、SARIF ファイルにマークダウン レンダリング クエリ ヘルプを含められるようになり、クエリでアラートが生成されたときに {% data variables.product.prodname_code_scanning %} UI でヘルプ テキストを表示できるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)を参照してください。"
 
         # https://github.com/github/releases/issues/1790
-        - The {% data variables.product.prodname_codeql %} CLI and {% data variables.product.prodname_vscode %} extension now support building databases and analyzing code on machines powered by Apple Silicon, such as Apple M1. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)."
+        - "{% data variables.product.prodname_codeql %} CLI と {% data variables.product.prodname_vscode %} の拡張機能では、Apple M1 など、Apple Silicon 搭載のコンピューター上でのデータベースの構築とコードの分析がサポートされるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)を参照してください。"
 
         # https://github.com/github/releases/issues/1732
-        - |
-          The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) from the Python ecosystem. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)."
+        - |Python エコシステムのより多くの[ライブラリとフレームワーク](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)に対するサポートを追加することで、{% data variables.product.prodname_codeql %} の分析の複雑性が向上しました。結果として、{% data variables.product.prodname_codeql %} では信頼できないユーザー データの潜在的なソース、そのデータが流れるステップ、またデータが行き着く潜在的に危険なシンクをさらに検出できるようになりました。この結果、{% data variables.product.prodname_code_scanning %} アラートの品質が全体的に向上しました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)を参照してください。
 
+|
         # https://github.com/github/releases/issues/1567
-        - Code scanning with {% data variables.product.prodname_codeql %} now includes beta support for analyzing code in all common Ruby versions, up to and including 3.02. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)."
+        - "{% data variables.product.prodname_codeql %} でのコードスキャンに、すべての一般的な Ruby バージョン (3.02 まで) でのコード分析のベータ サポートが含まれるようになりました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)を参照してください。"
 
         # https://github.com/github/releases/issues/1764
-        - |
-          Several improvements have been made to the {% data variables.product.prodname_code_scanning %} API:
+        - |{% data variables.product.prodname_code_scanning %} API については、次のようにいくつかの点が改善されています。
 
-          * The `fixed_at` timestamp has been added to alerts. This timestamp is the first time that the alert was not detected in an analysis.
-          * Alert results can now be sorted using `sort` and `direction` on either `created`, `updated` or `number`. For more information, see "[List code scanning alerts for a repository](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)."
-          * A `Last-Modified` header has been added to the alerts and alert endpoint response. For more information, see [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) in the Mozilla documentation.
-          * The `relatedLocations` field has been added to the SARIF response when you request a code scanning analysis. The field may contain locations which are not the primary location of the alert. See an example in the [SARIF spec](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616) and for more information see "[Get a code scanning analysis for a repository](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)."
-          * Both `help` and `tags` data have been added to the webhook response alert rule object. For more information, see "[Code scanning alert webhooks events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)."
-          * Personal access tokens with the `public_repo` scope now have write access for code scanning endpoints on public repos, if the user has permission.
 
-          For more information, see "[Code scanning](/rest/reference/code-scanning)" in the REST API documentation.
 
+* アラートに `fixed_at` タイムスタンプが追加されました。このタイムスタンプは、分析でアラートが初めて検出されなかった時刻を表します。
+
+* アラートの結果を、`created`、`updated`、または `number` で `sort` と `direction` を使用して並べ替えられるようになりました。詳しくは、「[リポジトリのコード スキャン アラートを一覧表示する](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)」を参照してください。
+
+* `Last-Modified` ヘッダーがアラートとアラート エンドポイント応答に追加されました。詳しくは、Mozilla ドキュメントの「[`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified)」を参照してください。
+
+* コード スキャン分析の要求時の SARIF 応答に `relatedLocations` フィールドが追加されました。アラートのプライマリ ロケーションではないロケーションがフィールドに含まれる可能性があります。[SARIF 仕様](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616)の例を参照してください。詳しくは、「[リポジトリのコード スキャン分析の取得](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)」を参照してください。
+
+* `help` と `tags` の両方のデータが、Webhook 応答アラート ルール オブジェクトに追加されました。詳しくは、[コード スキャン アラートの Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)に関する記述を参照してください。
+
+* `public_repo` スコープが指定されている個人用アクセス トークンには、ユーザーにその権限がある場合に、パブリック リポジトリでのコード スキャン エンドポイントに対する書き込みアクセス権が付与されるようになりました。
+
+
+
+詳しくは、REST API ドキュメントの「[コード スキャン](/rest/reference/code-scanning)」を参照してください。
+
+|
         # https://github.com/github/releases/issues/1943
-        - '{% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve private repository secret scanning results at the enterprise level. The new endpoint supplements the existing repository-level and organization-level endpoints. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.'
+        - '{% data variables.product.prodname_GH_advanced_security %} をお使いのお客様は REST API を使用して、Enterprise レベルでプライベート リポジトリ シークレットのスキャン結果を取得できるようになりました。既存のリポジトリ レベルと Organization レベルのエンドポイントは、新しいエンドポイントで補完されます。詳しくは、REST API ドキュメントの「[シークレット スキャン](/rest/reference/secret-scanning)」を参照してください。'
 
-    - heading: Mobile changes
+    - heading: モバイルの変更
       notes:
         # https://github.com/github/mobile/issues/2440
         # https://github.com/github/enterprise2/pull/28057
-        - Support for {% data variables.product.prodname_mobile %} is now enabled by default for new {% data variables.product.prodname_ghe_server %} instances. If you have not explicitly disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled when you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information, see "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)."
+        - "{% data variables.product.prodname_mobile %} のサポートが、新しい {% data variables.product.prodname_ghe_server %} インスタンスに対して既定で有効にされるようになりました。{% data variables.product.prodname_mobile %} を明示的に無効または有効にしていない場合は、{% data variables.product.prodname_ghe_server %} 3.4.0 以降にアップグレードするときに、{% data variables.product.prodname_mobile %} が有効にされます。インスタンスの {% data variables.product.prodname_mobile %} を前に無効または有効にしている場合、アップグレード時にユーザー設定が保持されます。詳しくは、「[Enterprise 向けの {% data variables.product.prodname_mobile %} を管理する](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)」をご覧ください。"
+
 
   # No security/bug fixes for the GA release
   # security_fixes:
@@ -241,74 +248,86 @@ sections:
   #   - PLACEHOLDER
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services needs to be restarted after restoring appliance from backup taken on a different host.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
-      
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。
+    - 別のホストで作成されたバックアップからアプライアンスを復元した後に、Actions サービスを再起動する必要があります。
+    - |`--ephemeral` パラメーターを指定し、複数のレベル (たとえば、Enterprise と Organization の両方) でセルフホステッド ランナーを登録した後、ランナーがアイドル状態で停止し、再登録が必要になる場合があります。 [更新日: 2022-06-17]
+
+|
+    - |SAML の暗号化されたアサーションを {% data variables.product.prodname_ghe_server %} 3.4.0 と 3.4.1 で使うと、`SPSSODescriptor` の新しい XML 属性 `WantAssertionsEncrypted` に SAML メタデータの無効な属性が含まれます。この SAML メタデータ エンドポイントを使う IdP は、SAML メタデータ XML スキーマを検証するときにエラーが発生する可能性があります。修正は次回のパッチ リリースで利用可能になります。 [更新日: 2022-04-11]
+
+
+
+この問題を回避するには、次の 2 つの操作のいずれかを使用できます。
+
+- `WantAssertionsEncrypted` 属性を含まない SAML メタデータの静的なコピーをアップロードすることで、IdP を再構成します。
+
+- SAML メタデータをコピーし、`WantAssertionsEncrypted` 属性を削除し、それを Web サーバーでホストして、その URL を指すように IdP を再構成します。
+
+|
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+    - heading: GitHub Enterprise Server 3.0 の非推奨化
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.1
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 は 2022 年 2 月 16 日に廃止されました**。これは、この日付を過ぎると、重大なセキュリティの問題であってもパッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
+    - heading: GitHub Enterprise Server 3.1 の非推奨化
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 は 2022 年 6 月 3 日に廃止されました**。これは、この日付を過ぎると、重大なセキュリティの問題であってもパッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: XenServer Hypervisor サポートの非推奨化
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "{% data variables.product.prodname_ghe_server %} 3.3 以降、XenServer 上の {% data variables.product.prodname_ghe_server %} は非推奨になり、サポートされなくなりました。ご質問やご不明な点がございましたら、[GitHub サポート](https://support.github.com)にお問い合わせください。"
 
-    - heading: Deprecation of the Content Attachments API preview
+    - heading: Content Attachments API プレビューの非推奨化
       notes:
         #
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - "使用率が低いため、{% data variables.product.prodname_ghe_server %} 3.4 では Content References API プレビューは非推奨となりました。以前は、この API には `corsair-preview` ヘッダーを使用してアクセスできました。ユーザーは、この API を使用しなくても引き続き外部 URL に移動できます。Content References API について登録されている使用方法では、登録済みドメインから URL の Webhook 通知を受け取れなくなり、既存の添付コンテンツに対して試行された更新に有効な応答コードが返されなくなりました。"
 
-    - heading: Deprecation of the Codes of Conduct API preview
+    - heading: Codes of Conduct API プレビューの非推奨化
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - '`scarlet-witch-preview` ヘッダーを使ってアクセスできた Codes of Conduct API プレビューは、{% data variables.product.prodname_ghe_server %} 3.4 では非推奨になり、アクセスできなくなりました。代わりに、「[コミュニティ プロファイル メトリクスの取得](/rest/reference/repos#get-community-profile-metrics)」エンドポイントを使用して、リポジトリの行動規範に関する情報を取得することをお勧めします。詳しくは、{% data variables.product.prodname_dotcom %} 変更ログの「[非推奨のお知らせ: Codes of Conduct API プレビュー](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)」を参照してください。'
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: クエリ パラメーターを使った OAuth Application API エンドポイントと API 認証の非推奨化
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+        - |{% data variables.product.prodname_ghe_server %} 3.4 以降、[OAuth Application API エンドポイントの非推奨バージョン](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected)は削除されました。これらのエンドポイントで 404 エラー メッセージが表示された場合は、URL に `access_tokens` が含まれない OAuth Application API のバージョンにコードを変換します。また、クエリ パラメーターを使った API 認証の使用が無効になりました。代わりに、[要求ヘッダーで API 認証](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)を使うことをお勧めします。
 
-    - heading: Deprecation of the CodeQL runner
+|
+    - heading: CodeQL ランナーの非推奨化
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "{% data variables.product.prodname_ghe_server %} 3.4 では {% data variables.product.prodname_codeql %} ランナーは非推奨となり、サポートされなくなりました。この非推奨は、サード パーティの CI/CD システムで {% data variables.product.prodname_codeql %} コード スキャンを使用するユーザーにのみ影響します。{% data variables.product.prodname_actions %} ユーザーには影響しません。お客様には、{% data variables.product.prodname_codeql %} ランナーのフィーチャー コンプリート置換である {% data variables.product.prodname_codeql %} CLI への移行を強くお勧めします。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)を参照してください。"
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: カスタム ビット キャッシュ拡張機能の非推奨化
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+        - |{% data variables.product.prodname_ghe_server %} 3.1 から、{% data variables.product.company_short %} 独自のビット キャッシュ拡張機能のサポートの段階的な廃止が始まりました。これらの拡張機能は、{% data variables.product.prodname_ghe_server %} 3.3 以降で非推奨になります。
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+バージョン 3.1 または 3.2 を実行している {% data variables.product.product_location %} に既に存在し、アクティブであったリポジトリはすべて自動的に更新されるようになります。
 
-    - heading: Change to the format of authentication tokens affects GitHub Connect
+
+
+{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードする前に存在せずアクティブでなかったリポジトリは、リポジトリのメンテナンス タスクが実行され正常に完了するまで、最適に動作しない可能性があります。
+
+
+
+リポジトリのメンテナンス タスクを手動で開始するには、影響を受ける各リポジトリの `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` を参照し、[スケジュール] ボタンをクリックします。
+
+|
+    - heading: 認証トークンの形式を変更すると GitHub Connect に影響がある
       notes:
         # https://github.com/github/releases/issues/1235
-        - |
-          GitHub Connect will no longer work after June 3rd for instances running GitHub Enterprise Server 3.1 or older, due to the format of GitHub authentication tokens changing. For more information, see the [GitHub changelog](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Updated: 2022-06-14]
+        - |GitHub 認証トークンの形式が変更されるため、6 月 3 日を過ぎると、GitHub Enterprise Server 3.1 以前を実行するインスタンスでは、GitHub Connect が動作しなくなります。詳しくは、[GitHub の変更ログ](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/)をご覧ください。 [更新日: 2022-06-14]
 
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.4 では、[バックアップとディザスター リカバリー](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)のために、最低でも [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) が必要です。'

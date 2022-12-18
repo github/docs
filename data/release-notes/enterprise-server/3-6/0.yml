@@ -300,3 +300,6 @@ sections:
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
     - |
       After upgrading a replica node to GitHub Enterprise Server 3.6.0 or later and restarting replication, Git replication may stop progressing and continue to show `WARNING: git replication is behind the primary …`. If you encounter this known issue, [contact {% data variables.contact.enterprise_support %}](https://docs.github.com/en/enterprise-server@3.6/support/contacting-github-support/creating-a-support-ticket). [Updated: 2022-10-03]
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

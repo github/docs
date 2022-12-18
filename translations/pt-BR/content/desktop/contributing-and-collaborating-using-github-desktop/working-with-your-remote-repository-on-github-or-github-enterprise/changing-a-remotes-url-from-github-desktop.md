@@ -1,10 +1,10 @@
 ---
 title: Alterar repositório remote de URL no GitHub Desktop
-intro: 'É possível alterar a URL remota do repositório com o qual você estiver trabalhando via {% data variables.product.prodname_desktop %}. Você pode fazer isso em caso de alteração do nome do repositório, do nome do usuário ou do nome da organização proprietária do repositório.'
+intro: É possível alterar a URL remota do repositório com o qual você estiver trabalhando via {% data variables.product.prodname_desktop %}. Você pode fazer isso em caso de alteração do nome do repositório, do nome do usuário ou do nome da organização proprietária do repositório.
 redirect_from:
-  - /desktop/contributing-to-projects/changing-a-remotes-url-from-github-desktop
-  - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
-  - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
+- /desktop/contributing-to-projects/changing-a-remotes-url-from-github-desktop
+- /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
+- /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
   fpt: '*'
 shortTitle: Change a remote's URL
@@ -13,7 +13,7 @@ ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/05/2022
-ms.locfileid: '146058473'
+ms.locfileid: "146058473"
 ---
 {% mac %}
 

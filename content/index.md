@@ -134,15 +134,10 @@ childGroups:
       - education
       - support
 externalProducts:
-  atom:
-    id: atom
-    name: Atom
-    href: 'https://atom.io/docs'
-    external: true
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs'
+    href: 'https://electronjs.org/docs/latest'
     external: true
   codeql:
     id: codeql

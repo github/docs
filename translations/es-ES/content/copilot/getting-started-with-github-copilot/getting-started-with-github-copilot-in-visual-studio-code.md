@@ -1,103 +1,111 @@
 ---
-title: Getting started with GitHub Copilot in Visual Studio Code
+title: "Introducción a GitHub\_Copilot en Visual Studio\_Code"
 shortTitle: Visual Studio Code
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, and start seeing suggestions as you write comments and code.'
+intro: 'Aprende a instalar {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vscode %} y a empezar a ver sugerencias a medida que escribes comentarios y codificas.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 topics:
   - Copilot
+ms.openlocfilehash: ec117cce02fab8917aef958c69077c521d9c1974
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192773'
 ---
+{% data reusables.copilot.copilot-cta-button %}
 
-## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_vscode %}
+## Acerca de {% data variables.product.prodname_copilot %} y {% data variables.product.prodname_vscode %}
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use {% data variables.product.prodname_vscode %}, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within {% data variables.product.prodname_vscode %} for macOS, Windows, or Linux.
+Si usas {% data variables.product.prodname_vscode %}, puedes ver e incorporar sugerencias de {% data variables.product.prodname_copilot %} directamente en el editor. En esta guía, se muestra cómo usar {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vscode %} para macOS, Windows o Linux.
 
-## Prerequisites
+## Prerrequisitos
 
-To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
+{% data reusables.copilot.subscription-prerequisite %}
 
-## Installing the {% data variables.product.prodname_vscode %} extension
+- Para usar {% data variables.product.prodname_copilot %} en {% data variables.product.prodname_vscode %}, debes tener instalado {% data variables.product.prodname_vscode %}. Para más información, consulta la [página de descarga de {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/Download).
 
-To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
+## Instalación de la extensión de {% data variables.product.prodname_vscode %}
 
-1. In the {% data variables.product.prodname_vscode %} Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
-   ![Install {% data variables.product.prodname_copilot %} extension {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
-1. A popup will appear, asking to open {% data variables.product.prodname_vscode %}. Click **Open {% data variables.product.prodname_vscode %}**.
-1. In the "Extension: {% data variables.product.prodname_copilot %}" tab in {% data variables.product.prodname_vscode %}, click **Install**.
-   ![Install button in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
-1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
-   - If you have previously authorized {% data variables.product.prodname_vscode %} for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
-   ![Screen shot of {% data variables.product.prodname_vscode %} authorization screen](/assets/images/help/copilot/vsc-copilot-authorize.png)
-1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**.
-1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialog box, to confirm the authentication, click **Open**.
+Para usar {% data variables.product.prodname_copilot %}, primero debes instalar la extensión de {% data variables.product.prodname_vscode %}.
+
+1. En {% data variables.product.prodname_vscode %} Marketplace, ve a la página [Extensión de {% data variables.product.prodname_copilot %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) y haz clic en **Instalar**.
+   ![Instalación de la extensión de {% data variables.product.prodname_copilot %} {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
+1. Aparecerá una ventana emergente que te pedirá que abras {% data variables.product.prodname_vscode %}. Haz clic en **Abrir {% data variables.product.prodname_vscode %}** .
+1. En la pestaña "Extensión: {% data variables.product.prodname_copilot %}" de {% data variables.product.prodname_vscode %}, haz clic en **Instalar**.
+   ![Botón Instalar de {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
+1. Si no autorizaste previamente a {% data variables.product.prodname_vscode %} en tu cuenta de {% data variables.product.prodname_dotcom %}, se te pedirá que inicies sesión en {% data variables.product.prodname_dotcom %} en {% data variables.product.prodname_vscode %}.
+   - Si autorizaste previamente a {% data variables.product.prodname_vscode %} para tu cuenta en {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} se autorizará automáticamente.
+   ![Captura de pantalla de la autorización de {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/vsc-copilot-authorize.png)
+1. En el explorador, {% data variables.product.prodname_dotcom %} solicitará los permisos necesarios para {% data variables.product.prodname_copilot %}. Para aprobar estos permisos, haz clic en **Autorizar {% data variables.product.prodname_vscode %}** .
+1. En {% data variables.product.prodname_vscode %}, en el cuadro de diálogo "{% data variables.product.prodname_vscode %}", haz clic en **Abrir** para confirmar la autenticación.
    
 
-## Seeing your first suggestion
+## Visualización de tu primera sugerencia
 
 {% data reusables.copilot.code-examples-limitations %}
 
-{% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
+{% data reusables.copilot.supported-languages %} Los ejemplos siguientes están en JavaScript, pero otros lenguajes funcionarán de manera similar.
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+1. En el archivo de JavaScript, escriba el encabezado de función siguiente. {% data variables.product.prodname_copilot %} sugerirá automáticamente un cuerpo de función completo en texto atenuado, como se muestra a continuación. La sugerencia exacta puede variar.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
-   ![Screenshot of a first suggestion {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
-{% data reusables.copilot.accept-suggestion %}
+   ![Captura de pantalla de una primera sugerencia {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png) {% data reusables.copilot.accept-suggestion %}
 
-## Seeing alternative suggestions
+## Visualización de sugerencias alternativas
 
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+1. En el archivo de JavaScript, escriba el encabezado de función siguiente. {% data variables.product.prodname_copilot %} mostrará una sugerencia.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
 {% data reusables.copilot.see-alternative-suggestions %}
 
-   | OS | See next suggestion | See previous suggestion |
+   | SO | Ver la siguiente sugerencia | Ver la sugerencia anterior |
    | :- | :- | :- |
-   |macOS|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
+   |macOS|<kbd>Opción (⌥) o Alt</kbd>+<kbd>]</kbd>|<kbd>Opción (⌥) o Alt</kbd>+<kbd>[</kbd>|
    |Windows|<kbd>Alt</kbd>+<kbd>]</kbd>|<kbd>Alt</kbd>+<kbd>[</kbd>|
    |Linux|<kbd>Alt</kbd>+<kbd>]</kbd>|<kbd>Alt</kbd>+<kbd>[</kbd>|
-1. Alternatively, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
+1. De manera alternativa, puedes mantener el puntero sobre la sugerencia para ver la paleta de comandos de {% data variables.product.prodname_copilot %} para elegir sugerencias.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Seeing multiple suggestions in a new tab
+## Visualización de varias sugerencias en una pestaña nueva
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+1. En el archivo de JavaScript, escriba el encabezado de función siguiente. {% data variables.product.prodname_copilot %} mostrará una sugerencia.
   ```javascript{:copy}
   function calculateDaysBetweenDates(begin, end) {
   ```
-1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
-1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
+1. Si quieres abrir una pestaña nueva con varias opciones adicionales, presiona <kbd>Ctrl</kbd>+<kbd>Entrar</kbd>.
+1. Si quieres aceptar una sugerencia, haz clic en **Aceptar solución** encima de la sugerencia. Si quieres rechazar todas las sugerencias, cierra la pestaña.
 
-## Generating code suggestions from comments
+## Generación de sugerencias de código a partir de comentarios
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+1. En el archivo de JavaScript, escribe el comentario siguiente. {% data variables.product.prodname_copilot %} sugerirá una implementación de la función.
    ```javascript{:copy}
    // find all images without alternate text
    // and give them a red border
    function process() {
    ```
 
-## Using a framework
+## Uso de un marco
 
-You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks. The following example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
+También puedes usar {% data variables.product.prodname_copilot %} para generar sugerencias para API y marcos. En el ejemplo siguiente, se usa {% data variables.product.prodname_copilot %} para crear un servidor Express sencillo que devuelve la hora actual.
 
 {% data reusables.copilot.create-js-file %}
-1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
+1. En el archivo de JavaScript, escribe el comentario siguiente y, luego, presiona <kbd>Entrar</kbd>. {% data variables.product.prodname_copilot %} sugerirá una implementación de la aplicación Express.
    ```javascript{:copy}
    // Express server on port 3000
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
@@ -105,10 +113,10 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
    ```javascript{:copy}
    // Return the current time
    ```
-1. To accept each line, press <kbd>Tab</kbd>.
+1. Para aceptar cada línea, presiona <kbd>Tab</kbd>.
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
-## Further reading
+## Información adicional
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)

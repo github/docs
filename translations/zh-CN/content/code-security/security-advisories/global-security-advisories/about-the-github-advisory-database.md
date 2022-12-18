@@ -1,6 +1,6 @@
 ---
-title: About the GitHub Advisory database
-intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, {% endif %}grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.'
+title: 关于 GitHub 公告数据库
+intro: '{% data variables.product.prodname_advisory_database %} 包含已知安全漏洞{% ifversion GH-advisory-db-supports-malware %}和恶意软件{% endif %}的列表，分为两类：经 {% data variables.product.company_short %} 审核的公告和未经审核的公告。'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -13,72 +13,76 @@ topics:
   - Alerts
   - Vulnerabilities
   - CVEs
+ms.openlocfilehash: 601fdd42050f112162898a255811c76aa23c6970
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159075'
 ---
-
-## About the {% data variables.product.prodname_advisory_database %}
+## 关于 {% data variables.product.prodname_advisory_database %}
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see "[Open Source Vulnerability format](https://ossf.github.io/osv-schema/)."
+安全公告以开放源代码漏洞 (OSV) 格式的 JSON 文件形式发布。 有关 OSV 格式的详细信息，请参阅“[开放源代码漏洞格式](https://ossf.github.io/osv-schema/)”。
 
-## About types of security advisories
+## 关于安全公告的类型
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}. 
+{% data variables.product.prodname_advisory_database %} 中的每个公告都涉及开放源代码项目中的漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意开放源代码软件{% endif %}。 
 
-{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
+{% data reusables.repositories.a-vulnerability-is %} 代码中的漏洞通常是偶然引入的，并在被发现后很快会得到修复。 应更新代码，以便在依赖项可用时立即使用它的修复后的版本。
 
 {% ifversion GH-advisory-db-supports-malware %}
 
-In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+相比之下，恶意软件是有意设计为执行不需要或有害功能的代码。 恶意软件可能针对硬件、软件、机密数据或使用该恶意软件的任何应用程序的用户。 需要从项目中删除恶意软件，并为依赖项找到可供选择的、更安全的替代项。
 
 {% endif %}
 
-### {% data variables.product.company_short %}-reviewed advisories
+### 经 {% data variables.product.company_short %} 审核的公告
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+经 {% data variables.product.company_short %} 审核的公告是已映射到支持的生态系统中的包的安全漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}。 仔细查看每个公告的有效性，并确保它们具有完整的说明，以及包含生态系统和包信息。
 
-Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+通常，我们以软件编程语言的相关包注册表命名支持的生态系统。 我们会审查与受支持注册表中的包中的漏洞相关的公告。
 
-- Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-- Erlang (registry: https://hex.pm/){% endif %}
-- Go (registry: https://pkg.go.dev/)
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+- Composer（注册表： https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
+- Erlang（注册表： https://hex.pm/){% endif %}
+- Go（注册表： https://pkg.go.dev/) {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 - GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
-- Maven (registry: https://repo.maven.apache.org/maven2)
-- npm (registry: https://www.npmjs.com/)
-- NuGet (registry: https://www.nuget.org/)
-- pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-- pub (registry: https://pub.dev/packages/registry){% endif %}
-- RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- Maven（注册表： https://repo.maven.apache.org/maven2)
+- npm（注册表： https://www.npmjs.com/)
+- NuGet（注册表： https://www.nuget.org/)
+- pip（注册表： https://pypi.org/){% ifversion dependency-graph-dart-support %}
+- pub（注册表： https://pub.dev/packages/registry){% endif %}
+- RubyGems（注册表： https://rubygems.org/)
+- Rust（注册表： https://crates.io/)
 
-If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+如果对我们应该支持的新生态系统有任何建议，请提出[问题](https://github.com/github/advisory-database/issues)以供讨论。
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} for a package you depend on. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+如果为存储库启用 {% data variables.product.prodname_dependabot_alerts %}，则当经 {% data variables.product.company_short %} 审核的新公告报告所依赖的包存在漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}时，系统会自动通知你。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
-### Unreviewed advisories
+### 未审核的公告
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+未审核的公告是我们直接从国家漏洞数据库源自动发布到 {% data variables.product.prodname_advisory_database %} 的安全漏洞。 
 
-{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+{% data variables.product.prodname_dependabot %} 不会为未审核的公告创建 {% data variables.product.prodname_dependabot_alerts %}，因为不会检查此类公告的有效性或完成情况。
 
-## About information in security advisories
+## 关于安全公告中的信息
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+每个安全公告都包含有关漏洞{% ifversion GH-advisory-db-supports-malware %}和恶意软件{% endif %}的信息，可能包括说明、严重程度、受影响的包、包生态系统、受影响的版本和修补版本、影响以及可选信息（如引用、解决方法和积分）。 此外，国家漏洞数据库列表中的公告包含 CVE 记录链接，通过链接可以查看漏洞、其 CVSS 得分及其质化严重等级的更多详细信息。 有关详细信息，请参阅美国国家标准和技术研究院的“[国家漏洞数据库](https://nvd.nist.gov/)”。
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
-- Low
-- Medium/Moderate
-- High
-- Critical
+严重级别是“[常见漏洞评分系统 (CVSS) 第 5 节](https://www.first.org/cvss/specification-document)”中定义的四个可能级别之一。
+- 低
+- 中
+- 高
+- 严重
 
-The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
+{% data variables.product.prodname_advisory_database %} 使用上述 CVSS 级别。 如果 {% data variables.product.company_short %} 获取 CVE，{% data variables.product.prodname_advisory_database %} 将使用 CVSS 版本 3.1。 如果 CVE 是导入的，则 {% data variables.product.prodname_advisory_database %} 支持 CVSS 版本 3.0 和 3.1。
 
 {% data reusables.repositories.github-security-lab %}
 
-## Further reading
+## 延伸阅读
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- [关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
+- MITRE 的[“漏洞”定义](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

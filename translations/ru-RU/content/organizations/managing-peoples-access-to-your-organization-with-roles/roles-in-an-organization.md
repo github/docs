@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159176'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180080'
 ---
 ## Роли
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ ms.locfileid: '148159176'
 | Применение атрибута спонсорской поддержки для другой организации (дополнительные сведения см. в статье [Применение атрибута спонсорской поддержки для организации](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)) | **X** |  |  |  |  |
 | Управление публикацией сайтов {% data variables.product.prodname_pages %} из репозиториев в организации (см. статью [Управление публикацией сайтов {% data variables.product.prodname_pages %} для организации](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)) | **X** |  |  |  |  |
 | Управление параметрами безопасности и анализа (см. статью [Управление параметрами безопасности и анализа для организации](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)) | **X** |  |  |  | **X** |
-| Просмотрите общие сведения о безопасности для организации (см. раздел [Общие сведения о безопасности](/code-security/security-overview/about-the-security-overview)). | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Просмотр общих сведений о безопасности для организации (см. статью [Общие сведения о безопасности](/code-security/security-overview/about-the-security-overview)) | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Включение и принудительное применение [единого входа SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Управление SAML-доступом пользователей к организации](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Управление центрами сертификации SSH в организации (см. статью [Управление центрами сертификации SSH в организации](/articles/managing-your-organizations-ssh-certificate-authorities)) | **X** |  |  |  |  |{% endif %}
@@ -167,7 +167,7 @@ ms.locfileid: '148159176'
 | Возможность создания *координатора команды* | **X** | **X** | **X**  |
 | Перенос репозиториев | **X** | |  |
 | Управление параметрами безопасности и анализа (см. статью [Управление параметрами безопасности и анализа для организации](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)) | **X** | | **X** |{% ifversion ghes %}
-| Просмотрите обзор безопасности для организации (см. раздел [Общие сведения о безопасности](/code-security/security-overview/about-the-security-overview)) | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Просмотр общих сведений о безопасности для организации (см. статью [Общие сведения о безопасности](/code-security/security-overview/about-the-security-overview)) | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Управление {% data variables.product.prodname_dependabot_security_updates %} (см. статью [Сведения о {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)) | **X** | | **X** |{% endif %}
 | Управление центрами сертификации SSH в организации (см. статью [Управление центрами сертификации SSH в организации](/articles/managing-your-organizations-ssh-certificate-authorities)) | **X** |  |  |
 | Создание досок проекта (см. статью [Разрешения для доступа к доске проекта в организации](/articles/project-board-permissions-for-an-organization)) | **X** | **X** | **X** |
@@ -186,7 +186,7 @@ ms.locfileid: '148159176'
 | [Экспорт списка пользователей с доступом к репозиторию организации](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Управление метками по умолчанию (см. статью [Управление метками по умолчанию для репозиториев в организации](/articles/managing-default-labels-for-repositories-in-your-organization)) | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Управление проверками запросов на вытягивание в организации (см. статью [Управление проверками запросов на вытягивание в организации](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)) | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Управление списками разрешенных IP-адресов (см. статью [Ограничение трафика для предприятия](/admin/configuration/restricting-network-traffic-to-your-enterprise)) | **X** | |  |{% endif %}
+{% ifversion ghae %}| Управление списками разрешенных IP-адресов (см. [раздел Ограничение сетевого трафика для предприятия с помощью списка разрешенных IP-адресов](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)) | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ ms.locfileid: '148159176'
 | [Просмотр пользователей с доступом к репозиторию организации](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Экспорт списка пользователей с доступом к репозиторию организации](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Управление метками по умолчанию (см. статью [Управление метками по умолчанию для репозиториев в организации](/articles/managing-default-labels-for-repositories-in-your-organization)) | **X** | |
-{% ifversion ghae %}| Управление списками разрешенных IP-адресов (см. статью [Ограничение трафика для предприятия](/admin/configuration/restricting-network-traffic-to-your-enterprise)) | **X** | |{% endif %}
+{% ifversion ghae %}| Управление списками разрешенных IP-адресов (см. [раздел Ограничение сетевого трафика для предприятия с помощью списка разрешенных IP-адресов](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)) | **X** | |{% endif %}
 
 {% endif %}
 

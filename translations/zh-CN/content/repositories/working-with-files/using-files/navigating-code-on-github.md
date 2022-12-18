@@ -1,6 +1,6 @@
 ---
-title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
+title: 在 GitHub 上导航代码
+intro: '您可以直接在 {% data variables.product.product_name %} 中导航代码，来理解仓库内及仓库之间的关系。'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -10,18 +10,24 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164161'
 ---
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
-## About navigating code on {% data variables.product.prodname_dotcom %}
+## 关于在 {% data variables.product.prodname_dotcom %} 上导航代码
 
-Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
+代码导航通过显示和链接该实体的引用对应的命名实体定义以及实体定义对应的引用，帮助您阅读、导航和理解代码。
 
-![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
+![代码导航显示](/assets/images/help/repository/code-navigation-popover.png)
 
-Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
+代码导航使用开放源代码 [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) 库。 支持以下语言和导航策略：
 
-| Language   | Search-based code navigation | Precise code navigation |
+| 语言   | 基于搜索的代码导航 | 精确的代码导航 |
 |:----------:|:----------------------------:|:-----------------------:|
 | C#         | ✅                           |                         |
 | CodeQL     | ✅                           |                         |
@@ -36,49 +42,49 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 | TypeScript | ✅                           |                         |
 
 
-You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
+您无需在存储库中配置任何内容即可启用代码导航。 我们将在所有存储库中自动提取这些受支持语言的基于搜索的精确代码导航信息，如果您的编程语言都支持这两种支持的语言，则可以在两种受支持的代码导航方法之间切换。
 
-{% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
- - Search-based - searches all definitions and references across a repository to find entities with a given name
- - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+{% data variables.product.prodname_dotcom %} 基于开放源代码 [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) 和 [`stack-graphs`](https://github.com/github/stack-graphs) 库开发了两种代码导航方法：
+ - 基于搜索 - 搜索存储库中的所有定义和引用，以查找具有给定名称的实体
+ - 精确 - 根据代码中给定点的类、函数和导入定义的集合解析定义和引用
 
-To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
+若要了解有关这些方法的详细信息，请参阅“[精确和基于搜索的导航](#precise-and-search-based-navigation)”。
 
-Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
+未来的版本将针对更多语言添加精确的代码导航，这种代码导航方法可以提供更准确的结果。
 
-## Jumping to the definition of a function or method
+## 跳至功能或方法的定义
 
-You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
+您可以在文件中单击函数或方法调用，跳至同一仓库中该函数或方法的定义。
 
-![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
+![跳至定义选项卡](/assets/images/help/repository/jump-to-definition-tab.png)
 
-## Finding all references of a function or method
+## 查找函数或方法的所有引用
 
-You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
+你可以在文件中单击函数或方法调用，然后单击“引用”选项卡，查找同一存储库中该函数或方法的所有引用。
 
-![Find all references tab](/assets/images/help/repository/find-all-references-tab.png)
+![查找所有引用选项卡](/assets/images/help/repository/find-all-references-tab.png)
 
-## Precise and search-based navigation
+## 精确和基于搜索的导航
 
-Certain languages supported by {% data variables.product.prodname_dotcom %} have access to *precise code navigation*, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use *search-based code navigation*, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
+{% data variables.product.prodname_dotcom %} 支持的某些语言可以使用精确的代码导航，它使用算法（基于开放源代码 [`stack-graphs`](https://github.com/github/stack-graphs) 库）根据在代码中任何给定点可见的类、函数和导入定义集解析定义和引用。 其他语言使用基于搜索的代码导航，它在存储库中搜索所有定义和引用，以查找具有给定名称的实体。 这两种策略在查找结果方面都很有效，并且都确保避免不适当的结果（如注释），但精确的代码导航可以提供更准确的结果，特别是当存储库包含具有相同名称的多个方法或函数时。
 
-If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
+如果看不到精确代码导航查询的预期结果，可以单击显示的弹出窗口中的“基于搜索”链接以执行基于搜索的导航。
 
-![Search-based code navigation link](/assets/images/help/repository/search-based-code-navigation-link.png)
+![基于搜索的代码导航链接](/assets/images/help/repository/search-based-code-navigation-link.png)
 
-If your precise results appear inaccurate, you can file a support request.
+如果精确结果显示不准确，您可以提交支持请求。
 
-## Cross-repository precise code navigation
+## 跨存储库精确代码导航
 
-Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
+跨存储库代码导航适用于精确代码导航和依赖项关系图支持的语言。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。 使用跨存储库代码导航，如果项目导入的依赖项是由 {% data variables.product.prodname_dotcom %} 托管的存储库，则可以跳转到该依赖项中定义的函数或变量的定义。 跨存储库代码导航目前不支持查找所有引用请求。
 
-![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
+![跨存储库代码导航的屏幕截图](/assets/images/help/repository/cross-repository-code-navigation.png)
 
-## Troubleshooting code navigation
+## 代码导航疑难解答
 
-If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
-- Code navigation only works for active branches. Push to the branch and try again.
-- Code navigation only works for repositories with fewer than 100,000 files.
+如果已为您启用代码导航，但您没有看到指向函数和方法定义的链接：
+- 代码导航仅适用于活动的分支。 推送到分支，然后重试。
+- 代码导航仅适用于文件少于 100,000 个的存储库。
 
-## Further reading
-- "[Searching code](/github/searching-for-information-on-github/searching-code)"
+## 延伸阅读
+- “[搜索代码](/github/searching-for-information-on-github/searching-code)”

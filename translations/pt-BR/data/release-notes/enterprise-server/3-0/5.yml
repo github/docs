@@ -1,0 +1,28 @@
+date: '14-04-2021'
+intro: "Os requisitos mínimos de infraestrutura foram aumentados para {% data variables.product.prodname_ghe_server %} 3.0+. Confira mais informações em \"[Sobre os requisitos mínimos para GitHub Enterprise Server 3.0 e posterior](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later).\""
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as versões de segurança mais recentes.
+  bugs:
+    - Alguns registros não foram incluídos na configuração de encaminhamento de registro.
+    - 'A mensagem de aviso "jq: error (at <stdin>:0): Não foi possível indexar o número com as "configurações" da cadeia de caracteres" pode ocorrer durante a promoção da réplica.'
+    - A restauração contínua de backups para um cluster pode falhar devido a réplicas do MySQL que falham em se conectar ao principal.
+    - As páginas não foram publicadas ao usar um certificado CA personalizado.
+    - "Os subdomínios relacionados aos pacotes não apareceram no prompt \"Configurações de teste de domínio\" para o isolamento de subdomínio."
+    - "O cabeçalho \"X-GitHub-Enterprise-Host\" enviado com webhooks incluiu uma cadeia de caracteres aleatória em vez do nome do host da instância do GitHub Enterprise Server que enviou o payload HTTP POST."
+    - "A atualização de 2.22.x para 3.0.x falharia se o GitHub Actions fosse habilitado anteriormente, mas desabilitado antes da atualização."
+    - "O acesso à página \"/settings/emails\" armazenaria o estado que pode causar redirecionamentos impróprios ao efetuar o logout e o logon novamente."
+    - Os aplicativos de integração do GitHub não conseguiram notificar equipes quando mencionadas diretamente por meio de menção em um comentário do problema.
+    - "A renderização de reStructuredText (RST) na interface do usuário da web falharia e, em vez disso, exibiria texto de markup RST."
+    - Notificações de email para alertas de verificação de segredo não foram enviadas para usuários autorizados quando o Grafo de dependência não estava totalmente habilitado.
+    - "Quando o ghe-migrator encontrou erros na importação, às vezes anulou todo o processo, mas os logs não incluíram contexto suficiente."
+    - Notebooks Jupyter com caracteres não ASCII podem falhar ao fazer a renderização.
+  known_issues:
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor poderia criar o primeiro usuário administrador."
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres.
+    - "Quando a opção \"Usuários podem pesquisar pelo GitHub.com\" está habilitada com o GitHub Connect, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa do GitHub.com."
+    - "Ao excluir um branch após a mesclagem de uma solicitação de pull, será exibida uma mensagem de erro, embora a exclusão do branch tenha sido bem sucedida."
+    - "Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários."
+    - Os limites de recursos que são específicos para processamento de ganchos de pré-recebimento podem causar falha em alguns ganchos de pré-recebimento.

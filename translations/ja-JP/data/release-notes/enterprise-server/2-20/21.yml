@@ -1,0 +1,15 @@
+date: '2020-11-17'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/23843、https://github.com/github/enterprise2/pull/23712 {% endcomment %}'
+  bugs:
+    - 'babeld ログに秒とマイクロ秒の間の区切りが欠けていました。{% comment %} https://github.com/github/babeld/pull/1004、https://github.com/github/babeld/pull/1002 {% endcomment %}'
+    - 'エンタープライズ アカウントの "リポジトリの可視性の変更" ポリシーが "有効" に設定されている場合、組織の所有者が組織内のリポジトリの可視性を変更できませんでした。{% comment %} https://github.com/github/github/pull/160922、https://github.com/github/github/pull/160773 {% endcomment %}'
+  known_issues:
+    - 'GitHub Enterprise Server をセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - '[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connect で [Users can search GitHub.com]\(ユーザーが GitHub.com を検索できる\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンド ラインでリポジトリにプッシュした際に、セキュリティ アラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低下する可能性があります。'

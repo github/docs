@@ -1,7 +1,10 @@
-import loadSiteData from '../../lib/site-data.js'
+import { getDataByLanguage } from '../../lib/get-data'
 
 describe('glossaries', () => {
-  const glossaries = loadSiteData().en.site.data.glossaries
+  const glossaries = {
+    external: getDataByLanguage('glossaries.external', 'en'),
+    candidates: getDataByLanguage('glossaries.candidates', 'en'),
+  }
 
   test('are broken into external, internal, and candidates', async () => {
     const keys = Object.keys(glossaries)

@@ -15,12 +15,12 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
-ms.openlocfilehash: de22432173f6bf909d001a3f780b0f9943769ec0
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148114111'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186158'
 ---
 Любой пользователь с правами администратора в репозитории может создать рекомендации по безопасности.
 
@@ -29,11 +29,11 @@ ms.locfileid: '148114111'
 ## Создание рекомендаций по безопасности
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
-4. Щелкните **Создать черновик рекомендаций по безопасности** , чтобы открыть форму проекта рекомендаций.
+1. Щелкните **Создать черновик рекомендаций по безопасности** , чтобы открыть форму черновика рекомендаций. Поля, помеченные звездочкой, являются обязательными.
   ![Кнопка для открытия черновика рекомендаций](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-5. Введите заголовок для рекомендаций по безопасности.
+1. Введите заголовок для рекомендаций по безопасности.
 {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
-11. Щелкните **Create draft security advisory** (Создать черновик рекомендаций по безопасности).
+1. Щелкните **Create draft security advisory** (Создать черновик рекомендаций по безопасности).
   ![Кнопка для создания рекомендаций по безопасности](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ## Дальнейшие действия

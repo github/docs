@@ -1,12 +1,11 @@
 ---
-ms.openlocfilehash: 8f78a77c83ea498d8d41a0deff20903062542479
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: a6a2388e469c6283bbe0f9f7855044f45829584e
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108928"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180070"
 ---
 IP 許可リストのエントリを編集できます。 有効なエントリを編集すると、変更がすぐに適用されます。 
 
-{% ifversion ip-allow-list-address-check %}エントリの編集が完了したら、特定の IP アドレスがリスト内のいずれかの有効なエントリによって許可されるかどうかを確認できます。
-{% endif %}
+エントリの編集が終了した後で、リストを有効にしたら、許可リストが特定の IP アドレスからの接続を許可するかどうかを確認できます。

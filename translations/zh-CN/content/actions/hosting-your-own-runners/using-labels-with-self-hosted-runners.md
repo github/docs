@@ -1,6 +1,6 @@
 ---
-title: Using labels with self-hosted runners
-intro: You can use labels to organize your self-hosted runners based on their characteristics.
+title: 将标签与自托管运行程序结合使用
+intro: 您可以使用标签以基于其特性来组织自托管运行器。
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,86 +8,64 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Label runners
+ms.openlocfilehash: 3b26db5c8b6494ebb63cc3ce9cc9a0109bac4545
+ms.sourcegitcommit: 929818065a8545476e4cf8e2cab6517f40345ef0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163250'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)." {% ifversion target-runner-groups %}You can also route jobs to runners in a specific group. For more information, see "[Targeting runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)."{% endif %}
+有关如何使用标签将作业路由到特定类型的自托管运行器的信息，请参阅“[在工作流中使用自托管运行器](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)”。 {% ifversion target-runner-groups %}还可以将作业路由到特定组中的运行器。 有关详细信息，请参阅“[在组中定位运行器](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)”。{% endif %}
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-## Creating a custom label
+## 创建自定义标签
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
- {% data reusables.actions.settings-sidebar-actions-runner-selection %}
- 1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
- 1. In the "Find or create a label" field, type the name of your new label and click **Create new label**.
- The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.self-hosted-runner-list %}
-{% data reusables.actions.self-hosted-runner-list-group %}
-{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. In the "Filter labels" field, type the name of your new label, and click **Create new label**.
-    ![Add runner label](/assets/images/help/settings/actions-add-runner-label.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %}
+ 1. 在“Labels（标签）”部分，单击 {% octicon "gear" aria-label="The Gear icon" %}。
+ 1. 在“查找或创建标签”字段中，键入新标签的名称，然后单击“创建新标签”。
+ 将创建自定义标签并分配给自托管运行器。 可以从自托管的运行器中删除自定义标签，但当前无法手动删除。 {% data reusables.actions.actions-unused-labels %} {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. 在“筛选器标签”字段中，键入新标签的名称，然后单击“创建新标签”。
+    ![添加运行器标签](/assets/images/help/settings/actions-add-runner-label.png)
     
-The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
-{% endif %}
+将创建自定义标签并分配给自托管运行器。 可以从自托管的运行器中删除自定义标签，但当前无法手动删除。 {% data reusables.actions.actions-unused-labels %} {% endif %}
 
-## Assigning a label to a self-hosted runner
+## 分配标签给自托管的运行器
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.runner-label-settings %}
-  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label. 
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.self-hosted-runner-list %}
-{% data reusables.actions.self-hosted-runner-list-group %}
-{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Click on a label to assign it to your self-hosted runner. 
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
+  1. 要将标签分配给您的自托管运行器，在“Find or create a label（查找或创建标签）”字段中单击标签。 {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. 单击标签以将其分配给您的自托管运行器。 {% endif %}
 
-## Removing a custom label from a self-hosted runner
+## 删除自托管运行器中的自定义标签
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.runner-label-settings %}
-  1. In the "Find or create a label" field, assigned labels are marked with the {% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner. 
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.self-hosted-runner-list %}
-{% data reusables.actions.self-hosted-runner-list-group %}
-{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Click on the assigned label to remove it from your self-hosted runner. {% data reusables.actions.actions-unused-labels %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
+  1. 在“查找或创建标签”字段中，分配的标签标有 {% octicon "check" aria-label="The Check icon" %} 图标。 单击标记的标签以将其从您的自托管运行器取消分配。 {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. 单击分配的标签以将其从您的自托管运行器中删除。 {% data reusables.actions.actions-unused-labels %} {% endif %}
 
-## Programmatically assign labels
+## 以编程方式分配标签
 
-You can programmatically assign labels to a self-hosted runner after the runner is created, or during its initial configuration.
+可以在创建运行器后或其初始配置期间以编程方式将标签分配给自承载运行器。
 
-* To programmatically assign labels to an existing self-hosted runner, you must use the REST API. For more information, see the "[Self-hosted runners](/rest/actions/self-hosted-runners)" REST API.
-* To programmatically assign labels to a self-hosted runner during the initial runner configuration, you can pass label names to the `config` script using the `labels` parameter.
+* 若要以编程方式将标签分配给现有自承载运行器，必须使用 REST API。 有关详细信息，请参阅“[自承载运行器](/rest/actions/self-hosted-runners)”REST API。
+* 若要在初始运行器配置期间以编程方式将标签分配给自承载运行器，可以使用 `labels` 参数将标签名称传递给 `config` 脚本。
 
   {% note %}
   
-  **Note:** You cannot use the `config` script to assign labels to an existing self-hosted runner.
+  注意：不能使用 `config` 脚本将标签分配给现有自承载运行器。
   
   {% endnote %}
 
-  For example, this command assigns a label named `gpu` when configuring a new self-hosted runner:
+  例如，此命令在配置新的自承载运行器时分配名为 `gpu` 的标签：
 
   ```
   ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
   ```
 
-  The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
+  如果标签不存在，则创建该标签。 还可使用此方法为运行器（例如 `x64` 或 `linux`）分配默认标签。 使用配置脚本分配默认标签后， {% data variables.product.prodname_actions %} 会接受它们，而不验证运行器是否实际使用该操作系统或架构。
 
-  You can use comma separation to assign multiple labels. For example:
+  您可以使用逗号分隔来分配多个标签。 例如：
 
   ```
   ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
@@ -95,6 +73,6 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 
   {% note %}
 
-  ** Note:** If you replace an existing runner, then you must reassign any custom labels.
+  ** 注：** 如果替换现有的运行器，则必须重新分配任何自定义标签。
 
   {% endnote %}

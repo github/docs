@@ -62,7 +62,7 @@ jobs:
 
 If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the API. For more information, see "[Apps](/rest/apps/apps#get-an-app)" in the REST API documentation. For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 

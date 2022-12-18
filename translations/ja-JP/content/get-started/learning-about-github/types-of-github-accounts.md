@@ -1,6 +1,6 @@
 ---
-title: Types of GitHub accounts
-intro: 'Accounts on {% data variables.product.product_name %} allow you to organize and control access to code.'
+title: GitHub アカウントの種類
+intro: '{% data variables.product.product_name %} のアカウントを使用すると、コードへのアクセスを整理および制御できます。'
 redirect_from:
   - /manage-multiple-clients
   - /managing-clients
@@ -20,70 +20,69 @@ topics:
   - Mobile
   - Desktop
   - Security
+ms.openlocfilehash: 9316fcb8b069b0b596c89d10ac1f89d86f1a62b7
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145131180'
 ---
+## {% data variables.product.product_name %} のアカウントについて
 
-## About accounts on {% data variables.product.product_name %}
+{% data variables.product.product_name %} では、コードを保存して、共同作業を行うことができます。 アカウントを使用して、そのコードを整理してアクセスを制御できます。 {% data variables.product.product_name %} には 3 種類のアカウントがあります。
+- 個人用アカウント
+- Organization アカウント
+- Enterprise アカウント
 
-With {% data variables.product.product_name %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.product_name %}.
-- Personal accounts
-- Organization accounts
-- Enterprise accounts
+{% data variables.product.product_name %} を使用するすべてのユーザーが、個人用アカウントにサインインします。 Organization アカウントは、複数の個人用アカウント間のコラボレーションを強化し、{% ifversion fpt or ghec %}Enterprise アカウント{% else %}{% data variables.product.product_location %} の Enterprise アカウント{% endif %}は、複数の Organization を一元管理できます。
 
-Every person who uses {% data variables.product.product_name %} signs into a personal account. An organization account enhances collaboration between multiple personal accounts, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
+## 個人用アカウント
 
-## Personal accounts
+{% data variables.product.product_location %} を使用するすべてのユーザーが、個人用アカウントにサインインします。 個人用アカウントは、{% data variables.product.product_location %} のご自分の ID であり、ユーザー名とプロフィールを持っています。 たとえば、[@octocat のプロフィール](https://github.com/octocat)を確認してください。
 
-Every person who uses {% data variables.location.product_location %} signs into a personal account. Your personal account is your identity on {% data variables.location.product_location %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).
+個人用アカウントは、リポジトリ、パッケージ、プロジェクトなどのリソースを所有できます。 issue の作成や pull request の確認など、{% data variables.product.product_location %} で何らかのアクションを実行すると、そのアクションはご自分の個人用アカウントに帰属します。
 
-Your personal account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.location.product_location %}, such as creating an issue or reviewing a pull request, the action is attributed to your personal account.
-
-{% ifversion fpt or ghec %}Each personal account uses either {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use {% data variables.product.prodname_free_user %}, private repositories owned by your personal account have a limited feature set. You can upgrade to {% data variables.product.prodname_pro %} to get a full feature set for private repositories. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." {% else %}You can create an unlimited number of repositories owned by your personal account, with an unlimited number of collaborators on those repositories.{% endif %}
+{% ifversion fpt or ghec %}個人用アカウントごとに、{% data variables.product.prodname_free_user %} または {% data variables.product.prodname_pro %} が使用されます。 すべての個人用アカウントは、パブリック リポジトリとプライベート リポジトリの数に制限なく所有でき、それらのリポジトリでコラボレーターの数に制限はありません。 {% data variables.product.prodname_free_user %} を使用する場合、ご自分の個人用アカウントが所有するプライベート リポジトリの機能セットは制限されます。 {% data variables.product.prodname_pro %} にアップグレードすると、プライベート リポジトリの完全な機能セットを取得できます。 詳細については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。 {% else %}個人用アカウントで所有するリポジトリは数に制限なく作成でき、それらのリポジトリにはコラボレーターの数にも制限はありません。{% endif %}
 
 {% tip %}
 
-**Tip**: Personal accounts are intended for humans, but you can create accounts to automate activity on {% data variables.product.product_name %}. This type of account is called a machine user. For example, you can create a machine user account to automate continuous integration (CI) workflows.
+**ヒント**: 個人用アカウントは人間が使用するものですが、{% data variables.product.product_name %} のアクティビティを自動化するアカウントを作成できます。 この種類のアカウントは、マシン ユーザーと呼ばれます。 たとえば、継続的インテグレーション (CI) ワークフローを自動化するマシン ユーザー アカウントを作成できます。
 
 {% endtip %}
 
-{% ifversion fpt or ghec %}
-Most people will use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)."
+{% ifversion fpt or ghec %}ほとんどの人は、オープンソース プロジェクトでも、有給雇用時のどちらでも、{% data variables.product.prodname_dotcom_the_website %} のすべての作業に 1 つの個人用アカウントを使用します。 現在、自分で作成した個人用アカウントを複数使用している場合は、アカウントを結合することをお勧めします。 詳細については、「[複数の個人用アカウントをマージする](/articles/merging-multiple-user-accounts)」を参照してください。
 {% endif %}
 
-## Organization accounts
+## Organization アカウント
 
-Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once. 
+Organization は、無制限の数の人が多くのプロジェクトで同時にコラボレーションできる共有アカウントです。 
 
-Like personal accounts, organizations can own resources such as repositories, packages, and projects. However, you cannot sign into an organization. Instead, each person signs into their own personal account, and any actions the person takes on organization resources are attributed to their personal account. Each personal account can be a member of multiple organizations.
+個人用アカウントと同様に、Organization はリポジトリ、パッケージ、プロジェクトなどのリソースを所有できます。 ただし、Organization にサインインすることはできません。 代わりに、各ユーザーは自分の個人用アカウントにサインインし、そのユーザーが Organization のリソースに対して実行するアクションはすべて、その個人用アカウントに帰属します。 各個人用アカウントを複数の組織のメンバーにすることができます。
 
-The personal accounts within an organization can be given different roles in the organization, which grant different levels of access to the organization and its data. All members can collaborate with each other in repositories and projects, but only organization owners and security managers can manage the settings for the organization and control access to the organization's data with sophisticated security and administrative features. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
+ある Organization 内の個人用アカウントには、その Organization の異なるロールを付与できるので、Organization とそのデータに異なるレベルのアクセス権を付与できます。 すべてのメンバーがリポジトリとプロジェクトで相互に共同作業を行うことができますが、Organization の設定を管理し、高度なセキュリティと管理機能を使用して Organization のデータへのアクセスを制御できるのは、Organization のオーナーとセキュリティ マネージャーだけです。 詳細については、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」と「[Organization を安全に保つ](/organizations/keeping-your-organization-secure)」を参照してください。
 
-![Diagram showing that users must sign in to their personal account to access an organization's resources](/assets/images/help/overview/sign-in-pattern.png)
+![Organization のリソースにアクセスするには、ユーザーが自分の個人用アカウントにサインインする必要があることを示す図](/assets/images/help/overview/sign-in-pattern.png)
 
-{% ifversion fpt or ghec %} 
-Even if you're a member of an organization that uses SAML single sign-on, you will still sign into your own personal account on {% data variables.product.prodname_dotcom_the_website %}, and that personal account will be linked to your identity in your organization's identity provider (IdP). For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
+{% ifversion fpt or ghec %}所属する Organization が SAML シングル サインオンを使用する場合でも、{% data variables.product.prodname_dotcom_the_website %} では自分の個人用アカウントにサインインします。すると、その個人用アカウントから、Organization の ID プロバイダー (IdP) の ID にリンクされます。 詳細については、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% else %}{% endif %}「[SAML シングル サインオンによる認証について](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)」を参照してください。
 
-However, if you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, instead of using a personal account that you created, a new account will be provisioned for you by the enterprise's IdP. To access any organizations owned by that enterprise, you must authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-{% endif %}
+ただし、{% data variables.product.prodname_emus %} を使用する企業のメンバーである場合は、作成した個人用アカウントを使用するのではなく、新しいアカウントが、その企業の IdP によってプロビジョニングされます。 その企業が所有するすべての Organization にアクセスするには、{% data variables.product.prodname_dotcom_the_website %} のユーザー名とパスワードではなく、IdP を使用して認証する必要があります。 詳細については、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% else %}{% endif %}「[{% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) について」を参照してください。{% endif %}
 
-You can also create nested sub-groups of organization members called teams, to reflect your group's structure and simplify access management. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+また、Organization メンバーの入れ子になったサブグループ (チームと呼びます) を作成して、グループの構造を反映させ、アクセス管理を簡素化することもできます。 詳細については、「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
 
 {% data reusables.organizations.organization-plans %}
 
-For more information about all the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+Organization の全機能の詳細については、「[Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)」を参照してください。
 
-## Enterprise accounts
+## Enterprise アカウント
 
-{% ifversion fpt %}
-{% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} include enterprise accounts, which allow administrators to centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% elsif ghec %}
-Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
-{% elsif ghes or ghae %}
-Your enterprise account is a collection of all the organizations {% ifversion ghae %}owned by{% elsif ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} には、管理者が複数の Organization のポリシーと課金を一元的に管理し、Organization 間の内部管理ができる Enterprise アカウントが含まれます。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの「[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)」を参照してください。
+{% elsif ghec %}Enterprise アカウントを使用すると、複数の Organization の一元的なポリシー管理と課金を行うことができます。 Enterprise アカウントを使用して、ポリシーと課金を一元的に管理できます。 Organization アカウントとは異なり、Enterprise アカウントは、リポジトリ、パッケージ、プロジェクトなどのリソースを直接所有することはできません。 これらのリソースは、代わりに Enterprise アカウント内の Organization が所有します。 詳細については、「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+{% elsif ghes or ghae %}Enterprise アカウントは、{% data variables.product.product_location %} が{% ifversion ghae %}所有する{% elsif ghes %}の{% endif %}すべての Organization のコレクションです。 Enterprise アカウントを使用して、ポリシーと課金を一元的に管理できます。 Organization アカウントとは異なり、Enterprise アカウントは、リポジトリ、パッケージ、プロジェクトなどのリソースを直接所有することはできません。 これらのリソースは、代わりに Enterprise アカウント内の Organization が所有します。 詳細については、「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 {% endif %}
 
-## Further reading
+## 参考資料
 
 {% ifversion fpt or ghec %}
-- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"{% endif %}
-- "[Creating a new organization account](/articles/creating-a-new-organization-account)"
-- [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
+- [新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account){% endif %}
+- [新しい Organization アカウントを作成する](/articles/creating-a-new-organization-account)
+- {% data variables.product.company_short %} リソース内の「[コラボレーションを成功させるためにユーザーを組織する](https://vimeo.com/333786093)」ビデオ

@@ -23,7 +23,7 @@ concurrency:
 jobs:
   azure-prod-build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-xl
     timeout-minutes: 20
     environment:
       name: production
@@ -39,7 +39,7 @@ jobs:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
         with:
           login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
           username: ${{ secrets.PROD_REGISTRY_USERNAME }}
@@ -49,32 +49,99 @@ jobs:
         uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           ref: ${{ github.sha }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm
 
       - name: Clone docs-early-access
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
           path: docs-early-access
-          ref: main
 
       - name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
+
+      - name: Clone Simplified Chinese
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.zh-cn
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/zh-cn
+
+      - name: Clone Japanese
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ja-jp
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ja-jp
+
+      - name: Clone Spanish
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.es-es
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/es-es
+
+      - name: Clone Portuguese
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.pt-br
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/pt-br
+
+      - name: Clone German
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.de-de
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/de-de
+
+      - name: Clone French
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.fr-fr
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/fr-fr
+
+      - name: Clone Russian
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ru-ru
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ru-ru
+
+      - name: Clone Korean
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ko-kr
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ko-kr
+
+      # As of Dec 2022, we still have checked in translations into
+      # the main repo.
+      # We're going to remove that later.
+      # For now, just delete the excess directories so they don't add
+      # unnecessary weight to the container image.
+      - name: Delete old checked in translation directories (TEMPORARY)
+        run: |
+          rm -fr translations/zh-CN
+          rm -fr translations/ja-JP
+          rm -fr translations/es-ES
+          rm -fr translations/pt-BR
+          rm -fr translations/de-DE
+          rm -fr translations/fr-FR
+          rm -fr translations/ru-RU
+          rm -fr translations/ko-KR
 
       - name: 'Build and push image'
         uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0
@@ -142,13 +209,6 @@ jobs:
       - name: 'Swap canary slot to production'
         run: |
           az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
-
-      - name: Purge Fastly edge cache
-        env:
-          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
-          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-          FASTLY_SURROGATE_KEY: 'every-deployment'
-        run: npm install got && .github/actions-scripts/purge-fastly-edge-cache.js
 
   send-slack-notification-on-failure:
     needs: [azure-prod-build-and-deploy]

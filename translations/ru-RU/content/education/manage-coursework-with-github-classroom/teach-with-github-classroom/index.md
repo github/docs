@@ -11,6 +11,7 @@ children:
   - /use-the-git-and-github-starter-assignment
   - /create-an-individual-assignment
   - /create-a-group-assignment
+  - /editing-an-assignment
   - /reuse-an-assignment
   - /create-an-assignment-from-a-template-repository
   - /leave-feedback-with-pull-requests
@@ -18,11 +19,11 @@ children:
   - /register-a-learning-management-system-with-github-classroom
   - /connect-a-learning-management-system-course-to-a-classroom
 shortTitle: Teach
-ms.openlocfilehash: dec039d72f2c0412348cf9c06d0bc4f79f18c534
-ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
+ms.openlocfilehash: 291aac6523c5df876e7e327aad962711cc82b003
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/15/2022
-ms.locfileid: '148046490'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179753'
 ---
 

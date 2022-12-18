@@ -1,0 +1,235 @@
+meta:
+  default_description: "Démarrez, dépannez et tirez le meilleur parti de GitHub. Documentation pour les nouveaux utilisateurs, développeurs et administrateurs et pour tous les produits GitHub."
+header:
+  github_docs: Documentation GitHub
+  contact: Contact
+  notices:
+    ghae_silent_launch: GitHub AE est actuellement en version limitée.
+    release_candidate:
+      # The version name is rendered before the below text via includes/header-notification.html
+      ' est actuellement disponible en tant que version Release Candidate. Pour plus d’informations, consultez « <a href="/admin/overview/about-upgrades-to-new-releases">À propos des mises à niveau vers les nouvelles versions</a> »'
+    localization_complete:
+      "Nous publions des mises à jour fréquentes de notre documentation, et la traduction de cette page peut encore être en cours. Pour obtenir les informations les plus récentes, veuillez consulter la <a id=\"to-english-doc\" href=\"/en\">Documentation en anglais</a>."
+    early_access: 📣 Veuillez <b>ne pas partager</b> cette URL publiquement. Cette page contient du contenu sur une fonctionnalité en accès anticipé.
+    release_notes_use_latest: "Veuillez utiliser la dernière version pour bénéficier des dernières mises à jour de sécurité, de performances et de bogues."
+    # GHES release notes
+    ghes_release_notes_upgrade_patch_only: "📣 Il ne s’agit pas de la <a href=\"#{{ latestPatch }}\">dernière version de correctif</a> d’Enterprise Server."
+    ghes_release_notes_upgrade_release_only: "📣 Il ne s’agit pas de la <a href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\">dernière version</a> d’Enterprise Server."
+    ghes_release_notes_upgrade_patch_and_release: "📣 Il ne s’agit pas de la <a href=\"#{{ latestPatch }}\">dernière version de correctif</a> de cette série de versions, ni de la <a href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\">dernière version</a> d’Enterprise Server."
+  sign_up_cta: Inscription
+picker:
+  language_picker_default_text: Choisir une langue
+  product_picker_default_text: Tous les produits
+  version_picker_default_text: Choisir une version
+release_notes:
+  banner_text: GitHub a commencé à déployer ces changements pour les entreprises le
+search:
+  need_help: Vous avez besoin d’aide ?
+  placeholder: Recherche dans la documentation GitHub
+  loading: Chargement
+  no_results: Aucun résultat trouvé.
+  search_results_for: Résultats de recherche pour
+  no_content: Aucun contenu
+  matches_displayed: Correspondances affichées
+  search_error: Une erreur s’est produite lors de la tentative de recherche.
+  description: Entrez un terme de recherche pour le trouver dans la documentation GitHub.
+  label: Recherche dans la documentation GitHub
+  results_found: "{n} résultats trouvés en {s} ms"
+  results_page: "Page {page} sur {pages}."
+  nothing_found: Aucun résultat trouvé 😿
+homepage:
+  explore_by_product: Explorer par produit
+  version_picker: Version
+  description: "De l’aide, où que vous en soyez dans votre parcours sur GitHub."
+toc:
+  getting_started: Prise en main
+  popular: Populaire
+  guides: Guides
+  whats_new: Nouveautés
+  videos: Vidéos
+  all_changelogs: Tous les messages du journal des modifications
+pages:
+  article_version: 'Version de l’article'
+  miniToc: Contenu de cet article
+  contributor_callout: Cet article est rédigé et mis à jour par
+  all_enterprise_releases: Toutes les versions d’Enterprise Server
+  about_versions: À propos des versions
+errors:
+  oops: Oups !
+  something_went_wrong: Un problème est survenu.
+  we_track_errors: "Nous suivons ces erreurs automatiquement, mais si le problème persiste, n’hésitez pas à nous contacter."
+  page_doesnt_exist: Il semble que cette page n’existe pas.
+support:
+  still_need_help: Vous avez encore besoin d’aide ?
+  contact_support: Contacter le support technique
+  ask_community: Demander à la communauté GitHub
+survey:
+  able_to_find: Ce document vous a-t-il aidé ?
+  yes: Yes
+  no: No
+  comment_yes_label: Faites-nous savoir ce que nous faisons bien
+  comment_no_label: Faites-nous savoir ce que nous pouvons faire mieux
+  optional: Facultatif
+  required: Obligatoire
+  email_placeholder: email@example.com
+  email_label: "Si nous pouvons vous contacter pour d’autres questions, veuillez indiquer votre adresse e-mail"
+  email_validation: Entrez une adresse e-mail valide
+  send: Envoyer
+  feedback: Merci ! Nous avons reçu vos commentaires.
+  not_support: "Si vous avez besoin d’une réponse, veuillez plutôt contacter le service de support."
+  privacy_policy: Politique de confidentialité
+contribution_cta:
+  title: Aidez-nous à rendre ces documents formidables !
+  body: Toute la documentation GitHub est open source. Vous voyez quelque chose qui n’est pas correct ou qui n’est pas clair ? Envoyez une demande de tirage.
+  button: Faire une contribution
+  or: "Ou,"
+  to_guidelines: découvrez comment contribuer.
+products:
+  graphql:
+    reference:
+      implements: Implémentations
+      fields: Champs
+      arguments: Arguments
+      name: Nom
+      type: Type
+      description: Description
+      input_fields: Champs d’entrée
+      return_fields: Champs de retour
+      implemented_by: Implémenté dans
+      values: Valeurs
+      possible_types: Types possibles
+      preview_notice: Avis de préversion
+      deprecation_notice: Note relative à la suppression de fonctionnalités
+      preview_period: "Pendant la période de préversion, l’API peut être modifiée sans préavis."
+    overview:
+      preview_header: 'Pour activer cette préversion et accéder aux membres du schéma suivants, vous devez fournir un type de média personnalisé dans l’en-tête `Accept` :'
+      preview_schema_members: 'Membres du schéma en préversion'
+      announced: Annoncé
+      updates: Mises à jour
+  rest:
+    reference:
+      default: Default
+      name: Nom
+      in: Dans
+      type: Type
+      description: Description
+      notes: Notes
+      parameters: Paramètres
+      response: response
+      example_response: Exemple de réponse
+      status_code: Code d’état
+      http_status_code: Codes de statut de réponse HTTP
+      code_sample: Exemple de code
+      code_samples: Exemples de code
+      preview_notice: Avis de préversion
+      preview_notices: Avis de préversions
+      see_preview_notice: Voir l’avis de préversion
+      see_preview_notices: Voir les avis de préversions
+      preview_header_is_required: Cet en-tête est <strong>requis</strong>
+      preview_notice_to_change: Cette API est en cours d’élaboration et est susceptible d’être modifiée
+      works_with: Fonctionne avec
+      api_reference: Référence d’API REST
+      enum_description_title: Peut être
+      required: Obligatoire
+      headers: headers
+      query: Paramètres de requête
+      path: Paramètres de chemin d’accès
+      body: Paramètres du corps
+footer:
+  all_rights_reserved: Tous droits réservés
+  terms: Termes
+  privacy: Confidentialité
+  security: Sécurité
+  product:
+    heading: Produit
+    links:
+      features: Fonctionnalités
+      security: Sécurité
+      enterprise: Entreprise
+      case_studies: Études de cas
+      pricing: Tarifs
+      resources: Ressources
+  platform:
+    heading: Plateforme
+    links:
+      developer_api: API pour les développeurs
+      partners: Partenaires
+      atom: Atom
+      electron: Electron
+      github_desktop: GitHub Desktop
+  support:
+    heading: Support
+    links:
+      help: Aide
+      community_forum: Forum de la communauté
+      training: Entrainement
+      status: Statut
+      contact_github: Contacter GitHub
+  company:
+    heading: Company
+    links:
+      about: À propos
+      blog: Blog
+      careers: Carrières
+      press: Appuyez sur
+      shop: Shop
+product_landing:
+  quickstart: Démarrage rapide
+  reference: Informations de référence
+  overview: Vue d’ensemble
+  guides: Guides
+  code_examples: Exemples de code
+  search_code_examples: Rechercher des exemples de code
+  search_results_for: Résultats de recherche pour
+  matches_displayed: Correspondances affichées
+  show_more: Montrer la suite
+  explore_people_and_projects: Explorer les personnes et les projets
+  sorry: "Désolé, il n’y a pas de résultat pour"
+  no_example: Il semble que nous n’ayons pas d’exemple qui corresponde à votre filtre.
+  try_another: Essayez un autre filtre ou ajoutez votre exemple de code.
+  no_result: "Désolé, il n’y a pas de guides qui correspondent à votre filtre."
+  learn: Apprendre à ajouter un exemple de code
+  communities_using_discussions: Communautés sur GitHub.com utilisant des discussions
+  add_your_community: Ajouter votre communauté
+  sponsor_community: Communauté des sponsors GitHub
+  supported_releases: Versions prises en charge
+  release_notes_for: Notes de publication pour
+  upgrade_from: Mise à niveau à partir de
+  browse_all_docs: Parcourir tous les documents
+  browse_all: Parcourir tout
+  docs: docs
+  explore_release_notes: Explorer les notes de mise en production
+  view: Afficher tout
+product_guides:
+  start_path: Commencer un parcours d’apprentissage
+  learning_paths: 'Chemins d’apprentissage {{ productMap[currentProduct].name }}'
+  learning_paths_desc: Les parcours d’apprentissage sont une collection d’articles qui vous aident à maîtriser un sujet particulier.
+  guides: 'Guides {{ productMap[currentProduct].name }}'
+  more_guides: plus de guides
+  load_more: Charger plus de guides
+  all_guides: 'Tous les guides {{ productMap[currentProduct].name }}'
+  filter_instructions: Filtrer la liste des guides à l’aide de ces commandes
+  filters:
+    type: Type
+    topic: Rubrique
+    all: Tous
+  guides_found:
+    multiple: '{n} guides trouvés'
+    one: 1 guide trouvé
+    none: Aucun guide trouvé
+  guide_types:
+    overview: Vue d’ensemble
+    quick_start: Démarrage rapide
+    tutorial: Didacticiel
+    how_to: Guide pratique
+    reference: Informations de référence
+learning_track_nav:
+  prevGuide: Guide précédent
+  nextGuide: Guide suivant
+toggle_images:
+  off: "Les images sont désactivées, cliquez pour les afficher"
+  on: "Les images sont activées, cliquez pour les masquer"
+  hide_single: Masquer l’image
+  show_single: Afficher l’image
+scroll_button:
+  scroll_to_top: Faire défiler vers le sommet

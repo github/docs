@@ -16,12 +16,12 @@ versions:
 topics:
   - Repositories
 shortTitle: View files and track file changes
-ms.openlocfilehash: bc27fc67cfd18eb20f8c612b81f4d6dd5da20913
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7d34e776cb1747ee749531e49abf6f0e3d052b3b
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146680993'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179866'
 ---
 ## Visualización o copia del contenido del archivo sin formato
 
@@ -92,3 +92,7 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}
+
+## Omisión de `.git-blame-ignore-revs` en la vista de último responsable
+
+Si la vista de último responsable de un archivo muestra **Ignorando revisiones de .git-blame-ignore-revs**, todavía puedes omitir `.git-blame-ignore-revs` y ver la vista de último responsable normal. En la dirección URL, anexa `~` al SHA para que desaparezca el mensaje **Ignorando revisiones de .git-blame-ignore-revs**.

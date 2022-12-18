@@ -1,5 +1,5 @@
 ---
-title: Suspending and unsuspending users
+title: ユーザーのサスペンドとサスペンドの解除
 redirect_from:
   - /enterprise/admin/articles/suspending-a-user
   - /enterprise/admin/articles/unsuspending-a-user
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/articles/suspending-and-unsuspending-users
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
-intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.location.product_location %}.'
+intro: 'ユーザーが企業を離れたり異動したりした場合には、{% data variables.product.product_location %} に対するそのユーザーのアクセス権を削除したり変更したりしなければなりません。'
 versions:
   ghes: '*'
 type: how_to
@@ -18,10 +18,16 @@ topics:
   - Security
   - User account
 shortTitle: Manage user suspension
+ms.openlocfilehash: d888678438f62fb585dac1cab4905ff02d8eb824
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331905'
 ---
-If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
+従業員が企業を退職した場合、その{% data variables.product.prodname_ghe_server %}アカウントをサスペンドすれば、{% data variables.product.prodname_enterprise %}ライセンス中のユーザライセンスを空けながら、Issue、コメント、リポジトリ、Gist、そしてそのユーザが作成した他のデータを保持しておくことができます。 サスペンドされたユーザはインスタンスにサインインすることも、コードをプッシュやプルすることもできません。
 
-When you suspend a user, the change takes effect immediately with no notification to the user. If the user attempts to pull or push to a repository, they'll receive this error:
+ユーザをサスペンドした場合、その変更はすぐに有効になり、ユーザには通知されません。 ユーザがリポジトリからのプルやプッシュをしようとすると、以下のエラーが返されます:
 
 ```shell
 $ git clone git@[hostname]:john-doe/test-repo.git
@@ -30,74 +36,65 @@ ERROR: Your account is suspended. Please check with your installation administra
 fatal: The remote end hung up unexpectedly
 ```
 
-Before suspending site administrators, you must demote them to regular users. For more information, see "[Promoting or demoting a site administrator](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)."
+サイト管理者をサスペンドする前には、そのユーザを通常のユーザに降格させなければなりません。 詳細については、「[サイト管理者の昇格または降格](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)」を参照してください。
 
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+**注:** {% data variables.product.product_location %} に対して [LDAP 同期が有効](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)になっている場合、ユーザーが LDAP ディレクトリ サーバーから削除されると、そのユーザーは自動的に一時停止されます。 インスタンスで LDAP Sync が有効化されている場合、通常のユーザのサスペンド方法は無効化されています。
 
 {% endtip %}
 
-## Suspending a user from the user admin dashboard
+## ユーザ管理ダッシュボードからユーザをサスペンドする
+
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %} {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
+5. [アカウントの一時停止] の赤い [危険ゾーン] ボックスで、 **[一時停止]** をクリックします。
+![[一時停止] ボタン](/assets/images/enterprise/site-admin-settings/suspend.png)
+6. ユーザをサスペンドする理由を入力してください。
+![一時停止の理由](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
+
+## ユーザ管理ダッシュボードからユーザのサスペンドを解除する
+
+ユーザのサスペンドの場合と同じく、ユーザのサスペンド解除もすぐに有効になります。 ユーザには通知されません。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user %}
-{% data reusables.enterprise_site_admin_settings.click-user %}
-{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "Account suspension," in the red Danger Zone box, click **Suspend**.
-![Suspend button](/assets/images/enterprise/site-admin-settings/suspend.png)
-6. Provide a reason to suspend the user.
-![Suspend reason](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
+3. 左側のサイドバーで、 **[一時停止されたユーザー]** をクリックします。
+![[一時停止されたユーザー] タブ](/assets/images/enterprise/site-admin-settings/user/suspended-users-tab.png)
+2. サスペンドを解除したいユーザアカウントの名前をクリックします。
+![一時停止されたユーザー](/assets/images/enterprise/site-admin-settings/user/suspended-user.png) {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
+4. [アカウントの一時停止] の赤い [危険ゾーン] ボックスで、 **[停止解除]** をクリックします。
+![[停止解除] ボタン](/assets/images/enterprise/site-admin-settings/unsuspend.png)
+5. ユーザのサスペンドを解除する理由を入力します。
+![停止解除の理由](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-## Unsuspending a user from the user admin dashboard
-
-As when suspending a user, unsuspending a user takes effect immediately. The user will not be notified.
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Suspended users**.
-![Suspended users tab](/assets/images/enterprise/site-admin-settings/user/suspended-users-tab.png)
-2. Click the name of the user account that you would like to unsuspend.
-![Suspended user](/assets/images/enterprise/site-admin-settings/user/suspended-user.png)
-{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. Under "Account suspension," in the red Danger Zone box, click **Unsuspend**.
-![Unsuspend button](/assets/images/enterprise/site-admin-settings/unsuspend.png)
-5. Provide a reason to unsuspend the user.
-![Unsuspend reason](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
-
-## Suspending a user from the command line
+## コマンドラインからユーザをサスペンドする
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
+2. 一時停止するユーザー名を指定して [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend) を実行します。
   ```shell
-  $ ghe-user-suspend USERNAME
+  $ ghe-user-suspend <em>username</em>
   ```
 
-## Creating a custom message for suspended users
+## サスペンドされたユーザのためのカスタムメッセージを作成する
 
-You can create a custom message that suspended users will see when attempting to sign in.
+サスペンドされたユーザがサインインしようとしたときに表示されるカスタムメッセージを作成できます。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}
-5. Click **Add message**.
-![Add message](/assets/images/enterprise/site-admin-settings/add-message.png)
-6. Type your message into the **Suspended user message** box. You can type Markdown, or use the Markdown toolbar to style your message.
-![Suspended user message](/assets/images/enterprise/site-admin-settings/suspended-user-message.png)
-7. Click the **Preview** button under the **Suspended user message** field to see the rendered message.
-![Preview button](/assets/images/enterprise/site-admin-settings/suspended-user-message-preview-button.png)
-8. Review the rendered message.
-![Suspended user message rendered](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
-{% data reusables.enterprise_site_admin_settings.save-changes %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
+5. **[メッセージの追加]** をクリックします。
+![メッセージの追加](/assets/images/enterprise/site-admin-settings/add-message.png)
+6. **[一時停止されたユーザーへのメッセージ]** ボックスにメッセージを入力します。 Markdownをタイプするか、Markdownツールバーを使ってメッセージのスタイルを指定できます。
+![一時停止されたユーザーへのメッセージ](/assets/images/enterprise/site-admin-settings/suspended-user-message.png)
+7. **[一時停止されたユーザーへのメッセージ]** フィールドの下にある **[プレビュー]** ボタンをクリックして、表示されたメッセージを表示します。
+![プレビュー ボタン](/assets/images/enterprise/site-admin-settings/suspended-user-message-preview-button.png)
+8. 表示されたメッセージを確認します。
+![表示された一時停止されたユーザーへのメッセージ](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png) {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-## Unsuspending a user from the command line
+## コマンドラインからユーザのサスペンドを解除する
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+2. 停止解除するユーザー名を指定して [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) を実行します。
   ```shell
-  $ ghe-user-unsuspend USERNAME
+  $ ghe-user-unsuspend <em>username</em>
   ```
 
-## Further reading
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+## 参考資料
+- 「[ユーザーの一時停止](/rest/reference/enterprise-admin#suspend-a-user)」

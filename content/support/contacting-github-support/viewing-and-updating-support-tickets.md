@@ -24,7 +24,12 @@ You can use the [GitHub Support Portal](https://support.github.com/) to view cur
 
 {% data reusables.support.view-open-tickets %}
 1. Under the text box, you can read the comment history. The most recent response is at the top.
-![Screenshot of support ticket comment history, with the most recent response at the top.](/assets/images/help/support/support-recent-response.png)
+
+   ![Screenshot of support ticket comment history, with the most recent response at the top](/assets/images/help/support/support-recent-response.png)
+
+1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
+
+   ![Screenshot of a support ticket with the dropdown menu showing the options for translation emphasized](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

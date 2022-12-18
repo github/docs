@@ -8,12 +8,12 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: 4f5fab2f63ff686762a4fb6ccd5964b7f4d9cb3c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1ffa725be4e42695b297545f65c998b14ed8e000
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573869'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179749'
 ---
 ## 個人課題について
 
@@ -59,6 +59,8 @@ ms.locfileid: '147573869'
 [Individual or group assignment]\(個人またはグループの課題\) の下のドロップダウン メニューを選んで、 **[Individual assignment]\(個人課題\)** をクリックします。 課題の作成後は、課題タイプを変更できません。 グループ課題を作成する場合は、「[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」をご覧ください。
 
 ### 課題リポジトリの可視性を選択する
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
@@ -136,4 +138,4 @@ ms.locfileid: '147573869'
 ## 参考資料
 
 - 「[教師向け {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)」
-- [学習管理システムを {% data variables.product.prodname_classroom %} に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)
+- [学習管理システムを {% data variables.product.prodname_classroom %} に接続する](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)

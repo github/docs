@@ -1,6 +1,6 @@
 ---
-title: Managing auto-merge for pull requests in your repository
-intro: You can allow or disallow auto-merge for pull requests in your repository.
+title: Gerenciando merge automático para pull requests no seu repositório
+intro: Você pode permitir ou impedir um merge automático de pull requests em seu repositório.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
@@ -14,16 +14,21 @@ redirect_from:
   - /github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository
   - /github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository
 shortTitle: Manage auto merge
+ms.openlocfilehash: 4d0f0d465ea3c8551dc909d56620a06ee9864c1c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883438'
 ---
-## About auto-merge
+## Sobre o merge automático
 
-If you allow auto-merge for pull requests in your repository, people with write permissions can configure individual pull requests in the repository to merge automatically when all merge requirements are met. If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. For more information, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+Se você permitir uma merge automático para pull requests no seu repositório, as pessoas com permissões de gravação poderão configurar pull requests individuais no repositório para fazer merge automaticamente quando todos os requisitos de merge forem atendidos. Se alguém que não tiver permissão de gravação efetuar push de uma solicitação de pull que tenha a mesclagem automática habilitado, a mesclagem automática será desabilitada para essa solicitação de pull. Para obter mais informações, confira "[Mesclar uma solicitação de pull automaticamente](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
 
-## Managing auto-merge
+## Gerenciar merge automático
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**.
-  ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. Em {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Solicitações de Pull"{% else %}"Botão Mesclar"{% endif %}, marque ou desmarque **Permitir mesclagem automática**.
+  ![Caixa de seleção usada para permitir ou não permitir a mesclagem automática](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

@@ -1,7 +1,7 @@
 ---
-title: Configuring SAML single sign-on for Enterprise Managed Users
+title: エンタープライズ マネージド ユーザーの SAML シングル サインオンの構成
 shortTitle: SAML for managed users
-intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).'
+intro: 'Security Assertion Markup Language (SAML) シングル サインオン (SSO) を構成することで、{% data variables.product.prodname_dotcom %} の Enterprise アカウントへのアクセスを自動的に管理できます。'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
@@ -15,29 +15,37 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: d83c6ea74ae6a27fc5f91ebdc5dcae83e0c22eb2
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180054'
 ---
+## {% data variables.product.prodname_emus %} の SAML シングル サインオンについて
 
-## About SAML single sign-on for {% data variables.product.prodname_emus %}
+{% data variables.product.prodname_emus %} を使用すると、エンタープライズは企業の ID プロバイダーを使用してすべてのメンバーを認証します。 {% data variables.product.prodname_dotcom %} ユーザー名とパスワードを使用して {% data variables.product.prodname_dotcom %} にサインインする代わりに、エンタープライズのメンバーは IdP を介してサインインします。
 
-With {% data variables.product.prodname_emus %}, your enterprise uses SAML SSO to authenticate all members. Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
-
-{% data variables.product.prodname_emus %} supports the following IdPs:
+{% data variables.product.prodname_emus %} では、次の IdP がサポートされています。
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
-After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
+SAML SSO を構成した後は、ID プロバイダーが利用できない場合にエンタープライズへのアクセスを回復できるように、回復用コードを格納することをお勧めします。
+
+
+{% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% note %}
 
-**Note:** When SAML SSO is enabled, the only setting you can update on {% data variables.product.prodname_dotcom %} for your existing SAML configuration is the SAML certificate. If you need to update the Sign on URL or Issuer, you must first disable SAML SSO and then reconfigure SAML SSO with the new settings.
+**注:** SAML SSO が有効になっている場合、既存の SAML 構成の {% data variables.product.prodname_dotcom %} に対して更新できる唯一の設定は SAML 証明書です。 サインオン URL または発行者を更新する必要がある場合は、まず SAML SSO を無効にしてから、新しい設定で SAML SSO を再構成する必要があります。
 
 {% endnote %}
 
-## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
+## {% data variables.product.prodname_emus %} の SAML シングル サインオンの構成
 
-To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning. 
+{% data variables.enterprise.prodname_emu_enterprise %} の SAML SSO を構成するには、IdP でアプリケーションを構成してから、GitHub.com でエンタープライズを構成する必要があります。 SAML SSO を構成したら、ユーザー プロビジョニングを構成できます。 
 
-To install and configure the {% data variables.product.prodname_emu_idp_application %} application on your IdP, you must have a tenant and administrative access on a supported IdP.
+IdP に {% data variables.product.prodname_emu_idp_application %} アプリケーションをインストールして構成するには、サポートされている IdP に対するテナントと管理アクセス権が必要です。
 
 {% note %}
 
@@ -45,73 +53,71 @@ To install and configure the {% data variables.product.prodname_emu_idp_applicat
 
 {% endnote %}
 
-1. [Configuring your identity provider](#configuring-your-identity-provider)
-2. [Configuring your enterprise](#configuring-your-enterprise)
-3. [Enabling provisioning](#enabling-provisioning)
+1. [ID プロバイダーの構成](#configuring-your-identity-provider)
+2. [エンタープライズの構成](#configuring-your-enterprise)
+3. [プロビジョニングの有効化](#enabling-provisioning)
 
-### Configuring your identity provider
+### ID プロバイダーの構成
 
-To configure your IdP, follow the instructions they provide for configuring the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
+IdP を構成するには、IdP で {% data variables.product.prodname_emu_idp_application %} アプリケーションを構成するための指示に従います。
 
-1. To install the {% data variables.product.prodname_emu_idp_application %} application, click the link for your IdP below:
+1. {% data variables.product.prodname_emu_idp_application %} アプリケーションをインストールするには、以下の IdP のリンクをクリックします。
 
-     - [{% data variables.product.prodname_emu_idp_application %} application on Azure Active Directory](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview)
-     - [{% data variables.product.prodname_emu_idp_application %} application on Okta](https://www.okta.com/integrations/github-enterprise-managed-user)
+     - [Azure Active Directory の {% data variables.product.prodname_emu_idp_application %} アプリケーション](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview)
+     - [Okta の {% data variables.product.prodname_emu_idp_application %} アプリケーション](https://www.okta.com/integrations/github-enterprise-managed-user)
 
-1. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
+1. {% data variables.product.prodname_emu_idp_application %} アプリケーションと IdP を構成するには、以下のリンクをクリックし、IdP によって提供される指示に従います。
 
-     - [Azure Active Directory tutorial for {% data variables.product.prodname_emus %}](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
-     - [Okta documentation for {% data variables.product.prodname_emus %}](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
+     - [{% data variables.product.prodname_emus %} の Azure Active Directory チュートリアル](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
+     - [{% data variables.product.prodname_emus %} の Okta ドキュメント](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
 
-1. So you can test and configure your enterprise, assign yourself or the user that will be configuring SAML SSO on {% data variables.product.prodname_dotcom %} to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
+1. そのため、エンタープライズをテストして構成し、自分自身または {% data variables.product.prodname_dotcom %} で SAML SSO を構成するユーザーを IdP 上の {% data variables.product.prodname_emu_idp_application %} アプリケーションに割り当てることができます。
 
-1. To enable you to continue configuring your enterprise on {% data variables.product.prodname_dotcom %}, locate and note the following information from the application you installed on your IdP:
+1. {% data variables.product.prodname_dotcom %} でエンタープライズを引き続き構成できるようにするには、IdP にインストールしたアプリケーションから次の情報を見つけてメモします。
 
-    | Value | Other names | Description |
+    | 値 | その他の名前 | 説明 |
     | :- | :- | :- |
-    | IdP Sign-On URL | Login URL, IdP URL | Application's URL on your IdP |
-    | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
-    | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
+    | IdP のサインオン URL | ログイン URL、IdP URL | IdP 上のアプリケーションの URL |
+    | IdP 識別子 URL | 発行者 | SAML 認証用のサービス プロバイダーに対する IdP 識別子 |
+    | 署名証明書 (Base64 エンコード) | 公開証明書 | IdP が認証要求に署名するために使用する公開証明書 |
 
-### Configuring your enterprise
+### Enterprise を設定する
 
-After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise. 
+ID プロバイダーに {% data variables.product.prodname_emu_idp_application %} アプリケーションをインストールして構成した後、エンタープライズを構成できます。 
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
+1. ユーザー名 **@<em>SHORT-CODE</em>_admin** を使用して、新しいエンタープライズのセットアップ ユーザーとして {% data variables.product.prodname_dotcom_the_website %} にサインインします。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
 
-1. Under "SAML single sign-on", select **Require SAML authentication**.
-  ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+1. [SAML シングル サインオン] で、 **[Require SAML authentication]\(SAML 認証が必要\)** を選択します。
+  ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
 
-1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for single sign-on requests that you noted while configuring your IdP.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
+1. **[サインオン URL]** に、IdP の構成時にメモしたシングル サインオン要求の IdP の HTTPS エンドポイントを入力します。
+![メンバーがサインインする際にリダイレクトされる URL のフィールド](/assets/images/help/saml/saml_sign_on_url_business.png)
 
-1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
+1. **[発行者]** に、IdP の構成時にメモした SAML 発行者 URL を入力して、送信されたメッセージの信頼性を確認します。
+![SAML 発行者の名前のフィールド](/assets/images/help/saml/saml_issuer.png)
 
-1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
+1. **[公開証明書]** で、IdP の構成時にメモした証明書を貼り付けて、SAML 応答を確認します。
+![ID プロバイダーからの公開証明書のフィールド](/assets/images/help/saml/saml_public_certificate.png)
 
-1. To verify the integrity of the requests from your SAML issuer, click {% octicon "pencil" aria-label="The edit icon" %}. Then, in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
+1. SAML 発行者からの要求のデータ整合性を確認するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。 次に、[署名方法] および [Digest Method]\(ダイジェスト方法\) ドロップダウンで、SAML 発行者が使用するハッシュ アルゴリズムを選択します。
+![SAML 発行者が使用する署名方法とダイジェスト方法のハッシュ アルゴリズム用のドロップダウン](/assets/images/help/saml/saml_hashing_method.png)
 
-1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+1. エンタープライズで SAML SSO を有効化する前に、 **[Test SAML configuration]\(SAML 構成のテスト\)** をクリックして、入力した情報が正しいか確認します。 ![適用する前に SAML 構成をテストするボタン](/assets/images/help/saml/saml_test.png)
 
-1. Click **Save**.
+1. **[保存]** をクリックします。
 
     {% note %}
 
-    **Note:** When you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to GitHub. Only {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
+    **注:** エンタープライズに SAML SSO が必要な場合、セットアップ ユーザーはエンタープライズにアクセスできなくなりますが、GitHub にはサインインしたままになります。 IdP によってプロビジョニングされた {% data variables.enterprise.prodname_managed_users %} のみがエンタープライズにアクセスできます。
 
     {% endnote %}
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
 
-### Enabling provisioning
+### プロビジョニングの有効化
 
-After you enable SAML SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+SAML SSO を有効にした後、プロビジョニングを有効にします。 詳細については、「[エンタープライズ マネージド ユーザーの SCIM プロビジョニングの構成](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)」を参照してください。
 

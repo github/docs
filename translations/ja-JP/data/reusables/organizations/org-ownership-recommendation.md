@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 0a42d7b90fd6973a0d52e7cff8dfc3082de11135
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 64c92d2427b9be166d820bf3fcb23d39d449a295
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145122550"
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163474"
 ---
-一人のOrganizationオーナーによってメンテナンスされ、管理されているプロジェクトは、そのOrganizationオーナーが不在になると、簡単にアクセスできなくなってしまいます。 Organization には、*オーナー* 権限を持つ人を少なくとも 2 人置き、確実にプロジェクトへのアクセスが失われないようにすることをお勧めします。
+組織に所有者が 1 人しかない場合、その所有者に連絡できないと、その組織のプロジェクトにアクセスできなくなるおそれがあります。 誰もプロジェクトにアクセスできなくなることがないようにするには、各組織内の少なくとも 2 人が所有者ロールを持つようにすることをお勧めします。

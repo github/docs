@@ -1,0 +1,13 @@
+date: '2020-09-23'
+sections:
+  security_fixes:
+    - '**MITTEL**:  ImageMagick wurde aktualisiert, um [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715) zu adressieren. {% comment %} https://github.com/github/enterprise2/pull/22625, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/22601, https://github.com/github/enterprise2/pull/22592, https://github.com/github/enterprise2/pull/22605, https://github.com/github/enterprise2/pull/22426, https://github.com/github/enterprise2/pull/22718, https://github.com/github/enterprise2/pull/22699 {% endcomment %}'
+  known_issues:
+    - 'Angreifer könnten auf einem neu eingerichteten GitHub Enterprise-Server den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, in dem der Dateipfad länger als 255 Zeichen ist. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Wenn „Benutzer können GitHub.com durchsuchen“ mit GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Sicherheitswarnungen werden nicht gemeldet, wenn du zu einem Repository in der Befehlszeile pushst. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert.'

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145114750"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184087"
 ---
 並行ジョブかワークフローがキューに入っている場合、リポジトリ内の同じ並行グループを使う他のジョブかワークフローが進行中だと、キューイングされたジョブかワークフローは `pending` になります。 この並行グループ内の以前の保留中のジョブもしくはワークフローは、キャンセルされます。 同じコンカレンシー グループ内の現在実行中のジョブかワークフローもキャンセルするには、`cancel-in-progress: true` を指定します。
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ concurrency:
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ concurrency:
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```

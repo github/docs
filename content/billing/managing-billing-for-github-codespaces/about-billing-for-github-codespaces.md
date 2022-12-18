@@ -39,12 +39,14 @@ The following storage and core hours of usage are included, free of charge, for 
 
 | Account plan | Storage per month | Core hours per month |
 | ------------ | ----------------- | -------------------- |
-| {% data variables.product.prodname_dotcom %} Free for personal accounts | 15 GB | 120 |
-| {% data variables.product.prodname_dotcom %} Pro                        | 20 GB | 180 |
+| {% data variables.product.prodname_dotcom %} Free for personal accounts | 15 GB-month | 120 |
+| {% data variables.product.prodname_dotcom %} Pro                        | 20 GB-month | 180 |
 
 {% note %}
 
-**Note**: A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table below. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
+**Notes**:
+- The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. For more information, see "[Billing for storage usage](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)" below.
+- A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table below. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
 
 {% endnote %}
 

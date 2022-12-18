@@ -1,6 +1,6 @@
 ---
-title: Authorizing an SSH key for use with SAML single sign-on
-intro: 'To use an SSH key with an organization that uses SAML single sign-on (SSO), you must first authorize the key.'
+title: SAMLシングルサインオンで利用するためにSSHキーを認可する
+intro: SAML シングルサインオン (SSO) を使う Organization で SSH キーを使うためには、まずそのキーを認可しなければなりません。
 redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
@@ -11,8 +11,14 @@ versions:
 topics:
   - SSO
 shortTitle: SSH Key with SAML
+ms.openlocfilehash: f4b11c123c01d56263de883cbdd0f87c48eee04b
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147854284'
 ---
-You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+既存の SSH キーを認可することも、新しい SSH キーを作成して認可することもできます。 新しい SSH キーの作成の詳細については、「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -20,20 +26,19 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 
 {% note %}
 
-**Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+**注:** SSH キーの認可が Organization によって取り消された場合、同じキーを再度認可することはできません。 新しい SSH キーを生成して認可する必要があります。 新しい SSH キーの作成の詳細については、「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-1. To the right of the SSH key you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+1. 認可する SSH キーの右側にある **[SSO の構成]** をクリックします。
 
-   ![Screenshot of the SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
-1. To the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
+   ![SSO トークンの認可ボタンのスクリーンショット](/assets/images/help/settings/ssh-sso-button.png)
+1. SSH キーを認可する Organization の右側にある **[認可]** をクリックします。
 
-   ![Screenshot of the token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
+   ![トークンの認可ボタンのスクリーンショット](/assets/images/help/settings/ssh-sso-authorize.png)
 
-## Further reading
+## 参考資料
 
-- "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
-- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
+- 「[既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)」
+- 「[SAML のシングル サインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)」

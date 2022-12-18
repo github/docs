@@ -11,12 +11,12 @@ topics:
   - Developer
 shortTitle: Create a codespace from a template
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 7c6ffdb4099b5d5d6f37ec5ffa7d73f838b36c76
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 9e7ee0d110e962fa755f5f57cc70bc3cab341808
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159861'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188315'
 ---
 ## Сведения о шаблонах для {% data variables.product.prodname_github_codespaces %}
 
@@ -101,5 +101,5 @@ ms.locfileid: '148159861'
 ## Дополнительные материалы
 
 - [Создание codespace для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)
-- [Жизненный цикл codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [Жизненный цикл codespace](/codespaces/getting-started/the-codespace-lifecycle)
 - ["Использование системы управления версиями в codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"

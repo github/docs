@@ -31,6 +31,9 @@ Before you can enable and configure {% data variables.product.prodname_registry 
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
 1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
+
+    - You must create a storage container prior to setting the container name and connection string.
+
   ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
   {% note %}

@@ -1,105 +1,117 @@
 date: '2022-04-04'
 sections:
   security_fixes:
-    - 'MEDIUM: A path traversal vulnerability was identified in {% data variables.product.prodname_ghe_server %} Management Console that allowed the bypass of CSRF protections. This vulnerability affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.5 and was fixed in versions 3.1.19, 3.2.11, 3.3.6, 3.4.1. This vulnerability was reported via the {% data variables.product.prodname_dotcom %} Bug Bounty program and has been assigned CVE-2022-23732.'
-    - 'MEDIUM: An integer overflow vulnerability was identified in the 1.x branch and the 2.x branch of `yajil` which leads to subsequent heap memory corruption when dealing with large (~2GB) inputs. This vulnerability was reported internally and has been assigned CVE-2022-24795. '
-    - Support bundles could include sensitive files if {% data variables.product.prodname_actions %} was enabled. 
-    - Packages have been updated to the latest security versions.
+    - '中: {% data variables.product.prodname_ghe_server %} 管理コンソールでパス走査の脆弱性が確認されました。これにより、CSRF 保護のバイパスが可能になりました。この脆弱性により、3.5 より前の {% data variables.product.prodname_ghe_server %} のすべてのバージョンが影響を受けます。バージョン 3.1.19、3.2.11、3.3.6、3.4.1 で修正されました。この脆弱性は、{% data variables.product.prodname_dotcom %} Bug Bounty プログラムから報告され、CVE-2022-23732 が割り当てられました。'
+    - '中: `yajil` の 1.x ブランチと 2.x ブランチで整数オーバーフローの脆弱性が確認されました。これは、大規模入力 (~2GB) の処理時に後続のヒープ メモリが破損する原因になります。この脆弱性は内部的に報告され、CVE-2022-24795 が割り当てられました。'
+    - "{% data variables.product.prodname_actions %} が有効にされた場合、サポート バンドルには機密ファイルが含まれている可能性があります。" 
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - A workflow run may not complete if it uses composite-actions.
-    - When enabling {% data variables.product.prodname_dependabot %}, an error caused some security advisories to temporarily read as no-longer applicable.
-    - Minio processes would have high CPU usage if an old configuration option was present after upgrading {% data variables.product.prodname_ghe_server %}.
-    - The options to enable `TLS 1.0` and `TLS 1.1` in the Privacy settings of the Management Console were shown, although removal of those protocol versions occurred in an earlier release.
-    - In a HA environment, configuring MSSQL replication could require additional manual steps after enabling {% data variables.product.prodname_actions %} for the first time.
-    - A subset of internal configuration files are more reliably updated after a hotpatch. 
-    - The `ghe-run-migrations` script would sometimes fail to generate temporary certificate names correctly. 
-    - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
-    - In some cluster topologies, webhook delivery information was not available. 
-    - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job. 
-    - Elasticsearch health checks would not allow a yellow cluster status when running migrations. 
-    - When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.
-    - Repositories would display a non-functional Discussions tab in the web UI. 
-    - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account. 
-    - LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously. 
-    - Links to inaccessible pages were removed. 
-    - Some instances experienced high CPU usage due to large amounts unnecessary background jobs being queued. 
-    - Empty repositories didnt sync correctly to cache servers. 
-    - Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team. 
-    - The remove team membership API endpoint would respond with an error when attempting to remove member externally managed via a SCIM Group. 
-    - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail. 
-    - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available. 
-    - The "Site admin mode" link in the site footer did not change state when clicked. 
+    - 複合アクションが使われている場合、ワークフローの実行が完了しないことがあります。
+    - "{% data variables.product.prodname_dependabot %} を有効にすると、エラーによって一部のセキュリティ アドバイザリが適用されなくなったものとして一時的に表示されました。"
+    - "{% data variables.product.prodname_ghe_server %} をアップグレードした後、古い構成オプションが存在すると、Minio プロセスの CPU 使用率が高くなりました。"
+    - "以前のリリースでこれらのプロトコル バージョンの削除が行われたにもかかわらず、管理コンソールの [プライバシー] 設定の `TLS 1.0` と `TLS 1.1` を有効にするオプションが表示されていました。"
+    - "HA 環境では、MSSQL レプリケーションを構成するには、{% data variables.product.prodname_actions %} を初めて有効にした後で追加の手動手順が必要な場合がありました。"
+    - ホットパッチの後、内部構成ファイルのサブセットの更新がより確実に行われます。 
+    - "`ghe-run-migrations` スクリプトでは、一時証明書名の生成が正しく行われない場合があります。" 
+    - "`syscall` 権限が不十分なため、`gpg --import` を使用する pre-receive フックがタイムアウトしました。"
+    - 一部のクラスター トポロジでは、webhook デリバリー情報が利用できませんでした。 
+    - "保留中のジョブをレンダリングすると、{% data variables.product.prodname_actions %} のデプロイ グラフにエラーが表示されました。" 
+    - Elasticsearch 正常性チェックでは、移行の実行時に黄色のクラスター状態は許可されません。 
+    - "[Migrations API](/rest/reference/migrations) を使うと、キューに入れられたエクスポート ジョブが処理されませんでした。"
+    - "リポジトリの Web UI に機能しない [Discussions]\\(ディスカッション\\) タブが表示されました。" 
+    - ユーザーがそのユーザー アカウントを組織に変換した結果として作成された組織は、グローバル Enterprise アカウントに追加されませんでした。 
+    - LDAP ユーザー同期ジョブが、前に同期された GPG キーを同期しようとして失敗しました。 
+    - アクセスできないページへのリンクは削除されていました。 
+    - 大量の不必要なバックグラウンド ジョブがキューに格納されたため、一部のインスタンスの CPU 使用率が高くなりました。 
+    - 空のリポジトリが、キャッシュ サーバーと正しく同期しませんでした。 
+    - チームをレビュー担当者として pull request に追加すると、そのチームのメンバー数が誤って表示されることがありました。 
+    - SCIM グループによって外部的に管理されているメンバーを削除しようとすると、チーム メンバーシップ削除 API エンドポイントがエラーで応答しました。 
+    - "休眠ユーザーの数が多いと、{% data variables.product.prodname_github_connect %} 構成の失敗の原因になることがありました。" 
+    - "サイト管理者の Web UI の [Feature & beta enrollments]\\(機能とベータの登録\\) ページが誤って利用可能になっていました。" 
+    - "サイト フッターの [Site admin mode]\\(サイト管理者モード\\) リンクをクリックしたとき、状態が変わりませんでした。" 
   changes:
-    - Memcached connection limits were increased to better accommodate large cluster topologies. 
-    - The Dependency Graph API previously ran with a statically defined port. 
-    - The default shard counts for cluster-related Elasticsearch shard settings have been updated. 
-    - The [Migrations API](/rest/reference/migrations) now generates exports of repositories. 
-    - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved. 
-    - The “Triage” and “Maintain” team roles are preserved during repository migrations. 
-    - Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments. 
-    - Performance has been improved for web requests made by enterprise owners. 
+    - 大規模なクラスター トポロジに対応するために、Memcached 接続制限値が増やされました。 
+    - 依存関係グラフ API が、以前は静的に定義されたポートを使用して実行されていました。 
+    - クラスター関連の Elasticsearch シャード設定の既定のシャード数が更新されました。 
+    - "[Migrations API](/rest/reference/migrations) でリポジトリのエクスポートが生成されるようになりました。" 
+    - "[People]\\(ユーザー\\) ページで Organization のロールを使って Enterprise のメンバーをフィルター処理するときの、ドロップダウン メニュー項目のテキストが改善されました。" 
+    - "\"Triage\" と \"Maintain\" チームのロールは、リポジトリ移行時に保持されます。" 
+    - ghe-migrator を使うと、または GitHub.com からエクスポートすると、エクスポートに pull request の添付ファイルが含まれませんでした。 
+    - Enterprise 所有者によって行われる Web 要求のパフォーマンスが向上しました。 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - |
-      When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]
-      
-      To work around this problem, you can take one of the two following actions.
-      - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
-      - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - |`--ephemeral` パラメーターを指定し、複数のレベル (たとえば、Enterprise と Organization の両方) でセルフホステッド ランナーを登録した後、ランナーがアイドル状態で停止し、再登録が必要になる場合があります。 [更新日: 2022-06-17]
+
+|
+    - |SAML の暗号化されたアサーションを {% data variables.product.prodname_ghe_server %} 3.4.0 と 3.4.1 で使うと、`SPSSODescriptor` の新しい XML 属性 `WantAssertionsEncrypted` に SAML メタデータの無効な属性が含まれます。この SAML メタデータ エンドポイントを使う IdP は、SAML メタデータ XML スキーマを検証するときにエラーが発生する可能性があります。修正は次回のパッチ リリースで利用可能になります。 [更新日: 2022-04-11]
+
+
+
+この問題を回避するには、次の 2 つの操作のいずれかを使用できます。
+
+- `WantAssertionsEncrypted` 属性を含まない SAML メタデータの静的なコピーをアップロードすることで、IdP を再構成します。
+
+- SAML メタデータをコピーし、`WantAssertionsEncrypted` 属性を削除し、それを Web サーバーでホストして、その URL を指すように IdP を再構成します。
+
+|
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+    - heading: GitHub Enterprise Server 3.0 の非推奨化
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.1
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 は 2022 年 2 月 16 日に廃止されました**。これは、この日付を過ぎると、重大なセキュリティの問題であってもパッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
+    - heading: GitHub Enterprise Server 3.1 の非推奨化
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 は 2022 年 6 月 3 日に廃止されました**。これは、この日付を過ぎると、重大なセキュリティの問題であってもパッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: XenServer Hypervisor サポートの非推奨化
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "{% data variables.product.prodname_ghe_server %} 3.3 以降、XenServer 上の {% data variables.product.prodname_ghe_server %} は非推奨になり、サポートされなくなりました。ご質問やご不明な点がございましたら、[GitHub サポート](https://support.github.com)にお問い合わせください。"
 
-    - heading: Deprecation of the Content Attachments API preview
+    - heading: Content Attachments API プレビューの非推奨化
       notes:
         #
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - "使用率が低いため、{% data variables.product.prodname_ghe_server %} 3.4 では Content References API プレビューは非推奨となりました。以前は、この API には `corsair-preview` ヘッダーを使用してアクセスできました。ユーザーは、この API を使用しなくても引き続き外部 URL に移動できます。Content References API について登録されている使用方法では、登録済みドメインから URL の Webhook 通知を受け取れなくなり、既存の添付コンテンツに対して試行された更新に有効な応答コードが返されなくなりました。"
 
-    - heading: Deprecation of the Codes of Conduct API preview
+    - heading: Codes of Conduct API プレビューの非推奨化
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - '`scarlet-witch-preview` ヘッダーを使ってアクセスできた Codes of Conduct API プレビューは、{% data variables.product.prodname_ghe_server %} 3.4 では非推奨になり、アクセスできなくなりました。代わりに、"[コミュニティ プロファイル メトリクスの取得](/rest/reference/repos#get-community-profile-metrics)" エンドポイントを使用して、リポジトリの行動規範に関する情報を取得することをお勧めします。詳しくは、{% data variables.product.prodname_dotcom %} 変更ログの「[非推奨のお知らせ: Codes of Conduct API プレビュー](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)」を参照してください。'
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: クエリ パラメーターを使った OAuth Application API エンドポイントと API 認証の非推奨化
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+        - |{% data variables.product.prodname_ghe_server %} 3.4 以降、[OAuth Application API エンドポイントの非推奨バージョン](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected)は削除されました。これらのエンドポイントで 404 エラー メッセージが表示された場合は、URL に `access_tokens` が含まれない OAuth Application API のバージョンにコードを変換します。また、クエリ パラメーターを使った API 認証の使用が無効になりました。代わりに、[要求ヘッダーで API 認証](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)を使うことをお勧めします。
 
-    - heading: Deprecation of the CodeQL runner
+|
+    - heading: CodeQL ランナーの非推奨化
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "{% data variables.product.prodname_ghe_server %} 3.4 では {% data variables.product.prodname_codeql %} ランナーは非推奨となり、サポートされなくなりました。この非推奨は、サード パーティの CI/CD システムで {% data variables.product.prodname_codeql %} コード スキャンを使用するユーザーにのみ影響します。{% data variables.product.prodname_actions %} ユーザーには影響しません。お客様には、{% data variables.product.prodname_codeql %} ランナーのフィーチャー コンプリート置換である {% data variables.product.prodname_codeql %} CLI への移行を強くお勧めします。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)を参照してください。"
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: カスタム ビット キャッシュ拡張機能の非推奨化
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+        - |{% data variables.product.prodname_ghe_server %} 3.1 から、{% data variables.product.company_short %} 独自のビット キャッシュ拡張機能のサポートの段階的な廃止が始まりました。これらの拡張機能は、{% data variables.product.prodname_ghe_server %} 3.3 以降で非推奨になります。
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+バージョン 3.1 または 3.2 を実行している {% data variables.product.product_location %} に既に存在し、アクティブであったリポジトリはすべて自動的に更新されるようになります。
 
+
+
+{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードする前に存在せずアクティブでなかったリポジトリは、リポジトリのメンテナンス タスクが実行され正常に完了するまで、最適に動作しない可能性があります。
+
+
+
+リポジトリのメンテナンス タスクを手動で開始するには、影響を受ける各リポジトリの `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` を参照し、[スケジュール] ボタンをクリックします。
+
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - '{% data variables.product.prodname_ghe_server %} 3.4 では、[バックアップとディザスター リカバリー](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)のために、最低でも [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) が必要です。'

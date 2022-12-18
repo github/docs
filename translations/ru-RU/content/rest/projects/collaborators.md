@@ -2,7 +2,7 @@
 title: 'Участники компонента "{% data variables.product.prodname_project_v1_caps %}"'
 shortTitle: Collaborators
 allowTitleToDifferFromFilename: true
-intro: 'API-интерфейс участников "{% data variables.product.prodname_project_v1 %}" позволяет вам контролировать участников для компонента "{% data variables.projects.projects_v1_board %}".'
+intro: 'Используйте REST API для управления участниками совместной работы в {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 72473eabf86bc1eab841b86a85acfdf9ffe6bb01
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 648e251f1cc45b408acf7eccbe20c75971d29a02
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423063'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193499'
 ---
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

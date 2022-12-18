@@ -15,12 +15,12 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
-ms.openlocfilehash: de22432173f6bf909d001a3f780b0f9943769ec0
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148114112'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186156'
 ---
 リポジトリに対する管理者権限があるユーザなら誰でも、セキュリティアドバイザリを作成できます。
 
@@ -29,11 +29,11 @@ ms.locfileid: '148114112'
 ## セキュリティ アドバイザリの作成
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
-4. **[新しいドラフト セキュリティ アドバイザリ]** をクリックし、ドラフト アドバイザリ フォームを開きます。
+1. **[新しいドラフト セキュリティ アドバイザリ]** をクリックし、ドラフト アドバイザリ フォームを開きます。 アスタリスクが付いているフィールドは必須です。
   ![[アドバイザリのドラフトを開く] ボタン](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-5. セキュリティアドバイザリのタイトルを入力します。
+1. セキュリティアドバイザリのタイトルを入力します。
 {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
-11. **[セキュリティ アドバイザリのドラフトの作成]** をクリックします。
+1. **[セキュリティ アドバイザリのドラフトの作成]** をクリックします。
   ![[セキュリティ アドバイザリの作成] ボタン](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ## 次の手順

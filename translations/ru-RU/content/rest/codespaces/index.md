@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: 'API {% data variables.product.prodname_github_codespaces %} позволяет управлять codespace с использованием REST API.'
+intro: 'Используйте REST API для управления {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,11 +16,11 @@ children:
   - /secrets
 redirect_from:
   - /rest/reference/codespaces
-ms.openlocfilehash: c632b85d7e44e225a7dea2669a28a79a220f90a7
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 9e872a046905bde962b2e0fe767534ef51cc3a5e
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160240'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193012'
 ---
 

@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Community health file
-ms.openlocfilehash: 762af2fcbbc16e0bfc671df2409fede9ea6e2c67
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 85a672d0cc0991a5325df8a107737da47c7b81d3
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099301'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193266'
 ---
 ## 关于默认社区健康文件
 
@@ -36,7 +36,7 @@ ms.locfileid: '145099301'
 
 可以在组织{% ifversion fpt or ghes or ghec %}或个人帐户{% endif %}中为以下社区运行状况文件创建默认内容：
 
-社区运行状况文件 | 说明 --- | ---{% ifversion fpt or ghec %} CODE_OF_CONDUCT.md | CODE_OF_CONDUCT 文件定义有关如何参与社区的标准。 有关详细信息，请参阅“[为项目添加行为准则](/articles/adding-a-code-of-conduct-to-your-project/)”。{% endif %} CONTRIBUTING.md | CONTRIBUTING 文件指示应如何参与你的项目。 有关详细信息，请参阅“[设置存储库贡献者指南](/articles/setting-guidelines-for-repository-contributors/)”。{% ifversion fpt or ghec %} FUNDING.yml | FUNDING 文件在存储库中显示发起人按钮，以提高开源项目资助选项的可见性。 有关详细信息，请参阅“[在存储库中显示发起人按钮](/articles/displaying-a-sponsor-button-in-your-repository)。”{% endif %} 问题和拉取请求模板 {% ifversion fpt or ghes or ghec %} 和 config.yml{% endif %} | 问题和拉取请求模板可自定义和标准化你希望参与者在存储库中打开问题或拉取请求时包含的信息。 有关详细信息，请参阅“[关于问题和拉取请求模板](/articles/about-issue-and-pull-request-templates/)。”{% ifversion fpt or ghes or ghec %} SECURITY.md | SECURITY 文件阐述了如何报告项目中的安全漏洞。 有关详细信息，请参阅“[向存储库添加安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository)。”{% endif %} SUPPORT.md | SUPPORT 文件介绍在项目中获取帮助的途径。 有关详细信息，请参阅“[向项目添加支持资源](/articles/adding-support-resources-to-your-project/)”。
+社区运行状况文件 | 说明 --- | ---{% ifversion fpt or ghec %} CODE_OF_CONDUCT.md | CODE_OF_CONDUCT 文件定义有关如何参与社区的标准。 有关详细信息，请参阅“[为项目添加行为准则](/articles/adding-a-code-of-conduct-to-your-project/)”。{% endif %} CONTRIBUTING.md | CONTRIBUTING 文件指示应如何参与你的项目。 有关详细信息，请参阅“[设置存储库参与者指南](/articles/setting-guidelines-for-repository-contributors/)”。{% ifversion discussion-category-forms %} 讨论类别表单 | 讨论类别表单自定义社区成员在存储库中打开新讨论时可以使用的模板。 有关详细信息，请参阅“[创建讨论类别表单](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms)”。{% endif %}{% ifversion fpt or ghec %} FUNDING.yml | FUNDING 文件在存储库中显示发起人按钮，以提高开源项目资助选项的可见性。 有关详细信息，请参阅“[在存储库中显示发起人按钮](/articles/displaying-a-sponsor-button-in-your-repository)。”{% endif %} 问题和拉取请求模板 {% ifversion fpt or ghes or ghec %} 和 config.yml{% endif %} | 问题和拉取请求模板可自定义和标准化你希望参与者在存储库中打开问题或拉取请求时包含的信息。 有关详细信息，请参阅“[关于问题和拉取请求模板](/articles/about-issue-and-pull-request-templates/)。”{% ifversion fpt or ghes or ghec %} SECURITY.md | SECURITY 文件阐述了如何报告项目中的安全漏洞。 有关详细信息，请参阅“[向存储库添加安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository)。”{% endif %} SUPPORT.md | SUPPORT 文件介绍在项目中获取帮助的途径。 有关详细信息，请参阅“[向项目添加支持资源](/articles/adding-support-resources-to-your-project/)”。
 
 您不能创建默认许可文件。 必须将许可文件添加到各个仓库中，以便在克隆、打包或下载项目时包含该文件。
 

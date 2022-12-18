@@ -2,7 +2,7 @@
 title: Теги Git
 shortTitle: Tags
 allowTitleToDifferFromFilename: true
-intro: 'API тегов Git позволяют считывать объекты тегов из базы данных Git для {% data variables.product.product_name %} и записывать их в эту базу данных.'
+intro: 'Используйте REST API для взаимодействия с объектами тегов в базе данных Git в {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 11f2793c207dc63162506e2b87ce8142602caa88
-ms.sourcegitcommit: fb740a96852435c748dad95d560327e80b4cef19
+ms.openlocfilehash: 0d0a10afabf100cb34a0061585b87b17d5afc416
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2022
-ms.locfileid: '148105685'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192892'
 ---
-## Сведения об API тегов Git
+## Сведения о тегах Git
 
-Метка Git похожа на [ссылку Git](/rest/reference/git#refs), однако фиксация Git, на которую она указывает, никогда не изменяется. Метки Git используются в тех случаях, когда нужно указать на определенные выпуски. Эти конечные точки позволяют считывать [объекты меток](https://git-scm.com/book/en/v2/Git-Internals-Git-References#_tags) из базы данных Git в {% data variables.product.product_name %} и записывать их в нее. API меток Git поддерживает только [объекты аннотированных меток](https://git-scm.com/book/en/v2/Git-Internals-Git-References#_tags), но не упрощенные метки.
+Метка Git похожа на [ссылку Git](/rest/reference/git#refs), однако фиксация Git, на которую она указывает, никогда не изменяется. Метки Git используются в тех случаях, когда нужно указать на определенные выпуски. Эти конечные точки позволяют считывать [объекты меток](https://git-scm.com/book/en/v2/Git-Internals-Git-References#_tags) из базы данных Git в {% data variables.product.product_name %} и записывать их в нее. API поддерживает только [объекты тегов с заметками](https://git-scm.com/book/en/v2/Git-Internals-Git-References#_tags), но не упрощенные теги.

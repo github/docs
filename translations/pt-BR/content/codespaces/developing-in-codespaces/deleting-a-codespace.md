@@ -1,6 +1,6 @@
 ---
-title: Deleting a codespace
-intro: You can delete a codespace you no longer need.
+title: Excluir um codespace
+intro: Você pode excluir um codespace de que você não precisa mais.
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
@@ -13,28 +13,33 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188253'
 ---
-
-You can delete a codespace in a variety of ways: in the terminal by using {% data variables.product.prodname_cli %}, in {% data variables.product.prodname_vscode %}, or in your web browser. Use the tabs in this article to display instructions for each of these ways of deleting a codespace.
+Você pode excluir um codespace de várias maneiras: no terminal usando a {% data variables.product.prodname_cli %}, no {% data variables.product.prodname_vscode %} ou no navegador da Web. Use as guias deste artigo para ver instruções de cada uma dessas maneiras de excluir um codespace.
 
 {% note %}
 
-**Note**: You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
+**Observação**: você não pode excluir um codespace de dentro do JetBrains Gateway ou do aplicativo cliente do JetBrains nem de dentro do JupyterLab.
 
 {% endnote %}
 
-There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Há custos associados ao armazenamento de codespaces. Portanto, você deve excluir os codespaces de que não precisa mais. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
 
 {% data reusables.codespaces.max-number-codespaces %}
 
-## Deleting a codespace
+## Excluir um codespace
 
 {% webui %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
+1. À direita do codespace que deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **{% octicon "trash" aria-label="The trash icon" %} Excluir**
 
-   ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
+   ![Botão Excluir](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
 
@@ -49,48 +54,48 @@ There are costs associated with storing codespaces. You should therefore delete 
 
 {% data reusables.cli.cli-learn-more %}
 
-To delete a codespace use the `gh codespace delete` subcommand and then choose a codespace from the list that's displayed.
+Para excluir um codespace, use o subcomando `gh codespace delete` e escolha um codespace na lista exibida.
 
 ```shell
 gh codespace delete
 ```
 
-If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `--force` flag to force deletion, avoiding this prompt.
+Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. Use o sinalizador `--force` para forçar a exclusão, evitando esse prompt.
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
+Para obter mais informações sobre esse comando, confira [o manual da {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
 
-## Bulk deleting codespaces
+## Como excluir codespaces em massa
 
 {% webui %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+Você pode usar {% data variables.product.prodname_cli %} para excluir vários dos seus codespaces, ou todos, usando um único comando. Para obter mais informações, clique na guia "{% data variables.product.prodname_cli %}" próxima à parte superior desta página.
 
 {% endwebui %}
 
 {% vscode %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+Você pode usar {% data variables.product.prodname_cli %} para excluir vários dos seus codespaces, ou todos, usando um único comando. Para obter mais informações, clique na guia "{% data variables.product.prodname_cli %}" próxima à parte superior desta página.
 
 {% endvscode %}
 
 
 {% cli %}
 
-You can delete several or all of your codespaces with a single command, using `gh codespace delete` followed by one of these flags:
+Você pode excluir vários ou todos os seus codespaces com um único comando, usando `gh codespace delete` seguido por um destes sinalizadores:
 
-`--all` - Delete all of your codespaces.
+`--all` - exclua todos os seus codespaces.
 
-`--repo REPOSITORY` - Delete all of your codespaces for this repository. Or use together with the `--days` flag to filter by age of the codespace.
+`--repo REPOSITORY` - exclua todos os seus codespaces para este repositório. Ou use junto com o sinalizador `--days` para filtrar por idade do codespace.
 
-`--days NUMBER` - Delete all of your codespaces that are older than the specified number of days. Can be used together with the `--repo` flag.
+`--days NUMBER` - exclua todos os seus codespaces mais antigos do que o número especificado de dias. Pode ser usado junto com o sinalizador `--repo`.
 
-By default you are prompted to confirm deletion of any codespaces that contain unsaved changes. You can use the `--force` flag to skip this confirmation. 
+Por padrão, você será solicitado a confirmar a exclusão de todos os codespaces que contenham alterações não salvas. Você pode usar o sinalizador `--force` para ignorar essa confirmação. 
 
-### Example
+### Exemplo
 
-Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
+Exclua todos os codespaces do repositório `octo-org/octo-repo` criados há mais de 7 dias.
 
 ```
 gh codespace delete --repo octo-org/octo-repo --days 7
@@ -98,37 +103,37 @@ gh codespace delete --repo octo-org/octo-repo --days 7
 
 {% endcli %}
 
-## Deleting codespaces in your organization
+## Como excluir codespaces em sua organização
 
-As an organization owner, you can use {% data variables.product.prodname_cli %} to delete any codespace in your organization.
+Como proprietário de uma organização, você pode usar {% data variables.product.prodname_cli %} para excluir qualquer codespace em sua organização.
 
 {% webui %}
 
-For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+Para obter mais informações, clique na guia "{% data variables.product.prodname_cli %}" próxima à parte superior desta página.
 
 {% endwebui %}
 
 {% vscode %}
 
-For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+Para obter mais informações, clique na guia "{% data variables.product.prodname_cli %}" próxima à parte superior desta página.
 
 {% endvscode %}
 
 {% cli %}
 
-1. Enter one of these commands to display a list of codespaces.
-   * `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization. 
-   * `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
-   You must be an owner of the specified organization.
-1. In the list of codespaces, navigate to the codespace you want to delete.
-1. To delete the selected codespace press <kbd>Enter</kbd>.
+1. Insira um desses comandos para exibir uma lista de codespaces.
+   * `gh codespace delete --org ORGANIZATION` – lista os codespaces atuais na organização especificada. 
+   * `gh codespace delete --org ORGANIZATION --user USER` – lista apenas os codespaces criados pelo usuário especificado.
+   Você deve ser um proprietário da organização especificada.
+1. Na lista de codespaces, navegue até o codespace que você deseja excluir.
+1. Para excluir o codespace selecionado, pressione <kbd>Enter</kbd>.
 
-   If the codespace contains unsaved changes you will be prompted to confirm deletion.
+   Se o codespace contiver alterações não salvas, será solicitado que você confirme a exclusão.
 
 {% endcli %}
 
-You can also use the REST API to delete codespaces for your organization. For more information, see "[Codespaces organizations](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
+Você também pode usar a API REST para excluir codespaces de sua organização. Para obter mais informações, confira "[Organizações de codespaces](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)".
 
-## Further reading
-- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
-- "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
+## Leitura adicional
+- "[O ciclo de vida do codespace](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[Como configurar a exclusão automática dos codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"

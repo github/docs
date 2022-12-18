@@ -1,6 +1,6 @@
 ---
-title: Managing the automatic deletion of branches
-intro: You can have head branches automatically deleted after pull requests are merged in your repository.
+title: 管理分支的自动删除
+intro: 您可让头部分支在仓库中的拉取请求合并后自动删除。
 redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
   - /github/administering-a-repository/managing-the-automatic-deletion-of-branches
@@ -13,14 +13,19 @@ versions:
 topics:
   - Repositories
 shortTitle: Automatic branch deletion
+ms.openlocfilehash: feaeb7c2178beab4dc23a310df6924c6e1c52e0f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882455'
 ---
-Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.
+对仓库具有管理员权限的任何人都可启用或禁用分支的自动删除。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
-  ![Checkbox to enable or disable automatic deletion of branches](/assets/images/help/repository/automatically-delete-branches.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. 在 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}“拉取请求”{% else %}“合并按钮”{% endif %}下，选择或取消选择“自动删除主分支”。
+  ![启用或禁用自动删除分支的复选框](/assets/images/help/repository/automatically-delete-branches.png)
 
-## Further reading
-- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
-- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
+## 延伸阅读
+- [合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
+- [在存储库中创建和删除分支](/articles/creating-and-deleting-branches-within-your-repository)

@@ -38,24 +38,14 @@ You can use custom fields to add metadata to your issues, pull requests, and dra
 
 You can use Tasklists to build hierarchies of issues, dividing your issues into smaller subtasks, and creating new relationships between your issues. For more information, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
 
-These relationships are displayed on the issue, as well as the Tracked-by and Tracks fields in your projects. You can filter by issues which are tracked by another issue, and you can also group your table views by the Tracked-by field to show all parent issues with a list of their subtasks.
+These relationships are displayed on the issue, as well as the Tracked by and Tracks fields in your projects. You can filter by issues which are tracked by another issue, and you can also group your table views by the Tracked by field to show all parent issues with a list of their subtasks.
 
 {% endif %}
 
 ### Viewing your project from different perspectives
 
+{% ifversion projects-v2-roadmaps %}{% data reusables.projects.roadmaps-release-stage %}{% endif %}
+
 Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
 
-You can view your project as a high density table layout:
-
-![Project table](/assets/images/help/issues/projects_table.png)
-
-Or as a board:
-
-![Project board](/assets/images/help/issues/projects_board.png)
-
-To help you focus on specific aspects of your project, you can group, sort, or filter items:
-
-![Project view](/assets/images/help/issues/project_view.png)
-
-For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."
+You can view your project as a high-density table layout{% ifversion projects-v2-roadmaps %}, as a kanban board, or a timeline-style roadmap{% else %} or a kanban board{% endif %}. For more information about the different layout options, see "[Changing the layout of a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."

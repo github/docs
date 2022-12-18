@@ -14,12 +14,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 3b6822be6551d43b3af55220ac8f39deec8be1df
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 12265f0627ca6d0feb34244aab1c021b5ae6cc10
+ms.sourcegitcommit: 9315c7dae9a673a2f8958df7632bf1af206a0bed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106834'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188235'
 ---
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
 
@@ -85,7 +85,7 @@ Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque {% dat
 # precedence. When someone opens a pull request that only
 # modifies JS files, only @js-owner and not the global
 # owner(s) will be requested for a review.
-*.js    @js-owner
+*.js    @js-owner #This is an inline comment.
 
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author
