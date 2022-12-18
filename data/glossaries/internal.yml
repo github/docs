@@ -208,7 +208,7 @@
   description: An agreement users sign when using GitHub Marketplace.
 - term: GPG
   description: >-
-    GNU Privacy Guard. Encyrption software that you can use to encrypt (and
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and
     decrypt) files that contain sensitive data
 - term: GPG key
   description: An encryption key used with GPG.
@@ -413,7 +413,7 @@
     Business plan.
 - term: polling
   description: >-
-    Regular automatic checks of other programs or devices by one progam or
+    Regular automatic checks of other programs or devices by one program or
     device to see what state they are in.
 - term: POST
   description: A type of method in the REST API
@@ -683,7 +683,7 @@
     made but not yet committed.
 - term: WYSIWYG
   description: >-
-    What You See Is What You Get. An acryonym meaning the text on the screen
+    What You See Is What You Get. An acronym meaning the text on the screen
     looks exactly as it will when it's rendered.
 - term: XenServer
   description: A virtualization platform.

@@ -167,7 +167,7 @@ An overview of some of the most common actions that are recorded as events in th
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
-| `enable` | Triggered when an organization owner enbles {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.
 
 #### `dependabot_security_updates` category actions
 

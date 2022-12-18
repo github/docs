@@ -1124,7 +1124,7 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push|
 |---------|------------------------|---------|
 | `feature/*` | The `*` wildcard matches any character, but does not match slash (`/`). |  -`feature/my-branch`<br/>-`feature/your-branch` |
 | `feature/**` | The `**` wildcard matches any character including slash (`/`) in branch and tag names. | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`main`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name. | -`main`<br/>-`releases/mona-the-octocat` |
+| -`main`<br/>-`releases/mona-the-octocat` | Matches the exact name of a branch or tag name. | -`main`<br/>-`releases/mona-the-octocat` |
 | `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`main`<br/>-`releases` |
 | `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | -`all/the/branches`<br/>-`every/tag` |
 | `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature` |

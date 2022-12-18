@@ -53,7 +53,7 @@ const resultTemplate = (item) => {
     </div>
   `
 
-  // Santize the link's href attribute using the DOM API to prevent XSS
+  // Sanitize the link's href attribute using the DOM API to prevent XSS
   const fragment = document.createRange().createContextualFragment(html)
   fragment.querySelector('a').setAttribute('href', item.modifiedURL)
   const div = document.createElement('div')

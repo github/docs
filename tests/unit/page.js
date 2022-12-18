@@ -155,7 +155,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-      // set version to the latest enteprise version
+      // set version to the latest enterprise version
       const context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',

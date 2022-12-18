@@ -118,7 +118,7 @@ Library name | Repository
 **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction)
 **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub)
 **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)
-**github-flask**|[github-flask (Oficial Website)](http://github-flask.readthedocs.org)
+**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)
 **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby

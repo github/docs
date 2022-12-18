@@ -39,7 +39,7 @@ You can also choose to ignore whitespace changes to get a more accurate view of 
 
 ![Diff viewing options menu](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[Filtering files in a pull request by file type](/articles/filtering-files-in-a-pull-request)."
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNERS of, hide files you have already viewed, or hide deleted files. For more information, see "[Filtering files in a pull request by file type](/articles/filtering-files-in-a-pull-request)."
 
   ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
 

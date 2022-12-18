@@ -37,7 +37,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
 
 {% data reusables.repositories.navigate-to-repo %}
 1. When a repository contains an action metadata file (`action.yml` or `action.yaml`), you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
-![Publish this action to markeplace button](/assets/images/help/repository/publish-github-action-to-markeplace-button.png)
+![Publish this action to marketplace button](/assets/images/help/repository/publish-github-action-to-markeplace-button.png)
 1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}**. If you can't select the **Publish this action to the {% data variables.product.prodname_marketplace %}** checkbox, you'll need to read and accept the {% data variables.product.prodname_marketplace %} agreement first.
 ![Select publish to Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
 1. If the labels in your metadata file contain any problems, you will see an error message.

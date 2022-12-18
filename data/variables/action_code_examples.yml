@@ -199,7 +199,7 @@
     - workflow
     - automation
 - title: Update Configured GitHub Actions to the Latest Versions
-  description: CLI tool to check whehter all your actions are up-to-date or not
+  description: CLI tool to check whether all your actions are up-to-date or not
   languages: 'C#, Inno Setup, PowerSHell, Shell'
   href: fabasoad/ghacu
   tags:
@@ -263,7 +263,7 @@
     - automation
 - title: Distribute funding in free and open source projects
   description: Continuous Distribution of funding to project contributors and dependencies
-  languages: 'Python, Docerfile, Shell, Ruby'
+  languages: 'Python, Dockerfile, Shell, Ruby'
   href: protontypes/libreselery
   tags:
     - sponsors

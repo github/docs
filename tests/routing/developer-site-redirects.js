@@ -50,10 +50,10 @@ describe('developer redirects', () => {
     })
 
     test('graphql reference paths with child pages', async () => {
-      const sclarRes = await get('/en/v4/scalar/boolean')
-      expect(sclarRes.statusCode).toBe(301)
-      const sclarResFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql/reference/scalars#boolean`
-      expect(sclarRes.headers.location).toBe(sclarResFinalPath)
+      const scalarRes = await get('/en/v4/scalar/boolean')
+      expect(scalarRes.statusCode).toBe(301)
+      const scalarResFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql/reference/scalars#boolean`
+      expect(scalarRes.headers.location).toBe(scalarResFinalPath)
 
       const enumRes = await get('/en/v4/enum/searchtype')
       expect(enumRes.statusCode).toBe(301)
@@ -126,7 +126,7 @@ describe('developer redirects', () => {
       )
     })
 
-    // TODO temprarily ensure we redirect old links using the new enterprise format
+    // TODO temporarily ensure we redirect old links using the new enterprise format
     // for currently supported enterprise releases only
     // EXAMPLE: /en/enterprise-server@2.20/v3/pulls/comments -> /en/enterprise-server@2.20/rest/reference/pulls#comments
     // We can remove test after we update all the old `/v3` links to point to `/rest`
@@ -165,7 +165,7 @@ describe('developer redirects', () => {
       )
     })
 
-    // TODO temprarily ensure we redirect old links using the new enterprise format
+    // TODO temporarily ensure we redirect old links using the new enterprise format
     // for currently supported enterprise releases only
     // EXAMPLE: /en/enterprise-server@2.20/v4/interface/actor -> /en/enterprise-server@2.20/graphql/reference/interfaces#actor
     // We can remove test after we update all the old `/v4` links to point to `/graphql`

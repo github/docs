@@ -118,7 +118,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workfow you want to run.
+1. In the left sidebar, click the workflow you want to run.
    ![Select say hello job](/assets/images/help/repository/say-hello-job.png)
 1. On the right, click the **Run workflow** drop-down and click **Run workflow**. Optionally, you can enter a custom message into the "Person to greet" input before running the workflow.
    ![Trigger the manual workflow](/assets/images/help/repository/manual-workflow-trigger.png)

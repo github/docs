@@ -104,7 +104,7 @@ We strongly recommend enabling PROXY support for both your instance and the load
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-To enable the `X-Fowarded-For` header, use this command:
+To enable the `X-Forwarded-For` header, use this command:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply

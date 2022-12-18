@@ -128,7 +128,7 @@
 - term: commit
   description: >-
     A commit, or "revision", is an individual change to a file (or set of
-    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes commited along with who made them and when. Commits usually contain a
+    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
@@ -140,7 +140,7 @@
   description: Also known as SHA. A 40-character checksum hash that identifies the commit.
 - term: commit message
   description: >-
-    Short, descriptive text that accompanys a commit and communicates the change
+    Short, descriptive text that accompanies a commit and communicates the change
     the commit is introducing.
 - term: compare branch
   description: >-
@@ -458,7 +458,7 @@
 - term: notification
   description: >-
     Updates, delivered by either the web or email depending on your settings,
-    that give you information about the activites you're interested in.
+    that give you information about the activities you're interested in.
 - term: OAuth App
   description: >-
     A third-party application that uses access tokens rather than passwords to
