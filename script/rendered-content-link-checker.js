@@ -10,7 +10,7 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import renderedContentLinkChecker from '../.github/actions-scripts/rendered-content-link-checker.js'
+import renderedContentLinkChecker from '../.github/actions/rendered-content-link-checker.js'
 import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
 import github from './helpers/github.js'
 
