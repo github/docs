@@ -6,6 +6,10 @@ name: OpenAPI generate decorated schema files
 
 on:
   pull_request:
+    # This prevents the workflow from running continuously. We only want
+    # this workflow to run once on the initial open.
+    types:
+      - opened
 
 permissions:
   contents: write
