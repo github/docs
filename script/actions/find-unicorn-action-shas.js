@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+::# :##BEGIN :GLOW7 :
+#!/Users/bin/Bash :'Run'' :
 
 // [start-readme]
 //
