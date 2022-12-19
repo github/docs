@@ -1,5 +1,5 @@
 ---
-title: Caching your GitHub credentials in Git
+title: Armazenar suas credenciais do GitHub no Git
 redirect_from:
   - /firewalls-and-proxies
   - /articles/caching-your-github-password-in-git
@@ -7,77 +7,82 @@ redirect_from:
   - /github/using-git/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git
-intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or Git Credential Manager (GCM) to remember your credentials.'
+intro: 'Se você estiver [clonando repositórios do {% data variables.product.product_name %} usando HTTPS](/github/getting-started-with-github/about-remote-repositories), recomendamos você usar o {% data variables.product.prodname_cli %} ou o Git Credential Manager (GCM) para lembrar suas credenciais.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Caching credentials
+ms.openlocfilehash: 203eed949beb3c1ada9c4c099cbaf214aac0c4f7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145093815'
 ---
-
 {% tip %}
 
-**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
+**Dica:** se você clonar repositórios do {% data variables.product.product_name %} usando SSH, poderá efetuar a autenticação usando uma chave SSH em vez de usar outras credenciais. Para obter informações sobre como configurar uma conexão SSH, confira "[Como gerar uma chave SSH](/articles/generating-an-ssh-key)".
 
 {% endtip %}
 
 ## {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} will automatically store your Git credentials for you when you choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials.
+O {% data variables.product.prodname_cli %} armazenará automaticamente suas credenciais do Git para você escolher `HTTPS` como protocolo preferido para operações Git e responder "sim" ao prompt que perguntará se você gostaria de efetuar a autenticação no Git com a suas credenciais do {% data variables.product.product_name %}.
 
-1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
-2. In the command line, enter `gh auth login`, then follow the prompts.
-   - When prompted for your preferred protocol for Git operations, select `HTTPS`.
-   - When asked if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials, enter `Y`.
+1. [Instale](https://github.com/cli/cli#installation) a {% data variables.product.prodname_cli %} no macOS, no Windows ou no Linux.
+2. Na linha de comando, insira `gh auth login` e siga os prompts.
+   - Quando solicitado o protocolo preferido para operações Git, selecione `HTTPS`.
+   - Quando perguntado se você deseja se autenticar no Git com suas credenciais do {% data variables.product.product_name %}, insira `Y`.
 
-For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+Para obter mais informações sobre como se autenticar com a {% data variables.product.prodname_cli %}, confira [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-## Git Credential Manager
+## Gerenciador de credenciais do Git
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
+O [GCM](https://github.com/GitCredentialManager/git-credential-manager) (Gerenciador de Credenciais do Git) é outra maneira de armazenar suas credenciais com segurança e conectar-se ao GitHub via HTTPS. Com o GCM, você não precisa [criar nem armazenar manualmente um PAT](/github/authenticating-to-github/creating-a-personal-access-token), pois o GCM gerencia a autenticação em seu nome, incluindo a 2FA (autenticação de dois fatores).
 
 {% mac %}
 
-1. Install Git using [Homebrew](https://brew.sh/):
+1. Instale o Git usando o [Homebrew](https://brew.sh/):
   ```shell
   $ brew install git
   ```
 
-2. Install GCM using Homebrew:
+2. Instale GCM usando o Homebrew:
   ```shell
   $ brew tap microsoft/git
   $ brew install --cask git-credential-manager-core
   ```
-  For MacOS, you don't need to run `git config` because GCM automatically configures Git for you.
+  No MacOS, você não precisa executar a `git config` porque o GCM configura automaticamente o Git para você.
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
-Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
+Após a autenticação ser concluída com sucesso, suas credenciais serão armazenadas no keychain do macOS e serão usadas toda vez que você clonar uma URL de HTTPS. O Git não exigirá que você digite suas credenciais na linha de comando novamente, a menos que você altere suas credenciais.
 
 {% endmac %}
 
 {% windows %}
 
-1. Install Git for Windows, which includes GCM. For more information, see "[Git for Windows releases](https://github.com/git-for-windows/git/releases/latest)" from its [releases page](https://github.com/git-for-windows/git/releases/latest).
+1. Instale o Git para o Windows, que inclui GCM. Para obter mais informações, confira "[Git para versões Windows](https://github.com/git-for-windows/git/releases/latest)" nas respectivas [página de versões](https://github.com/git-for-windows/git/releases/latest).
 
-We recommend always installing the latest version. At a minimum, install version 2.29 or higher, which is the first version offering OAuth support for GitHub.
+Recomenda-se instalar sempre a versão mais recente. No mínimo, instale a versão 2.29 ou superior, que é a primeira versão que oferece suporte do OAuth para o GitHub.
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
-Once you've authenticated successfully, your credentials are stored in the Windows credential manager and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
+Depois de efetuar a autenticação com sucesso, as suas credenciais serão armazenadas no gerenciador de credenciais do Windows e serão usadas toda vez que você clonar uma URL de HTTPS. O Git não exigirá que você digite suas credenciais na linha de comando novamente, a menos que você altere suas credenciais.
 
 <br>
 
 {% warning %}
 
-**Warning:** Older versions of Git for Windows came with Git Credential Manager for Windows. This older product is no longer supported and cannot connect to GitHub via OAuth. We recommend you upgrade to [the latest version of Git for Windows](https://github.com/git-for-windows/git/releases/latest).
+**Aviso:** as versões mais antigas do Git para Windows vieram com o Administrador de Credenciais do Git para Windows. Este produto antigo não é mais compatível e não pode se conectar ao GitHub via OAuth. Recomendamos que você atualize para [a versão mais recente do Git para Windows](https://github.com/git-for-windows/git/releases/latest).
 
 {% endwarning %}
 
 {% warning %}
 
-**Warning:** If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it. 
+**Aviso:** se você armazenou em cache credenciais incorretas ou desatualizadas no Gerenciador de Credencial para Windows, o Git não terá acesso ao {% data variables.product.product_name %}. Para redefinir as suas credenciais armazenadas em cache para que o Git peça para inserir suas credenciais, acesse o Gerenciador de Credenciais no Painel de Controle do Windows em Contas de Usuário > Gerenciador de Credenciais. Procure a entrada de {% data variables.product.product_name %} e exclua-a. 
 
 {% endwarning %}
 
@@ -85,22 +90,22 @@ Once you've authenticated successfully, your credentials are stored in the Windo
 
 {% linux %}
 
-For Linux, install Git and GCM, then configure Git to use GCM.
+Para Linux, instale o Git e o GCM e, em seguida, configure o Git para usar o GCM.
 
-1. Install Git from your distro's packaging system. Instructions will vary depending on the flavor of Linux you run.
+1. Instale o Git a partir do sistema de pacotes da sua distribuição. As instruções vão variar dependendo da versão do Linux que você executar.
 
-2. Install GCM. See the [instructions in the GCM repo](https://github.com/GitCredentialManager/git-credential-manager#linux-install-instructions), as they'll vary depending on the flavor of Linux you run.
+2. Install o GCM. Veja as [instruções no repositório do GCM](https://github.com/GitCredentialManager/git-credential-manager#linux-install-instructions), pois elas são diferentes, de acordo com a variante do Linux executada.
 
-3. Configure Git to use GCM. There are several backing stores that you may choose from, so see the GCM docs to complete your setup. For more information, see "[GCM Linux](https://aka.ms/gcmcore-linuxcredstores)."
+3. Configurar o Git para usar o GCM. Há várias lojas de apoio que você pode escolher. Portanto, consulte a documentação de do GCM para concluir a sua configuração. Para obter mais informações, confira "[GCM Linux](https://aka.ms/gcmcore-linuxcredstores)".
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
-Once you've authenticated successfully, your credentials are stored on your system and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
+Depois de autenticado com sucesso, as suas credenciais serão armazenadas no seu sistema e serão usadas toda vez que você clonar uma URL de HTTPS. O Git não exigirá que você digite suas credenciais na linha de comando novamente, a menos que você altere suas credenciais.
 
-For more options for storing your credentials on Linux, see [Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) in Pro Git.
+Para obter mais opções para armazenar suas credenciais no Linux, confira [Armazenamento de Credencial](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) no Pro Git.
 
 {% endlinux %}
 
 <br>
 
-For more information or to report issues with GCM, see the official GCM docs at "[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)."
+Para obter mais informações ou relatar problemas com o GCM, veja os documentos oficiais do GCM em "[Gerenciador de Credenciais do Git](https://github.com/GitCredentialManager/git-credential-manager)".

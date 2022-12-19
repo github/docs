@@ -1,107 +1,111 @@
 ---
-title: Autoscaling with self-hosted runners
+title: セルフホステッド ランナーによる自動スケーリング
 shortTitle: Autoscale self-hosted runners
-intro: You can automatically scale your self-hosted runners in response to webhook events.
+intro: Webhook イベントに応答して、セルフホステッド ランナーを自動的にスケーリングできます。
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
   ghae: '*'
 type: overview
+ms.openlocfilehash: 2fe0c197ac122ea9cd976c2718a492bd80c073fe
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107558'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 自動スケーリングについて
 
-## About autoscaling
+特定のラベルで受信した Webhook イベントに応答して、環境内のセルフホステッド ランナーの数を自動的に増減できます。 たとえば、[`queued`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) アクティビティを含む [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook イベントを受信するたびに、新しいセルフホステッド ランナーを追加するオートメーションを作成できます。このイベントは、新しいジョブが処理できる状態であることを通知します。 Webhook のペイロードにはラベル データが含まれているため、ジョブが要求しているランナーの種類を識別できます。 ジョブが完了したら、`workflow_job` の [`completed`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) アクティビティに応答してランナーを削除するオートメーションを作成できます。 
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label. For example, you can create automation that adds a new self-hosted runner each time you receive a [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook event with the  [`queued`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity, which notifies you that a new job is ready for processing. The webhook payload includes label data, so you can identify the type of runner the job is requesting. Once the job has finished, you can then create automation that removes the runner in response to the `workflow_job` [`completed`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity. 
+## 推奨される自動スケーリング ソリューション
 
-## Recommended autoscaling solutions
+{% data variables.product.prodname_dotcom %} は、ランナーの自動スケーリングに使用できる 2 つのオープンソース プロジェクトを推奨し、それらと密接に連携しています。 ニーズに応じて、一方または両方のソリューションが適している可能性があります。 
 
-{% data variables.product.prodname_dotcom %} recommends and partners closely with two open source projects that you can use for autoscaling your runners. One or both solutions may be suitable, based on your needs. 
+これらの自動スケーラーを設定する詳しい手順については、次のリポジトリをご覧ください。 
 
-The following repositories have detailed instructions for setting up these autoscalers: 
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - {% data variables.product.prodname_actions %} のセルフホステッド ランナー用の Kubernetes コントローラー。
+- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - アマゾン ウェブ サービス上のスケーラブルな {% data variables.product.prodname_actions %} ランナー用の Terraform モジュール。
 
-- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
-- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
+各ソリューションには、考慮すべき重要な特定の詳細が含まれる場合があります。
 
-Each solution has certain specifics that may be important to consider:
-
-| **Features** | **actions-runner-controller** | **terraform-aws-github-runner** |
+| **機能** | **actions-runner-controller** | **terraform-aws-github-runner** |
 | :--- | :--- | :--- |
-| Runtime | Kubernetes | Linux and Windows VMs |
-| Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
-| Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
-| How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
+| ランタイム | Kubernetes | Linux と Windows VM |
+| サポートされているクラウド | Azure、アマゾン ウェブ サービス、Google Cloud Platform、オンプレミス | アマゾン ウェブ サービス |
+| ランナーをスケーリングできる場所 | Enterprise、Organization、リポジトリのレベル。 ランナー ラベルとランナー グループ別。 | Organization とリポジトリのレベル。 ランナー ラベルとランナー グループ別。 |
+| ランナーをスケーリングする方法 | Webhook イベント、スケジュール、プル ベース | Webhook イベント、スケジュール (Organization レベルのランナーのみ) |
 
-## Using ephemeral runners for autoscaling
+## 自動スケーリングにエフェメラル ランナーを使用する
 
-{% data variables.product.prodname_dotcom %} recommends implementing autoscaling with ephemeral self-hosted runners; autoscaling with persistent self-hosted runners is not recommended. In certain cases, {% data variables.product.prodname_dotcom %} cannot guarantee that jobs are not assigned to persistent runners while they are shut down. With ephemeral runners, this can be guaranteed because {% data variables.product.prodname_dotcom %} only assigns one job to a runner.
+{% data variables.product.prodname_dotcom %} は、エフェメラル セルフホステッド ランナーで自動スケーリングを実装することをお勧めします。永続的なセルフホステッド ランナーでの自動スケーリングはお勧めしません。 特定のケースでは、{% data variables.product.prodname_dotcom %} は、ジョブがシャットダウン中に永続的ランナーに割り当てられないことを保証できません。 エフェメラル ランナーであれば、{% data variables.product.prodname_dotcom %} はランナーに 1 つのジョブしか割り当てないため、これを保証できます。
 
-This approach allows you to manage your runners as ephemeral systems, since you can use automation to provide a clean environment for each job. This helps limit the exposure of any sensitive resources from previous jobs, and also helps mitigate the risk of a compromised runner receiving new jobs.  
+この方法では、オートメーションを使ってジョブごとにクリーンな環境を提供できるため、ランナーをエフェメラル システムとして管理できます。 これは、以前のジョブから機密リソースが公開されるのを制限する役に立ち、侵害されたランナーが新しいジョブを受け取るリスクを軽減するのにも役立ちます。  
 
-To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. For example:
+環境にエフェメラル ランナーを追加するには、`config.sh` を使ってランナーを登録するときに `--ephemeral` パラメーターを指定します。 たとえば次のような点です。
 
 ```shell
 ./config.sh --url https://github.com/octo-org --token example-token --ephemeral
 ```
 
-The {% data variables.product.prodname_actions %} service will then automatically de-register the runner after it has processed one job. You can then create your own automation that wipes the runner after it has been de-registered.
+その後、ランナーが 1 つのジョブを処理すると、{% data variables.product.prodname_actions %} サービスによって自動的に登録解除されます。 その場合、登録解除後にランナーをワイプする独自のオートメーションを作成できます。
 
 {% note %}
 
-**Note:**  If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
+**注:** ジョブに特定の種類のランナー用のラベルが付いていて、その種類に一致するものを使用できない場合、ジョブがキューに入れられてすぐに失敗することはありません。 そうではなく、24 時間のタイムアウト期間が切れるまで、ジョブはキューに残ります。
 
 {% endnote %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae %}
 
-## Controlling runner software updates on self-hosted runners
+## セルフホステッド ランナーでランナー ソフトウェアの更新を制御する
 
-By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
+既定では、ランナー ソフトウェアの新しいバージョンが利用可能になると、セルフホステッド ランナーは自動的にソフトウェアの更新を実行します。  コンテナーでエフェメラル ランナーを使用している場合は、新しいランナー バージョンがリリースされたときに、ソフトウェアの更新が繰り返される可能性があります。  自動更新をオフにすると、コンテナー イメージのランナー バージョンを独自のスケジュールで直接更新できます。
 
-To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. For example:
+ソフトウェアの自動更新をオフにして、ソフトウェアの更新プログラムを自分でインストールするには、`config.sh` を使ってランナーを登録するときに、`--disableupdate` フラグを指定します。 たとえば次のような点です。
 
 ```shell
 ./config.sh --url https://github.com/YOUR-ORGANIZATION --token EXAMPLE-TOKEN --disableupdate
 ```
 
-If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
+自動更新を無効にした場合でも、自分でランナーのバージョンを定期的に更新する必要があります。  {% data variables.product.prodname_actions %} に新機能がある場合は、{% data variables.product.prodname_actions %} サービスとランナー ソフトウェアの _両方_ で変更する必要があります。  ソフトウェアを更新しないと、{% data variables.product.prodname_actions %} の新機能を利用するジョブをランナーで正しく処理できない場合があります。
 
-If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available.  You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)."
+自動更新を無効にする場合は、ランナーの新しいバージョンが利用可能になってから 30 日以内に、バージョンを更新する必要があります。  [`actions/runner` リポジトリ](https://github.com/actions/runner/releases)でリリースの通知にサブスクライブすることもできます。 詳細については、「[通知の設定](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)」を参照してください。
 
-For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
+ランナーの最新バージョンをインストールする方法については、[最新リリース](https://github.com/actions/runner/releases)のインストール手順をご覧ください。
 
 {% note %}
 
-**Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
+**注:** 30 日以内にソフトウェアを更新しないと、{% data variables.product.prodname_actions %} サービスはランナーへのジョブをキューに入れなくなります。  さらに、重要なセキュリティ更新プログラムが必要な場合、{% data variables.product.prodname_actions %} サービスは、更新されるまで、ランナーへのジョブをキューに入れません。
 
 {% endnote %}
 
 {% endif %}
 
-## Using webhooks for autoscaling
+## 自動スケーリングに Webhook を使用する
 
-You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
+[`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook から受信したペイロードを使って、独自の自動スケーリング環境を作成できます。 この Webhook は、リポジトリ、Organization、Enterprise のレベルで使用でき、このイベントのペイロードには、ワークフロー ジョブのライフサイクルのステージに対応する `action` キーが含まれています (たとえば、ジョブが `queued`、`in_progress`、`completed` のとき)。 その場合、これらの Webhook ペイロードに応答して独自のスケーリング オートメーションを作成する必要があります。
 
-- For more information about the `workflow_job` webhook, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[Creating webhooks](/developers/webhooks-and-events/webhooks/creating-webhooks)."
+- `workflow_job` Webhook について詳しくは、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)」をご覧ください。
+- Webhook の使用方法については、「[Webhook の作成](/developers/webhooks-and-events/webhooks/creating-webhooks)」をご覧ください。
 
-## Authentication requirements
+## 認証の要件
 
-You can register and delete repository and organization self-hosted runners using [the API](/rest/reference/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token or a {% data variables.product.prodname_dotcom %} app. 
+[API](/rest/reference/actions#self-hosted-runners) を使って、リポジトリと Organization のセルフホステッド ランナーを登録および削除できます。 自動スケーリングの実装で、API の認証を行うには、アクセス トークンまたは {% data variables.product.prodname_dotcom %} アプリを使用できます。 
 
-Your access token will require the following scope:
+アクセス トークンには、次のスコープが必要です。
 
-- For private repositories, use an access token with the [`repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
-- For public repositories, use an access token with the [`public_repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
-- For organizations, use an access token with the [`admin:org` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- プライベート リポジトリの場合は、[`repo` スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)でアクセス トークンを使います。
+- パブリック リポジトリの場合は、[`public_repo` スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)でアクセス トークンを使います。
+- Organization の場合は、[`admin:org` スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)でアクセス トークンを使います。
 
-To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
-- For repositories, assign the `administration` permission.
-- For organizations, assign the `organization_self_hosted_runners` permission.
+{% data variables.product.prodname_dotcom %} アプリを使って認証を行うには、次のアクセス許可を割り当てる必要があります。
+- リポジトリの場合は、`administration` アクセス許可を割り当てます。
+- Organization の場合は、`organization_self_hosted_runners` アクセス許可を割り当てます。
 
-You can register and delete enterprise self-hosted runners using [the API](/rest/reference/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token.
+[API](/rest/reference/actions#self-hosted-runners) を使って、Enterprise のセルフホステッド ランナーを登録および削除できます。 自動スケーリングの実装で API の認証を行うには、アクセス トークンを使用できます。
 
-Your access token will require the `manage_runners:enterprise` scope.
+アクセス トークンには、`manage_runners:enterprise` スコープが必要です。

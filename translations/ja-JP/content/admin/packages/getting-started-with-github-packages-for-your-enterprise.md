@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Packages for your enterprise
+title: Enterprise 向けの GitHub Packages を使い始める
 shortTitle: Getting started with GitHub Packages
-intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.location.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
+intro: 'この機能の有効化、サードパーティのストレージの設定、サポートするエコシステムの設定、TLS 証明書の更新を行い、{% data variables.product.product_location %} で {% data variables.product.prodname_registry %} を使用開始します。'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
@@ -11,42 +11,46 @@ type: how_to
 topics:
   - Enterprise
   - Packages
+ms.openlocfilehash: 2389eba768a8b2f865165b43dde0e1b6381c6ae7
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146199963'
 ---
-
-
 {% data reusables.package_registry.packages-cluster-support %}
 
-## Step 1: Check whether {% data variables.product.prodname_registry %} is available for your enterprise
+## ステップ 1: 企業で {% data variables.product.prodname_registry %} が利用できるか確認する
 
-{% data variables.product.prodname_registry %} is available in {% data variables.product.prodname_ghe_server %} 3.0 or higher. If you're using an earlier version of {% data variables.product.prodname_ghe_server %}, you'll have to upgrade to use {% data variables.product.prodname_registry %}. For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
-## Step 2: Enable {% data variables.product.prodname_registry %} and configure external storage
+{% data variables.product.prodname_registry %} は {% data variables.product.prodname_ghe_server %} 3.0 以降で利用できます。 以前のバージョンの {% data variables.product.prodname_ghe_server %} を使用している場合は、{% data variables.product.prodname_registry %} を使用するようにアップグレードする必要があります。 {% data variables.product.prodname_ghe_server %} インスタンスのアップグレードの詳細については、「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」を参照してください。
+## ステップ 2: {% data variables.product.prodname_registry %} を有効化して外部ストレージを設定する
 
-{% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages.
+{% data variables.product.prodname_ghe_server %} 上の {% data variables.product.prodname_registry %} は、外部の blob ストレージを使用してパッケージを保存します。
 
-After enabling {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
+{% data variables.product.product_location %} に対して {% data variables.product.prodname_registry %} を有効にした後、サードパーティのストレージバケットを準備する必要があります。 必要なストレージ容量は、{% data variables.product.prodname_registry %} の使用状況によって異なり、セットアップガイドラインはストレージプロバイダによって異なる場合があります。
 
-Supported external storage providers
-- Amazon Web Services (AWS) S3 {% ifversion ghes %}
+サポートされている外部ストレージプロバイダ
+- アマゾン ウェブ サービス (AWS) S3 {% ifversion ghes %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
-To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
-  - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
-  - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
+{% data variables.product.prodname_registry %} を有効にしてサードパーティのストレージを設定するには、以下を参照してください。
+  - "[AWS で GitHub パッケージを有効にする](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
+  - "[Azure Blob Storage で GitHub Packages を有効化する](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
+  - "[MinIO で GitHub Packages を有効にする](/admin/packages/enabling-github-packages-with-minio)"
 
-## Step 3: Specify the package ecosystems to support on your instance
+## ステップ 3: インスタンスでサポートするパッケージエコシステムを指定する
 
-Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.location.product_location %}. Available options are {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
+{% data variables.product.product_location %} で有効、無効、または読み取り専用に設定するパッケージエコシステムを選択します。 使用可能なオプションは、{% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}、{% endif %}Docker、RubyGems、npm、Apache Maven、Gradle、または NuGet です。  詳細については、「[エンタープライズ向けのパッケージ エコシステム サポートの構成](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)」を参照してください。
 
-## Step 4: Ensure you have a TLS certificate for your package host URL, if needed
+## ステップ 4: パッケージホスト URL に TLS 証明書があることを確認する (必要に応じて)
 
-If subdomain isolation is enabled for {% data variables.location.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `{% data reusables.package_registry.container-registry-hostname %}`. Make sure each package host URL includes `https://`.
+{% data variables.product.product_location %} でサブドメイン分離が有効になっている場合、`{% data reusables.package_registry.container-registry-hostname %}` など、使用するエコシステムごとにパッケージ ホスト URL を許可する TLS 証明書を作成し、アップロードする必要があります。 各パッケージ ホスト URL に `https://` が含まれていることを確認します。
 
-  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)." For more information about uploading TLS certificates to {% data variables.product.product_name %}, see "[Configuring TLS](/enterprise/admin/configuration/configuring-tls)."
+  手動で証明書を作成するか、_Let's Encrypt_ を使用できます。 既に _Let's Encrypt_ を使用している場合は、{% data variables.product.prodname_registry %} を有効にしてから新しい TLS 証明書をリクエストする必要があります。 パッケージ ホスト URL の詳細については、「[サブドメイン分離の有効化](/enterprise/admin/configuration/enabling-subdomain-isolation)」を参照してください。 TLS 証明書を {% data variables.product.product_name %} にアップロードする方法については、[TLS の構成](/enterprise/admin/configuration/configuring-tls)に関するページを参照してください。
 
-## Step 5: Check for and rename reserved names
+## 手順 5: 予約名を確認して名前を変更する
 
-If you want to use the Docker ecosystem with subdomain isolation disabled, you **must** first rename any user or organization named `v2` on {% data variables.location.product_location %}, prior to enabling Docker ecosystem support in the {% data variables.enterprise.management_console %}. Docker uses a `v2` account name to manage path conflicts with the Docker API, and once Docker registry support is enabled, you won't be able to use this name anymore.
+サブドメイン分離が無効になっている Docker エコシステムを使う場合は、{% data variables.enterprise.management_console %} で Docker エコシステムのサポートを有効にする前に、まず {% data variables.product.product_location %} という名前 **のユーザーまたは Organization の名前を変更する** 必要があります`v2`。 Docker では、`v2` アカウント名を使って Docker API とのパスの競合を管理します。この名前は、Docker レジストリのサポートが有効になると使えなくなります。
 
-You can view a full list of logins reserved for internal use by navigating to the "Reserved logins" page in the Site admin dashboard. For more information, see "[Reserved logins](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)."
+サイト管理者ダッシュボードの [予約済みログイン] ページに移動すると、内部使用のために予約されたログインの完全な一覧を確認できます。 詳細については、「[予約済みログイン](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#reserved-logins)」を参照してください。

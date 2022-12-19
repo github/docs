@@ -1,6 +1,6 @@
 ---
-title: Downloading your organization's SAML single sign-on recovery codes
-intro: 'Organization administrators should download their organization''s SAML single sign-on recovery codes to ensure that they can access {% data variables.product.product_name %} even if the identity provider for the organization is unavailable.'
+title: Téléchargement des codes de récupération d’authentification unique SAML de votre organisation
+intro: 'Les administrateurs de l’organisation doivent télécharger les codes de récupération d’authentification unique SAML de leur organisation pour s’assurer qu’ils peuvent accéder à {% data variables.product.product_name %} même si le fournisseur d’identité pour l’organisation n’est pas disponible.'
 redirect_from:
   - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
   - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
@@ -11,27 +11,30 @@ topics:
   - Organizations
   - Teams
 shortTitle: Download SAML recovery codes
+ms.openlocfilehash: 9b17e3e4fc20cc9eaedf59afe45e393054d7d8e5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109429'
 ---
+Les codes de récupération ne doivent pas être partagés ni distribués. Nous vous recommandons de les enregistrer à l’aide d’un gestionnaire de mots de passe comme [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/).
 
-Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-5. Under "SAML single sign-on", in the note about recovery codes, click **Save your recovery codes**.
-![Link to view and save your recovery codes](/assets/images/help/saml/saml_recovery_codes.png)
-6. Save your recovery codes by clicking **Download**, **Print**, or **Copy**.
-![Buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+5. Sous « Authentification unique SAML », dans la note relative aux codes de récupération, cliquez sur **Enregistrer vos codes de récupération**.
+![Lien pour afficher et enregistrer vos codes de récupération](/assets/images/help/saml/saml_recovery_codes.png)
+6. Enregistrez vos codes de récupération en cliquant sur **Télécharger**, **Imprimer** ou **Copier**.
+![Capture d’écran des boutons pour télécharger, imprimer ou copier vos codes de récupération](/assets/images/help/saml/saml_recovery_code_options.png)
 
   {% note %}
 
-  **Note:** Your recovery codes will help get you back into {% data variables.product.product_name %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
+  **Remarque :** vos codes de récupération vous aident à revenir aux données {% data variables.product.product_name %} si votre fournisseur d’identité n’est pas disponible. Si vous générez de nouveaux codes de récupération, les codes de récupération affichés dans la page « Codes de récupération d’authentification unique » sont automatiquement mis à jour.
 
   {% endnote %}
 
-7. Once you use a recovery code to regain access to {% data variables.product.product_name %}, it cannot be reused. Access to {% data variables.product.product_name %} will only be available for 24 hours before you'll be asked to sign in using single sign-on.
+7. Quand vous avez utilisé un code de récupération pour récupérer l’accès à {% data variables.product.product_name %}, il ne peut plus être réutilisé. L’accès à {% data variables.product.product_name %} est disponible uniquement pendant 24 heures avant que vous soyez invité à vous connecter à l’aide de l’authentification unique.
 
-## Further reading
+## Pour aller plus loin
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Accessing your organization if your identity provider is unavailable](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"
+- « [À propos de la gestion des identités et des accès avec l’authentification unique SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) »
+- « [Accès à votre organisation si votre fournisseur d’identité est indisponible »](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)

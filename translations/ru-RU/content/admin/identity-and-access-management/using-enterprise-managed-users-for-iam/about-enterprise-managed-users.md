@@ -1,7 +1,7 @@
 ---
-title: About {% data variables.product.prodname_emus %}
+title: 'Сведения о {% data variables.product.prodname_emus %}'
 shortTitle: About managed users
-intro: 'You can centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider.'
+intro: 'Вы можете централизованно управлять удостоверениями и доступом для членов вашей организации в {% data variables.product.prodname_dotcom %} от вашего поставщика удостоверений.'
 redirect_from:
   - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
@@ -17,48 +17,53 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192700'
 ---
+## Сведения о {% data variables.product.prodname_emus %}
 
-## About {% data variables.product.prodname_emus %}
+С помощью {% data variables.product.prodname_emus %} можно управлять учетными записями пользователей корпоративных участников с помощью поставщика удостоверений (IdP). Пользователи, назначенные приложению {% data variables.product.prodname_emu_idp_application %} в поставщике удостоверений, подготавливаются в качестве новых учетных записей пользователей в {% data variables.product.prodname_dotcom %} и добавляются в ваше предприятие. Вы управляете именами пользователей, данными профиля, членством в команде и доступом к репозиторию для учетных записей пользователей из своего поставщика удостоверений.
 
-With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access for the user accounts from your IdP.
-
-In your IdP, you can give each {% data variables.enterprise.prodname_managed_user %} the role of user, enterprise owner, or billing manager. {% data variables.enterprise.prodname_managed_users_caps %} can own organizations within your enterprise and can add other {% data variables.enterprise.prodname_managed_users %} to the organizations and teams within. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" and "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+В поставщике удостоверений вы можете предоставить каждому {% data variables.enterprise.prodname_managed_user %} роль пользователя, владельца предприятия или менеджера по выставлению счетов. {% data variables.enterprise.prodname_managed_users_caps %} может владеть организациями в пределах предприятия и добавлять другие {% data variables.enterprise.prodname_managed_users %} в организации и команды. Дополнительные сведения см. в разделах [Роли в организации](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise) и [Сведения об организациях](/organizations/collaborating-with-groups-in-organizations/about-organizations).
 
 {% ifversion oidc-for-emu %}
 
-{% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+{% data reusables.enterprise-accounts.emu-cap-validates %} Дополнительную информацию см. в статье [Сведения о поддержке политики условного доступа поставщика удостоверений](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy).
 
 {% endif %}
 
-You can grant {% data variables.enterprise.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.enterprise.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](#abilities-and-restrictions-of-enterprise-managed-users)."
+Вы можете предоставить {% data variables.enterprise.prodname_managed_users %} доступ к репозиториям и возможность вносить свой вклад в репозитории на предприятии, но {% data variables.enterprise.prodname_managed_users %} не может создавать общедоступное содержимое или совместно работать с другими пользователями, организациями и предприятиями в остальной части {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Возможности и ограничения {% data variables.enterprise.prodname_managed_users %}](#abilities-and-restrictions-of-enterprise-managed-users).
 
-The usernames of your enterprise's {% data variables.enterprise.prodname_managed_users %} and their profile information, such as display names and email addresses, are set by through your IdP and cannot be changed by the users themselves. For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
+Имена пользователей {% data variables.enterprise.prodname_managed_users %} вашей организации и сведения о профиле, такие как отображаемые имена и адреса электронной почты, задаются через поставщика удостоверений и не могут быть изменены самими пользователями. Дополнительные сведения см. в разделе [Имена пользователей и данные профиля](#usernames-and-profile-information).
 
-Enterprise owners can audit all of the {% data variables.enterprise.prodname_managed_users %}' actions on {% data variables.product.prodname_dotcom %}. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)."
+Владельцы предприятия могут выполнять аудит всех действий {% data variables.enterprise.prodname_managed_users %}в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [События журнала аудита для вашего предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise).
 
-To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. For more information about creating this account, see "[About enterprises with managed users](#about-enterprises-with-managed-users)."
+Для использования {% data variables.product.prodname_emus %} требуется отдельный тип корпоративной учетной записи с включенной функцией {% data variables.product.prodname_emus %}. Дополнительные сведения о создании такой учетной записи см. в разделе [Сведения о предприятиях с управляемыми пользователями](#about-enterprises-with-managed-users).
 
 {% note %}
 
-**Note:** There are multiple options for identity and access management with {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_emus %} is not the best solution for every customer. For more information about whether {% data variables.product.prodname_emus %} is right for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+**Примечание.** Существует несколько вариантов управления удостоверениями и доступом с помощью {% data variables.product.prodname_ghe_cloud %}, и {% data variables.product.prodname_emus %} — не лучшее решение для каждого клиента. Дополнительные сведения о том, подходит ли {% data variables.product.prodname_emus %} для вашего предприятия, см. в разделе [Об проверке подлинности для вашего предприятия](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise).
 
 {% endnote %}
 
-## About organization membership management
+## Сведения об управлении членством в организации
 
-Organization memberships can be managed manually, or you can update memberships automatically using IdP groups. To manage organization memberships through your IdP, the members must be added to an IdP group, and the IdP group must be connected to a team within the organization. For more information about managing organization and team memberships automatically, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
+Членством в организации можно управлять вручную или автоматически обновлять членство с помощью групп поставщика удостоверений. Чтобы управлять членством в организации через поставщика удостоверений, участники должны быть добавлены в группу idP, а группа IdP должна быть подключена к команде в организации. Дополнительные сведения об автоматическом управлении членством в организациях и командах см. в разделе [Управление членством в командах с помощью групп поставщиков удостоверений](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups).
 
-The way a member is added to an organization owned by your enterprise (through IdP groups or manually) determines how they must be removed from an organization. 
+Способ добавления участника в организацию, принадлежащей вашему предприятию (через группы поставщика удостоверений или вручную), определяет, как он должен быть удален из организации. 
 
-- If a member was added to an organization manually, you must remove them manually. Unassigning them from the {% data variables.product.prodname_emu_idp_application %} application on your IdP will suspend the user but not remove them from the organization.
-- If a user became a member of an organization because they were added to IdP groups mapped to one or more teams in the organization, removing them from _all_ of the mapped IdP groups associated with the organization will remove them from the organization.
+- Если участник был добавлен в организацию вручную, его необходимо удалить вручную. Отмена их назначения в приложении {% data variables.product.prodname_emu_idp_application %} в поставщике удостоверений приведет к приостановке работы пользователя, но не к его удалению из организации.
+- Если пользователь стал членом организации, так как он был добавлен в группы поставщика удостоверений, сопоставленные с одной или несколькими командами в организации, удаление его из _всех_ сопоставленных групп удостоверений, связанных с организацией, приведет к удалению его из организации.
 
-To discover how a member was added to an organization, you can filter the member list by type. For more information, see "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users)."
+Чтобы узнать, как участник был добавлен в организацию, можно отфильтровать список участников по типу. Дополнительные сведения см. на странице [Просмотр пользователей в предприятии](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users).
 
-## Identity provider support
+## Поддержка поставщиков удостоверений
 
-{% data variables.product.prodname_emus %} supports the following IdPs{% ifversion oidc-for-emu %} and authentication methods:
+{% data variables.product.prodname_emus %} поддерживает следующие поставщики удостоверений{% ifversion oidc-for-emu %} и способы проверки подлинности:
 
 |                                  | SAML                                          | OIDC                                          |
 |----------------------------------|-----------------------------------------------|-----------------------------------------------|
@@ -70,35 +75,35 @@ To discover how a member was added to an organization, you can filter the member
 
 {% endif %}
 
-## Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}
+## Возможности и ограничения {% data variables.enterprise.prodname_managed_users %}
 
-{% data variables.enterprise.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.enterprise.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community. These visibility and access restrictions for users and content apply to all requests, including API requests.
+{% data variables.enterprise.prodname_managed_users_caps %} может вносить свой вклад только в частные и внутренние репозитории в корпоративных и частных репозиториях, принадлежащих учетной записи пользователя. {% data variables.enterprise.prodname_managed_users_caps %} имеют доступ только для чтения к более широкому сообществу {% data variables.product.prodname_dotcom %}. Эти ограничения видимости и доступа для пользователей и содержимого применяются ко всем запросам, включая запросы API.
 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.enterprise.prodname_managed_users %} be invited to other enterprises. 
-* Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
-* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
-* {% data variables.enterprise.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
-* Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.enterprise.prodname_managed_user %} to collaborate.
-* You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
-* If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
+* {% data variables.enterprise.prodname_managed_users_caps %} не могут быть приглашены в организации или репозитории за пределами предприятия, а {% data variables.enterprise.prodname_managed_users %} не могут быть приглашены в другие предприятия. 
+* Внешние участники совместной работы не поддерживаются в {% data variables.product.prodname_emus %}.
+* {% data variables.enterprise.prodname_managed_users_caps %} не может создавать проблемы или запросы на вытягивание, комментировать или добавлять реакции на репозитории, а также не могут создавать или создавать вилки репозитории за пределами предприятия.
+* {% data variables.enterprise.prodname_managed_users_caps %} может просматривать все общедоступные репозитории в {% data variables.product.prodname_dotcom_the_website %}, но не может отправлять код в репозитории за пределами предприятия.
+* {% data variables.enterprise.prodname_managed_users_caps %} и создаваемое ими содержимое видны только другим участникам предприятия. 
+* {% data variables.enterprise.prodname_managed_users_caps %} не может подписаться на пользователей за пределами предприятия.
+* {% data variables.enterprise.prodname_managed_users_caps %} не может создавать gist или комментировать gist.
+* {% data variables.enterprise.prodname_managed_users_caps %} не удается создать начальные рабочие процессы для {% data variables.product.prodname_actions %}.
+* {% data variables.enterprise.prodname_managed_users_caps %} не удается установить {% data variables.product.prodname_github_apps %} в учетных записях пользователей.
+* Другие пользователи {% data variables.product.prodname_dotcom %} не могут видеть, упоминать или приглашать {% data variables.enterprise.prodname_managed_user %} для совместной работы.
+* Вы можете выбрать, смогут ли {% data variables.enterprise.prodname_managed_users %} создавать репозитории, принадлежащие учетным записям пользователей. Дополнительные сведения см. в разделе [Применение политик управления репозиториями в организации](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation).
+* Если вы разрешаете {% data variables.enterprise.prodname_managed_users %} создавать репозитории, принадлежащие учетным записям пользователей, они могут владеть только частными репозиториями и могут приглашать других участников предприятия для совместной работы над репозиториями, принадлежащими пользователям.
 * {% data reusables.enterprise-accounts.emu-forks %}
-* Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings. 
-* {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
+* В организациях, принадлежащих {% data variables.enterprise.prodname_emu_enterprise %}, можно создавать только частные и внутренние репозитории в зависимости от параметров видимости репозитория организации и предприятия. 
+* {% data variables.enterprise.prodname_managed_users_caps %} ограничены в использовании {% data variables.product.prodname_pages %}. Дополнительные сведения см. в статье [Сведения о {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users).
 
-## Getting started with {% data variables.product.prodname_emus %}
+## Начало работы с {% data variables.product.prodname_emus %}
 
-Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.
+Прежде чем ваши разработчики смогут использовать {% data variables.product.prodname_ghe_cloud %} с {% data variables.product.prodname_emus %}, необходимо выполнить ряд действий по настройке.
 
-1. To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. To try out {% data variables.product.prodname_emus %} or to discuss options for migrating from your existing enterprise, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+1. Для использования {% data variables.product.prodname_emus %} требуется отдельный тип корпоративной учетной записи с включенной функцией {% data variables.product.prodname_emus %}. Чтобы опробовать {% data variables.product.prodname_emus %} или обсудить варианты миграции с существующего предприятия, обратитесь в [отдел продаж {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact).
   
-  Your contact on the GitHub Sales team will work with you to create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
+  Ваш контакт из группы продаж GitHub будет работать с вами, чтобы создать {% data variables.enterprise.prodname_emu_enterprise %}. Вам потребуется указать адрес электронной почты пользователя, который настроит ваше предприятие, и короткий код, который будет использоваться в качестве суффикса для имен пользователей корпоративных участников. {% data reusables.enterprise-accounts.emu-shortcode %} Дополнительные сведения см. в разделе [Имена пользователей и данные профиля](#usernames-and-profile-information).
   
-2. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SSO is successfully enabled. The setup user's username is your enterprise's shortcode suffixed with `_admin`. 
+2. После создания предприятия вы получите сообщение электронной почты от {% data variables.product.prodname_dotcom %} с приглашением выбрать пароль для пользователя настройки предприятия, который станет первым владельцем предприятия. Используйте режим инкогнито или приватное окно в браузере при установке пароля. Пользователь настройки используется только для настройки единого входа и интеграции подготовки SCIM для предприятия. У него больше не будет доступа для администрирования корпоративной учетной записи после успешного включения единого входа. Имя пользователя установки — это короткий код вашей организации с суффиксом `_admin`. 
   
   {% note %}
   
@@ -106,54 +111,53 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
   
   {% endnote %}
   
-3. After you log in as the setup user, we recommend enabling two-factor authentication. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+3. После входа в систему как пользователь настройки рекомендуется включить двухфакторную проверку подлинности. Подробнее: [Настройка двухфакторной проверки подлинности](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
-1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+1. Для начала настройте {% ifversion oidc-for-emu %}способ проверки подлинности ваших участников. Если вы используете Azure Active Directory в качестве поставщика удостоверений, вы можете выбирать между OpenID Connect (OIDC) и языком разметки заявлений системы безопасности (SAML). Мы рекомендуем использовать OIDC, который включает поддержку политик условного доступа (CAP). Если требуется несколько предприятий с подготовкой {% data variables.enterprise.prodname_managed_users %} из одного клиента, необходимо использовать SAML для каждого предприятия после первого. Если вы используете Okta в качестве поставщика удостоверений, вы можете использовать SAML для проверки подлинности своих участников.{% else %}Единый вход SAML для вашего предприятия. Дополнительные сведения см. в разделе [Настройка единого входа SAML для пользователей, управляемых предприятием](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users).{% endif %}
   
   {% ifversion oidc-for-emu %}
   
-  To get started, read the guide for your chosen authentication method.
+  Для начала прочитайте руководство для выбранного вами способа проверки подлинности.
   
-    - "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-    - "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+    - [Настройка OIDC для пользователей, управляемых предприятием](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users).
+    - [Настройка единого входа SAML для корпоративных управляемых пользователей](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users).
   
   {% endif %}
   
-4. Once you have configured SSO, you can configure SCIM provisioning. SCIM is how your identity provider will create {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom_the_website %}. For more information on configuring SCIM provisioning, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+4. После настройки единого входа вы можете настроить подготовку SCIM. SCIM — это то, как поставщик удостоверений создаст {% data variables.enterprise.prodname_managed_users %} в {% data variables.product.prodname_dotcom_the_website %}. Дополнительные сведения о настройке подготовки SCIM см. в разделе [Настройка подготовки SCIM для корпоративных управляемых пользователей](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users).
   
-5. Once authentication and provisioning are configured, you can start managing organization membership for your {% data variables.enterprise.prodname_managed_users %} by synchronizing IdP groups with teams. For more information, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+5. После настройки проверки подлинности и подготовки можно приступить к управлению членством в организации для {% data variables.enterprise.prodname_managed_users %}, синхронизируя группы поставщиков удостоверений с командами. Дополнительные сведения см. на странице [Управление членством в командах с помощью групп поставщиков удостоверений](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 
-If members of your enterprise must use one workstation to contribute to repositories on {% data variables.location.product_location %} from both a {% data variables.enterprise.prodname_managed_user %} and a personal account, you can provide support. For more information, see "[Supporting developers with multiple user accounts on {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)."
+Если участники вашего предприятия должны использовать одну рабочую станцию для участия в репозиториях в {% data variables.location.product_location %} из {% data variables.enterprise.prodname_managed_user %} и личной учетной записи, вы можете предоставить поддержку. Дополнительные сведения см. в разделе [Поддержка разработчиков с несколькими учетными записями пользователей в {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom).
 
-## Authenticating as a {% data variables.enterprise.prodname_managed_user %}
+## Проверка подлинности в качестве {% data variables.enterprise.prodname_managed_user %}
 
-{% data variables.enterprise.prodname_managed_users_caps %} must authenticate through their identity provider. To authenticate, a {% data variables.enterprise.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}. 
+{% data variables.enterprise.prodname_managed_users_caps %} должен пройти проверку подлинности через поставщика удостоверений. Для проверки подлинности {% data variables.enterprise.prodname_managed_user %} может посетить портал приложения поставщика удостоверений или использовать страницу входа в {% data variables.product.prodname_dotcom_the_website %}. 
 
-By default, when an unauthenticated user attempts to access an enterprise that uses {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} displays a 404 error. An enterprise owner can optionally enable automatic redirects to single sign-on (SSO) instead of the 404. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
+По умолчанию, когда пользователь без проверки подлинности пытается получить доступ к предприятию, использующим {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} отображает ошибку 404. Владелец предприятия может включить автоматическое перенаправление на единый вход (SSO) вместо 404. Дополнительные сведения см. в разделе [Применение политик для параметров безопасности на предприятии](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users).
 
-{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+{% data reusables.enterprise-accounts.about-recovery-codes %} Дополнительные сведения см. в разделе [Управление кодами восстановления для вашей организации](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise).
 
-### Authenticating as a {% data variables.enterprise.prodname_managed_user %} via {% data variables.product.prodname_dotcom_the_website %}
+### Проверка подлинности в качестве {% data variables.enterprise.prodname_managed_user %} с помощью {% data variables.product.prodname_dotcom_the_website %}
 
-1. Navigate to [https://github.com/login](https://github.com/login).
-1. In the "Username or email address" text box, enter your username including the underscore and short code.
-  ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png)
-  When the form recognizes your username, the form will update. You do not need to enter your password on this form.
-1. To continue to your identity provider, click **Sign in with your identity provider**.
-  ![Screenshot showing "Sign in with your identity provider" button](/assets/images/help/enterprises/emu-login-submit.png)
+1. Перейдите по адресу [https://github.com/login](https://github.com/login).
+1. В текстовом поле "Имя пользователя или адрес электронной почты" введите имя пользователя, включая символ подчеркивания и короткий код.
+  ![Снимок экрана: форма входа](/assets/images/help/enterprises/emu-login-username.png) Когда форма распознает ваше имя пользователя, она обновится. В этой форме не нужно вводить пароль.
+1. Чтобы перейти к поставщику удостоверений, нажмите кнопку **Войти с помощью поставщика удостоверений**.
+  ![Снимок экрана: кнопка "Войти с помощью поставщика удостоверений"](/assets/images/help/enterprises/emu-login-submit.png)
 
-## Usernames and profile information
+## Имена пользователей и данные профиля
 
-{% data variables.product.product_name %} automatically creates a username for each person by normalizing an identifier provided by your IdP. For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data variables.product.product_name %} автоматически создает имя пользователя для каждого пользователя, когда его учетная запись создается с помощью SCIM, путем нормализации идентификатора, предоставленного вашим поставщиком удостоверений. Дополнительные сведения см. в разделе [Рекомендации по использованию имени пользователя для внешней проверки подлинности](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
-A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[Resolving username problems](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-problems)."
+Конфликт может возникнуть при подготовке пользователей, если во время нормализации удаляются уникальные части идентификатора, предоставленного вашим поставщиком удостоверений. Если вы не можете подготовить пользователя из-за конфликта имен пользователей, необходимо изменить имя пользователя, предоставляемое вашим поставщиком удостоверений. Дополнительные сведения см. в разделе [Устранение проблем с именем пользователя](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-problems).
 
 {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %} 
 
-The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is also provided by the IdP. {% data variables.enterprise.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.
+Имя профиля и адрес электронной почты {% data variables.enterprise.prodname_managed_user %} также предоставляются поставщиком удостоверений. {% data variables.enterprise.prodname_managed_users_caps %} не может изменить имя своего профиля или адрес электронной почты в {% data variables.product.prodname_dotcom %}, а поставщик удостоверений может указать только один адрес электронной почты.
 
-## Supporting developers with multiple user accounts on {% data variables.location.product_location %}
+## Поддержка разработчиков с несколькими учетными записями пользователей в {% data variables.location.product_location %}
 
-People on your team may need to contribute to resources on {% data variables.location.product_location %} that are outside of your {% data variables.enterprise.prodname_emu_enterprise %}. For example, you may wish to maintain a separate enterprise for your company's open source projects. Because a {% data variables.enterprise.prodname_managed_user %} cannot contribute to public resources, users will need to maintain a separate, personal account for this work.
+Люди вашей команды может потребоваться внести свой вклад в ресурсы в {% data variables.location.product_location %}, которые находятся за пределами {% data variables.enterprise.prodname_emu_enterprise %}. Например, может потребоваться создать отдельное предприятие для открытый код проектов вашей компании. Так как {% data variables.enterprise.prodname_managed_user %} не может вносить свой вклад в общедоступные ресурсы, пользователям потребуется поддерживать отдельную личную учетную запись для этой работы.
 
-People who must contribute from two user accounts on {% data variables.location.product_location %} using one workstation can configure Git to simplify the process. For more information, see "[Managing multiple accounts](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
+Люди, которые должны участвовать в работе из двух учетных записей пользователей в {% data variables.location.product_location %} с помощью одной рабочей станции, могут настроить Git для упрощения процесса. Дополнительные сведения см. в разделе [Управление несколькими учетными записями](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).

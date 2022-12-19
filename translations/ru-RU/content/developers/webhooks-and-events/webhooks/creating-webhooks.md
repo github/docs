@@ -1,6 +1,6 @@
 ---
-title: Creating webhooks
-intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
+title: Создание веб-перехватчиков
+intro: 'Узнайте, как создать веб-перехватчик, выбрав события, которые веб-перехватчик будет прослушивать в {% data variables.product.prodname_dotcom %}, и как настроить сервер для получения полезных данных веб-перехватчика и управления ими.'
 redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
@@ -11,85 +11,89 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: ced763e71ecc9f99d8dd5037dcdb6d87cfdba91d
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132974'
 ---
-Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
+Теперь, когда мы понимаем [основы веб-перехватчиков][webhooks-overview], давайте рассмотрим процесс создания собственной интеграции на основе веб-перехватчика. В этом руководстве мы создадим веб-перехватчик репозитория, который будет отвечать за создание списка популярных репозиториев в зависимости от количества проблем, которые он получает в день.
 
-Creating a webhook is a two-step process. You'll first need to set up what events you webhook should listen to. After that, you'll set up your server to receive and manage the payload.
+Создание веб-перехватчика — это двухэтапный процесс. Сначала необходимо настроить события, которые должен прослушивать веб-перехватчик. После этого вы настроите сервер для получения полезных данных и управления ими.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-## Exposing localhost to the internet
+## Предоставление локального узла в Интернете
 
-For the purposes of this tutorial, we're going to use a local server to receive webhook events from {% data variables.product.prodname_dotcom %}. 
+В рамках этого руководства мы будем использовать локальный сервер для получения событий веб-перехватчика от {% data variables.product.prodname_dotcom %}. 
 
-First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`ngrok`](https://ngrok.com) to do this.
+Прежде всего, необходимо предоставить локальную среду разработки в Интернете, чтобы {% data variables.product.prodname_dotcom %} доставить события. Мы будем использовать [`ngrok`](https://ngrok.com) для этого.
 
-{% ifversion cli-webhook-forwarding %}
-{% note %}
+{% ifversion cli-webhook-forwarding %} {% примечание %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+**Примечание:** Кроме того, вы можете использовать перенаправление веб-перехватчиков, чтобы настроить локальную среду для получения веб-перехватчиков. Дополнительные сведения см. в разделе [Получение веб-перехватчиков с помощью GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-`ngrok` is available, free of charge, for all major operating systems. For more information, see [the `ngrok` download page](https://ngrok.com/download).
+`ngrok` предоставляется бесплатно для всех основных операционных систем. Дополнительные сведения см. на [`ngrok`странице загрузки](https://ngrok.com/download).
 
-After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
+После установки `ngrok` вы можете предоставить локальный узел, выполнив команду `./ngrok http 4567` в командной строке. `4567` — номер порта, по которому сервер будет ожидать передачи сообщений. Должна появиться строка, которая выглядит примерно так:
 
 ```shell
 $ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
-Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
+Запишите URL-адрес `*.ngrok.io`. Мы будем использовать его для настройки веб-перехватчика.
 
-## Setting up a webhook
+## Настройка веб-перехватчика
 
-You can install webhooks on an organization or on a specific repository.
+Веб-перехватчики можно установить в организации или в определенном репозитории.
 
-To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
+Чтобы настроить веб-перехватчик, перейдите на страницу параметров репозитория или организации. После этого щелкните **Веб-перехватчики**, а затем выберите **Добавить веб-перехватчик**.
 
-Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
+Кроме того, можно создать веб-перехватчик и управлять им [с помощью API веб-перехватчиков][webhook-api].
 
-Webhooks require a few configuration options before you can make use of them. We'll go through each of these settings below.
+Прежде чем веб-перехватчики можно будет использовать, в них требуется настроить несколько параметров конфигурации. Мы разберем каждый из этих параметров ниже.
 
-## Payload URL
+## URL-адрес полезных данных
 
 {% data reusables.webhooks.payload_url %}
 
-Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
+Так как мы выполняем разработку локально для нашего руководства, мы настроим его на URL-адрес `*.ngrok.io`, а затем `/payload`. Например, `http://7e9ea9dc.ngrok.io/payload`.
 
-## Content type
+## Тип содержимого
 
-{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
+{% data reusables.webhooks.content_type %} В рамках этого учебника достаточно выбрать тип содержимого по умолчанию `application/json`.
 
-## Secret
+## Секрет
 
 {% data reusables.webhooks.secret %}
 
-## SSL verification
+## Проверка SSL
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-## Active
+## Активен
 
-By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
+По умолчанию доставки веб-перехватчика имеют статус "Активно". Вы можете отключить доставку полезных данных веб-перехватчика, отменив выбор статуса "Активный".
 
-## Events
+## События
 
-Events are at the core of webhooks. These webhooks fire whenever a certain action is taken on the repository, which your server's payload URL intercepts and acts upon.
+События — центральный компонент веб-перехватчиков. Эти веб-перехватчики запускаются всякий раз, когда определенное действие выполняется для репозитория, который URL-адрес полезных данных вашего сервера перехватывает и реагирует на него.
 
-A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
+Полный список событий веб-перехватчика и условия, при которых они могут срабатывать, можно найти в [справочнике по API веб-перехватчика][hooks-api].
 
-Since our webhook is dealing with issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
+Так как наш веб-перехватчик работает с проблемами в репозитории, мы нажмем кнопку **Разрешить мне выбрать отдельные события**, а затем **Проблемы**. Обязательно установите флажок **Активен**, чтобы получать события проблем для активированных веб-перехватчиков. Кроме того, можно выбрать все события с помощью команды по умолчанию.
 
-When you're finished, click **Add webhook**. 
+После этого нажмите кнопку **Добавить веб-перехватчик**. 
 
-Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
+После создания веб-перехватчика пора настроить локальный сервер для тестирования веб-перехватчика. Перейдите к разделу [Настройка сервера](/webhooks/configuring/), чтобы узнать, как это сделать.
 
-### Wildcard event
+### Событие с подстановочными знаками
 
-To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
+Чтобы настроить веб-перехватчик для всех событий, используйте подстановочный знак (`*`) для указания событий веб-перехватчика. При добавлении события с подстановочными знаками мы заменим все настроенные существующие события, на события с подстановочными знаками, и отправим полезные данные для всех поддерживаемых событий. Вы также автоматически будете получать новые события, добавляемые в будущем.
 
 [webhooks-overview]: /webhooks/
 [webhook-api]: /rest/reference/repos#hooks

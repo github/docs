@@ -1,6 +1,6 @@
 ---
-title: Deploying Python to Azure App Service
-intro: You can deploy your Python project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Azure App Service에 Python 배포
+intro: CD(지속적인 배포) 워크플로의 일부로 Azure App Service에 Python 프로젝트를 배포할 수 있습니다.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,34 +11,38 @@ topics:
   - CD
   - Python
   - Azure App Service
+ms.openlocfilehash: c9f1bc719068a250aaabfbb8dcb3581335dabdb1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409461'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-## Introduction
+이 가이드에서는 {% data variables.product.prodname_actions %}를 사용하여 Python 프로젝트를 빌드하고 배포하여 [Azure App Service](https://azure.microsoft.com/services/app-service/) 방법을 설명합니다.
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**참고**: {% data reusables.actions.about-oidc-short-overview %} 및 “[Azure에서 OpenID Connect 구성](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).”
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 필수 조건
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %} 워크플로를 만들기 전에 먼저 다음 설정 단계를 완료해야 합니다.
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. 웹앱 만들기
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
+   예를 들어 Azure CLI를 사용하여 Python 런타임으로 Azure App Service 웹앱을 만들 수 있습니다.
 
    ```bash{:copy}
    az webapp create \
@@ -48,21 +52,21 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "python|3.8"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   위의 명령에서 매개 변수를 고유한 값으로 바꿉니다. 여기서 `MY_WEBAPP_NAME`은 웹앱의 새 이름입니다.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
+1. `SCM_DO_BUILD_DURING_DEPLOYMENT`라는 앱 설정을 추가하고 값을 `1`로 설정합니다.
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+5. 필요에 따라 배포 환경을 구성합니다. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## 워크플로 만들기
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+필수 구성 요소를 완료한 후에는 워크플로 만들기를 진행할 수 있습니다.
 
-The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
+다음 예제 워크플로는 `main` 분기에 푸시가 있을 때 Python 프로젝트를 빌드하고 Azure App Service에 배포하는 방법을 보여 줍니다.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+워크플로 `env` 키에서 `AZURE_WEBAPP_NAME`을 만든 웹앱의 이름으로 설정했는지 확인합니다. `3.8` 이외의 Python 버전을 사용하는 경우 `PYTHON_VERSION`을 사용 중인 버전으로 변경합니다.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -141,10 +145,10 @@ jobs:
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
 ```
 
-## Additional resources
+## 추가 리소스
 
-The following resources may also be useful:
+다음 리소스도 유용할 수 있습니다.
 
-* For the original starter workflow, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 원래의 시작 워크플로는 {% data variables.product.prodname_actions %} `starter-workflows` 리포지토리의 [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml)을 참조하세요.
+* 웹앱을 배포하는 데 사용되는 작업은 공식 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 작업입니다.
+* Azure에 배포하는 GitHub Actions 워크플로에 대한 자세한 예제는 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 리포지토리를 참조하세요.

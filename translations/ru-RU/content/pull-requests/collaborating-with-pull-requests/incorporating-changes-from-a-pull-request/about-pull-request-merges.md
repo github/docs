@@ -1,6 +1,6 @@
 ---
-title: About pull request merges
-intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
+title: Сведения о слиянии запросов на вытягивание
+intro: 'Вы можете [объединить запросы на вытягивание](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request), сохранив все фиксации в ветви компонента, объединив все фиксации в одну фиксацию или перераспределив отдельные фиксации из ветви `head` в ветвь `base`.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
   - /articles/about-pull-request-merge-squashing
@@ -14,77 +14,79 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 73f55f86a4b4b18828a767959e580abde87ea906
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099316'
 ---
-## Merge your commits
+## Слияние фиксаций
 
 {% data reusables.pull_requests.default_merge_option %}
 
-## Squash and merge your commits
+## Слияние фиксаций со сжатием
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-### Merge message for a squash merge
+### Сообщение слияния для слияния со сжатием
 
-{% ifversion default-merge-squash-commit-message %}
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. Depending on how the repository is configured and the number of commits in the pull request, not including merge commits, this message may include the pull request title, pull request description, or information about the commits.
-{% else %}
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
+{% ifversion default-merge-squash-commit-message %} Когда вы выполняете слияние со сжатием, {% data variables.product.prodname_dotcom %} создает сообщение о фиксации по умолчанию, которое можно изменять. В зависимости от конфигурации репозитория и количества фиксаций в запросе на вытягивание, не включая фиксации слияния, это сообщение может включать заголовок запроса на вытягивание, описание запроса на вытягивание или информацию о фиксациях.
+{% else %} Когда вы выполняете слияние со сжатием, {% data variables.product.prodname_dotcom %} создает сообщение фиксации по умолчанию, которое можно изменять. Сообщение по умолчанию зависит от количества фиксаций в запросе на вытягивание, не включая фиксации слияния.
 
-Number of commits | Summary | Description |
------------------ | ------- | ----------- |	
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+Количество фиксаций | Сводка | Описание |
+----------------- | ------- | ----------- | 
+Одна фиксация | Заголовок сообщения фиксации для одной фиксации плюс номер запроса на вытягивание | Основной текст сообщения фиксации для одной фиксации
+Несколько фиксаций | Заголовок запроса на вытягивание плюс номер запроса на вытягивание | Список сообщений фиксации для всех сжимаемых фиксаций, упорядоченный по датам
 {% endif %}
 
-Number of commits | Summary | Description |
+Количество фиксаций | Сводка | Описание |
 ----------------- | ------- | ----------- |
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+Одна фиксация | Заголовок сообщения фиксации для одной фиксации плюс номер запроса на вытягивание | Основной текст сообщения фиксации для одной фиксации
+Несколько фиксаций | Заголовок запроса на вытягивание плюс номер запроса на вытягивание | Список сообщений фиксации для всех сжимаемых фиксаций, упорядоченный по датам
 
-{% ifversion default-merge-squash-commit-message %}
-People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
+{% ifversion default-merge-squash-commit-message %} Люди с доступом координатора или администратора к репозиторию могут настроить сообщение слияния своего репозитория по умолчанию для всех фиксаций со сжатием, чтобы использовать заголовок запроса на вытягивание, заголовок запроса на вытягивание и сведения о фиксации или заголовок запроса на вытягивание и описание. Дополнительные сведения см. в разделе [Настройка сжатия фиксаций](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests).{% endif %}
 
-{% ifversion ghes = 3.6 %}
-People with admin access to a repository can configure the repository to use the title of the pull request as the default merge message for all squashed commits. For more information, see "[Configure commit squashing](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+{% ifversion ghes = 3.6 %} Пользователи с правами администратора на доступ к репозиторию могут настраивать репозиторий так, чтобы использовать заголовок запроса на вытягивание в качестве сообщения слияния для всех фиксаций со сжатием. Дополнительные сведения см. в разделе [Настройка сжатия фиксаций](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests).
 {% endif %}
 
-### Squashing and merging a long-running branch
+### Сжатие и слияние длительной ветви
 
-If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
+Если после слияния запроса на вытягивание вы планируете продолжить работу с [головной ветвью](/github/getting-started-with-github/github-glossary#head-branch) запроса на вытягивание, запрос на вытягивание лучше не сжимать и не выполнять его слияние.
 
-When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit.
+При создании запроса на вытягивание {% data variables.product.prodname_dotcom %} определяет последнюю фиксацию, которая присутствует и в головной, и в [базовой ветви](/github/getting-started-with-github/github-glossary#base-branch): фиксацию общего предка. При сжатии и слиянии запроса на вытягивание {% data variables.product.prodname_dotcom %} создает в базовой ветви фиксацию, которая содержит все изменения, внесенные в головной ветви после фиксации общего предка.
 
-Because this commit is only on the base branch and not the head branch, the common ancestor of the two branches remains unchanged. If you continue to work on the head branch, then create a new pull request between the two branches, the pull request will include all of the commits since the common ancestor, including commits that you squashed and merged in the previous pull request. If there are no conflicts, you can safely merge these commits. However, this workflow makes merge conflicts more likely. If you continue to squash and merge pull requests for a long-running head branch, you will have to resolve the same conflicts repeatedly.
+Поскольку эта фиксация присутствует только в базовой ветви, а в головной отсутствует, общий предок двух ветвей остается неизменным. Если вы продолжаете работать в головной ветви, создайте новый запрос на вытягивание между двумя ветвями. Он будет включать все фиксации после общего предка, включая фиксации, которые вы сжали и объединили в предыдущем запросе на вытягивание. Если конфликтов нет, эти фиксации можно безопасно объединить. Однако такой рабочий процесс повышает вероятность возникновения конфликтов слияния. Если вы будете и дальше сжимать и объединять запросы на вытягивание для длительной головной ветви, вам придется многократно разрешать одни и те же конфликты.
 
-## Rebase and merge your commits
+## Перемещение между ветвями и слияние фиксаций
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-You aren't able to automatically rebase and merge on {% data variables.location.product_location %} when:
-- The pull request has merge conflicts.
-- Rebasing the commits from the base branch into the head branch runs into conflicts.
-- Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
+Вы не можете автоматически перебазировать и объединить данные {% variables.location.product_location %}, если:
+- В запросе на вытягивание есть конфликты слияния.
+- Перемещение фиксаций из базовой ветви в головную вызывает конфликты.
+- Перемещение фиксаций считается небезопасным, например, если перемещение возможно без конфликтов слияния, но результат не будет таким же, как при слиянии.
 
-If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.location.product_location %} you must:
-- Rebase the topic branch (or head branch) onto the base branch locally on the command line
-- [Resolve any merge conflicts on the command line](/articles/resolving-a-merge-conflict-using-the-command-line/).
-- Force-push the rebased commits to the pull request's topic branch (or remote head branch).
+Если вы по-прежнему хотите перебазировать фиксации, но не можете перебазировать и выполнить автоматическое слияние на {% данных variables.location.product_location %} необходимо:
+- Переместите тематическую (или головную) ветвь в базовую ветвь локально в командной строке.
+- [Устраните все конфликты слияния в командной строке](/articles/resolving-a-merge-conflict-using-the-command-line/).
+- Принудительно отправьте перемещенные фиксации в тематическую (или удаленную головную) ветвь запроса на вытягивание.
 
-Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.location.product_location %}.
+Затем любой пользователь с разрешениями на запись в репозитории может [объединить изменения](/articles/merging-a-pull-request/) с помощью кнопки перебазы и слияния на {% данных variables.location.product_location %}.
 
-## Indirect merges
+## Непрямые слияния
 
-A pull request can be merged automatically if its head branch is directly or indirectly merged into the base branch externally. In other words, if the head branch's tip commit becomes reachable from the tip of the target branch. For example:
+Запрос на вытягивание можно объединить автоматически, если его головная ветвь напрямую или косвенно объединена в базовую ветвь за пределами. Другими словами, если фиксация чаевых головы становится доступной с кончика целевой ветви. Пример:
 
-* Branch `main` is at commit **C**.
-* Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
-* Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
+* Ветвь `main` находится в фиксации **C**.
+* Ветвь `feature` была ветвлена `main` и в настоящее время находится на фиксации **D**. Эта ветвь имеет целевой запрос на вытягивание `main`.
+* Ветвь `feature_2` отделяется от `feature` ветви и теперь находится в фиксации **E**. Эта ветвь также имеет целевой запрос на вытягивание `main`.
 
-If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged *automatically* because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark *both* pull requests as merged.
+Если сначала выполняется слияние запроса на вытягивание **E** --> `main`, **запрос на** вытягивание D  --> `main` будет помечен как объединенный *автоматически*, так как все фиксации `feature` теперь доступны.`main` Слияние `feature_2` и `main` отправка `main` на сервер из командной строки помечает *оба* запроса на вытягивание как объединенные.
 
-Pull requests in this situation will be marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules) have not been satisfied.
+Запросы на вытягивание в этой ситуации будут помечены как `merged` даже если [правила защиты ветви](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules) не были выполнены.
 
-## Further reading
+## Дополнительные материалы
 
-- "[About pull requests](/articles/about-pull-requests/)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
+- [Сведения о запросах на вытягивание](/articles/about-pull-requests/)
+- [Разрешение конфликтов слияния](/github/collaborating-with-pull-requests/addressing-merge-conflicts)

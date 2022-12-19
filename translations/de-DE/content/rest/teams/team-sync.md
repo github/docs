@@ -1,22 +1,27 @@
 ---
-title: Team synchronization
-intro: 'The Team synchronization API allows you to manage connections between {% data variables.product.product_name %} teams and external identity provider (IdP) groups.'
+title: Teamsynchronisierung
+intro: 'Mit der Teamsynchronisierungs-API kannst du Verbindungen zwischen {% data variables.product.product_name %}-Teams und externen Identitätsanbietergruppen verwalten.'
 versions:
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 6a5d379b1050e10f9e31e14ed2b094a684676737
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067162'
 ---
+## Informationen zur Teamsynchronisierungs-API
 
-## About the Team synchronization API
+Um diese API verwenden zu können, müssen authentifizierte Benutzer*innen entweder Teamverwalter*innen oder Besitzer*innen der Organisation sein, die dem Team zugeordnet ist. Das Token, das du zum Authentifizieren verwendest, muss auch für die Verwendung mit deinem IdP-Anbieter (SSO) autorisiert werden. Weitere Informationen findest du unter [Autorisieren eines persönlichen Zugriffstokens für die Verwendung in einer Organisation, die SAML-SSO verwendet](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
-To use this API, the authenticated user must be a team maintainer or an owner of the organization associated with the team. The token you use to authenticate will also need to be authorized for use with your IdP (SSO) provider. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with a SAML single sign-on organization](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
-
-You can manage GitHub team members through your IdP with team synchronization. Team synchronization must be enabled to use the Team Synchronization API. For more information, see "[Synchronizing teams between your identity provider and GitHub](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+Du kannst GitHub-Teammitglieder über deinen IdP mit der Teamsynchronisierung verwalten. Die Teamsynchronisierung muss aktiviert sein, damit du die Teamsynchronisierungs-API verwenden kannst. Weitere Informationen findest du unter [Synchronisieren von Teams zwischen deinem Identitätsanbieter und GitHub](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization).
 
 {% note %}
 
-**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.enterprise.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
+**Hinweis:** Die Teamsynchronisierungs-API kann nicht gemeinsam mit {% data variables.product.prodname_emus %} verwendet werden. Weitere Informationen zum Verwalten einer {% data variables.product.prodname_emu_org %} findest du unter [Externe Gruppen-API](/enterprise-cloud@latest/rest/reference/teams#external-groups).
 
 {% endnote %}

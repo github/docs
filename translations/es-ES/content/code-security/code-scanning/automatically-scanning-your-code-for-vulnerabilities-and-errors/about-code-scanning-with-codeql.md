@@ -1,7 +1,7 @@
 ---
-title: About code scanning with CodeQL
+title: Acerca del examen de código con CodeQL
 shortTitle: Code scanning with CodeQL
-intro: 'You can use {% data variables.product.prodname_codeql %} to identify vulnerabilities and errors in your code. The results are shown as {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.prodname_dotcom %}.'
+intro: 'Puedes utilizar {% data variables.product.prodname_codeql %} para identificar las vulnerabilidades y errores en tu código. Los resultados se muestran como alertas del {% data variables.product.prodname_code_scanning %} en {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
@@ -15,58 +15,58 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: 41531627f73e7878cfa5667560b61cd4e21d20b7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147052180'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
-
-## About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}
+## Acerca de {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.about-codeql-analysis %}
 
-There are two main ways to use {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %}:
+Hay dos formas principales para utilizar el análisis de {% data variables.product.prodname_codeql %} para el {% data variables.product.prodname_code_scanning %}:
 
-- Add the {% data variables.product.prodname_codeql %} workflow to your repository. This uses the [github/codeql-action](https://github.com/github/codeql-action/) to run the {% data variables.product.prodname_codeql_cli %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)."
-- Run the {% data variables.product.prodname_codeql %} CLI directly in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_codeql %} code scanning in your CI system ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+- Agregar el flujo de trabajo de {% data variables.product.prodname_codeql %} a tu repositorio. Se usa la acción [github/codeql-action](https://github.com/github/codeql-action/) para ejecutar la {% data variables.product.prodname_codeql_cli %}. Para obtener más información, consulte "[Configuración de {% data variables.product.prodname_code_scanning %} para un repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)".
+- Ejecutar el CLI de {% data variables.product.prodname_codeql %} directamente en un sistema de IC externo y cargar los resultados en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulte "[Acerca del análisis de código de {% data variables.product.prodname_codeql %} en el sistema de CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)".
 
 {% ifversion ghes or ghae %}
 
-{% note %}
-On {% data variables.product.product_name %} {% ifversion ghes %}{{ allVersions[currentVersion].currentRelease }},{% endif %} the {% data variables.product.prodname_codeql %} action uses {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system.
+{% note %} En {% data variables.product.product_name %} {% ifversion ghes %}{{ allVersions[currentVersion].currentRelease }},{% endif %} la acción {% data variables.product.prodname_codeql %} utiliza la versión de {% data variables.product.prodname_codeql_cli %} {% data variables.product.codeql_cli_ghes_recommended_version %} de forma predeterminada. Se recomienda usar la misma versión de {% data variables.product.prodname_codeql_cli %} si ejecutas análisis en un sistema de CI externo.
 {% endnote %}
 
 {% endif %}
 
 
-## About {% data variables.product.prodname_codeql %}
+## Acerca de {% data variables.product.prodname_codeql %}
 
-{% data variables.product.prodname_codeql %} treats code like data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers.
+El {% data variables.product.prodname_codeql %} trata el código como datos, permitiéndote encontrar vulnerabilidades potenciales en tu código con mayor confianza que los analizadores estáticos tradicionales.
 
-1. You generate a {% data variables.product.prodname_codeql %} database to represent your codebase.
-2. Then you run {% data variables.product.prodname_codeql %} queries on that database to identify problems in the codebase.
-3. The query results are shown as {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} when you use {% data variables.product.prodname_codeql %} with {% data variables.product.prodname_code_scanning %}.
+1. Generas una base de datos de {% data variables.product.prodname_codeql %} para representar tu base de código.
+2. Entonces, ejecutarás consultas de {% data variables.product.prodname_codeql %} en esa base de datos para identificar problemas en la base de código.
+3. Estos resultados de consulta se muestran como alertas del {% data variables.product.prodname_code_scanning %} en {% data variables.product.product_name %} cuando utilizas al {% data variables.product.prodname_codeql %} con el {% data variables.product.prodname_code_scanning %}.
 
-{% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
+{% data variables.product.prodname_codeql %} es compatible tanto con lenguajes compilados como interpretados, y puede buscar vulnerabilidades y errores en el código escrito en los lenguajes compatibles.
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-## About {% data variables.product.prodname_codeql %} queries
+## Acerca de las consultas de {% data variables.product.prodname_codeql %}
 
-{% data variables.product.company_short %} experts, security researchers, and community contributors write and maintain the default {% data variables.product.prodname_codeql %} queries used for {% data variables.product.prodname_code_scanning %}. The queries are regularly updated to improve analysis and reduce any false positive results. The queries are open source, so you can view and contribute to the queries in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %}](https://codeql.github.com/) on the {% data variables.product.prodname_codeql %} website. You can also write your own queries. For more information, see "[About {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)" in the {% data variables.product.prodname_codeql %} documentation.
+Los expertos de {% data variables.product.company_short %}, investigadores de seguridad y contribuyentes comunitarios escriben y mantienen las consultas predeterminadas de {% data variables.product.prodname_codeql %} que se utilizan para el {% data variables.product.prodname_code_scanning %}. Las consultas se actualizan frecuentemente para mejorar el análisis y reducir cualquier resultado falso positivo. Las consultas son código abierto, por lo que puede ver y contribuir en ellas en el repositorio de [`github/codeql`](https://github.com/github/codeql). Para obtener más información, consulte [{% data variables.product.prodname_codeql %}](https://codeql.github.com/) en el sitio web de {% data variables.product.prodname_codeql %}. También puede escribir consultas propias. Para obtener más información, consulte "[Acerca de las consultas de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)" en la documentación de {% data variables.product.prodname_codeql %}.
 
-You can run additional queries as part of your code scanning analysis.
+Puedes ejecutar consultas adicionales como parte de tu análisis de escaneo de código. 
 
-{%- ifversion codeql-packs %}
-These queries must belong to a published {% data variables.product.prodname_codeql %} query pack (beta) or a {% data variables.product.prodname_codeql %} pack in a repository. {% data variables.product.prodname_codeql %} packs (beta) provide the following benefits over traditional {% data variables.product.prodname_ql %} packs:
+{%- ifversion codeql-packs %} Estas consultas deben pertenecer a un paquete de consultas (beta) de {% data variables.product.prodname_codeql %} publicado o un paquete de QL en un repositorio. Los paquetes de {% data variables.product.prodname_codeql %} (beta) proporcionan los siguientes beneficios sobre los paquetes tradicionales de QL:
 
-- When a {% data variables.product.prodname_codeql %} query pack (beta) is published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, all the transitive dependencies required by the queries and a compilation cache are included in the package. This improves performance and ensures that running the queries in the pack gives identical results every time until you upgrade to a new version of the pack or the CLI.
-- {% data variables.product.prodname_ql %} packs do not include transitive dependencies, so queries in the pack can depend only on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same {% data variables.product.prodname_ql %} pack as the query.
-- {% data variables.product.prodname_codeql %} query packs (beta) can be downloaded from multiple GitHub container registries. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
+- Cuando un paquete de consultas de {% data variables.product.prodname_codeql %} (beta) se publica en el {% data variables.product.prodname_container_registry %} de {% data variables.product.company_short %}, todas las dependencias transitivas que requieren las consultas y un caché de compilación se incluyen en el paquete. Esto mejora el rendimiento y garantiza que el ejecutar las consultas del paquete proporciona resultados idénticos cada vez que actualizas a una versión nueva del paquete o de CLI. 
+- Los paquetes de QL no incluyen las dependencias transitivas, así que las consultas del paquete pueden depender únicamente de las librerías estándar (esto es, librerías a las que se hace referencia mediante una instrucción `import LANGUAGE` en la consulta) o en las librerías del mismo paquete de QL que la consulta.
 
-For more information, see "[About {% data variables.product.prodname_codeql %} packs](https://codeql.github.com/docs/codeql-cli/about-codeql-packs/)" in the {% data variables.product.prodname_codeql %} documentation.
+Para obtener más información, consulte "[Acerca de los paquetes de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/about-codeql-packs/) y ["Acerca de los paquetes de {% data variables.product.prodname_ql %} packs](https://codeql.github.com/docs/codeql-cli/about-ql-packs/) en la documentación de {% data variables.product.prodname_codeql %}.
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-{%- else %}
-The queries you want to run must belong to a {% data variables.product.prodname_ql %} pack in a repository. Queries must only depend on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same {% data variables.product.prodname_ql %} pack as the query.
+{%- else %} Estas consultas que desea ejecutar deben pertenecer al paquete de QL de un repositorio. Las consultas solo pueden depender de las librerías estándar (es decir, aquellas a las que hace referencia una instrucción `import LANGUAGE` en la consulta), o de aquellas en el mismo paquete de QL que la consulta. Para obtener más información, consulte ["Acerca de los paquetes de {% data variables.product.prodname_ql %}](https://codeql.github.com/docs/codeql-cli/about-ql-packs/)".
 {% endif %}

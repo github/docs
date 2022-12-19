@@ -1,6 +1,6 @@
 ---
-title: Customizing dependency updates
-intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
+title: 종속성 업데이트 사용자 지정
+intro: '{% data variables.product.prodname_dependabot %}에서 종속성을 유지하는 방법을 사용자 지정할 수 있습니다.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
@@ -20,36 +20,40 @@ topics:
   - Pull requests
   - Vulnerabilities
 shortTitle: Customize updates
+ms.openlocfilehash: 99a3869313598733493d21f8b15d46db98b1a53c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107743'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## 종속성 업데이트 사용자 지정 정보
 
-## About customizing dependency updates
+버전 업데이트를 사용하도록 설정한 후 *dependabot.yml* 파일에 옵션을 더 추가하여 {% data variables.product.prodname_dependabot %}에서 종속성을 유지 관리하는 방법을 사용자 지정할 수 있습니다. 예를 들어 다음과 같이 할 수 있습니다.
 
-After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the *dependabot.yml* file. For example, you could:
+- 버전 업데이트 끌어오기 요청을 열 요일을 지정합니다(`schedule.day`).
+- 각 패키지 관리자의 검토자, 담당자, 레이블을 설정합니다(`reviewers`, `assignees`, `labels`).
+- 각 매니페스트 파일의 변경 내용에 대한 버전 관리 전략을 정의합니다(`versioning-strategy`).
+- 버전 업데이트를 위해 열린 끌어오기 요청의 최대 개수를 기본값인 5개에서 변경합니다(`open-pull-requests-limit`).
+- 기본 분기 대신 특정 분기를 대상으로 하는 버전 업데이트 끌어오기 요청을 엽니다(`target-branch`).
 
-- Specify which day of the week to open pull requests for version updates: `schedule.day`
-- Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`
-- Define a versioning strategy for changes to each manifest file: `versioning-strategy`
-- Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
-- Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
+구성 옵션에 대한 자세한 내용은 “[dependabot.yml 파일에 대한 구성 옵션](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)”을 참조하세요.
 
-For more information about the configuration options, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+리포지토리의 *dependabot.yml* 파일을 업데이트하면 {% data variables.product.prodname_dependabot %}에서 새 구성으로 즉시 검사를 실행합니다. 몇 분 내에 **{% data variables.product.prodname_dependabot %}** 탭에 업데이트된 종속성 목록이 표시됩니다. 리포지토리에 많은 종속성이 있는 경우 작업 시간이 더 오래 걸릴 수 있습니다. 버전 업데이트를 위한 새 끌어오기 요청이 표시될 수도 있습니다. 자세한 내용은 “[버전 업데이트가 구성된 종속성 나열](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)”을 참조하세요.
 
-When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)."
+## 구성 변경이 보안 업데이트에 미치는 영향
 
-## Impact of configuration changes on security updates
+*dependabot.yml* 파일을 사용자 지정하는 경우 보안 업데이트에 대해 발생한 끌어오기 요청이 일부 변경될 수 있습니다. 해당 끌어오기 요청은 항상 {% data variables.product.prodname_dependabot %} 일정이 아닌 종속성에 대한 보안 공지로 트리거됩니다. 그러나 버전 업데이트에 대해 다른 대상 분기를 지정하지 않는 한, *dependabot.yml* 파일에서 관련 구성 설정을 상속합니다.
 
-If you customize the *dependabot.yml* file, you may notice some changes to the pull requests raised for security updates. These pull requests are always triggered by a security advisory for a dependency, rather than by the {% data variables.product.prodname_dependabot %} schedule. However, they inherit relevant configuration settings from the *dependabot.yml* file unless you specify a different target branch for version updates.
+예제는 아래의 “[사용자 지정 레이블 설정](#setting-custom-labels)”을 참조하세요.
 
-For an example, see "[Setting custom labels](#setting-custom-labels)" below.
+## 일정 수정
 
-## Modifying scheduling
+`daily` 업데이트 일정을 설정하는 경우 기본적으로 {% data variables.product.prodname_dependabot %}은 05:00 UTC에 새 버전을 확인합니다. `schedule.time`을 사용하여 업데이트를 확인할 대체 시간을 지정할 수 있습니다(형식: `hh:mm`).
 
-When you set a `daily` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. You can use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
-
-The example *dependabot.yml* file below expands the npm configuration to specify when {% data variables.product.prodname_dependabot %} should check for version updates to dependencies.
+아래의 예제 *dependabot.yml* 파일은 npm 구성을 확장하여 {% data variables.product.prodname_dependabot %}에서 종속성에 대한 버전 업데이트를 확인해야 하는 시기를 지정합니다.
 
 ```yaml
 # dependabot.yml file with
@@ -66,13 +70,13 @@ updates:
       time: "02:00"
 ```
 
-## Setting reviewers and assignees
+## 검토자 및 담당자 설정
 
-By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
+기본적으로 {% data variables.product.prodname_dependabot %}은 검토자나 담당자 없이 끌어오기 요청을 생성합니다.
 
-You can use `reviewers` and `assignees`  to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
+`reviewers` 및 `assignees`를 사용하여 패키지 관리자에 대해 발생한 모든 끌어오기 요청의 검토자와 담당자를 지정할 수 있습니다. 팀을 지정할 때는 팀을 @mentioning하는 것처럼 전체 팀 이름을 사용해야 합니다(조직 포함).
 
-The example *dependabot.yml* file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have two reviewers and one assignee.
+아래의 예제 *dependabot.yml* 파일은 npm에 대한 버전 및 보안 업데이트로 열린 모든 끌어오기 요청에 검토자 2명과 담당자 1명이 있도록 npm 구성을 변경합니다.
 
 ```yaml
 # dependabot.yml file with
@@ -94,17 +98,17 @@ updates:
       - "user-name"
 ```
 
-## Setting custom labels
+## 사용자 지정 레이블 설정
 
 {% data reusables.dependabot.default-labels %}
 
-You can use `labels` to override the default labels and specify alternative labels for all pull requests raised for a package manager. You can't create new labels in the *dependabot.yml* file, so the alternative labels must already exist in the repository.
+`labels`를 사용하여 기본 레이블을 재정의하고 패키지 관리자에 대해 발생한 모든 끌어오기 요청의 대체 레이블을 지정할 수 있습니다. *dependabot.yml* 파일에서 새 레이블을 만들 수 없으므로 대체 레이블이 리포지토리에 이미 있어야 합니다.
 
-The example *dependabot.yml* file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have custom labels. It also changes the Docker configuration to check for version updates against a custom branch and to raise pull requests with custom labels against that custom branch. The changes to Docker will not affect security update pull requests because security updates are always made against the default branch.
+아래의 예제 *dependabot.yml* 파일은 npm에 대한 버전 및 보안 업데이트로 열린 모든 끌어오기 요청에 사용자 지정 레이블이 있도록 npm 구성을 변경합니다. 또한 사용자 지정 분기에 대한 버전 업데이트를 확인하고 사용자 지정 분기에 대해 사용자 지정 레이블로 끌어오기 요청을 생성하도록 Docker 구성을 변경합니다. 보안 업데이트가 항상 기본 분기에 대해 수행되므로 보안 업데이트 끌어오기 요청에는 Docker 변경 내용이 영향을 미치지 않습니다.
 
 {% note %}
 
-**Note:** The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
+**참고:** 새 `target-branch`에 업데이트할 Dockerfile이 포함되어야 합니다. 그렇지 않으면 이 변경 내용으로 인해 Docker에 버전 업데이트를 사용할 수 없게 됩니다.
 
 {% endnote %}
 
@@ -139,6 +143,6 @@ updates:
       - "triage-board"
 ```
 
-## More examples
+## 추가 예제
 
-For more examples, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+추가 예제는 “[dependabot.yml 파일에 대한 구성 옵션](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)”을 참조하세요.

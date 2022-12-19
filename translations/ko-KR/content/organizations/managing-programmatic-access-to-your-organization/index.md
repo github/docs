@@ -1,6 +1,6 @@
 ---
-title: Managing programmatic access to your organization
-intro: 'As an organization owner, you can control access by apps and {% data variables.product.pat_generic %}s to your organization.'
+title: 조직에 대한 프로그래밍 방식 액세스 관리
+intro: '조직 소유자는 조직에 대한 앱 및 {% 데이터 variables.product.pat_generic %}의 액세스를 제어할 수 있습니다.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-apps
   - /articles/managing-access-to-your-organizations-apps
@@ -22,5 +22,11 @@ children:
   - /managing-requests-for-personal-access-tokens-in-your-organization
   - /reviewing-and-revoking-personal-access-tokens-in-your-organization
 shortTitle: Manage programmatic access
+ms.openlocfilehash: a7060fd237c5701f37770816d6a5fe0c64aebec4
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099085'
 ---
 

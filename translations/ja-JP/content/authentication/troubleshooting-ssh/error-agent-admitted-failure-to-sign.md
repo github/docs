@@ -1,6 +1,6 @@
 ---
 title: 'Error: Agent admitted failure to sign'
-intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
+intro: 'まれに、Linux 上の SSH 経由で {% data variables.product.product_name %} に接続すると、エラー `"Agent admitted failure to sign using the key"` が発生します。 この問題を解決するには以下の手順に従ってください。'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -14,8 +14,14 @@ versions:
 topics:
   - SSH
 shortTitle: Agent failure to sign
+ms.openlocfilehash: eceb783df61b403a6b94b8eda84be62e63aa5ead
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145088223'
 ---
-When trying to SSH into {% data variables.location.product_location %} on a Linux computer, you may see the following message in your terminal:
+Linux コンピュータで {% data variables.product.product_location %}に SSH 接続しようとすると、ターミナルに以下のメッセージが表示されることがあります:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -25,28 +31,28 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
+詳細については、<a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>この問題のレポート</a>を参照してください。
 
-## Resolution
+## 解像度
 
-You should be able to fix this error by loading your keys into your SSH agent with `ssh-add`:
+`ssh-add` を使用してキーを SSH エージェントに読み込ませることでこのエラーを修正できます。
 
 ```shell
 # start the ssh-agent in the background
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 $ ssh-add
-> Enter passphrase for /home/YOU/.ssh/id_rsa: [tippy tap]
-> Identity added: /home/YOU/.ssh/id_rsa (/home/YOU/.ssh/id_rsa)
+> Enter passphrase for /home/<em>you</em>/.ssh/id_rsa: <em>[tippy tap]</em>
+> Identity added: /home/<em>you</em>/.ssh/id_rsa (/home/<em>you</em>/.ssh/id_rsa)
 ```
 
-If your key does not have the default filename (`/.ssh/id_rsa`), you'll have to pass that path to `ssh-add`:
+キーに既定のファイル名 (`/.ssh/id_rsa`) がない場合は、そのパスを `ssh-add` に渡す必要があります。
 
 ```shell
 # start the ssh-agent in the background
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 $ ssh-add ~/.ssh/my_other_key
-> Enter passphrase for /home/YOU/.ssh/my_other_key: [tappity tap tap]
-> Identity added: /home/YOU/.ssh/my_other_key (/home/YOU/.ssh/my_other_key)
+> Enter passphrase for /home/<em>you</em>/.ssh/my_other_key: <em>[tappity tap tap]</em>
+> Identity added: /home/<em>you</em>/.ssh/my_other_key (/home/<em>you</em>/.ssh/my_other_key)
 ```

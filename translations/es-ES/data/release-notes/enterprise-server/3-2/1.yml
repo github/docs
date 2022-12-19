@@ -1,0 +1,28 @@
+date: '12-10-2021'
+sections:
+  security_fixes:
+    - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
+  bugs:
+    - 'Los enlaces previos a la recepción personalizados podrían haber fallado debido a los límites demasiado restrictivos en la memoria virtual o CPU.{% comment %} https://github.com/github/enterprise2/pull/26973, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'En una configuración de agrupación de servidores de GitHub Enterprise, la configuración del gráfico de dependencias podría haberse aplicado incorrectamente. {% comment %} https://github.com/github/enterprise2/pull/26981, https://github.com/github/enterprise2/pull/26861 {% endcomment %}'
+    - 'El intento de borrar todos los ajustes de configuración existentes con "ghe-cleanup-settings" no pudo reiniciar el servicio de la consola de administración. {% comment %} https://github.com/github/enterprise2/pull/26988, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante el desmontaje de replicación mediante "ghe-repl-teardown", Memcached no pudo reiniciarse. {% comment %} https://github.com/github/enterprise2/pull/26994, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Durante los periodos de carga alta, los usuarios recibían códigos de estado HTTP 503 cuando los servicios ascendentes no superaban las comprobaciones de estado internas. {% comment %} https://github.com/github/enterprise2/pull/27083, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Se prohibió que los entornos de los enlaces previos a la recepción llamaran al comando cat a través de BusyBox en Alpine.{% comment %} https://github.com/github/enterprise2/pull/27116, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'La conmutación por error desde un centro de datos de un clúster primario hacia un centro de datos de un clúster secundario se realizaba correctamente, pero la conmutación por error de nuevo al centro de datos del clúster primario original no podía promover los índices de Elasticsearch. {% comment %} https://github.com/github/github/pull/193182, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'El botón "Importar equipos" de la página de Teams de una organización devolvía un HTTP 404. {% comment %} https://github.com/github/github/pull/193303 {% endcomment %}'
+    - 'El uso de la API para inhabilitar el análisis de secretos deshabilitaba correctamente la propiedad, pero devolvía incorrectamente un HTTP 422 y un mensaje de error. {% comment %} https://github.com/github/github/pull/193455, https://github.com/github/github/pull/192907 {% endcomment %}'
+    - 'En algunos casos, los administradores de GitHub Enterprise que intentaban ver la página de "Usuarios inactivos" recibían una respuesta del tipo "502 Puerta de enlace incorrecta" o "504 Se agotó el tiempo de espera de la puerta de enlace". {% comment %} https://github.com/github/github/pull/194262, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'Se produjo un impacto negativo en el rendimiento en algunas situaciones de carga alta como resultado del aumento en la cantidad de trabajos "SynchronizePullRequestJob". {% comment %} https://github.com/github/github/pull/195256, https://github.com/github/github/pull/194591 {% endcomment %}'
+    - 'Un patrón definido por el usuario creado para el análisis de secretos se seguía analizando incluso después de haberse eliminado. {% comment %} https://github.com/github/token-scanning-service/pull/1039, https://github.com/github/token-scanning-service/pull/822 {% endcomment %}'
+  changes:
+    - 'Las aplicaciones de GitHub ahora configuran la característica de análisis de secretos en un repositorio de manera coherente con la API. {% comment %} https://github.com/github/github/pull/193456, https://github.com/github/github/pull/193125 {% endcomment %}'
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

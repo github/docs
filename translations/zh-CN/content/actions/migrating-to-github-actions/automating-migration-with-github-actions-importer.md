@@ -1,6 +1,6 @@
 ---
-title: Automating migration with GitHub Actions Importer
-intro: 'Use {% data variables.product.prodname_actions_importer %} to plan and automate your migration to {% data variables.product.prodname_actions %}.'
+title: 使用 GitHub Actions 导入工具自动迁移
+intro: '使用 {% data variables.product.prodname_actions_importer %} 规划和自动迁移到 {% data variables.product.prodname_actions %}。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,31 +12,35 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Automate migration with {% data variables.product.prodname_actions_importer %}
+shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
+ms.openlocfilehash: 391455eb90a3a71ab0e0cb5a1573a0ee48527d8e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159480'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-[Legal notice](#legal-notice)
+[法律通告](#legal-notice)
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_actions_importer %} is currently available as a public preview. Visit the [sign up page](https://github.com/features/actions-importer/signup) to request access to the preview. Once you are granted access you'll be able to use the `gh-actions-importer` CLI extension
+注意：{% data variables.product.prodname_actions_importer %} 目前以公共预览版的形式提供。 若要请求访问预览版，请访问[注册页](https://github.com/features/actions-importer/signup)。 授予访问权限后，你将能够使用 `gh-actions-importer` CLI 扩展
 
 {% endnote %}
 
-## About {% data variables.product.prodname_actions_importer %}
+## 关于 {% data variables.product.prodname_actions_importer %}
 
-You can use {% data variables.product.prodname_actions_importer %} to plan and automatically migrate your CI/CD pipelines to {% data variables.product.prodname_actions %} from Azure DevOps, CircleCI, GitLab, Jenkins, and Travis CI.
+可以使用 {% data variables.product.prodname_actions_importer %} 来规划 CI/CD 管道并将其从 Azure DevOps、CircleCI、GitLab、Jenkins 和 Travis CI 自动迁移到 {% data variables.product.prodname_actions %}。
 
-{% data variables.product.prodname_actions_importer %} is distributed as a Docker container, and uses a [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) extension to interact with the container.
+{% data variables.product.prodname_actions_importer %} 以 Docker 容器形式分发，并使用 [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) 扩展与容器交互。
 
-Any workflow that is converted by the {% data variables.product.prodname_actions_importer %} should be inspected for correctness before using it as a production workload. The goal is to achieve an 80% conversion rate for every workflow, however, the actual conversion rate will depend on the makeup of each individual pipeline that is converted.
+应先检查 {% data variables.product.prodname_actions_importer %} 转换的任何工作流的正确性，然后才能将其用作生产工作负载。 目标是为每个工作流实现 80% 的转换率，但是，实际转换率将取决于转换的每个单独管道的构成。
 
-## Supported CI platforms
+## 支持的 CI 平台
 
-You can use {% data variables.product.prodname_actions_importer %} to migrate from the following platforms:
+可以使用 {% data variables.product.prodname_actions_importer %} 从以下平台进行迁移：
 
 - Azure DevOps
 - CircleCI
@@ -44,36 +48,36 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 - Jenkins
 - Travis CI
 
-Once you are granted access to the preview, you will be able to access further reference documentation for each of the supported platforms.
+获得预览版访问权限后，你将能够访问每个受支持平台的更多参考文档。
 
-## Prerequisites
+## 先决条件
 
-{% data variables.product.prodname_actions_importer %} has the following requirements:
+{% data variables.product.prodname_actions_importer %} 具有以下要求：
 
-- You must have been granted access to the public preview for the {% data variables.product.prodname_actions_importer %}.
+- 须具有 {% data variables.product.prodname_actions_importer %} 公共预览版的访问权限。
 {%- ifversion ghes < 3.5 or ghae %}
-- Use a {% data variables.product.pat_generic %} with the `read:packages` scope enabled.
+- 使用启用了 `read:packages` 范围的 {% data variables.product.pat_generic %}。
 {%- else %}
-- You must have credentials to authenticate to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}. For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
+- 须具有进行 {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} 身份验证时所需的凭据。 有关详细信息，请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)”。
 {% endif %}
-- An environment where you can run Linux-based containers, and can install the necessary tools.
-  - Docker is [installed](https://docs.docker.com/get-docker/) and running.
-  - [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) is installed.
+- 一个可在其中运行基于 Linux 的容器并可安装所需工具的环境。
+  - Docker 已[安装](https://docs.docker.com/get-docker/)并正在运行。
+  - 已安装 [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com)。
 
   {% note %}
 
-  **Note**: The {% data variables.product.prodname_actions_importer %} container and CLI do not need to be installed on the same server as your CI platform.
+  注意：{% data variables.product.prodname_actions_importer %} 容器和 CLI 不需要安装在 CI 平台所在的同一服务器上。
 
   {% endnote %}
 
-### Installing the {% data variables.product.prodname_actions_importer %} CLI extension
+### 安装 {% data variables.product.prodname_actions_importer %} CLI 扩展
 
-1. Install the {% data variables.product.prodname_actions_importer %} CLI extension:
+1. 安装 {% data variables.product.prodname_actions_importer %} CLI 扩展：
 
    ```bash
    $ gh extension install github/gh-actions-importer
    ```
-1. Verify that the extension is installed:
+1. 验证是否已安装扩展：
 
    ```bash
    $ gh actions-importer -h
@@ -90,39 +94,39 @@ Once you are granted access to the preview, you will be able to access further r
      migrate    Convert a pipeline to a GitHub Actions workflow and open a pull request with the changes.
    ```
 
-### Updating the {% data variables.product.prodname_actions_importer %} CLI
+### 更新 {% data variables.product.prodname_actions_importer %} CLI
 
-To ensure you're running the latest version of {% data variables.product.prodname_actions_importer %}, you should regularly run the `update` command:
+若要确保运行最新版本的 {% data variables.product.prodname_actions_importer %}，应定期运行 `update` 命令：
 
 ```bash
 $ gh actions-importer update
 ```
 
-You must be authenticated with the {% data variables.product.prodname_container_registry %} for this command to be successful. Alternatively, you can provide credentials using the `--username` and `--password-stdin` parameters:
+必须通过 {% data variables.product.prodname_container_registry %} 进行身份验证，此命令才能成功。 或者，可以使用 `--username` 和 `--password-stdin` 参数提供凭据：
 
 ```bash
 $ echo $GITHUB_TOKEN | gh actions-importer update --username $GITHUB_HANDLE --password-stdin
 ```
 
-### Authenticating at the command line
+### 在命令行进行身份验证
 
-You must configure credentials that allow {% data variables.product.prodname_actions_importer %} to communicate with {% data variables.product.prodname_dotcom %} and your current CI server. You can configure these credentials using environment variables or a `.env.local` file. The environment variables can be configured in an interactive prompt, by running the following command:
+必须配置可支持 {% data variables.product.prodname_actions_importer %} 与 {% data variables.product.prodname_dotcom %} 及当前 CI 服务器进行通信的凭据。 可以使用环境变量或 `.env.local` 文件配置这些凭据。 可以通过运行以下命令在交互式提示中配置环境变量：
 
 ```bash
 $ gh actions-importer configure
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about using environment variables.
+获得预览版访问权限后，你将能够访问有关使用环境变量的进一步参考文档。
 
-## Using the {% data variables.product.prodname_actions_importer %} CLI
+## 使用 {% data variables.product.prodname_actions_importer %} CLI
 
-Use the subcommands of `gh actions-importer` to begin your migration to {% data variables.product.prodname_actions %}, including `audit`, `forecast`, `dry-run`, and `migrate`.
+使用 `gh actions-importer` 的子命令开始迁移到 {% data variables.product.prodname_actions %}，包括 `audit`、`forecast`、`dry-run` 和 `migrate`。
 
-### Auditing your existing CI pipelines
+### 审核现有 CI 管道
 
-The `audit` subcommand can be used to plan your CI/CD migration by analyzing your current CI/CD footprint. This analysis can be used to plan a timeline for migrating to {% data variables.product.prodname_actions %}.
+`audit` 子命令可用于通过分析当前的 CI/CD 内存占用情况来规划 CI/CD 迁移。 此分析可用于规划迁移到 {% data variables.product.prodname_actions %} 的时间线。
 
-To run an audit, use the following command to determine your available options:
+若要运行审核，请使用以下命令确定可用选项：
 
 ```bash
 $ gh actions-importer audit -h
@@ -139,13 +143,13 @@ Commands:
   travis-ci     An audit will output a list of data used in a Travis CI instance.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running an audit.
+获得预览版访问权限后，你将能够访问有关运行审核的进一步参考文档。
 
-### Forecasting usage
+### 预测使用情况
 
-The `forecast` subcommand reviews historical pipeline usage to create a forecast of {% data variables.product.prodname_actions %} usage.
+`forecast` 子命令查看历史管道使用情况，以创建 {% data variables.product.prodname_actions %} 使用情况的预测。
 
-To run a forecast, use the following command to determine your available options:
+若要运行预测，请使用以下命令确定可用选项：
 
 ```bash
 $ gh actions-importer forecast -h
@@ -163,13 +167,13 @@ Commands:
   github        Forecasts GitHub Actions usage from historical GitHub pipeline utilization.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a forecast.
+获得预览版访问权限后，你将能够访问有关运行预测的进一步参考文档。
 
-### Testing the migration process
+### 测试迁移过程
 
-The `dry-run` subcommand can be used to convert a pipeline to its {% data variables.product.prodname_actions %} equivalent, and then write the workflow to your local filesystem.
+`dry-run` 子命令可用于将管道转换为其 {% data variables.product.prodname_actions %} 等效项，然后将工作流写入本地文件系统。
 
-To perform a dry run, use the following command to determine your available options:
+若要执行试运行，请使用以下命令确定可用选项：
 
 ```bash
 $ gh actions-importer dry-run -h
@@ -186,13 +190,13 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and output its yaml file.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about performing a dry run.
+获得预览版访问权限后，你将能够访问有关运行试运行的进一步参考文档。
 
-### Migrating a pipeline to {% data variables.product.prodname_actions %}
+### 将管道迁移到 {% data variables.product.prodname_actions %}
 
-The `migrate` subcommand can be used to convert a pipeline to its GitHub Actions equivalent and then create a pull request with the contents.
+`migrate` 子命令可用于将管道转换为其 GitHub Actions 等效项，然后使用内容创建拉取请求。
 
-To run a migration, use the following command to determine your available options:
+若要运行迁移，请使用以下命令确定可用选项：
 
 ```bash
 $ gh actions-importer migrate -h
@@ -209,11 +213,11 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and and open a pull request with the changes.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a migration.
+获得预览版访问权限后，你将能够访问有关运行迁移的进一步参考文档。
 
-## Legal notice
+## 法律通告
 
-Portions have been adapted from https://github.com/github/gh-actions-importer/ under the MIT license:
+部分内容改编自 MIT 许可证下的 https://github.com/github/gh-actions-importer/ ：
 
 ```
 MIT License

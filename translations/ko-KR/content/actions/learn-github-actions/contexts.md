@@ -1,7 +1,7 @@
 ---
-title: Contexts
+title: 컨텍스트
 shortTitle: Contexts
-intro: You can access context information in workflows and actions.
+intro: 워크플로 및 작업에서 컨텍스트 정보에 액세스할 수 있습니다.
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -14,103 +14,62 @@ versions:
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 3f73082600ce3bf300ce4565c2bdbc826eb357ca
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191936'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 컨텍스트 정보
 
-## About contexts
+컨텍스트는 워크플로 실행, 실행기 환경, 작업 및 단계에 대한 정보에 액세스하는 방법입니다. 각 컨텍스트는 문자열 또는 다른 개체일 수 있는 속성을 포함하는 개체입니다.
 
-Contexts are a way to access information about workflow runs, runner environments, jobs, and steps. Each context is an object that contains properties, which can be strings or other objects.
+{% data reusables.actions.context-contents %} 예를 들어 `matrix` 컨텍스트는 [행렬](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)의 작업에 대해서만 채워집니다.
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+식 구문을 사용하여 컨텍스트에 액세스할 수 있습니다. 자세한 내용은 “[언어 식](/actions/learn-github-actions/expressions)”을 참조하세요.
 
-You can access contexts using the expression syntax. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
-
-{% raw %}
-`${{ <context> }}`
+{% raw %} `${{ <context> }}`
 {% endraw %}
 
 {% data reusables.actions.context-injection-warning %}
 
-| Context name | Type | Description |
+| 컨텍스트 이름 | 형식 | 설명 |
 |---------------|------|-------------|
-| `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
-| `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
-| `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
-{%- ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %}
-| `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
-| `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
-| `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context). |
-| `strategy` | `object` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context). |
-| `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
-| `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. For more information, see [`needs` context](#needs-context). |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
+| `github` | `object` | 워크플로 실행에 대한 정보입니다. 자세한 내용은 [`github`컨텍스트](#github-context)를 참조하세요. |
+| `env` | `object` | 워크플로, 작업 또는 단계에 설정된 환경 변수를 포함합니다. 자세한 내용은 [`env`컨텍스트](#env-context)를 참조하세요. |
+| `job` | `object` | 현재 실행 중인 작업에 대한 정보입니다. 자세한 내용은 [`job`컨텍스트](#job-context)를 참조하세요. |
+{%- ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %} | `jobs` | `object` | 재사용 가능한 워크플로의 경우에만 에는 재사용 가능한 워크플로의 작업 출력이 포함됩니다. 자세한 내용은 [`jobs`컨텍스트](#jobs-context)를 참조하세요. |{% endif %} | `steps` | `object` | 현재 작업에서 실행된 단계에 대한 정보입니다. 자세한 내용은 [`steps`컨텍스트](#steps-context)를 참조하세요. | | `runner` | `object` | 현재 작업을 실행하는 실행기 정보입니다. 자세한 내용은 [`runner`컨텍스트](#runner-context)를 참조하세요. | | `secrets` | `object` | 워크플로 실행에 사용할 수 있는 비밀의 이름과 값을 포함합니다. 자세한 내용은 [`secrets`컨텍스트](#secrets-context)를 참조하세요. | | `strategy` | `object` | 현재 작업에 대한 행렬 실행 전략에 대한 정보입니다. 자세한 내용은 [`strategy`컨텍스트](#strategy-context)를 참조하세요. | | `matrix` | `object` | 현재 작업에 적용되는 워크플로에 정의된 행렬 속성을 포함합니다. 자세한 내용은 [`matrix`컨텍스트](#matrix-context)를 참조하세요. | | `needs` | `object` | 현재 작업의 종속성으로 정의된 모든 작업의 출력을 포함합니다. 자세한 내용은 [`needs`컨텍스트](#needs-context)를 참조하세요. | {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `inputs` | `object` | 재사용 가능한 {% ifversion actions-unified-inputs %} 또는 수동으로 트리거된 {% endif %}워크플로의 입력을 포함합니다. 자세한 내용은 [`inputs`컨텍스트](#inputs-context)를 참조하세요. |{% endif %}
 
-As part of an expression, you can access context information using one of two syntaxes.
+식의 일부로 두 구문 중 하나를 사용하여 컨텍스트 정보에 액세스할 수 있습니다.
 
-- Index syntax: `github['sha']`
-- Property dereference syntax: `github.sha`
+- 인덱스 구문: `github['sha']`
+- 속성 역참조 구문: `github.sha`
 
-In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+속성 역참조 구문을 사용하려면 속성 이름이 문자 또는 `_`로 시작하거나 영숫자 문자, `-` 또는 `_`만 포함해야 합니다.
 
-If you attempt to dereference a non-existent property, it will evaluate to an empty string.
+존재하지 않는 속성을 역참조하려고 하면 빈 문자열로 평가됩니다.
 
-### Determining when to use contexts
+### 컨텍스트를 사용할 시기 결정
 
 {% data reusables.actions.using-context-or-environment-variables %}
 
-### Context availability
+### 컨텍스트 가용성
 
-Different contexts are available throughout a workflow run. For example, the `secrets` context may only be used at certain places within a job.
+워크플로 실행 전체에서 다양한 컨텍스트를 사용할 수 있습니다. 예를 들어 `secrets` 컨텍스트는 작업 내의 특정 위치에서만 사용할 수 있습니다.
 
-In addition, some functions may only be used in certain places. For example, the `hashFiles` function is not available everywhere.
+또한 일부 함수는 특정 위치에서만 사용할 수 있습니다. 예를 들어 `hashFiles` 함수는 아무 데서도 사용할 수 없습니다.
 
-The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
+다음 표는 워크플로 내에서 각 컨텍스트 및 특수 함수를 사용할 수 있는 위치를 나타냅니다. 아래에 나열되어 있지 않은 함수는 어디에서나 사용할 수 있습니다.
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
-| Workflow key | Context | Special functions |
+| 워크플로 키 | Context | 특수 함수 |
 | ---- | ------- | ----------------- |
-{%- ifversion actions-run-name %}
-| <code>run-name</code> | <code>github, inputs</code> | |
-{%- endif %}
-| <code>concurrency</code> | <code>github, inputs</code> | |
-| <code>env</code> | <code>github, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs, inputs</code> | <code>always, cancelled, success, failure</code> |
-| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | |
-| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | |
-| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | |
-| <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> | |
-{% else %}
-| Path | Context | Special functions |
+{%- ifversion actions-run-name %} | <code>run-name</code> | <code>github, inputs</code> | | {%- endif %} | <code>concurrency</code> | <code>github, inputs</code> | | | <code>env</code> | <code>github, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, inputs</code> | | | <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | | | <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs, inputs</code> | <code>always, cancelled, success, failure</code> | | <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | | | <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | | | <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | | | <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, steps, inputs</code> | <code>hashFiles</code> | | <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, inputs</code> | | | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, inputs</code> | | | <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | | | <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}</code> | | | <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, inputs</code> | | {% else %}
+| 경로 | Context | 특수 함수 |
 | ---- | ------- | ----------------- |
 | <code>concurrency</code> | <code>github</code> | |
 | <code>env</code> | <code>github, secrets</code> | |
@@ -142,9 +101,9 @@ The following table indicates where each context and special function can be use
 | <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix</code> | |
 {% endif %}
 
-### Example: printing context information to the log
+### 예: 로그에 컨텍스트 정보 출력
 
-You can print the contents of contexts to the log for debugging. The [`toJSON` function](/actions/learn-github-actions/expressions#tojson) is required to pretty-print JSON objects to the log.
+디버깅을 위해 컨텍스트의 콘텐츠를 로그에 출력할 수 있습니다. [`toJSON` 함수](/actions/learn-github-actions/expressions#tojson)는 JSON 개체를 로그에 출력하는 데 필요합니다.
 
 {% data reusables.actions.github-context-warning %}
 
@@ -173,60 +132,36 @@ jobs:
 ```
 {% endraw %}
 
-## `github` context
+## `github` 컨텍스트
 
-The `github` context contains information about the workflow run and the event that triggered the run. You can also read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+`github` 컨텍스트에는 워크플로 실행 및 실행을 트리거한 이벤트에 대한 정보가 포함됩니다. 환경 변수에서 대부분의 `github` 컨텍스트 데이터를 읽을 수도 있습니다. 환경 변수에 대한 자세한 내용은 [환경 변수 사용](/actions/automating-your-workflow-with-github-actions/using-environment-variables)을 참조하세요.
 
-{% data reusables.actions.github-context-warning %}
-{% data reusables.actions.context-injection-warning %}
+{% data reusables.actions.github-context-warning %} {% data reusables.actions.context-injection-warning %}
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `github` | `object` | The top-level context available during any job or step in a workflow. This object contains all the properties listed below. |
-| `github.action` | `string` | The name of the action currently running, or the [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. {% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. |
-| `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`. |
-| `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
-| `github.action_status` | `string` | For a composite action, the current result of the composite action. |
-| `github.actor` | `string` | {% ifversion actions-stable-actor-ids %}The username of the user that triggered the initial workflow run. If the workflow run is a re-run, this value may differ from `github.triggering_actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges.{% else %}The username of the user that initiated the workflow run.{% endif %} |
-| `github.api_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API. |
-| `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.env` | `string` | Path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)." |
-| `github.event` | `object` | The full event webhook payload. You can access individual properties of the event using this context. This object is identical to the webhook payload of the event that triggered the workflow run, and is different for each event. The webhooks for each {% data variables.product.prodname_actions %} event is linked in "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." For example, for a workflow run triggered by the [`push` event](/actions/using-workflows/events-that-trigger-workflows#push), this object contains the contents of the [push webhook payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push). |
-| `github.event_name` | `string` | The name of the event that triggered the workflow run. |
-| `github.event_path` | `string` | The path to the file on the runner that contains the full event webhook payload. |
-| `github.graphql_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API. |
-| `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
+| `github` | `object` | 워크플로의 모든 작업 또는 단계 중에 사용할 수 있는 최상위 컨텍스트입니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
+| `github.action` | `string` | 현재 실행 중인 작업의 이름 또는 단계의 [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid)입니다. {% data variables.product.prodname_dotcom %}는 특수 문자를 제거하고 현재 단계에서 스크립트를 실행할 때 `id` 없이 `__run` 이름을 사용합니다. 동일한 작업에서 동일한 동작을 두 번 이상 사용하는 경우 이름 앞에 밑줄이 있는 시퀀스 번호가 있는 접미사가 포함됩니다. 예를 들어 실행하는 첫 번째 스크립트에는 이름이 `__run`으로 지정되고 두 번째 스크립트의 이름은 `__run_2`로 지정됩니다. 마찬가지로 두 번째 `actions/checkout` 호출은 `actionscheckout2`입니다. |
+| `github.action_path` | `string` | 작업이 있는 경로입니다. 이 속성은 복합 작업에서만 지원됩니다. 이 경로를 사용하여 작업과 동일한 리포지토리에 있는 파일에 액세스할 수 있습니다. |
+| `github.action_ref` | `string` | 작업을 실행하는 단계의 경우 실행 중인 작업의 참조입니다. 예: `v2`. |
+| `github.action_repository` | `string` | 작업을 실행하는 단계의 경우 작업의 소유자 및 리포지토리 이름입니다. 예: `actions/checkout`. |
+| `github.action_status` | `string` | 복합 작업의 경우 복합 작업의 현재 결과입니다. |
+| `github.actor` | `string` | {% ifversion actions-stable-actor-ids %}초기 워크플로 실행을 트리거한 사용자의 사용자 이름입니다. 워크플로 실행이 다시 실행인 경우 이 값은 `github.triggering_actor`와 다를 수 있습니다. 모든 워크플로 다시 실행은 다시 실행을 시작한 행위자(`github.triggering_actor`)가 다른 권한을 갖고 있더라도 `github.actor`의 권한을 사용합니다.{% else %}워크플로 실행을 시작한 사용자의 사용자 이름입니다.{% endif %} |
+| `github.api_url` | `string` | {% data variables.product.prodname_dotcom %} REST API의 URL입니다. |
+| `github.base_ref` | `string` | 워크플로 실행에서 끌어오기 요청의 `base_ref` 또는 대상 분기입니다. 이 속성은 워크플로 실행을 트리거하는 이벤트가 `pull_request` 또는 `pull_request_target`인 경우에만 사용할 수 있습니다. |
+| `github.env` | `string` | 실행기에서 워크플로 명령의 환경 변수를 설정하는 파일의 경로입니다. 이 파일은 현재 단계에 고유하며 작업의 각 단계에 대해 다른 파일입니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 명령](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)”을 참조하세요. |
+| `github.event` | `object` | 전체 이벤트 웹후크 페이로드입니다. 이 컨텍스트를 사용하여 이벤트의 개별 속성에 액세스할 수 있습니다. 이 개체는 워크플로 실행을 트리거한 이벤트의 웹후크 페이로드와 동일하며 각 이벤트에 대해 다릅니다. 각 {% data variables.product.prodname_actions %} 이벤트에 대한 웹후크는 “[워크플로를 트리거하는 이벤트](/articles/events-that-trigger-workflows/)”에 연결됩니다. 예를 들어 [`push` 이벤트](/actions/using-workflows/events-that-trigger-workflows#push)에 의해 트리거되는 워크플로 실행의 경우 이 개체에는 [푸시 웹후크 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push)의 내용이 포함됩니다. |
+| `github.event_name` | `string` | 워크플로 실행을 트리거한 이벤트의 이름입니다. |
+| `github.event_path` | `string` | 전체 이벤트 웹후크 페이로드가 포함된 실행기에서 파일의 경로입니다. |
+| `github.graphql_url` | `string` | {% data variables.product.prodname_dotcom %} GraphQL API의 URL입니다. |
+| `github.head_ref` | `string` | 워크플로 실행에서 끌어오기 요청의 `head_ref` 또는 소스 분기입니다. 이 속성은 워크플로 실행을 트리거하는 이벤트가 `pull_request` 또는 `pull_request_target`인 경우에만 사용할 수 있습니다. |
+| `github.job` | `string` | 현재 작업의 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)입니다. <br /> 참고: 이 컨텍스트 속성은 Actions 실행기에서 설정되며 작업의 실행 `steps` 내에서만 사용할 수 있습니다. 그렇지 않으면 이 속성의 값이 `null`이 됩니다. |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
-| `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} |
-| `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
-{%- endif %}
-| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
-| `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
-| `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
-| `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/codertocat/hello-world.git`. |
-| `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
-| `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
-| `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
-| `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
-{%- endif %}
-| `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
-| `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |
-| `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |{% ifversion actions-stable-actor-ids %}
-| `github.triggering_actor` | `string` | The username of the user that initiated the workflow run. If the workflow run is a re-run, this value may differ from `github.actor`. Any workflow re-runs will use the privileges of `github.actor`, even if the actor initiating the re-run (`github.triggering_actor`) has different privileges. |{% endif %}
-| `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
-| `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} | {%- endif %} | `github.path` | `string` | 워크플로 명령에서 시스템 `PATH` 변수를 설정하는 파일에 대한 실행기의 경로입니다. 이 파일은 현재 단계에 고유하며 작업의 각 단계에 대해 다른 파일입니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 명령](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)”을 참조하세요. | | `github.repository` | `string` | 소유자 및 리포지토리 이름입니다. 예: `Codertocat/Hello-World`. | | `github.repository_owner` | `string` | 리포지토리 소유자의 이름입니다. 예: `Codertocat`. | | `github.repositoryUrl` | `string` | 리포지토리에 대한 Git URL입니다. 예: `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | 워크플로 실행 로그 및 아티팩트가 유지되는 일 수입니다. | | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} | {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %} | `github.run_attempt` | `string` | 리포지토리에서 실행되는 특정 워크플로의 각 시도에 대한 고유 번호입니다. 이 숫자는 워크플로의 실행의 첫 시도 시 1부터 시작하며 다시 실행할 때마다 증가합니다. | {%- endif %} {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} | `github.secret_source` | `string` | 워크플로에 사용되는 비밀의 원본입니다. 가능한 값은 `None`, `Actions`, `Dependabot` 및 `Codespaces`입니다. | {%- endif %} | `github.server_url` | `string` | GitHub 서버의 URL입니다. 예: `https://github.com` | | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} | | `github.token` | `string` | 리포지토리에 설치된 GitHub 앱을 대신하여 인증할 토큰입니다. 기능적으로 `GITHUB_TOKEN` 비밀과 동일합니다. 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요.  <br /> 참고: 이 컨텍스트 속성은 Actions 실행기에서 설정되며 작업의 실행 `steps` 내에서만 사용할 수 있습니다. 그렇지 않으면 이 속성의 값이 `null`이 됩니다. |{% ifversion actions-stable-actor-ids %} | `github.triggering_actor` | `string` | 워크플로 실행을 시작한 사용자의 사용자 이름입니다. 워크플로 실행이 다시 실행인 경우 이 값은 `github.actor`와 다를 수 있습니다. 다시 실행을 시작하는 행위자(`github.triggering_actor`)가 다른 권한을 갖고 있더라도 모든 워크플로 다시 실행은 `github.actor`의 권한을 사용합니다. |{% endif %} | `github.workflow` | `string` | 워크플로의 이름입니다. 워크플로 파일이 `name`을 지정하지 않으면 이 속성의 값은 리포지토리에 있는 워크플로 파일의 전체 경로입니다. | | `github.workspace` | `string` | 단계에 대한 실행기의 기본 작업 디렉터리 및 [`checkout`](https://github.com/actions/checkout) 작업을 사용할 때 리포지토리의 기본 위치입니다. |
 
-### Example contents of the `github` context
+### `github` 컨텍스트의 예제 콘텐츠
 
-The following example context is from a workflow run triggered by the `push` event. The `event` object in this example has been truncated because it is identical to the contents of the [`push` webhook payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push).
+다음 예제 컨텍스트는 `push` 이벤트에 의해 트리거되는 워크플로 실행의 컨텍스트입니다. 이 예제의 `event` 개체는 [웹후크 페이로드`push`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push)의 내용과 동일하기 때문에 잘렸습니다.
 
 {% data reusables.actions.context-example-note %}
 
@@ -268,9 +203,9 @@ The following example context is from a workflow run triggered by the `push` eve
 }
 ```
 
-### Example usage of the `github` context
+### `github` 컨텍스트의 사용 예제
 
-This example workflow uses the `github.event_name` context to run a job only if the workflow run was triggered by the `pull_request` event.
+이 예제 워크플로는 `pull_request` 이벤트에 의해 워크플로 실행이 트리거된 경우에만 `github.event_name` 컨텍스트를 사용하여 작업을 실행합니다.
 
 ```yaml{:copy}
 name: Run CI
@@ -293,22 +228,22 @@ jobs:
         run: ./run-additional-pr-ci
 ```
 
-## `env` context
+## `env` 컨텍스트
 
-The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
+`env` 컨텍스트에는 워크플로, 작업 또는 단계에서 설정된 환경 변수가 포함됩니다. 워크플로에서 환경 변수를 설정하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)”을 참조하세요.
 
-The `env` context syntax allows you to use the value of an environment variable in your workflow file. You can use the `env` context in the value of any key in a step except for the `id` and `uses` keys. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+`env` 컨텍스트 구문을 사용하면 워크플로 파일에서 환경 변수의 값을 사용할 수 있습니다. 단계의 모든 키 값에서 `env` 컨텍스트를 사용할 수 있습니다. 단, `id` 키와 `uses` 키는 제외됩니다. 단계 구문에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”을 참조하세요.
 
-If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
+실행기 내의 환경 변수 값을 사용하려면 실행기 운영 체제의 일반 메서드를 사용하여 환경 변수를 읽습니다.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. This object contains the properties listed below. |
-| `env.<env_name>` | `string` | The value of a specific environment variable. |
+| `env` | `object` | 이 컨텍스트는 작업의 각 단계에 따라 변경됩니다. 작업의 모든 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 속성이 포함되어 있습니다. |
+| `env.<env_name>` | `string` | 특정 환경 변수의 값입니다. |
 
-### Example contents of the `env` context
+### `env` 컨텍스트의 예제 콘텐츠
 
-The contents of the `env` context is a mapping of environment variable names to their values. The context's contents can change depending on where it is used in the workflow run.
+`env` 컨텍스트의 콘텐츠는 환경 변수 이름을 해당 값에 매핑하는 것입니다. 컨텍스트의 내용은 워크플로 실행에서 사용되는 위치에 따라 변경됩니다.
 
 ```json
 {
@@ -317,9 +252,9 @@ The contents of the `env` context is a mapping of environment variable names to 
 }
 ```
 
-### Example usage of the `env` context
+### `env` 컨텍스트의 사용 예제
 
-This example workflow shows how the `env` context can be configured at the workflow, job, and step levels, as well as using the context in steps.
+이 예제 워크플로는 워크플로, 작업 및 단계 수준에서 `env` 컨텍스트를 구성할 수 있는 방법과 단계에서 컨텍스트를 사용하는 방법을 보여줍니다.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -348,25 +283,25 @@ jobs:
 ```
 {% endraw %}
 
-## `job` context
+## `job` 컨텍스트
 
-The `job` context contains information about the currently running job.
+`job` 컨텍스트에는 현재 실행 중인 작업에 대한 정보가 포함됩니다.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `job` | `object` | This context changes for each job in a workflow run. You can access this context from any step in a job. This object contains all the properties listed below. |
-| `job.container` | `object` | Information about the job's container. For more information about containers, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)." |
-| `job.container.id` | `string` | The ID of the container. |
-| `job.container.network` | `string` | The ID of the container network. The runner creates the network used by all containers in a job. |
-| `job.services` | `object` | The service containers created for a job. For more information about service containers, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)." |
-| `job.services.<service_id>.id` | `string` | The ID of the service container. |
-| `job.services.<service_id>.network` | `string` | The ID of the service container network. The runner creates the network used by all containers in a job. |
-| `job.services.<service_id>.ports` | `object` | The exposed ports of the service container. |
-| `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+| `job` | `object` | 이 컨텍스트는 워크플로 실행의 각 작업에 대해 변경됩니다. 작업의 모든 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
+| `job.container` | `object` | 작업의 컨테이너에 대한 정보입니다. 컨테이너에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)”을 참조하세요. |
+| `job.container.id` | `string` | 컨테이너의 ID입니다. |
+| `job.container.network` | `string` | 컨테이너 네트워크의 ID입니다. 실행기는 작업의 모든 컨테이너에서 사용하는 네트워크를 만듭니다. |
+| `job.services` | `object` | 작업에 대해 만든 서비스 컨테이너입니다. 서비스 컨테이너에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)”을 참조하세요. |
+| `job.services.<service_id>.id` | `string` | 서비스 컨테이너의 ID입니다. |
+| `job.services.<service_id>.network` | `string` | 서비스 컨테이너 네트워크의 ID입니다. 실행기는 작업의 모든 컨테이너에서 사용하는 네트워크를 만듭니다. |
+| `job.services.<service_id>.ports` | `object` | 서비스 컨테이너의 노출된 포트입니다. |
+| `job.status` | `string` | 작업의 현재 상태 가능한 값은 `success`, `failure` 또는 `cancelled`입니다. |
 
-### Example contents of the `job` context
+### `job` 컨텍스트의 예제 콘텐츠
 
-This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains the `status` property.
+이 예제 `job` 컨텍스트는 매핑된 포트가 있는 PostgreSQL 서비스 컨테이너를 사용합니다. 작업에 사용되는 컨테이너 또는 서비스 컨테이너가 없는 경우 `job` 컨텍스트에는 `status` 속성만 포함됩니다.
 
 ```json
 {
@@ -386,9 +321,9 @@ This example `job` context uses a PostgreSQL service container with mapped ports
 }
 ```
 
-### Example usage of the `job` context
+### `job` 컨텍스트의 사용 예제
 
-This example workflow configures a PostgreSQL service container, and automatically maps port 5432 in the service container to a randomly chosen available port on the host. The `job` context is used to access the number of the port that was assigned on the host.
+이 예제 워크플로는 PostgreSQL 서비스 컨테이너를 구성하고 서비스 컨테이너의 포트 5432를 호스트에서 임의로 선택된 사용 가능한 포트에 자동으로 매핑합니다. `job` 컨텍스트는 호스트에 할당된 포트 수에 액세스하는 데 사용됩니다.
 
 ```yaml{:copy}
 name: PostgreSQL Service Example
@@ -414,20 +349,20 @@ jobs:
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 
-## `jobs` context
+## `jobs` 컨텍스트
 
-The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
+`jobs` 컨텍스트는 재사용 가능한 워크플로에서만 사용할 수 있으며 재사용 가능한 워크플로에 대한 출력을 설정하는 데만 사용할 수 있습니다. 자세한 내용은 “[워크플로 다시 사용](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)”을 참조하세요.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | Description |
 |---------------|------|-------------|
-| `jobs` | `object` | This is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. This object contains all the properties listed below.
-| `jobs.<job_id>.result` | `string` | The result of a job in the reusable workflow. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
-| `jobs.<job_id>.outputs` | `object` | The set of outputs of a job in a reusable workflow. |
-| `jobs.<job_id>.outputs.<output_name>` | `string` | The value of a specific output for a job in a reusable workflow. |
+| `jobs` | `object` | 이는 재사용 가능한 워크플로에서만 사용할 수 있으며 재사용 가능한 워크플로에 대한 출력을 설정하는 데만 사용할 수 있습니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다.
+| `jobs.<job_id>.result` | `string` | 재사용 가능한 워크플로의 작업 결과입니다. 가능한 값은 `success`, `failure`, `cancelled` 및 `skipped`입니다. |
+| `jobs.<job_id>.outputs` | `object` | 재사용 가능한 워크플로 작업의 출력 집합입니다. |
+| `jobs.<job_id>.outputs.<output_name>` | `string` | 재사용 가능한 워크플로의 작업에 대한 특정 출력 값입니다. |
 
-### Example contents of the `jobs` context
+### `jobs` 컨텍스트의 예제 콘텐츠
 
-This example `jobs` context contains the result and outputs of a job from a reusable workflow run.
+이 `jobs` 컨텍스트 예제는 재사용 가능한 워크플로 실행의 작업 결과와 출력을 포함합니다.
 
 ```json
 {
@@ -441,9 +376,9 @@ This example `jobs` context contains the result and outputs of a job from a reus
 }
 ```
 
-### Example usage of the `jobs` context
+### `jobs` 컨텍스트의 사용 예제
 
-This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
+이 재사용 가능한 워크플로 예제는 `jobs` 컨텍스트를 사용하여 재사용 가능한 워크플로에 대한 출력을 설정합니다. 출력이 단계에서, 작업으로, 그 다음에는 `workflow_call` 트리거로 이동하는 방식을 확인합니다. 자세한 내용은 “[워크플로 다시 사용](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)”을 참조하세요.
 
 {% raw %}
 ```yaml{:copy}
@@ -486,21 +421,21 @@ jobs:
 
 {% endif %}
 
-## `steps` context
+## `steps` 컨텍스트
 
-The `steps` context contains information about the steps in the current job that have an [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) specified and have already run.
+`steps` 컨텍스트에는 지정되어 있고 이미 실행된 [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) 가 있는 현재 작업의 단계에 대한 정보가 포함됩니다.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `steps` | `object` | This context changes for each step in a job. You can access this context from any step in a job. This object contains all the properties listed below. |
-| `steps.<step_id>.outputs` | `object` | The set of outputs defined for the step. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)." |
-| `steps.<step_id>.conclusion` | `string` | The result of a completed step after [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
-| `steps.<step_id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
-| `steps.<step_id>.outputs.<output_name>` | `string` | The value of a specific output. |
+| `steps` | `object` | 이 컨텍스트는 작업의 각 단계에 따라 변경됩니다. 작업의 모든 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
+| `steps.<step_id>.outputs` | `object` | 단계에 대해 정의된 출력 집합입니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 메타데이터 구문](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)”을 참조하세요. |
+| `steps.<step_id>.conclusion` | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)가 적용된 후 완료된 단계의 결과입니다. 가능한 값은 `success`, `failure`, `cancelled` 및 `skipped`입니다. `continue-on-error` 단계가 실패하면 `outcome`은 `failure`이지만 최종 `conclusion`은 `success`입니다. |
+| `steps.<step_id>.outcome` | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)가 적용되기 전 완료된 단계의 결과입니다. 가능한 값은 `success`, `failure`, `cancelled` 및 `skipped`입니다. `continue-on-error` 단계가 실패하면 `outcome`은 `failure`이지만 최종 `conclusion`은 `success`입니다. |
+| `steps.<step_id>.outputs.<output_name>` | `string` | 특정 출력의 값입니다. |
 
-### Example contents of the `steps` context
+### `steps` 컨텍스트의 예제 콘텐츠
 
-This example `steps` context shows two previous steps that had an [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) specified. The first step had the `id` named `checkout`, the second `generate_number`. The `generate_number` step had an output named `random_number`.
+이 예제 `steps` 컨텍스트는 지정된 [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid)가 있는 두 개의 이전 단계를 보여줍니다. 첫 번째 단계에는 `checkout`이라는 `id`가, 두 번째 단계에는 `generate_number`가 있습니다. `generate_number` 단계에는 이름이 `random_number`인 출력이 있습니다.
 
 ```json
 {
@@ -519,9 +454,9 @@ This example `steps` context shows two previous steps that had an [`id`](/action
 }
 ```
 
-### Example usage of the `steps` context
+### `steps` 컨텍스트의 사용 예제
 
-This example workflow generates a random number as an output in one step, and a later step uses the `steps` context to read the value of that output.
+이 예제 워크플로는 한 단계에서 난수를 출력으로 생성하고, 이후 단계에서는 `steps` 컨텍스트를 사용하여 해당 출력의 값을 읽습니다.
 
 ```yaml{:copy}
 name: Generate random failure
@@ -544,13 +479,13 @@ jobs:
           if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
 
-## `runner` context
+## `runner` 컨텍스트
 
-The `runner` context contains information about the runner that is executing the current job.
+`runner` 컨텍스트에는 현재 작업을 실행하는 실행기 정보가 포함됩니다.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `runner` | `object` | This context changes for each job in a workflow run. This object contains all the properties listed below. |
+| `runner` | `object` | 이 컨텍스트는 워크플로 실행의 각 작업에 대해 변경됩니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
 | `runner.name` | `string` | {% data reusables.actions.runner-name-description %} |
 | `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch` | `string` | {% data reusables.actions.runner-arch-description %} |{% endif %}
@@ -558,14 +493,12 @@ The `runner` context contains information about the runner that is executing the
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
 | `runner.debug` | `string` | {% data reusables.actions.runner-debug-description %} |
 
-{%- comment %}
-The `runner.workspace` property is purposefully not documented. It is an early Actions property that now isn't relevant for users, compared to `github.workspace`. It is kept around for compatibility.
-| `runner.workspace` | `string` | |
-{%- endcomment %}
+{%- comment %} `runner.workspace` 속성은 일부러 설명하지 않습니다. `github.workspace`와 달리 현재 사용자와 관련이 없는 초기 Actions 속성이며 호환성을 위해 유지됩니다.
+| `runner.workspace` | `string` | | {%- endcomment %}
 
-### Example contents of the `runner` context
+### `runner` 컨텍스트의 예제 콘텐츠
 
-The following example context is from a Linux {% data variables.product.prodname_dotcom %}-hosted runner.
+다음 예제 컨텍스트는 Linux {% data variables.product.prodname_dotcom %}에서 호스트된 실행기에서 가져옵니다.
 
 ```json
 {
@@ -581,9 +514,9 @@ The following example context is from a Linux {% data variables.product.prodname
 }
 ```
 
-### Example usage of the `runner` context
+### `runner` 컨텍스트의 사용 예제
 
-This example workflow uses the `runner` context to set the path to the temporary directory to write logs, and if the workflow fails, it uploads those logs as artifact.
+이 예제 워크플로는 `runner` 컨텍스트를 사용하여 임시 디렉터리의 경로를 설정하여 로그를 작성하고, 워크플로가 실패하면 해당 로그를 아티팩트로 업로드합니다.
 
 ```yaml{:copy}
 name: Build
@@ -606,23 +539,23 @@ jobs:
           path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
 
-## `secrets` context
+## `secrets` 컨텍스트
 
-The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions due to security reasons. If you want to pass a secret to a composite action, you need to do it explicitly as an input. For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+`secrets` 컨텍스트는 워크플로 실행에 사용할 수 있는 비밀의 이름과 값을 포함합니다. `secrets` 보안상의 이유로 복합 작업에 컨텍스트를 사용할 수 없습니다. 복합 작업에 비밀을 전달하려면 명시적으로 입력으로 수행해야 합니다. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
 
-`GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+`GITHUB_TOKEN`은 모든 워크플로 실행에 대해 자동으로 만들어지고 항상 `secrets` 컨텍스트에 포함되는 비밀입니다. 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요.
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `secrets` | `object` | This context is the same for each job in a workflow run. You can access this context from any step in a job. This object contains all the properties listed below. |
-| `secrets.GITHUB_TOKEN` | `string` | Automatically created token for each workflow run. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." |
-| `secrets.<secret_name>` | `string` | The value of a specific secret. |
+| `secrets` | `object` | 이 컨텍스트는 워크플로 실행의 각 작업에 대해 동일합니다. 작업의 모든 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
+| `secrets.GITHUB_TOKEN` | `string` | 각 워크플로 실행에 대해 자동으로 생성된 토큰입니다. 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요. |
+| `secrets.<secret_name>` | `string` | 특정 비밀의 값입니다. |
 
-### Example contents of the `secrets` context
+### `secrets` 컨텍스트의 예제 콘텐츠
 
-The following example contents of the `secrets` context shows the automatic `GITHUB_TOKEN`, as well as two other secrets available to the workflow run.
+`secrets` 컨텍스트의 다음 예제 콘텐츠는 자동 `GITHUB_TOKEN` 및 워크플로 실행에 사용할 수 있는 두 개의 다른 비밀을 보여 줍니다.
 
 ```json
 {
@@ -632,25 +565,25 @@ The following example contents of the `secrets` context shows the automatic `GIT
 }
 ```
 
-### Example usage of the `secrets` context
+### `secrets` 컨텍스트의 사용 예제
 
 {% data reusables.actions.github_token-input-example %}
 
-## `strategy` context
+## `strategy` 컨텍스트
 
-For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+행렬이 있는 워크플로의 경우 `strategy` 컨텍스트에는 현재 작업에 대한 행렬 실행 전략에 대한 정보가 포함됩니다.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `boolean` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
-| `strategy.job-index` | `number` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
-| `strategy.job-total` | `number` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
-| `strategy.max-parallel` | `number` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
+| `strategy` | `object` | 이 컨텍스트는 워크플로 실행의 각 작업에 대해 변경됩니다. 워크플로의 모든 작업 또는 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
+| `strategy.fail-fast` | `boolean` | `true`인 경우 행렬의 작업이 실패하면 진행 중인 모든 작업이 취소됩니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)”을 참조하세요. |
+| `strategy.job-index` | `number` | 행렬의 현재 작업의 인덱스입니다. **참고:** 이 숫자는 0부터 시작합니다. 행렬의 첫 번째 작업 인덱스는 `0`입니다. |
+| `strategy.job-total` | `number` | 행렬의 총 작업 수입니다. **참고:** 이 숫자는 0부터 시작하지 **않습니다**. 예를 들어 네 개의 작업이 있는 행렬의 경우 `job-total`의 값은 `4`입니다. |
+| `strategy.max-parallel` | `number` | `matrix` 작업 전략을 사용할 때 동시에 실행할 수 있는 최대 작업 수입니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)”을 참조하세요. |
 
-### Example contents of the `strategy` context
+### `strategy` 컨텍스트의 예제 콘텐츠
 
-The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
+`strategy` 컨텍스트의 다음 예제 콘텐츠는 4개의 작업이 있는 행렬에서 가져온 것이며 최종 작업에서 가져옵니다. 0부터 시작하는 `job-index` 숫자와 0부터 시작하지 않는 `job-total` 사이의 차이를 확인합니다.
 
 ```json
 {
@@ -661,9 +594,9 @@ The following example contents of the `strategy` context is from a matrix with f
 }
 ```
 
-### Example usage of the `strategy` context
+### `strategy` 컨텍스트의 사용 예제
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
+이 예제 워크플로에서는 `strategy.job-index` 속성을 사용하여 행렬의 각 작업에 대한 로그 파일의 고유한 이름을 설정합니다.
 
 ```yaml{:copy}
 name: Test matrix
@@ -686,20 +619,20 @@ jobs:
           path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
 
-## `matrix` context
+## `matrix` 컨텍스트
 
-For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+행렬이 있는 워크플로의 경우 `matrix` 컨텍스트에는 현재 작업에 적용되는 워크플로 파일에 정의된 행렬 속성이 포함됩니다. 예를 들어 `os` 및 `node` 키와 함께 행렬을 구성하는 경우 `matrix` 컨텍스트 개체에는 현재 작업에 사용되는 값과 함께 `os` 및 `node` 속성이 포함됩니다.
 
-There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
+`matrix` 컨텍스트에는 표준 속성이 없으며 워크플로 파일에 정의된 속성만 있습니다.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `matrix` | `object` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `matrix.<property_name>` | `string` | The value of a matrix property. |
+| `matrix` | `object` | 이 컨텍스트는 행렬의 작업 및 워크플로 실행의 각 작업에 대한 변경 내용에 대해서만 사용할 수 있습니다. 워크플로의 모든 작업 또는 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 속성이 포함되어 있습니다. |
+| `matrix.<property_name>` | `string` | 행렬 속성의 값입니다. |
 
-### Example contents of the `matrix` context
+### `matrix` 컨텍스트의 예제 콘텐츠
 
-The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
+`matrix` 컨텍스트의 다음 예제 콘텐츠는 워크플로에 정의된 `os` 행렬 속성과 `node` 행렬 속성이 있는 행렬의 작업에서 가져옵니다. 작업은 `ubuntu-latest` OS와 Node.js 버전 `16`의 매트릭스 조합을 실행합니다.
 
 ```json
 {
@@ -708,9 +641,9 @@ The following example contents of the `matrix` context is from a job in a matrix
 }
 ```
 
-### Example usage of the `matrix` context
+### `matrix` 컨텍스트의 사용 예제
 
-This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
+이 예제 워크플로는 `os` 및 `node` 키와 함께 행렬을 만듭니다. `matrix.os` 속성을 사용하여 각 작업에 대한 실행기 유형을 설정하고, `matrix.node` 속성을 사용하여 각 작업에 대한 Node.js 버전을 설정합니다.
 
 ```yaml{:copy}
 name: Test matrix
@@ -734,21 +667,21 @@ jobs:
         run: npm test
 ```
 
-## `needs` context
+## `needs` 컨텍스트
 
-The `needs` context contains outputs from all jobs that are defined as a direct dependency of the current job. Note that this doesn't include implicitly dependent jobs (for example, dependent jobs of a dependent job). For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+컨텍스트에는 `needs` 현재 작업의 직접 종속성으로 정의된 모든 작업의 출력이 포함됩니다. 여기에는 암시적으로 종속된 작업(예: 종속 작업의 종속 작업)이 포함되지 않습니다. 작업 종속성 정의에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idneeds)”을 참조하세요.
 
-| Property name | Type | Description |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| `needs` | `object` | This context is only populated for workflow runs that have dependent jobs, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `needs.<job_id>` | `object` | A single job that the current job depends on. |
-| `needs.<job_id>.outputs` | `object` | The set of outputs of a job that the current job depends on. |
-| `needs.<job_id>.outputs.<output name>` | `string` | The value of a specific output for a job that the current job depends on. |
-| `needs.<job_id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
+| `needs` | `object` | 이 컨텍스트는 종속 작업이 있는 워크플로 실행과 워크플로 실행의 각 작업에 대한 변경 내용에 대해서만 채워집니다. 워크플로의 모든 작업 또는 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 모든 속성이 포함됩니다. |
+| `needs.<job_id>` | `object` | 현재 작업이 의존하는 단일 작업입니다. |
+| `needs.<job_id>.outputs` | `object` | 현재 작업이 의존하는 작업의 출력 집합입니다. |
+| `needs.<job_id>.outputs.<output name>` | `string` | 현재 작업이 의존하는 작업에 대한 특정 출력의 값입니다. |
+| `needs.<job_id>.result` | `string` | 현재 작업이 의존하는 작업의 결과입니다. 가능한 값은 `success`, `failure`, `cancelled` 및 `skipped`입니다. |
 
-### Example contents of the `needs` context
+### `needs` 컨텍스트의 예제 콘텐츠
 
-The following example contents of the `needs` context shows information for two jobs that the current job depends on.
+`needs` 컨텍스트의 다음 예제 콘텐츠는 현재 작업이 의존하는 두 가지 작업에 대한 정보를 보여 줍니다.
 
 ```json
 {
@@ -765,9 +698,9 @@ The following example contents of the `needs` context shows information for two 
 }
 ```
 
-### Example usage of the `needs` context
+### `needs` 컨텍스트의 사용 예제
 
-This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
+이 예제 워크플로에는 세 가지 작업, 즉 빌드를 수행하는 `build` 작업, `build` 작업이 필요한 `deploy` 작업, `build` 및 `deploy` 작업이 모두 필요하고 워크플로에 오류가 있는 경우에만 실행되는 `debug` 작업이 있습니다. 또한 `deploy` 작업은 `needs` 컨텍스트를 사용하여 `build` 작업의 출력에 액세스합니다.
 
 ```yaml{:copy}
 name: Build and deploy
@@ -805,22 +738,22 @@ jobs:
 ```
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-## `inputs` context
+## `inputs` 컨텍스트
 
-The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
+컨텍스트에는 `inputs` 작업{% ifversion actions-unified-inputs %}, {% else %} 또는{% endif %}에서 재사용 가능한 워크플로{% ifversion actions-unified-inputs %}에 전달되거나 수동으로 트리거된 워크플로{% endif %}에 전달되는 입력 속성이 포함됩니다. {% ifversion actions-unified-inputs %}재사용 가능한 워크플로의 경우 {% else %}{% endif %} 입력 이름 및 형식은 재사용 가능한 워크플로의 [이벤트 구성`workflow_call`](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)에 정의되며, 입력 값은 재사용 가능한 워크플로를 호출하는 외부 워크플로의 [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith)에서 전달됩니다. {% ifversion actions-unified-inputs %}수동으로 트리거된 워크플로의 경우 입력은 워크플로의 [`workflow_dispatch` 이벤트 구성](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch)에 정의됩니다.{% endif %}
 
-There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
+`inputs` 컨텍스트에는 표준 속성이 없으며 워크플로 파일에 정의된 속성만 있습니다.
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-| Property name | Type | Description |
+| 속성 이름 | Type | Description |
 |---------------|------|-------------|
-| `inputs` | `object` | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow. |
+| `inputs` | `object` | 이 컨텍스트는 [재사용 가능한 워크플로](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} 또는 [`workflow_dispatch` 이벤트](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}에 의해 트리거된 워크플로에서만 사용할 수 있습니다. 워크플로의 모든 작업 또는 단계에서 이 컨텍스트에 액세스할 수 있습니다. 이 개체에는 아래에 나열된 속성이 포함되어 있습니다. |
+| `inputs.<name>` | `string` 또는 `number` 또는 `boolean` | 외부 워크플로에서 전달된 각 입력 값입니다. |
 
-### Example contents of the `inputs` context
+### `inputs` 컨텍스트의 예제 콘텐츠
 
-The following example contents of the `inputs` context is from a workflow that has defined the `build_id`, `deploy_target`, and `perform_deploy` inputs.
+`inputs` 컨텍스트의 다음 예제 콘텐츠는 `build_id`, `deploy_target` 및 `perform_deploy` 입력을 정의한 워크플로에서 가져온 것입니다.
 
 ```json
 {
@@ -830,9 +763,9 @@ The following example contents of the `inputs` context is from a workflow that h
 }
 ```
 
-### Example usage of the `inputs` context in a reusable workflow
+### 재사용 가능한 워크플로의 `inputs` 컨텍스트 사용 예제
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
+이 예제에서 재사용 가능한 워크플로는 `inputs` 컨텍스트를 사용하여 호출자 워크플로에서 재사용 가능한 워크플로에 전달된 `build_id`, `deploy_target` 및 `perform_deploy` 입력의 값을 가져옵니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -861,9 +794,9 @@ jobs:
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
-### Example usage of the `inputs` context in a manually triggered workflow
+### 수동으로 트리거된 워크플로의 `inputs` 컨텍스트 사용 예제
 
-This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
+`workflow_dispatch` 이벤트에서 트리거된 이 예제 워크플로는 `inputs` 컨텍스트를 사용하여 워크플로에 전달된 `build_id`, `deploy_target` 및 `perform_deploy` 입력의 값을 가져옵니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -888,7 +821,6 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
 {% endif %}

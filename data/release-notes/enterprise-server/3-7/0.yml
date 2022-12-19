@@ -297,7 +297,10 @@ sections:
   changes:
     # https://github.com/github/releases/issues/2344
     - |
-      To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced. If TLS and subdomain isolation are configured for your instance and your certificate is not a wildcard certificate, you must generate a new certificate that includes the additional subdomains for these services, `notebooks.HOSTNAME` and `viewscreen.HOSTNAME`. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)." [Updated: 2022-12-02]
+      To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced. 
+      
+    - |
+      If TLS and subdomain isolation are configured for your instance and your certificate is not a wildcard certificate, you must generate a new certificate that includes the additional subdomains for these services, `notebooks.HOSTNAME` and `viewscreen.HOSTNAME`. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)." [Updated: 2022-12-02]
 
     - Secret scanning no longer supports custom patterns that use `.*` as an end delimiter in the "After secret" field, as the pattern syntax would cause scan problems and inconsistencies.
   

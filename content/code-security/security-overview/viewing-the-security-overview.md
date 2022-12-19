@@ -51,7 +51,10 @@ shortTitle: View the security overview
 {% endif %}
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+
 ## Viewing the security overview for an enterprise
+
+{% data reusables.security-overview.security-coverage-single-repo-enablement %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.

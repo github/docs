@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: '{% data variables.product.prodname_github_codespaces %} API는 REST API를 이용한 Codespace 관리를 할 수 있도록 합니다.'
+intro: 'REST API를 사용하여 {% data variables.product.prodname_github_codespaces %}을(를) 관리합니다.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,11 +16,11 @@ children:
   - /secrets
 redirect_from:
   - /rest/reference/codespaces
-ms.openlocfilehash: c632b85d7e44e225a7dea2669a28a79a220f90a7
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 9e872a046905bde962b2e0fe767534ef51cc3a5e
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160242'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193011'
 ---
 

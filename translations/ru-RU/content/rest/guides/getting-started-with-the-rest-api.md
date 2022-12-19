@@ -1,6 +1,6 @@
 ---
-title: Getting started with the REST API
-intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
+title: Начало работы с REST API
+intro: 'Узнайте, как использовать REST API {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,33 +10,38 @@ topics:
   - API
 shortTitle: Using the API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 66620b01bb488f8c74111b56255ff06702e402e8
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184264'
 ---
+## Сведения о REST API {% data variables.product.prodname_dotcom %}
 
-## About the {% data variables.product.prodname_dotcom %} REST API
+В этой статье описывается использование REST API {% data variables.product.prodname_dotcom %} с помощью {% data variables.product.prodname_cli %}, JavaScript или cURL. Краткое руководство см. в разделе [Краткое руководство по REST API GitHub](/rest/quickstart).
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
+При выполнении запроса к REST API вы укажете метод HTTP и путь. Кроме того, можно также указать заголовки запросов и путь, запрос или параметры текста. API вернет код состояния ответа, заголовки ответа и потенциально текст ответа.
 
-When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
+Справочная документация по REST API описывает метод HTTP, путь и параметры для каждой операции. Здесь также отображаются примеры запросов и ответов для каждой операции. Дополнительные сведения см. в [справочной документации по REST](/rest).
 
-The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
+Дополнительные сведения об API{% data variables.product.company_short %}см. в разделе [Сведения об API {% data variables.product.company_short %}](/developers/overview/about-githubs-apis).
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
+## Выполнение запроса
 
-## Making a request
-
-To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[Get Octocat](/rest/meta#get-octocat)."
+Чтобы выполнить запрос, сначала найдите метод HTTP и путь для операции, которую вы хотите использовать. Например, операция Get Octocat использует метод `GET` и путь `/octocat`. Полную справочную документацию по этой операции см. в разделе [Get Octocat](/rest/meta#get-octocat).
 
 {% cli %}
 
 {% note %}
 
-**Note**: You must install {% data variables.product.prodname_cli %} in order to use the commands in the {% data variables.product.prodname_cli %} examples. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+**Примечание.** Для использования команд в примерах {% data variables.product.prodname_cli %} необходимо установить {% data variables.product.prodname_cli %}. Инструкции по установке см. в [репозитории {% data variables.product.prodname_cli %}](https://github.com/cli/cli#installation).
 
 {% endnote %}
 
-If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
+Если вы еще не прошли проверку подлинности в {% data variables.product.prodname_cli %}, необходимо использовать подкоманду `gh auth login` для проверки подлинности перед выполнением запросов. Дополнительные сведения см. в разделе [Проверка подлинности](#authenticating).
 
-To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
+Чтобы выполнить запрос с помощью {% data variables.product.prodname_cli %}, используйте подкоманду `api` вместе с путем. Используйте флаг `--method` или `-X`, чтобы указать метод.
 
 ```shell
 gh api /octocat --method GET
@@ -48,13 +53,13 @@ gh api /octocat --method GET
 
 {% note %}
 
-**Note**: You must install and import `octokit` in order to use the Octokit.js library used in the JavaScript examples. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+**Примечание.** Чтобы использовать библиотеку Octokit.js, используемую в примерах JavaScript, необходимо установить и импортировать `octokit`. Дополнительные сведения см. в [Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
 {% endnote %}
 
-To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+Для выполнения запроса с помощью JavaScript можно использовать Octokit.js. Дополнительные сведения см. в [Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
-First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+Сначала создайте экземпляр `Octokit`.{% ifversion ghes or ghae %} Задайте базовый URL-адрес `{% data variables.product.api_url_code %}`. Замените `[hostname]` именем {% data variables.location.product_location %}.{ % endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -62,7 +67,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 {% endif %}});
 ```
 
-Then, use the `request` method to make requests. Pass the HTTP method and path as the first argument.
+Затем используйте метод `request` для выполнения запросов. Передайте метод HTTP и путь в качестве первого аргумента.
 
 ```javascript
 await octokit.request("GET /octocat", {});
@@ -72,9 +77,9 @@ await octokit.request("GET /octocat", {});
 
 {% curl %}
 
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+Добавьте базовый URL-адрес для REST API `{% data variables.product.api_url_code %}`{% data variables.product.prodname_dotcom %} к пути, чтобы получить полный URL-адрес: `{% data variables.product.api_url_code %}/octocat`.{ % ifversion ghes or ghae %} Замените `[hostname]` именем {% data variables.location.product_location %}.{ % endif %}
 
-Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
+Используйте команду `curl` в командной строке. Используйте флаг `--request` или `-X`, за которым следует метод HTTP. Используйте флаг `--url`, за которым следует полный URL-адрес.
 
 ```shell
 curl --request GET \
@@ -83,39 +88,39 @@ curl --request GET \
 
 {% note %}
 
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+**Примечание.** Если вы получаете сообщение "команда не найдена: curl", может потребоваться скачать и установить cURL. Дополнительные сведения см на [странице загрузки проекта cURL](https://curl.se/download.html).
 
 {% endnote %}
 
 {% endcurl %}
 
-Continue reading to learn how to authenticate, send parameters, and use the response.
+Читайте дальше, чтобы узнать, как выполнять проверку подлинности, отправлять параметры и использовать ответ.
 
-## Authenticating
+## Аутентификация
 
-Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
+Для многих операций требуется проверка подлинности или возврат дополнительных сведений при проверке подлинности. Кроме того, при проверке подлинности можно выполнять больше запросов в час. {% cli %} Хотя некоторые операции REST API доступны без проверки подлинности, для использования подкоманды `api` необходимо пройти проверку подлинности для входа в {% data variables.product.prodname_cli %}. {% endcli %}
 
-### About tokens
+### Сведения о маркерах
 
-You can authenticate your request by adding a token.
+Вы можете выполнить проверку подлинности запроса, добавив маркер.
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+Если вы хотите использовать REST API {% data variables.product.company_short %} для личного использования, можно создать {% data variables.product.pat_generic %}. Для операций REST API, используемых в этой статье, требуется `repo` область {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} или, если не указано иное, доступ только для чтения к общедоступным репозиториям для {% data variables.product.pat_v2 %}s{% endif %}. Для других операций могут потребоваться другие области{% ifversion pat-v2%} или разрешения{% endif %}. Дополнительные сведения о создании {% data variables.product.pat_generic %} см. в разделе [Создание {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+Если вы хотите использовать API от имени организации или другого пользователя, {% data variables.product.company_short %} рекомендует использовать {% data variables.product.prodname_github_app %}. Если операция доступна для {% data variables.product.prodname_github_apps %}, в справочной документации по REST для этой операции будет указано "Работает с приложениями GitHub". Для операций REST API, используемых в этой статье, требуются разрешения на чтение и запись `issues` для {% data variables.product.prodname_github_apps %}. Для других операций могут потребоваться другие разрешения. Дополнительные сведения см. в разделе [Создание приложения GitHub](/developers/apps/building-github-apps/creating-a-github-app), [Проверка подлинности при входе в приложения GitHub](/developers/apps/building-github-apps/authenticating-with-github-apps) и [Идентификация и авторизация пользователей для приложений GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps).
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+Если вы хотите использовать API в рабочем процессе {% data variables.product.prodname_actions %}, {% data variables.product.company_short %} рекомендует выполнять проверку подлинности с помощью встроенного `GITHUB_TOKEN` вместо создания маркера. Вы можете предоставить разрешения для `GITHUB_TOKEN` с помощью ключа `permissions`. Дополнительные сведения см. в разделе [Автоматическая проверка подлинности токенов](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
 
-### Authentication example
+### Пример проверки подлинности
 
 {% cli %}
 
-With {% data variables.product.prodname_cli %}, you don't need to create an access token in advance. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}:
+При использовании {% data variables.product.prodname_cli %} вам не нужно заранее создавать маркер доступа. Используйте подкоманду `auth login` для проверки подлинности в {% data variables.product.prodname_cli %}:
 
 ```shell
 gh auth login
 ```
 
-You can use the `--scopes` flag to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` flag. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+С помощью флага `--scopes` можно указать нужные области. Если вы хотите пройти проверку подлинности с помощью созданного маркера, можно использовать флаг `--with-token`. Дополнительные сведения см. в [документации по `auth login`{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_auth_login).
 
 {% endcli %}
 
@@ -123,17 +128,17 @@ You can use the `--scopes` flag to specify what scopes you want. If you want to 
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+**Предупреждение**. Считайте маркер доступа своим паролем.
 
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Чтобы обеспечить безопасность маркера, вы можете хранить маркер в виде секрета и запустить скрипт с помощью {% data variables.product.prodname_actions %}. Дополнительные сведения см. в статье [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %} Вы также можете сохранить маркер в виде секрета {% data variables.product.prodname_codespaces %} и запустить скрипт в {% data variables.product.prodname_codespaces %}. Дополнительные сведения см. в разделе [Управление зашифрованными секретами для ваших кодовых пространств](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+Если эти варианты недоступны, рассмотрите возможность безопасного хранения маркера с помощью другой службы, например [1Password CLI](https://developer.1password.com/docs/cli/secret-references/).
 
 {% endwarning %}
 
-To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+Чтобы выполнить проверку подлинности с помощью библиотеки Octokit.js, вы можете передать маркер при создании экземпляра `Octokit`. Замените `YOUR-TOKEN` маркером.{ % ifversion ghes or ghae %} Замените `[hostname]` именем {% data variables.location.product_location %}.{ % endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -148,17 +153,17 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+**Предупреждение**. Считайте маркер доступа своим паролем.
 
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+Чтобы обеспечить безопасность учетной записи, можно использовать {% data variables.product.prodname_cli %} вместо cURL. {% data variables.product.prodname_cli %} выполнит задачи по проверке подлинности. Дополнительные сведения см. в версии этой страницы для {% data variables.product.prodname_cli %}.
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %} Вы также можете сохранить маркер в виде секрета {% data variables.product.prodname_codespaces %} и использовать командую строку в {% data variables.product.prodname_codespaces %}. Дополнительные сведения см. в разделе [Управление зашифрованными секретами для ваших кодовых пространств](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+Если эти варианты недоступны, рассмотрите возможность безопасного хранения маркера с помощью другой службы, например [1Password CLI](https://developer.1password.com/docs/cli/secret-references/).
 
 {% endwarning %}
 
-With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
+С помощью cURL вы отправите заголовок `Authorization` с маркером. Замените `YOUR-TOKEN` собственным маркером:
 
 ```shell
 curl --request GET \
@@ -168,19 +173,19 @@ curl --request GET \
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+**Примечание.** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
 {% endcurl %}
 
-### Authentication example for {% data variables.product.prodname_actions %}
+### Пример проверки подлинности для {% data variables.product.prodname_actions %}
 
 {% cli %}
 
-You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Вы также можете использовать ключевое слово `run` для выполнения команд {% data variables.product.prodname_cli %} в рабочих процессах {% data variables.product.prodname_actions %}. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
-Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Вместо того, чтобы использовать команду `gh auth login`, передайте маркер в качестве переменной среды `GH_TOKEN`. {% data variables.product.prodname_dotcom %} рекомендует выполнять проверку подлинности с помощью встроенного `GITHUB_TOKEN` вместо создания маркера. Если это невозможно, сохраните маркер в качестве секрета и замените `GITHUB_TOKEN` в приведенном ниже примере именем секрета. Дополнительные сведения о `GITHUB_TOKEN` см. в разделе [Автоматическая проверка подлинности маркера](/actions/security-guides/automatic-token-authentication). Дополнительные сведения о секретах см. в разделе [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
 ```yaml
 jobs:
@@ -198,18 +203,18 @@ jobs:
 
 {% javascript %}
 
-You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Вы также можете использовать ключевое слово `run` для выполнения скриптов JavaScript в рабочих процессах {% data variables.product.prodname_actions %}. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} рекомендует выполнять проверку подлинности с помощью встроенного `GITHUB_TOKEN` вместо создания маркера. Если это невозможно, сохраните маркер в качестве секрета и замените `GITHUB_TOKEN` в приведенном ниже примере именем секрета. Дополнительные сведения о `GITHUB_TOKEN` см. в разделе [Автоматическая проверка подлинности маркера](/actions/security-guides/automatic-token-authentication). Дополнительные сведения о секретах см. в разделе [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
-The following example workflow:
+См. следующий пример рабочего процесса:
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. Извлекает содержимое репозитория.
+1. Настраивает Node.js.
+1. Устанавливает `octokit`.
+1. Сохраняет значение `GITHUB_TOKEN` как переменную среды `TOKEN` и выполняет `.github/actions-scripts/use-the-api.mjs`, которые могут получить доступ к этой переменной среды в качестве `process.env.TOKEN`
 
-Example workflow:
+Пример рабочего процесса:
 
 ```yaml
 on:
@@ -238,7 +243,7 @@ jobs:
           node .github/actions-scripts/use-the-api.mjs
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+Пример скрипта JavaScript с путем к файлу `.github/actions-scripts/use-the-api.mjs`:
 
 ```javascript
 import { Octokit } from "octokit";
@@ -251,7 +256,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 await octokit.request("GET /octocat", {});
 ```
 
-Instead of storing your script in a separate file and executing the script from your workflow, you can use the `actions/github-script` action to run a script. For more information, see the [actions/github-script README](https://github.com/actions/github-script).
+Вместо хранения скрипта в отдельном файле и выполнения скрипта из рабочего процесса можно использовать действие `actions/github-script` для запуска скрипта. Дополнительные сведения см. в [actions/github-script README](https://github.com/actions/github-script).
 
 ```yaml
 jobs:
@@ -270,9 +275,9 @@ jobs:
 
 {% curl %}
 
-You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Вы также можете использовать ключевое слово `run` для выполнения команд cURL в рабочих процессах {% data variables.product.prodname_actions %}. Дополнительные сведения см. в статье "[Синтаксис рабочего процесса для GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} рекомендует выполнять проверку подлинности с помощью встроенного `GITHUB_TOKEN` вместо создания маркера. Если это невозможно, сохраните маркер в качестве секрета и замените `GITHUB_TOKEN` в приведенном ниже примере именем секрета. Дополнительные сведения о `GITHUB_TOKEN` см. в разделе [Автоматическая проверка подлинности маркера](/actions/security-guides/automatic-token-authentication). Дополнительные сведения о секретах см. в разделе [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
 ```yaml
 jobs:
@@ -290,13 +295,13 @@ jobs:
 
 {% endcurl %}
 
-## Using headers
+## Использование заголовков
 
-Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
+Большинство операций указывают, что следует передать заголовок `Accept` со значением `application/vnd.github+json`. Другие операции могут указывать, что следует отправлять другой заголовок `Accept` или дополнительные заголовки.
 
 {% cli %}
 
-To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
+Чтобы отправить заголовок с {% data variables.product.prodname_cli %}, используйте флаг `--header` или `-H`, за которым следует заголовок в формате `key: value`.
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
@@ -306,7 +311,7 @@ gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versi
 
 {% javascript %}
 
-The Octokit.js library automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
+Библиотека Octokit.js автоматически передает заголовок `Accept: application/vnd.github+json`. Чтобы передать дополнительные заголовки или другой заголовок `Accept`, добавьте свойство `headers` в объект, который передается в качестве второго аргумента в метод `request`. Значение свойства `headers` — это объект с именами заголовков в качестве ключей и значениями заголовков в качестве значений. Например, чтобы отправить заголовок `content-type` со значением `text/plain`:
 
 ```javascript
 await octokit.request("GET /octocat", {
@@ -321,7 +326,7 @@ await octokit.request("GET /octocat", {
 
 {% curl %}
 
-To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
+Чтобы отправить заголовок cURL, используйте флаг `--header` или `-H`, за которым следует заголовок в формате `key: value`.
 
 ```shell
 curl --request GET \
@@ -333,21 +338,19 @@ curl --request GET \
 
 {% endcurl %}
 
-## Using path parameters
+## Использование параметров пути
 
-Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[List repository issues](/rest/issues/issues#list-repository-issues)."
+Параметры пути изменяют путь операции. Например, путь "Вывод проблем в репозитории" — это `/repos/{owner}/{repo}/issues`. Фигурные скобки `{}` указывают параметры пути, которые необходимо указать. В этом случае необходимо указать владельца и имя репозитория. Справочную документацию по этой операции см. в разделе [Вывод проблем в репозитории](/rest/issues/issues#list-repository-issues).
 
 {% cli %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** In order for this command to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.location.product_location %}.
+**Примечание:** Чтобы эта команда работала для {% data variables.location.product_location %}, замените `octocat/Spoon-Knife` репозиторием, принадлежащим {% data variables.location.product_location %}. В противном случае повторно выполните `gh auth login` команду для проверки подлинности в {% data variables.product.prodname_dotcom_the_website %} вместо {% data variables.location.product_location %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
+Чтобы извлечь проблемы из репозитория `octocat/Spoon-Knife`, замените `{owner}` на `octocat` и `{repo}` на `Spoon-Knife`.
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues
@@ -357,15 +360,13 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 
 {% javascript %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** In order for this example to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
+**Примечание:** Чтобы этот пример работал для {% data variables.location.product_location %}, замените `octocat/Spoon-Knife` репозиторием, принадлежащим {% data variables.location.product_location %}. В противном случае создайте новый экземпляр `Octokit` и не указывайте `baseURL`.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-When you make a request with Octokit.js, all parameters, including path parameters, are passed in an object as the second argument to the `request` method. To get issues from the `octocat/Spoon-Knife` repository, specify `owner` as `octocat` and `repo` as `Spoon-Knife`.
+При выполнении запроса с Octokit.js все параметры, включая параметры пути, передаются в объект в качестве второго аргумента для метода `request`. Чтобы извлечь проблемы из репозитория `octocat/Spoon-Knife`, укажите `owner` как `octocat` и `repo` как `Spoon-Knife`.
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -378,15 +379,13 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`. To build the full path, prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
+Чтобы извлечь проблемы из репозитория `octocat/Spoon-Knife`, замените `{owner}` на `octocat` и `{repo}` на `Spoon-Knife`. Чтобы создать полный путь, дополните базовый URL-адрес для REST API {% data variables.product.prodname_dotcom %}, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** If you want to use {% data variables.location.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.location.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}.
+**Примечание:** Если вы хотите использовать {% data variables.location.product_location %} вместо {% data variables.product.prodname_dotcom_the_website %}, используйте `{% data variables.product.api_url_code %}` вместо `https://api.github.com` и замените `[hostname]` именем {% data variables.location.product_location %}. Замените `octocat/Spoon-Knife` репозиторием, принадлежащим {% data variables.location.product_location %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 ```shell
 curl --request GET \
@@ -397,21 +396,21 @@ curl --request GET \
 
 {% endcurl %}
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+Операция возвращает список проблем и данных о каждой проблеме. Дополнительные сведения об использовании ответа см. в разделе [Использование ответа](#using-the-response).
 
-## Using query parameters
+## Использование параметров запроса
 
-Query parameters allow you to control what data is returned for a request. For example, a query parameter may let you specify how many items are returned when the response is paginated.
+Параметры запроса позволяют контролировать, какие данные возвращаются для запроса. Например, с помощью параметра запроса можно указать, сколько элементов возвращается при разбиении ответа на страницы.
 
-By default, the "List repository issues" operation returns thirty issues, sorted in descending order by the date they were created. You can use the `per_page` parameter to return two issues instead of 30. You can use the `sort` parameter to sort the issues by the date they were last updated instead of by the date they were created. You can use the `direction` parameter to sort the results in ascending order instead of descending order.
+По умолчанию операция "Вывод проблем в репозитории" возвращает 30 проблем, отсортированных по убыванию по дате создания. Параметр `per_page` можно использовать для возврата двух проблем вместо 30. Параметр `sort` можно использовать для сортировки проблем по дате последнего обновления, а не по дате создания. Параметр `direction` можно использовать для сортировки результатов по возрастанию, а не убыванию.
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+Для {% data variables.product.prodname_cli %} используйте флаг `-F` для передачи параметра, который является числом, логическим значением или null. Используйте `-f` для передачи строковых параметров.
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+**Примечание.** {% data variables.product.prodname_cli %} в настоящее время не принимает параметры, которые являются массивами. Дополнительные сведения см. в [этой проблеме](https://github.com/cli/cli/issues/1484).
 
 {% endnote %}
 
@@ -423,7 +422,7 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 
 {% javascript %}
 
-When you make a request with Octokit.js, all parameters, including query parameters, are passed in an object as the second argument to the `request` method.
+При выполнении запроса с Octokit.js все параметры, включая параметры запроса, передаются в объект в качестве второго аргумента для метода `request`.
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -439,7 +438,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
+Для cURL добавьте в `?` конец пути, а затем добавьте имя и значение параметра запроса в форме `parameter_name=value`. Разделите несколько параметров запроса с помощью `&`.
 
 ```shell
 curl --request GET \
@@ -450,21 +449,21 @@ curl --request GET \
 
 {% endcurl %}
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+Операция возвращает список проблем и данных о каждой проблеме. Дополнительные сведения об использовании ответа см. в разделе [Использование ответа](#using-the-response).
 
-## Using body parameters
+## Использование параметров запроса
 
-Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[Create an issue](/rest/issues/issues#create-an-issue)."
+Параметры запроса позволяют передавать дополнительные данные в API. Например, для операции "Создание проблемы" требуется указать заголовок новой проблемы. Кроме того, он позволяет указывать другие сведения, например текст проблемы. Полную справочную документацию по этой операции см. в разделе [Создание проблемы](/rest/issues/issues#create-an-issue).
 
-The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
+Операция "Создание проблемы" использует тот же путь, что и операция "Вывод проблем в репозитории" в приведенных выше примерах, но использует метод `POST` вместо `GET`.
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+Для {% data variables.product.prodname_cli %} используйте флаг `-F` для передачи параметра, который является числом, логическим значением или null. Используйте `-f` для передачи строковых параметров.
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+**Примечание.** {% data variables.product.prodname_cli %} в настоящее время не принимает параметры, которые являются массивами. Дополнительные сведения см. в [этой проблеме](https://github.com/cli/cli/issues/1484).
 
 {% endnote %}
 
@@ -480,13 +479,13 @@ gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octoc
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+Если вы используете {% data variables.product.pat_v2 %}, необходимо заменить `octocat/Spoon-Knife` репозиторием, владельцем или принадлежащим организации, членом которых вы являетесь. Маркер должен иметь доступ к такому репозиторию и иметь разрешения на чтение и запись для проблем с репозиторием. Дополнительные сведения о создании репозитория см. в разделе [Создание репозитория](/get-started/quickstart/create-a-repo). Дополнительные сведения о предоставлении доступа и разрешений для {% data variables.product.pat_v2 %} см. в разделе [Создание {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 {% endnote %}
 
 {% endif %}
 
-When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
+При выполнении запроса с Octokit.js все параметры, включая параметры текста, передаются в объект в качестве второго аргумента для метода `request`.
 
 ```javascript
 await octokit.request("POST /repos/{owner}/{repo}/issues", {
@@ -505,13 +504,13 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+Если вы используете {% data variables.product.pat_v2 %}, необходимо заменить `octocat/Spoon-Knife` репозиторием, владельцем или принадлежащим организации, членом которых вы являетесь. Маркер должен иметь доступ к такому репозиторию и иметь разрешения на чтение и запись для проблем с репозиторием. Дополнительные сведения о создании репозитория см. в разделе [Создание репозитория](/get-started/quickstart/create-a-repo). Дополнительные сведения о предоставлении доступа и разрешений для {% data variables.product.pat_v2 %} см. в разделе [Создание {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 {% endnote %}
 
 {% endif %}
 
-For cURL, use the `--data` flag to pass the body parameters in a JSON object.
+Для cURL используйте флаг `--data` для передачи параметров текста в объект JSON.
 
 ```shell
 curl --request POST \
@@ -526,27 +525,27 @@ curl --request POST \
 
 {% endcurl %}
 
-The operation creates an issue and returns data about the new issue. In the response, find the `html_url` of your issue and navigate to your issue in the browser. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+Операция создает проблему и возвращает данные о новой проблеме. В ответе найдите `html_url` проблемы и перейдите к проблеме в браузере. Дополнительные сведения об использовании ответа см. в разделе [Использование ответа](#using-the-response).
 
-## Using the response
+## Использование ответа
 
-### About the response code and headers
+### Сведения о коде ответа и заголовках
 
-Every request will return an HTTP status code that indicates the success of the response. For more information about response codes, see [the MDN HTTP response status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+Каждый запрос возвращает код состояния HTTP, указывающий на успешность ответа. Дополнительные сведения о кодах ответов см. [в документации по кодам состояния ответов MDN HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-Additionally, the response will include headers that give more details about the response. Headers that start with `X-` or `x-` are custom to {% data variables.product.company_short %}. For example, the `x-ratelimit-remaining` and `x-ratelimit-reset` headers tell you how many requests you can make in a time period.
+Кроме того, ответ будет содержать заголовки, которые предоставляют дополнительные сведения об ответе. Заголовки, начинающиеся с `X-` или `x-`, являются пользовательскими для {% data variables.product.company_short %}. Например, заголовки `x-ratelimit-remaining` и `x-ratelimit-reset` сообщают, сколько запросов можно выполнить за период времени.
 
 {% cli %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+Чтобы просмотреть код состояния и заголовки, используйте флаг `--include` или `--i` при отправке запроса.
 
-For example, this request:
+Например, этот запрос:
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
 ```
 
-returns the response code and headers like:
+возвращает код ответа и заголовки, например:
 
 ```shell
 HTTP/2.0 200 OK
@@ -578,15 +577,15 @@ X-Ratelimit-Used: 4
 X-Xss-Protection: 0
 ```
 
-In this example, the response code is `200`, which indicates a successful request.
+В этом примере код ответа — `200`, что указывает на успешный запрос.
 
 {% endcli %}
 
 {% javascript %}
 
-When you make a request with Octokit.js, the `request` method returns a promise. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
+При выполнении запроса с Octokit.js метод `request` возвращает обещание. Если запрос выполнен успешно, обещание разрешается в объект, включающий код состояния HTTP ответа (`status`) и заголовки ответа (`headers`). Если возникла ошибка, обещание разрешается в объект, включающий код состояния HTTP ответа (`status`) и заголовки ответа (`response.headers`).
 
-You can use a `try/catch` block to catch an error if it occurs. For example, if the request in the following script is successful, the script will log the status code and the value of the `x-ratelimit-remaining` header. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
+При возникновении ошибки можно использовать блок `try/catch` для ее перехвата. Например, если запрос в следующем скрипте выполнен успешно, скрипт занесет в журнал код состояния и значение заголовка `x-ratelimit-remaining`. Если запрос не выполнен, скрипт занесет в журнал код состояния, значение заголовка `x-ratelimit-remaining` и сообщение об ошибке.
 
 ```javascript
 try {
@@ -607,9 +606,9 @@ try {
 
 {% curl %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+Чтобы просмотреть код состояния и заголовки, используйте флаг `--include` или `--i` при отправке запроса.
 
-For example, this request:
+Например, этот запрос:
 
 ```shell
 curl --request GET \
@@ -619,7 +618,7 @@ curl --request GET \
 --include
 ```
 
-returns the response code and headers like:
+возвращает код ответа и заголовки, например:
 
 ```shell
 HTTP/2 200
@@ -649,13 +648,13 @@ content-length: 4936
 x-github-request-id: 14E0:4BC6:F1B8BA:208E317:62EC2715
 ```
 
-In this example, the response code is `200`, which indicates a successful request.
+В этом примере код ответа — `200`, что указывает на успешный запрос.
 
 {% endcurl %}
 
-### About the response body
+### Сведения о тексте ответа
 
-Many operations will return a response body. Unless otherwise specified, the response body is in JSON format. For example, this request returns a list of issues with data about each issue:
+Многие операции возвращают текст ответа. Если не указано иное, текст ответа имеет формат JSON. Например, этот запрос возвращает список проблем с данными о каждой проблеме:
 
 {% cli %}
 
@@ -688,23 +687,23 @@ curl --request GET \
 
 {% endcurl %}
 
-Unlike the GraphQL API where you specify what information you want, the REST API typically returns more information than you need. If desired, you can parse the response to pull out specific pieces of information.
+В отличие от API GraphQL, в котором вы указываете желаемую информацию, REST API обычно возвращает больше информации, чем требуется. При необходимости можно проанализировать ответ, чтобы извлечь определенные данные.
 
 {% cli %}
 
-For example, you can use `>` to redirect the response to a file:
+Например, можно использовать `>` для перенаправления ответа в файл:
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
 ```
 
-Then you can use jq to get the title and author ID of each issue:
+Затем можно использовать jq, чтобы получить заголовок и идентификатор автора каждой проблемы:
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-The previous two commands return something like:
+Две предыдущие команды возвращают примерно следующее:
 
 ```
 {
@@ -717,13 +716,13 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+Дополнительные сведения о jq см. [в документации по jq](https://stedolan.github.io/jq/) и [jq play](https://jqplay.org/).
 
 {% endcli %}
 
 {% javascript %}
 
-For example, you can get the title and author ID of each issue:
+Например, вы можете получить заголовок и идентификатор автора каждой проблемы:
 
 ```javascript
 try {
@@ -746,7 +745,7 @@ try {
 
 {% curl %}
 
-For example, you can use `>` to redirect the response to a file:
+Например, можно использовать `>` для перенаправления ответа в файл:
 
 ```shell
 curl --request GET \
@@ -755,13 +754,13 @@ curl --request GET \
 --header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```
 
-Then you can use jq to get the title and author ID of each issue:
+Затем можно использовать jq, чтобы получить заголовок и идентификатор автора каждой проблемы:
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-The previous two commands return something like:
+Две предыдущие команды возвращают примерно следующее:
 
 ```
 {
@@ -774,12 +773,12 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+Дополнительные сведения о jq см. [в документации по jq](https://stedolan.github.io/jq/) и [jq play](https://jqplay.org/).
 
 {% endcurl %}
 
-## Next steps
+## Дальнейшие действия
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[Create an issue comment](/rest/issues#create-an-issue-comment)" and "[Update an issue](/rest/issues/issues#update-an-issue)."
+В этой статье показано, как перечислить и создать проблемы в репозитории. Попрактикуйтесь, прокомментировав проблему, изменив заголовок проблемы или закрыв проблему. Дополнительные сведения об этих операциях см. в разделе [Создание комментария к проблеме](/rest/issues#create-an-issue-comment) и [Обновление проблемы](/rest/issues/issues#update-an-issue).
 
-For more information about the operations that you can use, see the [REST reference documentation](/rest).
+Дополнительные сведения о доступных операциях см. в [справочной документации по REST](/rest).

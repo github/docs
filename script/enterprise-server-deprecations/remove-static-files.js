@@ -17,7 +17,6 @@ const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const restDecoratedDir = path.join(process.cwd(), 'lib/rest/static/decorated')
-const restDereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const ghesReleaseNotesDir = 'data/release-notes/enterprise-server'
 
 const supportedEnterpriseVersions = Object.values(allVersions).filter(
@@ -48,7 +47,7 @@ const supportedOpenApiVersions = supportedEnterpriseVersions.map((v) => v.openAp
 // The openApiBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
 const openApiBaseName = supportedEnterpriseVersions.map((v) => v.openApiBaseName)[0]
 
-;[restDecoratedDir, restDereferencedDir].forEach((dir) => {
+;[restDecoratedDir].forEach((dir) => {
   removeFiles(dir, openApiBaseName, supportedOpenApiVersions)
 })
 

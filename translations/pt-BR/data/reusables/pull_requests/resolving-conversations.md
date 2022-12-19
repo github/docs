@@ -1,21 +1,30 @@
-### Resolving conversations
+---
+ms.openlocfilehash: 1447b6a0f63bcfd6e54954545541808debcb3091
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062367"
+---
+### Resolver conversas
 
-You can resolve a conversation in a pull request if you opened the pull request or if you have write access to the repository where the pull request was opened.
+É possível resolver uma conversa em um pull request se você abriu o pull request ou se você tem acesso de gravação ao repositório em que o pull request foi aberto.
 
-To indicate that a conversation on the **Files changed** tab is complete, click **Resolve conversation**.
+Para indicar que uma conversa na guia **Arquivos alterados** foi concluída, clique em **Resolver conversa**.
 
-![Pull request conversation with Resolve conversation button](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
+![Conversa de pull request com o botão de Resolver conversa](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
 
-The entire conversation will be collapsed and marked as resolved, making it easier to find conversations that still need to be addressed.
+Toda a conversa será colapsada e marcada como resolvida, tornando mais fácil encontrar conversas que ainda precisam ser consideradas.
 
-![Resolved conversation](/assets/images/help/pull_requests/resolved-conversation.png)
+![Conversa resolvida](/assets/images/help/pull_requests/resolved-conversation.png)
 
-If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+Se a sugestão em um comentário estiver fora do escopo do seu pull request, você pode abrir um novo problema que rastreia os comentários e relaciona o comentário original. Para obter mais informações, confira "[Como abrir um problema por meio de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-#### Discovering and navigating conversations
+{% ifversion fpt or ghes or ghae-issue-4382 or ghec %}
+#### Descobrindo e navegando por conversas
 
-You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.
+Você pode descobrir e procurar todas as conversas na sua solicitação de pull usando o menu **Conversas**, que é mostrado na parte superior da guia **Arquivos Alterados**.
 
-From this view, you can see which conversations are unresolved, resolved, and outdated. This makes it easy to discover and resolve conversations.
+Nesta visualização, você pode ver quais conversas não foram resolvidas, quais foram resolvidas e desatualizadas. Isso facilita a descoberta e a resolução de conversas.
 
-![Showing the conversations menu](/assets/images/help/pull_requests/conversations-menu.png)
+![Como exibir o menu Conversas](/assets/images/help/pull_requests/conversations-menu.png) {% endif %}

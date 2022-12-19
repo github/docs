@@ -1,6 +1,6 @@
 ---
-title: Managing security and analysis settings for your organization
-intro: 'You can control features that secure and analyze the code in your organization''s projects on {% data variables.product.prodname_dotcom %}.'
+title: Organization のセキュリティおよび分析設定を管理する
+intro: '{% data variables.product.prodname_dotcom %} 上の Organization のプロジェクトでコードを保護し分析する機能を管理できます。'
 permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
@@ -15,152 +15,123 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage security & analysis
+ms.openlocfilehash: 35e34f15b46987eea7bc732313b69ecd4e6396fa
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107702'
 ---
+## セキュリティおよび分析設定の管理について
 
-## About management of security and analysis settings
+{% data variables.product.prodname_dotcom %} を使用して、Organization のリポジトリを保護できます。 Organization でメンバーが作成する既存または新規のリポジトリすべてについて、セキュリティおよび分析機能を管理できます。 {% ifversion ghec %}{% data variables.product.prodname_GH_advanced_security %} のライセンスを持っている場合は、これらの機能へのアクセスを管理することもできます。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}{% data variables.product.prodname_GH_advanced_security %}のライセンス付きで{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationは、それらの機能へのアクセスも管理できます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)を参照してください。{% endif %}
 
-{% data variables.product.prodname_dotcom %} can help secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% ifversion ghec %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also manage access to these features. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization).{% endif %}
+{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %} {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
-{% data reusables.security.security-and-analysis-features-enable-read-only %}
+## セキュリティと分析の設定を表示する
 
-## Displaying the security and analysis settings
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
+表示されるページでは、Organization 内のリポジトリのすべてのセキュリティおよび分析機能を有効化または無効化にできます。
 
-The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
+{% ifversion ghec %}Organization が {% data variables.product.prodname_GH_advanced_security %} のライセンスを持つ Enterprise に属している場合、ページには {% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれます。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
 
-{% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+{% ifversion ghes %}{% data variables.product.prodname_GH_advanced_security %} のライセンスを持っている場合、ページには {% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれます。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
 
-{% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+{% ifversion ghae %}このページには、{% data variables.product.prodname_advanced_security %} 機能を有効または無効にするオプションも含まれています。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
 
-{% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+## 既存のすべてのリポジトリの機能を有効または無効にする
 
-## Enabling or disabling a feature for all existing repositories
+すべてのリポジトリの機能を有効化または無効化できます。 {% ifversion fpt or ghec %}変更が Organization 内のリポジトリに与える影響は、リポジトリの可視性によって決まります。
 
-You can enable or disable features for all repositories. 
-{% ifversion fpt or ghec %}The impact of your changes on repositories in your organization is determined by their visibility:
-
-- **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
-- **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
-- **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
+- **依存関係グラフ** - この機能はパブリック リポジトリに対して常に有効になっているため、変更はプライベート リポジトリにのみ影響します。
+- **{% data variables.product.prodname_dependabot_alerts %}** - 変更はすべてのリポジトリに影響します。
+- **{% data variables.product.prodname_dependabot_security_updates %}** - 変更はすべてのリポジトリに影響します。
 {%- ifversion ghec %}
-- **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. This option controls whether or not {% data variables.product.prodname_secret_scanning_GHAS %} is enabled. {% data variables.product.prodname_secret_scanning_partner_caps %} always runs on all public repositories.
+- **{% data variables.product.prodname_GH_advanced_security %}** - {% data variables.product.prodname_GH_advanced_security %} および関連機能は常にパブリック リポジトリに対して有効になっているため、変更はプライベート リポジトリにのみ影響します。
+- **{% data variables.product.prodname_secret_scanning_caps %}** - 変更は、{% data variables.product.prodname_GH_advanced_security %}も有効になっているリポジトリにのみ影響します。 このオプションは、{% data variables.product.prodname_secret_scanning_GHAS %}が有効になっているかどうかを制御します。 {% data variables.product.prodname_secret_scanning_partner_caps %}は、すべてのパブリックリポジトリ上で常に実行されます。
 {% endif %}
 
 {% endif %}
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
-{% ifversion ghes or ghec or ghae %}
-{% note %}
+{% ifversion ghes or ghec or ghae %} {% note %}
 
-**Note:** If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[Enforcing policies for Advanced Security in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
-{% endnote %}
-{% endif %}
+**注:** "Organization のポリシー設定が原因で、GitHub Advanced Security を有効にできません" というエラーが発生した場合は、Enterprise 管理者に問い合わせて、Enterprise の GitHub Advanced Security ポリシーを変更するように依頼してください。 詳しくは、「[Enterprise で Advanced Security のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)」を参照してください。
+{% endnote %} {% endif %}
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
-   {% ifversion fpt %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
-   {% endif %}
-   {% ifversion ghec %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-ghec.png)
-   {% endif %}
-   {% ifversion ghes %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
-   {% endif %}
+1. 組織のセキュリティと分析の設定に移動します。 詳細については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
+2. [Code security and analysis] の下で機能の右にある **[Disable all]** または **[Enable all]** をクリックします。 {% ifversion ghes or ghec %}{% data variables.product.prodname_GH_advanced_security %} ライセンスに空きシートがない場合、"{% data variables.product.prodname_GH_advanced_security %}" のコントロールは無効になります。{% endif %} {% ifversion fpt %} ![[セキュリティと分析の構成] 機能の [すべて有効にする] または [すべて無効にする] ボタン](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png) {% endif %} {% ifversion ghec %} ![[セキュリティと分析の構成] 機能の [すべて有効にする] または [すべて無効にする] ボタン](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-ghec.png){% endif %} {% ifversion ghes %} ![[セキュリティと分析の構成] 機能の [すべて有効にする] または [すべて無効にする] ボタン](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png) {% endif %}
    
    
-   {% ifversion ghae %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
-   {% endif %}
-   {% ifversion fpt or ghec %}
-3. Optionally, enable the feature by default for new repositories in your organization.
-   {% ifversion fpt or ghec %}
-   !["Enable by default" option for new repositories](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
-   {% endif %}
+   {% ifversion ghae %}![[セキュリティと分析の構成] 機能の [すべて有効にする] または [すべて無効にする] ボタン](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png){% endif %} {% ifversion fpt or ghec %}
+3. オプションで、Organization の新しいリポジトリに対して機能をデフォルトで有効にすることもできます。
+   {% ifversion fpt or ghec %}![新しいリポジトリの [既定で有効にする] オプション](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png){% endif %}
    
-   {% endif %}
-   {% ifversion fpt or ghec %}
-4. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
-   {% endif %}
+   {% endif %} {% ifversion fpt or ghec %}
+4. **[機能の無効化]** または **[機能の有効化]** をクリックし、Organization のすべてのリポジトリに対してこの機能を無効または有効にします。
+   {% ifversion fpt or ghec %}![機能を無効または有効にするボタン](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png){% endif %}
    
-   {% endif %}
-   {% ifversion ghae or ghes %}
-5. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
-   ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
-   {% endif %}
+   {% endif %} {% ifversion ghae or ghes %}
+5. **[すべて有効にする]/[すべて無効にする]** または **[対象リポジトリの有効化]/[対象リポジトリの無効化]** をクリックして、変更を確定します。
+   ![Organization 内の適格なすべてのリポジトリの機能を有効化するボタン](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png) {% endif %}
 
    {% data reusables.security.displayed-information %}
 
-## Enabling or disabling a feature automatically when new repositories are added
+## 新しいリポジトリが追加されたときに機能を自動的に有効化または無効化する
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-2. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-  {% ifversion ghes %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
+1. 組織のセキュリティと分析の設定に移動します。 詳細については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
+2. "Code security and analysis（コードのセキュリティと分析）"の下で、機能の右から、Organizationの新しいリポジトリ{% ifversion fpt or ghec %}、もしくはすべての新しいプライベートリポジトリ{% endif %}でデフォルトでこの機能を有効化もしくは無効化してください。
+   {% ifversion fpt or ghec %} ![新しいリポジトリの機能を有効にするチェックボックスのスクリーンショット](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png) {% endif %} {% ifversion ghes %} ![新しいリポジトリの機能を有効にするチェックボックスのスクリーンショット](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png) {% endif %}
    
-   {% ifversion ghae %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
-   {% endif %}
+   {% ifversion ghae %} ![新しいリポジトリに対して機能を有効にするチェックボックスのスクリーンショット](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png) {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 
-## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
+## {% data variables.product.prodname_dependabot %} のプライベート依存関係へのアクセスを許可する
 
-{% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+{% data variables.product.prodname_dependabot %} は、プロジェクト内の古い依存関係参照をチェックし、それらを更新するためのプルリクエストを自動的に生成できます。 これを行うには、{% data variables.product.prodname_dependabot %} がすべてのターゲット依存関係ファイルにアクセスできる必要があります。 通常、1 つ以上の依存関係にアクセスできない場合、バージョン更新は失敗します。 詳細については、「[{% data variables.product.prodname_dependabot %} のバージョン アップデートについて](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。
 
-By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private repositories or private package registries. However, if a dependency is in a private {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository.
+デフォルトでは、{% data variables.product.prodname_dependabot %} はプライベートリポジトリまたはプライベートパッケージレジストリにある依存関係を更新できません。 ただし、依存関係が、その依存関係を使用するプロジェクトと同じ Organization 内のプライベート {% data variables.product.prodname_dotcom %} リポジトリにある場合は、ホストリポジトリへのアクセスを許可することで、{% data variables.product.prodname_dependabot %} がバージョンを正常に更新できるようにすることができます。
 
-If your code depends on packages in a private registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the _dependabot.yml_ file for the repository. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
+コードがプライベートレジストリ内のパッケージに依存している場合は、リポジトリレベルでこれを設定することにより、{% data variables.product.prodname_dependabot %} がこれらの依存関係のバージョンを更新できるようにすることができます。 これを行うには、リポジトリの _dependabot.yml_ ファイルに認証の詳細を追加します。 詳細については、「[dependabot.yml ファイルの構成オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)」を参照してください。
 
-To allow {% data variables.product.prodname_dependabot %} to access a private {% data variables.product.prodname_dotcom %} repository:
+{% data variables.product.prodname_dependabot %} がプライベート {% data variables.product.prodname_dotcom %} リポジトリにアクセスできるようにするには：
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "{% data variables.product.prodname_dependabot %} private repository access", click **Add private repositories** or **Add internal and private repositories**.
-   ![Add repositories button](/assets/images/help/organizations/dependabot-private-repository-access.png)
-1. Start typing the name of the repository you want to allow.
-   ![Repository search field with filtered dropdown](/assets/images/help/organizations/dependabot-private-repo-choose.png)
-1. Click the repository you want to allow.
+1. 組織のセキュリティと分析の設定に移動します。 詳細については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
+1. [{% data variables.product.prodname_dependabot %} プライベート リポジトリ アクセス] で、 **[プライベート リポジトリの追加]** または **[内部およびプライベート リポジトリの追加]** をクリックします。
+   ![[リポジトリの追加] ボタン](/assets/images/help/organizations/dependabot-private-repository-access.png)
+1. 許可するリポジトリの名前の入力を開始します。
+   ![フィルタされたドロップダウンを持つリポジトリ検索フィールド](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+1. 許可するリポジトリをクリックします。
 
-1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
-   !["X" button to remove a repository](/assets/images/help/organizations/dependabot-private-repository-list.png)
-{% endif %}
+1. あるいは、リストからリポジトリを差k除するには、リポジトリの右の{% octicon "x" aria-label="The X icon" %}をクリックします。
+   ![リポジトリを削除するための [X] ボタン](/assets/images/help/organizations/dependabot-private-repository-list.png){% endif %}
 
 {% ifversion ghes or ghec %}
 
-## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+## Organization 内の個々のリポジトリから {% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除する
 
-You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)." However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
+リポジトリの {% data variables.product.prodname_GH_advanced_security %} 機能へのアクセスは、[設定] タブで管理できます。詳細については、「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。 ただし、Organization の [Settings] タブから、リポジトリの {% data variables.product.prodname_GH_advanced_security %} 機能を無効にすることもできます。
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GH_advanced_security %} enabled, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png)
-  The table lists the number of unique committers for each repository. This is the number of seats you could free up on your license by removing access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
-1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up seats used by any committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
-1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
+1. 組織のセキュリティと分析の設定に移動します。 詳細については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
+1. {% data variables.product.prodname_GH_advanced_security %} が有効になっている Organization 内のすべてのリポジトリのリストを表示するには、「{% data variables.product.prodname_GH_advanced_security %} リポジトリ」セクションまでスクロールします。
+  ![[{% data variables.product.prodname_GH_advanced_security %} リポジトリ] セクション](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png)テーブルには、各リポジトリの一意のコミッターがリストされています。 これは、{% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除することによりライセンスで解放できるシートの数です。 詳細については、「[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)」(GitHub Advanced Security の課金について) を参照してください。
+1. リポジトリから {% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除し、リポジトリ固有のコミッターが使用するシートを解放するには、隣接する {% octicon "x" aria-label="X symbol" %} をクリックします。
+1. 確認ダイアログで、 **[リポジトリの削除]** をクリックして、{% data variables.product.prodname_GH_advanced_security %} の機能へのアクセスを削除します。
 
 {% note %}
 
-**Note:** If you remove access to {% data variables.product.prodname_GH_advanced_security %} for a repository, you should communicate with the affected development team so that they know that the change was intended. This ensures that they don't waste time debugging failed runs of code scanning.
+**注:** リポジトリの {% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除する場合は、影響を受ける開発チームと連絡を取り、変更が意図されたものかを確認する必要があります。 これにより、失敗したコードスキャンの実行をデバッグすることに時間を費すことがなくなります。
 
 {% endnote %}
 
 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
-- "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}
-- "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"
+- 「[リポジトリの保護](/code-security/getting-started/securing-your-repository)」{% ifversion not fpt %}
+- 「[シークレット スキャンについて](/github/administering-a-repository/about-secret-scanning)」{% endif %}{% ifversion not ghae %}
+- [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph){% endif %}
+- [サプライ チェーンのセキュリティについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)

@@ -1,6 +1,6 @@
 ---
-title: Managing releases in a repository
-intro: You can create releases to bundle and deliver iterations of a project to users.
+title: Veröffentlichungen in einem Repository verwalten
+intro: 'Du kennst Releases erstellen, um Iterationen eines Projektes zu bündeln und für Benutzer*innen bereitzustellen.'
 redirect_from:
   - /articles/creating-releases
   - /articles/listing-and-editing-releases
@@ -19,83 +19,79 @@ versions:
 topics:
   - Repositories
 shortTitle: Manage releases
+ms.openlocfilehash: d8a5f77941c7c46656c891c0892af95d0b1b8637
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107485'
 ---
-## About release management
+## Informationen zur Releaseverwaltung
 
-You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[Releases](/rest/releases/releases)" in the REST API documentation.
+Du kannst neue Releases mit Versionshinweisen, @mentions von Mitwirkenden und Links zu Binärdateien erstellen sowie vorhandene Releases bearbeiten oder löschen. Mit der API für Releases kannst du außerdem Releases erstellen, ändern und löschen. Weitere Informationen findest du unter [Releases](/rest/releases/releases) in der Dokumentation zur REST-API.
 
-{% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+{% ifversion fpt or ghec %} Du kannst eine Aktion aus einem bestimmten Release in {% data variables.product.prodname_marketplace %} veröffentlichen. Weitere Informationen findest du unter [Veröffentlichen einer Aktion im {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace).
 
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+Du kannst auswählen, ob {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %})-Objekte in den ZIP-Dateien und Tarballs enthalten sein sollen, die {% data variables.product.product_name %} für jedes Release erstellt. Weitere Informationen findest du unter [Verwalten von {% data variables.large_files.product_name_short %}-Objekten in Archiven in deinem Repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository).
 {% endif %}
 
-## Creating a release
+## Einen Release erstellen
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-1. Click **Draft a new release**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+1. Klicke auf **Neues Release erstellen**.
 
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-1. Click **Choose a tag**, type a version number for your release, and press **Enter**. Alternatively, select an existing tag.
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}![Schaltfläche für Release-Entwurf](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Schaltfläche für Release-Entwurf](/assets/images/help/releases/draft_release_button.png){% endif %}
+1. Klicke auf **Tag auswählen**, gib eine Versionsnummer für deine Veröffentlichung ein, und drücke die **EINGABETASTE**. Alternativ kannst du ein vorhandenes Tag auswählen.
 
-   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-1. If you are creating a new tag, click **Create new tag**.
+   ![Eingeben eines Tags](/assets/images/help/releases/releases-tag-create.png)
+1. Wenn du ein neues Tag erstellst, klicke auf **Neues Tag erstellen**.
 
-   ![Screenshot of confirming you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+   ![Screenshot der Bestätigung zum Erstellen eines neuen Tags](/assets/images/help/releases/releases-tag-create-confirm.png)
    
-1. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
+1. Wenn du ein neues Tag erstellt hast, verwende das Dropdownmenü, um den Branch auszuwählen, der das zu veröffentlichende Projekt enthält.
 
    
-   ![Screenshot of dropdown to choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+   ![Screenshot der Dropdownliste zum Auswählen eines Branches](/assets/images/help/releases/releases-choose-branch.png)
 
    
 
 {%- data reusables.releases.previous-release-tag %}
-1. Type a title and description for your release.
-   {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-   If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
-   {%- endif %}
-   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
+1. Gib einen Titel und eine Beschreibung für deinen Release ein.
+   {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} Wenn du über @mention jemanden in der Beschreibung erwähnst, enthält die veröffentlichte Version einen Abschnitt **Mitwirkende** mit einer Avatarliste aller erwähnten Benutzer.
+   {%- endif %} {% ifversion fpt or ghec or ghes > 3.3 %} Alternativ kannst du deine Versionshinweise automatisch generieren, indem du auf {% ifversion previous-release-tag %}**Versionshinweise generieren**{% else %}**Versionshinweise automatisch generieren**{% endif %} klickst.{% endif %}{% ifversion previous-release-tag %}
 
-   ![Screenshot of the releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
+   ![Screenshot der Releasebeschreibung](/assets/images/help/releases/releases_description_auto.png){% else %}
 
-   ![Screenshot of the releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
+   ![Screenshot der Releasebeschreibung](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
 
-1. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
+1. Um optional binäre Dateien wie kompilierte Programme in deinen Release einzubinden, ziehe die Dateien mit Drag-and-Drop herüber oder wähle die Dateien manuell im Feld für Binärdateien.
 
-   ![Animated GIF of Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
+   ![Animierte GIF-Datei zum Bereitstellen einer DMG mit dem Release](/assets/images/help/releases/releases_adding_binary.gif)
 
-1. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
+1. Um Benutzer*innen darüber zu informieren, dass das Release nicht produktionsbereit und möglicherweise instabil ist, wähle **Dies ist eine Vorabversion** aus.
 
-   ![Screenshot of the checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
+   ![Screenshot des Kontrollkästchens zum Markieren eines Releases als Vorabversion](/assets/images/help/releases/prerelease_checkbox.png)
 
 {%- ifversion releases-set-latest-release %} 
-1. Optionally, you can select **Set as latest release**. If you do not select this option, the latest release label will automatically be assigned based on semantic versioning.
+1. Optional kannst du **Als neueste Version festlegen** auswählen. Wenn du diese Option nicht auswählst, wird die neueste Versionsbezeichnung automatisch auf Basis der semantischen Versionierung zugewiesen.
 
-   ![Screenshot of the checkbox to mark a release as the latest release](/assets/images/help/releases/latest-release-checkbox.png)
+   ![Screenshot des Kontrollkästchens zum Markieren einer Version als neuestes Release](/assets/images/help/releases/latest-release-checkbox.png)
 
 {%- endif %}  
 {%- ifversion discussions %}
-1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
+1. Wenn {% data variables.product.prodname_discussions %} in deinem Repository aktiviert sind, kannst du alternativ **Erstellen einer Diskussion für dieses Release** und dann das Dropdownmenü **Kategorie** auswählen und auf eine Kategorie für die Releasediskussion klicken.
 
-   ![Screenshot of the checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+   ![Screenshot des Kontrollkästchens zum Erstellen einer Releasediskussion und des Dropdownmenüs zum Auswählen einer Kategorie](/assets/images/help/releases/create-release-discussion.png)
 
 {%- endif %}
-1. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
-   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
+1. Wenn du dein Release veröffentlichen möchtest, klicke auf **Release veröffentlichen**. Wenn du später an dem Release arbeiten möchtest, klicke auf **Entwurf speichern**.
+   ![Die Schaltflächen „Release veröffentlichen“ und „Entwurf speichern“](/assets/images/help/releases/release_buttons.png)
 
-   {%- ifversion fpt or ghec or ghae > 3.3 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Screenshot of your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+   {%- ifversion fpt or ghec or ghae > 3.3 %} Du kannst die veröffentlichten Releases oder die Entwürfe anschließend im Releasefeed deines Repositorys anzeigen. Weitere Informationen findest du unter [Screenshot der Versionen und Tags deines Repositorys](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags).
 
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
-   ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-   {% else %}
-   ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
-   {% endif %}
-   {%- endif %}
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %} ![Veröffentlichtes Release mit @mentionedMitwirkenden](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png) {% else %} ![Veröffentlichtes Release mit @mentionedMitwirkenden](/assets/images/help/releases/releases-overview-with-contributors.png) {% endif %} {%- endif %}
 
 {% endwebui %}
 
@@ -103,70 +99,60 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 {% data reusables.cli.cli-learn-more %}
 
-1. To create a release, use the `gh release create` subcommand. Replace `tag` with the desired tag for the release.
+1. Verwende den Unterbefehl `gh release create`, um ein Release zu erstellen. Ersetze `tag` durch das gewünschte Tag für das Release.
 
    ```shell
    gh release create TAG
    ```
 
-2. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
+2. Befolge die interaktiven Eingabeaufforderungen. Du kannst Argumente angeben, um diese Eingabeaufforderungen zu überspringen. Weitere Informationen zu möglichen Argumenten findest du [im {% data variables.product.prodname_cli %}-Handbuch](https://cli.github.com/manual/gh_release_create). Mit diesem Befehl wird beispielsweise ein Vorabrelease mit dem angegebenen Titel und den entsprechenden Hinweisen erstellt.
 
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %} Wenn du @mention{% data variables.product.product_name %}-Benutzer in den Hinweisen erwähnst, enthält das veröffentlichte Release auf {% data variables.product.prodname_dotcom_the_website %} den Abschnitt **Mitwirkende**, in dem eine Avatarliste aller erwähnten Benutzer enthalten ist.
 {% endif %}
 
 {% endcli %}
 
-## Editing a release
+## Einen Release bearbeiten
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
-3. On the right side of the page, next to the release you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
-  ![Edit a release](/assets/images/help/releases/edit-release-pencil.png)
-{% else %}
-3. On the right side of the page, next to the release you want to edit, click **Edit release**.
-  ![Edit a release](/assets/images/help/releases/edit-release.png)
-{% endif %}
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
-  ![Update a release](/assets/images/help/releases/update-release.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %} {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
+3. Klicke im rechten Abschnitt der Seite neben dem Release, das du bearbeiten möchtest, auf {% octicon "pencil" aria-label="The edit icon" %}.
+  ![Bearbeiten eines Releases](/assets/images/help/releases/edit-release-pencil.png) {% else %}
+3. Klicke im rechten Abschnitt der Seite neben dem Release, das du bearbeiten möchtest, auf **Release bearbeiten**.
+  ![Bearbeiten eines Releases](/assets/images/help/releases/edit-release.png) {% endif %}
+4. Bearbeite die Details des Releases im Formular, und klicke dann auf **Release aktualisieren**.{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} Wenn du eine der Erwähnungen (@mentions) der GitHub-Benutzer in der Beschreibung entfernst bzw. hinzufügst, werden diese Benutzer aus der Avatarliste im Abschnitt **Mitwirkende** des Releases entfernt oder ihr hinzugefügt.{% endif %} ![Aktualisieren eines Releases](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
 
 {% cli %}
 
-Releases cannot currently be edited with {% data variables.product.prodname_cli %}.
+Releases können derzeit nicht mit {% data variables.product.prodname_cli %} bearbeitet werden.
 
 {% endcli %}
 
-## Deleting a release
+## Einen Release löschen
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
-3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Delete a release](/assets/images/help/releases/delete-release-trash.png)
-{% else %}
-3. Click the name of the release you wish to delete.
-  ![Link to view release](/assets/images/help/releases/release-name-link.png)
-4. In the upper-right corner of the page, click **Delete**.
-  ![Delete release button](/assets/images/help/releases/delete-release.png)
-{% endif %}
-5. Click **Delete this release**.
-  ![Confirm delete release](/assets/images/help/releases/confirm-delete-release.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %} {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
+3. Klicke im rechten Abschnitt der Seite neben dem Release, das du löschen möchtest, auf {% octicon "trash" aria-label="The trash icon" %}.
+  ![Löschen eines Releases](/assets/images/help/releases/delete-release-trash.png) {% else %}
+3. Klicke auf den Namen des Release, den du löschen willst.
+  ![Link zur Ansicht des Releases](/assets/images/help/releases/release-name-link.png)
+4. Klicke in der oberen rechte Ecke der Seite auf **Löschen**.
+  ![Schaltfläche „Release löschen“](/assets/images/help/releases/delete-release.png) {% endif %}
+5. Klicke auf **Dieses Release löschen**.
+  ![Bestätigen des Löschens des Releases](/assets/images/help/releases/confirm-delete-release.png)
 
 {% endwebui %}
 
 {% cli %}
 
-1. To delete a release, use the `gh release delete` subcommand. Replace `tag` with the tag of the release to delete. Use the `-y` flag to skip confirmation.
+1. Verwende den Unterbefehl `gh release delete`, um ein Release zu löschen. Ersetze `tag` durch das Tag des Releases, das gelöscht werden soll. Verwende das Flag `-y`, um das Bestätigen zu überspringen.
 
    ```shell
    gh release delete TAG -y

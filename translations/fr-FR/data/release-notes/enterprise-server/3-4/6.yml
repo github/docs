@@ -1,36 +1,34 @@
 date: '2022-07-21'
 sections:
   security_fixes:
-    - "**MEDIUM**: Prevents an attack where a server-side request forgery (SSRF) could potentially force the Subversion (SVN) bridge to execute remote code by injecting arbitrary data into Memcached." 
-    - "**MEDIUM**: Prevents an attacker from executing Javascript code by exploiting a cross-site scripting (XSS) vulnerability in dropdown UI elements within the GitHub Enterprise Server web interface." 
-    - Updates Grafana to version 7.5.16, which addresses various security vulnerabilities including [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) and [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g). 
-    - Packages have been updated to the latest security versions.
-    - "**MEDIUM**: A stored XSS vulnerability was identified in GitHub Enterprise Server that allowed the injection of arbitrary attributes. This injection was blocked by Github's Content Security Policy (CSP). This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733).  [Updated: 2022-07-31]"
-    - "**MEDIUM**: A vulnerability involving deserialization of untrusted data was identified in GitHub Enterprise Server that could potentially lead to remote code execution on the Subversion (SVN) bridge. To exploit this vulnerability, an attacker would need to gain access via a server-side request forgery (SSRF) that would let an attacker control the data being deserialized. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23734](https://www.cve.org/CVERecord?id=CVE-2022-23734)."
+    - "**MOYENNE** : Empêche une attaque où une falsification de requête côté serveur (SSRF) pouvait potentiellement forcer le pont Subversion (SVN) à exécuter du code à distance en injectant des données arbitraires dans Memcached." 
+    - "**MOYENNE** : Empêche un attaquant d’exécuter du code JavaScript en exploitant une vulnérabilité XSS (cross-site scripting) dans les éléments de l’interface utilisateur déroulante de l’interface web de GitHub Enterprise Server." 
+    - "Mise à jour de Grafana vers la version 7.5.16, qui corrige diverses vulnérabilités de sécurité, notamment [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) et [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)." 
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+    - "**MOYENNE** : Une vulnérabilité XSS stockée a été identifiée dans GitHub Enterprise Server, permettant l’injection d’attributs arbitraires. Cette injection a été bloquée par la stratégie de sécurité du contenu (CSP) de Github. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty et a été affectée au numéro [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733). [Mise à jour : 2022-07-31]"
   bugs:
-    - In some cases, the collectd daemon could consume excess memory. 
-    - In some cases, backups of rotated log files could accumulate and consume excess storage. 
-    - After an upgrade to a new feature release and subsequent configuration run, Elasticsearch could log excessive exceptions while rebuilding indices. 
-    - In some cases where a protected branch required more than one approving review, a pull request could be merged with fewer than the required number of approving reviews. 
-    - On instances using LDAP authentication, the authentication prompt for sudo mode incorrectly placed the cursor within the password field by default when text fields for both a username and password were visible. 
-    - In some cases, scheduled GitHub Actions workflows could become disabled.
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
+    - "Dans certains cas, le démon collectd pouvait consommer une quantité excessive de mémoire." 
+    - "Dans certains cas, les sauvegardes des fichiers journaux en rotation pouvaient s’accumuler et consommer un excès de stockage." 
+    - "Après une mise à niveau vers une nouvelle mise en production de fonctionnalité et une exécution de configuration ultérieure, Elasticsearch pouvait enregistrer des exceptions excessives lors de la reconstruction des indices." 
+    - "Dans certains cas, lorsqu’une branche protégée nécessitait plus d’une révision approuvée, une demande de retrait pouvait être fusionnée avec moins que le nombre requis de révisions approuvées." 
+    - "Sur les instances utilisant l’authentification LDAP, l’invite d’authentification pour le mode sudo plaçait incorrectement le curseur dans le champ du mot de passe par défaut lorsque les champs de texte pour un nom d’utilisateur et un mot de passe étaient visibles." 
+    - "Dans certains cas, les workflows GitHub Actions programmés pouvaient être désactivés."
+    - "Le point de terminaison « [Obtenir les validateurs actifs de GitHub Advanced Security pour une organisation](/rest/billing#get-github-advanced-security-active-committers-for-an-organization) » de l’API de facturation renvoie désormais les en-têtes `Link` pour fournir des informations sur la pagination." 
+    - "Le point de terminaison « [Obtenir les validateurs actifs de GitHub Advanced Security pour une organisation](/rest/billing#get-github-advanced-security-active-committers-for-an-organization) » de l’API de facturation renvoie désormais le nombre correct de validateurs totaux." 
   changes:
-    - The `ghe-set-password` command-line utility starts required services automatically when the instance is booted in recovery mode. 
-    - Metrics for `aqueduct` background processes are gathered for Collectd forwarding and display in the Management Console. 
-    - The location of the database migration and configuration run log, `/data/user/common/ghe-config.log`, is now displayed on the page that details a migration in progress. 
+    - L’utilitaire de ligne de commande `ghe-set-password` démarre automatiquement les services requis lorsque l’instance est démarrée en mode récupération. 
+    - Les métriques des processus d’arrière-plan `aqueduct` sont collectées pour le transfert Collectd et l’affichage dans la console de gestion. 
+    - "L’emplacement du journal d’exécution de la migration et de la configuration de la base de données, `/data/user/common/ghe-config.log`, est maintenant affiché sur la page qui détaille une migration en cours." 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - |Après avoir enregistré un exécuteur auto-hébergé avec le paramètre `--ephemeral` à plus d’un niveau (par exemple, entreprise et organisation), l’exécuteur peut rester bloqué dans un état d’inactivité et nécessiter un nouvel enregistrement. [Mise à jour : 2022-06-17]
+
+|
+    - "Après la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.4, des versions peuvent sembler manquer dans les référentiels. Cela peut se produire lorsque les migrations d’index Elasticsearch requises n’ont pas été effectuées avec succès."
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
-    - |
-      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]

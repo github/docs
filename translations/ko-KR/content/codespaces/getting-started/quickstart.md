@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
+title: '{% data variables.product.prodname_github_codespaces %}에 대한 빠른 시작'
 shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
-intro: 'Try out {% data variables.product.prodname_github_codespaces %} in 5 minutes.'
+intro: '5분 만에 {% data variables.product.prodname_github_codespaces %}를 사용해 보세요.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -11,103 +11,108 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-quickstart
+ms.openlocfilehash: f35fa87711ff3a7c33ed252d0d1e87865af619bc
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158655'
 ---
+## 소개
 
-## Introduction
+이 가이드에서는 템플릿 리포지토리에서 codespace를 만들고 codespace 내에서 사용할 수 있는 몇 가지 필수 기능을 탐색합니다. 처음에는 {% data variables.product.prodname_github_codespaces %}의 기본 편집기인 {% data variables.product.prodname_vscode %}의 브라우저 버전에서 작업합니다. 이 빠른 시작을 시도한 후 다른 편집기에서 {% data variables.product.prodname_codespaces %}를 사용할 수 있으며 기본 편집기를 변경할 수 있습니다. 링크는 이 가이드의 끝에 제공됩니다.
 
-In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
+이 빠른 시작에서는 codespace를 만들고, 전달된 포트에 연결하여 실행 중인 애플리케이션을 보고, codespace를 새 리포지토리에 게시하고, 확장을 사용하여 설정을 개인 설정하는 방법을 알아봅니다.
 
-From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
+{% data variables.product.prodname_github_codespaces %}의 작동 방식에 대한 자세한 내용은 “[{% data variables.product.prodname_github_codespaces %}에 대한 심층 분석](/codespaces/getting-started/deep-dive)” 가이드를 참조하세요.
 
-For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
+## codespace 만들기
 
-## Creating your codespace
-
-1. Navigate to the [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) template repository.
+1. [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) 템플릿 리포지토리로 이동합니다.
 {% data reusables.codespaces.open-template-in-codespace-step %}
 
-## Running the application
+## 애플리케이션 실행
 
-Once your codespace is created, the template repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
+codespace가 만들어지면 템플릿 리포지토리가 자동으로 복제됩니다. 이제 애플리케이션을 실행하고 브라우저에서 시작할 수 있습니다.
 
-1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
+1. 터미널이 사용 가능해지면 `npm run dev` 명령을 입력합니다. 이 예제에서는 Node.js 프로젝트를 사용하고, 이 명령은 파일에서 `package.json` "dev"라는 레이블이 지정된 스크립트를 실행하여 샘플 리포지토리에 정의된 웹 애플리케이션을 시작합니다.
    
-   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   ![터미널의 npm run dev](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
-   If you're following along with a different application type, enter the corresponding start command for that project.
+   다른 애플리케이션 유형을 따르는 경우 해당 프로젝트에 해당하는 시작 명령을 입력합니다.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
+2. 애플리케이션이 시작되면 codespace는 애플리케이션이 실행 중인 포트를 인식하고 전달되었음을 알리는 프롬프트를 표시합니다. 
 
-   ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
+   ![포트 전달 "알림" 알림](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-3. Click **Open in Browser** to view your running application in a new tab.
+3. **브라우저에서 열기** 를 클릭하여 새 탭에서 실행 중인 애플리케이션을 봅니다.
 
-## Edit the application and view changes
+## 애플리케이션 편집 및 변경 내용 보기
 
-1. Switch back to your codespace and open the `haikus.json` file by clicking it in the Explorer.
+1. codespace로 다시 전환하고 탐색기에서 파일을 클릭하여 엽니다 `haikus.json` .
 
-2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
+2. 첫 번째 haiku의 `text` 필드를 편집하여 고유한 haiku로 애플리케이션을 개인 설정합니다.
 
-3. Go back to the running application tab in your browser and refresh to see your changes.
+3. 브라우저에서 실행 중인 애플리케이션 탭으로 돌아가서 새로 고침하여 변경 내용을 확인합니다.
    
-   {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
+   {% octicon "light-bulb" aria-label="The lightbulb icon" %} 탭을 닫은 경우 포트 패널을 열고 실행 중인 포트 **에 대해 브라우저에서 열기** 아이콘을 클릭합니다.
 
-   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
+   ![포트 전달 패널](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-## Committing and pushing your changes
+## 변경 내용 커밋 및 푸시
 
-Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
+이제 몇 가지 변경을 수행했으므로 통합 터미널 또는 원본 뷰를 사용하여 새 리포지토리에 작업을 게시할 수 있습니다.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. 변경 내용을 스테이징하려면 파일 옆을 `haikus.json` 클릭하거나 여러 파일을 변경하고 모두 스테이징하려는 경우 **변경 내용** 옆에 있는 를 클릭합니다 **+**.
 
-   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![스테이징 단추가 강조 표시된 소스 제어 사이드바](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-2. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
+2. 준비된 변경 내용을 커밋하려면 변경 내용을 설명하는 커밋 메시지를 입력한 다음 **커밋** 을 클릭합니다.
 
-   ![Source control side bar with a commit message](/assets/images/help/codespaces/vscode-commit-button.png)
+   ![커밋 메시지가 있는 소스 제어 사이드바](/assets/images/help/codespaces/vscode-commit-button.png)
 
-3. Click **Publish Branch**.
+3. **분기 게시** 를 클릭합니다.
    
-   ![Screenshot of the "Publish branch" button in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
+   ![VS Code의 "분기 게시" 단추 스크린샷](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-4. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.company_short %} private repository** or **Publish to {% data variables.product.company_short %} public repository**.
+4. "리포지토리 이름" 드롭다운에서 새 리포지토리의 이름을 입력한 다음 **{% data variables.product.company_short %} 프라이빗 리포지토리에 게시** 또는 **{% data variables.product.company_short %} 퍼블릭 리포지토리에 게시** 를 선택합니다.
    
-   ![Screenshot of the "Repository Name" dropdown in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
+   ![VS Code의 "리포지토리 이름" 드롭다운 스크린샷](/assets/images/help/codespaces/choose-new-repository.png)
 
-   The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
-5. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.company_short %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
+   새 리포지토리의 소유자는 codespace를 만든 {% data variables.product.prodname_dotcom %} 계정이 됩니다.
+5. 편집기의 오른쪽 아래 모서리에 표시되는 팝업에서 **{% data variables.product.company_short %}에서 열기를 클릭하여 {% data** variables.product.prodname_dotcom_the_website %}에서 새 리포지토리를 봅니다. 새 리포지토리에서 파일을 보고 `haikus.json` codespace에서 변경한 내용이 리포지토리에 성공적으로 푸시되었는지 확인합니다.
    
-   ![Screenshot of the "Open in GitHub" pop-up in VS Code](/assets/images/help/codespaces/open-on-github.png)
+   ![VS Code의 "GitHub에서 열기" 팝업 스크린샷](/assets/images/help/codespaces/open-on-github.png)
 
-## Personalizing with an extension
+## 확장을 사용하여 개인 설정
 
-When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the Visual Studio Code Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
+브라우저 또는 {% data variables.product.prodname_vscode %} 데스크톱 애플리케이션을 사용하여 codespace에 연결하는 경우 편집기에서 직접 Visual Studio Code Marketplace에 액세스할 수 있습니다. 이 예제에서는 테마를 변경하는 {% data variables.product.prodname_vscode_shortname %} 확장을 설치하지만 워크플로에 유용한 확장을 설치할 수 있습니다.
 
-1. In the left sidebar, click the Extensions icon.
-1. In the search bar, type `fairyfloss` and click **Install**.
+1. 왼쪽 사이드바에서 확장 아이콘을 클릭합니다.
+1. 검색 창에서 를 입력 `fairyfloss` 하고 **설치** 를 클릭합니다.
 
-   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
+   ![확장 추가](/assets/images/help/codespaces/add-extension.png)
 
-1. Select the `fairyfloss` theme by selecting it from the list.
+1. 목록에서 `fairyfloss` 테마를 선택하여 선택합니다.
 
-   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
+   ![fairyfloss 테마 선택](/assets/images/help/codespaces/fairyfloss.png)
 
-If you are using a codespace in the browser, or in the {% data variables.product.prodname_vscode %} desktop application, and you have [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) turned on, any changes you make to your editor setup in the current codespace, such as changing your theme or keyboard bindings, are automatically synced to any instances of {% data variables.product.prodname_vscode %} that are signed into your {% data variables.product.prodname_dotcom %} account and to any other codespaces you create.
+브라우저 또는 {% data variables.product.prodname_vscode %} 데스크톱 애플리케이션에서 codespace를 사용하고 있고 [설정 동기화](https://code.visualstudio.com/docs/editor/settings-sync) 가 켜져 있는 경우 테마 또는 키보드 바인딩 변경과 같이 현재 codespace의 편집기 설정에 대한 변경 내용은 {% variables.product.prodname_dotcom data variables.product.prodname_vscode %} 계정에 로그인된 모든 인스턴스와 사용자가 만든 다른 코드스페이스에 자동으로 동기화됩니다.
 
-## Next steps
+## 다음 단계
 
-You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
+codespace 내에서 첫 번째 애플리케이션을 성공적으로 만들고, 개인화하고, 실행했지만 탐색할 것이 훨씬 더 많습니다. 다음은 {% data variables.product.prodname_github_codespaces %}을(를) 사용하여 다음 단계를 수행하는 데 유용한 리소스입니다.
 
-* "[Deep dive](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-* "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
-* "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+* "[심층 분석](/codespaces/getting-started/deep-dive)": 이 빠른 시작에서는 {% data variables.product.prodname_github_codespaces %}의 몇 가지 기능을 제공했습니다. 심층 분석에서는 기술적인 관점에서 이러한 영역을 살펴봅니다.
+* "[리포지토리에 개발 컨테이너 구성 추가](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)": 이 가이드에서는 특정 언어로 {% data variables.product.prodname_github_codespaces %}를 사용하도록 리포지토리를 설정하는 방법에 대한 정보를 제공합니다.
+* "[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)": 이 가이드에서는 프로젝트에 대한 {% data variables.product.prodname_codespaces %}에 대한 사용자 지정 구성을 만드는 방법에 대한 세부 정보를 제공합니다.
 
-## Further reading
+## 추가 정보
 
-* "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-* "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
-* "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-* "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)"
-* "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-* "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* "[조직에 {% data variables.product.prodname_github_codespaces %} 사용](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+* "[{% data variables.product.prodname_vscode %}에서 {% data variables.product.prodname_github_codespaces %} 사용](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
+* "[JetBrains IDE에서 {% data variables.product.prodname_github_codespaces %} 사용](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
+* "[{% data variables.product.prodname_github_codespaces %}와 함께 {% data variables.product.prodname_cli %} 사용](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)"
+* "[{% data variables.product.prodname_github_codespaces %}에 대한 기본 편집기 설정](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+* "[조직에서 {% data variables.product.prodname_github_codespaces %}의 비용 관리](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

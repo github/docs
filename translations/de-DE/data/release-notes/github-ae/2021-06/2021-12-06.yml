@@ -1,0 +1,187 @@
+date: '06.12.2021'
+friendlyDate: '6. Dezember 2021'
+title: '6. Dezember 2021'
+currentWeek: false
+sections:
+  features:
+    - heading: 'Verwaltung'
+      notes:
+        - |Ab sofort können Kund*innen mit einem aktiven oder einem Testabonnement für {% data variables.product.product_name %} {% data variables.product.product_name %}-Ressourcen aus dem [Azure-Portal](https://portal.azure.com/signin/index/) bereitstellen. Dabei muss das Azure-Abonnement über ein Featureflag verfügen, um auf die {% data variables.product.product_name %}-Ressourcen im Portal zugreifen zu können. Wende dich zur Überprüfung der Berechtigung deines Azure-Abonnements an den Konto-Manager bzw. die Konto-Managerin oder an das {% data variables.contact.contact_enterprise_sales %}. Weitere Informationen findest du unter [Einrichten einer Testversion von {% data variables.product.prodname_ghe_managed %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal).
+
+|
+    - heading: 'GitHub-Aktionen'
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions) ist jetzt für {% data variables.product.product_name %} allgemein verfügbar. GitHub Actions stellt eine leistungsstarke und flexible Lösung für CI/CD und die Automatisierung von Workflows dar. Weitere Informationen findest du unter [Einführung in GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions).
+
+|
+        - |Der Standardrunnertyp in {% data variables.product.product_name %} sind selbstgehostete Runner, die jetzt für GitHub Actions allgemein verfügbar sind. Mit selbstgehosteten Runnern kannst du eigene Computer oder Container für die Ausführung von GitHub Actions-Aufträgen verwalten. Weitere Informationen findest du unter [Informationen zu selbstgehosteten Runnern](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners) und [Hinzufügen von selbstgehosteten Runnern](/actions/hosting-your-own-runners/adding-self-hosted-runners).
+
+|
+        - |Ab sofort sind Umgebungen, Umgebungsschutzregeln und Umgebungsgeheimnisse für GitHub Actions in {% data variables.product.product_name %} allgemein verfügbar. Weitere Informationen findest du unter [Umgebungen](/actions/reference/environments).
+
+|
+        - |Mit GitHub Actions wird jetzt bei jeder Ausführung eine visuelle Darstellung des Workflows generiert. Die Visualisierung von Workflows ermöglicht Folgendes:
+
+
+
+- Anzeigen und Verstehen komplexer Workflows
+
+- Nachverfolgen des Workflowstatus in Echtzeit
+
+- Schnelles Beheben von Problemen bei der Ausführung durch einen einfachen Zugriff auf Protokolle und Auftragsmetadaten
+
+- Überwachen des Status von Bereitstellungsaufträgen und einfaches Zugreifen auf Bereitstellungsziele
+
+
+
+Weitere Informationen findest du unter [Verwenden von Visualisierungsdiagrammen](/actions/managing-workflow-runs/using-the-visualization-graph).
+
+|
+        - |Mit GitHub Actions können jetzt die Berechtigungen für das Geheimnis „GITHUB_TOKEN“ verwaltet werden. „GITHUB_TOKEN“ ist ein automatisch generierter Schlüssel für authentifizierte Aufrufe der API für {% data variables.product.product_name %} bei der Ausführung von Workflows. GitHub Actions generiert für jeden Auftrag ein neues Token, das nach Beenden des Auftrags abläuft. Das Token verfügt über Schreibberechtigungen für eine Reihe von [API-Endpunkten](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token). Dies gilt nicht für Pull Requests aus Forks, für die immer eine Leseberechtigung vorhanden ist. Diese neuen Einstellungen ermöglichen die Umsetzung des Prinzips der geringsten Rechte in deinen Workflows. Weitere Informationen findest du unter [Authentifizierung in einem Workflow](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token).
+
+|
+        - |Ab sofort unterstützt GitHub Actions die Möglichkeit, Workflows vom Typ „push“ und „pull_request“ zu überspringen, indem in der Commit-Nachricht nach einigen häufig verwendeten Schlüsselwörtern gesucht wird.
+
+|
+        - |Ab Version 1.9 der GitHub CLI ist GitHub Actions in deinem Terminal verfügbar. Weitere Informationen findest du unter [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/).
+
+|
+    - heading: 'Codeüberprüfung'
+      notes:
+        - |Die Codeüberprüfung befindet sich für {% data variables.product.product_name %} derzeit in der Betaphase. Weitere Informationen findest du unter [Informationen zur Codeüberprüfung](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning).
+
+|
+    - heading: 'Geheime Überprüfung'
+      notes:
+        - |Mit der Betaversion benutzerdefinierter Muster ist es ab sofort möglich, eigene Muster für die Geheimnisüberprüfung in {% data variables.product.product_name %} anzugeben. Du kannst Muster für Repositorys, Organisationen und das gesamte Unternehmen angeben. Wird ein neues Muster angegeben, durchsucht die Geheimnisüberprüfung den gesamten Git-Verlauf eines Repositorys sowie alle neuen Commits nach dem Muster. Weitere Informationen findest du unter [Definieren benutzerdefinierter Muster für die Geheimnisüberprüfung](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning).
+
+|
+    - heading: 'GitHub Connect'
+      notes:
+        - |GitHub Connect ist jetzt für {% data variables.product.product_name %} als Betaversion verfügbar. Mit GitHub Connect kommt {% data variables.product.product_location %} in den Genuss der Vorteile der weltweit größten Open-Source-Community. Auf diese Weise können Benutzer*innen Suchergebnisse von {% data variables.product.prodname_dotcom_the_website %} in {% data variables.product.product_name %} anzeigen, die Anzahl von Beiträgen in {% data variables.product.product_name %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen sowie GitHub Actions über {% data variables.product.prodname_dotcom_the_website %} nutzen. Weitere Informationen findest du unter [Verwalten von Verbindungen zwischen Unternehmenskonten](/admin/configuration/managing-connections-between-your-enterprise-accounts).
+
+|
+    - heading: 'GitHub Packages'
+      notes:
+        - |Es ist jetzt möglich, ein beliebiges Paket oder eine Paketversion für GitHub Packages aus der Webbenutzeroberfläche von {% data variables.product.product_name %} zu löschen. Außerdem kannst du das Löschen eines Pakets oder einer Paketversion innerhalb von 30 Tagen rückgängig machen. Weitere Informationen findest du unter [Löschen und Wiederherstellen eines Pakets](/packages/learn-github-packages/deleting-and-restoring-a-package).
+
+|
+        - |Die npm-Registrierung für GitHub Packages und {% data variables.product.prodname_dotcom_the_website %} gibt jetzt in Metadatenantworten keine Zeitwerte mehr zurück, was zu einer erheblichen Leistungssteigerung führt. {% data variables.product.company_short %} gibt weiterhin Zeitwerte zurück.
+
+|
+    - heading: 'Überwachungsprotokollierung'
+      notes:
+        - |Ab sofort sind Ereignisse für Pull Requests und Pull-Request-Reviews sowohl für [Unternehmen](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) als auch für [Organisationen](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) im Überwachungsprotokoll enthalten. Mit diesen Ereignissen können Administrator*innen Pull Request-Aktivitäten besser überwachen und die Einhaltung von Sicherheits- und Complianceanforderungen sicherstellen. Du kannst die Ereignisse über die Webbenutzeroberfläche anzeigen, im CSV- oder JSON-Format exportieren oder über die REST-API darauf zugreifen. Du kannst im Überwachungsprotokoll auch nach bestimmten Pull Request-Ereignissen suchen.
+
+|
+        - |Weitere Ereignisse für GitHub Actions sind jetzt sowohl für [Unternehmen](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) als auch für [Organisationen](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) im Überwachungsprotokoll enthalten.
+
+
+
+- Löschen oder erneutes Ausführen eines Workflows
+
+- Aktualisieren der Version eines selbstgehosteten Runners
+
+|
+    - heading: 'Authentifizierung'
+      notes:
+        - |GitHub AE unterstützt jetzt offiziell Okta für die einmalige SAML-Anmeldung (Single Sign-On, SSO) und die Benutzerbereitstellung mit SCIM. In Okta kannst du auch Gruppen zu Teams in GitHub AE zuordnen. Weitere Informationen findest du unter [Konfigurieren der Authentifizierung und Bereitstellung für Unternehmen mit Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta) und [Zuordnen von Okta-Gruppen zu Teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams).
+
+|
+        - |Das Format der Authentifizierungstoken für {% data variables.product.product_name %} wurde geändert. Die Änderung betrifft das Format persönlicher Zugriffstoken und von Zugriffstoken für OAuth-Apps sowie von Aktualisierungstoken und Token zwischen Benutzer und Server sowie Server und Server für GitHub Apps. Es wird von {% data variables.product.company_short %} empfohlen, vorhandene Token so schnell wie möglich zu aktualisieren, um die Sicherheit zu erhöhen. Auf diese Weise werden die Token bei der Geheimnisüberprüfung erkannt. Weitere Informationen findest du unter [Authentifizierung bei {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats) und [Informationen zur Geheimnisüberprüfung](/code-security/secret-security/about-secret-scanning).
+
+|
+        - |Durch Hinzufügen eines SSH-Schlüssels vom Typ `sk-ecdsa-sha2-nistp256@openssh.com` zu deinem Konto kannst du ab sofort SSH-Verbindungen mit {% data variables.product.product_name %} mithilfe eines FIDO2-Sicherheitsschlüssels authentifizieren. SSH-Sicherheitsschlüssel speichern geheime Schlüssel auf einem separaten Hardwaregerät, für dessen Betrieb eine Verifizierung (z. B. durch Tippen) erforderlich ist. Du kannst die Sicherheit weiter erhöhen, indem du den Schlüssel auf einem separaten Hardwaregerät speicherst und für den SSH-Schlüssel eine physische Interaktion erzwingst. Da der Schlüssel auf einem Hardwaregerät gespeichert ist und nicht extrahiert werden kann, kann er auch nicht durch eine auf dem Computer ausgeführte Software gelesen oder gestohlen werden. Durch die erforderliche physische Interaktion wird die unautorisierte Nutzung des Sicherheitsschlüssels verhindert, da er erst nach einer physischen Interaktion genutzt werden kann. Weitere Informationen findest du unter [Generieren eines neuen SSH-Schlüssels und Hinzufügen des Schlüssels zum SSH-Agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key).
+
+|
+        - |GCM Core (Git Credential Manager) unterstützt jetzt ab Version 2.0.452 die sichere Speicherung von Anmeldeinformationen und die Multi-Faktor-Authentifizierung für {% data variables.product.product_name %}. GCM Core mit Unterstützung für {% data variables.product.product_name %} ist in [Git für Windows](https://gitforwindows.org) ab Version 2.32 enthalten. GCM Core ist nicht in Git für macOS oder Linux enthalten, kann jedoch separat installiert werden. Weitere Informationen findest du im Repository „microsoft/Git-Credential-Manager-Core“ unter [Aktuelles Release](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) und [Installationsanweisungen](https://github.com/microsoft/Git-Credential-Manager-Core/releases/).
+
+|
+    - heading: 'Benachrichtigungen'
+      notes:
+        - |Du kannst jetzt konfigurieren, über welche Ereignisse du in {% data variables.product.product_name %} benachrichtigt werden möchtest. Klicke in einem beliebigen Repository auf das Dropdownmenü {% octicon "file-code" aria-label="The code icon" %} **Überwachen** und anschließend auf **Benutzerdefiniert**. Weitere Informationen findest du unter [Konfigurieren von Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
+
+|
+    - heading: 'Issues und Pull Requests'
+      notes:
+        - |Mit der [aktuellen Version von Octicons](https://github.com/primer/octicons/releases) wird der Status von Issues und Pull Requests stärker hervorgehoben und ist dadurch leichter zu erkennen. Weitere Informationen findest du unter [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/).
+
+|
+        - |Klicke auf das Dropdownmenü **Unterhaltungen**, um alle Kommentare zu einem Pull-Request-Review auf der Registerkarte **Dateien** anzuzeigen. Du kannst auch erzwingen, dass alle Kommentare zu einem Pull-Request-Review vor dem Mergen aufgelöst werden müssen. Weitere Informationen findest du unter [Informationen zu Pull-Request-Reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations) und [Informationen zu geschützten Branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging). Weitere Informationen zum Verwalten der Schutzeinstellungen für Branches über die API findest du in der REST-API-Dokumentation unter [Branches](/rest/reference/branches#get-branch-protection) und in der GraphQL-API-Dokumentation unter [Mutationen](/graphql/reference/mutations#createbranchprotectionrule).
+
+|
+        - |Das Hochladen von Videodateien wird jetzt in {% data variables.product.product_name %} überall dort unterstützt, wo Markdown geschrieben werden kann. Du kannst Demos, Reproduktionsschritte und vieles mehr in den Kommentaren zu Issues und Pull Requests sowie in Markdowndateien (wie README-Dateien) in Repositorys teilen. Weitere Informationen findest du unter [Anfügen von Dateien](/github/writing-on-github/working-with-advanced-formatting/attaching-files).
+
+|
+        - |In {% data variables.product.product_name %} wird ab sofort ein Bestätigungsdialogfeld angezeigt, wenn du einen Review von einem Team mit mehr als 100 Mitgliedern erzwingst. Dadurch können unnötige Benachrichtigungen für große Teams verhindert werden.
+
+|
+        - |Sind einem Issue oder Pull Request weniger als 30 mögliche Personen zugewiesen, werden in der Steuerungsliste der zugewiesenen Personen alle möglichen Benutzer*innen anstelle einer begrenzten Anzahl von Vorschlägen angezeigt. Dadurch kann in kleinen Organisationen der richtige Benutzer/die richtige Benutzerin schnell gefunden werden. Weitere Informationen zum Zuweisen von Benutzer*innen zu Issues und Pull Requests findest du unter [Zuweisen von Issues und Pull Requests zu anderen {% data variables.product.company_short %} -Benutzer*innen](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).
+
+|
+        - |Es können jetzt mehrere Wörter im Kommentar zu einem Issue oder Pull Request nach dem „#“ hinzugefügt werden, um die Suche weiter einzugrenzen. Drücke <kbd>Esc</kbd>, um die Vorschläge zu verwerfen.
+
+|
+        - |Das automatische Mergen wird ab sofort automatisch deaktiviert, wenn neue Änderungen von einem oder einer Benutzer*in ohne Schreibzugriff auf das Repository gepusht werden, um das Mergen unerwarteter Änderungen zu verhindern, nachdem das automatische Mergen für einen Pull Request aktiviert wurde. Benutzer*innen ohne Schreibzugriff können den Pull Request jedoch trotzdem mit Änderungen aus dem Basisbranch aktualisieren, wenn das automatische Mergen deaktiviert ist. In {% data variables.product.product_name %} wurde das automatische Mergen für Pull Requests deaktiviert, wenn die Änderung zu einem Mergekonflikt führt, um zu vermeiden, dass ein Angreifer oder eine Angreiferin einen Mergekonflikt ausnutzt, um unerwartete Änderungen am Pull Request vorzunehmen. Weitere Informationen zum automatischen Mergen findest du unter [Automatisches Mergen eines Pull Requests](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request).
+
+|
+        - |Benutzer*innen mit Verwaltungszugriff können jetzt die Einstellung „Automatisches Mergen zulassen“ auf Repositoryebene verwalten. Diese standardmäßig deaktivierte Einstellung steuert, ob das automatische Mergen für Pull Requests im Repository verfügbar ist. Zuvor konnten nur Benutzer*innen mit Administratorzugriff diese Einstellung verwalten. Diese Einstellung kann darüber hinaus mithilfe der REST-APIs zum [Erstellen eines Repositorys](/rest/reference/repos#create-an-organization-repository) und zum [Aktualisieren eines Repositorys](/rest/reference/repos#update-a-repository) gesteuert werden. Weitere Informationen findest du unter [Verwalten des automatischen Mergens für Pull Requests in Repositorys](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository).
+
+|
+        - |Die Auswahl der zugewiesenen Personen für Issues und Pull Requests unterstützt ab sofort eine Suche nach Typ, sodass du Benutzer*innen in deiner Organisation schneller finden kannst. Außerdem wurde die Rangliste der Suchergebnisse so aktualisiert, dass Übereinstimmungen am Anfang des Benutzer- oder Profilnamens einer Person bevorzugt werden.
+
+|
+    - heading: 'Repositorys'
+      notes:
+        - |Bei der Anzeige des Commitverlaufs für eine Datei ist es jetzt möglich, durch Klicken auf {% octicon "file-code" aria-label="The code icon" %} die Datei zum angegebenen Zeitpunkt im Repositoryverlauf anzuzeigen.
+
+|
+        - |Mit der Webbenutzeroberfläche kann ab sofort ein veralteter Branch eines Forks mit dessen Upstreambranch synchronisiert werden. Bestehen zwischen den Branches keine Mergekonflikte, wird dein Branch von {% data variables.product.product_name %} im Schnelldurchlauf oder durch Mergen mit dem Upstreambranch aktualisiert. Sind Konflikte vorhanden, wirst du von {% data variables.product.product_name %} dazu aufgefordert, den Pull Request zu öffnen und die Konflikte aufzulösen. Weitere Informationen findest du unter [Synchronisieren eines Forks](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui).
+
+|
+        - |Repositorys für ein Benutzer- oder Organisationsprofil können ab sofort nach der Anzahl der Sterne sortiert werden.
+
+|
+        - |Der Endpunkt zum Vergleich zweier Commits in der Repositorys-REST-API unterstützt ab sofort die Paginierung. Dieser Endpunkt gibt eine Liste von Commits zurück, die von einem Commit oder Branch aus erreichbar sind, aber von einem anderen aus nicht. Die API kann jetzt auch die Ergebnisse für Vergleiche mit mehr als 250 Commits zurückgeben. Weitere Informationen findest du unter [Commits](/rest/reference/commits#compare-two-commits)-REST-API und [Durchlaufen mit Paginierung](/rest/guides/traversing-with-pagination).
+
+|
+        - |Wird ein Submodul in {% data variables.product.product_location %} mit einem relativen Pfad definiert, kann darauf nun in der Webbenutzeroberfläche geklickt werden. Wenn du in der Webbenutzeroberfläche auf das Submodul klickst, gelangst du zu dem verknüpften Repository. Bisher konnte nur auf Submodule mit absoluten URLs geklickt werden. Dies wird bei relativen Pfaden für Repositorys mit demselben Besitzer unterstützt, die dem Muster <code>../<em>REPOSITORY</em></code> entsprechen, oder bei relativen Pfaden für Repositorys mit einem abweichenden Besitzer, die dem Muster <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> entsprechen. Weitere Informationen zu Submodulen findest du unter [Arbeiten mit Submodulen](https://github.blog/2016-02-01-working-with-submodules/) in {% data variables.product.prodname_blog %}.
+
+|
+        - |Die Vorberechnung von Prüfsummen verkürzt die Zeit, die ein Repository gesperrt ist, erheblich, sodass mehr Schreibvorgänge sofort ausgeführt werden können und die Monorepo-Leistung verbessert wird.
+
+|
+    - heading: 'Releases'
+      notes:
+        - |Ab sofort kannst du auf alle Releases in {% data variables.product.product_name %} mit einem Emoji reagieren. Weitere Informationen findest du unter [Informationen zu Releases](/github/administering-a-repository/releasing-projects-on-github/about-releases).
+
+|
+    - heading: 'Designs'
+      notes:
+        - |Ab sofort stehen dunkle und gedimmte dunkle Designs für die Webbenutzeroberfläche zur Verfügung. {% data variables.product.product_name %} verwendet die Systemeinstellungen, wenn in {% data variables.product.product_name %} keine Designeinstellungen festgelegt wurden. Du kannst auch die Designs für Tag und Nacht anpassen. Weitere Informationen findest du unter [Verwalten von Designeinstellungen](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings).
+
+|
+    - heading: 'Markdown'
+      notes:
+        - |Bei zwei oder mehr Überschriften generieren Markdowndateien in Repositorys ab sofort automatisch ein Inhaltsverzeichnis im Header. Das Inhaltsverzeichnis ist interaktiv und mit dem entsprechenden Abschnitt verknüpft. Alle sechs Ebenen für Markdownüberschriften werden unterstützt. Weitere Informationen findest du unter [Informationen zu README-Dateien](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files).
+
+|
+        - |Markup vom Typ „code“ wird jetzt in Titeln für Issues und Pull Requests unterstützt. In Backticks eingeschlossener Text (`` ` ``) wird überall dort, wo der Titel des Issues oder des Pull Requests in der Webbenutzeroberfläche für {% data variables.product.product_name %} angezeigt wird, in einer Schriftart mit fester Breite gerendert.
+
+|
+        - |Zum Bearbeiten von Markdown in Dateien, Issues, Pull Requests oder Kommentaren kann ab sofort mit einer Tastenkombination ein Codeblock eingefügt werden. Für Mac lautet die Tastenkombination <kbd>BEFEHLSTASTE</kbd> + <kbd>E</kbd>, für andere Geräte <kbd>STRG</kbd> + <kbd>E</kbd>. Weitere Informationen findest du unter [Grundlegende Schreib- und Formatierungssyntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code).
+
+|
+        - |Wird `?plain=1` an die URL einer Markdowndatei angefügt, wird die Datei nun ohne Rendering und mit Zeilennummer angezeigt. Diese einfache Ansicht kann verwendet werden, um andere Benutzer*innen zu bestimmten Zeilen zu führen. Wenn `?plain=1#L52` angefügt wird, wird beispielsweise Zeile 52 einer Nur-Text-Markdowndatei hervorgehoben. Weitere Informationen findest du unter [Erstellen eines Permalinks zu einem Codeschnipsel](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown).
+
+|
+    - heading: 'GitHub Apps'
+      notes:
+        - |Ab sofort sind für API-Anforderungen zum Erstellen eines Installationszugriffstokens Listen zugelassener IP-Adressen für Unternehmen oder Organisationen zulässig. Dies gilt bereits für alle API-Anforderungen, die mithilfe eines Installationszugriffstokens für eine in deiner Organisation installierte GitHub-App ausgeführt werden. Derzeit berücksichtigt dieses Feature keine NSG-Regeln (Netzwerksicherheitsgruppe), die vom {% data variables.product.company_short %}-Support für {% data variables.product.product_location %} konfiguriert wurden. Weitere Informationen findest du in der REST-API-Dokumentation unter [Einschränken des Netzwerkdatenverkehrs in Unternehmen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists), [Verwalten zulässiger IP-Adressen für Organisationen](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization) und [Apps](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app).
+
+|
+    - heading: 'webhooks'
+      notes:
+        - |Mit der REST-API kann ab sofort der Status von Webhooks programmgesteuert erneut gesendet oder überprüft werden. Weitere Informationen findest du in der REST-API-Dokumentation unter [Repositorys](https://docs.github.com/en/rest/reference/repos#webhooks), [Organisationen](https://docs.github.com/en/rest/reference/orgs#webhooks) und [Apps](https://docs.github.com/en/rest/reference/apps#webhooks).
+
+|

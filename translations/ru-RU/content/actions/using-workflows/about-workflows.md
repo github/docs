@@ -1,7 +1,7 @@
 ---
-title: About workflows
+title: Сведения о рабочих процессах
 shortTitle: About workflows
-intro: 'Get a high-level overview of {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: 'Получите общие сведения о рабочих процессах {% data variables.product.prodname_actions %}, включая триггеры, синтаксис и расширенные функции.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,54 +14,59 @@ redirect_from:
 topics:
   - Workflows
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cb0b834604d49432d34cec48b0c9f27e37161804
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146180514'
 ---
-
-## About workflows
+## Сведения о рабочих процессах
 
 {% data reusables.actions.about-workflows-long %}
 
-## Workflow basics
+## Основы рабочих процессов
 
-A workflow must contain the following basic components:
+Рабочий процесс должен содержать следующие основные компоненты.
 
-1. One or more _events_ that will trigger the workflow.
-1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
-1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
+1. Одно или несколько _событий_, которые активируют рабочий процесс.
+1. Одно или несколько _заданий_, каждое из которых выполняется на компьютере _средства выполнения_ и выполняет серию из одного или нескольких _шагов_.
+1. Каждый шаг может либо запускать определенный вами сценарий, либо запускать многократно используемое расширение, которое упрощает создание рабочего процесса.
 
-For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+Дополнительные сведения об этих основных компонентах см. в разделе [Основные сведения о GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions).
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Обзор рабочего процесса](/assets/images/help/images/overview-actions-simple.png)
 
-## Triggering a workflow
+## Активация рабочего процесса
 
 {% data reusables.actions.about-triggers %}
 
-For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+Дополнительные сведения см. в разделе [Активация рабочего процесса](/actions/using-workflows/triggering-a-workflow), а полный список событий см. в разделе [События, активирующие рабочие процессы](/actions/using-workflows/events-that-trigger-workflows).
 
-## Workflow syntax
+## Синтаксис рабочего процесса
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
+Рабочий процесс определяется с помощью формата YAML. Полный справочник по синтаксису YAML для разработки рабочих процессов см. в разделе [Синтаксис рабочих процессов для GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows).
 
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[Managing workflow runs](/actions/managing-workflow-runs)."
+Дополнительные сведения об управлении выполнением рабочих процессов, таких как повторное выполнение, отмена или удаление запуска рабочего процесса, см. в разделе [Управление выполнением рабочих процессов](/actions/managing-workflow-runs).
 
-## Using starter workflows
+## Использование начальных рабочих процессов
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)" and "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+Дополнительные сведения об использовании и создании начальных рабочих процессов см. в разделах [Использование начальных рабочих процессов](/actions/using-workflows/using-starter-workflows) и [Создание начальных рабочих процессов для организации](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
-## Advanced workflow features
+## Расширенные функции рабочих процессов
 
-This section briefly describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+В этом разделе кратко описаны некоторые расширенные функции {% data variables.product.prodname_actions %}, которые помогают создавать более сложные рабочие процессы.
 
-### Storing secrets
+### Хранение секретов
 
-If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
+Если рабочие процессы обрабатывают конфиденциальные данные, например пароли или сертификаты, их можно сохранить в {% data variables.product.prodname_dotcom %} в качестве _секретов_, а затем использовать их в рабочих процессах в качестве переменных среды. Это означает, что можно создавать и совместно использовать рабочие процессы, не внедряя конфиденциальные значения непосредственно в исходный код YAML рабочего процесса.
 
-This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
+В этом примере задания показано, как ссылаться на существующий секрет в виде переменной среды и отправлять его в качестве параметра в пример команды.
 
 {% raw %}
 ```yaml
@@ -77,13 +82,13 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Дополнительные сведения см. в статье [Зашифрованные секреты](/actions/security-guides/encrypted-secrets).
 
-### Creating dependent jobs
+### Создание зависимых заданий
 
-By default, the jobs in your workflow all run in parallel at the same time. If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
+По умолчанию задания в рабочем процессе выполняются параллельно и одновременно. Если у вас есть задание, которое должно выполняться только после завершения другого задания, можно использовать ключевое слово `needs` для создания этой зависимости. Если одно из заданий завершается сбоем, все зависимые задания пропускаются. Однако если требуется, чтобы задания продолжали работу, это можно определить с помощью условного оператора `if`.
 
-In this example, the `setup`, `build`, and `test` jobs run in series, with `build` and `test` being dependent on the successful completion of the job that precedes them:
+В этом примере задания `setup`, `build` и `test` выполняются вместе, а задания `build` и `test` также зависят от успешного завершения задания, предшествующего им.
 
 ```yaml
 jobs:
@@ -103,11 +108,11 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+Дополнительные сведения см. в разделе [Определение предварительных заданий](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs).
 
-### Using a matrix
+### Использование матрицы
 
-{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} Матрица создается с помощью ключевого слова `strategy`, которое получает параметры сборки в виде массива. Например, следующая матрица будет выполнять задание несколько раз, используя разные версии Node.js.
 
 ```yaml
 jobs:
@@ -122,14 +127,14 @@ jobs:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Дополнительные сведения см. в разделе [Использование матрицы для заданий](/actions/using-jobs/using-a-matrix-for-your-jobs).
 
 {% ifversion actions-caching %}
-### Caching dependencies
+### Кэширование зависимостей
 
-If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
+Если задания регулярно используют зависимости повторно, можно рассмотреть возможность кэширования этих файлов, чтобы повысить производительность. После создания кэша он будет доступен для всех рабочих процессов в этом репозитории.
 
-This example demonstrates how to cache the ` ~/.npm` directory:
+В этом примере показано, как кэшировать каталог ` ~/.npm`:
 
 ```yaml
 jobs:
@@ -146,12 +151,12 @@ jobs:
             {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+Дополнительные сведения см. в разделе [Кэширование зависимостей для ускорения рабочих процессов](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 {% endif %}
 
-### Using databases and service containers
+### Использование баз данных и контейнеров служб
 
-If your job requires a database or cache service, you can use the [`services`](/actions/using-jobs/running-jobs-in-a-container) keyword to create an ephemeral container to host the service; the resulting container is then available to all steps in that job and is removed when the job has completed. This example demonstrates how a job can use `services` to create a `postgres` container, and then use `node` to connect to the service.
+Если для задания требуется служба базы данных или кэша, можно использовать ключевое слово[`services`](/actions/using-jobs/running-jobs-in-a-container) для создания эфемерного контейнера для размещения службы. Полученный контейнер доступен на всех шагах этого задания, а после завершения задания удаляется. В этом примере показано, как задание может использовать `services` для создания контейнера `postgres`, а затем использовать `node` для подключения к службе.
 
 ```yaml
 jobs:
@@ -173,13 +178,13 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using containerized services](/actions/using-containerized-services)."
+Дополнительные сведения см. в разделе [Использование контейнерных служб](/actions/using-containerized-services).
 
-### Using labels to route workflows
+### Использование меток для маршрутизации рабочих процессов
 
-If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+Если вам нужно, что задание обрабатывал определенный тип средства выполнения, можно использовать метки для управления местом выполнения заданий. Метки можно назначить локальному средству выполнения в дополнение к метке по умолчанию `self-hosted`. Затем вы можете ссылаться на эти метки в рабочем процессе YAML, обеспечивая предсказуемую маршрутизацию задания. {% ifversion not ghae %} Средства выполнения, размещенные в {% data variables.product.prodname_dotcom %}, имеют предопределенные метки.{% endif %}
 
-This example shows how a workflow can use labels to specify the required runner:
+В этом примере показано, как рабочий процесс может использовать метки для указания необходимого средства выполнения.
 
 ```yaml
 jobs:
@@ -187,19 +192,17 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
+Рабочий процесс будет выполняться только в средстве выполнения, которое содержит все метки из массива `runs-on`. Задание будет в первую очередь переходить к неактивным локальным средствам выполнения с указанными метками. {% ifversion fpt or ghec %}Если все из них недоступны, а в {% data variables.product.prodname_dotcom %} существует средство выполнения с указанными метками, задание перейдет к средству выполнения, размещенному в {% data variables.product.prodname_dotcom %}.{% endif %}
 
-To learn more about self-hosted runner labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+Дополнительные сведения о метках локальных средств выполнения см. в разделе [Использование меток с локальными средствами выполнения](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners).
 
-{% ifversion fpt or ghec %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+{% ifversion fpt or ghec %} Дополнительные сведения о метках средств выполнения, размещенных в {% data variables.product.prodname_dotcom %}, см. в разделе [Поддерживаемые средства выполнения и аппаратные ресурсы](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-### Reusing workflows
-{% data reusables.actions.reusable-workflows %}
-{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+### Повторное использование рабочих процессов
+{% data reusables.actions.reusable-workflows %} {% endif %}
 
-### Using environments
+### Использование сред
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+Среды можно настроить с помощью правил защиты и секретов для управления выполнением заданий в рабочем процессе. Каждое задание в рабочем процессе может ссылаться на одну среду. Чтобы задание, ссылающееся на среду, было отправлено в средство выполнения, должны быть выполнены все правила защиты среды. Дополнительные сведения см. в разделе [Использование сред для развертывания](/actions/deployment/using-environments-for-deployment).

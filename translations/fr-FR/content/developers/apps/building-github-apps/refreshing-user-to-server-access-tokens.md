@@ -1,6 +1,6 @@
 ---
-title: Refreshing user-to-server access tokens
-intro: 'To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens.'
+title: Actualisation des jetons d’accès utilisateur à serveur
+intro: 'Pour appliquer une rotation régulière des jetons et réduire l’impact d’un jeton compromis, vous pouvez configurer votre {% data variables.product.prodname_github_app %} afin d’utiliser des jetons d’accès utilisateur ayant un délai d’expiration.'
 redirect_from:
   - /apps/building-github-apps/refreshing-user-to-server-access-tokens
   - /developers/apps/refreshing-user-to-server-access-tokens
@@ -12,33 +12,39 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Refresh user-to-server access
+ms.openlocfilehash: a288fcdd7eca423c9087a1a8ca4948e043de645b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064409'
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-## About expiring user access tokens
+## À propos des jetons d’accès utilisateur ayant un délai d’expiration
 
-To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens. For more information on making user-to-server requests, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Pour appliquer une rotation régulière des jetons et réduire l’impact d’un jeton compromis, vous pouvez configurer votre {% data variables.product.prodname_github_app %} afin d’utiliser des jetons d’accès utilisateur ayant un délai d’expiration. Pour plus d’informations sur l’envoi de requêtes utilisateur à serveur, consultez « [Identification et autorisation des utilisateurs pour les applications GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) ».
 
-Expiring user tokens expire after 8 hours. When you receive a new user-to-server access token, the response will also contain a refresh token, which can be exchanged for a new user token and refresh token. Refresh tokens are valid for 6 months. 
+Les jetons utilisateur ayant un délai d’expiration expirent au bout de 8 heures. Quand vous recevez un nouveau jeton d’accès utilisateur à serveur, la réponse contient également un jeton d’actualisation, qui peut être échangé contre un nouveau jeton utilisateur et un jeton d’actualisation. Les jetons d’actualisation sont valides pendant 6 mois. 
 
-## Renewing a user token with a refresh token
+## Renouvellement d’un jeton d’utilisateur avec un jeton d’actualisation
 
-To renew an expiring user-to-server access token, you can exchange the `refresh_token` for a new access token and `refresh_token`.
+Pour renouveler un jeton d’accès utilisateur à serveur ayant un délai d’expiration, vous pouvez échanger `refresh_token` contre un nouveau jeton d’accès et `refresh_token`.
 
   `POST https://github.com/login/oauth/access_token`
 
-This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
+Cette demande de rappel vous envoie un nouveau jeton d’accès et un nouveau jeton d’actualisation.  Cette demande de rappel est similaire à la requête OAuth que vous utilisez pour échanger un `code` temporaire contre un jeton d’accès. Pour plus d’informations, consultez « [Identification et autorisation des utilisateurs pour les applications GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github) » et « [Informations de base sur l’authentification](/rest/guides/basics-of-authentication#providing-a-callback) ».
 
-### Parameters
+### Paramètres
 
-Name | Type | Description
+Nom | Type | Description
 -----|------|------------
-`refresh_token` | `string` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token.
-`grant_type` | `string` | **Required.** Value must be `refresh_token` (required by the OAuth specification).
-`client_id` | `string` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.
-`client_secret` | `string`   | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.
+`refresh_token` | `string` | **Obligatoire.** Jeton généré quand le propriétaire de l’{% data variables.product.prodname_github_app %} active les jetons ayant un délai d’expiration et émet un nouveau jeton d’accès utilisateur.
+`grant_type` | `string` | **Obligatoire.** La valeur doit être `refresh_token` (imposée par la spécification OAuth).
+`client_id` | `string` | **Obligatoire.** ID client de votre {% data variables.product.prodname_github_app %}.
+`client_secret` | `string`   | **Obligatoire.** Secret client de votre {% data variables.product.prodname_github_app %}.
 
-### Response
+### response
 
 ```json
 {
@@ -50,32 +56,30 @@ Name | Type | Description
   "token_type": "bearer"
 }
 ```
-## Configuring expiring user tokens for an existing GitHub App
+## Configuration de jetons utilisateur ayant un délai d’expiration pour une application GitHub existante
 
-You can enable or disable expiring user-to-server authorization tokens from your {% data variables.product.prodname_github_app %} settings.
+Vous pouvez activer ou désactiver les jetons d’autorisation utilisateur à serveur ayant un délai d’expiration à partir des paramètres de votre {% data variables.product.prodname_github_app %}.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-4. Click **Edit** next to your chosen {% data variables.product.prodname_github_app %}.
-  ![Settings to edit a GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **Optional Features**.
-   ![Optional features tab](/assets/images/github-apps/optional-features-option.png) 
-6. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %}
+4. Cliquez sur **Modifier** à côté de l’{% data variables.product.prodname_github_app %} de votre choix.
+  ![Paramètres de modification d’une application GitHub](/assets/images/github-apps/edit-test-app.png)
+5. Dans la barre latérale gauche, cliquez sur **Fonctionnalités facultatives**.
+   ![Onglet Fonctionnalités facultatives](/assets/images/github-apps/optional-features-option.png) 
+6. À côté de « Expiration du jeton utilisateur à serveur », cliquez sur **Accepter** ou **Refuser**. L’application de ce paramètre peut prendre quelques secondes.
 
-## Opting out of expiring tokens for new GitHub Apps
+## Refus des jetons ayant un délai d’expiration pour les nouvelles applications GitHub
 
-When you create a new {% data variables.product.prodname_github_app %}, by default your app will use expiring user-to-server access tokens.
+Quand vous créez une {% data variables.product.prodname_github_app %}, votre application utilise par défaut des jetons d’accès utilisateur à serveur ayant un délai d’expiration.
 
-If you want your app to use non-expiring user-to-server access tokens, you can deselect "Expire user authorization tokens" on the app settings page.
+Si vous souhaitez que votre application utilise des jetons d’accès utilisateur à serveur n’ayant pas de délai d’expiration, désélectionnez « Faire expirer les jetons d’autorisation utilisateur » dans la page des paramètres de l’application.
 
-![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
+![Option permettant d’accepter les jetons utilisateur ayant un délai d’expiration durant la configuration des applications GitHub](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+Les {% data variables.product.prodname_github_apps %} qui utilisent des jetons d’autorisation utilisateur à serveur sont uniquement affectées par ce nouveau flux quand le propriétaire de l’application active les jetons utilisateur ayant un délai d’expiration pour son application.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+L’activation des jetons utilisateur ayant un délai d’expiration pour les {% data variables.product.prodname_github_apps %} nécessite le passage des utilisateurs par le flux OAuth afin de permettre la réémission de nouveaux jetons utilisateur expirant après un délai de 8 heures. Il est également nécessaire d’envoyer une requête avec le jeton d’actualisation pour obtenir un nouveau jeton d’accès et un nouveau jeton d’actualisation. Pour plus d’informations, consultez « [Identification et autorisation des utilisateurs pour les applications GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) ».
 
-## Further reading
+## Pour aller plus loin
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+- « [À propos de l’authentification auprès de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats) »
 

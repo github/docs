@@ -3,221 +3,233 @@ release_candidate: true
 deprecated: true
 intro: |
   {% note %}
-
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
-
+  
+  **Nota:** Si {% data variables.product.product_location %} ejecuta una compilación candidata a lanzamiento, no se puede actualizar con una revisión en caliente. Se recomienda ejecutar las versiones candidata para lanzamiento solo en entornos de prueba.
+  
   {% endnote %}
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
-
-  > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
+  
+  Para obtener instrucciones de actualización, consulta "[Actualización de {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  
+  > Esta versión está dedicada a nuestro colega y amigo John, que siempre estuvo dispuesto a ayudar. Te recordaremos siempre.
   >
   > **John "Ralph" Wiebalk 1986–2021**
-
 sections:
   features:
-    - heading: Secret scanning REST API now returns locations
+    - heading: La API REST de examen de secretos ahora devuelve ubicaciones
       notes:
         # https://github.com/github/releases/issues/1642
-        - |
-          {% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve commit details of secrets detected in private repository scans. The new endpoint returns details of a secret's first detection within a file, including the secret's location and commit SHA. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.
+        - |Ahora los clientes de {% data variables.product.prodname_GH_advanced_security %} pueden usar la API REST para recuperar detalles de confirmación de los secretos detectados en los exámenes de repositorios privados. El nuevo punto de conexión devuelve detalles de la primera detección del secreto en un archivo, incluida su ubicación y el SHA de confirmación. Para más información, consulta "[Examen de secretos](/rest/reference/secret-scanning)" en la documentación de la API REST.
 
-    - heading: Export license data of committer-based billing for GitHub Advanced Security
+|
+    - heading: Exportación de datos de licencia de la facturación basada en confirmantes para GitHub Advanced Security
       notes:
         # https://github.com/github/releases/issues/1757
-        - |
-          Enterprise and organization owners can now export their {% data variables.product.prodname_GH_advanced_security %} license usage data to a CSV file. The {% data variables.product.prodname_advanced_security %} billing data can also be retrieved via billing endpoints in the REST API. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)."
+        - |Ahora los propietarios de la empresa y la organización pueden exportar los datos de uso de su licencia de {% data variables.product.prodname_GH_advanced_security %} a un archivo CSV. Los datos de facturación de {% data variables.product.prodname_advanced_security %} también se pueden recuperar mediante puntos de conexión de facturación en la API REST. Para más información, consulta el "[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)."
 
-    - heading: GitHub Actions reusable workflows in public beta
+|
+    - heading: Flujos de trabajo reutilizables de Acciones de GitHub en versión beta pública
       notes:
         # https://github.com/github/releases/issues/1541
-        - |
-          You can now reuse entire workflows as if they were an action. This feature is available in public beta. Instead of copying and pasting workflow definitions across repositories, you can now reference an existing workflow with a single line of configuration. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)."
+        - |Ahora puedes usar flujos de trabajo completos como si fueran una acción. Esta característica está disponible en versión beta pública. En lugar de copiar y pegar definiciones de flujo de trabajo entre repositorios, ahora puedes hacer referencia a un flujo de trabajo existente con una sola línea de configuración. Para más información, consulta el "[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)."
 
-    - heading: Dependabot security and version updates in public beta
+|
+    - heading: Seguridad de dependabot y actualizaciones de versiones en versión beta pública
       notes:
         # https://github.com/github/releases/issues/2004
-        - |
-          {% data variables.product.prodname_dependabot %} is now available in {% data variables.product.prodname_ghe_server %} 3.4 as a public beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_dependabot %} to be enabled by an administrator. Beta feedback and suggestions can be shared in the [{% data variables.product.prodname_dependabot %} Feedback GitHub discussion](https://github.com/community/community/discussions/categories/dependabot). For more information and to try the beta, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+        - |{% data variables.product.prodname_dependabot %} ahora está disponible en {% data variables.product.prodname_ghe_server %} 3.4 como versión beta pública, y ofrece actualizaciones de versión y de seguridad para varios ecosistemas conocidos. {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} necesita {% data variables.product.prodname_actions %} y un grupo de ejecutores autohospedados configurados para usar {% data variables.product.prodname_dependabot %}. {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} también necesita que un administrador habilite {% data variables.product.prodname_github_connect %} y {% data variables.product.prodname_dependabot %}. Los comentarios y las sugerencias para la versión beta se pueden compartir en el [grupo de discusión Feedback GitHub de {% data variables.product.prodname_dependabot %}](https://github.com/community/community/discussions/categories/dependabot). Para más información y para probar la versión beta, consulta "[Configuración de actualizaciones de seguridad y versión de {% data variables.product.prodname_dependabot %} en la empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
 
+|
   changes:
-    - heading: Administration Changes
+    - heading: Comandos de administración
       notes:
         # https://github.com/github/releases/issues/1657
-        - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
+        - "Ahora los usuarios pueden elegir el número de espacios de una tabulación, si establecen su tamaño de tabulación preferido en la configuración \"Apariencia\" de su cuenta de usuario. Todo el código con una sangría de tabulación se representarán con el tamaño de tabulación preferido."
 
         # https://github.com/github/releases/issues/2062
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - "El registro de conexión de datos de {% data variables.product.prodname_github_connect %} ahora incluye un recuento de la cantidad de usuarios activos e inactivos, y el periodo de inactividad configurado."
 
-    - heading: Performance Changes
+    - heading: Cambios de rendimiento
       notes:
       # https://github.com/github/releases/issues/2031
-      - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
+      - "WireGuard, que se usa para proteger la comunicación entre instancias de {% data variables.product.prodname_ghe_server %} en una configuración de alta disponibilidad, se ha migrado a la implementación del Kernel."
 
-    - heading: Notification Changes
+    - heading: Cambios en las notificaciones
       notes:
       # https://github.com/github/releases/issues/1801
-      - Organization owners can now unsubscribe from email notifications when new deploy keys are added to repositories belonging to their organizations. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+      - "Ahora los propietarios de la organización pueden cancelar la suscripción a las notificaciones por correo electrónico cuando se agregan nuevas claves de implementación a repositorios propiedad de sus organizaciones. Para más información, consulta \"[Configuración de notificationes](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).\""
 
       # https://github.com/github/releases/issues/1714
-      - 'Notification emails from newly created issues and pull requests now include `(Issue #xx)` or `(PR #xx)` in the email subject, so you can recognize and filter emails that reference these types of issues.'
+      - 'Los correos electrónicos de notificación de las incidencias y solicitudes de incorporación de cambios recién creadas ahora incluyen "(Incidencia nº xx)" o "(PR nº xx)" en el asunto del mensaje de correo electrónico, para que puedas reconocer y filtrar los correos electrónicos que hacen referencia esos tipos de incidencias.'
 
-    - heading: Organization Changes
+    - heading: Cambios en las organizaciones
       notes:
         # https://github.com/github/releases/issues/1509
-        - Organizations can now display a `README.md` file on their profile Overview. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)."
+        - "Ahora las organizaciones pueden mostrar un archivo \"LÉAME.md\" en la información general de su perfil. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/).\""
 
         # https://github.com/github/releases/issues/1883
-        - Members of organizations can now view a list of their enterprise owners under the organization's "People" tab. The enterprise owners list is also now accessible using the GraphQL API. For more information, see the "[`enterpriseOwners`](/graphql/reference/objects#organization)" field under the Organization object in the GraphQL API documentation.
+        - "Ahora los miembros de las organizaciones pueden ver una lista de los propietarios de la empresa en la pestaña \"Personas\" de la organización. La lista de propietarios de empresa ahora también está disponible mediante GraphQL API. Para más información, consulta el \"campo [\"enterpriseOwners\"](/graphql/reference/objects#organization)\" del objeto Organización en la documentación de GraphQL API."
 
-    - heading: Repositories changes
+    - heading: Cambios en los repositorios
       notes:
         # https://github.com/github/releases/issues/1944
-        - |
-          A "Manage Access" section is now shown on the "Collaborators and teams" page in your repository settings. The new section makes it easier for repository administrators to see and manage who has access to their repository, and the level of access granted to each user. Administrators can now:
+        - |Ahora se muestra una sección "Administrar acceso" en la página "Colaboradores y equipos" de la configuración del repositorio. La nueva sección facilita a los administradores del repositorio la tarea de ver y administrar quién tiene acceso a su repositorio, así como el nivel de acceso concedido a cada usuario. Ahora los administradores pueden:
 
-          * Search all members, teams and collaborators who have access to the repository.
-          * View when members have mixed role assignments, granted to them directly as individuals or indirectly via a team. This is visualized through a new "mixed roles" warning, which displays the highest level role the user is granted if their permission level is higher than their assigned role.
-          * Manage access to popular repositories reliably, with page pagination and fewer timeouts when large groups of users have access.
 
+
+* Buscar todos los miembros, equipos y colaboradores que tienen acceso al repositorio.
+
+* Ver cuándo los miembros tienen asignaciones de roles mixtos, concedidos directamente como individuos, o bien de manera indirecta desde un equipo. Esto se visualiza mediante una nueva advertencia de "roles mixtos", que muestra el rol de mayor nivel concedido al usuario si su nivel de permiso es mayor que su rol asignado.
+
+* Administrar el acceso a repositorios conocidos de manera confiable, con paginación de páginas y menos tiempos de espera cuando acceden grupos grandes de usuarios.
+
+|
         # https://github.com/github/releases/issues/1748
-        - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the repository invitation experience, such as notifications for private repository invites, a UI prompt when visiting a private repository you have a pending invitation for, and a banner on a public repository overview page when there is an pending invitation.'
+        - '{% data variables.product.prodname_ghe_server %} 3.4 incluye mejoras dela experiencia de invitación a repositorios, como notificaciones para las invitaciones a repositorios privados, un mensaje en la IU al visitar un repositorio privado para el que se tiene una invitación pendiente y un banner en la página de información general de un repositorio público cuando existe una invitación pendiente.'
 
         # https://github.com/github/releases/issues/1739
-        - You can now use single-character prefixes for custom autolinks. Autolink prefixes also now allow `.`, `-`, `_`, `+`, `=`, `:`, `/`, and `#` characters, as well as alphanumerics. For more information about custom autolinks, see "[Configuring autolinks to reference external resources](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)."
+        - "Ahora puedes usar prefijos de un solo carácter para vínculos automáticos personalizados. En los prefijos de vínculos automáticos ahora también se permiten los caracteres \".\", \"-\", \"_\", \"+\", \"=\", \":\", \"/\" y \"#\", además de caracteres alfanuméricos. Para más información sobre los vínculos automáticos personalizados, consulta \"[Configuración de vínculos automáticos para hacer referencia a recursos externos](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources).\""
 
         # https://github.com/github/releases/issues/1776
-        - A `CODE_OF_CONDUCT.md` file in the root of a repository is now highlighted in the "About" sidebar on the repository overview page.
+        - "Ahora, en la barra lateral de \"Acerca de\" de la página de información general del repositorio, se resalta un archivo \"CODE_OF_CONDUCT.md\" en la raíz de un repositorio."
 
-    - heading: 'Releases changes'
+    - heading: 'Cambios de las versiones'
       notes:
         # https://github.com/github/releases/issues/1723
-        - '{% data variables.product.prodname_ghe_server %} 3.4 includes improvements to the Releases UI, such as automatically generated release notes which display a summary of all the pull requests for a given release. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.4 incluye mejoras de la IU de versiones, como notas de la versión generadas automáticamente que muestran un resumen de todas las solicitudes de incorporación de cambios de una versión concreta. Para más información consulta el "[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)."'
 
         # https://github.com/github/releases/issues/1606
-        - When a release is published, an avatar list is now displayed at the bottom of the release. Avatars for all user accounts mentioned in the release notes are shown. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+        - "Cuando se publica una versión, ahora se muestra una lista de avatares en la parte inferior de la versión. Se muestran los avatares de todas las cuentas de usuario mencionadas en las notas de la versión. Para más información, consulta \"[Administración de versiones en un repositorio](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).\""
 
-    - heading: 'Markdown changes'
+    - heading: 'Cambios de Markdown'
       notes:
         # https://github.com/github/releases/issues/1779
-        - You can now use the new "Accessibility" settings page to manage your keyboard shortcuts. You can choose to disable keyboard shortcuts that only use single characters like <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd>, and <kbd>.</kbd> (the period key). For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)."
+        - "Ahora puedes usar la nueva página de valores \"Accesibilidad\" para administrar los métodos abreviados de teclado. Puedes elegir deshabilitar métodos abreviados de teclado en los que solo se use un carácter, como <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd> y <kbd>.</kbd> (la tecla de punto). Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/).\""
 
         # https://github.com/github/releases/issues/1727
-        - You can now choose to use a fixed-width font in Markdown-enabled fields, like issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)."
+        - "Ahora puedes elegir usar una fuente de ancho fijo en los campos habilitados para Markdown, como los comentarios de incidencias y las descripciones de solicitudes de incorporación de cambios. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/).\""
 
         # https://github.com/github/releases/issues/1761
-        - You can now paste a URL on selected text to quickly create a Markdown link. This works in all Markdown-enabled fields, such as issue comments and pull request descriptions. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)."
+        - "Ahora puedes pegar una URL en texto seleccionado para crear rápidamente un vínculo de Markdown. Esto funciona en todos los campos habilitados para Markdown, como los comentarios de incidencias y las descripciones de solicitudes de incorporación de cambios. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/).\""
 
         # https://github.com/github/releases/issues/1758
-        - An image URL can now be appended with a theme context, such as `#gh-dark-mode-only`, to define how the Markdown image is displayed to a viewer. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)."
+        - "Ahora se puede adjuntar una URL de imagen con un contexto de tema, por ejemplo, \"#gh-dark-mode-only\", para definir cómo se muestra la imagen de Markdown a un espectador. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/).\""
 
         # https://github.com/github/releases/issues/1686
-        - When creating or editing a gist file with the Markdown (`.md`) file extension, you can now use the "Preview" or "Preview Changes" tab to display a Markdown rendering of the file contents. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)."
+        - "Al crear o editar un archivo gist con la extensión de archivo de Markdown (\".md\"), ahora puedes usar la pestaña \"Vista previa\" o \"Vista previa de los cambios\" para mostrar una representación de Markdown del contenido del archivo. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/).\""
 
         # https://github.com/github/releases/issues/1754
-        - When typing the name of a {% data variables.product.prodname_dotcom %} user in issues, pull requests and discussions, the @mention suggester now ranks existing participants higher than other {% data variables.product.prodname_dotcom %} users, so that it's more likely the user you're looking for will be listed.
+        - "Al escribir el nombre de un usuario de {% data variables.product.prodname_dotcom %} en incidencias, solicitudes de incorporación de cambios y debates, ahora el proveedor de sugerencias de @mención clasifica a los participantes existentes por un orden de prioridad mayor que a otros usuarios de {% data variables.product.prodname_dotcom %}, por lo que es más probable que se muestre el usuario que buscas."
 
         # https://github.com/github/releases/issues/1636
-        - Right-to-left languages are now supported natively in Markdown files, issues, pull requests, discussions, and comments.
+        - "Los idiomas que se escriben de derecha a izquierda ahora se admiten de forma nativa en archivos de Markdown, incidencias, solicitudes de incorporación de cambios, debates y comentarios."
 
-    - heading: 'Issues and pull requests changes'
+    - heading: 'Cambios en incidencias y solicitudes de incorporación de cambios'
       notes:
         # https://github.com/github/releases/issues/1731
-        - The diff setting to hide whitespace changes in the pull request "Files changed" tab is now retained for your user account for that pull request. The setting you have chosen is automatically reapplied if you navigate away from the page and then revisit the "Files changed" tab of the same pull request.
+        - "El valor diff para ocultar los cambios de espacio en blanco en la pestaña \"Archivos cambiados\" de la solicitud de incorporación de cambios ahora se conserva para la cuenta de usuario de esa solicitud de incorporación de cambios. El valor que hayas elegido se vuelve a aplicar de forma automática si te alejas de la página y, después, visitas de nuevo la pestaña \"Archivos cambiados\" de la misma solicitud de incorporación de cambios."
 
         # https://github.com/github/releases/issues/1663
-        - When using auto assignment for pull request code reviews, you can now choose to only notify requested team members independently of your auto assignment settings. This setting is useful in scenarios where many users are auto assigned but not all users require notification. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)."
+        - "Al usar la asignación automática para las revisiones del código de solicitudes de incorporación de cambios, ahora puedes elegir notificar solo a los miembros del equipo que solicites, con independencia de la configuración de asignación automática. Esta valor es útil en escenarios en los que se asignan muchos usuarios de forma automática pero no todos necesitan notificación. Para más información, consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/).\""
 
-    - heading: 'Branches changes'
+    - heading: 'Cambios en las ramas'
       notes:
         # https://github.com/github/releases/issues/1526
-        - Organization and repository administrators can now trigger webhooks to listen for changes to branch protection rules on their repositories. For more information, see the "[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)" event in the webhooks events and payloads documentation.
+        - "Ahora los administradores de organizaciones y repositorios pueden desencadenar webhooks para escuchar cambios en las reglas de protección de ramas en sus repositorios. Para más información, consulta el \"evento [branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)\" de la documentación de eventos de webhooks y cargas."
 
         # https://github.com/github/releases/issues/1759
-        - When configuring protected branches, you can now enforce that a required status check is provided by a specific {% data variables.product.prodname_github_app %}. If a status is then provided by a different application, or by a user via a commit status, merging is prevented. This ensures all changes are validated by the intended application. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)."
+        - "Al configurar ramas protegidas, ahora puedes exigir que una instancia concreta de {% data variables.product.prodname_github_app %} proporcione una comprobación de estado obligatoria. Si, después, el estado lo proporciona otra aplicación, o bien un usuario mediante un estado de confirmación, se evita la combinación. De esta forma se garantiza que la aplicación prevista valide todos los cambios. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/).\""
 
         # https://github.com/github/releases/issues/1911
-        - Only users with administrator permissions are now able to rename protected branches and modify branch protection rules. Previously, with the exception of the default branch, a collaborator could rename a branch and consequently any non-wildcard branch protection rules that applied to that branch were also renamed. For more information, see "[Renaming a branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+        - "Ahora solo los usuarios con permisos de administrador puedan cambiar el nombre de las ramas protegidas y modificar las reglas de protección de ramas. Anteriormente, excepto la rama predeterminada, un colaborador podía cambiar el nombre de una rama y, por tanto, también se cambiaba el nombre de todas las reglas de protección de rama sin comodines aplicadas a esa rama. Para más información, consulta \"[Cambio del nombre de una rama](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)\" y \"[Administración de una regla de protección de ramas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).\""
 
         # https://github.com/github/releases/issues/1845
-        - Administrators can now allow only specific users and teams to bypass pull request requirements. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)."
+        - "Ahora los administradores pueden permitir que solo determinados usuarios y equipos omitan los requisitos de solicitudes de incorporación de cambios. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/).\""
 
         # https://github.com/github/releases/issues/1850
-        - Administrators can now allow only specific users and teams to force push to a repository. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)."
+        - "Ahora los administradores pueden permitir que solo determinados usuarios y equipos fuercen la inserción en un repositorio. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/).\""
 
         # https://github.com/github/releases/issues/1796
-        - When requiring pull requests for all changes to a protected branch, administrators can now choose if approved reviews are also a requirement. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)."
+        - "Al exigir solicitudes de incorporación de cambios para todos los cambios en una rama protegida, ahora los administradores pueden elegir y las revisiones aprobadas también son un requisito. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/).\""
 
-    - heading: 'GitHub Actions changes'
+    - heading: 'Cambios en Acciones de GitHub'
       notes:
         # https://github.com/github/releases/issues/1906
-        - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} for the `create`, `deployment`, and `deployment_status` events now always receive a read-only token and no secrets. Similarly, workflows triggered by {% data variables.product.prodname_dependabot %} for the `pull_request_target` event on pull requests where the base ref was created by {% data variables.product.prodname_dependabot %}, now always receive a read-only token and no secrets. These changes are designed to prevent potentially malicious code from executing in a privileged workflow. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
+        - 'Los flujos de trabajo de {% data variables.product.prodname_actions %} desencadenados por {% data variables.product.prodname_dependabot %} para los eventos "create", "deployment" y "deployment_status" ahora reciben un token de solo lectura y no reciben secretos. De forma similar, los flujos de trabajo desencadenados por {% data variables.product.prodname_dependabot %} para el evento "pull_request_target" de las solicitudes de incorporación de cambios en las que {% data variables.product.prodname_dependabot %} ha creado la referencia base, ahora siempre reciben un token de solo lectura sin secretos. Estos cambios se han diseñado para evitar que código potencialmente malintencionado se ejecute en un flujo de trabajo con privilegios. Para más información, consulta "[Automatización de {% data variables.product.prodname_dependabot %} con {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
 
         # https://github.com/github/releases/issues/1667
-        - Workflow runs on `push` and `pull_request` events triggered by {% data variables.product.prodname_dependabot %} will now respect the permissions specified in your workflows, allowing you to control how you manage automatic dependency updates. The default token permissions will remain read-only. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)."
+        - "Las ejecuciones de flujo de trabajo en los eventos \"push\" y \"pull_request\" desencadenados por {% data variables.product.prodname_dependabot %} ahora respetarán los permisos especificados en los flujo de trabajo, lo que te permite controlar la administración de las actualizaciones de dependencias automáticas. Los permisos de token predeterminados seguirán siendo de solo lectura. Para más información, consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/).\""
 
         # https://github.com/github/releases/issues/1668
-        - '{% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} will now be sent the {% data variables.product.prodname_dependabot %} secrets. You can now pull from private package registries in your CI using the same secrets you have configured for {% data variables.product.prodname_dependabot %} to use, improving how {% data variables.product.prodname_actions %} and {% data variables.product.prodname_dependabot %} work together. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
+        - 'Los flujos de trabajo de {% data variables.product.prodname_actions %} desencadenados por {% data variables.product.prodname_dependabot %} ahora se enviarán a los secretos de {% data variables.product.prodname_dependabot %}. Ahora puedes incorporar cambios desde registros de paquetes privados en la CI con los mismos secretos que has configurado para usarlos en {% data variables.product.prodname_dependabot %}, lo que mejora el funcionamiento conjunto de {% data variables.product.prodname_actions %} y {% data variables.product.prodname_dependabot %}. Para más información, consulta "[Automatización de {% data variables.product.prodname_dependabot %} con {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)."'
 
         # https://github.com/github/releases/issues/1615
-        - You can now manage runner groups and see the status of your self-hosted runners using new Runners and Runner Groups pages in the UI. The Actions settings page for your repository or organization now shows a summary view of your runners, and allows you to deep dive into a specific runner to edit it or see what job it may be currently running. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)."
+        - "Ahora puedes administrar grupos de ejecutores y ver el estado de los ejecutores autohospedados mediante las nuevas páginas Ejecutores y Grupos de ejecutores de la interfaz de usuario. Ahora en la página de configuración Acciones del repositorio o la organización se muestra un resumen de los ejecutores y te permite profundizar en uno concreto para editarlo o ver qué trabajo ejecuta en la actualidad. Para más información, consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/).\""
 
         # https://github.com/github/releases/issues/1785
-        - 'Actions authors can now have their action run in Node.js 16 by specifying [`runs.using` as `node16` in the action''s `action.yml`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). This is in addition to the existing Node.js 12 support; actions can continue to specify `runs.using: node12` to use the Node.js 12 runtime.'
+        - 'Ahora los creadores de acciones pueden ejecutarlas en Node.js 16 si especifican ["runs.using" as "node16" en el archivo "action.yml" de la acción](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). Es una adición a la compatibilidad existente con Node.js 12 ; las acciones todavía pueden especificar "runs.using: node12" para usar el entorno de ejecución Node.js 12.'
 
         # https://github.com/github/releases/issues/1799
-        - 'For manually triggered workflows, {% data variables.product.prodname_actions %} now supports the `choice`, `boolean`, and `environment` input types in addition to the default `string` type. For more information, see "[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)."'
+        - 'Para los flujos de trabajo desencadenados manualmente, ahora {% data variables.product.prodname_actions %} admite los tipos de entrada "choice", "boolean" y "environment", además de "string" (el predeterminado). Para más información, consulta "["on.workflow_dispatch.inputs"](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)."'
 
         # https://github.com/github/releases/issues/1782
-        - Actions written in YAML, also known as composite actions, now support `if` conditionals. This lets you prevent specific steps from executing unless a condition has been met. Like steps defined in workflows, you can use any supported context and expression to create a conditional.
+        - "Ahora las acciones escritas en YAML, también denominadas acciones compuestas, admiten condiciones \"if\". Esto te permite evitar que se ejecuten pasos concretos a menos que se haya cumplido una condición. Como sucede con los pasos definidos en los flujos de trabajo, puedes usar cualquier contexto y expresión admitidos para crear una condicional."
 
         # https://github.com/github/releases/issues/1919
-        - The search order behavior for self-hosted runners has now changed, so that the first available matching runner at any level will run the job in all cases. This allows jobs to be sent to self-hosted runners much faster, especially for organizations and enterprises with lots of self-hosted runners. Previously, when running a job that required a self-hosted runner, {% data variables.product.prodname_actions %} would look for self-hosted runners in the repository, organization, and enterprise, in that order.
+        - "Ahora ha cambiado el criterio de orden de búsqueda para los ejecutores autohospedados, de modo que el primer ejecutor coincidente disponible en cualquier nivel ejecutará el trabajo en todos los casos. Esto permite enviar los trabajos a ejecutores autohospedados con mayor velocidad, en especial para organizaciones y empresas con muchos ejecutores autohospedados. Anteriormente, cuando para ejecutar un trabajo se necesitaba un ejecutor autohospedado, {% data variables.product.prodname_actions %} tenía que buscar ejecutores autohospedados en el repositorio, la organización y la empresa, en ese orden."
 
         # https://github.com/github/releases/issues/1753
-        - Runner labels for {% data variables.product.prodname_actions %} self-hosted runners can now be listed, added and removed using the REST API. For more information about using the new APIs at a repository, organization, or enterprise level, see "[Repositories](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)", "[Organizations](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)", and "[Enterprises](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)" in the REST API documentation.
+        - "Ahora las etiquetas de ejecutor para ejecutores autohospedados de {% data variables.product.prodname_actions %} se pueden enumerar, agregar y quitar con la API REST. Para más información sobre cómo usar las API nuevas en el nivel del repositorio, la organización o la empresa, consulta \"[Repositorios](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)\", \"[Organizaciones](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)\" y \"[Empresas](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)\" en la documentación de la API REST."
 
-    - heading: 'Dependabot and Dependency graph changes'
+    - heading: 'Cambios en Dependabot y el gráfico de dependencias'
       notes:
         # https://github.com/github/releases/issues/1520
-        - Dependency graph now supports detecting Python dependencies in repositories that use the Poetry package manager. Dependencies will be detected from both `pyproject.toml` and `poetry.lock` manifest files.
+        - "Ahora el gráfico de dependencias admite la detección de dependencias de Python en repositorios en los que se usa el administrador de paquetes Poetry. Las dependencias se detectarán desde los archivos de manifiesto \"pyproject.toml\" y \"poetry.lock\"."
 
         # https://github.com/github/releases/issues/1921
-        - When configuring {% data variables.product.prodname_dependabot %} security and version updates on GitHub Enterprise Server, we recommend you also enable {% data variables.product.prodname_dependabot %} in {% data variables.product.prodname_github_connect %}. This will allow {% data variables.product.prodname_dependabot %} to retrieve an updated list of dependencies and vulnerabilities from {% data variables.product.prodname_dotcom_the_website %}, by querying for information such as the changelogs of the public releases of open source code that you depend upon. For more information, see "[Enabling the dependency graph and Dependabot alerts for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+        - "Al configurar actualizaciones de seguridad y versión de {% data variables.product.prodname_dependabot %} en GitHub Enterprise Server, se recomienda habilitar también {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_github_connect %}. Esto permitirá a {% data variables.product.prodname_dependabot %} recuperar una lista actualidad de dependencias y vulnerabilidades de {% data variables.product.prodname_dotcom_the_website %} mediante la consulta de información como los registros de cambios de las versiones públicas de código abierto de las que dependas. Para más información, consulta \"[Habilitación del gráfico de dependencias y las alertas de Dependabot para la empresa](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise).\""
 
         # https://github.com/github/releases/issues/1717
-        - '{% data variables.product.prodname_dependabot_alerts %} alerts can now be dismissed using the GraphQL API. For more information, see the "[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" mutation in the GraphQL API documentation.'
+        - 'Ahora las alertas de {% data variables.product.prodname_dependabot_alerts %} se pueden descartar mediante GraphQL API. Para más información, consulta la mutación "[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" en la documentación de GraphQL API.'
 
-    - heading: 'Code scanning and secret scanning changes'
+    - heading: 'Cambios en el examen de código y de secretos'
       notes:
         # https://github.com/github/releases/issues/1802
-        - The {% data variables.product.prodname_codeql %} CLI now supports including markdown-rendered query help in SARIF files, so that the help text can be viewed in the {% data variables.product.prodname_code_scanning %} UI when the query generates an alert. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)."
+        - "Ahora la CLI de {% data variables.product.prodname_codeql %} admite la inclusión de ayuda de consultas representada en Markdown en archivos SARIF, para que el texto de la ayuda se pueda ver en la IU de {% data variables.product.prodname_code_scanning %} cuando la consulta genera una alerta. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/).\""
 
         # https://github.com/github/releases/issues/1790
-        - The {% data variables.product.prodname_codeql %} CLI and {% data variables.product.prodname_vscode %} extension now support building databases and analyzing code on machines powered by Apple Silicon, such as Apple M1. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)."
+        - "Ahora la CLI de {% data variables.product.prodname_codeql %} y la extensión {% data variables.product.prodname_vscode %} admiten la creación de bases de datos y el análisis de código en máquinas con tecnología de Apple Silicon, como Apple M1. Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/).\""
 
         # https://github.com/github/releases/issues/1732
-        - |
-          The depth of {% data variables.product.prodname_codeql %}'s analysis has been improved by adding support for more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) from the Python ecosystem. As a result, {% data variables.product.prodname_codeql %} can now detect even more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks where the data could end up. This results in an overall improvement of the quality of {% data variables.product.prodname_code_scanning %} alerts. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)."
+        - |La profunidad del análisis de {% data variables.product.prodname_codeql %} se he mejorado con la adición de compatibilidad con más [bibliotecas y marcos](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) del ecosistema de Python. Como resultado, ahora {% data variables.product.prodname_codeql %} puede detectar incluso más posibles orígenes de datos de usuario que no son de confianza, los pasos por los que fluyen esos datos y receptores potencialmente peligrosos en los que podrían acabar. El resultado es una mejora general de la calidad de las alertas de {% data variables.product.prodname_code_scanning %}. Para más información consulta el "[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)."
 
+|
         # https://github.com/github/releases/issues/1567
-        - Code scanning with {% data variables.product.prodname_codeql %} now includes beta support for analyzing code in all common Ruby versions, up to and including 3.02. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)."
+        - "El examen de programar con {% data variables.product.prodname_codeql %} ahora incluye compatibilidad beta con el análisis de código en todas las versiones comunes de Ruby, hasta la 3.02 (inclusive). Para más información consulta el \"[registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/).\""
 
         # https://github.com/github/releases/issues/1764
-        - |
-          Several improvements have been made to the {% data variables.product.prodname_code_scanning %} API:
+        - |Se han realizado varias mejoras en la API {% data variables.product.prodname_code_scanning %}:
 
-          * The `fixed_at` timestamp has been added to alerts. This timestamp is the first time that the alert was not detected in an analysis.
-          * Alert results can now be sorted using `sort` and `direction` on either `created`, `updated` or `number`. For more information, see "[List code scanning alerts for a repository](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)."
-          * A `Last-Modified` header has been added to the alerts and alert endpoint response. For more information, see [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) in the Mozilla documentation.
-          * The `relatedLocations` field has been added to the SARIF response when you request a code scanning analysis. The field may contain locations which are not the primary location of the alert. See an example in the [SARIF spec](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616) and for more information see "[Get a code scanning analysis for a repository](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)."
-          * Both `help` and `tags` data have been added to the webhook response alert rule object. For more information, see "[Code scanning alert webhooks events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)."
-          * Personal access tokens with the `public_repo` scope now have write access for code scanning endpoints on public repos, if the user has permission.
 
-          For more information, see "[Code scanning](/rest/reference/code-scanning)" in the REST API documentation.
 
+* Se ha agregado la marca de tiempo "fixed_at" a las alertas. Esta marca de tiempo indica la primera vez que se no se ha detectado la alerta en un análisis.
+
+* Ahora los resultados de las alertas se pueden ordenar mediante "sort" y "direction" en función de los valores "created", "updated" o "number". Para más información, consulta "[Enumeración de alertas de análisis de código para un repositorio](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)."
+
+* Se ha agregado un encabezado "Last-Modified" a las alertas y a la respuesta del punto de conexión de alerta. Para más información, consulta ["Last-Modified"](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) en la documentación de Mozilla.
+
+* Se ha agregado el campo "relatedLocations" a la respuesta SARIF cuando se solicita un análisis de examen de código. Es posible que el campo contenga ubicaciones que no sean la principal de la alerta. Puedes ver un ejemplo en la [especificación de SARIF](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616) y. para más información, consulta "[Obtención de un análisis de examen de código para un repositorio](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)."
+
+* Se han agregado los datos "help" y "tags" al objeto de regla de alerta de respuesta de webhook. Para obtener más información, consulta "[Alertas y eventos de webhooks de alerta de examen de código](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)."
+
+* Ahora los tokens de acceso personal con el ámbito "public_repo" tienen acceso de escritura para los puntos de conexión de examen de código en repositorios públicos, si el usuario tiene permiso.
+
+
+
+Para más información, consulta "[Examen de código](/rest/reference/code-scanning)" en la documentación de la API REST.
+
+|
         # https://github.com/github/releases/issues/1943
-        - '{% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve private repository secret scanning results at the enterprise level. The new endpoint supplements the existing repository-level and organization-level endpoints. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.'
+        - 'Ahora los clientes de {% data variables.product.prodname_GH_advanced_security %} pueden usar la API REST para recuperar los resultados del examen de secretos de repositorios privados en el nivel de la empresa. El nuevo punto de conexión complementa los puntos de conexión de nivel de repositorio y organización existentes. Para más información, consulta "[Examen de secretos](/rest/reference/secret-scanning)" en la documentación de la API REST.'
 
   # No security/bug fixes for the RC release
   # security_fixes:
@@ -227,60 +239,66 @@ sections:
   #   - PLACEHOLDER
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services needs to be restarted after restoring appliance from backup taken on a different host.
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - Los servicios de Actions se deben reiniciar después de restaurar el dispositivo a partir de una copia de seguridad realizada en otro host.
 
   deprecations:
-    - heading: Deprecation of GitHub Enterprise Server 3.0
+    - heading: Desuso de GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
-    - heading: Deprecation of GitHub Enterprise Server 3.1
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 se retiró del mercado el 16 de febrero de 2022**. Esto significa que, después de esta fecha, ya no se publicarán revisiones, ni siquiera para problemas de seguridad críticos. Para obtener un rendimiento y un seguridad mejoradas, y nuevas características, [actualiza a la versión más reciente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) lo antes posible.'
+    - heading: Desuso de GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 se retirará del mercado el 3 de junio de 2022**. Esto significa que, después de esta fecha, ya no se publicarán revisiones, ni siquiera para problemas de seguridad críticos. Para obtener un rendimiento y un seguridad mejoradas, y nuevas características, [actualiza a la versión más reciente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) lo antes posible.'
 
-    - heading: Deprecation of XenServer Hypervisor support
+    - heading: Desuso del soporte técnico para XenServer Hypervisor
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - "A partir de {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} en XenServer ha quedado en desuso y ya no recibirá soporte técnico. Si tienes preguntas, contacta con el [servicio soporte técnico de GitHub](https://support.github.com)."
 
-    - heading: Deprecation of the Content Attachments API preview
+    - heading: Desuso de la versión preliminar de Content Attachments API
       notes:
         #
-        - Due to low usage, we have deprecated the Content References API preview in {% data variables.product.prodname_ghe_server %} 3.4. The API was previously accessible with the `corsair-preview` header. Users can continue to navigate to external URLs without this API. Any registered usages of the Content References API will no longer receive a webhook notification for URLs from your registered domain(s) and we no longer return valid response codes for attempted updates to existing content attachments.
+        - "Debido a su bajo uso, hemos dejado de utilizar la versión preliminar de Content References API en {% data variables.product.prodname_ghe_server %} 3.4. Anteriormente se accedía a la API con el encabezado \"corsair-preview\". Los usuarios todavía pueden navegar a URL externas sin esta API. Todos los usos registrados de Content References API ya no recibirán una notificación de webhook de las URL desde los dominios registrados y ya no devolveremos códigos de respuesta válidos de intentos de actualización de datos adjuntos de contenido existente."
 
-    - heading: Deprecation of the Codes of Conduct API preview
+    - heading: Desuso de la versión preliminar de Codes of Conduct API
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - 'La versión preliminar de Codes of Conduct API, a la que se accedía con el encabezado "scarlet-witch-preview", está en desuso y ya no se puede acceder a ella en {% data variables.product.prodname_ghe_server %} 3.4. En su lugar recomendados usar el punto de conexión "[Obtener las métricas de perfil de la comunidad](/rest/reference/repos#get-community-profile-metrics)" para recuperar información sobre el código de conducta de un repositorio. Para más información, consulta "[Aviso de desuso: versión preliminar de Codes of Conduct API](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" en el registro de cambios de {% data variables.product.prodname_dotcom %}.'
 
-    - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+    - heading: Desuso de los puntos de conexión de OAuth Application API y de la autenticación de API mediante parámetros de consulta
       notes:
         # https://github.com/github/releases/issues/1316
-        - |
-          Starting with {% data variables.product.prodname_ghe_server %} 3.4, the [deprecated version of the OAuth Application API endpoints](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) have been removed. If you encounter 404 error messages on these endpoints, convert your code to the versions of the OAuth Application API that do not have `access_tokens` in the URL. We've also disabled the use of API authentication using query parameters. We instead recommend using [API authentication in the request header](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+        - |Desde {% data variables.product.prodname_ghe_server %} 3.4, se han quitado los [puntos de conexión de la versión en desuso de OAuth Application API](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected). Si ves mensajes de error 404 en estos puntos de conexión, convierte el código a las versiones de OAuth Application API que no tengan "access_tokens" en la URL. También hemos deshabilitado el uso de la autenticación de API mediante parámetros de consulta. En su lugar, recomendamos el uso de la [autenticación de API en el encabezado de solicitud](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
 
-    - heading: Deprecation of the CodeQL runner
+|
+    - heading: Desuso del ejecutor de CodeQL
       notes:
         # https://github.com/github/releases/issues/1632
-        - The {% data variables.product.prodname_codeql %} runner is deprecated in {% data variables.product.prodname_ghe_server %} 3.4 and is no longer supported. The deprecation only affects users who use {% data variables.product.prodname_codeql %} code scanning in third party CI/CD systems; {% data variables.product.prodname_actions %} users are not affected. We strongly recommend that customers migrate to the {% data variables.product.prodname_codeql %} CLI, which is a feature-complete replacement for the {% data variables.product.prodname_codeql %} runner. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
+        - "El ejecutor de {% data variables.product.prodname_codeql %} está en desuso en {% data variables.product.prodname_ghe_server %} 3.4 y ya no se admite. El desuso solo afecta a los usuarios que utilizan el análisis de código de {% data variables.product.prodname_codeql %} en sistemas de CI/CD de terceros; los usuarios de {% data variables.product.prodname_actions %} no se ven afectados. Se recomienda encarecidamente que los clientes migren a la CLI de{% data variables.product.prodname_codeql %}, que es un reemplazo con muchas características del ejecutor de {% data variables.product.prodname_codeql %}. Para más información consulta el [registro de cambios de {% data variables.product.prodname_dotcom %} ](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)."
 
-    - heading: Deprecation of custom bit-cache extensions
+    - heading: Desuso de extensiones bit-cache personalizadas
       notes:
         # https://github.com/github/releases/issues/1415
-        - |
-          Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
+        - |Desde {% data variables.product.prodname_ghe_server %} 3.1, la compatibilidad con las extensiones bit-cache propietarias de {% data variables.product.company_short %} se empezó a eliminar gradualmente. Estas extensiones están en desuso en {% data variables.product.prodname_ghe_server %} 3.3 y versiones posteriores.
 
-          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
-          Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 
-          To start a repository maintenance task manually, browse to `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` for each affected repository and click the Schedule button.
+Todos los repositorios que ya estuvieran activos en {% data variables.product.product_location %} con la versión 3.1 o 3.2 se actualizarán de forma automática.
 
+
+
+Es posible que los repositorios que no estuvieran presentes ni activos antes de actualizar a {% data variables.product.prodname_ghe_server %} 3.3 no tengan un rendimiento óptimo hasta que se ejecute una tarea de mantenimiento del repositorio y sea correcta.
+
+
+
+Para iniciar manualmente una tarea de mantenimiento del repositorio, navega a "https://<nombre_de_host>/stafftools/repositories/<propietario>/<repositorio>/network" en cada repositorio afectado y haz clic en el botón Programar.
+
+|
   backups:
-    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+    - 'En {% data variables.product.prodname_ghe_server %} 3.4 se necesita, al menos, [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) para [Copias de seguridad y recuperación ante desastres](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

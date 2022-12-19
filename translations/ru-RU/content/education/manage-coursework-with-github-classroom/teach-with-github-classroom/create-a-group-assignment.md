@@ -1,78 +1,84 @@
 ---
-title: Create a group assignment
-intro: You can create a collaborative assignment for teams of students who participate in your course.
+title: Создание группового задания
+intro: 'Вы можете создать совместное задание для команд учащихся, участвующих в курсе.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
+ms.openlocfilehash: 71c5f5eaf97ba58e25921c1e2be6fc638550dfa8
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179763'
 ---
-## About group assignments
+## Сведения о групповых заданиях
 
-{% data reusables.classroom.assignments-group-definition %} Students can work together on a group assignment in a shared repository, like a team of professional developers.
+{% data reusables.classroom.assignments-group-definition %} Учащиеся могут совместно работать над групповым заданием в общем репозитории, как команда профессиональных разработчиков.
 
-When a student accepts a group assignment, the student can create a new team or join an existing team. {% data variables.product.prodname_classroom %} saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
+Когда учащийся принимает групповое задание, он может создать новую команду или присоединиться к существующей. {% data variables.product.prodname_classroom %} сохраняет команды для задания в виде набора. Вы можете назначить набор команд для конкретного задания при создании этого задания, а также повторно использовать этот набор команд для последующего задания.
 
 {% data reusables.classroom.classroom-creates-group-repositories %}
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+Вы можете определять, сколько команд может быть ы одном задании, и сколько участников может быть в каждой команде. Каждая команда, созданная учащимся для задания, является командой в вашей организации в {% data variables.product.product_name %}. Команда не отображается открыто. Команды, создаваемые в {% data variables.product.product_name %}, не будут отображаться в {% data variables.product.prodname_classroom %}. Дополнительные сведения см. в статье "[Сведения о командах](/organizations/organizing-members-into-teams/about-teams)".
 
-For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+Видеоролик, в котором показано, как создать групповое задание, см. в разделе [Общие сведения о настройке {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom).
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## Prerequisites
+## Предварительные требования
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating an assignment
+## Создание задания
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Setting up the basics for an assignment
+## Настройка основных сведений о задании
 
-Name your assignment, decide whether to assign a deadline, define teams, and choose the visibility of assignment repositories.
+Укажите имя задания, решите, следует ли установить крайний срок выполнения, определите команды и выберите видимость репозиториев для задания.
 
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Defining teams for an assignment](#defining-teams-for-an-assignment)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [Указание имени задания](#naming-an-assignment)
+- [Назначение крайнего срока выполнения для задания](#assigning-a-deadline-for-an-assignment)
+- [Выбор типа задания](#choosing-an-assignment-type)
+- [Определение команд для задания](#defining-teams-for-an-assignment)
+- [Выбор видимости для репозиториев задания](#choosing-a-visibility-for-assignment-repositories)
 
-### Naming an assignment
+### Указание имени задания
 
-For a group assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the name of the team. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the team's name on {% data variables.product.product_name %} is "student-team", the name of the assignment repository for members of the team will be `assignment-1-student-team`.
+Для группового задания {% data variables.product.prodname_classroom %} именует репозитории, используя префикс репозитория и имя команды. По умолчанию префикс репозитория используется в качестве заголовка задания. Например, если вы назвали задание как "assignment-1", а команда в {% data variables.product.product_name %} имеет имя "student-team", репозиторий задания для участников команды будет иметь имя `assignment-1-student-team`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### Назначение крайнего срока выполнения для задания
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing an assignment type
+### Выбор типа задания
 
-Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+В разделе "Индивидуальное или групповое задание" щелкните раскрывающееся меню и выберите **Групповое задание**. Вы не можете изменить тип задания после создания задания. Если вы хотите создать индивидуальное задание, см. раздел [Создание индивидуального задания](/education/manage-coursework-with-github-classroom/create-an-individual-assignment).
 
-### Defining teams for an assignment
+### Определение команд для задания
 
-If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
+Если вы уже создали групповое задание для аудитории, то можете повторно использовать набор команд для нового задания. Чтобы создать новый набор с командами, создаваемыми учащимися для задания, введите имя набора. При необходимости введите максимальное количество участников команд и максимальное количество команд.
 
 {% tip %}
 
-**Tips**:
+**Совет**.
 
-- We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
+- Рекомендуется включить в имя набора команд сведения об этом наборе. Например, если вы хотите использовать набор команд для одного задания, присвойте ему имя после задания. Если вы хотите неоднократно использовать этот набор в течение семестра или курса, назовите набор после семестра или курса.
 
-- If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
+- Если вы хотите назначить учащихся в определенную команду, присвойте учащимся имя этой команды и предоставьте список участников.
 
 {% endtip %}
 
-![Parameters for the teams participating in a group assignment](/assets/images/help/classroom/assignments-define-teams.png)
+![Параметры для команд, участвующих в групповом задании](/assets/images/help/classroom/assignments-define-teams.png)
 
-### Choosing a visibility for assignment repositories
+### Выбор видимости для репозиториев задания
 
 {% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
@@ -80,22 +86,22 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Adding starter code and configuring a development environment
+## Добавление начального кода и настройка среды разработки
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Выбор репозитория шаблонов](#choosing-a-template-repository)
+- [Выбор интегрированной среды разработки (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### Choosing a template repository
+### Выбор репозитория шаблонов
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} 
+По умолчанию новое задание создаст пустой репозиторий для каждой команды, созданной учащимися. {% data reusables.classroom.you-can-choose-a-template-repository %} 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### Выбор интегрированной среды разработки (IDE)
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %} Дополнительные сведения см. в разделе [Интеграция {% data variables.product.prodname_classroom %} с IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide).
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -103,18 +109,18 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-## Providing feedback
+## Предоставление отзыва
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
+При необходимости можно автоматически оценивать задания и создать пространство для обсуждения с командой каждого отправленного задания.
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [Автоматическое тестирование заданий](#testing-assignments-automatically)
+- [Создание запроса на вытягивание для отзыва](#creating-a-pull-request-for-feedback)
 
-### Testing assignments automatically
+### Автоматическое тестирование заданий
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Creating a pull request for feedback
+### Создание запроса на вытягивание для отзыва
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -122,36 +128,36 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Inviting students to an assignment
+## Приглашение учащихся в задание
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+Вы можете просматривать команды, которые работают над заданием или отправили его, на вкладке **Команды** для задания. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+## Отслеживание хода работы учащихся
+На странице обзора задания отображаются сведения о принятии заданий и ходе работы команды. В зависимости от конфигураций заданий могут обращаться различные общие сведения.
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
--  **Accepted teams**: The number of teams who have accepted this assignment.
--  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+- **Всего команд**. Количество созданных команд.
+- **Учащиеся в списке**. Число учащихся в списке аудитории.
+- **Учащиеся не в команде**. Количество учащихся в списке аудиторий, которые еще не присоединились к команде.
+-  **Принявшие команды**. Количество команд, которые приняли это задание.
+-  **Отправки задания**. Количество команд, отправивших задание. Отправка выполняется при достижении крайнего срока выполнения для задания.
+-  **Прошедшие команды**. Количество команд, которые на данный момент прошли тесты с автоматическим выставлением оценки для этого задания.
 
-## Next steps
+## Дальнейшие действия
 
-- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- После того как вы создадите задание, и ваши учащиеся сформируют команды, члены команд могут начать работу над заданием с использованием Git и возможностей {% data variables.product.product_name %}. Учащиеся могут клонировать репозиторий, отправлять фиксации, управлять ветвями, создавать и просматривать запросы на вытягивание, устранять конфликты слияния и обсуждать изменения с помощью проблем. Журнал фиксаций для репозитория может просматриваться как вами, так и командой. Дополнительные сведения см. в разделах [Начало работы с {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github), [Репозитории](/repositories), [Использование Git](/github/getting-started-with-github/using-git) и [Совместная работа с проблемами и запросами на вытягивание](/github/collaborating-with-issues-and-pull-requests), а также в бесплатном курсе по [разрешению конфликтов слияния](https://github.com/skills/resolve-merge-conflicts) от {% data variables.product.prodname_learning %}.
 
-- When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+- Когда команда завершит задание, вы можете просмотреть файлы в репозитории или журнал и визуализации для репозитория, чтобы лучше понять совместную работу команды. Дополнительные сведения см. в разделе [Визуализация данных репозитория с помощью графов](/github/visualizing-repository-data-with-graphs).
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- Чтобы предоставить отзыв о задании, можно оставить комментарий к отдельным фиксациям или строкам в запросе на вытягивание. Дополнительные сведения см. в разделах [Комментарии к запросам на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) и [Открытие проблемы из кода](/github/managing-your-work-on-github/opening-an-issue-from-code). Дополнительные сведения о создании сохраненных ответов для предоставления отзывов о распространенных ошибках см. в разделе [Сведения о сохраненных ответах](/github/writing-on-github/about-saved-replies).
 
-## Further reading
+## Дополнительные материалы
 
-- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
-- [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community
+- [{% data variables.product.prodname_global_campus %} для преподавателей](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- "[Подключение курса системы управления обучением к аудитории](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
+- [Использование существующих команд в групповых заданиях](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) в сообществе {% data variables.product.prodname_education %}

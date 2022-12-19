@@ -1,6 +1,6 @@
 ---
-title: Migrating admin teams to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
+title: Migration d’équipes d’administration vers des autorisations d’organisation améliorées
+intro: "Si votre organisation a été créée après septembre\_2015, elle dispose par défaut d’autorisations d’organisation améliorées. Les organisations créées avant septembre\_2015 peuvent avoir besoin de migrer les anciens propriétaires et équipes d’administration vers le modèle d’autorisations améliorées. Les membres des équipes d’administration héritées conservent automatiquement la possibilité de créer des dépôts jusqu’à ce que ces équipes soient migrées vers le modèle d’autorisations d’organisation améliorées."
 redirect_from:
   - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
@@ -13,36 +13,37 @@ topics:
   - Organizations
   - Teams
 shortTitle: Migrate admin team
+ms.openlocfilehash: 32a3bd684d2ed81d1ba492b4e343af3e03390364
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109399'
 ---
+Par défaut, tous les membres de l’organisation peuvent créer des référentiels. Si vous limitez [les autorisations de création de référentiels](/articles/restricting-repository-creation-in-your-organization) aux propriétaires d’organisation et que celle-ci a été créée sous la structure des autorisations d’organisation héritée, les membres des équipes d’administration héritées peuvent toujours créer des référentiels.
 
-By default, all organization members can create repositories. If you restrict [repository creation permissions](/articles/restricting-repository-creation-in-your-organization) to organization owners, and your organization was created under the legacy organization permissions structure, members of legacy admin teams will still be able to create repositories.
+Les équipes d’administration héritées sont des équipes qui ont été créées avec le niveau d’autorisation d’administration sous la structure des autorisations de l’organisation héritée. Les membres de ces équipes pouvaient créer des référentiels pour l’organisation, et nous avons conservé cette possibilité dans la structure améliorée des autorisations de l’organisation.
 
-Legacy admin teams are teams that were created with the admin permission level under the legacy organization permissions structure. Members of these teams were able to create repositories for the organization, and we've preserved this ability in the improved organization permissions structure.
+Vous pouvez supprimer cette possibilité en migrant vos équipes d’administration héritées vers les autorisations d’organisation améliorées.
 
-You can remove this ability by migrating your legacy admin teams to the improved organization permissions.
-
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Pour plus d’informations, consultez « [Rôles de dépôt pour une organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) ».
 
 {% warning %}
 
-**Warning:** If your organization has disabled [repository creation permissions](/articles/restricting-repository-creation-in-your-organization) for all members, some members of legacy admin teams may lose repository creation permissions. If your organization has enabled member repository creation, migrating legacy admin teams to improved organization permissions will not affect team members' ability to create repositories.
+**Avertissement :** si votre organisation a désactivé [les autorisations de création de référentiels](/articles/restricting-repository-creation-in-your-organization) pour tous les membres, certains membres des équipes d’administration héritées peuvent ne plus disposer des autorisations de création de référentiels. Si votre organisation a activé la création de référentiels pour les membres, la migration d’équipes d’administration héritées vers des autorisations d’organisation améliorées n’affecte pas la capacité des membres de l’équipe à créer des référentiels.
 
 {% endwarning %}
 
-## Migrating all of your organization's legacy admin teams
+## Migration de toutes les équipes d’administration héritées de votre organisation
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.teams_sidebar %}
-1. Review your organization's legacy admin teams, then click **Migrate all teams**.
-  ![Migrate all teams button](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
-1. Read the information about possible permissions changes for members of these teams, then click **Migrate all teams.**
-  ![Confirm migration button](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.teams_sidebar %}
+1. Passez en revue les équipes d’administration héritées de votre organisation, puis cliquez sur **Migrer toutes les équipes**.
+  ![Bouton Migrer toutes les équipes](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
+1. Lisez les informations sur les modifications d’autorisations possibles pour les membres de ces équipes, puis cliquez sur **Migrer toutes les équipes.** 
+  ![Bouton Confirmer la migration](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
-## Migrating a single admin team
+## Migration d’une seule équipe d’administration
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-1. In the team description box, click **Migrate team**.
-  ![Migrate team button](/assets/images/help/teams/migrate-a-legacy-admin-team.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %}
+1. Dans la zone de description de l’équipe, cliquez sur **Migrer l’équipe**.
+  ![Bouton Migrer l’équipe](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

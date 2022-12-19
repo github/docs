@@ -1,6 +1,6 @@
 ---
-title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+title: Extensions et intégrations GitHub
+intro: 'Utilisez les extensions {% data variables.product.product_name %} pour travailler en toute fluidité dans les référentiels {% data variables.product.product_name %} au sein d’applications tierces.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -10,43 +10,53 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Extensions & integrations
+ms.openlocfilehash: f33ce9b9ae55e523bedff1309f3f2f15202dcf82
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884212'
 ---
-## Editor tools
+## Barre d’outils de l’éditeur
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
+Vous pouvez vous connecter à des dépôts {% data variables.product.product_name %} dans des outils d’édition tiers, comme Atom, Unity et {% data variables.product.prodname_vs %}.
 
-### {% data variables.product.product_name %} for Unity
+### {% data variables.product.product_name %} pour Atom
 
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
+Avec l’extension {% data variables.product.product_name %} pour Atom, vous pouvez commiter, pousser, tirer, résoudre les conflits de fusion, etc. à partir de l’éditeur Atom. Pour plus d’informations, consultez le site officiel [{% data variables.product.product_name %} pour Atom](https://github.atom.io/).
 
-### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
+### {% data variables.product.product_name %} pour Unity
 
-With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+Avec l’extension {% data variables.product.product_name %} pour l’éditeur Unity, vous pouvez développer sur Unity, la plateforme de développement de jeux open source, et voir votre travail sur {% data variables.product.product_name %}. Pour plus d’informations, consultez le [site](https://unity.github.com/) officiel ou la [documentation](https://github.com/github-for-unity/Unity/tree/master/docs) officielle de l’extension pour l’éditeur Unity.
 
-### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
+### {% data variables.product.product_name %} pour {% data variables.product.prodname_vs %}
 
-With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+Avec l’extension {% data variables.product.product_name %} pour {% data variables.product.prodname_vs %}, vous pouvez travailler dans des dépôts {% data variables.product.product_name %} sans quitter {% data variables.product.prodname_vs %}. Pour plus d’informations, consultez la [documentation](https://visualstudio.github.com/) ou le [site](https://github.com/github/VisualStudio/tree/master/docs) de l’extension {% data variables.product.prodname_vs %} officielle.
 
-## Project management tools
+### {% data variables.product.prodname_dotcom %} pour {% data variables.product.prodname_vscode %}
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
+Avec l’extension {% data variables.product.prodname_dotcom %} pour {% data variables.product.prodname_vscode %}, vous pouvez examiner et gérer les demandes de tirage {% data variables.product.product_name %} dans {% data variables.product.prodname_vscode_shortname %}. Pour plus d’informations, consultez la [documentation](https://vscode.github.com/) ou le [site](https://github.com/Microsoft/vscode-pull-request-github) de l’extension {% data variables.product.prodname_vscode_shortname %} officielle.
 
-### Jira Cloud and {% data variables.product.product_name %}.com integration
+## Outils de gestion de projet
 
-You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+Vous pouvez intégrer votre compte personnel ou d’organisation sur {% data variables.product.product_location %} à des outils de gestion de projets tiers, comme Jira.
 
-## Team communication tools
+### Intégration de Jira Cloud et {% data variables.product.product_name %}.com
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+Vous pouvez intégrer Jira Cloud à votre compte personnel ou d’organisation pour analyser les commits et les demandes de tirage, en créant des métadonnées et des liens hypertexte pertinents dans tous les problèmes Jira mentionnés. Pour plus d’informations, consultez l’[application d’intégration Jira](https://github.com/marketplace/jira-software-github) dans le marketplace.
 
-### Slack and {% data variables.product.product_name %} integration
+## Outils de communication d’équipe
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+Vous pouvez intégrer votre compte personnel ou d’organisation sur {% data variables.product.product_location %} à des outils de communication d’équipe tiers, comme Slack ou Microsoft Teams.
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+### Intégration de Slack et {% data variables.product.product_name %}
 
-### Microsoft Teams and {% data variables.product.product_name %} integration
+L’application Slack + {% data variables.product.prodname_dotcom %} vous permet de vous abonner à vos dépôts ou organisations, et d’obtenir des mises à jour en temps réel sur les problèmes, les demandes de tirage, les commits, les discussions, les versions, les révisions de déploiement et les états de déploiement. Vous pouvez également effectuer des activités comme ouvrir et fermer des problèmes, et vous pouvez voir des références détaillées sur les problèmes et les demandes de tirage sans quitter Slack. L’application vous envoie aussi personnellement un test ping dans Slack si vous êtes mentionné dans une notification {% data variables.product.prodname_dotcom %} reçue dans vos canaux ou conversations personnelles.
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+L’application Slack + {% data variables.product.prodname_dotcom %} est également compatible avec [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). Pour plus d’informations, consultez l’[application Slack + {% data variables.product.prodname_dotcom %}](https://github.com/marketplace/slack-github) dans le marketplace.
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+### Intégration de Microsoft Teams et {% data variables.product.product_name %}
+
+L’application {% data variables.product.prodname_dotcom %} pour Teams vous permet de vous abonner à vos dépôts ou organisations, et d’obtenir des mises à jour en temps réel sur les problèmes, les demandes de tirage, les commits, les discussions, les versions, les révisions de déploiement et les états de déploiement. Vous pouvez également effectuer des activités comme ouvrir et fermer des problèmes, commenter vos problèmes et demandes de tirage, et vous pouvez voir des références détaillées sur les problèmes et les demandes de tirage sans quitter Microsoft Teams. L’application vous envoie aussi personnellement un test ping dans Teams si vous êtes mentionné dans une notification {% data variables.product.prodname_dotcom %} reçue dans vos canaux ou conversations personnelles.
+
+Pour plus d’informations, consultez l’[application {% data variables.product.prodname_dotcom %} pour Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) dans Microsoft AppSource.

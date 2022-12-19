@@ -1,6 +1,6 @@
 ---
-title: Managing a branch protection rule
-intro: 'You can create a branch protection rule to enforce certain workflows for one or more branches, such as requiring an approving review or passing status checks for all pull requests merged into the protected branch.'
+title: 분기 보호 규칙 관리
+intro: 승인 검토를 요구하거나 보호된 분기에 병합된 모든 끌어오기 요청의 상태 검사를 전달하는 등 하나 이상의 분기에 특정 워크플로를 적용하는 분기 보호 규칙을 만들 수 있습니다.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/configuring-protected-branches
@@ -27,127 +27,108 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 shortTitle: Branch protection rule
+ms.openlocfilehash: 31539b135754d92086aefbe82858b59b6bb56d7b
+ms.sourcegitcommit: 56bb42b36f77ece7c9845a350d3764807de00eac
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148101309'
 ---
-## About branch protection rules
+## 분기 보호 규칙 정보
 
 {% data reusables.repositories.branch-rules-example %}
 
-You can create a rule for all current and future branches in your repository with the wildcard syntax `*`. Because {% data variables.product.company_short %} uses the `File::FNM_PATHNAME` flag for the `File.fnmatch` syntax, the wildcard does not match directory separators (`/`). For example, `qa/*` will match all branches beginning with `qa/` and containing a single slash. You can include multiple slashes with `qa/**/*`, and you can extend the `qa` string with `qa**/**/*` to make the rule more inclusive. For more information about syntax options for branch rules, see the [fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+리포지토리의 모든 현재 및 이후 분기에 대한 규칙은 `*` 와일드카드 구문을 사용하여 만들 수 있습니다. {% data variables.product.company_short %}에서 `File::FNM_PATHNAME` 플래그를 `File.fnmatch` 구문에 사용하므로 와일드카드는 디렉터리 구분 기호(`/`)와 일치하지 않습니다. 예를 들어 `qa/*`는 `qa/`로 시작하고 단일 슬래시를 포함하는 모든 분기와 일치합니다. `qa/**/*`를 사용하여 여러 슬래시를 포함할 수 있고, 규칙을 더 포괄적으로 만들기 위해 `qa**/**/*`를 사용하여 `qa` 문자열을 확장할 수 있습니다. 분기 규칙의 구문 옵션에 대한 자세한 내용은 [fnmatch 설명서](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch)를 참조하세요.
 
-If a repository has multiple protected branch rules that affect the same branches, the rules that include a specific branch name have the highest priority. If there is more than one protected branch rule that references the same specific branch name, then the branch rule created first will have higher priority.
+동일한 분기에 영향을 주는 보호된 여러 개의 분기 규칙이 리포지토리에 있는 경우 특정 분기 이름을 포함하는 규칙의 우선 순위가 가장 높습니다. 동일한 특정 분기 이름을 참조하는 둘 이상의 보호된 분기 규칙이 있는 경우 먼저 만든 분기 규칙의 우선 순위가 더 높습니다.
 
-Protected branch rules that mention a special character, such as `*`, `?`, or `]`, are applied in the order they were created, so older rules with these characters have a higher priority.
+특수 문자(예: `*`, `?` 또는 `]`)를 언급하는 보호 분기 규칙은 만든 순서대로 적용되므로 이러한 문자가 있는 이전 규칙의 우선 순위가 더 높습니다.
 
-To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
+기존 분기 규칙에 대한 예외를 만들려면 특정 분기 이름에 대한 분기 규칙과 같이 우선 순위가 더 높은 새 분기 보호 규칙을 만들 수 있습니다.
 
-For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+사용 가능한 각 분기 보호 설정에 대한 자세한 내용은 "[보호된 분기 정보](/github/administering-a-repository/about-protected-branches)"를 참조하세요.
 
-## Creating a branch protection rule
+## 분기 보호 규칙 만들기
 
-When you create a branch rule, the branch you specify doesn't have to exist yet in the repository.
+분기 규칙을 만드는 경우 지정한 분기가 아직 리포지토리에 있지 않아도 됩니다.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-{% data reusables.repositories.add-branch-protection-rules %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-1. Optionally, enable required pull requests.
-   - Under "Protect matching branches", select **Require a pull request before merging**.
-     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
-   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch.
-     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
-{% else %}
-1. Optionally, enable required pull request reviews.
-   - Under "Protect matching branches", select **Require pull request reviews before merging**.
-     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required.png)
-   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. 
-     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals.png)
-{% endif %}
-   - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
-     ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
-   - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
-     ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-   - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
-     ![Allow specific actors to bypass pull request requirements checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
-{% endif %}
-   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-     ![Restrict who can dismiss pull request reviews checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
-{% ifversion last-pusher-require-approval %}
-   - Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval from someone other than the last pusher**. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
-     ![Require review from someone other than the last pusher](/assets/images/help/repository/last-pusher-review-required.png)
-{% endif %}
-1. Optionally, enable required status checks. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
-   - Select **Require status checks to pass before merging**.
-     ![Required status checks option](/assets/images/help/repository/required-status-checks.png)
-   - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
-     ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - Search for status checks, selecting the checks you want to require.
-     ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
-1. Optionally, select **Require conversation resolution before merging**.
-  ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
-1. Optionally, select **Require signed commits**.
-  ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
-1. Optionally, select **Require linear history**.
-  ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
-{%- ifversion fpt or ghec %}
-1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
-  ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
-  {% tip %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %} {% data reusables.repositories.add-branch-protection-rules %} {% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %}
+1. 필요에 따라 필요한 끌어오기 요청을 사용하도록 설정합니다.
+   - "일치하는 분기 보호" 아래에서 **병합하기 전에 끌어오기 요청 필요** 를 선택합니다.
+     ![끌어오기 요청 검토 제한 확인란](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - 필요에 따라 끌어오기 요청을 병합하기 전에 승인을 요구하려면 **승인 필요** 를 선택하고, **병합하기 전에 필요한 승인 수** 드롭다운 메뉴를 클릭한 다음, 분기에 필요한 검토 승인 수를 선택합니다.
+     ![필요한 검토 승인 수를 선택할 수 있는 드롭다운 메뉴](/assets/images/help/repository/number-of-required-review-approvals-updated.png) {% else %}
+1. 필요에 따라 필요한 끌어오기 요청 검토를 사용하도록 설정합니다.
+   - "일치하는 분기 보호" 아래에서 **병합하기 전에 끌어오기 요청 검토 필요** 를 선택합니다.
+     ![끌어오기 요청 검토 제한 확인란](/assets/images/help/repository/PR-reviews-required.png)
+   - **필요한 검토 승인** 드롭다운 메뉴를 클릭한 다음, 분기에 필요한 검토 승인 수를 선택합니다. 
+     ![필요한 검토 승인 수를 선택할 수 있는 드롭다운 메뉴](/assets/images/help/repository/number-of-required-review-approvals.png) {% endif %}
+   - 필요에 따라 코드 수정 커밋이 분기로 푸시될 때 끌어오기 요청 승인 검토를 해제하려면 **새 커밋이 푸시될 때 부실 끌어오기 요청 승인 해제** 를 선택합니다.
+     ![새 커밋이 푸시될 때 부실 끌어오기 요청 승인 해제 확인란](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
+   - 필요에 따라 끌어오기 요청이 지정된 소유자가 있는 코드에 영향을 줄 때 코드 소유자의 검토를 요구하려면 **코드 소유자의 검토 필요** 를 선택합니다. 자세한 내용은 “[코드 사용자 정보](/github/creating-cloning-and-archiving-repositories/about-code-owners)”를 참조하세요.
+     ![코드 소유자](/assets/images/help/repository/PR-review-required-code-owner.png) {% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %}의 검토 필요
+   - 필요에 따라 특정 행위자가 필요할 때 끌어오기 요청을 만들지 않고 코드를 분기에 푸시할 수 있도록 하려면 **지정된 행위자가 필요한 끌어오기 요청을 무시하도록 허용** 을 선택합니다. 그런 다음, 끌어오기 요청 만들기를 건너뛸 수 있는 행위자를 검색하여 선택합니다.
+     ![특정 행위자가 끌어오기 요청 요구 사항을 무시하도록 허용 확인란]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %} {% endif %}
+   - 필요에 따라 리포지토리가 조직의 일부인 경우 **끌어오기 요청 검토를 해제할 수 있는 사용자 제한** 을 선택합니다. 그런 다음, 끌어오기 요청 검토를 해제할 수 있는 행위자를 검색하여 선택합니다. 자세한 내용은 “[끌어오기 요청 검토 해제](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”를 참조하세요.
+     ! [끌어오기 요청 검토를 해제할 수 있는 사용자 제한 확인란] {% ifversion integration-branch-protection-exceptions %} (/assets/images/help/repository/PR-review-required-dismissals-with-apps.png) {% else %} (/assets/images/help/repository/PR-review-required-dismissals.png) {% endif %} {% ifversion last-pusher-require-approval %}
+   - 필요에 따라 병합하기 전에 마지막 사용자가 아닌 다른 사용자가 분기로 푸시하여 끌어오기 요청을 승인하도록 요구하려면 **마지막 푸셔가 아닌 다른 사용자의 승인 필요를** 선택합니다. 자세한 내용은 “[보호된 분기 정보](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)”를 참조하세요.
+     ![마지막 푸셔](/assets/images/help/repository/last-pusher-review-required.png) {% endif %} 이외의 다른 사용자의 검토 필요
+1. 필요에 따라 필요한 상태 확인을 사용하도록 설정합니다. 자세한 내용은 “[상태 검사 정보](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”를 참조하세요.
+   - **병합하기 전에 상태 확인 통과 필요** 를 선택합니다.
+     ![필요한 상태 확인 옵션](/assets/images/help/repository/required-status-checks.png)
+   - 필요에 따라 끌어오기 요청이 보호된 분기에서 최신 코드를 사용하여 테스트되도록 하려면 **병합하기 전에 분기를 최신 상태로 유지 필요** 를 선택합니다.
+     ![느슨하거나 엄격한 필요한 상태 확인란](/assets/images/help/repository/protecting-branch-loose-status.png)
+   - 상태 확인을 검색하고, 필요한 확인을 선택합니다.
+     ![인터페이스에서 필요한 확인 목록을 사용하여 사용 가능한 상태 확인 검색](/assets/images/help/repository/required-statuses-list.png)
+1. 필요에 따라 **병합하기 전에 대화 확인 필요** 를 선택합니다.
+  ![병합하기 전에 대화 확인 필요 옵션](/assets/images/help/repository/require-conversation-resolution.png)
+1. 필요에 따라 **서명된 커밋 필요** 를 선택합니다.
+  ![서명된 커밋 필요 옵션](/assets/images/help/repository/require-signed-commits.png)
+1. 필요에 따라 **선형 기록 필요** 를 선택합니다.
+  ![필요한 선형 기록 옵션](/assets/images/help/repository/required-linear-history.png) {%- ifversion fpt or ghec %}
+1. 필요에 따라 병합 큐를 사용하여 끌어오기 요청을 병합하려면 **병합 큐 필요** 를 선택합니다. {% data reusables.pull_requests.merge-queue-references %} ![병합 큐 필요 옵션](/assets/images/help/repository/require-merge-queue.png) {% tip %}
 
-  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **팁:** 끌어오기 요청 병합 큐 기능은 현재 제한된 퍼블릭 베타 버전이며 변경될 수 있습니다. 조직 소유자는 [대기 목록](https://github.com/features/merge-queue/signup)에 참가하여 베타에 대한 초기 액세스 권한을 요청할 수 있습니다.
 
-  {% endtip %}
-{%- endif %}
-{%- ifversion required-deployments %}
-1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
-   ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
-{%- endif %}
-{% ifversion lock-branch %}
-1. Optionally, select **Lock branch** to make branch read-only.
-![Screenshot of the checkbox to lock a branch](/assets/images/help/repository/lock-branch.png) 
-   -  Optionally, to allow fork syncing, select **Allow fork syncing**.
-![Screenshot of the checkbox to allow fork syncing](/assets/images/help/repository/lock-branch-forksync.png) 
-{%- endif %}
-1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
-![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
-![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
-1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
-   - Select **Restrict who can push to matching branches**.
-     ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
-   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
-     ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
-   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
-     ![Branch restriction search]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
-1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
-  ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-  Then, choose who can force push to the branch.
-    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
-    - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.
-      ![Screenshot of the options to specify who can force push]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %}
-{% endif %}
+  {% endtip %} {%- endif %} {%- ifversion required-deployments %}
+1. 필요에 따라 병합하기 전에 변경 내용을 성공적으로 배포해야 하는 환경을 선택하려면 **병합하기 전에 성공적인 배포 필요** 를 선택한 다음, 환경을 선택합니다.
+   ![성공적인 배포 옵션](/assets/images/help/repository/require-successful-deployment.png) {%- endif %} {% ifversion lock-branch %} 필요
+1. 필요에 따라 **분기 잠금** 을 선택하여 분기를 읽기 전용으로 만듭니다.
+![분기를 잠그는 확인란의 스크린샷](/assets/images/help/repository/lock-branch.png) 
+   -  필요에 따라 포크 동기화를 허용하려면 **포크 동기화 허용을** 선택합니다.
+![포크 동기화](/assets/images/help/repository/lock-branch-forksync.png) 를 허용하는 확인란의 스크린샷 {%- endif %}
+1. 필요에 따라, {% ifversion bypass-branch-protections %}**위의 설정을 무시하는 것을 허용하지 않음** 을 선택합니다.
+![위의 설정을 무시하는 것을 허용하지 않음 확인란](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**관리자에게 위의 규칙 적용**.
+![관리자에게 위의 규칙 적용 확인란](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
+1. 필요에 따라 {% ifversion fpt or ghec %} {% data variables.product.prodname_team %} 또는 {% data variables.product.prodname_ghe_cloud %}를 사용하여 조직에서 리포지토리를 소유하고 있는 경우{% endif %} 분기 제한을 사용하도록 설정합니다.
+   - **일치하는 분기에 푸시할 수 있는 사용자 제한** 을 선택합니다.
+     ![분기 제한 확인란](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
+   - 필요에 따라 일치하는 분기 만들기도 제한하려면 **일치하는 분기를 만드는 푸시 제한** 을 선택합니다.
+     ![분기 만들기 제한 확인란](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - 보호된 분기로 푸시하거나 일치하는 분기를 만들 수 있는 권한이 있는 사용자, 팀 또는 앱을 검색하여 선택합니다.
+     ![분기 제한 검색]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
+1. 필요에 따라 "관리자를 포함한 모든 사용자에게 적용되는 규칙" 아래에서 **강제 푸시 허용** 을 선택합니다.
+  ![강제 푸시 옵션](/assets/images/help/repository/allow-force-pushes.png) {% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} 허용 그런 다음 분기로 강제 푸시할 수 있는 사용자를 선택합니다.
+    - 관리자 권한이 있는 사용자를 포함하여 리포지토리에 대한 쓰기 권한이 있는 모든 사용자가 강제로 분기로 푸시할 수 있도록 허용하려면 **모두** 를 선택합니다.
+    - 특정 행위자만 강제로 분기로 푸시할 수 있도록 허용하려면 **강제로 푸시할 수 있는 사용자 지정** 을 선택합니다. 그런 다음, 해당 행위자를 검색하여 선택합니다.
+      ![강제로 푸시할 수 있는 사용자를 지정할 수 있는 옵션의 스크린샷]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %} {% endif %}
 
-    For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
-1. Optionally, select **Allow deletions**.
-  ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
-1. Click **Create**.
+    강제 푸시에 대한 자세한 내용은 "[강제 푸시 허용](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)"을 참조하세요.
+1. 필요에 따라 **삭제 허용** 을 선택합니다.
+  ![분기 삭제 허용 옵션](/assets/images/help/repository/allow-branch-deletions.png)
+1. **만들기** 를 클릭합니다.
 
-## Editing a branch protection rule
+## 분기 보호 규칙 편집
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. To the right of the branch protection rule you want to edit, click **Edit**.
-  ![Edit button](/assets/images/help/repository/edit-branch-protection-rule.png)
-1. Make your desired changes to the branch protection rule.
-1. Click **Save changes**.
-  ![Save changes button](/assets/images/help/repository/save-branch-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
+1. 편집하려는 분기 보호 규칙의 오른쪽에서 **편집** 을 클릭합니다.
+  ![편집 단추](/assets/images/help/repository/edit-branch-protection-rule.png)
+1. 분기 보호 규칙을 원하는 대로 변경합니다.
+1. **변경 내용 저장** 을 클릭합니다.
+  ![Save changes(변경 내용 저장) 단추](/assets/images/help/repository/save-branch-protection-rule.png)
 
-## Deleting a branch protection rule
+## 분기 보호 규칙 삭제
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. To the right of the branch protection rule you want to delete, click **Delete**.
-    ![Delete button](/assets/images/help/repository/delete-branch-protection-rule.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.repository-branches %}
+1. 삭제하려는 분기 보호 규칙의 오른쪽에서 **삭제** 를 클릭합니다.
+    ![삭제 단추](/assets/images/help/repository/delete-branch-protection-rule.png)

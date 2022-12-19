@@ -1,6 +1,6 @@
 ---
 title: 存储库 Webhook
-intro: ''
+intro: 使用 REST API 管理存储库 Webhook。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,11 +10,11 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 85e0c2746416c5ba810b7729b06f1661d7319ec3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 39d6e01bc3df2c805c52df706088942b4b7c3367
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061879'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193264'
 ---
 

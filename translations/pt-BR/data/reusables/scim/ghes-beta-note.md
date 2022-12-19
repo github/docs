@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: 006bc6ea241b79ff5891db29591ce4a3e6f8976d
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: d45c0fa18ce8bcf70dcdd85e4fffa7300712f23f
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107949"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192702"
 ---
 {% ifversion scim-for-ghes %}
 
 {% note %}
 
-**Observação:** o SCIM do {% data variables.product.product_name %} está em versão beta e sujeito a alterações no momento. Para obter acesso ao beta, entre em contato com o gerente de conta no {% data variables.contact.contact_enterprise_sales %}.
+**Observação:** o SCIM do {% data variables.product.product_name %} está em versão beta e sujeito a alterações no momento. Para obter acesso ao beta, entre em contato com o gerente de conta no {% data variables.contact.contact_enterprise_sales %}. Forneça comentários na [discussão da Comunidade do GitHub](https://github.com/orgs/community/discussions/36825).
 
 {% endnote %}
 

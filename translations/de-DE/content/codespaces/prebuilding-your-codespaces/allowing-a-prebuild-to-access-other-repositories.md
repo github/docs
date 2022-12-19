@@ -1,7 +1,7 @@
 ---
-title: Allowing a prebuild to access other repositories
+title: Gewähren von Zugriff auf andere Repositorys durch einen Pebuild
 shortTitle: Allow external repo access
-intro: 'You can permit your prebuild to access other {% data variables.product.prodname_dotcom %} repositories so that it can be built successfully.'
+intro: 'Du kannst deinem Prebuild den Zugriff auf andere {% data variables.product.prodname_dotcom %}-Repositorys gestatten, damit er erfolgreich erstellt werden kann.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,54 +9,60 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
+ms.openlocfilehash: c88433a59ca297f419aec787f9cff1b6c3013c89
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107317'
 ---
+Der {% data variables.product.prodname_actions %}-Workflow für eine Prebuildkonfiguration kann standardmäßig nur auf Inhalte im eigenen Repository zugreifen. Dein Projekt verwendet für die Erstellung der Entwicklungsumgebung möglicherweise zusätzliche Ressourcen, die sich an anderer Stelle befinden.
 
-By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources, located elsewhere, to build the development environment.
+## Gewähren von Lesezugriff auf externe Ressourcen durch einen Prebuild
 
-## Allowing a prebuild read access external resources
-
-You can configure read access to other {% data variables.product.prodname_dotcom %} repositories, with the same repository owner, by specifying permissions in the `devcontainer.json` file used by your prebuild configuration. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+Du kannst Lesezugriff auf andere {% data variables.product.prodname_dotcom %}-Repositorys mit dem bzw. der gleichen Repositorybesitzer*in konfigurieren, indem du Berechtigungen in der von der Prebuildkonfiguration verwendeten `devcontainer.json`-Datei angibst. Weitere Informationen findest du unter [Verwalten des Zugriffs auf andere Repositorys innerhalb deines Codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces).
 
 {% note %}
 
-**Note**: You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocat` repository, then you'll be able to grant read permissions for other `octo-org/*` repositories if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
+**Hinweis**: Du kannst nur Leseberechtigungen auf diese Weise autorisieren, und der bzw. die Besitzer*in des Zielrepositorys müssen dem bzw. der Besitzer*in des Repositorys entsprechen, für das du einen Prebuild erstellst. Wenn du z. B. eine Prebuildkonfiguration für das `octo-org/octocat`-Repository erstellst, kannst du Leseberechtigungen für andere `octo-org/*`-Repositorys erteilen, wenn dies in der `devcontainer.json` Datei angegeben ist und du selbst über diese Berechtigungen verfügst.
 
 {% endnote %}
 
-When you create or edit a prebuild configuration for a `devcontainer.json` file that sets up read access to other repositories with the same repository owner, you'll be prompted to grant these permissions when you click **Create** or **Update**. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+Beim Erstellen oder Bearbeiten einer Prebuildkonfiguration für eine `devcontainer.json`-Datei, die Lesezugriff auf andere Repositorys mit dem bzw. der gleichen Repositorybesitzer*in einrichtet, wirst du aufgefordert, diese Berechtigungen zu erteilen, wenn du auf **Erstellen** oder **Aktualisieren** klickst. Weitere Informationen findest du unter [Konfigurieren von Prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild).
 
-## Allowing a prebuild write access external resources
+## Gewähren von Schreibzugriff auf externe Ressourcen durch einen Prebuild
 
-If your project requires write access to resources, or if the external resources reside in a repository with a different owner to the repository for which you are creating a prebuild configuration, you can use a {% data variables.product.pat_generic %} to grant this access.
+Wenn dein Projekt Schreibzugriff auf Ressourcen benötigt, oder wenn sich die externen Ressourcen in einem Repository mit einem anderen Besitzer befinden als das Repository, für das du eine Prebuildkonfiguration erstellst, kannst du ein {% data variables.product.pat_generic %} verwenden, um diesen Zugriff zu gewähren.
 
-You will need to create a new personal account and then use this account to create a {% data variables.product.pat_v1 %} with the appropriate scopes.
+Du musst ein neues persönliches Konto erstellen und mit diesem Konto ein {% data variables.product.pat_v1 %} mit den geeigneten Bereichen generieren.
 
-1. Create a new personal account on {% data variables.product.prodname_dotcom %}. 
+1. Erstelle auf {% data variables.product.prodname_dotcom %} ein neues persönliches Konto. 
    
    {% warning %}
    
-   **Warning**: Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[Signing up for a new GitHub account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" and "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
+   **Warnung**: Auch wenn du das {% data variables.product.pat_v1 %} mit deinem bestehenden persönlichen Konto generieren kannst, wird dringend empfohlen, ein neues Konto zu erstellen, das nur auf die Zielrepositorys zugreifen kann, die für dein Szenario benötigt werden. Dies wird empfohlen, da die `repository`-Berechtigung des Zugriffstokens den Zugriff auf alle Repositorys ermöglicht, auf die das Konto zugreifen kann. Weitere Informationen findest du unter [Registrieren eines neuen GitHub-Kontos](/get-started/signing-up-for-github/signing-up-for-a-new-github-account) und [Sicherheitshärtung für {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access).
    
    {% endwarning %}
-1. Give the new account read access to the required repositories. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
-1. While signed into the new account, create a {% data variables.product.pat_v1 %} with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+1. Erteile dem neuen Konto Lesezugriff auf die benötigten Repositorys. Weitere Informationen findest du unter [Verwalten des Zugriffs einer Einzelperson auf ein Organisationsrepository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository).
+1. Erstelle ein {% data variables.product.pat_v1 %} mit dem Bereich `repo`, nachdem du dich bei dem neuen Konto angemeldet hast. Wähle optional den `read:packages`-Geltungsbereich aus, wenn der Prebuild die Pakete aus der {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} herunterladen muss. Weitere Informationen findest du unter [Erstellen eines {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-   !['repo' and 'packages' scopes selected for a {% data variables.product.pat_v1 %}](/assets/images/help/codespaces/prebuilds-select-scopes.png) 
+   ![Für ein {% data variables.product.pat_v1 %} ausgewählte Repository- und Paketbereiche](/assets/images/help/codespaces/prebuilds-select-scopes.png) 
    
-   If the prebuild will use a package from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, you will need to either grant the new account access to the package or configure the package to inherit the access permissions of the repository you are prebuilding. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."   
-{% ifversion ghec %}1. Authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
+   Wenn der Prebuild ein Paket aus der {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} nutzt, musst du dem neuen Konto entweder den Zugriff auf das Paket gewähren oder das Paket so konfigurieren, dass es die Zugriffsberechtigungen des Repositorys erbt, das gerade vorab erstellt wird. Weitere Informationen findest du unter [Konfigurieren der Zugriffssteuerung und Sichtbarkeit eines Pakets](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).   
+{% ifversion ghec %}1. Autorisiere das Token für die Verwendung mit dem einmaligen Anmelden mit SAML, damit es auf Repositorys zugreifen kann, die sich im Besitz von Organisationen befinden, für die SSO aktiviert ist. Weitere Informationen findest du unter [Autorisieren eines {% data variables.product.pat_generic %} für die Verwendung mit SAML-SSO](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
-   ![The button to configure SSO for a {% data variables.product.pat_v1 %}](/assets/images/help/codespaces/configure-SSO-for-PAT.png) 
+   ![Die Schaltfläche zum Konfigurieren von SSO für ein {% data variables.product.pat_v1 %}](/assets/images/help/codespaces/configure-SSO-for-PAT.png) 
 
 {% endif %}
-1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
-1. Sign back into the account that has admin access to the repository. 
-1. In the repository for which you want to create {% data variables.product.prodname_github_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
+1. Kopiere die Tokenzeichenfolge. Weise diese einem {% data variables.product.prodname_codespaces %}-Repositorygeheimnis zu.
+1. Melde dich wieder bei dem Konto an, das über den Administratorzugriff auf das Repository verfügt. 
+1. Erstelle im Repository, für das du {% data variables.product.prodname_github_codespaces %}-Prebuilds erstellen möchtest, ein neues {% data variables.product.prodname_codespaces %}-Repositorygeheimnis namens `CODESPACES_PREBUILD_TOKEN`, und gib ihm den Wert des von dir erstellen und kopierten Tokens. Weitere Informationen findest du unter [Verwalten von verschlüsselten Geheimnissen für dein Repository und deine Organisation für {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository).
 
-The {% data variables.product.pat_generic %} will be used for all subsequent prebuilds created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
+Das {% data variables.product.pat_generic %} wird für alle nachfolgenden Prebuilds verwendet, die für dein Repository erstellt werden. Im Gegensatz zu anderen {% data variables.product.prodname_codespaces %}-Repositorygeheimnissen wird das `CODESPACES_PREBUILD_TOKEN`-Geheimnis nur für das Prebuilding verwendet und kann nicht in Codespaces verwendet werden, die aus deinem Repository erstellt wurden.
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- [Konfigurieren von Prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)
+- [Problembehandlung bei Prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)

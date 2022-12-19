@@ -1,0 +1,21 @@
+date: '27-07-2021'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - 'Los enlaces previos a la recepción personalizados podrían llevar a un error como "error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates".'
+    - El proxy HTTP no autenticado para la compilación de contenedores de las páginas no era compatible para ningún usuario que utilizara proxys HTTP.
+    - "Una cantidad significativa de errores 503 se registraba cada vez que un usuario visitaba la página \"/settings\" de un repositorio si la gráfica de dependencias no estaba habilitada."
+    - "Los repositorios internos solo se devolvían cuando un usuario había tenido afiliaciones con el repositorio mediante un equipo o estado de colaborador o cuando se consultaban con el parámetro \"?type=internal\"."
+    - "Los trabajos en segundo plano fallidos tienen reintentos ilimitados, los cuales podrían causar filas muy largas."
+    - "Si el trabajo programado para sincronizar vulnerabilidades con GitHub.com intentaba ejecutarse cuando la gráfica de dependencias no estaba habilitada y el análisis de contenido sí estaba habilitado, se creaban una cantidad significativa de errores 503."
+  changes:
+    - "Los registros de \"babeld\" ahora incluyen un campo \"cmd\" para las solicitudes de publicidad de referencia de HTTP en vez de incluirlo únicamente durante las solicitudes de negociación."
+  known_issues:
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

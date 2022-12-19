@@ -1,0 +1,58 @@
+date: '16.03.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - „Systemd“-Journalprotokolle wurden an mehreren Orten dupliziert.
+    - "Einem bzw. einer Siteadministrator*in könnte eine Seite mit dem Fehler 500 angezeigt werden, wenn er oder sie versucht, die von privaten Repositorys verwiesenen Issues anzuzeigen."
+    - "Beim Importieren von Repositoryarchiven von GitHub Enterprise Server, bei denen Repositorydateien fehlen, kann ein Fehler auftreten."
+  known_issues:
+    - Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - |Eventuell werden Objekte wie Avatare nicht geladen, oder Code kann nicht gepusht/gepullt werden. Die kann durch einen PID-Konflikt im `haproxy-cluster-proxy`-Dienst hervorgerufen werden. So ermittelst du, ob du über eine betroffene Instanz verfügst:
+
+
+
+**Einzelne Instanz**
+
+
+
+1. Führe dies in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus:
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Wenn ein Konflikt angezeigt wird, starte die Instanz neu.
+
+
+
+**Cluster- oder Hochverfügbarkeitskonfiguration**
+
+
+
+1. Führe dies in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus:
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Wenn angezeigt wird, dass einer oder mehrere Knoten betroffen sind, starte die betroffenen Knoten neu.
+
+|
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."

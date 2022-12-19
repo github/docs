@@ -1,6 +1,6 @@
 ---
-title: About code scanning alerts
-intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
+title: 코드 검사 경고 정보
+intro: 다양한 유형의 코드 검사 경고 및 각 경고가 강조 표시하는 문제를 이해하는 데 도움이 되는 정보에 대해 알아봅니다.
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,115 +12,113 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: 1e540aa8b061e0bbdd5b7be1a2563cd983cfb753
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881229'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+## {% data variables.product.prodname_code_scanning %}의 경고 정보
 
-## About alerts from {% data variables.product.prodname_code_scanning %}
+기본 {% data variables.product.prodname_codeql %} 분석, 타사 분석 또는 여러 유형의 분석을 사용하여 리포지토리의 코드를 확인하도록 {% data variables.product.prodname_code_scanning %}을 설정할 수 있습니다. 분석이 완료되면 결과 경고가 리포지토리의 보안 보기에 나란히 표시됩니다. 타사 도구 또는 사용자 지정 쿼리의 결과에는 {% data variables.product.company_short %}의 기본 {% data variables.product.prodname_codeql %} 분석에서 감지한 경고에 대해 표시되는 속성 중 일부가 포함되지 않을 수 있습니다. 자세한 내용은 “[리포지토리에 대한 {% data variables.product.prodname_code_scanning %} 설정](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”을 참조하세요.
 
-You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+기본적으로 {% data variables.product.prodname_code_scanning %}은 기본 분기 및 끌어오기 요청 중에 주기적으로 코드를 분석합니다. 끌어오기 요청에서 경고를 관리하는 방법에 대한 자세한 내용은 "[끌어오기 요청에서 {% data variables.product.prodname_code_scanning %} 경고 심사](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)"를 참조하세요.
 
-By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+## 경고 세부 정보
 
-## About alert details
+각 경고는 코드 관련 문제 및 이를 식별한 도구 이름을 강조 표시합니다. 경고를 트리거한 코드 줄과 경고 속성(예: 경고 심각도, 보안 심각도 및 문제의 특성)을 볼 수 있습니다. 또한 경고는 문제가 처음 발생한 시간을 알려줍니다. {% data variables.product.prodname_codeql %} 분석에서 식별한 경고의 경우 문제를 해결하는 방법에 대한 정보도 표시됩니다.
 
-Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity, security severity, and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![{% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)의 경고 예제 {% else %} ![{% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)의 경고 예제 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
-{% else %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
-{% endif %}
+{% data variables.product.prodname_codeql %}을 사용하여 {% data variables.product.prodname_code_scanning %}을 설정하면 코드에서 데이터 흐름 문제를 찾을 수도 있습니다. 데이터 흐름 분석은 코드에서 잠재적인 보안 문제(예: 안전하지 않은 데이터 사용, 함수에 위험한 인수 전달, 중요한 정보 유출)를 찾습니다.
 
-If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
+{% data variables.product.prodname_code_scanning %}에서 데이터 흐름 경고를 보고하면 {% data variables.product.prodname_dotcom %}에서 데이터가 코드를 통해 이동하는 방법을 보여 줍니다. {% data variables.product.prodname_code_scanning_capc %}를 사용하면 중요한 정보를 유출하는 코드 영역을 식별할 수 있으며, 이 영역은 악의적인 사용자의 공격에 대한 진입점이 될 수 있습니다.
 
-When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
+### 심각도 수준 정보
 
-### About severity levels
+경고 심각도 수준은 `Error`, `Warning` 또는 `Note`일 수 있습니다.
 
-Alert severity levels may be `Error`, `Warning`, or `Note`.
+{% data variables.product.prodname_code_scanning %}이 끌어오기 요청 확인으로 사용하도록 설정되는 경우 심각도가 `error`인 결과가 검색되면 확인이 실패합니다. 확인 실패가 발생하는 코드 검사 경고의 심각도 수준을 지정할 수 있습니다. 자세한 내용은 “[끌어오기 요청 확인이 실패하는 심각도 정의](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”를 참조하세요.
 
-If {% data variables.product.prodname_code_scanning %} is enabled as a pull request check, the check will fail if it detects any results with a severity of `error`. You can specify which severity level of code scanning alerts causes a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+### 보안 심각도 수준 정보
 
-### About security severity levels
+{% data variables.product.prodname_code_scanning_capc %}는 보안 쿼리에서 생성된 경고에 대한 보안 심각도 수준을 표시합니다. 보안 심각도 수준은 `Critical`, `High`, `Medium` 또는 `Low`일 수 있습니다.
 
-{% data variables.product.prodname_code_scanning_capc %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
+경고의 보안 심각도를 계산하기 위해 CVSS(Common Vulnerability Scoring System) 데이터를 사용합니다. CVSS는 소프트웨어 취약성의 특성 및 심각도를 전달하기 위한 개방형 프레임워크이며, 일반적으로 다른 보안 제품에서 경고 점수를 매기는 데 사용됩니다. 심각도 수준을 계산하는 방법에 대한 자세한 내용은 [이 블로그 게시물](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/)을 참조하세요.
 
-To calculate the security severity of an alert, we use Common Vulnerability Scoring System (CVSS) data. CVSS is an open framework for communicating the characteristics and severity of software vulnerabilities, and is commonly used by other security products to score alerts. For more information about how severity levels are calculated, see [this blog post](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
+기본적으로 보안 심각도가 `Critical` 또는 `High`인 모든 {% data variables.product.prodname_code_scanning %} 결과로 인해 확인 실패가 발생합니다. 확인 실패가 발생해야 하는 {% data variables.product.prodname_code_scanning %} 결과에 대한 보안 심각도 수준을 지정할 수 있습니다. 자세한 내용은 “[끌어오기 요청 확인이 실패하는 심각도 정의](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)”를 참조하세요.
 
-By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+### 분석 원본 정보
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
-### About analysis origins
+다양한 도구를 사용하고 다양한 언어 또는 코드 영역을 대상으로 하여 리포지토리에서 여러 코드 분석 구성을 설정할 수 있습니다. 코드 검사의 각 구성은 생성하는 모든 경고에 대한 분석 원본입니다. 예를 들어 GitHub Actions에서 기본 CodeQL 분석을 사용하여 생성된 경고는 외부에서 생성되고 코드 검사 API를 통해 업로드된 경고와 다른 분석 원본을 갖습니다.
 
-You can set up multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+여러 구성을 사용하여 파일을 분석하는 경우 동일한 쿼리에서 검색된 모든 문제는 여러 분석 원본이 있는 경고로 보고됩니다. 경고에 둘 이상의 분석 원본이 있는 경우 {% octicon "workflow" aria-label="The workflow icon" %} 아이콘이 경고 페이지의 오른쪽에 있는 **영향을 받는 분기** 섹션의 관련 분기 옆에 표시됩니다. 마우스로 {% octicon "workflow" aria-label="The workflow icon" %} 아이콘 위를 가리키면 각 분석 원본의 이름과 해당 분석 원본에 대한 경고 상태를 볼 수 있습니다. 또한 경고 페이지의 타임라인에서 각 분석 원본에 경고가 발생한 시점의 기록을 볼 수 있습니다. 경고에 하나의 분석 원본만 있는 경우 경고 페이지에 분석 원본에 대한 정보가 표시되지 않습니다.
 
-If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
-
-![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+![여러 분석 원본이 있는 코드 검사 경고](/assets/images/help/repository/code-scanning-analysis-origins.png)
 
 {% note %}
 
-**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+**참고:** 코드 검사 경고가 한 분석 원본에 대해 고정된 것으로 표시되지만 두 번째 분석 원본에 대해 여전히 열려 있는 경우가 있습니다. 이 문제는 두 번째 코드 검사 구성을 다시 실행하여 해당 분석 원본에 대한 경고 상태를 업데이트하면 해결할 수 있습니다.
 
 {% endnote %}
 
 {% endif %}
-### About labels for alerts that are not found in application code
+### 애플리케이션 코드에 없는 경고에 대한 레이블 정보
 
-{% data variables.product.product_name %} assigns a category label to alerts that are not found in application code. The label relates to the location of the alert.
+{% data variables.product.product_name %}은 범주 레이블을 애플리케이션 코드에 없는 경고에 할당합니다. 레이블은 경고의 위치와 관련이 있습니다.
 
-- **Generated**: Code generated by the build process
-- **Test**: Test code
-- **Library**: Library or third-party code
-- **Documentation**: Documentation
+- **생성됨**: 빌드 프로세스에서 생성된 코드
+- **테스트**: 테스트 코드
+- **라이브러리**: 라이브러리 또는 타사 코드
+- **설명서**: 설명서
 
-{% data variables.product.prodname_code_scanning_capc %} categorizes files by file path. You cannot manually categorize source files.
+{% data variables.product.prodname_code_scanning_capc %}는 파일을 파일 경로별로 분류합니다. 원본 파일은 수동으로 분류할 수 없습니다.
 
-Here is an example from the {% data variables.product.prodname_code_scanning %} alert list of an alert marked as occurring in library code.
+라이브러리 코드에서 발생하는 것으로 표시된 경고의 {% data variables.product.prodname_code_scanning %} 경고 목록의 예는 다음과 같습니다.
 
-![Code scanning library alert in list](/assets/images/help/repository/code-scanning-library-alert-index.png)
+![목록의 코드 검사 라이브러리 경고](/assets/images/help/repository/code-scanning-library-alert-index.png)
 
-On the alert page, you can see that the filepath is marked as library code (`Library` label).
+경고 페이지에서 파일 경로가 라이브러리 코드(`Library` 레이블)로 표시된 것을 볼 수 있습니다.
 
-![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
+![코드 검사 라이브러리 경고 세부 정보](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
 {% ifversion codeql-ml-queries %}
 
-## About experimental alerts
+## 실험적 경고 정보
 
 {% data reusables.code-scanning.beta-codeql-ml-queries %}
 
-In repositories that run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql %} action, you may see some alerts that are marked as experimental. These are alerts that were found using a machine learning model to extend the capabilities of an existing {% data variables.product.prodname_codeql %} query.
+{% data variables.product.prodname_codeql %} 작업을 사용하여 {% data variables.product.prodname_code_scanning %}을 실행하는 리포지토리에서 '실험적'으로 표시된 일부 경고가 표시될 수 있습니다. 기존 {% data variables.product.prodname_codeql %} 쿼리의 기능을 확장하기 위해 기계 학습 모델을 사용하여 검색된 경고입니다.
 
-![Code scanning experimental alert in list](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
+![목록의 코드 검사 실험적 경고](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
 
-### Benefits of using machine learning models to extend queries
+### 기계 학습 모델을 사용하여 쿼리 확장의 이점
 
-Queries that use machine learning models are capable of finding vulnerabilities in code that was written using frameworks and libraries that the original query writer did not include.
+기계 학습 모델을 사용하는 쿼리는 원래 쿼리 작성기에 포함되지 않은 프레임워크 및 라이브러리를 사용하여 작성된 코드에서 취약성을 찾을 수 있습니다.
 
-Each of the security queries for {% data variables.product.prodname_codeql %} identifies code that's vulnerable to a specific type of attack. Security researchers write the queries and include the most common frameworks and libraries. So each existing query finds vulnerable uses of common frameworks and libraries. However, developers use many different frameworks and libraries, and a manually maintained query cannot include them all. Consequently, manually maintained queries do not provide coverage for all frameworks and libraries.
+{% data variables.product.prodname_codeql %}에 대한 각 보안 쿼리는 특정 유형의 공격에 취약한 코드를 식별합니다. 보안 연구원은 쿼리를 작성하고, 가장 일반적인 프레임워크 및 라이브러리를 포함합니다. 따라서 기존의 각 쿼리는 일반적인 프레임워크 및 라이브러리의 취약한 사용을 찾습니다. 그러나 개발자는 다양한 프레임워크와 라이브러리를 사용하지만, 수동으로 유지 관리되는 쿼리에 모두 포함할 수 없습니다. 따라서 수동으로 유지 관리되는 쿼리는 모든 프레임워크 및 라이브러리에 대한 적용 범위를 제공하지 않습니다.
 
-{% data variables.product.prodname_codeql %} uses a machine learning model to extend an existing security query to cover a wider range of frameworks and libraries. The machine learning model is trained to detect problems in code it's never seen before. Queries that use the model will find results for frameworks and libraries that are not described in the original query.
+{% data variables.product.prodname_codeql %}은 기계 학습 모델을 통해 기존 보안 쿼리를 확장하여 더 광범위한 프레임워크 및 라이브러리를 처리합니다. 기계 학습 모델은 이전에 확인되지 않은 코드의 문제를 검색하도록 학습되었습니다. 모델을 사용하는 쿼리는 원래 쿼리에 설명되지 않은 프레임워크 및 라이브러리에 대한 결과를 찾습니다.
 
-### Alerts identified using machine learning
+### 기계 학습을 사용하여 식별된 경고
 
-Alerts found using a machine learning model are tagged as "Experimental alerts" to show that the technology is under active development. These alerts have a higher rate of false positive results than the queries they are based on. The machine learning model will improve based on user actions such as marking a poor result as a false positive or fixing a good result.
+기계 학습 모델을 사용하여 검색된 경고는 "실험적 경고"로 태그가 지정되어 해당 기술이 활성 개발 중임을 표시합니다. 이러한 경고는 기반이 되는 쿼리보다 가양성 결과의 비율이 더 높습니다. 기계 학습 모델은 잘못된 결과를 가양성으로 표시하거나 좋은 결과를 수정하는 것과 같은 사용자 작업에 따라 향상됩니다.
 
-![Code scanning experimental alert details](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
+![코드 검사 실험적 경고 세부 정보](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
 
-## Enabling experimental alerts
+## 실험적 경고 사용
 
-The default {% data variables.product.prodname_codeql %} query suites do not include any queries that use machine learning to generate experimental alerts. To run machine learning queries during {% data variables.product.prodname_code_scanning %} you need to run the additional queries contained in one of the following query suites.
+기본 {% data variables.product.prodname_codeql %} 쿼리 도구 모음에는 기계 학습을 사용하여 실험적 경고를 생성하는 쿼리가 포함되어 있지 않습니다. {% data variables.product.prodname_code_scanning %} 중에 기계 학습 쿼리를 실행하려면 다음 쿼리 도구 모음 중 하나에 포함된 추가 쿼리를 실행해야 합니다.
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-When you update your workflow to run an additional query suite this will increase the analysis time.
+추가 쿼리 도구 모음을 실행하도록 워크플로를 업데이트하면 분석 시간이 늘어납니다.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -129,14 +127,14 @@ When you update your workflow to run an additional query suite this will increas
     queries: security-extended
 ```
 
-For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+자세한 내용은 “[코드 검사 구성](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)”을 참조하세요.
 
-## Disabling experimental alerts
+## 실험적 경고 사용 안 함
 
-The simplest way to disable queries that use machine learning to generate experimental alerts is to stop running the `security-extended` or `security-and-quality` query suite. In the example above, you would comment out the `queries` line. If you need to continue to run the `security-extended` or `security-and-quality` suite and the machine learning queries are causing problems, then you can open a ticket with [{% data variables.product.company_short %} support](https://support.github.com/contact) with the following details.
+기계 학습을 사용하여 실험적 경고를 생성하는 쿼리를 사용하지 않도록 설정하는 가장 간단한 방법은 `security-extended` 또는 `security-and-quality` 쿼리 도구 모음의 실행을 중지하는 것입니다. 위의 예제에서는 `queries` 줄을 주석으로 처리합니다. `security-extended` 또는 `security-and-quality` 도구 모음을 계속 실행해야 하고 기계 학습 쿼리로 인해 문제가 발생하는 경우 다음 세부 정보를 사용하여 [{% data variables.product.company_short %} 지원](https://support.github.com/contact)을 통해 티켓을 열 수 있습니다.
 
-- Ticket title: "{% data variables.product.prodname_code_scanning %}: removal from experimental alerts beta"
-- Specify details of the repositories or organizations that are affected
-- Request an escalation to engineering
+- 티켓 제목: "{% data variables.product.prodname_code_scanning %}: 실험적 경고 베타에서 제거"
+- 영향을 받는 리포지토리 또는 조직의 세부 정보 지정
+- 엔지니어링에 대한 에스컬레이션 요청
 
 {% endif %}

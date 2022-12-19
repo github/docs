@@ -1,7 +1,7 @@
 ---
-title: Triggering a workflow
+title: 워크플로 트리거
 shortTitle: Trigger a workflow
-intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
+intro: '{% data variables.product.prodname_actions %} 워크플로를 자동으로 트리거하는 방법'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,32 +13,36 @@ topics:
   - CI
   - CD
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cd91670d3d06d4d8f954afa114f6c4f189825d86
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191905'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About workflow triggers
+## 워크플로 트리거 정보
 
 {% data reusables.actions.about-triggers %}
 
-Workflow triggers are defined with the `on` key. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
+워크플로 트리거는 `on` 키로 정의됩니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/articles/workflow-syntax-for-github-actions#on)”을 참조하세요.
 
-The following steps occur to trigger a workflow run:
+워크플로 실행을 트리거하려면 다음 단계를 수행합니다.
 
-1. An event occurs on your repository. The event has an associated commit SHA and Git ref.
-1. {% data variables.product.product_name %} searches the `.github/workflows` directory in your repository for workflow files that are present in the associated commit SHA or Git ref of the event.
-1. A workflow run is triggered for any workflows that have `on:` values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.
+1. 리포지토리에서 이벤트가 발생합니다. 이벤트에 연결된 커밋 SHA 및 Git 참조가 있습니다.
+1. {% data variables.product.product_name %}는 리포지토리의 `.github/workflows`디렉터리에서 이벤트의 연결된 커밋 SHA 또는 Git 참조에 있는 워크플로 파일을 검색합니다.
+1. `on:` 값이 트리거 이벤트와 일치하는 모든 워크플로에 대해 워크플로 실행이 트리거됩니다. 또한 일부 이벤트를 실행하려면 워크플로 파일이 리포지토리의 기본 분기에 있어야 합니다.
 
-  Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+  각 워크플로 실행은 이벤트의 연결된 커밋 SHA 또는 Git 참조에 있는 워크플로의 버전을 사용합니다. 워크플로가 실행되면 {% data variables.product.product_name %}는 실행기 환경에서 `GITHUB_SHA`(커밋 SHA) 및 `GITHUB_REF`(Git 참조) 환경 변수를 설정합니다. 자세한 내용은 “[환경 변수 사용](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”을 참조하세요.
 
-### Triggering a workflow from a workflow
+### 워크플로에서 워크플로 트리거
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% data reusables.actions.actions-do-not-trigger-workflows %} 자세한 내용은 “[GITHUB_TOKEN으로 인증](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”을 참조하세요.
 
-If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token. You'll need to create a {% data variables.product.pat_generic %} and store it as a secret. To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a {% data variables.product.pat_generic %} as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+워크플로 실행 내에서 워크플로를 트리거하려는 경우 토큰이 필요한 이벤트를 트리거하는 대신 `GITHUB_TOKEN` {% data variables.product.pat_generic %}를 사용할 수 있습니다. {% data variables.product.pat_generic %}을(를) 만들고 비밀로 저장해야 합니다. {% data variables.product.prodname_actions %} 사용 비용을 최소화하려면 재귀 또는 의도하지 않은 워크플로 실행을 만들지 않도록 합니다. {% data variables.product.pat_generic %}을(를) 만드는 방법에 대한 자세한 내용은 "[{% data variables.product.pat_generic %} 만들기"를 참조하세요](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). {% data variables.product.pat_generic %}을 비밀로 저장하는 방법에 대한 자세한 내용은 "[암호화된 비밀 만들기 및 저장"을 참조하세요](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 
-For example, the following workflow uses a {% data variables.product.pat_generic %} (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
+예를 들어 다음 워크플로는 {% data variables.product.pat_generic %}(라는 `MY_TOKEN`비밀로 저장됨)를 사용하여 {% data variables.product.prodname_cli %}을 통해 문제에 레이블을 추가합니다. 레이블이 추가되면 실행되는 모든 워크플로는 이 단계가 수행되면 실행됩니다.
 
 ```yaml
 on:
@@ -57,7 +61,7 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
+반대로 다음 워크플로는 `GITHUB_TOKEN`을 사용하여 이슈에 레이블을 추가합니다. 레이블이 추가될 때 실행되는 워크플로는 트리거되지 않습니다.
 
 ```yaml
 on:
@@ -76,68 +80,68 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-## Using events to trigger workflows
+## 이벤트를 사용하여 워크플로 트리거
 
-Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+`on` 키를 사용하여 워크플로를 트리거하는 이벤트를 지정합니다. 사용할 수 있는 이벤트에 대한 자세한 내용은 “[워크플로를 트리거하는 이벤트](/actions/using-workflows/events-that-trigger-workflows)”를 참조하세요.
 
-### Using a single event
+### 단일 이벤트 사용
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### 여러 이벤트 사용
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types and filters with multiple events
+### 여러 이벤트와 함께 활동 유형 및 필터 사용
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
+작업 유형 및 필터를 사용하여 워크플로가 실행되는 시기를 추가로 제어할 수 있습니다. 자세한 내용은 [이벤트 작업 유형 사용](#using-event-activity-types) 및 [필터 사용](#using-filters)을 참조하세요. {% data reusables.actions.actions-multiple-types %}
 
-## Using event activity types
+## 이벤트 작업 유형 사용
 
 {% data reusables.actions.actions-activity-types %}
 
-## Using filters
+## 필터 사용
 
 {% data reusables.actions.actions-filters %}
 
-### Using filters to target specific branches for pull request events
+### 필터를 사용하여 끌어오기 요청 이벤트에 특정 분기를 대상으로 지정
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-### Using filters to target specific branches or tags for push events
+### 필터를 사용하여 푸시 이벤트에 특정 분기 또는 태그를 대상으로 지정
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-### Using filters to target specific paths for pull request or push events
+### 필터를 사용하여 끌어오기 요청 또는 푸시 이벤트에 특정 경로를 대상으로 지정
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-### Using filters to target specific branches for workflow run events
+### 필터를 사용하여 워크플로 실행 이벤트에 특정 분기를 대상으로 지정
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## Defining inputs for manually triggered workflows
+## 수동으로 트리거된 워크플로에 대한 입력 정의
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Defining inputs, outputs, and secrets for reusable workflows
+## 재사용 가능한 워크플로에 대한 입력, 출력, 비밀 정의
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+재사용 가능한 워크플로가 호출 워크플로에서 받아야 하는 입력 및 비밀을 정의할 수 있습니다. 재사용 가능한 워크플로가 호출 워크플로에 사용할 수 있도록 하는 출력을 지정할 수도 있습니다. 자세한 내용은 “[워크플로 다시 사용](/actions/using-workflows/reusing-workflows)”을 참조하세요.
 
 {% endif %}
 
-## Using event information
+## 이벤트 정보 사용
 
-Information about the event that triggered a workflow run is available in the `github.event` context. The properties in the `github.event` context depend on the type of event that triggered the workflow. For example, a workflow triggered when an issue is labeled would have information about the issue and label.
+워크플로 실행을 트리거한 이벤트에 대한 정보는 `github.event` 컨텍스트를 참조하세요. `github.event` 컨텍스트의 속성은 워크플로를 트리거한 이벤트 유형에 따라 달라집니다. 예를 들어 이슈에 레이블이 지정되면 트리거되는 워크플로에는 이슈 및 레이블에 대한 정보가 있습니다.
 
-### Viewing all properties of an event
+### 이벤트의 모든 속성 보기
 
-Reference the webhook event documentation for common properties and example payloads. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+일반적인 속성 및 예제 페이로드에 대한 웹후크 이벤트 설명서를 참조하세요. 자세한 내용은 “[웹후크 이벤트 및 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)”를 참조하세요.
 
-You can also print the entire `github.event` context to see what properties are available for the event that triggered your workflow:
+전체 `github.event` 컨텍스트를 인쇄하여 워크플로를 트리거한 이벤트에 사용할 수 있는 속성을 확인할 수도 있습니다.
 
 ```yaml
 jobs:
@@ -150,9 +154,9 @@ jobs:
           echo $EVENT_CONTEXT
 ```
 
-### Accessing and using event properties
+### 이벤트 속성 액세스 및 사용
 
-You can use the `github.event` context in your workflow. For example, the following workflow runs when a pull request that changes `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**` is opened. If the pull request author (`github.event.pull_request.user.login`) is not `octobot` or `dependabot[bot]`, then the workflow uses the {% data variables.product.prodname_cli %} to label and comment on the pull request (`github.event.pull_request.number`).
+워크플로의 `github.event` 컨텍스트를 사용할 수 있습니다. 예를 들어 `package*.json`, `.github/CODEOWNERS` 또는 `.github/workflows/**`를 변경하는 끌어오기 요청이 열리면 다음 워크플로가 실행됩니다. 끌어오기 요청 작성자(`github.event.pull_request.user.login`)가 `octobot` 또한 `dependabot[bot]`이 아닌 경우 워크플로는 {% data variables.product.prodname_cli %}를 사용하여 끌어오기 요청(`github.event.pull_request.number`)에 레이블을 지정하고 주석을 적용합니다.
 
 ```yaml
 on:
@@ -180,19 +184,19 @@ jobs:
           gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. We do not allow contributions to these files. Please review our [contributing guidelines](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) for what contributions are accepted.'
 ```
 
-For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)." For more information about event payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+컨텍스트에 대한 자세한 내용은 “[컨텍스트](/actions/learn-github-actions/contexts)”를 참조하세요. 이벤트 페이로드에 대한 자세한 내용은 “[웹후크 이벤트 및 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)”를 참조하세요.
 
-## Further controlling how your workflow will run
+## 워크플로 실행 방법 추가 제어
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
+이벤트, 이벤트 작업 유형 또는 이벤트 필터가 제공하는 것보다 더 세부적인 제어를 원하는 경우 조건부 및 환경을 사용하여 워크플로의 개별 작업 또는 단계가 실행될지 여부를 제어할 수 있습니다.
 
-### Using conditionals
+### 조건부 사용
 
-You can use conditionals to further control whether jobs or steps in your workflow will run.
+조건부를 사용하여 워크플로의 작업 또는 단계 실행 여부를 추가로 제어할 수 있습니다.
 
-#### Example using a value in the event payload
+#### 이벤트 페이로드에서 값을 사용하는 예제
 
-For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
+예를 들어 이슈에 특정 레이블이 추가될 때 워크플로를 실행하려면 `issues labeled` 이벤트 작업 유형에서 트리거하고 조건부를 사용하여 워크플로를 트리거한 레이블을 확인할 수 있습니다. 다음 워크플로는 워크플로 리포지토리의 이슈에 레이블이 추가될 때 실행되지만 레이블에 `bug`라는 이름이 지정된 경우에만 `run_if_label_matches` 작업이 실행됩니다.
 
 ```yaml
 on:
@@ -208,9 +212,9 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-#### Example using event type
+#### 이벤트 유형을 사용하는 예제
 
-For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+예를 들어 워크플로를 트리거한 이벤트에 따라 다른 작업 또는 단계를 실행하려는 경우 조건부를 사용하여 이벤트 컨텍스트에 특정 이벤트 유형이 있는지 확인할 수 있습니다. 이슈 또는 끌어오기 요청이 종결될 때마다 다음 워크플로가 실행됩니다. 이슈가 종결되었기 때문에 워크플로가 실행된 경우 `github.event` 컨텍스트에 `issue`에 대한 값은 포함되지만 `pull_request`에 대한 값은 포함되지 않습니다. 따라서 `if_issue` 단계가 실행되지만 `if_pr` 단계는 실행되지 않습니다. 반대로 끌어오기 요청이 종결되어 워크플로가 실행되면 `if_pr` 단계가 실행되지만 `if_issue` 단계가 실행되지 않습니다.
 
 ```yaml
 on:
@@ -235,13 +239,13 @@ jobs:
         echo A pull request was closed
 ```
 
-For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
+이벤트 컨텍스트에서 사용할 수 있는 정보에 대한 자세한 내용은 “[이벤트 정보 사용](#using-event-information)”을 참조하세요. 조건부를 사용하는 방법에 대한 자세한 내용은 “[언어 식](/actions/learn-github-actions/expressions)”을 참조하세요.
 
-### Using environments to manually trigger workflow jobs
+### 환경을 사용하여 워크플로 작업을 수동으로 트리거
 
-If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
+워크플로에서 특정 작업을 수동으로 트리거하려는 경우 특정 팀 또는 사용자의 승인이 필요한 환경을 사용할 수 있습니다. 먼저 필요한 검토자를 사용하여 환경을 구성합니다. 자세한 내용은 “[배포에 환경 사용](/actions/deployment/targeting-different-environments/using-environments-for-deployment)”을 참조하세요. 그런 다음, `environment:` 키를 사용하여 워크플로 작업에서 환경 이름을 참조합니다. 환경을 참조하는 모든 작업은 하나 이상의 검토자가 작업을 승인할 때까지 실행되지 않습니다.
 
-For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
+예를 들어 다음 워크플로는 main에 대한 푸시가 있을 때마다 실행됩니다. `build` 작업은 항상 실행됩니다. `publish` 작업은 `build` 작업이 성공적으로 완료된 후와(원인: `needs: [build]`)`production` 환경에 대한 모든 규칙이 통과된 후(원인: `environment: production`)에만 실행됩니다.
 
 ```yaml
 on:
@@ -271,6 +275,6 @@ jobs:
 
 {% endnote %}
 
-## Available events
+## 사용 가능한 이벤트
 
-For a full list of available events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+사용 가능한 전체 이벤트 목록은 “[워크플로를 트리거하는 이벤트](/actions/using-workflows/events-that-trigger-workflows)”를 참조하세요.

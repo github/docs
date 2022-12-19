@@ -1,6 +1,6 @@
 ---
-title: Deploying with GitHub Actions
-intro: Learn how to control deployments with features like environments and concurrency.
+title: Bereitstellen mit GitHub Actions
+intro: 'Hier erfährst du, wie du Bereitstellungen mit Features wie Umgebungen und Parallelität steuerst.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,34 +12,38 @@ redirect_from:
 topics:
   - CD
 shortTitle: Deploy with GitHub Actions
+ms.openlocfilehash: 533d85d83bea53d34af3d8b9a47d0d4426ea4bc6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145179184'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Einführung
 
-## Introduction
+{% data variables.product.prodname_actions %} bietet Features, mit denen du Bereitstellungen steuern kannst. Sie haben folgende Möglichkeiten:
 
-{% data variables.product.prodname_actions %} offers features that let you control deployments. You can:
+- Auslösen von Workflows mit einer Vielzahl von Ereignissen.
+- Konfigurieren von Umgebungen, um Regeln festzulegen, bevor ein Auftrag fortgesetzt werden kann, und um den Zugriff auf Geheimnisse einzuschränken.
+- Verwenden von Parallelität, um die Anzahl der Bereitstellungen zu steuern, die gleichzeitig ausgeführt werden.
 
-- Trigger workflows with a variety of events.
-- Configure environments to set rules before a job can proceed and to limit access to secrets.
-- Use concurrency to control the number of deployments running at a time.
+Weitere Informationen zu Continuous Deployment findest du unter [Informationen zu Continuous Deployment](/actions/deployment/about-continuous-deployment).
 
-For more information about continuous deployment, see "[About continuous deployment](/actions/deployment/about-continuous-deployment)."
+## Voraussetzungen
 
-## Prerequisites
+Du solltest mit der Syntax für {% data variables.product.prodname_actions %} vertraut sein. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_actions %}](/actions/learn-github-actions).
 
-You should be familiar with the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+## Auslösen deiner Bereitstellung
 
-## Triggering your deployment
+Du kannst deinen Bereitstellungsworkflow mit einer Vielzahl von Ereignissen auslösen. Einige der gängigsten Optionen sind `pull_request`, `push` und `workflow_dispatch`.
 
-You can use a variety of events to trigger your deployment workflow. Some of the most common are: `pull_request`, `push`, and `workflow_dispatch`.
+Beispielsweise löst ein Workflow unter folgenden Bedingungen Ausführungen aus:
 
-For example, a workflow with the following triggers runs whenever:
-
-- There is a push to the `main` branch.
-- A pull request targeting the `main` branch is opened, synchronized, or reopened.
-- Someone manually triggers it.
+- Es gibt einen Push in den `main`-Branch.
+- Ein Pull Request, der auf den `main`-Branch ausgerichtet ist, wird geöffnet, synchronisiert oder erneut geöffnet.
+- Jemand löst ihn manuell aus.
 
 ```yaml
 on:
@@ -52,23 +56,23 @@ on:
   workflow_dispatch:
 ```
 
-For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+Weitere Informationen findest du unter [Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows).
 
-## Using environments
+## Verwenden von Umgebungen
 
 {% data reusables.actions.about-environments %}
 
-## Using concurrency
+## Verwenden von Parallelität
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time.
+Parallelität stellt sicher, dass jeweils nur ein einziger Auftrag oder Workflow mit derselben Parallelitätsgruppe ausgeführt wird. Du kannst Parallelität verwenden, sodass in einer Umgebung maximal eine Bereitstellung ausgeführt wird und eine Bereitstellung aussteht.
 
 {% note %}
 
-**Note:** `concurrency` and `environment` are not connected. The concurrency value can be any string; it does not need to be an environment name. Additionally, if another workflow uses the same environment but does not specify concurrency, that workflow will not be subject to any concurrency rules.
+**Hinweis**: `concurrency` und `environment` sind nicht verbunden. Der Parallelitätswert kann eine beliebige Zeichenfolge sein.Er muss kein Umgebungsname sein. Wenn ein anderer Workflow die gleiche Umgebung verwendet, aber keine Parallelität angibt, unterliegt dieser Workflow keinen Parallelitätsregeln.
 
 {% endnote %}
 
-For example, when the following workflow runs, it will be paused with the status `pending` if any job or workflow that uses the `production` concurrency group is in progress. It will also cancel any job or workflow that uses the `production` concurrency group and has the status `pending`. This means that there will be a maximum of one running and one pending job or workflow in that uses the `production` concurrency group.
+Wenn beispielsweise der folgende Workflow ausgeführt wird, wird er mit dem Status `pending` angehalten, wenn ein Auftrag oder Workflow, der die Parallelitätsgruppe `production` verwendet, aktiv ist. Außerdem werden alle Aufträge oder Workflows abgebrochen, die die Parallelitätsgruppe `production` verwenden und den Status `pending` haben. Das bedeutet, dass es maximal einen aktiven und einen ausstehenden Auftrag oder Workflow gibt, der die Parallelitätsgruppe `production` verwendet.
 
 ```yaml
 name: Deployment
@@ -89,7 +93,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-You can also specify concurrency at the job level. This will allow other jobs in the workflow to proceed even if the concurrent job is `pending`.
+Du kannst Parallelität auch auf Auftragsebene angeben. Dadurch können andere Aufträge im Workflow fortgesetzt werden, auch wenn der parallele Auftrag `pending` ist.
 
 ```yaml
 name: Deployment
@@ -109,7 +113,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-You can also use `cancel-in-progress` to cancel any currently running job or workflow in the same concurrency group.
+Du kannst auch mit `cancel-in-progress` alle derzeit ausgeführten Aufträge oder Workflows in derselben Parallelitätsgruppe abbrechen.
 
 ```yaml
 name: Deployment
@@ -132,42 +136,41 @@ jobs:
         # ...deployment-specific steps
 ```
 
-For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+Anleitungen zum Schreiben von bereitstellungsspezifischen Schritten findest du unter [Suchen nach Bereitstellungsbeispielen](#finding-deployment-examples).
 
-## Viewing deployment history
+## Anzeigen des Bereitstellungsverlaufs
 
-When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
+Wenn ein {% data variables.product.prodname_actions %}-Workflow in einer Umgebung bereitgestellt wird, wird die Umgebung auf der Hauptseite des Repositorys angezeigt. Weitere Informationen zum Anzeigen von Bereitstellungen für Umgebungen findest du unter [Anzeigen des Bereitstellungsverlaufs](/developers/overview/viewing-deployment-history).
 
-## Monitoring workflow runs
+## Überwachen von Workflowausführungen
 
-Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug deployments. For more information see, "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
+Jede Workflowausführung generiert ein Echtzeitdiagramm, das den Ausführungsfortschritt veranschaulicht. Du kannst dieses Diagramm verwenden, um Bereitstellungen zu überwachen und zu debuggen. Weitere Informationen findest du unter [Verwenden des Visualisierungsdiagramms](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph).
 
-You can also view the logs of each workflow run and the history of workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+Du kannst auch die Protokolle jeder Workflowausführung und den Verlauf von Workflowausführungen anzeigen. Weitere Informationen findest du unter [Aufrufen des Workflowausführungsverlaufs](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 
-## Tracking deployments through apps
+## Nachverfolgen von Bereitstellungen über Apps
 
-{% ifversion fpt or ghec %}
-If your personal account or organization on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[GitHub extensions and integrations](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
+{% ifversion fpt or ghec %} Wenn dein persönliches Konto oder deine Organisation auf {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} mit Microsoft Teams oder Slack integriert ist, kannst du Bereitstellungen, die Umgebungen verwenden, über Microsoft Teams oder Slack nachverfolgen. Du kannst beispielsweise Benachrichtigungen über die App erhalten, wenn für eine Bereitstellung eine Genehmigung aussteht, wenn eine Bereitstellung genehmigt wird oder wenn sich der Bereitstellungsstatus ändert. Weitere Informationen zum Integrieren von Microsoft Teams oder Slack findest du unter [GitHub-Erweiterungen und -Integrationen](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools).
 {% endif %}
 
-You can also build an app that uses deployment and deployment status webhooks to track deployments. {% data reusables.actions.environment-deployment-event %} For more information, see "[Apps](/developers/apps)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+Du kannst auch eine App erstellen, die Bereitstellungs- und Bereitstellungsstatuswebhooks verwendet, um Bereitstellungen nachzuverfolgen. {% data reusables.actions.environment-deployment-event %} Weitere Informationen findest du unter [Apps](/developers/apps) und [Webhookereignisse und Nutzdaten](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment).
 
 {% ifversion fpt or ghes or ghec %}
 
-## Choosing a runner
+## Die Auswahl eines Runners
 
-You can run your deployment workflow on {% data variables.product.company_short %}-hosted runners or on self-hosted runners. Traffic from {% data variables.product.company_short %}-hosted runners can come from a [wide range of network addresses](/rest/reference/meta#get-github-meta-information). If you are deploying to an internal environment and your company restricts external traffic into private networks, {% data variables.product.prodname_actions %} workflows running on {% data variables.product.company_short %}-hosted runners may not be able to communicate with your internal services or resources. To overcome this, you can host your own runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[About GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+Du kannst deinen Bereitstellungsworkflow auf von {% data variables.product.company_short %} gehosteten Runnern oder selbstgehosteten Runnern ausführen. Der Datenverkehr von {% data variables.product.company_short %}-gehosteten Runnern kann von einer [ breiten Palette von Netzwerkadressen](/rest/reference/meta#get-github-meta-information) stammen. Wenn du die Bereitstellung in einer internen Umgebung vornimmst und dein Unternehmen den externen Datenverkehr in private Netzwerke einschränkt, können {% data variables.product.prodname_actions %}-Workflows, die auf von {% data variables.product.company_short %} gehosteten Runnern ausgeführt werden, möglicherweise nicht mit deinen internen Diensten oder Ressourcen kommunizieren. Um dies zu vermeiden, kannst du deine eigenen Runner hosten. Weitere Informationen findest du unter [Informationen über selbstgehostete Runner](/actions/using-github-hosted-runners/about-github-hosted-runners) und [Informationen über von GitHub gehostete Runner](/actions/hosting-your-own-runners/about-self-hosted-runners).
 
 {% endif %}
 
-## Displaying a status badge
+## Anzeigen eines Statusbadges
 
-You can use a status badge to display the status of your deployment workflow. {% data reusables.repositories.actions-workflow-status-badge-intro %}
+Du kannst ein Statusbadge verwenden, um den Status deines Bereitstellungsworkflows anzuzeigen. {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+Weitere Informationen findest du unter [Hinzufügen eines Workflowstatusbadges](/actions/managing-workflow-runs/adding-a-workflow-status-badge).
 
-## Finding deployment examples
+## Suchen nach Bereitstellungsbeispielen
 
-This article demonstrated features of {% data variables.product.prodname_actions %} that you can add to your deployment workflows.
+In diesem Artikel wurden Features von {% data variables.product.prodname_actions %} beschrieben, die du deinen Bereitstellungsworkflows hinzufügen kannst.
 
 {% data reusables.actions.cd-templates-actions %}

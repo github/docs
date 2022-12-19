@@ -1,0 +1,25 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。 {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'カスタムの pre-receive フックが、仮想メモリの制限が厳しすぎる、または CPU 時間の制限のために失敗した可能性があります。 {% comment %} https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - '"ghe-cleanup-settings" を使用した既存のすべての構成設定のワイプの試行により、管理コンソール サービスの再起動に失敗しました。 {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - '"ghe-repl-teardown" を使用したレプリケーションの破棄時に Memcached の再起動に失敗しました。 {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - '負荷が高い時、アップストリーム サービスで内部の正常性チェックに失敗した場合、ユーザーは HTTP 503 状態コードを受け取ります。 {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'pre-receive フック環境では、Alpine で BusyBox を介して cat コマンドを呼び出すことが禁止されていました。 {% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - '外部データベース パスワードがプレーンテキストでログされました。 {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - '"ghe-config-apply" の実行中に、誤った "jq" エラー メッセージが表示された可能性があります。 {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'プライマリ クラスター データセンターからセカンダリ クラスター データセンターへのフェールオーバーに成功しましたが、元のプライマリ クラスター データセンターへのフェールバックで、Elasticsearch インデックスの昇格に失敗しました。 {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'リポジトリのセルフホステッド ランナーのサイト管理者ページで、HTTP 500 が返されました。 {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - '場合によっては、[休眠ユーザー] ページを表示しようとした GitHub Enterprise 管理者が、"502 無効なゲートウェイ" または "504 ゲートウェイ タイムアウト" の応答を受け取りました。 {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'Webhook のログ保持期間を超えた Webhook ログをより効果的に削除します。{% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

@@ -1,47 +1,48 @@
 ---
-title: Moderating discussions
-intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
+title: ディスカッションをモデレートする
+intro: 'コメントを回答としてマークする、ディスカッションをロックまたはロック解除する、Issue をディスカッションに変換する、{% ifversion fpt or ghec %}コミュニティの行動規範{% elsif ghes > 3.5 %}Organization のコントリビューション ガイドライン{% endif %}に合わないコメント、ディスカッション、カテゴリの編集または削除を行うことで、健全なコラボレーションを促進することができます。'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   feature: discussions
+ms.openlocfilehash: 4d09537a3c38d2eb9ac2650c48f2c44c1b0cbd95
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164474'
 ---
+## ディスカッションのモデレートについて
 
+{% data reusables.discussions.about-discussions %} リポジトリのトリアージ権限をお持ちの場合は、コメントを回答としてマークし、コミュニティに有益ではなくなった、または損害を与えているディスカッションをロックし、アイデアがまだ開発の初期段階にあるときに Issue をディスカッションに変換することで、リポジトリのディスカッションをモデレートするのに役立ちます。 同様に、Organization ディスカッションのソースリポジトリのトリアージ許可がある場合、その Organization のディスカッションをモデレートできます。
 
-## About moderating discussions
-
-{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, if you have triage permission for the source repository for organization discussions, you can moderate discussions for that organization.
-
-## Marking a comment as an answer
+## コメントを回答としてマークする
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}
 
-## Locking discussions
+## ディスカッションをロックする
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
+会話全体が建設的でない場合や、コミュニティの行動規範または {% data variables.product.prodname_dotcom %} の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines)に違反している場合は、会話をロックするのが適切です。 会話をロックして、コミュニティへのお知らせとして使用するディスカッションへのコメントを防ぐこともできます。 会話をロックすると、リポジトリ (Organization ディスカッションのリースリポジトリ) への書き込み許可のあるユーザーは、ディスカッションで引き続きコメントできます。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, click the discussion you want to lock.
-  ![Lock discussion](/assets/images/help/discussions/unanswered-discussion.png)
-1. In the right margin of a discussion, click **Lock conversation**.
-1. Read the information about locking conversations and click **Lock conversation on this discussion**.
-1. When you're ready to unlock the conversation, click **Unlock conversation**, then click **Unlock conversation on this discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %}
+1. ディスカッションのリストで、ロックするディスカッションをクリックします。
+  ![ディスカッションのロック](/assets/images/help/discussions/unanswered-discussion.png)
+1. ディスカッションの右余白で、 **[会話のロック]** をクリックします。
+1. 会話のロックに関する情報を読み、 **[このディスカッションでの会話をロック]** をクリックします。
+1. 会話のロックを解除する準備ができたら、 **[会話のロック解除]** をクリックし、 **[このディスカッションでの会話のロック解除]** をクリックします。
 
-## Converting an issue to a discussion
+## Issue をディスカッションに変換する
 
-When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Issue をディスカッションに変換すると、その Issue のコンテンツを使用してディスカッションが自動的に作成されます。 リポジトリ (Organization ディスカッションのリースリポジトリ) への書き込み許可のあるユーザーは、ラベルに基づき、issue を一括変換できます。 詳しくは、「[ディスカッションの管理](/discussions/managing-discussions-for-your-community/managing-discussions)」を参照してください。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.repositories.sidebar-issues %}
-1. In the list of issues, click the issue you'd like to convert.
-1. In the right margin of an issue, click **Convert to discussion**.
-1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
-1. Click **I understand, convert this issue to a discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.repositories.sidebar-issues %}
+1. Issue のリストで、変換する Issue をクリックします。
+1. Issue の右余白にある **[ディスカッションに変換]** をクリックします。
+1. **[カテゴリの選択]** ドロップダウン メニューを選択し、ディスカッションのカテゴリをクリックします。
+1. **[わかりました、この Issue をディスカッションに変換します]** をクリックします。
 
 {% ifversion discussions-hide-comments-on-block %}
-## Blocking a user from your organization
+## Organization からのユーザのブロック
 
-Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+組織の所有者とモデレーターは、ユーザーのコメントがコミュニティの行動規範に従っていない場合、そのユーザーを組織からブロックできます。 ブロックしたユーザーは、ディスカッションにコメントできなくなります。 また、組織内であるユーザーが行ったすべてのコメントを非表示にすることもできます。 詳細については、「[Organization からのユーザーのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)」を参照してください。
 
-{% data reusables.organizations.blocking-a-user %} 
-{% endif %}
+{% data reusables.organizations.blocking-a-user %} {% endif %}

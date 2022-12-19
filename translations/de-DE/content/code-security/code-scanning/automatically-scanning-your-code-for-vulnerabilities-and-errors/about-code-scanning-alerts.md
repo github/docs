@@ -1,6 +1,6 @@
 ---
-title: About code scanning alerts
-intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
+title: Informationen zu Codeüberprüfungswarnungen
+intro: 'Hier erfährst du mehr über die verschiedenen Arten von Codeüberprüfungswarnungen und die Informationen, die dir dabei helfen, das Problem zu verstehen, das von der jeweiligen Warnung hervorgehoben wird.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,115 +12,113 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: 1e540aa8b061e0bbdd5b7be1a2563cd983cfb753
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881227'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+## Informationen zu Warnungen durch die {% data variables.product.prodname_code_scanning %}
 
-## About alerts from {% data variables.product.prodname_code_scanning %}
+Du kannst die {% data variables.product.prodname_code_scanning %} so einstellen, dass der Code in einem Repository mit der {% data variables.product.prodname_codeql %}-Standardanalyse, einer Analyse eines Drittanbieters oder mehreren Arten von Analysen überprüft wird. Nach Abschluss der Analyse werden die daraus resultierenden Warnungen in der Sicherheitsansicht des Repositorys nebeneinander angezeigt. Ergebnisse von Drittanbietertools oder benutzerdefinierten Abfragen enthalten möglicherweise nicht alle Eigenschaften, die in Warnungen der {% data variables.product.prodname_codeql %}-Standardanalyse von {% data variables.product.company_short %} angezeigt werden. Weitere Informationen findest du unter [Einrichten von {% data variables.product.prodname_code_scanning %} für ein Repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository).
 
-You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+Standardmäßig wird dein Code im Standardbranch und bei Pull Requests über das {% data variables.product.prodname_code_scanning %} regelmäßig analysiert. Informationen zur Verwaltung von Warnungen für Pull Requests findest du unter [Selektieren von {% data variables.product.prodname_code_scanning %}-Warnungen in Pull Requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests).
 
-By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+## Informationen zu Warnungsdetails
 
-## About alert details
+Bei jeder Warnung werden das Problem mit dem Code und der Name des Tools, das dieses erkannt hat, hervorgehoben. Du kannst die Codezeile anzeigen, die die Warnung ausgelöst hat, sowie Eigenschaften der Warnung (z. B. Warnungsschweregrad, Sicherheitsschweregrad und die Art des Problems). Warnungen informieren dich auch darüber, seit wann das Problem besteht. Bei Warnungen, die von der {% data variables.product.prodname_codeql %}-Analyse identifiziert wurden, werden auch Informationen zur Behebung des Problems angezeigt.
 
-Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity, security severity, and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %} ![Beispielwarnung der {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png) {% else %} ![Beispielwarnung der {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png) {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
-{% else %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
-{% endif %}
+Wenn du die {% data variables.product.prodname_code_scanning %} mit {% data variables.product.prodname_codeql %} festlegst, können auch Datenflussprobleme in deinem Code erkannt werden. Die Datenflussanalyse findet potenzielle Sicherheitsprobleme in Code wie die unsichere Verwendung von Daten, die Übergabe gefährlicher Argumente an Funktionen und das Durchsickern vertraulicher Informationen.
 
-If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
+Wenn die {% data variables.product.prodname_code_scanning %} Datenflusswarnungen meldet, zeigt {% data variables.product.prodname_dotcom %} Ihnen, wie die Daten durch den Code fließen. Mit der {% data variables.product.prodname_code_scanning_capc %} kannst du die Bereiche deines Codes identifizieren, in denen vertrauliche Informationen durchsickern und die einen möglichen Ansatzpunkt für Angriffe böswilliger Benutzer*innen darstellen.
 
-When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
+### Informationen zu Schweregraden
 
-### About severity levels
+Mögliche Warnungsschweregrade sind `Error`, `Warning` und `Note`.
 
-Alert severity levels may be `Error`, `Warning`, or `Note`.
+Wenn die {% data variables.product.prodname_code_scanning %} als Überprüfung für Pull Requests aktiviert ist, tritt bei der Überprüfung ein Fehler auf, wenn Ergebnisse mit dem Schweregrad `error` gefunden werden. Du kannst angeben, welcher Schweregrad für Codeüberprüfungswarnungen einen Überprüfungsfehler verursacht. Weitere Informationen findest du unter [Definieren der Schweregrade, die einen Fehler bei der Überprüfung von Pull Requests verursachen](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure).
 
-If {% data variables.product.prodname_code_scanning %} is enabled as a pull request check, the check will fail if it detects any results with a severity of `error`. You can specify which severity level of code scanning alerts causes a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+### Informationen zu Sicherheitsschweregraden
 
-### About security severity levels
+Die {% data variables.product.prodname_code_scanning_capc %} zeigt Sicherheitsschweregrade für Warnungen an, die von Sicherheitsabfragen generiert wurden. Die Sicherheitsschweregrade können `Critical`, `High`, `Medium` oder `Low` sein.
 
-{% data variables.product.prodname_code_scanning_capc %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
+Für die Berechnung des Sicherheitsschweregrads einer Warnung verwenden wir CVSS-Daten (Common Vulnerability Scoring System). Das CVSS ist ein offenes Framework, über das die Merkmale und Schweregrade von Sicherheitsrisiken bei Software kommuniziert werden und das häufig von anderen Sicherheitsprodukten für die Bewertung von Warnungen verwendet wird. Weitere Informationen dazu, wie Schweregrade berechnet werden, findest du in [diesem Blogbeitrag](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
 
-To calculate the security severity of an alert, we use Common Vulnerability Scoring System (CVSS) data. CVSS is an open framework for communicating the characteristics and severity of software vulnerabilities, and is commonly used by other security products to score alerts. For more information about how severity levels are calculated, see [this blog post](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
+Standardmäßig führen alle Ergebnisse der {% data variables.product.prodname_code_scanning %} mit einem Sicherheitsschweregrad von `Critical` oder `High` dazu, dass bei der Überprüfung ein Fehler auftritt. Du kannst angeben, welcher Sicherheitsschweregrad bei Ergebnissen der {% data variables.product.prodname_code_scanning %} zu einem Fehler bei der Überprüfung führen soll. Weitere Informationen findest du unter [Definieren der Schweregrade, die einen Fehler bei der Überprüfung von Pull Requests verursachen](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure).
 
-By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+### Informationen zu Analyseursprüngen
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
-### About analysis origins
+Du kannst für ein Repository mehrere Konfigurationen für Codeanalysen mit verschiedenen Tools sowie für verschiedene Sprachen oder Bereiche des Codes festlegen. Jede Konfiguration der Codeüberprüfung ist der Analyseursprung für alle von ihr generierten Warnungen. So verfügt beispielsweise eine mithilfe der CodeQL-Standardanalyse mit GitHub Actions generierte Warnung über einen anderen Analyseursprung als eine extern generierte Warnung, die über die Codeüberprüfungs-API hochgeladen wurde.
 
-You can set up multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+Wenn du mehrere Konfigurationen zum Analysieren einer Datei verwendest, werden alle im Rahmen einer einzelnen Abfrage erkannten Probleme als Warnungen mit verschiedenen Analyseursprüngen gemeldet. Wenn eine Warnung über mehr als einen Analyseursprung verfügt, wird das Symbol {% octicon "workflow" aria-label="The workflow icon" %} neben allen relevanten Branches im Abschnitt **Betroffene Branches** rechts auf der Warnungsseite angezeigt. Du kannst auf das Symbol {% octicon "workflow" aria-label="The workflow icon" %} zeigen, um die Namen der einzelnen Analyseursprünge und den Status der Warnung für den jeweiligen Analyseursprung anzuzeigen. Darüber hinaus kannst du auf der Zeitachse auf der Warnungsseite anzeigen, seit wann die Warnungen für die einzelnen Analyseursprünge jeweils vorliegen. Wenn eine Warnung über nur einen Analyseursprung verfügt, werden auf der Warnungsseite keine Informationen zu Analyseursprüngen angezeigt.
 
-If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
-
-![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+![Codeüberprüfungswarnung mit mehreren Analyseursprüngen](/assets/images/help/repository/code-scanning-analysis-origins.png)
 
 {% note %}
 
-**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+**Hinweis:** Manchmal werden Codeüberprüfungswarnungen bei einem Analyseursprung als behoben angezeigt, bei einem anderen Analyseursprung jedoch noch als offen. Dieses Problem kannst du beheben, indem du die zweite Codeüberprüfungskonfiguration erneut ausführst, um den Warnungsstatus für diesen Analyseursprung zu aktualisieren.
 
 {% endnote %}
 
 {% endif %}
-### About labels for alerts that are not found in application code
+### Informationen zu Kennzeichnungen für nicht in Anwendungscode gefundene Warnungen
 
-{% data variables.product.product_name %} assigns a category label to alerts that are not found in application code. The label relates to the location of the alert.
+{% data variables.product.product_name %} weist Warnungen, die nicht in Anwendungscode gefunden wurden, eine Kategoriekennzeichnung zu. Mit dieser Kennzeichnung wird angegeben, wo die Warnung gefunden wurde.
 
-- **Generated**: Code generated by the build process
-- **Test**: Test code
-- **Library**: Library or third-party code
-- **Documentation**: Documentation
+- **Generiert**: Vom Buildprozess generierter Code
+- **Test**: Testcode
+- **Bibliothek**: Bibliotheks- oder Drittanbietercode
+- **Dokumentation**: Dokumentation
 
-{% data variables.product.prodname_code_scanning_capc %} categorizes files by file path. You cannot manually categorize source files.
+Bei der {% data variables.product.prodname_code_scanning_capc %} werden die Dateien basierend auf dem Dateipfad den Kategorien zugeordnet. Ein manuelles Kategorisieren von Quelldateien ist nicht möglich.
 
-Here is an example from the {% data variables.product.prodname_code_scanning %} alert list of an alert marked as occurring in library code.
+Im Folgenden siehst du ein Beispiel aus der Warnungsliste der {% data variables.product.prodname_code_scanning %}, bei dem eine Warnung als in Bibliothekscode auftretend gekennzeichnet ist.
 
-![Code scanning library alert in list](/assets/images/help/repository/code-scanning-library-alert-index.png)
+![Codeüberprüfungswarnung für eine Bibliothek in einer Liste](/assets/images/help/repository/code-scanning-library-alert-index.png)
 
-On the alert page, you can see that the filepath is marked as library code (`Library` label).
+Auf der Warnungsseite kannst du sehen, dass der Dateipfad als Bibliothekscode gekennzeichnet ist (Kennzeichnung `Library`).
 
-![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
+![Details für eine Codeüberprüfungswarnung für eine Bibliothek](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
 {% ifversion codeql-ml-queries %}
 
-## About experimental alerts
+## Informationen zu experimentellen Warnungen
 
 {% data reusables.code-scanning.beta-codeql-ml-queries %}
 
-In repositories that run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql %} action, you may see some alerts that are marked as experimental. These are alerts that were found using a machine learning model to extend the capabilities of an existing {% data variables.product.prodname_codeql %} query.
+In Repositorys, die die {% data variables.product.prodname_code_scanning %} mithilfe der {% data variables.product.prodname_codeql %}-Aktion ausführen, wirst du möglicherweise sehen, dass einige Warnungen als experimentell gekennzeichnet sind. Dies sind Warnungen, die mithilfe eines Machine Learning-Modells gefunden wurden, mit dem die Funktionen einer bestehenden {% data variables.product.prodname_codeql %}-Abfrage erweitert wurden.
 
-![Code scanning experimental alert in list](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
+![Experimentelle Codeüberprüfungswarnung in einer Liste](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
 
-### Benefits of using machine learning models to extend queries
+### Vorteile der Verwendung von Machine Learning-Modellen zum Erweitern von Abfragen
 
-Queries that use machine learning models are capable of finding vulnerabilities in code that was written using frameworks and libraries that the original query writer did not include.
+Abfragen, bei denen Machine Learning-Modelle verwendet werden, können Sicherheitsrisiken in Code finden, der mithilfe von Frameworks und Bibliotheken geschrieben wurde, die die Person, die die ursprüngliche Abfrage erstellt hat, in der Abfrage nicht berücksichtigt hat.
 
-Each of the security queries for {% data variables.product.prodname_codeql %} identifies code that's vulnerable to a specific type of attack. Security researchers write the queries and include the most common frameworks and libraries. So each existing query finds vulnerable uses of common frameworks and libraries. However, developers use many different frameworks and libraries, and a manually maintained query cannot include them all. Consequently, manually maintained queries do not provide coverage for all frameworks and libraries.
+Alle Sicherheitsabfragen für {% data variables.product.prodname_codeql %} erkennen Code, der anfällig für eine bestimmte Art von Angriff ist. Die Abfragen werden von Sicherheitsforschern erstellt, die dabei die am häufigsten verwendeten Frameworks und Bibliotheken berücksichtigen. Daher findet jede vorhandene Abfrage Anwendungsfälle für häufig verwendete Frameworks und Bibliotheken, durch die Sicherheitsrisiken entstehen. Entwickler verwenden jedoch viele verschiedene Frameworks und Bibliotheken, und eine manuell verwaltete Abfrage kann nicht alle davon berücksichtigen. Daher decken manuell verwaltete Abfragen nicht alle Frameworks und Bibliotheken ab.
 
-{% data variables.product.prodname_codeql %} uses a machine learning model to extend an existing security query to cover a wider range of frameworks and libraries. The machine learning model is trained to detect problems in code it's never seen before. Queries that use the model will find results for frameworks and libraries that are not described in the original query.
+{% data variables.product.prodname_codeql %} verwendet ein Machine Learning-Modell, um eine vorhandene Sicherheitsabfrage zu erweitern, sodass eine größere Auswahl von Frameworks und Bibliotheken abgedeckt wird. Das Machine Learning-Modell wird darauf trainiert, Probleme in Code zu erkennen, der ihm noch nie zuvor begegnet ist. Abfragen, die das Modell verwenden, finden Ergebnisse für Frameworks und Bibliotheken, die in der ursprünglichen Abfrage nicht beschrieben werden.
 
-### Alerts identified using machine learning
+### Mithilfe von maschinellem Lernen gefundene Warnungen
 
-Alerts found using a machine learning model are tagged as "Experimental alerts" to show that the technology is under active development. These alerts have a higher rate of false positive results than the queries they are based on. The machine learning model will improve based on user actions such as marking a poor result as a false positive or fixing a good result.
+Warnungen, die mithilfe eines Machine Learning-Modells gefunden wurden, werden als „Experimentelle Warnungen“ gekennzeichnet, um zu zeigen, dass diese Technologie sich derzeit in einer Phase der aktiven Entwicklung befindet. Bei diesen Warnungen gibt es eine höhere Rate falsch positiver Ergebnisse als bei den Abfragen, auf denen sie basieren. Das Machine Learning-Modell verbessert sich durch Benutzeraktionen wie das Kennzeichnen eines schlechten Ergebnisses als False Positive oder das Beheben eines Problems aus einem guten Ergebnis.
 
-![Code scanning experimental alert details](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
+![Details für eine experimentelle Codeüberprüfungswarnung](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
 
-## Enabling experimental alerts
+## Aktivieren von experimentellen Warnungen
 
-The default {% data variables.product.prodname_codeql %} query suites do not include any queries that use machine learning to generate experimental alerts. To run machine learning queries during {% data variables.product.prodname_code_scanning %} you need to run the additional queries contained in one of the following query suites.
+Die {% data variables.product.prodname_codeql %}-Standardabfragesammlungen enthalten keine Abfragen, die maschinelles Lernen zum Generieren experimenteller Warnungen verwenden. Damit während der {% data variables.product.prodname_code_scanning %} Machine-Learning-Abfragen ausgeführt werden, musst du die zusätzlichen Abfragen in einer der folgenden Abfragesammlungen ausführen.
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-When you update your workflow to run an additional query suite this will increase the analysis time.
+Wenn du deinen Workflow so aktualisierst, dass eine zusätzliche Abfragesammlung ausgeführt wird, erhöht sich die Analysezeit.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -129,14 +127,14 @@ When you update your workflow to run an additional query suite this will increas
     queries: security-extended
 ```
 
-For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+Weitere Informationen findest du unter [Konfigurieren der Codeüberprüfung](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs).
 
-## Disabling experimental alerts
+## Deaktivieren von experimentellen Warnungen
 
-The simplest way to disable queries that use machine learning to generate experimental alerts is to stop running the `security-extended` or `security-and-quality` query suite. In the example above, you would comment out the `queries` line. If you need to continue to run the `security-extended` or `security-and-quality` suite and the machine learning queries are causing problems, then you can open a ticket with [{% data variables.product.company_short %} support](https://support.github.com/contact) with the following details.
+Die einfachste Möglichkeit, Abfragen zu deaktivieren, die maschinelles Lernen zum Generieren experimenteller Warnungen verwenden, besteht darin, das Ausführen der Abfragesammlung `security-extended` oder `security-and-quality` zu beenden. Im obigen Beispiel würdest du hierfür die `queries`-Zeile auskommentieren. Wenn du die Sammlung `security-extended` oder `security-and-quality` weiterhin ausführen musst und die Machine-Learning-Abfragen Probleme verursachen, kannst du ein Ticket mit den folgenden Angaben an den [{% data variables.product.company_short %}-Support](https://support.github.com/contact) senden.
 
-- Ticket title: "{% data variables.product.prodname_code_scanning %}: removal from experimental alerts beta"
-- Specify details of the repositories or organizations that are affected
-- Request an escalation to engineering
+- Tickettitel: „{% data variables.product.prodname_code_scanning %}: Entfernen aus der Betaversion für experimentelle Warnungen“
+- Gib ausführliche Informationen zu den betroffenen Repositorys oder Organisationen an.
+- Beantrage eine Eskalation an das Entwicklungsteam.
 
 {% endif %}

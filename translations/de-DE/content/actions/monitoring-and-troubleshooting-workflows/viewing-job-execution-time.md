@@ -1,29 +1,29 @@
 ---
-title: Viewing job execution time
-shortTitle: View job execution time
-intro: 'You can view the execution time of a job, including the billable minutes that a job accrued.'
+title: Anzeigen der Ausführungszeit für einen Auftrag
+intro: 'Du kannst die Ausführungszeit eines Auftrags einsehen, einschließlich der in Rechnung gestellten Minuten, die für einen Auftrag angefallen sind.'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
   ghec: '*'
+shortTitle: View job execution time
+ms.openlocfilehash: 8293c36519dd727942d7cec0e1c1a2fa430ce112
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145107204'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Die abrechenbaren Minuten der Auftragsausführung werden nur für Aufträge angezeigt, die in privaten Repositorys ausgeführt werden und von {% data variables.product.prodname_dotcom %} gehostete Runner verwenden, jeweils aufgerundet auf die nächste Minute. Bei Verwendung von {% data variables.product.prodname_actions %} in öffentlichen Repositorys oder für Aufträge, die auf selbstgehosteten Runnern ausgeführt werden, fallen keine abrechenbaren Minuten an.
 
-Billable job execution minutes are only shown for jobs run on private repositories that use {% data variables.product.prodname_dotcom %}-hosted runners and are rounded up to the next minute. There are no billable minutes when using {% data variables.product.prodname_actions %} in public repositories or for jobs run on self-hosted runners.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. Under the job summary, you can view the job's execution time. To view details about the billable job execution time, in the left sidebar under "Run details", click **{% octicon "stopwatch" aria-label="The stopwatch icon" %} Usage**.
-
-   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
+1. In der Auftragszusammenfassung kannst du die Ausführungszeit des Auftrags sehen. Um Details über die abrechenbare Auftragsausführungszeit anzuzeigen, klicke auf die Zeitangabe unter **Abrechenbare Zeit**.
+   ![Link mit Details zu Ausführung und abrechenbarer Zeit](/assets/images/help/repository/view-run-billable-time.png)
 
    {% note %}
-
-   **Note:** The billable time shown does not include any minute multipliers. To view your total {% data variables.product.prodname_actions %} usage, including minute multipliers, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)."
-
+   
+   **Hinweis:** Die angegebene abrechenbare Zeit enthält keine Minutenmultiplikatoren. Wie du deine gesamte {% data variables.product.prodname_actions %}-Nutzung, einschließlich der Minutenmultiplikatoren, anzeigen kannst, erfährst du unter [Anzeigen deiner {% data variables.product.prodname_actions %}-Nutzung](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage).
+   
    {% endnote %}

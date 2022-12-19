@@ -1,0 +1,20 @@
+date: '2021-09-24'
+sections:
+  security_fixes:
+    - '**높음:** {% data variables.product.prodname_pages %} 사이트 구축할 때 악용될 수 있는 {% data variables.product.prodname_ghe_server %}에서 대한 경로 탐색 취약성이 식별되었습니다. {% data variables.product.prodname_pages %}에 사용된 사용자 제어 구성 옵션이 충분히 제한되지 않았으며 {% data variables.product.prodname_ghe_server %} 인스턴스에서 파일을 읽을 수 있게 되었습니다. 이 취약성을 악용하기 위해 공격자는 {% data variables.product.prodname_ghe_server %} 인스턴스에서 {% data variables.product.prodname_pages %} 사이트를 만들고 빌드할 수 있는 권한이 필요합니다. 이 취약성은 3.1.8 이전의 모든 {% data variables.product.prodname_ghe_server %} 버전에 영향을 미치며, 버전 3.1.8, 3.0.16, 2.22.22에서 수정되었습니다. 이는 CVE-2021-22867에 대한 불완전 수정의 결과입니다. 이 취약성은 GitHub 버그 장려금 프로그램을 통해 보고되었으며 CVE-2021-22868이 할당되었습니다. {% comment %} https://github.com/github/pages/pull/3361, https://github.com/github/pages/pull/3357 {% endcomment %}'
+    - '**중간:** {% data variables.product.prodname_ghe_server %}의 부적절한 액세스 제어 취약성은 액세스를 허용해서는 안 되는 자체 호스팅 실행기 그룹에서 워크플로 작업을 실행할 수 있도록 했습니다. 이는 액세스 제어에 자체 호스팅 실행기 그룹을 사용하는 고객에게 영향을 미칩니다. 하나의 엔터프라이즈 실행기 그룹에 액세스할 수 있는 리포지토리는 요청 중 부적절한 인증 검사 때문에 해당 조직 내에 있는 모든 엔터프라이즈 실행기 그룹에 액세스할 수 있습니다. 이로 인해 잘못된 실행기 그룹에서 의도치 않게 코드를 실행할 수 있습니다. 이 취약성은 3.0.0~3.0.15 및 3.1.0~3.1.7까지의 {% data variables.product.prodname_ghe_server %} 버전에 영향을 미치며, 3.0.16 및 3.1.8 릴리스에서 수정되었습니다. CVE-2021-22869가 할당되었습니다. {% comment %} https://github.com/github/enterprise2/pull/27013 {% endcomment %}'
+  bugs:
+    - '유지 관리 모드 중에 Resque 작업자 수가 잘못 표시되었습니다. {% comment %} https://github.com/github/enterprise2/pull/26899, https://github.com/github/enterprise2/pull/26883 {% endcomment %}'
+    - '클러스터링 모드에서 할당된 memcached 메모리가 0일 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/26928, https://github.com/github/enterprise2/pull/26832 {% endcomment %}'
+    - '비어 있지 않은 이진 파일의 끌어오기 요청 “파일” 탭에 파일 형식 및 크기가 잘못 표시되었습니다. {% comment %} https://github.com/github/github/pull/192810, https://github.com/github/github/pull/172284, https://github.com/github/coding/issues/694 {% endcomment %}'
+    - '어플라이언스의 NO_PROXY 설정을 고려하도록 {% data variables.product.prodname_pages %} 빌드를 수정합니다. 이는 HTTP 프록시만으로 구성된 어플라이언스와 관련이 있습니다. (2021-09-30 업데이트) {% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
+    - '`ghe-restore`에 대한 `--config` 옵션이 사용되지 않았음에도 원본 인스턴스의 GitHub Connect 구성이 항상 새 인스턴스로 복원되었습니다. 이 때문에 원본 및 대상 인스턴스 모두가 동시에 온라인 상태인 경우 GitHub Connect 연결과 라이선스 동기화가 충돌하게 됩니다. 이 수정에는 backup-utils도 3.2.0 이상으로 업데이트해야 합니다. [2021-11-18 업데이트됨]'
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답으로 시간 값을 반환하지 않습니다. 이 작업은 대대적인 성능 개선을 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 제공하며 기존 성능 이슈를 해결한 후 향후에 이 값을 계속 반환할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - Blob의 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 비공개 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_ghe_server %}에 대해 {% data variables.product.prodname_actions %}가 사용하도록 설정되면 `ghe-repl-teardown` 복제본 노드 해제에 성공하지만 `ERROR:Running migrations`가 반환될 수 있습니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

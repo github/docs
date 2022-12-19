@@ -1,7 +1,7 @@
 ---
-title: About GitHub-hosted runners
+title: GitHub ホステッド ランナーの概要
 shortTitle: About GitHub-hosted runners
-intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
+intro: '{% data variables.product.prodname_dotcom %} では、ワークフローを実行するためのホストされた仮想マシンを提供します。 仮想マシンには、{% data variables.product.prodname_actions %} で使用できるツール、パッケージ、および設定の環境が含まれています。'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -15,33 +15,37 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+ms.openlocfilehash: f44c5bcf8c6cc9c48a2910d2a0d371087debd158
+ms.sourcegitcommit: 1668466c58f50415e8c4d3ad932d697f79fc87c7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180686'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## {% data variables.product.prodname_dotcom %} ホステッド ランナーの概要
 
-## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
+ランナーは、{% data variables.product.prodname_actions %} ワークフローでジョブを実行するマシンです。 たとえば、ランナーはリポジトリをローカルにクローンし、テスト ソフトウェアをインストールしてから、コードを評価するコマンドを実行できます。 
 
-Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code. 
-
-{% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
+{% data variables.product.prodname_dotcom %} は、ジョブの実行に使用できるランナーを提供します。または、[独自のランナーをホスト](/actions/hosting-your-own-runners/about-self-hosted-runners)することもできます。 各 {% data variables.product.prodname_dotcom %} ホステッド ランナーは、ランナー アプリケーションとその他のツールがプレインストールされた {% data variables.product.prodname_dotcom %} によってホストされる新しい仮想マシン (VM) であり、Ubuntu Linux、Windows、または macOS オペレーティング システムで使用できます。 {% data variables.product.prodname_dotcom %}ホストランナーを使用すると、マシンのメンテナンスとアップグレードが自動的に行われます。
 
 {% ifversion not ghes %}
 
-## Using a {% data variables.product.prodname_dotcom %}-hosted runner
+## {% data variables.product.prodname_dotcom %} ホステッド ランナーの使用
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+{% data variables.product.prodname_dotcom %} ホステッド ランナーを使用するには、ジョブを作成し、`runs-on` を使用してジョブを処理するランナーの種類を指定します (例: `ubuntu-latest`、`windows-latest`、または `macos-latest`)。 ランナーの種類の完全な一覧については、「[サポートされているランナーとハードウェア リソース](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)」を参照してください。
 
-When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
+ジョブが開始されると、{% data variables.product.prodname_dotcom %} によって、そのジョブの新しい VM が自動的にプロビジョニングされます。 ジョブ中のすべてのステップは VM で実行されるため、ランナーのファイルシステムを使用して、そのジョブにおけるステップで情報を共有することができます。 ワークフローは、VM で直接実行することも、Docker コンテナーで実行することもできます。 ジョブが完了すると、VM は自動的に使用停止になります。
 
-The following diagram demonstrates how two jobs in a workflow are executed on two different {% data variables.product.prodname_dotcom %}-hosted runners. 
+次のダイアグラムは、2 つの異なる {% data variables.product.prodname_dotcom %} ホステッド ランナーでワークフロー内の 2 つのジョブがどのように実行されるかを示しています。 
 
-![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
+![2 つのランナーが個別のジョブを処理する](/assets/images/help/images/overview-github-hosted-runner.png)
 
-The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job. 
+次のワークフロー例には、`Run-npm-on-Ubuntu` および `Run-PSScriptAnalyzer-on-Windows` という名前のついた 2 つのジョブがあります。 このワークフローがトリガーされると、{% data variables.product.prodname_dotcom %} ではジョブごとに新しい仮想マシンをプロビジョニングします。 
 
-- The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`. 
-- The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`. 
+- `Run-npm-on-Ubuntu` という名前のジョブは Linux VM で実行されます。これは、ジョブの `runs-on:` で `ubuntu-latest` が指定されているためです。 
+- `Run-PSScriptAnalyzer-on-Windows` という名前のジョブは Windows VM で実行されます。これは、ジョブの `runs-on:` で `windows-latest` が指定されているためです。 
 
 ```yaml{:copy}
 name: Run commands on different operating systems
@@ -78,130 +82,128 @@ jobs:
           Get-ScriptAnalyzerRule
 ```
 
-While the job runs, the logs and output can be viewed in the {% data variables.product.prodname_dotcom %} UI:
+ジョブの実行中、ログと出力は {% data variables.product.prodname_dotcom %} UI で表示できます。
 
-![Job output in the Actions UI](/assets/images/help/repository/actions-runner-output.png)
+![アクション UI でのジョブ出力](/assets/images/help/repository/actions-runner-output.png)
 
 {% data reusables.actions.runner-app-open-source %}
 
-## Supported runners and hardware resources
+## サポートされているランナーとハードウェアリソース
 
 {% ifversion actions-hosted-runners %}
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Machine specs for {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."  
+**メモ**: {% data variables.product.prodname_dotcom %} には、より大きな構成で使うことができる {% data variables.actions.hosted_runner %} も用意されています。 詳しくは、「[{% data variables.actions.hosted_runner %} のマシン スペック](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)」をご覧ください。  
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Hardware specification for Windows and Linux virtual machines:
-- 2-core CPU (x86_64)
-- 7 GB of RAM
-- 14 GB of SSD space
+Windows および Linux 仮想マシンのハードウェア仕様:
+- 2 コア CPU (x86_64)
+- 7 GB の RAM
+- 14 GB の SSD 領域
 
-Hardware specification for macOS virtual machines:
-- 3-core CPU (x86_64)
-- 14 GB of RAM
-- 14 GB of SSD space
+macOS 仮想マシンのハードウェア仕様:
+- 3 コア CPU (x86_64)
+- 14 GB の RAM
+- 14 GB の SSD 領域
 
 {% data reusables.actions.supported-github-runners %}
 
-Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+ワークフローログには、ジョブの実行に使用されたランナーが一覧表示されます。 詳細については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
 
-## Supported software
+## サポートされているソフトウェア
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
+{% data variables.product.prodname_dotcom %} ホストランナーに含まれているソフトウェアツールは毎週更新されます。 更新プロセスには数日かかり、`main` ブランチのプレインストール済みソフトウェアのリストは、デプロイ全体が終了した後で更新されます。
 
-### Preinstalled software
+### プレインストール済みソフトウェア
 
-Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
-![Installed software link](/assets/images/actions-runner-installed-software-link.png)
-For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+ワークフローログには、正確なランナーにプレインストールされているツールへのリンクが含まれています。 ワークフローのログでこの情報を見つけるには、`Set up job` セクションを展開します。 そのセクションの下で、`Runner Image` セクションを展開します。 `Included Software` の後のリンクで、ワークフローを実行したランナーにプレインストールされているツールが示されています。
+![インストールされているソフトウェアのリンク](/assets/images/actions-runner-installed-software-link.png) 詳しくは、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」をご覧ください。
 
-For the overall list of included tools for each runner operating system, see the links below:
+各ランナーのオペレーティング システム用に含まれるすべてのツールの一覧については、以下のリンクをご覧ください。
 
 * [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
 * [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md) (deprecated)
+* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md) (非推奨)
 * [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
 * [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
 * [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md)
 
-{% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
+{% data variables.product.prodname_dotcom %}ホストランナーには、オペレーティングシステムのデフォルトの組み込みツールに加え、上のリファレンスのリスト内のパッケージにが含まれています。 たとえば、Ubuntu と macOS のランナーには、他の既定のツールと共に `grep`、`find`、`which` が含まれます。 
 
-### Using preinstalled software
+### プレインストール済みソフトウェアを使用する
 
-We recommend using actions to interact with the software installed on runners. This approach has several benefits:
-- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
-- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+アクションを使用して、ランナーにインストールされているソフトウェアと対話することをお勧めします。 この方法には、いくつかの利点があります。
+- アクションでは通常、バージョンの選択、引数を渡す機能、パラメータなどの機能が提供されています
+- これにより、ソフトウェアの更新に関係なく、ワークフローで使用されるツールのバージョンが同じままになります
 
-If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
+要求したいツールがある場合は、[actions/virtual-environments](https://github.com/actions/runner-images) で issue を開いてください。 このリポジトリには、ランナーに関するすべての主要なソフトウェア更新に関するお知らせも含まれています。
 
-### Installing additional software
+### 追加ソフトウェアをインストールする
 
-You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+{% data variables.product.prodname_dotcom %} ホステッド ランナーに追加のソフトウェアをインストールできます。 詳しくは、「[GitHub ホステッド ランナーのカスタマイズ](/actions/using-github-hosted-runners/customizing-github-hosted-runners)」をご覧ください。
 
-## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
+## {% data variables.product.prodname_dotcom %} ホステッド ランナーによって使用されるクラウド ホスト
 
-{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on `Standard_DS2_v2` virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the `Standard_DS2_v2` resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
+{% data variables.product.prodname_dotcom %} は、Microsoft Azure の `Standard_DS2_v2` 仮想マシン上で {% data variables.product.prodname_actions %} ランナー アプリケーションがインストールされた Linux および Windows ランナーをホストします。 {% data variables.product.prodname_dotcom %}ホストランナーアプリケーションは、Azure Pipelines Agentのフォークです。 インバウンドのICMPパケットはすべてのAzure仮想マシンでブロックされるので、pingやtracerouteコマンドは動作しないでしょう。 `Standard_DS2_v2` リソースについて詳しくは、Microsoft Azure ドキュメントの「[Dv2 および DSv2 シリーズ](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)」をご覧ください。
 
-{% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
+{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_dotcom %}自身macOS Cloud内でmacOSランナーをホストします。
 
-## Workflow continuity
+## ワークフローの継続性
 
 {% data reusables.actions.runner-workflow-continuity %}
 
-In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
+さらに、ワークフロー実行が正常にキューに入れられても、45 分以内に {% data variables.product.prodname_dotcom %} ホステッド ランナーによって処理されない場合、キューのワークフロー実行は破棄されます。
 
-## Administrative privileges
+## 管理者特権
 
-The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
+Linux と macOS のどちらの仮想マシンでも、パスワードレスの `sudo` が実行されます。 現在のユーザーより高い特権が必要なコマンドやインストール ツールを実行する必要がある場合は、パスワードを入力する必要なく、`sudo` を使うことができます。 詳しくは、[Sudo のマニュアル](https://www.sudo.ws/man/1.8.27/sudo.man.html)をご覧ください。
 
-Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
+Windowsの仮想マシンは、ユーザアカウント制御（UAC）が無効化されて管理者として動作するように設定されています。 詳しくは、Windows のドキュメントの「[ユーザー アカウントの制御のしくみ](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)」をご覧ください。
 
-## IP addresses
+## IP アドレス
 
 {% note %}
 
-**Note:** If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you cannot use {% data variables.product.prodname_dotcom %}-hosted runners and must instead use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+**注:** {% data variables.product.prodname_dotcom %} の Organization または Enterprise アカウントで IP アドレスの許可リストを使っている場合は、{% data variables.product.prodname_dotcom %} ホステッド ランナーを使用できず、代わりにセルフホステッド ランナーを使う必要があります。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners)に関する記述をご覧ください。
 
 {% endnote %}
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint.
+{% data variables.product.prodname_actions %} で {% data variables.product.prodname_dotcom %} ホステッド ランナーに使われる IP アドレス範囲のリストを取得するには、{% data variables.product.prodname_dotcom %} REST API を使用できます。 詳しくは、"[GitHub メタ情報の取得](/rest/reference/meta#get-github-meta-information)" エンドポイントの応答で `actions` キーをご覧ください。
 
-Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
+Windows及びUbuntuのランナーはAzureでホストされており、そのためAzureのデータセンターと同じIPアドレスの範囲を持ちます。 macOSランナーは{% data variables.product.prodname_dotcom %}独自のmacOSクラウドでホストされます。
 
-Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
+{% data variables.product.prodname_dotcom %} ホステッド ランナーには非常に多くの IP アドレス範囲があるため、内部リソースの許可リストとしてこれらを使うことはお勧めしません。
 
-The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week. 
+このAPIが返す{% data variables.product.prodname_actions %}のIPアドレスのリストは、週に1回更新されます。 
 
-## File systems
+## ファイル システム
 
-{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
+{% data variables.product.prodname_dotcom %}は、仮想マシン上の特定のディレクトリでアクションとシェルコマンドを実行します。 仮想マシン上のファイルパスは静的なものではありません。 `home`、`workspace`、`workflow` ディレクトリのファイル パスを作成するには、{% data variables.product.prodname_dotcom %} で提供される環境変数を使います。
 
-| Directory | Environment variable | Description |
+| ディレクトリ | 環境変数 | 説明 |
 |-----------|----------------------|-------------|
-| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
-| `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
-| `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
+| `home` | `HOME` | ユーザ関連のデータが含まれます。 たとえば、このディレクトリにはログイン試行からの認証情報を含めることができます。 |
+| `workspace` | `GITHUB_WORKSPACE` | アクションとシェルコマンドはこのディレクトリで実行されます。 このディレクトリの内容は、アクションによって変更することができ、後続のアクションでアクセスできます。 |
+| `workflow/event.json` | `GITHUB_EVENT_PATH` | ワークフローをトリガーした Webhook イベントの `POST` ペイロード。 {% data variables.product.prodname_dotcom %}は、アクションを実行してアクション間でファイルの内容を隔離するたびにこれを書き換えます。
 
-For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
+ワークフローごとに {% data variables.product.prodname_dotcom %} によって作成される環境変数の一覧については、[環境変数の使用](/github/automating-your-workflow-with-github-actions/using-environment-variables)に関する記事をご覧ください。
 
-### Docker container filesystem
+### Dockerコンテナのファイルシステム
 
-Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
+Docker コンテナーで実行されるアクションには、`/github` パスの下に静的なディレクトリがあります。 ただし、Dockerコンテナ内のファイルパスを構築するには、デフォルトの環境変数を使用することを強くお勧めします。
 
-{% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
+{% data variables.product.prodname_dotcom %} では、`/github` パス プレフィックスが予約されており、アクション用に 3 つのディレクトリが作成されます。
 
 - `/github/home`
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-## Further reading
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+## 参考資料
+- [{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)
+- マトリックス戦略を使用して、複数のイメージでジョブを実行できます。 詳しくは、「[ジョブにマトリックスを使用する](/actions/using-jobs/using-a-matrix-for-your-jobs)」をご覧ください。
 
 {% endif %}

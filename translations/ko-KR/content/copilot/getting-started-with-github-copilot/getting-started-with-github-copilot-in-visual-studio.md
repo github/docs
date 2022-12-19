@@ -1,86 +1,88 @@
 ---
-title: Getting started with GitHub Copilot in Visual Studio
+title: Visual Studio에서 GitHub Copilot 시작하기
 shortTitle: Visual Studio
 product: '{% data reusables.gated-features.copilot %}'
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, and start seeing suggestions as you write comments and code.'
+intro: '{% data variables.product.prodname_copilot %}을 {% data variables.product.prodname_vs %}에 설치하고 메모와 코드를 작성할 때 제안 사항을 확인하는 방법을 알아봅니다.'
 versions:
   feature: copilot
 topics:
   - Copilot
+ms.openlocfilehash: 65384a5cafae1c739b52847d1a826c0138e91fd9
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193019'
 ---
-
 {% data reusables.copilot.copilot-cta-button %}
 
-## About {% data variables.product.prodname_copilot %} and Visual Studio
+## {% data variables.product.prodname_copilot %} 및 Visual Studio 정보
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use {% data variables.product.prodname_vs %}, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within {% data variables.product.prodname_vs %} for Windows.
+{% data variables.product.prodname_vs %}를 사용하는 경우 편집기 내에서 직접 {% data variables.product.prodname_copilot %}의 제안을 보고 통합할 수 있습니다. 이 가이드에서는 Windows용 {% data variables.product.prodname_vs %} 내에서 {% data variables.product.prodname_copilot %}을 사용하는 방법을 보여 줍니다.
 
-## Prerequisites
+## 사전 요구 사항
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.2 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
+- {% data variables.product.prodname_vs %}에서 {% data variables.product.prodname_copilot %}을 사용하려면 {% data variables.product.prodname_vs %} 2022 17.2 이상이 설치되어 있어야 합니다. 자세한 내용은 [Visual Studio IDE 설명서](https://visualstudio.microsoft.com/vs/)를 참조하세요.
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_copilot %} is not currently available for use with Visual Studio for Mac.
+**참고**: {% data variables.product.prodname_copilot %}은 현재 Mac용 Visual Studio를 통해 사용할 수 없습니다.
 
 {% endnote %}
 
-## Installing the {% data variables.product.prodname_vs %} extension
+## {% data variables.product.prodname_vs %} 확장 설치
 
-To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vs %} extension.
-1. In the Visual Studio toolbar, click **Extensions**, then click **Manage Extensions**.
-   ![Screenshot of the Visual Studio toolbar](/assets/images/help/copilot/visual-studio-toolbar.png)
-1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
-   ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
-1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
-  ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
-1. Open or create a new project in {% data variables.product.prodname_vs %}. 
-1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
-   ![Screenshot of the Microsoft {% data variables.product.prodname_vs %} dialogue box](/assets/images/help/copilot/vs-auth-dialogue.png)
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+{% data variables.product.prodname_copilot %}을 사용하려면 먼저 {% data variables.product.prodname_vs %} 확장을 설치해야 합니다.
+1. Visual Studio 도구 모음에서 **확장** 을 클릭한 다음 **확장 관리** 를 클릭합니다.
+   ![Visual Studio 도구 모음의 스크린샷](/assets/images/help/copilot/visual-studio-toolbar.png)
+1. “확장 관리” 창에서 **Visual Studio Marketplace** 를 클릭하고 {% data variables.product.prodname_copilot %} 확장을 검색한 다음 **다운로드** 를 클릭합니다.
+   ![다운로드 버튼이 강조 표시된 Visual Studio용 GitHub Copilot 확장 스크린샷](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
+1. “확장 관리” 창을 닫은 다음 {% data variables.product.prodname_vs %}를 종료하고 다시 시작합니다.
+1. 필요에 따라 {% data variables.product.prodname_copilot %}이 설치되어 사용되고 있는지 확인하려면 **확장 관리** 로 돌아가 **설치** 를 클릭하여 현재 설치된 확장을 확인한 다음 **{% data variables.product.prodname_copilot %}** 을 클릭하여 상태 정보를 확인합니다.
+  ![GitHub Copilot이 강조 표시된 채 Visual Studio에 설치된 확장의 스크린샷](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+1. {% data variables.product.prodname_vs %}에서 새 프로젝트를 열거나 만듭니다. 
+1. “Microsoft {% data variables.product.prodname_vs %}” 대화 상자에서 디바이스 활성화 코드를 복사하려면 **확인** 을 클릭합니다.
+   ![Microsoft {% data variables.product.prodname_vs %} 대화 상자의 스크린샷](/assets/images/help/copilot/vs-auth-dialogue.png)
+1. 브라우저에서 디바이스 활성화 창이 열립니다. 디바이스 코드를 붙여넣은 다음 **계속** 을 클릭합니다.
 
-   - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
-   - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After you approve the permissions, {% data variables.product.prodname_vs %} will show a confirmation.
-   ![Screenshot of {% data variables.product.prodname_vs %} permissions confirmation](/assets/images/help/copilot/vs-confirmation.png)
+   - Windows 또는 Linux에 코드를 붙여넣려면 <kbd>Ctrl</kbd>+<kbd>v</kbd>를 누릅니다.
+   - macOS에 코드를 붙여넣려면 <kbd>command</kbd>+<kbd>v</kbd>를 누릅니다.
+1. {% data variables.product.prodname_dotcom %}는 {% data variables.product.prodname_copilot %}에 필요한 권한을 요청합니다. 이러한 권한을 승인하려면 **{% data variables.product.prodname_copilot %} 플러그 인 권한 승인** 을 클릭합니다.
+1. 권한을 승인하면 {% data variables.product.prodname_vs %}에 확인 메시지가 표시됩니다.
+   ![{% data variables.product.prodname_vs %} 권한 확인 스크린샷](/assets/images/help/copilot/vs-confirmation.png)
 
-## Seeing your first suggestion
+## 첫 번째 제안 보기
 
-{% data reusables.copilot.code-examples-limitations %}
-{% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
+{% data reusables.copilot.code-examples-limitations %} {% data reusables.copilot.supported-languages %} 다음 샘플은 C#이지만 다른 언어도 비슷하게 작동합니다.
 
 {% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+1. C# 파일에 다음 함수 시그니처를 입력합니다. {% data variables.product.prodname_copilot %}은 아래와 같이 회색 표시된 텍스트로 전체 함수 본문을 자동으로 제안합니다. 정확한 제안은 다를 수 있습니다.
   ```csharp{:copy}
   int CalculateDaysBetweenDates(
   ```
-  ![Screenshot of a first suggestion Visual Studio Code](/assets/images/help/copilot/first-suggestion-visual-studio.png)
-{% data reusables.copilot.accept-suggestion %}
+  ![Visual Studio Code {% data reusables.copilot.accept-suggestion %} 첫 번째](/assets/images/help/copilot/first-suggestion-visual-studio.png) 제안 스크린샷
  
-## Seeing alternative suggestions
-{% data reusables.copilot.alternative-suggestions %}
-{% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
+## 대체 제안 보기
+{% data reusables.copilot.alternative-suggestions %} {% data reusables.copilot.create-c-file %}
+1. C# 파일에 다음 함수 시그니처를 입력합니다. {% data variables.product.prodname_copilot %}에 제안 사항이 표시됩니다.
 
    ```csharp{:copy}
    int CalculateDaysBetweenDates(
    ```
-1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
-1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
+1. 대체 제안을 사용할 수 있는 경우 <kbd>Alt</kbd>+<kbd>]</kbd>(또는<kbd>Alt</kbd>+<kbd>[</kbd>)를 눌러 이를 확인할 수 있습니다.
+1. 필요에 따라 제안을 마우스로 가리키면 제안을 선택하기 위한 {% data variables.product.prodname_copilot %} 명령 팔레트를 볼 수 있습니다.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Generating code suggestions from comments
+## 주석에서 코드 제안 생성
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-c-file %}
-1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+1. C# 파일에 다음 주석을 입력합니다. {% data variables.product.prodname_copilot %}은 함수의 구현을 제안합니다.
    ```csharp{:copy}
    using System.Xml.Linq;
 
@@ -93,6 +95,6 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
-## Further reading
+## 추가 참고 자료
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)

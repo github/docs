@@ -1,6 +1,6 @@
 ---
-title: Configuring GitHub Pages for your enterprise
-intro: 'You can enable or disable {% data variables.product.prodname_pages %} for your enterprise{% ifversion ghes %} and choose whether to make sites publicly accessible{% endif %}.'
+title: Konfigurieren von GitHub Seiten für dein Unternehmen
+intro: 'Du kannst {% data variables.product.prodname_pages %} für dein Unternehmen aktivieren oder deaktivieren{% ifversion ghes %} und wählen, ob Websites öffentlich zugänglich sein sollen{% endif %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/disabling-github-enterprise-pages
   - /enterprise/admin/guides/installation/configuring-github-enterprise-pages
@@ -17,76 +17,68 @@ topics:
   - Enterprise
   - Pages
 shortTitle: Configure GitHub Pages
+ms.openlocfilehash: 1cb2bd78f006bfd86a3f0a2e42db4fcf2cea3b73
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145103035'
 ---
-
 {% ifversion ghes %}
 
-## Enabling public sites for {% data variables.product.prodname_pages %}
+## Aktivieren von öffentlichen Websites für {% data variables.product.prodname_pages %}
 
-If private mode is enabled on your enterprise, the public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
+Wenn in deinem Unternehmen der private Modus aktiviert ist, kann niemand aus dem öffentlichen Internet auf {% data variables.product.prodname_pages %}-Websites zugreifen, die von deinem Unternehmen gehostet werden, es sei denn, du aktivierst öffentliche Websites.
 
 {% warning %}
 
-**Warning:** If you enable public sites for {% data variables.product.prodname_pages %}, every site in every repository on your enterprise will be accessible to the public.
+**Warnung**: Wenn du öffentliche Websites für {% data variables.product.prodname_pages %} aktivierst, ist jede Website in jedem Repository in deinem Unternehmen für die Öffentlichkeit zugänglich.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.pages-tab %}
-4. Select **Public Pages**.
-  ![Checkbox to enable Public Pages](/assets/images/enterprise/management-console/public-pages-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
+4. Wähle **Öffentliche Seiten** aus.
+  ![Kontrollkästchen zum Aktivieren von öffentlichen Seiten](/assets/images/enterprise/management-console/public-pages-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
 
-## Disabling {% data variables.product.prodname_pages %} for your enterprise
+## Deaktivieren von {% data variables.product.prodname_pages %} für dein Unternehmen
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
+Wenn für dein Unternehmen die Unterdomänenisolation deaktiviert ist, solltest du auch {% data variables.product.prodname_pages %} deaktivieren, um dich vor möglichen Sicherheitsrisiken zu schützen. Weitere Informationen findest du unter [Aktivieren der Unterdomänenisolation](/admin/configuration/enabling-subdomain-isolation).
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.pages-tab %}
-1. Unselect **Enable Pages**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
+1. Deaktiviere **Seiten aktivieren**.
+  ![Kontrollkästchen zum Deaktivieren von {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
 
 {% ifversion ghae %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.pages-tab %}
-1. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png)
-{% data reusables.enterprise-accounts.pages-policies-save %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.pages-tab %}
+1. Deaktiviere unter „Seitenrichtlinien“ die Option **{% data variables.product.prodname_pages %} aktivieren**.
+  ![Kontrollkästchen zum Deaktivieren von {% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png) {% data reusables.enterprise-accounts.pages-policies-save %}
 
 {% endif %}
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
+## Konfigurieren von {% data variables.product.prodname_pages %}-Antwortheadern für dein Unternehmen
 
-You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.location.product_location %}.
+Du kannst Antwortheader für deine {% data variables.product.prodname_pages %}-Websites, die von {% data variables.product.product_location %} gehostet werden, hinzufügen oder außer Kraft setzen.
 
 {% warning %}
 
-**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.location.product_location %}.
+**Warnung**: Stelle vor dem Speichern sicher, dass deine Antwortheader ordnungsgemäß konfiguriert sind. Falsche Konfigurationen können sich negativ auf die Sicherheit von {% data variables.product.product_location %} auswirken.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.pages-tab %}
-1. Type the headers settings, then click **Add headers**.
-   - In the **Http Header Name** field, type the header name. The length of header name should less than 128 characters.
-   - In the **Http Header Value** field, type the header value. The length of header value should less than 300 characters.
-![The {% data variables.product.prodname_pages %} response header name and value fields in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.pages-tab %}
+1. Gib die Headereinstellungen ein, und klicke dann auf **Header hinzufügen**.
+   - Gib im Feld **HTTP-Headername** den Headernamen ein. Der Headername muss kürzer als 128 Zeichen sein.
+   - Gib im Feld **HTTP-Headerwert** den Headerwert ein. Der Headerwert muss kürzer als 300 Zeichen sein.
+![Die {% data variables.product.prodname_pages %}-Felder für Antwortheadername und -wert in der {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
 
 {% ifversion ghes %}
-## Further reading
+## Weitere Informationsquellen
 
-- "[Enabling private mode](/admin/configuration/enabling-private-mode)"
-{% endif %}
+- [Aktivieren des privaten Modus](/admin/configuration/enabling-private-mode) {% endif %}

@@ -1,0 +1,19 @@
+date: '2021-04-14'
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las versiones de seguridad más recientes.
+  bugs:
+    - 'Un mensaje de advertencia "jq: error (en <stdin>:0): No se puede indexar el número con la cadena "configuración"" podría aparecer durante la promoción de la réplica.'
+    - La restauración continua de copias de seguridad en un clúster podría dar error debido a que las réplicas de MySQL no se pueden conectar al principal.
+    - Pudo haber un error en el resaltado de sintaxis debido a que el contenedor de Treelights se quedó sin memoria.
+    - "Visitar la página \"/settings/emails\" almacenaría un estado que podría causar redireccionamientos inapropiados al cerrar sesión y volver a iniciar sesión."
+    - "Las alertas de gráfico de dependencias no se mostraban para algunos componentes cuyos avisos tienen nombres de paquete en mayúsculas en \"vulnerable_version_ranges\"."
+    - Las aplicaciones de integración de GitHub no pudieron notificar a los equipos cuando se mencionaron directamente a través de una @mención en un comentario de incidencia.
+    - "Cuando ghe-migrator encontraba errores de importación, a veces anulaba todo el proceso y los registros no incluían suficiente contexto."
+  known_issues:
+    - "En una instancia de GitHub Enterprise Server recién configurada sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados a través la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de alta disponibilidad, {% data variables.product.product_name %} aún se pueden enrutar solicitudes de {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

@@ -1,6 +1,6 @@
 ---
-title: About continuous deployment
-intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+title: À propos du déploiement continu
+intro: 'Vous pouvez créer des workflows de déploiement continu (CD) personnalisés directement dans votre dépôt {% data variables.product.prodname_dotcom %} avec {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,40 +12,44 @@ redirect_from:
 topics:
   - CD
 shortTitle: About continuous deployment
+ms.openlocfilehash: 379afa0088f7f10302f5bf8202f5259ac4777bec
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060137'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## À propos du déploiement continu
 
-## About continuous deployment
+Le _déploiement continu_ (CD) correspond au processus automatisé qui permet de publier et de déployer des mises à jour logicielles. Dans le cadre du processus de déploiement continu standard, le code est généré et testé automatiquement avant le déploiement.
 
-_Continuous deployment_ (CD) is the practice of using automation to publish and deploy software updates. As part of the typical CD process, the code is automatically built and tested before deployment.
+Le déploiement continu est souvent couplé à l’intégration continue. Pour plus d’informations sur l’intégration continue, consultez « [À propos de l’intégration continue](/actions/guides/about-continuous-integration) ».
 
-Continuous deployment is often coupled with continuous integration. For more information about continuous integration, see "[About continuous integration](/actions/guides/about-continuous-integration)".
+## À propos du déploiement continu avec {% data variables.product.prodname_actions %}
 
-## About continuous deployment using {% data variables.product.prodname_actions %}
+Vous pouvez configurer un workflow {% data variables.product.prodname_actions %} pour déployer votre produit logiciel. Pour vérifier que votre produit fonctionne comme prévu, votre workflow peut générer le code dans votre dépôt et exécuter vos tests avant le déploiement.
 
-You can set up a {% data variables.product.prodname_actions %} workflow to deploy your software product. To verify that your product works as expected, your workflow can build the code in your repository and run your tests before deploying.
+Vous pouvez configurer votre workflow de déploiement continu pour qu’il s’exécute lorsqu’un événement {% data variables.product.product_name %} se produit (par exemple, lorsque le nouveau code est poussé vers la branche par défaut de votre dépôt) ou lorsqu’un événement externe se produit si vous utilisez le webhook de dispatch du dépôt. Vous pouvez également l’exécuter manuellement ou selon une planification définie. Pour plus d’informations sur l’exécution de votre workflow, consultez « [Événements qui déclenchent des workflows](/actions/reference/events-that-trigger-workflows) ».
 
-You can configure your CD workflow to run when a {% data variables.product.product_name %} event occurs (for example, when new code is pushed to the default branch of your repository), on a set schedule, manually, or when an external event occurs using the repository dispatch webhook. For more information about when your workflow can run, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+{% data variables.product.prodname_actions %} fournit des fonctionnalités qui vous permettent de mieux contrôler les déploiements. Par exemple, vous pouvez utiliser des environnements pour exiger l’approbation d’un travail, restreindre les branches pouvant déclencher un workflow ou limiter l’accès aux secrets. Vous pouvez utiliser la concurrence pour limiter votre pipeline CD à un déploiement en cours et un déploiement en attente au maximum. Pour plus d’informations sur ces fonctionnalités, consultez « [Déploiement avec GitHub Actions](/actions/deployment/deploying-with-github-actions) » et « [Utilisation d’environnements pour le déploiement](/actions/deployment/using-environments-for-deployment) ».
 
-{% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. For more information about these features, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-
-## Using OpenID Connect to access cloud resources
+## Utilisation d’OpenID Connect pour accéder aux ressources cloud
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% endif %}
 
-## Starter workflows and third party actions
+## Workflows de démarrage et actions tierces
 
 {% data reusables.actions.cd-templates-actions %}
 
-## Further reading
+## Pour aller plus loin
 
-- [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
-- [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
+- [Déploiement avec GitHub Actions](/actions/deployment/deploying-with-github-actions)
+- [Utilisation d’environnements pour le déploiement](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
+- « [Gestion de la facturation pour {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions) »{% endif %}
 

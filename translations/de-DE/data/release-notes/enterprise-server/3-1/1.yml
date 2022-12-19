@@ -1,0 +1,34 @@
+date: '10.6.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "SVN 1.7 und frühere Clients zeigten einen Fehler an, wenn die Befehle `svn co` und `svn export` verwendet wurden."
+    - Zugreifen auf ein Repository über die Verwaltungsshell mit `ghe-repo <owner>/<reponame>` funktionierte nicht.
+    - "Nach dem Upgraden war die Verfügbarkeit bei starker Nutzung reduziert, da die Dienste zu oft neu starteten. Dies geschieht aufgrund von nicht übereinstimmenden Laufzeitfehlern zwischen der Nomad-Konfiguration und der Konfiguration der internen Dienste."
+    - "Manchmal generiert das Ausführen von `ghe-repl-status` nach dem Einrichten von GitHub Actions einen Fehler, und auch bei `ghe-actions-teardown` tritt ein Fehler auf."
+    - 'Unter bestimmten Umständen gibt `ghe-dbconsole` Fehler zurück.'
+    - "Importfehler von Organisationen oder Repositorys aus Quellen, die nicht zu GitHub gehören, können den Fehler `nicht definierte Methode '[]' für nil:NilClass` verursachen."
+    - "GitHub-Profilnamen können ungewollt geändert worden sein, wenn die SAML-Authentifizierung verwendet wurde und der GitHub-Profilname nicht mit dem Attribut übereinstimmte, das dem Feld `Vollständiger Name` in der Verwaltungskonsole zugeordnet ist."
+    - "Das Upgraden einer Instanz, auf der zuvor das Release 2.13, jedoch nicht das Release 2.14 ausgeführt wurde, führte zu einem Datenbankmigrationsfehler in Verbindung mit dem Datenübergang `AddRepositoryIdToCheckRuns`."
+  changes:
+    - "Benutzer*innen der GraphQL-API können das öffentliche Feld `closingIssuesReferences` auf dem `PullRequest`-Objekt abfragen. Diese Feld ruft Issues ab, die automatisch geschlossen werden, wenn der zugehörige Pull Request gemerget wird. Diese Herangehensweise macht es auch möglich, diese Daten in der Zukunft als Teil eines genaueren Migrationsprozesses zu migrieren."
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - |Nach dem Upgraden von 3.0.x auf 3.1.x kann bei GitHub Actions in manchen Fällen der Fehler `Beim Ausführen dieses Workflows ist ein unerwarteter Fehler aufgetreten` auftreten. Stelle als Problemumgehung eine Verbindung mit der Verwaltungsshell (ssh) her, und führe Folgendes aus:
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

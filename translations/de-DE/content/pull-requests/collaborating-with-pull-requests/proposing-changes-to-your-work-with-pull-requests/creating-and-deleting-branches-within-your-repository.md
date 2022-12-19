@@ -1,6 +1,6 @@
 ---
-title: Creating and deleting branches within your repository
-intro: 'You can create or delete branches directly on {% data variables.product.product_name %}.'
+title: Erstellen und Löschen von Branches in deinem Repository
+intro: 'Du kannst Branches direkt in {% data variables.product.product_name %} erstellen oder löschen.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
   - /articles/deleting-branches-in-a-pull-request
@@ -14,69 +14,70 @@ versions:
 topics:
   - Pull requests
 shortTitle: Create & delete branches
+ms.openlocfilehash: 44b56d8a1884e5cbfe0832f291cdc244b57a3810
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147526630'
 ---
-
-## Creating a branch
-You can create a branch in different ways on {% data variables.product.product_name %}.
+## Branch erstellen
+Du kannst einen Branch in {% data variables.product.product_name %} auf verschiedene Arten erstellen.
 
 {% note %}
 
-**Note:** You can only create a branch in a repository to which you have push access.
+**Hinweis:** Du kannst einen Branch nur in einem Repository erstellen, auf das zu Pushzugriff hast.
 
 {% endnote %}
 
 {% ifversion create-branch-from-overview %}
-### Creating a branch via the branches overview
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-branches %}
-1. Click **New branch**.
-   ![Screenshot of branches overview page with new branch button emphasized](/assets/images/help/branches/new-branch-button.png)
-2. In the dialog box, enter the branch name and optionally change the branch source.  
-   If the repository is a fork, you also have the option to select the upstream repository as the branch source.
-   ![Screenshot of branch creation modal for a fork with branch source emphasized](/assets/images/help/branches/branch-creation-popup-branch-source.png)
-3. Click **Create branch**.
-   ![Screenshot of branch creation modal with create branch button emphasized](/assets/images/help/branches/branch-creation-popup-button.png)
-{% endif %}
+### Erstellen eines Branches mit der Branchübersicht
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.navigate-to-branches %}
+1. Klicke auf **Neuer Branch**.
+   ![Screenshot der Seite „Branchübersicht“ mit hervorgehobener Schaltfläche „Neuer Branch“](/assets/images/help/branches/new-branch-button.png)
+2. Gib im Dialogfeld den Branchnamen ein, und ändere optional die Branchquelle.  
+   Wenn das Repository ein Fork ist, kannst du auch das Upstreamrepository als Branchquelle auswählen.
+   ![Screenshot des modalen Dialogfelds für die Brancherstellung für ein Fork mit hervorgehobener Branchquelle](/assets/images/help/branches/branch-creation-popup-branch-source.png)
+3. Klicke auf **Branch erstellen**.
+   ![Screenshot der modalen Brancherstellung mit hervorgehobener Schaltfläche „Branch“](/assets/images/help/branches/branch-creation-popup-button.png) {% endif %}
 
-### Creating a branch using the branch dropdown
+### Erstellen eines Branches mit Branchdropdownliste
 {% data reusables.repositories.navigate-to-repo %}
-1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **Branches** then choose another branch.
-    ![Branches link on overview page](/assets/images/help/branches/branches-overview-link.png)
-1. Click the branch selector menu.
-    ![branch selector menu](/assets/images/help/branch/branch-selection-dropdown.png)
-1. Type a unique name for your new branch, then select **Create branch**.
-    ![branch creation text box](/assets/images/help/branch/branch-creation-text-box.png)
+1. Wenn du den neuen Branch aus einem anderen Branch als dem Standardbranch des Repositorys erstellen möchtest, klicke optional auf {% octicon "git-branch" aria-label="The branch icon" %} **Branches**, und wähle dann einen anderen Branch aus.
+    ![Branchlink auf der Übersichtsseite](/assets/images/help/branches/branches-overview-link.png)
+1. Klicke auf das Branch-Auswahlmenü.
+    ![Branchauswahlmenü](/assets/images/help/branch/branch-selection-dropdown.png)
+1. Gib einen eindeutigen Namen für den neuen Branch ein, und wähle dann **Branch erstellen** aus.
+    ![Textfeld zur Brancherstellung](/assets/images/help/branch/branch-creation-text-box.png)
     
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Creating a branch for an issue
-You can create a branch to work on an issue directly from the issue page and get started right away. For more information, see "[Creating a branch to work on an issue](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
+### Erstellen eines Branches für ein Problem
+Du kannst direkt auf der Issueseite einen Branch zum Arbeiten an dem Issue erstellen und sofort beginnen. Weitere Informationen findest du unter [Erstellen eines Branch zum Arbeiten an einem Issue](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue).
 {% endif %}
 
-## Deleting a branch
+## Branch löschen
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
 {% note %}
 
-**Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+**Hinweis:** Wenn der zu löschende Branch der Standardbranch des Repositorys ist, musst du vor dem Löschen des Branchs einen neuen Standardbranch auswählen. Weitere Informationen findest du unter [Ändern des Standardbranchs](/github/administering-a-repository/changing-the-default-branch).
 
 {% endnote %}
 
-If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)" or "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."
+Wenn der zu löschende Branch einem geöffneten Pull Request zugeordnet ist, musst du den Pull Request vor dem Löschen des Branchs mergen oder schließen. Weitere Informationen findest du unter [Mergen eines Pull Requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) oder [Schließen eines Pull Requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request).
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-branches %}
-1. Scroll to the branch that you want to delete, then click {% octicon "trash" aria-label="The trash icon to delete the branch" %}.
-    ![delete the branch](/assets/images/help/branches/branches-delete.png) {% ifversion fpt or ghes > 3.5 or ghae > 3.5 or ghec %}
-1. If you try to delete a branch that is associated with at least one open pull request, you must confirm that you intend to close the pull request(s).
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.navigate-to-branches %}
+1. Scrolle zum Branch, den du löschen möchtest, und klicke auf {% octicon "trash" aria-label="The trash icon to delete the branch" %}.
+    ![Löschen des Branchs](/assets/images/help/branches/branches-delete.png) {% ifversion fpt or ghes > 3.5 or ghae-issue-6763 or ghec %}
+1. Wenn du versuchst, einen Branch zu löschen, der mindestens einem geöffneten Pull Request zugeordnet ist, musst du bestätigen, dass du den/die Pull Request(s) schließen möchten.
    
-   ![Confirm deleting a branch](/assets/images/help/branches/confirm-deleting-branch.png){% endif %}
+   ![Bestätigen des Löschens eines Branchs](/assets/images/help/branches/confirm-deleting-branch.png){% endif %}
 
-{% data reusables.pull_requests.retargeted-on-branch-deletion %}
-For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
+{% data reusables.pull_requests.retargeted-on-branch-deletion %} Weitere Informationen findest du unter [Informationen zu Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches).
 
-## Further reading
+## Weiterführende Themen
 
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Viewing branches in your repository](/github/administering-a-repository/viewing-branches-in-your-repository)"
-- "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
+- [Informationen zu Branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+- [Anzeigen von Branches in deinem Repository](/github/administering-a-repository/viewing-branches-in-your-repository)
+- [Löschen und Wiederherstellen von Branches in einem Pull Request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)

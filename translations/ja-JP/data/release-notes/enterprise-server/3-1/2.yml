@@ -1,0 +1,30 @@
+date: '2021-06-24'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - 多数の `gauge-dependency-graph-api-dispatch_dispatch` メトリクスが管理コンソールに蓄積されることがあります。
+    - Google Cloud Plafform 上で動作するインスタンスで、sshd サービスが起動に失敗することがあります。
+    - 古いアップグレード ファイルがユーザー ディスクに残り、空き領域がない状態になることがあります。
+    - '`gh-migrator` によってログの出力への誤ったパスが出力されました。'
+    - アーカイブに存在しないチームからのレビュー要求が含まれている場合、エクスポート アーカイブでは pull request のインポートに通知なく失敗します。
+  changes:
+    - "GHES 3.1 の {% data variables.product.prodname_actions %} ランナー バージョンを [v2.278.0](https://github.com/actions/runner/releases/tag/v2.278.0) に更新"
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} を設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - |3.0.x から 3.1.x にアップグレードすると、GitHub Actions が `このワークフローの実行時に、予期しないエラーが発生しました。` というエラーで失敗する場合があります。この問題を回避するには、管理シェル (ssh) に接続して以下を実行してください。
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

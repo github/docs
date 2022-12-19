@@ -1,0 +1,13 @@
+date: '23.09.2020'
+sections:
+  security_fixes:
+    - '**СРЕДНИЙ**: ImageMagick обновлен для решения проблемы, связанной с [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22625, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'В пакетах обновлены системы безопасности до последних версий. {% comment %} https://github.com/github/enterprise2/pull/22601, https://github.com/github/enterprise2/pull/22592, https://github.com/github/enterprise2/pull/22605, https://github.com/github/enterprise2/pull/22426, https://github.com/github/enterprise2/pull/22718, https://github.com/github/enterprise2/pull/22699 {% endcomment %}'
+  known_issues:
+    - 'Злоумышленник мог создать первого пользователя с правами администратора на только что настроенном сервере GitHub Enterprise Server без пользователей. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрыть проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр Users can search GitHub.com (Пользователи могут выполнять поиск на GitHub.com), результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Когда узел реплики в конфигурации с высокой доступностью отключен, {% data variables.product.product_name %} все равно может маршрутизировать на него запросы {% data variables.product.prodname_pages %}, уменьшая доступность {% data variables.product.prodname_pages %} для пользователей.'

@@ -1,0 +1,92 @@
+date: '2021-03-02'
+intro: "Os requisitos mínimos de infraestrutura foram aumentados para {% data variables.product.prodname_ghe_server %} 3.0+. Para obter mais informações, consulte \"[Sobre os requisitos mínimos para GitHub Enterprise Server 3.0 e posterior](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later).\""
+sections:
+  security_fixes:
+    - '**ALTO:** Foi identificada uma vulnerabilidade de controle de acesso impróprio em GitHub Enterprise Server que permitia que usuários autenticados da instância obtivessem acesso de gravação a repositórios não autorizados via solicitações especificamente criadas de pull e de API REST. Um invasor precisaria ser capaz de bifurcar o repositório de destino, uma configuração que está desabilitada por padrão para repositórios privados pertencentes à organização. Proteções de branch como revisões de solicitação de pull ou verificações de status impediriam que commits não autorizados fossem mesclados sem revisão ou validação adicional. Esta vulnerabilidade foi designada CVE-2021-22861. Esse problema foi relatado pelo [Programa de Recompensas por Bugs do GitHub](https://bounty.github.com).'
+    - '**ALTO:** Foi identificada uma vulnerabilidade de controle de acesso impróprio na API do GitHub Enterprise Server GraphQL que permitia que usuários autenticados de instância modificassem a permissão de colaboração do mantenedor de uma solicitação de pull sem autorização adequada. Ao explorar esta vulnerabilidade, um invasor seria capaz de obter acesso aos branches principais de solicitações de pull abertas em repositórios dos quais é mantenedor. A bifurcação é desabilitada por padrão para repositórios privados pertencentes à organização e iriam evitar esta vulnerabilidade. Adicionalmente, as proteções de branch como revisões de solicitação de pull ou verificações de status impediriam que commits não autorizados fossem mesclados sem revisão ou validação adicional. Esta vulnerabilidade foi designada CVE-2021-22863. Esse problema foi relatado pelo [Programa de Recompensas por Bugs do GitHub](https://bounty.github.com).'
+    - '**ALTO:** Foi identificada uma vulnerabilidade de controle de acesso impróprio no GitHub Enterprise Server que permitia que um usuário autenticado com a habilidade de bifurcar um repositório divulgasse segredos de ação para o repositório pai da bifurcação. Esta vulnerabilidade existia devido à uma falha que permitia que a referência base de uma solicitação de pull fosse atualizada para apontar para um SHA arbitrário ou para outra solicitação de pull fora do repositório bifurcado. Ao estabelecer esta referência incorretamente em uma PR, as restrições que limitam os segredos de Actions enviam um fluxo de trabalho de bifurcação que poderia ser ignorado. Esta vulnerabilidade afetou as versões 3.0.0, 3.0.0.rc2 e 3.0.0.rc1 do GitHub Enterprise Server e foi designada CVE-2021-22862. Esta vulnerabilidade foi relatada pelo Programa de Recompensas por Bugs do GitHub.'
+    - '**MÉDIO:** Os tokens do GitHub Pages podem acabar em registros.'
+    - 'Os pacotes foram atualizados para as últimas versões de segurança.'
+  bugs:
+    - 'As verificações de integridade do balanceador de carga em alguns casos poderiam fazer com que os registros do babeld fossem preenchidos erros referentes ao protocolo PROXY.'
+    - 'Os cabeçalhos HTTP não eram compatíveis com os padrões HTTP RFC em respostas específicas como o status 304 para arquivos.'
+    - 'Em instâncias que hospedem repositórios Python com o recurso de grafo de dependência, a instância pode tornar-se não responsiva devido ao preenchimento do disco raiz com registros de erro.'
+    - 'Uma mensagem informativa foi registrada involuntariamente como erro nos instantâneos dos utilitários do GitHub Enterprise Backup, o que gerou o envio de e-mails desnecessários quando os backups eram programados por trabalhos do cron que ouvem a saída para o stderr.'
+    - 'No VMWare ESX 6.7 a configuração inicial pode demorar ao criar chaves de host que deixaram a instância inacessível via SSH.'
+    - 'Quando o GitHub Actions foi habilitado, isso gerou uma falha no modo de manutenção no console de gerenciamento.'
+    - 'A configuração de criação de pacotes foi mostrada na página de configurações de integrantes da organização, embora este recurso ainda não esteja disponível.'
+    - 'Ao habilitar a verificação de segredo na página Segurança e Análise, o diálogo menciona incorretamente repositórios privados.'
+    - 'Ao editar uma página wiki, um usuário pode ter um erro 500 ao clicar no botão Salvar.'
+    - 'Um commit S/MIME assinado utilizando um certificado com vários nomes no nome alternativo da entidade seria exibido incorretamente como "Não verificado" no selo do commit.'
+    - 'O usuário visualizou a mensagem 500 error ao executar operações no git em uma instância configurada com autenticação do LDAP.'
+    - 'O usuário suspenso recebeu e-mails quando adicionado a uma equipe.'
+    - 'Quando um repositório tinha um grande número de manifestos, um erro `Você atingiu o número máximo de arquivos de manifesto permitidos (20) para este repositório.` era mostrado na tabela de Insights -> Grafo de dependência. Para mais informações, consulte [Limites de visualização](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data).'
+    - 'Corrige os usuários aos quais são apresentados a opção para configurar a Ação do CodeQL da varredura de código, ainda que as ações não tenham sido habilitadas para seu repositório.'
+    - 'A caixa de seleção "Evitar que os administradores do repositório alterem o acesso de leitura anônimo do Git, disponível nas configurações da conta corporativa, não pode ser habilitada ou desabilitada com sucesso.'
+    - 'O modal usado para exibir uma mensagem obrigatória não continha barra de rolagem vertical, o que significa que as mensagens mais longas não puderam ser visualizadas completamente.'
+    - 'O Redis às vezes pode falhar ao iniciar após uma reinicialização rígida ou falha no aplicativo.'
+    - 'O grafo de dependências falhou ao analisar os arquivos de manifesto Python `setup.py`, gerando erros HTTP 500 nos registros. Isso, combinado com o problema de registro em log duplicado, resulta em um uso elevado de volume da raiz.'
+  changes:
+    - 'As solicitações foram satisfeitas simultaneamente quando vários usuários estão fazendo download do mesmo arquivo, gerando um desempenho melhorado.'
+  known_issues:
+    - 'Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.'
+    - 'As regras personalizadas de firewall não são mantidas durante uma atualização.'
+    - 'Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta.'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres.'
+    - 'Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.'
+    - 'Quando um modo de manutenção é habilitado, alguns serviços continuam a ser listados como “processos ativos”. Espera-se que os serviços identificados funcionem durante o modo de manutenção. Se você encontrar este problema e não tiver certeza, contate [GitHub Enterprise Support](https://support.github.com/contact).'
+    - 'O registro duplicado para `/var/log/messages`, `/var/log/syslog`, e `/var/log/user.log` geraram um aumento na utilização do volume raiz.'
+    - 'Os usuários podem ignorar uma mensagem obrigatória sem marcar todas as caixas de seleção.'
+    - '[Scripts de pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks) não podem gravar arquivos temporários, que podem fazer com que a execução de script falhasse. Usuários que usam hooks pre-recieve devem testar em um ambiente de preparo para ver se os scripts precisam de acesso de gravação.'
+    - 'Não foi possível usar as [chaves para implantação](/developers/overview/managing-deploy-keys) do repositório nos repositórios que contêm objetos LFS.'
+    - A renderização do Jupyter Notebook na interface do usuário da Web pode falhar se o notebook incluir caracteres que não são ASCII UTF-8.
+    - 'O reStructuredText (RST) interpretado na interface do usuário da Web pode falhar e, em vez disso, exibir texto de markup RST.'
+    - 'O grafo de dependências falhou ao analisar os arquivos de manifesto do javascript do `yarn.lock`, gerando erros HTTP 500 nos registros.'
+    - 'As instâncias com um fuso horário personalizado que foram atualizadas de uma versão anterior do GitHub Enterprise Server podem ter carimbos de tempo incorretos na interface da Web.'
+    - 'As criações antigas das páginas não foram limpas, o que pode preencher o disco do usuário (`/data/user/`).'
+    - 'Ao excluir um branch após a mesclagem de uma solicitação de pull, será exibida uma mensagem de erro, embora a exclusão do branch tenha êxito.'
+    - |Os usuários podem experimentar ativos como avatares que não carregam ou uma falha no código push/pull. Isso pode ser causado por uma falha de incompatibilidade PID no serviço `haproxy-cluster-proxy`. Para determinar se você tem uma instância afetada:
+
+
+
+**Instância única**
+
+
+
+1. Execute isso no [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  se [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; então ecoe ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Se isso mostrar que há uma incompatibilidade, reinicie a instância.
+
+
+
+**Cluster ou configuração de alta disponibilidade**
+
+
+
+1. Execute isso no [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Se mostrar que um ou mais nós forem afetados, reinicie os nós afetados.
+
+|
+    - 'Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.'
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

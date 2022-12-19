@@ -1,6 +1,6 @@
 ---
-title: Configuring two-factor authentication recovery methods
-intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
+title: 2단계 인증 복구 메서드 구성
+intro: 2단계 인증 자격 증명을 분실한 경우 계정에 액세스하기 위해 다양한 복구 방법을 설정할 수 있습니다.
 redirect_from:
   - /articles/downloading-your-two-factor-authentication-recovery-codes
   - /articles/setting-a-fallback-authentication-number
@@ -17,74 +17,75 @@ versions:
 topics:
   - 2FA
 shortTitle: Configure 2FA recovery
+ms.openlocfilehash: a16f8dda2f834beb4c4a1634fae812b18a8730a3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145088288'
 ---
-In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
+2단계 인증 복구 코드를 안전하게 저장하는 것 외에도 하나 이상의 추가 복구 방법을 구성하는 것이 좋습니다.
 
-## Downloading your two-factor authentication recovery codes
+## 2단계 인증 복구 코드 다운로드
 
-{% data reusables.two_fa.about-recovery-codes %} You can also download your recovery codes at any point after enabling two-factor authentication.
+{% data reusables.two_fa.about-recovery-codes %} 2단계 인증을 사용하도록 설정한 후 언제든지 복구 코드를 다운로드할 수도 있습니다.
 
-To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
+계정을 안전하게 유지하려면 복구 코드를 공유하거나 배포하지 마세요. 다음과 같은 보안 암호 관리자를 사용하여 저장하는 것이 좋습니다.
 - [1Password](https://1password.com/)
 - [LastPass](https://lastpass.com/)
 
-If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.
+새 복구 코드를 생성하거나 2FA를 사용하지 않도록 설정하고 다시 사용하도록 설정하는 경우 보안 설정의 복구 코드가 자동으로 업데이트됩니다.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.show-recovery-codes %}
-4. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
-    - To save your recovery codes on your device, click **Download**.
-    - To save a hard copy of your recovery codes, click **Print**.
-    - To copy your recovery codes for storage in a password manager, click **Copy**.
-  ![List of recovery codes with option to download, print, or copy the codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.show-recovery-codes %}
+4. 복구 코드를 안전한 장소에 저장합니다. 액세스 권한을 잃은 경우 복구 코드를 통해 계정에 다시 액세스할 수 있습니다.
+    - 디바이스에 복구 코드를 저장하려면 **다운로드** 를 클릭합니다.
+    - 복구 코드의 하드 카피를 저장하려면 **인쇄** 를 클릭합니다.
+    - 암호 관리자에서 스토리지에 대한 복구 코드를 복사하려면 **복사** 를 클릭합니다.
+  ![코드를 다운로드, 인쇄 또는 복사하는 옵션이 있는 복구 코드 목록](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
 
-## Generating a new set of recovery codes
+## 새 복구 코드 집합 생성
 
-Once you use a recovery code to regain access to your account, it cannot be reused. If you've used all 16 recovery codes, you can generate another list of codes. Generating a new set of recovery codes will invalidate any codes you previously generated.
+복구 코드를 사용하여 계정에 대한 액세스 권한을 다시 얻으면 다시 사용할 수 없습니다. 16개의 복구 코드를 모두 사용한 경우 다른 코드 목록을 생성할 수 있습니다. 새 복구 코드 집합을 생성하면 이전에 생성한 모든 코드가 무효화됩니다.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.show-recovery-codes %}
-3. To create another batch of recovery codes, click **Generate new recovery codes**.
-	![Generate new recovery codes button](/assets/images/help/2fa/generate-new-recovery-codes.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.show-recovery-codes %}
+3. 다른 복구 코드 일괄 처리를 만들려면 **새 복구 코드 생성** 을 클릭합니다.
+    ![새 복구 코드 생성 단추](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
-## Configuring a security key as an additional two-factor authentication method
+## 추가 2단계 인증 방법으로 보안 키 구성
 
-You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+보안 키를 보조 2단계 인증 방법으로 설정하고 보안 키를 사용하여 계정에 대한 액세스 권한을 다시 얻을 수 있습니다. 자세한 내용은 “[2단계 인증 구성](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”을 참조하세요.
 
 {% ifversion fpt or ghec %}
 
-## Setting a fallback authentication number
+## 대체 인증 번호 설정
 
-You can provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+대체 디바이스에 두 번째 숫자를 제공할 수 있습니다. 기본 디바이스와 복구 코드에 둘 다 액세스할 수 없는 경우 백업 SMS 번호를 통해 계정에 다시 액세스할 수 있습니다.
 
-You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
+인증을 문자 메시지로 구성했는지 TOTP 모바일 애플리케이션을 통해 구성했는지에 관계없이 대체 번호를 사용할 수 있습니다.
 
 {% warning %}
 
-**Warning:** Using a fallback number is a last resort. We recommend configuring additional recovery methods if you set a fallback authentication number.
-- Bad actors may attack cell phone carriers, so SMS authentication is risky.
-- SMS messages are only supported for certain countries outside the US; for the list, see "[Countries where SMS authentication is supported](/articles/countries-where-sms-authentication-is-supported)".
+**경고:** 대체 번호 사용은 최후의 수단입니다. 대체 인증 번호를 설정하는 경우 추가 복구 방법을 구성하는 것이 좋습니다.
+- 악의적인 행위자가 이동 통신 사업자를 공격할 수 있으므로 SMS 인증은 위험합니다.
+- SMS 메시지는 미국 이외의 특정 국가에서만 지원됩니다. 목록은 “[SMS 인증이 지원되는 국가](/articles/countries-where-sms-authentication-is-supported)”를 참조하세요.
 
 {% endwarning %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-3. Next to "Fallback SMS number", click **Add**.
-![Add fallback SMS number button](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-4. Under "Fallback SMS number", click **Add fallback SMS number**.
-![Add fallback SMS number text](/assets/images/help/2fa/add_fallback_sms_number_text.png)
-5. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
-	![Set fallback SMS number](/assets/images/help/2fa/2fa-fallback-number.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+3. “대체 SMS 번호” 옆에 있는 **추가** 를 클릭합니다.
+![대체 SMS 번호 추가 단추](/assets/images/help/2fa/add-fallback-sms-number-button.png)
+4. “대체 SMS 번호”에서 **대체 SMS 번호 추가** 를 클릭합니다.
+![대체 SMS 번호 텍스트 추가](/assets/images/help/2fa/add_fallback_sms_number_text.png)
+5. 국가 번호를 선택하고 지역 번호를 포함하여 휴대폰 번호를 입력합니다. 정보가 올바르면 **대체 설정** 을 클릭합니다.
+    ![대체 SMS 번호 설정](/assets/images/help/2fa/2fa-fallback-number.png)
 
-After setup, the backup device will receive a confirmation SMS.
+설치 후 백업 디바이스는 확인 SMS를 받게 됩니다.
 
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
-- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+- “[2단계 인증 정보](/articles/about-two-factor-authentication)”
+- “[2단계 인증 구성](/articles/configuring-two-factor-authentication)”
+- “[2단계 인증을 사용하여 {% data variables.product.prodname_dotcom %}에 액세스](/articles/accessing-github-using-two-factor-authentication)”
+- “[2단계 인증 자격 증명을 분실한 경우 계정 복구](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”

@@ -1,6 +1,6 @@
 ---
-title: Filtering alerts in the security overview
-intro: Use filters to view specific categories of alerts
+title: セキュリティの概要でのアラートのフィルター処理
+intro: フィルターを使ってアラートの特定のカテゴリを表示する
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
@@ -16,147 +16,138 @@ topics:
   - Organizations
   - Teams
 shortTitle: Filtering the security overview
+ms.openlocfilehash: 60ff823ab0303dfb8fce788e708cb1cd61a9f8e2
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163196'
 ---
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+## セキュリティの概要のフィルター処理について
 
-## About filtering the security overview
+セキュリティの概要でフィルターを使用すると、アラート リスク レベル、アラートの種類、機能の有効化など、さまざまな要因に基づいてフォーカスを絞り込むことができます。 特定のビュー{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}と、エンタープライズと組織のどちらのレベルでデータを表示しているか{% endif %}に応じて、さまざまなフィルターを使用できます。
 
-You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and whether you are viewing data at the enterpise or organization level{% endif %}.
+{% ifversion security-overview-displayed-alerts %} {% note %} {% data reusables.security-overview.information-varies-GHAS %} {% endnote %} {% endif %}
 
-{% ifversion security-overview-displayed-alerts %}
-{% note %}
-{% data reusables.security-overview.information-varies-GHAS %}
-{% endnote %}
-{% endif %}
+## リポジトリ別のフィルター
 
-## Filter by repository
-
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| `repo:REPOSITORY-NAME` | Displays data for the specified repository. |
+| `repo:REPOSITORY-NAME` | 指定したリポジトリのデータを表示します。 |
 
-## Filter by whether security features are enabled
+## セキュリティ機能が有効になっているかどうかをフィルター処理する
 
-In the examples below, replace `:enabled` with `:not-enabled` to see repositories where security features are not enabled. These qualifiers are available in the main summary views.
+次の例では、`:enabled` を `:not-enabled` に置き換えると、セキュリティ機能が有効になっていないリポジトリが表示されます。 これらの修飾子は、メインの概要ビューで使用できます。
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| `code-scanning:enabled` | Display repositories that have set up {% data variables.product.prodname_code_scanning %}. | 
-| `dependabot:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}. |
-| `secret-scanning:enabled` | Display repositories that have enabled {% data variables.product.prodname_secret_scanning %} alerts. {% ifversion security-overview-org-risk-coverage %} |
-| `any-feature:enabled` | Display repositories where at least one security feature is enabled. |{% else %}
-| `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |{% endif %}
+| `code-scanning:enabled` | {% data variables.product.prodname_code_scanning %} が設定されているリポジトリを表示します。 | 
+| `dependabot:enabled` | {% data variables.product.prodname_dependabot_alerts %} が有効になっているリポジトリを表示します。 |
+| `secret-scanning:enabled` | {% data variables.product.prodname_secret_scanning %} アラートが有効になっているリポジトリを表示します。 {% ifversion security-overview-org-risk-coverage %} |
+| `any-feature:enabled` | 少なくとも 1 つのセキュリティ機能が有効になっているリポジトリを表示します。 |{% else %}
+| `not-enabled:any` | 少なくとも 1 つのセキュリティ機能が有効になっていないリポジトリを表示します。 |{% endif %}
 
-{% ifversion security-overview-org-risk-coverage %}
-The organization-level Security Coverage view includes extra filters.
+{% ifversion security-overview-org-risk-coverage %}組織レベルの [Security Coverage] ビューには、追加のフィルターが含まれています。
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
-| `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot %} security updates.  |
-| `secret-scanning-push-protection:enabled` | Display repositories that have set up push protection for {% data variables.product.prodname_secret_scanning %}. |
+| `code-scanning-pull-request-alerts:enabled`| {% data variables.product.prodname_code_scanning %} が pull request に対して実行されるように構成されているポジトリを表示します。 |
+| `dependabot-security-updates:enabled` | {% data variables.product.prodname_dependabot %} のセキュリティ更新が有効になっているリポジトリを表示します。  |
+| `secret-scanning-push-protection:enabled` | {% data variables.product.prodname_secret_scanning %} のプッシュ保護が設定されているリポジトリを表示します。 |
 {% endif %}
 
-## Filter by repository type
+## リポジトリの種類によるフィルタ
 
-These qualifiers are available in the main summary views.
+これらの修飾子は、メインの概要ビューで使用できます。
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-{%- ifversion ghes or ghec %}
-| `is:public` | Display public repositories. |
-{%- endif %}
-| `is:internal` | Display internal repositories. |
-| `is:private` | Display private repositories. |
-| `archived:true` | Display archived repositories. |
-| `archived:false` | Omit archived repositories. |
+{%- ifversion ghes or ghec %} | `is:public` | パブリック リポジトリを表示します。 | {%- endif %} | `is:internal` | 内部リポジトリを表示します。 | | `is:private` | プライベート リポジトリを表示します。 | | `archived:true` | アーカイブされたリポジトリを表示します。 | | `archived:false` | アーカイブされたリポジトリを省略します。 |
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-## Filter by level of risk for repositories
+## リポジトリに対するリスクレベルによるフィルタリング
 
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk. 
+リポジトリのリスク レベルは、セキュリティ機能からのアラートの数と重大度によって決まります。 1 つまたは複数のセキュリティ機能がリポジトリで有効化されていないなら、そのリポジトリのリスク レベルは不明になります。 リポジトリにセキュリティ機能で検出されるリスクがないなら、そのリポジトリのリスク レベルはクリアです。 
 
-{% ifversion security-overview-org-risk-coverage %}
-These qualifiers are available in the enterprise-level view.
+{% ifversion security-overview-org-risk-coverage %}これらの修飾子は、エンタープライズレベルのビューで使用できます。
 {% endif %}
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| `risk:high` | Display repositories that are at high risk. |
-| `risk:medium` | Display repositories that are at medium risk. |
-| `risk:low` | Display repositories that are at low risk. |
-| `risk:unknown` | Display repositories that are at an unknown level of risk. |
-| `risk:clear` | Display repositories that have no detected level of risk. |
+| `risk:high` | 高リスクのリポジトリを表示します。 |
+| `risk:medium` | 中程度のリスクのリポジトリを表示します。 |
+| `risk:low` | 低リスクのリポジトリを表示します。 |
+| `risk:unknown` | リスクレベルが不明なリポジトリを表示します。 |
+| `risk:clear` | リスクレベルが検出されていないリポジトリを表示します。 |
 {% endif %}
 
-## Filter by number of alerts
+## アラート数によるフィルタ
 
-{% ifversion security-overview-org-risk-coverage %}These qualifiers are available in the enterprise-level Overview and in the organization-level Security Risk view.{% else %}These qualifiers are available in the main summary views.{% endif %}
+{% ifversion security-overview-org-risk-coverage %}これらの修飾子は、エンタープライズレベルの [Overview] と組織レベルの [Security Risk] ビューで使用できます。{% else %}これらの修飾子は、メインの概要ビューで使用できます。{% endif %}
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+| <code>code-scanning:<em>n</em></code> | {% data variables.product.prodname_code_scanning %} アラートが *n* 個あるリポジトリを表示します。 この修飾子では、`=`、`>`、`<` の各比較演算子を使用できます。 |
+| <code>secret-scanning:<em>n</em></code> | {% data variables.product.prodname_secret_scanning %} アラートが *n* 個あるリポジトリを表示します。 この修飾子では、`=`、`>`、`<` の各比較演算子を使用できます。 |
+| <code>dependabot:<em>n</em></code> | {% data variables.product.prodname_dependabot_alerts %}が *n* 個有効化されているリポジトリを表示します。 この修飾子では、`=`、`>`、`<` の各比較演算子を使用できます。 |
 
 
-## Filter by team
+## Teamによるフィルタ
 
-These qualifiers are available in the main summary views.
+これらの修飾子は、メインの概要ビューで使用できます。
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| <code>team:<em>TEAM-NAME</em></code> | Displays repositories that *TEAM-NAME* has admin privileges for. |
+| <code>team:<em>TEAM-NAME</em></code> | *TEAM-NAME* が管理者権限を持つリポジトリを表示します。 |
 
-## Filter by topic
+## トピックによるフィルタ
 
-These qualifiers are available in the main summary views.
+これらの修飾子は、メインの概要ビューで使用できます。
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-| <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
+| <code>topic:<em>TOPIC-NAME</em></code> | *TOPIC-NAME* で分類されるリポジトリを表示します。 |
 
 {% ifversion security-overview-alert-views %}
 
-## Additional filters for {% data variables.product.prodname_code_scanning %} alert views
+## {% data variables.product.prodname_code_scanning %} アラート ビューの追加フィルター
 
-All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant query and the line of code that triggered the alert.
+すべてのコード スキャン アラートには、次に示すカテゴリのいずれかが含まれます。 任意の結果をクリックすると、関連するクエリの完全な詳細と、アラートをトリガーしたコード行を表示できます。
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-|`severity:critical`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as critical.|
-|`severity:high`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as high.|
-|`severity:medium`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.|
-|`severity:low`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as low.|
-|`severity:error`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.|
-|`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
-|`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
+|`severity:critical`|重大として分類された {% data variables.product.prodname_code_scanning %} アラートを表示します。|
+|`severity:high`|高として分類された {% data variables.product.prodname_code_scanning %} アラートを表示します。|
+|`severity:medium`|中として分類された {% data variables.product.prodname_code_scanning %} アラートを表示します。|
+|`severity:low`|低として分類された {% data variables.product.prodname_code_scanning %} を表示します。|
+|`severity:error`|エラーとして分類された {% data variables.product.prodname_code_scanning %} アラートを表示します。|
+|`severity:warning`|警告として分類された {% data variables.product.prodname_code_scanning %} アラートを表示します。|
+|`severity:note`|注として分類された {% data variables.product.prodname_code_scanning %} アラートを表示します。|
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
-## Additional filters for {% data variables.product.prodname_dependabot %} alert views
+## {% data variables.product.prodname_dependabot %} アラート ビューの追加フィルター
 
-You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
+ビューをフィルター処理すると、修正する準備ができている {% data variables.product.prodname_dependabot_alerts %} を表示したり、公開に関する追加情報が利用可能な場所を表示したりできます。 任意の結果をクリックすると、アラートの完全な詳細を表示できます。
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-|`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
-|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+|`has:patch`|セキュリティで保護されたバージョンが既に利用可能な脆弱性に関する {% data variables.product.prodname_dependabot %} アラートを表示します。|
+|`has:vulnerable-calls`|リポジトリから脆弱な関数への少なくとも 1 つの呼び出しが検出された {% data variables.product.prodname_dependabot %} アラートを表示します。 詳細については、「[Dependabot アラートの表示と更新](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)」を参照してください。|
 {% endif %}
 
 {% endif %}
 
-## Additional filters for {% data variables.product.prodname_secret_scanning %} alert views
+## {% data variables.product.prodname_secret_scanning %} アラート ビューの追加フィルター
 
-| Qualifier | Description |
+| 修飾子 | 説明 |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider.  |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. |
-| `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern.  |
+|`provider:PROVIDER_NAME` | 指定したプロバイダーによるすべての issue の問題に関するアラートを表示します。  |
+| `secret-type:SERVICE_PROVIDER` | 指定したシークレットとプロバイダーのアラートを表示します。 |
+| `secret-type:CUSTOM-PATTERN` | 指定したカスタム パターンに一致するシークレットのアラートを表示します。  |
 
-For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+詳細については、「[{% data variables.product.prodname_secret_scanning_caps %} パターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
 

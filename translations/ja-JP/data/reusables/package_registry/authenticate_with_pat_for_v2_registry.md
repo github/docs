@@ -1,9 +1,17 @@
-Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be owned by a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
+---
+ms.openlocfilehash: 4cf4347384a6be2cadb240a15bc78efea0097799
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192754"
+---
+一部の {% data variables.product.prodname_registry %} レジストリでは、細かなアクセス許可がサポートされています。 つまり、パッケージをユーザーまたは組織が所有できるよう、あるいはリポジトリにリンクできるように選べます。 細かなアクセス許可をサポートするレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)」を参照してください。
 
-For registries that support granular permissions, if your workflow is using a {% data variables.product.pat_generic %} to authenticate to a registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
+細かなアクセス許可をサポートするレジストリについては、お使いのワークフローで {% data variables.product.pat_generic %} を使ってレジストリの認証を受ける場合、`GITHUB_TOKEN` を使うようにワークフローを更新することを強くお勧めします。
 
-For guidance on updating your workflows that authenticate to a registry with a {% data variables.product.pat_generic %}, see "[Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token)."
+{% data variables.product.pat_generic %} を使ってレジストリの認証を受けるワークフローの更新に関するガイダンスは、「[{% data variables.product.pat_generic %} を使ってレジストリにアクセスするワークフローのアップグレード](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token)」を参照してください。
 
-For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+`GITHUB_TOKEN` の詳細については「[ワークフローで認証する](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
 
-For more information about the best practices when using a registry in actions, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
+アクションでレジストリを使用するときのベスト プラクティスについては、「[GitHub Actions のセキュリティ強化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)」を参照してください。

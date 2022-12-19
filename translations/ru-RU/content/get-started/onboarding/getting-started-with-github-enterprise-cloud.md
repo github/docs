@@ -1,220 +1,225 @@
 ---
-title: Getting started with GitHub Enterprise Cloud
-intro: 'Get started with setting up and managing your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account.'
+title: Начало работы с GitHub Enterprise Cloud
+intro: 'Приступайте к настройке и администрированию организации или корпоративной учетной записи {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: 6af835175eb5412ca9fbf0e925175450f2a2a254
+ms.sourcegitcommit: fdc4466e89467a7b13239e26c6042dc1428946b6
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163803'
 ---
-
-This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_cloud %} account as an organization or enterprise owner.
+В этом руководстве описаны процессы настройки учетной записи {% data variables.product.prodname_ghe_cloud %} и управления ею в качестве владельца организации или предприятия.
 
 {% data reusables.enterprise.ghec-cta-button %}
 
-## Part 1: Choosing your account type
+## Часть 1. Выбор типа учетной записи
 
-{% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
+{% data variables.product.prodname_dotcom %} предоставляет два типа корпоративных продуктов:
 
 - **{% data variables.product.prodname_ghe_cloud %}**
 - **{% data variables.product.prodname_ghe_server %}**
 
-The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
+Основное различие между продуктами заключается в том, что {% data variables.product.prodname_ghe_cloud %} размещен в репозитории {% data variables.product.prodname_dotcom %}, а {% data variables.product.prodname_ghe_server %} — локально.
 
 {% data reusables.enterprise.about-github-for-enterprises %}
 
-With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
+{% data variables.product.prodname_ghe_cloud %} предоставляет возможность использования {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
+Если вместо этого вы разрешите участникам создавать личные учетные записи и управлять ими, учтите, что с {% data variables.product.prodname_ghe_cloud %} можно использовать два типа учетных записей:
 
-- A single organization account
-- An enterprise account that contains multiple organizations
+- единая учетная запись организации;
+- корпоративная учетная запись, содержащая несколько организаций.
 
-### 1. Understanding the differences between an organization account and enterprise account
+### 1. Различия между учетной записью организации и корпоративной учетной записью
 
-Both organization and enterprise accounts are available with {% data variables.product.prodname_ghe_cloud %}. An organization is a shared account where groups of people can collaborate across many projects at once, and owners and administrators can manage access to data and projects. An enterprise account enables collaboration between multiple organizations, and allows owners to centrally manage policy, billing and security for these organizations. For more information on the differences, see "[Organizations and enterprise accounts](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)."
+Учетные записи организации и корпоративные учетные записи доступны в {% data variables.product.prodname_ghe_cloud %}. Организация — это общая учетная запись, в которой группы пользователей могут одновременно работать над несколькими проектами, а владельцы и администраторы могут управлять доступом к данным и проектам. Корпоративная учетная запись обеспечивает сотрудничество между несколькими организациями и позволяет владельцам централизованно управлять политикой, выставлением счетов и безопасностью этих организаций. Дополнительную информацию о различиях см. в разделе [Учетные записи организации и корпоративные учетные записи](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts).
 
-If you choose an enterprise account, keep in mind that some policies can be set only at an organization level, while others can be enforced for all organizations in an enterprise.
+Выбирая корпоративную учетную запись, имейте в виду, что некоторые политики можно устанавливать лишь на уровне организации, а другие можно применять для всех организаций предприятия.
 
-Once you choose the account type you would like, you can proceed to setting up your account. In each of the sections in this guide, proceed to either the single organization or enterprise account section based on your account type.
+Выбрав нужный тип учетной записи, вы можете перейти к настройке учетной записи. В каждом из разделов этого руководства перейдите к инструкциям к единой учетной записи организации или корпоративной учетной записи в зависимости от типа вашей учетной записи.
 
-## Part 2: Setting up your account
-To get started with {% data variables.product.prodname_ghe_cloud %}, you will want to create your organization or enterprise account and set up and view billing settings, subscriptions and usage.
-### Setting up a single organization account with {% data variables.product.prodname_ghe_cloud %}
+## Часть 2. Настройка учетной записи
+Перед началом работы с {% data variables.product.prodname_ghe_cloud %} вам необходимо создать учетную запись организации или корпоративную учетную запись, а также настроить и просмотреть параметры выставления счетов, подписки и использование.
+### Настройка единой учетной записи организации в {% data variables.product.prodname_ghe_cloud %}
 
-#### 1. About organizations
-Organizations are shared accounts where groups of people can collaborate across many projects at once. With {% data variables.product.prodname_ghe_cloud %}, owners and administrators can manage their organization with sophisticated user authentication and management, as well as escalated support and security options. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
-#### 2. Creating or upgrading an organization account
+#### 1. Сведения об организациях
+Организации — это общие учетные записи, в которых группы пользователей могут совместно работать над несколькими проектами одновременно. В {% data variables.product.prodname_ghe_cloud %} владельцы и администраторы могут управлять своей организацией с помощью сложной проверки подлинности и управления, а также расширенной поддержки и параметров безопасности. Дополнительные сведения см. в статье "[Сведения об организациях](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
+#### 2. Создание или обновление учетной записи организации
 
-To use an organization account with {% data variables.product.prodname_ghe_cloud %}, you will first need to create an organization. When prompted to choose a plan, select "Enterprise". For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+Чтобы использовать учетную запись организации с {% data variables.product.prodname_ghe_cloud %}, сначала необходимо создать организацию. В запросе выбора плана выберите "Корпоративный". Дополнительные сведения см. в статье "[Создание новой организации с нуля](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
-#### 3. Setting up and managing billing
+Кроме того, если у вас уже есть учетная запись организации, которую вы хотите обновить, выполните действия, описанные в разделе [Обновление подписки на {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription).
+#### 3. Настройка выставления счетов и управление им
 
-When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [30-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
+Если вы решите использовать учетную запись организации с {% data variables.product.prodname_ghe_cloud %}, сначала вы получите доступ к [30-дневной пробной версии](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). Если вы не приобретете {% data variables.product.prodname_enterprise %} или {% data variables.product.prodname_team %} до завершения пробного периода, версия вашей организации будет понижена до {% data variables.product.prodname_free_user %} и вы потеряете доступ к любым расширенным инструментам и функциям, которые включены только в платные продукты. Дополнительные сведения см. в разделе [Завершение пробной версии](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial).
 
-Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
+На странице параметров выставления счетов вашей организации вы сможете управлять такими параметрами, как метод оплаты и период выставления счетов, просматривать сведения о вашей подписке, а также увеличивать объем хранилища и ограничение минут {% data variables.product.prodname_actions %}. Дополнительные сведения об управлении параметрами выставления счетов см. в разделе [Управление параметрами выставления счетов в {% data variables.product.prodname_dotcom %}](/billing/managing-your-github-billing-settings).
 
-Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+Доступ или изменение параметров выставления счетов для вашей организации может быть предоставлен только членам организации с ролью *владельца* или *менеджера выставления счетов*. Менеджер по выставлению счетов — это пользователь, который управляет параметрами выставления счетов для вашей организации и не использует платную лицензию в подписке вашей организации. Дополнительные сведения о добавлении менеджера выставления счетов в организацию см. в разделе [Добавление менеджера выставления счетов в организацию](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
 
-### Setting up an enterprise account with {% data variables.product.prodname_ghe_cloud %}
+### Настройка корпоративного аккаунта в {% data variables.product.prodname_ghe_cloud %}
 
-#### 1. About enterprise accounts
+#### 1. Сведения о корпоративных учетных записях
 
-An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+Корпоративная учетная запись позволяет централизованно управлять политикой и параметрами для нескольких организаций {% data variables.product.prodname_dotcom %}, включая доступ участников, выставление счетов, использование и безопасность. Дополнительные сведения см. в статье [Сведения об учетных записях предприятия](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).
 
-#### 2. Creating an enterpise account
+#### 2. Создание корпоративной учетной записи
 
- {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)." 
+ Пользователи {% data variables.product.prodname_ghe_cloud %}, осуществляющие оплату по счету, могут создать корпоративную учетную запись непосредственно через {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в статье [Создание учетной записи разработчика](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account). 
  
- {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
+ Пользователи {% data variables.product.prodname_ghe_cloud %}, которые сейчас не осуществляют оплату по счету, могут связаться с [командой по продажам {% data variables.product.prodname_dotcom %}](https://enterprise.github.com/contact), чтобы создать корпоративную учетную запись.
 
-#### 3. Adding organizations to your enterprise account
+#### 3. Добавление организаций в корпоративную учетную запись
 
-You can create new organizations to manage within your enterprise account. For more information, see "[Adding organizations to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+Вы можете создавать новые организации для управления в корпоративной учетной записи. Дополнительные сведения см. в разделе [Добавление организаций на предприятии](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise).
 
-Contact your {% data variables.product.prodname_dotcom %} sales account representative if you want to transfer an existing organization to your enterprise account.
-#### 4. Viewing the subscription and usage for your enterprise account
-You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[Viewing the subscription and usage for your enterprise account](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+Если вы хотите перенести существующую организацию в корпоративную учетную запись, обратитесь к представителю отдела продаж {% data variables.product.prodname_dotcom %}.
+#### 4. Просмотр подписки и сведений об использовании для корпоративной учетной записи
+Вы можете в любое время просмотреть свою текущую подписку, использование лицензии, счета, историю платежей и другую платежную информацию для вашей корпоративной учетной записи. Как владельцы предприятий, так и менеджеры по выставлению счетов могут получать доступ к параметрам выставления счетов для корпоративных учетных записей и управлять ими. Дополнительные сведения см. на странице [Просмотр сведений о подписке и использовании для корпоративной учетной записи](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account).
 
-## Part 3: Managing your organization or enterprise members and teams with {% data variables.product.prodname_ghe_cloud %}
+## Часть 3. Управление участниками и командами вашей организации или предприятия с помощью {% data variables.product.prodname_ghe_cloud %}
 
-### Managing members and teams in your organization
-You can set permissions and member roles, create and manage teams, and give people access to repositories in your organization. 
-#### 1. Managing members of your organization
+### Управление участниками и командами в вашей организации
+Вы можете устанавливать разрешения и роли участников, создавать команды и управлять ими, а также предоставлять пользователям доступ к репозиториям в вашей организации. 
+#### 1. Управление участниками организации
 {% data reusables.getting-started.managing-org-members %}
-#### 2. Organization permissions and roles
+#### 2. Разрешения и роли организации
 {% data reusables.getting-started.org-permissions-and-roles %}
-#### 3. About and creating teams
+#### 3. Сведения о командах и создание команд
 {% data reusables.getting-started.about-and-creating-teams %}
-#### 4. Managing team settings
+#### 4. Управление параметрами команды
 {% data reusables.getting-started.managing-team-settings %}
-#### 5. Giving people and teams access to repositories, project boards and apps
+#### 5. Предоставление пользователям и командам доступа к репозиториям, доскам проектов и приложениям
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
 
-### Managing members of an enterprise account
-Managing members of an enterprise is separate from managing members or teams in an organization. It is important to note that enterprise owners or administrators cannot access organization-level settings or manage members for organizations in their enterprise unless they are made an organization owner. For more information, see the above section, "[Managing members and teams in your organization](#managing-members-and-teams-in-your-organization)."
+### Управление участниками корпоративной учетной записи
+Управление участниками предприятия отличается от управления участниками или командами в организации. Важно отметить, что владельцы или администраторы предприятия не могут получить доступ к параметрам на уровне организации или управлять участниками для организаций в своем предприятии, если у них нет роли владельца организации. Дополнительные сведения см. в приведенном выше разделе [Управление участниками и командами в вашей организации](#managing-members-and-teams-in-your-organization).
 
-If your enterprise uses {% data variables.product.prodname_emus %}, your members are fully managed through your identity provider. Adding members, making changes to their membership, and assigning roles is all managed using your IdP. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+При использовании {% data variables.product.prodname_emus %} на предприятия управление участниками полностью осуществляется через поставщика удостоверений. Добавление участников, внесение изменений в их членство и назначение ролей — все это выполняется с помощью вашего поставщика удостоверений. Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users).
 
-If your enterprise does not use {% data variables.product.prodname_emus %}, follow the steps below.
+Если ваше предприятие не использует {% data variables.product.prodname_emus %}, выполните указанные ниже действия.
 
-#### 1. Assigning roles in an enterprise
-By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[Roles in an enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
-#### 2. Inviting people to manage your enterprise
-You can invite people to manage your enterprise as enterprise owners or billing managers, as well as remove those who no longer need access. For more information, see "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
+#### 1. Назначение ролей в предприятии
+По умолчанию все на предприятии являются участниками предприятия. Существуют также административные роли, включая владельца предприятия и менеджера по выставлению счетов, которые имеют разные уровни доступа к параметрам и данным предприятия. Дополнительные сведения см. в разделе [Роли в организации](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
+#### 2. Приглашение пользователей для управления предприятием
+Вы можете приглашать пользователей к управлению вашим предприятием в роли владельцев предприятия или менеджеров по выставлению счетов, а также удалять тех, кому больше не нужен доступ. Дополнительные сведения см. на странице [Приглашение людей для управления предприятием](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
-You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
-#### 3. Viewing people in your enterprise
-To audit access to enterprise-owned resources or user license usage, you can view every enterprise administrator, enterprise member, and outside collaborator in your enterprise. You can see the organizations that a member belongs to and the specific repositories that an outside collaborator has access to. For more information, see "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
+Вы также можете предоставить корпоративным участникам возможность управлять запросами в службу поддержки на портале поддержки. Дополнительные сведения см. в разделе [Управление правами специалистов службы поддержки для вашего предприятия](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
+#### 3. Просмотр пользователей в организации
+Для аудита доступа к корпоративным ресурсам или использования пользовательских лицензий вы можете просмотреть сведения о каждом администраторе предприятия, участнике предприятия и внешнем участнике совместной работы в вашем предприятии. Вы можете просмотреть организации, к которым принадлежит участник, и конкретные репозитории, к которым имеет доступ внешний участник совместной работы. Дополнительные сведения см. на странице [Просмотр пользователей в предприятии](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise).
 
-## Part 4: Managing security with {% data variables.product.prodname_ghe_cloud %}
+## Часть 4. Управление безопасностью з {% data variables.product.prodname_ghe_cloud %}
 
-* [Managing security for a single organization](#managing-security-for-a-single-organization)
-* [Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}](#managing-security-for-an-enterprise-with-managed-users)
-* [Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}](#managing-security-for-an-enterprise-account-without-managed-users)
+* [Управление безопасностью для единой организации](#managing-security-for-a-single-organization)
+* [Управление безопасностью для {% data variables.enterprise.prodname_emu_enterprise %}](#managing-security-for-an-enterprise-with-managed-users)
+* [Управление безопасностью корпоративной учетной записи без {% data variables.enterprise.prodname_managed_users %}](#managing-security-for-an-enterprise-account-without-managed-users)
 
-### Managing security for a single organization
-You can help keep your organization secure by requiring two-factor authentication, configuring security features, reviewing your organization's audit log and integrations, and enabling SAML single sign-on and team synchronization.
-#### 1. Requiring two-factor authentication
+### Управление безопасностью для единой организации
+Вы можете обеспечить безопасность своей организации, установив двухфакторную проверку подлинности, настроив функции безопасности, просмотрев журнал аудита и интеграций вашей организации, а также включив единый вход SAML и синхронизацию команд.
+#### 1. Обязательная двухфакторная проверка подлинности
 {% data reusables.getting-started.requiring-2fa %}
-#### 2. Configuring security features for your organization
+#### 2. Настройка функций безопасности для организации
 {% data reusables.getting-started.configuring-security-features %}
 
-#### 3. Reviewing your organization's audit log and integrations
+#### 3. Просмотр журнала аудита и интеграций организации
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
 
-#### 4. Enabling and enforcing SAML single sign-on for your organization
-If you manage your applications and the identities of your organization members with an identity provider (IdP), you can configure SAML single-sign-on (SSO) to control and secure access to organization resources like repositories, issues and pull requests. When members of your organization access organization resources that use SAML SSO, {% data variables.product.prodname_dotcom %} will redirect them to your IdP to authenticate. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+#### 4. Включение и применение единого входа SAML для вашей организации
+Если вы управляете своими приложениями и удостоверениями участников вашей организации с помощью поставщика удостоверений, вы можете настроить единый вход SAML для контроля и защиты доступа к ресурсам организации, таким как репозитории, задачи и запросы на вытягивание. Когда участники вашей организации получают доступ к ресурсам организации, использующим систему единого входа SAML, {% data variables.product.prodname_dotcom %} перенаправляет их к вашему поставщику удостоверений для проверки подлинности. Дополнительные сведения см. на странице [Сведения об управлении идентификацией и доступом с помощью единого входа SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on).
 
-Organization owners can choose to disable, enable but not enforce, or enable and enforce SAML SSO. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
-#### 5. Managing team synchronization for your organization
-Organization owners can enable team synchronization between your identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+Владельцы организаций могут выбрать между отключением, включением без принудительного применения и включением и принудительным применением единого входа SAML. Дополнительные сведения см. на странице [Включение и тестирование единого входа SAML для организации](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization) и [Принудительное применение единого входа SAML для организации](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization).
+#### 5  Управление синхронизацией команд в организации
+Владельцы организаций могут включить синхронизацию команд между поставщиком удостоверений и {% data variables.product.prodname_dotcom %}, чтобы позволить владельцам организаций и специалистам по обслуживанию команд подключать команды в организации к группам поставщика удостоверений. Дополнительные сведения см. в разделе [Управление синхронизацией команд в организации](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization).
 
-### Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}
+### Управление безопасностью для {% data variables.enterprise.prodname_emu_enterprise %}
 
-With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other login requirements should be enabled and enforced on your IdP. 
+При использовании {% data variables.product.prodname_emus %} управление доступом и идентификацией осуществляется централизованно через поставщика удостоверений. Двухфакторная проверка подлинности и другие требования к входу должны быть включены и принудительно применены к вашему поставщику удостоверений. 
 
-#### 1. Enabling and SAML single sign-on and provisioning in your {% data variables.enterprise.prodname_emu_enterprise %}
+#### 1. Включение и подготовка единого входа SAML в {% data variables.enterprise.prodname_emu_enterprise %}
 
-In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SAML SSO and SCIM provisioning before you can start using your enterprise. For more information on configuring SAML SSO and provisioning for an {% data variables.enterprise.prodname_emu_enterprise %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+В {% data variables.enterprise.prodname_emu_enterprise %} все участники подготавливаются и управляются поставщиком удостоверений. Перед использованием предприятие необходимо включить единый вход SAML и подготовку SCIM. Дополнительные сведения о настройке единого входа SAML и подготовке для {% data variables.enterprise.prodname_emu_enterprise %} см. в разделе [Настройка единого входа SAML для корпоративных управляемых пользователей](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users).
 
-#### 2. Managing teams in your {% data variables.enterprise.prodname_emu_enterprise %} with your identity provider
+#### 2. Управление командами в {% data variables.enterprise.prodname_emu_enterprise %} с помощью поставщика удостоверений
 
-You can connect teams in your organizations to security groups in your identity provider, managing membership of your teams and access to repositories through your IdP. For more information, see "[Managing team memberships with identity provider groups](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
+Вы можете подключать команды в своих организациях к группам безопасности в своем поставщике удостоверений, управлять членством в ваших командах и доступом к репозиториям через своего поставщика удостоверений. Дополнительные сведения см. на странице [Управление членством в командах с помощью групп поставщиков удостоверений](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups).
 
-#### 3. Managing allowed IP addresses for organizations in your {% data variables.enterprise.prodname_emu_enterprise %}
+#### 3. Управление разрешенными IP-адресами для организаций в {% data variables.enterprise.prodname_emu_enterprise %}
 
-You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your {% data variables.enterprise.prodname_emu_enterprise %}. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+Вы можете настроить список разрешений для определенных IP-адресов, чтобы ограничить доступ к ресурсам, принадлежащим организациям в {% data variables.enterprise.prodname_emu_enterprise %}. Дополнительные сведения см. в разделе [Применение политик для параметров безопасности на предприятии](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise).
 
-#### 4. Enforcing policies for Advanced Security features in your {% data variables.enterprise.prodname_emu_enterprise %}
+#### 4. Применение политик для функций расширенной безопасности в {% data variables.enterprise.prodname_emu_enterprise %}
 {% data reusables.getting-started.enterprise-advanced-security %}
 
-### Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}
-To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features. 
+### Управление безопасностью корпоративной учетной записи без {% data variables.enterprise.prodname_managed_users %}
+В рамках управления безопасностью вашего предприятия вы можете установить двухфакторную проверку подлинности, применить управление разрешенными IP-адресами, включить единый вход SAML и синхронизацию команд на уровне предприятия, а также зарегистрироваться для использования функций GitHub Advanced Security и принудительно применить их. 
 
-#### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
-Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 
+#### 1. Обязательная двухфакторная проверка подлинности и управление разрешенными IP-адресами для организаций в корпоративной учетной записи
+Владельцы предприятия могут требовать, чтобы члены организации, менеджеры по выставлению счетов и внешние участники совместной работы во всех организациях, принадлежащих корпоративной учетной записи, использовали двухфакторную проверку подлинности для защиты личных учетных записей. Пред этим мы рекомендуем уведомить всех пользователей, имеющих доступ к организациям в вашем предприятии. Вы также можете настроить список разрешений для определенных IP-адресов, чтобы ограничить доступ к ресурсам, принадлежащим организациям в вашей корпоративной учетной записи. 
 
-For more information on enforcing two-factor authentication and allowed IP address lists, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
-#### 2. Enabling and enforcing SAML single sign-on for organizations in your enterprise account
-You can centrally manage access to your enterprise's resources, organization membership and team membership using your IdP and SAM single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. For more information, see "[About identity and access management for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+Дополнительные сведения о принудительной двухфакторной проверке подлинности и списках разрешенных IP-адресов см. в разделе [Принудительное применение политик для параметров безопасности в предприятии](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise).
+#### 2. Включение и принудительное применение единого входа SAML для организаций в корпоративной учетной записи.
+Вы можете централизованно управлять доступом к ресурсам вашего предприятия, членством в организации и членством в командах, используя поставщик удостоверений и единый входа SAM. Владельцы предприятий могут включить единый вход SAML во всех организациях, принадлежащих корпоративной учетной записи. Дополнительные сведения см. в разделе [Сведения об управлении удостоверениями и доступом для предприятия](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise).
 
-#### 3. Managing team synchronization
-You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see "[Managing team synchronization for organizations in your enterprise account](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+#### 3. Управление синхронизацией команд
+Вы можете включить синхронизацию команд между поставщиком удостоверений и {% data variables.product.prodname_dotcom %} и управлять ею, чтобы позволить организациям, принадлежащим вашей корпоративной учетной записи, управлять членством в команде с помощью групп поставщика удостоверений. Дополнительные см. на странице [Управление синхронизацией команд для организаций в вашей корпоративной учетной записи](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise).
 
-#### 4. Enforcing policies for Advanced Security features in your enterprise account
+#### 4. Принудительное применение политик для функций Advanced Security в корпоративной учетной записи
 {% data reusables.getting-started.enterprise-advanced-security %}
 
-## Part 5: Managing organization and enterprise level policies and settings
+## Часть 5. Управление политиками и параметрами на уровне организации и предприятия
 
-### Managing settings for a single organization
-To manage and moderate your organization, you can set organization policies, manage permissions for repository changes, and use organization-level community health files.
-#### 1. Managing organization policies
+### Управление параметрами для единой организации
+Чтобы обеспечить модерацию организации и управление ею, вы можете устанавливать политики организации, управлять разрешениями на изменения репозитория и использовать файлы работоспособности сообщества на уровне организации.
+#### 1. Управление политиками организации
 {% data reusables.getting-started.managing-org-policies %}
-#### 2. Managing repository changes
+#### 2. Управление изменениями репозитория
 {% data reusables.getting-started.managing-repo-changes %}
-#### 3. Using organization-level community health files and moderation tools
+#### 3. Использование файлов работоспособности сообщества и средств модерации на уровне организации
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
 
-### Managing settings for an enterprise account
-To manage and moderate your enterprise, you can set policies for organizations within the enterprise, view audit logs, configure webhooks, and restrict email notifications.
-#### 1. Managing policies for organizations in your enterprise account
+### Управление параметрами корпоративной учетной записи
+Чтобы обеспечить модерацию предприятия и управление им, вы можете устанавливать политики организаций в предприятии, просматривать журналы аудита, настраивать веб-перехватчики и ограничивать уведомления по электронной почте.
+#### 1. Управление политиками для организаций в корпоративной учетной записи
 
-You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[Setting policies for your enterprise](/enterprise-cloud@latest/admin/policies)."
-#### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
-You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Reviewing audit logs for your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" and "[Monitoring your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)."
+Вы можете принудительно применить ряд политик для всех организаций, принадлежащих вашему предприятию, или разрешить установку этих политик в каждой организации. Типы политик, доступных для принудительного применения, включают управление репозиторием, доску проектов и командные политики. Дополнительные сведения см. на странице [Настройка политик для предприятия](/enterprise-cloud@latest/admin/policies).
+#### 2. Просмотр журналов аудита, настройка веб-перехватчиков и ограничение уведомлений по электронной почте для предприятия
+Вы можете просматривать действия всех организаций, принадлежащих вашей корпоративной учетной записи, в журнале корпоративного аудита. Вы также можете настроить веб-перехватчики для получения событий от организаций, принадлежащих вашей корпоративной учетной записи. Дополнительные сведения см. на странице [Просмотр журналов аудита для предприятия](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise) и [Мониторинг предприятия](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise).
 
-You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see "[Restricting email notifications for your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
+Вы также можете ограничить уведомления по электронной почте для своей корпоративной учетной записи, чтобы участники предприятия могли использовать адрес электронной почты лишь в проверенном или утвержденном домене для получения уведомлений. Дополнительные сведения см. в статье [Ограничение уведомлений по электронной почте для предприятия](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise).
 
-## Part 6: Customizing and automating your organization or enterprise's work on {% data variables.product.prodname_dotcom %}
-Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
+## Часть 6. Настройка и автоматизация работы организации или предприятия в {% data variables.product.prodname_dotcom %}
+Участники вашей организации или предприятия могут использовать инструменты из{% data variables.product.prodname_marketplace %}, API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} и существующих функций {% data variables.product.product_name %} для настройки и автоматизации работы.
 
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. Использование {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Использование API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. Создание действий {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Публикация пакетов и управление ими в {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
-### 5. Using {% data variables.product.prodname_pages %}
-{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
-## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
+### 5. Использование {% data variables.product.prodname_pages %}
+{% data variables.product.prodname_pages %} — это служба размещения статических сайтов, которая принимает файлы HTML, CSS и JavaScript прямо из репозитория и публикует веб-сайт. Вы можете управлять публикацией сайтов {% data variables.product.prodname_pages %} на уровне организации. Дополнительные сведения см. на странице [Управление публикацией сайтов {% data variables.product.prodname_pages %} для организации](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) и [Сведения о {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages).
+## Часть 7. Участие в сообществе {% data variables.product.prodname_dotcom %}
 
-Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
+Участники вашей организации или предприятия могут использовать ресурсы обучения и поддержки GitHub, чтобы получить необходимую им помощь. Вы также можете поддержать сообщество разработчиков ПО с открытым кодом. 
 
-### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+### 1. Знакомство со сведениями о {% data variables.product.prodname_ghe_cloud %} в {% data variables.product.prodname_docs %}
+Вы можете прочитать документацию, в которой описаны доступные функции {% data variables.product.prodname_ghe_cloud %}. Дополнительные сведения см. в разделе [Сведения о версиях {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs).
 
 {% data reusables.enterprise.best-practices %}
 
-### 2. Learning with {% data variables.product.prodname_learning %}
-Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
+### 2. Обучение с {% data variables.product.prodname_learning %}
+Участники вашей организации или предприятия могут обрести новые навыки, выполняя интересные и реалистичные проекты в собственном репозитории GitHub с помощью [{% data variables.product.prodname_learning %}](https://skills.github.com/). Каждый курс — это практический урок, созданный сообществом GitHub и проводимый удобным ботом.
 
-For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
-### 3. Supporting the open source community
+Дополнительные сведения см. в разделе [Ресурсы обучения Git и {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/quickstart/git-and-github-learning-resources).
+### 3. Поддержка сообщества разработчиков ПО с открытым кодом
 {% data reusables.getting-started.sponsors %}
 
-### 4. Contacting {% data variables.contact.github_support %}
+### 4. Обращение в {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
-{% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see "[{% data variables.product.prodname_ghe_cloud %} support](/github/working-with-github-support/github-enterprise-cloud-support)."
+{% data variables.product.prodname_ghe_cloud %} позволяет отправлять запросы на приоритетную поддержку с целевым восьмичасовым временем отклика. Дополнительные сведения см. на странице [Поддержка {% data variables.product.prodname_ghe_cloud %}](/github/working-with-github-support/github-enterprise-cloud-support).

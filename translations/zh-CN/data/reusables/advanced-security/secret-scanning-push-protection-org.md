@@ -1,6 +1,11 @@
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", under "Push protection", click **Enable all**.
-  {% ifversion ghec %}![Screenshot showing how to enable push protection for {% data variables.product.prodname_secret_scanning %} for an organization](/assets/images/help/organizations/secret-scanning-enable-push-protection-org.png){% elsif ghes > 3.4 or ghae > 3.4 %} ![Screenshot showing how to enable push protection for {% data variables.product.prodname_secret_scanning %} for an organization](/assets/images/help/organizations/secret-scanning-enable-push-protection-org-ghes.png){% endif %}
-1. Optionally, click "Automatically enable for repositories added to {% data variables.product.prodname_secret_scanning %}."{% ifversion push-protection-custom-link-orgs %}
-1. Optionally, to include a custom link in the message that members will see when they attempt to push a secret, select **Add a resource link in the CLI and web UI when a commit is blocked**, then type a URL, and click **Save link**.
-
-   ![Screenshot showing checkbox and text field for enabling a custom link](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}
+---
+ms.openlocfilehash: 0d7a80e83eb706b8590383920dd2b1771fdc9254
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "147060200"
+---
+1. 在“{% data variables.product.prodname_secret_scanning_caps %}”下的“推送保护”下，单击“全部启用”。
+   ![屏幕截图演示如何为组织的 {% data variables.product.prodname_secret_scanning %} 启用推送保护](/assets/images/help/organizations/secret-scanning-enable-push-protection.png)
+1. （可选）单击“自动启用添加到 {% data variables.product.prodname_secret_scanning %} 的专用存储库”。

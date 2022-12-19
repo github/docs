@@ -1,0 +1,20 @@
+date: '19/05/2020'
+sections:
+  security_fixes:
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/20108, https://github.com/github/enterprise2/pull/20086 {% endcomment %}'
+  bugs:
+    - 'Une fois le fichier de licence mis à jour, les services n’étaient pas correctement rechargés, ce qui entraînait une perte de fonctionnalité. {% comment %} https://github.com/github/enterprise2/pull/20072, https://github.com/github/enterprise2/pull/19989 {% endcomment %}'
+    - 'Les requêtes d’API internes mettant à jour les informations du graphe des dépendances pouvaient échouer si le corps de la réponse était trop long. {% comment %} https://github.com/github/enterprise2/pull/20231, https://github.com/github/enterprise2/pull/20208 {% endcomment %}'
+    - 'L’argument `affiliations` de certaines connexions de dépôt GraphQL n’était pas respecté. {% comment %} https://github.com/github/github/pull/142036, https://github.com/github/github/pull/140658 {% endcomment %}'
+    - 'Le rétablissement automatique d’un utilisateur par le biais de l’authentification unique n’aboutissait pas si la casse de l’attribut de l’e-mail SAML était différente de celle de l’e-mail de l’utilisateur GitHub. {% comment %} https://github.com/github/github/pull/143321, https://github.com/github/github/pull/142915 {% endcomment %}'
+    - 'La restauration de l’appartenance d’un utilisateur à une organisation n’instrumentait pas l’intervenant dans les charges utiles des webhooks et journaux d’audit. {% comment %} https://github.com/github/github/pull/143231, https://github.com/github/github/pull/140849 {% endcomment %}'
+  known_issues:
+    - 'Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Lors d’un envoi (push) vers un Gist, une exception pouvait être levée pendant le hook de post-réception. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Les alertes de sécurité ne sont pas signalées lors de l’envoi (push) à un dépôt sur la ligne de commande (mise à jour : 23/06/2020). {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Le graphe des dépendances ne détecte pas les dépendances lorsqu’il est déployé dans une configuration en cluster avec plusieurs nœuds Redis (mise à jour : 30/06/2020). {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

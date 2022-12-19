@@ -1,4 +1,4 @@
-The Dependency submission API lets you submit dependencies for a project. This enables you to add dependencies, such as those resolved when software is compiled or built, to {% data variables.product.prodname_dotcom %}'s dependency graph feature, providing a more complete picture of all of your project's dependencies.
+You can use the REST API to submit dependencies for a project. This enables you to add dependencies, such as those resolved when software is compiled or built, to {% data variables.product.prodname_dotcom %}'s dependency graph feature, providing a more complete picture of all of your project's dependencies.
 
 The dependency graph shows any dependencies you submit using the API in addition to any dependencies that are identified from manifest or lock files in the repository (for example, a `package-lock.json` file in a JavaScript project). For more information about viewing the dependency graph, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#viewing-the-dependency-graph)." 
 

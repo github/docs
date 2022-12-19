@@ -1,7 +1,7 @@
 ---
-title: Integrate GitHub Classroom with an IDE
+title: Integrieren von GitHub Classroom in eine IDE
 shortTitle: Integrate with an IDE
-intro: 'You can preconfigure a supported integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.'
+intro: 'Du kannst eine unterstützte integrierte Entwicklungsumgebung (IDE) für Arbeitsaufträge vorkonfigurieren, die du in {% data variables.product.prodname_classroom %} erstellst.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}'
@@ -9,37 +9,43 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-online-ide
+ms.openlocfilehash: 25c4c1fba1cb0f082049a461e03bfdf009e208c9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110506'
 ---
-## About integration with an IDE
+## Informationen zur Integration mit einer IDE
 
 {% data reusables.classroom.about-online-ides %} 
 
-After a student accepts an assignment with an IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+Nachdem ein Kursteilnehmer eine Zuweisung mit einer IDE akzeptiert hat, enthält die README-Datei im Zuweisungsrepository eine Schaltfläche, um die Zuweisung in der IDE zu öffnen. Der Kursteilnehmer kann sofort arbeiten, und es ist keine zusätzliche Konfiguration erforderlich.
 
-## Supported IDEs
+## Unterstützte IDEs
 
-{% data variables.product.prodname_classroom %} supports the following IDEs. You can learn more about the student experience for each IDE.
+{% data variables.product.prodname_classroom %} unterstützt die folgenden IDEs: Du kannst mehr über die Kursteilnehmererfahrung für jede IDE erfahren.
 
-| IDE | More information |
+| IDE | Weitere Informationen |
 | :- | :- |
-| {% data variables.product.prodname_github_codespaces %} | "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)" |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| {% data variables.product.prodname_vscode %} | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
+| {% data variables.product.prodname_github_codespaces %} | „[Verwenden von {% data variables.product.prodname_github_codespaces %} mit {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)“ |
+| Microsoft MakeCode Arcade | „[Informationen zur Verwendung von MakeCode Arcade mit {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)“ |
+| {% data variables.product.prodname_vscode %} | [{% data variables.product.prodname_classroom %}-Erweiterung](http://aka.ms/classroom-vscode-ext) im Visual Studio Marketplace |
 
-We know cloud IDE integrations are important to your classroom and are working to bring more options. 
+Wir wissen, dass Cloud-IDE-Integrationen für deine Klasse wichtig sind und arbeiten daran, Dir mehr Optionen zur Verfügung zu stellen. 
 
-## Configuring an IDE for an assignment
+## Konfigurieren einer IDE für eine Zuweisung
 
-You can choose the IDE you'd like to use for an assignment when you create an assignment. To learn how to create a new assignment that uses an IDE, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+Du kannst die IDE auswählen, die du beim Erstellen einer Zuweisung für eine Zuweisung verwenden möchtest. Informationen zum Erstellen einer neuen Zuordnung, die eine IDE verwendet, findest du unter „[Erstellen einer einzelnen Zuweisung](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)“ oder „[Erstellen einer Gruppenzuweisung](/education/manage-coursework-with-github-classroom/create-a-group-assignment)“.
 
-## Setting up an assignment in a new IDE
+## Einrichten einer Zuweisung in einer neuen IDE
 
-The first time you configure an assignment using a different IDE, you must ensure that it is set up correctly.
+Wenn du eine Zuweisung zum ersten Mal mit einer anderen IDE konfigurieren, musst du sicherstellen, dass sie ordnungsgemäß eingerichtet ist.
 
-Unless you use {% data variables.product.prodname_github_codespaces %}, you must authorize the OAuth app for the IDE for your organization. For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+Wenn du {% data variables.product.prodname_codespaces %} nicht verwendest, musst du die OAuth-App für die IDE für deine Organisation autorisieren. Gewähre für alle Repositorys den **Lesezugriff** der App auf Metadaten, Verwaltung und Code und den **Schreibzugriff** auf die Administration und den Code. Weitere Informationen findest du unter [Autorisieren von OAuth-Apps](/github/authenticating-to-github/authorizing-oauth-apps).
 
-{% data variables.product.prodname_github_codespaces %} does not require an OAuth app, but you need to enable {% data variables.product.prodname_github_codespaces %} for your organization to be able to configure an assignment with {% data variables.product.prodname_github_codespaces %}. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)."
+{% data variables.product.prodname_codespaces %} erfordert keine OAuth-App, du musst {% data variables.product.prodname_codespaces %} jedoch für deine Organisation aktivieren, um einen Arbeitsauftrag mit {% data variables.product.prodname_codespaces %} zu konfigurieren. Weitere Informationen findest du unter [Verwenden von {% data variables.product.prodname_codespaces %} mit {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization).
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- [Informationen zu README-Dateien](/github/creating-cloning-and-archiving-repositories/about-readmes)

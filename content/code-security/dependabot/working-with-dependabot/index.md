@@ -18,6 +18,7 @@ children:
   - /automating-dependabot-with-github-actions
   - /keeping-your-actions-up-to-date-with-dependabot
   - /managing-encrypted-secrets-for-dependabot
+  - /configuring-dependabot-to-only-access-private-registries
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
 ---

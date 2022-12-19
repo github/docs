@@ -1,6 +1,6 @@
 ---
-title: Cloning a repository
-intro: 'When you create a repository on {% data variables.location.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
+title: 리포지토리 복제
+intro: '{% 데이터 variables.location.product_location %}에 리포지토리를 만들면 원격 리포지토리로 존재합니다. 리포지토리를 복제하여 컴퓨터에 로컬 복사본을 만들고 두 위치 간에 동기화할 수 있습니다.'
 redirect_from:
   - /articles/cloning-a-repository
   - /articles/cloning-a-repository-from-github
@@ -13,25 +13,26 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 98c470d19b9c1fcf5cbef0fdd091e86a63d08583
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093923'
 ---
-## About cloning a repository
+## 리포지토리 복제 정보
 
-You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
+{% 데이터 variables.location.product_location %}에서 로컬 컴퓨터로 리포지토리를 복제하여 병합 충돌을 보다 쉽게 해결하고, 파일을 추가 또는 제거하고, 더 큰 커밋을 푸시할 수 있습니다. 리포지토리를 복제할 때 {% 데이터 variables.location.product_location %}에서 로컬 머신으로 리포지토리를 복사합니다.
 
-Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
+리포지토리를 복제하면 프로젝트의 모든 파일 및 폴더 버전을 포함하여 {% 데이터 variables.location.product_location %}이(가) 해당 시점에 가지고 있는 모든 리포지토리 데이터의 전체 복사본을 가져옵니다. {% 데이터 variables.location.product_location %}에서 원격 리포지토리에 변경 내용을 푸시하거나 {% 데이터 variables.location.product_location %}에서 다른 사용자의 변경 내용을 가져올 수 있습니다. 자세한 내용은 “[Git 사용](/github/getting-started-with-github/using-git)”을 참조하세요.
 
-You can clone your existing repository or clone another person's existing repository to contribute to a project.
+기존 리포지토리를 복제하거나 다른 사람의 기존 리포지토리를 복제하여 프로젝트에 기여할 수 있습니다.
 
-## Cloning a repository
+## 리포지토리 복제
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-{% data reusables.command_line.git-clone-url %}
-{% data reusables.command_line.local-clone-created %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %} {% data reusables.command_line.git-clone-url %} {% data reusables.command_line.local-clone-created %}
 
 {% endwebui %}
 
@@ -39,13 +40,13 @@ You can clone your existing repository or clone another person's existing reposi
 
 {% data reusables.cli.cli-learn-more %}
 
-To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
+리포지토리를 로컬로 복제하려면 `repo clone` 하위 명령을 사용합니다. `repository` 매개 변수를 확장의 리포지토리로 바꿉니다. `octo-org/octo-repo`, `monalisa/octo-repo` 또는 `octo-repo`). `OWNER/REPO` 리포지토리 인수의 `OWNER/` 부분을 생략하면 기본값은 인증 사용자의 이름으로 설정됩니다.
 
 ```shell
 gh repo clone REPOSITORY
 ```
 
-You can also use the GitHub URL to clone a repository.
+GitHub URL을 사용하여 리포지토리를 복제할 수도 있습니다.
 
 ```shell
 gh repo clone https://github.com/PATH-TO/REPOSITORY
@@ -55,43 +56,38 @@ gh repo clone https://github.com/PATH-TO/REPOSITORY
 
 {% desktop %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.open-with-github-desktop %}
-4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.open-with-github-desktop %}
+4. {% data variables.product.prodname_desktop %}의 프롬프트에 따라 복제를 완료합니다.
 
-For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
+자세한 내용은 “[{% data variables.product.prodname_dotcom %}에서 {% data variables.product.prodname_desktop %}으로 리포지토리 복제](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)”를 참조하세요.
 
 {% enddesktop %}
 
-## Cloning an empty repository
+## 빈 리포지토리 복제
 
-An empty repository contains no files. It's often made if you don't initialize the repository with a README when creating it.
+빈 리포지토리에는 파일이 없습니다. 리포지토리를 만들 때 추가 정보로 리포지토리를 초기화하지 않는 경우가 많습니다.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "clippy" aria-label="The clipboard icon" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}.
-   ![Empty repository clone URL button](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. HTTPS를 사용하여 명령줄을 통해 리포지토리를 복제하려면 “빠른 설정”에서 {% octicon "clippy" aria-label="The clipboard icon" %}을(를) 클릭합니다. 조직의 SSH 인증 기관에서 발급한 인증서를 포함하여 SSH 키를 사용하여 리포지토리를 복제하려면 **SSH** 를 클릭한 다음, {% octicon "clippy" aria-label="The clipboard icon" %}을 클릭합니다.
+   ![빈 리포지토리 복제 URL 단추](/assets/images/help/repository/empty-https-url-clone-button.png)
 
-   Alternatively, to clone your repository in Desktop, click {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** and follow the prompts to complete the clone.
-   ![Empty repository clone desktop button](/assets/images/help/repository/empty-desktop-clone-button.png)
+   또는 데스크톱에서 리포지토리를 복제하려면 {% octicon "desktop-download" aria-label="The desktop download button" %} **데스크톱에서 설정** 을 클릭하고 프롬프트에 따라 복제를 완료합니다.
+   ![빈 리포지토리 복제 데스크톱 단추](/assets/images/help/repository/empty-desktop-clone-button.png)
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-{% data reusables.command_line.git-clone-url %}
-{% data reusables.command_line.local-clone-created %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %} {% data reusables.command_line.git-clone-url %} {% data reusables.command_line.local-clone-created %}
 
-## Troubleshooting cloning errors
+## 복제 오류 문제 해결
 
-When cloning a repository it's possible that you might encounter some errors.
+리포지토리를 복제할 때 몇 가지 오류가 발생할 수 있습니다.
 
-If you're unable to clone a repository, check that:
+리포지토리를 복제할 수 없는 경우 다음을 확인합니다.
 
-- You can connect using HTTPS. For more information, see "[HTTPS cloning errors](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
-- You have permission to access the repository you want to clone. For more information, see "[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)."
-- The default branch you want to clone still exists. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
+- HTTP를 사용하여 연결할 수 있습니다. 자세한 내용은 “[HTTPS 복제 오류](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)”를 참조하세요.
+- 복제하려는 리포지토리에 액세스할 수 있는 권한이 있습니다. 자세한 내용은 “[오류: 리포지토리를 찾을 수 없음](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)”을 참조하세요.
+- 복제하려는 기본 분기가 여전히 존재합니다. 자세한 내용은 “[오류: 원격 헤드가 존재하지 않는 참조를 참조하기 때문에 체크 아웃할 수 없음](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)”를 참조하세요.
 
 {% ifversion fpt or ghec %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
-{% endif %}
+- “[연결 문제 해결](/articles/troubleshooting-connectivity-problems)” {% endif %}

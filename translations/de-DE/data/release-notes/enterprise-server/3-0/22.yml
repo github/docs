@@ -1,0 +1,13 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **Kritisch:** Ein Sicherheitsrisiko bei der Remotecodeausführung in der Log4j-Bibliothek (identifiziert als [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)) betraf alle Versionen von {% data variables.product.prodname_ghe_server %} vor 3.3.1. Die Log4j-Bibliothek wird in einem Open Source-Dienst verwendet, der in der {% data variables.product.prodname_ghe_server %}-Instanz ausgeführt wird. Dieses Sicherheitsrisiko wurde in den {% data variables.product.prodname_ghe_server %}-Versionen 3.0.22, 3.1.14, 3.2.6 und 3.3.1 behoben.  Weitere Informationen findest du in [diesem Beitrag] (https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/) des GitHub-Blogs.'
+    - '**Aktualisierung vom 17. Dezember 2021**: Die Korrekturen in diesem Release beheben auch [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046), das nach diesem Release veröffentlicht wurde. Es ist kein zusätzliches Upgrade für {% data variables.product.prodname_ghe_server %} erforderlich, um sowohl CVE-2021-44228 als auch CVE-2021-45046 zu beheben.'
+  known_issues:
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."
+    - "Ressourcengrenzwerte, die nur beim Verarbeiten von Pre-Receive-Hooks gelten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

@@ -1,0 +1,15 @@
+date: '2021-10-28'
+sections:
+  security_fixes:
+    - '複数の既知の脆弱な SSH 公開キーが拒否リストに追加されており、登録できなくなっています。さらに、脆弱な SSH 公開キーを生成することが知られている GitKraken のバージョン (7.6.x、7.7.x、8.0.0) が、新しい公開キーの登録からブロックされるようになりました。'
+    - 'パッケージは最新のセキュリティ バージョンに更新されました。'
+  bugs:
+    - '多くの Organization の所有者であるユーザーが、アプリケーションの複数の部分を利用できませんでした。'
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

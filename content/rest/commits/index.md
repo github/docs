@@ -1,6 +1,6 @@
 ---
 title: Commits
-intro: 'The commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
+intro: 'Use the REST API to interact with commits.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

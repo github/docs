@@ -1,7 +1,7 @@
 ---
-title: Restricting the base image for codespaces
+title: codespace の基本イメージを制限する
 shortTitle: Restrict base image
-intro: You can specify which base images can be used for new codespaces created within your organization.
+intro: Organization 内で作成された新しい codespace に使用できる基本イメージを指定できます。
 permissions: 'To manage image constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,92 +9,95 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: f17bb20aa919ca94cd13e14a6f770cea23042b2b
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188281'
 ---
+## 概要
 
-## Overview
+codespace を作成すると、リモート仮想マシンに Docker コンテナーが自動的に作成されます。 Docker コンテナーは Docker イメージから作成されます。 イメージは実質的に Docker コンテナーのテンプレートであり、codespace によって提供される結果の環境の多くの側面を決定します。
 
-When you create a codespace, a Docker container is automatically created on a remote virtual machine. The Docker container is created from a Docker image. The image is effectively a template for Docker containers and it determines many aspects of the resulting environment provided by the codespace.
-
-You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
+リポジトリの開発コンテナー構成で指定することで、codespace に使用するイメージを選ぶことができます。 これを行うには、たとえば、`devcontainer.json` ファイルの `image` プロパティを使います。
 
 ```json{:copy}
 "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
 ```
 
-For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/) on containers.dev.
+詳しくは、containers.dev の[開発コンテナーの仕様](https://containers.dev/implementors/json_reference/)に関するページを参照してください。
 
-If you don't specify an image in the dev container configuration for a repository, the default image is used. The default image contains a number of runtime versions for popular languages and commonly used tools. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)."
+リポジトリの開発コンテナー構成でイメージを指定しない場合は、既定のイメージが使用されます。 既定のイメージには、一般的な言語と一般的に使用されるツールのランタイム バージョンが多数含まれています。 詳細については、[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)に関するページをご覧ください。
 
-As an organization owner, you can add a policy to restrict which images can be used for codespaces created within your organization.
+Organization の所有者は、Organization 内で作成された codespace に使用できるイメージを制限するポリシーを追加できます。
 
-If the image specified in the dev container configuration does not match one of the allowed images, the following message is displayed when someone tries to create a codespace for the repository:
+開発コンテナー構成で指定されたイメージが許可されているイメージの 1 つと一致しない場合、ユーザーがリポジトリの codespace を作成しようとすると、次のメッセージが表示されます。
 
-> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization administrator.
+> codespace を作成できませんでした: 基本イメージ 'DETAILS FROM DEV CONTAINER CONFIGURATION' は、Organization 管理者によって設定された Organization ポリシーに基づいて許可されていません。
 
 {% note %}
 
-**Notes**: 
-* The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
-* The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt. 
+**注**: 
+* 基本イメージ ポリシーは、codespace が作成された場合にのみ適用されます。 現在、コンテナーをリビルドする場合は適用されません。 これは、今後のリリースで変更されます。 詳しくは、「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)」を参照してください。
+* 基本イメージ ポリシーは、既定のイメージ、またはコンテナーのリビルドを妨げる開発コンテナー構成にエラーが発生した場合に、codespace の復旧に使用されるイメージには適用されません。 
 
 {% endnote %}
 
-### Setting organization-wide and repository-specific policies
+### Organaization 全体およびリポジトリ固有のポリシーの設定
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of image more, not less, restrictive.
+ポリシーを作成するときに、ポリシーを Organaization 内のすべてのリポジトリに適用するか、指定されたリポジトリにのみ適用するかを選択します。 Organaization 全体のポリシーを設定する場合は、個々のリポジトリに対して設定するポリシーはすべて、Organaization レベルに設定した制限に収まるようにする必要があります。 ポリシーを追加すると、イメージの選択肢は、広くはならず、より一層制限されます。
 
-For example, you could create an organization-wide policy that restricts the base image to any of ten specified images. You can then set a policy for Repository A that restricts the image to a subset of just two of the images specified at the organization level. Specifying additional images for Repository A will have no effect because these images are not specified in the organization-level policy. If you add an organization-wide policy, you should set it to the largest choice of images that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+たとえば、基本イメージを指定した 10 個のイメージのいずれかに制限する Organization 全体のポリシーを作成できます。 その後、リポジトリ A のポリシーを設定して、Organization レベルで指定された 2 つのイメージのサブセットのみにイメージを制限できます。 リポジトリ A に追加のイメージを指定しても、これらのイメージは Organization レベルのポリシーで指定されていないため、効果はありません。 Organization 全体のポリシーを追加する場合は、Organization 内のどのリポジトリにも使用できるように、イメージの種類を最多の選択肢に設定する必要があります。 その後、リポジトリ固有のポリシーを追加することで、選択肢をさらに制限できます。
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to define the allowed images
+## 許可されるイメージを定義するポリシーの追加
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Base images**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. **[制約の追加]** をクリックし、 **[基本イメージ]** を選びます。
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-image.png)
+   ![[制約の追加] ドロップダウンメニューのスクリーンショット。](/assets/images/help/codespaces/add-constraint-dropdown-image.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. 制約を編集するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-image-constraint.png)
+   ![制約を編集するための鉛筆アイコンのスクリーンショット](/assets/images/help/codespaces/edit-image-constraint.png)
 
-1. In the "Allowed values" field, enter the complete URL of an image you want to allow.
+1. [許可された値] フィールドに、許可するイメージの完全な URL を入力します。
 
-   ![Screenshot of an entry in the 'Allowed values' field](/assets/images/help/codespaces/image-allowed-values.png)
+   ![[許可された値] フィールドのエントリのスクリーンショット](/assets/images/help/codespaces/image-allowed-values.png)
  
    {% note %}
 
-   **Note**: You must specify an image URL that exactly matches the value specified in a dev container configuration.
+   **注**: 開発コンテナー構成で指定された値と完全に一致するイメージ URL を指定する必要があります。
 
    {% endnote %}
 
-1. Click the plus button ({% octicon "plus" aria-label="The plus icon" %}) to add the value.
-1. If required, repeat the previous two steps to add more image URLs.
+1. [プラス] ボタン ({% octicon "plus" aria-label="The plus icon" %}) をクリックして値を追加します。
+1. 必要に応じて、先ほどの 2 つの手順を繰り返して、さらにイメージ URL を追加します。
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. ポリシーに別の制約を追加する場合は、 **[制約の追加]** をクリックして、別の制約を選びます。 その他の制約については、次を参照してください。
+   * 「[コンピューターの種類へのアクセスを制限する](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」
+   * [転送されるポートの可視性を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [アイドル タイムアウトの期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)
+   * [codespace の保持期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)
+1. ポリシーへの制約の追加が終わったら、 **[保存]** をクリックします。
 
-The policy is applied when anyone attempts to create a new codespace that is billable to your organization. The base image constraint does not affect existing codespaces, either active or stopped.
+ポリシーは、Organization に請求できる新しい codespace を誰かが作成しようとしたときに適用されます。 基本イメージ制約は、アクティブまたは停止中の既存の codespace には影響しません。
 
-## Editing a policy
+## ポリシーを編集する
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+既存のポリシーを編集できます。 たとえば、ポリシーの制約を追加または削除できます。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Base images" constraint.
-1. Add or remove image URLs.
-1. Click **Save**.
+1. [codespace ポリシー] ページを表示します。 詳しくは、「[許可されたイメージを定義するためのポリシーの追加](#adding-a-policy-to-define-the-allowed-images)」を参照してください。
+1. 編集するポリシーの名前をクリックします。
+1. "基本イメージ" 制約の横にある鉛筆アイコン ({% octicon "pencil" aria-label="The edit icon" %}) をクリックします。
+1. イメージ URL を追加または削除します。
+1. **[保存]** をクリックします。
 
-## Deleting a policy 
+## ポリシーを削除する 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
-1. Click the delete button to the right of the policy you want to delete.
+1. [codespace ポリシー] ページを表示します。 詳しくは、「[許可されたイメージを定義するためのポリシーの追加](#adding-a-policy-to-define-the-allowed-images)」を参照してください。
+1. 削除するポリシーの右側にある削除ボタンをクリックします。
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![ポリシーの [削除] ボタンのスクリーンショット](/assets/images/help/codespaces/policy-delete.png)

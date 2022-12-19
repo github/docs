@@ -1,6 +1,6 @@
 ---
-title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.'
+title: Entfernen vertraulicher Daten aus einem Repository
+intro: 'Wenn du vertrauliche Daten wie Passwörter oder SSH-Schlüssel in ein Git-Repository überträgst, kannst du sie aus dem Verlauf entfernen. Du kannst unerwünschte Dateien mit dem Tool `git filter-repo` oder dem Open-Source-Tool „BFG Repo-Cleaner“ vollständig aus dem Verlauf eines Repositorys entfernen.'
 redirect_from:
   - /remove-sensitive-data
   - /removing-sensitive-data
@@ -17,86 +17,88 @@ topics:
   - Identity
   - Access management
 shortTitle: Remove sensitive data
+ms.openlocfilehash: 4c93f372f1d537fd94f06e66986e53d6641923d2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145086028'
 ---
-The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
+Das Tool `git filter-repo` und der BFG Repo-Cleaner generieren einen neuen Verlauf deines Repositorys, wodurch die SHAs für vorhandene Commits, die du bearbeitest, und alle abhängigen Commits geändert werden. Geänderte Commit-SHAs können sich auf offene Pull Requests in deinem Repository auswirken. Wir empfehlen, alle geöffneten Pull Requests zusammenzuführen oder zu schließen, bevor du Dateien aus deinem Repository entfernst.
 
-You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
+Du kannst die Datei mit `git rm` aus dem letzten Commit entfernen. Informationen zum Entfernen einer Datei, die mit dem letzten Commit hinzugefügt wurde, findest du unter [Informationen zu großen Dateien auf {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history).
 
 {% warning %}
 
-**Warning**: This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. However, those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}. 
+**Warnung**: In diesem Artikel erfährst du, wie du Commits mit vertraulichen Daten so konfigurierst, dass diese über keinen Branch oder Tag in deinem Repository auf {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} erreichbar sind. Nicht verhindern lässt sich dadurch jedoch, dass diese Commits nach wie vor in Klonen oder Forks deines Repositorys, in zwischengespeicherten Ansichten auf {% data variables.product.product_name %} direkt über ihre SHA-1-Hashes und über alle referenzierten Pull Requests zugänglich sind. Du kannst vertrauliche Daten nicht aus den Klonen oder Forks deines Repositorys von anderen Benutzern entfernen, aber du kannst zwischengespeicherte Ansichten und Verweise auf die vertraulichen Daten in Pull Requests auf {% data variables.product.product_name %} über den {% data variables.contact.contact_support %} dauerhaft entfernen lassen. 
 
-If the commit that introduced the sensitive data exists in any forks of your repository, it will continue to be accessible, unless the fork owner removes the sensitive data from their fork or deletes the fork entirely. 
-
-Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised. If you have committed a password, you should change it. If you have committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. 
-
-Consider these limitations in your decision to rewrite your repository's history.
+**Sobald du einen Commit an {% data variables.product.product_name %} gepusht hast, solltest du alle vertraulichen Daten im Commit als kompromittiert betrachten.** Wenn du ein Kennwort per Commit übertragen hast, ändere es! Falls du einen Schlüssel mitgegeben hast, generiere einen neuen. Durch das Entfernen der kompromittierten Daten wird die ursprüngliche Offenlegung nicht behoben, insbesondere nicht in vorhandenen Klonen oder Forks deines Repositorys. Berücksichtige diese Einschränkungen bei deiner Entscheidung, den Verlauf deines Repositorys neu zu generieren.
 
 {% endwarning %}
 
-## Purging a file from your repository's history
+## Datei aus dem Verlauf deines Repositorys löschen
 
-You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
+Du kannst eine Datei endgültig aus dem Verlauf deines Repositorys löschen, indem du entweder das Tool `git filter-repo` oder das Open-Source-Tool BFG Repo-Cleaner verwendest.
 
-### Using the BFG
+### Benutze BFG
 
-The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. 
+Der [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) ist ein von der Open-Source-Community entwickeltes und verwaltetes Tool. Es stellt eine schnellere und einfachere Alternative zu `git filter-branch` dar, um unerwünschte Daten zu entfernen. 
 
-For example, to remove your file with sensitive data and leave your latest commit untouched, run:
+Um beispielsweise deine Datei mit vertraulichen Daten zu entfernen und deinen letzten Commit unberührt zu lassen, führe folgenden Befehl aus:
 
 ```shell
-$ bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
+$ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
 ```
 
-To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
+Um den gesamten, in `passwords.txt` enthaltenen Text dort zu ersetzen, wo er im Verlauf deines Repositorys aufgeführt ist, musst du folgenden Code ausführen:
 
 ```shell
 $ bfg --replace-text passwords.txt
 ```
 
-After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}. Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
+Nachdem die vertraulichen Daten entfernt wurden, musst du einen Push deiner Änderungen an {% data variables.product.product_name %} erzwingen. Durch den erzwungenen Push wird der Repositoryverlauf neu generiert, wodurch vertrauliche Daten aus dem Commitverlauf entfernt werden. Wenn du einen Push erzwingst, werden möglicherweise Commits überschrieben, auf denen andere Personen ihre Arbeit aufgebaut haben.
 
 ```shell
 $ git push --force
 ```
 
-See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
+Informationen zur vollständigen Verwendung sowie eine Downloadanleitung findest du in der Dokumentation für [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
 
-### Using git filter-repo
+### Verwenden von „git filter-repo“
 
 {% warning %}
 
-**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
+**Warnung:** Wenn du `git filter-repo` nach dem Stashen von Änderungen ausführst, ist es nicht länger möglich, deine Änderungen über andere Stashbefehle erneut abzurufen. Vor dem Ausführen von `git filter-repo` solltest du den Stash aufheben, den du für deine vorgenommenen Änderungen ausgeführt hast. Führe `git stash show -p | git apply -R` aus, um deinen letzten Stash aufzuheben. Weitere Informationen findest du unter [Git Tools – Stashen und Bereinigen](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 
 {% endwarning %}
 
-To illustrate how `git filter-repo` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
+Um zu veranschaulichen, wie `git filter-repo` funktioniert, zeigen wir dir, wie du deine Datei mit vertraulichen Daten aus dem Verlauf deines Repositorys entfernst und `.gitignore` hinzufügst, um sicherzustellen, dass sie nicht versehentlich erneut committet wird.
 
-1. Install the latest release of the [git filter-repo](https://github.com/newren/git-filter-repo) tool. You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
+1. Installiere die neueste Version des Tools [git filter-repo](https://github.com/newren/git-filter-repo). Du kannst `git-filter-repo` manuell oder mithilfe eines Paket-Managers installieren. Verwende beispielsweise den Befehl `brew install`, um das Tool mit HomeBrew zu installieren.
   ```
   brew install git-filter-repo
   ```
-  For more information, see [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
+  Weitere Informationen findest du in [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) im Repository `newren/git-filter-repo`.
 
-2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
+2. Wenn du keine lokale Kopie des Repositorys mit den vertraulichen Daten im Verlauf hast, musst du [das Repository auf deinem lokalen Computer klonen](/articles/cloning-a-repository/).
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY
-  > Initialized empty Git repository in /Users/YOUR-FILE-PATH/YOUR-REPOSITORY/.git/
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
+  > Initialized empty Git repository in /Users/<em>YOUR-FILE-PATH</em>/<em>YOUR-REPOSITORY</em>/.git/
   > remote: Counting objects: 1301, done.
   > remote: Compressing objects: 100% (769/769), done.
   > remote: Total 1301 (delta 724), reused 910 (delta 522)
   > Receiving objects: 100% (1301/1301), 164.39 KiB, done.
   > Resolving deltas: 100% (724/724), done.
   ```
-3. Navigate into the repository's working directory.
+3. Navigiere zum Arbeitsverzeichnis des Repositorys.
   ```shell
-  $ cd YOUR-REPOSITORY
+  $ cd <em>YOUR-REPOSITORY</em>
   ```
-4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
-    - Force Git to process, but not check out, the entire history of every branch and tag
-    - Remove the specified file, as well as any empty commits generated as a result
-    - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
-    - **Overwrite your existing tags**
+4. Führe den folgenden Befehl aus, und ersetze `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` durch den **Pfad zur Datei, die du entfernen möchtest, nicht nur durch den Dateinamen**. Diese Argumente werden:
+    - erzwingen, dass Git den gesamten Verlauf eines jeden Branchs und Tags verarbeitet, ohne ihn auszuchecken
+    - die angegebene Datei sowie alle leeren Commits entfernen, die als Ergebnis generiert wurden
+    - einige Konfigurationen entfernen, wie zum Beispiel die Remote-URL, die in der Datei *.git/config* gespeichert ist Du solltest diese Datei zur späteren Wiederherstellung im Voraus sichern.
+    - **vorhandene Tags überschreiben**
         ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
         Parsed 197 commits
@@ -114,21 +116,21 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
   {% note %}
 
-  **Note:** If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
+  **Hinweis:** Wenn die Datei mit vertraulichen Daten in weiteren Pfaden enthalten war (weil sie verschoben oder umbenannt wurde), musst du diesen Befehl auch für diese Pfade ausführen.
 
   {% endnote %}
 
-5. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
+5. Füge deine Datei mit vertraulichen Daten zu `.gitignore` hinzu, um sicherzustellen, dass du sie nicht versehentlich erneut committest.
 
   ```shell
-  $ echo "YOUR-FILE-WITH-SENSITIVE-DATA" >> .gitignore
+  $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
-  $ git commit -m "Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore"
-  > [main 051452f] Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore
+  $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
-6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
-7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
+6. Überprüfe noch einmal, ob du alles Gewünschte aus dem Verlauf deines Repositorys entfernt hast und ob alle deine Branches ausgecheckt sind.
+7. Wenn du mit dem Zustand deines Repositorys zufrieden bist, erzwinge einen Push deiner lokalen Änderungen, um dein Repository auf {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} zu überschreiben, ebenso wie alle von dir gepushten Branches. Ein erzwungener Push ist erforderlich, um vertrauliche Daten aus deinem Commitverlauf zu entfernen.
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -136,10 +138,10 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > Compressing objects: 100% (677/677), done.
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
-  > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME.YOUR-REPOSITORY.git
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-8. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
+8. Um die vertrauliche Datei aus [Deinen getaggten Releases](/articles/about-releases) zu entfernen, musst du auch einen Push für deine Git-Tags erzwingen:
   ```shell
   $ git push origin --force --tags
   > Counting objects: 321, done.
@@ -147,19 +149,19 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > Compressing objects: 100% (166/166), done.
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
-  > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
 
-## Fully removing the data from {% data variables.product.prodname_dotcom %}
+## Vollständiges Entfernen der Daten aus {% data variables.product.prodname_dotcom %}
 
-After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
+Nachdem du die vertraulichen Daten entweder mit dem BFG-Tool oder mit `git filter-repo` entfernt und deine Änderungen in {% data variables.product.product_name %} gepusht hast, musst du noch einige weitere Schritte ausführen, um die Daten vollständig aus {% data variables.product.product_name %} zu entfernen.
 
-1. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[Command line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)."{% endif %}
+1. Kontaktiere den {% data variables.contact.contact_support %}, um ihn zu bitten, zwischengespeicherte Ansichten und Referenzen auf die sensiblen Daten in Pull Requests auf {% data variables.product.product_name %} zu entfernen. Gib den Namen des Repositorys und/oder einen Link zu dem Commit an, der entfernt werden soll.{% ifversion ghes %} Weitere Informationen darüber, wie Websiteadministratoren unerreichbare Git-Objekte entfernen können, findest du unter [Befehlszeilen-Hilfsprogramme](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc).{% endif %}
 
-2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+2. Teile deinen Projektmitarbeitern, dass sie für alle Branches, die sie aus deinem alten (nicht mehr gültigen) Repositoryverlauf erstellt haben, ein [Rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *keinen* Merge durchführen sollen. Durch einen Merge-Commit würde womöglich der gesamte unbrauchbare Verlauf wiederhergestellt, den zu entfernen du Dir gerade so viel Mühe gemacht hast.
 
-3. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+3. Nachdem etwas Zeit vergangen ist und du dir sicher bist, dass das BFG-Tool/`git filter-repo` keine unbeabsichtigten Nebenwirkungen verursacht hat, kannst du mithilfe der folgenden Befehle erzwingen, dass Verweise auf alle Objekte in deinem lokalen Repository aufgehoben werden und eine Garbage Collection durchgeführt wird (bei Verwendung von Git 1.8.5 oder höher):
   ```shell
   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
   $ git reflog expire --expire=now --all
@@ -172,21 +174,21 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
   ```
   {% note %}
 
-   **Note:** You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
+   **Hinweis:** Du kannst dies auch erreichen, indem du deinen gefilterten Verlauf in ein neues oder leeres Repository pushst und dann einen neuen Klon von {% data variables.product.product_name %} erstellst.
 
   {% endnote %}
 
-## Avoiding accidental commits in the future
+## Versehentliche Commits künftig vermeiden
 
-There are a few simple tricks to avoid committing things you don't want committed:
+Durch einige einfache Tricks vermeidest du den versehentlichen Commit von Änderungen, die nicht festgeschrieben werden sollen:
 
-- Use a visual program like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) or [gitk](https://git-scm.com/docs/gitk) to commit changes. Visual programs generally make it easier to see exactly which files will be added, deleted, and modified with each commit.
-- Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
-- Use `git add --interactive` to individually review and stage changes within each file.
-- Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
+- Verwende ein visuelles Programm wie [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) oder [gitk](https://git-scm.com/docs/gitk), um die Änderungen zu committen. In visuellen Programmen ist meist leichter erkennbar, welche Dateien durch einen Commit hinzugefügt, gelöscht und geändert werden.
+- Vermeide die allgemeingültigen Befehle `git add .` und `git commit -a` für die Befehlszeile – verwende stattdessen `git add filename` und `git rm filename`, um die Dateien einzeln bereitzustellen.
+- Verwende `git add --interactive`, um die Änderungen in jeder Datei einzeln zu überprüfen und zu stagen.
+- Verwende `git diff --cached`, um die für den Commit gestageten Änderungen zu überprüfen. Das ist genau der Unterschied, den `git commit` erzeugt, solange du nicht das `-a` Flag verwendest.
 
-## Further reading
+## Weitere Informationsquellen
 
-- [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
-- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"
+- [`git filter-repo`-Manpage](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
+- [Pro Git: Git-Tools – Erneutes Generieren des Verlaufs](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+- [Informationen zur Geheimnisüberprüfung](/code-security/secret-security/about-secret-scanning)

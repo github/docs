@@ -1,7 +1,7 @@
 ---
-title: Finding and customizing actions
-shortTitle: Find and customize actions
-intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
+title: Suchen und Anpassen von Aktionen
+shortTitle: Finding and customizing actions
+intro: 'Aktionen sind die Bausteine deiner Workflows. Ein Workflow kann Aktionen enthalten, die von der Community erstellt wurden. Du kannst aber auch eigene Aktionen direkt im Repository deiner Anwendung erstellen. In diesem Leitfaden erfährst du, wie du Aktionen ermitteln, verwenden und anpassen kannst.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -15,71 +15,75 @@ versions:
 type: how_to
 topics:
   - Fundamentals
+ms.openlocfilehash: cb2b8bb24e044bd559b0823ec7b0e4be7be1becb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063794'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Übersicht
 
-## Overview
+Die Aktionen, die du in deinem Workflow verwendest, können in den folgenden Instanzen definiert werden:
 
-The actions you use in your workflow can be defined in:
+- Im selben Repository wie dem deiner Workflowdatei{% ifversion internal-actions %}
+- In einem internen Repository mit dem selben Unternehmenskonto, das zum Gewähren des Zugriffs auf Workflows konfiguriert ist{% endif %}
+- In einem beliebigen öffentlichen Repository
+- in einem veröffentlichten Docker-Container-Image auf Docker Hub
 
-- The same repository as your workflow file{% ifversion internal-actions %}
-- An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
-- Any public repository
-- A published Docker container image on Docker Hub
-
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
+{% data variables.product.prodname_marketplace %} ist eine zentrale Anlaufstelle für die Suche nach Aktionen, die von der {% data variables.product.prodname_dotcom %}-Community erstellt wurden. Auf der {% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %}-Seite](https://github.com/marketplace/actions/) kannst du Aktionen nach Kategorie filtern. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
 {% ifversion fpt or ghec %}
 
-## Browsing Marketplace actions in the workflow editor
+## Durchsuchen von Marketplace-Aktionen im Workflow-Editor
 
-You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the {% data variables.product.prodname_dotcom %} community.
+Direkt im Workflow-Editor deines Repositorys kannst du Aktionen suchen und durchstöbern und auch suchen. In der Seitenleiste kannst du nach einer bestimmten Aktion suchen, vorgestellte Aktionen anzeigen und vorgestellte Kategorien durchsuchen. Du kannst auch nach der Anzahl der Sterne schauen, die eine Aktion von der {% data variables.product.prodname_dotcom %}-Community erhalten hat.
 
-1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-   ![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
-1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-   ![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
+1. Navigiere in deinem Repository zu der Workflow-Datei, die du bearbeiten möchtest.
+1. Klicke zum Öffnen des Workflow-Editors oben rechts in der Dateiansicht auf {% octicon "pencil" aria-label="The edit icon" %}.
+   ![Schaltfläche zum Bearbeiten der Workflowdatei](/assets/images/help/repository/actions-edit-workflow-file.png)
+1. Rechts vom Editor befindet sich die Sidebar {% data variables.product.prodname_marketplace %} , um Aktionen zu durchsuchen. Bei Aktionen mit dem Badge {% octicon "verified" aria-label="The verified badge" %} wurde der*die Ersteller*in von {% data variables.product.prodname_dotcom %} als Partnerorganisation bestätigt.
+   ![Seitenleiste für den Marketplace-Workflow](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
-## Adding an action to your workflow
+## Hinzufügen einer Aktion zu deinem Workflow
 
-You can add an action to your workflow by referencing the action in your workflow file. 
+Du kannst deinem Workflow eine Aktion hinzufügen, indem du in deiner Workflowdatei auf die Aktion verweist. 
 
-You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+Du kannst die Aktionen, auf die in deinen {% data variables.product.prodname_actions %}-Workflows verwiesen wird, im Abhängigkeitsdiagramm des Repositorys, in dem deine Workflows sich befinden, als Abhängigkeiten anzeigen. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
 
 {% note %}
 
-**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
+**Hinweis:** Aus Sicherheitsgründen werden Umleitungen von Aktionen von {% data variables.product.prodname_actions %} nicht mehr unterstützt. Dies bedeutet, dass bei einer Änderung des Besitzers bzw. der Besitzerin oder des Namens des Repositorys einer Aktion alle Workflows, die diese Aktion mit dem vorherigen Namen verwenden, fehlschlagen.
 
 {% endnote %}
 
 {% endif %}
 
-### Adding an action from {% data variables.product.prodname_marketplace %}
+### Hinzufügen einer Aktion vom {% data variables.product.prodname_marketplace %}
 
-An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
+Die Listing-Seite einer Aktion enthält die Version der Aktion und die erforderliche Workflow-Syntax, um die Aktion zu benutzen. Damit dein Workflow auch bei Updates einer Aktion stabil bleibt, kannst du auf die zu verwendende Version der Aktion verweisen, indem du die Git- oder Docker-Tagnummer in deiner Workflowdatei angibst.
 
-1. Navigate to the action you want to use in your workflow.
-1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
-   ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. Navigiere zu der Aktion, die du in deinem Workflow verwenden möchtest.
+1. Klicke unter „Installation“ auf {% octicon "clippy" aria-label="The edit icon" %}, um die Workflowsyntax zu kopieren.
+   ![Anzeigen der Aktionslisting](/assets/images/help/repository/actions-sidebar-detailed-view.png)
+1. Füge die Syntax als neuen Schritt in deinen Workflow ein. Weitere Informationen findest du unter [Workflowsyntax für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps).
+1. Lege in deinem Workflow Eingaben fest, wenn diese für die Aktion erforderlich sind. Informationen zu den für eine Aktion erforderlichen Eingaben findest du unter [Verwenden von Eingaben und Ausgaben mit einer Aktion](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action).
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
 
-### Adding an action from the same repository
+### Hinzufügen einer Aktion aus demselben Repository
 
-If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
+Wenn eine Aktion im selben Repository definiert wird, in dem deine Workflowdatei diese Aktion verwendet, kannst du entweder mit der `{owner}/{repo}@{ref}`- oder der `./path/to/dir`-Syntax in deiner Workflowdatei auf die Aktion verweisen.
 
-Example repository file structure:
+Beispiel für die Struktur einer Repository-Datei:
 
 ```
 |-- hello-world (repository)
@@ -91,7 +95,7 @@ Example repository file structure:
 |               └── action.yml
 ```
 
-Example workflow file:
+Beispiel einer Workflow-Datei:
 
 ```yaml
 jobs:
@@ -104,13 +108,13 @@ jobs:
       - uses: ./.github/actions/hello-world-action
 ```
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Die `action.yml`-Datei wird zum Bereitstellen von Metadaten für die Aktion verwendet. Unter [Metadatensyntax für GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions) erfahre mehr über den Inhalt dieser Datei.
 
-### Adding an action from a different repository
+### Hinzufügen einer Aktion aus einem anderen Repository
 
-If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
+Wenn eine Aktion in einem anderen Repository als deine Workflowdatei definiert ist, kannst du mit der `{owner}/{repo}@{ref}`-Syntax in deiner Workflowdatei auf diese Aktion verweisen.
 
-The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+Die Aktion muss in einem öffentlichen Repository{% ifversion internal-actions %} oder einem internen Repository gespeichert sein, das so konfiguriert ist, dass der Zugriff auf Workflows möglich ist. Weitere Informationen findest du unter [Freigeben von Aktionen und Workflows für dein Unternehmen](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -120,9 +124,9 @@ jobs:
         uses: {% data reusables.actions.action-setup-node %}
 ```
 
-### Referencing a container on Docker Hub
+### Einen Container auf Docker Hub referenzieren
 
-If an action is defined in a published Docker container image on Docker Hub, you must reference the action with the `docker://{image}:{tag}` syntax in your workflow file. To protect your code and data, we strongly recommend you verify the integrity of the Docker container image from Docker Hub before using it in your workflow.
+Wenn eine Aktion in einem veröffentlichen Docker-Containerimage auf Docker Hub definiert wird, musst du mit der `docker://{image}:{tag}`-Syntax in deiner Workflowdatei auf diese Aktion verweisen. Zum Schutz deines Codes und deiner Daten wird dringend empfohlen, die Integrität des Docker-Container-Images von Docker Hub zu verifizieren, bevor du es in deinen Workflow einfügst.
 
 ```yaml
 jobs:
@@ -132,57 +136,57 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+Unter [Workflow zu „Docker-image.yml“](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) und [Erstellen einer Docker-Containeraktion](/articles/creating-a-docker-container-action) findest du einige Beispiele für Docker-Aktionen.
 
 
-## Using release management for your custom actions
+## Anwenden der Releaseverwaltung auf deine benutzerdefinierten Aktionen
 
-The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
+Die Ersteller*innen einer Communityaktion können Tags, Branches oder SHA-Werte zum Verwalten der Releases der Aktion verwenden. Wie bei allen Abhängigkeiten solltest du die Version der zu verwendenden Aktion abhängig davon angeben, ob du mit automatischen Updates für die Aktion einverstanden bist.
 
-You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
+Du legst die Version der Aktion in deiner Workflowdatei fest. Überprüfe die Dokumentation der Aktion, um Informationen zur Releaseverwaltung zu erhalten und zu erfahren, welches Tag, welcher Branch oder welcher SHA-Wert verwendet werden soll.
 
 {% note %}
 
-**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
+**Hinweis:** Es wird empfohlen, beim Verwenden von Aktionen von Drittanbietern einen SHA-Wert zu nutzen. Weitere Informationen findest du unter [Sicherheitshärtung für GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions).
 
 {% endnote %}
 
-### Using tags
+### Verwenden von Tags
 
-Tags are useful for letting you decide when to switch between major and minor versions, but these are more ephemeral and can be moved or deleted by the maintainer. This example demonstrates how to target an action that's been tagged as `v1.0.1`:
+Mit Tags kannst du entscheiden, wann zwischen Haupt- und Nebenversionen gewechselt werden soll. Diese sind jedoch kurzlebiger und können von den Verantwortlichen verschoben oder gelöscht werden. In diesem Beispiel wird gezeigt, wie du eine Aktion verwenden kannst, die als `v1.0.1` getagged wurde:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@v1.0.1
 ```
 
-### Using SHAs
+### Verwenden von SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
+Wenn du eine zuverlässigere Versionsverwaltung benötigst, solltest du den SHA-Wert verwenden, der der Version der Aktion zugeordnet ist. SHAs sind unveränderlich und daher zuverlässiger als Tags oder Branches. Wenn du diesen Ansatz verwendest, kannst du jedoch keine automatischen Updates für eine Aktion erhalten, einschließlich wichtiger Fehlerbehebungen und Sicherheitsupdates. Du musst den vollständigen SHA-Wert eines Commits verwenden, keinen abgekürzten Wert. In diesem Beispiel wird der SHA-Wert einer Aktion verwendet:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
 ```
 
-### Using branches
+### Verwenden von Branches
 
-Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. This example targets a branch named `@main`:
+Wenn du einen Zielbranch für die Aktion angibst, wird immer die Version ausgeführt, die sich aktuell auf diesem Branch befindet. Durch diesen Ansatz können Probleme entstehen, wenn ein Update für den Branch Breaking Changes enthält. In diesem Beispiel wird ein Branch namens `@main` verwendet:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[Using release management for actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+Weitere Informationen findest du unter [Verwenden der Releaseverwaltung für Aktionen](/actions/creating-actions/about-actions#using-release-management-for-actions).
 
-## Using inputs and outputs with an action
+## Verwenden von Eingaben und Ausgaben mit einer Aktion
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+Eine Aktion akzeptiert oder erfordert häufig Eingaben und generiert Ausgaben, die du verwenden kannst. Beispielsweise musst du bei einer Aktion einen Pfad zu einer Datei, den Namen einer Bezeichnung oder andere Daten angeben, die zur Aktionsverarbeitung verwendet werden.
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
+Überprüfe die `action.yml`- oder `action.yaml`-Datei im Stammverzeichnis des Repositorys, um die Eingaben und Ausgaben einer Aktion anzuzeigen.
 
-In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
+Bei `action.yml` definiert das Schlüsselwort `inputs` die erforderliche Eingabe namens `file-path` und enthält einen Standardwert, der verwendet wird, wenn sonst keiner angegeben wird. Das Schlüsselwort `outputs` definiert eine Ausgabe namens `results-file`, die angibt, wo die Ergebnisse zu finden sind.
 
 ```yaml
 name: "Example"
@@ -199,11 +203,11 @@ outputs:
 
 {% ifversion ghae %}
 
-## Using the actions included with {% data variables.product.prodname_ghe_managed %}
+## Verwenden der Aktionen, die in {% data variables.product.prodname_ghe_managed %} enthalten sind
 
-By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+Standardmäßig kannst du die meisten offiziellen von {% data variables.product.prodname_dotcom %} erstellten Aktionen in {% data variables.product.prodname_ghe_managed %} verwenden. Weitere Informationen findest du unter [Verwenden von Aktionen in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae).
 {% endif %}
 
-## Next steps
+## Nächste Schritte
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Essential features of {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)."
+Weitere Informationen zu {% data variables.product.prodname_actions %} findest du unter [Wichtige Features von {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions).

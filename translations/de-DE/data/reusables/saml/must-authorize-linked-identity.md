@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 46bffdc7594863d282ba171fc258f4104a0a09b4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147067850"
+---
 {% note %}
 
-**Note:** If you have a linked identity for an organization, you can only use authorized {% data variables.product.pat_generic %}s and SSH keys with that organization, even if SAML is not enforced. You have a linked identity for an organization if you've ever authenticated via SAML SSO for that organization, unless an organization or enterprise owner later revoked the linked identity. For more information about revoking linked identities, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" and "[Viewing and managing a user's SAML access to your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
+**Hinweis:** Wenn du über eine verknüpfte Identität für eine Organisation verfügst, kannst du nur autorisierte persönliche Zugriffstoken und SSH-Schlüssel für diese Organisation verwenden, auch wenn SAML nicht erzwungen wird. Du verfügst über eine verknüpfte Identität für eine Organisation, wenn du dich bereits einmal über SAML-SSO für diese Organisation authentifiziert hast. Dies gilt jedoch nicht, wenn Organisations- oder Unternehmensbesitzer*innen die verknüpfte Identität später widerrufen haben. Weitere Informationen zum widerrufen verknüpfter Identitäten findest du unter [Anzeigen und Verwalten des SAML-Zugriffs eines Mitglieds auf deine Organisation](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) und [Anzeigen und Verwalten des SAML-Zugriffs von Benutzer*innen auf dein Unternehmen](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
-title: Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud
-intro: 'You can sync license usage from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} to view all license usage across your enterprise in one place and ensure that people with accounts in both environments only consume one user license.'
+title: Synchronisation de l’utilisation des licences entre GitHub Enterprise Server et GitHub Enterprise Cloud
+intro: 'Vous pouvez synchroniser l’utilisation des licences à partir de {% data variables.product.prodname_ghe_server %} vers {% data variables.product.prodname_ghe_cloud %} pour afficher l’utilisation de toutes les licences dans votre entreprise à un seul endroit et vous assurer que les personnes disposant de comptes dans les deux environnements n’utilisent qu’une seule licence utilisateur.'
 permissions: 'Enterprise owners can sync license usage between enterprise accounts on {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghec: '*'
@@ -10,55 +10,52 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Sync license usage
+ms.openlocfilehash: 8434c6f76d4cd63f7c95e7b5971f795126be7066
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147572591'
 ---
-
-## About synchronization of license usage
+## À propos de la synchronisation de l’utilisation des licences
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
 {% data reusables.enterprise-licensing.about-license-sync %}
 
-To ensure that you see up-to-date license details on {% data variables.product.prodname_dotcom_the_website %}, you can sync license usage between the environments automatically, using {% data variables.product.prodname_github_connect %}. For more information about {% data variables.product.prodname_github_connect %}, see "[About {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
+Pour vous assurer que les détails des licences affichés sur {% data variables.product.prodname_dotcom_the_website %} sont à jour, vous pouvez synchroniser l’utilisation des licences entre les environnements automatiquement, en utilisant {% data variables.product.prodname_github_connect %}. Pour plus d’informations sur {% data variables.product.prodname_github_connect %}, consultez « [À propos de {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %} » dans la documentation {% data variables.product.prodname_ghe_server %}.{% elsif ghes %} ».{% endif %}
 
-If you don't want to enable {% data variables.product.prodname_github_connect %}, you can manually sync license usage by uploading a file from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %}.
+Si vous ne souhaitez pas activer {% data variables.product.prodname_github_connect %}, vous pouvez synchroniser manuellement l’utilisation des licences en chargeant un fichier à partir depuis {% data variables.product.prodname_ghe_server %} sur {% data variables.product.prodname_dotcom_the_website %}.
 
-When you synchronize license usage, only the user ID and email addresses for each user account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
+Quand vous synchronisez l’utilisation de la licence, seuls l’ID utilisateur et les adresses e-mail de chaque compte d’utilisateur sur {% data variables.product.prodname_ghe_server %} sont transmis à {% data variables.product.prodname_ghe_cloud %}.
 
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
 {% data reusables.enterprise-licensing.verified-domains-license-sync %}
 
-## Automatically syncing license usage
+## Synchronisation automatique de l’utilisation des licences
 
-You can use {% data variables.product.prodname_github_connect %} to automatically synchronize user license count and usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly. For more information, see "[Enabling automatic user license sync for your enterprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
+Vous pouvez utiliser {% data variables.product.prodname_github_connect %} pour synchroniser automatiquement le nombre de licences utilisateur et leur utilisation entre {% data variables.product.prodname_ghe_server %} et {% data variables.product.prodname_ghe_cloud %} chaque semaine. Pour plus d’informations, consultez « [Activation de la synchronisation automatique des licences utilisateur pour votre entreprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %} » dans la documentation {% data variables.product.prodname_ghe_server %}.{% elsif ghes %} ».{% endif %}
 
-{% ifversion ghec or ghes > 3.4 %}
-After you enable {% data variables.product.prodname_github_connect %}, license data will be automatically synchronized weekly. You can also manually synchronize your license data at any time, by triggering a license sync job.
+{% ifversion ghec or ghes > 3.4 %} Une fois que vous avez activé {% data variables.product.prodname_github_connect %}, les données de licence sont automatiquement synchronisées chaque semaine. Vous pouvez également synchroniser manuellement vos données de licence à tout moment, en déclenchant un travail de synchronisation de licences.
 
-### Triggering a license sync job
+### Déclenchement d’un travail de synchronisation de licences
 
-1. Sign in to your {% data variables.product.prodname_ghe_server %} instance.
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Under "License sync", click {% octicon "sync" aria-label="The Sync icon" %} **Sync now**.
-  ![Screenshot of "Sync now" button in license sync section](/assets/images/help/enterprises/license-sync-now-ghes.png)
+1. Connectez-vous à votre instance {% data variables.product.prodname_ghe_server %}.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+1. Sous « Synchronisation de licence », cliquez sur {% octicon "sync" aria-label="The Sync icon" %} **Synchroniser maintenant**.
+  ![Capture d’écran du bouton « Synchroniser maintenant » dans la section Synchronisation de licences](/assets/images/help/enterprises/license-sync-now-ghes.png)
 
 {% endif %}
 
-## Manually uploading GitHub Enterprise Server license usage
+## Chargement manuel de l’utilisation des licences serveur GitHub Enterprise
 
-You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
+Vous pouvez télécharger un fichier JSON à partir de {% data variables.product.prodname_ghe_server %} et charger le fichier sur {% data variables.product.prodname_ghe_cloud %} pour synchroniser manuellement l’utilisation des licences utilisateur entre les deux déploiements.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-5. Under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.
-  ![Export license usage link](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-10. Under "Enterprise Server Instances", click **Add server usage**.
-  ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
-11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
-  ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+5. Sous « Liens rapides », pour télécharger un fichier contenant votre utilisation actuelle des licences sur {% data variables.product.prodname_ghe_server %}, cliquez sur **Exporter l’utilisation des licences**.
+  ![Lien Exporter l’utilisation des licences](/assets/images/enterprise/business-accounts/export-license-usage-link.png) {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+10. Sous « instances Enterprise Server », cliquez sur **Ajouter l’utilisation du serveur**.
+  ![Lien de chargement de l’utilisation des instances GitHub Enterprise Server](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
+11. Chargez le fichier JSON que vous avez téléchargé à partir de {% data variables.product.prodname_ghe_server %}.
+  ![Glisser-déposer ou sélectionner un fichier à charger](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)

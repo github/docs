@@ -1,7 +1,7 @@
 ---
-title: Creating starter workflows for your organization
+title: Создание начальных рабочих процессов для организации
 shortTitle: Create starter workflows
-intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
+intro: 'Узнайте, как создавать начальные рабочие процессы, чтобы упростить для пользователей в команде добавление новых рабочих процессов.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
   - /actions/learn-github-actions/creating-workflow-templates
@@ -15,42 +15,43 @@ type: tutorial
 topics:
   - Workflows
   - CI
+ms.openlocfilehash: 77c220a06ac8d27db1c54a5a6c6c8c17662ed958
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148010068'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Overview
+## Обзор
 
 {% data reusables.actions.workflow-organization-templates %}
 
 {% data reusables.actions.starter-workflow-categories %}
 
-## Creating a starter workflow
+## Создание начального рабочего процесса
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Начальные рабочие процессы могут создаваться пользователями с доступом на запись в репозиторий `.github` организации. Затем их могут использовать члены организации, имеющие разрешение на создание рабочих процессов.
 
-{% ifversion fpt %}
-Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
+{% ifversion fpt %} Начальные рабочие процессы, созданные пользователями, можно использовать только для создания рабочих процессов в общедоступных репозиториях. Организации, использующие {% data variables.product.prodname_ghe_cloud %}, также могут использовать начальные рабочие процессы для создания рабочих процессов в частных репозиториях. Дополнительные сведения см. в [документации по {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-{% note %}
+{% ifversion fpt или ghes > 3.3 или ghae > 3.3 или ghec %} {% примечания %}
 
-**Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+**Примечание.** Чтобы избежать дублирования между начальными рабочими процессами, можно вызывать повторно используемые рабочие процессы из рабочего процесса. Это позволяет упростить обслуживание рабочих процессов. Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/learn-github-actions/reusing-workflows).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
+В этой процедуре показано, как создать начальный рабочий процесс и файл метаданных. Файл метаданных описывает способ представления начальных рабочих процессов пользователям при создании рабочего процесса.
 
-1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-2. Create a directory named `workflow-templates`.
-3. Create your new workflow file inside the `workflow-templates` directory.
+1. Если у организации нет общедоступного репозитория с именем `.github`, создайте его.
+2. Создайте каталог с именем `workflow-templates`.
+3. Создайте новый файл рабочего процесса в каталоге `workflow-templates`.
 
-   If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+   Если необходимо сослаться на ветвь репозитория по умолчанию, можно использовать заполнитель `$default-branch`. При создании рабочего процесса этот заполнитель автоматически заменяется именем ветви по умолчанию репозитория.
 
-   For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
+   Например, этот файл с именем `octo-organization-ci.yml` демонстрирует базовый рабочий процесс.
 
    ```yaml
    name: Octo Organization CI
@@ -71,7 +72,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+4. Создайте файл метаданных в каталоге `workflow-templates`. Файл метаданных должен иметь то же имя, что и файл рабочего процесса, однако вместо расширения `.yml` должно быть добавлено `.properties.json`. Например, файл с именем `octo-organization-ci.properties.json` содержит метаданные для файла рабочего процесса с именем `octo-organization-ci.yml`.
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -87,16 +88,16 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
-   * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
-   * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
-   * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
-   * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+   * `name` - **Требуется.** Имя рабочего процесса. Отображается в списке доступных рабочих процессов.
+   * `description` - **Требуется.** Описание рабочего процесса. Отображается в списке доступных рабочих процессов.
+   * `iconName` - **Необязательно.** Указывает значок рабочего процесса, отображаемого в списке рабочих процессов. В качестве `iconName` следует использовать имя SVG-файла без расширения имени файла, хранящегося в каталоге `workflow-templates`. Например, на файл SVG с именем `example-icon.svg` будет даваться ссылка `example-icon`.
+   * `categories` - **Необязательно.** Определяет категорию языка рабочего процесса. Когда пользователь просматривает доступные начальные рабочие процессы для репозитория, рабочие процессы, соответствующие определенному языку проекта, выделяются из общей массы. Сведения о доступных языковых категориях см. в разделе https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `filePatterns` - **Необязательно.** Позволяет использовать рабочий процесс, если репозиторий пользователя содержит файл в корневом каталоге, соответствующий определенному регулярному выражению.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
+Чтобы добавить еще один начальный рабочий процесс, добавьте файлы в тот же каталог `workflow-templates`. Пример:
 
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+![Файлы рабочего процесса](/assets/images/help/images/workflow-template-files.png)
 
-## Next steps
+## Дальнейшие действия
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+Дополнительные сведения о {% data variables.product.prodname_actions %} см. в разделе [Создание начальных рабочих процессов](/actions/using-workflows/using-starter-workflows).

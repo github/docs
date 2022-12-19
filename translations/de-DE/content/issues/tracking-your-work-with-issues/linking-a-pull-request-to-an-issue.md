@@ -1,6 +1,6 @@
 ---
-title: Linking a pull request to an issue
-intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
+title: Einen Pull Request zu einem Issue verknüpfen
+intro: 'Du kannst einen Pull Request {% ifversion link-existing-branches-to-issue %}oder Branch {% endif %}mit einem Issue verknüpfen, um anzuzeigen, dass ein Fix in Bearbeitung ist und dass das Issue automatisch geschlossen werden soll, wenn der Pull Request {% ifversion link-existing-branches-to-issue %}oder Branch {% endif %} gemergt wird.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -17,89 +17,92 @@ versions:
 topics:
   - Pull requests
 shortTitle: Link PR to issue
+ms.openlocfilehash: 8c3ec2b778029c91d0e97783ced873e6b9b28a9b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109366'
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**Hinweis:** Die speziellen Schlüsselwörter in einer Pull Request-Beschreibung werden interpretiert, wenn der Pull Request auf den *Standardbranch* des Repositorys ausgerichtet ist. Wenn die PR-Basis jedoch einen *anderen Branch* ist, werden diese Schlüsselwörter ignoriert, werden keine Links erstellt und das Zusammenführen des PR hat keine Auswirkungen auf die Probleme. **Wenn du eine Pull Request mit einem Schlüsselwort verknüpfen möchtest, muss sich der PR auf der Standardverzweigung befinden.**
 
 {% endnote %}
 
-## About linked issues and pull requests
+## Über verknüpfte Issues und Pull Requests
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+Du kannst einen Pull Request mit einem Issue über unterstützte Schlüsselwörter in der Pull Request-Beschreibung verknüpfen.
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
+Wenn du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+Wenn du einen verknüpften Pull Request in den Standard-Branch eines Repository zusammenführst, werden seine verknüpften Issues automatisch geschlossen. Weitere Informationen zum Standardzweig findest du unter „[Ändern der Standardverzweigung](/github/administering-a-repository/changing-the-default-branch)“.
 
-## Linking a pull request to an issue using a keyword
+## Einen Pull Request über ein Stichwort mit einem Issue verknüpfen
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+Du kannst einen Pull Request mit einem Issue über unterstützte Schlüsselwörter in der Pull Request-Beschreibung oder in einer Commit-Meldung verknüpfen. Der Pull Request **muss** sich auf der Standardverzweigung befinden.
 
 * close
-* closes
+* closes (wird geschlossen)
 * closed
-* fix
-* fixes
+* Korrektur
+* fixes (korrigiert)
 * fixed
 * resolve
-* resolves
-* resolved
+* resolves (löst)
+* gelöst
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
+Wenn du ein Schlüsselwort verwendest, um auf einen Pull Request-Kommentar in einem anderen Pull Request zu verweisen, werden die Pull Requests verknüpft. Durch das Zusammenführen des referenzierenden Pull Requests wird auch der referenzierte Pull Request geschlossen.
 
-The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
+Die Syntax für schließende Schlüsselwörter hängt davon ab, ob der Issue im gleichen Repository ist wie der Pull Request.
 
-Linked issue | Syntax | Example
+Verknüpfter Issue | Syntax | Beispiel
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
-Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
+Issue ist im gleichen Repository | *SCHLÜSSELWORT* #*ISSUE-NUMMER* | `Closes #10`
+Issue ist in einem unterschiedlichen Repository | *SCHLÜSSELWORT* *BESITZER*/*REPOSITORY*#*ISSUE-NUMMER* | `Fixes octo-org/octo-repo#100`
+Mehrfache Issues | Verwende für jeden Issue die vollständige Syntax | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+Nur manuell verknüpfte Pull Requests können manuell getrennt werden. Um die Verknüpfung eines Issues zu trennen, den du über ein Schlüsselwort verknüpft hast, musst du die Pull Request-Beschreibung bearbeiten, um das Schlüsselwort zu entfernen.
 
-You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
+Du kannst schließende Schlüsselwörter auch in einer Commit-Mitteilung verwenden. Der Issue wird geschlossen, wenn du den Commit in den Standardbranch zusammenführst, aber der Pull Request, der den Commit enthält, wird nicht als verknüpfter Pull Request aufgeführt.
 
-## Manually linking a pull request to an issue using the pull request sidebar
+## Manuelles Verknüpfen eines Pull Requests mit einem Issue mithilfe der Pull Request-Randleiste
 
-Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
+Jeder, der über Schreibberechtigungen für ein Repository verfügt, kann einen Pull Request über die Pull Request-Randleiste manuell mit einem Issue verknüpfen.
 
-You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
+Du kannst bis zu 10 Issues manuell mit jedem Pull Request verknüpfen. Der Issue und der Pull Request müssen im gleichen Repository sein.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+3. Klicke in der Liste der Pull Requests auf den Pull Request, den du mit einem Issue verknüpfen möchtest.
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+4. Klicke in der rechten Querleiste im Abschnitt „Entwicklung“ auf {% octicon "gear" aria-label="The Gear icon" %}.
 {% else %}
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-{% endif %}
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+4. Klicke in der rechten Seitenleiste auf **Verknüpfte Issues**.
+  ![Verknüpfte Issues in der rechten Seitenleiste](/assets/images/help/pull_requests/linked-issues.png) {% endif %}
+5. Klicke auf den Issue, den du mit dem Pull Request verknüpfen willst.
+  ![Dropdownmenü, um Issues zu verknüpfen](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 {% ifversion link-existing-branches-to-issue %}
 
-## Manually linking a pull request or branch to an issue using the issue sidebar
+## Manuelles Verknüpfen eines Pull Requests oder eines Branchs mit einem Issue mithilfe der Issuerandleiste
 
-Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+Jeder, der über Schreibberechtigungen für ein Repository verfügt, kann einen Pull Request oder einen Branch über die Issuerandleiste manuell mit einem Issue verknüpfen.
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+Du kannst bis zu 10 Issues manuell mit jedem Pull Request verknüpfen. Das Issue kann sich in einem anderen Repository befinden als der verknüpfte Pull Request oder Branch. Dein zuletzt ausgewähltes Repository wird gespeichert. 
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. Klicke in der Liste der Issues auf das Issue, mit dem du einen Pull Request oder einen Branch verknüpfen möchtest.
+4. Klicke auf der rechten Randleiste auf **Entwicklung**.
+  ![Menü „Entwicklung“ auf der rechten Randleiste](/assets/images/help/issues/development-menu.png)
+5. Klicke auf das Repository, das den Pull Request oder den Branch enthält, den du mit dem Issue verknüpfen möchtest.
+  ![Dropdown zum Auswählen des Repositorys](/assets/images/help/issues/development-menu-select-repository.png)
+6. Klicke den Pull Request oder den Branch, den du mit dem Issue verknüpfen möchtest.
+  ![Dropdown zum Verknüpfen eines Pull Requests oder Branchs](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
+7. Klicken Sie auf **Anwenden**.
+  ![Anwenden](/assets/images/help/issues/development-menu-apply.png)
 
 {% endif %}
 
-## Further reading
+## Weitere Informationsquellen
 
-* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+* „[Automatisch verlinkte Verweise und URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)“

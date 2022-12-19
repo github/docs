@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on VMware
-intro: 'To install {% data variables.product.prodname_ghe_server %} on VMware, you must download the VMware vSphere client, and then download and deploy the {% data variables.product.prodname_ghe_server %} software.'
+title: Instalación del servidor de GitHub Enterprise en VMware
+intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en VMware, debes descargar el cliente vSphere de VMware, y después descargar y desplegar el software de {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/articles/getting-started-with-vmware
   - /enterprise/admin/articles/installing-vmware-tools
@@ -17,42 +17,44 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on VMware
+ms.openlocfilehash: f9e81c624f93c7478eed04b65b3ef43a69ef9291
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147859414'
 ---
-## Prerequisites
+## Requisitos previos
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.location.product_location %}s. We support versions 5.5 through 6.7 for {% data variables.product.prodname_ghe_server %} 3.4 and earlier. ESX version 7.0 is supported for {% data variables.product.prodname_ghe_server %} 3.5 and later. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
-- You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide "[Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)."
+- Debe tener un hipervisor ESXi de VMware vSphere, aplicado a un equipo sin sistema operativo que ejecutará {% data variables.product.product_location %}s. Se admiten las versiones 5.5 a 6.7 para {% data variables.product.prodname_ghe_server %} 3.4 y versiones anteriores. ESX versión 7.0 es compatible con {% data variables.product.prodname_ghe_server %} 3.5 y versiones posteriores. El Hipervisor de ESXi es gratuito y no incluye el vCenter Server (opcional). Para más información, vea la [documentación de VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html).
+- Deberás acceder a vSphere Client. Si tienes vCenter Server puedes usar vSphere Web Client. Para más información,vea la guía de VMware "[Inicio de sesión en vCenter Server mediante el cliente web vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)".
 
-## Hardware considerations
+## Consideraciones de hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## Descargar la imagen {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.download-license %}
-{% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
-5. Click **Download for VMware ESXi/vSphere (OVA)**.
+{% data reusables.enterprise_installation.download-license %} {% data reusables.enterprise_installation.download-appliance %}
+4. En «{% data variables.product.prodname_dotcom %} Local», selecciona el menú desplegable «Seleccionar el hipervisor» y haz clic en **VMware ESXi/vSphere (OVA)** .
+5. Haga clic en **Download for VMware ESXi/vSphere (OVA)** .
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## Crear la instancia de {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Using the vSphere Windows Client or the vCenter Web Client, import the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the VMware guide "[Deploy an OVF or OVA Template](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)."
-    - When selecting a datastore, choose one with sufficient space to host the VM's disks. For the minimum hardware specifications recommended for your instance size, see "[Hardware considerations](#hardware-considerations)." We recommend thick provisioning with lazy zeroing.
-    - Leave the **Power on after deployment** box unchecked, as you will need to add an attached storage volume for your repository data after provisioning the VM.
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the VMware guide "[Add a New Hard Disk to a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)."
+1. Por medio de vSphere Windows Client o vCenter Web Client, importa la imagen del {% data variables.product.prodname_ghe_server %} que descargaste. Para obtener instrucciones, vea la guía de VMware "[Implementación de una plantilla OVF u OVA](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)".
+    - Cuando seleccionas un almacén de datos, elige uno con suficiente espacio para alojar los discos de la VM. Para obtener las especificaciones de hardware mínimas recomendadas para el tamaño de la instancia, vea "[Consideraciones de hardware](#hardware-considerations)". Te recomendamos un aprovisionamiento robusto con lazy zeroing.
+    - Mantenga desactivada la casilla **Power on after deployment**, ya que tendrá que agregar un volumen de almacenamiento adjunto para los datos del repositorio después de aprovisionar la VM.
+{% data reusables.enterprise_installation.create-attached-storage-volume %} Para obtener instrucciones, vea la guía de VMware "[Adición de un nuevo disco duro a una máquina virtual](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)".
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## Configurar la instancia de {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
-{% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para más información, vea "[Configuración del dispositivo {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)".
+{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## Información adicional
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[Información general del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
+- "[Acerca de las actualizaciones a nuevas versiones](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

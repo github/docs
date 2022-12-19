@@ -1,38 +1,33 @@
 date: '2022-08-30'
 sections:
   bugs:
-    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository. 
-    - Duplicate administrative SSH keys could appear in both the Management Console and the `/home/admin/.ssh/authorized_keys` file.
-    - The site admin page for individual users at <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contained functionality not intended for GitHub Enterprise Server.  
-    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
-    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
-    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
-    - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
-    - The site admin bar at the top of the web interface contained a broken link to the SHA for the currently running version of the application.
-    - Organization owners were unable to set the level of access required to create discussions. 
-    - Discussions users were incorrectly directed to the community guidelines for GitHub.com.
-    - In some cases, users were incorrectly instructed to verify their email before creating a discussion.
-    - Alerts from secret scanning for GitHub Advanced Security customers were missing in the web UI and REST API if a site administrator did not upgrade directly to GitHub Enterprise Server 3.4. The alerts are now visible.
+    - 'После разблокировки репозитория для временного доступа администратор сайта не мог управлять параметрами продуктов безопасности в репозитории.'
+    - 'Дубликаты административных ключей SSH могли появляться как в консоли управления, так и в файле "/home/admin/.ssh/authorized_keys".'
+    - 'Страница администрирования сайта для отдельных пользователей по адресу <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> содержала функции, не предназначенные для GitHub Enterprise Server.'
+    - 'В некоторых случаях выполнение ghe-cluster-config-apply может реплицировать пустую конфигурацию на существующие узлы в кластере.'
+    - 'В некоторых случаях выполнения конфигурации, запущенные с помощью ghe-config-apply, не завершались или возвращали ошибку "Несоответствие количества контейнеров".'
+    - 'После обновления самозаверяющего сертификата TLS на экземпляре GitHub Enterprise Server элементы пользовательского интерфейса на некоторых страницах веб-интерфейса не отображались.'
+    - 'В некоторых случаях фоновые задачи могли останавливаться из-за того, что параллельно использовалась библиотека, несмотря на то, что она не является потокобезопасной.'
+    - 'Панель администратора сайта в верхней части веб-интерфейса содержала недействительную ссылку на SHA для текущей версии приложения.'
+    - 'Владельцам организаций не удалось задать уровень доступа, необходимый для создания обсуждений.'
+    - 'Пользователи обсуждений ошибочно перенаправлялись к руководствам сообщества для GitHub.com.'
+    - 'В некоторых случаях пользователям предоставлялось неверное указание проверить свою электронную почту перед созданием обсуждения.'
+    - "Оповещения о сканировании секретов для клиентов GitHub Advanced Security отсутствовали в веб-интерфейсе и REST API, если администратор сайта не выполнил обновление непосредственно до GitHub Enterprise Server\_3.4. Теперь оповещения видны."
   changes:
-    - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[Providing data to GitHub Support](/support/contacting-github-support/providing-data-to-github-support)."
-    - APIs that contain the `organization` or `org` route now accept either the organization's slug or ID. Previously, the APIs only accepted slugs, which caused `Link` headers for GitHub Advanced Security endpoints to be inaccessible. For more information, see "[Organizations](https://docs.github.com/rest/orgs/orgs)" in the REST API documentation. 
-    - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
-    - In some cases, cache replicas could reject some Git operations on recently updated repositories. For more information about repository caching, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)." 
-    - You can now configure the global announcement banner to be dismissable using the REST API. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)." 
+    - 'Создание пакетов поддержки происходит быстрее благодаря параллельной очистке журналов. Дополнительные сведения о пакетах поддержки см. в статье [Предоставление данных поддержке GitHub](/support/contacting-github-support/providing-data-to-github-support).'
+    - 'API, которые содержат маршрут organization (или org), теперь принимают либо динамический идентификатор, либо идентификатор организации. Ранее API принимали только динамические идентификаторы, из-за чего заголовки "Link" для конечных точек GitHub Advanced Security были недоступны. Дополнительные сведения см. в статье [Организации] (https://docs.github.com/rest/orgs/orgs) в документации REST API.'
+    - 'Журнал аудита предприятия теперь включает больше пользовательских событий, таких как project.create. REST API также возвращает дополнительные события, созданные пользователем, такие как repo.create. Дополнительные сведения см. в статье [Доступ к журналу аудита для вашего предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for -your-enterprise) и разделе [Использование API журнала аудита для вашего предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit- log-api-for-your-enterprise#querying-the-audit-log-rest-api).'
+    - 'Иногда реплики кэша могли отклонять некоторые операции Git над недавно обновленными репозиториями. Дополнительные сведения о кэшировании репозитория см. в статье [Сведения о кэшировании репозитория](/admin/enterprise-management/caching-repositories/about-repository-caching).'
+    - 'Теперь вы можете настроить баннер глобального оповещения так, чтобы его можно было убрать, используя REST API. Дополнительные сведения см. в разделе [Настройка сообщений для пользователей на предприятии](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner).'
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
-    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
-    - In some cases, users cannot convert existing issues to discussions.
-    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - |
-      After upgrading a replica node to GitHub Enterprise Server 3.6.0 or later and restarting replication, in some situations Git replication may stop progressing and continue to show `WARNING: git replication is behind the primary …`. If you encounter this known issue contact GitHub Support. For more information, see "[Creating a support ticket](https://docs.github.com/en/enterprise-server@3.6/support/contacting-github-support/creating-a-support-ticket)." [Updated: 2022-10-03]
-    - |
-      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
-    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - 'Злоумышленник мог создать первого пользователя с правами администратора на только что настроенном экземпляре {% data variables.product.prodname_ghe_server %} без пользователей.'
+    - 'Настраиваемые правила брандмауэра удаляются в процессе обновления.'
+    - "Отслеживаемые файлы Git\_LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий."
+    - "Проблемы нельзя закрыть, если они содержат постоянную ссылку на большой двоичный объект в том же репозитории, где путь к файлу большого двоичного объекта превышает 255\_символов."
+    - "Когда в GitHub\_Connect включен параметр Users can search GitHub.com (Пользователи могут выполнять поиск на GitHub.com), результаты поиска на GitHub.com не включают в себя проблемы в частных и внутренних репозиториях."
+    - 'Реестр npm {% data variables.product.prodname_registry %} больше не возвращает значение времени в ответах метаданных. Это изменение позволяет существенно улучшить производительность. Мы продолжим хранить все данные, необходимые для возврата значения времени в качестве части ответа метаданных, и возобновим возврат этого значения в будущем, как только решим существующие проблемы с производительностью.'
+    - 'Ограничения ресурсов, относящиеся к обработке перехватчиков перед получением, могут приводить к сбою некоторых из них.'
+    - 'Службы Actions необходимо перезапустить после восстановления экземпляра из резервной копии, созданной на другом узле.'
+    - 'В настройках репозитория включение параметра, позволяющего пользователям с доступом для чтения создавать обсуждения, не включает эту функцию.'
+    - 'В некоторых случаях пользователи не могут преобразовать существующие проблемы в обсуждения.'
+    - 'Пользовательские шаблоны для сканирования секретов содержат ".*" в качестве конечного разделителя, особенно в поле "После секрета". Этот разделитель вызывает несоответствия при сканировании секретов в репозиториях, и вы можете заметить пробелы в журнале репозитория, если ни одно сканирование не было завершено. Добавочные сканирования также могут быть затронуты. Чтобы предотвратить проблемы со сканированием, измените конец шаблона, чтобы удалить разделитель ".*".'

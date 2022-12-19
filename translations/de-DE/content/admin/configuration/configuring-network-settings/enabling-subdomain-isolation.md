@@ -1,6 +1,6 @@
 ---
-title: Enabling subdomain isolation
-intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
+title: Subdomain-Isolation aktivieren
+intro: 'Du kannst die Subdomain-Isolation so festlegen, dass der Benutzerinhalt von anderen Teilen deiner {% data variables.product.prodname_ghe_server %}-Appliance sicher getrennt wird.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -16,63 +16,49 @@ topics:
   - Networking
   - Security
 shortTitle: Enable subdomain isolation
+ms.openlocfilehash: e48b6d474bf4d930836047343eab267731e67823
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107133'
 ---
-## About subdomain isolation
+## Informationen zur Subdomain-Isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.location.product_location %}.
+Die Subdomain-Isolation mindert Cross-Site-Scripting und andere verwandte Schwachstellen. Weitere Informationen findest Du unter „[Cross-Site Scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)“ in Wikipedia. Es wird dringend empfohlen, die Subdomain-Isolation auf {% data variables.location.product_location %} zu aktivieren.
 
-When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
+Bei aktivierter Subdomain-Isolation ersetzt {% data variables.product.prodname_ghe_server %} verschiedene Pfade durch Subdomains. Nach dem Aktivieren der Subdomain-Isolation wird versucht, auf die vorherigen Pfade für einige vom Benutzer bereitgestellte Inhalte zuzugreifen, z. B. kann `http(s)://HOSTNAME/raw/` `404`-Fehler zurückgeben .
 
-{% data reusables.enterprise_site_admin_settings.3-7-new-subdomains %}
-
-| Path without subdomain isolation  | Path with subdomain isolation   |
+| Pfad ohne Subdomain-Isolation  | Pfad mit Subdomain-Isolation   |
 | --- | --- |
-| `http(s)://HOSTNAME/` | `http(s)://docker.HOSTNAME/` |
-| `http(s)://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/` |
-| `http(s)://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/` |
-| `http(s)://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/` |
-| `http(s)://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/` |
-| `http(s)://HOSTNAME/assets/` | `http(s)://assets.HOSTNAME/` |
-| `http(s)://HOSTNAME/avatars/` | `http(s)://avatars.HOSTNAME/` |
-| `http(s)://HOSTNAME/codeload/` | `http(s)://codeload.HOSTNAME/` |
-| `http(s)://HOSTNAME/gist/` | `http(s)://gist.HOSTNAME/` |
-| `http(s)://HOSTNAME/media/` | `http(s)://media.HOSTNAME/` |
-{%- ifversion viewscreen-and-notebooks %}
-| `http(s)://HOSTNAME/notebooks/` | `http(s)://notebooks.HOSTNAME/` |
-{%- endif %}
-| `http(s)://HOSTNAME/pages/` | `http(s)://pages.HOSTNAME/` |
-| `http(s)://HOSTNAME/raw/` | `http(s)://raw.HOSTNAME/` |
-{%- ifversion ghes < 3.7 %}
-| `http(s)://HOSTNAME/render/` | `http(s)://render.HOSTNAME/` |
-{%- endif %}
-| `http(s)://HOSTNAME/reply/` | `http(s)://reply.HOSTNAME/` |
-| `http(s)://HOSTNAME/uploads/` | `http(s)://uploads.HOSTNAME/` |
-{%- ifversion viewscreen-and-notebooks %}
-| `http(s)://HOSTNAME/viewscreen/` | `http(s)://viewscreen.HOSTNAME/` |
-{%- endif %}
-{%- ifversion ghes > 3.4 %}
-| Not supported | `https://containers.HOSTNAME/` |
-{%- endif %}
+| `http(s)://HOSTNAME/assets/`      | `http(s)://assets.HOSTNAME/`      |
+| `http(s)://HOSTNAME/avatars/`     | `http(s)://avatars.HOSTNAME/`     |
+| `http(s)://HOSTNAME/codeload/`    | `http(s)://codeload.HOSTNAME/`    |
+| `http(s)://HOSTNAME/gist/`        | `http(s)://gist.HOSTNAME/`        |
+| `http(s)://HOSTNAME/media/`       | `http(s)://media.HOSTNAME/`       |
+| `http(s)://HOSTNAME/pages/`       | `http(s)://pages.HOSTNAME/`       |
+| `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
+{%- ifversion viewscreen-and-notebooks %} | `http(s)://HOSTNAME/viewscreen/`  | `http(s)://viewscreen.HOSTNAME/`  | | `http(s)://HOSTNAME/notebooks/`   | `http(s)://notebooks.HOSTNAME/`   | {%- else %} | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      | {%- endif %} | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       | | `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %} | `https://HOSTNAME/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %} | `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
+| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
+| `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
+| `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %} | Nicht unterstützt | `https://containers.HOSTNAME/` |{% endif %}
 
-## Prerequisites
+## Voraussetzungen
 
 {% data reusables.enterprise_installation.disable-github-pages-warning %}
 
-Before you enable subdomain isolation, you must configure your network settings for your new domain.
+Vor der Aktivierung der Subdomain-Isolation musst du deine Netzwerkeinstellungen für deine neue Domain konfigurieren.
 
-- Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/admin/guides/installation/configuring-a-hostname)."
+- Gib anstelle einer IP-Adresse einen gültigen Domain-Namen als deinen Hostnamen an. Weitere Informationen findest Du unter „[Konfigurieren eines Hosznamens](/enterprise/admin/guides/installation/configuring-a-hostname)“.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-- Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
-- Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
-- Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/admin/guides/installation/configuring-tls/)."
+- Lege einen Domain Name System-Platzhaltereintrag (DNS) oder einzelne DNS-Einträge für die oben aufgelisteten Subdomains fest. Du solltest einen Eintrag für `*.HOSTNAME` erstellen, der auf die IP-Adresse Ihres Servers verweist, damit Du nicht für jede Subdomain mehrere Einträge erstellen musst.
+- Rufe ein TLS-Zertifikat (Transport Layer Security) für `*.HOSTNAME` mit einem Subject Alternative Name (SAN) für `HOSTNAME` und die Wildcard-Domäne `*.HOSTNAME` ab. Wenn Dein Hostname beispielsweise `github.octoinc.com` lautet, rufe ein Zertifikat ab, in dem der Wert „Common Name“ (Gemeinsamer Name) auf `*.github.octoinc.com` festgelegt ist, und einen SAN-Wert, der auf `github.octoinc.com` und `*.github.octoinc.com` festgelegt ist.
+- Aktiviere TLS auf deiner Appliance. Weitere Informationen findest du unter [Konfigurieren von TLS](/enterprise/admin/guides/installation/configuring-tls/).
 
-## Enabling subdomain isolation
+## Subdomain-Isolation aktivieren
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Select **Subdomain isolation (recommended)**.
-  ![Checkbox to enable subdomain isolation](/assets/images/enterprise/management-console/subdomain-isolation.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.hostname-menu-item %}
+4. Wähle **Subdomänen-Isolation (empfohlen)** aus.
+  ![Kontrollkästchen zum Aktivieren der Subdomänen-Isolation](/assets/images/enterprise/management-console/subdomain-isolation.png) {% data reusables.enterprise_management_console.save-settings %}

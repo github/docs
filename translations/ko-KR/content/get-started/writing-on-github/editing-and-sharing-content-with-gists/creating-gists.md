@@ -1,6 +1,6 @@
 ---
-title: Creating gists
-intro: 'You can create two kinds of gists: {% ifversion ghae %}internal{% else %}public{% endif %} and secret. Create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% ifversion ghae %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+title: gist 만들기
+intro: '{% ifversion ghae %}내부{% else %}공개{% endif %} 및 비밀의 두 가지 종류의 gist를 만들 수 있습니다. {% ifversion ghae %}기업 구성원{% else %}세상{% endif %}과 아이디어를 공유할 준비가 되었다면 {% ifversion ghae %}내부{% else %}공개{% endif %} gist를 만들고, 그렇지 않은 경우 비밀 gist를 만듭니다.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists
@@ -14,70 +14,76 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: e0ac449dc71bb0c525ee1559b82e509a281e55ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068678'
 ---
-## About gists
+## gist 정보
 
-Every gist is a Git repository, which means that it can be forked and cloned. {% ifversion not ghae %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+모든 gist는 Git 리포지토리입니다. 즉, 포크 및 복제할 수 있습니다. {% ifversion not ghae %}{% data variables.product.product_name %}에 로그인해서{% else %}{% endif %} gist를 만드는 경우 해당 gist는 계정과 연결되며 {% data variables.gists.gist_homepage %}로 이동할 때 gist 목록에 표시됩니다.
 
-Gists can be {% ifversion ghae %}internal{% else %}public{% endif %} or secret. {% ifversion ghae %}Internal{% else %}Public{% endif %} gists show up in {% data variables.gists.discover_url %}, where {% ifversion ghae %}enterprise members{% else %}people{% endif %} can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
+Gist는 {% ifversion ghae %}내부{% else %}공개{% endif %} 또는 비밀일 수 있습니다. {% ifversion ghae %}내부{% else %}공개{% endif %} gist는 {% data variables.gists.discover_url %}에 표시됩니다. 여기서 {% ifversion ghae %}엔터프라이즈 구성원{% else %}사람들{% endif %}은 gist가 만들어질 때 새 gist를 찾아볼 수 있습니다. 이들은 또한 검색이 가능하므로, 자신이 작업한 것을 다른 사람들이 찾아서 보도록 하려는 경우 사용할 수 있습니다.
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. However, if {% ifversion ghae %}any other enterprise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+비밀 gist는 {% data variables.gists.discover_url %}에 표시되지 않으며 검색할 수 없습니다. 비밀 gist는 비공개가 아닙니다. 비밀 gist의 URL을 {% ifversion ghae %}다른 엔터프라이즈 구성원{% else %}친구{% endif %}에게 보낼 경우 받은 사람은 이를 볼 수 있습니다. 그러나 {% ifversion ghae %}다른 엔터프라이즈 구성원{% else %}자신이 모르는 사람{% endif %}이 해당 URL을 발견할 경우 그들도 gist를 볼 수 있습니다. 다른 사람의 눈에 띄지 않도록 코드를 보호해야 하는 경우 대신 [프라이빗 리포지토리를 만들](/articles/creating-a-new-repository) 수 있습니다.
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
 {% ifversion ghes %}
 
-If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
+사이트 관리자가 비공개 모드를 사용하지 않도록 설정한 경우 공개 또는 비밀일 수 있는 익명 gist를 사용할 수도 있습니다.
 
 {% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
-You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+다음과 같은 경우 알림이 제공됩니다.
+- 내가 gist의 작성자인 경우.
+- 누군가가 gist에서 나를 멘션하는 경우.
+- Gist 맨 위에 있는 구독을 클릭하여 gist를 **구독** 하는 경우.
 
 {% ifversion fpt or ghes or ghec %}
 
-You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
+다른 사용자가 쉽게 볼 수 있도록 프로필에 gist를 고정할 수 있습니다. 자세한 내용은 “[프로필에 항목 고정](/articles/pinning-items-to-your-profile)”을 참조하세요.
 
 {% endif %}
 
-You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).
+{% data variables.gists.gist_homepage %}로 이동하고 **모든 Gist** 를 클릭하면 다른 사람들이 만든 {% ifversion ghae %}내부{% else %}공개{% endif %} gist를 검색할 수 있습니다. 그러면 만든 시간 또는 업데이트 시간별로 정렬되고 표시되는 모든 gist의 페이지로 이동하게 됩니다. {% data variables.gists.gist_search_url %}을 사용하여 언어별로 gist를 검색할 수도 있습니다. Gist 검색은 [코드 검색](/search-github/searching-on-github/searching-code)과 동일한 검색 구문을 사용합니다.
 
-Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see ["Forking and cloning gists"](/articles/forking-and-cloning-gists).
+Gist는 Git 리포지토리이므로 차이(diff)와 함께 전체 커밋 기록을 볼 수 있습니다. Gist를 포크 또는 복제할 수도 있습니다. 자세한 내용은 “[Gist 포크 및 복제](/articles/forking-and-cloning-gists)”를 참조하세요.
 
-You can download a ZIP file of a gist by clicking the **Download ZIP** button at the top of the gist. You can embed a gist in any text field that supports Javascript, such as a blog post. To get the embed code, click the clipboard icon next to the **Embed** URL of a gist. To embed a specific gist file, append the **Embed** URL with `?file=FILENAME`.
+Gist 상단에 있는 **ZIP 다운로드** 단추를 클릭하여 gist의 ZIP 파일을 다운로드할 수 있습니다. 블로그 게시물과 같이 Javascript를 지원하는 텍스트 필드에 gist를 포함할 수 있습니다. 포함 코드를 얻으려면 gist의 **Embed** URL 옆에 있는 클립보드 아이콘을 클릭합니다. 특정 gist 파일을 포함하려면 `?file=FILENAME`과 함께 **Embed** URL을 추가합니다.
 
 {% ifversion fpt or ghec %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+Gist는 GeoJSON 파일 매핑을 지원합니다. 이러한 맵은 포함된 gist에 표시되므로 맵을 쉽게 공유하고 포함할 수 있습니다. 자세한 내용은 “[비 코드 파일 작업](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)”을 참조하세요.
 
 {% endif %}
 
-## Creating a gist
+## gist 만들기
 
-Follow the steps below to create a gist.
+아래 단계에 따라 gist를 만듭니다.
 
 {% note %}
 
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+{% data variables.product.prodname_cli %}를 사용하여 gist를 만들 수도 있습니다. 자세한 내용은 {% data variables.product.prodname_cli %} 설명서의 “[`gh gist create`](https://cli.github.com/manual/gh_gist_create)”를 참조하세요.
 
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
+또는 바탕 화면에서 편집기로 직접 텍스트 파일을 끌어서 놓을 수 있습니다.
 
 {% endnote %}
 
-1. Sign in to {% data variables.product.product_name %}.
-2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. Type an optional description and name for your gist.
-![Gist name description](/assets/images/help/gist/gist_name_description.png)
+1. {% data variables.product.product_name %}에 로그인합니다.
+2. {% data variables.gists.gist_homepage %}로 이동합니다.
+3. Gist에 대한 설명(선택 사항)과 이름을 입력합니다.
+![Gist 이름 설명](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box.
-![Gist text box](/assets/images/help/gist/gist_text_box.png)
+4. Gist 텍스트 상자에 gist의 텍스트를 입력합니다.
+![Gist 텍스트 상자](/assets/images/help/gist/gist_text_box.png)
 
-5. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
+5. 필요에 따라, {% ifversion ghae %}내부{% else %}공개{% endif %} gist를 만들려면 {% octicon "triangle-down" aria-label="The downwards triangle icon" %}을 클릭한 다음, **{% ifversion ghae %}내부{% else %}공개{% endif %} gist 만들기** 를 클릭합니다.
 ![Drop-down menu to select gist visibility]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
-6. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-  ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
+6. **비밀 gist 만들기** 또는 **{% ifversion ghae %}내부{% else %}공개{% endif %} gist 만들기** 를 클릭합니다.
+  ![gist 만들기 단추](/assets/images/help/gist/create-secret-gist-button.png)

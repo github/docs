@@ -1,7 +1,7 @@
 ---
-title: Getting started with self-hosted runners for your enterprise
+title: 엔터프라이즈의 자체 호스트 실행기 시작
 shortTitle: Self-hosted runners
-intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
+intro: '개발자가 {% data variables.product.prodname_actions %}를 사용하여 워크플로 자동화를 시작할 수 있도록 엔터프라이즈용 실행기 컴퓨터를 구성할 수 있습니다.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,137 +12,131 @@ topics:
   - Actions
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: e369c7bf3a9da15cd4e0ee43f54815e89ab4b45a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106623'
 ---
+## {% data variables.product.prodname_actions %}를 위한 자체 호스트 실행기 정보
 
-## About self-hosted runners for {% data variables.product.prodname_actions %}
+{% data reusables.actions.about-actions-for-enterprises %} 자세한 내용은 “[엔터프라이즈를 위한 {% data variables.product.prodname_actions %} 정보](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)”를 참조하세요.
 
-{% data reusables.actions.about-actions-for-enterprises %} For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
-
-With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes or ghae %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghae %}your enterprise{% elsif ghes %} {% data variables.location.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes or ghae %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+{% data variables.product.prodname_actions %}를 사용하면 개발자는 작업이라는 개별 작업을 작성하고 결합하여 사용자 지정 워크플로를 만들 수 있습니다. {% ifversion ghes or ghae %} {% ifversion ghae %}엔터프라이즈{% elsif ghes %} {% data variables.location.product_location %}{% endif %}에 {% data variables.product.prodname_actions %}을(를) 사용하도록 설정하려면 작업을 실행하려면 하나 이상의 컴퓨터를 호스트해야 합니다. {% endif %} {% ifversion ghec %} 사용자 고유의 실행기 컴퓨터를 호스트하여 작업을 실행할 수 있으며, 이 {% elsif ghes or ghae %}이{% endif %} 컴퓨터를 자체 호스팅 실행기라고 합니다. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}모든{% elsif ghes or ghae %}자체 호스트{% endif %} 실행기는 Linux, Windows 또는 macOS를 실행할 수 있습니다. 자세한 내용은 “[자체 호스트 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners)”를 참조하세요.
 
 {% ifversion ghec %}
 
-Alternatively, you can use runner machines that {% data variables.product.company_short %} hosts. {% data variables.product.company_short %}-hosted runners are outside the scope of this guide. For more information, see "[About {% data variables.product.company_short %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+또는 {% data variables.product.company_short %}가 호스트하는 실행기 컴퓨터를 사용할 수 있습니다. {% data variables.product.company_short %} 호스트 실행기는 이 가이드에서 다루는 범위를 벗어납니다. 자세한 내용은 “[{% data variables.product.company_short %} 호스트 실행기 정보](/actions/using-github-hosted-runners/about-github-hosted-runners)”를 참조하세요.
 
 {% endif %}
 
-This guide shows you how to apply a centralized management approach to self-hosted runners for {% data variables.product.prodname_actions %} in your enterprise. In the guide, you'll complete the following tasks.
+이 가이드에서는 엔터프라이즈의 {% data variables.product.prodname_actions %}를 위한 자체 호스트 실행기에 중앙 집중식 관리 접근 방식을 적용하는 방법을 보여 줍니다. 이 단원에서는 다음 작업을 완료합니다.
 
-1. Configure a limited policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run within your enterprise
-1. Deploy a self-hosted runner for your enterprise
-1. Create a group to manage access to the runners available to your enterprise
-1. Optionally, further restrict the repositories that can use the runner
-1. Optionally, build custom tooling to automatically scale your self-hosted runners
+1. 엔터프라이즈 내에서 실행할 수 있는 작업{% ifversion actions-workflow-policy %} 및 재사용 가능한 워크플로{% endif %}를 제한하도록 제한된 정책을 구성합니다.
+1. 엔터프라이즈를 위한 자체 호스트 실행기 배포
+1. 엔터프라이즈에 사용할 수 있는 실행기에 대한 액세스 권한을 관리하는 그룹 만들기
+1. 필요에 따라 실행기를 사용할 수 있는 리포지토리를 추가로 제한합니다.
+1. 필요에 따라 자체 호스팅 실행기의 크기를 자동으로 조정하는 사용자 지정 도구를 빌드합니다.
 
-You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes or ghae %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
+또한 자체 호스트 실행기를 모니터링하고 보호하는 방법,{% ifversion ghes or ghae %} {% data variables.product.prodname_dotcom_the_website %}에서 작업에 액세스하는 방법{% endif %} 및 실행기 컴퓨터에서 소프트웨어를 사용자 지정하는 방법에 대한 자세한 내용을 찾을 수 있습니다.
 
-After you finish the guide, {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %} will be able to run workflow jobs from {% data variables.product.prodname_actions %} on a self-hosted runner machine.
+가이드를 완료하면 {% ifversion ghec or ghae %}엔터프라이즈 구성원{% elsif ghes %}{% data variables.location.product_location %}{% endif %} 사용자는 자체 호스팅 실행기 컴퓨터에서 {% data variables.product.prodname_actions %}에서 워크플로 작업을 실행할 수 있습니다.
 
-## Prerequisites
+## 필수 조건
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-- Your enterprise must own at least one organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+- 엔터프라이즈는 하나 이상의 조직을 소유해야 합니다. 자세한 내용은 “[조직 정보](/organizations/collaborating-with-groups-in-organizations/about-organizations)” 및 “[처음부터 새 조직 만들기](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”를 참조하세요.
 
-## 1. Configure policies for {% data variables.product.prodname_actions %}
+## 1. {% data variables.product.prodname_actions %}에 대한 정책 구성
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+먼저 모든 조직에 대해 {% data variables.product.prodname_actions %}을(를) 사용하도록 설정하고 {% data variables.product.product_name %}{% data variables.location.product_location %}{% endif %}에서 엔터프라이즈 내에서 {% ifversion ghec or ghae%}을(를) 실행할 수 있는 작업{% ifversion actions-workflow-policy %} 및 재사용 가능한 워크플로{% endif %}를 제한하는 정책을 구성합니다. 필요에 따라 조직 소유자는 각 조직에 대해 이러한 정책을 추가로 제한할 수 있습니다.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Policies", select **Enable for all organizations**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %}
+1. “정책”에서 **모든 조직에 대해 사용하도록 설정** 을 선택합니다.
    
-   ![Screenshot of "Enable for all organizations" policy for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
+   ![{% data variables.product.prodname_actions %}에 대한 “모든 조직에 대해 사용하도록 설정” 정책 스크린샷](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
+1. {% data reusables.actions.policy-label-for-select-actions-workflows %} 및 **GitHub에서 만든 작업 허용** 을 선택하여 로컬 작업{% ifversion actions-workflow-policy %} 및 재사용 가능한 워크플로{% endif %}와 {% data variables.product.company_short %}에서 만든 작업을 허용합니다.
 
-   {% ifversion actions-workflow-policy %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
-   {%- else %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
-   {%- endif %}
-1. Click **Save**.
+   {% ifversion actions-workflow-policy %} ![{% data variables.product.prodname_actions %}에 대한 “작업 선택 허용” 및 “{% data variables.product.company_short %}에서 만든 작업 허용” 스크린샷 ](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png) {%- else %} ![{% data variables.product.prodname_actions %}에 대한 “작업 선택 허용” 및 “{% data variables.product.company_short %}에서 만든 작업 허용” 스크린샷](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png) {%- endif %}
+1. **저장** 을 클릭합니다.
 
-You can configure additional policies to restrict the actions available to {% ifversion ghec or ghae %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)."
+{% ifversion ghec or ghae %}엔터프라이즈 구성원{% elsif ghes %}{% data variables.location.product_location %}{% endif %}의 사용자에게 사용할 수 있는 작업을 제한하도록 추가 정책을 구성할 수 있습니다. 자세한 내용은 “[엔터프라이즈에서 {% data variables.product.prodname_actions %}에 대한 정책 적용](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)”을 참조하세요.
 
-## 2. Deploy the self-hosted runner for your enterprise
+## 2. 엔터프라이즈를 위한 자체 호스트 실행기 배포
 
-Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+다음으로, 엔터프라이즈에 자체 호스트 실행기를 추가합니다. {% data variables.product.product_name %}에서 실행기 컴퓨터에 필요한 소프트웨어를 설치하도록 안내합니다. 실행기를 배포한 후 실행기 컴퓨터와 {%ifversion ghec or ghae %}엔터프라이즈{% elsif ghes %}{% data variables.location.product_location %}{% endif %} 간의 연결을 확인할 수 있습니다.
 
-### Adding the self-hosted runner
+### 자체 호스트 실행기 추가
 
 {% data reusables.actions.self-hosted-runner-add-to-enterprise %}
 
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-## 3. Manage access to the self-hosted runner using a group
+## 3. 그룹을 사용하여 자체 호스트 실행기에 대한 액세스 권한 관리
 
-You can create a runner group to manage access to the runner that you added to your enterprise. You'll use the group to choose which organizations can execute jobs from {% data variables.product.prodname_actions %} on the runner.
+실행기 그룹을 만들어 엔터프라이즈에 추가한 실행기에 대한 액세스 권한을 관리할 수 있습니다. 그룹을 사용하여 실행기의 {% data variables.product.prodname_actions %}에서 작업을 실행할 수 있는 조직을 선택합니다.
 
-{% data variables.product.product_name %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.product_name %} adds new runners to the "Default" group.
+{% data variables.product.product_name %}에서는 그룹에 새 실행기를 모두 추가합니다. 실행기는 한 번에 그룹 하나에만 있을 수 있습니다. 기본적으로 {% data variables.product.product_name %}에서는 “기본” 그룹에 새 실행기를 추가합니다.
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
-1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
-1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="The Gear icon" %}.
-1. Select the organizations you'd like to grant access to the runner group.
+1. 조직 액세스에 대한 정책을 선택하려면 “조직 액세스”에서 **조직 액세스** 드롭다운을 선택하고 **선택한 조직** 을 클릭합니다.
+1. 조직 액세스 정책이 있는 드롭다운 오른쪽에서 {% octicon "gear" aria-label="The Gear icon" %}을 클릭합니다.
+1. 실행기 그룹에 대한 액세스 권한을 부여하려는 조직을 선택합니다.
 {%- ifversion ghec or ghes %}
-1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
+1. 필요에 따라 선택한 조직의 퍼블릭 리포지토리가 그룹의 실행기를 사용하도록 허용하려면 **퍼블릭 리포지토리 허용** 을 선택합니다.
 
    {% warning %}
 
-   **Warning**:
+   **경고**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+   자세한 내용은 “[자체 호스트 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”를 참조하세요.
 
-   {% endwarning %}
-{%- endif %}
-{% data reusables.actions.create-runner-group %}
-{%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
-1. Click the "Runners" tab.
-1. In the list of runners, click the runner that you deployed in the previous section.
-1. Click **Edit**.
-1. Click **Runner groups {% octicon "gear" aria-label="The Gear icon" %}**.
-1. In the list of runner groups, click the name of the group that you previously created.
-1. Click **Save** to move the runner to the group.
+   {% endwarning %} {%- endif %} {% data reusables.actions.create-runner-group %} {%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
+1. “실행기” 탭을 클릭합니다.
+1. 실행기 목록에서 이전 섹션에서 배포한 실행기를 클릭합니다.
+1. **편집** 을 클릭합니다.
+1. **실행기 그룹 {% octicon "gear" aria-label="The Gear icon" %}** 을 클릭합니다.
+1. 실행기 그룹 목록에서 이전에 만든 그룹의 이름을 클릭합니다.
+1. **저장** 을 클릭하여 실행기를 그룹으로 이동합니다.
 {%- elsif ghes < 3.4 or ghae %}
-1. To the right of "Default", click the number of runners in the group to show the runners.
-1. Select the runner that you deployed.
-1. To the right of "Runner groups", select the **Move to group** dropdown, and click the group that you previously created.
+1. “기본값” 오른쪽에서 그룹의 실행기 수를 클릭하여 실행기를 표시합니다.
+1. 배포한 실행기를 선택합니다.
+1. “실행기 그룹” 오른쪽에서 **그룹으로 이동** 드롭다운을 선택하고 이전에 만든 그룹을 클릭합니다.
 {%- endif %}
 
-You've now deployed a self-hosted runner that can run jobs from {% data variables.product.prodname_actions %} within the organizations that you specified.
+이제 지정한 조직 내 {% data variables.product.prodname_actions %}에서 작업을 실행할 수 있는 자체 호스트 실행기를 배포했습니다.
 
-## 4. Further restrict access to the self-hosted runner
+## 4. 자체 호스트 실행기에 대한 액세스 추가 제한
 
-Optionally, organization owners can further restrict the access policy of the runner group that you created. For example, an organization owner could allow only certain repositories in the organization to use the runner group.
+필요에 따라 조직 소유자는 만든 실행기 그룹의 액세스 정책을 추가로 제한할 수 있습니다. 예를 들어 조직 소유자는 조직의 특정 리포지토리만 실행기 그룹을 사용하도록 허용할 수 있습니다.
 
-For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+자세한 내용은 “[그룹을 사용하여 자체 호스팅 실행기에 대한 액세스 관리](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”를 참조하세요.
 
-## 5. Automatically scale your self-hosted runners
+## 5. 자체 호스트 실행기 자동 스케일링
 
-Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+필요에 따라 {% ifversion ghec or ghae %}엔터프라이즈{% elsif ghes %}{% data variables.location.product_location %}{% endif %}에 대한 자체 호스팅 실행기의 크기를 자동으로 조정하는 사용자 지정 도구를 빌드할 수 있습니다. 예를 들어 도구는 {% data variables.location.product_location %}의 웹후크 이벤트에 응답하여 실행기 머신 클러스터의 크기를 자동으로 조정할 수 있습니다. 자세한 내용은 “[자체 호스팅 실행기 자동 스케일링](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)”을 참조하세요.
 
-## Next steps
+## 다음 단계
 
-- You can monitor self-hosted runners and troubleshoot common issues. For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+- 자체 호스트 실행기를 모니터링하고 일반적인 이슈를 해결할 수 있습니다. 자세한 내용은 “[자체 호스트 실행기 모니터링 및 문제 해결](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)”을 참조하세요.
 
-- {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+- {% data variables.product.company_short %}에서는 자체 호스트 실행기 컴퓨터에 대한 보안 고려 사항을 검토하는 것이 좋습니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 보안 강화](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)”를 참조하세요.
 
-- {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, you{% elsif ghes or ghae %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% endif %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
+- {% ifversion ghec %}{% data variables.product.prodname_ghe_server %} 또는 {% data variables.product.prodname_ghe_managed %}를 사용하는 경우{% elsif ghes or ghae %}{% endif %} {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %} 또는 {% data variables.product.prodname_ghe_managed %}{% endif %}에서 엔터프라이즈에 대한 작업을 포함하여 {% data variables.product.prodname_dotcom_the_website %}에서 리포지토리를 수동으로 동기화할 수 있습니다. 또는 엔터프라이즈 구성원이 {% data variables.product.prodname_github_connect %}를 사용하여 {% data variables.product.prodname_dotcom_the_website %}의 작업에 자동으로 액세스하도록 허용할 수 있습니다. 자세한 내용은 다음 항목을 참조하십시오.
 
    {%- ifversion ghes or ghae %}
-   - "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)"
-   - "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
-   {%- elsif ghec %}
-   - "Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) documentation
-   - "Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}" in the [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) or [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) documentation
-   {%- endif %}
+   - “[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}에서 수동으로 작업 동기화](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)”
+   - “[{% data variables.product.prodname_github_connect %}를 사용하여 {% data variables.product.prodname_dotcom_the_website %} 작업에 대한 자동 액세스 사용](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" {%- elsif ghec %}
+   - [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) 또는 [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom) 설명서의 “{% data variables.product.prodname_dotcom_the_website %}에서 작업 수동 동기화”
+   - [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) 또는 [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest//admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) 설명서의 “{% data variables.product.prodname_github_connect %}를 사용하여 {% data variables.product.prodname_dotcom_the_website %} 작업에 대한 자동 액세스를 사용하도록 설정” {%- endif %}
 
-- You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes or ghae %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
+- 자체 호스트 실행기 컴퓨터에서 사용할 수 있는 소프트웨어를 사용자 지정하거나 {% ifversion ghes or ghae %}{% data variables.product.prodname_dotcom_the_website %}을 사용하여 고객이 사용할 수 있는{% endif %} {% data variables.product.company_short %} 호스트 실행기와 유사한 소프트웨어를 실행하도록 실행기를 구성할 수 있습니다. {% data variables.product.prodname_actions %}를 위한 실행기 컴퓨터를 강화하는 소프트웨어는 오픈 소스입니다. 자세한 내용은 [`actions/runner`](https://github.com/actions/runner) 및 [`actions/runner-images`](https://github.com/actions/runner-images) 리포지토리를 참조하세요.
 
-## Further reading
+## 추가 참고 자료
 
-- "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service)"
-- "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)"
+- “[자체 호스트 실행기 애플리케이션을 서비스로 구성](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service)”
+- “[워크플로에서 자체 호스트 실행기 사용](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)”

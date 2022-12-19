@@ -1,6 +1,6 @@
 ---
-title: About merge methods on GitHub
-intro: 'You can allow contributors with push access to your repository to merge their pull requests on {% data variables.location.product_location %} with different merge options or enforce a specific merge method for all of your repository''s pull requests.'
+title: Informationen zu Merge-Methoden auf GitHub
+intro: 'Du kannst Mitwirkenden mit Pushzugriff auf dein Repository das Mergen ihrer Pull Requests auf {% data variables.product.product_location %} mit unterschiedlichen Mergeoptionen erlauben oder eine bestimmte Mergemethode für alle Pull Requests deiner Repositorys erzwingen.'
 redirect_from:
   - /articles/about-merge-methods-on-github
   - /github/administering-a-repository/about-merge-methods-on-github
@@ -13,38 +13,42 @@ versions:
 topics:
   - Repositories
 shortTitle: About merge methods
+ms.openlocfilehash: 97e8b7159ebadf1fe02ae56f707728c2bc8c439d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882441'
 ---
-{% data reusables.pull_requests.configure_pull_request_merges_intro %} You can enforce one type of merge method, such as commit squashing or rebasing, by only enabling the desired method for your repository.
+{% data reusables.pull_requests.configure_pull_request_merges_intro %} Du kannst eine Art von Mergemethode (z. B. Commitsquashing oder Rebasing) erzwingen, indem du nur die gewünschte Methode für dein Repository aktivierst.
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Hinweis**: Wenn du die Mergewarteschlange verwendest, kannst du die Mergemethode nicht mehr auswählen, weil diese von der Warteschlange gesteuert wird. {% data reusables.pull_requests.merge-queue-references %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.pull_requests.default_merge_option %}
 
-The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."
+Die Standard-Mergemethode erzeugt einen Merge-Commit. Du kannst verhindern, dass Merge-Commits an einen geschützten Branch übertragen werden, indem du einen linearen Commit-Verlauf erzwingst. Weitere Informationen findest du unter [Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-linear-history).
 
-## Squashing your merge commits
+## Deine Merge-Commits squashen
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-Before enabling squashing commits, consider these disadvantages:
-- You lose information about when specific changes were originally made and who authored the squashed commits.
-- If you continue working on the head branch of a pull request after squashing and merging, and then create a new pull request between the same branches, commits that you previously squashed and merged will be listed in the new pull request. You may also have conflicts that you have to repeatedly resolve in each successive pull request. For more information, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch)."
-- Some Git commands that use the "SHA" or "hash" ID may be harder to use since the SHA ID for the original commits is lost. For example, using [`git rerere`](https://git-scm.com/docs/git-rerere) may not be as effective.
+Bevor du das Commit-Squashing aktivierst, solltest du diese Nachteile berücksichtigen:
+- Du verlierst Informationen darüber, wann bestimmte Änderungen ursprünglich vorgenommen wurden und wer die Squash-Commits erstellt hat.
+- Wenn du nach dem Sqashen und Mergen die Arbeit am Headbranch eines Pull Requests fortsetzt und dann einen neuen Pull Request zwischen denselben Branches erstellst, werden zuvor gesquashte und gemergte Commits im neuen Pull Request aufgeführt. Möglicherweise treten auch Konflikte auf, die du in jedem nachfolgenden Pull Request wiederholt auflösen musst. Weitere Informationen findest du unter [Informationen zum Mergen von Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch).
+- Die Verwendung einiger Git-Befehle mit der „SHA“- oder „hash“-ID kann schwieriger sein, da die SHA-ID für die ursprünglichen Commits verloren geht. Beispielsweise ist die Verwendung von [`git rerere`](https://git-scm.com/docs/git-rerere) unter Umständen nicht so effektiv.
 
-For more information, see "[Configuring commit squashing for pull requests](/articles/configuring-commit-squashing-for-pull-requests)."
+Weitere Informationen findest du unter [Konfigurieren von Commit-Squashing für Pull Requests](/articles/configuring-commit-squashing-for-pull-requests).
 
-## Rebasing and merging your commits
+## Rebasing und Zusammenführen deiner Commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-Before enabling commit rebasing, consider these disadvantages:
-- Repository contributors may have to rebase on the command line, resolve any conflicts, and force push their changes to the pull request's topic branch (or remote head branch) before they can use the **rebase and merge** option on {% data variables.location.product_location %}. Force pushing must be done carefully so contributors don't overwrite work that others have based their work on. To learn more about when the **Rebase and merge** option is disabled on {% data variables.location.product_location %} and the workflow to re-enable it, see "[About pull request merges](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)."
+Bevor du das Commit-Rebasing aktivierst, sollten du diese Nachteile berücksichtigen:
+- Repositorymitarbeiter müssen unter Umständen ein Rebase in der Befehlszeile ausführen, Konflikte beheben und das Pushen ihrer Änderungen an den Topic-Branch (oder Remoteheadbranch) des Pull Requests erzwingen, damit sie die Option **Rebase ausführen and mergen** auf {% data variables.product.product_location %} verwenden können. Das Erzwingen eines Push muss mit Vorsicht durchgeführt werden, damit die Mitarbeiter die Arbeit nicht überschreiben, auf der andere ihre Arbeit aufgebaut haben. Weitere Informationen dazu, wann die Option **Rebase ausführen und mergen** für {% data variables.product.product_location %} deaktiviert wird, sowie zum Workflow für das erneute Aktivieren der Option findest du unter [Informationen zu Pull Request-Merges](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits).
 - {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
-For more information, see "[Configuring commit rebasing for pull requests](/articles/configuring-commit-rebasing-for-pull-requests)."
+Weitere Informationen findest du unter [Konfigurieren eines Commit-Rebase für Pull Requests](/articles/configuring-commit-rebasing-for-pull-requests).

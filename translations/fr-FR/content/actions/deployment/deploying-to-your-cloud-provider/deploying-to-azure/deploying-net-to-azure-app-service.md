@@ -1,6 +1,6 @@
 ---
-title: Deploying .NET to Azure App Service
-intro: You can deploy your .NET project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Déploiement de .NET sur Azure App Service
+intro: Vous pouvez déployer votre projet .NET sur Azure App Service dans le cadre de vos workflows de déploiement continu (CD).
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,34 +10,38 @@ type: tutorial
 topics:
   - CD
   - Azure App Service
+ms.openlocfilehash: cb71e0016157d7d1fdd366819840ea90d104e8dc
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147410034'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a .NET project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Ce guide explique comment utiliser {% data variables.product.prodname_actions %} pour créer et déployer un projet .NET sur [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Remarque :** {% data reusables.actions.about-oidc-short-overview %} et « [Configuration d’OpenID Connecter dans Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) ».
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Prérequis
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+Avant de créer votre workflow {% data variables.product.prodname_actions %}, vous devez suivre les étapes de configuration suivantes :
 
 {% data reusables.actions.create-azure-app-plan %}
 
-2. Create a web app.
+2. Créez une application web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a .NET runtime:
+   Par exemple, vous pouvez utiliser Azure CLI pour créer une application web Azure App Service avec un runtime .NET :
 
    ```bash{:copy}
    az webapp create \
@@ -47,19 +51,19 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "DOTNET|5.0"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   Dans la commande ci-dessus, remplacez les paramètres par vos propres valeurs, où `MY_WEBAPP_NAME` est un nouveau nom pour l’application web.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+5. Si vous le souhaitez, configurez un environnement de déploiement. {% data reusables.actions.about-environments %}
 
-## Creating the workflow
+## Création du workflow
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Une fois que vous avez terminé les prérequis, vous pouvez passer à la création du workflow.
 
-The following example workflow demonstrates how to build and deploy a .NET project to Azure App Service when there is a push to the `main` branch.
+L’exemple de workflow suivant montre comment créer et déployer un projet .NET sur Azure App Service lorsqu’il existe une poussée (push) vers la branche `main`.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`.  If you use a version of .NET other than `5`, change `DOTNET_VERSION`.
+Vérifiez que vous définissez `AZURE_WEBAPP_NAME` dans la clé `env` du workflow sur le nom de l’application web que vous avez créée. Si le chemin d’accès à votre projet n’est pas la racine du dépôt, modifiez `AZURE_WEBAPP_PACKAGE_PATH`.  Si vous utilisez une version de .NET autre que `5`, modifiez `DOTNET_VERSION`.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -134,10 +138,10 @@ jobs:
           package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
 
-## Additional resources
+## Ressources supplémentaires
 
-The following resources may also be useful:
+Les ressources suivantes peuvent également être utiles :
 
-* For the original starter workflow, see [`azure-webapps-dotnet-core.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-dotnet-core.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Pour le workflow de démarrage d’origine, consultez [`azure-webapps-dotnet-core.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-dotnet-core.yml) dans le dépôt `starter-workflows` de {% data variables.product.prodname_actions %}.
+* L’action utilisée pour déployer l’application web est l’action Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) officielle.
+* Pour obtenir d’autres exemples de workflows GitHub Action qui se déploient sur Azure, reportez-vous au dépôt [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

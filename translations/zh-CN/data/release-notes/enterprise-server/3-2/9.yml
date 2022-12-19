@@ -1,0 +1,20 @@
+date: '2022-02-17'
+sections:
+  security_fixes:
+    - 用户可以注册名为“saml”的用户或组织。
+    - 包已更新到最新安全版本。 
+  bugs:
+    - 使用 Azure Blob 存储时，无法验证 GitHub Packages 存储设置并将其保存在管理控制台中。 
+    - mssql.backup.cadence 配置选项的 ghe-config-check 失败，并发出无效字符集警告。
+    - 修复从 memcached 获取超过 2<sup>^16</sup> 个密钥时的 SystemStackError（堆栈太深）。 
+  changes:
+    - 机密扫描将跳过扫描 ZIP 和其他存档文件的机密。 
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

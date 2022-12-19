@@ -1,0 +1,20 @@
+date: '13/05/2021'
+sections:
+  security_fixes:
+    - "**ALTO:** Foi identificada uma vulnerabilidade de falsa representação da interface do usuário no GitHub Enterprise Server que permitia que mais permissões fossem concedidas durante o fluxo de autorização de usuário da Web do aplicativo do GitHub do que eram exibidas para o usuário durante a aprovação. Para explorar esta vulnerabilidade, um invasor precisaria criar um aplicativo do GitHub na instância e fazer com que um usuário autorizasse o aplicativo através do fluxo de autenticação da Web. A concessão de todas as permissões seria mostrados durante a primeira autorização, mas em determinadas circunstâncias, se o usuário visitar novamente o fluxo de autorização depois que o aplicativo do GitHub configurou as permissões adicionais do nível do usuário, estas permissões adicionais podem não ser exibidas, fazendo com que mais permissões fossem concedidas do que o usuário possivelmente intencionava. Esta vulnerabilidade afetou GitHub Enterprise Server 3.0.x anterior à 3.0.7 e 2.22.x anterior à 2.22.13. Ela foi corrigida nas versões 3.0.7 e 2.22.13. Essa vulnerabilidade foi designada CVE-2021-22866 e foi relatada pelo [Programa de Recompensas por Bugs do GitHub](https://bounty.github.com/)."
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - A falha automática do Orchestrator poderia ser habilitada durante a fase de configuração.
+    - Usuários com permissões de mantenedor para um repositório foram mostrados um aviso de verificação de email em vez de uma compilação de páginas bem sucedida na página de configurações do repositório.
+    - O proprietário do código de uma regra curinga seria adicionado incorretamente à lista de proprietários para o selo do código mesmo se uma regra posterior tivesse prioridade para esse caminho.
+    - A documentação do OpenAPI referia-se a um cabeçalho inválido.
+  changes:
+    - Registro adicionado para mudança de configuração na recarga do HAProdi.
+    - Registro adicionado para criação de repositório.
+  known_issues:
+    - "Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador."
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório em que o caminho do arquivo tem mais de 255 caracteres.
+    - "Quando \"Usuários podem pesquisar pelo GitHub.com\" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com."
+    - "Quando um nó de réplica está offline em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó offline, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários."

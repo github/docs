@@ -1,6 +1,6 @@
 ---
-title: Securing your GitHub Pages site with HTTPS
-intro: 'HTTPS adds a layer of encryption that prevents others from snooping on or tampering with traffic to your site. You can enforce HTTPS for your {% data variables.product.prodname_pages %} site to transparently redirect all HTTP requests to HTTPS.'
+title: Sécurisation de votre site GitHub Pages avec HTTPS
+intro: 'HTTPS ajoute une couche de chiffrement qui empêche d’autres utilisateurs d’espionner ou de falsifier le trafic vers votre site. Vous pouvez appliquer le protocole HTTPS à votre site {% data variables.product.prodname_pages %} pour rediriger en toute transparence toutes les requêtes HTTP vers HTTPS.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
@@ -11,13 +11,18 @@ versions:
 topics:
   - Pages
 shortTitle: Secure site with HTTPS
+ms.openlocfilehash: fb1ce5b0a0f5c19ac58ef0b93cb379f807a89fe4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146273065'
 ---
+Les personnes disposant d’autorisations d’administrateur sur un dépôt peuvent appliquer HTTPS pour un site {% data variables.product.prodname_pages %}.
 
-People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.
+## À propos de HTTPS et de {% data variables.product.prodname_pages %}
 
-## About HTTPS and {% data variables.product.prodname_pages %}
-
-All {% data variables.product.prodname_pages %} sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" and "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)."
+Tous les sites {% data variables.product.prodname_pages %}, y compris les sites correctement configurés avec un domaine personnalisé, prennent en charge HTTPS et l’application de HTTPS. Pour plus d’informations sur les domaines personnalisés, consultez « [À propos des domaines personnalisés et de {% data variables.product.prodname_pages %} » et ](/articles/about-custom-domains-and-github-pages) « [Résolution des problèmes liés aux domaines personnalisés et à {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors) ».
 
 {% data reusables.pages.no_sensitive_data_pages %}
 
@@ -25,45 +30,43 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% note %}
 
-**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+**Remarque :** RFC3280 indique que la longueur maximale du nom commun doit être de 64 caractères. Par conséquent, le nom de domaine entier de votre site {% data variables.product.prodname_pages %} doit être inférieur à 64 caractères pour qu’un certificat soit correctement créé.
 
 {% endnote %}
 
-## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
+## Application du protocole HTTPS pour votre site {% data variables.product.prodname_pages %}
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
-  ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+3. Sous « {% data variables.product.prodname_pages %} », sélectionnez **Appliquer HTTPS**.
+  ![Case à cocher Appliquer HTTPS](/assets/images/help/pages/enforce-https-checkbox.png)
 
-## Troubleshooting certificate provisioning ("Certificate not yet created" error)
+## Résolution des problèmes de provisionnement de certificats (erreur de type « Certificat pas encore créé »)
 
-When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+Lorsque vous définissez ou modifiez votre domaine personnalisé dans les paramètres Pages, une vérification DNS automatique commence. Cette vérification détermine si vos paramètres DNS sont configurés pour autoriser {% data variables.product.prodname_dotcom %} à obtenir automatiquement un certificat. Si la vérification réussit, {% data variables.product.prodname_dotcom %} met en file d’attente un travail pour demander un certificat TLS à partir de [Let's Encrypt](https://letsencrypt.org/). Lors de la réception d’un certificat valide, {% data variables.product.prodname_dotcom %} le charge automatiquement sur les serveurs qui gèrent l’arrêt TLS pour Pages. Une fois ce processus terminé, une coche s’affiche à côté de votre nom de domaine personnalisé.
 
-The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
+Le processus peut prendre du temps. Si le processus n’est pas terminé plusieurs minutes après avoir cliqué sur **Enregistrer**, essayez de cliquer sur **Supprimer** en regard de votre nom de domaine personnalisé. Retapez le nom de domaine, puis cliquez à nouveau sur **Enregistrer**. Cela annule et redémarre le processus de provisionnement.
 
-## Resolving problems with mixed content
+## Résolution des problèmes liés aux contenus mixtes
 
-If you enable HTTPS for your {% data variables.product.prodname_pages %} site but your site's HTML still references images, CSS, or JavaScript over HTTP, then your site is serving *mixed content*. Serving mixed content may make your site less secure and cause trouble loading assets.
+Si vous activez HTTPS pour votre site {% data variables.product.prodname_pages %}, mais que le code HTML de votre site référence toujours des images, CSS ou JavaScript sur HTTP, votre site gère des *contenus mixtes*. La prise en charge de contenus mixtes peut rendre votre site moins sécurisé et causer des problèmes de chargement des ressources.
 
-To remove your site's mixed content, make sure all your assets are served over HTTPS by changing `http://` to `https://` in your site's HTML.
+Pour supprimer les contenus mixtes de votre site, vérifiez que toutes vos ressources sont gérées sur HTTPS en remplaçant `http://` par `https://` dans le code HTML de votre site.
 
-Assets are commonly found in the following locations:
-- If your site uses Jekyll, your HTML files will probably be found in the *_layouts* folder.
-- CSS is usually found in the `<head>` section of your HTML file.
-- JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
-- Images are often found in the `<body>` section.
+Les ressources se trouvent généralement aux emplacements suivants :
+- Si votre site utilise Jekyll, vos fichiers HTML se trouvent probablement dans le dossier *_layouts*.
+- CSS se trouve généralement dans la section `<head>` de votre fichier HTML.
+- JavaScript se trouve généralement dans la section `<head>` ou juste avant la balise de fermeture `</body>`.
+- Les images se trouvent souvent dans la section `<body>`.
 
 {% tip %}
 
-**Tip:** If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
+**Conseil :** Si vous ne trouvez pas vos ressources dans les fichiers sources de votre site, essayez de rechercher dans les fichiers sources de votre site `http` dans votre éditeur de texte ou sur {% data variables.product.product_name %}.
 
 {% endtip %}
 
-### Examples of assets referenced in an HTML file
+### Exemples de ressources référencées dans un fichier HTML
 
-| Asset type | HTTP                                      | HTTPS                             |
+| Type de ressource | HTTP                                      | HTTPS                             |
 |:----------:|:-----------------------------------------:|:---------------------------------:|
 | CSS        | `<link rel="stylesheet" href="http://example.com/css/main.css">` | `<link rel="stylesheet" href="https://example.com/css/main.css">`
 | JavaScript   |  `<script type="text/javascript" src="http://example.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://example.com/js/main.js"></script>`

@@ -1,6 +1,6 @@
 ---
-title: About GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.'
+title: GitHub Pages 정보
+intro: '{% 데이터 variables.product.prodname_pages %}을(를) 사용하여 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}의 리포지토리에서 직접 본인, 조직 또는 프로젝트에 대한 웹 사이트를 호스트할 수 있습니다.'
 redirect_from:
   - /articles/what-are-github-pages
   - /articles/what-is-github-pages
@@ -18,134 +18,130 @@ versions:
   ghec: '*'
 topics:
   - Pages
+ms.openlocfilehash: 1717726156a59f5f1216e62707d7c0fa26518956
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094443'
 ---
+## {% data variables.product.prodname_pages %} 정보
 
-## About {% data variables.product.prodname_pages %}
+{% data variables.product.prodname_pages %}는 {% data variables.product.product_name %}의 리포지토리에서 HTML, CSS 및 JavaScript 파일을 직접 가져와서 필요에 따라 빌드 프로세스를 통해 파일을 실행하고 웹 사이트를 게시하는 정적 사이트 호스팅 서비스입니다. {% data variables.product.prodname_pages %} 사이트의 예는 [{% data variables.product.prodname_pages %} 예제 컬렉션](https://github.com/collections/github-pages-examples)에서 확인할 수 있습니다.
 
-{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on {% data variables.product.product_name %}, optionally runs the files through a build process, and publishes a website. You can see examples of {% data variables.product.prodname_pages %} sites in the [{% data variables.product.prodname_pages %} examples collection](https://github.com/collections/github-pages-examples).
-
-{% ifversion fpt or ghec %}
-You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. For more information, see "[Using a custom domain with {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)."
+{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %}의 `github.io` 도메인 또는 사용자 지정 도메인에서 사이트를 호스트할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_pages %}에서 사용자 지정 도메인 사용](/articles/using-a-custom-domain-with-github-pages)”을 참조하세요.
 {% endif %}
 
-{% ifversion fpt or ghec %}
-{% data reusables.pages.about-private-publishing %} For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% ifversion fpt or ghec %} {% data reusables.pages.about-private-publishing %} 자세한 내용은 {% data variables.product.prodname_ghe_cloud %} 설명서에서 [ "{% data variables.product.prodname_pages %} 사이트의 표시 유형 변경]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %}"을 참조하세요.{% else %}."{% endif %} {% endif %}
+
+시작하려면 “[{% data variables.product.prodname_pages %} 사이트 만들기](/articles/creating-a-github-pages-site)”를 참조하세요.
+
+{% ifversion fpt or ghes or ghec %} 조직 소유자는 조직의 리포지토리에서 {% data variables.product.prodname_pages %} 사이트의 게시를 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 “[조직의 {% data variables.product.prodname_pages %} 사이트의 게시 관리](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”를 참조하세요.
 {% endif %}
 
-To get started, see "[Creating a {% data variables.product.prodname_pages %} site](/articles/creating-a-github-pages-site)."
+## {% data variables.product.prodname_pages %} 사이트 유형
 
-{% ifversion fpt or ghes or ghec %}
-Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+{% data variables.product.prodname_pages %} 사이트에는 프로젝트, 사용자 및 조직, 이렇게 세 가지 유형이 있습니다. 프로젝트 사이트는 JavaScript 라이브러리 또는 레시피 컬렉션과 같이 {% data variables.product.product_name %}에서 호스트되는 특정 프로젝트에 연결됩니다. 사용자 및 조직 사이트는 {% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}의 특정 계정에 연결됩니다.
+
+사용자 사이트를 게시하려면 {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}이라는 개인 계정이 소유한 리포지토리를 만들어야 합니다. 조직 사이트를 게시하려면 {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}이라는 조직이 소유한 리포지토리를 만들어야 합니다. {% ifversion fpt or ghec %}사용자 지정 도메인을 사용하지 않는 한 사용자 및 조직 사이트는 `http(s)://<username>.github.io` 또는 `http(s)://<organization>.github.io`에서 사용할 수 있습니다.{% elsif ghae %}사용자 및 조직 사이트는 `http(s)://pages.<hostname>/<username>` 또는 `http(s)://pages.<hostname>/<organization>`에서 사용할 수 있습니다.{% endif %}
+
+프로젝트 사이트의 원본 파일은 프로젝트와 동일한 리포지토리에 저장됩니다. {% ifversion fpt or ghec %}사용자 지정 도메인을 사용하지 않는 경우 프로젝트 사이트는 `http(s)://<username>.github.io/<repository>` 또는 `http(s)://<organization>.github.io/<repository>`에서 사용할 수 있습니다.{% elsif ghae %}프로젝트 사이트는 `http(s)://pages.<hostname>/<username>/<repository>/` 또는 `http(s)://pages.<hostname>/<organization>/<repository>/`에서 사용할 수 있습니다.{% endif %}
+
+{% ifversion ghec %} 사이트를 비공개로 게시하는 경우 사이트의 URL이 달라집니다. 자세한 내용은 “[{% data variables.product.prodname_pages %} 사이트의 표시 유형 변경](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”을 참조하세요.
 {% endif %}
 
-## Types of {% data variables.product.prodname_pages %} sites
-
-There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.product_name %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
-
-To publish a user site, you must create a repository owned by your personal account that's named {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif ghae %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
-
-The source files for a project site are stored in the same repository as their project. {% ifversion fpt or ghec %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif ghae %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
-
-{% ifversion ghec %}
-If you publish your site privately, the URL for your site will be different. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% ifversion fpt or ghec %} 사용자 지정 도메인이 사이트의 URL에 미치는 영향에 대한 자세한 내용은 “[사용자 지정 도메인 및 {% data variables.product.prodname_pages %} 정보](/articles/about-custom-domains-and-github-pages)”를 참조하세요.
 {% endif %}
 
-{% ifversion fpt or ghec %}
-For more information about how custom domains affect the URL for your site, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)."
-{% endif %}
+{% data variables.product.product_name %}에서 각 계정에 대해 하나의 사용자 또는 조직 사이트만 만들 수 있습니다. 조직 또는 개인 계정이 소유하든 관계 없이 프로젝트 사이트는 무제한입니다.
 
-You can only create one user or organization site for each account on {% data variables.product.product_name %}. Project sites, whether owned by an organization or a personal account, are unlimited.
+{% ifversion ghes %} 사이트를 사용할 수 있는 URL은 {% 데이터 variables.location.product_location %}에 하위 도메인 격리를 사용할 수 있는지 여부에 따라 달라집니다.
 
-{% ifversion ghes %}
-The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.location.product_location %}.
-
-| Type of site | Subdomain isolation enabled | Subdomain isolation disabled |
+| 사이트 유형 | 하위 도메인 격리 사용 | 하위 도메인 격리 사용 안 함 |
 | ------------ | --------------------------- | ---------------------------- |
-User | `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` |
-Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` |
-Project site owned by personal account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/`
-Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+사용자 | `http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` |
+조직 | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` |
+개인 계정이 소유한 프로젝트 사이트 | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/`
+조직 계정이 소유한 프로젝트 사이트 | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
-For more information, see "[Enabling subdomain isolation](/enterprise/admin/installation/enabling-subdomain-isolation)" or contact your site administrator.
+자세한 내용은 “[하위 도메인 격리 사용](/enterprise/admin/installation/enabling-subdomain-isolation)”을 참조하거나 사이트 관리자에게 문의하세요.
 {% endif %}
 
-## Publishing sources for {% data variables.product.prodname_pages %} sites
+## {% data variables.product.prodname_pages %} 사이트에 대한 원본 게시
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.pages.pages-about-publishing-source %}
 
-For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+자세한 내용은 "[GitHub Pages 사이트에 대한 게시 원본 구성](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)"을(를) 참조하세요.
 
 {% ifversion ghec %}
-## Limitations for {% data variables.product.prodname_emus %}
-If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
+## {% data variables.product.prodname_emus %}에 대한 제한 사항
+{% 데이터 variables.enterprise.prodname_managed_user %}인 경우 {% 데이터 variables.product.prodname_pages %}의 사용이 제한됩니다.
 
-  - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
-  - {% data variables.product.prodname_pages %} sites are only visible to other members of the enterprise.
-  - You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
+  - {% data variables.product.prodname_pages %} 사이트는 조직이 소유한 리포지토리에서만 게시할 수 있습니다.
+  - {% data variables.product.prodname_pages %} 사이트는 엔터프라이즈의 다른 멤버에게만 표시됩니다.
+  - 조직 사이트(이름이 지정된 `<organization>.github.io`리포지토리에서 게시된 사이트)를 만들 수 없습니다.
 
-For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+{% data variables.product.prodname_emus %}에 대한 자세한 내용은 “[{% data variables.product.prodname_emus %} 정보](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)”를 참조하세요.
 {% endif %}
 
-## Static site generators
+## 정적 사이트 생성기
 
-{% data variables.product.prodname_pages %} publishes any static files that you push to your repository. You can create your own static files or use a static site generator to build your site for you. You can also customize your own build process locally or on another server.
+{% data variables.product.prodname_pages %}는 리포지토리에 푸시하는 정적 파일을 게시합니다. 사용자 고유의 정적 파일을 만들거나 정적 사이트 생성기를 사용하여 자동으로 사이트를 빌드할 수 있습니다. 로컬 또는 다른 서버에서 사용자 고유의 빌드 프로세스를 사용자 지정할 수도 있습니다.
 
 {% ifversion pages-custom-workflow %}
 
-If you use a custom build process or a static site generator other than Jekyll, you can write a {% data variables.product.prodname_actions %} to build and publish your site. {% data variables.product.product_name %} provides starter workflows for several static site generators. For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+사용자 지정 빌드 프로세스 또는 Jekyll 이외의 정적 사이트 생성기를 사용하는 경우 {% data variables.product.prodname_actions %}을(를) 작성하여 사이트를 빌드하고 게시할 수 있습니다. {% data variables.product.product_name %}은(는) 여러 정적 사이트 생성기에 대한 시작 워크플로를 제공합니다. 자세한 내용은 "[GitHub Pages 사이트에 대한 게시 원본 구성](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)"을(를) 참조하세요.
 
-If you publish your site from a source branch, {% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, we recommend that you write a {% data variables.product.prodname_actions %} to build and publish your site instead. Otherwise, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
+원본 분기에서 사이트를 게시하는 경우 {% data variables.product.prodname_pages %}은(는) Jekyll을 사용하여 기본적으로 사이트를 빌드합니다. Jekyll 이외의 정적 사이트 생성기를 사용하려면 {% data variables.product.prodname_actions %}을(를) 작성하여 사이트를 빌드하고 게시하는 것이 좋습니다. 그렇지 않으면 게시 원본의 루트에서 `.nojekyll`이라는 빈 파일을 만들어 Jekyll 빌드 프로세스를 사용하지 않도록 설정한 다음 정적 사이트 생성기의 지침에 따라 사이트를 로컬로 빌드합니다.
 
 {% else %}
 
-We recommend Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
+{% data variables.product.prodname_pages %} 및 간소화된 빌드 프로세스를 기본적으로 지원하는 정적 사이트 생성기인 Jekyll을 사용하는 것이 좋습니다. 자세한 내용은 “[{% data variables.product.prodname_pages %} 및 Jekyll 정보](/articles/about-github-pages-and-jekyll)”를 참조하세요.
 
-{% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
+{% data variables.product.prodname_pages %}는 기본적으로 Jekyll을 사용하여 사이트를 빌드합니다. Jekyll 이외의 정적 사이트 생성기를 사용하려면 게시 원본의 루트에서 `.nojekyll`하는 빈 파일을 만들어 Jekyll 빌드 프로세스를 사용하지 않도록 설정한 다음 정적 사이트 생성기의 지침에 따라 사이트를 로컬로 빌드합니다.
 
 {% endif %}
 
-{% data variables.product.prodname_pages %} does not support server-side languages such as PHP, Ruby, or Python.
+{% data variables.product.prodname_pages %}에서는 PHP, Ruby 또는 Python과 같은 서버 쪽 언어를 지원하지 않습니다.
 
-## Limits on use of {% data variables.product.prodname_pages %}
+## {% data variables.product.prodname_pages %}의 사용 제한
 
+{% ifversion fpt or ghec %} {% data variables.product.prodname_pages %} 사이트는 2016년 6월 15일 이후에 만들었으며 `github.io` 도메인 사용은 HTTPS를 통해 제공됩니다. 2016년 6월 15일 이전에 사이트를 만든 경우 사이트로의 트래픽에 대해 HTTPS 지원을 사용하도록 설정할 수 있습니다. 자세한 내용은 “[HTTPS를 사용하여 {% data variables.product.prodname_pages %} 사이트 보호](/articles/securing-your-github-pages-site-with-https)”를 참조하세요.
+
+### 허용되지 않는 사용
+{% endif %} {% data variables.product.prodname_pages %}는 온라인 비즈니스, 전자 상거래 사이트 또는 상업적 거래를 촉진하거나 SaaS(Software as a Service)를 제공하는 데 주로 사용되는 다른 웹 사이트를 실행하기 위한 무료 웹 호스팅 서비스로 사용할 수 없습니다. {% data reusables.pages.no_sensitive_data_pages %}
+
+또한 {% data variables.product.prodname_pages %}의 사용에는 풍부한 구성표, 외설적인 콘텐츠, 폭력적이거나 위협적인 콘텐츠 또는 활동에 대한 제한을 포함하여 [GitHub 서비스 약관](/free-pro-team@latest/github/site-policy/github-terms-of-service/)이 적용됩니다.
+
+### 사용 제한
+{% data variables.product.prodname_pages %} 사이트에는 다음과 같은 사용 제한이 적용됩니다.
+
+  - {% data variables.product.prodname_pages %} 소스 리포지토리의 권장 제한은 1GB입니다.{% ifversion fpt or ghec %} 자세한 내용은 “[내 디스크 할당량이란?](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)” {% endif %}
+  - 게시된 {% data variables.product.prodname_pages %} 사이트는 1GB 이하일 수 있습니다.
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_pages %} sites created after June 15, 2016, and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[Securing your {% data variables.product.prodname_pages %} with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+  - {% data variables.product.prodname_pages %} 사이트에는 매월 100GB의 *소프트* 대역폭 제한이 있습니다.
+  - {% data variables.product.prodname_pages %} 사이트에는 시간당 10개의 *소프트* 제한이 있습니다.{% ifversion pages-custom-workflow %} 사용자 지정 {% data variables.product.prodname_actions %} 워크플로를 사용하여 사이트를 빌드하고 게시하는 경우에는 이 제한이 적용되지 않습니다.{% endif %}
+  - 모든 {% data variables.product.prodname_pages %} 사이트에 일관된 서비스 품질을 제공하기 위해 속도 제한이 적용될 수 있습니다. 이러한 속도 제한은 {% data variables.product.prodname_pages %}의 합법적인 사용을 방해하기 위한 것이 아닙니다. 요청이 속도 제한을 트리거하는 경우 정보를 제공하는 HTML 본문과 함께 HTTP 상태 코드가 `429`인 적절한 응답을 받게 됩니다.
 
-### Prohibited uses
-{% endif %}
-{% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web-hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). {% data reusables.pages.no_sensitive_data_pages %}
-
-In addition, your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/), including the restrictions on get-rich-quick schemes, sexually obscene content, and violent or threatening content or activity.
-
-### Usage limits
-{% data variables.product.prodname_pages %} sites are subject to the following usage limits:
-
-  - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)"{% endif %}
-  - Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
-{% ifversion fpt or ghec %}
-  - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
-  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
-  - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
-
-If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
+사이트가 이러한 사용 할당량을 초과하면 사이트를 제공하지 못하거나 {% data variables.contact.contact_support %}에서 사이트 앞에 타사 CDN(Content Distribution Network)을 배치하거나, 릴리스와 같은 다른 {% data variables.product.prodname_dotcom %} 기능을 사용하거나, 요구 사항에 더 잘 맞는 다른 호스팅 서비스로 이동하는 등 사이트에 미치는 영향을 줄이기 위한 전략을 제안하는 친절한 메일을 받을 수 있습니다.
 
 {% endif %}
 
-## MIME types on {% data variables.product.prodname_pages %}
+## {% data variables.product.prodname_pages %}의 MIME 형식
 
-A MIME type is a header that a server sends to a browser, providing information about the nature and format of the files the browser requested. {% data variables.product.prodname_pages %} supports more than 750 MIME types across thousands of file extensions. The list of supported MIME types is generated from the [mime-db project](https://github.com/jshttp/mime-db).
+MIME 형식은 서버가 브라우저로 보내는 헤더로, 브라우저에서 요청한 파일의 특성 및 형식에 대한 정보를 제공합니다. {% data variables.product.prodname_pages %}는 수천 개의 파일 확장명 중 750개 이상의 MIME 형식을 지원합니다. 지원되는 MIME 형식 목록은 [mime-db 프로젝트에서](https://github.com/jshttp/mime-db) 생성됩니다.
 
-While you can't specify custom MIME types on a per-file or per-repository basis, you can add or modify MIME types for use on {% data variables.product.prodname_pages %}. For more information, see [the mime-db contributing guidelines](https://github.com/jshttp/mime-db#adding-custom-media-types).
+파일별 또는 리포지토리별로 사용자 지정 MIME 형식을 지정할 수는 없지만 {% data variables.product.prodname_pages %}에서 사용할 MIME 형식을 추가하거나 수정할 수 있습니다. 자세한 내용은 [mime-db 기여 지침](https://github.com/jshttp/mime-db#adding-custom-media-types).
 
 {% ifversion fpt %}
-## Data collection
+## 데이터 수집
 
-When a {% data variables.product.prodname_pages %} site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed into {% data variables.product.prodname_dotcom %} or not. For more information about {% data variables.product.prodname_dotcom %}'s security practices, see <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Privacy Statement</a>.
+{% data variables.product.prodname_pages %} 사이트를 방문하면 방문자가 {% data variables.product.prodname_dotcom %}에 로그인했는지 여부에 관계없이 보안 목적으로 방문자의 IP 주소가 기록되고 저장됩니다. {% data variables.product.prodname_dotcom %}의 보안 사례에 대한 자세한 내용은 <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} 개인정보처리방침</a>을 참조하세요.
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) on {% data variables.product.prodname_learning %}
-- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"
+- {% data variables.product.prodname_learning %}의 [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages)
+- “[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)”

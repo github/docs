@@ -1,6 +1,6 @@
 ---
-title: 'Changing {% data variables.product.prodname_project_v1 %} visibility'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
+title: 'Changement de la visibilité de {% data variables.product.prodname_project_v1 %}'
+intro: 'En tant que propriétaire d’organisation ou administrateur de {% data variables.projects.projects_v1_board %}, vous pouvez créer un {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interne{% else %}public{% endif %} ou privé.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
@@ -11,6 +11,12 @@ topics:
   - Pull requests
 shortTitle: Change visibility
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 445675ee14c1d1fb47ded4321ae6ac8816fa6d6f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108484'
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -18,15 +24,13 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
+**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Remarque{% endif %} :** {% ifversion classic-project-visibility-permissions %}
 
 * {% data reusables.projects.owners-can-limit-visibility-permissions %}
-* {% endif %}When you make your {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[{% data variables.product.prodname_project_v1_caps %} permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+* {% endif %}Lorsque vous créez votre {% data variables.projects.projects_v1_board %} {% ifversion ghae %}interne{% else %}public{% endif %}, les membres de l’organisation reçoivent un accès en lecture par défaut. Vous pouvez accorder à des membres spécifiques de l’organisation des autorisations d’écriture ou d’administration en donnant l’accès aux équipes dont ils font partie ou en les ajoutant au {% data variables.projects.projects_v1_board %} en tant que collaborateurs. Pour plus d’informations, consultez « [Autorisations des {% data variables.product.prodname_project_v1_caps %} d’une organisation](/articles/project-board-permissions-for-an-organization) ».
 
 {% endnote %}
 
-1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.choose-visibility %}
-1. Click **Save**.
+1. Accédez au tableau de projet que vous souhaitez rendre {% ifversion ghae %}interne{% else %}public{% endif %} ou privé.
+{% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.choose-visibility %}
+1. Cliquez sur **Enregistrer**.

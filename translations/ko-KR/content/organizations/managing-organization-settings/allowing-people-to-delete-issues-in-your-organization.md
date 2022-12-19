@@ -1,6 +1,6 @@
 ---
-title: Allowing people to delete issues in your organization
-intro: Organization owners can allow certain people to delete issues in repositories owned by your organization.
+title: 사용자가 조직에서 문제를 삭제할 수 있도록 허용
+intro: 조직 소유자는 특정 사용자가 조직 소유의 리포지토리에서 이슈를 삭제하도록 허용할 수 있습니다.
 redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
@@ -13,15 +13,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Allow issue deletion
+ms.openlocfilehash: 6396b54d7a6e7113344935e4229843f580c246b6
+ms.sourcegitcommit: 219fb805abddaef3e5547638bd798da890020bfd
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878446'
 ---
+기본적으로 조직의 리포지토리에서 문제를 삭제할 수 없습니다. 조직 소유자는 먼저 조직의 모든 리포지토리에 대해 이 기능을 사용하도록 설정해야 합니다.
 
-By default, issues cannot be deleted in an organization's repositories. An organization owner must enable this feature for all of the organization's repositories first.
+활성화되면 조직 소유자와 조직 소유 리포지토리에서 관리자 액세스 권한이 있는 사용자가 문제를 삭제할 수 있습니다. 리포지토리에서 관리자 액세스 권한이 있는 사용자는 관리자 액세스 권한이 부여된 조직 구성원 및 외부 협력자를 포함합니다. 자세한 내용은 "[조직의 리포지토리 역할](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" 및 "[문제 삭제](/articles/deleting-an-issue)"를 참조하세요.
 
-Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Under "Issue deletion", select **Allow members to delete issues for this organization**.
-![Checkbox to allow people to delete issues](/assets/images/help/settings/issue-deletion.png)
-6. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
+5. "문제 삭제"에서 **구성원이 이 조직의 문제를 삭제할 수 있도록 허용** 을 선택합니다.
+![사용자가 문제를 삭제할 수 있도록 하는 확인란](/assets/images/help/settings/issue-deletion.png)
+6. **저장** 을 클릭합니다.

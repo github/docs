@@ -1,6 +1,6 @@
 ---
-title: Setting a backup email address
-intro: 'Use a backup email address as an additional destination for security-relevant account notifications{% ifversion not ghae %} and to securely reset your password if you can no longer access your primary email address{% endif %}.'
+title: Définition d’une adresse e-mail de secours
+intro: 'Utilisez une adresse e-mail de secours comme destination supplémentaire pour les notifications relatives à la sécurité du compte{% ifversion not ghae %} et pour réinitialiser votre mot de passe en toute sécurité si vous ne pouvez plus accéder à votre adresse e-mail principale{% endif %}.'
 redirect_from:
   - /articles/setting-a-backup-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-a-backup-email-address
@@ -15,14 +15,19 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Set backup email address
+ms.openlocfilehash: d977425fd672164400355cc7d9209d5a79e7cd34
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164970'
 ---
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. Under "Backup email address," select the address you want to set as your backup email address using the drop-down menu.
-![Backup email address](/assets/images/help/settings/backup-email-address.png)
-4. Click **Save**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Sous « Adresse e-mail de secours », sélectionnez l’adresse que vous souhaitez définir comme adresse e-mail de secours à l’aide du menu déroulant.
+![Adresse e-mail de secours](/assets/images/help/settings/backup-email-address.png)
+4. Cliquez sur **Enregistrer**.
 
-## Further reading
+## Pour aller plus loin
 
-- "[Managing email preferences](/articles/managing-email-preferences/)"
-- "[Updating your GitHub access credentials](/articles/updating-your-github-access-credentials/)"
+- « [Gestion des préférences de messagerie](/articles/managing-email-preferences/) »
+- « [Mise à jour de vos informations d’identification d’accès à GitHub](/articles/updating-your-github-access-credentials/) »

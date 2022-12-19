@@ -41,7 +41,7 @@ jobs:
             language_dir: translations/pt-BR
             language_repo: github/docs-internal.pt-br
 
-          - language: cn
+          - language: zh
             language_dir: translations/zh-CN
             language_repo: github/docs-internal.zh-cn
 
@@ -104,7 +104,7 @@ jobs:
           git commit -m "Add translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
 

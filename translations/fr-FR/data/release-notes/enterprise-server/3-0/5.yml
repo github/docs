@@ -1,0 +1,28 @@
+date: '14/04/2021'
+intro: "Les exigences minimales d’infrastructure ont augmenté pour {% data variables.product.prodname_ghe_server %} 3.0+. Pour plus d’informations, consultez « [À propos des exigences minimales pour GitHub Enterprise Server 3.0 et versions ultérieures](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later) »"
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Certains journaux n’étaient pas inclus dans la configuration de la transmission des journaux.
+    - 'Un message d’avertissement `jq: error (at <stdin>:0): Cannot index number with string "settings"` pouvait s’afficher pendant la promotion du réplica.'
+    - La restauration continue des sauvegardes sur un cluster pouvait échouer en raison de l’échec de la connexion des réplicas MySQL au primaire.
+    - Les pages n’étaient pas publiées lors de l’utilisation d’un certificat CA personnalisé.
+    - Les sous-domaines liés à des packages n’apparaissaient pas dans l’invite « Tester les paramètres du domaine » pour l’isolation de sous-domaines.
+    - "L’en-tête `X-GitHub-Enterprise-Host` envoyé avec les webhooks incluait une chaîne aléatoire, plutôt que le nom d’hôte de l’instance GitHub Enterprise Server qui envoyait la charge utile HTTP POST."
+    - "La mise à niveau de la version 2.22.x vers la version 3.0.x échouait si GitHub Actions avait été activé, mais désactivé avant la mise à niveau."
+    - La visite de la page `/settings/emails` stockait un état qui pouvait provoquer des redirections incorrectes lors de la déconnexion et de la reconnexion.
+    - Les applications d’intégration GitHub n’étaient pas en mesure de notifier les équipes lorsqu’elles étaient mentionnées directement via une mention (avec arobase) dans un commentaire de problème.
+    - Le rendu de reStructuredText (RST) dans l’interface utilisateur web échouait et affichait du texte de balisage RST brut à la place.
+    - Les notifications par e-mail pour les alertes d’analyse des secrets n’étaient pas envoyées aux utilisateurs autorisés lorsque le graphe des dépendances n’était pas entièrement activé.
+    - "Lorsque ghe-migrator rencontrait des erreurs d’importation, il interrompait parfois l’ensemble du processus, et les journaux n’incluaient pas suffisamment de contexte."
+    - Les notebooks Jupyter contenant des caractères non ASCII pouvaient ne pas s’afficher.
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lors de la suppression d’une branche après la fusion d’une demande de tirage, un message d’erreur s’affichait même si la suppression de la branche réussissait."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

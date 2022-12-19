@@ -1,7 +1,7 @@
 ---
-title: Creating a Docker container action
+title: Docker 컨테이너 작업 만들기
 shortTitle: Create a Docker container action
-intro: 'This guide shows you the minimal steps required to build a Docker container action. '
+intro: '이 가이드에서는 Docker 컨테이너 작업을 빌드하는 데 필요한 최소 단계를 보여 줍니다. '
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -16,47 +16,49 @@ type: tutorial
 topics:
   - Action development
   - Docker
+ms.openlocfilehash: e3b8110244425e07d8c0228b0ea13de79dccce98
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148093987'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-## Introduction
+이 가이드에서는 패키지된 Docker 컨테이너 작업을 만들고 사용하는 데 필요한 기본 구성 요소에 대해 알아봅니다. 작업을 패키지하는 데 필요한 구성 요소에 가이드의 초점을 맞추기 위해 작업 코드의 기능은 최소화됩니다. 사용자 지정 이름을 제공하면 로그에 “Hello World” 또는 “Hello [인사할 사람]”이 출력됩니다.
 
-In this guide, you'll learn about the basic components needed to create and use a packaged Docker container action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
-
-Once you complete this project, you should understand how to build your own Docker container action and test it in a workflow.
+이 프로젝트를 완료한 후에는 고유한 Docker 컨테이너 작업을 빌드하고 워크플로에서 테스트하는 방법을 이해해야 합니다.
 
 {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 {% data reusables.actions.context-injection-warning %}
 
-## Prerequisites
+## 필수 조건
 
-You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:
+{% data variables.product.prodname_actions %} 환경 변수 및 Docker 컨테이너 파일 시스템을 기본적으로 이해하는 것이 유용할 수 있습니다.
 
-- "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
-{% ifversion ghae %}
-- "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+- “[환경 변수 사용](/actions/automating-your-workflow-with-github-actions/using-environment-variables)” {% ifversion ghae %}
+- “[Docker 컨테이너 파일 시스템](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”.
 {% else %}
-- "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
-{% endif %}
+- “[{% data variables.product.prodname_dotcom %}에서 호스트되는 실행기 정보](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)” {% endif %}
 
-Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.
+시작하기 전에 {% data variables.product.prodname_dotcom %} 리포지토리를 만들어야 합니다.
 
-1. Create a new repository on {% data variables.location.product_location %}. You can choose any repository name or use "hello-world-docker-action" like this example. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. {% 데이터 variables.location.product_location %}에 새 리포지토리를 만듭니다. 리포지토리 이름을 선택하거나 이 예제와 같이 “hello-world-docker-action”을 사용할 수 있습니다. 자세한 내용은 “[새 리포지토리 만들기](/articles/creating-a-new-repository)”를 참조하세요.
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. 컴퓨터에 리포지토리를 복제합니다. 자세한 내용은 “[리포지토리 복제](/articles/cloning-a-repository)”를 참조하세요.
 
-1. From your terminal, change directories into your new repository.
+1. 터미널에서 디렉터리를 새 리포지토리로 변경합니다.
 
   ```shell{:copy}
   cd hello-world-docker-action
   ```
 
-## Creating a Dockerfile
+## Dockerfile을 만듭니다.
 
-In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
+새 `hello-world-docker-action` 디렉터리에서 `Dockerfile`이라는 새 파일을 만듭니다. 문제가 있는 경우 파일 이름이 대문자로 올바르게 시작되는지 확인합니다(대문자 `D`은 사용하고 대문자 `f`는 사용하지 말 것). 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 Dockerfile 지원](/actions/creating-actions/dockerfile-support-for-github-actions)”을 참조하세요.
 
 **Dockerfile**
 ```Dockerfile{:copy}
@@ -70,12 +72,11 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-## Creating an action metadata file
+## 작업 메타데이터 파일 만들기
 
-Create a new `action.yml` file in the `hello-world-docker-action` directory you created above. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
+위에서 만든 `hello-world-docker-action` 디렉터리에 새 `action.yml` 파일을 만듭니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 메타데이터 구문](/actions/creating-actions/metadata-syntax-for-github-actions)”을 참조하세요.
 
-{% raw %}
-**action.yml**
+{% raw %} **action.yml**
 ```yaml{:copy}
 # action.yml
 name: 'Hello World'
@@ -96,21 +97,21 @@ runs:
 ```
 {% endraw %}
 
-This metadata defines one `who-to-greet`  input and one `time` output parameter. To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
+이 메타데이터는 하나의 `who-to-greet` 입력과 하나의 `time` 출력 매개 변수를 정의합니다. Docker 컨테이너에 입력을 전달하려면 `inputs`을 사용하여 입력을 선언하고 `args` 키워드에 입력을 전달해야 합니다. `args`에 포함된 모든 항목은 컨테이너로 전달되지만 작업 사용자가 더 쉽게 검색할 수 있도록 입력을 사용하는 것이 좋습니다.
 
-{% data variables.product.prodname_dotcom %} will build an image from your `Dockerfile`, and run commands in a new container using this image.
+{% data variables.product.prodname_dotcom %}는 `Dockerfile`에서 이미지를 빌드하고 해당 이미지를 사용하여 새 컨테이너에서 명령을 실행합니다.
 
-## Writing the action code
+## 작업 코드 작성
 
-You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
+기본 Docker 이미지와 작업에 대해 어떤 언어든 선택할 수 있습니다. 다음 셸 스크립트 예에서는 `who-to-greet` 입력 변수를 사용하여 로그 파일에 “Hello [인사할 사람]”을 출력합니다.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`{% endif %}. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
+다음으로 스크립트는 현재 시간을 가져오고 나중에 작업에서 실행되는 작업에서 사용할 수 있는 출력 변수로 설정합니다. {% 데이터 variables.product.prodname_dotcom %}이(가) 출력 변수를 인식하려면 {% ifversion actions-save-state-set-output-envs %}을(를) 환경 파일에 작성 `$GITHUB_OUTPUT` 해야 합니다. {% else %}은(는) `echo "<output name>=<value>" >> $GITHUB_OUTPUT`특정 구문인 `echo "::set-output name=<output name>::<value>"`{% endif %}에서 워크플로 명령을 사용합니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 명령](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)”을 참조하세요.
 
-1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
+1. `hello-world-docker-action` 디렉터리에 새 `entrypoint.sh` 파일을 만듭니다.
 
-1. Add the following code to your `entrypoint.sh` file.
+1. `entrypoint.sh` 파일에
 
-  **entrypoint.sh**
+  코드(**entrypoint.sh**)를 추가합니다.
   ```shell{:copy}
   #!/bin/sh -l
 
@@ -122,35 +123,35 @@ Next, the script gets the current time and sets it as an output variable that ac
   echo "::set-output name=time::$time"
 {%- endif %}
   ```
-  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+  `entrypoint.sh`가 오류 없이 실행되면 작업 상태가 `success`로 설정됩니다. 작업 코드에서 종료 코드를 명시적으로 설정하여 작업의 상태를 제공할 수도 있습니다. 자세한 내용은 “[작업에 대한 종료 코드 설정](/actions/creating-actions/setting-exit-codes-for-actions)”을 참조하세요.
 
 
-1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
+1. 파일을 실행 가능하게 만듭니 `entrypoint.sh` 다. Git은 클론/포크가 있을 때마다 다시 설정되지 않도록 파일의 사용 권한 모드를 명시적으로 변경하는 방법을 제공합니다.
 
   ```shell{:copy}
   $ git update-index --chmod=+x entrypoint.sh
   ```
 
-1. Optionally, to check the permission mode of the file in the git index, run the following command.
+1. 필요에 따라 git 인덱스의 파일 사용 권한 모드를 확인하려면 다음 명령을 실행합니다.
 
   ```shell{:copy}
   $ git ls-files --stage entrypoint.sh
   ```
 
-   An output like `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` means the file has the executable permission. In this example, `755` denotes the executable permission.
+   같은 `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` 출력은 파일에 실행 권한이 있는 것을 의미합니다. 이 예제에서는 `755` 실행 가능한 권한을 표시합니다.
 
-## Creating a README
+## 추가 정보 만들기
 
-To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
+사람들에게 작업을 사용하는 방법을 알리기 위해 추가 정보 파일을 만들 수 있습니다. 추가 정보는 작업을 공개적으로 공유하려는 경우에 가장 유용하지만 사용자 또는 팀에게 작업 사용 방법을 알려주는 좋은 방법이기도 합니다.
 
-In your `hello-world-docker-action` directory, create a `README.md` file that specifies the following information:
+`hello-world-docker-action` 디렉터리에서 다음 정보를 지정하는 `README.md` 파일을 만듭니다.
 
-- A detailed description of what the action does.
-- Required input and output arguments.
-- Optional input and output arguments.
-- Secrets the action uses.
-- Environment variables the action uses.
-- An example of how to use your action in a workflow.
+- 작업이 수행하는 작업에 대한 자세한 설명입니다.
+- 필수 입력 및 출력 인수입니다.
+- 선택적 입력 및 출력 인수입니다.
+- 작업에서 사용하는 비밀입니다.
+- 작업에서 사용하는 환경 변수입니다.
+- 워크플로에서 작업을 사용하는 방법의 예입니다.
 
 **README.md**
 ```markdown{:copy}
@@ -177,11 +178,11 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## Commit, tag, and push your action to {% data variables.product.product_name %}
+## 커밋, 태그 지정, {% data variables.product.product_name %}에 대한 작업 푸시
 
-From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
+터미널에서 `action.yml`, `entrypoint.sh`, `Dockerfile`, `README.md` 파일을 커밋합니다.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
+또한 작업 릴리스에 대한 버전 태그를 추가하는 것이 가장 좋습니다. 작업의 버전 관리 방법에 대한 자세한 내용은 “[작업 정보](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)”를 참조하세요.
 
 ```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
@@ -190,15 +191,15 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-## Testing out your action in a workflow
+## 워크플로에서 작업 테스트
 
-Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
+이제 워크플로에서 작업을 테스트할 준비가 되었습니다. 프라이빗 리포지토리에 있는 작업은 동일한 리포지토리의 워크플로에서만 사용할 수 있습니다. 퍼블릭 작업은 모든 리포지토리의 워크플로에서 사용할 수 있습니다.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Example using a public action
+### 퍼블릭 작업을 사용하는 예제
 
-The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
+다음 워크플로 코드는 퍼블릭 [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) 리포지토리에서 완료된 _hello world_ 작업을 사용합니다. 다음 워크플로 예제 코드를 `.github/workflows/main.yml` 파일에 복사하고 `actions/hello-world-docker-action`를 리포지토리 및 작업 이름으로 바꿉니다. `who-to-greet` 입력을 자신의 이름으로 바꿀 수도 있습니다. {% ifversion fpt or ghec %} 퍼블릭 작업은 {% data variables.product.prodname_marketplace %}에 게시되지 않은 경우에도 사용할 수 있습니다. 자세한 내용은 “[작업 게시](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”를 참조하세요. {% endif %}
 
 **.github/workflows/main.yml**
 ```yaml{:copy}
@@ -219,9 +220,9 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
 
-### Example using a private action
+### 프라이빗 작업을 사용하는 예제
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
+다음 예제 워크플로 코드를 작업 리포지토리의 `.github/workflows/main.yml` 파일에 복사합니다. `who-to-greet` 입력을 자신의 이름으로 바꿀 수도 있습니다. {% ifversion fpt or ghec %} 이 프라이빗 작업은 {% data variables.product.prodname_marketplace %}에 게시할 수 없으며 해당 리포지토리에서만 사용할 수 있습니다.{% endif %}
 
 **.github/workflows/main.yml**
 ```yaml{:copy}
@@ -246,7 +247,7 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+리포지토리에서 **작업** 탭을 클릭하고 최신 워크플로 실행을 선택합니다. **작업** 아래 또는 시각화 그래프에서 **인사할 작업** 을 클릭합니다. “Hello Mona Octocat” 또는 `who-to-greet` 입력에 사용한 이름과 로그에 출력된 타임스탬프가 표시되어야 합니다.
 
-![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run-updated.png)
+![워크플로의 작업 사용 스크린샷](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 

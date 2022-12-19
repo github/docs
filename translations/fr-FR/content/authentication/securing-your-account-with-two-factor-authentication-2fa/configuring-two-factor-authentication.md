@@ -1,6 +1,6 @@
 ---
-title: Configuring two-factor authentication
-intro: You can choose among multiple options to add a second source of authentication to your account.
+title: "Configuration de l’authentification à 2\_facteurs"
+intro: Vous pouvez choisir parmi plusieurs options pour ajouter une deuxième source d’authentification à votre compte.
 redirect_from:
   - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
   - /articles/configuring-two-factor-authentication-via-text-message
@@ -15,28 +15,34 @@ versions:
 topics:
   - 2FA
 shortTitle: Configure 2FA
+ms.openlocfilehash: 2a038134260ba9a6a7a0307bc3261157968ec1ea
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148179956'
 ---
-You can configure two-factor authentication using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+Vous pouvez configurer l’authentification à 2 facteurs à l’aide d’une application mobile{% ifversion fpt or ghec %} ou par SMS{% endif %}. Vous pouvez également ajouter une clé de sécurité.
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt or ghec %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+Nous vous recommandons vivement d’utiliser une application de mots de passe à usage unique et durée définie (TOTP, time-based one-time password) pour configurer l’authentification à 2 facteurs (TFA).{% ifversion fpt or ghec %} Les applications TOTP sont plus fiables que les SMS, en particulier pour les emplacements situés en dehors des États-Unis.{% endif %} Les applications TOTP prennent en charge la sauvegarde sécurisée de vos codes d’authentification dans le cloud et peuvent être restaurées si vous perdez l’accès à votre appareil.
 
 {% warning %}
 
-**Warning:**
-- If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.location.product_location %}.
-- If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
+**Avertissement :**
+- Si vous êtes membre{% ifversion fpt or ghec %}, gestionnaire de facturation,{% endif %} ou collaborateur externe d’un dépôt privé d’une organisation qui nécessite une authentification à 2 facteurs, vous devez quitter l’organisation pour pouvoir désactiver l’authentification à 2 facteurs sur {% data variables.location.product_location %}.
+- Si vous désactivez l’authentification à 2 facteurs, vous perdez automatiquement l’accès à l’organisation et à toutes les duplications (fork) privées des dépôts privés de l’organisation dont vous disposez. Pour récupérer l’accès à l’organisation et à vos duplications, réactivez l’authentification à 2 facteurs et contactez un propriétaire de l’organisation.
 
 {% endwarning %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.enterprise.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+Si vous êtes membre d’une {% data variables.enterprise.prodname_emu_enterprise %}, vous ne pouvez pas configurer l’authentification à 2 facteurs pour votre compte {% data variables.enterprise.prodname_managed_user %}, sauf si vous êtes connecté en tant qu’utilisateur d’installation. Pour les utilisateurs autres que l’utilisateur d’installation, un administrateur doit configurer l’authentification à 2 facteurs sur votre fournisseur d’identité (IdP).
 
 {% endif %}
 
-## Configuring two-factor authentication using a TOTP mobile app
+## Configuration de l’authentification à 2 facteurs à l’aide d’une application mobile TOTP
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
+Une application de mots de passe à usage unique et durée définie (TOTP) génère automatiquement un code d’authentification qui change après une certaine période. Nous vous recommandons d’utiliser des applications TOTP cloud telles que :
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
@@ -44,109 +50,95 @@ A time-based one-time password (TOTP) application automatically generates an aut
 
 {% tip %}
 
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time. If 2FA is already enabled and you want to add another device, you must re-configure 2FA from your security settings.
+**Conseil** : Pour configurer l’authentification avec une méthode TOTP sur plusieurs appareils, pendant la configuration, scannez le code QR avec chaque appareil en même temps. Si l’authentification à 2 facteurs est déjà activée et que vous souhaitez ajouter un autre appareil, vous devez la reconfigurer à partir de vos paramètres de sécurité.
 
 {% endtip %}
 
-1. Download a TOTP app.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghec or ghes > 3.7 %}
-5. Under "Setup authenticator app", do one of the following:
-    - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
-    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
-    ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-6. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". 
-![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
-{%- else %}
-5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
-6. Under "Authentication verification", do one of the following:
-    - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
-    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
-    ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-7. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application".
-![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
-{%- endif %}
-{% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-{% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
+1. Téléchargez une application TOTP.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.enable-two-factor-authentication %} {%- ifversion fpt or ghec or ghes > 3.7 %}
+5. Sous « Configurer l’application d’authentificateur », effectuez l’une des opérations suivantes :
+    - Scannez le code QR avec l’application de votre appareil mobile. L’application affiche ensuite un code à six chiffres que vous pouvez entrer sur {% data variables.product.product_name %}.
+    - Si vous ne pouvez pas scanner le code QR, cliquez sur **entrez ce code texte** pour afficher un code que vous pouvez entrer manuellement dans votre application TOTP à la place.
+    ![Cliquez sur entrez ce code texte](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+6. L’application mobile TOTP enregistre votre compte sur {% data variables.location.product_location %} et génère un nouveau code d’authentification toutes les quelques secondes. Dans {% data variables.product.product_name %}, tapez le code dans le champ sous « Entrez le code à six chiffres de l’application ». 
+![Champ Entrer le code TOTP](/assets/images/help/2fa/2fa_wizard_app_enter_code.png) {%- else %}
+5. Sous « Authentification à 2 facteurs », sélectionnez **Configurer à l’aide d’une application**, puis cliquez sur **Continuer**.
+6. Sous « Vérification de l’authentification », effectuez l’une des actions suivantes :
+    - Scannez le code QR avec l’application de votre appareil mobile. L’application affiche ensuite un code à six chiffres que vous pouvez entrer sur {% data variables.product.product_name %}.
+    - Si vous ne pouvez pas scanner le code QR, cliquez sur **entrez ce code texte** pour afficher un code que vous pouvez entrer manuellement dans votre application TOTP à la place.
+    ![Cliquez sur entrez ce code texte](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+7. L’application mobile TOTP enregistre votre compte sur {% data variables.location.product_location %} et génère un nouveau code d’authentification toutes les quelques secondes. Dans {% data variables.product.product_name %}, tapez le code dans le champ sous « Entrez le code à six chiffres de l’application ».
+![Champ Entrer le code TOTP](/assets/images/help/2fa/2fa_wizard_app_enter_code.png) {%- endif %} {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %} {% data reusables.two_fa.backup_options_during_2fa_enrollment %} {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
 
-## Configuring two-factor authentication using text messages
+## Configuration de l’authentification à 2 facteurs par SMS
 
-If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+Si vous n’êtes pas en mesure de vous authentifier en utilisant une application mobile TOTP, vous pouvez le faire par SMS. Vous pouvez également fournir un deuxième numéro pour un appareil de secours. Si vous perdez l’accès à votre appareil principal et à vos codes de récupération, un numéro SMS de secours peut vous permettre d’accéder de nouveau à votre compte.
 
-Before using this method, be sure that you can receive text messages. Carrier rates may apply.
+Avant d’utiliser cette méthode, vérifiez que vous pouvez recevoir des SMS. L’opérateur peut facturer ce service.
 
 {% warning %}
 
-**Warning:** We **strongly recommend** using a TOTP application for two-factor authentication instead of SMS. {% data variables.product.product_name %} doesn't support sending SMS messages to phones in every country. Before configuring authentication via text message, review the list of countries where {% data variables.product.product_name %} supports authentication via SMS. For more information, see "[Countries where SMS authentication is supported](/articles/countries-where-sms-authentication-is-supported)".
+**Avertissement :** Nous vous **recommandons vivement** d’utiliser une application TOTP pour l’authentification à 2 facteurs plutôt que des SMS. {% data variables.product.product_name %} ne prend pas en charge l’envoi de SMS vers des téléphones dans tous les pays. Avant de configurer l’authentification par SMS, consultez la liste des pays dans lesquels {% data variables.product.product_name %} prend en charge l’authentification par SMS. Pour plus d’informations, consultez « [Pays dans lesquels l’authentification par SMS est prise en charge](/articles/countries-where-sms-authentication-is-supported) ».
 
 {% endwarning %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.enable-two-factor-authentication %}
-4. Below "Setup authenticator app", select **SMS authentication**
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.enable-two-factor-authentication %}
+4. Sous « Configurer l’application d’authentificateur », sélectionnez **Authentification par SMS**
 
-  ![2FA SMS alternative option](/assets/images/help/2fa/2fa_sms_alt_option.png)
+  ![Option alternative - authentification à 2 facteurs par SMS](/assets/images/help/2fa/2fa_sms_alt_option.png)
 
-5. Under "Setup SMS authentication", select your country code and type your mobile phone number, including the area code. When your information is correct, click **Send authentication code**.
+5. Sous « Configurer l’authentification par SMS », sélectionnez votre code pays et tapez votre numéro de téléphone mobile avec l’indicatif régional. Après avoir spécifié les informations correctes, cliquez sur **Envoyer le code d’authentification**.
 
-  ![2FA SMS screen](/assets/images/help/2fa/2fa_wizard_sms_send.png)
+  ![Écran de l’authentification à 2 facteurs par SMS](/assets/images/help/2fa/2fa_wizard_sms_send.png)
 
-6. You'll receive a text message with a security code. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code sent to your phone" and click **Continue**.
+6. Vous recevrez un SMS avec un code de sécurité. Dans {% data variables.product.product_name %}, tapez le code dans le champ sous « Entrez le code à six chiffres envoyé sur votre téléphone », puis cliquez sur **Continuer**.
 
-  ![2FA SMS continue field](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png)
-{% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-{% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
+  ![Champ Continuer pour l’authentification à 2 facteurs par SMS](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png) {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %} {% data reusables.two_fa.backup_options_during_2fa_enrollment %} {% data reusables.two_fa.test_2fa_immediately %}
 
 {% endif %}
 
-## Configuring two-factor authentication using a security key
+## Configuration de l’authentification à 2 facteurs avec une clé de sécurité
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
-On most devices and browsers, you can use a physical security key over USB or NFC. Some browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key.
+Sur la plupart des appareils et navigateurs, vous pouvez utiliser une clé de sécurité physique sur USB ou NFC. Certains navigateurs peuvent utiliser le lecteur d’empreintes digitales, la reconnaissance faciale ou un mot de passe/code PIN sur votre appareil comme clé de sécurité.
 
-Authentication with a security key is *secondary* to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
+L’authentification avec une clé de sécurité est *secondaire* par rapport à l’authentification avec une application TOTP{% ifversion fpt or ghec %} ou par SMS{% endif %}. Si vous perdez votre clé de sécurité, vous pourrez toujours utiliser le code de votre téléphone pour vous connecter.
 
-1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
-2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-5. Next to "Security keys", click **Add**.
-  ![Add security keys option](/assets/images/help/2fa/add-security-keys-option.png)
-6. Under "Security keys", click **Register new security key**.
-  ![Registering a new security key](/assets/images/help/2fa/security-key-register.png)
-7. Type a nickname for the security key, then click **Add**.
-  ![Providing a nickname for a security key](/assets/images/help/2fa/security-key-nickname.png)
-8. Activate your security key, following your security key's documentation.
-  ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
-9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[Downloading your 2FA recovery codes](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+1. Vous devez avoir déjà configuré l’authentification à 2 facteurs avec une application mobile TOTP{% ifversion fpt or ghec %} ou par SMS{% endif %}.
+2. Vérifiez qu’une clé de sécurité compatible WebAuthn est insérée dans votre ordinateur.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+5. En regard de « Clés de sécurité », cliquez sur **Ajouter**.
+  ![Option d’ajout de clés de sécurité](/assets/images/help/2fa/add-security-keys-option.png)
+6. Sous « Clés de sécurité », cliquez sur **Inscrire une nouvelle clé de sécurité**.
+  ![Inscription d’une nouvelle clé de sécurité](/assets/images/help/2fa/security-key-register.png)
+7. Tapez un pseudonyme pour la clé de sécurité, puis cliquez sur **Ajouter**.
+  ![Fourniture d’un pseudonyme pour une clé de sécurité](/assets/images/help/2fa/security-key-nickname.png)
+8. Activez votre clé de sécurité en suivant la documentation de votre clé de sécurité.
+  ![Demander une clé de sécurité](/assets/images/help/2fa/security-key-prompt.png)
+9.  Vérifiez que vous avez téléchargé vos codes de récupération et que vous pouvez y accéder. Si ce n’est déjà fait ou si vous souhaitez générer un autre ensemble de codes, téléchargez vos codes et enregistrez-les à un emplacement sûr. Pour plus d’informations, consultez « [Téléchargement de vos codes de vérification 2FA](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes) ».
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
-## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+## Configuration de l’authentification à 2 facteurs à l’aide de {% data variables.product.prodname_mobile %}
 
-You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+Vous pouvez utiliser {% data variables.product.prodname_mobile %} pour l’authentification à 2 facteurs quand vous vous connectez à votre compte {% data variables.product.prodname_dotcom %} dans un navigateur web. L’authentification à 2 facteurs avec {% data variables.product.prodname_mobile %} ne s’appuie pas sur la méthode TOTP. En fait, elle utilise le chiffrement à clé publique pour sécuriser votre compte.
 
-Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+Après avoir configuré une application TOTP ou une authentification par SMS, vous pouvez également utiliser {% data variables.product.prodname_mobile %} pour vous authentifier. Si, plus tard, vous n’avez plus accès à {% data variables.product.prodname_mobile %}, vous pourrez toujours utiliser des clés de sécurité ou des applications TOTP pour vous connecter.
 
-1. You must have already configured 2FA via a TOTP mobile app or via SMS.
-2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Vous devez avoir déjà configuré l’authentification à 2 facteurs avec une application mobile TOTP ou par SMS.
+2. Installez [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Connectez-vous à votre compte {% data variables.product.product_name %} à partir de {% data variables.product.prodname_mobile %}.
 
-After signing in, you can now use your device for 2FA.
+Après vous être connecté, vous pouvez utiliser votre appareil pour l’authentification à 2 facteurs.
 {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
-- "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
-- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"
+- « [À propos de l’authentification à deux facteurs](/articles/about-two-factor-authentication) »
+- « [Configuration de méthodes de récupération pour l’authentification à 2 facteurs](/articles/configuring-two-factor-authentication-recovery-methods) »
+- « [Accès à {% data variables.product.prodname_dotcom %} avec l’authentification à 2 facteurs](/articles/accessing-github-using-two-factor-authentication) »
+- « [Récupération de votre compte si vous perdez vos informations d’identification TFA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials) »
+- « [Création d’un {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token) »

@@ -1,6 +1,6 @@
 ---
-title: Adding a file to a repository
-intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
+title: Eine Datei zu einem Repository hinzufügen
+intro: 'Du kannst eine vorhandene Datei über die Befehlszeile in ein {% data variables.product.product_name %}-Repository hochladen und comitten.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -18,37 +18,40 @@ versions:
 topics:
   - Repositories
 shortTitle: Add a file
+ms.openlocfilehash: da76e182a16b1f72b814882b816f487b8290f3be
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578908'
 ---
+## Hinzufügen einer Datei zu einem Repository auf {% data variables.product.product_name %}
 
-## Adding a file to a repository on {% data variables.product.product_name %}
-
-Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+Für Dateien, die du über einen Browser zu einem Repository hinzufügst, gilt eine Beschränkung von {% data variables.large_files.max_github_browser_size %} pro Datei. Größere Dateien mit bis zu jeweils {% data variables.large_files.max_github_size %} kannst du über die Befehlszeile hinzufügen. Weitere Informationen findest du unter [Hinzufügen einer Datei zu einem Repository über die Befehlszeile](#adding-a-file-to-a-repository-using-the-command-line). Um Dateien hinzuzufügen, die größer als {% data variables.large_files.max_github_size %} sind, musst du {% data variables.large_files.product_name_long %} verwenden. Weitere Informationen findest du unter [Informationen zu großen Dateien auf {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
 {% tip %}
 
-**Tips:**
-- You can upload multiple files to {% data variables.product.product_name %} at the same time.
+**Tipps:**
+- Du kannst mehrere Dateien gleichzeitig zu {% data variables.product.product_name %} hochladen.
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the list of files, using the **Add file** drop-down, click **Upload files**.
-  !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)
-3. Drag and drop the file or folder you'd like to upload to your repository onto the file tree.
-![Drag and drop area](/assets/images/help/repository/upload-files-drag-and-drop.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-6. Click **Commit changes**.
-![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
+2. Klicke oberhalb der Dateiliste im Dropdownmenü **Datei hinzufügen** auf **Dateien hochladen**.
+  ![„Dateien hochladen“ im Dropdownmenu „Datei hinzufügen“](/assets/images/help/repository/upload-files-button.png)
+3. Ziehe die Datei respektive den Ordner, den/die du in das Repository hochladen möchtest, per Drag-and-Drop in die Dateistruktur.
+![Drag & Drop-Bereich](/assets/images/help/repository/upload-files-drag-and-drop.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %}
+6. Klicke auf **Änderungen committen**.
+![Schaltfläche „Committen von Änderungen“](/assets/images/help/repository/commit-changes-button.png)
 
-## Adding a file to a repository using the command line
+## Eine Datei über die Befehlszeile zu einem Repository hinzufügen
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} using the command line.
+Du kannst eine vorhandene Datei über die Befehlszeile in ein Repository auf {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} hochladen.
 
 {% tip %}
 
-**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/articles/adding-a-file-to-a-repository).
+**Tipp:** Du kannst auch [eine vorhandene Datei zu einem Repository der {% data variables.product.product_name %}-Website hinzufügen](/articles/adding-a-file-to-a-repository).
 
 {% endtip %}
 
@@ -56,10 +59,8 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. On your computer, move the file you'd like to upload to {% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.switching_directories_procedural %}
-{% data reusables.git.stage_for_commit %}
+1. Verschiebe auf deinem Computer die Datei, die du zu {% data variables.product.product_name %} hochladen möchtest, in das lokale Verzeichnis, das beim Klonen des Repositorys erstellt wurde.
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %} {% data reusables.git.stage_for_commit %}
   ```shell
   $ git add .
   # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
@@ -71,6 +72,6 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
   ```
 {% data reusables.git.git-push %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- [Hinzufügen von lokal gehostetem Code zu {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)

@@ -1,72 +1,73 @@
 ---
-title: Controlling access to larger runners
+title: Управление доступом к крупным средствам выполнения
 shortTitle: 'Control access to {% data variables.actions.hosted_runner %}s'
-intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
+intro: 'Политики можно использовать для ограничения доступа к {% data variables.actions.hosted_runner %}, добавленным в организацию или предприятие.'
 product: '{% data reusables.gated-features.hosted-runners %}'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: actions-hosted-runners
 type: tutorial
+ms.openlocfilehash: d19e875ae8ee4556e635540f47625fa5a9874918
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189908'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о группах средств выполнения
 
-## About runner groups
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}Дополнительные сведения см. в [документации по {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
+### Группа по умолчанию для {% data variables.actions.hosted_runner %}s
 
-### Default group for {% data variables.actions.hosted_runner %}s
-
-Organizations and enterprises with access to {% data variables.actions.hosted_runner %}s will automatically receive a default runner group called "Default Larger Runners" that includes 4 runners of varying sizes. The runners in this group are pre-configured and ready for immediate use. In order to use the runners in this group, you will need to add the label corresponding to the runner of your choice to your workflow file. See the table below for labels. For more information on how to use labels, see "[Running jobs on your runner](/actions/using-github-hosted-runners/using-larger-runners#running-jobs-on-your-runner)."
+Организации и предприятия с доступом к {% data variables.actions.hosted_runner %}s автоматически получат группу средств выполнения по умолчанию под названием "Стандартные крупные средства выполнения", которая включает 4 средства выполнения различных размеров. Средства выполнения в этой группе предварительно настроены и готовы к немедленному использованию. Чтобы использовать средства выполнения в этой группе, необходимо добавить метку, соответствующую выбранному средству выполнения, в файл рабочего процесса. Метки см. в таблице ниже. Дополнительные сведения об использовании меток см. в разделе [Выполнение заданий в средстве выполнения](/actions/using-github-hosted-runners/using-larger-runners#running-jobs-on-your-runner) тестов.
 
 
-#### Default Runners
+#### Средства выполнения по умолчанию
 
-|Description | Label | Image |
+|Описание | Метка | Image |
 | ------- | ------- | ------ |
-| 4-cores Ubuntu Runner | `ubuntu-latest-4-cores` | Ubuntu - Latest |
-| 8-cores Ubuntu Runner | `ubuntu-latest-8-cores` | Ubuntu - Latest |
-| 16-cores Ubuntu Runner | `ubuntu-latest-16-cores` | Ubuntu - Latest |
-| 8-cores Windows Runner | `windows-latest-8-cores` | Windows Server - Latest |
+| Средство выполнения Ubuntu с 4 ядрами | `ubuntu-latest-4-cores` | Ubuntu — последняя версия |
+| Средство выполнения Ubuntu на 8 ядер | `ubuntu-latest-8-cores` | Ubuntu — последняя версия |
+| Средство выполнения Ubuntu на 16 ядер | `ubuntu-latest-16-cores` | Ubuntu — последняя версия |
+| Средство выполнения Windows с 8 ядрами | `windows-latest-8-cores` | Windows Server — последняя версия |
 
-The default {% data variables.actions.hosted_runner %} group is created at the billing entity level. If your organization is part of an enterprise account, the group will be managed on the enterprise level. If your organization does not fall under an enterprise, the group is managed on the organization level. 
+Группа по умолчанию {% data variables.actions.hosted_runner %} создается на уровне сущности выставления счетов. Если ваша организация является частью корпоративной учетной записи, управление группой будет осуществляться на уровне предприятия. Если ваша организация не относится к предприятию, управление группой осуществляется на уровне организации. 
 
-You will not be billed for these runners until you use them in your workflows. Once these runners are used, billing works as it normally does. For more information on billing, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#understanding-billing)."
+Плата за эти средства выполнения не будет взиматься, пока вы не будете использовать их в рабочих процессах. После использования этих средств выполнения выставление счетов будет работать, как обычно. Дополнительные сведения о выставлении счетов см. в разделе [Использование {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#understanding-billing).
 
-The default access for a {% data variables.actions.hosted_runner %} group at the enterprise level is set to automatically share with all organizations in the enterprise, but not all repositories. Organization admins will need to share the default {% data variables.actions.hosted_runner %} group with each repository separately. For {% data variables.actions.hosted_runner %} groups at the organization level, the default access is set to automatically share the group with all repositories. For more information on how to change access policies, and where to view the default {% data variables.actions.hosted_runner %} group, see "[Changing the access policy of a runner group](#changing-the-access-policy-of-a-runner-group)."
+Доступ по умолчанию для группы {% data variables.actions.hosted_runner %} на уровне предприятия настроен на автоматический общий доступ ко всем организациям на предприятии, но не ко всем репозиториям. Администраторам организации потребуется предоставить общий доступ к группе {% data variables.actions.hosted_runner %} по умолчанию для каждого репозитория по отдельности. Для групп {% data variables.actions.hosted_runner %} на уровне организации доступ по умолчанию устанавливается для автоматического предоставления общего доступа ко всем репозиториям. Дополнительные сведения об изменении политик доступа и о том, как просмотреть группу по умолчанию {% data variables.actions.hosted_runner %}, см. [в разделе Изменение политики доступа группы средств выполнения](#changing-the-access-policy-of-a-runner-group) тестов.
 
 {% ifversion ghec or ghes or ghae %}
 
-## Creating a runner group for an organization
+## Создание группы средств выполнения для организации
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.creating-a-runner-group-for-an-organization %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Creating a runner group for an enterprise
+## Создание группы средств выполнения для предприятия
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
 {% endif %}
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
-## Changing the access policy of a runner group
+## Изменение политики доступа группы средств выполнения
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
-## Changing the name of a runner group
+## Изменение имени группы средств выполнения
 
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## Moving a runner to a group
+## Перемещение средства выполнения в группу
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## Removing a runner group
+## Удаление группы средств выполнения
 
 {% data reusables.actions.removing-a-runner-group %}
 

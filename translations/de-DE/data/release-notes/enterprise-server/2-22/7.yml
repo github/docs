@@ -1,0 +1,78 @@
+date: '02.03.2021'
+sections:
+  security_fixes:
+    - '**HOCH:** In GitHub Enterprise Server wurde ein Sicherheitsrisiko bezüglich einer falschen Zugriffssteuerung festgestellt, das es authentifizierten Benutzer*innen der Instanz ermöglichte, über speziell entworfene Pull Requests und REST-API-Anforderungen Schreibzugriff auf nicht autorisierte Repositorys zu erhalten. Angreifer*innen müsste in der Lage sein, das Zielrepository zu forken. Diese Einstellung ist jedoch für private Repositorys in Organisationsbesitz standardmäßig deaktiviert. Maßnahmen zum Schutz von Branches, wie z. B. Pflichtreviews von Pull Request oder Statusüberprüfungen, würden verhindern, dass nicht autorisierte Commits ohne weitere Überprüfung oder Validierung zusammengeführt werden. Dieses Sicherheitsrisiko wurde CVE-2021-22861 zugeordnet. Dieses Issue wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet.'
+    - '**HOCH:** In der GraphQL-API von GitHub Enterprise Server wurde ein Sicherheitsrisiko bezüglich einer falschen Zugriffssteuerung festgestellt, das es authentifizierten Benutzer*innen der Instanz ermöglichte, die Berechtigung zur Maintainerzusammenarbeit für einen Pull Request ohne die ordnungsgemäße Autorisierung zu ändern. Durch Ausnutzung dieses Sicherheitsrisikos könnten Angreifer*innen Zugriff auf Headbranches von Pull Requests erhalten, die für Repositorys geöffnet sind, deren Maintainer*in sie sind. Forken ist standardmäßig für private Repositorys im Besitz von Organisationen deaktiviert und würde dieses Sicherheitsrisiko verhindern. Maßnahmen zum Schutz von Branches, wie z. B. Pflichtreviews von Pull Requests oder Statusüberprüfungen, würden außerdem verhindern, dass nicht autorisierte Commits ohne weitere Überprüfung oder Validierung zusammengeführt werden. Dieses Sicherheitsrisiko wurde CVE-2021-22863 zugeordnet. Dieses Issue wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet.'
+    - '**HOCH:** In GitHub Enterprise Server wurde ein Sicherheitsrisiko bezüglich der Remoteausführung von Code identifiziert, das beim Erstellen einer GitHub Pages-Website ausgenutzt werden könnte. Die benutzergesteuerte Konfiguration der von GitHub Pages verwendeten, zugrunde liegenden Parser war nicht ausreichend eingeschränkt und ermöglichte es, Befehle auf der GitHub Enterprise Server-Instanz auszuführen. Um dieses Sicherheitsrisiko auszunutzen, benötigen Angreifer*innen die Berechtigung, eine GitHub Pages-Website auf der GitHub Enterprise Server-Instanz zu erstellen. Dieses Sicherheitsrisiko wurde CVE-2020-10519 zugeordnet. Es wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet.'
+    - '**Mittel:** GitHub-Token aus GitHub Pages-Builds konnten in Protokollen erfasst werden.'
+    - '**NIEDRIG:** Eine an die SVN-Brücke gerichtete, speziell entworfene Anforderung konnte vor dem Fehlschlagen zu einer langen Wartezeit führen, was zu einem Denial of Service (DoS) führt.'
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.'
+  bugs:
+    - 'Die Integritätsprüfungen des Lastenausgleichs konnten in bestimmten Fällen dazu führen, dass die babeld-Protokolle mit Fehlern zum PROXY-Protokoll gefüllt werden.'
+    - 'Eine Informationsmeldung wurde unbeabsichtigt während GitHub Enterprise Backup Utilities-Momentaufnahmen als Fehlermeldung protokolliert. Dies führte dazu, dass unnötige E-Mails gesendet wurden, wenn Sicherungen von Cronjobs geplant wurden, die auf Ausgaben an stderr lauschen.'
+    - 'Bei der Wiederherstellung einer großen Sicherung konnte die Ausnahmeprotokollierung im Zusammenhang mit der Erschöpfung des Redis-Arbeitsspeichers dazu führen, dass die Wiederherstellung aufgrund einer vollen Festplatte fehlschlug.'
+    - 'Beim ersten Setup einer neuen Instanz konnte die Replikation nicht gestartet werden, wenn „Als Replikat konfigurieren“ ausgewählt wird.'
+    - 'Wenn GitHub Actions aktiviert war, ist die Deaktivierung des Wartungsmodus in der Verwaltungskonsole fehlgeschlagen.'
+    - 'Bei der Bearbeitung einer Wiki-Seite haben Benutzer*innen beim Klicken auf die Schaltfläche „Speichern“ möglicherweise eine 500-Fehlermeldung erhalten.'
+    - 'Ein mit S/MIME signierter Commit, der ein Zertifikat mit mehreren Namen im alternativen Namen des Betreffs verwendet, wurde im Commitbadge fälschlicherweise als „Nicht überprüft“ angezeigt.'
+    - 'Gesperrte Benutzer*innen erhielten E-Mails, als sie einem Team hinzugefügt wurden.'
+    - 'Benutzer*innen wurde ein 500-Fehler angezeigt, als sie Git-Vorgänge auf einer Instanz ausführten, die mit der LDAP-Authentifizierung konfiguriert wurden.'
+    - 'Der Hintergrundauftrag `remove_org_member_package_access` war in der Verwaltungskonsole sichtbar und wurde stetig größer.'
+    - 'Wenn ein Repository über sehr viele Manifeste verfügte, wurde ein Fehler des Typs `You have reached the maximum number of allowed manifest files (20) for this repository.` auf der Registerkarte „Erkenntnisse“ -> „Abhängigkeitsdiagramm“ angezeigt. Weitere Informationen findest du unter [Visualisierungslimits](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data).'
+    - 'Beim Hochladen einer neuen Lizenzdatei mit einer anderen Anzahl von Arbeitsplätzen als in der vorherigen Lizenzdatei wurde der Unterschied zwischen den Arbeitsplätzen auf der Seite „Einstellungen“ -> „Lizenz“ des Unternehmenskontos nicht korrekt dargestellt.'
+    - 'Das in den Einstellungen des Unternehmenskontos verfügbare Kontrollkästchen „Repositoryadministratoren daran hindern, anonymen Git-Lesezugriff zu ändern“ konnte nicht erfolgreich aktiviert oder deaktiviert werden.'
+    - 'Wenn ein GitHub Pages-Build nicht erfolgreich war, enthielt die E-Mail-Benachrichtigung einen falschen Supportlink.'
+    - 'In Schaltjahren erhielten Benutzer*innen eine 404-Antwort, wenn sie versuchten, die Mitwirkungsaktivitäten an einem Montag anzuzeigen.'
+  changes:
+    - 'Unterstützung für [AWS EC2 R5b-Instanzen](https://aws.amazon.com/about-aws/whats-new/2020/12/introducing-new-amazon-ec2-r5b-instances-featuring-60-gbps-of-ebs-bandwidth-and-260K-iops/) wurde hinzugefügt.'
+    - 'Die Priorisierung der Hintergrundwarteschlange wurde angepasst, um die Aufträge gleichmäßiger zu verteilen.'
+  known_issues:
+    - 'Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.'
+    - 'Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt.'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen.'
+    - 'Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten.'
+    - |Eventuell werden Objekte wie Avatare nicht geladen, oder Code kann nicht gepusht oder gepullt werden. Dies kann durch einen PID-Konflikt im Dienst `haproxy-cluster-proxy` hervorgerufen werden. So ermittelst du, ob du über eine betroffene Instanz verfügst:
+
+
+
+**Einzelne Instanz**
+
+
+
+1. Führe diesen Code in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus:
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Wenn ein Konflikt angezeigt wird, starte die Instanz neu.
+
+
+
+**Cluster- oder Hochverfügbarkeitskonfiguration**
+
+
+
+1. Führe diesen Code in der [Verwaltungsshell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) aus:
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Wenn angezeigt wird, dass mindestens ein Knoten betroffen ist, starte den betroffenen Knoten neu.
+
+|
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer*innen verringert."

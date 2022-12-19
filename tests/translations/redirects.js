@@ -12,7 +12,8 @@ describe('redirects', () => {
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(`/${lang}/get-started`)
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     expect(res.headers['set-cookie']).toBeUndefined()
   })
 
@@ -26,7 +27,8 @@ describe('redirects', () => {
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(`/${lang}/get-started`)
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     expect(res.headers['set-cookie']).toBeUndefined()
   })
 

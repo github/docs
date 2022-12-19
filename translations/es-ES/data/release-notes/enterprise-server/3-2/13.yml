@@ -1,0 +1,28 @@
+date: '2022-05-17'
+sections:
+  security_fixes:
+    - '**MEDIA:** Se ha identificado una incidencia de seguridad en el solucionador nginx, por la que un atacante que puede falsificar paquetes UDP del servidor DNS puede dar lugar a una sobrescritura de memoria de 1 byte, lo que hace que se bloquee el proceso de trabajo o provoca otros impactos potencialmente perjudiciales. Se ha asignado la vulnerabilidad [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
+    - "Se han actualizado las acciones \"actions/checkout@v2\" y \"actions/checkout@v3\" para resolver nuevas vulnerabilidades anunciadas en la [entrada de blog sobre el cumplimiento de la seguridad de Git](https://github.blog/2022-04-12-git-security-vulnerability-announced/)."
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - "En algunas topologías de clúster, el comando \"ghe-cluster-status\" generó directorios vacíos en \"/tmp\"."
+    - "Protocolo simple de administración de redes registró incorrectamente un gran número de mensajes de error \"Cannot statfs\" en syslog."
+    - "En el caso de las instancias configuradas con la autenticación SAML y la reserva integrada habilitada, los usuarios integrados se quedarían bloqueados en un bucle de \"inicio de sesión\" al tratar de iniciar sesión desde la página generada después de cerrar la sesión."
+    - Los vídeos cargados para emitir comentarios no se representarían correctamente.
+    - "Al usar aserciones cifradas SAML, algunas aserciones no marcaban correctamente las claves SSH como comprobadas."
+    - "Al usar \"ghe-migrator\", una migración produciría un error al importar datos adjuntos de archivos de vídeo en incidencias y solicitudes de incorporación de cambios."
+    - 'La página Versiones devolvería un error 500 si el repositorio tuviera etiquetas con caracteres no ASCII. [Actualizado: 2022-06-10]'
+  changes:
+    - "En el caso de las configuraciones de alta disponibilidad, deja claro que en la página de información general de replicación de la consola de administración solo se muestra la configuración de replicación actual, no el estado de replicación actual."
+    - "Al habilitar {% data variables.product.prodname_registry %}, deja claro que usar un token de firma de acceso compartido (SAS) como cadena de conexión no se admite actualmente."
+    - Los conjuntos de soporte técnico ahora incluyen el recuento de filas de las tablas almacenadas en MySQL.
+    - "El gráfico de dependencias ahora se puede habilitar sin datos de vulnerabilidad, permitiéndote ver las dependencias que se encuentran en uso y en qué versiones. Habilitar el gráfico de dependencias sin habilitar {% data variables.product.prodname_github_connect %} **no** proporcionará información de vulnerabilidad."
+  known_issues:
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces de recepción previa podrían ocasionar errores en algunos de ellos.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

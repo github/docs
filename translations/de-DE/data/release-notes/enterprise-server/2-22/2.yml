@@ -1,0 +1,37 @@
+date: '20.10.2020'
+sections:
+  security_fixes:
+    - "Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}"
+
+  bugs:
+    - |Wenn die Speicherkontoeinstellungen beim Konfigurieren von GitHub Actions nicht überprüft werden konnten, musste vor einem neuen Versuch „ghe-actions-teardown“ ausgeführt werden. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
+
+|
+    - |Eine benutzerdefinierte Proxykonfiguration konnte die GitHub Actions-Umgebung beeinträchtigen. {% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
+
+|
+    - |Eine Adressänderung in „eth0“ konnte dazu führen, dass Nomad und Consul nicht mehr reagieren. {% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
+
+|
+    - |Bei Verwendung selbstsignierter Zertifikate konnten für GHES SSL-Überprüfungsausnahmen beim Konfigurieren von GitHub Actions auftreten. {% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
+
+|
+    - |Bei Verwendung einer GitHub-Aktion über einen Branchnamen, der ein Pluszeichen (+) oder einen Schrägstrich (/) enthält, trat ein Fehler mit dem Hinweis auf, dass die Aktion nicht aufgelöst werden konnte. {% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
+
+|
+    - |Die Meldung „Richtlinie für erforderliche Zwei-Faktor-Authentifizierung bestätigen“ des Unternehmenskontos war falsch. {% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
+
+|
+    - |Bei bestimmten Anforderungen über 100 MB wurde der Puffer von Kafka unter Umständen überlastet. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
+
+|
+  known_issues:
+    - "Angreifer konnten in einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ in GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "GitHub Actions wird unter Umständen nicht erfolgreich gestartet, wenn es zuvor in einer Instanz mit der Version 2.22.0 aktiviert war und ein Upgrade auf die Version 2.22.2 durchgeführt wurde. (Aktualisiert am 23.10.2020) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "In einer neu eingerichteten 2.22.2-Instanz oder nach einem Upgrade auf 2.22.2 wird der Aktivitätsfeed auf dem Dashboard einer Organisation nicht mehr aktualisiert. (Aktualisiert am 27.10.2020) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Überwachungsprotokolle können 127.0.0.1 zugeordnet werden anstatt der tatsächlichen Quell-IP-Adresse. (Aktualisiert am 02.11.2020) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert."

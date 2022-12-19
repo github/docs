@@ -1,7 +1,7 @@
 ---
-title: Configuring code scanning for your appliance
+title: 어플라이언스에 대한 코드 검사 구성
 shortTitle: Configuring code scanning
-intro: 'You can enable, configure and disable {% data variables.product.prodname_code_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_code_scanning_capc %} allows users to scan code for vulnerabilities and errors.'
+intro: '{% data variables.location.product_location %}에 대해 {% data variables.product.prodname_code_scanning %}을(를) 사용하도록 설정, 구성 및 사용하지 않도록 설정할 수 있습니다. {% data variables.product.prodname_code_scanning_capc %}을 사용하면 코드에서 취약성 및 오류를 검색할 수 있습니다.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -16,82 +16,84 @@ topics:
   - Code scanning
   - Enterprise
   - Security
+ms.openlocfilehash: 11ad9bfe108d339af3992277cab0918998eb54fb
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161088'
 ---
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %}
+## {% data variables.product.prodname_code_scanning %} 정보
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The table below summarizes all the options available to users when you configure {% data variables.location.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
+to run {% data variables.product.prodname_codeql %} 분석 및 타사 분석을 실행하도록 {% data variables.product.prodname_code_scanning %}를 구성할 수 있습니다. 또한 {% data variables.product.prodname_code_scanning_capc %}는 기본적으로 {% data variables.product.prodname_actions %}을 사용하거나 외부에서 기존 CI/CD 인프라를 사용하여 분석 실행을 지원할 수 있습니다. 아래 표에는 작업을 사용하여 {% data variables.product.prodname_code_scanning %}을(를) 허용하도록 {% data variables.location.product_location %}을(를) 구성할 때 사용자가 사용할 수 있는 모든 옵션이 요약되어 있습니다.
 
 {% data reusables.code-scanning.enabling-options %}
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## 라이선스에 {% data variables.product.prodname_GH_advanced_security %}가 포함되어 있는지 확인
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for {% data variables.product.prodname_code_scanning %}
+## {% data variables.product.prodname_code_scanning %}에 대한 필수 조건
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %}에 대한 라이선스(“[{% data variables.product.prodname_GH_advanced_security %}에 대한 청구 정보](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)” 참조){% endif %}
 
-- {% data variables.product.prodname_code_scanning_capc %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- 관리 콘솔에서 {% data variables.product.prodname_code_scanning_capc %}를 사용하도록 설정(“[엔터프라이즈에 {% data variables.product.prodname_GH_advanced_security %}를 사용하도록 설정](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)” 참조)
 
-- A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
+- {% data variables.product.prodname_code_scanning %} 분석을 실행하기 위한 VM 또는 컨테이너
 
-## Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %}을 사용하여 {% data variables.product.prodname_code_scanning %} 실행
 
-### Setting up a self-hosted runner
+### 자체 호스트 실행기 설정
 
-{% data variables.product.prodname_ghe_server %} can run {% data variables.product.prodname_code_scanning %} using a {% data variables.product.prodname_actions %} workflow. First, you need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your environment. You can provision self-hosted runners at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+{% data variables.product.prodname_ghe_server %}는 {% data variables.product.prodname_actions %} 워크플로를 사용하여 {% data variables.product.prodname_code_scanning %}를 실행할 수 있습니다. 먼저 사용자 환경에서 자체 호스트 {% data variables.product.prodname_actions %} 실행기를 하나 이상 프로비저닝해야 합니다. 리포지토리, 조직 또는 엔터프라이즈 계정 수준에서 자체 호스트 실행기를 프로비저닝할 수 있습니다. 자세한 내용은 “[자체 호스트 실행기 정보](/actions/hosting-your-own-runners/about-self-hosted-runners)” 및 “[자체 호스트 실행기 추가](/actions/hosting-your-own-runners/adding-self-hosted-runners)”를 참조하세요.
 
-You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
+{% data variables.product.prodname_codeql %} 작업을 실행하는 데 사용하는 자체 호스트 실행기에서 Git이 PATH 변수에 있는지 확인해야 합니다.
 
-{% ifversion ghes > 3.7 or ghae > 3.7 %}
-{% note %}
+{% ifversion ghes > 3.7 or ghae > 3.7 %} {% note %}
 
-If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}를 사용하여 엔터프라이즈에서 Python으로 작성된 코드를 분석하는 경우 자체 호스팅 실행기에 Python 3이 설치되어 있는지 확인해야 합니다.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
+### {% data variables.product.prodname_code_scanning %}를 위한 작업 프로비저닝
 
-{% ifversion ghes %}
-If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
+{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}에서 작업을 사용하여 {% data variables.product.prodname_code_scanning %}를 실행하려면 어플라이언스에 해당 작업을 사용할 수 있어야 합니다.
 
-The {% data variables.product.prodname_codeql %} action is included in your installation of {% data variables.product.prodname_ghe_server %}. If both {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }} and your {% data variables.product.prodname_actions %} runner have access to the internet, the action will automatically download the {% data variables.product.prodname_codeql %} {% data variables.product.codeql_cli_ghes_recommended_version %} bundle required to perform analysis. Alternatively, you can use a synchronization tool to make the latest released version of the {% data variables.product.prodname_codeql %} analysis bundle available locally. For more information, see "[Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access](#configuring-codeql-analysis-on-a-server-without-internet-access)" below.
+{% data variables.product.prodname_codeql %} 작업은 {% data variables.product.prodname_ghe_server %}의 설치에 포함되어 있습니다. {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }} 및 {% data variables.product.prodname_actions %} 실행기 모두 인터넷에 액세스할 수 있는 경우 작업은 분석을 수행하는 데 필요한 {% data variables.product.prodname_codeql %} {% data variables.product.codeql_cli_ghes_recommended_version %} 번들을 자동으로 다운로드합니다. 또는 동기화 도구를 사용하여 최신 릴리스 버전의 {% data variables.product.prodname_codeql %} 분석 번들을 로컬에서 사용하도록 할 수 있습니다. 자세한 내용은 아래의”[인터넷 액세스 없이 서버에서 {% data variables.product.prodname_codeql %} 구성](#configuring-codeql-analysis-on-a-server-without-internet-access)”을 참조하세요.
 
-You can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see "[Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)" below.
+{% data variables.product.prodname_github_connect %}를 설정하여 사용자가 {% data variables.product.prodname_code_scanning %}에 대해 타사 작업을 사용할 수 있도록 지정할 수도 있습니다. 자세한 내용은 아래의 “[{% data variables.product.prodname_actions %}를 동기화하도록 {% data variables.product.prodname_github_connect %} 구성](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)”을 참조하세요.
 
-### Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access
-If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, and you want to allow users to enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for their repositories, you must use the {% data variables.product.prodname_codeql %} action sync tool to copy the {% data variables.product.prodname_codeql %} analysis bundle from {% data variables.product.prodname_dotcom_the_website %} to your server. The tool, and details of how to use it, are available at [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/).
+### 인터넷 액세스 없이 서버에서 {% data variables.product.prodname_codeql %} 분석 구성
+{% data variables.product.prodname_ghe_server %}를 실행 중인 서버가 인터넷에 연결되지 않았는데 사용자가 리포지토리에 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}를 사용하도록 허용하려는 경우 {% data variables.product.prodname_codeql %} 작업 동기화 도구를 사용하여 {% data variables.product.prodname_dotcom_the_website %}의 {% data variables.product.prodname_codeql %} 분석 번들을 서버에 복사해야 합니다. 도구 및 도구 사용 방법에 관한 자세한 내용은 [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/)에서 확인할 수 있습니다.
 
-If you set up the {% data variables.product.prodname_codeql %} action sync tool, you can use it to sync the latest releases of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql %} analysis bundle. These are compatible with {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_codeql %} 작업 동기화 도구를 설정한 경우 이 도구를 사용하여 {% data variables.product.prodname_codeql %} 작업의 최신 릴리스 및 연결된 {% data variables.product.prodname_codeql %} 분석 번들을 동기화할 수 있습니다. 이들은 {% data variables.product.prodname_ghe_server %}와 호환됩니다.
 
 {% endif %}
 
-### Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}
-1. If you want to download action workflows on demand from {% data variables.product.prodname_dotcom_the_website %}, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see "[Enabling {% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect)."
-2. You'll also need to enable {% data variables.product.prodname_actions %} for {% data variables.location.product_location %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
-3. The next step is to configure access to actions on {% data variables.product.prodname_dotcom_the_website %} using {% data variables.product.prodname_github_connect %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
-4. Add a self-hosted runner to your repository, organization, or enterprise account. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+### {% data variables.product.prodname_actions %}을 동기화하도록 {% data variables.product.prodname_github_connect %} 구성
+1. {% data variables.product.prodname_dotcom_the_website %},에서 요청 시 작업 워크플로를 다운로드하려면 {% data variables.product.prodname_github_connect %}를 사용하도록 설정해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_github_connect %} 사용 설정](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect)”을 참조하세요.
+2. {% data variables.location.product_location %}에 대해 {% data variables.product.prodname_actions %}를 사용하도록 설정해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_server %}에서 {% data variables.product.prodname_actions %} 시작](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)”을 참조하세요.
+3. 다음 단계는 {% data variables.product.prodname_github_connect %}를 사용하여 {% data variables.product.prodname_dotcom_the_website %}에서 작업에 대한 액세스를 구성하는 것입니다. 자세한 내용은 “[{% data variables.product.prodname_github_connect %}를 사용하여 {% data variables.product.prodname_dotcom_the_website %} 작업에 대한 자동 액세스 사용](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”을 참조하세요.
+4. 리포지토리, 조직 또는 엔터프라이즈 계정에 자체 호스트 실행기를 추가합니다. 자세한 내용은 “[자체 호스트 실행기 추가](/actions/hosting-your-own-runners/adding-self-hosted-runners)”를 참조하세요.
 
-## Running code scanning using the {% data variables.product.prodname_codeql_cli %}
+## {% data variables.product.prodname_codeql_cli %}를 사용하여 코드 검사 실행
 
-If you don't want to use {% data variables.product.prodname_actions %}, you should run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_cli %}. 
+{% data variables.product.prodname_actions %}를 사용하지 않으려면 {% data variables.product.prodname_codeql_cli %}를 사용하여 {% data variables.product.prodname_code_scanning %}를 실행해야 합니다. 
 
-The {% data variables.product.prodname_codeql_cli %} is a command-line tool that you use to analyze codebases on any machine, including a third-party CI/CD system. For more information, see "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+{% data variables.product.prodname_codeql_cli %}는 타사 CI/CD 시스템을 포함하여 모든 컴퓨터에서 코드베이스를 분석하는 데 사용하는 명령줄 도구입니다. 자세한 내용은 “[CI 시스템에 CodeQL CLI 설치](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”를 참조하세요.
 
 {% ifversion codeql-runner-supported %}
 
-## Running {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}
+## {% data variables.code-scanning.codeql_runner %}를 사용하여 {% data variables.product.prodname_code_scanning %} 실행
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}. 
+{% data variables.product.prodname_actions %}을(를) 사용하지 않으려면 {% data variables.code-scanning.codeql_runner %}를 사용하여 {% data variables.product.prodname_code_scanning %}을(를) 실행할 수 있습니다. 
 
-The {% data variables.code-scanning.codeql_runner %} is a command-line tool that you can add to your third-party CI/CD system. The tool runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. For more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
+{% data variables.code-scanning.codeql_runner %}는 타사 CI/CD 시스템에 추가할 수 있는 명령줄 도구입니다. 이 도구는 {% data variables.product.prodname_dotcom %} 리포지토리의 체크 아웃 시 {% data variables.product.prodname_codeql %} 분석을 실행합니다. 자세한 내용은 “[CI 시스템에서 {% data variables.product.prodname_code_scanning %} 실행](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”을 참조하세요.
 
 {% endif %}

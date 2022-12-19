@@ -1,6 +1,6 @@
 ---
-title: Configuring secret scanning for your repositories
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
+title: Konfigurieren der Geheimnisüberprüfung für deine Repositorys
+intro: 'Du kannst konfigurieren, wie {% data variables.product.prodname_dotcom %} deine Repositorys auf Geheimnisse prüft, die mit erweiterten Sicherheitsmustern übereinstimmen.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
@@ -17,78 +17,59 @@ topics:
   - Advanced Security
   - Repositories
 shortTitle: Configure secret scans
+ms.openlocfilehash: 00983398e326997b6472da319d342ab0758018d3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147885716'
 ---
+{% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
+## Aktivieren von {% data variables.product.prodname_secret_scanning_GHAS %}
 
-## Enabling {% data variables.product.prodname_secret_scanning_GHAS %}
+Du kannst {% data variables.product.prodname_secret_scanning_GHAS %} für jedes Repository aktivieren, das sich im Besitz einer Organisation befindet. Nach der Aktivierung sucht {% data reusables.secret-scanning.secret-scanning-process %}
 
-You can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository that is owned by an organization. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %} {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. Wenn {% data variables.product.prodname_advanced_security %} für dein Repository noch nicht aktiviert ist, klicke rechts neben „{% data variables.product.prodname_GH_advanced_security %}“ auf **Aktivieren**.
+   {% ifversion fpt or ghec %}![Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/help/repository/enable-ghas-dotcom.png) {% elsif ghes or ghae %}![Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
+5. Überprüfe die Auswirkungen der Aktivierung von {% data variables.product.prodname_advanced_security %}, und klicke dann auf **{% data variables.product.prodname_GH_advanced_security %} für dieses Repository aktivieren**.
+6. Wenn du {% data variables.product.prodname_advanced_security %} aktivierst, wird {% data variables.product.prodname_secret_scanning %} aufgrund der Einstellungen der Organisation möglicherweise automatisch für das Repository aktiviert. Wenn „{% data variables.product.prodname_secret_scanning_caps %}“ mit der Schaltfläche **Aktivieren** angezeigt wird, musst du {% data variables.product.prodname_secret_scanning %} dennoch durch das Klicken von **Aktivieren** aktivieren. Wenn die Schaltfläche **Deaktivieren** angezeigt wird, ist {% data variables.product.prodname_secret_scanning %} bereits aktiviert. 
+   ![Aktivieren von {% data variables.product.prodname_secret_scanning %} für dein Repository](/assets/images/help/repository/enable-secret-scanning-dotcom.png) {% ifversion secret-scanning-push-protection %}
+7. Wenn du außerdem den Pushschutz aktivieren möchtest, kannst du rechts neben „Pushschutz“ auf **Aktivieren** klicken. {% data reusables.secret-scanning.push-protection-overview %} Weitere Informationen findest du unter [Schützen von Pushes mit {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).
+   ![Aktivieren des Pushschutzes für dein Repository](/assets/images/help/repository/secret-scanning-enable-push-protection.png) {% endif %} {% ifversion ghae %}
+1. Bevor du {% data variables.product.prodname_secret_scanning %} aktivieren kannst, musst du {% data variables.product.prodname_GH_advanced_security %} aktivieren. Klicke rechts neben „{% data variables.product.prodname_GH_advanced_security %}“ auf **Aktivieren**.
+   ![Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
+2. Klicke auf **{% data variables.product.prodname_GH_advanced_security %} für dieses Repository aktivieren**, um die Aktion zu bestätigen.
+   ![Bestätigen der Aktivierung von {% data variables.product.prodname_GH_advanced_security %} für dein Repository](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
+3. Klicke rechts neben „{% data variables.product.prodname_secret_scanning_caps %}“ auf **Aktivieren**.
+   ![Aktivieren von {% data variables.product.prodname_secret_scanning %} für dein Repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png) {% endif %}
 
-{% note %}
+## Ausschließen von Verzeichnissen aus {% data variables.product.prodname_secret_scanning_GHAS %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for issue descriptions and comments is in public beta and subject to change.
+Du kannst eine *secret_scanning.yml*-Datei verwenden, um Verzeichnisse aus {% data variables.product.prodname_secret_scanning %} auszuschließen. Beispielsweise kannst du Verzeichnisse ausschließen, welche Tests oder zufällig generierte Inhalte enthalten.
 
-{% endnote %}
-{% endif %}
-
-{% ifversion secret-scanning-enterprise-level %}
-{% note %}
-
-**Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-
-{% endnote %}
-{% endif %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. If {% data variables.product.prodname_advanced_security %} is not already enabled for the repository, to the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
-   {% ifversion fpt or ghec %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-dotcom.png)
-   {% elsif ghes or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
-2. Review the impact of enabling {% data variables.product.prodname_advanced_security %}, then click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository**.
-3. When you enable {% data variables.product.prodname_advanced_security %}, {% data variables.product.prodname_secret_scanning %} may automatically be enabled for the repository due to the organization's settings. If "{% data variables.product.prodname_secret_scanning_caps %}" is shown with an **Enable** button, you still need to enable {% data variables.product.prodname_secret_scanning %} by clicking **Enable**. If you see a **Disable** button, {% data variables.product.prodname_secret_scanning %} is already enabled. 
-   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
-{% ifversion secret-scanning-push-protection %}
-1. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-   ![Enable push protection for your repository](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
-{% endif %}
-{% ifversion ghae %}
-1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
-   ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
-2. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
-   ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
-3. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
-   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
-{% endif %}
-
-## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
-
-You can use a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}. For example, you can exclude directories that contain tests or randomly generated content.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type *.github/secret_scanning.yml*.
-4. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. Gib im Dateinamenfeld *.github/secret_scanning.yml* ein.
+4. Gib unter **Neue Datei bearbeiten** `paths-ignore:` gefolgt von den Pfaden ein, die du aus {% data variables.product.prodname_secret_scanning %} ausschließen möchtest.
     ``` yaml
     paths-ignore:
       - "foo/bar/*.js"
     ```
     
-    You can use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+    Du kannst Sonderzeichen verwenden, z. B. `*` zum Filtern von Pfaden. Weitere Informationen zu Filtermustern findest du unter [Workflowsyntax für GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
 
     {% note %}
     
-    **Notes:**
-    - If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    - If *secret_scanning.yml* is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
+    **Hinweise:**
+    - Wenn mehr als 1.000 Einträge in `paths-ignore` vorhanden sind, schließt {% data variables.product.prodname_secret_scanning %} nur die ersten 1.000 Verzeichnisse von der Überprüfung aus.
+    - Wenn *secret_scanning.yml* größer als 1 MB ist, ignoriert {% data variables.product.prodname_secret_scanning %} die gesamte Datei.
     
     {% endnote %}
 
-You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
+Du kannst auch einzelne Warnungen von {% data variables.product.prodname_secret_scanning %} ignorieren. Weitere Informationen findest du unter [Verwalten von Warnungen von {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts).
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
-- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"
+- [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)
+- [Definieren von benutzerdefinierten Mustern für {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)

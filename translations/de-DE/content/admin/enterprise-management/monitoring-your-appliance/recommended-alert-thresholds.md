@@ -1,6 +1,6 @@
 ---
-title: Recommended alert thresholds
-intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
+title: Empfohlene Schwellenwerte für Meldungen
+intro: 'Du kannst eine Meldung so konfigurieren, dass du in Bezug auf Systemressourcenprobleme benachrichtigt wirst, bevor sie sich auf die Leistung deiner {% data variables.product.prodname_ghe_server %}-Appliance auswirken.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -17,36 +17,42 @@ topics:
   - Performance
   - Storage
 shortTitle: Recommended alert thresholds
+ms.openlocfilehash: 73adc62a8a322666e08da01a76568c16ed18458c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145102963'
 ---
-## Monitoring storage
+## Speicher überwachen
 
-We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
+Du solltest die Root- und Benutzerspeichergeräte überwachen und eine Meldung mit Werten konfigurieren, die eine ausreichende Antwortzeit gestatten, wenn der verfügbare Disk-Speicher niedrig ist.
 
-| Severity | Threshold |
+| severity | Schwellenwert |
 | -------- | --------- |
-| **Warning** | Disk use exceeds 70% of total available |
-| **Critical** | Disk use exceeds 85% of total available |
+| **Warning** | Disk-Nutzung überschreitet 70 % des insgesamt verfügbaren Speichers |
+| **Critical** (Kritisch) | Disk-Nutzung überschreitet 85 % des insgesamt verfügbaren Speichers |
 
-You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
+Du kannst diese Werte basierend auf der insgesamt zugeordneten Speicherkapazität, historischen Wachstumsmustern und der erwarteten Antwortzeit anpassen. Wir empfehlen eine übermäßige Zuordnung an Speicherressourcen, um Wachstum zu ermöglichen und die zum Zuordnen des zusätzlichen Speichers erforderliche Ausfallzeit zu verhindern.
 
-## Monitoring CPU and load average usage
+## CPU- und durchschnittliche Auslastung überwachen
 
-Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
+Obwohl es normal ist, dass die CPU-Nutzung basierend auf ressourcenintensiven Git-Vorgängen schwankt, solltest du eine Meldung für ungewöhnlich hohe CPU-Auslastungen konfigurieren, da verlängerte Spitzen darauf hindeuten können, dass deine Instanz unterversorgt ist. Es wird empfohlen, die fünfzehnminütige durchschnittliche Auslastung des Systems auf Werte zu überwachen, die der Anzahl der der virtuellen Maschine zugeordneten CPU-Kerne nahekommen oder diese überschreiten.
 
-| Severity | Threshold |
+| severity | Schwellenwert |
 | -------- | --------- |
-| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
-| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
+| **Warning** | Fünfzehnminütige durchschnittliche Auslastung überschreitet 1x CPU-Kerne |
+| **Critical** (Kritisch) | Fünfzehnminütige durchschnittliche Auslastung überschreitet 2x CPU-Kerne |
 
-We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
+Darüber hinaus wird empfohlen, dass du die „Diebstahlzeit“ der Virtualisierung überwachst, um sicherzustellen, dass andere virtuelle Maschinen, die auf demselben Hostsystem ausgeführt werden, nicht alle Ressourcen der Instanz verwenden.
 
-## Monitoring memory usage
+## Überwachen der Arbeitsspeichernutzung
 
-The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
+Die {% data variables.product.product_location %} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
 
-| Severity | Threshold |
+| severity | Schwellenwert |
 | -------- | --------- |
-| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
-| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
+| **Warning**  | Nachhaltige RSS-Nutzung überschreitet 50 % des insgesamt verfügbaren Arbeitsspeichers |
+| **Critical** (Kritisch) | Nachhaltige RSS-Nutzung überschreitet 70 % des insgesamt verfügbaren Arbeitsspeichers |
 
-If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.
+Wenn der Arbeitsspeicher erschöpft ist, versucht der OOM-Killer des Kernels Arbeitsspeicherressourcen freizugeben. Dazu werden zwangsweise RAM-intensive Anwendungsprozesse beendet, was zu einer Dienstunterbrechung führen kann. Du solltest der virtuellen Maschine mehr Arbeitsspeicher zuordnen, als dies im normalen Betriebsablauf erforderlich ist.

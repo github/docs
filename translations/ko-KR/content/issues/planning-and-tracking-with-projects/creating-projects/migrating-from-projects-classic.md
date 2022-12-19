@@ -1,6 +1,6 @@
 ---
-title: 'Migrating from {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can migrate your {% data variables.projects.projects_v1_board %} to the new {% data variables.product.prodname_projects_v2 %} experience.'
+title: '{% data variables.product.prodname_projects_v1 %}에서 마이그레이션'
+intro: '{% data variables.projects.projects_v1_board %}를 새 {% data variables.product.prodname_projects_v2 %} 환경으로 마이그레이션할 수 있습니다.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,57 +10,53 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: e6db4fd8c6587f413ee0e6832dbae93bbf281573
+ms.sourcegitcommit: 9bf175b190674416ad4e11b5c567409f74c00ad2
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/23/2022
+ms.locfileid: '148181223'
 ---
-
-
 {% note %}
 
-**Notes:**
+**참고:**
 
-- If the project you are migrating contains more than {% data variables.projects.item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.archived_item_limit %} items is reached, additional items will not be migrated.
-- Note cards are converted to draft issues, and the contents are saved to the body of the draft issue. If information appears to be missing, make any hidden fields visible. For more information, see "[Showing and hiding fields](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)."
-- Automation will not be migrated.
-- Triage, archive, and activity will not be migrated.
-- After migration, the new migrated project and old project will not be kept in sync.
+- 마이그레이션하는 프로젝트에 {% data variables.projects.item_limit %} 항목이 포함된 경우 열려 있는 문제에 우선 순위가 지정되고 열린 끌어오기 요청 및 메모가 표시됩니다. 나머지 공간은 종결된 이슈, 병합된 끌어오기 요청 및 닫힌 끌어오기 요청에 사용됩니다. 이 제한으로 인해 마이그레이션할 수 없는 항목은 보관 파일로 이동됩니다. {% data variables.projects.archived_item_limit %} 항목의 보관 제한에 도달하면 추가 항목이 마이그레이션되지 않습니다.
+- 메모 카드는 초안 이슈로 변환되고 내용은 초안 이슈의 본문에 저장됩니다. 정보가 누락된 것으로 표시되면 숨겨진 필드를 표시합니다. 자세한 내용은 “[필드 표시 및 숨기기](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)”를 참조하세요.
+- 자동화는 마이그레이션되지 않습니다.
+- 심사, 보관 및 작업은 마이그레이션되지 않습니다.
+- 마이그레이션 후에는 새로 마이그레이션된 프로젝트와 이전 프로젝트가 동기화된 상태로 유지되지 않습니다.
 
 {% endnote %}
 
-## About project migration
+## 프로젝트 마이그레이션 정보
 
-You can migrate your project boards to the new {% data variables.product.prodname_projects_v2 %} experience and try out tables, multiple views, new automation options, and powerful field types. For more information, see "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+프로젝트 보드를 모든 새 {% data variables.product.prodname_projects_v2 %} 환경으로 마이그레이션하고 테이블, 여러 보기, 새 자동화 옵션, 강력한 필드 형식을 사용해 볼 수 있습니다. 자세한 내용은 “[프로젝트 정보](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)”를 참조하세요.
 
-## Migrating an organization project board
+## 조직 프로젝트 보드 마이그레이션
 
-{% data reusables.projects.enable-migration %}
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}
-1. On the left, click **Projects (classic)**.
-  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-org.png)
-{% data reusables.projects.migrate-project-steps %}
+{% data reusables.projects.enable-migration %} {% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}
+1. 왼쪽에서 **프로젝트(클래식)** 를 클릭합니다.
+  ![프로젝트(클래식) 메뉴 옵션을 보여 주는 스크린샷](/assets/images/help/issues/projects-classic-org.png) {% data reusables.projects.migrate-project-steps %}
 
-## Migrating a user project board
+## 사용자 프로젝트 보드 마이그레이션
 
-{% data reusables.projects.enable-migration %}
-{% data reusables.profile.access_profile %}
-1. On the top of your profile page, in the main navigation, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
-  ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
-1. Above the list of projects, click **Projects (classic)**.
-  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-user.png)
-{% data reusables.projects.migrate-project-steps %}
+{% data reusables.projects.enable-migration %} {% data reusables.profile.access_profile %}
+1. 프로필 페이지의 위쪽에 있는 기본 탐색에서 {% octicon "table" aria-label="The project board icon" %} **Projects** 를 클릭합니다.
+  ![‘프로젝트’ 탭을 보여 주는 스크린샷](/assets/images/help/projects-v2/tab-projects.png)
+1. 프로젝트 목록 위에서 **프로젝트(클래식)** 를 클릭합니다.
+  ![프로젝트(클래식) 메뉴 옵션을 보여 주는 스크린샷](/assets/images/help/issues/projects-classic-user.png) {% data reusables.projects.migrate-project-steps %}
 
-## Migrating a repository project board
+## 리포지토리 프로젝트 보드 마이그레이션
 
 {% note %}
 
-**Note:** {% data variables.projects.projects_v2_caps %} does not support repository level projects. When you migrate a repository project board, it will migrate to either the organization or personal account that owns the repository project, and the migrated project will be pinned to the original repository.
+**참고:** {% data variables.projects.projects_v2_caps %}는 리포지토리 수준 프로젝트를 지원하지 않습니다. 리포지토리 프로젝트 보드를 마이그레이션하면 리포지토리 프로젝트를 소유하는 조직 또는 개인 계정으로 마이그레이션되고 마이그레이션된 프로젝트는 원래 리포지토리에 고정됩니다.
 
 {% endnote %}
 
-{% data reusables.projects.enable-migration %}
-{% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
-![Project tab](/assets/images/help/projects-v2/repo-tabs-projects.png)
-1. Click **Projects (classic)**.
-  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-org.png)
-{% data reusables.projects.migrate-project-steps %}
+{% data reusables.projects.enable-migration %} {% data reusables.repositories.navigate-to-repo %}
+1. 리포지토리 이름 아래에서 {% octicon "table" aria-label="The project board icon" %} **Projects** 를 클릭합니다.
+![프로젝트 탭](/assets/images/help/projects-v2/repo-tabs-projects.png)
+1. **프로젝트(클래식)** 를 클릭합니다.
+  ![프로젝트(클래식) 메뉴 옵션을 보여 주는 스크린샷](/assets/images/help/issues/projects-classic-org.png) {% data reusables.projects.migrate-project-steps %}

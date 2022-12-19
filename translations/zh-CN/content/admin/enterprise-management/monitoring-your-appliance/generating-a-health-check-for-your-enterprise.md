@@ -1,6 +1,6 @@
 ---
-title: Generating a Health Check for your enterprise
-intro: 'You can gain insight into the general health and Git and API requests of {% data variables.location.product_location %} by generating a Health Check.'
+title: 为企业生成运行状况检查
+intro: '可通过生成运行状况检查来深入了解 {% data variables.product.product_location %} 的一般运行状况与 Git 和 API 请求。'
 versions:
   ghes: '*'
 type: how_to
@@ -11,48 +11,53 @@ topics:
   - Monitoring
   - Performance
 product: '{% data reusables.gated-features.generated-health-checks %}'
+ms.openlocfilehash: f02fc61f050fc01a69f9fafe2dcdc95d91322dfa
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146460015'
 ---
-
 {% note %}
 
-**Note:** Generating a Health Check is currently in beta for {% data variables.product.prodname_ghe_server %} and subject to change.
+**注意：** 为 {% data variables.product.prodname_ghe_server %} 生成运行状况检查目前处于测试阶段，可能会发生更改。
 
 {% endnote %}
 
-## About generated Health Checks
+## 关于生成的运行状况检查
 
-You can create a support bundle for {% data variables.location.product_location %} that contains a lot of data, such as diagnostics and log files. To help analyze and interpret this data, you can generate a Health Check. For more information about support bundles, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+可以为包含大量数据（例如诊断和日志文件）的 {% data variables.product.product_location %} 创建支持捆绑包。 为了帮助分析和解释这些数据，可以生成运行状况检查。 有关支持捆绑包的详细信息，请参阅“[向 {% data variables.contact.github_support %} 提供数据](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。
 
-A Health Check provides the following information about {% data variables.location.product_location %}.
-- Insights into the general health of {% data variables.location.product_location %}, such as upgrade status, storage, and license seat consumption
-- A security section, which focuses on subdomain isolation and user authentication
-- Analysis of Git requests, with details about the busiest repositories and Git users 
-- Analysis of API requests, including the busiest times, most frequently requested endpoints, and most active callers
+运行状况检查提供有关 {% data variables.product.product_location %} 的以下信息。
+- 针对 {% data variables.product.product_location %} 一般运行状况的见解，例如升级状态、存储和许可证席位消耗
+- 重点关注子域隔离和用户身份验证的安全部分
+- Git 请求分析，包括有关最繁忙的存储库和 Git 用户的详细信息 
+- API 请求分析，包括最繁忙的时间、最频繁请求的终结点和最活跃的调用方
 
-If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
+如果要为 {% data variables.product.prodname_ghe_cloud %} 生成运行状况检查，请联系 {% data variables.contact.github_support %}。 有关详细信息，请参阅“[创建支持工单](/support/contacting-github-support/creating-a-support-ticket)”。
 
-## Generating a Health Check
+## 生成运行状况检查
 
-Before you can generate a Health Check, you must create a support bundle. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+在生成运行状况检查之前，你必须创建一个支持捆绑包。 有关详细信息，请参阅“[向 {% data variables.contact.github_support %} 提供数据](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)”。
 
-1. Navigate to the [{% data variables.contact.support_portal %}](https://support.github.com/).
-2. In the upper-right corner of the page, click **Premium**.
+1. 导航到 [{% data variables.contact.support_portal %}](https://support.github.com/)。
+2. 在页面的右上角，单击“高级”。
 
-   ![Screenshot of the "Premium" link in the GitHub Support Portal header.](/assets/images/enterprise/support/support-portal-header-premium.png)
+   ![GitHub 支持门户标题中“高级”链接的屏幕截图。](/assets/images/enterprise/support/support-portal-header-premium.png)
    
-3. To the right of **Health Checks**, click **Request Health Check**.
+3. 在“运行状况检查”的右侧，单击“请求运行状况检查” 。
 
-   ![Screenshot of the "Request Health Check" button.](/assets/images/enterprise/support/support-portal-request-health-check.png)
+   ![“请求运行状况检查”按钮的屏幕截图。](/assets/images/enterprise/support/support-portal-request-health-check.png)
    
-4. Under "Select an enterprise account", select the dropdown menu and click an enterprise account.
+4. 在“选择企业帐户”下，选择下拉菜单并单击企业帐户。
 
-   ![Screenshot of the "enterprise account" dropdown menu.](/assets/images/enterprise/support/health-check-dialog-ea.png)
+   ![“企业帐户”下拉菜单的屏幕截图。](/assets/images/enterprise/support/health-check-dialog-ea.png)
    
-5. Under "Upload a support bundle", click **Chose File** and choose a file to upload. Then, click **Request Health Check**.
+5. 在“上传支持捆绑包”下，单击“选择文件”并选择要上传的文件。 然后，单击“请求运行状况检查”。
 
-   ![Screenshot of the "Choose file" and "Request Health Check" buttons.](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
+   ![“选择文件”和“请求运行状况检查”按钮的屏幕截图。](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
    
 
-After you request a Health Check, a job is scheduled to generate the Health Check. After several hours to one day, the generated Health Check will appear in the "Health Checks" section of the {% data variables.contact.support_portal %}.
+请求运行状况检查后，系统会计划一个作业来生成运行状况检查。 数小时到一天后，生成的运行状况检查将显示在 {% data variables.contact.support_portal %} 的“运行状况检查”部分中。
 
-![Screenshot of the Health Checks section of the {% data variables.contact.support_portal %}.](/assets/images/enterprise/support/support-portal-health-checks-section.png)
+![{% data variables.contact.support_portal %} 的“运行状况检查”部分的屏幕截图。](/assets/images/enterprise/support/support-portal-health-checks-section.png)

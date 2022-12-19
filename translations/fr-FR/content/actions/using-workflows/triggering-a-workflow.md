@@ -1,7 +1,7 @@
 ---
-title: Triggering a workflow
+title: Déclenchement d’un workflow
 shortTitle: Trigger a workflow
-intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
+intro: 'Comment déclencher automatiquement des workflows {% data variables.product.prodname_actions %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,32 +13,36 @@ topics:
   - CI
   - CD
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cd91670d3d06d4d8f954afa114f6c4f189825d86
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191902'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About workflow triggers
+## À propos des déclencheurs de workflow
 
 {% data reusables.actions.about-triggers %}
 
-Workflow triggers are defined with the `on` key. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
+Les déclencheurs de workflow sont définis avec la clé `on`. Pour plus d’informations, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on) ».
 
-The following steps occur to trigger a workflow run:
+Les étapes suivantes se produisent pour déclencher une exécution de workflow :
 
-1. An event occurs on your repository. The event has an associated commit SHA and Git ref.
-1. {% data variables.product.product_name %} searches the `.github/workflows` directory in your repository for workflow files that are present in the associated commit SHA or Git ref of the event.
-1. A workflow run is triggered for any workflows that have `on:` values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.
+1. Un événement se produit sur votre dépôt. Une référence Git et un SHA de commit sont associés à l’événement.
+1. {% data variables.product.product_name %} recherche dans le répertoire `.github/workflows` de votre dépôt les fichiers de workflow qui sont présents dans la référence Git ou le SHA de commit associés de l’événement.
+1. Une exécution de workflow est déclenchée pour tous les workflows qui ont des valeurs `on:` correspondant à l’événement de déclenchement. Certains événements nécessitent également que le fichier de workflow soit présent sur la branche par défaut du dépôt pour qu’il s’exécute.
 
-  Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+  Chaque exécution de workflow utilise la version du workflow présente dans la référence Git ou le SHA de commit associés de l’événement. Lorsqu’un workflow s’exécute, {% data variables.product.product_name %} définit les variables d’environnement `GITHUB_SHA` (SHA de commit) et `GITHUB_REF` (référence Git) dans l’environnement de l’exécuteur. Pour en savoir plus, consultez « [Utilisation de variables d’environnement](/actions/automating-your-workflow-with-github-actions/using-environment-variables) ».
 
-### Triggering a workflow from a workflow
+### Déclenchement d’un workflow à partir d’un workflow
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% data reusables.actions.actions-do-not-trigger-workflows %} Pour plus d’informations, consultez « [Authentification avec le GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) ».
 
-If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token. You'll need to create a {% data variables.product.pat_generic %} and store it as a secret. To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a {% data variables.product.pat_generic %} as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+Si vous souhaitez déclencher un workflow à partir d’une exécution de workflow, vous pouvez utiliser un {% data variables.product.pat_generic %} au lieu de `GITHUB_TOKEN` pour déclencher des événements qui nécessitent un jeton. Vous devez créer un {% data variables.product.pat_generic %} et le stocker en tant que secret. Pour réduire vos coûts d’utilisation de {% data variables.product.prodname_actions %}, veillez à ne pas créer d’exécutions de workflow récursives ou involontaires. Pour plus d’informations sur la création d’un {% data variables.product.pat_generic %}, consultez « [Création d’un {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) ». Pour plus d’informations sur le stockage d’un {% data variables.product.pat_generic %} en tant que secret, consultez « [Création et stockage de secrets chiffrés](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) ».
 
-For example, the following workflow uses a {% data variables.product.pat_generic %} (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
+Par exemple, le workflow suivant utilise un {% data variables.product.pat_generic %} (stocké en tant que secret appelé `MY_TOKEN`) pour ajouter une étiquette à un problème via {% data variables.product.prodname_cli %}. Tous les workflows qui s’exécutent lorsqu’une étiquette est ajoutée s’exécutent une fois cette étape effectuée.
 
 ```yaml
 on:
@@ -57,7 +61,7 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
+À l’inverse, le workflow suivant utilise `GITHUB_TOKEN` pour ajouter une étiquette à un problème. Il ne déclenche aucun workflow qui s’exécute lorsqu’une étiquette est ajoutée.
 
 ```yaml
 on:
@@ -76,68 +80,68 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-## Using events to trigger workflows
+## Utilisation d’événements pour déclencher des workflows
 
-Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+Utilisez la clé `on` pour spécifier quels événements déclenchent votre workflow. Pour plus d’informations sur les événements que vous pouvez utiliser, consultez « [Événements qui déclenchent des workflows](/actions/using-workflows/events-that-trigger-workflows) ».
 
-### Using a single event
+### Utilisation d’un seul événement
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### Utilisation de plusieurs événements
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types and filters with multiple events
+### Utilisation de types d’activités et de filtres avec plusieurs événements
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
+Vous pouvez utiliser des types d’activités et des filtres pour contrôler davantage le moment où votre workflow s’exécute. Pour plus d’informations, consultez [Utilisation de types d’activités d’événement](#using-event-activity-types) et [Utilisation de filtres](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
-## Using event activity types
+## Utilisation de types d’activités d’événement
 
 {% data reusables.actions.actions-activity-types %}
 
-## Using filters
+## Utilisation de filtres
 
 {% data reusables.actions.actions-filters %}
 
-### Using filters to target specific branches for pull request events
+### Utilisation de filtres afin de cibler des branches spécifiques pour les événements de demande de tirage (pull request)
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-### Using filters to target specific branches or tags for push events
+### Utilisation de filtres afin de cibler des branches ou des étiquettes spécifiques pour les événements de transmission de type push
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-### Using filters to target specific paths for pull request or push events
+### Utilisation de filtres afin de cibler des chemins spécifiques pour les événements de demande de tirage (pull request) ou de transmission de type push
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-### Using filters to target specific branches for workflow run events
+### Utilisation de filtres afin de cibler des branches spécifiques pour les événements d’exécution de workflow
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## Defining inputs for manually triggered workflows
+## Définition d’entrées pour les workflows déclenchés manuellement
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Defining inputs, outputs, and secrets for reusable workflows
+## Définition d’entrées, de sorties et de secrets pour les workflows réutilisables
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+Vous pouvez définir des entrées et des secrets qu’un workflow réutilisable doit recevoir d’un workflow appelant. Vous pouvez également spécifier des sorties qu’un workflow réutilisable met à la disposition d’un workflow appelant. Pour plus d’informations, consultez « [Réutilisation de workflows](/actions/using-workflows/reusing-workflows) ».
 
 {% endif %}
 
-## Using event information
+## Utilisation des informations sur l’événement
 
-Information about the event that triggered a workflow run is available in the `github.event` context. The properties in the `github.event` context depend on the type of event that triggered the workflow. For example, a workflow triggered when an issue is labeled would have information about the issue and label.
+Des informations sur l’événement qui a déclenché une exécution de workflow sont disponibles dans le contexte `github.event`. Les propriétés du contexte `github.event` dépendent du type d’événement qui a déclenché le workflow. Par exemple, un workflow déclenché lorsqu’un problème est étiqueté aurait des informations concernant le problème et l’étiquette.
 
-### Viewing all properties of an event
+### Affichage de toutes les propriétés d’un événement
 
-Reference the webhook event documentation for common properties and example payloads. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+Reportez-vous à la documentation des événements de webhook pour connaître les propriétés courantes et obtenir des exemples de charges utiles. Pour plus d’informations, consultez « [Événements et charges utiles de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads) ».
 
-You can also print the entire `github.event` context to see what properties are available for the event that triggered your workflow:
+Vous pouvez également imprimer l’intégralité du contexte `github.event` pour voir quelles propriétés sont disponibles pour l’événement qui a déclenché votre workflow :
 
 ```yaml
 jobs:
@@ -150,9 +154,9 @@ jobs:
           echo $EVENT_CONTEXT
 ```
 
-### Accessing and using event properties
+### Accès et utilisation de propriétés d’événement
 
-You can use the `github.event` context in your workflow. For example, the following workflow runs when a pull request that changes `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**` is opened. If the pull request author (`github.event.pull_request.user.login`) is not `octobot` or `dependabot[bot]`, then the workflow uses the {% data variables.product.prodname_cli %} to label and comment on the pull request (`github.event.pull_request.number`).
+Vous pouvez utiliser le contexte `github.event` dans votre workflow. Par exemple, le workflow suivant s’exécute lorsqu’une demande de tirage qui change `package*.json`, `.github/CODEOWNERS` ou `.github/workflows/**` est ouverte. Si l’auteur de la demande de tirage (`github.event.pull_request.user.login`) n’est pas `octobot` ou `dependabot[bot]`, le workflow utilise l’{% data variables.product.prodname_cli %} pour étiqueter et commenter la demande de tirage (`github.event.pull_request.number`).
 
 ```yaml
 on:
@@ -180,19 +184,19 @@ jobs:
           gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. We do not allow contributions to these files. Please review our [contributing guidelines](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) for what contributions are accepted.'
 ```
 
-For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)." For more information about event payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+Pour plus d’informations sur les contextes, consultez « [Contextes](/actions/learn-github-actions/contexts) ». Pour plus d’informations sur les charges utiles d’événement, consultez « [Événements et charges utiles de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads) ».
 
-## Further controlling how your workflow will run
+## Contrôle supplémentaire de l’exécution de votre workflow
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
+Si vous souhaitez un contrôle plus précis que ne le permettent les événements, les types d’activité d’événement ou les filtres d’événement, vous pouvez utiliser des conditions et des environnements pour contrôler l’exécution de travaux ou d’étapes spécifiques de votre workflow.
 
-### Using conditionals
+### Utilisation de conditions
 
-You can use conditionals to further control whether jobs or steps in your workflow will run.
+Vous pouvez utiliser des conditions pour contrôler davantage si des travaux ou des étapes de votre workflow s’exécuteront.
 
-#### Example using a value in the event payload
+#### Exemple utilisant une valeur dans la charge utile de l’événement
 
-For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
+Par exemple, si vous souhaitez que le workflow s’exécute lorsqu’une étiquette spécifique est ajoutée à un problème, vous pouvez effectuer le déclenchement sur le type d’activité d’événement `issues labeled` et utiliser une condition pour vérifier quelle étiquette a déclenché le workflow. Le workflow suivant s’exécute quand une étiquette est ajoutée à un problème dans le dépôt du workflow, mais le travail `run_if_label_matches` s’exécute uniquement si l’étiquette est nommée `bug`.
 
 ```yaml
 on:
@@ -208,9 +212,9 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-#### Example using event type
+#### Exemple utilisant un type d’événement
 
-For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+Par exemple, si vous souhaitez exécuter différents travaux ou différentes étapes en fonction de l’événement déclenché par le workflow, vous pouvez utiliser une condition pour vérifier s’il existe un type d’événement spécifique dans le contexte de l’événement. Le workflow suivant s’exécute chaque fois qu’un problème ou une demande de tirage est fermé. Si le workflow a été exécuté parce qu’un problème a été fermé, le contexte `github.event` contient une valeur pour `issue`, mais pas pour `pull_request`. Par conséquent, l’étape `if_issue` s’exécute, mais pas l’étape `if_pr`. À l’inverse, si le workflow a été exécuté parce qu’une demande de tirage a été fermée, l’étape `if_pr` s’exécute, mais pas l’étape `if_issue`.
 
 ```yaml
 on:
@@ -235,13 +239,13 @@ jobs:
         echo A pull request was closed
 ```
 
-For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
+Pour en savoir plus sur la nature des informations disponibles dans le contexte d’événement, consultez « [Utilisation des informations sur l’événement](#using-event-information) ». Pour plus d’informations sur l’utilisation de conditions, consultez « [Expressions](/actions/learn-github-actions/expressions) ».
 
-### Using environments to manually trigger workflow jobs
+### Utilisation d’environnements pour déclencher manuellement des travaux de workflow
 
-If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
+Si vous souhaitez déclencher manuellement un travail spécifique d’un workflow, vous pouvez utiliser un environnement qui nécessite l’approbation d’une équipe ou d’un utilisateur spécifique. Tout d’abord, configurez un environnement avec les réviseurs obligatoires. Pour plus d’informations, consultez « [Utilisation d’environnements pour le déploiement](/actions/deployment/targeting-different-environments/using-environments-for-deployment) ». Ensuite, référencez le nom de l’environnement dans un travail de votre workflow à l’aide de la clé `environment:`. Tout travail référençant l’environnement ne s’exécute qu’une fois qu’un réviseur au moins a approuvé le travail.
 
-For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
+Par exemple, le workflow suivant s’exécute chaque fois qu’il y a une transmission de type push dans la branche principale. Le travail `build` s’exécute toujours. Le travail `publish` s’exécute uniquement une fois que le travail `build` s’est terminé correctement (en raison de `needs: [build]`) et que toutes les règles (y compris les réviseurs obligatoires) définies pour l’environnement appelé `production` sont respectées ( en raison de `environment: production`).
 
 ```yaml
 on:
@@ -271,6 +275,6 @@ jobs:
 
 {% endnote %}
 
-## Available events
+## Événements disponibles
 
-For a full list of available events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+Pour obtenir la liste complète des événements disponibles, consultez « [Événements qui déclenchent des workflows](/actions/using-workflows/events-that-trigger-workflows) ».

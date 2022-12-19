@@ -1,5 +1,5 @@
 ---
-title: Site admin dashboard
+title: Websiteadministrator-Dashboard
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard
@@ -13,173 +13,178 @@ type: reference
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: 5e845824a5216e43f1e4e8f7b73f08963ce1d71b
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147763708'
 ---
-To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+Klicke auf einer beliebigen Seite oben rechts auf {% octicon "rocket" aria-label="The rocket ship" %}, um auf das Dashboard zuzugreifen.
+![Raketenschiffsymbol für den Zugriff auf die Administratoreinstellungen der Website](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
 {% ifversion ghes or ghae %}
 
-## Search
+## Suche
 
-Refer to this section of the site admin dashboard to search for users and repositories, and to query the [audit log](#audit-log).
+In diesem Abschnitt des Websiteadministrator-Dashboards kannst du nach Benutzer*innen und Repositorys suchen sowie das [Überwachungsprotokoll](#audit-log) abfragen.
 
 {% else %}
 
-## License info & search
+## Lizenzinformationen & Suche
 
-Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
+In diesem Abschnitt des Websiteadministrator-Dashboards kannst du deine aktuelle {% data variables.product.prodname_enterprise %}-Lizenz überprüfen, nach Benutzer*innen und Repositorys suchen sowie das [Überwachungsprotokoll](#audit-log) abfragen.
 
-{% endif %}
-{% ifversion ghes %}
+{% endif %} {% ifversion ghes %}
 ## {% data variables.enterprise.management_console %}
 
-Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
+Hier kannst du die {% data variables.enterprise.management_console %} starten, um die Einstellungen der virtuellen Geräte zu verwalten, beispielsweise die Domain, die Authentifizierung und SSL.
 {% endif %}
-## Explore
+## Erkunden
 
-Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
+Daten für die [Trendseite][] von GitHub werden in täglichen, wöchentlichen und monatlichen Zeiträumen für Repositorys und Entwickler berechnet. Du kannst anzeigen, wann diese Daten zuletzt zwischengespeichert wurden, und neue Aufträge zur Berechnung von Trends aus dem Abschnitt **Erkunden** in die Warteschlange einreihen.
 
-  [trending page]: https://github.com/blog/1585-explore-what-is-trending-on-github
+  [Trendseite]: https://github.com/blog/1585-explore-what-is-trending-on-github
 
-## Audit log
+## Überwachungsprotokoll
 
-{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
+{% data variables.product.product_name %} speichert ein Ablaufprotokoll der überwachten Aktionen, die du abfragen kannst.
 
-By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
+Das Auditprotokoll zeigt standardmäßig eine Liste sämtlicher überwachter Aktionen in umgekehrt chronologischer Reihenfolge an. Du kannst diese Liste filtern, indem du Schlüsselwertpaare in das Textfeld **Abfrage** eingibst und dann auf **Suchen** klickst, wie unter [Durchsuchen des Überwachungsprotokolls für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise) beschrieben wird.
 
-For more information on audit logging in general, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+Weitere Informationen zur Überwachungsprotokollierung im Allgemeinen findest du unter [Informationen zum Überwachungsprotokoll für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise). Eine vollständige Liste der überwachten Aktionen findest du unter [Überwachungsprotokollereignisse für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
-## Reports
+## Berichte
 
-If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+Wenn du Informationen zu Benutzer*innen, Organisationen und Repositorys in {% data variables.product.product_location %} benötigst, rufst du die JSON-Daten normalerweise über die [GitHub-API](/rest) ab. Leider stellt die API nicht alle gewünschten Daten bereit und erfordert ein gewisses technisches Know-how. Das Websiteadministrator-Dashboard bietet den Abschnitt **Berichte** als Alternative, mit dem du einfach CSV-Berichte mit den meisten Informationen herunterladen kannst, die du wahrscheinlich für Benutzer*innen, Organisationen und Repositorys benötigst.
 
-Specifically, you can download CSV reports that list
+Insbesondere kannst du CSV-Berichte herunterladen, die Folgendes auflisten:
 
-- all users
-- all active users
-- all [dormant users](/admin/user-management/managing-dormant-users)
-- all users who have been suspended
-- all organizations
-- all repositories
+- alle Benutzer
+- Alle aktiven Benutzer
+- alle [Inaktiven Benutzer](/admin/user-management/managing-dormant-users)
+- alle Benutzer, die gesperrt wurden
+- alle Organisationen
+- alle Repositorys
 
-You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Darüber hinaus kannst du mit einem Websiteadministrator-Konto über die HTTP-Standardauthentifizierung programmgesteuert auf diese Berichte zugreifen. Du musst ein persönliches Zugriffs-Token mit dem `site_admin`-Geltungsbereich verwenden. Weitere Informationen findest du unter [Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token).
 
-For example, here is how you would download the "all users" report using cURL:
+So kannst du beispielsweise den Bericht „all users“ (alle Benutzer) mit der cURL herunterladen:
 
 ```shell
-curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv
+curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftools/reports/all_users.csv
 ```
 
-To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
+Um programmgesteuert auf die anderen Berichte zuzugreifen, ersetze `all_users` durch `active_users`, `dormant_users`, `suspended_users`, `all_organizations` oder `all_repositories`.
 
 {% note %}
 
-**Note:** The initial `curl` request will return a 202 HTTP response if there are no cached reports available; a report will be generated in the background. You can send a second request to download the report. You can use a password or an OAuth token with the `site_admin` scope in place of a password.
+**Hinweis:** Die anfängliche `curl`-Anforderung gibt eine 202 HTTP-Antwort zurück, wenn keine zwischengespeicherten Berichte verfügbar sind;.im Hintergrund wird ein Bericht generiert. Du kannst eine zweite Anforderung senden, um den Bericht herunterzuladen. Du kannst entweder ein Kennwort oder ein OAuth-Token mit dem `site_admin`-Geltungsbereich anstelle eines Kennworts verwenden.
 
 {% endnote %}
 
-### User reports
+### Benutzerberichte
 
-Key               | Description
+Schlüssel               | BESCHREIBUNG
 -----------------:| ------------------------------------------------------------
-`created_at`      | When the user account was created (as an ISO 8601 timestamp)
-`id`              | Account ID for the user or organization
-`login`           | Account's login name
-`email`           | Account's primary email address
-`role`            | Whether the account is an admin or an ordinary user
-`suspended?`      | Whether the account has been suspended
-`last_logged_ip`  | Most recent IP address to log into the account
-`repos`           | Number of repositories owned by the account
-`ssh_keys`        | Number of SSH keys registered to the account
-`org_memberships` | Number of organizations to which the account belongs
-`dormant?`        | Whether the account is dormant
-`last_active`     | When the account was last active (as an ISO 8601 timestamp)
-`raw_login`       | Raw login information (in JSON format)
-`2fa_enabled?`    | Whether the user has enabled two-factor authentication
+`created_at`      | Zeitpunkt der Benutzerkontoerstellung (als ein ISO 8601-Zeitstempel)
+`id`              | Konto-ID für den Benutzer oder für die Organisation
+`login`           | Anmeldename des Kontos
+`email`           | Primäre E-Mail-Adresse des Kontos
+`role`            | Gibt an, ob es sich um ein Administrator- oder um ein normales Benutzerkonto handelt
+`suspended?`      | Gibt an, ob das Konto gesperrt wurde
+`last_logged_ip`  | Neueste IP-Adresse für Kontoanmeldung
+`repos`           | Anzahl der dem Konto gehörenden Repositorys
+`ssh_keys`        | Anzahl der für das Konto registrierten SSH-Schlüssel
+`org_memberships` | Anzahl der Organisationen, zu denen das Konto gehört
+`dormant?`        | Gibt an, ob das Konto inaktiv ist
+`last_active`     | Gibt den Zeitpunkt der letzten Kontoaktivität an (als ein ISO 8601-Zeitstempel)
+`raw_login`       | Unformatierte Anmeldeinformationen (im JSON-Format)
+`2fa_enabled?`    | Gibt an, ob der Benutzer die Zwei-Faktor-Authentifizierung aktiviert hat
 
-### Organization reports
+### Organisationsberichte
 
-Key            | Description
+Schlüssel            | BESCHREIBUNG
 --------------:| ------------------------------------
-`id`           | Organization ID
-`created_at`   | When the organization was created
-`login`        | Organization's login name
-`email`        | Organization's primary email address
-`owners`       | Number of organization owners
-`members`      | Number of organization members
-`teams`        | Number of organization teams
-`repos`        | Number of organization repositories
-`2fa_required?`| Whether the organization requires two-factor authentication
+`id`           | Organisations-ID
+`created_at`   | Zeitpunkt der Organisationserstellung
+`login`        | Anmeldename der Organisation
+`email`        | Primäre E-Mail-Adresse der Organisation
+`owners`       | Anzahl der Organisationsinhaber
+`members`      | Anzahl der Organisationsmitglieder
+`teams`        | Anzahl der Organisationsteams
+`repos`        | Anzahl der Organisations-Repositorys
+`2fa_required?`| Gibt an, ob für die Organisation die Zwei-Faktor-Authentifizierung erforderlich ist
 
-### Repository reports
+### Repository-Berichte
 
-Key             | Description
+Schlüssel             | BESCHREIBUNG
 ---------------:| ------------------------------------------------------------
-`created_at`    | When the repository was created
-`owner_id`      | ID of the repository's owner
-`owner_type`    | Whether the repository is owned by a user or an organization
-`owner_name`    | Name of the repository's owner
-`id`            | Repository ID
-`name`          | Repository name
-`visibility`    | Whether the repository is public or private
-`readable_size` | Repository's size in a human-readable format
-`raw_size`      | Repository's size as a number
-`collaborators` | Number of repository collaborators
-`fork?`         | Whether the repository is a fork
-`deleted?`      | Whether the repository has been deleted
+`created_at`    | Zeitpunkt der Repository-Erstellung
+`owner_id`      | ID des Repository-Inhabers
+`owner_type`    | Gibt an, ob das Repository einem Benutzer oder einer Organisation gehört
+`owner_name`    | Name des Repository-Inhabers
+`id`            | Repository-ID
+`name`          | Name des Repositorys
+`visibility`    | Gibt an, ob das Repository öffentlich oder privat ist
+`readable_size` | Größe des Repositorys in einem visuell lesbaren Format
+`raw_size`      | Größe des Repositorys als eine Zahl
+`collaborators` | Anzahl der Repository-Mitarbeiter
+`fork?`         | Gibt an, ob das Repository ein Fork ist
+`deleted?`      | Gibt an, ob das Repository gelöscht wurde
 
 {% ifversion ghes %}
-## Indexing
+## Indizierung
 
-GitHub's search features are powered by Elasticsearch. This section of the site admin dashboard shows you the current status of your Elasticsearch cluster and provides you with several tools to control search and index behavior.
+Die Suchfunktionen von GitHub werden von Elasticsearch unterstützt. Dieser Abschnitt des Websiteadministrator-Dashboards zeigt den aktuellen Status deines Elasticsearch-Clusters an und stellt dir verschiedene Tools zur Verfügung, mit denen du das Such- und Indizierungsverhalten steuern kannst.
 
-For more information about code search, see "[Searching for information on {% data variables.product.prodname_dotcom %}](/search-github)." For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
+Weitere Informationen zur Codesuche findest du unter [Suchen nach Informationen in {% data variables.product.prodname_dotcom %}](/search-github). Weitere Informationen zu Elasticsearch findest du auf der [Elasticsearch-Website](https://elastic.co).
 
 {% note %}
 
-**Note**: In normal use, site administrators do not need to create new indices or schedule repair jobs. For troubleshooting or other support purposes, {% data variables.contact.github_support %} may instruct you to run a repair job.
+**Hinweis**: Bei normaler Verwendung müssen Websiteadministratoren keine neuen Indizes erstellen oder Reparaturaufträge planen. Zur Problembehandlung oder zu anderen Supportzwecken kann der {% data variables.contact.github_support %} dich anweisen, einen Reparaturauftrag auszuführen.
 
 {% endnote %}
 
-### Index management
+### Indexverwaltung
 
-{% data variables.product.product_name %} reconciles the state of the search index with data on the instance automatically and regularly.
+{% data variables.product.product_name %} stimmt den Suchindexstatus automatisch und regelmäßig mit Daten in der Instanz ab.
 
-- Issues, pull requests, repositories, and users in the database
-- Git repositories (source code) on disk
+- Issues, Pull Requests, Repositorys und Benutzer in der Datenbank
+- Git-Repositorys (Quellcode) auf dem Datenträger
 
-Your instance uses repair jobs to reconcile the data, and schedules a repair job in the background when the following events occur.
+Deine Instanz verwendet Reparaturaufträge, um die Daten abzustimmen und einen Reparaturauftrag im Hintergrund zu planen, wenn die folgenden Ereignisse auftreten.
 
-- A new search index is created.
-- Missing data needs to be backfilled.
-- Old search data needs to be updated.
+- Ein neuer Suchindex wird erstellt.
+- Fehlende Daten müssen abgeglichen werden.
+- Veraltete Suchdaten müssen aktualisiert werden.
 
-You can create a new index, or you can click on an existing index in the list to manage the index. You can perform the following operations on an index.
+Du kannst einen neuen Index erstellen oder in der Liste auf einen vorhandenen Index klicken, um den Index zu verwalten. Für einen Index können die folgenden Vorgänge ausgeführt werden.
 
-- Make the index searchable.
-- Make the index writable.
-- Update the index.
-- Delete the index
-- Reset the index repair state.
-- Start a new index repair job.
-- Enable or disable index repair jobs.
+- Festlegen des Indexes als durchsuchbar
+- Festlegen des Indexes als beschreibbar
+- Aktualisieren des Indexes
+- Löschen des Indexes
+- Zurücksetzen des Indexreparaturzustands
+- Starten eines neuen Indexreparaturauftrags
+- Aktivieren oder Deaktivieren von Indexreparaturaufträgen
 
-A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
+Eine Statusanzeige zeigt den aktuellen Status eines Reparaturauftrags auf allen Hintergrundworkern an. Bei der Anzeige handelt es sich um die prozentuale Abweichung des Reparaturversatzes von der höchsten Datensatz-ID in der Datenbank. Du kannst den Wert in der Statusanzeige ignorieren, nachdem ein Reparaturauftrag abgeschlossen wurde. Die Statusanzeige gibt den Unterschied zwischen dem Reparaturversatz und der höchsten Datensatz-ID in der Datenbank an. Dieser wird kleiner, je mehr Repositorys auf {% data variables.product.product_location %} hinzugefügt werden, selbst wenn diese Repositorys eigentlich indiziert sind.
 
-To minimize the effects on I/O performance and reduce the chances of operations timing out, run the repair job during off-peak hours. As the job reconciles the search index with database and Git repository data, one CPU will be used. Monitor your system's load averages and CPU usage with a utility like `top`. If you don't notice any significant increase in resource consumption, it should also be safe to run an index repair job during peak hours.
+Um die Auswirkungen auf die E/A-Leistung zu minimieren und die Wahrscheinlichkeit von Timeouts bei Vorgängen zu verringern, führe den Reparaturauftrag außerhalb der Spitzenzeiten durch. Während der Auftrag den Suchindex mit Datenbank- und Git-Repositorydaten abstimmt, wird eine CPU verwendet. Überwache die durchschnittlichen Auslastungswerte und die CPU-Auslastung deines Systems mit einem Hilfsprogramm wie `top`. Wenn du keinen signifikanten Anstieg des Ressourcenverbrauchs feststellst, solltest du einen Indexreparaturauftrag auch während der Spitzenzeiten ausführen können.
 
-Repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
+Reparaturaufträge verwenden einen „Reparaturversatz“ zur Parallelisierung. Dies ist ein Versatz in der Datenbanktabelle für den abzustimmenden Datensatz. Anhand dieses Versatzes können mehrere Hintergrundaufträge die Arbeit synchronisieren.
 
-### Code search
+### Codesuche
 
-This allows you to enable or disable both search and index operations on source code.
+Dadurch kannst du Such- und Indizierungsvorgänge im Quellcode aktivieren oder deaktivieren.
 
 {% endif %}
-## Reserved logins
+## Reservierte Anmeldungen
 
-Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
+Bestimmte Wörter sind für die interne Verwendung in {% data variables.product.product_location %} reserviert, was bedeutet, dass diese Wörter nicht als Benutzernamen verwendet werden können.
 
-For example, the following words are reserved, among others:
+Beispielsweise sind die unter anderem die folgenden Wörter reserviert:
 
 - `admin`
 - `enterprise`
@@ -187,63 +192,58 @@ For example, the following words are reserved, among others:
 - `staff`
 - `support`
 
-For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+Navigiere für die vollständige Liste oder reservierte Wörter auf dem Websiteadministrator-Dashboard zu „Reservierte Anmeldungen“.
 
 {% ifversion ghas-committers-calculator %}
-## {% data variables.product.prodname_advanced_security %} Committers
+## {% data variables.product.prodname_advanced_security %}-Committers
 
-You can see the number of active committers that are currently using seats for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional seats would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
+Du kannst die Anzahl aktiver Committer anzeigen, die aktuell Arbeitsplätze für {% data variables.product.prodname_GH_advanced_security %} verwenden, und du kannst berechnen, wie viele zusätzliche Arbeitsplätze benötigt werden, solltest du {% data variables.product.prodname_GH_advanced_security %} für weitere Organisationen und Repositorys aktivieren.
 
-Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of licensed seats that are currently being used.
+Unter „Aktuell aktive Anzahl der Committer“ kannst du die Anzahl der aktiven Committer für Repositorys mit {% data variables.product.prodname_GH_advanced_security %} im aktivierten Zustand anzeigen. Dies ist die Anzahl der lizenzierten Arbeitsplätze, die derzeit verwendet werden.
 
-Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
+Unter „Maximale Anzahl der Committer in der gesamten Instanz“ kannst du die Anzahl der aktiven Committer in allen Repositorys in deinem Unternehmen anzeigen. Dies ist die Anzahl der Arbeitsplätze, die verwendet werden würden, wenn du {% data variables.product.prodname_GH_advanced_security %} für jedes Repository in deinem Unternehmen aktivieren würdest.
 
-Under "Calculate Additional Advanced Committers", you can calculate how many more additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
+Unter „Kalkulieren zusätzlicher erweiterter Committer“ kannst du berechnen, wie viele zusätzliche Arbeitsplätze verwendet werden, wenn du {% data variables.product.prodname_GH_advanced_security %} für bestimmte Organisationen und Repositorys aktivierst. Gib unter „Organisationen und Repositorys“ eine Liste an Organisationen und Repositorys mit einer Organisation oder einem Repository pro Zeile ein, oder füge sie ein. 
 
 ```
 example-org
 octo-org/octo-repo
 ```
 
-The result is the number of additional seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
+Bei dem Ergebnis handelt es sich um die Anzahl zusätzlicher Arbeitsplätze, die verwendet werden würden, wenn du {% data variables.product.prodname_GH_advanced_security %} für diese Organisationen und Repositorys aktivieren würdest.
 
-For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[About billing for {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+Weitere Informationen zur Abrechnung für {% data variables.product.prodname_advanced_security %} findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 {% endif %}
 
-## Enterprise overview
+## Alle Benutzer
 
-Refer to this section of the site admin dashboard to manage organizations, people, policies, and settings.
+In diesem Abschnitt des Websiteadministrator-Dashboards kannst du Organisationen, Personen, Richtlinien und Einstellungen verwalten.
 
-## Repositories
+## Repositorys
 
-This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
+Dies ist eine Liste der Repositorys auf {% data variables.product.product_location %}. Du kannst auf einen Repositorynamen klicken und auf Funktionen zum Verwalten des Repositorys zugreifen.
 
-- [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [Configuring {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
-- [Archiving and unarchiving repositories](/enterprise/admin/guides/user-management/archiving-and-unarchiving-repositories/)
+- [Erzwungene Push-Vorgänge an ein Repository blockieren](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
+- [Konfigurieren von {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [Repositorys archivieren und Archivierung aufheben](/enterprise/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-## All users
+## Alle Benutzer
 
-Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Hier kannst du alle Benutzer*innen auf {% data variables.product.product_location %} anzeigen und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
-## Site admins
+## Websiteadministratoren
 
-Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Hier kannst du alle Administrator*innen auf {% data variables.product.product_location %} anzeigen und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
-## Dormant users
-{% ifversion ghes %}
-Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
-{% endif %}
-{% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
-{% endif %}
+## Inaktive Benutzer
+{% ifversion ghes %} Hier kannst du alle inaktiven Benutzer*innen auf {% data variables.product.product_location %} anzeigen und [sperren](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users). Ein Benutzerkonto wird als inaktiv („ruhend“) betrachtet, wenn es: {% endif %} {% ifversion ghae %} Hier kannst du alle inaktiven Benutzer*innen auf {% data variables.product.product_location %} anzeigen und sperren. Ein Benutzerkonto wird als inaktiv angesehen („ruhend“) betrachtet, wenn: {% endif %}
 
-- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
-- Has not generated any activity within that time period.
-- Is not a site administrator.
+- Besteht schon länger als der für {% data variables.product.product_location %} festgelegte Ruheschwellenwert.
+- Es hat in diesem Zeitraum keine Aktivitäten generiert.
+- Es ist kein Websiteadministrator.
 
-{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[Managing dormant users](/enterprise/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} Weitere Informationen findest du unter [Verwalten ruhender Benutzer*innen](/enterprise/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold).
 
-## Suspended users
+## Gesperrte Benutzer
 
-Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Hier kannst du alle gesperrten Benutzer*innen auf {% data variables.product.product_location %} anzeigen und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/admin/guides/user-management/auditing-ssh-keys).

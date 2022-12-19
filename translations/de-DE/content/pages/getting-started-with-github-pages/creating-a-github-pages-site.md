@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub Pages site
-intro: 'You can create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
+title: Erstellen einer GitHub Pages-Website
+intro: 'Du kannst eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
 redirect_from:
   - /articles/creating-pages-manually
   - /articles/creating-project-pages-manually
@@ -17,55 +17,46 @@ versions:
 topics:
   - Pages
 shortTitle: Create a GitHub Pages site
+ms.openlocfilehash: 45e7dead10f3f54b5c18d63352a037d04d49cb98
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147643949'
 ---
-
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## Creating a repository for your site
+## Ein Repository für eine Website erstellen
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.repositories.create_new %}
-{% data reusables.repositories.owner-drop-down %}
-{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
-{% data reusables.pages.create-repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
+{% data reusables.repositories.create_new %} {% data reusables.repositories.owner-drop-down %} {% indented_data_reference reusables.pages.emu-org-only spaces=3 %} {% data reusables.pages.create-repo-name %} {% data reusables.repositories.choose-repo-visibility %} {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
 
-## Creating your site
+## Eine Website erstellen
 
 {% data reusables.pages.must-have-repo-first %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.pages.decide-publishing-source %}
-1. Create the entry file for your site. {% data variables.product.prodname_pages %} will look for an `index.html`, `index.md`, or `README.md` file as the entry file for your site.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.decide-publishing-source %}
+1. Erstelle die Eintragsdatei für deine Website. {% data variables.product.prodname_pages %} sucht nach einer `index.html`-, `index.md`- oder `README.md`-Datei als Eintragsdatei für deine Website.
 
-   {% ifversion pages-custom-workflow %}If your publishing source is a branch and folder, the entry file must be at the top level of the source folder on the source branch. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.
+   {% ifversion pages-custom-workflow %}Wenn deine Veröffentlichungsquelle ein Branch und ein Ordner ist, muss sich die Eintragsdatei auf oberster Ebene des Quellordners im Quellbranch befinden. Wenn deine Veröffentlichungsquelle beispielsweise der Ordner `/docs` in Branch `main` ist, muss sich deine Eintragsdatei im Ordner `/docs` in einem Branch namens `main` befinden.
 
-   If your publishing source is a {% data variables.product.prodname_actions %} workflow, the artifact that you deploy must include the entry file at the top level of the artifact. Instead of adding the entry file to your repository, you may choose to have your {% data variables.product.prodname_actions %} workflow generate your entry file when the workflow runs.{% else %}
-   The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` folder on the `main` branch, your entry file must be located in the `/docs` folder on a branch called `main`.{% endif %}
-{% data reusables.pages.configure-publishing-source %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% data reusables.pages.choose-visibility %}
-{% data reusables.pages.visit-site %}
-{% data reusables.pages.check-workflow-run %}
+   Wenn deine Veröffentlichungsquelle ein {% data variables.product.prodname_actions %}-Workflow ist, muss das von dir bereitgestellte Artefakt die Eintragsdatei auf oberster Ebene des Artefakts enthalten. Anstatt die Eintragsdatei deinem Repository hinzuzufügen, kannst du deinen {% data variables.product.prodname_actions %}-Workflow deine Eintragsdatei generieren lassen, wenn der Workflow ausgeführt wird. {% else %} Die Eintragsdatei muss sich auf der obersten Ebene deiner ausgewählten Veröffentlichungsquelle befinden. Wenn deine Veröffentlichungsquelle beispielsweise der Ordner `/docs` in Branch `main` ist, muss sich deine Eintragsdatei im Ordner `/docs` in einem Branch namens `main` befinden.{% endif %} {% data reusables.pages.configure-publishing-source %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% data reusables.pages.choose-visibility %} {% data reusables.pages.visit-site %} {% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 
-## Next steps
+## Nächste Schritte
 
-You can add more pages to your site by creating more new files. Each file will be available on your site in the same directory structure as your publishing source. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
+Du kannst deiner Website weitere Seiten hinzufügen, indem du zusätzliche neue Dateien erstellst. Jede Datei ist auf deiner Website im selben Verzeichnis verfügbar wie deine Veröffentlichungsquelle. Wenn beispielsweise die Veröffentlichungsquelle für deine Projektwebsite der Branch `gh-pages` ist, und du eine neue Datei namens `/about/contact-us.md` in Branch `gh-pages` erstellst, steht die Datei unter {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` zur Verfügung.
 
-You can also add a theme to customize your site’s look and feel. For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+Du kannst auch ein Design hinzufügen, um das Aussehen der Website anzupassen. Weitere Informationen findest du unter [Hinzufügen eines Designs zu deiner {% data variables.product.prodname_pages %}-Website mit Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).
 
-To customize your site even more, you can use Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)".
+Um deine Website noch weiter anzupassen, kannst du Jekyll verwenden, einen Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %}. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll).
 
-## Further reading
+## Weiterführende Themen
 
-- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
-- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
-- "[Creating new files](/articles/creating-new-files)"
+- "[Behandeln von Jekyll-Build-Fehlern für {% data variables.product.prodname_pages %}-Websites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- [Erstellen und Löschen von Branches innerhalb deines Repositorys](/articles/creating-and-deleting-branches-within-your-repository)
+- "[Erstellen neuer Dateien](/articles/creating-new-files)"

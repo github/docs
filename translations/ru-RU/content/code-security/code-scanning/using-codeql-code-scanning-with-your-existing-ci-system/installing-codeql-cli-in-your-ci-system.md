@@ -1,7 +1,7 @@
 ---
-title: Installing CodeQL CLI in your CI system
+title: Установка CodeQL CLI в системе CI
 shortTitle: Install CodeQL CLI
-intro: 'You can install the {% data variables.product.prodname_codeql_cli %} and use it to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
+intro: 'Вы можете установить {% data variables.product.prodname_codeql_cli %} и использовать его для выполнения {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} в сторонней системе непрерывной интеграции.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -23,69 +23,72 @@ redirect_from:
   - /code-security/secure-coding/running-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
+ms.openlocfilehash: e84921073dfcf791cedcebf9cd8b512b534f6e06
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098146'
 ---
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## About using the {% data variables.product.prodname_codeql_cli %} for {% data variables.product.prodname_code_scanning %}
+## Сведения об использовании {% data variables.product.prodname_codeql_cli %} для {% data variables.product.prodname_code_scanning %}
 
-You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)." For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see "[Recommended hardware resources for running {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)."
+Используйте {% data variables.product.prodname_codeql_cli %} для запуска {% data variables.product.prodname_code_scanning %} в коде, который вы обрабатываете в сторонней системе непрерывной интеграции (CI). {% data reusables.code-scanning.about-code-scanning %} Дополнительные сведения см. в статье [Сведения о {% data variables.product.prodname_code_scanning %} с {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql). Рекомендуемые спецификации (ОЗУ, ядра ЦП и диск) для выполнения анализа {% data variables.product.prodname_codeql %} см. на странице [Рекомендуемые аппаратные ресурсы для запуска{% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql).
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %}. For information about {% data variables.product.prodname_code_scanning %} using actions, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)." For an overview of the options for CI systems, see "[About CodeQL {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)".
+Кроме того, можно использовать {% data variables.product.prodname_actions %} для запуска {% data variables.product.prodname_code_scanning %} в {% data variables.product.product_name %}. Дополнительные сведения о {% data variables.product.prodname_code_scanning %} с использованием действий см. в разделе [Настройка {% data variables.product.prodname_code_scanning %} для репозитория](/code-security/secure-coding/setting-up-code-scanning-for-a-repository). Общие сведения о параметрах для систем CI см. в разделе [Сведения о CodeQL {% data variables.product.prodname_code_scanning %} в системе CI](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system).
 
 {% data reusables.code-scanning.licensing-note %}
 
-## Downloading the {% data variables.product.prodname_codeql_cli %}
+## Загрузка {% data variables.product.prodname_codeql_cli %}
 
-You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-action/releases. The bundle contains:
+Загрузите пакет {% data variables.product.prodname_codeql %} из https://github.com/github/codeql-action/releases. Содержимое пакета:
 
-- {% data variables.product.prodname_codeql_cli %} product
-- A compatible version of the queries and libraries from https://github.com/github/codeql
-- Precompiled versions of all the queries included in the bundle
+- Продукт {% data variables.product.prodname_codeql_cli %}
+- совместимая версия запросов и библиотек из https://github.com/github/codeql;
+- предварительно скомпилированные версии всех запросов, включенных в пакет.
 
 {% ifversion ghes or ghae %}
 
-{% note %}
-For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
+{% примечания %} Для {% данных variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, рекомендуется {% данных variables.product.prodname_codeql_cli %} версии {% данных variables.product.codeql_cli_ghes_recommended_version %}.
 {% endnote %}
 
 {% endif %}
 
-You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
+Следует всегда использовать пакет {% data variables.product.prodname_codeql %}, так как это обеспечивает совместимость и более высокую производительность по сравнению с отдельной загрузкой {% data variables.product.prodname_codeql_cli %} и возвратом запросов {% data variables.product.prodname_codeql %}. Если вы будете запускать CLI только на одной конкретной платформе, скачайте соответствующий файл `codeql-bundle-PLATFORM.tar.gz`. Кроме того, можно скачать файл `codeql-bundle.tar.gz`, содержащий CLI для всех поддерживаемых платформ.
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-## Setting up the {% data variables.product.prodname_codeql_cli %} in your CI system
+## Настройка {% data variables.product.prodname_codeql_cli %} в системе CI
 
-You need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run CodeQL {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. Updates to the {% data variables.product.prodname_codeql_cli %} are released every 2-3 weeks. For example:
+Необходимо предоставить доступ ко всему содержимому пакета {% data variables.product.prodname_codeql_cli %} для каждого сервера CI, на котором будет выполняться анализ CodeQL {% data variables.product.prodname_code_scanning %}. Например, можно настроить каждый сервер для копирования пакета из центрального внутреннего расположения и извлечения его. Кроме того, можно использовать REST API для получения пакета непосредственно из {% data variables.product.prodname_dotcom %}, чтобы использовать преимущества последних улучшений запросов. Обновления для {% data variables.product.prodname_codeql_cli %} выходят каждые 2–3 недели. Пример:
 
 ```shell
 $ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
 $ tar -xvzf ./codeql-bundle-linux64.tar.gz
 ```
 
-After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the `codeql` executable on the server:
+После извлечения пакета {% data variables.product.prodname_codeql_cli %} можно запустить исполняемый файл `codeql` на сервере:
 
-- By executing `/<extraction-root>/codeql/codeql`, where `<extraction-root>` is the folder where you extracted the {% data variables.product.prodname_codeql_cli %} bundle.
-- By adding `/<extraction-root>/codeql` to your `PATH`, so that you can run the executable as just `codeql`.
+- Выполнив `/<extraction-root>/codeql/codeql`, где `<extraction-root>` — папка, в которую вы извлекли пакет {% data variables.product.prodname_codeql_cli %}.
+- Добавив `/<extraction-root>/codeql` в `PATH`, чтобы можно было запустить исполняемый файл просто как `codeql`.
 
-{% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
-{% note %}
+{% ifversion fpt или ghec или ghes > 3.7 или ghae > 3,7 %} {% примечания %}
 
-If you use the {% data variables.product.prodname_codeql_cli %} to analyze code written in Python, you must make sure that your CI system has Python 3 installed.
+Если для анализа кода, написанного на Python, используется {% данных variables.product.prodname_codeql_cli %}, необходимо убедиться, что в системе CI установлен Python 3.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## Testing the {% data variables.product.prodname_codeql_cli %} set up
+## Тестирование настройки {% data variables.product.prodname_codeql_cli %}
 
-After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly set up to create and analyze databases.
+После извлечения пакета {% data variables.product.prodname_codeql_cli %} можно выполнить следующую команду, чтобы убедиться, что CLI настроен для создания и анализа баз данных.
 
-- `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
-- `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
+- `codeql resolve qlpacks`, если `/<extraction-root>/codeql` находится в `PATH`.
+- В противном случае — значение `/<extraction-root>/codeql/codeql resolve qlpacks`.
 
-**Extract from successful output:**
+**Извлечение из успешных выходных данных:**
 ```
 codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)
 codeql/cpp-examples (/<extraction-root>/qlpacks/codeql/cpp-examples/<version>)
@@ -108,12 +111,12 @@ codeql/ruby-queries (/<extraction-root>/qlpacks/codeql/ruby-queries/<version>)
 ...
 ```
 
-You should check that the output contains the expected languages and also that the directory location for the qlpack files is correct. The location should be within the extracted {% data variables.product.prodname_codeql_cli %} bundle, shown above as `<extraction root>`, unless you are using a checkout of `github/codeql`. If the {% data variables.product.prodname_codeql_cli %} is unable to locate the qlpacks for the expected languages, check that you downloaded the {% data variables.product.prodname_codeql %} bundle and not a standalone copy of the {% data variables.product.prodname_codeql_cli %}.
+Убедитесь, что выходные данные содержат ожидаемые языки, а расположение каталога для файлов qlpack указано верно. Расположение должно находиться в извлеченном пакете данных {% data variables.product.prodname_codeql_cli %}, как показано выше в виде `<extraction root>`, если вы не используете извлечение `github/codeql`. Если {% data variables.product.prodname_codeql_cli %} не удается найти qlpacks для ожидаемых языков, убедитесь, что скачали пакет {% data variables.product.prodname_codeql %}, а не отдельную копию {% data variables.product.prodname_codeql_cli %}.
 
-## Generating a token for authentication with {% data variables.product.product_name %}
+## Создание маркера для проверки подлинности с помощью {% data variables.product.product_name %}
 
-Each CI server needs a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} for the {% data variables.product.prodname_codeql_cli %} to use to upload results to {% data variables.product.product_name %}. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially allow the {% data variables.product.prodname_codeql_cli %} to use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+Каждому серверу CI требуется {% данных variables.product.prodname_github_app %} или {% данных variables.product.pat_generic %}, чтобы данные {% variables.product.prodname_codeql_cli %} использовались для отправки результатов в {% данных variables.product.product_name %}. Необходимо использовать маркер доступа или {% data variables.product.prodname_github_app %} с разрешением на запись `security_events`. Если серверы CI уже используют маркер с этой областью для извлечения репозиториев из {% data variables.product.product_name %}, вы можете позволить {% data variables.product.prodname_codeql_cli %} использовать тот же маркер. В противном случае создайте новый маркер с разрешением на запись `security_events` и добавьте его в хранилище секретов системы CI. Дополнительные сведения см. в разделе "[Построение данных {% variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" и "[Создание {% данных variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)".
 
-## Next steps
+## Дальнейшие действия
 
-You're now ready to configure the CI system to run {% data variables.product.prodname_codeql %} analysis, generate results, and upload them to {% data variables.product.product_name %} where the results will be matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts. For detailed information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
+Теперь все готово для настройки системы CI для анализа {% data variables.product.prodname_codeql %}, создания результатов и отправки их в {% data variables.product.product_name %}, где результаты будут сопоставляться с ветвью или запросом на вытягивание и отображаться как оповещения {% data variables.product.prodname_code_scanning %}. Дополнительные сведения см. в статье [Настройка {% data variables.product.prodname_codeql_cli %} в системе CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system).

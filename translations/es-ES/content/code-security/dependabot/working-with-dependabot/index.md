@@ -18,6 +18,7 @@ children:
   - /automating-dependabot-with-github-actions
   - /keeping-your-actions-up-to-date-with-dependabot
   - /managing-encrypted-secrets-for-dependabot
+  - /configuring-dependabot-to-only-access-private-registries
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
 ms.openlocfilehash: efab6caf0c9384c9e72cc5ed1fe64bd500cede45

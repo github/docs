@@ -1,0 +1,27 @@
+date: '14-07-2021'
+sections:
+  security_fixes:
+    - '**ÉLEVÉE :** Une vulnérabilité de traversée de chemin a été identifiée dans GitHub Enterprise Server ; elle pouvait être exploitée lors de la génération d’un site GitHub Pages. Les options de configuration contrôlée par l’utilisateur utilisées par GitHub Pages n’étaient pas suffisamment restreintes et permettaient de lire des fichiers sur l’instance GitHub Enterprise Server. Pour exploiter cette vulnérabilité, un attaquant devait avoir l’autorisation de créer et générer un site GitHub Pages sur l’instance GitHub Enterprise Server. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à 3.1.3 et s’est vu attribuer le numéro CVE-2021-22867. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty.'
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - La variable de la date d’expiration SAML n’était pas configurable.
+    - "La vérification de l’intégrité des services d’application échouait lors de l’application de la configuration, les empêchant d’entrer dans un état d’intégrité."
+    - '« ghe-cluster-config-node-init » échoue pendant la configuration du cluster si le proxy HTTP est activé.'
+    - Les hooks de pré-réception pouvaient rencontrer l’erreur « Impossible de résoudre le chemin complet de l’exécutable actuel » car « /proc » n’était pas monté sur le conteneur.
+    - Collectd ne pouvait pas résoudre le nom d’hôte de la destination de transfert après la configuration initiale.
+    - Le travail qui vidait les dépôts supprimés périmés pouvait être entravé si certains de ces dépôts étaient protégés contre la suppression par des conservations légales.
+    - Les travaux en arrière-plan étaient placés dans la file d’attente « spam » qui n’était pas traitée.
+    - La méthode de fusion recommandée était la réinitialisation en cas de nouvelle tentative après l’échec d’une fusion de demande de tirage.
+    - Les poussées Git pouvaient engendrer une erreur de serveur interne 500 pendant le processus de rapprochement des utilisateurs sur les instances utilisant le mode d’authentification LDAP.
+    - 'Après la mise à niveau de 3.0.x à 3.1.x, dans certains cas, GitHub Actions échoue avec une erreur : « Une erreur inattendue s’est produite lors de l’exécution de ce workflow ».'
+  changes:
+    - "Amélioration de l’efficacité de l’application de la configuration en ignorant les règles de pare-feu d’autorisation IP inchangées, ce qui a permis de gagner beaucoup de temps sur les grands clusters."
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à retourner cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec « ghe-repl-teardown » réussit, mais peut retourner « ERREUR : migrations en cours d’exécution »."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
