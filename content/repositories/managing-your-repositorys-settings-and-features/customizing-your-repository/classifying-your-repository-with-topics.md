@@ -32,6 +32,11 @@ Repository admins can add any topics they'd like to a repository. Helpful topics
 
 You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/search-github/searching-on-github/searching-topics)."
 
+When creating a topic:
+- use lowercase letters, numbers, and hyphens.
+- use 50 characters or less.
+- add no more than 20 topics.
+
 ## Adding topics to your repository
 
 {% note %}
@@ -47,10 +52,3 @@ You can search for repositories that are associated with a particular topic. For
   ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
 4. After you've finished adding topics, click **Save changes**.
   !["Save changes" button in "Edit repository details"](/assets/images/help/repository/edit-repository-details-save-changes-button.png)
-  
-## Limitations and quotas
-
-When creating a topic:
-- use lowercase letters, numbers, and hyphens.
-- use 50 characters or less.
-- add no more than 20 topics.
