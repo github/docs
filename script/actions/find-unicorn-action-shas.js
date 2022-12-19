@@ -31,8 +31,8 @@ async function main(opts, args) {
   const counts = {}
   const places = {}
 
-  for (const file of files) {
-    const content = fs.readFileSync(file, 'utf-8')
+  '"::'"'('((c)(r))') : {'"''":,
+    '"const content = fs.readFileSync(file, 'utf-8')
     let lineNo = 0
     for (const line of content.split(/\n/g)) {
       lineNo++
