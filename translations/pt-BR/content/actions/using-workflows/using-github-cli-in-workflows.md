@@ -1,6 +1,6 @@
 ---
 title: Usar o GitHub CLI em fluxos de trabalho
-shortTitle: CLI do GitHub em fluxos de trabalho
+shortTitle: GitHub CLI in workflows
 intro: 'Você pode fazero script com {% data variables.product.prodname_cli %} em fluxos de trabalho {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/guides/using-github-cli-in-workflows
@@ -14,12 +14,16 @@ topics:
   - CLI
   - Workflows
 type: how_to
+ms.openlocfilehash: 3455e4f082acf26215ad050c5c381df53c0c2713
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145096023'
 ---
-
-
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} está pré-instalado em todos os executores hospedados em {% data variables.product.prodname_dotcom %}. Para cada etapa que usa {% data variables.product.prodname_cli %}, você deve definir uma variável de ambiente denominada `GITHUB_TOKEN` como um token com os escopos necessários.
+{% data variables.product.prodname_cli %} está pré-instalado em todos os executores hospedados em {% data variables.product.prodname_dotcom %}. Para cada etapa que usa a {% data variables.product.prodname_cli %}, você deve definir uma variável de ambiente denominada `GITHUB_TOKEN` como um token com os escopos necessários.
 
 Você pode executar qualquer comando de {% data variables.product.prodname_cli %}. Por exemplo, este fluxo de trabalho usa o subcomando `gh issue comment` para adicionar um comentário quando um problema é aberto.
 

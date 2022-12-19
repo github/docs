@@ -1,0 +1,24 @@
+date: '2021-06-10'
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - 인스턴스가 구성된 호스트 이름을 사용하여 자체 요청을 만들 수 없는 경우 Actions를 업그레이드하는 동안 업그레이드 프로세스가 실패할 수 있습니다.
+    - SVN 1.7 이하 클라이언트에서 `svn co` 및 `svn export` 명령을 사용하면 오류가 표시되었습니다.
+    - 관리 셸을 통해 `ghe-repo <owner>/<reponame>`을 사용하여 리포지토리에 액세스하면 중단됩니다.
+    - 업그레이드 후 서비스가 너무 자주 다시 시작되기 때문에 사용량이 많은 기간에 가용성이 감소했습니다. 이는 nomad 구성과 내부 서비스 구성 간에 시간 제한이 일치하지 않기 때문에 발생합니다.
+    - GitHub Actions 설정 후에 `ghe-repl-status`를 실행하면 오류가 발생하고 `ghe-actions-teardown`이 실패하는 경우도 있습니다.
+    - '`ghe-dbconsole`은 특정 상황에서 오류를 반환합니다.'
+    - "조직 또는 리포지토리가 비 GitHub 원본에서 가져오기에 실패하면 ‘nil:NilClass에 대한 정의되지 않은 메서드 '[]'’ 오류가 발생할 수 있습니다."
+    - GitHub 프로필 이름이 관리 콘솔의 `전체 이름` 필드에 매핑된 특성 값과 일치하지 않는 경우 SAML 인증 사용 시 GitHub 프로필 이름이 의도치 않게 변경되었을 수 있습니다.
+  changes:
+    - "`firstPatchedVersion` 필드는 이제 GraphQL API의 `SecurityVulnerability` 개체에서 사용할 수 있습니다."
+    - "Graph API 사용자는 ‘PullRequest’ 개체에 대한 퍼블릭 필드 ‘closingIssuesReferences’를 쿼리할 수 있습니다. 이 필드는 관련 끌어오기 요청이 병합되면 자동으로 닫히는 이슈를 검색합니다. 이 접근 방식을 사용하면 더 높은 충실도 마이그레이션 프로세스의 일부로, 나중에 이 데이터를 마이그레이션할 수도 있습니다."
+  known_issues:
+    - 사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다.
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - Blob의 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}는 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으므로 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

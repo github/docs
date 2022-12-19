@@ -1,13 +1,13 @@
 ---
-title: Browsing security advisories in the GitHub Advisory Database
-intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find advisories for security risks in open source projects that are hosted on {% data variables.product.company_short %}.'
+title: 在 GitHub Advisory Database 中浏览安全公告
+intro: 可以浏览 {% data variables.product.prodname_advisory_database %} 以查找托管在 {% data variables.product.company_short %} 上的开放源代码项目中的安全风险公告。
 shortTitle: Browse Advisory Database
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
-  - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
-  - /code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database
+- /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
+- /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
+- /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
+- /code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,171 +15,176 @@ versions:
   ghae: '*'
 type: how_to
 topics:
-  - Security advisories
-  - Alerts
-  - Dependabot
-  - Vulnerabilities
-  - CVEs
+- Security advisories
+- Alerts
+- Dependabot
+- Vulnerabilities
+- CVEs
+ms.openlocfilehash: 5a2612b6d2899aa4c730b76a2ac898254024563a
+ms.sourcegitcommit: d186fc3b5766172b09b4e7370ae888c2523ac24a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/06/2022
+ms.locfileid: "147508044"
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-## About the {% data variables.product.prodname_advisory_database %}
+## <a name="about-the--data-variablesproductprodname_advisory_database-"></a>关于 {% data variables.product.prodname_advisory_database %}
 
-The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, {% endif %}grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
+{% data variables.product.prodname_advisory_database %} 包含已知安全漏洞{% ifversion GH-advisory-db-supports-malware %}和恶意软件{% endif %}的列表，分为两类：经 {% data variables.product.company_short %} 审核的公告和未经审核的公告。
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-## About types of security advisories
+## <a name="about-types-of-security-advisories"></a>关于安全公告的类型
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}. 
+{% data variables.product.prodname_advisory_database %} 中的每个公告都涉及开放源代码项目中的漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意开放源代码软件{% endif %}。 
 
-{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
+{% data reusables.repositories.a-vulnerability-is %} 代码中的漏洞通常是偶然引入的，并在被发现后很快会得到修复。 应更新代码，以便在依赖项可用时立即使用它的修复后的版本。
 
 {% ifversion GH-advisory-db-supports-malware %}
 
-In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+相比之下，恶意软件是有意设计为执行不需要或有害功能的代码。 恶意软件可能针对硬件、软件、机密数据或使用该恶意软件的任何应用程序的用户。 需要从项目中删除恶意软件，并为依赖项找到可供选择的、更安全的替代项。
 
 {% endif %}
 
-### {% data variables.product.company_short %}-reviewed advisories
+### <a name="-data-variablesproductcompany_short--reviewed-advisories"></a>经 {% data variables.product.company_short %} 审核的公告
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+经 {% data variables.product.company_short %} 审核的公告是已映射到支持的生态系统中的包的安全漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}。 仔细查看每个公告的有效性，并确保它们具有完整的说明，以及包含生态系统和包信息。
 
-Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+通常，我们以软件编程语言的相关包注册表命名支持的生态系统。 我们会审查与受支持注册表中的包中的漏洞相关的公告。
 
-- Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-- Erlang (registry: https://hex.pm/){% endif %}
-- Go (registry: https://pkg.go.dev/)
-- Maven (registry: https://repo1.maven.org/maven2/org/)
-- npm (registry: https://www.npmjs.com/)
-- NuGet (registry: https://www.nuget.org/)
-- pip (registry: https://pypi.org/)
-- RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- Composer（注册表： https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
+- Erlang（注册表： https://hex.pm/){% endif %}
+- Go（注册表： https://pkg.go.dev/) {% ifversion fpt or ghec or ghes > 3.6 or ghae-issue-7508 %}
+- GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
+- Maven（注册表： https://repo1.maven.org/maven2/org/)
+- npm（注册表： https://www.npmjs.com/)
+- NuGet（注册表： https://www.nuget.org/)
+- pip（注册表： https://pypi.org/)
+- RubyGems（注册表： https://rubygems.org/)
+- Rust（注册表： https://crates.io/)
 
-If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+如果对我们应该支持的新生态系统有任何建议，请提出[问题](https://github.com/github/advisory-database/issues)以供讨论。
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} for a package you depend on. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+如果为存储库启用 {% data variables.product.prodname_dependabot_alerts %}，则当经 {% data variables.product.company_short %} 审核的新公告报告所依赖的包存在漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}时，系统会自动通知你。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
-### Unreviewed advisories
+### <a name="unreviewed-advisories"></a>未审核的公告
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+未审核的公告是我们直接从国家漏洞数据库源自动发布到 {% data variables.product.prodname_advisory_database %} 的安全漏洞。 
 
-{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+{% data variables.product.prodname_dependabot %} 不会为未审核的公告创建 {% data variables.product.prodname_dependabot_alerts %}，因为不会检查此类公告的有效性或完成情况。
 
-## About information in security advisories
+## <a name="about-information-in-security-advisories"></a>关于安全公告中的信息
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+每个安全公告都包含有关漏洞{% ifversion GH-advisory-db-supports-malware %}和恶意软件{% endif %}的信息，可能包括说明、严重程度、受影响的包、包生态系统、受影响的版本和修补版本、影响以及可选信息（如引用、解决方法和积分）。 此外，国家漏洞数据库列表中的公告包含 CVE 记录链接，通过链接可以查看漏洞、其 CVSS 得分及其质化严重等级的更多详细信息。 有关详细信息，请参阅美国国家标准和技术研究院的“[国家漏洞数据库](https://nvd.nist.gov/)”。
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
-- Low
-- Medium/Moderate
-- High
-- Critical
+严重级别是“[常见漏洞评分系统 (CVSS) 第 5 节](https://www.first.org/cvss/specification-document)”中定义的四个可能级别之一。
+- 低
+- 中
+- 高
+- 严重
 
-The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
+{% data variables.product.prodname_advisory_database %} 使用上述 CVSS 级别。 如果 {% data variables.product.company_short %} 获取 CVE，{% data variables.product.prodname_advisory_database %} 将使用 CVSS 版本 3.1。 如果 CVE 是导入的，则 {% data variables.product.prodname_advisory_database %} 支持 CVSS 版本 3.0 和 3.1。
 
 {% data reusables.repositories.github-security-lab %}
 
-## Accessing an advisory in the {% data variables.product.prodname_advisory_database %}
+## <a name="accessing-an-advisory-in-the--data-variablesproductprodname_advisory_database-"></a>访问 {% data variables.product.prodname_advisory_database %} 中的通告
 
-1. Navigate to https://github.com/advisories.
-2. Optionally, to filter the list, use any of the drop-down menus.
-  ![Dropdown filters](/assets/images/help/security/advisory-database-dropdown-filters.png)
-   {% tip %}
+1. 导航到 https://github.com/advisories。
+2. （可选）要过滤列表，请使用任意下拉菜单。
+  ![下拉筛选器](/assets/images/help/security/advisory-database-dropdown-filters.png) {% tip %}
 
-   **Tip:** You can use the sidebar on the left to explore  {% data variables.product.company_short %}-reviewed and unreviewed advisories separately.
+   提示：可以使用左侧边栏分别浏览 {% data variables.product.company_short %} 已审核和未审核的公告。
 
    {% endtip %}
-3. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. {% ifversion GH-advisory-db-supports-malware %}To show malware advisories, use `type:malware` in the search bar.{% endif %}
+3. 单击任何公告以查看详细信息。 默认情况下，你将看到经 {% data variables.product.company_short %} 审核的安全漏洞公告。 {% ifversion GH-advisory-db-supports-malware %}要显示恶意软件公告，请在搜索栏中使用 `type:malware`。{% endif %}
 
 
 {% note %}
 
-The database is also accessible using the GraphQL API. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[`security_advisory` webhook event](/webhooks/event-payloads/#security_advisory)."
+也可以使用 GraphQL API 访问数据库。 {% ifversion GH-advisory-db-supports-malware %}默认情况下，除非指定 `type:malware`，否则查询将返回经 {% data variables.product.company_short %} 审核的安全漏洞公告。{% endif %}有关详细信息，请参阅“[`security_advisory`Webhook 事件](/webhooks/event-payloads/#security_advisory)”。
 
 {% endnote %}
 
-## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
-You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)."
+## <a name="editing-an-advisory-in-the--data-variablesproductprodname_advisory_database-"></a>在 {% data variables.product.prodname_advisory_database %} 中编辑公告
+您可以对 {% data variables.product.prodname_advisory_database %} 中的任何公告提出改进建议。 有关详细信息，请参阅“[在 {% data variables.product.prodname_advisory_database %} 中编辑安全公告](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)”。
 
-## Searching the {% data variables.product.prodname_advisory_database %}
+## <a name="searching-the--data-variablesproductprodname_advisory_database-"></a>搜索 {% data variables.product.prodname_advisory_database %}
 
-You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.
+您可以搜索数据库，并使用限定符缩小搜索范围。 例如，您可以搜索在特定日期、特定生态系统或特定库中创建的通告。
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier  | Example |
+| 限定符  | 示例 |
 | ------------- | ------------- |
-| `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. |
-{% ifversion GH-advisory-db-supports-malware %}| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show {% data variables.product.company_short %}-reviewed advisories for malware. |
-{% endif %}| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
-| `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
-| `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
-| `ecosystem:ECOSYSTEM`| [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) will show only advisories affecting NPM packages. |
-| `severity:LEVEL`| [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) will show only advisories with a high severity level. |
-| `affects:LIBRARY`| [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) will show only advisories affecting the lodash library. |
-| `cwe:ID`| [**cwe:352**](https://github.com/advisories?query=cwe%3A352) will show only advisories with this CWE number. |
-| `credit:USERNAME`| [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) will show only advisories credited to the "octocat" user account. |
-| `sort:created-asc`| [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) will sort by the oldest advisories first. |
-| `sort:created-desc`| [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) will sort by the newest advisories first. |
-| `sort:updated-asc`| [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) will sort by the least recently updated first. |
-| `sort:updated-desc`| [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) will sort by the most recently updated first. |
-| `is:withdrawn`| [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) will show only advisories that have been withdrawn. |
-| `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
-| `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
+| `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) 将显示经 {% data variables.product.company_short %} 审核的安全漏洞公告。 |
+{% ifversion GH-advisory-db-supports-malware %}| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) 将显示经 {% data variables.product.company_short %} 审核的恶意软件公告。 |
+{% endif %}| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) 显示未审核的公告。 |
+| `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) 显示包含此 {% data variables.product.prodname_advisory_database %} ID 的公告。 |
+| `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) 显示具有此 CVE ID 编号的公告。 |
+| `ecosystem:ECOSYSTEM`| [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) 仅显示影响 NPM 包的公告。 |
+| `severity:LEVEL`| [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) 仅显示具有较高严重性级别的公告。 |
+| `affects:LIBRARY`| [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) 仅显示影响 lodash 库的公告。 |
+| `cwe:ID`| [**cwe:352**](https://github.com/advisories?query=cwe%3A352) 仅显示具有此 CWE 编号的公告。 |
+| `credit:USERNAME`| [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) 仅显示属于“octocat”用户帐户的公告。 |
+| `sort:created-asc`| [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) 按最旧的公告在前的顺序进行排序。 |
+| `sort:created-desc`| [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) 按最新的公告在前的顺序进行排序。 |
+| `sort:updated-asc`| [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) 按更新时间由远及近的顺序排序。 |
+| `sort:updated-desc`| [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) 按更新时间由近及远的顺序排序。 |
+| `is:withdrawn`| [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) 仅显示已撤回的公告。 |
+| `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) 仅显示在此日期创建的公告。 |
+| `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) 仅显示在此日期更新的公告。 |
 
-## Viewing your vulnerable repositories
+## <a name="viewing-your-vulnerable-repositories"></a>查看有漏洞的仓库
 
-For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
+对于 {% data variables.product.prodname_advisory_database %} 中任何经 {% data variables.product.company_short %} 审核的公告，你都可以查看哪些存储库受该安全漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}的影响。 要查看有漏洞的仓库，您必须有权访问该仓库的 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)”。
 
-1. Navigate to https://github.com/advisories.
-2. Click an advisory.
-3. At the top of the advisory page, click **Dependabot alerts**.
-   ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
-4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
-   ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
-5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
+1. 导航到 https://github.com/advisories。
+2. 单击通告。
+3. 在公告页面顶部，单击“Dependabot 警报”。
+   ![Dependabot 警报](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+4. （可选）要过滤列表，请使用搜索栏或下拉菜单。 “Organization（组织）”下拉菜单用于按所有者（组织或用户）过滤 {% data variables.product.prodname_dependabot_alerts %}。
+   ![用于筛选警报的搜索栏和下拉菜单](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
+5. 有关公告的更多详细信息，以及有关如何修复有漏洞的存储库的建议，请单击存储库名称。
 
 {% ifversion security-advisories-ghes-ghae %}
-## Accessing the local advisory database on {% data variables.product.product_location %}
+## <a name="accessing-the-local-advisory-database-on--data-variablesproductproduct_location-"></a>访问 {% data variables.product.product_location %} 上的本地公告数据库
 
-If your site administrator has enabled {% data variables.product.prodname_github_connect %} for {% data variables.product.product_location %}, you can also browse reviewed advisories locally. For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)".
+如果站点管理员已为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_github_connect %}，你还可以在本地浏览已审核的公告。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)”。
 
-You can use your local advisory database to check whether a specific security vulnerability is included, and therefore whether you'd get alerts for vulnerable dependencies. You can also view any vulnerable repositories. 
+可使用本地公告数据库来检查是否包含特定的安全漏洞，从而检查是否会收到有关易受攻击的依赖项的警报。 还可以查看任何易受攻击的存储库。 
 
-1. Navigate to `https://HOSTNAME/advisories`.
-2. Optionally, to filter the list, use any of the drop-down menus.
-  ![Dropdown filters](/assets/images/help/security/advisory-database-dropdown-filters.png)
-   {% note %}
+1. 导航到 `https://HOSTNAME/advisories`。
+2. （可选）要过滤列表，请使用任意下拉菜单。
+  ![下拉筛选器](/assets/images/help/security/advisory-database-dropdown-filters.png) {% note %}
 
-   **Note:** Only reviewed advisories will be listed. Unreviewed advisories can be viewed in the {% data variables.product.prodname_advisory_database %} on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Accessing an advisory in the GitHub Advisory Database](#accessing-an-advisory-in-the-github-advisory-database)". 
+   注意：只会列出已审核的公告。 可以在 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_advisory_database %} 中查看未审核的公告。 有关详细信息，请参阅“[访问 GitHub 公告数据库中的公告](#accessing-an-advisory-in-the-github-advisory-database)”。 
 
    {% endnote %}
-3. Click an advisory to view details.{% ifversion GH-advisory-db-supports-malware %} By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.{% endif %}
+3. 单击公告以查看详细信息。{% ifversion GH-advisory-db-supports-malware %}默认情况下，你将看到经 {% data variables.product.company_short %} 审核的安全漏洞公告。 若要显示恶意软件公告，请在搜索栏中使用 `type:malware`。{% endif %}
 
-You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[Editing advisories from {% data variables.product.product_location %}](/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
+还可以直接从本地公告数据库中对任何公告提出改进建议。 有关详细信息，请参阅“[编辑来自 {% data variables.product.product_location %} 的公告](/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)”。
 
-### Viewing vulnerable repositories for {% data variables.product.product_location %}
+### <a name="viewing-vulnerable-repositories-for--data-variablesproductproduct_location-"></a>查看 {% data variables.product.product_location %} 的易受攻击的存储库
 
 {% data reusables.repositories.enable-security-alerts %}
 
-In the local advisory database, you can see which repositories are affected by each security vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
+在本地公告数据库中，可以看到哪些存储库受到每个安全漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}的影响。 要查看有漏洞的仓库，您必须有权访问该仓库的 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)”。
 
-1. Navigate to `https://HOSTNAME/advisories`.
-2. Click an advisory.
-3. At the top of the advisory page, click **Dependabot alerts**.
-   ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
-4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
-   ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
-5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
+1. 导航到 `https://HOSTNAME/advisories`。
+2. 单击通告。
+3. 在公告页面顶部，单击“Dependabot 警报”。
+   ![Dependabot 警报](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+4. （可选）要过滤列表，请使用搜索栏或下拉菜单。 “Organization（组织）”下拉菜单用于按所有者（组织或用户）过滤 {% data variables.product.prodname_dependabot_alerts %}。
+   ![用于筛选警报的搜索栏和下拉菜单](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
+5. 有关公告的更多详细信息，以及有关如何修复有漏洞的存储库的建议，请单击存储库名称。
 
 {% endif %}
 
-## Further reading
+## <a name="further-reading"></a>延伸阅读
 
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- MITRE 的[“漏洞”定义](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

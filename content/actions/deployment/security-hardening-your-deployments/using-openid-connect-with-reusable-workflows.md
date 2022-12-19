@@ -1,13 +1,12 @@
 ---
 title: Using OpenID Connect with reusable workflows
-shortTitle: Using OpenID Connect with reusable workflows
+shortTitle: OpenID Connect with reusable workflows
 intro: You can use reusable workflows with OIDC to standardize and security harden your deployment steps.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: issue-4757
   ghec: '*'
   ghes: '>=3.5'
 type: how_to
@@ -23,11 +22,18 @@ topics:
 
 Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)."
 
-When combined with OpenID Connect (OIDC), reusable workflows let you enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows.
+You should be familiar with the concepts described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)" and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 
-In order to create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from. If your cloud provider only supports the standard claims (_audience_ and _subject_), it will not be able to determine that the job originated from the reusable workflow repository. Cloud providers that support `job_workflow_ref` include Google Cloud Platform and HashiCorp Vault.
+## Defining the trust conditions
 
-Before proceeding, you should be familiar with the concepts of [reusable workflows](/actions/learn-github-actions/reusing-workflows) and [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+When combined with OpenID Connect (OIDC), reusable workflows let you enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. The available options will vary depending on your cloud provider:
+
+- **Using `job_workflow_ref`**: 
+  - To create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from. 
+  - For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see "[Customizing the token claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)". Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
+
+- **Customizing the token claims**: 
+  - You can configure more granular trust conditions by customizing the issuer (`iss`) and subject (`sub`) claims included with the JWT. For more information, see "[Customizing the token claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)".
 
 ## How the token works with reusable workflows
 

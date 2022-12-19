@@ -1,0 +1,15 @@
+date: '2020-11-17'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/23843, https://github.com/github/enterprise2/pull/23712 {% endcomment %}'
+  bugs:
+    - 'Die babeld-Protokolle wiesen kein Trennzeichen zwischen Sekunden und Mikrosekunden auf. {% comment %} https://github.com/github/babeld/pull/1004, https://github.com/github/babeld/pull/1002 {% endcomment %}'
+    - 'Wenn die Richtlinie „Änderung der Repositorysichtbarkeit“ für das Unternehmenskonto auf „Aktiviert“ festgelegt war, konnten Organisationsbesitzer die Sichtbarkeit von Repositorys innerhalb der Organisation nicht ändern. {% comment %} https://github.com/github/github/pull/160922, https://github.com/github/github/pull/160773 {% endcomment %}'
+  known_issues:
+    - 'Angreifer konnten in einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Wenn „Benutzer können GitHub.com durchsuchen“ in GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Sicherheitswarnungen werden nicht gemeldet, wenn etwas über die Befehlszeile an ein Repository gepusht wird. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten. Dadurch ist {% data variables.product.prodname_pages %} für Benutzer weniger verfügbar.'

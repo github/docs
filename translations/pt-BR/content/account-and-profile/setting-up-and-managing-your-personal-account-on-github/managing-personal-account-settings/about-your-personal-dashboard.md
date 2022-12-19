@@ -15,18 +15,23 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Seu painel pessoal
+shortTitle: Your personal dashboard
+ms.openlocfilehash: ee22085e669eedec2e0a9f298cc4d5ad144316c6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179148'
 ---
-
 ## Acessar seu painel pessoal
 
 Seu quadro pessoal é a primeira página que você verá quando entrar no {% data variables.product.product_name %}.
 
-Para acessar seu quadro pessoal assim que se conectar, clique no {% octicon "mark-github" aria-label="The github octocat logo" %} no canto superior esquerdo de qualquer página em {% data variables.product.product_name %}.
+Para acessar seu painel pessoal depois de se conectar, clique no {% octicon "mark-github" aria-label="The github octocat logo" %} no canto superior esquerdo de qualquer página do {% data variables.product.product_name %}.
 
 ## Encontrar sua atividade recente
 
-Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, além de visualizar até 4 atualizações recentes feitas nas últimas duas semanas.
+Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, Em "Atividade recente", você pode visualizar até quatro atualizações recentes feitas nas últimas duas semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
@@ -42,56 +47,53 @@ Também é possível encontrar uma lista de seus repositórios, equipes e quadro
 
 ## Permanecer atualizado com as atividades da comunidade
 
-{% ifversion for-you-feed %}
-A seção principal do seu painel tem dois feeds de atividades:
+{% ifversion for-you-feed %} A seção principal do painel tem dois feeds de atividades:
 
-- Seguindo: Atividades de pessoas que você segue e dos repositórios que você inspeciona.
-- Para você: Atividade e recomendações com base na sua rede de {% data variables.product.product_name %}.
+- Seguindo: as atividades das pessoas que você segue e dos repositórios que você inspeciona.
+- Para você: atividades e recomendações com base na sua rede do {% data variables.product.product_name %}.
 
-### Seguindo o feed
+### Feed Seguindo
 
-Este feed mostra a atividade dos repositórios e usuários nos quais você mostrou interesse direto, seguindo um usuário ou inspecionando um repositório. Por exemplo, você verá atualizações quando um usuário que você segue:
+Esse feed mostra as atividades dos repositórios e dos usuários em que você demonstrou interesse direto, seguindo um usuário ou inspecionando um repositório. Por exemplo, você verá atualizações quando um usuário que você segue:
 
-{% else %}
-Na seção "Todas as atividades" do feed de notícias, você pode ver as atualizações dos repositórios que você inspeciona e de usuários que você segue.
+{% else %} Na seção "Todas as atividades" do feed de notícias, veja as atualizações dos repositórios que você inspeciona e dos usuários que você segue.
 
-Atualizações serão exibidas no feed de notícias quando um usuário que você segue:
-{% endif %}
+Você verá atualizações no feed de notícias quando um usuário que você segue: {% endif %}
 
 
 - Marcar um repositório com estrelas.
-- Segue outro usuário.{% ifversion fpt or ghes or ghec %}
+- Seguir outro usuário.{% ifversion fpt or ghes or ghec %}
 - Cria um repositório público.{% endif %}
 - Abrir um problema ou uma pull request com a etiqueta "help wanted" ou "good first issue" em um repositório que você está inspecionando.
-- Faz push de commits para um repositório que você inspeciona.{% ifversion fpt or ghes or ghec %}
+- Efetuar push de commits para um repositório que você inspeciona.{% ifversion fpt or ghes or ghec %}
 - Bifurca um repositório público.{% endif %}
 - Publica uma nova versão.
 
-Para obter mais informações sobre as seguir pessoas e inspecionar repositórios, consulte "[Seguindo as pessoas](/get-started/exploring-projects-on-github/following-people)" e "[Ser social](/get-started/quickstart/be-social)".
+Para obter mais informações sobre como seguir pessoas e inspecionar repositórios, confira "[Como seguir pessoas](/get-started/exploring-projects-on-github/following-people)" e "[Interagir socialmente](/get-started/quickstart/be-social)".
 
 {% ifversion for-you-feed %}
-### Para o feed
+### Feed Para você
 
 {% note %}
 
-**Observação:** Esta nova guia está atualmente na versão beta pública e sujeita a alterações.
+**Observação:** atualmente, essa nova guia está em versão beta pública e sujeita a alterações. 
 
 {% endnote %}
 
-Este feed mostra a atividade e as recomendações com base na sua rede em {% data variables.product.product_name %}. El foi projetado para fornecer atualizações que inspiram, mantém você atualizaro e ajuda a encontrar novas comunidades das quais deseja participar. Sua rede inclui:
+Esse feed mostra atividades e recomendações com base na sua rede do {% data variables.product.product_name %}. Ele foi projetado para fornecer atualizações que inspiram você, manter você atualizado e ajudar a encontrar novas comunidades nas quais você deseja participar. Sua rede inclui:
 
-- Repositórios que você favoritou
-- Repositórios para os quais você contribuiu
-- Usuários que você segue ou patrocina
-- Usuários com os quais você colaborou
-- Organizações que você segue
+- Os repositórios que você adicionou aos favoritos
+- Os repositórios com os quais você contribuiu
+- Os usuários que você segue ou patrocina
+- Os usuários com os quais você colaborou
+- As organizações que você segue
 
 {% endif %}
 
 ## Explorar repositórios recomendados
 
-Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas nos repositórios que você adicionou aos favoritos ou visitou, nas pessoas que você segue e na atividade dos repositórios aos quais você tem acesso.{% ifversion fpt or ghec %} Para obter mais informações, confira "[Como descobrir maneiras de contribuir com o código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
 
-## Leia mais
+## Leitura adicional
 
 - "[Sobre o painel da sua organização](/articles/about-your-organization-dashboard)"

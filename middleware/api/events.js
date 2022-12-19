@@ -4,21 +4,20 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { eventSchema, hydroNames } from '../../lib/schema-event.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-
-const OMIT_FIELDS = ['type']
-
-const ajv = new Ajv()
-addFormats(ajv)
+import { noCacheControl } from '../cache-control.js'
 
 const router = express.Router()
+const ajv = new Ajv()
+addFormats(ajv)
+const OMIT_FIELDS = ['type']
 
 router.post(
   '/',
-  catchMiddlewareError(async function postEvents(req, res, next) {
+  catchMiddlewareError(async function postEvents(req, res) {
     const isDev = process.env.NODE_ENV === 'development'
-    const fields = omit(req.body, '_csrf')
+    noCacheControl(res)
 
-    if (!ajv.validate(eventSchema, fields)) {
+    if (!ajv.validate(eventSchema, req.body)) {
       return res.status(400).json(isDev ? ajv.errorsText() : {})
     }
 
@@ -26,7 +25,7 @@ router.post(
 
     if (req.hydro.maySend()) {
       try {
-        await req.hydro.publish(hydroNames[fields.type], omit(fields, OMIT_FIELDS))
+        await req.hydro.publish(hydroNames[req.body.type], omit(req.body, OMIT_FIELDS))
       } catch (err) {
         console.error('Failed to submit event to Hydro', err)
       }

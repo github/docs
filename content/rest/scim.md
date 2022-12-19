@@ -2,7 +2,6 @@
 title: SCIM
 intro: You can control and manage your GitHub organization members access using SCIM API.
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
@@ -21,13 +20,13 @@ The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provi
 
 **Notes:** 
   - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
+  - The SCIM API cannot be used with an enterprise account or with an {% data variables.enterprise.prodname_emu_org %}.
 
 {% endnote %}
 
 ### Authenticating calls to the SCIM API
 
-You must authenticate as an owner of a {% data variables.product.product_name %} organization to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. You may also use a personal access token, but you must first [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+You must authenticate as an owner of a {% data variables.product.product_name %} organization to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
 ### Mapping of SAML and SCIM data
 

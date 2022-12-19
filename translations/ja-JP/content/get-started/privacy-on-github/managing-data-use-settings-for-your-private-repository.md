@@ -1,6 +1,6 @@
 ---
-title: Managing data use settings for your private repository
-intro: 'To help {% data variables.product.product_name %} connect you to relevant tools, people, projects, and information, you can configure data use for your private repository.'
+title: プライベートリポジトリ用のデータ利用設定を管理する
+intro: '{% data variables.product.product_name %} で、関連するツール、人、プロジェクト、情報につなげるには、プライベートリポジトリ用のデータを設定します。'
 redirect_from:
   - /articles/opting-into-or-out-of-data-use-for-your-private-repository
   - /github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-data-use-for-your-private-repository
@@ -12,38 +12,39 @@ topics:
   - Policy
   - Legal
 shortTitle: Manage data use for private repo
+ms.openlocfilehash: 36ddc4449726b67863e7d4e045dd1582b12f2c27
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147526671'
 ---
+## プライベートリポジトリ用のデータ利用について
 
-## About data use for your private repository
 
+セキュリティおよび分析機能でのプライベート リポジトリのデータの使用を制御できます。 
 
-You can control data use for your private repository with the security and analysis features. 
+- 依存関係グラフを有効にして、リポジトリで読み取り専用データを分析できるようにします。 
+- 依存関係グラフを無効にして、リポジトリで読み取り専用データを分析できないようにします。 
 
-- Enable the dependency graph to allow read-only data analysis on your repository. 
-- Disable the dependency graph to block read-only data analysis of your repository. 
-
-When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
+プライベートリポジトリのデータ利用を設定すると、依存グラフにアクセスできます。依存グラフでは、リポジトリの依存関係を追跡し、{% data variables.product.product_name %} が脆弱性のある依存関係を検出したときに {% data variables.product.prodname_dependabot_alerts %} を受け取ることができます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)」を参照してください。
 
 
 {% note %}
 
-**Note:** If you disable the dependency graph, {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are also disabled. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." 
+**注:** 依存関係グラフを無効にすると、{% data variables.product.prodname_dependabot_alerts %} と {% data variables.product.prodname_dependabot_security_updates %} も無効になります。 詳細については、「[依存関係グラフの概要](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。 
 
 {% endnote %}
 
-## Enabling or disabling data use through security and analysis features
+## セキュリティおよび分析機能でのデータの使用を有効または無効にする
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.{% ifversion fpt %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. [コードのセキュリティと分析] で、機能の右にある **[無効]** または **[有効]** をクリックします。{% ifversion fpt %} ![[セキュリティと分析の構成] 機能の [有効] または [無効] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png) {% elsif ghec %} ![[セキュリティと分析の構成] 機能の [有効] または [無効] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
 
-## Further reading
+## 参考資料
 
-- "[About {% data variables.product.prodname_dotcom %}'s use of your data](/articles/about-github-s-use-of-your-data)"
-- "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- [{% data variables.product.prodname_dotcom %} によるユーザーのデータの利用について](/articles/about-github-s-use-of-your-data)
+- 「[{% data variables.product.prodname_dependabot_alerts %} の表示と更新](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)」
+- 「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」

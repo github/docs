@@ -1,8 +1,16 @@
-使用 `jobs.<job_id>.container` 创建一个容器，以在尚未指定容器的作业中运行任何步骤。 如有步骤同时使用脚本和容器操作，则容器操作将运行为同一网络上使用相同卷挂载的同级容器。
+---
+ms.openlocfilehash: 5bdd64690f5b6aead3fb77167af16eecce35ee62
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "146381438"
+---
+使用 `jobs.<job_id>.container` 创建用于运行作业中尚未指定容器的任何步骤的容器。 如有步骤同时使用脚本和容器操作，则容器操作将运行为同一网络上使用相同卷挂载的同级容器。
 
 若不设置 `container`，所有步骤将直接在 `runs-on` 指定的主机上运行，除非步骤引用已配置为在容器中运行的操作。
 
-### 示例：在容器中运行作业
+### <a name="example-running-a-job-within-a-container"></a>示例：在容器中运行作业
 
 ```yaml{:copy}
 name: CI

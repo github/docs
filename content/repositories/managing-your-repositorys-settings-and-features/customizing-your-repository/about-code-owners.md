@@ -37,24 +37,31 @@ Each CODEOWNERS file assigns the code owners for a single branch in the reposito
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
 To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
-{% endif %}
 
 ## CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
+{% warning %}
 
-{% ifversion fpt or ghec%}In most cases, you{% else %}You{% endif %} can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`. {% ifversion fpt or ghec %} You cannot use an email address to refer to a {% data variables.product.prodname_managed_user %}. For more information about {% data variables.product.prodname_managed_users %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+**Warning:** There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
+- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+- Using `!` to negate a pattern
+- Using `[ ]` to define a character range
+
+{% endwarning %}
+
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
+
+{% ifversion fpt or ghec%}In most cases, you{% else %}You{% endif %} can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, for example `user@example.com`. {% ifversion fpt or ghec %} You cannot use an email address to refer to a {% data variables.enterprise.prodname_managed_user %}. For more information about {% data variables.enterprise.prodname_managed_users %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
 
 {% ifversion codeowners-errors %}
-If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API. For more information, see "[Repositories](/rest/reference/repos#list-codeowners-errors)" in the REST API documentation.
+If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API. For more information, see "[Repositories](/rest/reference/repos#list-codeowners-errors)" in the REST API documentation.
 {% else %}
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 {% endif %}
@@ -74,7 +81,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # precedence. When someone opens a pull request that only
 # modifies JS files, only @js-owner and not the global
 # owner(s) will be requested for a review.
-*.js    @js-owner
+*.js    @js-owner #This is an inline comment.
 
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author
@@ -116,15 +123,9 @@ apps/ @octocat
 /apps/ @octocat
 /apps/github
 ```
-### Syntax exceptions
-There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- Using `!` to negate a pattern
-- Using `[ ]` to define a character range
 
 ## CODEOWNERS and branch protection
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
-
 
 ## Further reading
 

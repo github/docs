@@ -1,6 +1,6 @@
 ---
-title: Creating a repository from a template
-intro: You can generate a new repository with the same directory structure and files as an existing repository.
+title: Crear un repositorio desde una plantilla
+intro: Puedes generar un nuevo repositorio con la misma estructura de directorio y los mismos archivos que un repositorio existente.
 redirect_from:
   - /articles/creating-a-repository-from-a-template
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
@@ -13,35 +13,46 @@ versions:
 topics:
   - Repositories
 shortTitle: Create from a template
+ms.openlocfilehash: 16d124431426e19cf95c768e8a4cdaa5f4da2e17
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160347'
 ---
-## About repository templates
+## Acerca de las plantillas de repositorio
 
-Anyone with read permissions to a template repository can create a repository from that template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."
+Cualquier usuario con permisos de lectura para un repositorio de plantillas puede crear un repositorio a partir de esa plantilla. Para obtener más información, consulte "[Creación de un repositorio de plantillas](/articles/creating-a-template-repository)".
 
 {% tip %}
 
-**Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
+**Sugerencia**: También puede crear un repositorio a partir de una plantilla con {% data variables.product.prodname_cli %}. Para obtener más información, consulte "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" en la documentación de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 
-You can choose to include the directory structure and files from only the default branch of the template repository or to include all branches. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
+Puedes elegir incluir la estructura de directorio y archivos únicamente desde la rama predeterminada del repositorio plantilla o incluir todas las ramas. Las ramas que se creen a partir de una plantilla tienen historiales sin relación, lo cual significa que no puedes crear solicitudes de cambio ni hacer fusiones entre las ramas.
 
-Creating a repository from a template is similar to forking a repository, but there are important differences:
-- A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
-- Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
-- A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
+Crear un repositorio a partir de una plantilla es similar a bifurcar un repositorio, pero existen algunas diferencias importantes:
+- Una nueva bifurcación incluye todo el historial de confirmaciones del repositorio padre, mientras que un repositorio creado a partir de una plantilla comienza con una única confirmación.
+- Las confirmaciones en una bifurcación no aparecen en tu gráfico de contribuciones, mientras que las confirmaciones en un repositorio creado a partir de una plantilla sí se muestran en tu gráfico de contribuciones.
+- Una bifurcación puede ser una forma temporaria de contribuir código a un proyecto existente, mientras que crear un repositorio a partir de una plantilla permite iniciar rápidamente un proyecto nuevo.
 
-For more information about forks, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+Para obtener más información sobre las bifurcaciones, vea "[Acerca de las bifurcaciones](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
 
-## Creating a repository from a template
+## Crear un repositorio desde una plantilla
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the file list, click **Use this template**.
-  ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
-{% data reusables.repositories.owner-drop-down %}
-{% data reusables.repositories.repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}
-6. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-  ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
-{% data reusables.repositories.select-marketplace-apps %}
-8. Click **Create repository from template**.
+1. Encima de la lista de archivos, haga clic en **Use this template** (Usar esta plantilla).
+{% ifversion fpt or ghec %}
+1. Selecciona **Crear un repositorio nuevo**.
+
+   ![Botón Usar esta plantilla](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   **Nota:** Como alternativa, puedes abrir la plantilla en un codespace y publicar el trabajo en un nuevo repositorio más adelante. Para obtener más información, consulta "[Creación de un codespace a partir de una plantilla](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)".
+
+   {% endnote %} {% endif %} {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
+1. De manera opcional, para incluir la estructura de directorios y los archivos de todas las ramas en la plantilla, y no únicamente aquellos de la rama predeterminada, seleccione **Include all branches** (Incluir todas las ramas).
+  ![Casilla para incluir todas las ramas](/assets/images/help/repository/include-all-branches.png) {% data reusables.repositories.select-marketplace-apps %}
+8. Haga clic en **Create repository from template** (Crear repositorio a partir de plantilla).

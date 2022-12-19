@@ -1,0 +1,339 @@
+date: '2022-07-26'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **Remarque :** Si {% data variables.product.product_location %} exécute une build de version finale (RC), vous ne pouvez pas effectuer de mise à niveau avec un patch à chaud. Nous vous recommandons d’exécuter les versions Release Candidate uniquement dans un environnement de test.
+  
+  {% endnote %}
+  
+  Pour les instructions de mise à niveau, consultez « [Mise à niveau de {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) »
+sections:
+  features:
+    - heading: Infrastructure
+      notes:
+        # https://github.com/github/releases/issues/2002
+        - |La mise en cache du référentiel est en disponibilité générale. La mise en cache du référentiel augmente les performances de lecture de Git pour les développeurs distribués, en offrant la localité des données et la commodité de la géo-réplication sans impact sur les workflows d’envoi. Avec la version en disponibilité générale, GitHub Enterprise Server met en cache les données Git et Git LFS. Pour plus d’informations, consultez « [À propos de la mise en cache des référentiels](/admin/enterprise-management/caching-repositories/about-repository-caching) »
+
+|
+    - heading: Sécurité de l’instance
+      notes:
+        # https://github.com/github/releases/issues/1569
+        - |GitHub a modifié les algorithmes et les fonctions de hachage pris en charge pour toutes les connexions SSH à GitHub Enterprise Server, désactivé le protocole Git non chiffré et non authentifié, et autorisé, de manière facultative, l’annonce d’une clé hôte Ed25519. Pour plus d’informations, consultez ce [billet de blog GitHub](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) et les articles suivants.
+
+
+
+- « [Configurer les connexions SSH à votre instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance) »
+
+- « [Appliquer les stratégies de gestion des référentiels dans votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access) »
+
+- « [Configuration des clés d’hôte pour votre instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance) »
+
+|
+        # https://github.com/github/releases/issues/2341
+        - |Vous pouvez exiger le chiffrement TLS pour les connexions SMTP entrantes pour votre instance. Pour plus d’informations, consultez « [Configuration de l’e-mail pour les notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications). »
+
+|
+    - heading: Journaux d’audit
+      notes:
+        # https://github.com/github/releases/issues/1438
+        - |Vous pouvez diffuser les journaux d’audit et les événements Git de votre instance vers Amazon S3, Stockage Blob Azure, Azure Event Hubs, Google Cloud Storage ou Splunk. La diffusion en continu des journaux d’audit est en version bêta publique et est sujette à des modifications. Pour plus d’informations, consultez « [Diffusion en continu du journal d’audit pour votre entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) »
+
+|
+    - heading: GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |Server Statistics est maintenant en disponibilité générale. Server Statistics collecte les données d’utilisation agrégées de votre instance GitHub Enterprise Server, que vous pouvez utiliser pour mieux anticiper les besoins de votre organisation, comprendre comment votre équipe travaille et montrer la valeur que vous tirez de GitHub Enterprise Server. Pour plus d’informations, consultez « [À propos des statistiques du serveur](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics) »
+
+|
+    - heading: Expérience de l’administrateur
+      notes:
+        # https://github.com/github/releases/issues/2351
+        - |Les propriétaires d’entreprise peuvent rejoindre les organisations de l’instance en tant que membre ou propriétaire à partir de la page **Organisations** du compte d’entreprise. Pour plus d’informations, consultez « [Gérer votre rôle dans une organisation appartenant à votre entreprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise) »
+
+|
+        # https://github.com/github/releases/issues/2221
+        - |Les propriétaires d’entreprise peuvent autoriser les utilisateurs à rejeter la bannière d’annonce globale configurée. Pour plus d’informations, consultez « [Personnalisation des messages utilisateur pour votre entreprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner) »
+
+|
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/2321
+        - |Les utilisateurs d’une instance disposant d’une licence GitHub Advanced Security peuvent choisir de recevoir un événement webhook qui se déclenche lorsqu’un propriétaire d’organisation ou un administrateur de référentiel active ou désactive une fonction de sécurité ou d’analyse du code. Pour plus d’informations, consultez la documentation suivante.
+
+
+
+- « [Événements et charges utiles de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis) » dans la documentation du webhook
+
+- « [Gestion des paramètres de sécurité et d’analyse pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization) »
+
+- « [Gérer les fonctionnalités de sécurité et d’analyse pour votre référentiel](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) »
+
+|
+        # https://github.com/github/releases/issues/2191
+        - |Les utilisateurs d’une instance disposant d’une licence GitHub Advanced Security peuvent éventuellement ajouter un commentaire lorsqu’ils rejettent une alerte d’analyse de code dans l’interface web ou via l’API REST. Les commentaires de rejet apparaissent dans la chronologie de l’événement. Les utilisateurs peuvent également ajouter ou récupérer un commentaire de rejet via l’API REST. Pour plus d’informations, consultez « [Triage des alertes d’analyse de code dans les demandes de tirage](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request) » et « [Analyse de code](/rest/code-scanning#update-a-code-scanning-alert) » dans la documentation de l’API REST.
+
+|
+        # https://github.com/github/releases/issues/2228
+        - |Sur les instances disposant d’une licence GitHub Advanced Security, l’analyse des secrets empêche la fuite des secrets dans l’éditeur web. Pour plus d’informations, consultez « [Protéger les envois avec l’analyse des secrets](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui) »
+
+|
+        # https://github.com/github/releases/issues/2318
+        # https://github.com/github/releases/issues/2277
+        - |Les propriétaires d’entreprise et les utilisateurs d’une instance disposant d’une licence GitHub Advanced Security peuvent voir les alertes d’analyse des secrets et les contournements de la protection push de l’analyse des secrets dans les journaux d’audit de l’entreprise et de l’organisation, et via l’API REST. Pour plus d’informations, consultez la documentation suivante.
+
+
+
+- « [Protection des envois avec l’analyse des secrets](/code-security/secret-scanning/protecting-pushes-with-secret-scanning) »
+
+- « [Événements du journal d’audit pour votre entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions) »
+
+- « [Révision du journal d’audit pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions) »
+
+- « [Analyse des secrets](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise) » dans la documentation de l’API REST
+
+|
+        # https://github.com/github/releases/issues/2230
+        # https://github.com/github/releases/issues/2317
+        - |Les propriétaires d’entreprise sur une instance avec une licence GitHub Advanced Security peuvent effectuer des tests des modèles d’analyse des secrets personnalisés pour l’entreprise, et tous les utilisateurs peuvent effectuer des tests lors de la modification d’un modèle. Les tests vous permettent de comprendre l’impact d’un modèle sur l’ensemble de l’instance et d’affiner le modèle avant sa publication et la génération d’alertes. Pour plus d’informations, consultez « [Définition de modèles personnalisés pour l’analyse des secrets](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning) »
+
+|
+        # https://github.com/github/releases/issues/2236
+        - |Les utilisateurs d’une instance disposant d’une licence GitHub Advanced Security peuvent utiliser les paramètres `sort` et `direction` dans l’API REST lorsqu’ils récupèrent des alertes d’analyse des secrets, et les trier en fonction des champs `created` ou `updated` de l’alerte. Les nouveaux paramètres sont disponibles pour l’instance entière, ou pour des organisations ou des référentiels individuels. Pour plus d’informations, consultez la documentation suivante.
+
+
+
+- « [Liste des alertes d’analyse des secrets pour une entreprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise) »
+
+- « [Liste des alertes d’analyse des secrets pour une organisation](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization) »
+
+- « [Liste des alertes d’analyse des secrets pour un référentiel](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository) »
+
+- « [Analyse des secrets](/rest/secret-scanning) » dans la documentation de l’API REST
+
+|
+        # https://github.com/github/releases/issues/2263
+        - |Le contenu du référentiel `github/codeql-go` a été déplacé vers le référentiel `github/codeql`, pour résider aux côtés de bibliothèques similaires pour tous les autres langages de programmation pris en charge par CodeQL. Les requêtes, les bibliothèques et l’extracteur CodeQL open source pour l’analyse des bases de code écrites en langage de programmation Go avec les outils d’analyse de code CodeQL de GitHub se trouvent désormais dans le nouvel emplacement. Pour plus d’informations, y compris des conseils sur la migration de vos workflows existants, consultez [github/codeql-go#741](https://github.com/github/codeql-go/issues/741).
+
+|
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/2256
+        - |Les propriétaires d’entreprise sur des instances avec une licence GitHub Advanced Security peuvent voir une vue d’ensemble des alertes Dependabot pour l’instance entière, y compris une vue centrée sur le référentiel des risques de sécurité des applications, et une vue centrée sur les alertes de toutes les alertes d’analyse des secrets et de Dependabot. Ces vues sont en version bêta et sont susceptibles d’être modifiées. Des vues centrées sur les alertes pour l’analyse du code sont prévues pour une prochaine version de GitHub Enterprise Server. Pour plus d’informations, consultez « [Affichage de la vue d’ensemble de la sécurité](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise) »
+
+|
+        # https://github.com/github/releases/issues/2160
+        - |Les utilisateurs peuvent sélectionner plusieurs alertes Dependabot, puis rejeter ou rouvrir les alertes ou les masquer. Par exemple, dans l’onglet **Alertes fermées**, vous pouvez sélectionner plusieurs alertes qui ont été précédemment rejetées, puis les rouvrir toutes en même temps. Pour plus d’informations, consultez « [À propos des alertes Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies) »
+
+|
+        # https://github.com/github/releases/issues/2232
+        - |Dependabot met à jour les dépendances `@types` avec les packages correspondants dans les projets TypeScript. Avant ce changement, les utilisateurs pouvaient voir des demandes de tirage distinctes pour un package et le package `@types` correspondant. Cette fonctionnalité est automatiquement activée pour les référentiels contenant des packages `@types` dans les `devDependencies` du projet dans le fichier _package.json_. Vous pouvez désactiver ce comportement en définissant le champ [`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore) de votre fichier `dependabot.yml` sur `@types/*`. Pour plus d’informations, consultez « [À propos des mises à jour de version de Dependabot](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) » et « [Options de configuration pour le fichier _dependabot.yml_](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) »
+
+|
+    - heading: Sécurité du code
+      notes:
+        # https://github.com/github/releases/issues/2098
+        # https://github.com/github/releases/issues/2282
+        - |GitHub Actions peut appliquer des examens de dépendance aux demandes de tirage des utilisateurs en analysant les dépendances, et avertit les utilisateurs des vulnérabilités de sécurité associées. L’action `dependency-review-action` est soutenue par un nouveau point de terminaison d’API qui différencie les dépendances entre deux révisions. Pour plus d’informations, consultez « [À propos de la révision des dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement) »
+
+|
+        # https://github.com/github/releases/issues/2243
+        - |Le graphe des dépendances détecte les fichiers _Cargo.toml_ et _Cargo.lock_ pour Rust. Ces fichiers seront affichés dans la section **Graphe des dépendances** de l’onglet **Insights**. Les utilisateurs recevront des alertes et des mises à jour de Dependabot pour les vulnérabilités associées à leurs dépendances Rust. Les métadonnées des packages, y compris le mappage des packages aux référentiels, seront ajoutées à une date ultérieure. Pour plus d’informations, consultez « [À propos du graphe des dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph) »
+
+|
+        # https://github.com/github/releases/issues/1766
+        - |Si GitHub Connect est activé pour votre instance, les utilisateurs peuvent contribuer à l’amélioration d’un avis de sécurité dans la [Base de données GitHub Advisory](https://github.com/advisories). Pour contribuer, cliquez sur **Suggérer des améliorations pour cette vulnérabilité** en consultant les détails d’un avis. Pour plus d''informations, consultez les articles suivants.
+
+
+
+- « [Gestion de GitHub Connect](/admin/configuration/configuration-github-connect/managing-github-connect) »
+
+- « [Exploration des vulnérabilités de sécurité dans la base de données d’avis de GitHub](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database) » dans la documentation de GitHub Enterprise Cloud
+
+- « [À propos des avis de sécurité GitHub pour les référentiels](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories) » dans la documentation GitHub Enterprise Cloud
+
+- « [Modification des avis de sécurité dans la base de données d’avis de GitHub](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database) » dans la documentation de GitHub Enterprise Cloud
+
+|
+    - heading: GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/2159
+        - |Dans un workflow qui appelle un workflow réutilisable, les utilisateurs peuvent passer les secrets au workflow réutilisable avec `secrets: inherit`. Pour plus d’informations, consultez « [Réutilisation des workflows](/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow) »
+
+|
+        # https://github.com/github/releases/issues/2102
+        - |Lors de l’utilisation de GitHub Actions, pour réduire le risque de fusionner une modification qui n’a pas été révisée par une autre personne dans une branche protégée, les propriétaires d’entreprise et les administrateurs de référentiel peuvent empêcher Actions de créer des demandes de tirage. Les propriétaires d’organisation pouvaient auparavant activer cette restriction. Pour plus d''informations, consultez les articles suivants.
+
+
+
+- « [Application de stratégies pour GitHub Actions dans votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests) »
+
+- « [Désactiver ou limiter GitHub Actions pour votre organisation](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests) »
+
+- « [Gestion des paramètres GitHub Actions pour un référentiel](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests) »
+
+|
+        # https://github.com/github/releases/issues/2155
+        - |Les utilisateurs peuvent écrire un seul workflow déclenché par `workflow_dispatch` et `workflow_call`, et utiliser le contexte `inputs` pour accéder aux valeurs d’entrée. Auparavant, les entrées `workflow_dispatch` se trouvaient dans la charge utile de l’événement, ce qui compliquait le travail des auteurs de workflow qui souhaitaient écrire un workflow à la fois réutilisable et déclenché manuellement. Pour les workflows déclenchés par `workflow_dispatch`, les entrées sont toujours disponibles dans le contexte `github.event.inputs` pour maintenir la compatibilité.  Pour plus d’informations, consultez « [Contextes](/actions/learn-github-actions/contexts#inputs-context) »
+
+|
+        # https://github.com/github/releases/issues/2103
+        - |Pour résumer le résultat d’un travail, les utilisateurs peuvent générer du Markdown et publier le contenu sous forme de résumé de travail. Par exemple, après avoir exécuté des tests avec GitHub Actions, un résumé peut fournir une vue d’ensemble des tests réussis, échoués ou ignorés, ce qui peut réduire la nécessité d’examiner la sortie complète du journal. Pour plus d’informations, consultez « [Commandes de workflow pour GitHub Actions](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary) »
+
+|
+        # https://github.com/github/releases/issues/2161
+        - |Pour diagnostiquer plus facilement les échecs d’exécution d’un travail lors d’une nouvelle exécution du workflow, les utilisateurs peuvent activer la journalisation de débogage, qui fournit des informations sur l’exécution et l’environnement d’un travail. Pour plus d’informations, consultez « [Ré-exécution de workflows et de travaux](/actions/managing-workflow-runs/re-running-workflows-and-jobs) » et « [Utilisation des journaux d’exécution de workflow](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures) »
+
+|
+        # https://github.com/github/releases/issues/2140
+        - |Si vous gérez des exécuteurs auto-hébergés pour GitHub Actions, vous pouvez garantir un état cohérent sur l’exécuteur lui-même avant et après l’exécution d’un workflow en définissant des scripts à exécuter. En utilisant des scripts, vous n’avez plus besoin d’exiger que les utilisateurs intègrent manuellement ces étapes dans les workflows. Les scripts pré- et post-travail sont en version bêta et susceptibles d’être modifiés. Pour plus d’informations, consultez « [Exécution de scripts avant ou après un travail](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job) »
+
+|
+    - heading: Packages GitHub
+      notes:
+        # https://github.com/github/releases/issues/2334
+        - |Les propriétaires d’entreprise peuvent migrer les images de conteneurs du registre GitHub Docker vers le registre de conteneurs GitHub. Le registre de conteneurs offre les avantages suivants.
+
+
+
+- Améliore le partage des conteneurs au sein d’une organisation
+
+- Permet l’application d’autorisations d’accès granulaires
+
+- Permet le partage anonyme d’images de conteneurs publics
+
+- Mise en œuvre des normes OCI pour l’hébergement des images Docker
+
+
+
+Le registre des conteneurs est en version bêta et susceptible d’être modifié. Pour plus d’informations, consultez « [Migrer votre entreprise vers le registre des conteneurs à partir du registre Docker](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry) »
+
+|
+    - heading: Expérience communautaire
+      notes:
+        # https://github.com/github/releases/issues/2113
+        - |GitHub Discussions est disponible pour GitHub Enterprise Server. GitHub Discussions offre un espace de rassemblement central pour poser des questions, partager des idées et créer des liens. Pour plus d’informations, consultez « [Discussions GitHub](/discussions) »
+
+|
+        # https://github.com/github/releases/issues/2259
+        - |Les propriétaires d’entreprise peuvent configurer une stratégie pour contrôler si les noms d’utilisateur ou les noms complets des personnes sont affichés dans les référentiels internes ou publics. Pour plus d’informations, consultez « [Appliquer des stratégies de gestion des référentiels dans votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories) »
+
+|
+    - heading: Organisations
+      notes:
+        # https://github.com/github/releases/issues/2019
+        - |Les utilisateurs peuvent créer des fichiers README réservés aux membres d’une organisation. Pour plus d’informations, consultez « [Personnaliser le profil de votre organisation](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile). »
+
+|
+        # https://github.com/github/releases/issues/2234
+        - |Les propriétaires d’organisation peuvent épingler un référentiel au profil d’une organisation directement à partir du référentiel via le nouveau menu déroulant **Épingler le référentiel**. Les référentiels publics épinglés apparaissent à tous les utilisateurs de votre instance, tandis que les référentiels publics, privés et internes ne sont visibles que par les membres de l’organisation.
+
+|
+    - heading: Référentiels
+      notes:
+        # https://github.com/github/releases/issues/2214
+        - |Lors de la création d’une duplication, les utilisateurs peuvent personnaliser le nom de la duplication. Pour plus d’informations, consultez « [Dupliquer un référentiel](/get-started/quickstart/fork-a-repo) »
+
+|
+        # https://github.com/github/releases/issues/1973
+        - |Les utilisateurs peuvent bloquer la création de branches qui correspondent à un modèle de nom configuré avec la règle de protection des branches **Restriction des envois qui créent des branches correspondantes**. Par exemple, si la branche par défaut d’un référentiel passe de `master` à `main`, l’administrateur du référentiel peut empêcher toute création ou tout envoi ultérieur de la branche `master`. Pour plus d''informations, consultez la rubrique 
+
+« [À propos des branches protégées](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches) » et « [Gestion d’une règle de protection des branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule). »
+
+|
+        # https://github.com/github/releases/issues/2179
+        - |Les utilisateurs peuvent créer une branche directement à partir de la page **Branches** d’un référentiel en cliquant sur le bouton **Nouvelle branche**. Pour plus d’informations, consultez « [Création et suppression de branches dans votre référentiel](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) »
+
+|
+        # https://github.com/github/releases/issues/2220
+        - |Les utilisateurs peuvent supprimer une branche qui est associée à une demande de tirage ouverte. Pour plus d’informations, consultez « [Création et suppression de branches dans votre référentiel](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) »
+
+|
+        # https://github.com/github/releases/issues/2118
+        - |Les référentiels ayant plusieurs licences affichent toutes les licences dans la barre latérale « À propos » de l’onglet **Code** {% octicon "code" aria-label="The code icon" %}. Pour plus d’informations, consultez « [Gestion des licences d’un référentiel](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) »
+
+|
+        # https://github.com/github/releases/issues/2233
+        - "Lorsqu’un utilisateur renomme ou déplace un fichier dans un nouveau répertoire, si au moins la moitié du contenu du fichier est identique, l’historique des validations indique que le fichier a été renommé, de façon similaire à `git log --follow`. Pour plus d’informations, consultez ce [billet de blog GitHub](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/)."
+
+        # https://github.com/github/releases/issues/2093
+        - |Les utilisateurs peuvent exiger un déploiement réussi d’une branche avant que quiconque puisse fusionner la demande de tirage associée à la branche. Pour plus d’informations, consultez « [À propos des branches protégées](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging) » et « [Gestion d’une règle de protection de branche](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule). »
+
+|
+        # https://github.com/github/releases/issues/2073
+        - |Les propriétaires d’entreprise peuvent empêcher les propriétaires d’organisation d’inviter des collaborateurs aux référentiels de l’instance. Pour plus d’informations, consultez « [Appliquer une stratégie d’invitation des collaborateurs aux référentiels](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories). »
+
+|
+        # https://github.com/github/releases/issues/2173
+        - |Les utilisateurs peuvent accorder des exceptions à GitHub Apps pour toute règle de protection des branches qui prend en charge les exceptions. Pour plus d’informations, consultez « [À propos des applications](/developers/apps/getting-started-with-apps/about-apps) » et « [Gérer une règle de protection des branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) »
+
+|
+    - heading: Commits
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |Pour les clés de signature GPG publiques qui sont expirées ou révoquées, GitHub Enterprise Server vérifie les signatures de validation Git et affiche les validations comme vérifiées si l’utilisateur a effectué la validation alors que la clé était encore valide. Les utilisateurs peuvent également charger des clés GPG expirées ou révoquées. Pour plus d’informations, consultez « [À propos de la vérification des signatures de commit](/authentification/managing-commit-signature-verification/about-commit-signature-verification) »
+
+|
+        # https://github.com/github/releases/issues/1977
+        - |Afin d’affirmer qu’une validation est conforme aux règles et aux licences régissant un référentiel, les propriétaires d’organisation et les administrateurs de référentiel peuvent désormais demander aux développeurs de signer les validations effectués via l’interface web. Pour plus d’informations, consultez « [Gestion de la stratégie de validation de commits pour votre organisation](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization) » et « [Gestion de la stratégie de validation de commits pour votre référentiel](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). »
+
+|
+    - heading: Demandes de tirage
+      notes:
+        # https://github.com/github/releases/issues/2261
+        - |En utilisant l’arborescence des fichiers située dans l’onglet **Fichiers modifiés** d’une demande de tirage, les utilisateurs peuvent naviguer dans les fichiers modifiés, comprendre la taille et la portée des changements, et cibler les révisions. L’arborescence des fichiers apparaît si une demande de tirage modifie au moins deux fichiers, et si la fenêtre du navigateur est suffisamment large. Pour plus d’informations, consultez « [Examiner les changements proposés dans une demande de tirage](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request) » et « [Filtrer les fichiers dans une demande de tirage](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request) »
+
+|
+        # https://github.com/github/releases/issues/2167
+        - |Les utilisateurs peuvent utiliser par défaut les titres des demandes de tirage comme message de validation pour toutes les fusions Squash. Pour plus d’informations, consultez « [Configuration de la fusion Squash des validations pour les demandes de tirage](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests) »
+
+|
+    - heading: Publications
+      notes:
+        # https://github.com/github/releases/issues/2281
+        - |En consultant les détails d’une version particulière, les utilisateurs peuvent voir la date de création de chaque ressource de la version. Pour plus d’informations, consultez « [Affichage des versions et étiquettes de votre référentiel](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags) »
+
+|
+        # https://github.com/github/releases/issues/2279
+        - "Lors de la création d’une version avec des notes de version générées automatiquement, les utilisateurs peuvent voir la balise identifiée comme la version précédente, puis choisir de sélectionner une balise différente à spécifier comme la version précédente. Pour plus d’informations, consultez « [Notes de version générées automatiquement](/repositories/releasing-projects-on-github/automatically-generated-release-notes) »"
+
+    - heading: Markdown
+      notes:
+        # https://github.com/github/releases/issues/2260
+        - |L’édition de Markdown dans l’interface web a été améliorée.
+
+
+
+- Lorsqu’un utilisateur sélectionne du texte et colle une URL, le texte sélectionné devient un lien Markdown vers l’URL collée.
+
+- Lorsqu’un utilisateur colle des cellules de tableur ou des tableaux HTML, le texte résultant sera rendu sous forme de tableau.
+
+- Lorsqu’un utilisateur copie un texte contenant des liens, le texte collé inclura le lien sous forme de lien Markdown.
+
+
+
+Pour plus d’informations, consultez « [Syntaxe de base pour l’écriture et la mise en forme](/get-started/writing-on-github/getting-started-with writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links) »
+
+|
+        # https://github.com/github/releases/issues/2258
+        - |Lors de l’édition d’un fichier Markdown dans l’interface web, le fait de cliquer sur l’onglet **Aperçu** fera automatiquement défiler l’écran jusqu’à l’endroit de l’aperçu que vous étiez en train d’éditer. L’emplacement du défilement est basé sur la position de votre curseur avant que vous cliquiez sur l’onglet **Aperçu**.
+
+|
+  changes:
+    - "Les éléments interactifs de l’interface web, comme les liens et les boutons, affichent un contour visible lorsqu’ils sont ciblés par le clavier, afin d’aider les utilisateurs à trouver leur position actuelle sur une page. En outre, lorsqu’ils sont mis en évidence, les champs de formulaire ont un contour plus contrasté."
+    - "Si un utilisateur actualise la page lors de la création d’un nouveau problème ou d’une demande de tirage, les personnes désignées, les réviseurs, les balises et les projets seront tous préservés."
+
+  known_issues:
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - Les services Actions doivent être redémarrés après avoir restauré une instance à partir d’une sauvegarde effectuée sur un hôte différent.
+    - "Dans les paramètres d’un référentiel, l’activation de l’option permettant aux utilisateurs ayant un accès en lecture de créer des discussions n’active pas cette fonctionnalité."
+    - "Dans certains cas, les utilisateurs ne peuvent pas convertir les questions existantes en discussions."
+    - "Les modèles personnalisés pour l’analyse des secrets ont `.*` comme délimiteur de fin, spécifiquement dans le champ « After secret ». Ce délimiteur provoque des incohérences dans les analyses des secrets entre les référentiels, et vous pourriez remarquer des trous dans l’historique d’un référentiel où aucune recherche n’a été effectuée. Les analyses incrémentielles peuvent également être affectées. Pour éviter les problèmes d’analyse, modifiez la fin du modèle pour supprimer le délimiteur `.*`."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

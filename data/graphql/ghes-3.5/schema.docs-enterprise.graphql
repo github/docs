@@ -32386,6 +32386,12 @@ A repository contains the content for a project.
 """
 type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo & Starrable & Subscribable & UniformResourceLocatable {
   """
+  Whether or not a pull request head branch that is behind its base branch can
+  always be updated even if it is not required to be up to date before merging.
+  """
+  allowUpdateBranch: Boolean!
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(

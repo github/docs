@@ -1,7 +1,7 @@
 ---
 title: リポジトリコンテンツ
 allowTitleToDifferFromFilename: true
-shortTitle: コンテンツ
+shortTitle: Contents
 intro: これらの API エンドポイントを使用すると、リポジトリ内の Base64 でエンコードされたコンテンツを作成、変更、削除できます。
 versions:
   fpt: '*'
@@ -11,27 +11,32 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: fd3619faeb8ccaeaa70e8a2be050881b4a169b64
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181318'
 ---
-
-## Repository contents APIについて
+## リポジトリ コンテンツ API について
 
 Raw 形式またはレンダリングされた HTML (サポートされている場合) をリクエストするには、リポジトリのコンテンツにカスタムメディアタイプを使用します。
 
 ### リポジトリコンテンツのカスタムメディアタイプ
 
-[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、[シンボリックリンク](/rest/reference/repos#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
+[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、および[シンボリック リンクでは](/rest/reference/repos#get-repository-content)、次のカスタム メディアの種類がサポートされています。
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.html
+    application/vnd.github.raw
+    application/vnd.github.html
 
-ファイルのコンテンツを取得するには、`.raw` メディアタイプを使ってください。
+ファイルのコンテンツを取得するには、`.raw` メディア タイプを使ってください。
 
-Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
+Markdown や AsciiDoc などのマークアップファイルでは、レンダリングされた HTML を `.html` メディア タイプを使用して取得できます。 マークアップ言語は、オープンソースの[マークアップ ライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-[すべてのオブジェクト](/rest/reference/repos#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
+[すべてのオブジェクト](/rest/reference/repos#get-repository-content)では、次のカスタム メディアの種類がサポートされます。
 
-    application/vnd.github.VERSION.object
+    application/vnd.github.object
 
-コンテンツのタイプに関係なく、一貫したオブジェクトフォーマットを取得するには、`object` メディアタイプパラメータを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
+コンテンツのタイプに関係なく、一貫したオブジェクト フォーマットを取得するには、`object` メディア タイプ パラメーターを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
 
-API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
+API でのメディア タイプの使用に関する詳細については、[こちら](/rest/overview/media-types)をお読みください。

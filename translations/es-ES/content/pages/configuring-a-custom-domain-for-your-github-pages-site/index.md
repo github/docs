@@ -1,6 +1,6 @@
 ---
-title: Configuring a custom domain for your GitHub Pages site
-intro: 'You can customize the domain name of your {% data variables.product.prodname_pages %} site.'
+title: Configurar un dominio personalizado para tu sitio de Páginas de GitHub
+intro: 'Puedes personalizar el nombre de dominio de tu sitio de {% data variables.product.prodname_pages %}.'
 redirect_from:
   - /articles/tips-for-configuring-an-a-record-with-your-dns-provider
   - /articles/adding-or-removing-a-custom-domain-for-your-github-pages-site
@@ -23,5 +23,11 @@ children:
   - /verifying-your-custom-domain-for-github-pages
   - /troubleshooting-custom-domains-and-github-pages
 shortTitle: Configure a custom domain
+ms.openlocfilehash: defe7dee85d79462ee421705ab05bb8591b7400f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140365'
 ---
 

@@ -1,0 +1,4 @@
+advanced_url: >-
+  {% ifversion fpt or ghec %}страница [расширенного поиска](https://github.com/search/advanced){% else %}страница расширенного поиска (https://[hostname]/search/advanced){% endif %}
+search_page_url: >-
+  {% ifversion fpt or ghec %}страница [поиска](https://github.com/search){% else %}страница поиска (https://[hostname]/search){% endif %}

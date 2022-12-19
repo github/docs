@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: ee48b3bd8731933879c946dd03288baca2bc7c64
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880261"
+---
 {% note %}
 
-**ノート：** この記事は{% data variables.product.prodname_marketplace %}からのアプリケーションのインストール及び購入にのみ適用されます。 インテグレーターから購入したアプリケーションに関する情報については「[インテグレーションについて](/articles/about-integrations)」を参照してください。
+**注:** この記事は {% data variables.product.prodname_marketplace %} からのアプリのインストールおよび購入にのみ適用されます。 インテグレーターから購入したアプリの詳細については、「[統合について](/articles/about-integrations)」を参照してください。
 
 {% endnote %}

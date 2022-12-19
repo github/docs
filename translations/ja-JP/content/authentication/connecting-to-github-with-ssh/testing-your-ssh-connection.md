@@ -1,6 +1,6 @@
 ---
 title: SSH 接続をテストする
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can test your connection.'
+intro: 'SSH キーを設定し、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} のアカウントに追加した後、接続をテストできます。'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -13,20 +13,25 @@ versions:
 topics:
   - SSH
 shortTitle: Test your SSH connection
+ms.openlocfilehash: 7724c5939b319748f270db2f190a6df825b0bb4f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146338974'
 ---
-
 SSH 接続をテストする前に、次のことを済ませておく必要があります:
-- [既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)
-- [新しい SSH キーを作成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [既存の SSH キーを確認する](/articles/checking-for-existing-ssh-keys)
+- [新しい SSH キーを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [GitHub アカウントに新しい SSH キーを追加する](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-接続をテストするとき、先立って作成した SSH キーパスフレーズのパスワードを使ってこのアクションを認証する必要があります。 SSH キーのパスフレーズの利用の詳しい情報については、「[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)」を参照してください。
+接続をテストするとき、先立って作成した SSH キーパスフレーズのパスワードを使ってこのアクションを認証する必要があります。 SSH キー パスフレーズの処理について詳しくは、「[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)」をご覧ください。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 以下を入力します。
+2. 次のように入力します。
   ```shell
   $ ssh -T git@{% data variables.command_line.codeblock %}
-  # {% data variables.product.product_name %} に ssh を試行する
+  # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
   以下のような警告が表示される場合があります:
@@ -37,7 +42,7 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. 一致する場合は、`yes` と入力します。
+3. 表示されるメッセージのフィンガープリントが、{% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} の公開キー フィンガープリント](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}Enterprise の公開キー フィンガープリント{% endif %}と一致することを確認します。 その場合は、「`yes`」と入力します。
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -45,7 +50,7 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
 
   {% linux %}
 
-  以下のようなエラーメッセージが表示される場合があります:
+  このエラー メッセージが表示されることがあります。
   ```shell
   ...
   Agent admitted failure to sign using the key.
@@ -53,14 +58,14 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   Permission denied (publickey).
   ```
 
-  これは、特定の Linux ディストリビューションで生じる既知の問題です。 詳細は「[Error: Agent admitted failure to sign](/articles/error-agent-admitted-failure-to-sign)」を参照してください。
+  これは、特定の Linux ディストリビューションで生じる既知の問題です。 詳しくは、「[エラー: 許可されたエージェントが署名できません](/articles/error-agent-admitted-failure-to-sign)」をご覧ください。
 
   {% endlinux %}
 
    {% note %}
 
-   **Note:** The remote command should exit with code 1.
+   **注:** リモート コマンドはコード 1 で終了します。
 
    {% endnote %}
 
-4. 出力されたメッセージに、あなたのユーザ名が含まれていることを確認します。 「permission denied」メッセージを受け取った場合、「[Error: Permission denied (publickey)](/articles/error-permission-denied-publickey)」を参照してください。
+4. 出力されたメッセージに、あなたのユーザ名が含まれていることを確認します。 "アクセス許可が拒否された" というメッセージを受け取る場合は、「[エラー: アクセス許可が拒否されました (publickey)](/articles/error-permission-denied-publickey)」をご覧ください。

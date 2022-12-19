@@ -1,6 +1,6 @@
 ---
-title: About system logs
-intro: '{% data variables.product.product_name %} keeps error and message logs for system events. Logs are useful for identifying user, application and system-level actions and exceptions.'
+title: システム ログについて
+intro: '{% data variables.product.product_name %} は、システム イベントのエラーとメッセージのログを保持しています。 ログは、ユーザー、アプリケーション、システムレベルのアクションと例外を識別するのに役立ちます。'
 versions:
   ghes: '*'
 type: overview
@@ -9,37 +9,42 @@ topics:
   - Enterprise
   - Logging
   - Security
+ms.openlocfilehash: e41702e25c7cc222cefb4eedb4e0322adf3acdba
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063331'
 ---
+## システム ログ
 
-## System logs
+既定では、{% data variables.product.product_name %} のシステム ログは 24 時間ごとに自動的にローテーションされ、7 日間保持されます。 システム ログには、システム レベルのイベント、アプリケーション ログ、Git イベント データが含まれています。 ログ ファイルは頻繁に書き込まれ、サイズが大きくなる可能性があるため、{% data variables.product.prodname_ghe_server %} インスタンスとは別のホスト上の関連するログ エントリを抽出して解析すると利点がある場合があります。
 
-By default, system logs for {% data variables.product.product_name %} are automatically rotated every 24 hours and are retained for seven days. System logs include system-level events, application logs, and Git events data. As log files are often being written to and can be large in size, it may be beneficial to extract and parse relevant log entries on a host separate to your {% data variables.product.prodname_ghe_server %} instance.
+保有期間を長くするには、システム ログをサードパーティのシステムまたはサーバーに転送できます。 詳細については、「[ログの転送](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)」を参照してください。
 
-You can forward system logs to a third-party system or server for longer retention. 詳しい情報については、「[ログの転送](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)」を参照してください。
+システム ログの確認に加えて、監査ログの表示、ログのプッシュ、グローバル Webhook の管理など、他の方法で企業内のアクティビティを監視できます。 詳細については、「[Enterprise でアクティビティを監視する](/admin/monitoring-activity-in-your-enterprise)」を参照してください。
 
-In addition to reviewing your system logs, you can monitor activity in your enterprise in other ways, such as viewing audit logs, push logs and managing global webhooks. For more information, see "[Monitoring activity in your enterprise](/admin/monitoring-activity-in-your-enterprise)."
+## ログの種類
 
-## Types of logs
+{% data variables.product.product_name %} アプライアンスで使用される主なログとその機能を次に示します。
 
-Listed below are the main logs used by the {% data variables.product.product_name %} appliance and their functions:
+| パス | 説明 |
+|------|-------------|
+| `/var/log/github/audit.log` | 監査対象のユーザー、リポジトリ、システム イベント。
+| `/var/log/github/unicorn.log` | API と Web インターフェイスのトラフィック。
+| `/var/log/github/exceptions.log` | アプリケーションレベルのエラー。
+| `/var/log/haproxy.log` | アプライアンスに到達するすべての IP トラフィック。
+| `/var/log/hookshot/resqued.log` | Webhook の配信とエラー。
+| `/var/log/github/auth.log` | 組み込み、LDAP、CAS、SAML のいずれかの方法による認証要求。
+| `/var/log/github/gitauth.log` | すべての Git 認証要求。
 
-| パス                               | Description​                                                                  |
-| -------------------------------- | ----------------------------------------------------------------------------- |
-| `/var/log/github/audit.log`      | Audited user, repository and system events.                                   |
-| `/var/log/github/unicorn.log`    | API and web interface traffic.                                                |
-| `/var/log/github/exceptions.log` | Application-level errors.                                                     |
-| `/var/log/haproxy.log`           | All IP traffic reaching the appliance.                                        |
-| `/var/log/hookshot/resqued.log`  | Webhook delivery and failures.                                                |
-| `/var/log/github/auth.log`       | Authentication requests, whether through built in, LDAP, CAS or SAML methods. |
-| `/var/log/github/gitauth.log`    | All Git authentication requests.                                              |
+Git アクティビティと認証要求は、`babeld` サービスによって処理されます。
 
-Git activity and authentication requests are processed by the `babeld` service.
+いくつかの {% data variables.product.product_name %} サービス (`babeld` サービスなど) はコンテナー化されます。 コンテナー化されたログは、`systemd journal` に書き込まれ、`journalctl` コマンドを使用していつでも問い合せることができます。
 
-Several {% data variables.product.product_name %} services, such as the `babeld` service, are containerized. Containerized logs are written to the `systemd journal`, and can be queried at any time using the `journalctl` command.
+## 監査対象のシステム イベント
 
-## Audited system events
-
-All entries from the `audit.log` file use and can be filtered with the `github_audit` keyword.
+`audit.log` ファイルのすべてのエントリで `github_audit` キーワードが使用されており、それによりフィルター処理することができます。
 
 たとえば、次のエントリは新規リポジトリが作成されたことを示しています。
 
@@ -55,8 +60,8 @@ Oct 26 02:19:31 github-ent github_audit: { "pid":22860, "ppid":22859, "program":
 
 ## Support Bundle
 
-The support bundle includes system logs and all audit information is logged to the `audit.log` file in the `github-logs` directory. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/support/contacting-github-support/providing-data-to-github-support)."
+サポート バンドルにはシステム ログが含まれており、すべての監査情報が `github-logs` ディレクトリ内の `audit.log` ファイルに記録されます。 詳細については、「[{% data variables.product.prodname_dotcom %} サポートへのデータの提供](/support/contacting-github-support/providing-data-to-github-support)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-- [Linux man page for the `journalctl` command](http://man7.org/linux/man-pages/man1/journalctl.1.html)
+- [`journalctl` コマンドの Linux man ページ](http://man7.org/linux/man-pages/man1/journalctl.1.html)

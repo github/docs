@@ -1,0 +1,339 @@
+date: '26.07.2022'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **Примечание.** Если на {% data variables.product.product_location %} выполняется сборка релиз-кандидата, обновление с помощью горячего исправления невозможно. Мы рекомендуем запускать релиз-кандидаты только в тестовой среде.
+  
+  {% endnote %}
+  
+  Инструкции по обновлениям см. в статье "[Обновление {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)".
+sections:
+  features:
+    - heading: Инфраструктура
+      notes:
+        # https://github.com/github/releases/issues/2002
+        - |Кэширование репозитория является общедоступным. Кэширование репозитория повышает производительность чтения Git для распределенных разработчиков, обеспечивая локальность данных и удобство георепликации без влияния на рабочие процессы отправки. В выпуске общедоступной версии GitHub Enterprise Server кэширует как данные Git, так и данные Git LFS. Дополнительные сведения см. в статье "[О кэшировании репозитория](/admin/enterprise-management/caching-repositories/about-repository-caching)".
+
+|
+    - heading: Безопасность экземпляра
+      notes:
+        # https://github.com/github/releases/issues/1569
+        - |В GitHub изменены поддерживаемые алгоритмы и хэш-функции для всех SSH-подключений к GitHub Enterprise Server, отключен незашифрованный протокол Git без проверки подлинности и, при необходимости, разрешено объявление ключа узла Ed25519. Дополнительные сведения см. в [блоге GitHub] (https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) и следующих статьях.
+
+
+
+- "[Настройка SSH-подключений к экземпляру](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
+
+- "[Принудительное применение политик управления репозиторием на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access )"
+
+- "[Настройка ключей узла для экземпляра](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
+
+|
+        # https://github.com/github/releases/issues/2341
+        - |Вы можете потребовать шифрование TLS для входящих SMTP-подключений к вашему экземпляру. Дополнительные сведения см. в статье "[Настройка электронной почты для получения уведомлений](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)".
+
+|
+    - heading: Журналы аудита
+      notes:
+        # https://github.com/github/releases/issues/1438
+        - |Вы можете выполнять потоковую передачу журнала аудита и событий Git для своего экземпляра в Amazon S3, Хранилище BLOB-объектов Azure, концентраторы событий Azure, облачное хранилище Google или Splunk. Потоковая передача журнала аудита находится в общедоступной бета-версии и может быть изменена. Дополнительные сведения см. в статье "[Потоковая передача журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
+
+|
+    - heading: GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |Статистика сервера теперь является общедоступной. Статистика сервера собирает совокупные данные об использовании вашего экземпляра GitHub Enterprise Server, которые вы можете использовать для лучшего прогнозирования потребностей вашей организации, понимания принципов работы вашей команды и преимуществ от возможностей GitHub Enterprise Server. Дополнительные сведения см. в статье "[О статистике сервера](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)".
+
+|
+    - heading: Опыт администратора
+      notes:
+        # https://github.com/github/releases/issues/2351
+        - |Владельцы предприятия могут присоединяться к организациям на экземпляре в качестве члена или владельца на странице корпоративной учетной записи **Организации**. Дополнительные сведения см. в статье "[Управление ролью в организации, принадлежащей предприятию](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
+
+|
+        # https://github.com/github/releases/issues/2221
+        - |Владельцы предприятий могут разрешить пользователям закрывать настроенный глобальный баннер объявлений. Дополнительные сведения см. в статье "[Настройка сообщений для пользователей на предприятии](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)".
+
+|
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/2321
+        - |Пользователи экземпляра с лицензией GitHub Advanced Security могут выбрать получение события веб-перехватчика, которое активируется, когда владелец организации или администратор репозитория включает или отключает функцию безопасности или анализа кода. Дополнительные сведения см. в следующей документации.
+
+
+
+- "[События и полезные данные веб-перехватчиков] (/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" в документации по веб-перехватчикам
+
+- "[Управление настройками безопасности и анализа для вашей организации](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
+
+- "[Управление функциями безопасности и анализа для вашего репозитория](/repositories/managing-your-repositorys-settings-and-features/enbling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+
+|
+        # https://github.com/github/releases/issues/2191
+        - |Пользователи экземпляра с лицензией расширенной безопасности GitHub могут при желании добавить комментарий при закрытии предупреждения о сканировании кода в пользовательском веб-интерфейсе или через REST API. Комментарии о закрытии отображаются на временной шкале события. Пользователи также могут добавлять или получать комментарий о закрытии через REST API. Дополнительные сведения см. в разделе "[Проверка предупреждений о сканировании кода в запросах на вытягивание](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in -pull-requests#dismissing-an-alert-on-your-pull-request)" и "[Сканирование кода](/rest/code-scanning#update-a-code-scanning-alert)" в документации по REST API.
+
+|
+        # https://github.com/github/releases/issues/2228
+        - |В экземплярах с лицензией расширенной безопасности GitHub сканирование секретов предотвращает утечку секретов в веб-редакторе. Дополнительные сведения см. в статье "[Защита принудительных отправок с помощью сканирования секретов](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)".
+
+|
+        # https://github.com/github/releases/issues/2318
+        # https://github.com/github/releases/issues/2277
+        - |Владельцы предприятия и пользователи экземпляра с лицензией расширенной безопасности GitHub могут просматривать предупреждения о сканировании секретов и обходы защиты от принудительной отправки сканирования секретов в журналах аудита предприятия и организации, а также через REST API. Дополнительные сведения см. в следующей документации.
+
+
+
+- "[Защита принудительных отправок с помощью сканирования секретов](/code-security/secret-scanning/protecting-pushs-with-secret-scanning)"
+
+- "[События журнала аудита для вашего предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
+
+- "[Просмотр журнала аудита для вашей организации](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
+
+- "[Сканирование секретов] (/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)" в документации по REST API
+
+|
+        # https://github.com/github/releases/issues/2230
+        # https://github.com/github/releases/issues/2317
+        - |Владельцы предприятия на экземпляре с лицензией расширенной безопасности GitHub могут выполнять пробные прогоны пользовательских шаблонов сканирования секретов для предприятия, а все пользователи могут выполнять пробные прогоны при редактировании шаблона. Пробные запуски позволяют понять влияние шаблона на весь экземпляр и отточить шаблон перед публикацией и генерацией предупреждений. Дополнительные сведения см. в статье "[Определение пользовательских шаблонов для проверки секретов](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".
+
+|
+        # https://github.com/github/releases/issues/2236
+        - |Пользователи экземпляра с лицензией расширенной безопасности GitHub могут использовать параметры сортировки и направления в REST API при получении предупреждений о сканировании секретов и выполнять сортировку на основе полей "Создано" или "Обновлено" предупреждения. Новые параметры доступны как для всего экземпляра, так и для отдельных организаций или репозиториев. Дополнительные сведения см. в следующей документации.
+
+
+
+- "[Список предупреждений о сканировании секретов для предприятия](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
+
+- "[Список предупреждений о сканировании секретов для организации](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
+
+- "[Список предупреждений о сканировании секретов для репозитория](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
+
+- "[Сканирование секретов](/rest/secret-scanning)" в документации по REST API
+
+|
+        # https://github.com/github/releases/issues/2263
+        - |Содержимое репозитория github/codeql-go перемещено в репозиторий github/codeql к аналогичным библиотекам для всех других языков программирования, поддерживаемых CodeQL. Запросы, библиотеки и экстрактор CodeQL с открытым исходным кодом для анализа баз кода, написанных на языке программирования Go, с помощью инструментов анализа кода CodeQL GitHub теперь можно найти в новом расположении. Дополнительные сведения, включая руководство по переносу имеющихся рабочих процессов, см. на странице [github/codeql-go#741](https://github.com/github/codeql-go/issues/741).
+
+|
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/2256
+        - |Владельцы предприятий на экземплярах с лицензией расширенной безопасности GitHub могут видеть обзор предупреждений Dependabot для всего экземпляра, в том числе ориентированное на репозиторий представление угроз безопасности приложений, а также ориентированное на предупреждения представление всех сканирований секретов и предупреждений Dependabot. Представления находятся в стадии бета-тестирования и могут быть изменены, а ориентированные на предупреждения представления для сканирования кода запланированы для будущего выпуска сервера GitHub Enterprise. Дополнительные сведения см. в статье "[Просмотр обзора безопасности](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)".
+
+|
+        # https://github.com/github/releases/issues/2160
+        - |Пользователи могут выбрать несколько предупреждений Dependabot, а затем закрыть, повторно открыть или закрыть предупреждения. Например, на вкладке **Закрытые предупреждения** можно выбрать несколько ранее закрытых предупреждений, а затем снова открыть их все сразу. Дополнительные сведения см. в статье "[О предупреждениях Dependabot] (/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)".
+
+|
+        # https://github.com/github/releases/issues/2232
+        - |Dependabot обновляет зависимости @types вместе с соответствующими пакетами в проектах TypeScript. До этого изменения пользователи могли видеть отдельные запросы на вытягивание для пакета и соответствующего пакета @types. Эта функция автоматически включается для репозиториев, содержащих пакеты @types в devDependencies проекта в файле _package.json_. Вы можете отключить это поведение, установив поле для поля [игнорировать](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore) в вашем файле dependabot.yml значение @types/*. Дополнительные сведения см. в статьях "[Об обновлениях версий Dependabot](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)" и "[Параметры конфигурации для файла _dependabot.yml_](/code -security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)".
+
+|
+    - heading: Безопасность кода
+      notes:
+        # https://github.com/github/releases/issues/2098
+        # https://github.com/github/releases/issues/2282
+        - |Функция GitHub Actions может принудительно проверять зависимости в запросах на вытягивание пользователей путем сканирования зависимостей и предупреждать пользователей о связанных уязвимостях безопасности. Действие dependency-review-action поддерживается новой конечной точкой API, которая различает зависимости между любыми двумя версиями. Дополнительные сведения см. в статье "[О проверке зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)".
+
+|
+        # https://github.com/github/releases/issues/2243
+        - |Граф зависимостей обнаруживает файлы _Cargo.toml_ и _Cargo.lock_ для Rust. Эти файлы будут отображаться в разделе **График зависимостей** на вкладке **Аналитические сведения**. Пользователи будут получать предупреждения и обновления Dependabot для уязвимостей, связанных с их зависимостями от Rust. Метаданные пакетов, включая сопоставление пакетов с репозиториями, будут добавлены позже. Дополнительные сведения см. в статье "[О графе зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+|
+        # https://github.com/github/releases/issues/1766
+        - |Если для вашего экземпляра включен GitHub Connect, пользователи могут вносить улучшения в рекомендации по безопасности в [базе данных рекомендаций GitHub] (https://github.com/advisories). Чтобы внести свой вклад, щелкните **Предложить меры по устранению этой уязвимости** при просмотре сведений о рекомендации. Дополнительные сведения см. в следующих руководствах.
+
+
+
+- "[Управление GitHub Connect] (/admin/configuration/configuring-github-connect/managing-github-connect)"
+
+- "[Просмотр уязвимостей безопасности в базе данных рекомендаций GitHub](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in- the-github-advisory-database)" в документации по облаку GitHub Enterprise
+
+- "[О рекомендациях GitHub по безопасности для репозиториев] (/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)" в документации по облаку GitHub Enterprise
+
+- "[Редактирование рекомендаций по безопасности в базе данных рекомендаций GitHub](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in- the-github-advisory-database)" в документации по облаку GitHub Enterprise
+
+|
+    - heading: Действия GitHub
+      notes:
+        # https://github.com/github/releases/issues/2159
+        - |В рабочем процессе, который вызывает повторно используемый рабочий процесс, пользователи могут передавать секреты повторно используемому рабочему процессу с помощью secrets: inherit. Дополнительные сведения см. в статье "[Повторное использование рабочих процессов](/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow)".
+
+|
+        # https://github.com/github/releases/issues/2102
+        - |При использовании GitHub Actions, чтобы снизить риск слияния изменения, которое не было проверено другим пользователем, в защищенную ветку, владельцы предприятия и администраторы репозитория могут запретить Actions создавать запросы на вытягивание. Ранее владельцы организаций могли включить это ограничение. Дополнительные сведения см. в следующих руководствах.
+
+
+
+- "[Применение политик для GitHub Actions в вашем предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+- "[Отключение или ограничение GitHub Actions для вашей организации](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+- "[Управление параметрами GitHub Actions для репозитория](/repositories/managing-your-repositorys-settings-and-features/enbling-features-for-your-repository/managing-github-actions-settings-for-a-repository #preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+|
+        # https://github.com/github/releases/issues/2155
+        - |Пользователи могут написать один рабочий процесс, запускаемый workflow_dispatch и workflow_call, и использовать контекст inputs для доступа к входным значениям. Ранее входные данные workflow_dispatch находились в полезной нагрузке события, что усложняло задачу авторам рабочих процессов, которые хотели написать один рабочий процесс, который можно было бы использовать повторно и запускать вручную. Для рабочих процессов, запускаемых workflow_dispatch, входные данные по-прежнему доступны в контексте github.event.inputs для обеспечения совместимости.  Дополнительные сведения см. в статье "[Контексты] (/actions/learn-github-actions/contexts#inputs-context)".
+
+|
+        # https://github.com/github/releases/issues/2103
+        - |Чтобы обобщить результат задания, пользователи могут создать Markdown и опубликовать содержимое в виде сводки задания. Например, после выполнения тестов с помощью GitHub Actions в сводке может быть представлен обзор пройденных, неудачных или пропущенных тестов, что потенциально снижает необходимость просмотра полного вывода журнала. Дополнительные сведения см. в статье "[Команды рабочего процесса для GitHub Actions] (/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)".
+
+|
+        # https://github.com/github/releases/issues/2161
+        - |Чтобы упростить диагностику сбоев выполнения задания во время повторного запуска рабочего процесса, пользователи могут включить ведение журнала отладки, в котором выводится информация о выполнении задания и среде. Дополнительные сведения см. в статьях "[Повторное выполнение рабочих процессов и заданий](/actions/managing-workflow-runs/re-running-workflows-and-jobs)" и "[Использование журналов выполнения рабочих процессов](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
+
+|
+        # https://github.com/github/releases/issues/2140
+        - |Если вы управляете локальными средствами выполнения тестов для GitHub Actions, можно обеспечить согласованное состояние самого средства выполнения тестов до и после запуска рабочего процесса, определив скрипты для выполнения. При использовании скриптов вам больше не нужно требовать, чтобы пользователи вручную включали эти шаги в рабочие процессы. Скрипты до и после задания находятся в стадии бета-тестирования и могут быть изменены. Дополнительные сведения см. в статье "[Запуск скриптов до или после задания] (/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)".
+
+|
+    - heading: Пакеты GitHub
+      notes:
+        # https://github.com/github/releases/issues/2334
+        - |Владельцы предприятий могут переносить образы контейнеров из реестра GitHub Docker в реестр контейнеров GitHub. Реестр контейнеров предоставляет следующие преимущества.
+
+
+
+- Улучшает совместное использование контейнеров внутри организации
+
+- Позволяет приложению применять детализированные права доступа
+
+- Разрешает анонимный обмен образами общедоступных контейнеров
+
+- Реализует стандарты OCI для размещения образов Docker
+
+
+
+Реестр контейнеров находится в стадии бета-тестирования и может быть изменен. Дополнительные сведения см. в статье "[Перенос вашего предприятия в реестр контейнеров из реестра Docker](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)".
+
+|
+    - heading: Опыт сообщества
+      notes:
+        # https://github.com/github/releases/issues/2113
+        - |Обсуждения GitHub доступны для сервера GitHub Enterprise. Обсуждения GitHub предоставляют центральное пространство для сбора вопросов, обмена идеями и налаживания связей. Дополнительные сведения см. в статье "[Обсуждения GitHub](/discussions)".
+
+|
+        # https://github.com/github/releases/issues/2259
+        - |Владельцы предприятий могут настроить политику для управления отображением имен пользователей или полных имен во внутренних или общедоступных репозиториях. Дополнительные сведения см. в статье "[Принудительное применение политик управления репозиторием в вашем предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)".
+
+|
+    - heading: Организации
+      notes:
+        # https://github.com/github/releases/issues/2019
+        - |Пользователи могут создавать файлы README только для членов организации. Дополнительные сведения см. в статье "[Настройка профиля вашей организации](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".
+
+|
+        # https://github.com/github/releases/issues/2234
+        - |Владельцы организаций могут прикрепить репозиторий к профилю организации непосредственно из репозитория с помощью нового раскрывающегося списка **Закрепить репозиторий**. Закрепленные общедоступные репозитории видны всем пользователям вашего экземпляра, а общедоступные, частные и внутренние репозитории видны только членам организации.
+
+|
+    - heading: Репозитории
+      notes:
+        # https://github.com/github/releases/issues/2214
+        - |При создании вилки пользователи могут настроить имя вилки. Дополнительные сведения см. в статье "[Разветвление репозитория](/get-started/quickstart/fork-a-repo)".
+
+|
+        # https://github.com/github/releases/issues/1973
+        - |Пользователи могут заблокировать создание ветвей, соответствующих настроенному шаблону имени, с помощью правила защиты ветвей **Ограничить принудительные отправки, создающие соответствующие ветви**. Например, если ветвь репозитория по умолчанию меняется с master на main, администратор репозитория может предотвратить любое последующее создание или принудительную отправку ветви master. Дополнительные сведения см. в разделе 
+
+"[О защищенных ветвях](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push- to-matching-branches)" и "[Управление правилом защиты ветвей](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)".
+
+|
+        # https://github.com/github/releases/issues/2179
+        - |Пользователи могут создать ветвь непосредственно на странице **Ветви** репозитория, щелкнув **Новая ветвь**. Дополнительные сведения см. в статье "[Создание и удаление ветвей в репозитории](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+
+|
+        # https://github.com/github/releases/issues/2220
+        - |Пользователи могут удалить ветвь, связанную с открытым запросом на вытягивание. Дополнительные сведения см. в статье "[Создание и удаление ветвей в репозитории](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)".
+
+|
+        # https://github.com/github/releases/issues/2118
+        - |Репозитории с несколькими лицензиями отображают все лицензии на боковой панели "Сведения" на вкладке {% octicon "code" aria-label="The code icon" %} **Код**. Дополнительные сведения см. в статье "[Лицензирование репозитория](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)".
+
+|
+        # https://github.com/github/releases/issues/2233
+        - "Когда пользователь переименовывает или перемещает файл в новый каталог, если хотя бы половина содержимого файла идентична, журнал фиксации указывает, что файлу было присвоено новое имя, например git log --follow. Дополнительные сведения см. в [блоге GitHub] (https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/)."
+
+        # https://github.com/github/releases/issues/2093
+        - |Пользователи могут потребовать успешного развертывания ветви, прежде чем кто-либо сможет объединить запрос на вытягивание, связанный с ветвью. Дополнительные сведения см. в статьях "[О защищенных ветвях](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments -to-succeed-before-merging)" и "[Управление правилом защиты ветвей](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)".
+
+|
+        # https://github.com/github/releases/issues/2073
+        - |Владельцы предприятий могут запретить владельцам организаций приглашать участников совместной работы в репозитории на экземпляре. Дополнительные сведения см. в статье "[Принудительное применение политики для приглашения участников совместной работы в репозитории](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)".
+
+|
+        # https://github.com/github/releases/issues/2173
+        - |Пользователи могут предоставлять исключения приложениям GitHub для любого правила защиты ветвей, которое поддерживает исключения. Дополнительные сведения см. в статьях "[О приложениях](/developers/apps/getting-started-with-apps/about-apps)" и "[Управление правилом защиты ветвей](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)".
+
+|
+    - heading: Фиксации
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |Для общедоступных ключей подписи GPG, срок действия которых истек или которые были отменены, сервер GitHub Enterprise проверяет подписи фиксаций Git и показывает фиксации как проверенные, если пользователь сделал фиксацию, пока ключ был еще допустимым. Пользователи также могут загружать ключи подписи GPG, срок действия которых истек или которые были отменены. Дополнительные сведения см. в статье "[О проверке сигнатуры фиксации](/authentication/managing-commit-signature-verification/about-commit-signature-verification)".
+
+|
+        # https://github.com/github/releases/issues/1977
+        - |Чтобы подтвердить, что фиксация соответствует правилам и лицензированию, регулирующим репозиторий, владельцы организаций и администраторы репозитория теперь могут требовать от разработчиков подписи фиксаций, сделанных через веб-интерфейс. Дополнительные сведения см. статьях "[Управление политикой подписи фиксации для вашей организации](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)" и "[Управление политикой подписи фиксации вашего репозитория](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)".
+
+|
+    - heading: Запросы на вытягивание
+      notes:
+        # https://github.com/github/releases/issues/2261
+        - |Используя дерево файлов, расположенное на вкладке **Измененные файлы** запроса на вытягивание, пользователи могут ориентироваться в измененных файлах, понимать размер и объем изменений и обзоры фокусировки. Дерево файла появляется, если запрос на вытягивание изменяет как минимум два файла, а окно браузера достаточно широко. Дополнительные сведения см. в статьях "[Просмотр предлагаемых изменений в запросе на вытягивание] (/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" и "[Фильтрация файлов в запросе на вытягивание] (/pull-requests/collaborating-with-pull-requests/reveloading-changes-in-pull-requests/filthing-files-in-pull-request)".
+
+|
+        # https://github.com/github/releases/issues/2167
+        - |Пользователи могут по умолчанию использовать заголовки запросов на вытягивание в качестве сообщения фиксации для всех слияний со сжатием. Дополнительные сведения см. в странице "[Настройка сжатия фиксации для запросов на вытягивание](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".
+
+|
+    - heading: Выпуски
+      notes:
+        # https://github.com/github/releases/issues/2281
+        - |При просмотре сведений о конкретном выпуске пользователи могут видеть дату создания каждого файла выпуска. Дополнительные сведения см. в статье "[Просмотр выпусков и тегов вашего репозитория](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)".
+
+|
+        # https://github.com/github/releases/issues/2279
+        - "При создании выпуска с автоматически созданными заметками о выпуске пользователи могут видеть тег, идентифицированный как предыдущий выпуск, а затем выбрать другой тег, чтобы указать его в качестве предыдущего выпуска. Дополнительные сведения см. в статье \"[Автоматически созданные заметки к выпуску] (/repositories/releasing-projects-on-github/automatically-generated-release-notes)\"."
+
+    - heading: Разметка Markdown
+      notes:
+        # https://github.com/github/releases/issues/2260
+        - |Улучшено редактирование Markdown в веб-интерфейсе.
+
+
+
+- После того, как пользователь выберет текст и вставит URL-адрес, выделенный текст станет ссылкой Markdown на вставленный URL-адрес.
+
+- Когда пользователь вставляет ячейки электронных таблиц или HTML-таблиц, полученный текст будет преобразоваться для просмотра в виде таблицы.
+
+- Когда пользователь копирует текст, содержащий ссылки, вставленный текст будет включать ссылку в качестве ссылки Markdown.
+
+
+
+Дополнительные сведения см. в статье "[Основной синтаксис написания и форматирования](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)".
+
+|
+        # https://github.com/github/releases/issues/2258
+        - |При редактировании файла Markdown в веб-интерфейсе нажатие на вкладку **Предварительный просмотр** автоматически прокручивает до места предварительного просмотра, которое вы редактировали. Расположение прокрутки основано на положении вашего курсора перед нажатием на вкладку **Предварительный просмотр**.
+
+|
+  changes:
+    - "Интерактивные элементы в веб-интерфейсе, такие как ссылки и кнопки, отображают видимый контур при наведении на них фокуса с помощью клавиатуры, чтобы пользователи могли найти текущую позицию на странице. Кроме того, при фокусировке поля формы имеют более контрастный контур."
+    - "Если пользователь обновляет страницу при создании новой проблемы или запроса на вытягивание, уполномоченные, рецензенты, метки и проекты будут сохранены."
+
+  known_issues:
+    - "На только что настроенном экземпляре {% data variables.product.prodname_ghe_server %} без пользователей злоумышленник может создать первого пользователя — администратора."
+    - Настраиваемые правила брандмауэра удаляются в процессе обновления.
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий."
+    - "Проблемы не могут быть закрыты, если они содержат постоянную ссылку на большой двоичный объект в том же репозитории, где путь к файлу большого двоичного объекта длиннее 255 символов."
+    - "Когда в GitHub Connect включен параметр \"Пользователи могут выполнять поиск на GitHub.com\", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях."
+    - "Реестр npm {% data variables.product.prodname_registry %} больше не возвращает значение времени в ответах метаданных. Это сделано, чтобы реализовать существенные улучшения производительности. Мы продолжим хранить все данные, необходимые для возврата значения времени в качестве части ответа метаданных, и возобновим возврат этого значения в будущем, как только решим существующие проблемы с производительностью."
+    - "Ограничения ресурсов, относящиеся к обработке предварительно полученных перехватчиков, могут приводить к сбою некоторых из них."
+    - "Службы действий необходимо перезапустить после восстановления экземпляра из резервной копии, взятой на другом узле."
+    - "В настройках репозитория включение параметра, позволяющего пользователям с доступом для чтения создавать обсуждения, не включает эту функцию."
+    - В некоторых случаях пользователи не могут преобразовать существующие проблемы в обсуждения.
+    - "Пользовательские шаблоны для сканирования секретов содержат \".*\" в качестве конечного разделителя, особенно в поле \"После секрета\". Этот разделитель вызывает несоответствия при сканировании секретов в репозиториях, и вы можете заметить пробелы в журнале репозитория, если ни одно сканирование не было завершено. Добавочные сканирования также могут быть затронуты. Чтобы предотвратить проблемы со сканированием, измените конец шаблона, чтобы удалить разделитель \".*\"."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

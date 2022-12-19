@@ -1,7 +1,7 @@
 ---
-title: 'Rastrear el progreso en tu {% data variables.product.prodname_projects_v1 %}'
-shortTitle: 'Rastrear los {% data variables.product.prodname_projects_v1 %}'
-intro: 'Aprende cómo rastrear tu trabajo en el {% data variables.projects.projects_v1_board %}'
+title: 'Seguimiento del progreso de la instancia de {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Tracking {% data variables.product.prodname_projects_v1 %}'
+intro: 'Aprende a realizar el seguimiento del trabajo en {% data variables.projects.projects_v1_board %}'
 versions:
   feature: projects-v1
 topics:
@@ -16,6 +16,11 @@ children:
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 75699a8c8daa2729de4aaa7389b7e9a0448f09fa
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109893'
 ---
-
 {% data reusables.projects.project_boards_old %}

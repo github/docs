@@ -10,41 +10,47 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164164'
 ---
-
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
 ## {% data variables.product.prodname_dotcom %} のナビゲーションコードについて
 
-Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
+コード ナビゲーションは、そのエンティティへの参照に対応する名前付きエンティティの定義と、エンティティの定義に対応する参照を表示しリンクすることで、コードの読み取り、ナビゲーション、理解に役立ちます。
 
-![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
+![コード ナビゲーションの表示](/assets/images/help/repository/code-navigation-popover.png)
 
-Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
+コード ナビゲーションでは、オープン ソースの [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) ライブラリを使用します。 次の言語とナビゲーション戦略がサポートされています。
 
-|     言語     | Search-based code navigation | Precise code navigation |
+| 言語   | 検索ベースのコード ナビゲーション | 正確なコード ナビゲーション |
 |:----------:|:----------------------------:|:-----------------------:|
-|     C#     |              ✅               |                         |
-|   CodeQL   |              ✅               |                         |
-|   Elixir   |              ✅               |                         |
-|     Go     |              ✅               |                         |
-|    Java    |              ✅               |                         |
-| JavaScript |              ✅               |                         |
-|    PHP     |              ✅               |                         |
-|   Python   |              ✅               |            ✅            |
-|    Ruby    |              ✅               |                         |
-| TypeScript |              ✅               |                         |
+| C#         | ✅                           |                         |
+| CodeQL     | ✅                           |                         |
+| Elixir     | ✅                           |                         |
+| Go         | ✅                           |                         |
+| Java       | ✅                           |                         |
+| JavaScript | ✅                           |                         |
+| PHP        | ✅                           |                         |
+| Python     | ✅                           | ✅                      |
+| Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
+| TypeScript | ✅                           |                         |
 
 
-You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
+コード ナビゲーションを有効にするために、リポジトリで何かを構成する必要はありません。 サポートされているこれらの言語の検索ベースのナビゲーション情報と正確なコード ナビゲーション情報をすべてのリポジトリで自動的に抽出し、プログラミング言語が両方でサポートされている場合は、サポートされている 2 つのコード ナビゲーション アプローチを切り替えることができます。
 
-{% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
- - Search-based - searches all definitions and references across a repository to find entities with a given name
- - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+{% data variables.product.prodname_dotcom %} では、オープン ソースの [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) と [`stack-graphs`](https://github.com/github/stack-graphs) ライブラリに基づいて 2 つのコード ナビゲーション アプローチが開発されました。
+ - 検索ベース - リポジトリ全体のすべての定義と参照を検索して、特定の名前のエンティティを見つける
+ - 正確 - コード内の特定のポイントにあるクラス、関数、インポートされた定義のセットに基づいて定義と参照を解決する
 
-To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
+これらのアプローチの詳細については、「[正確なナビゲーションと検索ベースのナビゲーション](#precise-and-search-based-navigation)」を参照してください。
 
-Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
+将来のリリースでは、より正確な結果を得ることができるコード ナビゲーション アプローチである、*正確なコード ナビゲーション* が、より多くの言語について追加されます。
 
 ## 関数やメソッドの定義にジャンプする
 
@@ -54,25 +60,31 @@ Future releases will add *precise code navigation* for more languages, which is 
 
 ## 関数とメソッドの全リファレンスを検索する
 
-ファイル内の関数またはメソッドの呼び出しをクリックして [**References**] タブをクリックすることで、同じリポジトリ内の関数またはメソッドの全リファレンスを検索することができます。
+ファイル内の関数またはメソッドの呼び出しをクリックして **[参照]** タブをクリックすることで、同じリポジトリ内の関数またはメソッドのすべての参照を検索できます。
 
 ![[Find all references] タブ](/assets/images/help/repository/find-all-references-tab.png)
 
-## Precise and search-based navigation
+## 正確なナビゲーションと検索ベースのナビゲーション
 
-Certain languages supported by {% data variables.product.prodname_dotcom %} have access to *precise code navigation*, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use *search-based code navigation*, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
+{% data variables.product.prodname_dotcom %} でサポートされている一部の言語では、コード内の任意の時点で表示されるクラス、関数、インポートされた定義のセットに基づいて定義と参照を解決するアルゴリズム (オープン ソース [`stack-graphs`](https://github.com/github/stack-graphs) ライブラリに基づく) を使用する *正確なコード ナビゲーション* にアクセスできます。 *検索ベースのコード ナビゲーション* を使用する言語もあります。この場合は、リポジトリ全体のすべての定義と参照を検索して、特定の名前のエンティティを見つけます。 どちらの方法も結果を見つけるのに効果的であり、どちらもコメントなどの不適切な結果を避けるようにしますが、特にリポジトリに同じ名前の複数のメソッドや関数が含まれている場合は、正確なコード ナビゲーションを使用すると、より正確な結果が得られます。
 
-If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
+正確なコード ナビゲーション クエリで想定される結果が得られない場合は、表示されるポップオーバーの [検索ベース] リンクをクリックして、検索ベースのナビゲーションを実行できます。
 
-![Search-based code navigation link](/assets/images/help/repository/search-based-code-navigation-link.png)
+![検索ベースのコード ナビゲーション リンク](/assets/images/help/repository/search-based-code-navigation-link.png)
 
-If your precise results appear inaccurate, you can file a support request.
+正確なコード ナビゲーションの結果が不正確と思われる場合は、サポート要求を提出できます。
 
-## Troubleshooting code navigation
+## リポジトリ間の正確なコード ナビゲーション
 
-If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
-- Code navigation only works for active branches. Push to the branch and try again.
-- Code navigation only works for repositories with fewer than 100,000 files.
+リポジトリ間のコード ナビゲーションは、正確なコード ナビゲーションと依存関係グラフによってサポートされている言語で使用できます。 詳細については、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。 リポジトリ間のコード ナビゲーションを使用すると、プロジェクトによってインポートされた依存関係で定義されている関数や変数の定義にジャンプできます (その依存関係が {% data variables.product.prodname_dotcom %} によってホストされるリポジトリである場合)。 現時点では、リポジトリ間のコード ナビゲーションでは、すべての参照を検索する要求はサポートされていません。
 
-## 参考リンク
-- 「[コード検索](/github/searching-for-information-on-github/searching-code)」
+![リポジトリ間コード ナビゲーションのスクリーンショット](/assets/images/help/repository/cross-repository-code-navigation.png)
+
+## コード ナビゲーションのトラブルシューティング
+
+コード ナビゲーションが有効になっているにもかかわらず、関数とメソッドの定義へのリンクが表示されない場合:
+- コード ナビゲーションは、アクティブなブランチに対してのみ機能します。 ブランチにプッシュして、もう一度やり直してください。
+- コード ナビゲーションが動作するのは、100,000 個未満のファイルをもつリポジトリのみです。
+
+## 参考資料
+- 「[コードの検索](/github/searching-for-information-on-github/searching-code)」

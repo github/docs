@@ -1,5 +1,5 @@
-#Reference: #7055
-#Documentation for audit log streaming
+# Reference: #7055
+# Documentation for audit log streaming
 versions:
   ghec: '*'
   ghes: '>= 3.6'

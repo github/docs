@@ -1,8 +1,8 @@
 ---
 title: '{% data variables.product.prodname_project_v1_caps %} cards'
-shortTitle: カード
+shortTitle: Cards
 allowTitleToDifferFromFilename: true
-intro: 'The {% data variables.product.prodname_project_v1 %} cards API lets you create and manage cards on a {% data variables.projects.projects_v1_board %}.'
+intro: 'REST API を使って、{% data variables.projects.projects_v1_board %} でカードを作成し、管理できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 92e3e1c003656ce8a11dc5de4285336bb0331f7c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193503'
 ---
-
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

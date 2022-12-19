@@ -1,4 +1,12 @@
-1. Haz clic en **Comportamiento de la bifurcación** y luego selecciona la forma en la que quieres utilizarla.
+---
+ms.openlocfilehash: 1baaac068c008a45a8a9446dfccaf83c5901b1ba
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145138162"
+---
+1. Haga clic en **Comportamiento de bifurcación** y, después, seleccione cómo quiere usar la bifurcación.
 
   {% mac %}
 
@@ -12,7 +20,7 @@
 
   {% endwindows %}
 
-2. Haz clic en **Save ** (guardar).
+2. Haga clic en **Save**(Guardar).
 
   {% mac %}
 

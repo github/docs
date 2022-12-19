@@ -1,6 +1,6 @@
 {
   "files.exclude": {
-    "**/translations": true
+    "translations/**": true
   },
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false

@@ -15,72 +15,79 @@ If this test is failing...
     add the file name to ALLOW_DOCS_PATHS.
 */
 
-// These are a list of known public repositories in the GitHub organization
+// These are a list of known public repositories in the GitHub organization.
+// The names below on their own, plus the same names ending with '.git', will be accepted.
+// Do not include '.git' in the names below.
 const PUBLIC_REPOS = new Set([
-  'site-policy',
-  'roadmap',
-  'linguist',
-  'super-linter',
+  'actions-oidc-gateway-example',
+  'advisory-database',
   'backup-utils',
+  'browser-support',
+  'choosealicense.com',
   'codeql-action-sync-tool',
   'codeql-action',
   'codeql-cli-binaries',
   'codeql',
-  'codeql-go',
-  'platform-samples',
-  'github-services',
-  'explore',
-  'enterprise-releases',
-  'markup',
-  'hubot',
-  'VisualStudio',
-  'codeql',
-  'gitignore',
-  'feedback',
-  'semantic',
-  'git-lfs',
-  'git-sizer',
-  'dmca',
-  'gov-takedowns',
-  'janky',
-  'rest-api-description',
-  'smimesign',
-  'tweetsodium',
-  'choosealicense.com',
-  'renaming',
-  'localization-support',
-  'docs',
-  'securitylab',
-  'hello-world',
-  'hello-world.git',
-  'insights-releases',
-  'help-docs-archived-enterprise-versions',
-  'stack-graphs',
   'codespaces-precache',
-  'advisory-database',
-  'browser-support',
-  'haikus-for-codespaces',
-  'actions-oidc-gateway-example',
+  'codespaces-jupyter',
   'copilot.vim',
   'dependency-submission-toolkit',
+  'dmca',
+  'docs',
+  'enterprise-releases',
+  'explore',
+  'feedback',
+  'gh-net',
+  'gh-actions-importer',
+  'git-lfs',
+  'git-sizer',
+  'github-services',
+  'gitignore',
+  'gov-takedowns',
+  'haikus-for-codespaces',
+  'hello-world',
+  'help-docs-archived-enterprise-versions',
+  'hubot',
+  'insights-releases',
+  'janky',
+  'linguist',
+  'localization-support',
+  'markup',
+  'platform-samples',
+  'renaming',
+  'rest-api-description',
+  'roadmap',
+  'securitylab',
+  'semantic',
+  'ssh_data',
+  'site-policy',
+  'smimesign',
+  'stack-graphs',
+  'super-linter',
+  'tweetsodium',
+  'VisualStudio',
+  'codespaces-getting-started-ml',
 ])
 
 const ALLOW_DOCS_PATHS = [
   '.github/actions-scripts/enterprise-server-issue-templates/*.md',
   '.github/review-template.md',
+  '.github/workflows/hubber-contribution-help.yml',
   '.github/workflows/sync-search-indices.yml',
+  '.github/workflows/site-policy-reminder.yml',
   'contributing/search.md',
+  'docs/index.yaml',
+  'lib/excluded-links.js',
   'lib/rest/**/*.json',
   'lib/webhooks/**/*.json',
   'ownership.yaml',
-  'docs/index.yaml',
-  'lib/excluded-links.js',
   'script/README.md',
   'script/toggle-ghae-feature-flags.js',
-  '.github/workflows/hubber-contribution-help.yml',
 ]
 
-const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
+// This regexp will capture the last segment of a GitHub repo name.
+// E.g., it will capture `backup-utils.git` from `https://github.com/github/backup-utils.git`.
+const REPO_REGEXP = /\/\/github\.com\/github\/([\w\-.]+)/gi
 
 const IGNORE_PATHS = [
   '.git',
@@ -128,7 +135,8 @@ describe('check if a GitHub-owned private repository is referenced', () => {
     // the disk I/O is sufficiently small.
     const file = fs.readFileSync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
-      .map(([, repoName]) => repoName)
+      // The referenced repo may or may not end with '.git', so ignore that extension.
+      .map(([, repoName]) => repoName.replace(/\.git$/, ''))
       .filter((repoName) => !PUBLIC_REPOS.has(repoName))
       .filter((repoName) => {
         return !(

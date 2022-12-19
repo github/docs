@@ -43,6 +43,6 @@ Push log entries show:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. In the appropriate Git repository, open the audit log file:
   ```shell
-  ghe-repo <em>owner</em>/<em>repository</em> -c "cat audit_log"
+  ghe-repo OWNER/REPOSITORY -c "cat audit_log"
   ```
 {% endif %}

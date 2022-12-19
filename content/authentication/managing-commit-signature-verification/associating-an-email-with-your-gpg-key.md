@@ -17,7 +17,7 @@ shortTitle: Associate email with GPG key
 ---
 {% note %}
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ If you're using a GPG key that matches your committer identity and your verified
 {% data reusables.gpg.copy-gpg-key-id %}
 4. Enter `gpg --edit-key GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
   ```shell
-  $ gpg --edit-key <em>3AA5C34371567BD2</em>
+  $ gpg --edit-key 3AA5C34371567BD2
   ```
 5. Enter `gpg> adduid` to add the user ID details.
   ```shell
@@ -34,9 +34,9 @@ If you're using a GPG key that matches your committer identity and your verified
   ```
 6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
   ```shell
-  Real Name: <em>Octocat</em>
-  Email address: <em>octocat@github.com</em>
-  Comment: <em>GitHub key</em>
+  Real Name: OCTOCAT
+  Email address: "octocat@github.com"
+  Comment: GITHUB-KEY
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
 7. Enter `O` to confirm your selections.
@@ -47,7 +47,7 @@ If you're using a GPG key that matches your committer identity and your verified
   ```
 10. Enter `gpg --armor --export GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
   ```shell
-  $ gpg --armor --export <em>3AA5C34371567BD2</em>
+  $ gpg --armor --export 3AA5C34371567BD2
   # Prints the GPG key, in ASCII armor format
   ```
 11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).

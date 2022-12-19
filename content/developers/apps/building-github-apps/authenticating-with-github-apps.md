@@ -48,7 +48,7 @@ To verify a private key:
 ![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Generate the fingerprint of your private key (PEM) locally by using the following command:
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
+    $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 3. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
 
@@ -149,12 +149,18 @@ To authenticate with an installation access token, include it in the Authorizati
 
 ```shell
 $ curl -i \
--H "Authorization: token YOUR_INSTALLATION_ACCESS_TOKEN" \
+-H "Authorization: Bearer YOUR_INSTALLATION_ACCESS_TOKEN" \
 -H "Accept: application/vnd.github+json" \
 {% data variables.product.api_url_pre %}/installation/repositories
 ```
 
 `YOUR_INSTALLATION_ACCESS_TOKEN` is the value you must replace.
+
+{% note %}
+
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
 
 ## Accessing API endpoints as an installation
 

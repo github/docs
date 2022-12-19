@@ -1,6 +1,6 @@
 ---
 title: Segurança do código
-shortTitle: Segurança do código
+shortTitle: Code security
 intro: 'Crie segurança no seu fluxo de trabalho de {% data variables.product.prodname_dotcom %} com recursos para manter segredos e vulnerabilidades fora da base de código{% ifversion not ghae %} e para manter a sua cadeia de suprimentos de software{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
@@ -23,7 +23,7 @@ featuredLinks:
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
@@ -53,10 +53,16 @@ children:
   - /adopting-github-advanced-security-at-scale
   - /secret-scanning
   - /code-scanning
-  - /repository-security-advisories
+  - /security-advisories
   - /supply-chain-security
   - /dependabot
   - /security-overview
   - /guides
+ms.openlocfilehash: 0f6dbbec6243c8785016fb903a77fe9c7326b7d9
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159258'
 ---
 

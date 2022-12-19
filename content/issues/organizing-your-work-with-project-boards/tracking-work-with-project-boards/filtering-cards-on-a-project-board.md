@@ -1,15 +1,15 @@
 ---
-title: Filtering cards on a {% data variables.product.prodname_project_v1 %}
-intro: You can filter the cards on a {% data variables.projects.projects_v1_board %} to search for specific cards or view a subset of the cards.
+title: 'Filtering cards on a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can filter the cards on a {% data variables.projects.projects_v1_board %} to search for specific cards or view a subset of the cards.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/filtering-cards-on-a-project-board
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Filter cards on {% data variables.product.prodname_project_v1 %}
+shortTitle: 'Filter cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

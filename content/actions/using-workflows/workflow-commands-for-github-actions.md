@@ -25,7 +25,7 @@ versions:
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
 
 ### Example
 
@@ -59,7 +59,42 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 ## Using workflow commands to access toolkit functions
 
-The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`. For example, instead of using code to set an output, as below:
+The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`.
+
+{%- ifversion actions-save-state-set-output-envs %}
+For example, instead of using code to create an error annotation, as below:
+
+```javascript{:copy}
+core.error('Missing semicolon', {file: 'app.js', startLine: 1})
+```
+
+### Example: Creating an annotation for an error
+
+You can use the `error` command in your workflow to create the same error annotation:
+
+{% bash %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Create annotation for build error
+        run: echo "::error file=app.js,line=1::Missing semicolon"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Create annotation for build error
+        run: Write-Output "::error file=app.js,line=1::Missing semicolon"
+```
+{% endraw %}
+
+{% endpowershell %}
+{%- else %}
+For example, instead of using code to set an output, as below:
 
 ```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
@@ -97,13 +132,15 @@ You can use the `set-output` command in your workflow to set the same value:
 
 {% endpowershell %}
 
+{% endif %}
+
 The following table shows which toolkit functions are available within a workflow:
 
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
 | `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
-| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-| `core.notice`     | `notice` |{% endif %}
+| `core.debug`      | `debug` |
+| `core.notice`     | `notice` |
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
 | `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
@@ -111,16 +148,17 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
 {%- ifversion actions-job-summaries %}
-| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+| `core.summary` | Accessible using environment file `GITHUB_STEP_SUMMARY` |
 {%- endif %}
-| `core.saveState`  | `save-state` |
+| `core.saveState`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_STATE`{% else %}`save-state`{% endif %} |
 | `core.setCommandEcho` | `echo` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
-| `core.setOutput`  | `set-output` |
+| `core.setOutput`  | {% ifversion actions-save-state-set-output-envs %}Accessible using environment file `GITHUB_OUTPUT`{% else %}`set-output`{% endif %} |
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
 | `core.warning`    | `warning` |
 
+{% ifversion actions-save-state-set-output-envs %}{% else %}
 ## Setting an output parameter
 
 Sets an action's output parameter.
@@ -130,6 +168,8 @@ Sets an action's output parameter.
 ```
 
 Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+
+You can escape multiline strings for setting an output parameter by creating an environment variable and using it in a workflow command. For more information, see "[Setting an environment variable](#setting-an-environment-variable)."
 
 ### Example: Setting an output parameter
 
@@ -148,6 +188,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
 {% endpowershell %}
+{% endif %}
 
 ## Setting a debug message
 
@@ -174,8 +215,6 @@ Write-Output "::debug::Set the Octocat variable"
 ```
 
 {% endpowershell %}
-
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 ## Setting a notice message
 
@@ -204,7 +243,6 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 {% endpowershell %}
-{% endif %}
 
 ## Setting a warning message
 
@@ -334,6 +372,12 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
+{% warning %}
+
+**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+
+{% endwarning %}
+
 ### Example: Masking an environment variable
 
 When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
@@ -434,6 +478,7 @@ jobs:
 
 {% endpowershell %}
 
+{% ifversion actions-save-state-set-output-envs %}{% else %}
 ## Echoing command outputs
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
@@ -495,20 +540,36 @@ The example above prints the following lines to the log:
 ```
 
 Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+ 
+{% endif %}
 
 ## Sending values to the pre and post actions
 
-You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
+{% ifversion actions-save-state-set-output-envs %}You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`{% else %}You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions{% endif %}. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where {% ifversion actions-save-state-set-output-envs %}it was written to `GITHUB_STATE`{% else %}`save-state` was used{% endif %}. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
 
-The `save-state`  command can only be run within an action, and is not available to YAML files. The saved value is stored as an environment value with the `STATE_` prefix.
+{% ifversion actions-save-state-set-output-envs %}The `GITHUB_STATE` file is only available within an action{% else %}The `save-state` command can only be run within an action, and is not available to YAML files{% endif %}. The saved value is stored as an environment value with the `STATE_` prefix.
 
+{% ifversion actions-save-state-set-output-envs %}
+This example uses JavaScript to write to the `GITHUB_STATE` file. The resulting environment variable is named `STATE_processID` with the value of `12345`:
+
+```javascript{:copy}
+import * as fs from 'fs'
+import * as os from 'os'
+
+fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
+  encoding: 'utf8'
+})
+```
+
+{% else %}
 This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
 ```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
+{% endif %}
 
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
@@ -519,6 +580,8 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 ## Environment files
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+
+Most commands in the following examples use double quotes for echoing strings, which will attempt to interpolate characters like `$` for shell variable names. To always use literal values in quoted strings, you can use single quotes instead.
 
 {% powershell %}
 
@@ -620,13 +683,19 @@ steps:
 
 ### Multiline strings
 
-For multiline strings, you may use a delimiter with the following syntax. 
+For multiline strings, you may use a delimiter with the following syntax.
 
 ```{:copy}
 {name}<<{delimiter}
 {value}
 {delimiter}
 ```
+
+{% warning %}
+
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+
+{% endwarning %}
 
 #### Example
 
@@ -640,7 +709,7 @@ steps:
     id: step_one
     run: |
       echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://example.lab >> $GITHUB_ENV
+      curl https://example.com >> $GITHUB_ENV
       echo 'EOF' >> $GITHUB_ENV
 ```
 
@@ -654,12 +723,68 @@ steps:
     id: step_one
     run: |
       "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "https://example.lab").Content >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
       "EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 
 {% endpowershell %}
+
+{% ifversion actions-save-state-set-output-envs %}
+## Setting an output parameter
+
+Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
+
+{% bash %}
+
+```bash{:copy}
+echo "{name}={value}" >> $GITHUB_OUTPUT
+```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{name}=value" >> $env:GITHUB_OUTPUT
+```
+
+{% endpowershell %}
+
+### Example
+
+{% bash %}
+
+This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
+
+{% raw %}
+```yaml{:copy}
+      - name: Set color
+        id: random-color-generator
+        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
+
+```yaml{:copy}
+      - name: Set color
+        id: random-color-generator
+        run: |
+            "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
+      - name: Get color
+        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endpowershell %}
+{% endif %}
 
 {% ifversion actions-job-summaries %}
 

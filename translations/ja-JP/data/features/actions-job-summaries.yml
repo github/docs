@@ -1,6 +1,5 @@
----
-#Reference: #6405
-#Documentation for job summaries for jobs on the workflow run summary page.
+# Reference: #6405
+# Documentation for job summaries for jobs on the workflow run summary page.
 versions:
   fpt: '*'
   ghec: '*'

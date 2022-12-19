@@ -16,34 +16,28 @@ topics:
   - Marketplace
   - Organizations
   - User account
-shortTitle: Downgrade de plano de cobrança
+shortTitle: Downgrade billing plan
+ms.openlocfilehash: c50995729c266cbfdac13b81da4f0ffaa0b4ff85
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083494'
 ---
-
-Quando você faz downgrade de um app, sua assinatura permanece ativa até o final do ciclo de cobrança atual. O downgrade entra em vigor na próxima data de cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
+Quando você faz downgrade de um app, sua assinatura permanece ativa até o final do ciclo de cobrança atual. O downgrade entra em vigor na próxima data de cobrança. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
 ## Fazer downgrade de um app da sua conta pessoal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.marketplace.downgrade-app-billing-settings %}
-{% data reusables.marketplace.choose-new-plan %}
-{% data reusables.marketplace.choose-new-quantity %}
-{% data reusables.marketplace.issue-plan-changes %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.marketplace.downgrade-app-billing-settings %} {% data reusables.marketplace.choose-new-plan %} {% data reusables.marketplace.choose-new-quantity %} {% data reusables.marketplace.issue-plan-changes %}
 
 ## Fazer downgrade de um app da sua organização
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.marketplace.downgrade-app-billing-settings %}
-{% data reusables.marketplace.choose-new-plan %}
-{% data reusables.marketplace.choose-new-quantity %}
-{% data reusables.marketplace.issue-plan-changes %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %} {% data reusables.marketplace.downgrade-app-billing-settings %} {% data reusables.marketplace.choose-new-plan %} {% data reusables.marketplace.choose-new-quantity %} {% data reusables.marketplace.issue-plan-changes %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Cancelar um app do {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app/)"
+- "[Como cancelar um aplicativo do {% data variables.product.prodname_marketplace %}](/articles/canceling-a-github-marketplace-app/)"

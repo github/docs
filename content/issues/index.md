@@ -21,7 +21,7 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/creating-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+    - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
@@ -34,7 +34,7 @@ featuredLinks:
     - title: Issue Forms for open source – Luke Hefson
       href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
   videosHeading: Videos
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
+product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
 layout: product-landing
 beta_product: false
 versions:

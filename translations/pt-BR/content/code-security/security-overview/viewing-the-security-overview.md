@@ -3,8 +3,9 @@ title: Visualizando a visão geral de segurança
 intro: Acesse as diferentes visualizações disponíveis na visão geral de segurança
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
+allowTitleToDifferFromFilename: true
 versions:
-  ghae: issue-5503
+  ghae: '>= 3.4'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -14,53 +15,46 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Ver visão geral de segurança
+shortTitle: View the security overview
+ms.openlocfilehash: bc802d290406bb4e480050ee21bb7a4687475d97
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163216'
 ---
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+{% data reusables.security-overview.information-varies-GHAS %}
 
 ## Visualizar a visão geral de segurança de uma organização
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. Para visualizar informações agregadas sobre tipos de alertas, clique em **Mostrar mais**. ![Botão mostrar mais](/assets/images/help/organizations/security-overview-show-more-button.png)
-{% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-views %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Captura de tela da página de digitalização específica do código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% data reusables.security-overview.beta-org-risk-coverage %}
 
-## Visualizando alertas em toda a sua organização
+{% ifversion security-overview-org-risk-coverage %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. Escolha a visão geral que você deseja exibir nas opções da barra lateral.
+1. Use os filtros suspensos e a caixa de pesquisa para se concentrar nas informações de maior interesse. As exibições "Risco de Segurança" e "Cobertura de Segurança" também têm um cabeçalho interativo que você pode usar para filtrar os resultados.
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. Na barra lateral de segurança, selecione o subconjunto de alertas que você deseja visualizar. ![Ver subconjunto de alerta](/assets/images/help/organizations/view-alert-subset.png)
-2. Opcionalmente, filtre a lista de alertas. Cada visualização tem sua própria seleção de filtros disponíveis. Você pode clicar em vários filtros nos menus suspensos de filtro para restringir a sua pesquisa. Você também pode digitar os qualificadores de busca no campo de busca. Para obter mais informações sobre os qualificados disponíveis, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Os menus de filtro suspenso e o campo de repositórios de pesquisa na visualização de digitalização de segredo](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+  ![Captura de tela da exibição Risco de Segurança com o cabeçalho interativo realçado](/assets/images/help/security-overview/security-risk-interactive-header.png)
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+{% else %}
+
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. Para ver informações agregadas sobre os tipos de alertas, clique em **Mostrar mais**.
+  ![Botão Mostrar mais](/assets/images/help/security-overview/security-overview-show-more-button.png) {% data reusables.organizations.filter-security-overview %} {% ifversion security-overview-alert-views %} {% data reusables.organizations.security-overview-feature-specific-page %} ![Captura de tela da página específica de verificação de código](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png) {% endif %}
+
+{% endif %}
+
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 ## Visualizando a visão geral de segurança de uma empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Código de Segurança**.
-{% ifversion security-overview-feature-specific-alert-page %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-{% endif %}
-{% endif %}
-
-## Visualizando alertas de um repositório
-
-{% data reusables.repositories.navigate-to-repo %}
-1. No nome do repositório, clique em **Segurança**. ![Aba de segurança do repositório](/assets/images/help/repository/security-tab.png)
-2. Na barra lateral de segurança, selecione a visualização que deseja abrir. ![Subconjunto de alerta para visualização do repositório](/assets/images/help/repository/repo-security-side-panel.png)
-3. Opcionalmente, filtre a lista de alertas. Cada visualização tem sua própria seleção de filtros disponíveis. Você pode clicar em vários filtros nos menus suspensos de filtro para restringir a sua pesquisa. Você também pode digitar os qualificadores de busca no campo de busca. Para obter mais informações sobre os qualificados disponíveis, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Menu de filtros suspenso na visualização de alertas da digitalização de segredo do repositório](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Segurança do Código**.
+{% ifversion security-overview-feature-specific-alert-page %} {% data reusables.organizations.security-overview-feature-specific-page %} {% endif %}
 
 {% endif %}
 
+{% ifversion ghes < 3.7 or ghae < 3.7 %}
 ## Visualizar a visão geral de segurança de uma equipe
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-security-overview %} {% data reusables.organizations.filter-security-overview %} {% endif %}

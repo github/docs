@@ -11,31 +11,35 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: fa4966da0fe443e6635b43fc9b3b11108d57cf6e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145127173'
 ---
-
 ## Reescrever a mensagem do commit mais recente
 
-Você pode alterar a mensagem do commit mais recente usando o comando `git commit --amend`.
+Você pode alterar a mensagem de commit mais recente usando o comando `git commit --amend`.
 
 No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do commit mudará o ID do commit, isto é, a soma de verificação SHA1 que nomeia o commit. Efetivamente, você está criando um commit que substitui o antigo.
 
 ## Não foi feito push on-line do commit
 
-Se o commit existir em seu repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem do commit com o comando `git commit --amend`.
+Se o commit existir no repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem de commit com o comando `git commit --amend`.
 
 1. Na linha de comando, navegue até o repositório que contém o commit que você deseja corrigir.
 2. Digite `git commit --amend` e pressione **Enter**.
 3. No editor de texto, edite a mensagem do commit e salve o commit.
-    - Você pode adicionar um coautor incluindo um trailer no commit. Para obter mais informações, consulte "[Criar um commit com vários autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
+    - Você pode adicionar um coautor incluindo um trailer no commit. Para obter mais informações, confira "[Como criar um commit com vários autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
 {% ifversion fpt or ghec %}
-    - É possível criar commits em nome da sua organização adicionando um trailer ao commit. Para obter mais informações, consulte "[Criar um commit em nome de uma organização](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
-{% endif %}
+    - É possível criar commits em nome da sua organização adicionando um trailer ao commit. Para obter mais informações, confira "[Como criar um commit em nome de uma organização](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)" {% endif %}
 
 O novo commit e a mensagem aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push.
 
 {% tip %}
 
-Você pode alterar o editor de texto padrão do Git mudando a configuração `core.editor`. Para obter mais informações, consulte a seção sobre a "[configuração básica de cliente](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" no manual do Git.
+Altere o editor de texto padrão do Git alterando a configuração `core.editor`. Para obter mais informações, confira "[Configuração básica do cliente](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" no manual do Git.
 
 {% endtip %}
 
@@ -45,24 +49,24 @@ Se você já tiver feito push do commit no {% data variables.product.product_loc
 
 {% warning %}
 
-O recomendável é evitar tanto quanto possível o push forçado, uma vez que isso altera o histórico do repositório. No caso de push forçado, as pessoas que já clonaram o repositório terão que corrigir manualmente o respectivo histórico local. Para obter mais informações, consulte a seção sobre como "[recuperar usando rebase upstream](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" no manual do Git.
+O recomendável é evitar tanto quanto possível o push forçado, uma vez que isso altera o histórico do repositório. No caso de push forçado, as pessoas que já clonaram o repositório terão que corrigir manualmente o respectivo histórico local. Para obter mais informações, confira "[Como se recuperar da troca de base upstream](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" no manual do Git.
 
 {% endwarning %}
 
-**Alterar a mensagem do commit enviado mais recentemente**
+**Alteração da mensagem de commit enviada por psuh mais recentemente**
 
-1. Siga as [etapas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para corrigir a mensagem do commit.
-2. Use o comando `push --force-with-lease` para fazer push forçado sobre o commit antigo.
+1. Siga as [etapas descritas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para alterar a mensagem de commit.
+2. Use o comando `push --force-with-lease` para forçar o push sobre o commit antigo.
   ```shell
   $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
-**Alterar a mensagem das mensagens mais antigas ou múltiplas do commit**
+**Alteração das mensagens de commit mais antigo ou múltiplo**
 
 Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você pode usar o rebase interativo e, em seguida, forçar o push para alterar o histórico do commit.
 
 1. Na linha de comando, navegue até o repositório que contém o commit que você deseja corrigir.
-2. Use o comando `git rebase -i HEAD~n` para exibir uma lista dos `n` últimos commits no seu editor de texto padrão.
+2. Use o comando `git rebase -i HEAD~n` para ver a lista dos últimos commits `n` no editor de texto padrão.
 
     ```shell
     # Displays a list of the last 3 commits on the current branch
@@ -77,23 +81,23 @@ Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você
 
     # Rebase 9fdb3bd..f7fde4a onto 9fdb3bd
     #
-    # Comandos:
-    # p, pick = usar commit
-    # r, reword = usar commit, mas editar a mensagem do commit
-    # e, edit = usar commit, mas interromper para correção
-    # s, squash = usar commit, mas combinar com commit anterior
-    # f, fixup = como "squash", mas descartar a mensagem de log do commit
-    # x, exec = executar o comando (o restante da linha) usando shell
+    # Commands:
+    # p, pick = use commit
+    # r, reword = use commit, but edit the commit message
+    # e, edit = use commit, but stop for amending
+    # s, squash = use commit, but meld into previous commit
+    # f, fixup = like "squash", but discard this commit's log message
+    # x, exec = run command (the rest of the line) using shell
     #
-    # Essas linhas podem ser reordenadas; elas são executadas de cima para baixo.
+    # These lines can be re-ordered; they are executed from top to bottom.
     #
-    # Se você remover uma linha aqui ESSE COMMIT SERÁ PERDIDO.
+    # If you remove a line here THAT COMMIT WILL BE LOST.
     #
-    # No entanto, se você remover tudo, o rebase será anulado.
+    # However, if you remove everything, the rebase will be aborted.
     #
-    # Observe que commits vazios são comentados
+    # Note that empty commits are commented out
     ```
-3. Substitua `pick` por `reword` antes de cada mensagem do commit que deseja alterar.
+3. Substitua `pick` por `reword` antes de cada mensagem de commit que deseja alterar.
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
@@ -106,7 +110,7 @@ Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você
 $ git push --force origin <em>example-branch</em>
 ```
 
-Para obter mais informações sobre rebase interativo, consulte a seção sobre o "[modo interativo](https://git-scm.com/docs/git-rebase#_interactive_mode)" no manual do Git.
+Para obter mais informações sobre a troca de base interativa, confira "[Modo interativo](https://git-scm.com/docs/git-rebase#_interactive_mode)" no manual do Git.
 
 {% tip %}
 
@@ -120,6 +124,6 @@ Se você incluiu informações confidenciais em uma mensagem do commit, forçar 
 
 {% endwarning %}
 
-## Leia mais
+## Leitura adicional
 
-* "[Assinar commits](/articles/signing-commits)"
+* "[Como assinar commits](/articles/signing-commits)"

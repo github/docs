@@ -1,6 +1,6 @@
 ---
-title: Deploying Python to Azure App Service
-intro: You can deploy your Python project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Azure App Service への Python のデプロイ
+intro: 継続的デプロイ (CD) ワークフローの一部として、Python プロジェクトを Azure App Service にデプロイできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,34 +11,38 @@ topics:
   - CD
   - Python
   - Azure App Service
+ms.openlocfilehash: c9f1bc719068a250aaabfbb8dcb3581335dabdb1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409460'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+このガイドでは、{% data variables.product.prodname_actions %} を使用して、Python プロジェクトを作成し、[Azure App Service](https://azure.microsoft.com/services/app-service/) にデプロイする方法について説明します。
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注**: {% data reusables.actions.about-oidc-short-overview %} と「[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)」 (Azure での OpenID Connect の構成)。
 
 {% endnote %}
 
 {% endif %}
 
-## 必要な環境
+## 前提条件
 
 {% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Webアプリケーションの作成
+1. Web アプリを作成する。
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
+   たとえば、Azure CLI を使用すると、Python ランタイムを持つ Azure App Service Web アプリを作成することができます。
 
    ```bash{:copy}
    az webapp create \
@@ -48,21 +52,21 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
        --runtime "python|3.8"
    ```
 
-   上のコマンドで、パラメータは自分の値で置き換えてください。`MY_WEBAPP_NAME`はWebアプリケーションの新しい名前です。
+   上のコマンドで、パラメーターを独自の値に置き換えます。`MY_WEBAPP_NAME` は、その Web アプリの新しい名前です。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
+1. `SCM_DO_BUILD_DURING_DEPLOYMENT` という名前のアプリ設定を追加し、値を `1` に設定します。
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+5. 必要に応じて、デプロイ環境を構成します。 {% data reusables.actions.about-environments %}
 
 ## ワークフローの作成
 
 必要な環境を整えたら、ワークフローの作成に進むことができます。
 
-The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
+次のワークフローの例では、`main` ブランチへのプッシュがある場合に、Python プロジェクトを作成し、Azure App Service にデプロイする方法のデモを行います。
 
-ワークフローの`env`キー中の`AZURE_WEBAPP_NAME`を、作成したWebアプリケーションの名前に設定してください。 If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+ワークフロー `env` キーの `AZURE_WEBAPP_NAME` は、必ず作成した Web アプリの名前に設定してください。 `3.8` 以外の Python のバージョンを使用する場合、`PYTHON_VERSION` は、使用するバージョンに変更します。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -98,7 +102,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      
       - name: Set up dependency caching for faster installs
         uses: {% data reusables.actions.action-cache %}
         with:
@@ -141,10 +145,10 @@ jobs:
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
 ```
 
-## 追加リソース
+## その他のリソース
 
 以下のリソースも役に立つでしょう。
 
-* オリジナルのスターターワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows`リポジトリ中の[`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml)を参照してください。
-* Webアプリケーションのデプロイに使われたアクションは、公式のAzure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy)アクションです。
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* もともとのスターター ワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows` リポジトリの [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) を参照してください。
+* Web アプリのデプロイに使用されるアクションは、Azure の公式な [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) アクションです。
+* Azure にデプロイする GitHub アクション ワークフローの例が他にも必要であれば、[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) リポジトリを参照してください。

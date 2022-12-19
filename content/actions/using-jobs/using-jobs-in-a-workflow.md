@@ -1,6 +1,6 @@
 ---
 title: Using jobs in a workflow
-shortTitle: Using jobs in a workflow
+shortTitle: Use jobs in a workflow
 intro: Use workflows to run multiple jobs.
 versions:
   fpt: '*'

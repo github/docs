@@ -1,7 +1,15 @@
-## Error: "Current time is earlier than NotBefore condition"
+---
+ms.openlocfilehash: a9ba68f182b48a4186a4ae63909ef4e146d7c392
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107879"
+---
+## Erro: "A hora atual é anterior à condição NotBefore"
 
-This error can occur when there's too large of a time difference between your IdP and {% data variables.product.product_name %}, which commonly occurs with self-hosted IdPs.
+Esse erro pode ocorrer quando há uma diferença de tempo muito grande entre o IdP e o {% data variables.product.product_name %}, o que geralmente ocorre com IdPs auto-hospedados.
 
-{% ifversion ghes %}To prevent this problem, we recommend pointing your appliance to the same Network Time Protocol (NTP) source as your IdP, if possible. {% endif %}If you encounter this error, make sure the time on your {% ifversion ghes %}appliance{% else %}IdP{% endif %} is properly synced with your NTP server.
+{% ifversion ghes %} Para evitar esse problema, recomendamos apontar o dispositivo para a mesma origem do protocolo NTP que o IdP, se possível. {% endif %}Se você encontrar esse erro, verifique se a hora no {% ifversion ghes %}dispositivo{% else %}IdP{% endif %} está sincronizada corretamente com o servidor NTP.
 
-If you use ADFS as your IdP, also set `NotBeforeSkew` in ADFS to 1 minute for {% data variables.product.prodname_dotcom %}. If `NotBeforeSkew` is set to 0, even very small time differences, including milliseconds, can cause authentication problems.
+Se você usa o ADFS como o IdP, defina também `NotBeforeSkew` no ADFS como 1 minuto para o {% data variables.product.prodname_dotcom %}. Se `NotBeforeSkew` for definido como 0, mesmo diferenças de tempo muito pequenas, incluindo milissegundos, poderão causar problemas de autenticação.

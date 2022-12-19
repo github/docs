@@ -11,9 +11,14 @@ type: how_to
 topics:
   - Open Source
   - Sponsors profile
-shortTitle: 管理赞助者目标
+shortTitle: Manage sponsor goals
+ms.openlocfilehash: 53d814dfe96baa603fc1514da93252450d93df17
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130041'
 ---
-
 ## 关于赞助目标
 
 您可以为被赞助帐户设置一个融资目标，并与您的社区共享该目标。 目标可帮助您了解您在开源社区中的影响，并扩大您在 {% data variables.product.prodname_sponsors %} 计划中的影响力。
@@ -22,27 +27,16 @@ shortTitle: 管理赞助者目标
 
 ## 设置目标
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-your-goals-tab %}
-{% data reusables.sponsors.set-a-goal %}
-{% data reusables.sponsors.select-goal-type %}
-{% data reusables.sponsors.publish-goal %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-your-goals-tab %} {% data reusables.sponsors.set-a-goal %} {% data reusables.sponsors.select-goal-type %} {% data reusables.sponsors.publish-goal %}
 
 ## 编辑目标
 
 编辑目标时，无法选择已实现的目标。 例如，如果您已经有 5 个赞助者，您无法将目标编辑为针对 4 个赞助者。
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-your-goals-tab %}
-{% data reusables.sponsors.edit-goal %}
-{% data reusables.sponsors.select-goal-type %}
-{% data reusables.sponsors.publish-goal %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-your-goals-tab %} {% data reusables.sponsors.edit-goal %} {% data reusables.sponsors.select-goal-type %} {% data reusables.sponsors.publish-goal %}
 
 ## 取消目标
 
 取消的目标无法重新激活， 而必须创建新目标。
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-your-goals-tab %}
-{% data reusables.sponsors.edit-goal %}
-{% data reusables.sponsors.retire-goal %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-your-goals-tab %} {% data reusables.sponsors.edit-goal %} {% data reusables.sponsors.retire-goal %}

@@ -7,7 +7,11 @@ export default async function genericToc(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'default') return next()
   // This middleware can only run on product, category, and map topics.
-  if (req.context.page.documentType === 'homepage' || req.context.page.documentType === 'article')
+  if (
+    req.context.page.documentType === 'homepage' ||
+    req.context.page.documentType === 'article' ||
+    req.context.page.relativePath === 'search/index.md'
+  )
     return next()
 
   // This one product TOC is weird.
@@ -20,8 +24,12 @@ export default async function genericToc(req, res, next) {
     mapTopic: 'flat',
   }
 
+  // Frontmatter can optionally be set on an Early Access product to show hidden child items.
+  // If so, this is a special case where we want to override the flat tocType and use a nested type.
+  const earlyAccessToc = req.context.page.earlyAccessToc
+
   // Find the current TOC type based on the current document type.
-  const currentTocType = tocTypes[req.context.page.documentType]
+  const currentTocType = earlyAccessToc ? 'nested' : tocTypes[req.context.page.documentType]
 
   // Find the part of the site tree that corresponds to the current path.
   const treePage = findPageInSiteTree(
@@ -30,7 +38,7 @@ export default async function genericToc(req, res, next) {
     req.pagePath
   )
 
-  // Only include hidden child items on a TOC page if it's an Early Access category or
+  // By default, only include hidden child items on a TOC page if it's an Early Access category or
   // map topic page, not a product or 'articles' fake cagegory page (e.g., /early-access/github/articles).
   // This is because we don't want entire EA product TOCs to be publicly browseable, but anything at the category
   // or below level is fair game because that content is scoped to specific features.
@@ -39,7 +47,8 @@ export default async function genericToc(req, res, next) {
   const isEarlyAccess = req.context.currentPath.includes('/early-access/')
   const isArticlesCategory = req.context.currentPath.endsWith('/articles')
 
-  req.context.showHiddenTocItems = isCategoryOrMapTopic && isEarlyAccess && !isArticlesCategory
+  const includeHidden =
+    earlyAccessToc || (isCategoryOrMapTopic && isEarlyAccess && !isArticlesCategory)
 
   // Conditionally run getTocItems() recursively.
   let isRecursive
@@ -50,49 +59,64 @@ export default async function genericToc(req, res, next) {
   if (currentTocType === 'flat' && !isOneOffProductToc) {
     isRecursive = false
     renderIntros = true
-    req.context.genericTocFlat = await getTocItems(
-      treePage.childPages,
-      req.context,
-      isRecursive,
-      renderIntros
-    )
+    req.context.genericTocFlat = await getTocItems(treePage, req.context, {
+      recurse: isRecursive,
+      renderIntros,
+      includeHidden,
+    })
   }
 
   // Get an array of child map topics and their child articles and add it to the context object.
   if (currentTocType === 'nested' || isOneOffProductToc) {
     isRecursive = !isOneOffProductToc
     renderIntros = false
-    req.context.genericTocNested = await getTocItems(
-      treePage.childPages,
-      req.context,
-      isRecursive,
-      renderIntros
-    )
+    req.context.genericTocNested = await getTocItems(treePage, req.context, {
+      recurse: isRecursive,
+      renderIntros,
+      includeHidden,
+    })
   }
 
   return next()
 }
 
-async function getTocItems(pagesArray, context, isRecursive, renderIntros) {
-  return (
-    await Promise.all(
-      pagesArray.map(async (child) => {
-        // only include a hidden page if showHiddenTocItems is true
-        if (child.page.hidden && !context.showHiddenTocItems) return
+// Return a nested object that contains the bits and pieces we need
+// for the tree which is used for sidebars and listing
+async function getTocItems(node, context, opts) {
+  // Cleaner than trying to be too terse inside the `.filter()` inline callback.
+  function filterHidden(child) {
+    return opts.includeHidden || !child.page.hidden
+  }
 
-        return {
-          title: child.renderedFullTitle,
-          fullPath: child.href,
-          // renderProp is the most expensive part of this function.
-          intro: renderIntros
-            ? await child.page.renderProp('intro', context, { unwrap: true })
-            : null,
-          childTocItems:
-            isRecursive && child.childPages
-              ? await getTocItems(child.childPages, context, isRecursive, renderIntros)
-              : null,
+  return await Promise.all(
+    node.childPages.filter(filterHidden).map(async (child) => {
+      const { page } = child
+      const title = await page.renderProp('rawTitle', context, { textOnly: true })
+      let intro = null
+      if (opts.renderIntros) {
+        intro = ''
+        if (page.rawIntro) {
+          // The intro can contain Markdown even though it might not
+          // contain any Liquid.
+          intro = await page.renderProp('rawIntro', context)
         }
-      })
-    )
-  ).filter(Boolean)
+      }
+
+      let childTocItems = null
+      if (opts.recurse) {
+        childTocItems = []
+        if (child.childPages) {
+          childTocItems.push(...(await getTocItems(child, context, opts)))
+        }
+      }
+
+      const fullPath = child.href
+      return {
+        title,
+        fullPath,
+        intro,
+        childTocItems,
+      }
+    })
+  )
 }

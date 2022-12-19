@@ -25,7 +25,7 @@ shortTitle: Sponsor a contributor
 
 You can sponsor an account on behalf of your personal account to invest in projects that you personally benefit from. You can sponsor an account on behalf of your organization for many reasons.
 - Sustaining specific libraries that your organization's work depends on
-- Investing in the ecosystem you rely on as a organization (such as blockchain)
+- Investing in the ecosystem you rely on as an organization (such as blockchain)
 - Developing brand awareness as an organization that values open source
 - Thanking open source developers for building libraries that complement the product your organization offers
 

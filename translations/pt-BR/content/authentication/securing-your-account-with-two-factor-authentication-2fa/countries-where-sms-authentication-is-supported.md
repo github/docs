@@ -10,10 +10,15 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Países com suporte para SMS
+shortTitle: Countries supporting SMS
+ms.openlocfilehash: bfd2ae699b2ac36d0d56deb43d892192441d2fe3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083575'
 ---
-
-Se a autenticação de dois fatores por mensagem de texto não for aceita em seu país de residência, você poderá configurar a autenticação por meio de um aplicativo móvel TOTP. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+Se a autenticação de dois fatores por mensagem de texto não for aceita em seu país de residência, você poderá configurar a autenticação por meio de um aplicativo móvel TOTP. Para obter mais informações, confira "[Como configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
 
 ## Países onde a autenticação por SMS é aceita
 
@@ -23,7 +28,7 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Ilhas Aland</li>
 <li>Argélia</li>
 <li>Angola</li>
-<li>Anguila</li>
+<li>Anguilla</li>
 <li>Austrália</li>
 <li>Áustria</li>
 <li>Bahamas</li>
@@ -37,7 +42,7 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Brunei</li>
 <li>Bulgária</li>
 <li>Burundi</li>
-<li>Cambódia</li>
+<li>Camboja</li>
 <li>Canadá</li>
 <li>Cabo Verde</li>
 <li>Ilhas Cayman</li>
@@ -94,7 +99,7 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Montserrat</li>
 <li>Moçambique</li>
 <li>Namíbia</li>
-<li>Países baixos</li>
+<li>Países Baixos</li>
 <li>Antilhas Holandesas</li>
 <li>Nova Zelândia</li>
 <li>Nigéria</li>
@@ -122,8 +127,8 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Taiwan</li>
 <li>Tanzânia</li>
 <li>Togo</li>
-<li>Trinidade e Tobago</li>
-<li>Ilhas Turks e Caicos</li>
+<li>Trinidad e Tobago</li>
+<li>Ilhas Turcas e Caicos</li>
 <li>Uganda</li>
 <li>Emirados Árabes Unidos</li>
 <li>Reino Unido</li>
@@ -132,6 +137,6 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Venezuela</li>
 </ul>
 
-## Leia mais
+## Leitura adicional
 
-- [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)"
+- "[Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)"

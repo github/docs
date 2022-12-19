@@ -37,49 +37,49 @@ If you plan to take a node offline and the node runs a data service role like `g
 1. To find the UUID of the node to evacuate, run the following command. Replace `HOSTNAME` with the node's hostname.
 
    ```shell
-   $ ghe-config cluster.<em>HOSTNAME</em>.uuid
+   $ ghe-config cluster.HOSTNAME.uuid
    ```
 1. Monitor the node's status while {% data variables.product.product_name %} copies the data. Don't take the node offline until the copy is complete. To monitor the status of your node, run any of the following commands, replacing `UUID` with the UUID from step 2.
 
    - **Git**:
 
      ```shell
-     $ ghe-spokes evac-status git-server-<em>UUID</em>
+     $ ghe-spokes evac-status git-server-UUID
      ```
 
    - **{% data variables.product.prodname_pages %}**:
 
      ```shell
-     $ echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
+     $ echo "select count(*) from pages_replicas where host = 'pages-server-UUID'" | ghe-dbconsole -y
      ```
 
    - **Storage**:
 
      ```shell
-     $ ghe-storage evacuation-status storage-server-<em>UUID</em>
+     $ ghe-storage evacuation-status storage-server-UUID
      ```
 1. After the copy is complete, you can evacuate the node by running any of the following commands, replacing `UUID` with the UUID from step 2.
 
    - **Git**:
 
      ```shell
-     $ ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
+     $ ghe-spokes server evacuate git-server-UUID \'REASON FOR EVACUATION\'
      ```
 
    - **{% data variables.product.prodname_pages %}**:
 
      ```shell
-     $ ghe-dpages evacuate pages-server-<em>UUID</em>
+     $ ghe-dpages evacuate pages-server-UUID
      ```
 
    - For **storage**, first take the node offline by running the following command.
 
      ```shell
-     $ ghe-storage offline storage-server-<em>UUID</em>
+     $ ghe-storage offline storage-server-UUID
      ```
 
      After the storage node is offline, you can evacuate the node by running the following command.
 
      ```shell
-     $ ghe-storage evacuate storage-server-<em>UUID</em>
+     $ ghe-storage evacuate storage-server-UUID
      ```

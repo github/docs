@@ -1,39 +1,45 @@
 ---
 title: 退職のためのベストプラクティス
-intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
+intro: '{% data variables.product.product_name %} のアカウントを個人と仕事の両方で使っているなら、会社や組織を辞めるときに覚えておくべきことがいくつかあります。'
 redirect_from:
-  - /articles/best-practices-for-leaving-your-company
-  - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
-  - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
-  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
+- /articles/best-practices-for-leaving-your-company
+- /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
+- /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
+- /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
 versions:
   fpt: '*'
   ghec: '*'
 topics:
-  - Accounts
+- Accounts
 shortTitle: Leaving your company
+ms.openlocfilehash: e7de0fa01082731ae54e988ed49310b5ce6afbea
+ms.sourcegitcommit: 8544f120269257d01adfe4a27b62f08fc8691727
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/02/2022
+ms.locfileid: "147444646"
 ---
+会社を辞める前に、個人アカウントの以下の情報を必ず更新しておきましょう:
 
-Before you leave your company, make sure you update the following information in your personal account:
+- [メール設定で削除して](/articles/changing-your-primary-email-address)、会社のメール アドレスを検証解除します。 その後、検証なしにアドレスを追加しなおして、関連するコミットをアカウントに関連付けされたままに保っておくことができます。
+- [プライマリ メール アドレス](/articles/changing-your-primary-email-address)を会社のメールから個人用メールに変更します。
+- [新しいプライマリ メール アドレスを検証します](/articles/verifying-your-email-address)。
+- 必要に応じて、[GitHub のユーザー名を変更](/articles/changing-your-github-username)して、会社または組織が参照されないようにします。
+- 個人アカウントに対して 2 要素 (2FA) 認証を有効にしている場合は、構成した 2FA 認証方法を (会社ではなく) 自分が制御するようにしてください。 詳細については、「[2 要素認証の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)」を参照してください。
 
-- [メール設定から会社のメールアドレスを削除](/articles/changing-your-primary-email-address)して、会社のメールアドレスを検証済みではなくしてください。 その後、検証なしにアドレスを追加しなおして、関連するコミットをアカウントに関連付けされたままに保っておくことができます。
-- 会社のメールから個人のメールへ、[プライマリメールアドレスを変更](/articles/changing-your-primary-email-address)してください。
-{% ifversion fpt or ghec %}
-- [新しいプライマリメールアドレスを検証](/articles/verifying-your-email-address)してください。
-{% endif %}
-- 必要に応じて [GitHub のユーザ名を変更](/articles/changing-your-github-username)して、会社への言及があれば削除してください。
+## <a name="leaving-organizations"></a>Organization を離れる
 
-## Organization を離れる
+Organization に属するリポジトリを使用していた場合は、自分を [Organization のメンバーから削除](/articles/removing-yourself-from-an-organization)する必要があります。 Organization の所有者である場合は、まず別のユーザーに [Organization の所有権を移譲](/articles/transferring-organization-ownership)する必要があることに注意してください。
 
-これまで Organization に属するリポジトリで作業をしてきた場合は、[Organization のメンバーから自分を削除](/articles/removing-yourself-from-an-organization)する必要があるでしょう。 あなたが Organization のオーナーである場合、まず他の人に [Organization の所有権を移譲](/articles/transferring-organization-ownership)する必要があります。
+{% data variables.product.prodname_managed_user %}を使用している場合を除き、Organization を離れた後も、個人アカウントに引き続きアクセスできます。 {% data variables.product.prodname_emus %}について詳しくは、{% data variables.product.prodname_ghe_cloud %} ドキュメントの「[{% data variables.product.prodname_emus %}について]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}」を参照してください。{% else %}{% endif %}
 
-## 個人リポジトリから職業上の関連を取り除く
+## <a name="removing-professional-associations-with-personal-repositories"></a>個人リポジトリから職業上の関連を取り除く
 
-If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
+別のユーザーの個人アカウントのリポジトリで仕事を共同作業していた場合、それらのリポジトリから[自分自身をコラボレーターとして削除](/articles/removing-yourself-from-a-collaborator-s-repository)する必要があります。
 
-- 仕事に関連する[リポジトリの Watch の停止](https://github.com/watching)。 それらの通知も、もう受ける必要はありません。
-- 自分の退職後に他者が作業を続ける必要があるかもしれない[自分が所有するリポジトリを移譲](/articles/how-to-transfer-a-repository)してください。
-- あなたが行っていた作業に関連する、[あなたに属するフォークの削除](/articles/deleting-a-repository)。 フォークを削除しても上流のリポジトリは削除されないので心配はいりません。
+- 仕事に関連する[リポジトリの監視を停止](https://github.com/watching)します。 それらの通知も、もう受ける必要はありません。
+- 退社後、他のユーザーが作業を続ける可能性がある[ご自身が所有しているリポジトリを移譲](/articles/how-to-transfer-a-repository)します。
+- 自分が行っていた作業に関連する[自分に属するフォークを削除](/articles/deleting-a-repository)します。 フォークを削除しても上流のリポジトリは削除されないので心配はいりません。
 - 自分のコンピュータ上に残っているかもしれないフォークのローカルコピーの削除。
 
 ```shell

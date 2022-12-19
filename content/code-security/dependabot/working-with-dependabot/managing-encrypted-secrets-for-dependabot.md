@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -49,8 +49,7 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
-{% data reusables.dependabot.dependabot-secrets-button %}
+{% data reusables.dependabot.sidebar-secret %}
 1. Click **New repository secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the value for your secret.
@@ -68,8 +67,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-{% data reusables.dependabot.dependabot-secrets-button %}
+{% data reusables.dependabot.sidebar-secret %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.

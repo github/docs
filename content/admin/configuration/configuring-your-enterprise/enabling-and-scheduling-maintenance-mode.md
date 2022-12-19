@@ -1,6 +1,6 @@
 ---
 title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
+intro: 'Some standard maintenance procedures, such as upgrading {% data variables.location.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
 redirect_from:
   - /enterprise/admin/maintenance-mode
   - /enterprise/admin/categories/maintenance-mode
@@ -23,7 +23,7 @@ shortTitle: Configure maintenance mode
 ---
 ## About maintenance mode
 
-Some types of operations require that you take {% data variables.product.product_location %} offline and put it into maintenance mode:
+Some types of operations require that you take {% data variables.location.product_location %} offline and put it into maintenance mode:
 - Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
 - Increasing CPU, memory, or storage resources allocated to the virtual machine
 - Migrating data from one virtual machine to another
@@ -42,7 +42,7 @@ When the instance is in maintenance mode, all normal HTTP and Git access is refu
 
 {% ifversion ip-exception-list %}
 
-You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.product.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.product.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode. 
+You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.location.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.location.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode. 
 
 {% endif %}
 
@@ -65,9 +65,9 @@ You can perform initial validation of your maintenance operation by configuring 
 
 ## Validating changes in maintenance mode using the IP exception list
 
-The IP exception list provides controlled and restricted access to {% data variables.product.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.product.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
+The IP exception list provides controlled and restricted access to {% data variables.location.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.location.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
 
-If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.product.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.product.product_location %} will return to normal operation.
+If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.location.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.location.product_location %} will return to normal operation.
 
 You can also use a command-line utility to configure the IP exception list. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
@@ -77,16 +77,16 @@ You can also use a command-line utility to configure the IP exception list. For 
   ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
 1. Select **Enable IP exception list**.
  ![Checkbox for enabling ip exception list](/assets/images/enterprise/maintenance/enable-ip-exception-list.png)
-1. In the text box, type a valid list of space-separated IP addresses or CIDR blocks that should be allowed to access {% data variables.product.product_location %}.
+1. In the text box, type a valid list of space-separated IP addresses or CIDR blocks that should be allowed to access {% data variables.location.product_location %}.
  ![completed field for IP addresses](/assets/images/enterprise/maintenance/ip-exception-list-ip-addresses.png)
 1. Click **Save**.
 ![after IP excetpion list has saved](/assets/images/enterprise/maintenance/ip-exception-save.png)
 
 {% endif %}
 
-## Scheduling maintenance mode with {% data variables.product.prodname_enterprise_api %}
+## Scheduling maintenance mode with the {% data variables.product.prodname_enterprise_api %}
 
-You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
 
 ## Enabling or disabling maintenance mode for all nodes in a cluster
 

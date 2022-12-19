@@ -1,6 +1,6 @@
 ---
-title: Communicating on GitHub
-intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.product_name %}.'
+title: GitHub でのコミュニケーション
+intro: '{% data variables.product.product_name %} 上でさまざまな種類のディスカッションを用い、特定のプロジェクトや変更について、そしてもっと幅広くアイデアや Team のゴールについて話し合うことができます。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
@@ -18,136 +18,139 @@ topics:
   - Issues
   - Discussions
   - Fundamentals
+ms.openlocfilehash: 18321069abd4fb48956f4d61653b8bbe592c648b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106790'
 ---
-
 ## はじめに
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
+{% data variables.product.product_name %} には、コミュニティと密接にやり取りできる、コラボレーション可能なコミュニケーション ツールが組み込まれています。 このクイックスタート ガイドでは、ニーズに適したツールの選択方法について説明します。
 
-{% ifversion discussions %}
-You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
-{% else %}
-You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
+{% ifversion discussions %}行いたい会話の種類に応じて、issue、pull request、{% data variables.product.prodname_discussions %}、チーム ディスカッションを作成して参加できます。
+{% else %}行いたい会話の種類に応じて、issue、pull request、チーム ディスカッションを作成して参加できます。
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
-- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback.
-- are specific to a repository, and usually have a clear owner.
-- are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
-
-### プルリクエスト
-- allow you to propose specific changes.
-- allow you to comment directly on proposed changes suggested by others.
-- are specific to a repository.
-
+- バグ報告や改善計画、フィードバックなど、プロジェクトの特定の詳細についてのディスカッションに役立ちます。 
+- リポジトリに固有であり、通常は明確なオーナーがいます。 
+- 多くの場合、{% data variables.product.prodname_dotcom %} のバグ追跡システムと呼ばれます。
+  
+### Pull Request
+- 特定の変更を提案できます。
+- 他のユーザーが提案した変更について直接コメントできます。 
+- リポジトリに固有です。 
+ 
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
--  are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
--  may span many repositories.
--  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
--  often don’t have a clear owner.
--  often do not result in an actionable task.
+-  フォーラムのようなもので、コラボレーションが重要なオープン形式のアイデアやディスカッションに最適です。 
+-  多数のリポジトリにまたがる場合があります。 
+-  コードベースの外部でコラボレーション エクスペリエンスを提供し、アイデアのブレーンストーミングとコミュニティのナレッジ ベースの作成を可能にします。
+-  多くの場合、明確なオーナーはいません。
+-  多くの場合、操作可能なタスクは発生しません。
 {% endif %}
 
 ### Team ディスカッション
-- can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. アイデアについてディスカッションするためにリポジトリでIssueを開く代わりに、Teamディスカッションで会話することでTeam全体を巻き込めます。
-- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %}
-- provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
-- often don’t have a clear owner.
-- often do not result in an actionable task.{% endif %}
+- プロジェクトをまたぎ、特定の issue または pull request に属していない会話に対して、チームのページで開始できます。 アイデアについてディスカッションするためにリポジトリでIssueを開く代わりに、Teamディスカッションで会話することでTeam全体を巻き込めます。
+- 計画、分析、設計、ユーザー調査、一般的なプロジェクトの意思決定に関するチームのディスカッションを 1 か所で行うことができます。{% ifversion ghes or ghae %} 
+- コードベースの外部でコラボレーション エクスペリエンスを提供し、アイデアのブレーンストーミングを可能にします。
+- 多くの場合、明確なオーナーはいません。
+- 多くの場合、操作可能なタスクは発生しません。{% endif %}
 
-## Which discussion tool should I use?
+## どのディスカッション ツールを使用すべきか
 
-### Scenarios for issues
+### issue のシナリオ
 
-- I want to keep track of tasks, enhancements and bugs.
-- I want to file a bug report.
-- I want to share feedback about a specific feature.
-- I want to ask a question about files in the repository.
+- タスク、機能強化、バグを追跡したい。
+- バグ報告を提出したい。
+- 特定の機能に関するフィードバックを共有したい。
+- リポジトリ内のファイルについて質問したい。
 
-#### Issueの例
+#### 問題の例
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix.
+この例では、{% data variables.product.prodname_dotcom %} ユーザーがどのようにしてドキュメント オープン ソース リポジトリに issue を作成してバグを認識させ、修正プログラムについて話し合うかを示しています。 
 
-![Example of issue](/assets/images/help/issues/issue-example.png)
+![issue の例](/assets/images/help/issues/issue-example.png)
 
-- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable.
-- The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).
-- A discussion ensues, and eventually, a consensus will be reached about the fix to apply.
-- A contributor can then create a pull request with the fix.
+- あるユーザーが、中国語版の {% data variables.product.prodname_dotcom %} Docs のページ上部にあるバナーの青い色で、バナー内のテキストが読めなくなることに気付きました。 
+- そのユーザーはリポジトリに issue を作成し、問題について述べ、修正プログラム (バナーに別の背景色を使用する) を提案しました。
+- ディスカッションが続き、最終的には、修正プログラムの適用に関する合意に達します。
+- これで、共同作成者が修正プログラムを含む pull request を作成できます。
 
-### Scenarios for pull requests
+### pull request のシナリオ
 
-- I want to fix a typo in a repository.
-- I want to make changes to a repository.
-- I want to make changes to fix an issue.
-- I want to comment on changes suggested by others.
+- リポジトリの入力ミスを修正したい。
+- リポジトリに変更を加えたい。
+- 変更を加えて issue を修正したい。
+- 他の人によって提案された変更についてコメントしたい。
 
-#### Pull request example
+#### プル要求の例
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo.
+この例では、{% data variables.product.prodname_dotcom %} ユーザーがどのようにしてドキュメント オープン ソース リポジトリに pull request を作成して入力ミスを修正するかを示します。 
 
-In the **Conversation** tab of the pull request, the author explains why they created the pull request.
+pull request の **[会話]** タブで、作成者が pull request を作成した理由を説明します。
 
-![Example of pull request - Conversation tab](/assets/images/help/pull_requests/pr-conversation-example.png)
+![pull request の例 - [会話] タブ](/assets/images/help/pull_requests/pr-conversation-example.png)
 
-The **Files changed** tab of the pull request shows the implemented fix.
+pull request の **[ファイルの変更]** タブには、実装された修正プログラムが表示されます。
 
-![Example of pull request - Files changed tab](/assets/images/help/pull_requests/pr-files-changed-example.png)
+![pull request の例 - [ファイルの変更] タブ](/assets/images/help/pull_requests/pr-files-changed-example.png)
 
-- This contributor notices a typo in the repository.
-- The user creates a pull request with the fix.
-- A repository maintainer reviews the pull request, comments on it, and merges it.
-
-{% ifversion discussions %}
-### Scenarios for {% data variables.product.prodname_discussions %}
-
-- I have a question that's not necessarily related to specific files in the repository.
-- I want to share news with my collaborators, or my team.
-- I want to start or participate in an open-ended conversation.
-- I want to make an announcement to my community.
-
-#### {% data variables.product.prodname_discussions %} example
-
-This example shows the {% data variables.product.prodname_discussions %} welcome post for the {% data variables.product.prodname_dotcom %} Docs open source repository, and illustrates how the team wants to collaborate with their community.
-
-![Example of {% data variables.product.prodname_discussions %}](/assets/images/help/discussions/github-discussions-example.png)
-
-This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
-
-{% endif %}
-### Scenarios for team discussions
-
-- I have a question that's not necessarily related to specific files in the repository.
-- I want to share news with my collaborators, or my team.
-- I want to start or participate in an open-ended conversation.
-- I want to make an announcement to my team.
-
-{% ifversion fpt or ghec %}
-As you can see, team discussions are very similar to {% data variables.product.prodname_discussions %}. For {% data variables.product.prodname_dotcom_the_website %}, we recommend using {% data variables.product.prodname_discussions %} as the starting point for conversations. You can use {% data variables.product.prodname_discussions %} to collaborate with any community on {% data variables.product.prodname_dotcom %}. If you are part of an organization, and would like to initiate conversations within your organization or team within that organization, you should use team discussions.
-{% endif %}
-
-#### Team discussion example
-
-This example shows a team post for the `octo-team` team.
-
-![Example of team discussion](/assets/images/help/projects/team-discussions-example.png)
-
-The `octocat` team member posted a team discussion, informing the team of various things:
-- A team member called Mona started remote game events.
-- There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
-- Material about the April All Hands is now available for all team members to view.
-
-## 次のステップ
-
-These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
-
-For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues#working-with-issues)" and "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
-
-For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)を参照してください。
+- この共同作成者は、リポジトリの入力ミスに気付きました。
+- このユーザーが、修正プログラムを含む pull request を作成します。
+- リポジトリの保守担当者は、pull request を確認し、それにコメントを付けてマージします。
 
 {% ifversion discussions %}
-For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. 詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
+### {% data variables.product.prodname_discussions %} のシナリオ
+
+- リポジトリ内の特定のファイルに必ずしも関連していない質問がある。
+- コラボレーターやチームとニュースを共有したい。
+- 自由回答の会話を開始または参加したい。
+- コミュニティで発表を行いたい。
+
+#### {% data variables.product.prodname_discussions %} の例
+
+この例では、{% data variables.product.prodname_dotcom %} Docs オープン ソース リポジトリの {% data variables.product.prodname_discussions %} ウェルカム投稿を示し、チームがコミュニティとどのようなコラボレーションを望んでいるかを示しています。
+
+![{% data variables.product.prodname_discussions %} の例](/assets/images/help/discussions/github-discussions-example.png)
+
+このコミュニティ保守担当者は、コミュニティを歓迎し、メンバーに自己紹介を求めるディスカッションを始めました。 この投稿は、訪問者と共同作成者が参加しやすい雰囲気を生み出します。 この投稿では、チームがリポジトリへの投稿を喜んで支援することも明らかになっています。
+
+{% endif %}
+### チーム ディスカッションのシナリオ
+
+- リポジトリ内の特定のファイルに必ずしも関連していない質問がある。
+- コラボレーターやチームとニュースを共有したい。
+- 自由回答の会話を開始または参加したい。
+- チームで発表を行いたい。
+
+{% ifversion fpt or ghec %} ご覧のように、チーム ディスカッションは {% data variables.product.prodname_discussions %} と非常によく似ています。 {% data variables.product.prodname_dotcom_the_website %} の場合、会話の出発点として {% data variables.product.prodname_discussions %} を使用することをお勧めします。 {% data variables.product.prodname_discussions %} を使用して、{% data variables.product.prodname_dotcom %} 上のどのコミュニティともコラボレーションを行うことができます。 あなたが組織の一員であり、組織内または組織のチーム内で会話を開始したい場合は、チーム ディスカッションを使用する必要があります。
 {% endif %}
 
-For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. 詳しい情報については[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)を参照してください。
+#### チーム ディスカッションの例
+
+この例は、`octo-team` チームのチーム投稿を示しています。
+
+![チーム ディスカッションの例](/assets/images/help/projects/team-discussions-example.png)
+
+`octocat` のチーム メンバーはチーム ディスカッションを投稿し、さまざまなことをチームに通知しました。
+- Mona というチーム メンバーがリモート ゲーム イベントを開始しました。
+- チームが {% data variables.product.prodname_actions %} を使用してどのようにドキュメントを生成するのかを説明するブログ記事があります。
+- April All Hands に関する資料を、すべてのチーム メンバーが閲覧できるようになりました。
+
+## 次の手順
+
+これらの例では、{% data variables.product.product_name %} で会話に最適なツールを決定する方法を示しました。 しかし、これは始まりにすぎません。これらのツールをニーズに合わせて調整するためにできることは、他にもたくさんあります。
+
+たとえば、issue の場合は、より迅速に検索できるように issue にラベルをタグ付けしたり、共同作成者が有意義な issue をオープンできるように issue テンプレートを作成したりできます。 詳細については、「[Issue について](/github/managing-your-work-on-github/about-issues#working-with-issues)」と「[Issue と pull request のテンプレートについて](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)」を参照してください。
+
+pull request の場合、提案された変更がまだ進行中の場合は、下書きの pull request を作成できます。 下書きの pull request は、レビュー準備完了としてマークされるまでマージできません。 詳細については、「[pull request について](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)」を参照してください。
+
+{% ifversion discussions %}{% data variables.product.prodname_discussions %} の場合は、{% ifversion fpt or ghec %}行動規定を設定し、{% endif %}コミュニティの重要な情報を含むディスカッションをピン留めすることができます。 詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
+{% endif %}
+
+チーム ディスカッションの場合は、チームのページでディスカッションを編集または削除したり、チーム ディスカッションの通知を構成したりできます。 詳細については、「[チーム ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)」を参照してください。
+
+通信に役立つ高度な書式設定機能については、「[{% data variables.product.prodname_dotcom %} での記述に関するクイックスタート](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)」をご覧ください。

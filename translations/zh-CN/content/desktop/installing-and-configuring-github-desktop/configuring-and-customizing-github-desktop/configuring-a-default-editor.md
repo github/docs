@@ -6,9 +6,14 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
   fpt: '*'
-shortTitle: 配置默认编辑器
+shortTitle: Configure default editor
+ms.openlocfilehash: 4316ed1b37b67e606f702cc4df805908b60c09cd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146736611'
 ---
-
 ## 支持的编辑器
 
 {% data variables.product.prodname_desktop %} 支持以下编辑器。
@@ -30,7 +35,7 @@ shortTitle: 配置默认编辑器
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - 要将 Brackets 与 {% data variables.product.prodname_desktop %} 一起使用，您必须安装命令行快捷方式。 要安装快捷方式，请在菜单栏中单击 **File（文件）**，然后单击 **Install Command Line Shortcut（安装命令行快捷方式）**。
+  - 要将 Brackets 与 {% data variables.product.prodname_desktop %} 一起使用，您必须安装命令行快捷方式。 若要安装快捷方式，请打开方括号，单击菜单栏中的“文件”，然后单击“安装命令行快捷方式” 。
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)
@@ -72,17 +77,21 @@ shortTitle: 配置默认编辑器
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-3. 在 Preferences（首选项）窗口中，选择 **Integrations（集成）**。 ![“首选项”窗口中的“集成”窗格](/assets/images/help/desktop/mac-select-integrations-pane.png)
-4. 使用“External Editor（外部编辑器）”下拉菜单，选择要设为默认的编辑器。 ![“首选项”菜单栏中的“外部编辑器”菜单](/assets/images/help/desktop/mac-editor-menu.png)
-5. 单击 **Save（保存）**。
+3. 在“首选项”窗口中，选择“集成”。
+  ![“首选项”窗口中的“集成”窗格](/assets/images/help/desktop/mac-select-integrations-pane.png)
+4. 使用“External Editor（外部编辑器）”下拉菜单，选择要设为默认的编辑器。
+  ![“首选项”菜单栏中的“外部编辑器”菜单](/assets/images/help/desktop/mac-editor-menu.png)
+5. 单击“ **保存**”。  
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-3. 在 Options（选项）窗口中，选择 **Integrations（集成）**。 ![“选项”窗口中的“集成”窗格](/assets/images/help/desktop/windows-select-integrations-pane.png)
-4. 使用“External Editor（外部编辑器）”下拉菜单，选择要设为默认的编辑器。 ![“选项”菜单栏中的“外部编辑器”菜单](/assets/images/help/desktop/windows-editor-menu.png)
-5. 单击 **Save（保存）**。
+3. 在“选项”窗口中，选择“集成”。
+  ![“选项”窗口中的“集成”窗格](/assets/images/help/desktop/windows-select-integrations-pane.png)
+4. 使用“External Editor（外部编辑器）”下拉菜单，选择要设为默认的编辑器。
+  ![“选项”菜单栏中的“外部编辑器”菜单](/assets/images/help/desktop/windows-editor-menu.png)
+5. 单击“ **保存**”。  
 
 {% endwindows %}

@@ -1,8 +1,9 @@
 ---
 title: CodeQL ワークフローのトラブルシューティング
-shortTitle: CodeQLワークフローのトラブルシューティング
+shortTitle: Troubleshoot CodeQL workflow
 intro: '{% data variables.product.prodname_code_scanning %} で問題が生じている場合、ここに掲載されている問題解決のためのヒントを使ってトラブルを解決できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
@@ -25,29 +26,51 @@ topics:
   - C/C++
   - C#
   - Java
+ms.openlocfilehash: 4cbf57959776fee375eef2ea08778bf4c66b6324
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161192'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.not-available %}
 
+{% ifversion ghes or ghae %} {% note %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.not-available %}
+**メモ:** この記事では、このバージョンの {% data variables.product.product_name %} の初期リリースに含まれる CodeQL アクションのバージョンおよび関連する CodeQL CLI バンドルで使用できる機能について説明します。 企業でより新しいバージョンの CodeQL アクションを使用している場合は、最新の機能の詳細について [{% data variables.product.prodname_ghe_cloud %} の記事](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)を参照してください。 {% ifversion not ghae %}最新バージョンの使用については、「[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)」(アプライアンスのコード スキャニングの構成) を参照してください。{% endif %}
 
-{% ifversion ghes or ghae %}
-{% note %}
-
-**ノート:** この記事は、{% data variables.product.product_name %}のこのバージョンにおける初期リリースに含まれる、このバージョンのCodeQLアクション及び関連するCodeQL CLIバンドルで利用できる機能について説明しています。 Enterpriseでさらに新しいバージョンのCodeQLアクションを使用しているなら、最新の機能に関する情報については[{% data variables.product.prodname_ghe_cloud %}の記事](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)を参照してください。 {% ifversion not ghae %} 最新バージョンの利用に関する詳しい情報については「[アプライアンスのコードスキャンニングの設定](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)」を参照してください。{% endif %}
-
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 ## デバッグ用の詳細なログを生成する
 
-詳細なログ出力を生成するため、ステップのデバッグロギングを有効化することができます。 詳しい情報については、「[デバッグログの有効化](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)」を参照してください。
+詳細なログ出力を生成するため、ステップのデバッグロギングを有効化することができます。 詳細については、「[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)」(デバッグ ログの有効化) を参照してください。
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 
-## {% data variables.product.prodname_codeql %}のデバッグ成果物の作成
+## {% data variables.product.prodname_codeql %} デバッグ成果物の作成
 
-デバッグ設定フラグを設定すれば、{% data variables.product.prodname_codeql %}のデバッグに役立つ成果物を取得できます。 {% data variables.product.prodname_codeql %}ワークフローファイルの`init`ステップを修正して、`debug: true`と設定してください。
+{% data variables.product.prodname_codeql %} のデバッグに役立つ成果物を取得できます。
+デバッグ成果物は、`debug-artifacts` という名前の成果物としてワークフローの実行にアップロードされます。 このデータには、{% data variables.product.prodname_codeql %} ログ、{% data variables.product.prodname_codeql %} データベース、およびワークフローで生成されたすべての SARIF ファイルが含まれています。
+
+これらの成果物は、{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}に関する問題をデバッグするのに役立ちます。 GitHub サポートに問い合わせた場合、このデータを要求される場合があります。
+
+{% endif %}
+
+{% ifversion codeql-action-debug-logging %}
+
+### デバッグ ログが有効な状態でのジョブの再実行による、{% data variables.product.prodname_codeql %} デバッグ成果物の作成
+
+デバッグ ログを有効にし、ジョブを再実行することで、{% data variables.product.prodname_codeql %} デバッグ成果物を作成できます。 {% data variables.product.prodname_actions %} のワークフローとジョブの再実行について詳しくは、「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」を参照してください。
+
+必ず **[デバッグ ログの有効化]** を選ぶ必要があります。 このオプションにより、実行でランナー診断ログとステップ デバッグ ログが有効になります。 これで、`debug-artifacts` をダウンロードしてさらに調査できるようになります。 ジョブを再実行して {% data variables.product.prodname_codeql %} デバッグ成果物を作成するときに、ワークフロー ファイルを変更する必要はありません。
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+
+### ワークフロー フラグを使用した {% data variables.product.prodname_codeql %} デバッグ成果物の作成
+
+ワークフローでフラグを使用して {% data variables.product.prodname_codeql %} デバッグ成果物を作成できます。 このためには、{% data variables.code-scanning.codeql_workflow %} ファイルの `init` ステップを変更して `debug: true` を設定する必要があります。
 
 ```yaml
 - name: Initialize CodeQL
@@ -56,19 +79,15 @@ topics:
     debug: true
 ```
 
-デバッグ成果物は、`debug-artifacts`という名前の成果物としてワークフローの実行にアップロードされます。 このデータには、{% data variables.product.prodname_codeql %}ログ、{% data variables.product.prodname_codeql %}データベース（群）、ワークフローが生成したSARIFファイル（群）が含まれます。
-
-これらの成果物は、{% data variables.product.prodname_codeql %} Code scanningの問題のデバッグに役立ちます。 GitHubのサポートに連絡すると、このデータを求められることがあります。
-
 {% endif %}
 
 ## コンパイル言語の自動ビルドの失敗
 
 プロジェクト内のコンパイル言語のコードの自動ビルドが失敗した場合は、次のトラブルシューティングのステップを試してください。
 
-- {% data variables.product.prodname_code_scanning %} ワークフローから `autobuild` ステップを削除し、特定のビルドステップを追加します。 ワークフローの編集に関する詳しい情報は、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。 `autobuild` ステップの置き換えに関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
+- {% data variables.product.prodname_code_scanning %} ワークフローから `autobuild` ステップを削除し、特定のビルド ステップを追加します。 ワークフローの編集の詳細については、「[{% data variables.product.prodname_code_scanning %} の構成](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。 `autobuild` ステップの置き換えの詳細については、「[コンパイル言語用の {% data variables.product.prodname_codeql %} ワークフローの構成 を参照してください](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」。
 
-- ワークフローが解析する言語を明示的に指定していない場合、{% data variables.product.prodname_codeql %} はコードベースでサポートされている言語を暗黙的に検出します。 この設定では、コンパイル型言語である C/C++、C#、Java のうち、{% data variables.product.prodname_codeql %} はソースファイルの数が最も多い言語のみを解析します。 ワークフローを編集し、解析する言語を指定したマトリクスを追加してください。 デフォルトの CodeQL 解析では、こうしたマトリクスを使用しています。
+- ワークフローが解析する言語を明示的に指定していない場合、{% data variables.product.prodname_codeql %} はコードベースでサポートされている言語を暗黙的に検出します。 この構成では、コンパイル言語である C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}Java のうち、ソース ファイルが最も多い言語のみが {% data variables.product.prodname_codeql %} によって分析されます。 ワークフローを編集し、解析する言語を指定するマトリックスを追加してください。 デフォルトの CodeQL 解析では、こうしたマトリクスを使用しています。
 
   以下はワークフローからの抜粋で、まず言語を指定するジョブ戦略におけるマトリクスの使用法を示し、次に「Initialize {% data variables.product.prodname_codeql %}」のステップで各言語を参照しています。
 
@@ -92,37 +111,38 @@ topics:
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
 
-  ワークフローの編集に関する詳しい情報については、「[コードスキャンを設定する](/code-security/secure-coding/configuring-code-scanning)」を参照してください。
+  ワークフローの編集の詳細については、「[Configuring code scanning](/code-security/secure-coding/configuring-code-scanning)」(コード スキャンの構成) を参照してください。
 
 ## ビルド中にコードが見つからない
 
-ワークフローでエラー `No source code was seen during the build` または `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32` が発生した場合、{% data variables.product.prodname_codeql %} がコードを監視できなかったことを示しています。 このようなエラーが発生する理由として、次のようなものがあります。
+ワークフローがエラー `No source code was seen during the build` または `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32` で失敗した場合は、{% data variables.product.prodname_codeql %} でコードを監視できなかったことを示します。 このようなエラーが発生する理由として、次のようなものがあります。
 
-1. リポジトリには、{% data variables.product.prodname_codeql %}にサポートされている言語で書かれたソースコードは含まれていないかもしれません。 サポートされている言語のリストを確認し、{% data variables.product.prodname_codeql %}ワークフローを削除してください。 詳しい情報については「[CodeQLでのコードスキャンニングについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)」を参照してください。
+1. リポジトリには、{% data variables.product.prodname_codeql %} でサポートされている言語で記述されたソースコードが含まれていない場合があります。 サポートされている言語の一覧を確認し、その場合は {% data variables.product.prodname_codeql %} ワークフローを削除します。 詳細については、「[CodeQL によるコード スキャンについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)」を参照してください。
 
-1. 自動言語検出により、サポートされている言語が特定されたが、リポジトリにその言語の分析可能なコードがない。 一般的な例としては、言語検出サービスが `.h` や `.gyp` ファイルなどの特定のプログラミング言語に関連付けられたファイルを見つけたが、対応する実行可能コードがリポジトリに存在しない場合です。 この問題を解決するには、`language` マトリクスにある言語のリストを更新し、解析する言語を手動で定義します。 たとえば、次の設定では Go と JavaScript のみを分析します。
+1. 自動言語検出により、サポートされている言語が特定されたが、リポジトリにその言語の分析可能なコードがない。 一般的な例としては、言語検出サービスが `.h` ファイルや `.gyp` ファイルなどの特定のプログラミング言語に関連付けられたファイルを見つけたが、対応する実行可能コードがリポジトリに存在しない場合です。 この問題を解決するには、`language` マトリクスにある言語のリストを更新し、解析する言語を手動で定義します。 たとえば、次の設定では Go と JavaScript のみを分析します。
 
   ```yaml
   strategy:
     fail-fast: false
     matrix:
-      # 以下のリストを変更して、言語の自動検出をオーバーライド
-      # サポートされているオプションは、デフォルトのワークフローのコメントにリストされている
+      # Override automatic language detection by changing the list below.
+      # Supported options are listed in a comment in the default workflow.
       language: ['go', 'javascript']
   ```
 
-   詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
-1. {% data variables.product.prodname_code_scanning %} ワークフローはコンパイルされた言語（C、C++、C#、または Java）を分析しているが、コードはコンパイルされていない。 デフォルトでは、{% data variables.product.prodname_codeql %} 分析ワークフローには `autobuild` ステップが含まれていますが、このステップはベスト エフォートプロセスを表しており、特定のビルド環境によっては、コードのビルドに失敗する可能性があります。 `autobuild` ステップを削除し、ビルドステップを手動で含めない場合も、コンパイルが失敗する可能性があります。  ビルドステップの指定に関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
-1. ワークフローはコンパイルされた言語（C、C++、C#、または Java）を分析しているが、パフォーマンスを向上させるためにビルドの一部がキャッシュされている（Gradle や Bazel などのビルドシステムで発生する可能性が最も高い）。 {% data variables.product.prodname_codeql %} はコンパイラのアクティビティを監視してリポジトリ内のデータフローを理解するため、{% data variables.product.prodname_codeql %} は分析を実行するために完全なビルドを実行する必要があります。
-1. ワークフローはコンパイルされた言語（C、C++、C＃、または Java）を分析しているが、ワークフローの `init` ステップと `analyze` ステップの間でコンパイルが行われていない。 {% data variables.product.prodname_codeql %} では、コンパイラのアクティビティを監視して分析を実行するために、これらの 2 つのステップ間でビルドを行う必要があります。
-1. コンパイルされたコード（C、C++、C#、または Java）は正常にコンパイルされたが、{% data variables.product.prodname_codeql %} がコンパイラの呼び出しを検出できない。 一般的な原因は次のようなものです。
+   詳細については、前述の「[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)」(コンパイル言語の自動ビルドが失敗する) のワークフロー抽出を参照してください。
 
-   * ビルドプロセスを {% data variables.product.prodname_codeql %} とは別のコンテナで実行している。 詳しい情報については、「[コンテナで CodeQL コードスキャンを実行する](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)」を参照してください。
-   * デーモンプロセスを使用して、GitHub Actions の外部で分散ビルドシステムによりビルドしている。
-   * {% data variables.product.prodname_codeql %} は、使用されているコンパイラを認識していない。
+1. {% data variables.product.prodname_code_scanning %} ワークフローでコンパイル言語 (C、C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %} または Java) が分析されているが、コードはコンパイルされていない。 デフォルトでは、{% data variables.product.prodname_codeql %} 分析ワークフローには `autobuild` ステップが含まれていますが、このステップはベスト エフォートプロセスを表しており、特定のビルド環境によっては、コードのビルドに失敗する可能性があります。 `autobuild` ステップを削除し、ビルド ステップを手動で含めない場合も、コンパイルが失敗する可能性があります。  ビルド ステップの指定の詳細については、「[コンパイル言語用の {% data variables.product.prodname_codeql %} ワークフローの構成 を参照してください](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」。
+1. ワークフローでコンパイル言語 (C、C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %} または Java) が分析されているが、パフォーマンスを向上させるためにビルドの一部がキャッシュされている (Gradle や Bazel などのビルド システムで発生する可能性が最も高い)。 {% data variables.product.prodname_codeql %} はコンパイラのアクティビティを監視してリポジトリ内のデータフローを理解するため、{% data variables.product.prodname_codeql %} は分析を実行するために完全なビルドを実行する必要があります。
+1. ワークフローでコンパイル言語 (C、C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %} または Java) が分析されているが、ワークフローの `init` と `analyze` ステップの間でコンパイルが行われていない。 {% data variables.product.prodname_codeql %} では、コンパイラのアクティビティを監視して分析を実行するために、これらの 2 つのステップ間でビルドを行う必要があります。
+1. コンパイル済みコード (C、C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}または Java) は正常にコンパイルされたが、{% data variables.product.prodname_codeql %} でコンパイラの呼び出しを検出できない。 最も一般的な原因を次に示します。
 
-  .NET Framework プロジェクト、および`dotnet build` または `msbuild` を使用する C# プロジェクトでは、コードをビルドするときに、ワークフローの `run` ステップで `/p:UseSharedCompilation=false` を指定する必要があります。
+   - ビルドプロセスを {% data variables.product.prodname_codeql %} とは別のコンテナで実行している。 詳細については、「[Running CodeQL code scanning in a container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)」(コンテナーでの CodeQL コード スキャンの実行) を参照してください。
+   - デーモンプロセスを使用して、GitHub Actions の外部で分散ビルドシステムによりビルドしている。
+   - {% data variables.product.prodname_codeql %} は、使用されているコンパイラを認識していない。
 
+  .NET Framework プロジェクトの場合、および `dotnet build` または `msbuild` を使用する C# プロジェクトの場合は、コードをビルドするときにワークフローの `run` ステップで `/p:UseSharedCompilation=false` を指定する必要があります。
+  
   たとえば、次の C# に対する設定では、最初のビルドステップ中にフラグが渡されます。
 
    ``` yaml
@@ -132,24 +152,27 @@ topics:
 
   特定のコンパイラまたは設定で別の問題が発生した場合は、{% data variables.contact.contact_support %} までお問い合わせください。
 
-ビルドステップの指定に関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
+ビルド ステップの指定の詳細については、「[コンパイル言語用の {% data variables.product.prodname_codeql %} ワークフローの構成 を参照してください](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」。
 
 {% ifversion fpt or ghes > 3.1  or ghae or ghec %}
-## スキャンされたコードの行数が期待よりも少ない
 
-C/C++、C#、Go、Javaなどのコンパイル言語については、{% data variables.product.prodname_codeql %}は分析の際にビルドされるファイルだけをスキャンします。 したがって、正しくコンパイルされなかったソースコードがある場合、スキャンされるコードの行数は期待よりも少なくなります。 これが生じるにはいくつかの理由があります。
+## スキャンされたコード行が想定よりも少ない
 
-1. {% data variables.product.prodname_codeql %}の`autobuild`機能が、リポジトリ中のコードをビルドするのにヒューリスティックスを使う。 しかし、このアプローチではリポジトリの分析が不完全に終わることがあります。 たとえば単一のリポジトリ中に複数の`build.sh`コマンドがある場合、`autobuild`ステップがそれらのコマンドの1つだけを実行するため、コンパイルされないソースファイルがでてくることによって、分析が完全ではなくなるかもしれません。
-1. {% data variables.product.prodname_codeql %}では動作しないコンパイラがあり、コードの分析の際に問題が生じることがあります。 たとえばProject Lombokは非公開のコンパイラAPIを使ってコンパイラの動作を変更しています。 これらのコンパイラの変更で使われている推定は{% data variables.product.prodname_codeql %}のJava extractorでは有効ではないため、コードは分析できません。
+C/C++、C#、Go、Java などのコンパイル言語の場合、{% data variables.product.prodname_codeql %} では、分析中にビルドされたファイルのみがスキャンされます。 そのため、一部のソース コードが正しくコンパイルされていない場合、スキャンされるコード行の数は想定よりも少なくなります。 これは、いくつかの理由で発生します。
 
-{% data variables.product.prodname_codeql %}分析が期待よりも少ないコードの行数しかスキャンしない場合、必要なソースファイルが確実にすべてコンパイルされるようにするために試せる方法がいくつかあります。
+1. {% data variables.product.prodname_codeql %} の `autobuild` 機能では、ヒューリスティックを使用してリポジトリにコードがビルドされます。 ただし、このアプローチではリポジトリの分析が不完全になることがあります。 たとえば、1 つのリポジトリに複数の `build.sh` コマンドが存在する場合、`autobuild` ステップで実行されるコマンドは 1 つのみであるため、一部のソース ファイルがコンパイルされない可能性があります。したがって、分析が完了しない可能性があります。
+1. 一部のコンパイラは {% data variables.product.prodname_codeql %} で動作せず、コードの分析中に問題が発生する可能性があります。 たとえば、Project Lombok では、パブリックでないコンパイラ API を使用してコンパイラの動作が変更されます。 これらのコンパイラの変更で用いられる想定は、{% data variables.product.prodname_codeql %} の Java 抽出子では有効ではないため、コードを分析することができません。
 
-### `autobuild`ステップの置き換え
+{% data variables.product.prodname_codeql %} 分析でスキャンされるコード行が想定よりも少ない場合は、必要なすべてのソース ファイルがコンパイルされるようにいくつかのアプローチを試すことができます。
 
-`autobuild`ステップを本番環境で使っているのと同じビルドコマンドで置き換えてください。 こうすることで、スキャンしたいすべてのソースファイルをコンパイルする正確な方法を{% data variables.product.prodname_codeql %}が知ることができます。 詳しい情報については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
+### `autobuild` ステップを置き換える
 
-### {% data variables.product.prodname_codeql %}コードベース中にあるソースファイルのコピーの検査
-{% data variables.product.prodname_codeql %}データベース中に含まれているソースコードのコピーを調べることで、分析されなかったソースファイルがあるのはなぜなのかを知ることができるかもしれません。 Actionsワークフローからデータベースを取得するには、{% data variables.product.prodname_codeql %}ワークフローファイルの`init`ステップを修正し、`debug: true`を設定してください。
+`autobuild` ステップを、運用環境で使用するのと同じビルド コマンドに置き換えます。 これにより、{% data variables.product.prodname_codeql %} では、スキャンするすべてのソース ファイルをコンパイルする方法を正確に認識できます。
+詳細については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローの構成](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
+
+### {% data variables.product.prodname_codeql %} データベース内のソース ファイルのコピーを調べる
+
+{% data variables.product.prodname_codeql %} データベースに含まれるソース コードのコピーを調べることで、一部のソース ファイルが分析されていない理由を理解できる場合があります。 Actions ワークフローからデータベースを取得するには、{% data variables.product.prodname_codeql %} ワークフロー ファイルの `init` ステップを変更し、`debug: true` を設定します。
 
 ```yaml
 - name: Initialize CodeQL
@@ -158,24 +181,26 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
     debug: true
 ```
 
-これで、データベースがアクションの成果物としてアップロードされ、ローカルマシンにダウンロードできるようになります。 詳しい情報については「[ワークフローの成果物の保存](/actions/guides/storing-workflow-data-as-artifacts)」を参照してください。
+これにより、ローカル コンピューターにダウンロードできるアクション成果物としてデータベースがアップロードされます。 詳細については、「[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)」(ワークフロー成果物の格納) を参照してください。
 
-成果物には、{% data variables.product.prodname_codeql %}によってスキャンされたソースのアーカイブされたコピーが_src.zip_という名前で含まれます。 リポジトリ中のソースコードファイルと_src.zip_中のファイルを比較すれば、どういった種類のファイルが欠けているかが分かります。 分析されなかったファイルの種類が分かれば、{% data variables.product.prodname_codeql %}分析のためのワークフローをどのように変更しなければならないかは簡単に理解できるようになります。
+成果物には、{% data variables.product.prodname_codeql %} によってスキャンされたソース ファイルのアーカイブされたコピー (_src.zip_ と呼ばれる) が含まれます。 リポジトリ内のソース コード ファイルと _src.zip_ 内のファイルを比較すると、不足しているファイルの種類を確認できます。 分析されていないファイルの種類がわかったら、{% data variables.product.prodname_codeql %} 分析のワークフローをどのように変更する必要があるかを容易に理解できます。
 
-## 生成されたコードで見つかったアラート
+## 生成されたコードで検出されたアラート
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-## データベース中の抽出エラー
+## データベースの抽出エラー
 
-{% data variables.product.prodname_codeql %}チームは、すべてのそー祖ファイルが確実にスキャンできるようにするため、重要な抽出エラーに取り組んでいます。 とはいえ、{% data variables.product.prodname_codeql %}の抽出部は、データベースの生成時にエラーを生成する事があります。 {% data variables.product.prodname_codeql %}は、データベースの生成の間に生成された抽出エラーと警告に関する情報を、ログファイル中に提供します。 抽出の診断情報は、全体的なデータベースの健全性を示します。 ほとんどの抽出部のエラーは、分析に大きな影響を与えません。 少数の抽出部のエラーは健全なもので、通常は良好な分析状況を示します。
+{% data variables.product.prodname_codeql %} チームは、すべてのソース ファイルを確実にスキャンできるように、重大な抽出エラーに常に対処しています。 ただし、{% data variables.product.prodname_codeql %} 抽出子では、データベースの作成時にエラーが発生することがあります。 {% data variables.product.prodname_codeql %} では、データベースの作成時にログ ファイル内に生成された抽出エラーおよび警告に関する情報が提供されます。
+抽出診断情報は、データベースの全体的な正常性を示します。 ほとんどの抽出エラーは、分析に大きな影響を及ぼすことはありません。 少数の抽出エラーは正常であり、通常は良好な分析状態を示します。
 
-ただし、データベースの生成の間にコンパイルされたファイルの大部分で抽出部のエラーが出ているなら、エラーの詳細をみていくつかのソースファイルが正しく抽出されなかった理由を利用しようとしてみるべきです。
+ただし、データベースの作成時にコンパイルされたファイルの大部分に抽出エラーが生じる場合は、エラーを詳しく調べて、一部のソース ファイルが正しく抽出されなかった原因を特定する必要があります。
 
 {% else %}
+
 ## リポジトリの一部が `autobuild` を使用して分析されない
 
-{% data variables.product.prodname_codeql %} の `autobuild` 機能は、ヒューリスティックスを使用してリポジトリにコードをビルドしますが、このアプローチでは、リポジトリの分析が不完全になることがあります。 たとえば、単一のリポジトリに複数の `build.sh` コマンドが存在する場合、`autobuild` ステップはコマンドの 1 つしか実行しないため、分析が完了しない場合があります。 これを解決するには、`autobuild` ステップを、分析するすべてのソースコードをビルドするビルドステップに置き換えます。 詳しい情報については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
+{% data variables.product.prodname_codeql %} の `autobuild` 機能では、ヒューリスティックスを使用してリポジトリにコードがビルドされますが、このアプローチではリポジトリの分析が不完全になることがあります。 たとえば、単一のリポジトリに複数の`build.sh` コマンドが存在する場合、`autobuild` ステップで実行されるコマンドは 1 つのみであるため、分析が完了しない場合があります。 これを解決するには、`autobuild` ステップを、分析するすべてのソース コードをビルドするビルド ステップに置き換えます。 詳細については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローの構成](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 {% endif %}
 
 ## ビルドに時間がかかりすぎる
@@ -188,11 +213,11 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 ### マトリックスビルドを使用して分析を並列化する
 
-デフォルトの {% data variables.product.prodname_codeql_workflow %} は言語のマトリクスを使用しており、これにより各言語の解析が並列で実行される場合があります。 「Initialize CodeQL」ステップで解析する言語を直接指定している場合、各言語の解析は順次行われます。 複数の言語で解析を高速化するには、マトリクスを使用するようワークフローを変更してください。 詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
+既定の {% data variables.code-scanning.codeql_workflow %}では、言語のマトリックスを使います。これにより、各言語の解析が並列で実行されます。 「Initialize CodeQL」ステップで解析する言語を直接指定している場合、各言語の解析は順次行われます。 複数の言語で解析を高速化するには、マトリクスを使用するようワークフローを変更してください。 詳細については、前述の「[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)」(コンパイル言語の自動ビルドが失敗する) のワークフロー抽出を参照してください。
 
 ### 1 つのワークフローで分析されるコードの量を減らす
 
-一般的に、分析時間は分析されるコードの量に比例します。 たとえば、テストコードを除外したり、一度にコードのサブセットのみを分析する複数のワークフローに分析を分割したりするなど、一度に分析されるコードの量を減らすことで、分析時間を短縮できます。
+通常、分析時間は、分析対象のコードの量に比例します。 たとえば、テストコードを除外したり、一度にコードのサブセットのみを分析する複数のワークフローに分析を分割したりするなど、一度に分析されるコードの量を減らすことで、分析時間を短縮できます。
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
@@ -200,46 +225,47 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 ### `schedule` イベント中にのみ実行する
 
-それでも分析が遅すぎるために、`push` または `pull_request` イベント中に実行できない場合は、`schedule` イベントでのみ分析をトリガーすることをお勧めします。 詳しい情報については、「[イベント](/actions/learn-github-actions/introduction-to-github-actions#events)」を参照してください。
+`push` イベント中または `pull_request` イベント中の分析の実行に引き続き時間がかかりすぎる場合は、`schedule` イベントでのみ分析をトリガーすることをお勧めします。 詳細については、「[イベント](/actions/learn-github-actions/introduction-to-github-actions#events)」を参照してください。
 
-### ワークフローが実行するクエリスイートの確認
+### ワークフローが実行されているクエリ スイートを確認する
 
-デフォルトでは、各言語で3つの主なクエリスイートがあります。 CodeQLデータベースの構築を最適化し、それでもそのプロセスが長くなりすぎるのであれば、実行するクエリ数を減らすことができます。 デフォルトのクエリスイートは自動的に実行されます。これには、最も誤判定結果の比率が低く、最も高速なセキュリティクエリが含まれます。
+既定では、言語ごとに 3 つの主要なクエリ スイートを使用できます。 CodeQL データベースのビルドを最適化してもプロセスに時間がかかりすぎる場合は、実行するクエリの数を減らすことができます。 既定のクエリ スイートは自動的に実行されます。これには、誤検知結果の割合が最も低い最速のセキュリティ クエリが含まれています。
 
-デフォルトのクエリに加えて、追加のクエリもしくはクエリスイートを実行することもできます。 実行する追加のクエリスイートもしくは追加のクエリをワークフローが定義しているかは、`queries`要素を使って確認してください。 追加のクエリスイートもしくはクエリを無効化して、試してみることができます。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
+既定のクエリに加えて、追加のクエリまたはクエリ スイートを実行している可能性があります。 ワークフローで、`queries` 要素を使用して実行する追加のクエリ スイートまたは追加のクエリが定義されているかどうかを確認します。 追加のクエリ スイートまたはクエリを無効にして試験を行うことができます。 詳細については、「[{% data variables.product.prodname_code_scanning %} の設定](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
 
-{% ifversion codeql-ml-queries %}
-{% note %}
+{% ifversion codeql-ml-queries %} {% note %}
 
-**ノート:** JavaScriptに対して`security-extended`もしくは`security-and-quality`クエリスイートを実行する場合、クエリの中には実験的な技術を使っているものがあります。 詳しい情報については「[Code scanningアラートについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)」を参照してください。
-{% endnote %}
-{% endif %}
+**メモ:** JavaScript で `security-extended` または `security-and-quality` クエリ スイートを実行する場合、一部のクエリでは試験的なテクノロジが使用されます。 詳細については、「[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)」(コード スキャン アラートについて) を参照してください。
+{% endnote %} {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## 分析プラットフォーム間で異なる結果
 
-Pythonで書かれたコードを分析しているなら、{% data variables.product.prodname_codeql_workflow %}をLinux、macOS、Windowsのいずれで実行しているかによって、異なる結果が得られるかもしれません。
+Pythonで書かれたコードを分析している場合は、{% data variables.code-scanning.codeql_workflow %}を Linux、macOS、Windows のどれで実行するかによって、表示される結果が異なることがあります。
 
-GitHubがホストするLinuxを使用したランナーでは、{% data variables.product.prodname_codeql_workflow %}はPythonの依存関係をインストールして分析しようとし、それによってより多くの結果につながることがあります。 自動インストールを無効にするには、ワークフローの"Initialize CodeQL"ステップに`setup-python-dependencies: false`を追加してください。 Pythonの依存関係の分析の設定に関する詳しい情報については「[Pythonの依存関係の分析](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)」を参照してください。
+Linux が使用されている Github ホステッド ランナーの場合、{% data variables.code-scanning.codeql_workflow %}によって、Python 依存関係のインストールと分析が試行されて、さらに多くの結果が得られることがあります。 自動インストールを無効にするには、ワークフローの "Initialize CodeQL" ステップに `setup-python-dependencies: false` を追加します。 Python 依存関係の分析を構成する方法の詳細については、「[Analyzing Python dependencies](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)」(Python 依存関係の分析) を参照してください。
 
 {% endif %}
 
-## エラー: 「サーバーエラー」
+## エラー: "サーバー エラー"
 
 サーバーエラーにより {% data variables.product.prodname_code_scanning %} のワークフローが実行できない場合は、ワークフローを再実行してください。 問題が解決しない場合は、{% data variables.contact.contact_support %} にお問い合わせください。
 
-## エラー:「ディスク不足」または「メモリ不足」
+## エラー: "Out of disk (ディスク不足)" または "メモリ不足"
 
-非常に大きなプロジェクトでは、{% data variables.product.prodname_codeql %}がランナーのディスクあるいはメモリを使い切ってしまうことがあります。
-{% ifversion fpt or ghec %}ホストされた{% data variables.product.prodname_actions %}ランナーでこの問題が生じた場合は、弊社が問題を調査できるよう{% data variables.contact.contact_support %}に連絡してください。
+非常に大規模なプロジェクトでは、{% data variables.product.prodname_codeql %} でランナーのディスクまたはメモリが不足する場合があります。
+{% ifversion fpt or ghec %}ホストされた {% data variables.product.prodname_actions %} ランナーでこの問題が生じた場合は、弊社が問題を調査できるよう {% data variables.contact.contact_support %}に連絡してください。
 {% else %}この問題が生じたら、ランナー上のメモリを増やしてみてください。{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## {% data variables.product.prodname_dependabot %}を使用している際のError: 403 "Resource not accessible by integration"
 
-{% data variables.product.prodname_dependabot %}は、ワークフローの実行をトリガーする際に信頼できないと見なされ、ワークフローは読み取りのみのスコープで実行されます。 ブランチに対する{% data variables.product.prodname_code_scanning %}の結果をアップロードするには、通常`security_events: write`スコープが必要になります。 ただし、`pull_request`イベントがアクションの実行をトリガーした際には、{% data variables.product.prodname_code_scanning %}初音に結果のアップロードを許可します。 これが、{% data variables.product.prodname_dependabot %}ブランチでは`push`イベントの代わりに`pull_request`イベントを使うことをおすすめする理由です。
+{% data variables.product.prodname_dependabot %}は、ワークフローの実行をトリガーする際に信頼できないと見なされ、ワークフローは読み取りのみのスコープで実行されます。 ブランチに対する{% data variables.product.prodname_code_scanning %}の結果をアップロードするには、通常 `security_events: write` スコープが必要になります。 ただし、`pull_request` イベントによってアクションの実行がトリガーされると、{% data variables.product.prodname_code_scanning %}で常に結果のアップロードが許可されます。 そのため、{% data variables.product.prodname_dependabot %} ブランチでは `push` イベントの代わりに `pull_request` イベントを使用することをお勧めします。
 
 シンプルなアプローチは、このブランチ群に対してオープンされたPull Requestとともに、デフォルトブランチやその他の重要な長時間実行されるブランチに対するプッシュで実行することです。
+
 ```yaml
 on:
   push:
@@ -249,7 +275,9 @@ on:
     branches:
       - main
 ```
+
 別のアプローチは、{% data variables.product.prodname_dependabot %}ブランチを除くすべてのプッシュに対して実行することです。
+
 ```yaml
 on:
   push:
@@ -258,25 +286,26 @@ on:
   pull_request:
 ```
 
-### デフォルトブランチで分析が引き続き失敗する
+### 既定のブランチでも分析が失敗する
 
-{% data variables.product.prodname_codeql_workflow %}がデフォルトブランチに対するコミットで依然として失敗するなら、以下を確認してください。
+{% data variables.code-scanning.codeql_workflow %}が、既定のブランチに作成されたコミットでそれでも失敗する場合は、次を確認する必要があります。
+
 - {% data variables.product.prodname_dependabot %}がそのコミットを作成したか
-- コミットを含むPull Requestが`@dependabot squash and merge`を使ってマージされたかどうか
+- コミットを含む pull 要求が `@dependabot squash and merge` を使用してマージされたかどうか
 
-この種のマージコミットは{% data variables.product.prodname_dependabot %}によって作成されるので、このコミットで実行されるワークフローは読み取りのみの権限を持つことになります。 {% data variables.product.prodname_code_scanning %}と{% data variables.product.prodname_dependabot %}のセキュリティ更新またはバージョン更新をリポジトリで有効化した場合は、{% data variables.product.prodname_dependabot %}の`@dependabot squash and merge`コマンドは使わないことをおすすめします。 その代わりに、リポジトリで自動マージを有効化できます。 これは、すべての必須レビューが満たされ、ステータスチェックをパスしたら、Pyll Requestは自動的にマージされるということです。 自動マージの有効化に関する詳しい情報については「[Pull Requestの自動マージ](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)」を参照してください。
+この種のマージコミットは{% data variables.product.prodname_dependabot %}によって作成されるので、このコミットで実行されるワークフローは読み取りのみの権限を持つことになります。 {% data variables.product.prodname_code_scanning %}と {% data variables.product.prodname_dependabot %} のセキュリティ更新またはバージョン更新をリポジトリで有効化した場合は、{% data variables.product.prodname_dependabot %} の `@dependabot squash and merge` コマンドは使用しないことをお勧めします。 代わりに、リポジトリで自動マージを有効にすることができます。 つまり、必要なすべてのレビューが満足され、状態チェックに合格すると、pull request は自動的にマージされます。 自動マージの有効化の詳細については、「[Automatically merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)」(pull 要求の自動マージ) を参照してください。
 {% endif %}
 
-## エラー: "is not a .ql file, .qls file, a directory, or a query pack specification"
+## エラー: ".ql ファイル、.qls ファイル、ディレクトリ、またはクエリ パック仕様ではありません"
 
-CodeQLが名前付きクエリ、クエリスイート、あるいはクエリパックをワークフロー中のリクエストされた場所で見つけられなかった場合、このエラーが表示されます。 このエラーには、2つの一般的な原因があります。
+このエラーは、CodeQL が、ワークフローで要求されている場所で、指定されたクエリ、クエリ スイート、またはクエリ パックを見つけることができない場合に表示されます。 一般に、このエラーには 2 つの理由があります。
 
-- ワークフロー中にタイプミスがある。
-- ワークフローがパスで参照しているリソースの名前が変更されたり、削除されたり、新しい場所に移動されたりしている。
+- ワークフローに入力ミスがあります。
+- ワークフローでパスにより参照されているリソースが、名前を変更、削除、または新しい場所に移動されました。
 
-リソースの場所を確認したあと、ワークフローを更新して正しい場所を指定できます。 Goの分析で追加のクエリを実行する場合、ソースファイルの移動の影響を受けているかもしれません。 詳しい情報については、github/codeql-goリポジトリの[場所の移動のお知らせ:`github/codeql-go`は`github/codeql`に移動しました](https://github.com/github/codeql-go/issues/741)を参照してください。
+リソースの場所を確認した後、正しい場所を指定するようにワークフローを更新できます。
 
-## Warning: "git checkout HEAD^2 is no longer necessary"
+## 警告: "git checkout HEAD^2 is no longer necessary (git checkout HEAD^2 は不要になりました)"
 
 古い{% data variables.product.prodname_codeql %}ワークフローを使っていると、"Initialize {% data variables.product.prodname_codeql %}"アクションからの出力に以下の警告が含まれていることがあります。
 
@@ -286,32 +315,32 @@ necessary. Please remove this step as Code Scanning recommends analyzing the mer
 commit for best results.
 ```
 
-これは、以下の行を{% data variables.product.prodname_codeql %}ワークフローから削除することによって修正してください。 これらの行は、初期バージョンの{% data variables.product.prodname_codeql %}ワークフロー中の`Analyze`ジョブの`steps`セクションに含まれています。
+これは、以下の行を{% data variables.product.prodname_codeql %}ワークフローから削除することによって修正してください。 これらの行は、初期バージョンの {% data variables.product.prodname_codeql %} ワークフロー内の `Analyze` ジョブの `steps` セクションに含まれています。
 
 ```yaml
         with:
-          # これがPull Requestであればheadをチェックアウトできるよう、
-          # 少なくとも直接の親をフェッチしなければならない。
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
           fetch-depth: 2
 
-      # この実行がPull Requestのイベントでトリガされたのなら、
-      # マージコミットの代わりにPull Requestのheadをチェックアウトする。
+      # If this run was triggered by a pull request event, then checkout
+      # the head of the pull request instead of the merge commit.
       - run: git checkout HEAD^2
         if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
-ワークフローの修正された`steps`セクションは以下のようになります。
+ワークフローの変更された `steps` セクションは次のようになります。
 
 ```yaml
     steps:
       - name: Checkout repository
         uses: {% data reusables.actions.action-checkout %}
 
-      # {% data variables.product.prodname_codeql %} ツールをスキャンニングのために初期化。.
+      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
       - name: Initialize {% data variables.product.prodname_codeql %}
         uses: {% data reusables.actions.action-codeql-action-init %}
 
       ...
 ```
 
-{% data variables.product.prodname_codeql %} ワークフローファイルの編集に関する詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を編集する](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。
+{% data variables.product.prodname_codeql %} ワークフロー ファイルの編集の詳細については、「[{% data variables.product.prodname_code_scanning %} の構成](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。

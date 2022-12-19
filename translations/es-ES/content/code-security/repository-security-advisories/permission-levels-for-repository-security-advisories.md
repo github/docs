@@ -1,45 +1,50 @@
 ---
-title: Niveles de permiso para las asesorías de seguridad de los repositorios
-intro: Las acciones que puedes tomar en una asesoría de seguridad de un repositorio dependen de si tienes permisos de escritura o administración para ella.
+title: Niveles de permiso para avisos de seguridad de repositorios
+intro: Las acciones que puedes tomar en una asesoría de seguridad de repositorio dependen de si tienes permisos de administrador o de escritura en esta.
 redirect_from:
-  - /articles/permission-levels-for-maintainer-security-advisories
-  - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
-  - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
-  - /code-security/security-advisories/permission-levels-for-security-advisories
+- /articles/permission-levels-for-maintainer-security-advisories
+- /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
+- /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
+- /code-security/security-advisories/permission-levels-for-security-advisories
 versions:
   fpt: '*'
   ghec: '*'
 type: reference
 topics:
-  - Security advisories
-  - Vulnerabilities
-  - Permissions
-shortTitle: Niveles de permiso
+- Security advisories
+- Vulnerabilities
+- Permissions
+shortTitle: Permission levels
+ms.openlocfilehash: 9c2ad0d30b98b79786df09a224766bd826cb84f6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145119393"
 ---
+Este artículo solo se aplica a los avisos de seguridad de nivel de repositorio. Cualquiera puede contribuir a los avisos de seguridad globales en {% data variables.product.prodname_advisory_database %} en [github.com/advisories](https://github.com/advisories). Las ediciones a las asesorías globales no cambiarán ni afectarán la forma en la que se muestra la asesoría en el repositorio.  Para más información, vea "[Edición de avisos de seguridad en {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)".
 
-Este artículo solo aplica a las asesorías de seguridad a nivel de repositorio. Cualquiera puede contribuir con las asesorías de seguridad global en la {% data variables.product.prodname_advisory_database %} que se ubica en [github.com/advisories](https://github.com/advisories). Las ediciones a las asesorías globales no cambiarán ni afectarán la forma en la que se muestra la asesoría en el repositorio.  Para obtener más información, consulta la sección "[Editar las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)".
+## Introducción sobre los permisos
 
-## Resumen de permisos
+{% data reusables.repositories.security-advisory-admin-permissions %} Para más información sobre cómo agregar un colaborador a un aviso de seguridad, vea "[Adición de un colaborador a un aviso de seguridad de repositorio](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)".
 
-{% data reusables.repositories.security-advisory-admin-permissions %} Para obtener más información sobre cómo añadir un colaborador a una asesoría de seguridad, consulta la sección "[Añadir un colaborador a una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)".
+Acción | Permisos de escritura | Permisos de administrador |
+------ | ----------------- | ----------------- |
+Ver un borrador de asesoría de seguridad | x | x |
+Agregar colaboradores al aviso de seguridad (vea "[Adición de un colaborador a un aviso de seguridad de repositorio](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)") | | x |
+Editar y borrar cualquier comentario en la asesoría de seguridad | x | x |
+Crear una bifurcación privada temporal en el aviso de seguridad (vea "[Colaboración en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad del repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | | x |
+Agregar cambios a una bifurcación privada temporal en el aviso de seguridad (vea "[Colaboración en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad del repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | x | x |
+Crear solicitudes de incorporación de cambios en una bifurcación privada temporal (vea "[Colaboración en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad del repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | x | x |
+Combinar cambios en el aviso de seguridad (vea "[Colaboración en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad del repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | | x |
+Agregar y editar metadatos en el aviso de seguridad (vea "[Publicación de un aviso de seguridad de repositorio](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)") | x | x |
+Agregar y quitar créditos en el aviso de seguridad (vea "[Edición de un aviso de seguridad de repositorio](/code-security/repository-security-advisories/editing-a-repository-security-advisory)") | x | x |
+Cerrar el borrador de la asesoría de seguridad | | x |
+Publicar el aviso de seguridad (vea "[Publicación de un aviso de seguridad de repositorio](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)") | | x |
 
-| Acción                                                                                                                                                                                                                                                                                                                                                        | Permisos de escritura | Permisos de administrador |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------- |
-| Ver un borrador de asesoría de seguridad                                                                                                                                                                                                                                                                                                                      | X                     | X                         |
-| Añadir colaboradores a la asesoría de seguridad (consulta la sección "[Añadir un colaborador a una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)")                                                                                                          |                       | X                         |
-| Editar y borrar cualquier comentario en la asesoría de seguridad                                                                                                                                                                                                                                                                                              | X                     | X                         |
-| Crear una bifurcación privada temporal en la asesoría de seguridad (consulta la sección "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad de un repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability))             |                       | X                         |
-| Añadir cambios a una bifurcación privada temporal en la asesoría de seguridad (consulta la sección "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad de un repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | X                     | X                         |
-| Crear solicitudes de extracción en una bifurcación privada temporaria (consulta "[Colaborar en una bifurcación privada temporaria para resolver una vulnerabilidad de seguridad de un repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)")                  | X                     | X                         |
-| Fusionar cambios en la asesoría de seguridad (consulta la sección "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad de un repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)")                                  |                       | X                         |
-| Añadir y editar los metadatos de la asesoría de seguridad (consulta la sección "[Publicar una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)")                                                                                                                             | X                     | X                         |
-| Agrega y elimina los créditos para una asesoría de seguridad (consulta "[Editar una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/editing-a-repository-security-advisory)")                                                                                                                                          | X                     | X                         |
-| Cerrar el borrador de la asesoría de seguridad                                                                                                                                                                                                                                                                                                                |                       | X                         |
-| Publicar la asesoría de seguridad (consulta la sección "[Publicar una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)")                                                                                                                                                     |                       | X                         |
+## Información adicional
 
-## Leer más
-
-- "[Agregar un colaborador a una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
-- "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad de repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
-- "[Eliminar a un colaborador de una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)"
-- "[Retirar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[Adición de un colaborador a un aviso de seguridad de repositorio](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
+- "[Colaboración en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad del repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
+- "[Eliminación de un colaborador de un aviso de seguridad del repositorio](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)"
+- "[Retirada de un aviso de seguridad de repositorio](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

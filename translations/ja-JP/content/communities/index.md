@@ -1,7 +1,7 @@
 ---
 title: コミュニティを構築する
-shortTitle: コミュニティを構築する
-intro: 'Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub’s community-tested tools.'
+shortTitle: Building communities
+intro: GitHub のコミュニティでテストされたツールを使用して、共同で安全かつ効果的なコミュニティをモデレートおよび設定するためのベスト プラクティスについて学びます。
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
@@ -35,5 +35,11 @@ children:
   - /moderating-comments-and-conversations
   - /maintaining-your-safety-on-github
   - /documenting-your-project-with-wikis
+ms.openlocfilehash: f6149257ddb7cd77e8ed933d44229be5a46268bb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145090310'
 ---
 

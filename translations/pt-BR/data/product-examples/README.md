@@ -1,20 +1,28 @@
+---
+ms.openlocfilehash: 51fbe18842922b1c8fad2535d2f67230413933c2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145065445"
+---
 # Exemplos de chegada de produto
 
-As páginas que usam o layout de `product-landing` podem, opcionalmente, incluir uma seção de `exemplos`. Atualmente, apoiamos três tipos de exemplos:
+As páginas que usam o layout `product-landing` podem, opcionalmente, incluir uma seção `Examples`. Atualmente, apoiamos três tipos de exemplos:
 
-1. Exemplos de código Consulte https://docs.github.com/en/codespaces#code-examples.
+1. Exemplos de código Confira https://docs.github.com/en/codespaces#code-examples.
 
-2. Exemplos da comunidade Consulte https://docs.github.com/en/discussions#community-examples.
+2. Exemplos da comunidade Confira https://docs.github.com/en/discussions#community-examples.
 
-3. Exemplos do usuário Consulte https://docs.github.com/en/sponsors#community-examples.
+3. Exemplos de usuário Confira https://docs.github.com/en/sponsors#community-examples.
 
-## Como funciona
+## Como ele funciona
 
-Os dados de exemplo para cada produto são definidos em `data/product-landing-examples`, em um subdiretório denominado para o produto **** e um arquivo YML denominado para o tipo de **** (p. ex., `data/product-examples/sponsors/user-examples.yml` ou `data/product-examples/codespaces/code-examples.yml`). Atualmente, temos compatibilidade com apenas um tipo de exemplo por produto.
+Os dados de exemplo para cada produto são definidos em `data/product-landing-examples`, em um subdiretório nomeado para o **produto** e um arquivo YML nomeado para o **tipo de exemplo** (por exemplo, `data/product-examples/sponsors/user-examples.yml` ou `data/product-examples/codespaces/code-examples.yml`). Atualmente, temos compatibilidade com apenas um tipo de exemplo por produto.
 
-### Controle de Versão
+### Controle de versão
 
-No momento, o versionamento só é compatível em exemplos de código. Se um bloco de exemplo tiver de estar disponível em **todas** as versões, você não precisa fazer nada especial. Mas se um bloco de exemplo só tiver de estar disponível em algumas versões, você poderá adicionar uma propriedade de `versões` como esta:
+No momento, o versionamento só é compatível em exemplos de código. Se um bloco de exemplo precisar estar disponível em **todas** as versões, você não precisará fazer nada especial. Mas se um bloco de exemplo só precisar estar disponível em algumas versões, você poderá adicionar um objeto `versions` como este:
 
 ```
 - title: Dependabot version update PR
@@ -29,14 +37,14 @@ No momento, o versionamento só é compatível em exemplos de código. Se um blo
     fpt: '*'
   ```
 
-em que a sintaxe para `versões` é a mesma que a propriedade [versões`frontmatter`](content/README.md) e pode ser compatível com a notação semver.
+em que a sintaxe `versions` é igual à [propriedade frontmatter `versions`](content/README.md) e pode dar suporte à notação semver.
 
-## Interpretação
+## Renderização
 
-Os dados de exemplo do produto são adicionados ao objeto de contexto `` em `middleware/contextualizers/product-examples.js`.
+Os dados de exemplo do produto são adicionados ao objeto `context` em `middleware/contextualizers/product-examples.js`.
 
-Os dados são interpretados por `components/landing`.
+Em seguida, os dados são renderizados por `components/landing`.
 
-## Aplicação de esquema
+## Imposição de esquema
 
-A FAZER
+TODO

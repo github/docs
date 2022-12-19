@@ -13,7 +13,7 @@ children:
   - /about-issues
   - /quickstart
   - /creating-an-issue
-  - /about-task-lists
+  - /about-tasklists
   - /linking-a-pull-request-to-an-issue
   - /creating-a-branch-for-an-issue
   - /assigning-issues-and-pull-requests-to-other-github-users

@@ -1,8 +1,8 @@
 ---
-title: デプロイメント環境
+title: デプロイ環境
 allowTitleToDifferFromFilename: true
-shortTitle: 環境
-intro: Deployment environments APIを使うと、デプロイメント環境の作成、設定、削除ができます。
+shortTitle: Environments
+intro: デプロイ環境 API を使うと、デプロイ環境の作成、構成、および削除を行うことができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,10 +11,15 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: edee188d051c352cde25550ffa465439b1da6ea1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066379'
 ---
+## デプロイ環境 API について
 
-## Deployment environments APIについて
-
-環境に関する詳しい情報については「[デプロイメントでの環境の利用](/actions/deployment/using-environments-for-deployment)」を参照してください。 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
+環境の詳細については、「[デプロイに環境を使用する」を](/actions/deployment/using-environments-for-deployment)参照してください。 環境シークレットを管理するには、「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
 {% data reusables.gated-features.environments %}

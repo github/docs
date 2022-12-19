@@ -39,5 +39,11 @@ children:
   - /releasing-projects-on-github
   - /viewing-activity-and-data-for-your-repository
   - /archiving-a-github-repository
+ms.openlocfilehash: 8644edb5a572bedc1bd2e032f43e964be6a068f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145136860'
 ---
 

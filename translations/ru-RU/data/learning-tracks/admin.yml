@@ -1,0 +1,139 @@
+get_started_with_github_ae:
+  title: 'Начало работы с {% data variables.product.prodname_ghe_managed %}'
+  description: 'Узнайте больше о {% данных variables.product.prodname_ghe_managed %}, а также о том, как завершить начальную настройку нового предприятия.'
+  featured_track: true
+  versions:
+    ghae: '*'
+  guides:
+    - /admin/overview/about-github-ae
+    - /admin/overview/about-data-residenc
+    - /admin/configuration/configuring-your-enterprise/deploying-github-ae
+    - /admin/configuration/initializing-github-ae
+    - /admin/configuration/restricting-network-traffic-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-github-ae
+
+deploy_an_instance:
+  title: 'Развертывание экземпляра'
+  description: 'Установите {% данных variables.product.prodname_ghe_server %} на желательной платформе и настройте проверку подлинности SAML.'
+  featured_track: true
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/overview/system-overview
+    - /admin/installation
+    - /admin/configuration/accessing-the-management-console
+    - /admin/configuration/configuring-a-hostname
+    - /admin/authentication/using-saml
+    - /admin/configuration/site-admin-dashboard
+
+upgrade_your_instance:
+  title: 'Обновление экземпляра'
+  description: 'Тестируйте обновления на промежуточном этапе, уведомляйте пользователей об обслуживании и обновляйте свой экземпляр, чтобы получить новейшие возможности и обновления системы безопасности.'
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/enterprise-management/enabling-automatic-update-checks
+    - /admin/installation/setting-up-a-staging-instance
+    - /admin/enterprise-management/upgrade-requirements
+    - /admin/user-management/customizing-user-messages-for-your-enterprise
+    - /admin/configuration/enabling-and-scheduling-maintenance-mode
+    - /admin/enterprise-management/upgrading-github-enterprise-server
+
+adopting_github_actions_for_your_enterprise_ghec:
+  title: 'Внедрение GitHub Actions для предприятия'
+  description: 'Узнайте, как спланировать и реализовать выпуск {% data variables.product.prodname_actions %} на вашем предприятии.'
+  versions:
+    ghec: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+
+adopting_github_actions_for_your_enterprise_ghes_and_ghae:
+  title: 'Внедрение GitHub Actions для предприятия'
+  description: 'Узнайте, как спланировать и реализовать выпуск {% data variables.product.prodname_actions %} на вашем предприятии.'
+  versions:
+    ghes: '*'
+    ghae: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+
+increase_fault_tolerance:
+  title: 'Повышение отказоустойчивости экземпляра'
+  description: "Создайте резервную копию кода разработчика и настройте высокий уровень доступности (HA), чтобы гарантировать надежность {% data variables.product.prodname_ghe_server %} в вашем окружении."
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/configuration/accessing-the-administrative-shell-ssh
+    - /admin/configuration/configuring-backups-on-your-appliance
+    - /admin/enterprise-management/about-high-availability-configuration
+    - /admin/enterprise-management/creating-a-high-availability-replica
+    - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
+
+improve_security_of_your_instance:
+  title: 'Повышение безопасности экземпляра'
+  description: "Проверьте конфигурацию сети и возможности системы безопасности, и усилите безопасность экземпляра, на котором выполняется {% data variables.product.prodname_ghe_server %}, чтобы защитить данные предприятия."
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/configuration/enabling-private-mode
+    - /admin/guides/installation/configuring-tls
+    - /admin/configuration/troubleshooting-ssl-errors
+    - /admin/configuration/enabling-subdomain-isolation
+    - /admin/configuration/accessing-the-administrative-shell-ssh
+    - /admin/configuration/network-ports
+    - /admin/configuration/configuring-built-in-firewall-rules
+    - /admin/user-management/best-practices-for-user-security
+    - /admin/user-management/promoting-or-demoting-a-site-administrator
+
+configure_github_actions:
+  title: 'Настройка {% data variables.product.prodname_actions %}'
+  description: 'Используйте {% data variables.product.prodname_actions %}, чтобы позволить разработчикам создавать, автоматизировать, настраивать и выполнять мощные рабочие процессы разработки программного обеспечения для {% data variables.product.product_location %}.'
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
+    - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
+    - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
+    - /admin/github-actions/high-availability-for-github-actions
+    - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+    - /admin/github-actions/using-a-staging-environment
+
+configure_github_advanced_security:
+  title: 'Настройка {% data variables.product.prodname_GH_advanced_security %}'
+  description: "Улучшайте качество и безопасность кода разработчика с помощью {% data variables.product.prodname_GH_advanced_security %}."
+  versions:
+    ghes: '*'
+  guides:
+    - /admin/advanced-security/about-licensing-for-github-advanced-security
+    - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
+    - /admin/advanced-security/configuring-code-scanning-for-your-appliance
+    - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
+    - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
+    - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+
+get_started_with_your_enterprise_account:
+  title: 'Начало работы с корпоративной учетной записью'
+  description: 'Начните работу с корпоративной учетной записью, чтобы централизовано управлять несколькими организациями в {% data variables.product.product_name %}.'
+  versions:
+    ghes: '*'
+    ghec: '*'
+  guides:
+    - /admin/overview/about-enterprise-accounts
+    - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
+    - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+    - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+    - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

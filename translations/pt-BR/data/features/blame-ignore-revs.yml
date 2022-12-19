@@ -1,6 +1,5 @@
----
-#Reference: #6378.
-#Documentation for the `.git-blame-ignore-revs` file and the blame view
+# Reference: #6378.
+# Documentation for the `.git-blame-ignore-revs` file and the blame view
 versions:
   fpt: '*'
   ghec: '*'

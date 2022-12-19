@@ -1,4 +1,5 @@
-#Reference: Issue #7510 - Dependabot alerts: "Most important" sort (prioritization score) - [GA]
+# Reference: Issue #7510 - Dependabot alerts: "Most important" sort (prioritization score) - [GA]
+
 versions:
   fpt: '*'
   ghec: '*'

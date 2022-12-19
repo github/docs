@@ -1,49 +1,54 @@
 ---
-title: Gerenciando sua assinatura do GitHub Copilot
-intro: 'Configure seu teste de {% data variables.product.prodname_copilot %} e gerencie sua assinatura.'
+title: Como gerenciar sua assinatura do GitHub Copilot
+intro: Configure sua avaliação do {% data variables.product.prodname_copilot %} e gerencie sua assinatura.
 versions:
   feature: copilot
 type: how_to
 topics:
-  - Copilot
-shortTitle: Sua assinatura do GitHub Copilot
+- Copilot
+shortTitle: Your GitHub Copilot subscription
+ms.openlocfilehash: 9cdd9e46dcbfe433f5d0b6ba25bda4c798dca06b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884154"
 ---
-
-## Configurando um teste de {% data variables.product.prodname_copilot %}
+## Como configurar uma avaliação de {% data variables.product.prodname_copilot %} 
 
 {% data reusables.copilot.signup-procedure %}
 
-## Modificando sua assinatura de {% data variables.product.prodname_copilot %}
+## Como modificar sua assinatura do {% data variables.product.prodname_copilot %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
 1. Na seção "{% data variables.product.prodname_copilot %}", selecione a lista suspensa **Editar**.
    - Se você estiver em um ciclo de cobrança mensal, selecione **Alterar para cobrança anual**.
-   - Se você estiver em um ciclo de cobrança anual, selecione **Alterar para cobrança mensal**. ![Captura de tela da seção GitHub Copilot na página de cobrança com o menu suspenso destacado](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
+   - Se você estiver em um ciclo de cobrança anual, selecione **Alterar para cobrança mensal**.
+   ![Captura de tela da seção do GitHub Copilot na página de faturamento com o menu suspenso de edição enfatizado](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
+   
 
+## Como cancelar sua assinatura do {% data variables.product.prodname_copilot %}
 
-## Cancelando sua assinatura de {% data variables.product.prodname_copilot %}
+Você pode cancelar sua assinatura do {% data variables.product.prodname_copilot %} a qualquer momento. Se você cancelar durante sua avaliação de 60 dias, não haverá cobranças. Se você não cancelar sua assinatura do {% data variables.product.prodname_copilot %} antes do final da avaliação de 60 dias, a cobrança será feita de acordo com o ciclo selecionado ao configurar a avaliação.
 
-Você pode cancelar a sua assinatura de {% data variables.product.prodname_copilot %} a qualquer momento. Se você cancelar até 60 dias, você não será cobrado. Se você não cancelar a sua assinatura {% data variables.product.prodname_copilot %} antes do final do período de teste de 60 dias, você será cobrado de acordo com o ciclo de cobrança selecionado na configuração do teste.
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
 1. Na seção "{% data variables.product.prodname_copilot %}", selecione a lista suspensa **Editar**.
-   - Se você tem uma assinatura paga, clique em **Cancelar {% data variables.product.prodname_copilot %}**.
+   - Se você tiver uma assinatura paga, clique em **Cancelar {% data variables.product.prodname_copilot %}** .
+   
+   ![Captura de tela da seção GitHub Copilot na página de cobrança com a opção Cancelar GitHub Copilot enfatizada](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
 
-   ![Captura de tela da seção GitHub Copilot na página de cobrança com a opção de cancelamento do GitHub Copilot destacada](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
+   - Se você está dentro do período de avaliação de 60 dias, clique em **Cancelar avaliação**.
+   ![Captura de tela da seção GitHub Copilot na página de cobrança com a opção cancelar avaliação enfatizada](/assets/images/help/copilot/copilot-cancel-trial.png)
 
-   - Se você estiver no seu período de teste de 60 dias, clique em **Cancelar teste**. ![Captura de tela da seção Copilot GitHub na página de cobrança com a opção de teste destacada](/assets/images/help/copilot/copilot-cancel-trial.png)
+2. No modal "Cancelar dados {% data variables.product.prodname_copilot %}", clique em **Entendi, cancelar {% data variables.product.prodname_copilot %}**
 
-2. Na modalidade "Cancelar {% data variables.product.prodname_copilot %}", clique em **Eu entendi, cancele {% data variables.product.prodname_copilot %}**
+   ![Captura de tela do modal de cancelamento do GitHub Copilot com o botão Entendi, cancelar GitHub Copilot enfatizado](/assets/images/help/copilot/copilot-cancel-modal.png)
 
-   ![Captura de tela do modo de cancelamento do GitHub Copilot com o botão "Eu entendi, cancelar o GitHub Copilot" destacado](/assets/images/help/copilot/copilot-cancel-modal.png)
+   - Se você está dentro do período de avaliação de 60 dias, clique em **Entendi, cancelar avaliação do {% data variables.product.prodname_copilot %}** .
 
-   - Se você estiver no período de avaliação de 60 dias, clique em **Eu entendi, cancele o teste de {% data variables.product.prodname_copilot %} **.
+   ![Captura de tela do GitHub Copilot cancelar modal de avaliação com eu entendo, botão cancelar avaliação enfatizado](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
 
-   ![Captura de tela do modo de teste do GitHub Copilot com o botão "Eu entendi, cancelar teste" destacado](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
+## Leitura adicional
 
-## Leia mais
-
-- [Sobre {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
-- [Primeiros passos com {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
+- [Sobre o {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [Introdução ao {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)

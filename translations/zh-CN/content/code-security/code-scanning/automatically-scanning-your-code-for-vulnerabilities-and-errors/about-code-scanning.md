@@ -1,6 +1,6 @@
 ---
-title: About code scanning
-intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
+title: 关于代码扫描
+intro: '您可以使用 {% data variables.product.prodname_code_scanning %} 在 {% data variables.product.prodname_dotcom %} 上查找项目中的安全漏洞和代码错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/about-automated-code-scanning
@@ -16,43 +16,45 @@ type: overview
 topics:
   - Advanced Security
   - Code scanning
+ms.openlocfilehash: 0bf49aa695e9e5a60cef7eb78c6e44f5ecd4ece5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145084417'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
-
-## About {% data variables.product.prodname_code_scanning %}
+## 关于 {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_capc %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
+您可以使用 {% data variables.product.prodname_code_scanning %} 来查找代码中现有的问题，并且对其进行分类和确定修复的优先级。 {% data variables.product.prodname_code_scanning_capc %} 还可防止开发者引入新问题。 你可安排在特定日期和时间进行扫描，或在存储库中发生特定事件（例如推送）时触发扫描。
 
-If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+如果 {% data variables.product.prodname_code_scanning %} 发现您的代码中可能存在漏洞或错误，{% data variables.product.prodname_dotcom %} 会在仓库中显示警报。 在修复触发警报的代码之后，{% data variables.product.prodname_dotcom %} 将关闭警报。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
 
-To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see 
-"[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)." For information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)." 
+要监控您的仓库或组织的 {% data variables.product.prodname_code_scanning %} 结果，您可以使用 web 挂钩和 {% data variables.product.prodname_code_scanning %} API。 有关用于 {% data variables.product.prodname_code_scanning %} 的 Webhook 的信息，请参阅“[Webhook 事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。 有关 API 终结点的信息，请参阅“[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)”。 
 
-To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+若要开始使用 {% data variables.product.prodname_code_scanning %}，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
 
 {% ifversion fpt or ghec %}
 
-## About billing for {% data variables.product.prodname_code_scanning %}
+## 关于 {% data variables.product.prodname_code_scanning %} 的计费
 
-{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}，{% data variables.product.prodname_code_scanning %} 工作流程的每次运行将耗用 {% data variables.product.prodname_actions %} 的分钟数。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 
 {% endif %}
 
-## About tools for {% data variables.product.prodname_code_scanning %}
+## 关于 {% data variables.product.prodname_code_scanning %} 的工具
 
-You can set up {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short%} or a third-party {% data variables.product.prodname_code_scanning %} tool. 
+您可以将 {% data variables.product.prodname_code_scanning %} 设置为使用由 {% data variables.product.company_short%} 或第三方 {% data variables.product.prodname_code_scanning %} 工具维护的 {% data variables.product.prodname_codeql %} 产品。 
 
-### About {% data variables.product.prodname_codeql %} analysis
+### 关于 {% data variables.product.prodname_codeql %} 分析
 
-{% data reusables.code-scanning.about-codeql-analysis %} For more information about {% data variables.product.prodname_codeql %}, see "[About code scanning with CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+{% data reusables.code-scanning.about-codeql-analysis %} 有关 {% data variables.product.prodname_codeql %} 的详细信息，请参阅“[关于使用 CodeQL 进行代码扫描](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)”。
 
-### About third-party {% data variables.product.prodname_code_scanning %} tools
+### 关于第三方 {% data variables.product.prodname_code_scanning %} 工具
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
-You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
+您可以使用操作在 {% data variables.product.product_name %} 内或者在外部 CI 系统内运行第三方分析工具。 有关详细信息，请参阅“[为存储库设置代码扫描](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”或“[将 SARIF 文件上传到 GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)”。

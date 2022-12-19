@@ -88,7 +88,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
     },
   }
 }

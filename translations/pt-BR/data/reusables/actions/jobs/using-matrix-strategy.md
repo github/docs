@@ -1,4 +1,12 @@
-Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Dentro da sua matriz, defina uma ou mais variáveis seguidas por uma matriz de valores. Por exemplo, a seguinte matriz tem uma variável denominada `versão` com o valor `[10, 12, 14]` e uma variável denominada `os` com o valor `[ubuntu-latest, windows-latest]`:
+---
+ms.openlocfilehash: 02f279903abd69f50ad55aa88462c9c8e4b9a1a8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145085278"
+---
+Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Dentro de sua matriz, defina uma ou mais variáveis seguidas por uma matriz de valores. Por exemplo, a matriz a seguir tem uma variável chamada `version` com o valor `[10, 12, 14]` e uma variável chamada `os` com o valor `[ubuntu-latest, windows-latest]`:
 
 ```yaml
 jobs:
@@ -9,9 +17,9 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 ```
 
-Um trabalho será executado para cada combinação das variáveis possível. Neste exemplo, o fluxo de trabalho irá executar seis trabalhos, um para cada combinação das variáveis `os` e `versão`.
+Um trabalho será executado para cada combinação possível das variáveis. Neste exemplo, o fluxo de trabalho executará seis trabalhos, um para cada combinação das variáveis `os` e `version`. 
 
-Por padrão, {% data variables.product.product_name %} maximizará o número de trabalhos executados em paralelo dependendo da disponibilidade do executor. A ordem das variáveis na matriz determina a ordem em que os trabalhos são criados. A primeira variável que você definir será o primeiro trabalho criado na execução do fluxo de trabalho. Por exemplo, a matriz acima irá criar os trabalhos na seguinte ordem:
+Por padrão, o {% data variables.product.product_name %} maximizará o número de trabalhos executados em paralelo, dependendo da disponibilidade do executor. A ordem das variáveis na matriz determina a ordem na qual os trabalhos são criados. A primeira variável definida será o primeiro trabalho criado na execução do fluxo de trabalho. Por exemplo, a matriz acima criará os trabalhos na seguinte ordem:
 
 - `{version: 10, os: ubuntu-latest}`
 - `{version: 10, os: windows-latest}`
@@ -20,6 +28,6 @@ Por padrão, {% data variables.product.product_name %} maximizará o número de 
 - `{version: 14, os: ubuntu-latest}`
 - `{version: 14, os: windows-latest}`
 
-Uma matriz gerará no máximo 256 trabalhos por execução do fluxo de trabalho. Este limite aplica-se tanto a executores hospedados em {% data variables.product.product_name %} quanto a executores auto-hospedados.
+Uma matriz pode gerar 256 tarefas no máximo por execução do fluxo de trabalho. Esse limite se aplica a executores hospedados pelo {% data variables.product.product_name %}e auto-hospedados.
 
-As variáveis que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Neste exemplo, você pode usar a `matriz.version` e `matrix.os` para acessar o valor atual de `versão` e `os` que o trabalho está usando. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+As variáveis que você define se tornam propriedades no contexto `matrix`, e você pode referenciar a propriedade em outras áreas do arquivo de fluxo de trabalho. Neste exemplo, você pode usar `matrix.version` e `matrix.os` para acessar o valor atual de `version` e `os` que o trabalho está usando. Para obter mais informações, confira "[Contextos](/actions/learn-github-actions/contexts)".

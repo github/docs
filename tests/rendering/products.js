@@ -16,9 +16,6 @@ describe('mobile-only products nav', () => {
 
     ['/desktop', 'GitHub Desktop'],
     ['/actions', 'GitHub Actions'],
-
-    // localized
-    ['/ja/desktop', 'GitHub Desktop'],
   ]
 
   test.each(cases)('on %p, renders current product %p', async (url, name) => {

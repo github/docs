@@ -1,6 +1,6 @@
 ---
 title: About GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.'
 redirect_from:
   - /articles/what-are-github-pages
   - /articles/what-is-github-pages
@@ -40,7 +40,7 @@ Organization owners can disable the publication of {% data variables.product.pro
 
 ## Types of {% data variables.product.prodname_pages %} sites
 
-There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.product_name %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.product_name %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 To publish a user site, you must create a repository owned by your personal account that's named {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif ghae %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
@@ -57,7 +57,7 @@ For more information about how custom domains affect the URL for your site, see 
 You can only create one user or organization site for each account on {% data variables.product.product_name %}. Project sites, whether owned by an organization or a personal account, are unlimited.
 
 {% ifversion ghes %}
-The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.product.product_location %}.
+The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.location.product_location %}.
 
 | Type of site | Subdomain isolation enabled | Subdomain isolation disabled |
 | ------------ | --------------------------- | ---------------------------- |
@@ -79,10 +79,11 @@ For more information, see "[Configuring a publishing source for your GitHub Page
 
 {% ifversion ghec %}
 ## Limitations for {% data variables.product.prodname_emus %}
-If you're a {% data variables.product.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
+If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
 
   - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
   - {% data variables.product.prodname_pages %} sites are only visible to other members of the enterprise.
+  - You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
 
 For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
 {% endif %}
@@ -126,6 +127,7 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
 {% ifversion fpt or ghec %}
   - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
   - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
+  - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 

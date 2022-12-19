@@ -15,39 +15,43 @@ topics:
   - Containers
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
+ms.openlocfilehash: 0572a326d52654b256e0e1ad7fe9c9c4e9d547ac
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147409548'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
+このガイドは、`main` ブランチへのプッシュがある場合、{% data variables.product.prodname_actions %} を使ってコンテナー化されたアプリケーションをビルドし、それを Google Container Registry (GCR) にプッシュし、Google Kubernetes Engine (GKE) にデプロイする方法を説明します。
 
-GKEはGoogle CloudによるマネージドなKubernetesクラスタサービスで、コンテナ化されたワークロードをクラウドもしくはユーザ自身のデータセンターでホストできます。 詳しい情報については[Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)を参照してください。
+GKEはGoogle CloudによるマネージドなKubernetesクラスタサービスで、コンテナ化されたワークロードをクラウドもしくはユーザ自身のデータセンターでホストできます。 詳細については、「[Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)」を参照してください。
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**注釈**: {% data reusables.actions.about-oidc-short-overview %}
+**注**: {% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
 
 {% endif %}
 
-## 必要な環境
+## 前提条件
 
-ワークフローの作成に進む前に、Kubernetesプロジェクトについて以下のステップを完了しておく必要があります。 このガイドは、プロジェクトのルートに`Dockerfile`とKubernetes Deployment設定ファイルがすでに存在することを前提としています。 例としては[google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke)を参照してください。
+ワークフローの作成に進む前に、Kubernetesプロジェクトについて以下のステップを完了しておく必要があります。 このガイドは、プロジェクトのルートに `Dockerfile` と Kubernetes Deployment 構成ファイルが既にあることを前提としています。 例については、[google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke) を参照してください。
 
 ### GKEクラスタの作成
 
-GKEクラスタを作成するには、まず`gcloud` CLIで認証を受けなければなりません。 このステップに関する詳しい情報については、以下の記事を参照してください。
+GKE クラスターを作成するには、まず `gcloud` CLI を使用して認証する必要があります。 このステップに関する詳しい情報については、以下の記事を参照してください。
 - [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
 - [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
-- [`gcloud` CLIとCloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
+- [`gcloud` CLI と Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
 
-例:
+次に例を示します。
 
 {% raw %}
 ```bash{:copy}
@@ -59,7 +63,7 @@ $ gcloud container clusters create $GKE_CLUSTER \
 
 ### APIの有効化
 
-Kubernetes Engine及びContainer Registry APIを有効化してください。 例:
+Kubernetes Engine及びContainer Registry APIを有効化してください。 次に例を示します。
 
 {% raw %}
 ```bash{:copy}
@@ -71,16 +75,14 @@ $ gcloud services enable \
 
 ### サービスアカウントの設定と資格情報の保存
 
-この手順は、GKEインテグレーション用のサービスアカウントの作成方法を示します。 It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
+この手順は、GKEインテグレーション用のサービスアカウントの作成方法を示します。 アカウントを作成し、ロールを追加し、そのキーを取得し、`GKE_SA_KEY` という名前の、base64 でエンコードされた暗号化されたリポジトリ シークレットとして格納する方法について説明します。
 
-1. 新しいサービスアカウントを作成してください。
-  {% raw %}
+1. 新しいサービス アカウントを作成します。{% raw %}
   ```
   $ gcloud iam service-accounts create $SA_NAME
   ```
   {% endraw %}
-1. 作成したサービスアカウントのメールアドレスを取得してください。
-  {% raw %}
+1. 作成したサービス アカウントのメール アドレスを取得します。{% raw %}
   ```
   $ gcloud iam service-accounts list
   ```
@@ -99,28 +101,25 @@ $ gcloud services enable \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
-1. サービスアカウントのJSONキーファイルをダウンロードしてください。
-  {% raw %}
+1. サービス アカウントの JSON キーファイルをダウンロードします。{% raw %}
   ```
   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
   ```
   {% endraw %}
-1. Store the service account key as a secret named `GKE_SA_KEY`:
-  {% raw %}
+1. サービス アカウント キーを `GKE_SA_KEY` という名前のシークレットとして格納します。{% raw %}
   ```
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
-  {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  {% endraw %} シークレットを格納する方法の詳細については、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
-### Storing your project name
+### プロジェクト名の保存
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+プロジェクトの名前を `GKE_PROJECT` という名前のシークレットとして保存します。 シークレットを保存する方法の詳細については、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
 ### （オプション）kustomizeの設定
-Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. 詳しい情報については、「[kustomize の使い方](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
+Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 `kustomization` ファイルを作成した後、次のワークフローを使用して、イメージのフィールドを動的に設定し、結果を `kubectl` にパイプできます。 詳細については、「[kustomize の使用](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
 
-### (Optional) Configure a deployment environment
+### (省略可能) デプロイ環境を構成する
 
 {% data reusables.actions.about-environments %}
 
@@ -128,9 +127,9 @@ Kustomizeは、YAML仕様を管理するために使われるオプションの�
 
 必要な環境を整えたら、ワークフローの作成に進むことができます。
 
-以下のワークフロー例は、コンテナイメージを作成して GCR にプッシュする方法を示しています。 次に、Kubernetes ツール（`kubectl` や `kustomize` など）を使用して、イメージをクラスタデプロイメントにプルします。
+以下のワークフロー例は、コンテナイメージを作成して GCR にプッシュする方法を示しています。 次に、Kubernetes ツール (`kubectl` や `kustomize` など) を使用して、イメージがクラスター デプロイにプルされます。
 
-Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+`env` キーの下で、`GKE_CLUSTER` の値をクラスターの名前に、`GKE_ZONE` をクラスター ゾーンに、`DEPLOYMENT_NAME` をデプロイの名前に、`IMAGE` をイメージの名前に変更します。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -190,18 +189,18 @@ jobs:
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
 
-    # Docker イメージを Google Container Registry にプッシュする
+    # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
         docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
 
-    # kustomize を設定する
+    # Set up kustomize
     - name: Set up Kustomize
       run: |-
         curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
 
-    # Docker イメージを GKE クラスタにデプロイする
+    # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
         ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
@@ -210,11 +209,11 @@ jobs:
         kubectl get services -o wide
 ```
 
-## 追加リソース
+## その他のリソース
 
 これらの例で使用されているツールの詳細については、次のドキュメントを参照してください。
 
-* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
-* その他のスターターワークフローと付随するコードについては、Google の[{% data variables.product.prodname_actions %}ワークフローの例](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/)を参照してください。
-* Kubernetes YAML のカスタマイズエンジンは、「[Kustomize](https://kustomize.io/)」を参照してください。
-* Google Kubernetes Engine のドキュメントにある「[コンテナ化された Web アプリケーションのデプロイ](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)」を参照してください。
+* 完全なスターター ワークフローについては、「["GKE へのビルドとデプロイ" ワークフロー](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml)」を参照してください。
+* より多くのスターター ワークフローと付随するコードについては、Google の [{% data variables.product.prodname_actions %} サンプル ワークフロー](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/)を参照してください。
+* Kubernetes YAML カスタマイズ エンジン: [Kustomize](https://kustomize.io/)。
+* Google Kubernetes Engine ドキュメントの「[コンテナ化されたウェブ アプリケーションのデプロイ](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)」。

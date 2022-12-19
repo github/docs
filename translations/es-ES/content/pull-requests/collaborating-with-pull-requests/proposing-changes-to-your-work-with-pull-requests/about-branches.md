@@ -1,6 +1,6 @@
 ---
-title: About branches
-intro: 'Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. You can merge a branch into another branch using a pull request.'
+title: Acerca de las ramas
+intro: Usa una rama para identificar tareas de desarrollo sin afectar otras ramas en el repositorio. Cada repositorio tiene una rama por defecto y puede tener muchas otras ramas. Puedes fusionar una rama en otra rama usando una solicitud de extracción.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
   - /articles/working-with-protected-branches
@@ -14,69 +14,74 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 0262a7a8fb0bb8556c3f6062e3fc8512eb9fa1c6
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145139658'
 ---
-## About branches
+## Acerca de las ramas
 
-Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
+Las ramas te permiten desarrollar características, corregir errores, o experimentar con seguridad las ideas nuevas en un área contenida de tu repositorio.
 
-You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository. A branch you create to build a feature is commonly referred to as a feature branch or topic branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository/)."
+Siempre puedes crear una rama a partir de otra rama existente. Habitualmente, puedes crear una rama nueva desde la rama predeterminada de tu repositorio. Podrás entonces trabajar en esta rama nueva aislado de los cambios que otras personas hacen al repositorio. A la rama que creas para construir una característica se le conoce como rama de característica o rama de tema. Para más información, vea "[Creación y eliminación de ramas dentro del repositorio](/articles/creating-and-deleting-branches-within-your-repository/)".
 
-You can also use a branch to publish a {% data variables.product.prodname_pages %} site. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)."
+También puedes usar una rama para publicar un sitio {% data variables.product.prodname_pages %}. Para más información, vea "[Acerca de {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)".
 
-You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
+Debes tener acceso de escritura para un repositorio para crear una rama, abrir una solicitud de extracción o eliminar y restablecer ramas en una solicitud de extracción. Para más información, vea "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)".
 
-## About the default branch
+## Acerca de la rama predeterminada
 
-{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
+{% data reusables.branches.new-repo-default-branch %} La rama predeterminada es la rama que {% data variables.product.prodname_dotcom %} muestra cuando alguien visita tu repositorio. La rama predeterminada también es la rama inicial que Git verifica localmente cuando alguien clona el repositorio. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
+De manera predeterminada, {% data variables.product.product_name %} asigna el nombre `main` a la rama predeterminada en cualquier repositorio nuevo.
 
 {% data reusables.branches.change-default-branch %}
 
 {% data reusables.branches.set-default-branch %}
 
-## Working with branches
+## Trabajando con las ramas
 
-Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the *head* branch) into another branch (the *base* branch). For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+Cuando esté satisfecho, puede abrir una solicitud de incorporación de cambios para combinar los cambios de la rama actual (la rama *head*) en otra (la rama *base*). Para más información, vea "[Acerca de las solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 
-After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
+Después de que se ha fusionado o cerrado la solicitud de extracción, puedes borrar la rama de encabezado, dado que ésta ya no se requerirá. Debes tener acceso de escritura en el repositorio para borrar las ramas. No puedes borrar ramas que estén directamente asociadas con solicitudes de extracción abiertas. Para más información, vea "[Eliminación y restauración de ramas en una solicitud de incorporación de cambios](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)".
 
-{% data reusables.pull_requests.retargeted-on-branch-deletion %}
-The following diagrams illustrate this.
+{% data reusables.pull_requests.retargeted-on-branch-deletion %} Esto se ilustra en los diagramas siguientes.
 
- Here someone has created a branch called `feature1` from the `main` branch, and you've then created a branch called `feature2` from `feature1`. There are open pull requests for both branches. The arrows indicate the current base branch for each pull request. At this point, `feature1` is the base branch for `feature2`. If the pull request for `feature2` is merged now, the `feature2` branch will be merged into `feature1`.
+ Aquí alguien ha creado una rama llamada `feature1` a partir de la rama `main` y, después, ha creado una rama llamada `feature2` a partir de `feature1`. Hay solicitudes de extracción abiertas para ambas ramas. Las flechas indican la rama base actual para cada solicitud de extracción. En este momento, `feature1` es la rama base de `feature2`. Si ahora se combina la solicitud de incorporación de cambios de `feature2`, la rama `feature2` se combinará en `feature1`.
 
  ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram1.png)
 
-In the next diagram, someone has merged the pull request for `feature1` into the `main` branch, and they have deleted the `feature1` branch. As a result, {% data variables.product.prodname_dotcom %} has automatically retargeted the pull request for `feature2` so that its base branch is now `main`.
+En el diagrama siguiente, alguien ha combinado la solicitud de incorporación de cambios para `feature1` en la rama `main` y ha eliminado la rama `feature1`. Como resultado, {% data variables.product.prodname_dotcom %} ha redestinado automáticamente la solicitud de incorporación de cambios para `feature2` de forma que ahora su rama base sea `main`.
 
  ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram2.png)
 
-Now when you merge the `feature2` pull request, it'll be merged into the `main` branch.
+Ahora, al combinar la solicitud de incorporación de cambios `feature2`, se combinará en la rama `main`.
 
-## Working with protected branches
+## Trabajar con ramas protegidas
 
-Repository administrators can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
+Los administradores de un repositorio pueden activar las protecciones en una rama. Si estás trabajando en una rama que está protegida, no podrás eliminar ni hacer un empuje forzado a la rama. Los administradores de un repositorio además pueden activar varios parámetros de rama protegida para implementar varios flujos de trabajo antes de que se pueda fusionar una rama.
 
 {% note %}
 
-**Note:** If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."
+**Nota:** Si es administrador de un repositorio, puede combinar las solicitudes de incorporación de cambios en ramas con protecciones de rama habilitadas incluso si la solicitud de incorporación de cambios no cumple con los requisitos, a menos que las protecciones de rama se hayan establecido en "Incluir administradores".
 
 {% endnote %}
 
-To see if your pull request can be merged, look in the merge box at the bottom of the pull request's **Conversation** tab. For more information, see "[About protected branches](/articles/about-protected-branches)."
+Para ver si se puede combinar la solicitud de incorporación de cambios, busque en el cuadro de combinación situado en la parte inferior de la pestaña **Conversación** de la solicitud de incorporación de cambios. Para más información, vea "[Acerca de las ramas protegidas](/articles/about-protected-branches)".
 
-When a branch is protected:
+Cuando una rama está protegida:
 
-- You won't be able to delete or force push to the branch.
-- If required status checks are enabled on the branch, you won't be able to merge changes into the branch until all of the required CI tests pass. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
-- If required pull request reviews are enabled on the branch, you won't be able to merge changes into the branch until all requirements in the pull request review policy have been met. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
-- If required review from a code owner is enabled on a branch, and a pull request modifies code that has an owner, a code owner must approve the pull request before it can be merged. For more information, see "[About code owners](/articles/about-code-owners)."
-- If required commit signing is enabled on a branch, you won't be able to push any commits to the branch that are not signed and verified. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
-- If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. For more information, see "[Resolving a merge conflict on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)."
+- No podrás eliminar ni hacer un empuje forzado a la rama.
+- Si las verificaciones de estado requeridas están activadas en la rama, no podrás fusionar cambios en la rama hasta que todas las pruebas de integración continua (CI) requeridas estén aprobadas. Para más información, vea "[Acerca de las comprobaciones de estado](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)".
+- Si las revisiones de solicitud de extracción requeridas están activadas en la rama, no podrás fusionar cambios en la rama hasta que se hayan cumplido todos los requisitos en la política de revisión de solicitud de extracción. Para más información, vea "[Combinación de una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)".
+- Si la revisión requerida de un propietario del código está activada en una rama y una solicitud de extracción modifica un código que tiene un propietario, un propietario del código debe aprobar la solicitud de extracción antes de que se pueda fusionar. Para más información, vea "[Acerca de los propietarios del código](/articles/about-code-owners)".
+- Si la firma de confirmación requerida está activada en una rama, no podrás subir ninguna confirmación de cambios a la rama que no esté firmada ni verificada. Para más información, vea "[Acerca de la comprobación de firmas de confirmación](/articles/about-commit-signature-verification)" y "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-signed-commits)".
+- Si utilizas el editor de conflictos de {% data variables.product.prodname_dotcom %} para arreglar los conflictos de una solicitud de cambios que creaste desde una rama protegida, {% data variables.product.prodname_dotcom %} te ayuda a crear una rama alternativa para la solicitud de cambios para que tu resolución de conflictos se pueda fusionar. Para más información, vea "[Resolución de un conflicto de combinación en {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)".
 
-## Further reading
+## Información adicional
 
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
+- "[Acerca de las solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[Rama](/articles/github-glossary/#branch)" en el glosario de {% data variables.product.prodname_dotcom %}
+- "[Resumen de las ramas](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" en la documentación de Git

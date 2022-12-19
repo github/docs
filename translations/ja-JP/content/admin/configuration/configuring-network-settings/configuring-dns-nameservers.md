@@ -15,9 +15,14 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure DNS servers
+ms.openlocfilehash: b01dc25b9002bf1feb672bbce597c8046b93f12f
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147419714'
 ---
-
-指定するネームサーバは、{% data variables.product.product_location %}のホスト名を解決できなければなりません。
+指定するネームサーバは、{% data variables.product.product_location %} のホスト名を解決する必要があります。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -31,13 +36,13 @@ shortTitle: Configure DNS servers
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. 詳しい情報については、「[コマンドラインユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)」を参照してください。
+2. ネームサーバーを編集するには、ビジュアル モードで `ghe-setup-network` コマンドを使います。 詳細については、「[コマンド ライン ユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)」を参照してください。
 
   ```shell
   ghe-setup-network -v
   ```
 
-5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+5. 新しいネームサーバー エントリを {% data variables.product.product_location %} に追加するには、次を実行します。
 
   ```shell
   sudo service resolvconf restart

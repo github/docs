@@ -20,6 +20,12 @@ children:
   - /publicizing-or-hiding-organization-membership
   - /managing-your-scheduled-reminders
   - /removing-yourself-from-an-organization
-shortTitle: Administrar la membrecía de la organización
+shortTitle: Manage organization membership
+ms.openlocfilehash: 6cd19e2321d928b73942d99f46a48b0501d813fb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145165073'
 ---
 

@@ -8,11 +8,11 @@ export const Contribution = () => {
   const { t } = useTranslation('contribution_cta')
 
   const contributionHref = relativePath
-    ? `https://github.com/github/docs/edit/main/content/${relativePath}`
+    ? `https://github.com/github/docs/blob/main/content/${relativePath}`
     : 'https://github.com/github/docs'
 
   return (
-    <div className="hide-sm hide-md f5 contribution">
+    <div className="f5 contribution">
       <h2 className="f4 mb-3">{t`title`}</h2>
       <p className="max-w-xs color-fg-muted mb-3">{t`body`}</p>
       <a className="btn color-border-accent-emphasis" href={contributionHref}>

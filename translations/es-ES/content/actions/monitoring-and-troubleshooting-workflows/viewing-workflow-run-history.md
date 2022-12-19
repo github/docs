@@ -8,20 +8,21 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Visualizar el historial de ejecución de un flujo de trabajo
+shortTitle: View workflow run history
+ms.openlocfilehash: bfef1ccd9f15480000332aec3ced6dc326cb9af3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121217'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-read %}
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
 
 {% endwebui %}
 
@@ -31,19 +32,19 @@ shortTitle: Visualizar el historial de ejecución de un flujo de trabajo
 
 ### Visualizar las ejecuciones de flujo de trabajo recientes
 
-Para listar las ejecuciones de flujo de trabajo recientes, utiliza el subcomando `run list`.
+Para enumerar las ejecuciones de flujo de trabajo recientes, use el subcomando `run list`.
 
 ```shell
 gh run list
 ```
 
-Para especificar la cantidad máxima de ejecuciones a devolver, puedes utilizar el marcador `-L` o `--limit`. Por defecto es `10`.
+Para especificar la cantidad máxima de ejecuciones se deben devolver, puede usar la marca `-L` o `--limit`. El valor predeterminado es `10`.
 
 ```shell
 gh run list --limit 5
 ```
 
-Para que se devuelvan únicamente las ejecuciones del flujo de trabajo especificado, puedes utilizar el marcador `-w` o `--workflow`.  Reemplaza a `workflow` ya sea con el nombre, ID o nombre de archivo del flujo de trabajo. Por ejemplo `"Link Checker"`, `1234567`, o `"link-check-test.yml"`.
+Para devolver solo ejecuciones del flujo de trabajo especificado, puede usar la marca `-w` o `--workflow`.  Reemplace `workflow` por el nombre del flujo de trabajo, el identificador de flujo de trabajo o el nombre de archivo de flujo de trabajo. Por ejemplo, `"Link Checker"`, `1234567` o `"link-check-test.yml"`.
 
 ```shell
 gh run list --workflow <em>workflow</em>
@@ -51,31 +52,31 @@ gh run list --workflow <em>workflow</em>
 
 ### Visualizar los detalles de una ejecución de flujo de trabajo específica
 
-Para mostrar los detalles de una ejecución de flujo de trabajo específica, utiliza el subcomando `run view`. Reemplaza `run-id` con la ID de la ejecución que quieres ver. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas una ejecución reciente.
+Para mostrar los detalles de una ejecución de flujo de trabajo específica, use el subcomando `run view`. Reemplace `run-id` por el id. de la ejecución que desea visualizar. Si no especifica ningún `run-id`, la {% data variables.product.prodname_cli %} devuelve un menú interactivo para que elija una ejecución reciente.
 
 ```shell
 gh run view <em>run-id</em>
 ```
 
-Par aincluir los pasos del job en la salida, utiliza el marcador `-v` o `--verbose`.
+Para incluir los pasos del trabajo en la salida, use la marca `-v` o `--verbose`.
 
 ```shell
 gh run view <em>run-id</em> --verbose
 ```
 
-Para ver los detalles de un job específico en la ejecución, utiliza el marcador `-j` o `--job`.  Reemplaza a `job-id` con la ID del job que quieres ver.
+Para ver los detalles de una ejecución específica, use la marca `-j` o `--job`.  Reemplace `job-id` por el id. del trabajo que desea visualizar.
 
 ```shell
 gh run view --job <em>job-id</em>
 ```
 
-Para ver la bitácora completa de un job, utiliza el marcador `--log`.
+Para ver el registro completo de un trabajo, use la marca `--log`.
 
 ```shell
 gh run view --job <em>job-id</em> --log
 ```
 
-Utiliza el marcador `--exit-status` para salir con un estado diferente a cero si la ejecución falló. Por ejemplo:
+Use la marca `--exit-status` para salir con un estado distinto de cero si se produjo un error en la ejecución. Por ejemplo:
 
 ```shell
 gh run view 0451 --exit-status && echo "run pending or passed"

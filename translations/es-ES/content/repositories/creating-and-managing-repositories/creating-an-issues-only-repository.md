@@ -14,10 +14,15 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Repositorio exclusivo para propuestas
+shortTitle: Issues-only repository
+ms.openlocfilehash: 76450c6d3bddd02ab3e389b35e6ce67d01ffd771
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145136909'
 ---
-
-1. Crea un repositorio **privado** para alojar el código fuente de tu proyecto.
+1. Crea un repositorio **privado** para hospedar el código fuente del proyecto.
 2. Crea un segundo repositorio con los permisos que deseas alojar para el usuario a cargo del seguimiento de la propuesta.
 3. Agrega un archivo README al repositorio de propuestas que explique el propósito de este repositorio y establezca un enlace con la sección de las propuestas.
 4. Indica a tus colaboradores o equipos que den acceso a los repositorios que desees.

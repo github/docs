@@ -9,15 +9,20 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Proveedor de identidad no disponible
+shortTitle: Unavailable identity provider
+ms.openlocfilehash: fd965c2c847378936e10ff5cc5560397a09ca372
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119170'
 ---
-
-Los administradores de la organización pueden usar [uno de los códigos de reuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)para saltear un inicio de sesión único. Puedes haber guardado esto en un administrador de contraseñas tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).
+Los administradores de la organización pueden usar [uno de sus códigos de recuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para omitir el inicio de sesión único. Es posible que los haya guardado en un administrador de contraseñas, como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).
 
 {% data reusables.saml.recovery-code-caveats %}
 
 {% data reusables.saml.recovery-code-access %}
 
-## Leer más
+## Información adicional
 
-- [Acerca de la administración de acceso e identidad con SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Acerca de la administración de acceso e identidad con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

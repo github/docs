@@ -13,7 +13,9 @@ const article: PlaygroundArticleT = {
   intro: dedent`
   This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **Java** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
   
-  If you want to add a dev container configuration for another programming language, click the language button to the right.
+  To work through the instructions in this guide you will use a codespace, in either the Visual Studio Code desktop application or the VS Code web client.
+  
+  These instructions are for Java. If you want to add a dev container configuration for another programming language, click the language button to the right.
   `,
   prerequisites: dedent`
   - You should have an existing Java project in a repository on GitHub.com. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-java
@@ -27,11 +29,11 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Step 1: Open your project in a codespace',
       content: dedent`
-        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on BRANCH**.
+        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click the plus sign (+).
 
             ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-           If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+           If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces) for more information.
 
         When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
         
@@ -51,15 +53,23 @@ const article: PlaygroundArticleT = {
 
         To set up your repository to use a custom dev container, you will need to create one or more \`devcontainer.json\` files. You can add these either from a template, in Visual Studio Code, or you can write your own. For more information on dev container configurations, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-        1. Access the Command Palette (\`Shift + Command + P\` / \`Ctrl + Shift + P\`), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
-          !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+        1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
+        
+           !["Codespaces: Add Development Container Configuration Files..." in the Command Palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+           
         2. For this example, click **Java**. In practice, you could select any container that’s specific to Java or a combination of tools such as Java and Azure Functions.
-          ![Select Java option from the list](/assets/images/help/codespaces/add-java-prebuilt-container.png)
+        
+           ![Select Java option from the list](/assets/images/help/codespaces/add-java-prebuilt-container.png)
+           
         3. Click the recommended version of Java.
-          ![Java version selection](/assets/images/help/codespaces/add-java-version.png)
+        
+           ![Java version selection](/assets/images/help/codespaces/add-java-version.png)
+           
         4. Select any additional features to install and click **OK**.
-        5. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
-          ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+        5. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+        
+           ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+           
       `,
     },
     {
@@ -185,9 +195,13 @@ const article: PlaygroundArticleT = {
          
            For more information about \`devcontainer.json\` properties, see the Visual Studio Code documentation: "[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)."
 
-        4. Access the command palette (\`Shift + Command + P\`/ \`Ctrl + Shift + P\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
-          ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
-          Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+        4. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+        
+           ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+           
+           Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+
+           You may occasionally want to perform a full rebuild to clear your cache and rebuild your container with fresh images. For more information, see "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
       `,
     },
     {

@@ -1,0 +1,4 @@
+# Issue 8166
+versions:
+  fpt: '*'
+  ghec: '*'

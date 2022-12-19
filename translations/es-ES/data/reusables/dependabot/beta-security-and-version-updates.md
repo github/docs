@@ -1,21 +1,25 @@
-{% ifversion ghes > 3.2 and ghes < 3.5 %}
+---
+ms.openlocfilehash: cca6231c0ad9d50053abc2284ab766e038a1c6a9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109937"
+---
+{% ifversion ghes < 3.5 %}
 
-{% note %}
-{% ifversion ghes = 3.4 %}
-**Nota:** La seguridad del {% data variables.product.prodname_dependabot %} y las actualizaciones de versión actualmente se encuentran en beta público y están sujetas a cambios.
-{% else %}
-**Nota:** La seguridad y actualizaciones de versión del {% data variables.product.prodname_dependabot %} se encuentran actualmente en beta privado y están sujetas a cambios. Por favor, [contacta a tu equipo de administración de cuenta](https://enterprise.github.com/contact) para obtener las instrucciones para habilitar las actualizaciones del Dependabot.
+{% note %} {% ifversion ghes = 3.4 %} **Nota:** Las actualizaciones de seguridad y versión de {% data variables.product.prodname_dependabot %} se encuentran actualmente en versión beta pública y están sujetas a cambios.
+{% else %} **Nota:** Las actualizaciones de seguridad y versión de {% data variables.product.prodname_dependabot %} se encuentran actualmente en versión beta privada y están sujetas a cambios. Póngase en [contacto con el equipo de administración de cuentas](https://enterprise.github.com/contact) para obtener instrucciones sobre cómo habilitar las actualizaciones de Dependabot.
 {% endif %}
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion ghae-issue-5867 %}
+{% ifversion ghae = 3.4 %}
 
 {% note %}
 
-**Nota:** La seguridad del {% data variables.product.prodname_dependabot %} y las actualizaciones de versión actualmente se encuentran en beta público y están sujetas a cambios.
+**Nota:** Las actualizaciones de seguridad y versión de {% data variables.product.prodname_dependabot %} se encuentran actualmente en versión beta pública y están sujetas a cambios.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}

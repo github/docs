@@ -1,1 +1,9 @@
-Checks data older than 400 days is archived. As part of the archiving process {% data variables.product.prodname_dotcom %} creates a rollup commit status representing the state of all of the checks for that commit. As a consequence, the merge box in any pull request with archived checks that are required will be in a blocked state and you will need to rerun the checks before you can merge the pull request.
+---
+ms.openlocfilehash: f95dd69778640ad4be04e0bfdab340d351845c38
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147066014"
+---
+Comprueba que los datos anteriores a 400 días están archivados. Como parte del proceso de archivado, {% data variables.product.prodname_dotcom %} crea un estado de confirmación de acumulación que representa el estado de todas las comprobaciones de esa confirmación. Como consecuencia, el cuadro de combinación de cualquier solicitud de incorporación de cambios con comprobaciones archivadas necesarias estará en un estado bloqueado y tendrás que volver a ejecutar las comprobaciones antes de que puedas combinar la solicitud de incorporación de cambios.

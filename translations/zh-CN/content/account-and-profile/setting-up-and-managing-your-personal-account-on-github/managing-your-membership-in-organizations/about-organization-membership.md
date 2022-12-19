@@ -1,6 +1,6 @@
 ---
-title: About organization membership
-intro: You can become a member of an organization to collaborate with coworkers or open-source contributors across many repositories at once.
+title: 关于组织成员资格
+intro: 您可以成为组织的成员，以便一次在多个仓库中与同事或开源贡献者协作。
 redirect_from:
   - /articles/about-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/about-organization-membership
@@ -14,40 +14,46 @@ versions:
 topics:
   - Accounts
 shortTitle: Organization membership
+ms.openlocfilehash: be1f2901ed18c98edf5e05c453dec5d3c443955f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164801'
 ---
-An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+组织所有者可邀请您作为成员、帐单管理员或所有者加入其组织。 组织所有者或者对仓库具有管理员权限的成员可邀请您作为外部协作者，协作处理一个或多个仓库。 有关详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
-You can access organizations you're a member of on your profile page. For more information, see "[Accessing an organization](/articles/accessing-an-organization)."
+您可以在个人资料页面上访问您是其成员的组织。 有关详细信息，请参阅“[访问组织](/articles/accessing-an-organization)”。
 
-When you accept an invitation to join an organization, the organization owners may be able to see:
+当您接受加入组织的邀请后，组织所有者可能会看到：
 
-- Your public profile information
-- Your email address
-- If you have two-factor authorization enabled
-- Repositories you have access to within the organization, and your access level
-- Certain activity within the organization
-- Country of request origin
-- Your IP address
+- 您的公共资料信息
+- 你的电子邮件地址
+- 您是否启用双重身份验证
+- 您在组织内可以访问的仓库以及您的权限级别
+- 组织内的特定活动
+- 申请来源国家/地区
+- 您的 IP 地址
 
-For more information, see the <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Privacy Statement</a>.
+有关详细信息，请参阅 <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} 隐私声明</a>。
 
   {% note %}
 
-  **Note:** Owners are not able to view member IP addresses in the organization's audit log. In the event of a security incident, such as an account compromise or inadvertent sharing of sensitive data, organization owners may request details of access to private repositories. The information we return may include your IP address.
+  注意：所有者无法在组织的审核日志中查看成员 IP 地址。 在发生安全事件时，例如帐户被盗或因疏忽而共享敏感数据，组织所有者可能会申请详细访问私有仓库。 我们返回的信息可能包含您的 IP 地址。
 
   {% endnote %}
 
-By default, your organization membership visibility is set to private. You can choose to publicize individual organization memberships on your profile. For more information, see "[Publicizing or hiding organization membership](/articles/publicizing-or-hiding-organization-membership)."
+默认情况下，您的组织成员资格可见性会设为私密。 您可以选择在您的个人资料中公开个人组织成员资格。 有关详细信息，请参阅“[公开或隐藏组织成员身份](/articles/publicizing-or-hiding-organization-membership)”。
 
 {% ifversion fpt or ghec %}
 
-If your organization belongs to an enterprise account, you are automatically a member of the enterprise account and visible to enterprise account owners. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+如果您的组织属于某个企业帐户，您会自动成为该企业帐户的成员，企业帐户所有者能够看到您。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}”。{% else %}."{% endif %}
 
 {% endif %}
 
-You can leave an organization at any time. For more information, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization)."
+您可以随时离开组织。 有关详细信息，请参阅“[从组织中删除自己](/articles/removing-yourself-from-an-organization)”。
 
-## Further reading
+## 延伸阅读
 
-- "[About organizations](/articles/about-organizations)"
-- "[Managing your membership in organizations](/articles/managing-your-membership-in-organizations)"
+- “[关于组织](/articles/about-organizations)”
+- [管理组织中的成员身份](/articles/managing-your-membership-in-organizations)

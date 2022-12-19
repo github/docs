@@ -6,7 +6,7 @@ jobs:
   call-workflow-passing-data:
     uses: octo-org/example-repo/.github/workflows/reusable-workflow.yml@main
     with:
-      username: mona
+      config-path: .github/labeler.yml
     secrets:
       envPAT: ${{ secrets.envPAT }}
 ```
@@ -21,7 +21,7 @@ jobs:
   call-workflow-passing-data:
     uses: octo-org/example-repo/.github/workflows/reusable-workflow.yml@main
     with:
-      username: mona
+      config-path: .github/labeler.yml
     secrets: inherit
 ```
 {% endraw %}

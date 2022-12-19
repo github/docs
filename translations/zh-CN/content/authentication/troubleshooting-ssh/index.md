@@ -25,5 +25,11 @@ children:
   - /error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
   - /error-unknown-key-type
   - /error-were-doing-an-ssh-key-audit
+ms.openlocfilehash: aaf218a14122d77f251f52c9253c67726e943d56
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145084560'
 ---
 

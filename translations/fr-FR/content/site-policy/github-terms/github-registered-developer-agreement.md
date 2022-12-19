@@ -1,0 +1,130 @@
+---
+title: Contrat GitHub pour les Développeurs Enregistrés
+redirect_from:
+  - /articles/github-registered-developer-agreement
+  - /github/site-policy/github-registered-developer-agreement
+versions:
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
+ms.openlocfilehash: 13a5143dbc6013c71d97078e9a8e44c96c5def3c
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556464'
+---
+GitHub a la chance d’avoir de nombreux développeurs qui intègrent sa plateforme. Nous pensons que c’est génial, et nous voulons améliorer davantage cette expérience.  Le Programme pour Développeurs de GitHub (le « Programme ») nous aide à prendre contact avec vous, à partager des informations avec vous et à soutenir vos efforts de création mieux que jamais auparavant. La relation spéciale entre GitHub et la communauté des développeurs que le Programme crée nécessite un ensemble de conditions particulières. Bienvenue dans le Contrat pour les Développeurs Enregistrés (« Contrat »).
+
+Le présent Accord est un accord légal entre vous (« vous ») et GitHub, Inc. (« GitHub » ou « nous »).  Veuillez lire attentivement le présent Accord, car il régit votre participation au Programme, et nous ne sommes disposés à vous laisser participer au Programme que si vous en acceptez toutes les présentes conditions. En cliquant sur « J’accepte » ci-dessous, ou en participant au Programme de quelque manière que ce soit, par exemple, en accédant à des informations sur les produits ou les fonctionnalités de GitHub qui ne sont pas encore disponibles au grand public, vous acceptez d’être lié par toutes les conditions du présent Accord. SI VOUS CONCLUEZ LE PRÉSENT CONTRAT AU NOM D’UNE SOCIÉTÉ OU D’UNE AUTRE ENTITÉ JURIDIQUE, VOUS DÉCLAREZ AVOIR L’AUTORITÉ LÉGALE POUR ENGAGER LA RESPONSABILITÉ DE L’ENTITÉ DANS LE PRÉSENT CONTRAT, AUQUEL CAS « VOUS » DÉSIGNERA L’ENTITÉ QUE VOUS REPRÉSENTEZ. SI VOUS N’AVEZ PAS CE POUVOIR, OU SI VOUS N’ACCEPTEZ PAS LES CONDITIONS DU PRÉSENT CONTRAT, VOUS DEVEZ SÉLECTIONNER LE BOUTON « ANNULER » ET VOUS NE POURREZ PAS PARTICIPER AU PROGRAMME. SI VOUS ÊTES UNE SOCIÉTÉ OU UNE AUTRE ENTITÉ LÉGALE, VOUS DÉCLAREZ QUE LA PERSONNE QUI CLIQUE SUR « J’ACCEPTE » A LE POUVOIR D'ENGAGER VOTRE RESPONSABILITÉ DANS LE PRÉSENT CONTRAT.
+
+1. **Les Conditions d’Utilisation de GitHub.com s’appliqueront**
+
+  Vous devez disposer d’un compte sur GitHub.com pour pouvoir participer au Programme.  En cliquant sur « J’accepte » au bas du présent Accord, vous acceptez également d’être lié par les [Conditions Générales d’Utilisation](/articles/github-terms-of-service) de GitHub.com (les « CGU »). En cas de conflit direct entre le présent Accord et les CGU, le présent Accord prévaudra ; sinon, les deux accords s’appliqueront simultanément.
+
+2. **Conditions du Programme**
+
+  Nous affichons les [avantages et directives du programme](/program/) (la « Présentation du Programme »).  Comme vous pouvez vous y attendre, la Présentation du Programme changera de temps à autre. Ces modifications s’appliqueront à vous en tant que participant au Programme. Nous vous encourageons donc à consulter régulièrement la Présentation du Programme afin de vous tenir au courant de toute modification. Pour diverses raisons, nous pouvons être amenés à modifier, suspendre ou interrompre le Programme ou certains des avantages que nous offrons. Vous acceptez que nous puissions agir ainsi sans responsabilité envers vous, sauf dans les cas spécifiés à la Section 8.
+
+3. **Licence API**
+
+  Tant que vous respectez les CGU, le présent Accord et les Conditions du Programme, nous vous accordons une licence limitée, mondiale, non exclusive et non transférable pendant la durée du présent Accord pour accéder à notre API et l’utiliser (comme défini dans les [CGU](/articles/github-terms-of-service)) uniquement dans le but de développer, démontrer, tester et soutenir l’interopérabilité et les intégrations entre vos produits et services et nos produits et services.
+
+  Vous promettez d’avoir un comportement irréprochable lorsque vous utilisez notre API.  Cela signifie, entre autres, que vous vous engagez à ne pas modifier, publier, vendre, louer, concéder sous licence, distribuer et concéder de sous-licence pour notre API, décompiler, désassembler, désosser et tenter de dériver le code source de notre API, reproduire, modifier et créer des travaux dérivés de notre API. Vous vous engagez aussi à ne pas utiliser notre API pour fournir des services de centre de reprographie, d’hébergement d’applications ou de traitement à des tiers ; à ne pas incorporer ou combiner ou intégrer notre API avec l’un de vos produits ou services ; ou à ne pas utiliser notre API pour vous engager dans tout type d’activité illégale ou soutenir ou permettre toute activité de ce type.
+
+  Nous nous réservons le droit, à tout moment, de modifier ou d’interrompre, temporairement ou définitivement, votre accès à l’API (ou toute partie de celle-ci) avec ou sans préavis. Il est de votre seule responsabilité de vous assurer que votre utilisation de l’API est compatible avec l’API alors en vigueur.   En dehors des droits que nous vous accordons expressément dans le présent Accord ou les CGU, nous ne vous accordons aucun droit ou aucune licence sur notre API, ou sur tout autre produit ou service GitHub.
+
+4. **Vos Produits, Services et Intégrations**
+
+  Vos produits, services et intégrations (collectivement, vos « Produits ») sont sous votre responsabilité.  En d’autres termes, vous êtes seul responsable du développement, de l’exploitation et de la maintenance de tous les aspects de vos Produits. Vous devez vous assurer que tous les éléments utilisés avec ou dans vos Produits sont légaux dans toutes les juridictions où ceux-ci sont utilisés et qu’ils ne font pas la promotion d’activités illégales. Vous devez obtenir tous les droits ou toutes les licences nécessaires pour utiliser et/ou distribuer tout logiciel tiers que vous utilisez, incluez, intégrez ou distribuez avec vos Produits ; et vous devez fournir à vos clients utilisateurs finaux le même support technique de haute qualité pour vos Produits lorsqu’ils fonctionnent en conjonction avec notre API ou l’un de nos autres produits et services que lorsqu’ils fonctionnent individuellement.
+
+5. **Marketing et publicité**
+
+  Le marketing et la publicité de vos intégrations avec GitHub sont importants à nos yeux. Nous voulons être sûrs que cela se passe de la bonne manière, c’est pourquoi nous avons inclus un certain langage ici pour clarifier certaines choses à faire et à ne pas faire.
+
+  Vous acceptez de ne faire aucune représentation ou de n’émettre aucune garantie, caution ou approbation à quiconque au nom de GitHub (y compris, entre autres, tout produit ou service de GitHub). Sauf si nous l’autorisons expressément dans les Conditions du Programme, vous vous engagez à ne pas déclarer ou laisser entendre que nous avons développé, soutenu, examiné ou approuvé de toute autre manière l’un de vos Produits.
+
+  Si vous décidez de promouvoir ou de faire connaître l’un de nos produits ou services dans le cadre de vos Produits, vous devrez vous assurer que vous respectez les conditions du présent Accord, les Conditions du Programme, les CGU, notre [politique relative aux marques commerciales](/articles/github-trademark-policy) et toute autre politique de GitHub applicable.   Sous réserve des conditions du présent Accord et des CGU, et pendant la durée du présent Accord, nous vous accordons une licence limitée, révocable, mondiale, non exclusive et non transférable pour utiliser nos marques commerciales, marques de service et logos (collectivement, les « Marques GitHub ») conformément à notre [politique relative aux marques commerciales](/articles/github-trademark-policy) et comme spécifié dans les Conditions du Programme, uniquement dans le but de faire connaître votre participation au Programme.
+
+  Nous voulons parler de vous et de votre participation au Programme au monde entier. À cette fin, vous nous accordez une licence limitée, révocable, mondiale, non exclusive et non transférable pour utiliser vos marques commerciales, marques de service et logos (collectivement, les « Marques Partenaires ») dans nos documents marketing, uniquement dans le but de promouvoir le Programme et de faire connaître votre participation à celui-ci.
+
+  À l’exception des dispositions du présent Accord et des CGU, aucune disposition du présent Accord ne sera réputée accorder à une partie un droit, une propriété ou un intérêt sur les Marques de l’autre partie. Que ce soit pendant ou après la durée du présent Accord, vous acceptez de ne pas : (i) contester ou aider des tiers à contester les Marques GitHub, ou notre enregistrement ou l’application des Marques GitHub ; (ii) tenter d’adopter, d’utiliser, de demander ou d’enregistrer des marques commerciales, marques de service, logos, URL, noms de domaine Internet ou symboles similaires aux Marques GitHub au point de prêter à confusion ; ou (iii) faire des déclarations négatives, fausses ou dénigrantes (qu’elles soient écrites ou orales) à un tiers à notre sujet, à propos de nos produits ou services.
+
+6. **Confidentialité ; Documents préalables à la publication**
+
+  En tant que développeur enregistré dans le Programme, vous pouvez avoir accès à des informations spéciales qui ne sont pas disponibles au grand public. En raison de la nature sensible de ces informations, il est important pour nous de nous assurer que vous protégerez la confidentialité de ces informations.
+
+  Vous acceptez que toute information non publique que nous vous donnons, ou à laquelle vous pouvez avoir accès dans le cadre du Programme, sera considérée comme une information confidentielle de GitHub (collectivement, les « Informations Confidentielles »), qu’elle soit marquée ou identifiée comme telle. Vous acceptez de n’utiliser ces Informations Confidentielles qu’à des fins autorisées en tant que participant au Programme (la « Finalité »), et à aucune autre fin. Vous devez prendre des précautions raisonnables pour empêcher toute utilisation, divulgation, publication ou diffusion non autorisée de nos Informations Confidentielles. Vous vous engagez à ne pas divulguer, publier ou diffuser d’Informations Confidentielles à des tiers autres que vos employés et fournisseurs, et ce uniquement dans la mesure où : (i) ils ont besoin de connaître les Informations Confidentielles pour la Finalité ; (ii) vous les informez de la nature confidentielle des Informations Confidentielles ; (iii) vous restez responsable des actes et manquements de ces employés et fournisseurs ; et (iv) nous n’interdisons ou ne limitons pas autrement cette divulgation.
+
+  Vous comprenez que la divulgation ou l’utilisation non autorisée de nos Informations Confidentielles peut nous causer un préjudice irréparable et un dommage important qu’il nous serait difficile de quantifier. En conséquence, vous acceptez que nous ayons le droit de demander une injonction immédiate pour nous assurer que vous respectez le présent Accord, en plus de tous les autres droits et recours dont nous pouvons disposer. Si la loi, la réglementation ou une ordonnance exécutoire valable d’un tribunal compétent vous oblige à divulguer nos Informations Confidentielles, vous pouvez les divulguer, mais uniquement si vous nous en informez au préalable et si vous faites de votre mieux pour limiter cette divulgation et pour obtenir un traitement confidentiel et protecteur de ces informations.
+
+  Les obligations de la présente Section 6 ne s’appliquent pas aux informations dont vous pouvez prouver : (i) qu’elles étaient généralement disponibles au public avant que nous ne vous les divulguions ; (ii) qu’elles étaient devenues généralement disponibles au public après que nous vous les avions divulguées, sans action ou inaction de votre part, ou de la part de vos employés ou fournisseurs ; (iii) que vous en aviez connaissance avant que nous ne vous les divulguions ; (iv) qu’elles vous ont été divulguées par un tiers, qui n’avait aucune obligation de confidentialité à leur égard ; (v) qu’elles ont été déduites de manière indépendante par vous sans violation d’aucune obligation de confidentialité envers nous ou un tiers ; ou (vi) que vous vous avons autorisé à les divulguer, dans un document écrit signé par l’un de nos représentants autorisés.
+
+  Si Nous vous remettons un logiciel en version préliminaire ou une documentation ou des documents connexes, qui peuvent inclure des vidéos ou d’autres formes de contenu (« Documents de Version Préliminaire »), sous réserve que vous respectiez les conditions du présent Accord et les CGU, nous vous accordons par les présentes un droit et une licence non exclusifs, non transférables et révocables vous permettant d’utiliser les Documents de Version Préliminaire uniquement pour vous aider à tester et/ou à développer des produits ou des services conçus pour fonctionner en combinaison avec les systèmes ou les programmes pour lesquels les Documents de Version Préliminaire sont conçus. Si les Documents de Version Préliminaire sont accompagnés d’un contrat de licence distinct, vous acceptez que ce contrat de licence (en plus de toute disposition plus restrictive contenue dans le présent Accord ou les CGU) s’applique. Vous vous engagez à ne pas décompiler, désosser, désassembler ou réduire de quelque manière que ce soit les Documents de Version Préliminaire à une forme perceptible par l’homme. Vous promettez en outre de ne pas modifier, mettre en réseau, louer, transmettre, vendre ou prêter les Documents de Version Préliminaire, en tout ou en partie.  Vous comprenez que nous ne sommes pas tenus de vous fournir des Documents de Version Préliminaire, des mises à jour, des améliorations ou des corrections des Documents de Version Préliminaire, ou de vous informer des modifications que nous apportons à nos produits et services, maintenant ou à l’avenir.
+
+7. **Frais et paiement**
+
+  Des frais peuvent être associés à la participation au Programme. Nous vous indiquerons le montant de ces frais dans les Conditions du Programme, lorsque nous les mettrons à jour de temps à autre (les « Frais du Programme »). Si vous nous avez donné vos informations de paiement auparavant, vous acceptez que nous puissions débiter la même carte bancaire ou le même compte PayPal dans le cadre du présent Accord. Sinon, vous devrez nous fournir un compte de paiement valable, ainsi que d’autres informations complémentaires. Sauf disposition contraire expresse dans la Section 8, tout paiement que vous nous versez pour le Programme n’est pas remboursable. Vous nous autorisez à débiter automatiquement votre compte de paiement à l’anniversaire de votre première date de paiement pour couvrir tous les Frais du Programme de l’année suivante, à moins que vous ne résiliiez d’abord le présent Accord conformément à la Section 8. Tous les frais sont dus en dollars américains et ne comprennent pas les taxes, prélèvements ou droits imposés par les autorités fiscales (vous en êtes responsable, à l’exception des taxes basées sur nos revenus).
+
+8. **Durée et résiliation**
+
+  Le présent Accord commence à la date à laquelle vous cliquez sur « Accepter », et se poursuit pendant une période d’un (1) an. Le présent Accord sera automatiquement renouvelé pour des périodes successives d’un an, sauf si l’une des parties notifie par écrit, au moins trente (30) jours avant l’expiration de la période en cours, qu’elle souhaite le résilier, ou si l’une d’entre nous le résilie plus tôt conformément à la présente Section 8.
+
+  Vous ou GitHub pouvez résilier le présent Accord pour quelque raison que ce soit ou sans motif, moyennant un préavis écrit de trente (30) jours à l’autre partie. Si nous résilions le présent Accord ou interrompons votre accès au Programme pour toute raison autre que votre violation du présent Accord, des Conditions du Programme ou des CGU, nous vous rembourserons, comme seul recours et comme seule obligation pour cette résiliation, la partie proportionnelle des Frais du Programme que vous nous avez versés pour la durée actuelle du présent Accord. Le présent Accord prendra fin immédiatement, sans préavis, si vous enfreignez l’une quelconque des conditions du présent Accord, des Conditions du Programme ou des CGU.
+
+  Les droits et obligations énoncés aux Sections 1, 2, 3 (deuxième et troisième paragraphes), 4, 5 (deuxième et dernier paragraphes), 6, 7 et 9 à 21 du présent Accord resteront en vigueur après la résiliation ou l’expiration du présent Accord.  À la résiliation ou à l’expiration du présent Accord, l’ensemble des droits et licences que nous vous avons accordés dans le présent Accord cesseront immédiatement d’exister. Vous restituerez (ou, à notre demande, détruirez) toutes nos Informations Confidentielles et toutes copies (y compris les copies électroniques) qui sont en votre possession ou sous votre contrôle ; et vous certifierez par écrit que vous vous êtes conformé à ces exigences.
+
+9. **Garanties et exclusions de responsabilité**
+
+  Vous nous garantissez que vous : (i) avez le pouvoir de signer le présent Accord et d’exécuter ses obligations ; (ii) mènerez vos activités d’une manière qui reflète favorablement à tout moment les produits et services de GitHub ainsi que notre nom, notre fonds de commerce et notre réputation ; (iii) ne ferez aucune déclaration fausse ou trompeuse concernant GitHub ou nos produits et services ; (iv) n’assumerez aucune obligation ou responsabilité, ni ne ferez aucune déclaration, n’émettrez aucune garantie, aucune caution ou aucun endossement à quiconque en notre nom (notamment pour l’un de nos produits ou services) ; et (v) ne déclarerez ni n’impliquerez que nous avons développé, endossé, examiné ou autrement approuvé l’un de vos Produits.
+
+  LE PROGRAMME, L’API ET TOUTE INFORMATION CONFIDENTIELLE QUE NOUS VOUS DONNONS (NOTAMMENT LES DOCUMENTS DE VERSION PRÉLIMINAIRES) SONT FOURNIS « EN L’ÉTAT » ET SANS GARANTIE D’AUCUNE SORTE, EXPRESSE OU IMPLICITE. NOUS DÉCLINONS SPÉCIFIQUEMENT TOUTE GARANTIE OU CONDITION IMPLICITE DE QUALITÉ MARCHANDE, D’ADÉQUATION À UN USAGE PARTICULIER ET DE NON-VIOLATION. NOUS NE GARANTISSONS PAS QUE LES SERVICES OU PRODUITS QUE NOUS METTONS À VOTRE DISPOSITION RÉPONDRONT À VOS BESOINS OU À CEUX DE VOS UTILISATEURS FINAUX.
+
+10. **Obligation de protection**
+
+  Nous vous donnons beaucoup de documents utiles pour les versions préliminaires dans le cadre du Programme, et il est possible que vous utilisiez ces éléments d’une manière incorrecte susceptible de nous causer du tort. Dans cette optique, et puisque nous ne pouvons pas contrôler votre participation au Programme, vous acceptez de nous couvrir et de nous dégager de toute responsabilité en cas de réclamation qui pourrait survenir dans le cadre de votre participation au Programme, de votre utilisation de l’API ou de nos Informations Confidentielles ou de tout autre produit ou service GitHub ; de votre négligence ou de votre faute intentionnelle ; de vos produits ou de toute intégration que vous développez, concevez, promouvez ou distribuez en utilisant notre API ou toute Information Confidentielle ; de toute fausse déclaration que vous faites à notre égard, ou à l’égard de nos produits ou services ; ou de votre violation de toute partie du présent Accord.
+
+11. **Limitation de responsabilité**
+
+  EN AUCUN CAS, NOUS NE SERONS RESPONSABLES ENVERS VOUS OU UN TIERS DE TOUT DOMMAGE INDIRECT, SPÉCIAL, ACCESSOIRE, CONSÉCUTIF, EXEMPLAIRE OU PUNITIF, NOTAMMENT LES DOMMAGES POUR PERTE DE DONNÉES, MANQUE À GAGNER OU COÛTS D’ACQUISITION DE BIENS OU SERVICES DE SUBSTITUTION, QUELLE QU’EN SOIT LA CAUSE ET EN VERTU DE TOUTE THÉORIE DE RESPONSABILITÉ, QU’IL S’AGISSE D’UN CONTRAT, D’UN DÉLIT (NOTAMMENT LA RESPONSABILITÉ DU FAIT DES PRODUITS, LA RESPONSABILITÉ STRICTE ET LA NÉGLIGENCE) OU DE TOUTE AUTRE THÉORIE, ET QUE NOUS AYONS EU CONNAISSANCE OU NON DE LA POSSIBILITÉ DE TELS DOMMAGES. EN AUCUN CAS, NOTRE RESPONSABILITÉ GLOBALE ENVERS VOUS DÉCOULANT DU PRÉSENT CONTRAT OU LIÉE À CELUI-CI, POUR QUELQUE CAUSE QUE CE SOIT, ET QUELLE QUE SOIT LA FORME D’ACTION, QU’ELLE SOIT CONTRACTUELLE OU DÉLICTUELLE, NE DÉPASSERA LE PLUS ÉLEVÉ DES DEUX MONTANTS SUIVANTS : (I) LES MONTANTS QUE VOUS NOUS AVEZ EFFECTIVEMENT PAYÉS EN VERTU DU PRÉSENT CONTRAT ; OU (II) CINQ CENTS DOLLARS (500 $). LES LIMITATIONS SUSMENTIONNÉES S’APPLIQUERONT NONOBSTANT L’ÉCHEC DE L’OBJECTIF ESSENTIEL DE TOUT RECOURS LIMITÉ ÉNONCÉ DANS LE PRÉSENT CONTRAT.
+
+12. **Contrôle des exportations**
+
+  Vous n’êtes pas autorisé à exporter ou à réexporter l’une de nos Informations Confidentielles, sauf si la loi des États-Unis et les lois de la juridiction dans laquelle les Informations Confidentielles ont été obtenues l’autorisent. En particulier, vous n’êtes pas autorisé à exporter ou à réexporter nos Informations Confidentielles vers des pays soumis à un embargo américain, vers toute personne figurant sur la liste des Ressortissants Spécialement Désignés du département du Trésor américain, ou vers toute personne figurant sur la liste des Personnes ou Entités Refusées du département du Commerce américain. En participant au Programme ou en recevant l’une de nos Informations Confidentielles, vous déclarez et garantissez que vous n’êtes pas situé dans un pays ou sur une liste de ce type.
+
+13. **Droits de propriété**
+
+  Vous acceptez que GitHub et ses concédants de licence détiennent l’ensemble des droits, titres de propriétés et intérêts relatifs à l’API, aux Documents de Version Préliminaire et à tous les autres produits et services de GitHub ; toutes les informations et données relatives à leurs configurations et combinaisons ; et toutes les modifications et tous les travaux dérivés de ce qui précède. Vous acceptez de ne pas supprimer, modifier, couvrir ou obscurcir les avis de droits d’auteur ou d’autres droits de propriété que nous plaçons ou intégrons dans l’API, les Documents de Version Préliminaire ou tout autre produit ou service de GitHub.
+
+14. **Utilisateurs gouvernementaux**
+
+  Si vous êtes une entité gouvernementale, la présente section s’applique à vous.  Certaines de nos Informations Confidentielles peuvent être considérées comme des « Articles Commerciaux », tel que ce terme est défini dans la norme 48 C.F.R. paragraphe 2.101, consistant en un « Logiciel Commercial » et une « Documentation de Logiciel Commercial », tels que ces termes sont utilisés dans la norme 48 C.F.R. paragraphe 12.212 ou 48 C.F.R. paragraphe 227.7202, selon le cas. Conformément à la norme 48 C.F.R. paragraphe 12.212 ou 48 C.F.R. paragraphe 227.7202-1 à 227.7202-4, selon le cas, les Logiciels Commerciaux et la Documentation relative aux Logiciels Commerciaux sont concédés sous licence aux utilisateurs finaux du gouvernement des États-Unis (a) uniquement en tant qu’Articles Commerciaux et (b) avec seulement les droits accordés à tout autre utilisateur final conformément aux présentes conditions générales.  GitHub, Inc. 88 Colin P. Kelly Street, San Francisco, CA 94107.
+
+15. **Développement indépendant**
+
+  Aucune disposition du présent Accord ne portera atteinte à notre droit de développer, acquérir, concéder sous licence, commercialiser, promouvoir ou distribuer des produits, logiciels ou technologies susceptibles de concurrencer vos Produits.
+
+16. **Commentaires**
+
+  Nous essayons toujours de nous améliorer, et vos commentaires nous aident dans cet objectif. Si vous choisissez de nous faire part de vos commentaires, suggestions ou recommandations concernant le Programme ou nos produits ou services (collectivement, les « Commentaires »), vous reconnaissez et acceptez que nous sommes libres d’utiliser ces commentaires comme bon nous semble, sans restriction (sous réserve de tout brevet ou droit d’auteur applicable, bien entendu).
+
+17. **Prestataires indépendants**
+
+  Les parties au présent Accord sont des prestataires indépendants. Aucun de nous ne sera considéré comme un employé, un agent, un partenaire, un franchiseur, un franchisé ou un représentant légal de l’autre partie à quelque fin que ce soit et aucun de nous n’aura le droit, le pouvoir ou l’autorité de créer une quelconque obligation ou responsabilité au nom de l’autre partie.
+
+18. **Cession**
+
+  Vous n’êtes pas autorisé à céder ou à transférer le présent Accord, ou l’un de vos droits en vertu de celui-ci, en tout ou en partie, sous l’effet de la loi ou autrement, sans notre consentement écrit préalable.
+
+19. **Droit et juridiction applicables**
+
+  Le présent Accord sera interprété conformément aux lois de l’État de Californie, sans tenir compte des principes de conflit de lois. Tous les litiges découlant du présent Accord seront soumis à la compétence exclusive des tribunaux d’État et fédéraux situés dans le comté de San Francisco, en Californie, et chacun d’entre nous consent par la présente à la compétence personnelle de ces tribunaux.
+
+20. **Modifications ; Renonciations ; Aucun tiers bénéficiaire**
+
+  Le présent Accord ne peut être modifié, sauf par un document écrit signé par les deux parties. Toute renonciation aux dispositions du présent Accord ou aux droits ou recours d’une partie en vertu des présentes doit être faite par écrit pour pouvoir entrer en vigueur. Si un terme, une condition ou une disposition du présent Accord est jugé invalide ou inapplicable, les autres conditions resteront valides et applicables dans toute la mesure permise par la loi. Nous convenons chacun expressément qu’il n’existe aucun tiers bénéficiaire du présent Accord.
+
+21. **Intégralité du Contrat**
+
+  Le présent Accord, les CGU et les Conditions du Programme constituent l’intégralité de l’accord entre les parties en ce qui concerne son objet et remplacent l’ensemble des communications, déclarations, accords et conventions antérieurs, qu’ils soient écrits ou oraux.  Les conditions de vos bons de commande, accusés de réception ou autres documents que vous nous envoyez dans le cadre du présent Accord seront nuls et non avenus, et sans effet.

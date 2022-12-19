@@ -1,7 +1,7 @@
 ---
-title: Administrar la facturación para tu cuenta de GitHub
-shortTitle: Tu cuenta de GitHub
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes mejorar, bajar de nivel y ver los cambios pendientes a la suscripción de tu cuenta en cualquier momento.{% elsif ghec or ghes or ghae %}Puedes administrar la configuración de {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghec or ghes %} desde tu cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
+title: Administrar la facturación para tu cuenta GitHub
+shortTitle: Your GitHub account
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes actualizar. cambiar a una versión anterior y ver los cambios pendientes en la suscripción de tu cuenta en cualquier momento.{% elsif ghec or ghes or ghae %}Puedes administrar la facturación de {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghec or ghes %} desde tu cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
   - /categories/97/articles
@@ -31,5 +31,11 @@ children:
   - /how-does-upgrading-or-downgrading-affect-the-billing-process
   - /one-time-payments-for-customers-in-india
   - /discounted-subscriptions-for-github-accounts
+ms.openlocfilehash: e305653ca02103ace73f984df9b74436caf63162
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145910651'
 ---
 

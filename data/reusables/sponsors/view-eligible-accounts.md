@@ -1,2 +1,2 @@
-1. Click **View your eligible accounts**.
-   ![View your eligible accounts button](/assets/images/help/sponsors/view-eligible-accounts.png)
+1. Click **Get sponsored**.
+   ![Screenshot of the Get sponsored button](/assets/images/help/sponsors/get-sponsored.png)

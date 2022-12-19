@@ -1,5 +1,5 @@
 ---
-title: Sobre o Git rebase
+title: Sobre a troca de base do Git
 redirect_from:
   - /rebase
   - /articles/interactive-rebase
@@ -7,15 +7,20 @@ redirect_from:
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase
   - /github/getting-started-with-github/using-git/about-git-rebase
-intro: 'O comando ''git rebase'' permite alterar com facilidade uma variedade de commits, modificando o histórico do seu repositório. É possível reordenar, editar ou combinar commits por squash.'
+intro: 'O comando `git rebase` permite alterar com facilidade uma variedade de commits, modificando o histórico do seu repositório. É possível reordenar, editar ou combinar commits por squash.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 5ffa3cbb1fcb6c8c37e56e434b08018582a0ff2b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145094795'
 ---
-
-Geralmente, `git rebase` é usado para:
+Normalmente, você usará `git rebase` para:
 
 * Editar mensagens anteriores do commit
 * Combinar vários commits em um
@@ -23,7 +28,7 @@ Geralmente, `git rebase` é usado para:
 
 {% warning %}
 
-**Aviso**: como a alteração do histórico de commits pode dificultar a vida de outras pessoas que usam o repositório, não é uma boa ideia fazer rebase de commits quando você já fez push em um repositório. Para saber como fazer rebase com segurança no {% data variables.product.product_location %}, consulte "[Sobre merges de pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
+**Aviso**: como a alteração do seu histórico de commits pode dificultar as coisas para todos os outros que usam o repositório, é considerada uma prática inadequada fazer a troca de base de commits quando você já efetuou push deles para um repositório. Para saber como trocar a base com segurança no {% data variables.product.product_location %}, confira "[Sobre as mesclagens de solicitação de pull](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
 {% endwarning %}
 
@@ -49,19 +54,19 @@ Há seis comandos disponíveis para fazer rebase:
 
 <dl>
 <dt><code>pick</code></dt>
-<dd><code>pick</code> simplesmente significa que o commit está incluído. Reorganizar a ordem de <code>pick</code> dos comandos altera a ordem dos commits quando o rebase está em andamento. Se você optar por não incluir um commit, será preciso excluir a linha toda. </dd>
+<dd><code>pick</code> significa simplesmente que o commit está incluído. A reorganização da ordem dos comandos <code>pick</code> altera a ordem dos commits quando a troca de base está em andamento. Se você optar por não incluir um commit, será preciso excluir a linha toda. </dd>
 
 <dt><code>reword</code></dt>
-<dd>O comando <code>reword</code> é semelhante a <code>pick</code>, mas depois que você o usa, o processo de rebase pausa e dá a chance de você alterar a mensagem do commit. As alterações feitas pelo commit não são afetadas. </dd>
+<dd>O comando <code>reword</code> é semelhante a <code>pick</code>, mas depois que você usá-lo, o processo de troca de base será colocado em pausa e dará a você a chance de alterar a mensagem de commit. As alterações feitas pelo commit não são afetadas. </dd>
 
 <dt><code>edit</code></dt>
-<dd>Se optar por editar (<code>edit</code>) um commit, você terá a chance de corrigi-lo, o que significa que será possível adicionar ou alterar o commit por inteiro. Também é possível fazer mais commits antes de continuar com o rebase. Isso permite que você divida um commit grande em commits menores ou remova alterações equivocadas feitas em um commit. </dd>
+<dd>Se você optar por <code>edit</code> um commit, terá a chance de alterar o commit, o que significa que pode adicionar ou alterar o commit por completo. Também é possível fazer mais commits antes de continuar com o rebase. Isso permite que você divida um commit grande em commits menores ou remova alterações equivocadas feitas em um commit. </dd>
 
-<dt><code>combinação por squash</code></dt>
+<dt><code>squash</code></dt>
 <dd>Esse comando permite combinar dois ou mais commits em um único commit. Um commit é combinado por squash no commit acima dele. O Git permite que você grave uma nova mensagem do commit descrevendo ambas as alterações.</dd>
 
 <dt><code>fixup</code></dt>
-<dd>Esse comando é semelhante ao <code>squash</code>, mas o commit a sofrer merge tem sua mensagem descartada. O commit simplesmente sofre merge no commit acima dele, e a mensagem do commit anterior é usado para descrever ambas as alterações.</dd>
+<dd>Isso é semelhante a <code>squash</code>, mas o commit a ser mesclado tem a mensagem descartada. O commit simplesmente sofre merge no commit acima dele, e a mensagem do commit anterior é usado para descrever ambas as alterações.</dd>
 
 <dt><code>exec</code></dt>
 <dd>Permite que você execute comandos de shell arbitrários em um commit.</dd>
@@ -69,7 +74,7 @@ Há seis comandos disponíveis para fazer rebase:
 
 ## Um exemplo de uso de `git rebase`
 
-Não importa o comando a ser usado, o Git iniciará [seu editor de texto padrão](/github/getting-started-with-github/associating-text-editors-with-git) e abrirá um arquivo que detalha os commits no intervalo escolhido. Esse arquivo é parecido com este:
+Independentemente do comando usado, o Git iniciará [o editor de texto padrão](/github/getting-started-with-github/associating-text-editors-with-git) e abrirá um arquivo que fornece detalhes dos commits no intervalo escolhido. Esse arquivo é parecido com este:
 
 ```
 pick 1fc6c95 Patch A
@@ -82,16 +87,16 @@ pick 7b36971 something to move before patch B
 
 # Rebase 41a72e6..7b36971 onto 41a72e6
 #
-# Comandos:
-#  p, pick = usar commit
-#  r, reword = usar commit, mas editar a mensagem do commit
-#  e, edit = usar commit, mas interromper para correção
-#  s, squash = usar commit, mas juntar  no commit anterior
-#  f, fixup = como "squash", mas descartar mensagem de log desse commit
-#  x, exec = executar comando (o restante da linha) usando shell
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
 #
-# Se você remover uma linha aqui ESSE COMMIT SERÁ PERDIDO.
-# No entanto, se você remover tudo, o rebase será anulado.
+# If you remove a line here THAT COMMIT WILL BE LOST.
+# However, if you remove everything, the rebase will be aborted.
 #
 ```
 
@@ -99,14 +104,14 @@ Ao dividir essas informações, de cima para baixo, observamos que:
 
 - Sete commits são listados, o que indica que houve sete alterações entre nosso ponto de partida e o estado do nosso branch atual.
 - Os commits escolhidos para rebase são classificados na ordem das alterações mais antigas (no topo) para as mais recentes (na base).
-- Cada linha lista um comando (por padrão, `pick`), o SHA do commit e a mensagem do commit. Todo o procedimento de `git rebase` gira em torno da manipulação dessas três colunas. As alterações feitas são *passadas por rebase* ao seu repositório.
-- Depois dos commits, o Git informa a você o intervalo de commits com os quais estamos trabalhando (`41a72e6..7b36971`).
+- Cada linha lista um comando (por padrão, `pick`), o SHA do commit e a mensagem de commit. Todo o procedimento `git rebase` gira em torno da manipulação dessas três colunas. As alterações feitas tem a *base trocada* no repositório.
+- Após os commits, o Git informa o intervalo de commits com o qual estamos trabalhando (`41a72e6..7b36971`).
 - Por fim, o Git fornece alguma ajuda informando a você os comandos que estão disponíveis ao fazer rebase dos commits.
 
-## Leia mais
+## Leitura adicional
 
-- "[Usar o Git rebase](/articles/using-git-rebase)"
-- [O capítulo "Git Branching" no livro do _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [O capítulo "Interactive Rebasing" no livro do _Pro Git_](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- "[Combinar commits por squash com rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Sincronizar seu branch](/desktop/contributing-to-projects/syncing-your-branch)" na documentação do {% data variables.product.prodname_desktop %}
+- "[Como usar a troca de base do Git](/articles/using-git-rebase)"
+- [O capítulo "Ramificação do Git" do _livro Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [O capítulo "Troca de base interativa" do _livro Pro Git_](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- "[Mesclagem squash de commits com a troca de base](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
+- "[Como sincronizar seu branch](/desktop/contributing-to-projects/syncing-your-branch)" na documentação do {% data variables.product.prodname_desktop %}

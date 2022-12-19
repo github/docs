@@ -1,5 +1,5 @@
-#Reference: #7370.
-#Versioning for autolinks being able to accept alphanumeric chars.
+# Reference: #7370.
+# Versioning for autolinks being able to accept alphanumeric chars.
 versions:
   fpt: '*'
   ghec: '*'

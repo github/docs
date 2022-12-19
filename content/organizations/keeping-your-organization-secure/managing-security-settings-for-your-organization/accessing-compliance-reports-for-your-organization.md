@@ -17,6 +17,7 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 {% data reusables.security.compliance-report-list %}
 
+## Accessing compliance reports for your organization
 
 {% note %}
 
@@ -24,12 +25,10 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 {% endnote %}
 
-## Accessing compliance reports for your organization
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "Compliance reports", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+{% data reusables.organizations.compliance %}
+1. To the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 

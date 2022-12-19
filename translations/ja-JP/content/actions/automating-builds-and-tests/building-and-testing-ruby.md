@@ -13,27 +13,31 @@ topics:
   - CI
   - Ruby
 shortTitle: Build & test Ruby
+ms.openlocfilehash: d6408613be9666dc86e982f99dcba47bbe3f7f9b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408988'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
 このガイドでは、Rubyアプリケーションのビルドとテストを行う継続的インテグレーション（CI）ワークフローの作成方法を紹介します。 CIテストにパスしたなら、コードをデプロイしたりgemを公開したりすることになるでしょう。
 
-## 必要な環境
+## 前提条件
 
-Ruby、YAML、ワークフローの設定オプションと、ワークフローファイルの作成方法についての基本的な知識を持っておくことをおすすめします。 詳しい情報については、以下を参照してください。
+Ruby、YAML、ワークフローの設定オプションと、ワークフローファイルの作成方法についての基本的な知識を持っておくことをおすすめします。 詳細については、次を参照してください。
 
-- [{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)
-- [20分のRuby](https://www.ruby-lang.org/en/documentation/quickstart/)
+- [{% data variables.product.prodname_actions %} について](/actions/learn-github-actions)
+- [20 分で Ruby](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using the Ruby starter workflow
+## Ruby スターター ワークフローの使用
 
-{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} では、ほとんどの Ruby プロジェクトで使用できる Ruby スターター ワークフローが提供されています。 詳細については、「[Ruby スターター ワークフロー](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)」を参照してください。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
+すぐに作業を開始するには、リポジトリの `.github/workflows` ディレクトリにスターター ワークフローを追加します。 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -67,11 +71,11 @@ jobs:
 
 ## Rubyのバージョンの指定
 
-Rubyのバージョンを指定する最も簡単な方法は、GitHub上でRuby Organizationが提供している`ruby/setup-ruby`アクションを使うことです。 このアクションは、ワークフロー中の各ジョブの実行時に、`PATH`にサポートされているRubyのバージョンを追加します。 For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+Ruby のバージョンを指定する最も簡単な方法は、Ruby 組織によって GitHub で提供されている `ruby/setup-ruby` アクションを使用することです。 このアクションにより、ワークフロー内の各ジョブ実行に対する `PATH` に、サポートされている Ruby のバージョンが追加されます。 詳細と使用可能な Ruby のバージョンについては、[`ruby/setup-ruby`](https://github.com/ruby/setup-ruby) を参照してください。
 
-Ruby の `ruby/setup-ruby` アクションの使用は、GitHub Actions で Ruby を使用する際に推奨されている方法です。これは、そうすることで Ruby のさまざまなランナーやバージョン間で一貫した振る舞いが保証されるためです。
+GitHub Actions で Ruby を使用する場合、Ruby の `ruby/setup-ruby` アクションを使用すると、異なるランナーおよび Ruby の異なるバージョンの間で一貫した動作が保証されるため、この方法をお勧めします。
 
-`setup-ruby`アクションはRubyのバージョンを入力として取り、ランナー上でそのバージョンを設定します。
+`setup-ruby` アクションは Ruby のバージョンを入力として受け取り、ランナー上でそのバージョンを構成します。
 
 ```yaml
 steps:
@@ -83,11 +87,11 @@ steps:
 - run: bundle exec rake
 ```
 
-あるいは、リポジトリのルートに`.ruby-version`ファイルをチェックインすれば、このファイルで定義されたバージョンを`setup-ruby`が使います。
+または、リポジトリのルートに `.ruby-version` ファイルをチェックインすると、そのファイルで定義されているバージョンが `setup-ruby` で使われます。
 
 ## 複数のバージョンの Ruby でのテスト
 
-複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 たとえば、バージョン3.1、3.0、2.7の最新のパッチリリースでコードをテストできます。
+複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 たとえば、バージョン 3.1、3.0、2.7 の最新のパッチ リリースに対してコードをテストできます。
 
 {% raw %}
 ```yaml
@@ -97,7 +101,7 @@ strategy:
 ```
 {% endraw %}
 
-`ruby-version`配列で指定されたRubyの各バージョンに対して、同じステップを実行するジョブが作成されます。 現在のジョブのバージョンにアクセスするのには、{% raw %}`${{ matrix.ruby-version }}`{% endraw %}コンテキストが使われます。 For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" and "[Contexts](/actions/learn-github-actions/contexts)."
+`ruby-version` 配列で指定されている Ruby の各バージョンで、同じ手順を実行するジョブが作成されます。 現在のジョブのバージョンにアクセスするには、{% raw %}`${{ matrix.ruby-version }}`{% endraw %} コンテキストが使われます。 マトリックスの戦略とコンテキストの詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/learn-github-actions/workflow-syntax-for-github-actions)」および「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
 マトリクス戦略を持つ更新された完全なワークフローは、以下のようになるでしょう。
 
@@ -137,7 +141,7 @@ jobs:
 
 ## Bundlerでの依存関係のインストール
 
-`setup-ruby` アクションは自動的にbundlerをインストールします。 バージョンは、`gemfile.lock`ファイルで決定されます。 ロックファイルにバージョンがなければ、互換性のある最新のバージョンがインストールされます。
+`setup-ruby` アクションにより、バンドルが自動的にインストールされます。 バージョンは `gemfile.lock` ファイルによって決まります。 ロックファイルにバージョンがなければ、互換性のある最新のバージョンがインストールされます。
 
 ```yaml
 steps:
@@ -152,7 +156,7 @@ steps:
 
 ### 依存関係のキャッシング
 
-The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+`setup-ruby` アクションによって実行間で gem のキャッシュを自動的に処理する方法が提供されます。
 
 キャッシングを有効にするには、以下の設定をしてください。
 
@@ -165,11 +169,11 @@ steps:
 ```
 {% endraw %}
 
-これで、gemを`vendor/cache`にインストールするようbundlerが設定されます。 For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
+これにより、gem を `vendor/cache` にインストールするように Bundler が構成されます。 ワークフローの実行が成功するたびに、このフォルダーは {% data variables.product.prodname_actions %} によってキャッシュされ、それ以降のワークフローの実行の際に再ダウンロードされます。 キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
 
-**setup-rubyを使わないキャッシング**
+**setup-ruby を使用しないキャッシュ**
 
-For greater control over caching, you can use the `actions/cache` action directly. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+キャッシュをより詳細に制御するために、`actions/cache` アクションを直接使用できます。 詳細については、「[依存関係をキャッシュしてワークフローのスピードを上げる](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
 ```yaml
 steps:
@@ -185,7 +189,7 @@ steps:
     bundle install --jobs 4 --retry 3
 ```
 
-マトリクスビルドを使っているなら、キャッシュのキーにマトリクスの変数を含めたくなるでしょう。 たとえば様々なRubyのバージョン(`matrix.ruby-version`) と、様々なオペレーティングシステム(`matrix.os`)のマトリクス戦略を持っているなら、ワークフローのステップは以下のようになるでしょう。
+マトリクスビルドを使っているなら、キャッシュのキーにマトリクスの変数を含めたくなるでしょう。 たとえば、Ruby のさまざまなバージョン (`matrix.ruby-version`) とさまざまなオペレーティング システム (`matrix.os`) に対してマトリクス戦略を使用している場合、ワークフローの手順は次のようになります。
 
 ```yaml
 steps:
@@ -240,7 +244,7 @@ jobs:
 
 ## コードの文法チェック
 
-以下の例は`rubocop`をインストールし、それを使ってすべてのファイルの文法チェックを行います。 For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). 特定の文法チェックルールを決めるために、[ Rubocopを設定](https://docs.rubocop.org/rubocop/configuration.html)できます。
+次の例では、`rubocop` がインストールされ、それを使ってすべてのファイルがリントされます。 詳細については、[RuboCop](https://github.com/rubocop-hq/rubocop) を参照してください。 特定のリンティング規則を決定するように、[Rubocop を構成する](https://docs.rubocop.org/rubocop/configuration.html)ことができます。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -268,7 +272,7 @@ jobs:
 
 CIテストにパスしたなら、Rubyパッケージを任意のパッケージレジストリに公開するようにワークフローを設定できます。
 
-パッケージを公開するのに必要なアクセストークンや認証情報は、リポジトリシークレットを使って保存できます。 以下の例は、パッケージを作成して`GitHub Package Registry`及び`RubyGems`に公開します。
+パッケージを公開するのに必要なアクセストークンや認証情報は、リポジトリシークレットを使って保存できます。 次の例では、パッケージが作成されて、`GitHub Package Registry` と `RubyGems` に発行されます。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

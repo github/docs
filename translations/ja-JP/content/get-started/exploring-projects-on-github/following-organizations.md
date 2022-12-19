@@ -1,50 +1,50 @@
 ---
-title: Following organizations
-intro: 'You can follow organizations on {% data variables.product.product_name %} to receive notifications about their activity.'
+title: 組織をフォローする
+intro: '{% data variables.product.product_name %} の組織に従って、アクティビティに関する通知を受け取ることができます。'
 versions:
   feature: for-you-feed
 topics:
   - Profile
+ms.openlocfilehash: 61cfc1762a7ff281bbebb37435317aaef39ddf01
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147692122'
 ---
+{% data reusables.organizations.follow-organizations-beta %}
 
-{% note %}
+## {% data variables.product.product_name %} のフォロワーについて
 
-**Note:** The ability to follow organizations is currently in public beta and subject to change.
+{% data reusables.organizations.about-following-organizations %} 詳しくは、「[個人用ダッシュボードについて](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)」をご覧ください。
 
-{% endnote %}
+{% data variables.product.product_name %} で {% ifversion fpt or ghec %}パブリック{% endif %} アクティビティを表示する必要がない場合は、組織のフォローを解除できます。
 
-## About followers on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} で組織をフォローする
 
-When you follow organizations, you'll see their public activity on your personal dashboard. 詳細は「[パーソナルダッシュボードについて](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)」を参照してください。
+1. フォローする組織のページに移動します
+2. ヘッダーの右上隅にある **[フォロー]** をクリックします
 
-You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
+  ![[フォロー] ボタンが強調表示されている組織ヘッダーのスクリーンショット](/assets/images/help/profile/organization-profile-following.png)
 
-## Following an organization on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} で組織のフォローを解除する
 
-1. Go to the organization page you want to follow
-2. Click **Follow** in the top-right corner of the header
+1. フォローを解除する組織のページに移動します
+2. ヘッダーの右上隅にある **[フォローを解除]** をクリックします。
 
-  ![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+  ![[フォローを解除] ボタンが強調表示されている組織ヘッダーのスクリーンショット](/assets/images/help/profile/organization-profile-unfollowing.png)
 
-## Unfollowing an organization on {% data variables.product.product_name %}
+## ユーザーが {% data variables.product.product_name %} でフォローしている人と組織を表示する
 
-1. Go to the organization page you want to unfollow
-2. Click **Unfollow** in the top-right corner of the header.
+1. ユーザー イメージをクリックすると、そのユーザーのプロファイルが表示されます。
 
-  ![Screenshot of the organization header, with the unfollow button highlighted](/assets/images/help/profile/organization-profile-unfollowing.png)
+  ![ユーザーの画像](/assets/images/help/profile/user-profile-image.png)
 
-## Viewing people and organizations a user follows on {% data variables.product.product_name %}
+2. プロファイル画像の下にある **[フォロー中]** をクリックします。
 
-1. Click a user image to display that user's profile.
-
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **following** under their profile image.
-
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+  ![フォロー中のユーザー](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
-## 参考リンク
+## 参考資料
 
-- "[Following people](/get-started/exploring-projects-on-github/following-people)"
-{% endif %}
+- 「[人をフォローする](/get-started/exploring-projects-on-github/following-people)」 {% endif %}

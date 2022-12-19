@@ -33,7 +33,7 @@ In addition to a specific file's contents being truncated, the entire files list
 
 These are the supported media types for fetching gist contents.
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.base64
+    application/vnd.github.raw
+    application/vnd.github.base64
 
 For more information, see "[Media types](/rest/overview/media-types)."

@@ -173,9 +173,9 @@ query {
 
 * The `cost` field returns the point cost for the current call that counts against the rate limit.
 
-* The `remaining` field returns the number of points remaining in the current rate limit window.)
+* The `remaining` field returns the number of points remaining in the current rate limit window.
 
-* The `resetAt` field returns the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+* The `resetAt` field returns the time at which the current rate limit window resets in ISO 8601 format.
 
 ### Calculating a rate limit score before running the call
 

@@ -16,20 +16,24 @@ topics:
   - Node
   - JavaScript
   - Azure App Service
+ms.openlocfilehash: d4b5a5f19098d2b84b63ae56791814eadb0fcb72
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410168'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para criar, testar e implantar um projeto Node.js no [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Este guia explica como usar o {% data variables.product.prodname_actions %} para criar, testar e implantar um projeto do Node.js no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Configurando OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Como configurar o OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
 
 {% endnote %}
 
@@ -41,7 +45,7 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
 {% data reusables.actions.create-azure-app-plan %}
 
-2. Crie um aplicativo web.
+2. Crie um aplicativo Web.
 
    Por exemplo, você pode usar o CLI do Azure para criar um aplicativo web do Azure App Service com um tempo de execução do Node.js:
 
@@ -53,7 +57,7 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
        --runtime "NODE|14-lts"
    ```
 
-   No comando acima, substitua os parâmetros pelos seus próprios valores, em que `MY_WEBAPP_NAME` é um novo nome para o aplicativo web.
+   No comando acima, substitua os parâmetros por valores próprios, em que `MY_WEBAPP_NAME` é um novo nome para o aplicativo Web.
 
 {% data reusables.actions.create-azure-publish-profile %}
 
@@ -63,9 +67,9 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
 Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-O fluxo de trabalho a seguir demonstra como criar, testar e implantar o Node.js, o projeto para o Azure App Service quando há um push para o branch `principal`.
+O fluxo de trabalho a seguir demonstra como criar, testar e implantar o projeto do Node.js no Serviço de Aplicativo do Azure quando há um push no branch `main`.
 
-Certifique-se de definir `AZURE_WEBAPP_NAME` na chave de fluxo de trabalho `env` como o nome do aplicativo web que você criou. Se o caminho para o seu projeto não for a raiz do repositório, altere `AZURE_WEBAPP_PACKAGE_PATH`  para o caminho do seu projeto. Se você usar uma versão do Node.js diferente de `10.x`, altere `NODE_VERSION` para a versão que você usa.
+Defina `AZURE_WEBAPP_NAME` na chave `env` de fluxo de trabalho como o nome do aplicativo Web que você criou. Se o caminho para o projeto não for a raiz do repositório, altere `AZURE_WEBAPP_PACKAGE_PATH` para o caminho do seu projeto. Se você usar uma versão do Node.js diferente de `10.x`, altere `NODE_VERSION` para a versão usada.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -133,7 +137,7 @@ jobs:
 
 Os seguintes recursos também podem ser úteis:
 
-* Para o fluxo de trabalho inicial original, consulte [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
-* A ação usada para fazer a implantação do aplicativo web é a ação oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) do Azure.
-* Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
-* O início rápido "[Crie um aplicativo web do Node.js no Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" na documentação do aplicativo Azure Web mostra como usar {% data variables.product.prodname_vscode %} com a [extensão do serviço do aplicativo Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* Para o fluxo de trabalho inicial original, confira [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) no repositório `starter-workflows` do {% data variables.product.prodname_actions %}.
+* A ação usada para implantar o aplicativo Web é a ação [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) oficial do Azure.
+* Para ver mais exemplos de fluxos de trabalho do GitHub Action que são implantados no Azure, confira o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* O início rápido "[Criar um aplicativo Web Node.js no Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" na documentação do aplicativo Web do Azure demonstra como usar o {% data variables.product.prodname_vscode %} com a [extensão do Serviço de Aplicativo do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

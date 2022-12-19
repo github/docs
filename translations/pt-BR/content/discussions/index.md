@@ -1,7 +1,7 @@
 ---
 title: Documentação de discussões do GitHub
 shortTitle: GitHub Discussions
-intro: '{% data variables.product.prodname_discussions %} é um fórum de comunicação colaborativo para a comunidade sobre{% ifversion fpt or ghec %} código aberto ou{% endif %} projeto interno. Os integrantes da comunidade podem perguntar e responder a perguntas, compartilhar atualizações, ter conversas abertas e acompanhar decisões que afetam o modo de trabalho da comunidade.'
+intro: '{% data variables.product.prodname_discussions %} é um fórum de comunicação colaborativo para a comunidade sobre um projeto interno{% ifversion fpt or ghec %} ou de software livre{% endif %}. Os integrantes da comunidade podem perguntar e responder a perguntas, compartilhar atualizações, ter conversas abertas e acompanhar decisões que afetam o modo de trabalho da comunidade.'
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
@@ -30,11 +30,17 @@ versions:
   feature: discussions
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/discussions'
 children:
   - /quickstart
   - /guides
   - /collaborating-with-your-community-using-discussions
   - /managing-discussions-for-your-community
+ms.openlocfilehash: a91dbef4ac8c511cc6b94b7ab412a16772f7db33
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147433401'
 ---
 

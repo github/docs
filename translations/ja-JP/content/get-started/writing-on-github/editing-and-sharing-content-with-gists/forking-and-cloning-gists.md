@@ -11,8 +11,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 74161c03eca21f3a2dc6465439d22fee0edb758d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068674'
 ---
-
 ## Gist をフォークする
 
 各 Gist はどのフォークにアクティビティがあるのかを示すため、他のユーザによる興味深い変更を簡単に確認できます。
@@ -21,13 +26,13 @@ versions:
 
 ## Gist をクローンする
 
-Gist にローカルの変更を加え、ウェブにプッシュしたい場合は、Gist をクローンして Git リポジトリと同様にコミットを行えます。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
+Gist にローカルの変更を加え、ウェブにプッシュしたい場合は、Gist をクローンして Git リポジトリと同様にコミットを行えます。 詳細については、「[Cloning a repository (リポジトリをクローンする)](/articles/cloning-a-repository)」を参照してください。
 
 ![Gist クローンボタン](/assets/images/help/gist/gist_clone_btn.png)
 
 ## Gist のコミットの履歴を見る
 
-To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
+Gist の完全なコミットの履歴を見るには、Gist の上部にある [Revisions]\(リビジョン\) タブをクリックします。
 
 ![Gist [revisions] タブ](/assets/images/help/gist/gist_revisions_tab.png)
 

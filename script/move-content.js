@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // Helps you move (a.k.a. rename) a file or a folder and does what's
-// needed with frontmatter redrect_from and equivalent in translations.
+// needed with frontmatter redirect_from.
 //
 // [end-readme]
 
@@ -151,18 +151,6 @@ async function main(opts, nameTuple) {
       console.log(
         chalk.yellow(
           'To undo (reverse) what you just did, run the same exact command but with --undo added to the end'
-        )
-      )
-    }
-  }
-
-  const redirectsCachingFile = 'lib/redirects/.redirects-cache.json'
-  if (fs.existsSync(redirectsCachingFile)) {
-    fs.unlinkSync(redirectsCachingFile)
-    if (verbose) {
-      console.log(
-        chalk.yellow(
-          `Deleted the redirects caching file ${redirectsCachingFile} to stale cache in local server testing.`
         )
       )
     }

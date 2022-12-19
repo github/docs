@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as base
+FROM node:16.18.0-alpine@sha256:f16544bc93cf1a36d213c8e2efecf682e9f4df28429a629a37aaf38ecfc25cf4 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -71,9 +71,6 @@ COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Whether to hide iframes, add warnings to external links
-ENV AIRGAP false
-
 # Preferred port for server.js
 ENV PORT 4000
 
@@ -87,11 +84,9 @@ ENV BUILD_SHA=$BUILD_SHA
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
-COPY --chown=node:node includes ./includes
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
-COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.js ./server.js
@@ -105,6 +100,10 @@ CMD ["node", "server.js"]
 # PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
 FROM preview as production
+
+# Override what was set for previews
+# Make this match the default of `Object.keys(languages)` in lib/languages.js
+ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations

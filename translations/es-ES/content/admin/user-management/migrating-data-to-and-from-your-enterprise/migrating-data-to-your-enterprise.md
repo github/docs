@@ -18,26 +18,31 @@ type: how_to
 topics:
   - Enterprise
   - Migration
-shortTitle: Importar hacia tu empresa
+shortTitle: Import to your enterprise
+ms.openlocfilehash: 19bd9e1e8cee072e8a8f00861e2d8f876b5b8450
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717673'
 ---
-
 ## Aplicar los datos importados en {% data variables.product.prodname_ghe_server %}
 
-Antes de que puedas migrar los datos a tu empresa, debes prepararlos y resolver cualquier conflicto. Para obtener más información, consulta la sección "[Cómo prepararte para migrar datos a tu empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+Antes de que puedas migrar los datos a tu empresa, debes prepararlos y resolver cualquier conflicto. Para más información, vea "[Preparación para migrar datos a la empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
 
 Después de que prepares los datos y resuelvas conflictos, puedes aplicar los datos importados en {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. Con el comando `ghe-migrator import`, inicia el proceso de importación. Necesitarás:
-    * Tu GUID de migración. Para obtener más información, consulta la sección "[Cómo prepararte para migrar datos a tu empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
-    * Tu token de acceso personal para autenticación. El token de acceso personal que utilices es solo para autenticación como administrador de sitio, y no requiere ningún alcance específico. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+2. Con el comando `ghe-migrator import`, inicie el proceso de importación. Necesitará:
+    * El GUID de migración. Para más información, vea "[Preparación para migrar datos a la empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+    * Tu token de acceso personal para autenticación. El token de acceso personal que utilices es solo para autenticación como administrador de sitio, y no requiere ningún alcance específico. Para más información, vea "[Creación de un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
     ```shell
     $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
 
-    > Comenzando con GitHub::Migrador
-    > Importación 100 % completa /
+    > Starting GitHub::Migrator
+    > Import 100% complete /
     ```
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
@@ -53,47 +58,47 @@ Los tipos de registro coinciden con los encontrados en los [datos migrados](/ent
 
 ## Filtros de tipo de registro
 
-| Tipo de registro                                                | Nombre del filtro                                   |
-| --------------------------------------------------------------- | --------------------------------------------------- |
-| Usuarios                                                        | `usuario`                                           |
-| Organizaciones                                                  | `organization`                                      |
-| Repositorios                                                    | `repositorio`                                       |
-| Equipos                                                         | `equipo`                                            |
-| Hitos                                                           | `hito`                                              |
-| Tableros de proyecto                                            | `project`                                           |
-| Problemas                                                       | `propuesta`                                         |
-| Comentarios de propuestas                                       | `comentario_propuesta`                              |
-| Solicitudes de cambios                                          | `solicitud_extracción`                              |
-| Revisiones de solicitudes de extracción                         | `revisión_solicitud de extracción`                  |
-| Comentarios sobre confirmación de cambios                       | `comentario_confirmación de cambios`                |
-| Comentarios sobre revisiones de solicitudes de extracción       | `comentarios _revisiones_solicitudes de extracción` |
-| Lanzamientos                                                    | `lanzamiento`                                       |
-| Medidas adoptadas en las solicitudes de extracción o propuestas | `evento_propuesta`                                  |
-| Ramas protegidas                                                | `rama_protegida`                                    |
+|      Tipo de registro      | Nombre de filtro  |
+|-----------------------|--------|
+| Usuarios           | `user`
+| Las organizaciones   | `organization`
+| Repositorios    | `repository`
+| Teams           | `team`
+| Hitos      | `milestone`
+| Tableros de proyecto  | `project`
+| Issues          | `issue`
+| Comentarios de propuestas  | `issue_comment`
+| Solicitudes de incorporación de cambios   | `pull_request`
+| Revisiones de solicitudes de extracción | `pull_request_review`
+| Comentarios sobre confirmación de cambios | `commit_comment`
+| Comentarios sobre revisiones de solicitudes de extracción | `pull_request_review_comment`
+| Versiones | `release`
+| Medidas adoptadas en las solicitudes de extracción o propuestas | `issue_event`
+| Ramas protegidas | `protected_branch`
 
 ## Filtros de estado de registro
 
-| Estado de registro    | Descripción                        |
-| --------------------- | ---------------------------------- |
-| `exportar`            | El registro se exportará.          |
-| `importar`            | El registro se importará.          |
-| `map`                 | El registro se asignará.           |
-| `rename (renombrar)`  | El registro se renombrará.         |
-| `fusionar`            | El registro se fusionará.          |
-| `exportado`           | El registro se exportó con éxito.  |
-| `importado`           | El registro se importó con éxito.  |
-| `asignado`            | El registro se asignó con éxito.   |
-| `renombrado`          | El registro se renombró con éxito. |
-| `fusionado`           | El registro se fusionó con éxito.  |
-| `exportación_fallida` | El registro no se pudo exportar.   |
-| `importación_fallida` | El registro no se pudo importar.   |
-| `asignación_fallida`  | El registro no se pudo asignar.    |
-| `renombrar_fallido`   | El registro no se pudo renombrar.  |
-| `fusión_fallida`      | El registro no se pudo fusionar.   |
+| Estado de registro    | Descripción    |
+|-----------------|----------------|
+| `export`        | El registro se exportará. |
+| `import`        | El registro se importará. |
+| `map`           | El registro se asignará. |
+| `rename`        | El registro se renombrará. |
+| `merge`         | El registro se fusionará. |
+| `exported`      | El registro se exportó con éxito. |
+| `imported`      | El registro se importó con éxito. |
+| `mapped`        | El registro se asignó con éxito. |
+| `renamed`       | El registro se renombró con éxito. |
+| `merged`        | El registro se fusionó con éxito. |
+| `failed_export` | El registro no se pudo exportar. |
+| `failed_import` | El registro no se pudo importar. |
+| `failed_map`    | El registro no se pudo asignar. |
+| `failed_rename` | El registro no se pudo renombrar. |
+| `failed_merge`  | El registro no se pudo fusionar. |
 
 ## Filtrar registros auditados
 
-Con el comando de auditoría `ghe-migrator audit` puedes filtrar en función del tipo de registro mediante el indicador `-m`. Del mismo modo, puedes filtrar en el estado de importación mediante el indicador `-s`. El comando se ve de la siguiente manera:
+Con el comando `ghe-migrator audit`, puede filtrar según el tipo de registro mediante la marca `-m`. Del mismo modo, puede filtrar por el estado de importación mediante la marca `-s`. El comando tiene este aspecto:
 
 ```shell
 $ ghe-migrator audit -m <em>RECORD_TYPE</em> -s <em>STATE</em> -g <em>MIGRATION_GUID</em>
@@ -106,7 +111,7 @@ $ ghe-migrator audit -m organization,team -s mapped,renamed -g <em>MIGRATION_GUI
 > organization,https://gh.source/octo-org/,https://ghe.target/octo-org/,renamed
 ```
 
-**Te recomendamos encarecidamente que hagas una auditoría de todas las importaciones que fallaron.** Para ello, ingresa en:
+**Se recomienda encarecidamente auditar todas las importaciones con errores.** Para ello, escribirá lo siguiente:
 ```shell
 $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <em>MIGRATION_GUID</em>
 > model_name,source_url,target_url,state
@@ -122,32 +127,30 @@ Después de que se aplique tu migración a tu instancia destino y la hayas revis
 
 ## Desbloquear repositorios en la instancia de destino
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ## Desbloquear repositorios en el origen
 
 ### Desbloquear los repositorios de una organización en {% data variables.product.prodname_dotcom_the_website %}
 
-Para desbloquear los repositorios en una organización{% data variables.product.prodname_dotcom_the_website %}, debes enviar una solicitud de `DELETE` [al punto final de desbloqueo de migración](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). Necesitarás:
+Para desbloquear los repositorios en una organización de {% data variables.product.prodname_dotcom_the_website %}, enviará una solicitud `DELETE` al [punto de conexión de desbloqueo de migración](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). Necesitará:
   * Tu token de acceso para autenticación
-  * El `id` único de la migración
+  * `id` único de la migración
   * El nombre del repositorio a desbloquear
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   -H "Accept: application/vnd.github.wyandotte-preview+json" \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
 ### Borrar los repositorios de una organización en {% data variables.product.prodname_dotcom_the_website %}
 
-Después de desbloquear los repositorios de organización de {% data variables.product.prodname_dotcom_the_website %} deberás borrar todos los repositorios que migraste previamente utilizando [la terminal de borrado de repositorios](/rest/repos/#delete-a-repository). Necesitarás tu token de acceso para la autenticación:
+Después de desbloquear los repositorios de la organización de {% data variables.product.prodname_dotcom_the_website %}, tendrá que borrar todos los repositorios que haya migrado antes mediante [el punto de conexión de eliminación de repositorios](/rest/repos/#delete-a-repository). Necesitarás tu token de acceso para la autenticación:
 ```shell
-curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
+curl -H "Authorization: Bearer <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
 ### Desbloquear repositorios desde una instancia de {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.enterprise_migrations.unlocking-on-instances %}
+{% data reusables.enterprise_installation.ssh-into-instance %} {% data reusables.enterprise_migrations.unlocking-on-instances %}

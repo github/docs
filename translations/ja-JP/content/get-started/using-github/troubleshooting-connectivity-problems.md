@@ -9,13 +9,18 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Connectivity problems
+ms.openlocfilehash: 77e88f4721c5dfa9cdde22ddee23a9188785e994
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145068687'
 ---
-
 ほとんどの場合、接続問題は、ファイアウォール、プロキシサーバー、企業ネットワークや他のネットワークが {% data variables.product.prodname_dotcom %} をブロックする設定になっているために発生します。
 
 ## {% data variables.product.prodname_dotcom %} の IP アドレスを許可する
 
-ネットワークが {% data variables.product.prodname_dotcom %} の IP アドレスを許可する設定になっていることを確認してください。 詳細は「[{% data variables.product.prodname_dotcom %} の IP アドレスについて](/articles/about-github-s-ip-addresses)」を参照してください。
+ネットワークが {% data variables.product.prodname_dotcom %} の IP アドレスを許可する設定になっていることを確認してください。 詳細については、「[About {% data variables.product.prodname_dotcom %}'s IP addresses ({% data variables.product.prodname_dotcom %} の IP アドレスについて)](/articles/about-github-s-ip-addresses)」を参照してください。
 
 ## 会社や Organization のネットワークを使用する
 
@@ -25,15 +30,15 @@ shortTitle: Connectivity problems
 
 Captcha で検証できない場合、次のことを試してください:
 - ブラウザで JavaScript が有効になっていることを確認してください。
-- ブラウザがサポートされていることを確認してください。 もしサポートされていない場合、ブラウザをアップデートするか、サポートされているブラウザをインストールしてください。 サポートされているブラウザの一覧は、「[サポートされているブラウザ](/articles/supported-browsers)」を参照してください。
-- ネットワークの設定が https://octocaptcha.com/ や https://arkoselabs.com/ をブロックしていないことを確認してください。 企業のファイアウォールの内側にいる場合、IT 管理者に連絡して、それらのドメインを許可するよう依頼してください。 これらのドメインへのアクセスを確認するには、https://octocaptcha.com/test にアクセスして、「Connection successfully made!」というテキストが表示されていることを確認してから、https://client-demo.arkoselabs.com/github にアクセスして Captcha を読み込めることを確認します。
+- ブラウザがサポートされていることを確認してください。 もしサポートされていない場合、ブラウザをアップデートするか、サポートされているブラウザをインストールしてください。 サポートされているブラウザーの一覧については、「[Supported browsers (サポートされているブラウザー)](/articles/supported-browsers)」を参照してください。
+- ネットワーク構成で https://octocaptcha.com/ または https://arkoselabs.com/ がブロックされていないことを確認します。 企業のファイアウォールの内側にいる場合、IT 管理者に連絡して、それらのドメインを許可するよう依頼してください。 これらのドメインへのアクセスを確認するには、 https://octocaptcha.com/test にアクセスし、テキスト "Connection successfully made!" (接続が正常に完了しました) が表示された後、 https://client-demo.arkoselabs.com/github にアクセスし、captcha を読み込めるかどうかを確認します。
 - ブラウザに GitHub の障害となり得るプラグインや拡張機能がないことを確認します。 もしある場合、そのプラグインや拡張機能を、Captcha で検証する間は無効にしてください。
 
 ## クローン方法を変更する
 
-SSH によるクローンから HTTPS によるクローンに変更したり、またはその逆をした場合、接続が改善されることがあります。 For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+SSH によるクローンから HTTPS によるクローンに変更したり、またはその逆をした場合、接続が改善されることがあります。 詳細については、「[Troubleshooting cloning errors (クローン エラーのトラブルシューティング)](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)」を参照してください。
 
-SSH でタイムアウトが起きる場合は「[Error: Bad file number](/articles/error-bad-file-number)」を参照してください。
+SSH でタイムアウトが発生した場合は、「[Error: Error: Bad file number (不正なファイル番号)](/articles/error-bad-file-number)」を参照してください。
 
 ## 遅いダウンロードや断続的な遅い接続のトラブルシューティング
 
@@ -43,4 +48,4 @@ SSH でタイムアウトが起きる場合は「[Error: Bad file number](/artic
 
 ## {% data variables.product.prodname_debug %} のトラブルシューティング
 
-上記のトラブルシューティングのアドバイスに従っても接続の問題が解決しない場合は、{% data variables.product.prodname_debug %} サイトの指示に従ってテストを行い、{% data variables.product.prodname_dotcom %} サポートに報告してください。 詳細は [{% data variables.product.prodname_debug %}](https://github-debug.com/) を参照してください。
+上記のトラブルシューティングのアドバイスに従っても接続の問題が解決しない場合は、{% data variables.product.prodname_debug %} サイトの指示に従ってテストを行い、{% data variables.product.prodname_dotcom %} サポートに報告してください。 詳細については、[{% data variables.product.prodname_debug %}](https://github-debug.com/) を参照してください。

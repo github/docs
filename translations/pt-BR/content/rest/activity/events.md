@@ -1,6 +1,6 @@
 ---
-title: Events
-intro: 'The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events.'
+title: Eventos
+intro: 'A API de eventos é uma API somente leitura para os eventos de {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,13 +9,18 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 09ad462fe00e84344bd1f0a33f97380a3f03e656
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064303'
 ---
+Esses eventos alimentam os vários fluxos de atividades no site.
 
-These events power the various activity streams on the site.
+A API de eventos pode retornar diferentes tipos de eventos acionados por atividade em {% data variables.product.product_name %}. Para obter mais informações sobre os eventos específicos que você pode receber da API de Eventos, confira "[Tipos de eventos do {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)". Uma API de eventos para problemas de repositório também está disponível. Para obter mais informações, confira a "[API de Eventos de Problemas](/rest/reference/issues#events)".
 
-The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." An events API for repository issues is also available. For more information, see the "[Issue Events API](/rest/reference/issues#events)."
-
-Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
+Os eventos são otimizados para sondagem a com o cabeçalho "ETag". Se nenhum novo evento for iniciado, você verá uma resposta "304 Not Modified" e seu limite de taxa atual não será alterado. Há também um cabeçalho "X-Poll-Interval" que especifica quantas vezes (em segundos) você pode fazer uma sondagem. Em tempos de alta carga do servidor, o tempo pode aumentar. Obedeça o cabeçalho.
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
@@ -30,4 +35,4 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
+Apenas eventos criados nos últimos 90 dias serão incluídos nas linhas de tempo. Eventos mais antigos que 90 dias não serão incluídos (mesmo que o número total de eventos na linha do tempo seja inferior a 300).

@@ -14,13 +14,18 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 146f1a33eb4de224625b9603b27d2f383e55c54d
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163337'
 ---
-
 ## READMEについて
 
-README ファイルをリポジトリに追加して、プロジェクトに関する重要な情報を伝えることができます。 A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 or ghec %}, citation file{% endif %}{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+{% data reusables.repositories.about-READMEs %}
 
-プロジェクトのガイドラインの提供方法の詳細については、{% ifversion fpt or ghec %}「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および {% endif %}「[健全なコントリビューションのためのプロジェクトの設定](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
+プロジェクトのガイドラインを提供する方法について詳しくは、{% ifversion fpt or ghec %}「[プロジェクトへの行動規範の追加](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および{% endif %}「[健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
 
 多くの場合、READMEはリポジトリへの訪問者が最初に目にするアイテムです。 通常、README ファイルには以下の情報が含まれています:
 - このプロジェクトが行うこと
@@ -29,9 +34,9 @@ README ファイルをリポジトリに追加して、プロジェクトに関�
 - このプロジェクトに関するヘルプをどこで得るか
 - このプロジェクトのメンテナンス者とコントリビューター
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+README ファイルをリポジトリの隠れ `.github` ルートまたは `docs` ディレクトリに置けば、{% data variables.product.product_name %} はそれを認識して自動的に README をリポジトリへの訪問者に提示します。
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+リポジトリに複数の README ファイルが含まれている場合、表示されるファイルは、`.github` ディレクトリ、リポジトリのルート ディレクトリ、最後に `docs` ディレクトリの順に選択されます。
 
 ![github/scientistリポジトリのメインページとそのREADMEファイル](/assets/images/help/repository/repo-with-readme.png)
 
@@ -43,11 +48,11 @@ If a repository contains more than one README file, then the file shown is chose
 
 ![ユーザ名/ユーザ名リポジトリの README ファイル](/assets/images/help/repository/username-repo-with-readme.png)
 
-## Auto-generated table of contents for README files
+## README ファイルの自動生成された目次
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+README ファイルなど、リポジトリの Markdown ファイルをレンダリングすると、{% data variables.product.product_name %} によって、セクション見出しに基づいて目次が自動的に生成されます。 レンダリングされたページの左上にある {% octicon "list-unordered" aria-label="The unordered list icon" %} メニューアイコンをクリックすると、README ファイルの目次を表示できます。
 
-![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
+![自動的に生成された TOC を含む README](/assets/images/help/repository/readme-automatic-toc.png)
 
 ## READMEファイルのセクションリンクとblobページ
 
@@ -59,9 +64,10 @@ For the rendered view of any Markdown file in a repository, including README fil
 
 ## Wiki
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. 詳細は「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」を参照してください。
+README には、開発者がプロジェクトを使用し、プロジェクトに貢献するために必要な情報のみを含めてください。 長いドキュメントは Wiki に最適です。 詳しくは、「[Wiki について](/communities/documenting-your-project-with-wikis/about-wikis)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-- [リポジトリへのファイルの追加](/articles/adding-a-file-to-a-repository)
-- 18Fの[Making READMEs readable](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)
+- "[ファイルをリポジトリに追加する](/articles/adding-a-file-to-a-repository)"
+- 18F の「[README を読み取り可能にする](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)」{%- ifversion fpt or ghec %} 
+- 「[[GitHub Codespaces で開く] バッジを追加する](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)」{%- endif %}   

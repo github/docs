@@ -1,5 +1,5 @@
 ---
-title: Managing contribution settings on your profile
+title: プロファイルでのコントリビューション設定の管理
 intro: コミット、プルリクエストの提案、Issue のオープンなどのコントリビューションはあなたのプロフィールに表示されるので、あなたが行った作業をユーザは簡単に確認できます。
 redirect_from:
   - /articles/managing-contribution-graphs-on-your-profile
@@ -20,5 +20,11 @@ children:
   - /why-are-my-contributions-not-showing-up-on-my-profile
   - /troubleshooting-commits-on-your-timeline
 shortTitle: Manage contribution settings
+ms.openlocfilehash: 022a9afdb91a5c65cea12c4bbeef5c4ba9673be6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881212'
 ---
 

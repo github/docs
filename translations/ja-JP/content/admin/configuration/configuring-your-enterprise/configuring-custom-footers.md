@@ -1,37 +1,40 @@
 ---
-title: Configuring custom footers
-intro: 'You can give users easy access to enterprise-specific links by adding custom footers to {% data variables.product.product_name %}.'
+title: ユーザー設定のフッターの構成
+intro: '{% data variables.product.product_name %} にカスタム フッターを追加することで、ユーザーがエンタープライズ固有のリンクに簡単にアクセスできるようにすることができます。'
 versions:
   ghec: '*'
   ghes: '>=3.4'
-  ghae: issue-5487
+  ghae: '>= 3.4'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 shortTitle: Configure custom footers
+ms.openlocfilehash: d051e2399841e90291de62e496c534520465235a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120702'
 ---
+エンタープライズ所有者は、最大 5 つの追加リンクを含むユーザー設定のフッターを表示するように {% data variables.product.product_name %} を構成できます。
 
-Enterprise owners can configure {% data variables.product.product_name %} to show custom footers with up to five additional links.
+![ユーザー設定のフッター](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
+ユーザー設定のフッターは、{% data variables.product.prodname_dotcom %} フッターの上に、{% ifversion ghes or ghae %}{% data variables.product.product_name %} のすべてのページですべてのユーザーに対して{% elsif ghec %}エンタープライズに属するリポジトリおよび組織についてはすべてのリポジトリおよび組織のページですべてのエンタープライズ メンバーとコラボレーターに対して{% endif %}表示されます。
 
-The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% elsif ghec %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
+## エンタープライズ向けユーザー設定のフッターの構成
 
-## Configuring custom footers for your enterprise
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
+1. [設定] で **[プロファイル]** をクリックします。
+{%- ifversion ghec %} ![エンタープライズ プロファイル設定](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png) {%- else %} ![エンタープライズ プロファイル設定](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png) {%- endif %}
 
-1. Under "Settings", click **Profile**.
-{%- ifversion ghec %}
-![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png)
-{%- else %}
-![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
-{%- endif %}
+1. [プロファイル] セクションの上部にある **[ユーザー設定のフッター]** をクリックします。
+![ユーザー設定のフッター セクション](/assets/images/enterprise/custom-footer/custom-footer-section.png)
 
-1. At the top of the Profile section, click **Custom footer**. ![Custom footer section](/assets/images/enterprise/custom-footer/custom-footer-section.png)
+1. 表示されるフィールドに最大 5 つのリンクを追加します。
+![フッター リンクを追加する](/assets/images/enterprise/custom-footer/add-footer-links.png)
 
-1. Add up to five links in the fields shown. ![Add footer links](/assets/images/enterprise/custom-footer/add-footer-links.png)
-
-1. Click **Update custom footer** to save the content and display the custom footer. ![Update custom footer](/assets/images/enterprise/custom-footer/update-custom-footer.png)
+1. **[Update custom footer]\(ユーザー設定のフッターの更新\)** をクリックしてコンテンツを保存し、ユーザー設定のフッターを表示します。
+![[Update custom footer]\(ユーザー設定のフッターの更新\)](/assets/images/enterprise/custom-footer/update-custom-footer.png)

@@ -1,6 +1,6 @@
 ---
-title: Differences between commit views
-intro: You might observe differences in commit history depending on the chosen viewing method.
+title: Diferencias entre las vistas de las confirmaciones
+intro: Puedes observar las diferencias en el historial de confirmaciones dependiendo del método de visualización que se haya elegido.
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
@@ -11,29 +11,29 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Commit views
+ms.openlocfilehash: 2b5d59d385f815bd09c853e398d372bb4c861650
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145137094'
 ---
-On {% data variables.product.product_name %}, you can see the commit history of a repository by:
+En {% data variables.product.product_name %}, puedes ver el historial de confirmaciones de un repositorio al:
 
-- Navigating directly to [the commits page](https://github.com/mozilla/rust/commits/master) of a repository
-- Clicking on a file, then clicking **History**, to get to [the commit history for a specific file](https://github.com/mozilla/rust/commits/master/README.md)
+- Navega directamente a [la página de confirmaciones](https://github.com/mozilla/rust/commits/master) de un repositorio
+- Hace clic en un archivo y después en **Historial** para obtener [el historial de confirmaciones de un archivo concreto](https://github.com/mozilla/rust/commits/master/README.md).
 
-These two commit views may show _different_ information at times. The history for a single file may omit commits found on the repository's commit history.
+En algunos casos estas dos vistas de confirmación pueden mostrar información _diferente_. El historial de un archivo único puede omitir confirmaciones que se encuentran en el historial de confirmaciones del repositorio.
 
-Git has several different ways of showing the history of a repository. When Git shows the history of a single file, it simplifies history by omitting
-commits that did not change the file. Instead of looking at every commit to
-decide whether it touched the file, Git will omit a whole branch if that branch,
-when merged, did not impact the final contents of the file. Any commits on the
-branch that touched the file will not be shown.
+Git tiene diferentes maneras de mostrar el historial de un repositorio. Cuando Git muestra el historial de un solo archivo, lo simplifica y omite las confirmaciones que no han modificado el archivo. En lugar de examinar todas las confirmaciones para decidir si han afectado o no al archivo, Git omitirá una rama completa si, al combinarla, no ha afectado al contenido final del archivo. No se muestra ninguna confirmación en la rama que haya afectado el archivo.
 
-For a file's commit history, {% data variables.product.product_name %} explicitly follows this simple strategy. It makes the history simpler by removing commits that didn't contribute to the final result. For example, if a side branch made a change and then reverted it, that commit would not show up in the branch history. This makes reviewing branches more efficient, since you only see the commits that affect the file.
+Para el historial de confirmaciones de un archivo, {% data variables.product.product_name %} sigue explícitamente esta estrategia simple. Simplifica el historial al eliminar las confirmaciones que en realidad no contribuyen al resultado final. Por ejemplo, si una rama lateral ha realizado un cambio y luego lo ha revertido, esa confirmación no se mostrará en el historial de la rama. Esto permite que la revisión de las ramas sea más eficiente, dado que solo ves las confirmaciones que afectan al archivo.
 
-This truncated view might not always contain the information you're
-after. If you want to see the entire history, {% data variables.product.product_name %} provides a view with more
-information on a repository's commits page.
+Es posible que esta vista truncada no contenga la información que busca. Si quiere ver el historial completo, {% data variables.product.product_name %} proporciona una vista con más información sobre la página de confirmaciones de un repositorio.
 
-For more information on how Git considers commit history, see [the "History Simplification"](https://git-scm.com/docs/git-log#_history_simplification) section of the `git log` help article.
+Para más información sobre cómo Git considera el historial de confirmaciones, vea [la sección "Simplificación del historial"](https://git-scm.com/docs/git-log#_history_simplification) del artículo de ayuda `git log`.
 
-## Further reading
+## Información adicional
 
-- "[Signing commits](/articles/signing-commits)"
-- "[Searching commits](/search-github/searching-on-github/searching-commits)"
+- "[Firma de confirmaciones](/articles/signing-commits)"
+- "[Búsqueda de confirmaciones](/search-github/searching-on-github/searching-commits)"

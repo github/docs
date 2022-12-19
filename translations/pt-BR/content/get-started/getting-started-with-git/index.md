@@ -23,5 +23,11 @@ children:
   - /associating-text-editors-with-git
   - /configuring-git-to-handle-line-endings
   - /ignoring-files
+ms.openlocfilehash: 42c758ca98c96d451660d089434d6d8dc61501d6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880755'
 ---
 

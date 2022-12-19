@@ -6,8 +6,13 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+ms.openlocfilehash: ea4de9b0122e39f5ecb4d960d4f0ee8c94ba2ee5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145095686'
 ---
-
 ## Sobre a avaliação automática
 
 Seu professor pode configurar testes que verificam automaticamente seu trabalho quando você faz push para um repositório de atividades em {% data variables.product.product_location %}.
@@ -16,16 +21,16 @@ Se você é um aluno e seu instrutor configurou a avaliação automática para s
 
 ## Visualizar resultados de avaliação automática para um repositório de atividade
 
-{% data variables.product.prodname_classroom %} usa {% data variables.product.prodname_actions %} para executar testes de avaliação automática. Para obter mais informações sobre a visualização dos registros para um teste de avaliação automática, consulte "[Usar registros de execução de fluxo de trabalho](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
+{% data variables.product.prodname_classroom %} usa {% data variables.product.prodname_actions %} para executar testes de avaliação automática. Para obter mais informações sobre como ver os logs para um teste de avaliação automática, confira "[Como usar os logs de execução de fluxo de trabalho](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
 
-A aba **Ações** mostra o histórico completo de execuções de teste.
+A guia **Ações** mostra o histórico completo das execuções de teste.
 
-![Aba "Ações" com "Todos os fluxos de trabalho" selecionados](/assets/images/help/classroom/autograding-actions-tab.png)
+![Guia "Ações" com "Todos os fluxos de trabalho" selecionado](/assets/images/help/classroom/autograding-actions-tab.png)
 
 Você pode clicar em uma execução de teste específico para revisar o resultado do registro, como erros de compilação e falhas de teste.
 
-![O " fluxo de trabalho de avaliação automática de {% data variables.product.prodname_classroom %}" resultados de teste em {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![Os logs dos resultados do teste do "Fluxo de trabalho de avaliação automática do {% data variables.product.prodname_classroom %}" no {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- "[Sobre as verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"

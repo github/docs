@@ -2,7 +2,7 @@
 title: About repository caching
 intro: You can increase the performance of Git read operations for distributed teams and CI farms with repository caching.
 versions:
-  ghes: '>=3.3'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise

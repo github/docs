@@ -15,7 +15,12 @@ topics:
 children:
   - /about-ssh-certificate-authorities
   - /managing-your-organizations-ssh-certificate-authorities
-shortTitle: Gerenciar acesso do Git
+shortTitle: Manage Git access
+ms.openlocfilehash: 6ef8cc587bda642e0eab5cce3fa2026adf54da53
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145126438'
 ---
-
 {% data reusables.organizations.ssh-ca-ghec-only %}

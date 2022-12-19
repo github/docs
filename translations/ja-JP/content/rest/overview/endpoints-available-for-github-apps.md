@@ -12,7 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: GitHub APIが有効なエンドポイント
+shortTitle: GitHub App-enabled endpoints
+ms.openlocfilehash: d8bb53e1844b8171a1ce742fc38e4c4bb29013e7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109523'
 ---
-
 <!-- The content of this page is rendered as a NextJS page component. -->

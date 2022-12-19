@@ -1,14 +1,10 @@
 import FailBot from '../lib/failbot.js'
 import { nextApp } from './next.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
-import { cacheControlFactory } from './cache-control.js'
-
-const cacheControl = cacheControlFactory(60) // 1 minute
+import { errorCacheControl } from './cache-control.js'
 
 function shouldLogException(error) {
   const IGNORED_ERRORS = [
-    // avoid sending CSRF token errors (from bad-actor POST requests)
-    'EBADCSRFTOKEN',
     // Client connected aborted
     'ECONNRESET',
   ]
@@ -25,6 +21,7 @@ async function logException(error, req) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
     await FailBot.report(error, {
       path: req.path,
+      url: req.url,
     })
   }
 }
@@ -40,9 +37,7 @@ export default async function handleError(error, req, res, next) {
       // Let's cache our 404'ing assets conservatively.
       // The Cache-Control is short, and let's use the default surrogate
       // key just in case it was a mistake.
-      cacheControl(res)
-      // Undo the cookie setting that CSRF sets.
-      res.removeHeader('set-cookie')
+      errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
       // loading all the middlewares.
@@ -76,7 +71,7 @@ export default async function handleError(error, req, res, next) {
     }
 
     // If the error contains a status code, just send that back. This is usually
-    // from a middleware like `express.json()` or `csrf`.
+    // from a middleware like `express.json()`.
     if (error.statusCode || error.status) {
       return res.sendStatus(error.statusCode || error.status)
     }

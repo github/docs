@@ -1,6 +1,6 @@
 ---
-title: Managing users in your enterprise
-intro: You can audit user activity and manage user settings.
+title: Administrar los usuarios en tu empresa
+intro: Puedes auditar la actividad de los usuarios y administrar sus configuraciones de usuario.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise
   - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons
@@ -24,6 +24,7 @@ children:
   - /promoting-or-demoting-a-site-administrator
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise
+  - /exporting-membership-information-for-your-enterprise
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /auditing-users-across-your-enterprise
   - /impersonating-a-user
@@ -35,5 +36,11 @@ children:
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
 shortTitle: Manage users
+ms.openlocfilehash: 763277882c2af96505c2a6d4c236c05475ab9f3f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148009675'
 ---
 

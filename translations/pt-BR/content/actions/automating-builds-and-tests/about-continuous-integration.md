@@ -15,11 +15,15 @@ versions:
 type: overview
 topics:
   - CI
-shortTitle: Integração contínua
+shortTitle: Continuous integration
+ms.openlocfilehash: 26b9088133ad561900d06a0c885d6b06b9b55861
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880658'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Sobre integração contínua
 
@@ -31,30 +35,29 @@ Para compilar e testar seu código, é necessário usar um servidor. Você pode 
 
 ## Sobre integração contínua usando {% data variables.product.prodname_actions %}
 
-{% ifversion ghae %}CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no repositório e executar os seus testes. Os fluxos de trabalho podem ser executados em sistemas de executores que você hospeda. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-{% else %} CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no seu repositório e executar seus testes. Fluxos de trabalho podem ser executados em máquinas virtuais hospedadas em {% data variables.product.prodname_dotcom %} ou em máquinas que você mesmo hospeda. Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" e "[Sobre executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+{% ifversion ghae %}A CI que usa o {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem compilar o código no repositório e executar os testes. Os fluxos de trabalho podem ser executados em sistemas de executores que você hospeda. Para obter mais informações, confira "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".
+{% else %} CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no seu repositório e executar seus testes. Os fluxos de trabalho podem ser executados em máquinas virtuais hospedadas em {% data variables.product.prodname_dotcom %} ou em máquinas que você mesmo pode hospedar. Para obter mais informações, confira "[Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)" e "[Sobre os executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
 {% endif %}
 
-Você pode configurar a execução do seu fluxo de trabalho de CI para ocorrer diante de um evento do {% data variables.product.prodname_dotcom %} (por exemplo, quando houver push de um novo código para o seu repositório), com base em uma programação definida ou quando houver um evento externo usando o webhook de despacho do repositório.
+Você pode configurar seu fluxo de trabalho de CI para ser executado quando ocorrer um evento do {% data variables.product.prodname_dotcom %} (por exemplo, quando o novo código é enviado por push para o repositório), de acordo com um agendamento definido ou quando um evento externo ocorre usando o webhook de expedição do repositório.
 
 {% data variables.product.product_name %} executa seus testes de CI e fornece os resultados de cada teste no pull request para que você possa ver se a mudança no seu branch introduz um erro. Quando todos os testes de CI em um fluxo de trabalho forem aprovados, as alterações que passaram por push estarão prontas para a revisão de um integrante da equipe ou para o merge. Se algum teste falhar, uma de suas alterações pode ter causado a falha.
 
-Ao configurar o CI no seu repositório, {% data variables.product.product_name %} analisa o código no seu repositório e recomenda fluxos de trabalho CI baseados no idioma e na estrutura do seu repositório. Por exemplo, se você usar [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} irá sugerir um fluxo de trabalho inicial que instala seus pacotes Node.js e executa seus testes. Você pode usar o fluxo de trabalho inicial de CI sugerido por {% data variables.product.product_name %}, personalizar o fluxo de trabalho inicial sugerido ou criar o seu próprio arquivo de fluxo de trabalho personalizado para executar seus testes de CI.
+Ao configurar o CI no seu repositório, {% data variables.product.product_name %} analisa o código no seu repositório e recomenda fluxos de trabalho CI baseados no idioma e na estrutura do seu repositório. Por exemplo, se você usar o [Node.js](https://nodejs.org/en/), o {% data variables.product.product_name %} vai sugerir um fluxo de trabalho inicial que instala os pacotes do Node.js e executa os testes. Você pode usar o fluxo de trabalho inicial de CI sugerido por {% data variables.product.product_name %}, personalizar o fluxo de trabalho inicial sugerido ou criar o seu próprio arquivo de fluxo de trabalho personalizado para executar seus testes de CI.
 
 ![Captura de tela de fluxos de trabalho iniciais de integração contínua sugeridos](/assets/images/help/repository/ci-with-actions-template-picker.png)
 
-Além de ajudá-lo a configurar fluxos de trabalho de CI para seu projeto, você pode usar {% data variables.product.prodname_actions %} para criar fluxos de trabalho ao longo de todo o ciclo de vida de desenvolvimento do software. Por exemplo, você pode usar ações para implantar, criar pacotes ou lançar uma versão do seu projeto. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_actions %}](/articles/about-github-actions)".
+Além de ajudá-lo a configurar fluxos de trabalho de CI para seu projeto, você pode usar {% data variables.product.prodname_actions %} para criar fluxos de trabalho ao longo de todo o ciclo de vida de desenvolvimento do software. Por exemplo, você pode usar ações para implantar, criar pacotes ou lançar uma versão do seu projeto. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_actions %}](/articles/about-github-actions)".
 
-Para obter uma definição de termos comuns, consulte "[Conceitos básicos de {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)".
+Para obter uma definição de termos comuns, confira "[Conceitos principais do {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)".
 
 ## Fluxo de trabalho inicial
 
 {% data variables.product.product_name %} oferece fluxo de trabalho inicial de CI para uma série de linguagens e estruturas.
 
-Navegue pela lista completa do fluxo de trabalho inicial da CI oferecido por {% data variables.product.company_short %} no repositório de {% ifversion fpt or ghec %}[ações/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
+Navegue pela lista completa de fluxos de trabalho iniciais de CI oferecida pelo {% data variables.product.company_short %} no {% ifversion fpt or ghec %}repositório [actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci){% else %} repositório `actions/starter-workflows` do {% data variables.product.product_location %}{% endif %}.
 
-## Leia mais
+## Leitura adicional
 
 {% ifversion fpt or ghec %}
-- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
-{% endif %}
+- "[Como gerenciar a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)" {% endif %}

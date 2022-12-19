@@ -1,1 +1,9 @@
-1. Revise suas novas informações de pagamento e clique em **Change plan duration** (Alterar duração do plano).
+---
+ms.openlocfilehash: abae0e1d4b247abe4166e7e6c192f52d53e59075
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145096952"
+---
+1. Revise os novos detalhes de pagamento e clique em **Alterar duração do plano**.

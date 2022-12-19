@@ -28,10 +28,12 @@ If a new version of a package fixes a security vulnerability, you should publish
 
 ## Publishing a package
 
+{% data reusables.package_registry.packages-classic-pat-only %}
+
 You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. Create or use an existing access token with the appropriate scopes for the task you want to accomplish. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
-2. Authenticate to {% data variables.product.prodname_registry %} using your access token and the instructions for your package client.
+1. Create or use an existing {% data variables.product.pat_v1 %} with the appropriate scopes for the task you want to accomplish. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+2. Authenticate to {% data variables.product.prodname_registry %} using your {% data variables.product.pat_v1 %} and the instructions for your package client.
 3. Publish the package using the instructions for your package client.
 
 For instructions specific to your package client, see "[Working with a GitHub Packages registry](/packages/working-with-a-github-packages-registry)."

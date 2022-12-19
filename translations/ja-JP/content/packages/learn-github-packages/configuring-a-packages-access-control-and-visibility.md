@@ -9,43 +9,55 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-shortTitle: アクセスコントロールと可視性
+shortTitle: Access control & visibility
+ms.openlocfilehash: 8ef541f45fd6568db7c8510bc860d81d504494c5
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193058'
 ---
-
-{% data reusables.package_registry.container-registry-ghes-beta %}
+{% data reusables.package_registry.container-registry-ghes-beta %}{% ifversion packages-registries-v2 %}
 
 詳細な権限を持つパッケージは、個人ユーザもしくはOrganizationアカウントをスコープとします。 パッケージのアクセス制御と可視性は、パッケージに接続された（あるいはリンクされた）リポジトリは別個に変更できます。
 
-現在は、{% data variables.product.prodname_container_registry %}でのみ詳細な権限を使うことができます。 詳細な権限は、npmレジストリのような他のパッケージレジストリではサポートされていません。{% ifversion docker-ghcr-enterprise-migration %}{% data variables.product.prodname_container_registry %}への移行に関する詳しい情報については「[Dockerレジストリから{% data variables.product.prodname_container_registry %}への移行](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)」を参照してください。{% endif %}
+一部のレジストリは、リポジトリがスコープ指定されたアクセス許可のみをサポートします。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」をご覧ください。
 
-リポジトリをスコープとするパッケージの権限や、PATに関するパッケージ関連のスコープ、Actionsのワークフローの権限の管理についての詳しい情報は、「[GitHub Packagesの権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
+{% else %}パッケージは、パッケージを所有するリポジトリのアクセス許可と可視性を継承します。{% endif %}パッケージのアクセス許可、PAT のパッケージ関連のスコープ、またはアクション ワークフローのアクセス許可の管理について詳しくは、「[GitHub Packages のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages)」をご覧ください。
+
+{% ifversion packages-registries-v2 %}
 
 ## コンテナイメージの可視性とアクセス権限
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
+{% endif %}
+
 ## 個人アカウントにコンテナイメージへのアクセス権限を設定する
 
-個人アカウントが所有するコンテナイメージに対する管理者権限がある場合には、他のユーザに読み取り、書き込み、管理者ロールを割り当てることができます。 これらの権限ロールに関する詳しい情報については、[コンテナイメージの可視性とアクセス権限](#visibility-and-access-permissions-for-container-images)」を参照してください。
+個人アカウントが所有するコンテナー イメージに対する管理者権限がある場合には、他のユーザーに読み取り、書き込み、管理者ロールを割り当てることができます。 これらのアクセス許可ロールの詳細については、「[コンテナー イメージの可視性とアクセス許可](#visibility-and-access-permissions-for-container-images)」を参照してください。
 
 パッケージがプライベートもしくはインターナルで、Organizationによって所有されているなら、あなたにできることは他のOrganizationメンバーやTeamにアクセス権を与えることだけです。
 
 {% data reusables.package_registry.package-settings-option %}
-1. パッケージ設定ページで [**Invite teams or people**] をクリックして、アクセス権を付与するユーザの名前、ユーザ名、またはメールアドレスを入力します。 Team には、個人アカウントが所持するコンテナイメージのアクセス権限を与えることができません。 ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
-1. ユーザ名または Team 名の隣にある [Role] のドロップダウンメニューで、付与する権限レベルを選択します。 ![コンテナアクセス権のオプション](/assets/images/help/package-registry/container-access-control-options.png)
+1. パッケージの設定ページで、 **[チームまたはユーザーの招待]** をクリックして、アクセス権を付与するユーザーの名前、ユーザー名、またはメール アドレスを入力します。 Team には、個人アカウントが所持するコンテナー イメージのアクセス許可を与えることができません。
+  ![コンテナーへのアクセスの招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
+1. ユーザ名または Team 名の隣にある [Role] のドロップダウンメニューで、付与する権限レベルを選択します。
+  ![コンテナーへのアクセスのオプション](/assets/images/help/package-registry/container-access-control-options.png)
 
 選択したユーザには自動的にアクセス権限が与えられ、招待を承諾する必要はありません。
 
-## Organization のコンテナイメージへのアクセス権限を設定する
+## Organization にコンテナイメージへのアクセス権限を設定する
 
-Organization が所有するコンテナイメージに対する管理者権限がある場合には、他のユーザや Team に読み取り、書き込み、管理者ロールを割り当てることができます。 これらの権限ロールに関する詳しい情報については、[コンテナイメージの可視性とアクセス権限](#visibility-and-access-permissions-for-container-images)」を参照してください。
+Organization が所有するコンテナイメージに対する管理者権限がある場合には、他のユーザや Team に読み取り、書き込み、管理者ロールを割り当てることができます。 これらのアクセス許可ロールの詳細については、「[コンテナー イメージの可視性とアクセス許可](#visibility-and-access-permissions-for-container-images)」を参照してください。
 
 パッケージがプライベートもしくはインターナルで、Organizationによって所有されているなら、あなたにできることは他のOrganizationメンバーやTeamにアクセス権を与えることだけです。
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-1. パッケージ設定ページで [**Invite teams or people**] をクリックして、アクセス権を付与するユーザの名前、ユーザ名、またはメールアドレスを入力します。 また、Organization から Team 名を入力して、全 Team メンバーにアクセスを付与することもできます。 ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
-1. ユーザ名または Team 名の隣にある [Role] のドロップダウンメニューで、付与する権限レベルを選択します。 ![コンテナアクセス権のオプション](/assets/images/help/package-registry/container-access-control-options.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+1. パッケージの設定ページで、 **[チームまたはユーザーの招待]** をクリックして、アクセス権を付与するユーザーの名前、ユーザー名、またはメール アドレスを入力します。 また、Organization から Team 名を入力して、全 Team メンバーにアクセスを付与することもできます。
+  ![コンテナーへのアクセスの招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
+1. ユーザ名または Team 名の隣にある [Role] のドロップダウンメニューで、付与する権限レベルを選択します。
+  ![コンテナーへのアクセスのオプション](/assets/images/help/package-registry/container-access-control-options.png)
 
 選択したユーザや Team には自動的にアクセス権限が与えられ、招待を承諾する必要はありません。
 
@@ -57,9 +69,9 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 リポジトリが同期されると、パッケージの詳細なアクセス設定にはアクセスできなくなります。 詳細なパッケージのアクセス設定を通じてパッケージの権限をカスタマイズするには、まず同期されたリポジトリを取り除かなければなりません。
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-2. "Repository source（リポジトリソース）"の下で、**Inherit access from repository (recommended)（アクセスをリポジトリから継承（推奨））**を選択してください。 ![リポジトリアクセスの継承チェックボックス](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+2. [リポジトリ ソース] で、 **[リポジトリからアクセスを継承する (推奨)]** を選択します。
+  ![リポジトリ アクセスの継承のチェック ボックス](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
 ## パッケージへのワークフローのアクセスの確保
 
@@ -69,33 +81,38 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 {% note %}
 
-**ノート:** **Actionsのアクセス**メニューオプションを通じてコンテナイメージをリポジトリと同期することは、コンテナをリポジトリに接続することとは異なります。 リポジトリのコンテナへのリンクに関する詳しい情報については、「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
+**注:** **[アクションのアクセス]** メニュー オプションを使用したコンテナー イメージとリポジトリとの同期は、コンテナーをリポジトリに接続する処理とは異なります。 リポジトリをコンテナーにリンクする方法の詳細については、「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
 
 {% endnote %}
 
-### ユーザアカウントが所有するコンテナイメージへの{% data variables.product.prodname_actions %}のアクセス
+### ユーザアカウントが所有するコンテナイメージへの{% data variables.product.prodname_actions %}のアクセス 
 
 {% data reusables.package_registry.package-settings-option %}
-1. ひだりのサイドバーで、**Actions access（Actionsのアクセス）**をクリックしてください。 ![左メニューの"Actionsアクセス"オプション](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. ワークフローがコンテナパッケージに確実にアクセスできるようにするには、ワークフローが保存されるリポジトリを追加しなければなりません。 **Add repository（リポジトリの追加）**をクリックし、追加したいリポジトリを検索してください。 !["リポジトリの追加"ボタン](/assets/images/help/package-registry/add-repository-button.png)
-3. "role（ロール）"ドロップダウンメニューを使い、コンテナイメージに対してリポジトリに持たせたいデフォルトのアクセスレベルを選択してください。 ![リポジトリに与える権限アクセスレベル](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. 左側のサイドバーで、 **[アクションのアクセス]** をクリックします。
+  ![左側のメニューの [アクションのアクセス] オプション](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. ワークフローがコンテナパッケージに確実にアクセスできるようにするには、ワークフローが保存されるリポジトリを追加しなければなりません。 **[リポジトリの追加]** をクリックして、追加するリポジトリを検索します。
+   ![[リポジトリの追加] ボタン](/assets/images/help/package-registry/add-repository-button.png)
+3. "role（ロール）"ドロップダウンメニューを使い、コンテナイメージに対してリポジトリに持たせたいデフォルトのアクセスレベルを選択してください。
+  ![リポジトリに付与するアクセス レベル](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-コンテナイメージへのアクセスをさらにカスタマイズするには、「[個人アカウントのためのコンテナイメージへのアクセスの設定](#configuring-access-to-container-images-for-your-personal-account)」を参照してください。
+コンテナー イメージへのアクセスをさらにカスタマイズするには、「[個人用アカウントにコンテナー イメージへのアクセス権を設定する](#configuring-access-to-container-images-for-your-personal-account)」を参照してください。
 
-### Organizationが所有するコンテナイメージへの{% data variables.product.prodname_actions %}のアクセス
+### Organizationが所有するコンテナイメージへの{% data variables.product.prodname_actions %}のアクセス 
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
-1. ひだりのサイドバーで、**Actions access（Actionsのアクセス）**をクリックしてください。 ![左メニューの"Actionsアクセス"オプション](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. **Add repository（リポジトリの追加）**をクリックし、追加したいリポジトリを検索してください。 !["リポジトリの追加"ボタン](/assets/images/help/package-registry/add-repository-button.png)
-3. "role（ロール）"ドロップダウンメニューを使い、リポジトリのメンバーからコンテナイメージに対して持たせたいデフォルトのアクセスレベルを選択してください。 外部のコラボレータは含まれません。 ![リポジトリに与える権限アクセスレベル](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
+1. 左側のサイドバーで、 **[アクションのアクセス]** をクリックします。
+  ![左側のメニューの [アクションのアクセス] オプション](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+2. **[リポジトリの追加]** をクリックして、追加するリポジトリを検索します。
+   ![[リポジトリの追加] ボタン](/assets/images/help/package-registry/add-repository-button.png)
+3. "role（ロール）"ドロップダウンメニューを使い、リポジトリのメンバーからコンテナイメージに対して持たせたいデフォルトのアクセスレベルを選択してください。 外部のコラボレータは含まれません。
+  ![リポジトリに付与するアクセス レベル](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
 
-コンテナイメージへのアクセスをさらにカスタマイズするには、「[Organizationのためのコンテナイメージへのアクセスの設定](#configuring-access-to-container-images-for-an-organization)」を参照してください。
+コンテナー イメージへのアクセスをさらにカスタマイズするには、「[組織のコンテナー イメージへのアクセス権を設定する](#configuring-access-to-container-images-for-an-organization)」を参照してください。
 
 {% ifversion fpt or ghec %}
-## パッケージへの{% data variables.product.prodname_codespaces %}アクセスの確保
+## パッケージへの {% data variables.product.prodname_github_codespaces %} アクセスの確保
 
-デフォルトでは、codespaceは**Inherit access（アクセスの継承）**オプションが選択された同じリポジトリ内で公開されたパッケージなど、{% data variables.product.prodname_dotcom %} Container Registry内の特定パッケージにシームレスにアクセスできます。 自動的に設定されるアクセスに関する詳しい情報については「[{% data variables.product.prodname_dotcom %} Container Registryに保存されたイメージへのアクセス](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)」を参照してください。
+既定では、 **[アクセスの継承]** オプションが選択された同じリポジトリ内で公開されたパッケージなど、詳細なアクセス許可をサポートするレジストリ内の特定のパッケージに codespace からシームレスにアクセスできます。 詳細なアクセス許可とシームレスな {% data variables.product.prodname_github_codespaces %} アクセスをサポートする {% data variables.product.prodname_registry %} レジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)」をご覧ください。
 
 あるいは、codespaceがパッケージに確実にアクセスできるようにするには、codespaceが起動されたリポジトリへのアクセスを許可しなければなりません。
 
@@ -103,23 +120,23 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 リポジトリ内でcodespaceと共有したいパッケージを選択したら、そのリポジトリへのアクセスを付与できます。
 
-1. 右のサイドバーで**Package settings（パッケージ設定）**をクリックしてください。
+1. 右側のサイドバーで、 **[パッケージの設定]** をクリックします。
 
-   ![右のメニューの"パッケージ設定"オプション](/assets/images/help/package-registry/package-settings.png)
+   ![右側のメニューの [パッケージの設定] オプション](/assets/images/help/package-registry/package-settings.png)
+   
+2. [Codespaces アクセスの管理] で、 **[リポジトリの追加]** をクリックします。
 
-2. "Manage Codespaces access（Codespacesのアクセスの管理）"の下で、**Add repository（リポジトリの追加）**をクリックしてください。
-
-   !["リポジトリの追加"ボタン](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+   ![[リポジトリの追加] ボタン](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
 3. 追加したいリポジトリを検索してください。
 
-   !["リポジトリの追加"ボタン](/assets/images/help/package-registry/manage-codespaces-access-search.png)
-
+   ![[リポジトリの追加] ボタン](/assets/images/help/package-registry/manage-codespaces-access-search.png)
+   
 4. アクセスを許可したい追加のリポジトリについて、繰り返してください。
 
 5. リポジトリのcodespaceがイメージへのアクセスを必要としなくなった場合は、アクセスを削除できます。
 
-   !["リポジトリの削除"ボタン](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   ![[リポジトリの削除] ボタン](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 {% endif %}
 ## 個人アカウントにコンテナイメージの可視性を設定する
@@ -130,25 +147,26 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 {% data reusables.package_registry.package-settings-option %}
 5. [Danger Zone] の下で、可視性の設定を選択します。
-    - あらゆる人がコンテナイメージを表示できるようにするには、[**Make public**] をクリックします。
+    - コンテナー イメージをすべてのユーザーに表示するには、 **[公開する]** をクリックします。
     {% warning %}
 
-    **警告:** いったんパッケージをパブリックにすると、プライベートに戻すことはできません。
+    **警告:** 公開したパッケージを非公開に戻すことはできません。
 
     {% endwarning %}
-    - 指定したユーザだけがコンテナイメージを表示できるようにするには、[**Make private**] をクリックします。 ![コンテナ可視性のオプション](/assets/images/help/package-registry/container-visibility-option.png)
+    - コンテナー イメージをカスタム選択したユーザーに表示するには、 **[非公開にする]** をクリックします。
+  ![コンテナーの可視性のオプション](/assets/images/help/package-registry/container-visibility-option.png)
 
 ## Organizationメンバーのためのコンテナ作成の可視性
 
 デフォルトでは、Organizationのメンバーが公開できるコンテナの可視性を選択できます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. 左側にある [**Packages**] をクリックします。
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. 左側の **[パッケージ]** をクリックします。
 6. "Container creation（コンテナ作成）"の下で、パブリック、プライベート、インターナルのコンテナイメージの作成を有効化するかを選択してください。
-    - Organization のメンバーがパブリックのコンテナイメージを作成できるようにするには、[**Public**] をクリックします。
-    - Organization のメンバーに、Organization のメンバーのみが表示できるプライベートコンテナイメージの作成ができるようにするには、[**Private**] をクリックします。 プライベートコンテナイメージの可視性については、さらに細かくカスタマイズできます。
-    - OrganizationのメンバーがすべてのOrganizationのメンバーから見えるインターナルのコンテナイメージを作成できるようにするには、**Internal（インターナル）**をクリックしてください。 EnterpriseにそのOrganizationが所属している場合、コンテナイメージはEnterpriseのすべてのメンバーに見えるようになります。 ![Organizationのメンバーが公開するコンテナイメージの可視性オプション](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - 組織のメンバーがパブリック コンテナー イメージを作成できるようにするには、 **[パブリック]** をクリックします。
+    - 組織のメンバーが他の組織のメンバーにのみ表示されるプライベート コンテナー イメージを作成できるようにするには、 **[プライベート]** をクリックします。 プライベートコンテナイメージの可視性については、さらに細かくカスタマイズできます。
+    - 組織のメンバーがすべての組織のメンバーに表示される内部コンテナー イメージを作成できるようにするには、 **[内部]** をクリックします。 EnterpriseにそのOrganizationが所属している場合、コンテナイメージはEnterpriseのすべてのメンバーに見えるようになります。
+    ![組織のメンバーが公開するコンテナー イメージの可視性のオプション](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## Organization にコンテナイメージの可視性を設定する
 
@@ -156,13 +174,13 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 パブリックパッケージは認証なしに匿名でアクセスできます。 いったんパッケージをパブリックに設定すると、そのパッケージをプライベートに戻すことはできません。
 
-{% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.package-settings-from-org-level %} {% data reusables.package_registry.package-settings-option %}
 5. [Danger Zone] の下で、可視性の設定を選択します。
-    - あらゆる人がコンテナイメージを表示できるようにするには、[**Make public**] をクリックします。
+    - コンテナー イメージをすべてのユーザーに表示するには、 **[公開する]** をクリックします。
     {% warning %}
 
-    **警告:** いったんパッケージをパブリックにすると、プライベートに戻すことはできません。
+    **警告:** 公開したパッケージを非公開に戻すことはできません。
 
     {% endwarning %}
-    - 指定したユーザだけがコンテナイメージを表示できるようにするには、[**Make private**] をクリックします。 ![コンテナ可視性のオプション](/assets/images/help/package-registry/container-visibility-option.png)
+    - コンテナー イメージをカスタム選択したユーザーに表示するには、 **[非公開にする]** をクリックします。
+  ![コンテナーの可視性のオプション](/assets/images/help/package-registry/container-visibility-option.png)

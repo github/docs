@@ -1,6 +1,5 @@
----
-#Issue 5892
-#PR file tree view
+# Issue 5892
+# PR file tree view
 versions:
   fpt: '*'
   ghec: '*'

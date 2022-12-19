@@ -1,70 +1,75 @@
 ---
 title: ユーザを Organization に変換する
 redirect_from:
-  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
-  - /articles/explaining-the-account-transformation-warning
-  - /articles/converting-a-user-into-an-organization
-  - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
-  - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
-  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
-intro: You can convert your personal account into an organization. これにより、Organization に属するリポジトリに対して、より細かく権限を設定できます。
+- /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
+- /articles/explaining-the-account-transformation-warning
+- /articles/converting-a-user-into-an-organization
+- /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
+- /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
+- /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
+intro: 個人アカウントを Organization に変換できます。 これにより、Organization に属するリポジトリに対して、より細かく権限を設定できます。
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - Accounts
+- Accounts
 shortTitle: User into an organization
+ms.openlocfilehash: 641172d82581ad83bd7281fed941171ce6c817b7
+ms.sourcegitcommit: 2298858ef68ffb4e79490ddbb9d6a64081dfbc39
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 07/21/2022
+ms.locfileid: "147389394"
 ---
-
 {% warning %}
 
-**警告**: ユーザを Organization に変換する前に、以下の点についてご注意ください.
+**警告**: ユーザーを Organization に変換する前に、以下の点にご注意ください。
 
-* You will **no longer** be able to sign into the converted personal account.
-* You will **no longer** be able to create or modify gists owned by the converted personal account.
-* Organization をユーザに変換して元に戻すことは**できません**。
-* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
-* Any commits made with the converted personal account **will no longer be linked** to that account. コミットそのものは、**そのまま残ります**。
-* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
-* Any forks of private repositories made with the converted personal account will be deleted.
+* 変換した個人アカウントには、サインイン **できなくなります**。
+* 変換した個人アカウントが所有していた gist を作成や変更することが **できなくなります**。
+* Organization からユーザーに変換 **することはできません**。
+* SSH キー、OAuth トークン、ジョブ プロフィール、リアクション、関連するユーザー情報は、Organization に移譲 **されません**。 これは、変換された個人アカウントのみに該当し、個人アカウントのコラボレーターには該当しません。
+* 変換した個人アカウントによるコミットは、アカウントに **リンクされなくなります**。 コミット自体はそのまま **残ります**。
+* 変換した個人アカウントによるあらゆる既存のコメントは、アカウントに **リンクされなくなります**。 コメント自体はそのまま **残ります** が、`ghost` ユーザーに関連付けられます。
+* 変換された個人アカウントで作成されたプライベート リポジトリのフォークはすべて削除されます。
 {% endwarning %}
 
 {% ifversion fpt or ghec or ghes %}
-## Keep your personal account and create a new organization manually
+## <a name="keep-your-personal-account-and-create-a-new-organization-manually"></a>個人アカウントを保ち、新しい組織を手動で作成する
 
-If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
+組織の名前を、個人アカウントが使用しているものと同じにしたい場合や、個人のアカウント情報をそのまま残しておきたい場合は、個人アカウントを組織に変換するのではなく、新しい組織を作成して、そこへリポジトリを移譲する必要があります。
 
-1. To retain your current personal account name for your personal use, [change the name of your personal account](/articles/changing-your-github-username) to something new and wonderful.
-2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal account.
-3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.{% endif %}
+1. 現在の個人アカウント名を個人的に使いたい場合は、[個人アカウント名を変更し](/articles/changing-your-github-username)、新しくて素敵な名前を付けましょう。
+2. 個人アカウントの元の名前で[新しい組織を作成](/articles/creating-a-new-organization-from-scratch)します。
+3. 新しい Organization アカウントに[リポジトリを転送します](/articles/transferring-a-repository)。{% endif %}
 
-## 個人アカウントを Organization に自動で変換する
+## <a name="convert-your-personal-account-into-an-organization-automatically"></a>個人アカウントを Organization に自動で変換する
 
-You can also convert your personal account directly into an organization. アカウントを変換すると、以下のことが起こります:
+個人アカウントを組織に直接変換することも可能です。 アカウントを変換すると、以下のことが起こります:
  - リポジトリはそのまま保持されます。他のアカウントに手動で移譲する必要はありません。
- - コラボレーターを、Team に自動的に招待します。コラボレーターの権限は、以前のものがそのまま引き継がれます。
- {% ifversion fpt or ghec %}- For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
+ - コラボレーターを、Team に自動的に招待します。コラボレーターの権限は、以前のものがそのまま引き継がれます。{% ifversion fpt or ghec %}- {% data variables.product.prodname_pro %} の個人アカウントでは、いつでも支払い情報の再入力、支払いサイクルの調整、二重支払いをすることなく、自動的に[有料 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) に移行できます。{% endif %}
 
 1. GitHub にサインインし、変換後に Organization やリポジトリにアクセスするために使う、新しい個人アカウントを作成します。
-2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the personal account you're converting has joined.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-5. [Transform account] で、[**Turn <username> into an organization**] をクリックします。 ![Organization 変換ボタン](/assets/images/help/settings/convert-to-organization.png)
-6. [Account Transformation Warning] ダイアログボックスで、変換に関する情報を読み、変換を確定します。 このボックスに記載されている情報は、この記事で上述したものと同じです。 ![変換に関する警告](/assets/images/help/organizations/organization-account-transformation-warning.png)
-7. [Transform your user into an organization] ページの、[Choose an organization owner] で、前のセクションで作成したセカンダリの個人アカウントか、Organization の管理を信頼して任せられる他のユーザを選択します。 ![Organization オーナーの追加ページ](/assets/images/help/organizations/organization-add-owner.png)
+2.  変換する個人アカウントが参加している[組織は、そのままにしておきます](/articles/removing-yourself-from-an-organization)。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %}
+5. [アカウントの変換] で、 **[<username> を組織に変換]** をクリックします。
+    ![Organization 変換ボタン](/assets/images/help/settings/convert-to-organization.png)
+6. [Account Transformation Warning] ダイアログボックスで、変換に関する情報を読み、変換を確定します。 このボックスに記載されている情報は、この記事で上述したものと同じです。
+    ![変換に関する警告](/assets/images/help/organizations/organization-account-transformation-warning.png)
+7. [Transform your user into an organization] ページの、[Choose an organization owner] で、前のセクションで作成したセカンダリの個人アカウントか、Organization の管理を信頼して任せられる他のユーザを選択します。
+    ![Organization オーナーの追加ページ](/assets/images/help/organizations/organization-add-owner.png)
 8. 入力を求められた場合、Organization の新しいプランを選択し、支払い情報を入力します。
-9. [**Create Organization**] をクリックします。
-10. Sign in to the new personal account you created in step one, then use the context switcher to access your new organization.
+9. **[Organization の作成]** をクリックします。
+10. ステップ 1 で作成した、新しい個人アカウントにサインインし、コンテキスト スイッチャーを使って新しい組織にアクセスします。
 
 {% tip %}
 
-**Tip**: When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. 希望する場合は、*外部コラボレーター*を新しい Organization のメンバーに招待できます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)」を参照してください。
+**ヒント**: ユーザー アカウントを組織に変換した場合、アカウントに属していたリポジトリのコラボレーターは、新しい組織に *外部コラボレーター* として追加されます。 希望する場合は、*外部コラボレーター* を招待して新しい Organization のメンバーにすることができます。 詳細については、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)」を参照してください。
 
 {% endtip %}
 
-## 参考リンク
-- [Team の設定](/articles/setting-up-teams)
-{% ifversion fpt or ghec %}-"[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
-- [Organization にアクセスする](/articles/accessing-an-organization)
+## <a name="further-reading"></a>参考資料
+- 「[Team の設定](/articles/setting-up-teams)」 {% ifversion fpt or ghec %}- [Organization にユーザーを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
+- [Organization へのアクセス](/articles/accessing-an-organization)

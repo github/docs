@@ -11,9 +11,14 @@ versions:
 type: overview
 topics:
   - Sponsors
-shortTitle: 支払いについて
+shortTitle: About billing
+ms.openlocfilehash: 478b0bc1836cd234ffa32aba4a03b823b0c20663
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145087990'
 ---
-
 {% data reusables.sponsors.sponsorship-details %}
 
 {% data reusables.sponsors.no-fees %}
@@ -22,7 +27,7 @@ shortTitle: 支払いについて
 
 {% data reusables.user-settings.context_switcher %}
 
-## 参考リンク
+## 参考資料
 
-- [{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
-- 「[オープンソースコントリビューターをスポンサーする](/sponsors/sponsoring-open-source-contributors)」
+- 「[{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」
+- 「[オープン ソース共同作成者のスポンサー](/sponsors/sponsoring-open-source-contributors)」

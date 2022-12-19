@@ -7,7 +7,7 @@ name: Repo Sync Stalls
 on:
   workflow_dispatch:
   schedule:
-    - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
+    - cron: '20 */2 * * *' # Run every 2nd hour at 20 minutes after
 
 permissions:
   pull-requests: read

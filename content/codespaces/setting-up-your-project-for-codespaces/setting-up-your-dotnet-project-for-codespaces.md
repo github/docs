@@ -1,9 +1,8 @@
 ---
-title: Setting up your C# (.NET) project for Codespaces
+title: Setting up your C# (.NET) project for GitHub Codespaces
 shortTitle: Setting up your C# (.NET) project
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.codespaces %}'
-intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
@@ -17,20 +16,18 @@ hidden: true
 
 ## Introduction
 
-This guide shows you how to set up your C# (.NET) project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+This guide shows you how to set up your C# (.NET) project {% data reusables.codespaces.setting-up-project-intro %}
 
 ### Prerequisites
 
 - You should have an existing C# (.NET) project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/dotnet-quickstart.
-- You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
+- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}).
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-  If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
@@ -104,14 +101,12 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
 	//    },
 	//
-	// 3. Do one of the following depending on your scenario:
-	//    * When using GitHub Codespaces and/or Remote - Containers:
-	//      1. Start the container
-	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
-	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
+	// 3. Start the container.
 	//
-	//    * If only using Remote - Containers with a local container, uncomment this line instead:
-	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
+	// 4. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer.
+	//
+	// 5. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https".
+	//
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "dotnet restore",
@@ -202,9 +197,9 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 1. Run your application by pressing `F5` or entering `dotnet watch run` in your terminal.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
 
-   ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## Step 5: Commit your changes
 
@@ -212,6 +207,6 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 ## Next steps
 
-You should now be ready start developing your C# (.NET) project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
+You should now be ready start developing your C# (.NET) project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

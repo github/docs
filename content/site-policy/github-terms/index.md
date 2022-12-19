@@ -10,7 +10,7 @@ children:
   - /github-corporate-terms-of-service
   - /github-terms-for-additional-products-and-features
   - /github-community-guidelines
-  - /github-community-forum-code-of-conduct
+  - /github-community-code-of-conduct
   - /github-sponsors-additional-terms
   - /github-registered-developer-agreement
   - /github-marketplace-terms-of-service

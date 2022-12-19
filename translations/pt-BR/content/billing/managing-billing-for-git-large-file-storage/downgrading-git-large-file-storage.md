@@ -16,22 +16,22 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Fazer downgrade no armazenamento do LFS do Git
+shortTitle: Downgrade Git LFS storage
+ms.openlocfilehash: 9e23d3d8eaee5362375ca427a7b58505eccbaa05
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083531'
 ---
-
-Quando você faz downgrade do número de pacotes de dados, as alterações entram em vigor na próxima data de cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)".
+Quando você faz downgrade do número de pacotes de dados, as alterações entram em vigor na próxima data de cobrança. Para obter mais informações, confira "[Sobre cobrança para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)".
 
 ## Fazer downgrade de armazenamento e largura de banda de uma conta pessoal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-remove-data %}
-{% data reusables.large_files.downgrade_data_packs %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.lfs-remove-data %} {% data reusables.large_files.downgrade_data_packs %}
 
 ## Fazer downgrade de armazenamento e largura de banda de uma organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-remove-data %}
-{% data reusables.large_files.downgrade_data_packs %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.lfs-remove-data %} {% data reusables.large_files.downgrade_data_packs %}

@@ -1,7 +1,6 @@
 ---
 title: Prebuilding your codespaces
 intro: 'To speed up codespace creation, you can configure your project to prebuild codespaces for specific branches in specific regions.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +11,7 @@ redirect_from:
 children:
   - /about-github-codespaces-prebuilds
   - /configuring-prebuilds
+  - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
 ---

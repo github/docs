@@ -18,5 +18,6 @@ Every GraphQL schema has a root type for both queries and mutations. The [mutati
 
 For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-mutations.json -->
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

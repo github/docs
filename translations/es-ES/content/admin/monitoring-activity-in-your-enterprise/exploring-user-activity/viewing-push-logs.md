@@ -16,8 +16,13 @@ topics:
   - Enterprise
   - Git
   - Logging
+ms.openlocfilehash: c759d380b7cbc54918e87ed354c8264bc533c31b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145116473'
 ---
-
 Las entradas de registro de subida muestran:
 
 - Quién inició la subida
@@ -32,9 +37,10 @@ Las entradas de registro de subida muestran:
 
 1. Inicia sesión en {% data variables.product.prodname_ghe_server %} como administrador de sitio.
 1. Navegar a un repositorio.
-1. En la esquina superior derecha de la página del repositorio, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
-{% data reusables.enterprise_site_admin_settings.security-tab %}
-4. En la barra lateral izquierda, haz clic en **Push Log (Registro de subida)**. ![Pestaña de registro de subida](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
+1. En la esquina superior derecha de la página del repositorio, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}.
+    ![Icono de cohete para acceder a la configuración del administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png) {% data reusables.enterprise_site_admin_settings.security-tab %}
+4. En la barra lateral de la izquierda, haga clic en **Push Log**.
+![Pestaña del registro de inserciones](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% ifversion ghes %}
 ## Ver registros de subida de un repositorio en la línea de comando

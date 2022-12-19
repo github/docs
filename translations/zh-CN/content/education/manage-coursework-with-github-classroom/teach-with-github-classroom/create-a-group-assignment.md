@@ -7,8 +7,13 @@ permissions: 'Organization owners who are admins for a classroom can create and 
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
+ms.openlocfilehash: 71c5f5eaf97ba58e25921c1e2be6fc638550dfa8
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179758'
 ---
-
 ## 关于组分配
 
 {% data reusables.classroom.assignments-group-definition %} 学生可以像专业开发人员团队一样，在共享仓库中共同完成小组作业。
@@ -19,13 +24,13 @@ redirect_from:
 
 {% data reusables.classroom.about-assignments %}
 
-您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 更多信息请参阅“[关于团队](/organizations/organizing-members-into-teams/about-teams)”。
+您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 有关详细信息，请参阅“[关于团队](/organizations/organizing-members-into-teams/about-teams)”。
 
-有关创建小组作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
+有关创建小组作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本信息](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## 基本要求
+## 先决条件
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
@@ -41,11 +46,11 @@ redirect_from:
 - [分配作业的截止时间](#assigning-a-deadline-for-an-assignment)
 - [选择作业类型](#choosing-an-assignment-type)
 - [确定作业的团队](#defining-teams-for-an-assignment)
-- [选择作业仓库的可见性](#choosing-a-visibility-for-assignment-repositories)
+- [选择作业存储库的可见性](#choosing-a-visibility-for-assignment-repositories)
 
 ### 指定作业名称
 
-对于小组作业，{% data variables.product.prodname_classroom %} 使用仓库前缀和团队名称对仓库命名。 默认情况下，仓库前缀是作业标题。 例如，如果将作业命名为 "assignment-1"，而团队在 {% data variables.product.product_name %} 上的名称是 "student-team"，则团队成员的作业仓库的名称将是 `assignment-1-student-team`。
+对于小组作业，{% data variables.product.prodname_classroom %} 使用仓库前缀和团队名称对仓库命名。 默认情况下，仓库前缀是作业标题。 例如，如果将作业命名为“assignment-1”，而团队在 {% data variables.product.product_name %} 上的名称是“student-team”，则团队成员的作业存储库的名称将是 `assignment-1-student-team`。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
@@ -55,7 +60,7 @@ redirect_from:
 
 ### 选择作业类型
 
-在“Individual or group assignment（个人或小组作业）”下，选择下拉菜单，然后单击 **Group assignment（小组作业）**。 创建作业后不可更改作业类型。 如果要创建个人作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”。
+在“个人或小组作业”下，选择下拉菜单，然后单击“小组作业”。 创建作业后不可更改作业类型。 如果希望创建个人作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”。
 
 ### 确定作业的团队
 
@@ -75,6 +80,8 @@ redirect_from:
 
 ### 选择作业仓库的可见性
 
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
+
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
@@ -83,18 +90,18 @@ redirect_from:
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [选择模板仓库](#choosing-a-template-repository)
+- [选择模板存储库](#choosing-a-template-repository)
 - [选择集成开发环境 (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### 选择模板仓库
 
-默认情况下，新作业将为学生创建的每个团队创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %}
+默认情况下，新作业将为学生创建的每个团队创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %} 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
 ### 选择集成开发环境 (IDE)
 
-{% data reusables.classroom.about-online-ides %} 更多信息请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”。
+{% data reusables.classroom.about-online-ides %} 有关详细信息，请参阅“[将 {% data variables.product.prodname_classroom %} 与 IDE 集成](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”。
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -125,32 +132,32 @@ redirect_from:
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-您可以在作业的 **Teams（团队）**选项卡中查看正在处理或已提交作业的团队。 {% data reusables.classroom.assignments-to-prevent-submission %}
+可以在作业的“团队”选项卡中查看正在处理作业或已提交作业的团队。 {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="组分配" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
+  <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
 ## 监控学生的进度
 作业概述页显示有关作业接受和团队进度的信息。 根据作业的配置，您可能有不同的摘要信息。
 
-- **团队总数**：已创建的团队数。
-- **名册学生**：教室名册上的学生人数。
-- **不在团队的学生**：课堂名册上尚未加入团队的学生人数。
--  **接受的团队**：已接受此任务的团队数。
--  **作业提交**：已提交作业的团队数。 在作业截止日期触发提交。
--  **通过团队**：当前通过此作业的自动评分测试的团队数。
+- 团队总数：已创建的团队数。
+- 名册内学生：课堂名册上的学生人数。
+- 不在团队的学生：课堂名册上尚未加入团队的学生人数。
+-  接受的团队：已接受此作业的团队数。
+-  作业提交：已提交作业的团队数。 在作业截止日期触发提交。
+-  通过团队：当前通过此作业的自动评分测试的团队数。
 
 ## 后续步骤
 
-- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门](/github/getting-started-with-github)”、“[仓库](/repositories)”、“[使用 Git](/github/getting-started-with-github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 中的[解决合并冲突](https://github.com/skills/resolve-merge-conflicts)免费课程。
+- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 有关详细信息，请参阅“[开始使用 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)”、“[存储库](/repositories)”、“[使用 Git](/github/getting-started-with-github/using-git)”和“[协作处理问题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 关于[解决合并冲突](https://github.com/skills/resolve-merge-conflicts)的免费课程。
 
-- 当团队完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解团队如何协作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
+- 当团队完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解团队如何协作。 有关详细信息，请参阅“[使用图表可视化存储库数据](/github/visualizing-repository-data-with-graphs)”。
 
-- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
+- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 有关详细信息，请参阅“[对拉取请求添加注释](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”和“[从代码中打开问题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以提供常见错误反馈的详细信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
 
 ## 延伸阅读
 
-- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
-- "[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
-- {% data variables.product.prodname_education %} 社区中的[在小组作业中使用现有团队吗？](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)
+- [教师版 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- “[将学习管理系统课程连接到教室](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)”
+- {% data variables.product.prodname_education %} 社区中的[在小组作业中使用现有团队？](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)

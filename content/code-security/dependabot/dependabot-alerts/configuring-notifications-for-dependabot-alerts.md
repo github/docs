@@ -46,7 +46,11 @@ You can configure notification settings for yourself or your organization from t
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-  ![{% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
+{% ifversion update-notification-settings-22 %}
+![Screenshot of {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/dependabot/dependabot-notification-frequency.png){% endif %}{% ifversion ghes > 3.7 or ghae > 3.7 %}
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/enterprises/dependabot-alerts-options-no-UI.png){% endif %}{% ifversion ghes < 3.8 or ghae < 3.8 %}
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/notifications-v2/dependabot-alerts-options.png){% endif %}
+
 
 {% note %}
 
@@ -58,7 +62,7 @@ You can configure notification settings for yourself or your organization from t
 
 ## How to reduce the noise from notifications for {% data variables.product.prodname_dependabot_alerts %}
 
-If you are concerned about receiving too many notifications for {% data variables.product.prodname_dependabot_alerts %}, we recommend you opt into the weekly email digest, or turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled. You can still navigate to see your {% data variables.product.prodname_dependabot_alerts %} in your repository's Security tab. For more information, see "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
+If you are concerned about receiving too many notifications for {% data variables.product.prodname_dependabot_alerts %}, we recommend you opt into the weekly email digest, or turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled. You can still navigate to see your {% data variables.product.prodname_dependabot_alerts %} in your repository's Security tab. For more information, see "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
 ## Further reading
 

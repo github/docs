@@ -41,17 +41,17 @@ If you do not need to work with files locally, {% data variables.product.product
 
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
 
-{% note %}
+   {% note %}
+   
+   **Note**: If you are using a Chrome OS device, additional set up is required:
+   
+   1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+   1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
+   
+   {% endnote %}
 
-**Note**: If you are using a Chrome OS device, additional set up is required:
-
-2. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-3. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
-
-{% endnote %}
-
-2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
-3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
+1. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
+1. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
 
 ## Authenticating with {% data variables.product.prodname_dotcom %} from Git
 

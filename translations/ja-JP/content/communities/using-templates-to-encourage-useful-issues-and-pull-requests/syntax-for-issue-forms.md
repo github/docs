@@ -6,17 +6,22 @@ versions:
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 7e147868ce370b57c6a7437bc81f7b554f50443b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145090166'
 ---
-
 {% data reusables.community.issue-forms-beta %}
 
 ## Issue フォームの YAML 構文について
 
-YAML フォーム定義ファイルをリポジトリの`/.github/ISSUE_TEMPLATE` フォルダに追加することで、カスタム Issue フォームを作成できます。 {% data reusables.actions.learn-more-about-yaml %} Issue フォームにさまざまな入力タイプ、検証、デフォルトのアサインされた人、デフォルトのラベルを定義できます。
+YAML フォーム定義ファイルをリポジトリの `/.github/ISSUE_TEMPLATE` フォルダに追加することで、カスタム Issue フォームを作成できます。 {% data reusables.actions.learn-more-about-yaml %} Issue フォームにさまざまな入力タイプ、検証、デフォルトのアサインされた人、デフォルトのラベルを定義できます。
 
 コントリビューターが Issue フォームに入力すると、それぞれの入力に対する回答が Markdown に変換され、Issue の本文に追加されます。 コントリビューターは、Issue フォームで作成された問題を編集でき、他のユーザは、他の方法で作成された Issue のように Issue を取り扱うことができます。
 
-Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. 詳細は「[リポジトリのプルリクエストテンプレートを作成する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)」を参照してください。
+Issue フォームは、pull request ではサポートされていません。 コラボレーターが使用できるように、リポジトリの pull request テンプレートを作成できます。 詳細については、「[リポジトリ用の pull request テンプレートの作成](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)」」を参照してください。
 
 このサンプル YAML 設定ファイルでは、バグを報告するためにいくつかの入力を使用して Issue フォームを定義します。
 
@@ -24,7 +29,7 @@ Issue forms are not supported for pull requests. You can create pull request tem
 
 ## 最上位の構文
 
-すべての Issue フォーム設定ファイルは、`name`、`description`、`body` のキー/値ペアで始まる必要があります。
+すべての Issue フォーム構成ファイルは、`name`、`description`、および `body` のキー/値ペアで始まる必要があります。
 
 ```YAML{:copy}
 name:
@@ -34,26 +39,26 @@ body:
 
 各 Issue フォームに次の最上位のキーを設定できます。
 
-| キー          | 説明                                                                                          | 必須 | 種類                              |
-|:----------- |:------------------------------------------------------------------------------------------- |:-- |:------------------------------- |
-| `name`      | Issue フォームテンプレートの名前。 Markdown テンプレートを含む他のすべてのテンプレートと異なる、一意の名前である必要があります。                    | 必須 | 文字列型                            |
-| `説明`        | A description for the issue form template, which appears in the template chooser interface. | 必須 | 文字列型                            |
-| `body`      | Definition of the input types in the form.                                                  | 必須 | 配列                              |
-| `assignees` | People who will be automatically assigned to issues created with this template.             | 任意 | Array or comma-delimited string |
-| `labels`    | Labels that will automatically be added to issues created with this template.               | 任意 | Array or comma-delimited string |
-| `title`     | A default title that will be pre-populated in the issue submission form.                    | 任意 | 文字列型                            |
+| Key | 説明 | 必須 | 型 |
+| :-- | :-- | :-- | :-- | :-- |
+| `name` | Issue フォームテンプレートの名前。 Markdown テンプレートを含む他のすべてのテンプレートと異なる、一意の名前である必要があります。 | 必須 | String |
+| `description` | テンプレート選択インターフェイスに表示される、Issue フォーム テンプレートの説明。 | 必須 | String |
+| `body` | フォームでの入力の種類の定義。 | 必須 | Array |
+| `assignees` | このテンプレートで作成された Issue に自動的に割り当てられるユーザー。 | オプション | 配列またはコンマ区切りの文字列 |
+| `labels` | このテンプレートで作成された Issue に自動的に追加されるラベル。 | オプション | 配列またはコンマ区切りの文字列 |
+| `title` | Issue 送信フォームに事前に設定されるデフォルトのタイトル。 | オプション | String |
 
-For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
+使用可能な `body` の入力の種類とその構文については、「[{% data variables.product.prodname_dotcom %} のフォーム スキーマの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)」を参照してください。
 
-## Converting a Markdown issue template to a YAML issue form template
+## Markdown Issue テンプレートを YAML Issue フォーム テンプレートに変換する
 
-You can use both Markdown and YAML issue templates in your repository. If you want to convert a Markdown issue template to a YAML issue form template, you must create a new YAML file to define the issue form. You can manually transpose an existing Markdown issue template to a YAML issue form. 詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)」を参照してください。
+リポジトリ内では、Markdown と YAML の両方の Issue テンプレートを使用できます。 Markdown Issue テンプレートを YAML Issue フォーム テンプレートに変換する場合は、新しい YAML ファイルを作成して、Issue フォームを定義する必要があります。 既存の Markdown Issue テンプレートを YAML Issue フォーム テンプレートに変換する場合は、手動で行うことができます。 詳細については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)」を参照してください。
 
-If you want to use the same file name for your YAML issue form, you must delete the Markdown issue template when you commit the new file to your repository.
+YAML Issue フォームに同じファイル名を使用する場合は、新しいファイルをリポジトリにコミットするときに、Markdown Issue テンプレートを削除する必要があります。
 
-An example of a Markdown issue template and a corresponding YAML issue form template are below.
+Markdown Issue テンプレートと、対応する YAML Issue フォーム テンプレートの例を次に示します。
 
-### Markdown issue template
+### Markdown Issue テンプレート
 
 ```markdown{:copy}
 ---
@@ -94,11 +99,11 @@ Example:
 
 ### Anything else:
 {% raw %}<{% endraw %}!--
-Links? リファレンス? Anything that will give us more context about the issue that you are encountering!
+Links? References? Anything that will give us more context about the issue that you are encountering!
 --{% raw %}>{% endraw %}
 ```
 
-### YAML issue form template
+### YAML Issue フォーム テンプレート
 
 ```yaml{:copy}
 name: 🐞 Bug
@@ -155,14 +160,14 @@ body:
   attributes:
     label: Anything else?
     description: |
-      Links? リファレンス? Anything that will give us more context about the issue you are encountering!
+      Links? References? Anything that will give us more context about the issue you are encountering!
 
       Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
   validations:
     required: false
 ```
 
-## 参考リンク
+## 参考資料
 
 - [YAML](https://yaml.org/)
-- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)
+- [Issue フォームを作成するときの一般的な検証エラー](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

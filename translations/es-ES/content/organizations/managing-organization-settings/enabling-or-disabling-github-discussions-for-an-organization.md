@@ -1,26 +1,31 @@
 ---
-title: Enabling or disabling GitHub Discussions for an organization
-intro: 'You can use {% data variables.product.prodname_discussions %} in a organization as a place for your organization to have conversations that aren''t specific to a single repository within your organization.'
+title: Habilitación o deshabilitación de los debates de GitHub para una organización
+intro: 'Puedes usar {% data variables.product.prodname_discussions %} en una organización como lugar para que tu organización tenga conversaciones que no sean específicas de un único repositorio en la organización.'
 permissions: 'Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.'
 versions:
   feature: discussions
 topics:
   - Organizations
-shortTitle: Debates de organización
+shortTitle: Organization discussions
+ms.openlocfilehash: 618a91482e1856e5e4c8fdfa9ff6ce64b997912f
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710183'
 ---
-
-## About organization discussions
+## Acerca de los debates de la organización
 
 {% data reusables.discussions.about-organization-discussions %}
 
-You can also manage repository discussions. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates de GitHub para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)" y "[Administrar la creación de debates para los repositorios en tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
+También puedes administrar debates del repositorio. Para obtener más información, consulta "[Habilita o inhabilita los debates de GitHub para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)" y "[Administrar la creación de debates para los repositorios de tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-## Enabling or disabling {% data variables.product.prodname_discussions %} for your organization
+## Habilitación o deshabilitación de {% data variables.product.prodname_discussions %} para la organización
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
-1. To disable discussions, under "Discussions", unselect **Enable discussions for this organization**.
+1. Para deshabilitar los debates, en "Debates", anula la selección de **Habilitar debates para esta organización**.
 
-## Leer más
+## Información adicional
 
 - "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Administrar debates para tu comunidad](/discussions/managing-discussions-for-your-community)"
+- "[Administrar debates para la comunidad](/discussions/managing-discussions-for-your-community)"

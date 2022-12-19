@@ -1,6 +1,6 @@
 ---
-title: Setting up Visual Studio subscriptions with GitHub Enterprise
-intro: 'Your team''s subscription to {% data variables.product.prodname_vs %} can also provide access to {% data variables.product.prodname_enterprise %}.'
+title: Visual Studio subscriptions with GitHub Enterpriseのセットアップ
+intro: 'Teamの{% data variables.product.prodname_vs %}プランは、{% data variables.product.prodname_enterprise %}へのアクセスも提供できます。'
 versions:
   ghec: '*'
 type: how_to
@@ -8,64 +8,67 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Set up
+ms.openlocfilehash: ae030de637593aa723a5d2990485881ae30b333c
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120626'
 ---
+## {% data variables.visual_studio.prodname_vss_ghe %} のセットアップについて
 
-## About setup of {% data variables.product.prodname_vss_ghe %}
+{% data reusables.enterprise-accounts.vss-ghe-description %} 詳細については「[{% data variables.visual_studio.prodname_vss_ghe %} について](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)」を参照してください。
 
-{% data reusables.enterprise-accounts.vss-ghe-description %} For more information, see "[About {% data variables.product.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
+このガイドは、Teamが{% data variables.product.prodname_vs %}のサブスクライバーにライセンスを与え、{% data variables.product.prodname_enterprise %}を使い始める方法を紹介します。
 
-This guide shows you how your team can get {% data variables.product.prodname_vs %} subscribers licensed and started with {% data variables.product.prodname_enterprise %}.
+ビデオの方がよい場合は、Microsoft Visual Studio の YouTube チャンネルの「[Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I)」を見ることができます。
 
-If you prefer video, you can watch [Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I) on 
-Microsoft Visual Studio's YouTube channel.
+## {% data variables.visual_studio.prodname_vss_ghe %} のルール
 
-## Roles for {% data variables.product.prodname_vss_ghe %}
+{% data variables.visual_studio.prodname_vss_ghe %} をセットアップする前に、この組み合わせ提供に対するロールを理解することが重要です。
 
-Before setting up {% data variables.product.prodname_vss_ghe %}, it's important to understand the roles for this combined offering.
-
-| Role | Service | Description | More information |
+| ロール | サービス | 説明 | 詳細情報 |
 | :- | :- | :- | :- |
-| **Subscriptions admin** | {% data variables.product.prodname_vs %} subscription | Person who assigns licenses for {% data variables.product.prodname_vs %} subscription | [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs |
-| **Subscriber** | {% data variables.product.prodname_vs %} subscription | Person who uses a license for {% data variables.product.prodname_vs %} subscription | [Visual Studio Subscriptions documentation](https://docs.microsoft.com/en-us/visualstudio/subscriptions/) in Microsoft Docs |
-| **Enterprise owner** | {% data variables.product.prodname_dotcom %} | Person who has a personal account that's an administrator of an enterprise on {% data variables.product.product_location %} | "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)" |
-| **Organization owner** | {% data variables.product.prodname_dotcom %} | Person who has a personal account that's an owner of an organization in your team's enterprise on {% data variables.product.product_location %} | "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)" |
-| **Enterprise member** | {% data variables.product.prodname_dotcom %} | Person who has a personal account that's a member of an enterprise on {% data variables.product.product_location %} | "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members)"  |
+| **サブスクリプション管理者** | {% data variables.product.prodname_vs %}プラン | {% data variables.product.prodname_vs %}プランのライセンスを割り当てる人 | Microsoft Docs の「[管理者責任の概要](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities)」 |
+| **サブスクライバー** | {% data variables.product.prodname_vs %}プラン | {% data variables.product.prodname_vs %}プランのライセンスを利用する人 | Microsoft Docs の [Visual Studio サブスクリプションのドキュメント](https://docs.microsoft.com/en-us/visualstudio/subscriptions/) |
+| **Enterprise owner** | {% data variables.product.prodname_dotcom %} | {% data variables.location.product_location %} のエンタープライズの管理者である個人用アカウントを持つ人 | "[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)" |
+| **組織の所有者** | {% data variables.product.prodname_dotcom %} | {% data variables.location.product_location %} のチームのエンタープライズ内の組織の所有者である個人用アカウントを持つ人 | 「[組織のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)」 |
+| **エンタープライズ メンバー** | {% data variables.product.prodname_dotcom %} | {% data variables.location.product_location %} のエンタープライズのメンバーである個人用アカウントを持つ人 | "[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members)"  |
 
-## Prerequisites
+## 前提条件
 
-- Your team's {% data variables.product.prodname_vs %} subscription must include {% data variables.product.prodname_enterprise %}. For more information, see [{% data variables.product.prodname_vs %} Subscriptions and Benefits](https://visualstudio.microsoft.com/subscriptions/) on the {% data variables.product.prodname_vs %} website and
- [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs.
+- Teamの{% data variables.product.prodname_vs %}プランに{% data variables.product.prodname_enterprise %}が含まれていなければなりません。 詳細については、{% data variables.product.prodname_vs %} Web サイトの「[{% data variables.product.prodname_vs %} サブスクリプションと特典](https://visualstudio.microsoft.com/subscriptions/)」と、Microsoft Docs の「[管理者責任の概要](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities)」を参照してください。
  
- - Your team must have an enterprise on {% data variables.product.product_location %}. If you're not sure whether your team has an enterprise, contact your {% data variables.product.prodname_dotcom %} administrator. If you're not sure who on your team is responsible for {% data variables.product.prodname_dotcom %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+ - チームは {% data variables.location.product_location %} 上にエンタープライズを持っていなければなりません。 TeamがEnterpriseを持っているか分からない場合は、{% data variables.product.prodname_dotcom %}管理者に連絡してください。 Teamの誰が{% data variables.product.prodname_dotcom %}に責任を負っているかがはっきりしない場合は、{% data variables.contact.contact_enterprise_sales %}にお問い合わせください。 詳細については、「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 
-## Setting up {% data variables.product.prodname_vss_ghe %}
+## {% data variables.visual_studio.prodname_vss_ghe %} の設定
 
-To set up {% data variables.product.prodname_vss_ghe %}, members of your team must complete the following tasks.
+{% data variables.visual_studio.prodname_vss_ghe %} をセットアップするには、チームのメンバーが以下のタスクを完了しなければなりません。
 
-One person may be able to complete the tasks because the person has all of the roles, but you may need to coordinate the tasks with multiple people. For more information, see "[Roles for {% data variables.product.prodname_vss_ghe %}](#roles-for-visual-studio-subscriptions-with-github-enterprise)."
+すべてのロールを持っていることから、1人でこれらのタスクを完了することもできる場合もありますが、複数人でタスクを協働してやらなければならないかもしれません。 詳細については、「[{% data variables.visual_studio.prodname_vss_ghe %} のロール](#roles-for-visual-studio-subscriptions-with-github-enterprise)」を参照してください。
 
-1. An enterprise owner must create at least one organization in your enterprise on {% data variables.product.product_location %}. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+1. エンタープライズのオーナーは、{% data variables.location.product_location %} 上のエンタープライズに少なくとも 1 つの組織を作成しなければなりません。 詳細については、「[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)」 (Enterprise への Organization の追加) を参照してください。
 
-1. The subscription admin must assign a license for {% data variables.product.prodname_vs %} to a subscriber in {% data variables.product.prodname_vss_admin_portal_with_url %}. For more information, see [Overview of the {% data variables.product.prodname_vs %} Subscriptions Administrator Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal) and [Assign {% data variables.product.prodname_vs %} Licenses in the {% data variables.product.prodname_vs %} Subscriptions Administration Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license) in Microsoft Docs.
+1. サブスクリプションの管理者は {% data variables.product.prodname_vs %} のライセンスを {% data variables.visual_studio.prodname_vss_admin_portal_with_url %} 内のサブスクライバーに割り当てなければなりません。 詳細については、Microsoft Docsの「[{% data variables.product.prodname_vs %} サブスクリプション管理者ポータルの概要](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal)」と、「[{% data variables.product.prodname_vs %} サブスクリプション管理者ポータルで {% data variables.product.prodname_vs %} ライセンスを割り当てる](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license)」を参照してください。
 
-1. Optionally, if the subscription admin assigned licenses to subscribers in {% data variables.product.prodname_vs %} before adding {% data variables.product.prodname_enterprise %} to the subscription, the subscription admin can move the subscribers to the combined offering in the {% data variables.product.prodname_vs %} administration portal. For more information, see [Manage {% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-github#moving-to-visual-studio-with-github-enterprise) in Microsoft Docs.
+1. あるいはプランの管理者が{% data variables.product.prodname_enterprise %}をプランに追加する前に{% data variables.product.prodname_vs %}のサブスクライバーにライセンスを割り当てている場合、プランの管理者はサブスクライバーを{% data variables.product.prodname_vs %}管理ポータルで組み合わせ提供に移動させることができます。 詳細については、Microsoft Docs の「[{% data variables.product.prodname_enterprise %} を使用して {% data variables.product.prodname_vs %} サブスクリプションを管理する](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-github#moving-to-visual-studio-with-github-enterprise)」を参照してください。
 
-1. If the subscription admin has not disabled email notifications, the subscriber will receive two confirmation emails. For more information, see [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process) in Microsoft Docs.
+1. プランの管理者がメール通知を無効化していないなら、サブスクライバーは2つの確認メールを受信します。 詳細については、Microsoft Docs の「[{% data variables.product.prodname_enterprise %} を使用した {% data variables.product.prodname_vs %} サブスクリプション](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process)」を参照してください。
 
-1. An organization owner must invite the subscriber to the organization on {% data variables.product.product_location %} from step 1. The subscriber can accept the invitation with an existing personal account on {% data variables.product.prodname_dotcom_the_website %} or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+1. 組織のオーナーは、ステップ 1 から {% data variables.location.product_location %} の組織に、サブスクライバーを招待しなければなりません。 サブスクライバーは、{% data variables.product.prodname_dotcom_the_website %} の既存の個人アカウントで招待を受け入れるか、新しいアカウントを作成できます。 Organizationに参加すると、サブスクライバーはEnterpriseのメンバーになります。 詳細については、「[組織に参加するようユーザーを招待する](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)」を参照してください。
 
    {% tip %}
 
-   **Tips**:
+   **ヒント**:
 
-   - While not required, we recommend that the organization owner sends an invitation to the same email address used for the subscriber's User Primary Name (UPN). When the email address on {% data variables.product.product_location %} matches the subscriber's UPN, you can ensure that another enterprise does not claim the subscriber's license.
-   - If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.product.product_location %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.product.product_location %}. For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
-   - If the organization owner must invite a large number of subscribers, a script may make the process faster. For more information, see [the sample PowerShell script](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1) in the `github/platform-samples` repository.
+   - 必須ではありませんが、Organizationのオーナーはサブスクライバーのユーザプライマリ名（UPN）で使われているのと同じメールアドレスに招待を送ることをおすすめします。 {% data variables.location.product_location %} 上のメール アドレスがサブスクライバーの UPN と一致すれば、他のエンタープライズがサブスクライバーのライセンスを要求しないようにできます。
+   - サブスクライバーが {% data variables.location.product_location %} 上の既存の個人用アカウントで組織への招待を受諾した場合は、サブスクライバーが {% data variables.product.prodname_vs %} で使うメール アドレスを {% data variables.location.product_location %} 上の個人用アカウントに追加することをお勧めします。 詳細については、「[{% data variables.product.prodname_dotcom %} アカウントへのメール アドレスの追加](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)」を参照してください。
+   - Organizationのオーナーが大量のサブスクライバーを招待しなければならないのであれば、スクリプトでこのプロセスを加速できるかもしれません。 詳細については、`github/platform-samples` リポジトリの[サンプル PowerShell スクリプト](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1)を参照してください。
 
     {% endtip %}
 
-After {% data variables.product.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.product.product_location %}. For more information, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+チームのサブスクライバー用の {% data variables.visual_studio.prodname_vss_ghe %} をセットアップしたら、エンタープライズのオーナーは {% data variables.location.product_location %} 上のライセンス情報をレビューできます。 詳細については、「[エンタープライズ アカウントのプランおよび利用状況を表示する](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)」を参照してください。
 
-## Further reading
+## 参考資料
 
-- "[Getting started with {% data variables.product.prodname_ghe_cloud %}](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"
+- 「[{% data variables.product.prodname_ghe_cloud %} の概要](/get-started/onboarding/getting-started-with-github-enterprise-cloud)」

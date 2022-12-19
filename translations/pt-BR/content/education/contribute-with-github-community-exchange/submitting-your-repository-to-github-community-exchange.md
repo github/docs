@@ -1,48 +1,60 @@
 ---
-title: Submitting your repository to GitHub Community Exchange
+title: Como enviar seu repositório para o GitHub Community Exchange
 shortTitle: Submit your repository
-intro: 'You can submit your repository to {% data variables.product.prodname_community_exchange %} for others to view or contribute to.'
+intro: 'Você pode enviar seu repositório para {% data variables.product.prodname_community_exchange %} para que outras pessoas vejam ou colaborem.'
 versions:
   fpt: '*'
+ms.openlocfilehash: 404a1a20f3474c4fa48d6fae9e7f6cc5ddf0e647
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111269'
 ---
+## Sobre envios de repositório
 
-## About repository submissions
+Somente repositórios públicos pertencentes a contas pessoais podem ser enviados para {% data variables.product.prodname_community_exchange %}.
 
-Only public repositories owned by personal accounts can be submitted to {% data variables.product.prodname_community_exchange %}.
+Há três tipos de envios de repositório:
 
-There are three types of repository submissions:
+- **Aprender.** Um repositório para compartilhar instruções passo a passo para criar um projeto.
+- **Colaborar.** Um repositório que busca colaboradores para trabalhar em um projeto.
+- **Aprender e colaborar.** Um repositório que é uma combinação de `Learn` e `Collaborate`.
 
-- **Learn.** A repository to share step-by-step instructions to build a project.
-- **Collaborate.** A repository seeking collaborators to work on a project.
-- **Learn and Collaborate.** A repository which is a combination of `Learn` and `Collaborate`.
+Considere qual é a principal finalidade do repositório ao escolher o tipo de envio do seu repositório.
 
-Consider what the main purpose of your repository is when choosing the type of submission for your repository.
+Para promover seu projeto e torná-lo mais detectável para outros alunos, você deve atribuir um ou mais tópicos e ofertas do {% data variables.product.prodname_student_pack %} ao seu repositório. Para obter mais informações, confira "[Como classificar seu repositório com tópicos](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)".
 
-To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. Para obter mais informações, consulte "[Classificar seu repositório com tópicos](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)".
+Depois que um repositório tiver sido enviado para {% data variables.product.prodname_community_exchange %}, ele será publicado imediatamente com a finalidade, os tópicos e as ofertas escolhidos. A comunidade {% data variables.product.prodname_community_exchange %} modera todos os envios de repositório.
 
-Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published immediately with the purpose, topics, and offers you've chosen. The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
+### Requisitos de envio
 
-### Submission requirements
+Seu repositório precisa atender a um conjunto mínimo de requisitos para que um envio seja aceito. Durante o processo de envio, se os critérios de envio não tiverem sido atendidos para o repositório selecionado, você será notificado sobre os itens ausentes.
 
-Your repository must meet a minimum set of requirements for a submission to be accepted. During the submission process, if the submission criteria hasn't been met for your selected repository, you will be notified of the missing items.
+Para um envio com uma finalidade de `Learn`, seu repositório precisa ter:
+- Uma descrição.
+- Um arquivo LEARN.md para fornecer instruções passo a passo, com texto e/ou mídia, sobre como você criou seu projeto. Idealmente, seu arquivo LEARN.md desconstruirá seu projeto em pequenos componentes e fornecerá detalhes completos de cada etapa, para que outros alunos possam codificar o próprio projeto seguindo suas instruções.
+- Um arquivo README.md para fornecer uma descrição detalhada do seu projeto.
+- Uma Licença para que outras pessoas estejam cientes do que podem ou não fazer com o seu código-fonte.
 
-For a submission with a purpose of `Learn`, your repository must have:
-- A description.
-- A LEARN.md file to provide step-by-step instructions, with text and/or media, on how you built your project. Ideally, your LEARN.md file will deconstruct your project into small components and provide thorough details of each step, so that other students can code their project by following your instructions.
-- A README.md file to provide a detailed description of your project.
+Para um envio com uma finalidade de `Collaborate`, seu repositório precisa ter:
+- Uma descrição.
+- Um arquivo README.md para fornecer uma descrição detalhada do seu projeto.
+- Uma Licença para que outras pessoas estejam cientes do que podem ou não fazer com o seu código-fonte.
+- Um ou mais problemas nos quais os colaboradores trabalham.
+- O arquivo CONTRIBUTING.md para comunicar como contribuir para o projeto.
 
-For a submission with a purpose of `Collaborate`, your repository must have:
-- A description.
-- A README.md file to provide a detailed description of your project.
-- One or more issues for collaborators to work on.
+Um bom envio de repositório para finalidades de `Learn` e `Collaborate` é um repositório que segue os padrões da comunidade. Para obter mais informações, confira "[Sobre os perfis de comunidade para repositórios públicos](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)".
 
-A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[About community profiles for public repositories](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+## Como enviar seu repositório
 
-## Submitting your repository
-
-1. From your {% data variables.product.prodname_global_campus %} dashboard, navigate to the {% data variables.product.prodname_community_exchange %} home page.
-1. Above the list of repositories, to the right of the search and dropdown filters, click **Add repository**. ![Screenshot of the Add repository button](/assets/images/help/education/community-exchange-submission-add-repo.png)
-1. Use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission. ![Screenshot of the purpose dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
-1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items. ![Screenshot of the repository dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-repo.png)
-1. Use the **Which offers did you use for your project?** drop-down menu and select one or more entries matching your submission. ![Screenshot of the offers dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-offers.png)
-1. Click **Submit the project**.
+1. No seu painel {% data variables.product.prodname_global_campus %}, navegue até a página inicial do {% data variables.product.prodname_community_exchange %}.
+1. Em cima da lista de repositórios, à direita dos filtros de pesquisa e lista suspensa, clique em **Adicionar repositório**.
+  ![Captura de tela do botão Adicionar repositório](/assets/images/help/education/community-exchange-submission-add-repo.png)
+1. Use o menu suspenso **Qual é a finalidade do seu envio?** e selecione uma ou mais entradas correspondentes ao seu envio.
+  ![Captura de tela do menu suspenso de finalidade para um envio de repositório](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
+1. Use o menu suspenso **Qual repositório você gostaria de usar?** e selecione o repositório para o seu envio. Se os critérios de envio não tiverem sido atendidos, você será notificado sobre os itens ausentes.
+  ![Captura de tela do menu suspenso de finalidade para um envio de repositório](/assets/images/help/education/community-exchange-repo-submission-repo.png)
+1. Use o menu suspenso **Quais ofertas você usou para seu projeto?** e selecione uma ou mais entradas correspondentes ao seu envio.
+  ![Captura de tela do menu suspenso de ofertas para um envio de repositório](/assets/images/help/education/community-exchange-repo-submission-offers.png)
+1. Clique em **Enviar o projeto**.

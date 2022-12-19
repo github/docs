@@ -3,18 +3,23 @@ title: ディスカッションでのGraphQL APIの利用
 intro: '{% data variables.product.prodname_discussions %} GraphQL APIの使い方を学んでください。'
 versions:
   feature: discussions
-shortTitle: ディスカッションでのGraphQLの利用
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: fd296c4e9390cac3500ba7319cb602366a37e262
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185622'
 ---
+{% data variables.product.prodname_discussions %} GraphQL APIを使うと、ディスカッションのポストの取得、作成、編集、削除ができます。 {% data variables.product.prodname_discussions %} の詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
-{% data variables.product.prodname_discussions %} GraphQL APIを使うと、ディスカッションのポストの取得、作成、編集、削除ができます。 {% data variables.product.prodname_discussions %}に関する詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
-
-このAPIは、認証を受けたユーザ、OAuth App、GitHub Appが利用できます。 プライベートリポジトリではアクセストークンに`repo`スコープが必要であり、パブリックリポジトリでは`public_repo`が必要です。 詳しい情報については「[OAuth Appのスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
+このAPIは、認証を受けたユーザ、OAuth App、GitHub Appが利用できます。 アクセス トークンには、プライベート リポジトリの `repo` スコープとパブリック リポジトリの `public_repo` スコープが必要です。 詳細については、「[OAuth アプリのスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
 
 ## フィールド
 
 ### Repository.discussions
 
-リポジトリ内のディスカッションをリストします。 `categoryId`が指定されている場合、そのカテゴリ内の結果だけが返されます。
+リポジトリ内のディスカッションをリストします。 `categoryId` が指定されている場合、そのカテゴリ内の結果だけが返されます。
 
 _シグニチャ:_
 
@@ -33,16 +38,16 @@ discussions(
 
 ```graphql
 """
-ディスカッションの並び替えの順序
+Ways in which discussions can be ordered.
 """
 input DiscussionOrder {
   """
-  ディスカッションの並び替えの基準になるフィールド。
+  The field by which to order discussions.
   """
   field: DiscussionOrderField!
 
   """
-  指定されたフィールドでディスカッションを並び替える向き。
+  The direction in which to order discussions by the specified field.
   """
   direction: OrderDirection!
 }
@@ -50,16 +55,16 @@ input DiscussionOrder {
 
 ```graphql
 """
-ディスカッションの接続を並び替えできるプロパティ。
+Properties by which discussion connections can be ordered.
 """
 enum DiscussionOrderField {
   """
-  ディスカッションを作成時刻で並び替える。
+  Order discussions by creation time.
   """
   CREATED_AT
 
   """
-  ディスカッションを最新の変更時間で並び替える。
+  Order discussions by most recent modification time.
   """
   UPDATED_AT
 }
@@ -67,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-このリポジトリ内で定義されている利用可能なディスカッションのカテゴリを返します。 各リポジトリは、最大で10個のカテゴリを持つことができます。 ディスカッションのカテゴリに関する詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
+このリポジトリ内で定義されている利用可能なディスカッションのカテゴリを返します。 各リポジトリは、最大で 25 個のカテゴリを持つことができます。 ディスカッション カテゴリの詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
 
 _シグニチャ:_
 
@@ -82,7 +87,7 @@ discussionCategories(
 
 ### Repository.discussion
 
-ディスカッションを取得します。 指定されたIDのディスカッションが存在しない場合、`null`を返します。
+ディスカッションを取得します。 指定された ID を持つディスカッションが存在しない場合、`null` を返します。
 
 _シグニチャ:_
 
@@ -107,7 +112,7 @@ pinnedDiscussions(
 
 ## オブジェクト
 
-**ノート:** 簡潔にするために、connectionタイプはここでは展開しません。 このスキーマで触れられているそれぞれのconnectionタイプは、GraphQL APIの他のconnectionと同じパターンに従います。 詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql#connection)」を参照してください。
+**注:** 簡潔にするために、ここでは接続の種類は展開されません。 このスキーマで触れられているそれぞれのconnectionタイプは、GraphQL APIの他のconnectionと同じパターンに従います。 詳細については、「[GraphQL の概要](/graphql/guides/introduction-to-graphql#connection)」をご覧ください。
 
 ```graphql
 query {
@@ -142,254 +147,254 @@ query {
 }
 ```
 
-### Discussion
+### 考察 (Discussion)
 
 <details>
 <summary>フィールド:</summary>
 
 ```graphql
 """
-リポジトリ内のディスカッション。
+A discussion in a repository.
 """
 type Discussion implements Comment & Deletable & Lockable & Node & Reactable & RepositoryNode & Subscribable & Updatable {
   """
-  会話がロックされている理由。
+  Reason that the conversation was locked.
   """
   activeLockReason: LockReason
 
   """
-  このディスカッションの回答として選択されたコメントがある場合、そのコメント。
+  The comment chosen as this discussion's answer, if any.
   """
   answer: DiscussionComment
 
   """
-  このディスカッションの回答をユーザが選択している場合、その選択した時刻。
+  The time when a user chose this discussion's answer, if answered.
   """
   answerChosenAt: DateTime
 
   """
-  このディスカッションの回答が選択されている場合、その選択をしたユーザ。
+  The user who chose this discussion's answer, if answered.
   """
   answerChosenBy: Actor
 
   """
-  コメントを作成したアクター。
+  The actor who authored the comment.
   """
   author: Actor
 
   """
-  コメントの主題との作者の関連。
+  Author's association with the subject of the comment.
   """
   authorAssociation: CommentAuthorAssociation!
 
   """
-  ディスカッションポストのメインのテキスト。
+  The main text of the discussion post.
   """
   body: String!
 
   """
-  HTMLにレンダリングされたボディ。
+  The body rendered to HTML.
   """
   bodyHTML: HTML!
 
   """
-  テキストにレンダリングされたボディ。
+  The body rendered to text.
   """
   bodyText: String!
 
   """
-  このディスカッションのカテゴリ。
+  The category for this discussion.
   """
   category: DiscussionCategory!
 
   """
-  ディスカッションへの返信。
+  The replies to the discussion.
   """
   comments(
     """
-    指定されたカーソルの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
   ): DiscussionCommentConnection!
 
   """
-  オブジェクトが作成された日時を示す。
+  Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
 
   """
-  このコメントがメール返信を介して作成されたかを示す。
+  Check if this comment was created via an email reply.
   """
   createdViaEmail: Boolean!
 
   """
-  データベースの主キーを示す。
+  Identifies the primary key from the database.
   """
   databaseId: Int
 
   """
-  コメントを編集したアクター。
+  The actor who edited the comment.
   """
   editor: Actor
   id: ID!
 
   """
-  このコメントが編集され、作成データを含むかを示す。
+  Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
 
   """
-  編集者が最後に編集した日時
+  The moment the editor made the last edit
   """
   lastEditedAt: DateTime
 
   """
-  オブジェクトがロックされていれば`true`
+  `true` if the object is locked
   """
   locked: Boolean!
 
   """
-  リポジトリ中でこのディスカッションを特定する番号。
+  The number identifying this discussion within the repository.
   """
   number: Int!
 
   """
-  コメントが公開された日時を示す。
+  Identifies when the comment was published at.
   """
   publishedAt: DateTime
 
   """
-  主題に残された内容でグループ化されたリアクションのリスト。
+  A list of reactions grouped by content left on the subject.
   """
   reactionGroups: [ReactionGroup!]
 
   """
-  Issueに残されたリアクションのリスト。
+  A list of Reactions left on the Issue.
   """
   reactions(
     """
-    指定されたカーソルの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    絵文字でリアクションのフィルタリングをできるようにする。
+    Allows filtering Reactions by emoji.
     """
     content: ReactionContent
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
 
     """
-    リアクションが返される順序を指定できるようにする。
+    Allows specifying the order in which reactions are returned.
     """
     orderBy: ReactionOrder
   ): ReactionConnection!
 
   """
-  このノードに関連づけられているリポジトリ。
+  The repository associated with this node.
   """
   repository: Repository!
 
   """
-  このディスカッションのパス。
+  The path for this discussion.
   """
   resourcePath: URI!
 
   """
-  このディスカッションのタイトル。
+  The title of this discussion.
   """
   title: String!
 
   """
-  オブジェクトが最後に更新された日時を示す。
+  Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
 
   """
-  このディスカッションのURL。
+  The URL for this discussion.
   """
   url: URI!
 
   """
-  このコンテンツに対する編集のリスト。
+  A list of edits to this content.
   """
   userContentEdits(
     """
-    指定されたカーソフトの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
   ): UserContentEditConnection
 
   """
-  現在のビューアがこのオブジェクトを削除できるかを示す。
+  Check if the current viewer can delete this object.
   """
   viewerCanDelete: Boolean!
 
   """
-  ユーザがこの主題に反応できるか
+  Can user react to this subject
   """
   viewerCanReact: Boolean!
 
   """
-  ビューアがリポジトリのサブスクリプションのステータスを変更できるかを示す。
+  Check if the viewer is able to change their subscription status for the repository.
   """
   viewerCanSubscribe: Boolean!
 
   """
-  現在のビューアがこのオブジェクトを更新できるかを示す。
+  Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
 
   """
-  ビューアがこのコメントを作成したか。
+  Did the viewer author this comment.
   """
   viewerDidAuthor: Boolean!
 
   """
-  サブスクライブ可能なエンティティをビューアがWatchしているか、していないか、あるいは無視しているかを識別する。
+  Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
   viewerSubscription: SubscriptionState
 }
@@ -404,242 +409,242 @@ type Discussion implements Comment & Deletable & Lockable & Node & Reactable & R
 
 ```graphql
 """
-ディスカッションのコメント。
+A comment on a discussion.
 """
 type DiscussionComment implements Comment & Deletable & Minimizable & Node & Reactable & Updatable & UpdatableComment {
   """
-  コメントを作成したアクター。
+  The actor who authored the comment.
   """
   author: Actor
 
   """
-  コメントの主題との作者の関連。
+  Author's association with the subject of the comment.
   """
   authorAssociation: CommentAuthorAssociation!
 
   """
-  Markdown形式のボディ。
+  The body as Markdown.
   """
   body: String!
 
   """
-  HTMLにレンダリングされたボディ。
+  The body rendered to HTML.
   """
   bodyHTML: HTML!
 
   """
-  テキストにレンダリングされたボディ。
+  The body rendered to text.
   """
   bodyText: String!
 
   """
-  オブジェクトが作成された日時を示す。
+  Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
 
   """
-  このコメントがメール返信を介して作成されたかを示す。
+  Check if this comment was created via an email reply.
   """
   createdViaEmail: Boolean!
 
   """
-  データベースの主キーを示す。
+  Identifies the primary key from the database.
   """
   databaseId: Int
 
   """
-  このreplied-toコメントが削除された日時
+  The time when this replied-to comment was deleted
   """
   deletedAt: DateTime
 
   """
-  このコメントが作成されたディスカッション
+  The discussion this comment was created in
   """
   discussion: Discussion
 
   """
-  コメントを編集したアクター。
+  The actor who edited the comment.
   """
   editor: Actor
   id: ID!
 
   """
-  このコメントが編集され、作成データを含むかを示す。
+  Check if this comment was edited and includes an edit with the creation data
   """
   includesCreatedEdit: Boolean!
 
   """
-  このコメントがディスカッションの回答として選択されたか？
+  Has this comment been chosen as the answer of its discussion?
   """
   isAnswer: Boolean!
 
   """
-  コメントが最小化されているかどうかを返す。
+  Returns whether or not a comment has been minimized.
   """
   isMinimized: Boolean!
 
   """
-  編集が最後に行われた日時
+  The moment the editor made the last edit
   """
   lastEditedAt: DateTime
 
   """
-  コメントが最小化されている理由を返す。
+  Returns why the comment was minimized.
   """
   minimizedReason: String
 
   """
-  コメントが公開された日時を特定する。
+  Identifies when the comment was published at.
   """
   publishedAt: DateTime
 
   """
-  主題に残された内容でグループ化されたリアクションのリスト。
+  A list of reactions grouped by content left on the subject.
   """
   reactionGroups: [ReactionGroup!]
 
   """
-  Issueに残されたリアクションのリスト。
+  A list of Reactions left on the Issue.
   """
   reactions(
     """
-    指定されたカーソルの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リアクションを絵文字でフィルタリングできるようにする。
+    Allows filtering Reactions by emoji.
     """
     content: ReactionContent
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
 
     """
-    リアクションが返される順序を指定できるようにする。
+    Allows specifying the order in which reactions are returned.
     """
     orderBy: ReactionOrder
   ): ReactionConnection!
 
   """
-  このコメントに対するスレッド化された返信。
+  The threaded replies to this comment.
   """
   replies(
     """
-    指定されたカーソルの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
   ): DiscussionCommentConnection!
 
   """
-  このコメントの返信先のディスカッションコメント
+  The discussion comment this comment is a reply to
   """
   replyTo: DiscussionComment
 
   """
-  このディスカッションコメントのパス。
+  The path for this discussion comment.
   """
   resourcePath: URI!
 
   """
-  オブジェクトが最後に更新された日時を示す。
+  Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
 
   """
-  このディスカッションコメントのURL。
+  The URL for this discussion comment.
   """
   url: URI!
 
   """
-  このコンテンツに対する編集のリスト。
+  A list of edits to this content.
   """
   userContentEdits(
     """
-    指定されたカーソフトの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
   ): UserContentEditConnection
 
   """
-  現在のビューアがこのオブジェクトを削除できるかを示す。
+  Check if the current viewer can delete this object.
   """
   viewerCanDelete: Boolean!
 
   """
-  現在のユーザがこのコメントを回答としてマークできるか？
+  Can the current user mark this comment as an answer?
   """
   viewerCanMarkAsAnswer: Boolean!
 
   """
-  現在のビューアがこのオブジェクトを最小化できるかを示す。
+  Check if the current viewer can minimize this object.
   """
   viewerCanMinimize: Boolean!
 
   """
-  ユーザがこの主題に反応できるか
+  Can user react to this subject
   """
   viewerCanReact: Boolean!
 
   """
-  現在のユーザがこのコメントの回答としてのマークを解除できるか？
+  Can the current user unmark this comment as an answer?
   """
   viewerCanUnmarkAsAnswer: Boolean!
 
   """
-  現在のビューアがこのオブジェクトを更新できるかを示す。
+  Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
 
   """
-  現在のビューアがこのコメントを更新できない理由。
+  Reasons why the current viewer can not update this comment.
   """
   viewerCannotUpdateReasons: [CommentCannotUpdateReason!]!
 
   """
-  ビューアがこのコメントを作成したか。
+  Did the viewer author this comment.
   """
   viewerDidAuthor: Boolean!
 }
@@ -654,47 +659,47 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
 
 ```graphql
 """
-リポジトリ中のディスカッションのカテゴリ。
+A category for discussions in a repository.
 """
 type DiscussionCategory implements Node & RepositoryNode {
   """
-  オブジェクトが作成された日時を示す。
+  Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
 
   """
-  このカテゴリの説明。
+  A description of this category.
   """
   description: String
 
   """
-  このカテゴリを表す絵文字。
+  An emoji representing this category.
   """
   emoji: String!
 
   """
-  HTMLとしてレンダリングされたこのカテゴリの絵文字。
+  This category's emoji rendered as HTML.
   """
   emojiHTML: HTML!
   id: ID!
 
   """
-  このカテゴリ中のディスカッションがmarkDiscussionCommentAsAnswerミューテーションでの回答の選択をサポートしているか。
+  Whether or not discussions in this category support choosing an answer with the markDiscussionCommentAsAnswer mutation.
   """
   isAnswerable: Boolean!
 
   """
-  このカテゴリの名前。
+  The name of this category.
   """
   name: String!
 
   """
-  このノードに関連づけられているリポジトリ。
+  The repository associated with this node.
   """
   repository: Repository!
 
   """
-  オブジェクトが最後に更新された日時を示す。
+  Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
 }
@@ -709,52 +714,52 @@ type DiscussionCategory implements Node & RepositoryNode {
 
 ```graphql
 """
-ピン止めされたディスカッションは、リポジトリのインデックスページにピン止めされたディスカッション。
+A Pinned discussion is a discussion pinned to a repository's index page.
 """
 type PinnedDiscussion implements Node & RepositoryNode {
   """
-  オブジェクトが作成された日時を示す。
+  Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
 
   """
-  データベースの主キーを示す。
+  Identifies the primary key from the database.
   """
   databaseId: Int
 
   """
-  ピン止めされたディスカッション。
+  The discussion that was pinned.
   """
   discussion: Discussion!
 
   """
-  選択されたグラデーションのカラーストップ
+  Color stops of the chosen gradient
   """
   gradientStopColors: [String!]!
   id: ID!
 
   """
-  バックグラウンドのテクスチャパターン
+  Background texture pattern
   """
   pattern: PinnedDiscussionPattern!
 
   """
-  このディスカッションをピン止めしたアクター。
+  The actor that pinned this discussion.
   """
   pinnedBy: Actor!
 
   """
-  事前設定されたバックグラウンドのグラデーションのオプション
+  Preconfigured background gradient option
   """
   preconfiguredGradient: PinnedDiscussionGradient
 
   """
-  このノードに関連づけられたリポジトリ。
+  The repository associated with this node.
   """
   repository: Repository!
 
   """
-  オブジェクトが最後に更新された日時を示す。
+  Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
 }
@@ -769,36 +774,36 @@ type PinnedDiscussion implements Node & RepositoryNode {
 
 ```graphql
 """
-リポジトリ内にピン止めされたディスカッションのスタイルに使われることがある、事前設定されたバックグラウンドパターン。
+Preconfigured background patterns that may be used to style discussions pinned within a repository.
 """
 enum PinnedDiscussionPattern {
   """
-  上向きのシェブロンパターン
+  An upward-facing chevron pattern
   """
   CHEVRON_UP
 
   """
-  中空のドットパターン
+  A hollow dot pattern
   """
   DOT
 
   """
-  ドットパターン
+  A solid dot pattern
   """
   DOT_FILL
 
   """
-  ハートパターン
+  A heart pattern
   """
   HEART_FILL
 
   """
-  友好的なoctocatの顔のパターン
+  A friendly octocat face pattern
   """
   OCTOFACE
 
   """
-  プラス記号のパターン
+  A plus sign pattern
   """
   PLUS
 }
@@ -813,31 +818,31 @@ enum PinnedDiscussionPattern {
 
 ```graphql
 """
-リポジトリ内にピン止めされたディスカッションのスタイルに使われることがある、事前設定されたグラデーション。
+Preconfigured gradients that may be used to style discussions pinned within a repository.
 """
 enum PinnedDiscussionGradient {
   """
-  青からミントへのグラデーション
+  A gradient of blue to mint
   """
   BLUE_MINT
 
   """
-  青から紫へのグラデーション
+  A gradient of blue to purple
   """
   BLUE_PURPLE
 
   """
-  ピンクから青へのグラデーション
+  A gradient of pink to blue
   """
   PINK_BLUE
 
   """
-  紫からコーラルへのグラデーション
+  A gradient of purple to coral
   """
   PURPLE_CORAL
 
   """
-  赤からオレンジへのグラデーション
+  A gradient of red to orange
   """
   RED_ORANGE
 }
@@ -845,57 +850,57 @@ enum PinnedDiscussionGradient {
 
 </details>
 
-## インターフェース
+## インターフェイス
 
 ### RepositoryDiscussionAuthor
 
-`User`及び`Organization`型によって実装されている。 **ノート:** `Organization`は、`User`から変換されたものである場合、自身に関連づけられたディスカッションだけを持つ。
+`User` と `Organization` 型によって実装されます。 **注:** それが `User` から変換されたものである場合にのみ、`Organization` は、それに関連するディスカッションを行います。
 
 <details>
 <summary>フィールド</summary>
 
 ```graphql
 """
-リポジトリ内のディスカッションの作者を表す。
+Represents an author of discussions in repositories.
 """
 interface RepositoryDiscussionAuthor {
   """
-  このユーザが開始したディスカッション。
+  Discussions this user has started.
   """
   repositoryDiscussions(
     """
-    指定されたカーソルの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    回答済みもしくは未回答のディスカッションのみにフィルタリングする。 デフォルトは
-    回答済み及び未回答のディスカッションをどちらも含む。
+    Filter discussions to only those that have been answered or not. Defaults to
+    including both answered and unanswered discussions.
     """
     answered: Boolean = null
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
 
     """
-    接続から返されたディスカッションの並び替えのオプション。
+    Ordering options for discussions returned from the connection.
     """
     orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
 
     """
-    特定のリポジトリ内のディスカッションだけになるようディスカッションをフィルタリングする。
+    Filter discussions to only those in a specific repository.
     """
     repositoryId: ID
   ): DiscussionConnection!
@@ -906,47 +911,47 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-やはり`User`及び`Organization`型によって実装されている。
+また、`User` および `Organization` 型によって実装されます。
 
 <details>
 <summary>フィールド</summary>
 
 ```graphql
 """
-リポジトリ内のディスカッションコメントの作者を表す。
+Represents an author of discussion comments in repositories.
 """
 interface RepositoryDiscussionCommentAuthor {
   """
-  このユーザが作成したディスカッションコメント。.
+  Discussion comments this user has authored.
   """
   repositoryDiscussionComments(
     """
-    指定されたカーソルの後に来るリスト中の要素を返す。
+    Returns the elements in the list that come after the specified cursor.
     """
     after: String
 
     """
-    指定されたカーソルの前に来るリスト中の要素を返す。
+    Returns the elements in the list that come before the specified cursor.
     """
     before: String
 
     """
-    リストから先頭の_n_要素を返す。
+    Returns the first _n_ elements from the list.
     """
     first: Int
 
     """
-    リストから末尾の_n_要素を返す。
+    Returns the last _n_ elements from the list.
     """
     last: Int
 
     """
-    回答としてマークされたものだけにディスカッションコメントをフィルタリングする。
+    Filter discussion comments to only those that were marked as the answer
     """
     onlyAnswers: Boolean = false
 
     """
-    指定されたリポジトリ内のものだけにディスカッションコメントをフィルタリングする。
+    Filter discussion comments to only those in a specific repository.
     """
     repositoryId: ID
   ): DiscussionCommentConnection!
@@ -957,9 +962,9 @@ interface RepositoryDiscussionCommentAuthor {
 
 ## ミューテーション
 
-以下のミューテーションは、GraphQL API中の他のミューテーションと同じ実装パターンに従っています。 それぞれのミューテーションは、そのミューテーションから名付けられた`Input`型の引数を1つ取り、指定されたフィールドを含む`Payload`型を返します。
+以下のミューテーションは、GraphQL API中の他のミューテーションと同じ実装パターンに従っています。 それぞれのミューテーションは、そのミューテーションから名付けられた `Input` 型の引数を 1 つ取り、指定されたフィールドを含む `Payload` 型を返します。
 
-たとえば、これは基本の`createDiscussion`ミューテーションで、新しいディスカッションを作成します。
+たとえば、これは基本の `createDiscussion` ミューテーションで、新しいディスカッションを作成します。
 
 ```graphql
 mutation {
@@ -978,41 +983,41 @@ mutation {
 
 入力フィールド:
 
-* `body: String!` 新しいディスカッションのボディ。
+* `body: String!` 新しいディスカッションの本文。
 * `title: String!` 新しいディスカッションのタイトル。
-* `repositoryId: ID!` ディスカッションを作成するリポジトリのID。
-* `categoryId: ID!` このリポジトリ内の`DiscussionCategory`のID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `repositoryId: ID!` ディスカッションを作成するリポジトリの ID。
+* `categoryId: ID!` このリポジトリ内の `DiscussionCategory` の ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
+* `clientMutationId: String` 入力として提供される一意の識別子。
 * `discussion: Discussion` 作成されたディスカッション。
 
 ### updateDiscussion
 
 入力フィールド:
 
-* `discussionId: ID!` 更新するディスカッションのノードID。
-* `body: String` ディスカッションのボディの新しい内容。
-* `title: String` ディスカッションの新しいタイトル。
-* `categoryId: ID` このディスカッションの変更先となる、同じリポジトリ内の`DiscussionCategory`のノードID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `discussionId: ID!` 更新するディスカッションのノード ID。
+* `body: String` ディスカッション本文の新しい内容。
+* `title: String` 新しいディスカッション タイトル。
+* `categoryId: ID` このディスカッションを変更する同じリポジトリ内の `DiscussionCategory` のノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
+* `clientMutationId: String` 入力として提供される一意の識別子。
 * `discussion: Discussion` 変更されたディスカッション。
 
 ### deleteDiscussion
 入力フィールド:
 
-* `id: ID!` 削除するディスカッションのノードID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `id: ID!` 削除するディスカッションのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
+* `clientMutationId: String` 入力として提供される一意の識別子。
 * `discussion: Discussion` 削除されたディスカッション。
 
 ### addDiscussionComment
@@ -1020,64 +1025,64 @@ mutation {
 入力フィールド:
 
 * `body: String!` コメントの内容。
-* `discussionId: ID!` コメントを付けるディスカッションのノードID。
-* `replyToId: ID` 返信するディスカッションコメントのノードID。 存在しなければ、作成されるコメントはトップレベルのコメントになる。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `discussionId: ID!` コメントするディスカッションのノード ID。
+* `replyToId: ID` 返信するディスカッション コメントのノード ID。 存在しなければ、作成されるコメントはトップレベルのコメントになる。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
-* `comment: DiscussionComment` 作成されたディスカッションコメント。
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `comment: DiscussionComment` 作成されたディスカッション コメント。
 
 ### updateDiscussionComment
 
 入力フィールド:
 
-* `body: String!` コメントのボディの新しい内容。
-* `commentId: ID!` 更新するディスカッションコメントのノードID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `body: String!` コメント本文の新しい内容。
+* `commentId: ID!` 更新するディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
-* `comment: DiscussionComment` 更新されたディスカッションコメント。
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `comment: DiscussionComment` 更新されたディスカッション コメント。
 
 ### deleteDiscussionComment
 
 入力フィールド:
 
-* `id: ID!` 削除するディスカッションコメントのノードID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `id: ID!` 削除するディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
-* `comment: DiscussionComment` 削除されたディスカッションコメント。
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `comment: DiscussionComment` 削除されたディスカッション コメント。
 
 ### markDiscussionCommentAsAnswer
 
 入力フィールド:
 
-* `id: ID!` 解答としてマークするディスカッションコメントのノードID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `id: ID!` 解答としてマークするディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
-* `discussion: Discussion` 選択されたコメントを含むディスカッション。
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` 選択したコメントを含むディスカッション。
 
 ### unmarkDiscussionCommentAsAnswer
 
 入力フィールド:
 
-* `id: ID!` 解答としてのマークを解除するディスカッションコメントのノードID。
-* `clientMutationId: String` ミューテーションを実行するクライアントの一意の識別子。
+* `id: ID!` 解答としてのマークを解除するディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
 返値の型のフィールド:
 
-* `clientMutationId: String` 入力として渡された一意の識別子。
-* `discussion: Discussion` マーク解除されたコメントを含むディスカッション。
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` マークされていないコメントを含むディスカッション。
 
 ## 検索
 
-ディスカッションは、トップレベルの`search`フィールドから返されることがあります。 ディスカッションを検索するには、`type`を`DISCUSSION`に指定してください。 `SearchResultItemConnection`型は、返されるディスカッション数を知らせる`discussionCount`フィールドを持ち、`SearchResultItem`共用体には`Discussion`型が追加されます。 詳しい情報については「[クエリ](/graphql/reference/queries#searchresultitemconnection)」及び「[ディスカッションの検索](/search-github/searching-on-github/searching-discussions)」を参照してください。
+最上位の `search` フィールドからディスカッションが返される場合があります。 ディスカッションを検索するには、`DISCUSSION` として `type` を指定します。 `SearchResultItemConnection` 型には、返されたディスカッションの数を報告するための `discussionCount` フィールドがあり、`Discussion` 型が `SearchResultItem` ユニオンに追加されます。 詳細については、「[クエリ](/graphql/reference/queries#searchresultitemconnection)」および「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」を参照してください。

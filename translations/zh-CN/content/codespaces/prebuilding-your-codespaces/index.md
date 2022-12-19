@@ -1,7 +1,6 @@
 ---
-title: 预构建代码空间
-intro: 为加快代码空间的创建，可以配置项目为特定区域中的特定分支预构建代码空间。
-product: '{% data reusables.gated-features.codespaces %}'
+title: 预生成 codespaces
+intro: 若要加快 codespace 创建速度，可以将项目配置为为特定区域中的特定分支预生成 codespace。
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +11,14 @@ redirect_from:
 children:
   - /about-github-codespaces-prebuilds
   - /configuring-prebuilds
+  - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
+ms.openlocfilehash: 67f9051b9e33a7088f4f2ed3d1951babb4b61abe
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159519'
 ---
 

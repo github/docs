@@ -17,7 +17,6 @@ topics:
 children:
   - /about-github-pages
   - /creating-a-github-pages-site
-  - /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
   - /configuring-a-publishing-source-for-your-github-pages-site
   - /changing-the-visibility-of-your-github-pages-site
   - /creating-a-custom-404-page-for-your-github-pages-site

@@ -1,6 +1,6 @@
 ---
 title: Redisサービスコンテナの作成
-shortTitle: Redis サービス コンテナ
+shortTitle: Redis service containers
 intro: サービスコンテナを使って、ワークフロー中でRedisのクライアントを作成できます。 このガイドでは、コンテナで実行されるジョブか、ランナーマシン上で直接実行されるジョブのためのRedisサービスの作成例を紹介します。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
@@ -15,25 +15,29 @@ type: tutorial
 topics:
   - Containers
   - Docker
+ms.openlocfilehash: c3b686d9d3aa8f3ae8710e63627eac6bca33d26d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121118'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-このガイドでは、Docker Hubの`redis`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 このワークフローは、Redisのクライアントを作成してクライアントにデータを展開するスクリプトを実行します。 Redisクライアントを作成して展開するワークフローをテストするために、このスクリプトはクライアントのデータをコンソールに出力します。
+このガイドでは、Docker Hub の `redis` イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 このワークフローは、Redisのクライアントを作成してクライアントにデータを展開するスクリプトを実行します。 Redisクライアントを作成して展開するワークフローをテストするために、このスクリプトはクライアントのデータをコンソールに出力します。
 
 {% data reusables.actions.docker-container-os-support %}
 
-## 必要な環境
+## 前提条件
 
 {% data reusables.actions.service-container-prereqs %}
 
-YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本な理解があれば役立つかも知れません。 詳しい情報については、以下を参照してください。
+YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本な理解があれば役立つかも知れません。 詳細については、次を参照してください。
 
-- 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
-- Redisのドキュメンテーション中の[Getting Started with Redis](https://redislabs.com/get-started-with-redis/)
+- "[{% data variables.product.prodname_actions %} について](/actions/learn-github-actions)"
+- Redis ドキュメントの「[Redis を始める](https://redislabs.com/get-started-with-redis/)」
 
 ## コンテナ内でのジョブの実行
 
@@ -82,9 +86,9 @@ jobs:
         run: node client.js
         # Environment variable used by the `client.js` script to create a new Redis client.
         env:
-          # Redisサービスコンテナとの通信に使われるホスト名
+          # The hostname used to communicate with the Redis service container
           REDIS_HOST: redis
-          # デフォルトのRedisポート
+          # The default Redis port
           REDIS_PORT: 6379
 ```
 
@@ -96,20 +100,20 @@ jobs:
 
 ```yaml{:copy}
 jobs:
-  # コンテナジョブのラベル
+  # Label of the container job
   container-job:
-    # コンテナはLinuxベースのオペレーティングシステム内で実行しなければならない
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # `container-job`が実行されるDocker Hubのイメージ
+    # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
 
-    # `container-job`と実行されるサービスコンテナ
+    # Service containers to run with `container-job`
     services:
-      # サービスコンテナへのアクセスに使われるラベル
+      # Label used to access the service container
       redis:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: redis
-        # redisが起動するまで待つヘルスチェックの設定
+        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -138,19 +142,19 @@ steps:
     run: node client.js
     # Environment variable used by the `client.js` script to create a new Redis client.
     env:
-          # Redisサービスコンテナとの通信に使われるホスト名
-          REDIS_HOST: redis
-          # デフォルトのRedisポート
-          REDIS_PORT: 6379
+      # The hostname used to communicate with the Redis service container
+      REDIS_HOST: redis
+      # The default Redis port
+      REDIS_PORT: 6379
 ```
 
 {% data reusables.actions.redis-environment-variables %}
 
-Redisサービスのホスト名は、ワークフロー中で設定されたラベルで、ここでは`redis`です。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのRedisのポートである6379でアクセスできます。
+Redis サービスのホスト名は、ワークフロー中で設定されたラベルで、ここでは `redis` です。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのRedisのポートである6379でアクセスできます。
 
 ## ランナーマシン上で直接のジョブの実行
 
-ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Dockerホストからサービスコンテナへは、`localhost`とDockerホストのポート番号を使ってアクセスできます。
+ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Docker ホストからサービス コンテナーへは、`localhost` と Docker ホストのポート番号を使ってアクセスできます。
 
 {% data reusables.actions.copy-workflow-file %}
 
@@ -197,9 +201,9 @@ jobs:
         # Environment variable used by the `client.js` script to create
         # a new Redis client.
         env:
-          # Redisサービスコンテナとの通信に使われるホスト名
+          # The hostname used to communicate with the Redis service container
           REDIS_HOST: localhost
-          # デフォルトのRedisポート
+          # The default Redis port
           REDIS_PORT: 6379
 ```
 
@@ -209,29 +213,29 @@ jobs:
 
 {% data reusables.actions.redis-label-description %}
 
-このワークフローはRedisサービスコンテナ上のポート6379をDockerホストにマップします。 `ports`キーワードに関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
+このワークフローはRedisサービスコンテナ上のポート6379をDockerホストにマップします。 `ports` キーワードについて詳しくは、「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
 
 ```yaml{:copy}
 jobs:
-  # ランナージョブのラベル
+  # Label of the runner job
   runner-job:
-    # サービスコンテナもしくはコンテナジョブを使う際にはLinux環境を使わなければならない
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # `runner-job`と実行するサービスコンテナ
+    # Service containers to run with `runner-job`
     services:
-      # サービスコンテナへのアクセスに使うラベル
+      # Label used to access the service container
       redis:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: redis
-        # redisが起動するまで待つヘルスチェックの設定
+        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         ports:
-          # サービスコンテナ上のポート6379をホストにマップ
+          # Maps port 6379 on service container to the host
           - 6379:6379
 ```
 
@@ -257,10 +261,10 @@ steps:
     # Environment variable used by the `client.js` script to create
     # a new Redis client.
     env:
-          # Redisサービスコンテナとの通信に使われるホスト名
-          REDIS_HOST: localhost
-          # デフォルトのRedisポート
-          REDIS_PORT: 6379
+      # The hostname used to communicate with the Redis service container
+      REDIS_HOST: localhost
+      # The default Redis port
+      REDIS_PORT: 6379
 ```
 
 {% data reusables.actions.redis-environment-variables %}
@@ -269,18 +273,18 @@ steps:
 
 ## Redisサービスコンテナのテスト
 
-ワークフローを以下のスクリプトでテストできます。このスクリプトはRedisクライアントを作成し、いくつかのプレースホルダーデータをクライアントに展開します。 そしてこのスクリプトは、Redisクライアント内に保存された値をターミナルに出力します。 スクリプトには好きな言語を使えますが、この例ではNode.jsとnpmモジュールの`redis`を使っています。 詳しい情報については[npm redisモジュール](https://www.npmjs.com/package/redis)を参照してください。
+ワークフローを以下のスクリプトでテストできます。このスクリプトはRedisクライアントを作成し、いくつかのプレースホルダーデータをクライアントに展開します。 そしてこのスクリプトは、Redisクライアント内に保存された値をターミナルに出力します。 スクリプトには好きな言語を使えますが、この例では Node.js と npm モジュールの `redis` を使っています。 詳しくは、「[npm redis モジュール](https://www.npmjs.com/package/redis)」を参照してください。
 
-*client.js*を修正して、ワークフローで必要なRedisの操作を含めることができます。 この例では、スクリプトはRedisクライアントのインスタンスを作成し、プレースホルダーデータを追加し、そしてそのデータを取り出します。
+*client.js* を修正して、ワークフローで必要な Redis の操作を含めることができます。 この例では、スクリプトはRedisクライアントのインスタンスを作成し、プレースホルダーデータを追加し、そしてそのデータを取り出します。
 
 {% data reusables.actions.service-container-add-script %}
 
 ```javascript{:copy}
 const redis = require("redis");
 
-// 新しいRedisクライアントの作成
-// REDIS_HOSTが設定されていなければ、デフォルトのホストはlocalhost
-// REDIS_PORTが設定されていなければ、デフォルトのポートは6379
+// Creates a new Redis client
+// If REDIS_HOST is not set, the default host is localhost
+// If REDIS_PORT is not set, the default port is 6379
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST,
   port: process.env.REDIS_PORT  
@@ -290,15 +294,15 @@ redisClient.on("error", function(err) {
     console.log("Error " + err);
 });
 
-// キー"octocat"に"Mona the octocat"という値を設定
+// Sets the key "octocat" to a value of "Mona the octocat"
 redisClient.set("octocat", "Mona the Octocat", redis.print);
-// キーを"octocat"、フィールドを"species"、"value"を"Cat and Octopus"に設定
+// Sets a key to "octocat", field to "species", and "value" to "Cat and Octopus"
 redisClient.hset("species", "octocat", "Cat and Octopus", redis.print);
-// キーを"octocat"、フィールドを"species"、"value"を"Dinosaur and Octopus"に設定
+// Sets a key to "octocat", field to "species", and "value" to "Dinosaur and Octopus"
 redisClient.hset("species", "dinotocat", "Dinosaur and Octopus", redis.print);
-// キーを"octocat"、フィールドを"species"、 "value"を"Cat and Robot"に設定
+// Sets a key to "octocat", field to "species", and "value" to "Cat and Robot"
 redisClient.hset(["species", "robotocat", "Cat and Robot"], redis.print);
-// キー"species"のすべてのフィールドを取得
+// Gets all fields in "species" key
 
 redisClient.hkeys("species", function (err, replies) {
     console.log(replies.length + " replies:");
@@ -309,9 +313,9 @@ redisClient.hkeys("species", function (err, replies) {
 });
 ```
 
-このスクリプトは新しいRedisクライアントを`createClient`メソッドを使って作成します。これは、パラメーターとして`host`と`port`を受け付けます。 スクリプトは環境変数の`REDIS_HOST`と`REDIS_PORT`を使って、クライアントのIPアドレスとポートを設定します。 `host`と`port`が定義されていない場合、デフォルトのホストは`localhost`で、デフォルトのポートは6379になります。
+このスクリプトでは、`host` パラメーターと `port` パラメーターを受け取る `createClient` メソッドを使用して新しい Redis クライアントが作成されます。 このスクリプトでは、クライアントの IP アドレスとポートを設定するために、`REDIS_HOST` 環境変数と `REDIS_PORT` 環境変数が使用されます。 `host` と `port` が定義されていない場合、既定のホストは `localhost` であり、既定のポートは 6379 です。
 
-このスクリプトは、`set`及び`hset`メソッドを使ってデータベースにいくつかのキー、フィールド、値を展開します。 Redisデータベースがデータを含んでいることを確認するために、スクリプトはデータベースの内容をコンソールログに出力します。
+このスクリプトでは、`set` メソッドと `hset` メソッドを使用し、データベースに一部のキー、フィールド、値を入力します。 Redisデータベースがデータを含んでいることを確認するために、スクリプトはデータベースの内容をコンソールログに出力します。
 
 このワークフローを実行すると、"Connect to Redis"ステップで以下のように出力され、Redisのクライアントが作成され、データが追加されたことが確認できます。
 

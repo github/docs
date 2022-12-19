@@ -10,21 +10,25 @@ type: tutorial
 topics:
   - CD
   - Azure Kubernetes Service
+ms.openlocfilehash: 5c3052f1f432663a38be6aa15376c186c96193ca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410120'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
 ## Introdução
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para criar e publicar um projeto no [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
+Este guia explica como usar o {% data variables.product.prodname_actions %} para criar e implantar um projeto no [Serviço de Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Configurando OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Como configurar o OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
 
 {% endnote %}
 
@@ -34,9 +38,9 @@ Este guia explica como usar {% data variables.product.prodname_actions %} para c
 
 Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actions %}, primeiro você precisa concluir as etapas de configuração a seguir:
 
-1. Crie um cluster-alvo do AKS e um Azure Container Registry (ACR). Para obter mais informações, consulte "[Início rápido: Implantar um cluster do AKS usando o portal do Azure - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" e "[Início rápido - Criar registro no portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" na documentação do Azure.
+1. Crie um cluster-alvo do AKS e um Azure Container Registry (ACR). Para obter mais informações, confira "[Guia de Início Rápido: Implantar um cluster do AKS usando o portal do Azure – Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" e "[Guia de Início Rápido – Criar um registro no portal – Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" na documentação do Azure.
 
-1. Crie um segredo chamado `AZURE_CREDENTIALS` para armazenar suas credenciais do Azure. Para obter mais informações sobre como encontrar essa informação e estruturar o segredo, consulte a documentação da ação [a `açure/login`](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
+1. Crie um segredo chamado `AZURE_CREDENTIALS` para armazenar suas credenciais do Azure. Para obter mais informações sobre como encontrar essas informações e estruturar o segredo, confira [a documentação da ação `Azure/login`](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
 
 ## Criar o fluxo de trabalho
 
@@ -44,13 +48,13 @@ Depois de preencher os pré-requisitos, você pode prosseguir com a criação do
 
 O exemplo de fluxo de trabalho a seguir demonstra como criar e implantar um projeto no Azure Kubernetes Services quando o código for enviado por push para o seu repositório.
 
-Na chave do fluxo de trabalho `env`, altere os seguintes valores:
-- `AZURE_CONTAINER_REGISTRY` para o nome do seu registro de contêiner
-- `PROJECT_NAME` para o nome do seu projeto
-- `RESOURCE_GROUP` para o grupo de recursos que contém seu cluster do AKS
-- `CLUSTER_NAME` para o nome do seu cluster do AKS
+Abaixo da chave `env` de fluxo de trabalho, altere os seguintes valores:
+- `AZURE_CONTAINER_REGISTRY` para o nome do registro de contêiner
+- `PROJECT_NAME` para o nome do projeto
+- `RESOURCE_GROUP` para o grupo de recursos que contém o cluster do AKS
+- `CLUSTER_NAME` para o nome do cluster do AKS
 
-Este fluxo de trabalho usa o mecanismo de interpretação `helm` para a ação [`azure/k8s-bake`](https://github.com/Azure/k8s-bake). Se você usar o motor de interpretação `helm` de renderização, altere o valor de `CHART_PATH` para o caminho do seu arquivo de helm. Altere `CHART_OVERRIDE_PATH` para uma matriz de caminhos de arquivos sobrescritos. Se você usar um mecanismo de interpretação diferente, atualize os parâmetros de entrada enviados para a ação `azure/k8s-bake`.
+Esse fluxo de trabalho usa o mecanismo de renderização `helm` da [ação `azure/k8s-bake`](https://github.com/Azure/k8s-bake). Se você usar o mecanismo de renderização `helm`, altere o valor de `CHART_PATH` para o caminho para o arquivo do Helm. Altere `CHART_OVERRIDE_PATH` para uma matriz de caminhos de arquivo de substituição. Se você usar outro mecanismo de renderização, atualize os parâmetros de entrada enviados para a ação `azure/k8s-bake`.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -89,7 +93,7 @@ jobs:
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
-
+    
     - name: Gets K8s context
       uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
       with:
@@ -123,6 +127,6 @@ jobs:
 
 Os seguintes recursos também podem ser úteis:
 
-* Para o fluxo de trabalho inicial original, consulte [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
-* As ações usadas nesse fluxo de trabalho são as ações oficiais do Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake) e [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy).
-* Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* Para o fluxo de trabalho inicial original, confira [`azure-kubernetes-service.yml `](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) no repositório `starter-workflows` do {% data variables.product.prodname_actions %}.
+* As ações usadas nesse fluxo de trabalho são as ações [`Azure/login`](https://github.com/Azure/login), [`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI) e [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake) oficiais do Azure e as ações [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy).
+* Para ver mais exemplos de fluxos de trabalho do GitHub Action que são implantados no Azure, confira o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

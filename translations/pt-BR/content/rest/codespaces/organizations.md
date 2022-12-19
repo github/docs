@@ -1,18 +1,21 @@
 ---
 title: Organizações de codespaces
 allowTitleToDifferFromFilename: true
-shortTitle: Organizações
-intro: A API de organizações de codespaces permite que você gerencie os codespaces dos seus integrantes da organização usando a API REST.
+shortTitle: Organizations
+intro: Use a API REST para gerenciar os codespaces de membros da sua organização.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: e6c260456a4d34f2de83bf8f936c0789adabd225
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193086'
 ---
+## Sobre {% data variables.product.prodname_codespaces %} das organizações
 
-{% data reusables.codespaces.codespaces-api-beta-note %}
-
-## Sobre a API das organizações de codespaces
-
-A API de organizações do {% data variables.product.prodname_codespaces %} permite a que você gerencie {% data variables.product.prodname_codespaces %} cobrados para sua organização usando a API REST. Esta API está disponível para administradores de organização autenticados e aplicativos OAuth, mas não para aplicativos GitHub. Para mais informações, consulte "[{% data variables.product.prodname_codespaces %}"](/codespaces)".
+Você pode gerenciar os {% data variables.product.prodname_codespaces %} cobrados para sua organização. Esses pontos de extremidade estão disponíveis para administradores de organização autenticados e aplicativos OAuth, mas não para aplicativos GitHub. Para obter mais informações, confira "[{% data variables.product.prodname_codespaces %}](/codespaces)".

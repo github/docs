@@ -1,6 +1,6 @@
 ---
 title: 'Error: Agent admitted failure to sign'
-intro: 'ごくまれに、Linux で SSH 経由で {% data variables.product.product_name %} に接続すると、「Agent admitted failure to sign using the key」というエラーが発生する場合があります。 この問題を解決するには以下の手順に従ってください。'
+intro: 'まれに、Linux 上の SSH 経由で {% data variables.product.product_name %} に接続すると、エラー `"Agent admitted failure to sign using the key"` が発生します。 この問題を解決するには以下の手順に従ってください。'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -14,8 +14,13 @@ versions:
 topics:
   - SSH
 shortTitle: Agent failure to sign
+ms.openlocfilehash: eceb783df61b403a6b94b8eda84be62e63aa5ead
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145088223'
 ---
-
 Linux コンピュータで {% data variables.product.product_location %}に SSH 接続しようとすると、ターミナルに以下のメッセージが表示されることがあります:
 
 ```shell
@@ -26,14 +31,14 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-詳細については、<a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>こちらの問題レポート</a>をご覧ください。
+詳細については、<a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>この問題のレポート</a>を参照してください。
 
-## 解決策
+## 解像度
 
-`ssh-add` を使用してキーを SSH エージェントに読み込ませることでこのエラーを解決できます。
+`ssh-add` を使用してキーを SSH エージェントに読み込ませることでこのエラーを修正できます。
 
 ```shell
-# バックグラウンドで ssh-agent を開始
+# start the ssh-agent in the background
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 $ ssh-add
@@ -41,10 +46,10 @@ $ ssh-add
 > Identity added: /home/<em>you</em>/.ssh/id_rsa (/home/<em>you</em>/.ssh/id_rsa)
 ```
 
-キーのファイル名がデフォルト (`/.ssh/id_rsa`) ではない場合、そのパスを `ssh-add` に渡す必要があります。
+キーに既定のファイル名 (`/.ssh/id_rsa`) がない場合は、そのパスを `ssh-add` に渡す必要があります。
 
 ```shell
-# バックグラウンドで ssh-agent を開始
+# start the ssh-agent in the background
 $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 $ ssh-add ~/.ssh/my_other_key

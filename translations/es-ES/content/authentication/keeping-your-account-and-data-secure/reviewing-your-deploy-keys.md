@@ -13,19 +13,23 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Llaves de implementación
+shortTitle: Deploy keys
+ms.openlocfilehash: 964ec4cbc91745c041dd973e4e950b605c5c0233
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091809'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. En la acción de "Seguridad" de la barra lateral, haz clic en**Desplegar llaves {% octicon "key" aria-label="The key icon" %}**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. En la sección "Security" de la barra lateral, haga clic en **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
 {% else %}
-3. En la barra lateral izquierda, haz clic en **Deploy keys** (Llaves de implementación). ![Parámetro de llaves de implementación](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-{% endif %}
-4. En la página de Llaves de implementación, anota las llaves de implementación asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay llaves de implementación válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de llaves de implementación](/assets/images/help/settings/settings-deploy-key-review.png)
+3. En la barra lateral izquierda, haga clic en **Deploy keys**.
+![Ajuste de claves de implementación](/assets/images/help/settings/settings-sidebar-deploy-keys.png){% endif %}
+4. En la página de Llaves de implementación, anota las llaves de implementación asociadas a tu cuenta. Elimine las claves que no reconozca o hayan quedado obsoletas haciendo clic en **Delete**. Si hay claves de implementación válidas que le gustaría conservar, haga clic en **Approve**.
+    ![Lista de claves de implementación](/assets/images/help/settings/settings-deploy-key-review.png)
 
-Para obtener más información, consulta la sección "[Administrar las llaves de despliegue](/guides/managing-deploy-keys)".
+Para obtener más información, consulte "[Administración de claves de implementación](/guides/managing-deploy-keys)".
 
-## Leer más
-- [Configurar notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Información adicional
+- [Configuración de notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

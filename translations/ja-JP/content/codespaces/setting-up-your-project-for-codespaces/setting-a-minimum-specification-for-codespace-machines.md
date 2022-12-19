@@ -1,7 +1,7 @@
 ---
-title: Setting a minimum specification for codespace machines
+title: codespace コンピューターに対して最小仕様を設定する
 shortTitle: Set a minimum machine spec
-intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
+intro: 'リソース不足のコンピューターの種類が、リポジトリの {% data variables.product.prodname_github_codespaces %} に使用されないようにすることができます。'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -10,25 +10,31 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
+ms.openlocfilehash: b7eeaac84721ff1d9ceab663957b1615952b0623
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159166'
 ---
-
 ## 概要
 
-Each codespace that you create is hosted on a separate virtual machine, and you can usually choose from different types of virtual machines. Each machine type has different resources (CPUs, memory, storage) and, by default, the machine type with the least resources is used. 詳しい情報については「[codespaceのマシンタイプの変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
+作成した codespace は、それぞれ別の仮想マシンにホストされます。 リポジトリから codespace を作成すると、通常はさまざまな種類の仮想マシンから選べます。 マシンの種類ごとにリソース (プロセッサ コア、メモリ、ストレージ) が異なり、既定では、リソースが最も少ないコンピューターの種類が使用されます。 詳細については、「[codespace に合わせたコンピューターの種類の変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
 
-If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements can be used by default, or selected by users. You configure this in a `devcontainer.json` file.
+プロジェクトで特定のレベルのコンピューティング能力が必要な場合は、それらの要件を満たすコンピューターの種類のみを、既定で使用、またはユーザーが選択できるように、{% data variables.product.prodname_github_codespaces %} を構成することができます。 `devcontainer.json` ファイル内でこれを構成します。
+
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %}
 
 {% note %}
 
-**Important:** Access to some machine types may be restricted at the organization level. Typically this is done to prevent people choosing higher resourced machines that are billed at a higher rate. If your repository is affected by an organization-level policy for machine types you should make sure you don't set a minimum specification that would leave no available machine types for people to choose. 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
+**重要:** 一部のコンピューターの種類へのアクセスは、組織レベルで制限される場合があります。 通常、これは、より高いレートで課金される、よりリソースの多いコンピューターをユーザーが選択することを防ぐために行われます。 リポジトリがコンピューターの種類に関する組織レベルのポリシーの影響を受ける場合は、ユーザーが選択できるコンピューターの種類がなくなるような最小仕様を設定しないようにする必要があります。 詳細については、「[コンピューターの種類へのアクセスの制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
 
 {% endnote %}
 
-## Setting a minimum machine specification
+## コンピューターの最小仕様の設定
 
-1. {% data variables.product.prodname_github_codespaces %} for your repository are configured in a `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. See "[Add a dev container configuration to your repository](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
-1. Edit the `devcontainer.json` file, adding a `hostRequirements` property such as this:
+{% data reusables.codespaces.edit-devcontainer-json %}
+1. `devcontainer.json` ファイルを編集し、ファイルの最上位レベルにある JSON オブジェクト内に `hostRequirements` プロパティを追加します。 次に例を示します。
 
    ```json{:copy}
    "hostRequirements": {
@@ -38,16 +44,16 @@ If your project needs a certain level of compute power, you can configure {% dat
    }
    ```
 
-   You can specify any or all of the options: `cpus`, `memory`, and `storage`.
+   次のいずれかの、またはすべてのオプションを指定できます: `cpus`、`memory`、`storage`。
+   
+   リポジトリで現在使用可能な、{% data variables.product.prodname_github_codespaces %} のコンピューターの種類の仕様を確認するには、コンピューターの種類の選択肢が表示されるまで、codespace の作成プロセスをステップ実行します。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
+   
+1. ファイルを保存し、リポジトリの必要なブランチに加えた変更をコミットします。
 
-   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+   ここで、リポジトリのそのブランチ用に codespace を作成し、作成設定オプションに進むと、指定したリソースと一致するか、またはそれを超えるコンピューターの種類のみを選択できるようになります。
 
-1. Save the file and commit your changes to the required branch of the repository.
+   ![コンピューターの種類の選択が制限されているダイアログ ボックス](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
-   Now when you create a codespace for that branch of the repository, and you go to the creation configuration options, you will only be able to select machine types that match or exceed the resources you've specified.
+## 参考資料
 
-   ![Dialog box showing a limited choice of machine types](/assets/images/help/codespaces/machine-types-limited-choice.png)
-
-## 参考リンク
-
-- "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)"
+- "[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)"

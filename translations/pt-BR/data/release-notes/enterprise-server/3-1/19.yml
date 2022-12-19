@@ -1,42 +1,41 @@
----
 date: '2022-04-04'
 sections:
   security_fixes:
-    - 'MÉDIO: Uma vulnerabilidade de travessia de caminho foi identificada em {% data variables.product.prodname_ghe_server %} Console de Gerenciamento que permitiu ignorar as proteções do CSRF. Esta vulnerabilidade afetou todas as versões de {% data variables.product.prodname_ghe_server %} antes anteriores à 3.5 e foi corrigida nas versões 3.1.19, 3.2.11, 3.3.6, 3.4.1. Essa vulnerabilidade foi reportada através do programa de compensação de erros de {% data variables.product.prodname_dotcom %} e recebeu o CVE-2022-23732.'
-    - 'MÉDIO: Foi identificada uma vulnerabilidade de sobrefluxo no branch 1.x e no branch 2.x do `yajil`, que leva à subsequente corrupção de memória heap ao lidar com entradas grandes (~2 GB). Esta vulnerabilidade foi relatada internamente e recebeu o CVE-2022-24795. '
-    - Os pacotes de suporte podem incluir arquivos sensíveis se {% data variables.product.prodname_actions %} foi habilitado.
-    - Os pacotes foram atualizados para as últimas versões de segurança.
+    - 'MÉDIO: Foi identificada uma vulnerabilidade transversal de caminho no console de gerenciamento {% data variables.product.prodname_ghe_server %} que permitia o bypass de proteções CSRF. Esta vulnerabilidade afetou todas as versões de {% data variables.product.prodname_ghe_server %} anteriores à 3.5 e foi corrigida nas versões 3.1.19, 3.2.11, 3.3.6 e 3.4.1. Essa vulnerabilidade foi relatada pelo Programa de Recompensas por Bugs {% data variables.product.prodname_dotcom %} e foi designada CVE-2022-23732.'
+    - 'MÉDIO: Foi identifica uma vulnerabilidade de estouro de número inteiro no branch 1.x e no branch 2.x de `yajil` que levava ao subsequente corrompimento de memória heap ao lidar com entradas grandes (~2GB). Esta vulnerabilidade foi relatada internamente e foi designada CVE-2022-24795. '
+    - "Pacotes de suporte podem incluir arquivos sensíveis se {% data variables.product.prodname_actions %} foi habilitado." 
+    - Os pacotes foram atualizados para as últimas versões de segurança. 
   bugs:
-    - As opções para habilitar `TLS 1.0` e `TLS 1. ` nas configurações de privacidade do Console de Gerenciamento foram mostradas, embora a remoção dessas versões de protocolo tenha ocorrido em uma versão anterior.
-    - Em um ambiente HA, a configuração da replicação do MSSQL pode exigir etapas manuais adicionais depois de habilitar {% data variables.product.prodname_actions %} pela primeira vez.
-    - Um subconjunto de arquivos de configuração interna são atualizados de forma mais confiável após um hotpatch.
-    - O script `ghe-run-migrations` às vezes falha ao gerar nomes de certificados temporários corretamente.
-    - Em um ambiente de cluster, as operações de FLS do Git podem falhar com chamadas de API interna com falhas que cruzaram vários nós web.
-    - Os hooks pre-receive que usavam `gpg --import` venceram devido a privilégios insuficientes de `syscall`.
-    - Em algumas topologias de cluster, as informações de entrega de webhook não estavam disponíveis.
-    - Em configurações HA, derrubar uma réplica geraria uma falha se {% data variables.product.prodname_actions %} tivesse sido habilitado anteriormente.
-    - As verificações de integridade do Elasticsearch não permitiriam um estado de cçister amarelo ao realizar migrações.
-    - As organizações criadas como resultado de um usuário transformar sua conta de usuário em uma organização não foram adicionadas à conta corporativa global.
-    - Ao usar `ghe-migrator` ou exportar de {% data variables.product.prodname_dotcom_the_website %}, uma exportação de longo prazo falharia quando os dados foram excluídos durante a exportação.
-    - Os links para páginas inacessíveis foram removidos.
-    - Adicionar uma equipe como revisora a um pull request às vezes poderia mostrar o número incorreto de integrantes dessa equipe.
-    - Um grande número de usuários inativos pode causar falha na configuração de {% data variables.product.prodname_github_connect %}.
-    - A página "Cadastros e recursos betaa" na interface de administração do site estava disponível de forma incorreta.
-    - O link "Modo de administrador do site" no rodapé não mudou de status quando quando clicado.
+    - "As opções para habilitar `TLS 1.0` e `TLS 1.1` nas configurações de privacidade do console de gerenciamento foram mostradas, apesar da remoção destas versões de protocolo ocorrerem em uma versão anterior." 
+    - "Em um ambiente de alta disponibilidade, configurar a replicação MSSQL poderia exibir etapas manuais adicionais após habilitar {% data variables.product.prodname_actions %} pela primeira vez." 
+    - Um subconjunto de arquivos de configuração internos são atualizados de modo mais confiável após um patch dinâmico. 
+    - O script `ghe-run-migrations` às vezes falharia em gerar corretamente os nomes dos certificados temporários. 
+    - "Em um ambiente de grupo, as operações do Git LFS poderiam falhar com chamadas à API internas que cruzaram inúmeros nós de Web." 
+    - Hooks pre-receive que usaram `gpg --import` atingiram o tempo limite devido a privilégios `syscall` insuficientes. 
+    - "Em algumas topologias de grupo, a informação de entrega de Webhook não estava disponível." 
+    - "Em configurações de alta disponibilidade, subdividir uma réplica falharia se {% data variables.product.prodname_actions %} tivesse sido habilitado anteriormente." 
+    - As verificações de saúde de Elasticsearch não permitem um status de grupo amarelo ao executar as migrações de execução. 
+    - As organizações criadas como resultado de um usuário transformando sua conta de usuário em uma organização não foram adicionadas à conta global da empresa. 
+    - "Ao usar `ghe-migrator` ou exportar de {% data variables.product.prodname_dotcom_the_Website %}, uma exportação de execução longa falharia quando os dados eram excluídos durante a exportação." 
+    - Foram removidos os links para páginas inacessíveis. 
+    - "Acrescentar uma equipe como revisor a uma solicitação de pull, às vezes mostraria o número incorreto de membros daquela equipe." 
+    - "Um grande número de usuários dormentes poderia fazer com que uma configuração de {% data variables.product.prodname_github_connect %} falhasse." 
+    - "A página \"Recurso e inscrição beta\" na interface do usuário da Web da página do administrador estava incorretamente disponível." 
+    - "O link \"Modo admin do site\" no rodapé do site não mudava de estado quando clicado." 
   changes:
-    - Os limites de conexão Memcached foram aumentados para melhor acomodar as topologias de grandes clusters.
-    - Identificar e excluir logs de webhook de forma mais eficiente que estão fora da janela de retenção de log de webhook.
-    - A API do Gráfico de Dependência correu anteriormente com uma porta definida estaticamente.
-    - As contagens de fragmentos padrão para fragmentos do Elasticsearch relacionados ao clusters foram atualizadas.
-    - As funções da equipe "Triagem" e "Manutenção" são preservadas durante as migrações do repositório.
-    - 'Exceções `NotProcessedError` estavam ocorrendo desnecessariamente.'
-    - O desempenho foi melhorado para solicitações da web feitas por proprietários das empresas.
+    - Os limites de conexão Memcached foram aumentados para acomodar melhor as topologias de grandes grupos. 
+    - Identificar e excluir com maior eficácia os logs de Webhook que estão fora da janela de retenção do log de Webhook. 
+    - A API do grafo de dependência anteriormente era executada com uma porta estaticamente definida. 
+    - As contagens do fragmento padrão para as configurações de fragmentos Elasticsearch relacionadas ao grupo foram atualizadas. 
+    - As funções de equipe “Triagem” e “Manutenção” são preservadas durante as migrações do repositório. 
+    - 'As exceções `NotProcessedError` estavam ocorrendo desnecessariamente.'
+    - O desempenho foi melhorado para solicitações de Web feitas por proprietários de empresas. 
   known_issues:
-    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
-    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
-    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
-    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
-    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
-    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob's é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar GitHub.com\" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_Website %}."
+    - "Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`."
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

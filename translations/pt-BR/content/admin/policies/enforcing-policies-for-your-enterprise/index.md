@@ -16,12 +16,20 @@ children:
   - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-team-policies-in-your-enterprise
-  - /enforcing-project-board-policies-in-your-enterprise
+  - /enforcing-policies-for-projects-in-your-enterprise
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-security-settings-in-your-enterprise
   - /enforcing-policies-for-dependency-insights-in-your-enterprise
   - /enforcing-policies-for-github-actions-in-your-enterprise
-  - /enforcing-policies-for-advanced-security-in-your-enterprise
-shortTitle: Aplicar políticas
+  - /enforcing-policies-for-github-copilot-in-your-enterprise
+  - /enforcing-policies-for-code-security-and-analysis-for-your-enterprise
+  - /enforcing-policies-for-personal-access-tokens-in-your-enterprise
+shortTitle: Enforce policies
+ms.openlocfilehash: cc195802c242a4c1fc93585b5bc7899c11f469bc
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192630'
 ---
 

@@ -1,12 +1,19 @@
+---
+ms.openlocfilehash: 233eff44b80fdceeb29d692af02777e57db31f8a
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145114345"
+---
 {% ifversion fpt %}
-1. Navega a la página principal de la organización o repositorio.
-1. Haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
-1. En la barra lateral izquierda, haz clic en **Acciones** y luego en **Ejecutores**.
+1. Vaya a la página principal de la organización o del repositorio.
+1. Haga clic en {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Configuración).
+1. En la barra lateral de la izquierda, haga clic en **Actions** (Acciones) y, después, en **Runners** (Ejecutores).
 {% elsif ghec %}
-1. Navega a los ajustes de tu ejecutor:
-   * **En una organización o repositorio**: Navega a la página principal y luego haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
-   * **Si estás utilizando una cuenta empresarial**: Navega a tu cuenta empresarial haciendo clic en tu foto de perfil en la esquina superior derecha de {% data variables.product.prodname_dotcom_the_website %} y luego haz clic en **Tus empresas** y luego en la empresa que desees.
+1. Vaya a la configuración del ejecutor:
+   * **En un repositorio o una organización**, vaya a la página principal y haga clic en {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Configuración).
+   * **Si usa una cuenta de empresa**, vaya a dicha cuenta haciendo clic en la foto de perfil situada en la esquina superior derecha de {% data variables.product.prodname_dotcom_the_website %} y luego haga clic en **Your enterprises** (Sus empresas) y en la empresa que quiera.
 1. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **En una organización o repositorio**: Haz clic en **Acciones** en la barra lateral izquierda y luego en **Ejecutores**.
-   * **Si estás utilizando una cuenta empresarial**: en la barra lateral izquierda, haz clic en **"{% octicon "law" aria-label="The law icon" %} Políticas"**, luego en **Acciones** y luego en la pestaña de **Ejecutores**.
-{% endif %}
+   * **En una organización o un repositorio**, haga clic en **Actions** (Acciones) en la barra lateral izquierda y, después, haga clic en **Runners** (Ejecutores).
+   * **Si usa una cuenta de empresa**, en la barra lateral izquierda, haga clic en **"{% octicon "law" aria-label="The law icon" %} Policies"** (Directivas), después en **Actions** (Acciones) y, por último, en la pestaña **Runners** (Ejecutores). {% endif %}

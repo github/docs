@@ -1,5 +1,5 @@
 ---
-title: Issue とPull Requestのマイルストーンの作成と削除
+title: Issue とプルリクエストのマイルストーンの作成と削除
 intro: リポジトリ内にある Issue やPull Requestのグループに関する進行状況を追跡するためのマイルストーンを作成できます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
@@ -15,30 +15,34 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: マイルストーンの作成と編集
+shortTitle: Create & edit milestones
 type: how_to
+ms.openlocfilehash: c0e812b9f91f91d88d7512974f1df52efbf8c65b
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878796'
 ---
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. 以下のオプションから 1 つ選択します:
-    - 新しいマイルストーンを作成するには、[**New Milestone**] をクリックします。 ![[New milestone] ボタン](/assets/images/help/repository/new-milestone.png)
-    - マイルストーンを編集するには、編集対象のマイルストーンの隣にある [**Edit**] をクリックします。 ![マイルストーンの編集](/assets/images/help/repository/edit-milestone.png)
-5. マイルストーンのタイトル、説明、その他の変更を入力し、[**Create milestone**] または [**Save changes**] をクリックします。 マイルストーンはMarkdown構文をレンダリングします。 Markdown構文に関する詳しい情報については「[基本的な書き込みとフォーマットの構文](/github/writing-on-github/basic-writing-and-formatting-syntax)」を参照してください。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
+4. 次のいずれかのオプションを選択します。
+    - 新しいマイルストーンを作成するには、 **[新しいマイルストーン]** をクリックします。
+  ![[新しいマイルストーン]](/assets/images/help/repository/new-milestone.png) ボタン
+    - マイルストーンを編集するには、編集対象のマイルストーンの隣にある **[編集]** をクリックします。
+  ![[マイルストーンの編集] オプション](/assets/images/help/repository/edit-milestone.png)
+5. マイルストーンのタイトル、説明、またはその他の変更を入力し、 **[マイルストーンの作成]** または **[変更の保存]** をクリックします。 マイルストーンはMarkdown構文をレンダリングします。 マークダウン構文について詳しくは、「[基本的な書き方とフォーマットの構文](/github/writing-on-github/basic-writing-and-formatting-syntax)」を参照してください。
 
 ## マイルストーンの削除
 
 マイルストーンを削除しても、Issue やPull Requestに影響はありません。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. 削除対象のマイルストーンの隣にある [**Delete**] をクリックします。 ![マイルストーンの削除](/assets/images/help/repository/delete-milestone.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.milestones %}
+4. 削除対象のマイルストーンの隣にある **[削除]** をクリックします。
+![[マイルストーンの削除] オプション](/assets/images/help/repository/delete-milestone.png)
 
-## 参考リンク
+## 参考資料
 
-- [マイルストーンについて](/articles/about-milestones)
-- [Issue及びPull Requestとのマイルストーンの関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)
-- [マイルストーンの進捗の表示](/articles/viewing-your-milestone-s-progress)
-- [マイルストーンによるIssue及びPull Requestのフィルタリング](/articles/filtering-issues-and-pull-requests-by-milestone)
+- "[マイルストーンについて](/articles/about-milestones)"
+- "[Issue および pull request にマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[マイルストーンの進捗状況を表示する](/articles/viewing-your-milestone-s-progress)"
+- "[Issue と pull request をマイルストーンでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-milestone)"

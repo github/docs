@@ -1,4 +1,12 @@
-1. **File**メニューで、**Clone Repository（リポジトリのクローン）**をクリックしてください。
+---
+ms.openlocfilehash: 5f13e960a9201623b807d906a00092d657f393cf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145138620"
+---
+1. **[ファイル]** メニューの **[リポジトリの複製]** をクリックします。
 
   {% mac %}
 

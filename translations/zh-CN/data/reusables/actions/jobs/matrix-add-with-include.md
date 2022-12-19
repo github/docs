@@ -1,4 +1,12 @@
-例如，此矩阵将运行 10 个作业，矩阵中 `os` 和 `version` 的每个组合各一个作业，再加上一个 `windows-latest` 值为 `os` 且 `17` 值为 `version` 的作业。
+---
+ms.openlocfilehash: d0e9408a29307848c49c9d0889c96b054e1d1222
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062160"
+---
+例如，此矩阵将运行 10 个作业，矩阵中每个 `os` 和 `version` 的组合一个作业，再加上一个用于 `windows-latest` 的 `os` 值和 `17` 的 `version` 值的作业。
 
 ```yaml
 jobs:
@@ -12,7 +20,7 @@ jobs:
             version: 17
 ```
 
-如果未指定任何矩阵变量，则 `include` 下的所有配置都将运行。 例如，以下工作流程将运行两个作业，每个作业一个 `include` 条目。 这使您可以利用矩阵策略，而无需完全填充的矩阵。
+如果未指定任何矩阵变量，则运行 `include` 下的所有配置。 例如，以下工作流将运行两个作业，每个 `include` 一个作业。 这样你可以利用矩阵策略，而无需完全填充矩阵。
 
 ```yaml
 jobs:

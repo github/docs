@@ -23,5 +23,11 @@ children:
   - /access-permissions-on-github
   - /about-github-advanced-security
   - /faq-about-changes-to-githubs-plans
+ms.openlocfilehash: bc22d744123d54dd38e491a0b5f938150feb0518
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145126685'
 ---
 

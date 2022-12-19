@@ -34,17 +34,23 @@ topics:
 
 {% data variables.product.prodname_dependabot %} checks whether it's possible to upgrade the vulnerable dependency to a fixed version without disrupting the dependency graph for the repository. Then {% data variables.product.prodname_dependabot %} raises a pull request to update the dependency to the minimum version that includes the patch and links the pull request to the {% data variables.product.prodname_dependabot %} alert, or reports an error on the alert. For more information, see "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
 
+The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)."
+
+{% ifversion dependabot-security-updates-unlock-transitive-dependencies %} 
+
 {% note %}
 
-**Note**
+**Note**: For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies{% ifversion dependabot-security-updates-npm %}, or even removing a sub-dependency that is no longer needed by the parent{% endif %}. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[Dependabot tries to update dependencies without an alert](/en/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
 
-The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency that is not explicitly defined. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#dependencies-included)."
-
-{% endnote %}
+{% endnote %}{% endif %} 
 
 You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
+
+{% data reusables.dependabot.dependabot-updates-and-actions %}
+
+{% data reusables.dependabot.dependabot-actions-support %}
 
 ## About pull requests for security updates
 

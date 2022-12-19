@@ -1,40 +1,37 @@
 ---
-title: GitHub Codespaces Documentation
+title: Documentación de Codespaces de GitHub
 shortTitle: GitHub Codespaces
-intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
+intro: 'Crea un codespace o comienza a desarrollar en un ambiente de desarrollo seguro, configurable y dedicado que funciona donde y como tu quieras.'
 introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
   guides:
-    - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
+    - /codespaces/getting-started/the-codespace-lifecycle
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
-    - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
-    - /codespaces/developing-in-codespaces/codespaces-lifecycle
+    - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
+    - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
+  guideCards:
+    - /codespaces/getting-started/deep-dive
+    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
+    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+    - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
-  videos:
-    - title: 'Inside GitHub: Moving GitHub''s Development to Codespaces – Cory Wilkerson'
-      href: 'https://www.youtube-nocookie.com/embed/Lj_RpjEuESE'
-    - title: 'Making Codespaces Work for You – Allison Weins, Bailey Brooks'
-      href: 'https://www.youtube-nocookie.com/embed/X9Z-rUixnzk'
-    - title: Coding in the cloud with GitHub Codespaces and VS Code – Damian Brady
-      href: 'https://www.youtube-nocookie.com/embed/xWr_yH_AGVs'
-  videosHeading: GitHub Universe 2021 videos
-  guideCards:
-    - /codespaces/getting-started/deep-dive
-    - /codespaces/developing-in-codespaces/creating-a-codespace
-    - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
-    - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popularHeading: Set up your project
+changelog:
+  label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/codespaces'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
@@ -56,5 +53,11 @@ children:
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
+ms.openlocfilehash: 242931386711938cb1eb5e9b84ad66a581ecb1eb
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188308'
 ---
 

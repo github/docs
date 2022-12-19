@@ -1,9 +1,9 @@
 ---
-title: Enabling GitHub Codespaces for your organization
-shortTitle: Habilitar Codespaces
-intro: 'Puedes controlar qué usuarios de tu organización pueden utilizar {% data variables.product.prodname_github_codespaces %}.'
+title: Habilitación de GitHub Codespaces en la organización
+shortTitle: 'Enable {% data variables.product.prodname_codespaces %}'
+intro: 'Puedes controlar qué usuarios de la organización pueden utilizar {% data variables.product.prodname_github_codespaces %} con cargo a la organización.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage user permissions for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
+permissions: 'To alter an organization''s billing settings, you must be an organization owner.'
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
@@ -13,61 +13,71 @@ versions:
 type: how_to
 topics:
   - Codespaces
-  - Permissions
+  - Billing
   - Administrator
+ms.openlocfilehash: 97d8b3fce0499ea945c9a2dcfe469759a097d77e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106489'
 ---
+## Acerca de cómo habilitar {% data variables.product.prodname_github_codespaces %} en la organización
 
+Los propietarios de la organización pueden controlar qué usuarios de tu organización pueden crear y utilizar codespaces con cargo a la organización. Para obtener información sobre los precios, consulta "[Acerca de la facturación de GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
 
-## Acerca de cómo habilitar los {% data variables.product.prodname_github_codespaces %} para tu organización
+Solo las personas que pueden clonar un repositorio pueden crear un codespace para ese repositorio. A fin de permitir que los usuarios creen codespaces para repositorios que pertenecen a tu organización, debes hacer lo siguiente:
 
-Los propietarios de organización pueden controlar qué usuarios de tu organización pueden crear y utilizar codespaces.
+- Asegúrese de que los usuarios tengan al menos acceso de escritura a los repositorios en los que quieran usar un codespace. Para obtener más información, vea "[Administración de equipos y personas con acceso al repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
+- Asegúrate de que tu organización no tenga habilitada una lista de direcciones IP permitidas. Para más información, vea "[Administración de direcciones IP permitidas para la organización](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
-Para utilizar codespaces en tu organización, debes hacer lo siguiente:
+A fin de permitir que los usuarios creen codespaces que se facturarán a tu organización, debes hacer lo siguiente:
 
-- Asegurarte de que los usuarios tengan [por lo menos acceso de escritura](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) en los repositorios en donde quieren utilizar un codespace.
-- [Habilitar los {% data variables.product.prodname_github_codespaces %} para los usuarios en tu organización](#enable-codespaces-for-users-in-your-organization). Puedes elegir permitir los {% data variables.product.prodname_codespaces %} para los usuarios seleccionados o solo para algunos específicos.
-- [Configurar un límite de gastos](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
-- Asegúrate de que tu organización no tenga habilitada una lista de direcciones IP permitidas. Para obtener más información, consulta la sección "[Administrar las direcciones IP permitidas para tu organización](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
+- [Configuración de un límite de gastos](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- [Elección de quién puede crear codespaces que se van a facturar a tu organización](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
 
-Predeterminadamente, un codespace solo puede acceder al repositorio desde el cual se creó. Si quieres que los codespaces de tu organización puedan acceder a otros repositorios de organización a los que puede acceder el creador de dichos codespaces, consulta la sección "[Administrar el acceso y la seguridad de los {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
+{% ifversion fpt %} {% note %}
 
-## Habilitar los {% data variables.product.prodname_codespaces %} para los usuarios en tu organización
+**Nota:** Si eres educador o instructor verificado, debes habilitar {% data variables.product.prodname_codespaces %} desde tu instancia de {% data variables.product.prodname_classroom %} para usar tu ventaja {% data variables.product.prodname_codespaces %} Education. Para más información, consulta "[Uso de GitHub Codespaces con GitHub Classroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)".
 
-{% ifversion fpt %}
-{% note %}
+{% endnote %} {% endif %}
 
-**Nota:** Si eres un maestro o docente verificado, debes habilitar {% data variables.product.prodname_codespaces %} desde un {% data variables.product.prodname_classroom %} para utilizar tu beneficio de docente de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Utilizar los Codespaces de GitHub con GitHub Clasroom](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)".
+Predeterminadamente, un codespace solo puede acceder al repositorio desde el cual se creó. Si quieres que los codespaces de la organización puedan acceder a otros repositorios de la organización a los que el creador del codespace pueda acceder, consulta "[Administración del acceso al repositorio para los codespaces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)".
 
-{% endnote %}
-{% endif %}
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Debajo de "Permisos de usuario", selecciona una de las siguientes opciones:
+## Elección de quién puede crear codespaces que se van a facturar a tu organización
 
-   * **Usuarios selectos** para seleccionar miembros específicos de la organización que puedan utilizar {% data variables.product.prodname_codespaces %}.
-   * **Permitir para todos los miembros** para permitir que todos los miembros de tu organización utilicen {% data variables.product.prodname_codespaces %}.
-   * **Permitir para todos los miembros y colaboradores externos** para permitir que todos los miembros de tu organización, así como los colaboradores externos, utilicen {% data variables.product.prodname_codespaces %}.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. En "Facturación", selecciona una de las opciones siguientes:
 
-   ![Botones radiales de "Permisos de usuario"](/assets/images/help/codespaces/org-user-permission-settings-outside-collaborators.png)
+   * **Deshabilitado**: no se le cobrará a la organización por el uso de codespaces. Los {% data variables.product.prodname_codespaces %} creados para los repositorios de la organización se facturarán a los usuarios individuales que los creen.
+   * **Miembros seleccionados**: los {% data variables.product.prodname_codespaces %} que creen miembros seleccionados para los repositorios de la organización se facturarán a la organización.
+   * **Todos los miembros**: los {% data variables.product.prodname_codespaces %} que creen los miembros de la organización para los repositorios de esta se facturarán a la propia organización.
+   * **Todos los miembros y colaboradores externos**: los {% data variables.product.prodname_codespaces %} que creen miembros de la organización y colaboradores externos para los repositorios de esta se facturarán a la propia organización.
+
+   ![Botones de radio para "Facturación"](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
 
    {% note %}
 
-   **Nota:** Cuando seleccionas **Permitir para todos los miembros y colaboradores externos**, todos los colaboradores externos que hayan agregado información a repositorios específicos podrán crear y utilizar {% data variables.product.prodname_codespaces %}. Se le facturará a tu organización por todo el uso en el que incurrieron los colaboradores externos. Para obtener más información sobre cómo administrar colaboradores externos, consulta la sección "[Acerca de los colaboradores externos](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)".
+   **Nota:** Al seleccionar **Todos los miembros y colaboradores externos**, todos los colaboradores externos que se hayan agregado a repositorios específicos podrán crear y usar {% data variables.product.prodname_codespaces %} para esos repositorios, y este uso se le cargará a la organización. Para más información sobre cómo administrar colaboradores externos, vea "[Acerca de los colaboradores externos](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)".
 
    {% endnote %}
 
-1. Haz clic en **Save ** (guardar).
+1. Haga clic en **Save**(Guardar).
+1. Si ha elegido **Miembros seleccionados**, se muestra un cuadro de entrada para que escribas los nombres de los usuarios que quieres seleccionar.
+
+   ![Cuadro de entrada para seleccionar usuarios](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
 
 ## Inhabilitar los {% data variables.product.prodname_codespaces %} para tu organización
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Debajo de "Permisos de usuario", selecciona **Inhabilitado**.
+Puedes impedir la creación y el uso de codespaces facturables a tu organización.
+
+{% data reusables.codespaces.codespaces-disabling-org-billing %}
+
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. En "Facturación", selecciona **Deshabilitado**.
 
 ## Configurar un límite de gastos
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %}
+{% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu organización, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
+Para obtener información sobre cómo administrar y cambiar el límite de gasto de la cuenta, vea "[Administración del límite de gasto para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".

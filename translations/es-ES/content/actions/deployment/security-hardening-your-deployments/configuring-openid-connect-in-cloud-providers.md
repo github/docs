@@ -1,22 +1,25 @@
 ---
 title: Configurar OpenID Connect en los proveedores de servicios en la nube
-shortTitle: Configurar OpenID Connect en los proveedores de servicios en la nube
+shortTitle: OpenID Connect in cloud providers
 intro: Utiliza OpenID Connect dentro de tus flujos de trabajo para autenticarte con los proveedores de servicios en la nube.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 90dfa54e71fc602243ddb0d51b190fb8530727e4
+ms.sourcegitcommit: 938ec7898dddd5da5481ad32809d68e4127e1948
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135498'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Resumen
+## Información general
 
 OpenID Connect (OIDC) permite que tus flujos de trabajo de {% data variables.product.prodname_actions %} accedan a los recursos de tu proveedor de servicios en la nube sin tener que almacenar credenciales como secretos de {% data variables.product.prodname_dotcom %} de larga duración.
 
@@ -38,7 +41,7 @@ Si tu proveedor de servicios en la nube aún no ofrece una acción oficial, pued
 
 ### Agregar ajustes de permisos
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Utilizar acciones oficiales
 
@@ -48,7 +51,7 @@ Si tu proveedor de servicios en la nube creó una acción oficial para utilizar 
 
 Si tu proveedor de servicios en la nube no tiene una acción oficial o si prefieres crear scripts personalizados, puedes solicitar manualmente el Token Web JSON (JWT) del proveedor de OIDC de {% data variables.product.prodname_dotcom %}.
 
-Si no estás utilizando una acción oficial, entonces {% data variables.product.prodname_dotcom %} recomienda que utilices el kit de herramientas nuclear de las acciones. Como alternativa, puedes utilizar las siguientes variables de ambiente para retribuir el token: `ACTIONS_RUNTIME_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
+Si no estás utilizando una acción oficial, entonces {% data variables.product.prodname_dotcom %} recomienda que utilices el kit de herramientas nuclear de las acciones. Como alternativa, puede usar las siguientes variables de entorno para recuperar el token: `ACTIONS_RUNTIME_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
 
 Para actualizar tus flujos de trabajo utilizando este enfoque, necesitarás hacer tres cambios a tu YAML:
 
@@ -58,7 +61,7 @@ Para actualizar tus flujos de trabajo utilizando este enfoque, necesitarás hace
 
 ### Solicitar un JTW utilizando el kit de herramientas nuclear de las acciones
 
-El siguiente ejemplo ilustra cómo utilizar `actions/github-script` con el kit de herramientas `core` apra solicitar el JWT desde el proveedor de OIDC de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Agregar paquetes de kit de herramientas de acciones](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
+En el ejemplo siguiente se muestra cómo usar `actions/github-script` con el kit de herramientas `core` para solicitar el JWT desde el proveedor de OIDC de {% data variables.product.prodname_dotcom %}. Para más información, vea "[Adición de paquetes de kit de herramientas de acciones](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
 
 ```yaml
 jobs:
@@ -74,15 +77,15 @@ jobs:
       with:
         script: |
           const coredemo = require('@actions/core')
-          let id_token = await coredemo.getIDToken()   
-          coredemo.setOutput('id_token', id_token)  
+          let id_token = await coredemo.getIDToken()
+          coredemo.setOutput('id_token', id_token)
 ```
 
 ### Solicitar el JWT utilizando variables de ambiente
 
 El siguiente ejemplo demuestra cómo utilizar variables de ambiente para solicitar un Token Web de JSON.
 
-Para tu job de despliegue, necesitarás definir los ajustes del token utilizando `actions/github-script` con el kit de herramientas de `core`. Para obtener más información, consulta la sección "[Agregar paquetes de kit de herramientas de acciones](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
+Para el trabajo de implementación, tendrá que definir la configuración del token mediante `actions/github-script` con el kit de herramientas `core`. Para más información, vea "[Adición de paquetes de kit de herramientas de acciones](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
 
 Por ejemplo:
 
@@ -103,11 +106,11 @@ jobs:
           core.setOutput('IDTOKENURL', runtimeUrl.trim())
 ```
 
-Entonces puedes utilizar `curl` para recuperar un JWT desde el proveedor de OIDC de {% data variables.product.prodname_dotcom %}. Por ejemplo:
+Después, puede usar `curl` para recuperar un JWT del proveedor de OIDC de {% data variables.product.prodname_dotcom %}. Por ejemplo:
 
 ```yaml
     - run: |
-        IDTOKEN=$(curl -H "Authorization: bearer ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
+        IDTOKEN=$(curl -H "Authorization: bearer {% raw %} ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} {% endraw %} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
         echo $IDTOKEN
         jwtd() {
             if [[ -x $(command -v jq) ]]; then
@@ -116,7 +119,11 @@ Entonces puedes utilizar `curl` para recuperar un JWT desde el proveedor de OIDC
             fi
         }
         jwtd $IDTOKEN
+{%- ifversion actions-save-state-set-output-envs %}
+        echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
+{%- else %}
         echo "::set-output name=idToken::${IDTOKEN}"
+{%- endif %}
       id: tokenid
 ```
 
@@ -130,4 +137,5 @@ Los pasos para intercambiar el token de OIDC por un token de acceso variarán pa
 
 ### Acceder a los recursos en tu proveedor de servicios en la nube
 
-Una vez que hayas obtenido el token de acceso, puedes utilizar acciones o scripts específicos en la nube para autenticarte con el proveedor de servicios en la nube y desplegar hacia sus recursos. Estos pasos podrían diferir entre cada proveedor. Adicionalmente, el tiempo de vencimiento predeterminado para este token de acceso podría variar entre cada nube y podría ser configurable de lado del proveedor de servicios.
+Una vez que hayas obtenido el token de acceso, puedes utilizar acciones o scripts específicos en la nube para autenticarte con el proveedor de servicios en la nube y desplegar hacia sus recursos. Estos pasos podrían diferir entre cada proveedor.
+Adicionalmente, el tiempo de vencimiento predeterminado para este token de acceso podría variar entre cada nube y podría ser configurable de lado del proveedor de servicios.

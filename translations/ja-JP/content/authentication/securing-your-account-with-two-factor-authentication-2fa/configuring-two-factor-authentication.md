@@ -15,23 +15,28 @@ versions:
 topics:
   - 2FA
 shortTitle: Configure 2FA
+ms.openlocfilehash: 2a038134260ba9a6a7a0307bc3261157968ec1ea
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148179958'
 ---
+モバイル アプリ{% ifversion fpt or ghec %}またはテキスト メッセージ{% endif %}を使って、2 要素認証を構成することができます。 また、セキュリティキーを追加することも可能です。
 
-モバイルアプリまたは{% ifversion fpt or ghec %}テキストメッセージ{% endif %}を使って、2 要素認証を設定できます。 また、セキュリティキーを追加することも可能です。
-
-2 要素認証の設定には、時間ベースのワンタイムパスワード (TOTP) アプリケーションを使うことを強くおすすめします。{% ifversion fpt or ghec %}TOTP アプリケーションは、特に米国外において、SMS より信頼性があります。{% endif %}TOTP アプリは、クラウド内にある認証コードのセキュアなバックアップをサポートしており、デバイスにアクセスできなくなった場合に回復できます。
+2 要素認証の構成には、時間ベースのワンタイム パスワード (TOTP) アプリケーションを使うことを強くお勧めします。{% ifversion fpt or ghec %}TOTP アプリケーションは、特に米国外の場所で、SMS よりも高い信頼性があります。{% endif %}TOTP アプリは、クラウド内にある認証コードのセキュア バックアップをサポートしており、デバイスにアクセスできなくなった場合に復元することができます。
 
 {% warning %}
 
 **警告:**
-- 2 要素認証が必要なメンバー{% ifversion fpt or ghec %}、支払いマネージャー、{% endif %}または Organization のプライベートリポジトリへの外部コラボレーターは、2 要素認証を無効化する前に {% data variables.product.product_location %} で Organization から離脱する必要があります。
+- 2 要素認証が必要な Organization のプライベート リポジトリに対してメンバー{% ifversion fpt or ghec %}、支払いマネージャー、{% endif %}または外部コラボレーターである場合、{% data variables.location.product_location %} 上で 2 要素認証を無効にする前に Organization から離脱する必要があります。
 - 2 要素認証を無効化すると、Organization や Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization およびフォークへのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+{% data variables.enterprise.prodname_emu_enterprise %} のメンバーである場合、セットアップ ユーザーとしてサインインした場合を除き、あなたの {% data variables.enterprise.prodname_managed_user %} アカウントに 2 要素認証を構成することはできません。 セットアップ ユーザー以外のユーザーの場合、管理者は ID プロバイダー (IdP) 上で 2 要素認証を構成する必要があります。
 
 {% endif %}
 
@@ -45,34 +50,25 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 {% tip %}
 
-**参考**: 複数のデバイスで TOTP により認証を設定するには、セットアップ時に、QR コード を各デバイスで同時にスキャンします。 2 要素認証がすでに有効化されており、別のデバイスを追加したい場合は、セキュリティ設定から 2 要素認証を再設定する必要があります。
+**ヒント**: 複数のデバイスで TOTP による認証を構成する場合は、設定時に各デバイスを使って同時に QR コードをスキャンします。 2 要素認証がすでに有効化されており、別のデバイスを追加したい場合は、セキュリティ設定から 2 要素認証を再設定する必要があります。
 
 {% endtip %}
 
 1. TOTP アプリをダウンロードします。
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghec or ghes %}
-5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
-6. Under "Authentication verification", do one of the following:
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.enable-two-factor-authentication %} {%- ifversion fpt or ghec or ghes > 3.7 %}
+5. [認証アプリのセットアップ] で、次のいずれかの操作を行います。
     - QR コードを、モバイルデバイスのアプリでスキャンする。 スキャン後、アプリは {% data variables.product.product_name %} で入力する 6 桁の数字を表示します。
-    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead. ![[enter this code] をクリック](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-7. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". If your recovery codes are not automatically displayed, click **Continue**. ![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
-{% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-{%- else %}
-5. [Two-factor authentication] のページで、[**Set up using an app**] をクリックします。
-6. リカバリコードを安全な場所に保存します。 リカバリコードは、アカウントにアクセスできなくなった場合に、再びアクセスするために役立ちます。
-    - リカバリコードをデバイスに保存するには、[**Download**] をクリックします。
-    - リカバリコードのハードコピーを保存するには、[**Print**] をクリックします。
-    - パスワードマネージャーに保存するためにリカバリコードをコピーするには [**Copy**] をクリックします。 ![コードのダウンロード、印刷、コピーのオプションがある、リカバリコードのリスト](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
-7. 2要素のリカバリコードを保存したら、**Next**をクリックします。
-8. [Two-factor authentication] ページで、次のいずれかを実行します:
+    - QR コードをスキャンできない場合は、 **[enter this text code]\(このテキスト コードを入力する\)** をクリックして、代わりに TOTP アプリに手動で入力できるコードを表示します。
+    ![このコードの入力をクリックする](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+6. TOTP モバイル アプリケーションによって {% data variables.location.product_location %} にアカウントが保存され、数秒ごとに新しい認証コードが生成されます。 {% data variables.product.product_name %} 上で、[Enter the six-digit code from the application]\(アプリケーションから 6 桁のコードを入力する\) の下にあるフィールドにこのコードを入力します。 
+![TOTP のコードの入力フィールド](/assets/images/help/2fa/2fa_wizard_app_enter_code.png) {%- else %}
+5. [Two-factor authentication]\(2 要素認証\) の下にある **[Set up using an app]\(アプリを使って設定する\)** を選び、 **[Continue]\(続行\)** をクリックします。
+6. [Authentication verification]\(認証の確認\) で、次のいずれかを実行します。
     - QR コードを、モバイルデバイスのアプリでスキャンする。 スキャン後、アプリは {% data variables.product.product_name %} で入力する 6 桁の数字を表示します。
-    - QR コードをスキャンできない場合は、[**enter this text code**] をクリックしてコードを表示し、それをコピーして {% data variables.product.product_name %} に手入力してください。 ![[enter this code] をクリック](/assets/images/help/2fa/totp-click-enter-code.png)
-9. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。 ![[TOTP Enable] フィールド](/assets/images/help/2fa/totp-enter-code.png)
-{%- endif %}
-{% data reusables.two_fa.test_2fa_immediately %}
+    - QR コードをスキャンできない場合は、 **[enter this text code]\(このテキスト コードを入力する\)** をクリックして、代わりに TOTP アプリに手動で入力できるコードを表示します。
+    ![このコードの入力をクリックする](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+7. TOTP モバイル アプリケーションによって {% data variables.location.product_location %} にアカウントが保存され、数秒ごとに新しい認証コードが生成されます。 {% data variables.product.product_name %} 上で、[Enter the six-digit code from the application]\(アプリケーションから 6 桁のコードを入力する\) の下にあるフィールドにこのコードを入力します。
+![TOTP のコードの入力フィールド](/assets/images/help/2fa/2fa_wizard_app_enter_code.png) {%- endif %} {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %} {% data reusables.two_fa.backup_options_during_2fa_enrollment %} {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
 
@@ -84,23 +80,22 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 
 {% warning %}
 
-**警告:** 2 要素認証には、SMS ではなく TOTP アプリケーションを使うことを**強くおすすめします**。 {% data variables.product.product_name %} は、SMS メッセージの送信をサポートしていない国があります。 テキストメッセージによる認証を設定する前に、SMS による認証を {% data variables.product.product_name %} がサポートしている国のリストを確認してください。 詳細は「[SMS 認証がサポートされている国](/articles/countries-where-sms-authentication-is-supported)」を参照してください。
+**警告:** 2 要素認証には、SMS ではなく TOTP アプリケーションを使うことを **強くお勧めします**。 {% data variables.product.product_name %} は、SMS メッセージの送信をサポートしていない国があります。 テキストメッセージによる認証を設定する前に、SMS による認証を {% data variables.product.product_name %} がサポートしている国のリストを確認してください。 詳細については、「[SMS 認証がサポートされている国](/articles/countries-where-sms-authentication-is-supported)」を参照してください。
 
 {% endwarning %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.enable-two-factor-authentication %}
-4. Under "Two-factor authentication", select **Set up using SMS** and click **Continue**.
-5. Under "Authentication verification", select your country code and type your mobile phone number, including the area code. 入力した情報が正しいことを確認してから、[**Send authentication code**] をクリックします。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.enable-two-factor-authentication %}
+4. [認証アプリのセットアップ] の下にある **[SMS 認証]** を選びます
+
+  ![2 要素認証の SMS 代替オプション](/assets/images/help/2fa/2fa_sms_alt_option.png)
+
+5. [SMS 認証の設定] で国番号を選び、市外局番も含めて携帯電話番号を入力します。 情報が正しければ、 **[Send authentication code]\(認証コードの送信\)** をクリックします。
 
   ![2 要素認証 SMS 画面](/assets/images/help/2fa/2fa_wizard_sms_send.png)
 
-6. セキュリティコードが書かれたテキストメッセージが送信されます。 On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code sent to your phone" and click **Continue**.
+6. セキュリティコードが書かれたテキストメッセージが送信されます。 {% data variables.product.product_name %} の [Enter the six-digit code sent to your phone]\(電話に送信された 6 桁のコードを入力してください\) の下にあるフィールドにコードを入力し、 **[Continue]\(続行\)** をクリックします。
 
-  ![[2FA SMS continue] フィールド](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png)
-{% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-{% data reusables.two_fa.test_2fa_immediately %}
+  ![2 要素認証の SMS の [続ける] フィールド](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png) {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %} {% data reusables.two_fa.backup_options_during_2fa_enrollment %} {% data reusables.two_fa.test_2fa_immediately %}
 
 {% endif %}
 
@@ -110,37 +105,40 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 
 ほとんどのデバイスとブラウザでは、USB または NFC を介して物理セキュリティキーを使用できます。 一部のブラウザでは、デバイス上の指紋リーダー、顔認識、またはパスワード/ PIN をセキュリティキーとして使用できます。
 
-セキュリティキーによる認証は、TOTP アプリケーション{% ifversion fpt or ghec %}またはテキストメッセージ{% endif %}による認証の*二次的な*方法です。 セキュリティキーをなくした場合でも、モバイルデバイスのコードを使ってサインインできます。
+セキュリティ キーを使用した認証は、TOTP アプリケーション{% ifversion fpt or ghec %} またはテキスト メッセージ {% endif %} を使用した認証の *セカンダリ* です。 セキュリティキーをなくした場合でも、モバイルデバイスのコードを使ってサインインできます。
 
-1. TOTP モバイルアプリ{% ifversion fpt or ghec %}または SMS{% endif %} 経由で、あらかじめ 2 要素認証を設定しておく必要があります。
+1. TOTP モバイル アプリ{% ifversion fpt or ghec %}または SMS {% endif %}を介して、あらかじめ 2 要素認証を構成しておく必要があります。
 2. コンピュータに WebAuthn 準拠のセキュリティキーが挿入されていることを確認してください。
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-5. [Security keys] の隣にある [**Add**] をクリックします。 ![セキュリティキーの追加オプション](/assets/images/help/2fa/add-security-keys-option.png)
-6. [Security keys] で、[**Register new security key**] をクリックします。 ![新しいセキュリティキーを登録する](/assets/images/help/2fa/security-key-register.png)
-7. セキュリティキーのニックネームを入力して、[**Add**] をクリックします。 ![セキュリティキーにニックネームを付ける](/assets/images/help/2fa/security-key-nickname.png)
-8. お手持ちのセキュリティキーのドキュメンテーションに従い、セキュリティキーをアクティベートします。 ![セキュリティキーのプロンプト](/assets/images/help/2fa/security-key-prompt.png)
-9.  リカバリコードをダウンロードしていて、アクセスできることを確認してください。 まだコードをダウンロードしていないか、コードのセットをもう 1 つ生成したい場合は、コードをダウンロードして、安全な場所に保存します。 アカウントにアクセスできなくなった場合、リカバリコードを使ってアカウントへのアクセスを回復できます。 詳しい情報については[2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。 ![[Download recovery codes] ボタン](/assets/images/help/2fa/2fa-recover-during-setup.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+5. [Security keys]\(セキュリティ キー\) の横にある **[Add]\(追加\)** をクリックします。
+  ![セキュリティ キーの追加オプション](/assets/images/help/2fa/add-security-keys-option.png)
+6. [Security keys]\(セキュリティ キー\) の下にある **[Register new security key]\(新しいセキュリティ キーの登録\)** をクリックします。
+  ![新しいセキュリティ キーの登録](/assets/images/help/2fa/security-key-register.png)
+7. セキュリティ キーのニックネームを入力して、 **[Add]\(追加\)** をクリックします。
+  ![セキュリティ キーにニックネームを付ける](/assets/images/help/2fa/security-key-nickname.png)
+8. お手持ちのセキュリティキーのドキュメンテーションに従い、セキュリティキーをアクティベートします。
+  ![セキュリティ キーのプロンプト](/assets/images/help/2fa/security-key-prompt.png)
+9.  リカバリコードをダウンロードしていて、アクセスできることを確認してください。 まだコードをダウンロードしていないか、コードのセットをもう 1 つ生成したい場合は、コードをダウンロードして、安全な場所に保存します。 詳しくは、「[2 要素認証の回復コードのダウンロード](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)」をご覧ください。
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
-## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+## {% data variables.product.prodname_mobile %} を使った 2 要素認証の構成
 
-You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+Web ブラウザーで {% data variables.product.prodname_dotcom %} アカウントにサインインするときに、2 要素認証に {% data variables.product.prodname_mobile %} を使うことができます。 {% data variables.product.prodname_mobile %} を使った 2 要素認証は TOTP を利用せず、代わりに公開キー暗号化を使ってアカウントをセキュリティで保護します。
 
-Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+TOTP アプリケーションまたは SMS を構成した後は、{% data variables.product.prodname_mobile %} を使って認証することもできます。 今後、{% data variables.product.prodname_mobile %} にアクセスできなくなった場合でも、セキュリティ キーまたは TOTP アプリケーションを使ってサインインすることができます。
 
-1. You must have already configured 2FA via a TOTP mobile app or via SMS.
-2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. TOTP モバイル アプリまたは SMS を介して 2 要素認証をあらかじめ構成している必要があります。
+2. [{% data variables.product.prodname_mobile %}](https://github.com/mobile) をインストールします。
+3. {% data variables.product.prodname_mobile %} から {% data variables.product.product_name %} アカウントにサインインします。
 
-After signing in, you can now use your device for 2FA.
+サインイン後は、デバイスを 2 要素認証に使用できるようになります。
 {% endif %}
 
-## 参考リンク
+## 参考資料
 
-- [2 要素認証について](/articles/about-two-factor-authentication)
-- [2 要素認証のリカバリ方法の設定](/articles/configuring-two-factor-authentication-recovery-methods)
-- [2 要素認証を使用して {% data variables.product.prodname_dotcom %} にアクセスする](/articles/accessing-github-using-two-factor-authentication)
-- [2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)
-- [個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)
+- "[2 要素認証について](/articles/about-two-factor-authentication)"
+- "[2 要素認証復旧方法を設定する](/articles/configuring-two-factor-authentication-recovery-methods)"
+- 「[2 要素認証を使用した {% data variables.product.prodname_dotcom %} へのアクセス](/articles/accessing-github-using-two-factor-authentication)」
+- 「[2 要素認証クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)」
+- [{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/creating-a-personal-access-token)

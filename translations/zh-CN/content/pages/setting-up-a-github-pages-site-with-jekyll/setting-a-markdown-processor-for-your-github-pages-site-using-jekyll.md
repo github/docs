@@ -1,6 +1,6 @@
 ---
-title: Setting a Markdown processor for your GitHub Pages site using Jekyll
-intro: 'You can choose a Markdown processor to determine how Markdown is rendered on your {% data variables.product.prodname_pages %} site.'
+title: 使用 Jekyll 为 GitHub Pages 站点设置 Markdown 处理器
+intro: '您可以选择一个 Markdown 处理器来确定 Markdown 在 {% data variables.product.prodname_pages %} 站点上的呈现方式。'
 redirect_from:
   - /articles/migrating-your-pages-site-from-maruku
   - /articles/updating-your-markdown-processor-to-kramdown
@@ -15,25 +15,26 @@ versions:
 topics:
   - Pages
 shortTitle: Set Markdown processor
+ms.openlocfilehash: 218877ee598afd47352d1e72a2ecb845f901c8b9
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145129656'
 ---
+拥有仓库写入权限的人可为 {% data variables.product.prodname_pages %} 站点设置 Markdown 处理器。
 
-People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.
+{% data variables.product.prodname_pages %} 支持两种 Markdown 处理器：[kramdown](http://kramdown.gettalong.org/) 和 {% data variables.product.prodname_dotcom %} 自己的 Markdown 处理器，后者用于在整个 {% data variables.product.product_name %} 中呈现 [{% data variables.product.prodname_dotcom %} 风格的 Markdown (GFM)](https://github.github.com/gfm/)。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
 
-{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own Markdown processor, which is used to render [{% data variables.product.prodname_dotcom %} Flavored Markdown (GFM)](https://github.github.com/gfm/) throughout {% data variables.product.product_name %}. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
-
-You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with either processor, but only our GFM processor will always match the results you see on {% data variables.product.product_name %}.
+您可以在任一处理器上使用 {% data variables.product.prodname_dotcom %} 风格的 Markdown，但只有我们的 GFM 处理器始终与您在 {% data variables.product.product_name %} 上看到的结果相匹配。
 
 {% data reusables.pages.navigate-site-repo %}
-2. In your repository, browse to the *_config.yml* file.
+2. 在存储库中，浏览到 _config.yml 文件。
 {% data reusables.repositories.edit-file %}
-4. Find the line that starts with `markdown:` and change the value to `kramdown` or `GFM`.
-  ![Markdown setting in config.yml](/assets/images/help/pages/config-markdown-value.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
+4. 找到以 `markdown:` 开头的行，然后将值更改为 `kramdown` 或 `GFM`。
+  ![config.yml 中的 Markdown 设置](/assets/images/help/pages/config-markdown-value.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}
 
-## Further reading
+## 延伸阅读
 
-- [kramdown Documentation](https://kramdown.gettalong.org/documentation.html)
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- [kramdown 文档](https://kramdown.gettalong.org/documentation.html)
+- [{% data variables.product.prodname_dotcom %} 风格的 Markdown 规范](https://github.github.com/gfm/)

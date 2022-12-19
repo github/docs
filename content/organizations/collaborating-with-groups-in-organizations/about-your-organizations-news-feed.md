@@ -21,7 +21,7 @@ An organization's news feed shows other people's activity on repositories owned 
 
 ## Accessing your organization's news feed
 
-1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 2. Open your {% data reusables.user-settings.personal_dashboard %}.
 3. Click the account context switcher in the upper-left corner of the page.
   ![Context switcher button in Enterprise](/assets/images/help/organizations/account_context_switcher.png)

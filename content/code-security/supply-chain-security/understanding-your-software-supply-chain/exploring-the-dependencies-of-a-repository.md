@@ -111,7 +111,7 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 ## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
+- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
 - "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/get-started/privacy-on-github)"
 {% endif %}

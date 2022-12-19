@@ -1,8 +1,5 @@
----
-- 
-  title: パッケージのバージョン削除へのアクセス
-  description: >-
-    このプレビューは、プライベートパッケージバージョンの削除を有効化する、DeletePackageVersionのミューテーションのサポートを追加します。
+- title: パッケージのバージョン削除へのアクセス
+  description: このプレビューは、プライベートパッケージバージョンの削除を有効化する、DeletePackageVersionのミューテーションのサポートを追加します。
   toggled_by: ':package-deletes-preview'
   announcement: null
   updates: null
@@ -10,10 +7,8 @@
     - Mutation.deletePackageVersion
   owning_teams:
     - '@github/pe-package-registry'
-- 
-  title: デプロイメント
-  description: >-
-    このプレビューは、デプロイメントのミューテーションと新しいデプロイメントの機能を追加します。
+- title: デプロイメント
+  description: このプレビューは、デプロイメントのミューテーションと新しいデプロイメントの機能を追加します。
   toggled_by: ':flash-preview'
   announcement: null
   updates: null
@@ -27,11 +22,8 @@
     - CreateDeploymentPayload
   owning_teams:
     - '@github/c2c-actions-service'
-- 
-  title: >-
-    MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
-  description: >-
-    このプレビューは、プルリクエストのマージ状態に関する詳細な情報を提供するフィールドへのアクセスのサポートを追加します。
+- title: MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
+  description: このプレビューは、プルリクエストのマージ状態に関する詳細な情報を提供するフィールドへのアクセスのサポートを追加します。
   toggled_by: ':merge-info-preview'
   announcement: null
   updates: null
@@ -40,8 +32,7 @@
     - PullRequest.mergeStateStatus
   owning_teams:
     - '@github/pe-pull-requests'
-- 
-  title: UpdateRefsPreview - 1回の操作で複数の参照を更新します。
+- title: UpdateRefsPreview - 1回の操作で複数の参照を更新します。
   description: このプレビューは、1回の操作による複数の参照の更新のサポートを追加します。
   toggled_by: ':update-refs-preview'
   announcement: null
@@ -54,10 +45,8 @@
     - UpdateRefsPayload
   owning_teams:
     - '@github/reponauts'
-- 
-  title: プロジェクトイベントの詳細
-  description: >-
-    このプレビューは、プロジェクト関連のIssueイベントに対し、プロジェクト、プロジェクトカード、プロジェクト列の詳細を追加します。
+- title: プロジェクトイベントの詳細
+  description: このプレビューは、プロジェクト関連のIssueイベントに対し、プロジェクト、プロジェクトカード、プロジェクト列の詳細を追加します。
   toggled_by: ':starfox-preview'
   announcement: null
   updates: null
@@ -76,10 +65,8 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- 
-  title: ラベルのプレビュー
-  description: >-
-    このプレビューは、ラベルの追加、更新、作成、削除のサポートを追加します。
+- title: ラベルのプレビュー
+  description: このプレビューは、ラベルの追加、更新、作成、削除のサポートを追加します。
   toggled_by: ':bane-preview'
   announcement: null
   updates: null
@@ -95,8 +82,7 @@
     - UpdateLabelInput
   owning_teams:
     - '@github/pe-pull-requests'
-- 
-  title: プロジェクトのインポート
+- title: プロジェクトのインポート
   description: このプレビューは、プロジェクトのインポートのサポートを追加します。
   toggled_by: ':slothette-preview'
   announcement: null
@@ -105,10 +91,8 @@
     - Mutation.importProject
   owning_teams:
     - '@github/pe-issues-projects'
-- 
-  title: Teamレビューの割り当てプレビュー
-  description: >-
-    このプレビューは、Teamレビューの割り当て設定の更新サポートを追加します
+- title: Teamレビューの割り当てプレビュー
+  description: このプレビューは、Teamレビューの割り当て設定の更新サポートを追加します
   toggled_by: ':stone-crop-preview'
   announcement: null
   updates: null

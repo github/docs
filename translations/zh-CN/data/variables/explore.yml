@@ -1,4 +1,3 @@
----
 explore_github: >-
   {% ifversion fpt or ghec %}[探索 GitHub](https://github.com/explore){% else %}探索 GitHub (`https://[hostname]/explore`){% endif %}
 your_stars_page: >-

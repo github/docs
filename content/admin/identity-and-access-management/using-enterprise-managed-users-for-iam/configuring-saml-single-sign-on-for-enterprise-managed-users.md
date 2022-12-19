@@ -19,13 +19,16 @@ topics:
 
 ## About SAML single sign-on for {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, your enterprise uses SAML SSO to authenticate all members. Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
+With {% data variables.product.prodname_emus %}, your enterprise uses your corporate identity provider to authenticate all members. Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
 
 {% data variables.product.prodname_emus %} supports the following IdPs:
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
+
+
+{% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% note %}
 
@@ -35,7 +38,7 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 ## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
 
-To configure SAML SSO for your {% data variables.product.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning. 
+To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning. 
 
 To install and configure the {% data variables.product.prodname_emu_idp_application %} application on your IdP, you must have a tenant and administrative access on a supported IdP.
 
@@ -104,7 +107,7 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
 
     {% note %}
 
-    **Note:** When you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to GitHub. Only {% data variables.product.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
+    **Note:** When you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to GitHub. Only {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
 
     {% endnote %}
 

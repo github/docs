@@ -1,10 +1,18 @@
-Você pode usar a condicional `jobs.<job_id>.if` para evitar que um trabalho seja executado a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
+---
+ms.openlocfilehash: eb897a445a5e5a90014097ba76a5ecb095aa0bef
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: "148192054"
+---
+Use o condicional `jobs.<job_id>.if` para impedir que um trabalho seja executado, a não ser que uma condição seja atendida. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações, confira "[Expressões](/actions/learn-github-actions/expressions)".
 
 ### Exemplo: Somente executar o trabalho para um repositório específico
 
-Este exemplo usa `se` para controlar quando o trabalho `production-deploy` pode ser executado. Ele só será executado se o repositório for denominado `octo-repo-prod` e estiver dentro da organização `octo-org`. Caso contrário, o trabalho será marcado como _ignorado_.
+Este exemplo usa `if` para controlar quando o trabalho `production-deploy` pode ser executado. Ele só será executado se o repositório for chamado `octo-repo-prod` e estiver na organização `octo-org`. Caso contrário, o trabalho será marcado como _ignorado_.
 
 ```yaml{:copy}
 name: example-workflow

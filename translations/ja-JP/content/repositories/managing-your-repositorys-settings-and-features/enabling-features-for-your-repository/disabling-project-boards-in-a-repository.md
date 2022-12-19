@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% data variables.projects.projects_v1_boards %} in a repository'
-intro: 'Repository administrators can turn off {% data variables.projects.projects_v1_boards %} for a repository if you or your team manages work differently.'
+title: 'リポジトリで {% data variables.projects.projects_v1_boards %} を無効にする'
+intro: 'ユーザーやチームが異なる方法で作業を管理している場合、リポジトリの管理者はリポジトリの {% data variables.projects.projects_v1_boards %} をオフにできます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-a-repository
   - /articles/disabling-project-boards-in-a-repository
@@ -15,12 +15,17 @@ topics:
   - Pull requests
 shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 8c550cd9ebc767327298e39dc0b3a6a11368dc3f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109524'
 ---
+{% data variables.projects.projects_v1_boards %} を無効にすると、タイムラインや[監査ログ](/articles/reviewing-your-security-log/)に {% data variables.projects.projects_v1_board %} の情報が表示されなくなります。
 
-When you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/articles/reviewing-your-security-log/).
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. [機能] で、 **[プロジェクト]** チェックボックスをオフにします。
+  ![[プロジェクト] チェックボックスをオフ](/assets/images/help/projects/disable-projects-checkbox.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. [Features] の下で、[**Projects**] チェックボックスの選択を解除します。 ![[Projects] チェックボックスの選択を解除する](/assets/images/help/projects/disable-projects-checkbox.png)
-
-After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. {% data reusables.organizations.disable_project_board_results %}
+{% data variables.projects.projects_v1_boards %} を無効にした後は、既存の {% data variables.projects.projects_v1_boards %} に以前の URL でアクセスできなくなります。 {% data reusables.organizations.disable_project_board_results %}

@@ -539,7 +539,7 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 
 ### Example
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -552,7 +552,7 @@ body:
 
 The error can be fixed by ensuring that no duplicate choices exist in the `options` array.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -570,7 +570,7 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 
 ### Example
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -585,7 +585,7 @@ body:
 
 The error can be fixed by removing "None" as an option. If you want a contributor to be able to indicate that they like none of those types of pies, you can additionally remove the `required` validation.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -605,7 +605,7 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 
 ### Example
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -618,7 +618,7 @@ body:
 
 The error can be fixed by wrapping each offending option in quotes, to prevent them from being processed as Boolean values.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -627,6 +627,36 @@ body:
       - "Yes"
       - "No"
       - Maybe
+```
+
+## Body cannot be empty
+
+The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+
+The error can be fixed by adding the `body:` section.
+
+### Example
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
 ```
 
 ## Further reading

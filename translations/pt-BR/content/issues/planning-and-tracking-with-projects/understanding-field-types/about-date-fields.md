@@ -1,21 +1,28 @@
 ---
-title: About date fields
+title: Sobre campos de data
 shortTitle: About date fields
-intro: You can create custom date fields that can be set by typing a date or using a calendar.
+intro: Você pode criar campos de data personalizados que podem ser definidos digitando uma data ou usando um calendário.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
-  - Projects
+- Projects
+ms.openlocfilehash: 7c3bc45c036e209e0be682c3b13b9dafcba17885
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108015"
 ---
+Você pode filtrar valores de data usando o formato `YYYY-MM-DD`, por exemplo: `date:2022-07-01`. Você também pode usar operadores, como `>`, `>=`, `<`, `<=` e `..`. Por exemplo, `date:>2022-07-01` e `date:2022-07-01..2022-07-31`. Você também pode usar `@today` para representar o dia atual em seu filtro. Para obter mais informações, confira "[Filtragem de projetos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
 
-You can filter for date values using the `YYYY-MM-DD` format, for example: `date:2022-07-01`. You can also use operators, such as `>`, `>=`, `<`, `<=`, and `..`. For example, `date:>2022-07-01` and `date:2022-07-01..2022-07-31`. You can also provide `@today` to represent the current day in your filter. Para obter mais informações, consulte "[Filtrando projetos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
-
-## Adding a date field
+## Adicionar um campo de data
 
 {% data reusables.projects.new-field %}
-1. Select **Date** ![Screenshot showing the date option](/assets/images/help/projects-v2/new-field-date.png)
-1. Clique em **Salvar**. ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. Selecione **Data**
+   ![Captura de tela mostrando a opção Data](/assets/images/help/projects-v2/new-field-date.png)
+1. Clique em **Salvar**.
+   ![Captura de tela mostrando o botão Salvar](/assets/images/help/projects-v2/new-field-save.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
+Como alternativa, abra a paleta de comandos do projeto pressionando {% data variables.projects.command-palette-shortcut %} e comece a digitar "Criar campo".

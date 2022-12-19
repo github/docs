@@ -12,31 +12,36 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
   - /github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
 shortTitle: Manage your subscriptions
+ms.openlocfilehash: 750a3a9ad87ff9aa709b84a98f548d85d53072ee
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091456'
 ---
-
-サブスクリプションを理解し、サブスクライブ解除するかどうかを決めるため、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。
+サブスクリプションを理解し、登録を解除するかどうかを決定するのに役立つ情報については、「[サブスクリプションの表示](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。
 
 {% note %}
 
-**注釈:** サブスクライブ解除する代わりに、リポジトリを無視するオプションがあります。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% ifversion fpt or ghec %}不正使用の発生により、リポジトリを無視する場合は、{% data variables.contact.contact_support %} 問い合わせてサポートを受けてください。 {% data reusables.policies.abuse %}{% endif %}
+**注:** 登録を解除する代わりに、リポジトリを無視するオプションがあります。 リポジトリを無視した場合、通知は届きません。 @mentioned されても通知されなくなるため、リポジトリを無視することはお勧めしません。 {% ifversion fpt or ghec %}不正使用の発生により、リポジトリを無視したい場合は、{% data variables.contact.contact_support %} に問い合わせてサポートを受けてください。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
 ## サブスクライブ解除の方法を選択する
 
-To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/watching](https://github.com/watching) to see all the repositories you're following. For more information, see "[Unwatching repositories](#unwatching-repositories)."
+リポジトリをすばやくウォッチ解除 (または登録解除) するには、[github.com/watching](https://github.com/watching) に移動して、フォローしているすべてのリポジトリを表示します。 詳細については、「[リポジトリのウォッチ解除](#unwatching-repositories)」を参照してください
 
 複数の通知のサブスクライブ解除を同時に行うには、インボックスまたはプランページを使用します。 これらのオプションはどちらも、[Watched repositories] ページよりもサブスクリプションに関するより多くのコンテキストを提供しています。
 
 ### インボックスからサブスクライブ解除する利点
 
-インボックスの通知をサブスクライブ解除する場合、他にも複数のトリアージオプションがあり、カスタムフィルタとディスカッションタイプで通知をフィルタ処理できます。 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)」を参照してください。
+インボックスの通知をサブスクライブ解除する場合、他にも複数のトリアージオプションがあり、カスタムフィルタとディスカッションタイプで通知をフィルタ処理できます。 詳細については、「[受信トレイからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)」を参照してください。
 
 ### サブスクリプションページからサブスクライブ解除する利点
 
 プランページで通知のサブスクライブを解除すると、サブスクライブしている通知がさらに表示され、[Most recently subscribed] または [Least recently subscribed] で並べ替えることができます。
 
-プランページには、インボックスで [**Done**] としてマークした通知を含む、現在サブスクライブしているすべての通知が表示されます。
+サブスクリプション ページには、受信トレイで **完了** としてマークした通知を含む、現在サブスクライブしているすべての通知が表示されます。
 
 サブスクリプションは、リポジトリと通知を受信する理由でのみフィルタできます。
 
@@ -46,37 +51,40 @@ To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/w
 
 {% data reusables.notifications.access_notifications %}
 1. 通知インボックスから、サブスクライブ解除する通知を選択します。
-2. Click **Unsubscribe.** ![メインインボックスの [Unsubcribe] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. **[登録解除]** をクリックします。
+  ![メイン受信トレイの [登録解除] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## サブスクリプションページで通知をサブスクライブ解除する
 
 {% data reusables.notifications.access_notifications %}
-1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Subscriptions**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. 左側のサイドバーの、リポジトリ リストの下にある [通知の管理] ドロップダウンを使用して、 **[サブスクリプション]** をクリックします。
+  ![[通知の管理] ドロップダウン メニュー オプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-2. サブスクライブ解除する通知を選択します。 右上にある [**Unsubscribe**] をクリックします。 ![サブスクリプションページ](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
+2. サブスクライブ解除する通知を選択します。 右上の **[登録解除]** をクリックします。
+  ![[サブスクリプション] ページ](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
 
-## Unwatching repositories
+## リポジトリのウォッチを解除する
 
-リポジトリを Watch 解除すると、会話に参加したり@メンションされたりしない限り、そのリポジトリからの今後の更新をサブスクライブ解除します。
+リポジトリのウォッチを解除すると、会話に参加したり @mentioned されたりしない限り、そのリポジトリからの今後の更新から登録解除されます。
 
 {% data reusables.notifications.access_notifications %}
-1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Watched repositories**] をクリックします。
+1. 左側のサイドバーの、リポジトリ リストの下にある [通知の管理] ドロップダウンを使用して、 **[Watched repositories]\(監視対象のリポジトリ\)** をクリックします。
 
   ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Watch しているリポジトリのページで、Watchしているリポジトリを評価した後、次のいずれかを選択します。
-
+   
    - リポジトリの Watch 解除
-   - Ignore all notifications for a repository
-   - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
-
+   - リポジトリのすべての通知を無視
+   - 有効にした場合は、通知を受信するイベントの種類をカスタマイズします ({% data reusables.notifications-v2.custom-notification-types %})
+   
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
-1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
+1. 必要に応じて、特定のユーザーまたは組織が所有するすべてのリポジトリから登録を解除するには、 **[すべてのウォッチを解除]** ドロップダウンを選択し、登録を解除するリポジトリがある組織をクリックします。 すべてのリポジトリの監視を解除するボタンは、10 個を超えるリポジトリですべてのアクティビティまたはカスタム通知をウォッチしている場合にのみ使用できます。
 
-   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+   ![[すべてのウォッチを解除] ボタンのスクリーンショット。](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
 
-   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
+   - **[ウォッチ解除]** をクリックして、選択したユーザーまたは組織が所有するリポジトリのウォッチを解除することを確認するか、 **[キャンセル]** をクリックして取り消します。
 
-   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+   ![すべての確認ダイアログのウォッチを解除したスクリーンショット。](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
 
 {% endif %}

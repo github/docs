@@ -1,6 +1,6 @@
 ---
 title: 重新运行工作流程和作业
-intro: '您可以工作流程运行初始运行后最长 30 天内重新运行工作流程运行{% ifversion re-run-jobs %}、工作流程运行中所有失败的作业或工作流程运行中的特定作业{% endif %}。'
+intro: '可以在工作流运行初始运行后最长 30 天内重新运行工作流运行{% ifversion re-run-jobs %}、工作流运行中所有失败的作业或工作流运行中的特定作业{% endif %}。'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -10,32 +10,30 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 086a57b238b4a11e38013997dfcb85418a6961bd
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147419719'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 关于重新运行工作流程和作业
 
-重新运行工作流程{% ifversion re-run-jobs %} 或工作流程中的作业{% endif %} 会使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. 更多信息请参阅“[使用限制、计费和管理](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% endif %}{% ifversion debug-reruns %} 当您重新运行工作流程或工作流程中的作业时，您可以为重新运行启用调试日志记录。 这将为重新运行启用运行程序诊断日志记录和步骤调试日志记录。 有关调试日志记录的更多信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
+重新运行工作流{% ifversion re-run-jobs %}或工作流中的作业{% endif %}使用与触发工作流运行的原始事件相同的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 {% ifversion actions-stable-actor-ids %} 工作流将使用最初触发工作流的参与者的权限，而不是启动重新运行的参与者的权限。 {% endif %}在初始运行最多 30 天后，可以重新运行工作流{% ifversion re-run-jobs %}或工作流中的作业{% endif %}。{% ifversion re-run-jobs %}一旦工作流的日志超过其保留限制，就无法重新运行工作流中的作业。 有关详细信息，请参阅“[使用限制、计费和管理](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% endif %}{% ifversion debug-reruns %} 重新运行工作流或工作流中的作业时，可以为重新运行启用调试日志记录。 这将为重新运行启用运行器诊断日志记录和步骤调试日志记录。 有关调试日志记录的详细信息，请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。{% endif %}
 
 ## 重新运行工作流程中的所有作业
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-{% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
-1. 在工作流程的右上角，使用 **Re-run jobs（重新运行作业）**下拉菜单，并选择 **Re-run all jobs（重新运行所有作业）**。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %} {% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
+1. 在工作流的右上角，使用“重新运行作业”下拉菜单，然后选择“重新运行所有作业” 。
 
-   如果没有作业失败，您将不会看到 **重新运行作业（Re-run jobs）**下拉菜单。 相反，请单击 **Re-run all jobs（重新运行所有作业）**。 ![重新运行检查下拉菜单](/assets/images/help/repository/rerun-checks-drop-down.png)
-{% endif %}
-{% ifversion ghes < 3.5 or ghae %}
-1. 在工作流程的右上角，使用 **Re-run jobs（重新运行作业）**下拉菜单，并选择 **Re-run all jobs（重新运行所有作业）**。 ![重新运行检查下拉菜单](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
-{% endif %}
-{% data reusables.actions.enable-debug-logging %}
+   如果没有作业失败，则看不到“重新运行作业”下拉菜单。 相反，单击“重新运行所有作业”。
+    ![重新运行检查下拉菜单](/assets/images/help/repository/rerun-checks-drop-down.png){% endif %} {% ifversion ghes < 3.5 or ghae %}
+1. 在工作流的右上角，使用“重新运行作业”下拉菜单，然后选择“重新运行所有作业” 。
+    ![重新运行检查下拉菜单](/assets/images/help/repository/rerun-checks-drop-down-updated.png) {% endif %} {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
@@ -43,14 +41,13 @@ versions:
 
 {% data reusables.cli.cli-learn-more %}
 
-要重新运行失败的工作流程运行，请使用 `run rerun` 子命令。 将 `run-id` 替换为您想要重新运行的已失败运行的 ID。  如果您没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回一个交互式菜单，供您选择最近失败的运行。
+若要重新运行失败的工作流运行，请使用 `run rerun` 子命令。 将 `run-id` 替换为要重新运行的已失败运行的 ID。  如果没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回交互式菜单供你选择最近失败的运行。
 
 ```shell
 gh run rerun <em>run-id</em>
 ```
 
-{% ifversion debug-reruns %}
-{% data reusables.actions.enable-debug-logging-cli %}
+{% ifversion debug-reruns %} {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
 gh run rerun <em>run-id</em> --debug
@@ -58,7 +55,7 @@ gh run rerun <em>run-id</em> --debug
 
 {% endif %}
 
-要查看工作流程运行的进度，请使用 `run watch` 子命令，并从交互式列表中选择运行。
+要查看工作流运行的进度，请使用 `run watch` 子命令，并从交互式列表中选择运行。
 
 ```shell
 gh run watch
@@ -73,32 +70,27 @@ gh run watch
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. 在工作流程的右上角，使用 **Re-run jobs（重新运行作业）**下拉菜单，并选择 **Re-run failed jobs（重新运行失败的作业）**。 ![重新运行失败的作业下拉菜单](/assets/images/help/repository/rerun-failed-jobs-drop-down.png)
-{% data reusables.actions.enable-debug-logging %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
+1. 在工作流的右上角，使用“重新运行作业”下拉菜单，然后选择“重新运行失败的作业” 。
+    ![“重新运行失败的作业”下拉菜单](/assets/images/help/repository/rerun-failed-jobs-drop-down.png) {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
 {% cli %}
 
-要重新运行工作流程运行中失败的作业，请使用 `run rerun` 子命令与 `--failed` 标志。 将 `run-id` 替换为要为其重新运行失败作业的运行 ID。 如果您没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回一个交互式菜单，供您选择最近失败的运行。
+若要在工作流运行中重新运行失败的作业，请使用带有 `--failed` 标志的 `run rerun` 子命令。 将 `run-id` 替换为其重新运行失败作业的运行的 ID。 如果没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回交互式菜单供你选择最近失败的运行。
 
 ```shell
 gh run rerun <em>run-id</em> --failed
 ```
 
-{% ifversion debug-reruns %}
-{% data reusables.actions.enable-debug-logging-cli %}
+{% ifversion debug-reruns %} {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
 gh run rerun <em>run-id</em> --failed --debug
 ```
 
-{% endif %}
-{% endcli %}
+{% endif %} {% endcli %}
 
 ## 重新运行工作流程中的特定作业
 
@@ -106,40 +98,36 @@ gh run rerun <em>run-id</em> --failed --debug
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. 在要重新运行的作业旁边，单击 {% octicon "sync" aria-label="The re-run icon" %}。 ![重新运行选定的作业](/assets/images/help/repository/re-run-selected-job.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
+1. 在要重新运行的作业旁边，单击 {% octicon "sync" aria-label="The re-run icon" %}。
+   ![重新运行选定的作业](/assets/images/help/repository/re-run-selected-job.png)
 
-   或者，单击作业以查看日志。 在日志中，单击 {% octicon "sync" aria-label="The re-run icon" %}。 ![重新运行选定的作业](/assets/images/help/repository/re-run-single-job-from-log.png)
-{% data reusables.actions.enable-debug-logging %}
+   或者，单击作业以查看日志。 在日志中，单击 {% octicon "sync" aria-label="The re-run icon" %}。
+   ![重新运行选定的作业](/assets/images/help/repository/re-run-single-job-from-log.png) {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
 
 {% cli %}
 
-要重新运行工作流程运行中的特定作业，请使用 `run rerun` 子命令与 `--job` 标志。 将 `job-id` 替换为您想要重新运行的作业的 ID。
+若要在工作流运行中重新运行特定作业，请使用带有 `--job` 标志的 `run rerun` 子命令。 将 `job-id` 替换为要重新运行的作业的 ID。
 
 ```shell
 gh run rerun --job <em>job-id</em>
 ```
 
-{% ifversion debug-reruns %}
-{% data reusables.actions.enable-debug-logging-cli %}
+{% ifversion debug-reruns %} {% data reusables.actions.enable-debug-logging-cli %}
 
 ```shell
 gh run rerun --job <em>job-id</em> --debug
 ```
 
-{% endif %}
-{% endcli %}
+{% endif %} {% endcli %}
 
 {% endif %}
 
 {% ifversion partial-reruns-with-reusable %}
 
-## 使用可重用工作流程重新运行工作流程和作业
+## 使用可重用工作流重新运行工作流和作业
 
 {% data reusables.actions.partial-reruns-with-reusable %}
 
@@ -148,17 +136,13 @@ gh run rerun --job <em>job-id</em> --debug
 {% ifversion fpt or ghes > 3.4 or ghae-issue-4721 or ghec %}
 ## 查看以前的工作流程运行
 
-您可以查看以前尝试运行工作流程的结果。 您还可以使用 API 查看以前的工作流程运行。 更多信息请参阅“[获取工作流程运行](/rest/reference/actions#get-a-workflow-run)”。
+您可以查看以前尝试运行工作流程的结果。 您还可以使用 API 查看以前的工作流程运行。 有关详细信息，请参阅“[获取工作流运行](/rest/reference/actions#get-a-workflow-run)”。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-{%- ifversion re-run-jobs %}
-1. 任何以前的运行尝试都显示在 **Latest（最新）**下拉菜单中。 ![以前的运行尝试](/assets/images/help/repository/previous-run-attempts.png)
-{%- else %}
-1. 任何以前的运行尝试都显示在左窗格中。 ![重新运行工作流程](/assets/images/help/settings/actions-review-workflow-rerun.png)
-{%- endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %} {%- ifversion re-run-jobs %}
+1. 任何以前的运行尝试都显示在“最新”下拉菜单中。
+   ![以前的运行尝试](/assets/images/help/repository/previous-run-attempts.png) {%- else %}
+1. 任何以前的运行尝试都显示在左窗格中。
+    ![重新运行工作流](/assets/images/help/settings/actions-review-workflow-rerun.png) {%- endif %}
 1. 单击某个条目以查看其结果。
 
 {% endif %}

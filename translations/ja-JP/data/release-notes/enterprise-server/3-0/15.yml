@@ -1,18 +1,17 @@
----
 date: '2021-09-07'
 sections:
   security_fixes:
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - '`ghe-repl-teardown`でUUIDを指定して、新たに追加されたレプリカノードを破棄しようとすると、レプリケーションが開始されていなかった場合にエラーを報告することなく失敗します。'
-    - 外部プロキシが設定されている場合、GitHub Pagesのビルドがそれを通じて渡されていました。
-    - サブプロセスを生成したカスタムのpre-receive フックの環境に`PATH`変数が欠如し、"No such file or directory"エラーが生じます。
-    - '`mysql-auto-failover`が有効化されていると、MySQLがアップグレードの際にフェイルオーバーすることがあります。'
+    - "\"ghe-repl-teardown\" で UUID を指定して、新しく追加されたレプリカ ノードを破棄しようとすると、レプリケーションが開始されていなかった場合にエラーを報告することなく失敗します。"
+    - 外部プロキシが設定されている場合、GitHub Pages のビルドがそれを通じて渡されていました。
+    - "サブプロセスを生成したカスタムの pre-receive フックの環境に \"PATH\" 変数がなく、\"ファイルまたはディレクトリが存在しません\" エラーが発生します。"
+    - "\"mysql-auto-failover\"` が有効にされていると、MySQL がアップグレード時にフェールオーバーされることがあります。"
   known_issues:
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

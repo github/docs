@@ -1,6 +1,6 @@
 ---
-title: Publishing actions in GitHub Marketplace
-intro: 'You can publish actions in {% data variables.product.prodname_marketplace %} and share actions you''ve created with the {% data variables.product.prodname_dotcom %} community.'
+title: GitHub Marketplaceでのアクションの公開
+intro: '{% data variables.product.prodname_marketplace %}でアクションを公開し、作成したアクションを{% data variables.product.prodname_dotcom %}コミュニティと共有できます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
@@ -10,58 +10,63 @@ versions:
   ghec: '*'
 type: how_to
 shortTitle: Publish in GitHub Marketplace
+ms.openlocfilehash: e16f65116d7aa7c327e937dc2eba8964195e547d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884302'
 ---
+{% data variables.product.prodname_marketplace %}でアクションを公開するには、利用規約に同意していなければなりません。
 
-You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
+## アクションの公開について
 
-## About publishing actions
+アクションを公開できるようになるには、リポジトリ中でアクションを作成しなければなりません。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see "[Creating actions](/actions/creating-actions)."
+{% data variables.product.prodname_marketplace %}へのアクションの公開を計画しているなら、リポジトリにはアクションに必要なメタデータファイル、コード、ファイルだけが含まれているようにしなければなりません。 アクションのために 1 つのリポジトリを作成すれば、単一のユニットでコードのタグ付け、リリース、パッケージができます。 {% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_marketplace %}ページ上のアクションのメタデータも利用します。
 
-When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
+アクションは{% data variables.product.prodname_marketplace %}に即座に公開され、以下の要求を満たしていれば{% data variables.product.prodname_dotcom %}によってレビューされません。
 
-Actions are published to {% data variables.product.prodname_marketplace %} immediately and aren't reviewed by {% data variables.product.prodname_dotcom %} as long as they meet these requirements:
+- アクションはパブリック リポジトリ内に格納されている必要があります。
+- 各リポジトリには、1 つのアクションを含める必要があります。
+- アクションのメタデータ ファイル (`action.yml` または `action.yaml`) は、リポジトリのルート ディレクトリに存在する必要があります。
+- アクションのメタデータ ファイル中の `name` は一意にする必要があります。
+  - `name` は {% data variables.product.prodname_marketplace %} で公開されている既存のアクション名と一致してはなりません。
+  - `name` は、ユーザーまたは組織の所有者がアクションを公開していない限り、{% data variables.product.prodname_dotcom %} でユーザーまたは組織と一致してはなりません。 たとえば、{% data variables.product.prodname_dotcom %} 組織のみ、`github` という名前のアクションを発行できます。
+  - `name` は既存の {% data variables.product.prodname_marketplace %} カテゴリと一致してはなりません。
+  - {% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_dotcom %}の機能の名前を予約している。
 
-- The action must be in a public repository.
-- Each repository must contain a single action.
-- The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
-- The `name` in the action's metadata file must be unique.
-  - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
-  - The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.
-  - The `name` cannot match an existing {% data variables.product.prodname_marketplace %} category.
-  - {% data variables.product.prodname_dotcom %} reserves the names of {% data variables.product.prodname_dotcom %} features.
+## アクションの公開
 
-## Publishing an action
+作成したアクションは、新しいリリースとしてタグ付けして公開することによって、{% data variables.product.prodname_marketplace %}に追加できます。
 
-You can add the action you've created to {% data variables.product.prodname_marketplace %} by tagging it as a new release and publishing it.
-
-To draft a new release and publish the action to {% data variables.product.prodname_marketplace %}, follow these instructions:
-
-{% data reusables.repositories.navigate-to-repo %}
-1. When a repository contains an action metadata file (`action.yml` or `action.yaml`), you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
-![Publish this action to markeplace button](/assets/images/help/repository/publish-github-action-to-markeplace-button.png)
-1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}**. If you can't select the **Publish this action to the {% data variables.product.prodname_marketplace %}** checkbox, you'll need to read and accept the {% data variables.product.prodname_marketplace %} agreement first.
-![Select publish to Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
-1. If the labels in your metadata file contain any problems, you will see an error message.
-![See notification](/assets/images/help/repository/marketplace_actions_fixerrors.png)
-1. If you see any on-screen suggestions, address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
-![Fix errors](/assets/images/help/repository/marketplace_actions_looksgood.png)
-1. Choose a "Primary Category" and, optionally, "Another Category" which will help people find your action in {% data variables.product.prodname_marketplace %}.
-![Choose category](/assets/images/help/repository/marketplace_actions_categories.png)
-1. Tag your Action with a version, and add a release title. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page.
-![Tag a version](/assets/images/help/repository/marketplace_actions_version.png)
-1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication/)."
-![Publish the release](/assets/images/help/repository/marketplace_actions_publishrelease.png)
-
-## Removing an action from {% data variables.product.prodname_marketplace %}
-
-To remove a published action from {% data variables.product.prodname_marketplace %}, you'll need to update each published release. Perform the following steps for each release of the action you've published to {% data variables.product.prodname_marketplace %}.
+新しいリリースのドラフトを作成し、アクションを{% data variables.product.prodname_marketplace %}に公開するには、以下の指示に従ってください。
 
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-3. On the Releases page, to the right of the release you want to edit, click **Edit**.
-![Release edit button](/assets/images/help/releases/release-edit-btn.png)
-4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
-![Publish this action button](/assets/images/help/repository/actions-marketplace-unpublish.png)
-5. Click **Update release** at the bottom of the page.
-![Update release button](/assets/images/help/repository/actions-marketplace-update-release.png)
+1. リポジトリのアクション メタデータ ファイル (`action.yml` または `action.yaml`) に移動すると、アクションを {% data variables.product.prodname_marketplace %} に公開するバナーが表示されます。 **[リリースの下書き]** をクリックします。
+
+   ![このアクションをマーケットプレイスに公開するボタン](/assets/images/help/repository/publish-github-action-to-marketplace-button.png)
+1. [リリース アクション] で、アクションを {% data variables.product.prodname_marketplace %} に発行するチェックボックスをオンにします。 このチェックボックスをオンにできない場合は、先にリンクをクリックし、{% data variables.product.prodname_marketplace %} の開発者同意書を読んで同意する必要があります。
+![マーケットプレイスへの公開の選択](/assets/images/help/repository/marketplace_actions_publish.png)
+1. メタデータファイル内のラベルに何か問題があれば、エラーメッセージが表示されます。
+![通知の表示](/assets/images/help/repository/marketplace_actions_fixerrors.png)
+1. スクリーン上にサジェッションが表示されたなら、メタデータファイルを更新して対処してください。 完了すると、"Everything looks good!" メッセージが表示されます。 メッセージで応答します。
+![エラーの修復](/assets/images/help/repository/marketplace_actions_looksgood.png)
+1. "Primary Category（主なカテゴリ）"を選択し、場合によっては"Another Category（もう1つのカテゴリ）"も選択し、{% data variables.product.prodname_marketplace %}でアクションが見つけられやすくなるようにしてください。
+![カテゴリの選択](/assets/images/help/repository/marketplace_actions_categories.png)
+1. アクションにバージョンでタグ付けして、リリースタイトルを追加してください。 これで、そのリリースに含まれる変更や機能が分かりやすくなります。 このバージョンは、アクションの専用の{% data variables.product.prodname_marketplace %}ページに表示されます。
+![バージョンのタグ付け](/assets/images/help/repository/marketplace_actions_version.png)
+1. 他のすべてのフィールドに入力し、 **[リリースの発行]** をクリックします。 公開をするには、2要素認証を使っていなければなりません。 詳細については、「[2 要素認証の構成](/articles/configuring-two-factor-authentication/)」を参照してください。
+![リリースの発行](/assets/images/help/repository/marketplace_actions_publishrelease.png)
+
+## {% data variables.product.prodname_marketplace %}からのアクションの削除
+
+{% data variables.product.prodname_marketplace %}から公開されたアクションを削除するには、それぞれの公開リリースを更新しなければなりません。 以下のステップを、{% data variables.product.prodname_marketplace %}に公開したアクションの各リリースに対して行ってください。
+
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+3. リリースのページで、編集するリリースの右にある **[編集]** をクリックします。
+![リリースの編集ボタン](/assets/images/help/releases/release-edit-btn.png)
+4. **[このアクションを {% data variables.product.prodname_marketplace %} に公開する]** を選択し、ボックスのチェックを外します。
+![アクションの公開ボタン](/assets/images/help/repository/actions-marketplace-unpublish.png)
+5. ページの下部にある **[リリースの更新]** をクリックします。
+![リリースの更新ボタン](/assets/images/help/repository/actions-marketplace-update-release.png)

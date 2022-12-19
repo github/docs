@@ -126,7 +126,7 @@ All organization public profiles display:
 - <a name="public-repository-data"></a>
 **Public repository data** —
 GitHub is home to millions of public, open-source software projects.
-You can browse almost any public repository (for example, the [Atom Project](https://github.com/atom/atom)) to get a sense for the information that GitHub collects and maintains about repositories.
+You can browse almost any public repository (for example, the [GitHub Docs](https://github.com/github/docs)) to get a sense for the information that GitHub collects and maintains about repositories.
 This can include:
 
   - The code itself
@@ -228,7 +228,7 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-Courtesy copies may be emailed to legal@support.github.com.
+Courtesy copies may be emailed to legal-support@github.com
 
 Please make your requests as specific and narrow as possible, including the following information:
 

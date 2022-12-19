@@ -1,5 +1,5 @@
 ---
-title: Prácticas de Privacidad Globales
+title: Prácticas Globales de Privacidad
 redirect_from:
   - /eu-safe-harbor
   - /articles/global-privacy-practices
@@ -9,68 +9,73 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: ae61cf1fe48e925cbb1b691b44fcdf277aaa7b1b
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099161'
 ---
-
 Fecha de entrada en vigor: 22 de julio del 2020
 
-GitHub Proporciona el mismo estándar alto de protección de privacidad—tal como se describe en la [Declaración de Privacidad](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices) de GitHub—a todos nuestros usuarios y clientes en todo el mundo, sin importar su país de origen o ubicación, y GitHub se enorgullece del nivel de notificación, elección, responsabilidad, seguridad, integridad de datos, acceso, y recursos que proporcionamos.
+GitHub proporciona el mismo alto estándar de protección de la privacidad —tal y como se describe en la [Declaración de Privacidad](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices)— a todos nuestros usuarios y clientes de todo el mundo, independientemente de su país de origen o ubicación, y GitHub se enorgullece del nivel de notificación, elección, responsabilidad, seguridad, integridad de datos, acceso y recursos que brindamos. 
 
-GitHub también cumple con ciertos marcos de trabajo relacionados con la transferencia de los datos desde el Área Económica Europea, el Reino Unido y Suiza (colectivamente conocidos como "UE") hacia los Estados Unidos. Cuando GitHub se involucra en dichas transferencias, GitHub se basa en las Cláusulas Contractuales Estándar como el mecanismo legal para ayudarlo a garantizar tus derechos y que tu información personal viaje con la protección adecuada. Adicionalmente, GitHub está certificado en los Marcos de Trabajo de Escudo de Privacidad de UE-U. S. A. y Suiza-U. S. A. Para aprender más sobre las decisiones de la Comisión Europea sobre la transferencia internacioal de datos, consulta este artículo en el [Sitio web de la Comisión Europea](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
+GitHub también cumple determinados marcos legales relacionados con la transferencia de datos desde el Espacio Económico Europeo, el Reino Unido y Suiza (en su conjunto, «UE») a los Estados Unidos. Cuando GitHub participa en dichas transferencias, utiliza las Cláusulas Contractuales Estándar como mecanismo legal para ayudar a garantizar que su información personal viaje con todos sus derechos y protecciones. Además, GitHub cuenta con la certificación de los Marcos del Escudo de Privacidad UE-EE. UU. y Suiza-EE. UU. Para obtener más información sobre las decisiones de la Comisión Europea sobre la transferencia internacional de datos, consulte este artículo en el [sitio web de la Comisión Europea](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
 ## Cláusulas Contractuales Estándar
 
-GitHub se basa en las Cláusulas Contractuales Estándar aprobadas por la Comisión Europea ("SCCs") como un mecanismo legal para las transferencia de datos desde la UE. Las SCCs son compromisos contractuales entre compañías que transfieren datos personales que las vinculan para proteger la privacidad y seguridad de dichos datos. GitHub adoptó las SCCs para que los flujos de datos necesarios puedan protegerse cuando se transfieren hacia afuera de la UE a países que la Comisión Europea no ha estimado pueden proteger los datos personales adecuadamente, incluyendo el proteger la transferencia de estos hacia los Estados Unidos.
+GitHub utiliza las Cláusulas Contractuales Estándar («SCC») aprobadas por la Comisión Europea como mecanismo legal para las transferencias de datos desde la UE. Las SCC son compromisos contractuales entre empresas que transfieren datos personales y obligan a proteger la privacidad y seguridad de dichos datos. GitHub ha adoptado las SCC para proteger los flujos de datos necesarios cuando se transfieren fuera de la UE a países que la Comisión Europea considera que no protegen adecuadamente los datos personales, incluidas las transferencias de datos a Estados Unidos. 
 
-Para aprender más sobre las SCCs, consulta este artículo en el [Sitio web dela Comisión Europea](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en).
+Para obtener más información sobre las SCC, consulte este artículo en el [sitio web de la Comisión Europea](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en). 
 
 ## Marco del Escudo de Privacidad
 
-GitHub está certificado en los Marcos de Trabajo de Escudo de Privacidad de UE-U. S. A y U. S. A-Suiza y en los compromisos que éstos conllevan, a pear de que GitHub no se basa en el Marco de Trabajo de Escudo de Privacidad de UE-U. S. A. como una base legal para transferencias de información personal ante el juicio de la Corte de Justicia de la UE en el caso C-311/18.
+GitHub está certificada en virtud de los Marcos del Escudo de Privacidad UE-EE. UU. y Suiza-EE. UU. y los compromisos que estos implican, aunque GitHub no utiliza el Marco del Escudo de Privacidad UE-EE. UU. como base legal para realizar las transferencias de información personal a la luz de la sentencia del Tribunal de Justicia de la UE en el caso C-311/18.
 
-El Departamento de Comercio de los EE. UU. implementa los Marcos del Escudo de Privacidad entre los EE. UU. y la U. E. y los de Suiza con respecto a la recopilación, uso y retención de la información personal que se transfiere desde la Unión Europea, el Reino Unido y Suiza hacia los Estados Unidos. GitHub ha certificado al Departamento de Comercio que se apega a los Principios del Escudo de Privacidad. Si nuestros proveedores o afiliados procesan información personal en nuestro nombre incosnsistentemente con los principios de cualquier Marco del Escudo de Privacidad, GitHub permanecerá siendo responsable a menos de que comprobemos que no lo somos para el evento que está ocasionando el daño.
+El departamento de comercio de EE. UU. establece los Marcos de Privacidad UE-EE. UU. y Suiza-EE. UU. con respecto a la recopilación, el uso y la conservación de la información personal que se transfiere desde la Unión Europea, el Reino Unido y Suiza a Estados Unidos. GitHub ha certificado al Departamento de Comercio que se adhiere a los Principios de Privacidad. Si nuestros proveedores o entidades afiliadas procesan la información personal en nuestro nombre de una manera que es incompatible con los principios de cualquiera de los Marcos de Privacidad, GitHub tendrá la responsabilidad a menos que demostremos que no somos responsables del evento que originó el daño.
 
-Para propósitos de nuestras certificaciones bajo los Marcos de Trabajo del Escudo de Privacidad, si hubiese cualquier conflicto entre las condiciones en estas Prácticas de Privacidad Globales y en los Principios del Escudo de Privacidad, los últimos deberán prevalecer. Para obtener más información sobre el programa Escudo de Privacidad y para ver nuestra certificación, visite el sitio web [de Escudo de Privacidad](https://www.privacyshield.gov/).
+En lo que se refiere a nuestras certificaciones en virtud de los Marcos del Escudo de Privacidad, si existe algún conflicto entre los términos de estas Prácticas Globales de Privacidad y los Principios del Escudo de Privacidad, prevalecerán los Principios del Escudo de Privacidad. Para más información sobre el programa de privacidad y para ver nuestra certificación, visite el [sitio web del programa](https://www.privacyshield.gov/).
 
-Los Marcos de Trabajo del Escudo de Privacidad se basan en siete principios, y GitHub se apega a ellos de las siguientes formas:
+Los Marcos del Escudo de Privacidad se basan en siete principios y GitHub se adhiere a ellos de las siguientes maneras:
 
 - **Notificaciones**
-  - Te informamos cuando recopilamos tu información personal.
-  - Te damos a conocer, en nuestra [Declaración de Privacidad](/articles/github-privacy-statement/)de los fines que tenemos para recopilar y utilizar tu información a quién compartimos esa información con y bajo qué restricciones y qué acceso tiene a tus datos.
-  - Te informamos que estamos participando en el marco del Escudo de Privacidad y lo qué significa para ti.
-  - Tenemos un {% data variables.contact.contact_privacy %} donde puedes contactarnos con preguntas sobre tu privacidad.
-  - Te informamos acerca de tu derecho a invocar arbitraje vinculante, sin costo alguno para ti, en el improbable caso de una disputa.
-  - Te informamos que estamos sujetos a la jurisdicción de la Comisión Federal de Comercio.
-- **Opción**
-  - Te permitimos elegir lo que sucede con tus datos. Antes de que utilicemos tus datos para un propósito distinto para el cual nos los proporcionaste, te avisaremos y obtendremos tu permiso.
-  - Te proporcionarremos mecanismos razonables para hacer tu elección.
-- **Responsabilidad de la transferencia continua**
-  - Cuando transferimos tu información a proveedores de terceros que la procesan en nuestro nombre, sólo estamos enviando tus datos a terceros, bajo contrato con nosotros, que los salvaguardarán consistentemente con nuestra Declaración de Privacidad. Cuando transferimos tus datos a nuestros proveedores bajo el Escudo de Privacidad, seguimos siendo responsables de ello.
-  - Compartimos sólo la cantidad de datos con nuestros proveedores de terceros cuando sea necesario para completar tu transacción.
+  - Le avisamos cuando recopilamos su información personal.
+  - Le informamos, en nuestra [Declaración de Privacidad](/articles/github-privacy-statement/), con qué finalidades recopilamos y usamos su información, con quién compartimos esa información y con qué restricciones, y qué acceso tiene a sus datos.
+  - Le informamos de que participamos en el Marco del Escudo de Privacidad y lo que eso significa para usted.
+  - Tenemos un {% data variables.contact.contact_privacy %} donde puede ponerse en contacto con nosotros para consultarnos las dudas sobre su privacidad.
+  - Le informamos sobre su derecho a solicitar un arbitraje vinculante, sin coste alguno para usted, en el improbable caso de que surja un conflicto.
+  - Le informamos de que estamos sujetos a la jurisdicción de la Comisión Federal de Comercio.
+- **Elección**
+  - Le permitimos elegir lo que sucede con sus datos. Antes de utilizar sus datos para un fin distinto de aquel para el que nos los proporcionó, se lo haremos saber y obtendremos su permiso.
+  - Le proporcionaremos mecanismos razonables para poder elegir.
+- **Responsabilidad por Transferencia Posterior**
+  - Cuando transferimos su información a proveedores externos que la tratan en nuestro nombre, solo enviamos sus datos a terceros que tienen un contrato con nosotros y que los protegerán de conformidad con nuestra Declaración de Privacidad. Cuando transferimos sus datos a nuestros proveedores en virtud del Escudo de Privacidad, seguimos siendo responsables de ellos.
+  - Solo compartimos con nuestros proveedores externos la cantidad de datos que sea necesaria para completar su transacción.
 - **Seguridad**
-  - Protegeremos tu información personal con [todas las medidas de seguridad razonables y apropiadas](https://github.com/security).
-- **Limitación de integridad y propósito de datos**
-  - Solo recopilamos tus datos para las finalidades pertinentes para proporcionarte nuestros servicios.
-  - Recopilamos tan poca información tuya como podamos, a menos que decidas proporcionarnos más.
-  - Tomamos medidas razonables para asegurar que tus datos sean exactos, actuales y fiables para su uso previsto.
+  - Protegeremos su información personal con [todas las medidas de seguridad razonables y apropiadas](https://github.com/security).
+- **Integridad de los Datos y Limitación de la Finalidad**
+  - Solo recopilamos sus datos para las finalidades relevantes para prestarle nuestros servicios.
+  - Recopilamos la menor cantidad de información posible sobre usted, a menos que decida ofrecernos más.
+  - Tomamos medidas razonables para garantizar que los datos que tenemos sobre usted sean precisos, actuales y fiables para el uso previsto.
 - **Acceso**
-  - Siempre puedes acceder a los datos que tenemos sobre ti en tu perfil de usuario [](https://github.com/settings/profile). Puedes ingresar, actualizar, alterar o eliminar tu información allí.
-- **Recursos, cumplimiento y responsabilidad**
-  - Si tienes alguna pregunta sobre nuestras prácticas de privacidad, puedes contactarnos con nuestro {% data variables.contact.contact_privacy %} y responderemos en un plazo máximo de 45 días.
-  - En el improbable caso de una disputa que no podamos resolver, tienes acceso a un arbitraje vinculante sin coste alguno para ti. Consulta la [Declaración de privacidad](/articles/github-privacy-statement/)para obtener más información.
-  - Realizaremos auditorías periódicas de nuestras prácticas de privacidad relevantes para verificar el cumplimiento de las promesas que hemos hecho.
-  - Exigimos a nuestros empleados que respeten nuestras promesas de privacidad y la violación de nuestras políticas de privacidad está sujeta a una acción disciplinaria e inclusive hasta la terminación del empleo.
+  - Siempre puede acceder a los datos que tenemos sobre usted en su [perfil del usuario](https://github.com/settings/profile). Puede ver, actualizar, modificar o eliminar su información allí.
+- **Recurso, Ejecución y Responsabilidad**
+  - Si tiene preguntas sobre nuestras prácticas de privacidad, puede comunicarse con nosotros a través de nuestro {% data variables.contact.contact_privacy %} y le responderemos en un plazo máximo de 45 días.
+  - En el improbable caso de que se produzca un conflicto que no podamos resolver, tiene acceso a un arbitraje vinculante sin coste alguno para usted. Consulte nuestra [Declaración de Privacidad](/articles/github-privacy-statement/) para obtener más información.
+  - Realizaremos auditorías regulares de nuestras prácticas de privacidad relevantes para verificar el cumplimiento de las promesas que hemos hecho.
+  - Exigimos a nuestros empleados que respeten nuestras promesas de privacidad, y el incumplimiento de nuestras directivas de privacidad está sujeto a medidas disciplinarias que podrían incluir el despido.
 
 
-### Proceso de resolución de disputas
+### Proceso de resolución de conflictos
 
-Como se explica a detalle en la sección de [Resolución de Quejas](/github/site-policy/github-privacy-statement#resolving-complaints) de nuestra [Declaración de Privacidad](/github/site-policy/github-privacy-statement), te exhortamos a contactarnos en caso de que tengas alguna queja relacionada con el Escudo de Privacidad (o sobre la privacidad en general). Para cualquier queja que no pueda resolverse directamente con GitHub, hemos escogido cooperar con la Autoridad de Protección de datos de la UE reelevante, o con un panel establecido por las autoridades europeas de protección de datos, para resolver disputas con los individuos de la UE, y con la Comisión Federal para la Protección de Datos y la Información (FDPIC, por sus siglas en inglés) para resolver las disputas con los individuos suizos. Por favor contáctanos si deseas que te dirijamos a los contactos de tu autoridad de protección de datos.
+Como se explica más detalladamente en la sección [Resolución de reclamaciones](/github/site-policy/github-privacy-statement#resolving-complaints) de nuestra [declaración de privacidad](/github/site-policy/github-privacy-statement), le animamos a que se ponga en contacto con nosotros si tiene alguna queja relacionada con el programa Privacy Shield (o con la privacidad en general). Para cualquier queja que no se pueda resolver con GitHub directamente, hemos optado por cooperar con la Autoridad de Protección de Datos de la UE correspondiente, o un tribunal establecido por las autoridades de protección de datos europeas en caso de conflictos con personas de la UE, o el Comisionado Federal de Protección de Datos e Información de Suiza (FDPIC) para resolver conflictos con ciudadanos suizos. Póngase en contacto con nosotros si desea obtener los datos de contacto de su organismo de protección de datos.
 
-Además, si eres residente de un estado miembro de la UE, tienes derecho a presentar una queja ante tu autoridad supervisora local.
+Además, si reside en un estado miembro de la UE, tiene derecho a presentar una queja ante la autoridad supervisora local.
 
 ### Arbitraje independiente
 
-En determinadas circunstancias limitadas, la UE, el Espacio Económico Europeo (EEE), Suiza y las personas del Reino Unido pueden recurrir al arbitraje vinculante del Escudo de privacidad como último recurso, si todas las demás formas de resolución de disputas no tuvieron éxito. Para obtener más información acerca de este método de resolución y su disponibilidad, consulta más detalles sobre el [Escudo de privacidad](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). El arbitraje no es obligatorio, es una herramienta que puedes utilizar si así lo decides.
+En determinadas circunstancias limitadas, las personas de la UE, el Espacio Económico Europeo (EEE), Suiza y el Reino Unido pueden solicitar el arbitraje vinculante del Escudo de Privacidad como último recurso si ninguna de las otras formas de resolución de conflictos ha tenido éxito. Para obtener más información sobre este método de resolución y su disponibilidad en su caso, visite el sitio web del [Escudo de Privacidad](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). El arbitraje no es obligatorio; es una herramienta que puede utilizar cuando lo desee.
 
-Estamos sujetos a la jurisdicción de la Comisión Federal de Comercio (FTC) de los EE. UU.
-
-Consulta la [Declaración de privacidad](/articles/github-privacy-statement/)para obtener más información.
+Estamos sujetos a la jurisdicción de la Comisión Federal de Comercio (FTC) de Estados Unidos.
+  
+Consulte nuestra [Declaración de Privacidad](/articles/github-privacy-statement/) para obtener más información.

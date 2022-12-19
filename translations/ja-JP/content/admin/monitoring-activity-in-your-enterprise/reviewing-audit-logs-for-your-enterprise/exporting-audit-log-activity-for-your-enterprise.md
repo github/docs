@@ -1,6 +1,6 @@
 ---
-title: Exporting audit log activity for your enterprise
-intro: You can export audit and Git events data to a file for offline analysis.
+title: Enterprise の監査ログ アクティビティのエクスポート
+intro: オフラインで分析するために、監査と Git のイベント データをファイルにエクスポートすることができます。
 shortTitle: Export audit logs
 permissions: Enterprise owners can export the audit log.
 miniTocMaxHeadingLevel: 3
@@ -11,42 +11,43 @@ topics:
   - Auditing
   - Enterprise
   - Logging
+ms.openlocfilehash: 208e086fa93c89879357d340aa459b3d40824383
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060739'
 ---
+## 監査ログと Git イベント データのエクスポートについて
 
-## About exports of audit log and Git events data
+監査ログをエクスポートするには、{% data variables.product.product_name %} で Enterprise から JSON ファイルまたは CSV ファイルをダウンロードします。 監査ログ イベントをエクスポートするときに、サポートされている修飾子の 1 つ以上でクエリを実行して、エクスポートする特定のログ イベントをフィルター処理できます。 検索修飾子の詳細については、「[実行されたアクションに基づく検索](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)」を参照してください。
 
-You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[Search based on the action performed](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
-
-You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface.
+Enterprise 監査ログから JSON ファイルをダウンロードすると、Git イベント データをエクスポートできます。 監査ログ データとは異なり、監査ログ ユーザー インターフェイスでフィルター処理とエクスポートを行うために特定の Git イベントにクエリを実行することはできません。 
 
 {% data reusables.audit_log.git-events-export-limited %}
 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
-As an alternative to exporting log events, you can use the API to retrieve audit log events, or set up {% data variables.product.product_name %} to stream audit data as events are logged. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)" and "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+ログ イベントをエクスポートする代わりに、API を使用して監査ログ イベントを取得したり、イベントがログされる際に監査データをストリーム配信するように {% data variables.product.product_name %} を設定したりすることができます。 詳細については、「[Enterprise の監査ログ API の使用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)」および「[Enterprise の監査ログのストリーミング](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)」を参照してください。
 
-## Exporting audit log data
+## 監査ログ データのエクスポート
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
-1. Optionally, to only export filtered results, search by one or more supported qualifiers or log filters.
-2. Select the {% octicon "download" aria-label="The Download icon" %} **Export** dropdown menu, and choose the file format (JSON or CSV) to export log events in.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}
+1. 必要に応じて、フィルター処理された結果のみをエクスポートするには、1 つ以上のサポートされている修飾子またはログ フィルターで検索します。
+2. {% octicon "download" aria-label="The Download icon" %} **[Export]** ドロップダウン メニューを選択し、ログ イベントをエクスポートするファイル形式 (JSON または CSV) を選択します。
 
-    ![エクスポートボタン](/assets/images/help/organizations/org-audit-log-export.png)
+    ![[エクスポート] ボタン](/assets/images/help/organizations/org-audit-log-export.png)
 
-## Exporting Git events data
+## Git イベント データのエクスポート
 
-You can also export Git events data by date range.
+日付範囲ごとに Git イベント データをエクスポートすることもできます。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
-1. Select the {% octicon "download" aria-label="The Download icon" %} **Export Git Events** dropdown menu and choose a date range to export log events for.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}
+1. {% octicon "download" aria-label="The Download icon" %} **[Export Git Events]** ドロップダウン メニューを選択し、ログ イベントをエクスポートする日付範囲を選びます。
 
-    ![Export Git events button](/assets/images/help/organizations/org-audit-log-export-git-events.png)
-1. Click {% octicon "file-zip" aria-label="The File-zip icon" %} **Download Results** to download the file.
-1. The data is exported as a compressed JSON file. To extract the JSON data, uncompress the file using an archive utility client or command. 例:
+    ![[Export Git events] ボタン](/assets/images/help/organizations/org-audit-log-export-git-events.png)
+1. {% octicon "file-zip" aria-label="The File-zip icon" %} **[Download Results]** をクリックしてファイルをダウンロードします。
+1. データは圧縮された JSON ファイルとしてエクスポートされます。 JSON データを抽出するには、アーカイブ ユーティリティ クライアントかコマンドを使用してファイルを圧縮解除します。 次に例を示します。
 
     ```
     gunzip export-avocado-corp-1642896556.json.gz

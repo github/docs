@@ -11,7 +11,7 @@ import _ from 'lodash'
 
 import frontmatter from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersions, getDocsVersion } from '../../lib/all-versions.js'
 
 const contentFiles = []
 
@@ -27,9 +27,6 @@ export async function getDiffOpenAPIContentRest() {
   // Create categories/subcategories from OpenAPI Schemas
   const openAPISchemaCheck = await createOpenAPISchemasCheck()
 
-  // One off edge case for secret-scanning Docs-content issue 6637
-  delete openAPISchemaCheck['free-pro-team@latest']['secret-scanning']
-
   // Get Differences between categories/subcategories from dereferenced schemas and the content/rest directory frontmatter versions
   const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages = {}
@@ -37,13 +34,15 @@ export async function getDiffOpenAPIContentRest() {
   if (Object.keys(differences).length > 0) {
     for (const schemaName in differences) {
       errorMessages[schemaName] = {}
-      for (const category of differences[schemaName]) {
+
+      differences[schemaName].forEach((category) => {
         if (!errorMessages[schemaName]) errorMessages[schemaName] = category
+
         errorMessages[schemaName][category] = {
           contentDir: checkContentDir[schemaName][category],
           openAPI: openAPISchemaCheck[schemaName][category],
         }
-      }
+      })
     }
   }
 
@@ -52,37 +51,32 @@ export async function getDiffOpenAPIContentRest() {
 
 async function createOpenAPISchemasCheck() {
   const schemasPath = path.join(process.cwd(), 'lib/rest/static/decorated')
-  const openAPICheck = Object.keys(allVersions).reduce((acc, val) => {
-    return { ...acc, [val]: [] }
-  }, {})
-  // ghec does not exist in the OpenAPI yet, so we'll copy over FPT to ghec
-  openAPICheck['enterprise-cloud@latest'] = []
-
+  const openAPICheck = createCheckObj()
   const schemas = fs.readdirSync(schemasPath)
 
   schemas.forEach((file) => {
-    const version = getVersion(file.replace('.json', ''))
     const fileData = fs.readFileSync(path.join(schemasPath, file))
     const fileSchema = JSON.parse(fileData.toString())
     const categories = Object.keys(fileSchema).sort()
+    const version = getDocsVersion(file.split(/.json/)[0])
 
-    for (const category of categories) {
+    categories.forEach((category) => {
       const subcategories = Object.keys(fileSchema[category])
-      openAPICheck[version][category] = subcategories.sort()
-
-      if (version === 'free-pro-team@latest') {
-        openAPICheck['enterprise-cloud@latest'][category] = [...subcategories.sort()]
+      if (isApiVersioned(version)) {
+        getOnlyApiVersions(version).forEach(
+          (apiVersion) => (openAPICheck[apiVersion][category] = subcategories.sort())
+        )
+      } else {
+        openAPICheck[version][category] = subcategories.sort()
       }
-    }
+    })
   })
 
   return openAPICheck
 }
 
 async function createCheckContentDirectory(contentFiles) {
-  const checkContent = Object.keys(allVersions).reduce((acc, val) => {
-    return { ...acc, [val]: [] }
-  }, {})
+  const checkContent = createCheckObj()
 
   for (const filename of contentFiles) {
     const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
@@ -91,26 +85,45 @@ async function createCheckContentDirectory(contentFiles) {
     const subCategory = splitPath[splitPath.length - 1].replace('.md', '')
     const category =
       splitPath[splitPath.length - 2] === 'rest' ? subCategory : splitPath[splitPath.length - 2]
+    // All versions with appended calendar date versions if it exists
+    const allCompleteVersions = applicableVersions.flatMap((version) => {
+      return isApiVersioned(version)
+        ? allVersions[version].apiVersions.map(
+            (apiVersion) => `${allVersions[version].version}.${apiVersion}`
+          )
+        : version
+    })
 
-    for (const version of applicableVersions) {
-      if (!checkContent[version][category]) {
-        checkContent[version][category] = [subCategory]
-      } else {
-        checkContent[version][category].push(subCategory)
-      }
+    allCompleteVersions.forEach((version) => {
+      !checkContent[version][category]
+        ? (checkContent[version][category] = [subCategory])
+        : checkContent[version][category].push(subCategory)
       checkContent[version][category].sort()
-    }
+    })
   }
 
   return checkContent
 }
 
-function getVersion(curVersion) {
-  for (const version in allVersions) {
-    if (Object.values(allVersions[version]).indexOf(curVersion) > -1) {
-      return version
-    }
-  }
+function isApiVersioned(version) {
+  return allVersions[version] && allVersions[version].apiVersions.length > 0
+}
+
+function getOnlyApiVersions(version) {
+  return allVersions[version].apiVersions.map(
+    (apiVersion) => `${allVersions[version].version}.${apiVersion}`
+  )
+}
+
+function createCheckObj() {
+  const versions = {}
+  Object.keys(allVersions).forEach((version) => {
+    isApiVersioned(version)
+      ? getOnlyApiVersions(version).forEach((apiVersion) => (versions[apiVersion] = {}))
+      : (versions[`${allVersions[version].version}`] = {})
+  })
+
+  return versions
 }
 
 function getDifferences(openAPISchemaCheck, contentCheck) {
@@ -132,6 +145,7 @@ function throughDirectory(directory) {
       !directory.includes('rest/guides') &&
       !directory.includes('rest/overview') &&
       !file.includes('index.md') &&
+      !file.includes('quickstart.md') &&
       !file.includes('README.md')
     ) {
       return contentFiles.push(absolute)

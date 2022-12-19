@@ -1,10 +1,10 @@
 ---
 title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
-shortTitle: 'Automating with Actions'
+shortTitle: Automating with Actions
 intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/automating-projects
 type: tutorial
@@ -30,7 +30,7 @@ You may also want to use the **actions/add-to-project** workflow, which is maint
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). Workflow examples for both approaches are shown below.
+**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below.
 
 {% endnote %}
 
@@ -167,10 +167,10 @@ jobs:
 
 ```
 
-### Example workflow authenticating with a personal access token
+### Example workflow authenticating with a {% data variables.product.pat_generic %}
 
-1. Create a personal access token with the `project` and `repo` scopes. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-2. Save the personal access token as a secret in your repository or organization.
+1. Create a {% data variables.product.pat_v1 %} with the `project` and `repo` scopes. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+2. Save the {% data variables.product.pat_generic %} as a secret in your repository or organization.
 3. In the following workflow, replace `YOUR_TOKEN` with the name of the secret. Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 ```yaml{:copy}
@@ -339,7 +339,7 @@ env:
   PROJECT_NUMBER: YOUR_PROJECT_NUMBER
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -353,7 +353,7 @@ env:
 Sets environment variables for this step.
 <br>
 <br>
-If you are using a personal access token, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your personal access token.
+If you are using a {% data variables.product.pat_generic %}, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your {% data variables.product.pat_generic %}.
 <br>
 <br>
 Replace <code>YOUR_ORGANIZATION</code> with the name of your organization. For example, <code>octo-org</code>.
@@ -433,7 +433,7 @@ env:
   PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -504,7 +504,7 @@ env:
   GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:

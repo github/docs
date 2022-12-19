@@ -25,7 +25,7 @@ shortTitle: Install Git LFS
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory into the folder you downloaded and unzipped.
   ```shell
-  $ cd ~/Downloads/git-lfs-<em>1.X.X</em>
+  $ cd ~/Downloads/git-lfs-1.X.X
   ```
  {% note %}
 
@@ -85,7 +85,7 @@ shortTitle: Install Git LFS
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory into the folder you downloaded and unzipped.
   ```shell
-  $ cd ~/Downloads/git-lfs-<em>1.X.X</em>
+  $ cd ~/Downloads/git-lfs-1.X.X
   ```
  {% note %}
 

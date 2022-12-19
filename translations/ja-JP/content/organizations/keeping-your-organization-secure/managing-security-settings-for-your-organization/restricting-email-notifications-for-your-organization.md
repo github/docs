@@ -17,35 +17,35 @@ topics:
   - Notifications
   - Organizations
   - Policy
-shortTitle: メール通知の制限
+shortTitle: Restrict email notifications
+ms.openlocfilehash: 480f587862e0618c0624eec581520343c54afa35
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060099'
 ---
-
 ## メールの制限について
 
-Organization で制限付きのメール通知が有効になっている場合、メンバーは Organization の検証済みあるいは承認済みドメインに関連付けられたメールアドレスのみを使用して、Organization のアクティビティに関するメール通知を受信できます。 詳しい情報については「[Organizationのドメインの検証もしくは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
+Organization で制限付きのメール通知が有効になっている場合、メンバーは Organization の検証済みあるいは承認済みドメインに関連付けられたメールアドレスのみを使用して、Organization のアクティビティに関するメール通知を受信できます。 詳細については、[Organization のためのドメインの検証あるいは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)に関する記事を参照してください。
 
-{% ifversion ghec %}
-{% note %}
+{% ifversion ghec %} {% note %}
 
-**ノート:** メール通知を制限するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+**注:** メール通知を制限するには、Organization で {% data variables.product.prodname_ghe_cloud %} を使用している必要があります。 {% data reusables.enterprise.link-to-ghec-trial %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-外部のコラボレーターは、検証済みあるいは承認済みドメインへのメール通知の制限の対象になりません。 外部コラボレータに関する詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)」を参照してください。
+外部のコラボレーターは、検証済みあるいは承認済みドメインへのメール通知の制限の対象になりません。 外部コラボレーターの詳細については、「[Organization 内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)」を参照してください。
 
-Enterprise アカウントがオーナーの Organization の場合、Organization のメンバーは、Organization の検証済みあるいは承認済みドメインに加えて、Enterprise アカウントの検証済みあるいは承認済みドメインから通知を受け取ることができます。 詳しい情報については「[Enterpriseのためのドメインの検証あるいは承認](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。
+Enterprise アカウントがオーナーの Organization の場合、Organization のメンバーは、Organization の検証済みあるいは承認済みドメインに加えて、Enterprise アカウントの検証済みあるいは承認済みドメインから通知を受け取ることができます。 詳細については、「[エンタープライズのドメインの確認または承認](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。
 
 ## メール通知の制限
 
 Organizationのメール通知を制限できるようにするには、Oraganizationに対して最低1つのドメインを検証あるいは承認するか、EnterpriseのオーナーがEnterpriseアカウントに対して最低1つのドメインを検証あるいは承認しなければなりません。
 
-Organizationの検証済み及び承認済みドメインに関する詳しい情報については「[Organizationのドメインの検証もしくは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
+Organization のドメインの検証と承認の詳細については、「[Organization のためのドメインの検証あるいは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.restrict-email-notifications %}
-6. [**Save**] をクリックします。
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.restrict-email-notifications %}
+6. **[保存]** をクリックします。

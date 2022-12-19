@@ -15,50 +15,55 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
+ms.openlocfilehash: d8d0457de2842392febee0c90660285e9b1afef8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146139297'
 ---
+## Git の使用
 
-## Git を使用する
-
-[公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして [ProGit book](http://git-scm.com/book) を読み、Git に慣れましょう。 You can also review the [Git command list](https://git-scm.com/docs).
+[Git の公式プロジェクト サイト](https://git-scm.com)にアクセスし、[ProGit の本](http://git-scm.com/book)を読むことで、Git について理解を深めてください。 [Git コマンド リスト](https://git-scm.com/docs)を確認することもできます。
 
 ## {% data variables.product.product_name %}を使用する
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_learning %} では、即座に自動化されたフィードバックやヘルプとともに、{% data variables.product.prodname_dotcom %} に組み込まれた無料のインタラクティブなコースを提供しています。 最初のプルリクエストをオープンしたり、最初のオープンソースへのコントリビューションを行ったり、{% data variables.product.prodname_pages %} のサイトを作成したりできます。 コースについての詳細は、[{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) をご覧ください。
+{% data variables.product.prodname_learning %} では、即座に自動化されたフィードバックやヘルプとともに、{% data variables.product.prodname_dotcom %} に組み込まれた無料のインタラクティブなコースを提供しています。 最初のプルリクエストをオープンしたり、最初のオープンソースへのコントリビューションを行ったり、{% data variables.product.prodname_pages %} のサイトを作成したりできます。 コース オファリングの詳細については、「[{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})」を参照してください。
 
 {% endif %}
 
-[使ってみる](/categories/getting-started-with-github/)という記事を通して、{% data variables.product.product_name %} について理解を深めましょう。 [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
+[概要](/categories/getting-started-with-github/)に関 する記事を通じて、{% data variables.product.product_name %} について理解を深めることができます。 プロセスの概要については、「[{% data variables.product.prodname_dotcom %} フロー](https://guides.github.com/introduction/flow)」を参照してください。 基本的な概念については、[概要ガイド](https://guides.github.com)を参照してください。
 
 {% data reusables.support.ask-and-answer-forum %}
 
 ### ブランチ、フォーク、プルリクエスト
 
-インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 [コマンドライン](https://cli.github.com/)から {% data variables.product.prodname_dotcom %} の使用に関するリファレンスにアクセスしてください。
+対話型ツールを使用した [Git ブランチ](http://learngitbranching.js.org/)について説明します。 [フォーク](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)と [pull request](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} での [pull request の使用方法](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)について説明します。 [コマンド ライン](https://cli.github.com/)から {% data variables.product.prodname_dotcom %} の使用に関するリファレンスにアクセスしてください。
 
 ### 動画
 
-{% data variables.product.prodname_dotcom %}[YouTube のトレーニングおよびガイドチャンネル](https://youtube.com/githubguides)では、[プルリクエスト](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19)、[フォーキング](https://www.youtube.com/watch?v=5oJHRbqEofs)、[リベース](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22)、および[リセット](https://www.youtube.com/watch?v=BKPjPMVB81g)機能についてのチュートリアルを提供しています。 各トピックの所要時間は 5 分以内です。
+Microsoft の {% data variables.product.prodname_dotcom %} [YouTube のトレーニングとガイドのチャンネル](https://youtube.com/githubguides)では、[pull request](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19)、[フォーク](https://www.youtube.com/watch?v=5oJHRbqEofs)、[リベース](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22)、[リセット](https://www.youtube.com/watch?v=BKPjPMVB81g)機能に関するチュートリアルを提供しています。 各トピックの所要時間は 5 分以内です。
 
 ## トレーニング
 
 ### 無料コース
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} は、[{% data variables.product.prodname_dotcom %} の紹介](https://github.com/skills/introduction-to-github)を含む一連のインタラクティブな[オンデマンド トレーニング コース](https://skills.github.com/)や、{% data variables.product.prodname_actions %} などの {% data variables.product.product_name %} 固有のツールに関するコースを提供しています。
 
 ### {% data variables.product.prodname_dotcom %}のウェブベース教育プログラム
 
-{% data variables.product.prodname_dotcom %} では、生中継の[トレーニング](https://services.github.com/#upcoming-events)を提供しています。コマンドラインの好き嫌いにかかわらず、すべてのユーザに向けたハンズオン、プロジェクトベースのアプローチを紹介しています。
+{% data variables.product.prodname_dotcom %} では、生中継の[トレーニング](https://services.github.com/#upcoming-events)を提供しています。コマンド ラインの好き嫌いにかかわらず、すべてのユーザー向けにハンズオンのプロジェクトベースのアプローチを提供します。
 
 ### 企業向けトレーニング
 
-{% data variables.product.prodname_dotcom %} では、経験豊富な教育者による[対面式のクラス](https://services.github.com/#offerings)を提供しています。 トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
+{% data variables.product.prodname_dotcom %} は、経験豊富な教師が教える[対面式のクラス](https://services.github.com/#offerings)を提供しています。 トレーニング関連の質問がある場合は[お問い合わせください](https://services.github.com/#contact)。
 
-## その他
+## 追加
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. [.gitignore テンプレート](https://github.com/github/gitignore)では、お客様のニーズに合わせることができます。
+[Pluralsight](https://www.pluralsight.com/codeschool) のインタラクティブな[オンライン Git コース](https://www.pluralsight.com/courses/code-school-git-real)には、7 つのレベルがあり、楽しいゲーム形式の数十の演習が提供されます。 [.gitignore テンプレート](https://github.com/github/gitignore)をニーズに合わせて自由に調整してください。
 
-{% data variables.product.prodname_dotcom %} のリーチを、{% ifversion fpt or ghec %}[インテグレーション](/articles/about-integrations){% else %}インテグレーション{% endif %}、または[{% data variables.product.prodname_desktop %}](https://desktop.github.com) と堅牢な [Atom](https://atom.io) テキストエディタで拡張しましょう。
+{% ifversion fpt or ghec %}integrations{% else %}[integrations](/articles/about-integrations){% endif %} を使用するか、{% data variables.product.prodname_desktop %} と堅牢な [Atom](https://desktop.github.com) テキスト エディターをインストールして、[{% data variables.product.prodname_dotcom %}](https://atom.io) の範囲を拡張します。
 
-[オープンソースのガイド](https://opensource.guide/)で、オープンソースのプロジェクトを立ち上げ成長させる方法をご確認ください。
+[オープン ソース ガイド](https://opensource.guide/)を使用すると、オープンソース プロジェクトを起動して拡張する方法を確認できます。

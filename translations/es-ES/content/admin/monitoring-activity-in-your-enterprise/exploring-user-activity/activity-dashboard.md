@@ -12,13 +12,18 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+ms.openlocfilehash: 3c1c9ade1baed615d70ca82c8104ce0ed11921fd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120233'
 ---
-
 El Tablero de actividades te proporciona gráficos semanales, mensuales y anuales de la cantidad de:
 - Solicitudes de extracción nuevas
 - Solicitudes de extracción fusionadas
-- Problemas nuevos
-- Problemas resueltos
+- Nuevas incidencias
+- Problemas cerrados
 - Comentarios de problemas nuevos
 - Repositorios nuevos
 - Cuentas de usuario nuevas
@@ -29,5 +34,7 @@ El Tablero de actividades te proporciona gráficos semanales, mensuales y anuale
 
 ## Acceder al Tablero de actividades
 
-1. En la parte superior de cualquier página, haz clic en **Explore** (Explorar). ![Explorar la etiqueta](/assets/images/enterprise/settings/ent-new-explore.png)
-2. En el margen izquierdo superior, haz clic en **Activity** (Actividad). ![Botón de actividades](/assets/images/enterprise/activity/activity-button.png)
+1. En la parte superior de cualquier página, haga clic en **Explore**.
+![Pestaña Explore](/assets/images/enterprise/settings/ent-new-explore.png)
+2. En la esquina superior derecha, haga clic en **Activity**.
+![Botón Activity](/assets/images/enterprise/activity/activity-button.png)

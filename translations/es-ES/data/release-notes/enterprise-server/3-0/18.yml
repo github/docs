@@ -1,16 +1,15 @@
----
-date: '2021-10-28'
+date: '28-10-2021'
 sections:
   security_fixes:
-    - 'Se agregaron varias llaves SSH públicas débiles conocidas a la lista de llaves no permitidas y estas ya no pueden registrarse. Adicionalmente, se bloquearon a las versiones de GitKraken que se sabe generarán llaves SSH débiles (7.6.x, 7.7.x y 8.0.0) para que no generen llaves públicas nuevas.'
-    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+    - 'Se han añadido a la lista de denegaciones diversas claves públicas SSH que se sabe que son débiles y ya no se pueden registrar. Además, las versiones de GitKraken conocidas por generar claves de SSH débiles (7.6.x, 7.7.x y 8.0.0) tienen bloqueada la función de registro de nuevas claves públicas.'
+    - 'Los paquetes se han actualizado a las últimas versiones de seguridad.'
   bugs:
-    - 'Los usuarios que son propietarios de muchas organizaciones no pudieron utilizar varias partes de la aplicación.'
+    - 'Los usuarios que eran propietarios de muchas organizaciones no podían utilizar varias partes de la aplicación.'
   known_issues:
-    - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
+    - "En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo."
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
-    - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
-    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
-    - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
-    - Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.
-    - Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

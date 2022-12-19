@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: ede6954e9d0e5ead951fc229e0e8f14920a5dec4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145118133"
+---
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "git-branch" aria-label="The git-branch icon" %} Branches**.
+1. サイドバーの [コードと自動化] セクションで、 **[{% octicon "git-branch" aria-label="The git-branch icon" %} ブランチ]** をクリックします。
 {% else %}
-1. 左のメニューで**Branches（ブランチ）**をクリックしてください。 ![リポジトリオプションのサブメニュー](/assets/images/help/repository/repository-options-branch.png)
-{% endif %}
+1. 左側のメニューで **[ブランチ]** をクリックします。
+![リポジト リオプションのサブメニュー](/assets/images/help/repository/repository-options-branch.png) {% endif %}

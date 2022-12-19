@@ -13,9 +13,14 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Aplicaciones de terceros
+shortTitle: Third-party applications
+ms.openlocfilehash: b8cd20d36926c373116061e211be62701b1bd2f6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145115050'
 ---
-
 Cuando una aplicación de terceros desea identificarte mediante tu inicio de sesión de {% data variables.product.product_name %}, verás una página con la información de contacto del programador y una lista de los datos específicos que se han solicitado.
 
 ## Contactarse con el programador de la aplicación
@@ -30,20 +35,20 @@ Si el programador ha elegido suministrarla, el lateral derecho de la página bri
 
 ## Tipos de acceso a la aplicación y datos
 
-Las aplicaciones pueden tener acceso de *lectura* o *escritura* a tus datos de {% data variables.product.product_name %}.
+Las aplicaciones pueden tener acceso de *lectura* o *escritura* a los datos de {% data variables.product.product_name %}.
 
-- El **acceso de lectura** solo permite que una aplicación *mire* tus datos.
-- El **acceso de escritura** permite que una aplicación *cambie* tus datos.
+- El **acceso de lectura** solo permite que una aplicación *examine los* datos.
+- El **acceso de escritura** permite a una aplicación *cambiar* los datos.
 
 ### Acerca de los alcances de OAuth
 
-*Alcances* son grupos de permisos designados que una aplicación puede solicitar para acceder a los datos públicos y no públicos.
+Los *alcances* son grupos de permisos designados que una aplicación puede solicitar para acceder a los datos públicos y no públicos.
 
-Cuando quieres usar una aplicación de terceros que se integra con {% data variables.product.product_name %}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quieres usar una app que solicita el alcance `usuario:correo electrónico`, la app solo tendrá acceso de lectura a tus direcciones de correo electrónico privado. Para obtener más información, consulta la sección "[Acerca de los alcances para {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
+Cuando quieres usar una aplicación de terceros que se integra con {% data variables.product.product_name %}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quiere usar una aplicación que solicita el ámbito `user:email`, la aplicación tendrá acceso de solo lectura a las direcciones de correo electrónico privadas. Para obtener más información, consulte "[Acerca de los alcances de {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 
-**Nota:** Actualmente, no puedes demarcar el acceso al código fuente a solo lectura.
+**Nota:** Actualmente, no se puede definir el alcance del acceso al código fuente como de solo lectura.
 
 {% endtip %}
 
@@ -59,17 +64,17 @@ Existen varios tipos de datos que las aplicaciones pueden solicitar.
 
 {% endtip %}
 
-| Tipos de datos               | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Estado de confirmación       | Puedes otorgar acceso a una aplicación de terceros para que informe tu estado de confirmación. El acceso al estado de confirmación permite que las aplicaciones determinen si una construcción es exitosa frente a una confirmación específica. Las aplicaciones no tendrán acceso a tu código, pero <em>pueden</em> leer y escribir la información del estado frente a una confirmación específica.                          |
-| Implementaciones             | El acceso a los estados de despliegue les permite a las aplicaciones determinar si un despliegue es exitoso contra una confirmación específica para un repositorio. Las aplicaciones no tendrán acceso a tu código.                                                                                                                                                                                                                   |
-| Gists                        | El acceso a los [Gists](https://gist.github.com) permite a las aplicaciones leer o escribir tanto en{% ifversion not ghae %}tus gists públicos y{% else %}tus gists internos y{% endif %} secretos.                                                                                                                                                                                                                                   |
-| Ganchos                      | El acceso a [webhooks](/webhooks) permite que las aplicaciones lean o escriban configuraciones de gancho en los repositorios que administras.                                                                                                                                                                                                                                                                                         |
-| Notificaciones               | El acceso a las notificaciones permite a las aplicaciones leer tus notificaciones de {% data variables.product.product_name %}, tales como los comentarios sobre las propuestas y las solicitudes de cambios. Sin embargo, las aplicaciones permanecen inhabilitadas para acceder a tus repositorios.                                                                                                                                 |
-| Organizaciones y equipos     | El acceso a organizaciones y equipos permite que las apps accedan y administren la membresía de la organización y del equipo.                                                                                                                                                                                                                                                                                                         |
-| Datos personales del usuario | Entre los datos del usuario se incluye información que se encuentra en tu perfil de usuario, como tu nombre, dirección de correo electrónico y ubicación.                                                                                                                                                                                                                                                                             |
-| Repositorios                 | La información del repositorio incluye los nombres de los colaboradores, las ramas que creaste y los archivos actuales dentro de tu repositorio. Una aplicación puede solicitar acceso a todos tus repositorios en cualquier nivel de visibilidad. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". |
-| Eliminación de repositorio   | Las aplicaciones pueden solicitar la eliminación de los repositorios que administras,, pero no tendrán acceso a tu código.                                                                                                                                                                                                                                                                                                            |
+| Tipo de datos | Descripción |
+| --- | --- |
+| Estado de confirmación | Puedes otorgar acceso a una aplicación de terceros para que informe tu estado de confirmación. El acceso al estado de confirmación permite que las aplicaciones determinen si una construcción es exitosa frente a una confirmación específica. Las aplicaciones no tendrán acceso al código, pero <em>podrán</em> leer y escribir la información del estado de una confirmación específica. |
+| Implementaciones | El acceso a los estados de despliegue les permite a las aplicaciones determinar si un despliegue es exitoso contra una confirmación específica para un repositorio. Las aplicaciones no tendrán acceso a tu código. |
+| Gists | El acceso a [gists](https://gist.github.com) permite a las aplicaciones leer o escribir en {% ifversion not ghae %}tanto en gists públicos como{% else %}tanto en gists internos como{% endif %} secretos. |
+| Enlaces | El acceso a [webhooks](/webhooks) permite a las aplicaciones leer o escribir configuraciones de enlace en repositorios que usted administra. |
+| Notificaciones | El acceso a las notificaciones permite a las aplicaciones leer tus notificaciones de {% data variables.product.product_name %}, tales como los comentarios sobre las propuestas y las solicitudes de cambios. Sin embargo, las aplicaciones permanecen inhabilitadas para acceder a tus repositorios. |
+| Las organizaciones y los equipos | El acceso a organizaciones y equipos permite que las apps accedan y administren la membresía de la organización y del equipo. |
+| Datos de usuario personales | Entre los datos del usuario se incluye información que se encuentra en tu perfil de usuario, como tu nombre, dirección de correo electrónico y ubicación. |
+| Repositorios | La información del repositorio incluye los nombres de los colaboradores, las ramas que creaste y los archivos actuales dentro de tu repositorio. Una aplicación puede solicitar acceso a todos tus repositorios en cualquier nivel de visibilidad. Para más información, vea "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". |
+| Eliminación de repositorio | Las aplicaciones pueden solicitar la eliminación de los repositorios que administras,, pero no tendrán acceso a tu código. |
 
 ## Solicitar permisos actualizados
 

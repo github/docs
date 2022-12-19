@@ -1,6 +1,6 @@
 ---
 title: Creating PostgreSQL service containers
-shortTitle: PostgreSQL service containers
+shortTitle: Create PostgreSQL service containers
 intro: You can create a PostgreSQL service container to use in your workflow. This guide shows examples of creating a PostgreSQL service for jobs that run in containers or directly on the runner machine.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers

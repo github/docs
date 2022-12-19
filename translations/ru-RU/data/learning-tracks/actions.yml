@@ -1,0 +1,91 @@
+getting_started:
+  title: 'Начало работы с {% data variables.product.prodname_actions %}'
+  description: 'Создайте первый рабочий процесс, чтобы изучить возможности {% data variables.product.prodname_actions %}.'
+  guides:
+    - Знакомство с GitHub Actions
+    - Поиск и настройка действий
+    - Основные возможности GitHub Actions
+    - Управление сложными рабочими процессами
+    - Повторное использование рабочих процессов
+    - Усиление безопасности для GitHub Actions
+  featured_track: true
+continuous_integration:
+  title: 'Сборка и тестирование кода'
+  description: 'Создавайте настраиваемые рабочие процессы непрерывной интеграции (CI) в своем репозитории.'
+  guides:
+    - Сведения о непрерывной интеграции
+    - Сборка и тестирование в PowerShell
+    - Сборка и тестирование проекта Ruby
+    - Сборка и тестирование проекта Java с помощью Maven
+    - Сборка и тестирование проекта Java с помощью Gradle
+    - Сборка и тестирование проекта Java с помощью Ant
+    - Сборка и тестирование проекта Swift
+continuous_deployment:
+  title: 'Автоматизация развертываний'
+  description: 'Научитесь автоматизировать публикацию выпусков для проекта с помощью настраиваемого рабочего процесса непрерывного развертывания (CD) в {% data variables.product.prodname_actions %}.'
+  guides:
+    - Сведения о публикации с помощью GitHub Actions
+    - Публикация пакетов Node.js
+    - Публикация пакетов Java с помощью Maven
+    - Публикация пакетов Java с помощью Gradle
+    - Публикация образов Docker
+deploy_to_the_cloud:
+  title: 'Развертывание в облаке'
+  description: 'Научитесь собирать приложение и развертывать его на различных облачных платформах с помощью {% data variables.product.prodname_actions %}.'
+  guides:
+    - Развертывание в Amazon Elastic Container Service
+    - Развертывание в службе приложений Azure
+    - Развертывание в Google Kubernetes Engine
+adopting_github_actions_for_your_enterprise_ghec:
+  title: 'Внедрение GitHub Actions для предприятия'
+  description: 'Узнайте, как спланировать и реализовать выпуск {% data variables.product.prodname_actions %} на вашем предприятии.'
+  versions:
+    ghec: '*'
+  guides:
+    - Сведения о GitHub Actions для предприятий
+    - Общие сведения о GitHub Actions
+    - Начало работы с GitHub Actions на предприятии
+    - Перенос предприятия в GitHub Actions
+    - Начало работы с GitHub Actions для GitHub Enterprise Cloud
+    - Усиление безопасности для GitHub Actions
+    - Сведения о выставлении счетов за GitHub Actions
+adopting_github_actions_for_your_enterprise_ghes_and_ghae:
+  title: 'Внедрение GitHub Actions для предприятия'
+  description: 'Узнайте, как спланировать и реализовать выпуск {% data variables.product.prodname_actions %} на вашем предприятии.'
+  versions:
+    ghes: '*'
+    ghae: '*'
+  guides:
+    - Сведения о GitHub Actions для предприятий
+    - Общие сведения о GitHub Actions
+    - Начало работы с GitHub Actions на предприятии
+    - Перенос предприятия в GitHub Actions
+    - Начало работы с GitHub Actions для GitHub Enterprise Cloud
+    - Начало работы с GitHub Actions для GitHub Enterprise Server
+    - Начало работы с локальными средствами выполнения на предприятии
+    - Усиление безопасности для GitHub Actions
+    - Сведения о выставлении счетов за GitHub Actions
+hosting_your_own_runners:
+  title: 'Размещение собственных средств выполнения'
+  description: 'Можно создавать локальные средства выполнения тестов для выполнения рабочих процессов в настраиваемой среде.'
+  guides:
+    - Сведения о локальных средствах выполнения
+    - Добавление локальных средств выполнения
+    - Настройка приложения локального средства выполнения в качестве службы
+    - Использование прокси-сервера с локальными средствами выполнения
+    - Использование меток с локальными средствами выполнения
+    - Использование локальных средств выполнения в рабочем процессе
+    - Управление доступом к локальным средствам выполнения с помощью групп
+    - Мониторинг и устранение неполадок локальных средств выполнения
+create_actions:
+  title: 'Создание действия'
+  description: 'Вы придумали новое действие? Создали настраиваемое действие для своего проекта? Узнайте, как создавать совместно используемые действия и публиковать их в GitHub Marketplace.'
+  guides:
+    - Сведения о настраиваемых действиях
+    - Создание действия контейнера Docker
+    - Создание действия JavaScript
+    - Создание составного действия
+    - Синтаксис метаданных для GitHub Actions
+    - Поддержка Dockerfile для GitHub Actions
+    - Настройка кодов завершения для действий
+    - Публикация действий в GitHub Marketplace

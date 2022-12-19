@@ -1,6 +1,6 @@
 ---
-title: About Git
-intro: 'Learn about the version control system, Git, and how it works with {% data variables.product.product_name %}.'
+title: Git について
+intro: 'バージョン管理システム、Git、{% data variables.product.product_name %} での動作のしくみについて学びます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,68 +11,73 @@ topics:
   - Fundamentals
   - Git
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 595fc79c5a656a3d6da8b5589ed384b545a418ac
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145115982'
 ---
+## バージョン管理と Git について
 
-## About version control and Git
+バージョン管理システム (VCS) は、人々とチームが一緒にプロジェクトで共同作業を行う際の変更履歴を追跡します。 開発者がプロジェクトに変更を加えると、そのプロジェクトの以前のバージョンはいつでも復元できます。
 
-A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As developers make changes to the project, any earlier version of the project can be recovered at any time.
+開発者は、プロジェクトの履歴を確認することで、次のことを知ることができます。
 
-Developers can review project history to find out:
+- どのような変更が行われたのか?
+- 誰が変更したのか?
+- いつ変更されたのか?
+- なぜ変更が必要だったのか?
 
-- Which changes were made?
-- Who made the changes?
-- When were the changes made?
-- Why were changes needed?
+VCS により、各共同作成者にプロジェクトの統一された一貫性のあるビューが用意され、既に進行中の作業が表示されます。 誰が変更したか、どのようにプロジェクトの開発に協力したかという透明性のある変更履歴を見ることで、チーム メンバーは独立して作業しながら、足並みを揃えることができます。
 
-VCSs give each contributor a unified and consistent view of a project, surfacing work that's already in progress. Seeing a transparent history of changes, who made them, and how they contribute to the development of a project helps team members stay aligned while working independently.
+分散バージョン管理システムでは、すべての開発者がプロジェクトとプロジェクト履歴の完全なコピーを持ちます。 かつて一般的だった集中型バージョン管理システムとは異なり、DVCS は中央リポジトリへの常時接続を必要としません。 Git は、最も一般的な分散型バージョン管理システムです。 Git は、オープンソースと商用ソフトウェア開発の両方で一般に使われており、個人、チーム、企業にとって大きな利点があります。
 
-In a distributed version control system, every developer has a full copy of the project and project history. Unlike once popular centralized version control systems, DVCSs don't need a constant connection to a central repository. Git is the most popular distributed version control system. Git is commonly used for both open source and commercial software development, with significant benefits for individuals, teams and businesses.
+- Git を使うと、開発者は自分の変更、決定、あらゆるプロジェクトの進行のタイムライン全体を 1 か所で見ることができます。 開発者はプロジェクトの履歴にアクセスした時点から、必要なすべてのコンテキストが揃い、理解して共同作業を始めることができます。
 
-- Git lets developers see the entire timeline of their changes, decisions, and progression of any project in one place. From the moment they access the history of a project, the developer has all the context they need to understand it and start contributing.
+- 開発者はあらゆるタイム ゾーンで作業します。 Git のような DVCS を使うと、ソース コードの整合性を維持しながら、いつでもコラボレーションを行うことができます。 ブランチを使うと、開発者は運用コードに対する変更を安全に提案することができます。
 
-- Developers work in every time zone. With a DVCS like Git, collaboration can happen any time while maintaining source code integrity. Using branches, developers can safely propose changes to production code.
-
-- Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.
+- Git を使っている企業は、チーム間のコミュニケーションの壁を取り払い、最高の仕事をすることに集中させることができます。 さらに、Git を使うことで、ビジネス全体でエキスパートを集めて、大きなプロジェクトで共同作業をすることが可能になります。
 
 ## リポジトリについて
 
-A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. The commits can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who has a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a Git repository also allows for: interaction with the history, cloning the repository, creating branches, committing, merging, comparing changes across versions of code, and more.
+リポジトリ (Git プロジェクト) には、プロジェクトに関連付けられたファイルやフォルダーのコレクション全体と、各ファイルのリビジョン履歴が含まれます。 ファイルの履歴は、コミットと呼ばれる時間的なスナップショットとして表示されます。 コミットは、ブランチという複数の開発ラインで構成されています。 Git は DVCS であるため、リポジトリは自己完結した単位であり、リポジトリのコピーを持っている人は誰でもコードベースとその履歴全体にアクセスできます。 Git リポジトリでは、コマンドラインや他の使いやすいインターフェイスを使うことで、履歴とのやりとり、リポジトリのクローン、ブランチの作成、コミット、マージ、コードのバージョン間での変更点の比較なども可能です。
 
-Through platforms like {% data variables.product.product_name %}, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.
+{% data variables.product.product_name %} のようなプラットフォームを通じて、Git によりプロジェクトの透明性とコラボレーションのためのより多くの機会も得られます。 パブリック リポジトリは、チームが連携して可能な限り最高の最終製品を構築するのに役立ちます。
 
-## How {% data variables.product.product_name %} works
+## {% data variables.product.product_name %} のしくみ
 
-{% data variables.product.product_name %} hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the {% data variables.product.prodname_marketplace %}. With collaboration layers like the {% data variables.product.product_name %} flow, a community of 15 million developers, and an ecosystem with hundreds of integrations, {% data variables.product.product_name %} changes the way software is built.
+{% data variables.product.product_name %} は Git リポジトリをホストし、コマンド ライン機能、issue (スレッド形式の議論)、pull request、コード レビュー、または {% data variables.product.prodname_marketplace %} にある無料および有料アプリのコレクションを使って、よりよいコードを出荷するツールを開発者たちに提供します。 {% data variables.product.product_name %} フローのようなコラボレーション レイヤー、1,500 万人の開発者コミュニティ、何百もの統合を持つエコシステムにより、{% data variables.product.product_name %} でソフトウェア構築の方法が変わります。
 
-{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.product_name %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
+{% data variables.product.product_name %} は、開発プロセスに直接コラボレーションを組み込みます。 作業はリポジトリにまとめられ、開発者は要件や方向性の概要を示し、チーム メンバーに期待することを設定できます。 その後、{% data variables.product.product_name %} フローを使って、開発者は更新作業を行うブランチを作成し、変更をコミットして保存し、変更を提案および議論する pull request を開き、全員が同じ見解になったら pull request をマージするだけです。 詳細については、「[GitHub のフロー](/get-started/quickstart/github-flow)」を参照してください。
 
-## {% data variables.product.product_name %} and the command line
+## {% data variables.product.product_name %} とコマンド ライン
 
-### Basic Git commands
+### Git の基本的なコマンド
 
-To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like {% data variables.product.prodname_desktop %}. Here are some common commands for using Git:
+Git の利用では、開発者は特定のコマンドを使って、コードのコピー、作成、変更、結合を行います。 これらのコマンドは、コマンド ラインから直接実行することも、{% data variables.product.prodname_desktop %} のようなアプリケーションを使うこともできます。 以下は、Git を使うための一般的なコマンドです。
 
-- `git init` initializes a brand new Git repository and begins tracking an existing directory. It adds a hidden subfolder within the existing directory that houses the internal data structure required for version control.
+- `git init` は、まったく新しい Git リポジトリを初期化し、既存のディレクトリの追跡を開始します。 既存のディレクトリの中に、バージョン管理に必要な内部データ構造を格納する非表示のサブフォルダーを追加します。
 
-- `git clone` creates a local copy of a project that already exists remotely. The clone includes all the project's files, history, and branches.
+- `git clone` は、既にリモートで存在するプロジェクトのローカル コピーを作成します。 このクローンには、プロジェクトのすべてのファイル、履歴、ブランチが含まれます。
 
-- `git add` stages a change. Git tracks changes to a developer's codebase, but it's necessary to stage and take a snapshot of the changes to include them in the project's history. This command performs staging, the first part of that two-step process. Any changes that are staged will become a part of the next snapshot and a part of the project's history. Staging and committing separately gives developers complete control over the history of their project without changing how they code and work.
+- `git add` は変更をステージします。 Git は開発者のコードベースへの変更を追跡しますが、プロジェクトの履歴に含めるためには、変更をステージしてスナップショットを作成する必要があります。 このコマンドは、その 2 段階のプロセスの最初の部分であるステージングを実行します。 ステージされた変更は、次のスナップショットの一部となり、プロジェクトの履歴の一部となります。 ステージングとコミットを別々に行うことで、開発者はコーディングや作業の方法を変えることなく、プロジェクトの履歴を完全に管理することができます。
 
-- `git commit` saves the snapshot to the project history and completes the change-tracking process. In short, a commit functions like taking a photo. Anything that's been staged with `git add` will become a part of the snapshot with `git commit`.
+- `git commit` はスナップショットをプロジェクトの履歴に保存し、変更追跡プロセスを完了させます。 簡単に言えば、コミットは写真を撮るような機能です。 `git add` でステージされたものは、`git commit` でスナップショットの一部となります。
 
-- `git status` shows the status of changes as untracked, modified, or staged.
+- `git status` は、未追跡、変更、ステージされた変更の状態を表示します。
 
-- `git branch` shows the branches being worked on locally.
+- `git branch` は、ローカルで作業しているブランチを表示します。
 
-- `git merge` merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge when they want to combine changes from a feature branch into the main branch for deployment.
+- `git merge` は、開発ラインを合わせてマージします。 通常、このコマンドは 2 つの異なるブランチで行われた変更を結合するために使われます。 たとえば、開発者が機能ブランチの変更をメイン ブランチにまとめてデプロイしたい場合、マージすることになります。
 
-- `git pull` updates the local line of development with updates from its remote counterpart. Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
+- `git pull` は、ローカルの開発ラインをリモートの対応するブランチからの更新により更新します。 開発者がこのコマンドを使うのは、チーム メイトがリモートのブランチにコミットし、その変更を自分のローカル環境に反映させたい場合です。
 
-- `git push` updates the remote repository with any commits made locally to a branch.
+- `git push` は、ローカルで行われたブランチへのコミットでリモート リポジトリを更新します。
 
-For more information, see the [full reference guide to Git commands](https://git-scm.com/docs).
+詳細については、[Git コマンドの完全なリファレンス ガイド](https://git-scm.com/docs)を参照してください。
 
-### Example: Contribute to an existing repository
+### 例: 既存のリポジトリに寄与する
 
 ```bash
 # download a repository on {% data variables.product.product_name %} to our machine
@@ -100,9 +105,9 @@ git commit -m "my snapshot"
 git push --set-upstream origin my-branch
 ```
 
-### Example: Start a new repository and publish it to {% data variables.product.product_name %}
+### 例: 新しいリポジトリを開始し、{% data variables.product.product_name %} に公開する
 
-First, you will need to create a new repository on {% data variables.product.product_name %}. For more information, see "[Hello World](/get-started/quickstart/hello-world)." **Do not** initialize the repository with a README, .gitignore or License file. This empty repository will await your code.
+まず、{% data variables.product.product_name %} に新しいリポジトリを作成する必要があります。 詳細については、「[Hello World](/get-started/quickstart/hello-world)」を参照してください。 README、.gitignore、またはライセンス ファイル付きでリポジトリを初期化 **しないでください**。 この空のリポジトリで、コードを管理します。
 
 ```bash
 # create a new directory, and initialize it with git-specific functions
@@ -127,9 +132,9 @@ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
 git push --set-upstream origin main
 ```
 
-### Example: contribute to an existing branch on {% data variables.product.product_name %}
+### 例: {% data variables.product.product_name %} の既存のブランチに寄与する
 
-This example assumes that you already have a project called `repo` on the machine and that a new branch has been pushed to {% data variables.product.product_name %} since the last time changes were made locally.
+この例では、マシン上に `repo` というプロジェクトが既にあり、ローカルで最後に変更が加えられてから新しいブランチが {% data variables.product.product_name %} にプッシュされたと仮定しています。
 
 ```bash
 # change into the `repo` directory
@@ -153,27 +158,27 @@ git commit -m "edit file1"
 git push
 ```
 
-## Models for collaborative development
+## 共同開発のモデル
 
-There are two primary ways people collaborate on {% data variables.product.product_name %}:
+{% data variables.product.product_name %} で共同作業を行うには、主に 2 つの方法があります。
 
-1. Shared repository
-2. Fork and pull
+1. 共有リポジトリ
+2. フォークとプル
 
-With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches, helps teams progress quickly when they adopt {% data variables.product.product_name %}.
+共有リポジトリでは、個人とチームは、読み取り、書き込み、または管理者アクセス権を持つ共同作成者として明示的に指定されます。 この単純なアクセス許可構造と保護されたブランチなどの機能が組み合わされ、チームへの {% data variables.product.product_name %} の採用を促進するのに役立ちます。
 
-For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under a developer's personal account. Every developer has full control of their fork and is free to implement a fix or a new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they're merged. For more information, see "[Contributing to projects](/get-started/quickstart/contributing-to-projects)."
+オープンソース プロジェクトや、誰でも寄与できるプロジェクトでは、個々のアクセス許可の管理は困難です。ただし、フォークとプル モデルでは、プロジェクトを見ることができるユーザーは誰でも寄与することができます。 フォークとは、開発者の個人アカウントで行ったプロジェクトのコピーのことです。 すべての開発者は自分のフォークを完全にコントロールすることができ、修正や新しい機能を自由に実装できます。 フォークで完了した作業は、個別に保持されるか、pull request を介して元のプロジェクトに戻されて提示されます。 そこで、メンテナンス管理者はマージされる前に、提案された変更を確認できます。 詳細については、「[プロジェクトに貢献する](/get-started/quickstart/contributing-to-projects)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-The {% data variables.product.product_name %} team has created a library of educational videos and guides to help users continue to develop their skills and build better software.
+{% data variables.product.product_name %} チームは、ユーザーがスキルを伸ばし続け、より良いソフトウェアを構築できるよう、教育用ビデオとガイドのライブラリを作成しました。
 
-- [Beginner projects to explore](https://github.com/showcases/great-for-new-contributors)
-- [{% data variables.product.product_name %} video guides](https://youtube.com/githubguides)
+- [探索のための初心者向けプロジェクト](https://github.com/showcases/great-for-new-contributors)
+- [{% data variables.product.product_name %} ビデオ ガイド](https://youtube.com/githubguides)
 
-For a detailed look at Git practices, the videos below show how to get the most out of some Git commands.
+Git のプラクティスの詳細については、次のビデオで Git コマンドのいくつかを最大限に活用する方法が示されています。
 
-- [Working locally](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [ローカルでの作業](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
 - [`git status`](https://www.youtube.com/watch?v=SxmveNrZb5k&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4&index=3)
-- [Two-step commits](https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
-- [`git pull` and `git push`](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [2 段階コミット](https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
+- [[](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4) および `git push`](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)

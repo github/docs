@@ -1,72 +1,92 @@
----
 date: '2021-03-02'
-intro: '{% data variables.product.prodname_ghe_server %} 3.0以降では最小のインフラストラクチャの要件が増加されました。詳しい情報については「[GitHub Enterprise Server 3.0以降に対する最小要件について](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)」を参照してください。'
+intro: "{% data variables.product.prodname_ghe_server %} 3.0 以降の最小インフラストラクチャ要件が増加しました。詳しい情報については、「GitHub Enterprise Server 3.0 以降の最小要件について」 (/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later) を参照してください。"
 sections:
   security_fixes:
-    - '**高:** 特別な細工が行われたPull RequestやREST APIのリクエストを通じて、認可されていないリポジトリへの書き込みアクセスを、インスタンスの認証されたユーザが取得できてしまう、不適切なアクセス制御の脆弱性がGitHub Enterprise Serverで特定されました。攻撃者はターゲットのリポジトリをフォークできなければなりませんが、これはOrganizationが所有しているプライベートリポジトリではデフォルトで無効化されている設定です。必須のPull Requestレビューやステータスチェックといったブランチ保護で、さらなるレビューや検証なしに未認可のコミットがマージされることは避けられます。この脆弱性にはCVE-2021-22861が割り当てられました。この問題は、[GitHub Bug Bounty Program](https://bounty.github.com)を通じて報告されました。'
-    - '**高:** 適切な認可なしに、Pull Requestのメンテナのコラボレーション権限を修正できる、不適切なアクセス制御の脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性を突くことで、攻撃者は自分がメンテナになっているリポジトリでオープンされたPull Requestのheadブランチへのアクセスを得ることができます。Organizationが所有するプライベートリポジトリではフォークがデフォルトで無効になっており、この脆弱性を避けることができます。加えて、必須のPull Requestレビューやステータスチェックといったブランチ保護で、さらなるレビューや検証なしに未認可のコミットがマージされることは避けられます。この脆弱性にはCVE-2021-22863が割り当てられました。この問題は、[GitHub Bug Bounty Program](https://bounty.github.com)を通じて報告されました。'
-    - '**高:** リポジトリをフォークできる認証されたユーザが、フォークの親リポジトリのActionsのシークレットを開示できてしまう、不適切なアクセス制御の脆弱性がGitHub Enterprise Serverで特定されました。この脆弱性が存在したのは、任意のSHAもしくはフォークリポジトリ外の他のPull Requestの時点まで、Pull Requestのベース参照を更新できる欠陥のためです。PR内のこの正しくない参照を確立することによって、フォークからワークフローに送信されるActionsのシークレットを限定する制限がバイパスされることがありました。この脆弱性は、GitHub Enterprise Serverのバージョン3.0.0、3.0.0.rc2、3.0.0.rc1に影響するもので、CVE-2021-22862が割り当てられました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告されました。'
-    - '**中:** GitHub PagesのビルドからのGitHubトークンがログに残ることがあります。'
-    - 'パッケージは最新のセキュリティバージョンにアップデートされました。'
+    - '**高:** GitHub Enterprise Server で不適切なアクセス制御の脆弱性が確認されました。この脆弱性により、インスタンスの認証されたユーザーが、特別に作成された pull request と REST API 要求を介して、承認されていないリポジトリへの書き込みアクセス権を取得できていました。攻撃者は、標的のリポジトリをフォークできる必要があります。この設定は、Organization が所有するプライベート リポジトリに対して既定で無効になっています。必要な pull request のレビューまたは状態チェックなどのブランチ保護により、承認されていないコミットが、さらにレビューや検証が行われることなくマージされるのを防止できます。この脆弱性には、CVE-2021-22861 が割り当てられました。この問題は、"GitHub Bug Bounty プログラム" (https://bounty.github.com) を通じて報告されました。'
+    - '**高:** GitHub Enterprise Server GraphQL API で不適切なアクセス制御の脆弱性が確認されました。この脆弱性により、インスタンスの認証されたユーザーが、適切な承認を得ずに、pull request のメンテナ コラボレーション アクセス許可を変更できていました。攻撃者はこの脆弱性を悪用して、自分がメンテナになっているリポジトリでオープンされた pull request のヘッド ブランチへのアクセス権を取得できます。フォークは、Organization が所有するプライベート リポジトリに対して既定で無効になっており、この脆弱性を回避できます。加えて、必要な pull request のレビューまたは状態チェックなどのブランチ保護により、承認されていないコミットが、さらにレビューや検証が行われることなくマージされるのを防止できます。この脆弱性には、CVE-2021-22863 が割り当てられました。この問題は、"GitHub Bug Bounty プログラム" (https://bounty.github.com) を通じて報告されました。'
+    - '**高:** GitHub Enterprise Server で不適切なアクセス制御の脆弱性が確認されました。この脆弱性により、リポジトリをフォークできる認証されたユーザーが、フォークの親リポジトリの Actions シークレットを開示できていました。この脆弱性が存在したのは、pull request のベース参照を、フォーク リポジトリの外部にある任意の SHA または別の pull request を指すように更新できるという欠陥のためです。PR でこの誤った参照を確立することによって、フォークからワークフローに送信される Actions シークレットを限定する制限を回避できます。この脆弱性は、GitHub Enterprise Server のバージョン 3.0.0、3.0.0.rc2、3.0.0.rc1 に影響を与え、CVE-2021-22862 が割り当てられました。この脆弱性は、GitHub Bug Bounty プログラムを通じて報告されました。'
+    - '**中:** GitHub Pages のビルドからの GitHub トークンがログに残ることがありました。'
+    - 'パッケージは最新のセキュリティ バージョンに更新されました。'
   bugs:
-    - 'ロードバランサーのヘルスチェックによって、babeldのログがPROXYプロトコルに関するエラーで埋め尽くされてしまうことがあります。'
-    - 'HTTPヘッダが、アーカイブに対する304ステータスのような特定のレスポンスにおいてHTTP RFC標準に準拠していませんでした。'
-    - '依存関係グラフの機能が有効化されたPythonのリポジトリをホストするインスタンスにおいて、ルートディスクがエラーログで埋め尽くされてしまい、インスタンスが応答しなくなることがありました。'
-    - 'GitHub Enterprise Backup Utilitiesがスナップショットを取る際に、情報提供のメッセージが意図せずエラーとして記録され、そのためにcronジョブによってスケジュールされたstderrへの出力を待ち受けているバックアップの際に、不要なメールが送信されてしまいます。'
-    - 'VMWare ESX 6.7において、初期の設定がホストのキーを生成する際にハングし、そのインスタンスがSSHでアクセスできなくなってしまうことがありました。'
-    - 'GitHub Actionsが有効化されていると、管理コンソールでメンテナンスモードの無効化に失敗します。'
-    - 'パッケージ作成の設定がOrganizationメンバーの設定ページに表示されますが、この機能はまだ利用できません。'
-    - 'Security & AnalysisページでSecret Scanningを有効化する際に、ダイアログが誤ってプライベートリポジトリに触れます。'
-    - 'Wikiページを編集する際に、保存ボタンをクリックすると500エラーが返されることがあります。'
-    - 'サブジェクトの別名に複数の名前がある証明書を使ってS/MIME署名されたコミットで、誤ってコミットバッジに"Unverified"と表示されます。'
-    - 'LDAP認証を設定されたインスタンス上でGitの操作を実行したユーザに500エラーが返されました。'
-    - 'サスペンドされたユーザがTeamに追加されると、メールが送信されます。'
-    - 'リポジトリが大量のマニフェストを持っていると、`You have reached the maximum number of allowed manifest files (20) for this repository`というエラーがInsights -> Dependency graphタブに表示されます。詳しい情報については[可視化の制限](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data)を参照してください。'
-    - '所有するリポジトリでActionsが有効化されていなくても、ユーザにCode Scanning CodeQL Actionをセットアップするオプションが表示されてしまうのを修正しました。'
-    - 'Enterpriseアカウント設定にある"Prevent repository admins from changing anonymous Git read access"チェックボックスが、正常に有効化または無効化できませんでした。'
-    - '須のメッセージを表示するために使われるモーダルに垂直スクロールバーが含まれず、長いメッセージをすべて見ることができませんでした。'
-    - 'ハードリブートやアプリケーションのクラッシュ後に、Redisの起動に失敗することがあります。'
-    - '依存関係グラフがPythonの`setup.py`マニフェストファイルのパースに失敗し、HTTP 500エラーがログに残されます。これが重複されるロギングの問題と組み合わさると、ルートボリュームの使用率が増大します。'
+    - 'ロードバランサーの正常性チェックによって、babeld のログが PROXY プロトコルに関するエラーでいっぱいになることがありました。'
+    - 'HTTP ヘッダーが、アーカイブに対する 304 ステータスなどの特定の応答で HTTP RFC 標準に準拠していませんでした。'
+    - '依存関係グラフ機能が有効化された Python リポジトリをホストするインスタンスで、ルート ディスクがエラー ログでいっぱいになるためにインスタンスが応答しなくなることがありました。'
+    - 'GitHub Enterprise Backup Utilities でスナップショットを取る際に、情報メッセージが誤ってエラーとしてログに記録され、その結果、stderr への出力をリッスンする cron ジョブによってバックアップがスケジュールされた場合、不要なメールが送信されてしまいました。'
+    - 'VMWare ESX 6.7 で、ホスト キーの作成中に初期構成がハングし、SSH 経由でインスタンスにアクセスできなくなることがありました。'
+    - 'GitHub Actions が有効になっている場合、管理コンソールでメンテナンス モードを無効にできませんでした。'
+    - 'Organization メンバーの設定ページに [パッケージの作成] 設定が表示されていましたが、この機能はまだ利用できません。'
+    - '[セキュリティと分析] ページでシークレット スキャンを有効にすると、ダイアログにプライベート リポジトリが誤って記載されます。'
+    - 'Wiki ページを編集しているときに [保存] ボタンをクリックすると、500 エラーが発生することがありました。'
+    - 'サブジェクトの別名に複数の名前がある証明書を使用した S/MIME 署名されたコミットで、コミット バッジに "Unverified" と誤って表示されます。'
+    - 'LDAP 認証で構成されたインスタンスで Git 操作を実行すると、ユーザーに 500 エラーが表示されました。'
+    - 'Team に追加されると、一時停止されたユーザーにメールが送信されます。'
+    - 'リポジトリに多数のマニフェストがある場合、[インサイト] -> [依存関係グラフ] タブに、"このリポジトリで許可されているマニフェスト ファイルの最大数 (20) に達しました。" というエラーが表示されました。詳しい情報については、「視覚化の制限」 (https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data) を参照してください。'
+    - 'リポジトリで Actions が有効になっていない場合でも、コード スキャン CodeQL アクションを設定するオプションがユーザーに表示される問題を修正しました。'
+    - 'Enterprise アカウント設定で利用可能な [リポジトリ管理者が匿名 Git 読み取りアクセスを変更できないようにする] チェックボックスを有効または無効にできませんでした。'
+    - '必須メッセージを表示するために使用されるモーダルには、垂直スクロールバーが含まれていませんでした。これは、長いメッセージを完全に表示できなかったことを意味します。'
+    - 'ハード リブートまたはアプリケーション クラッシュの後、Redis の起動に失敗することがあります。'
+    - '依存関係グラフが Python マニフェスト ファイル ''setup.py'' の解析に失敗し、ログに HTTP 500 エラーが記録されます。これが重複したログの問題と合わさって、ルート ボリュームの使用率が増加します。'
   changes:
-    - '複数のユーザが同じアーカイブを並行してダウンロードするリクエストが処理され、パフォーマンスが向上します。'
+    - '複数のユーザーが同じアーカイブをダウンロードしているときに同時に要求を満たし、パフォーマンスを向上させます。'
   known_issues:
-    - '新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。'
-    - 'カスタムのファイアウォールのルールは、アップグレードの際に維持されません。'
-    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。'
-    - '同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。'
-    - 'GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。'
-    - 'メンテナンスモードが有効化されているとき、サービスの中に引き続き"active processes"としてリストされるものがあります。特定されたサービスは、メンテナンスモード中にも実行されることが期待されるものです。この問題が生じており、不確実な場合は[GitHub Enterprise Support](https://support.github.com/contact)にお問い合わせください。'
-    - '`/var/log/messages`、`/var/log/syslog`、`/var/log/user.log`への重複したロギングによって、ルートボリュームの使用率が増大します。'
-    - 'ユーザが、すべてのチェックボックスをチェックすることなく必須のメッセージを閉じることができます。'
-    - '[pre-receiveフックスクリプト](/admin/policies/enforcing-policy-with-pre-receive-hooks)は一時ファイルを書くことができず、そのためにスクリプトの実行が失敗することがあります。pre-receiveフックを使うユーザは、ステージング環境でスクリプトが書き込みアクセス権を必要とするかを確認するためのテストをするべきです。'
-    - 'リポジトリの[デプロイキー](/developers/overview/managing-deploy-keys)が、LFSオブジェクトを含むリポジトリで使用できません。'
-    - ノートブックに非ASCIIのUTF-8文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。
-    - 'Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。'
-    - '依存関係グラフがJavaScriptの`yarn.lock`マニフェストファイルのパースに失敗し、ログにHTTP 500エラーが残ります。'
-    - '以前のGitHub Enterprise Serverのリリースからアップグレードされた、カスタムのタイムゾーンを持つインスタンスは、Web UIに不正確なタイムスタンプがあることがあります。'
-    - 'Pagesの古いビルドがクリーンアップされず、ユーザディスク(`/data/user/`)を使い切ってしまうことがあります。'
-    - 'Pull Requestをマージした後にブランチを削除すると、ブランチの削除は成功しているにもかかわらずエラーメッセージが表示されます。'
-    - |
-      ユーザは、アバターのようなアセットがロードされないことや、コードのプッシュ/プルの失敗を体験するかもしれません。これは、`haproxy-cluster-proxy`サービス内のPIDミスマッチによって生じることがあります。影響されたインスタンスがあるかは、以下のようにして判断します。
+    - '新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。'
+    - 'Git LFS 追跡ファイル ("Web インターフェイスからアップロードされたファイル" (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。'
+    - '同じリポジトリ内の BLOB へのパーマリンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。'
+    - 'GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートおよび内部リポジトリの issue は GitHub.com の検索結果に含まれません。'
+    - 'メンテナンス モードが有効な場合、一部のサービスが、"アクティブ プロセス" として一覧表示されます。特定されたサービスは、メンテナンス モードで実行される可能性もあります。この問題が発生し、不安な場合は、"GitHub Enterprise Support" (https://support.github.com/contact) にお問い合わせください。'
+    - '''/var/log/messages''、''/var/log/syslog''、''/var/log/user.log'' への重複ログにより、ルート ボリュームの使用率が増加します。'
+    - 'ユーザーは、すべてのチェックボックスをオンにすることなく必須メッセージを閉じることができます。'
+    - '"pre-receive フック スクリプト" (/admin/policies/enforcing-policy-with-pre-receive-hooks) で一時ファイルに書き込むことができないため、スクリプトの実行に失敗する場合があります。pre-receive フックを使用するユーザーは、ステージング環境でテストして、スクリプトに書き込みアクセスが必要であるかどうかを確認する必要があります。'
+    - 'リポジトリの "デプロイ キー" (/developers/overview/managing-deploy-keys) は、LFS オブジェクトを含むリポジトリで使用することはできません。'
+    - ノートブックに非 ASCII UTF-8 文字が含まれている場合、Web UI での Jupyter Notebook のレンダリングが失敗することがあります。
+    - 'Web UI での reStructuredText (RST) のレンダリングが失敗し、代わりに RST マークアップ テキストがそのまま表示される場合があります。'
+    - '依存関係グラフで Javascript マニフェスト ファイル ''yarn.lock'' の解析に失敗するために、ログに HTTP 500 エラーが記録されます。'
+    - '以前のリリースの GitHub Enterprise Server からアップグレードされた、カスタム タイムゾーンを使用するインスタンスは、Web UI に不正確なタイムスタンプが含まれることがあります。'
+    - 'Pages の古いビルドがクリーンアップされていないため、ユーザー ディスク (''/data/user/'') がいっぱいになる可能性があります。'
+    - 'pull request のマージ後にブランチを削除すると、ブランチの削除は成功しますが、エラー メッセージが表示されます。'
+    - |アバターなどのアセットが読み込まれない、またはコードのプッシュ/プルに失敗するなどのエラーが発生する場合があります。これは、''haproxy-cluster-proxy'' サービスでの PID の不一致が原因で発生する可能性があります。影響を受けたインスタンスがあるかどうかを確認するには、次の手順を行います。
 
-      **単一インスタンス**
 
-      1. 以下を[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行してください:
 
-        ```
-        if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi
-        ```
+**単一インスタンス**
 
-      2. ミスマッチがあると表示されたら、インスタンスを再起動してください。
 
-      **クラスタもしくはHigh Availability構成**
 
-      1. 以下を[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行してください:
+1. "管理シェル" (https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) で次を実行します。
 
-        ```
-        ghe-cluster-each -- 'if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi'
-        ```
 
-      2. 1つ以上のノードが影響されていると表示されたら、影響されているノードを再起動してください。
-    - 'High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2.不一致があることが示された場合、インスタンスを再起動します。
+
+
+
+**クラスターまたは高可用性構成**
+
+
+
+1. "管理シェル" (https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) で次を実行します。
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2.1 つ以上のノードが影響を受けたことが示された場合、影響を受けたノードを再起動します。
+
+|
+    - '高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。'
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

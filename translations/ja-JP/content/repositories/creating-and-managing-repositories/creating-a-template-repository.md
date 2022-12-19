@@ -1,6 +1,6 @@
 ---
 title: テンプレートリポジトリを作成する
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure, branches, and files.'
+intro: 既存のリポジトリをテンプレート化して、あなたや他の人が、同じディレクトリ構造、ブランチ、ファイルを持つ新しいリポジトリ作成できるようにすることができます。
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
@@ -14,18 +14,23 @@ versions:
 topics:
   - Repositories
 shortTitle: Create a template repo
+ms.openlocfilehash: 1ae0c562f1d92e8184ae749199f609bb223748d4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132337'
 ---
-
 {% note %}
 
-**注釈**: テンプレートリポジトリには、{% data variables.large_files.product_name_short %} を使用して保存されたファイルを含めることはできません。
+**注**: テンプレート リポジトリには、{% data variables.large_files.product_name_short %} を使って保存されたファイルを含めることはできません。
 
 {% endnote %}
 
-テンプレートリポジトリを作成するには、リポジトリを作成して、そのリポジトリをテンプレート化する必要があります。 リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
+テンプレートリポジトリを作成するには、リポジトリを作成して、そのリポジトリをテンプレート化する必要があります。 リポジトリの作成の詳細については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch. They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches. 詳細は「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。
+リポジトリをテンプレートにした後は、そのリポジトリにアクセスできるすべてのユーザーが、同じディレクトリ構造とファイルを含む新しいリポジトリを、既定のブランチとして作成できます。 リポジトリに他のすべてのブランチを含めることもできます。 テンプレートから作成されたブランチには関連のない履歴があるため、pull request を作成したり、ブランチ間でマージしたりすることはできません。 詳しくは、「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」をご覧ください。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. [**Template repository**] を選択します。 ![リポジトリをテンプレート化するチェックボックス](/assets/images/help/repository/template-repository-checkbox.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. **[テンプレート リポジトリ]** を選びます。
+  ![リポジトリをテンプレートにするチェックボックス](/assets/images/help/repository/template-repository-checkbox.png)

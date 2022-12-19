@@ -17,35 +17,35 @@ topics:
   - Notifications
   - Organizations
   - Policy
-shortTitle: Restringir las notificaciones por correo electrónico
+shortTitle: Restrict email notifications
+ms.openlocfilehash: 480f587862e0618c0624eec581520343c54afa35
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060102'
 ---
-
 ## Acerca de las restricciones de correo electrónico
 
-Cuando se habilitan las notificaciones por correo electrónico restringidas en una organización, los miembros solo pueden utilizar direcciones de correco electrónico asociadas con un dominio aprobado o verificado para recibir este tipo de notificaciones sobre la actividad de la organización. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Cuando se habilitan las notificaciones por correo electrónico restringidas en una organización, los miembros solo pueden utilizar direcciones de correco electrónico asociadas con un dominio aprobado o verificado para recibir este tipo de notificaciones sobre la actividad de la organización. Para más información, vea "[Comprobación o aprobación de un dominio para la organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
-{% ifversion ghec %}
-{% note %}
+{% ifversion ghec %} {% note %}
 
-**Nota:** Para restringir las notificaciones por correo electrónico, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Nota:** Para restringir las notificaciones por correo electrónico, la organización debe usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Los colabores externos no están sujetos a las restricciones en las notificaciones por correo electrónico para los dominios verificados o aprobados. Para obtener más información sobre los colaboradores externos, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
+Los colabores externos no están sujetos a las restricciones en las notificaciones por correo electrónico para los dominios verificados o aprobados. Para más información sobre los colaboradores externos, vea "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
-Si tu organización pertenece a una cuenta empresarial, los miembros de dicha organización podrán recibir notificaciones de cualquier dominio que verifique o apruebe esta cuenta, adicionalmente a cualquier dominio que la misma organización verifique o apruebe. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
+Si tu organización pertenece a una cuenta empresarial, los miembros de dicha organización podrán recibir notificaciones de cualquier dominio que verifique o apruebe esta cuenta, adicionalmente a cualquier dominio que la misma organización verifique o apruebe. Para más información, vea "[Comprobación o aprobación de un dominio para la empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
 
 ## Restringir las notificciones por correo electrónico
 
 Antes de que puedas restringir las notificaciones por correo electrónico para tu organización, debes verificar o aprobar por lo menos un dominio para la organización o un propietario de la empresa debe haber verificado o aprobado por lo menos un dominio para la cuenta empresarial.
 
-Para obtener más información acerca de verificar y aprobar los dominios para una organización, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
+Para más información sobre cómo comprobar y aprobar dominios para una organización, vea "[Comprobación o aprobación de un dominio para la organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.restrict-email-notifications %}
-6. Haz clic en **Save ** (guardar).
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.restrict-email-notifications %}
+6. Haga clic en **Save**(Guardar).

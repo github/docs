@@ -26,32 +26,51 @@ topics:
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %} filter alerts by package, ecosystem, or manifest. You can {% endif %} sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." 
+Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} filter alerts by package, ecosystem, or manifest. You can {% endif %} sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." 
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
 You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
 ## About updates for vulnerable dependencies in your repository
 
 {% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
 
-{% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are displayed in the {% data variables.product.prodname_dependabot_alerts %} tab in order of importance, but you can sort alerts by other criteria. {% endif %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}You can sort and filter {% data variables.product.prodname_dependabot_alerts %} with the dropdown menus in the {% data variables.product.prodname_dependabot_alerts %} tab or by typing filters as `key:value` pairs into the search bar. The available filters are repository (for example, `repo:my-repository`), package (for example, `package:django`), ecosystem (for example, `ecosystem:npm`), manifest (for example, `manifest:webwolf/pom.xml`), state (for example, `is:open`), and whether an advisory has a patch (for example, `has: patch`).{% ifversion dependabot-alerts-development-label %} You can also filter alerts with dependency scope data using `scope`, for example: `scope:development` or `scope:runtime`. With `scope:development`, the list of alerts will only show dependencies used during development, not production.{% endif %}
-
 Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+
+## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+
+{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
+
+![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
 {% endif %}
+
+{% data reusables.dependabot.dependabot-alerts-filters %}
+
+In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+
+{% endif %}
+
+{% ifversion dependabot-bulk-alerts %}
+  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
+You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.
+   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 ## Supported ecosystems and manifests for dependency scope
 
-<!-- TODO: for now we'd have this table and heading as they are, but we're planning to replace this with at a later date a new heading containing all the available filters in one or more tables -->
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
 
 Alerts for packages listed as development dependencies are marked with the `Development` label on the {% data variables.product.prodname_dependabot_alerts %} page and are also available for filtering via the `scope` filter.
+
 ![Screenshot showing the "Development" label in the list of alerts](/assets/images/help/repository/dependabot-alerts-development-label.png)
 
 The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
+
 ![Screenshot showing the "Tags" section in the alert details page](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
@@ -88,24 +107,11 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 
 ## Viewing {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select the **Repository**, **Package**, **Ecosystem**, or **Manifest** dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For example, `ecosystem:npm`{% ifversion ghes < 3.7 or ghae-issue-5638 %} or `has:patch`{% endif %}{% ifversion dependabot-alerts-development-label %}, `has:patch` or `scope:development`{% endif %}. To sort alerts, select the **Sort** dropdown menu then click the option that you would like to sort by, or type `sort:` into the search bar and choose an option from the suggestions (for example, `sort:newest`).
-   
-   {% ifversion dependabot-most-important-sort-option %}
-   {% note %}
-
-   **Note:** By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
-   {% endnote %}
-
-   ![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
-   {% endif %}
-   
-   You can also click a label on an alert to only show alerts of that type.{% ifversion dependabot-alerts-development-label %} For example, clicking the `Development` label in the list of alerts will only show alerts relating to dependencies used in development, not production. For information about the list of ecosystems supported, see "[Supported ecosystems and manifests for dependency scope ](#supported-ecosystems-and-manifests-for-dependency-scope)."
-
-{% endif %}
+1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
 {%- ifversion dependabot-bulk-alerts %}
   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
    ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
@@ -138,16 +144,16 @@ For supported languages, {% data variables.product.prodname_dependabot %} detect
 ### Fixing vulnerable dependencies
 
 1. View the details for an alert. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
 1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request.
   ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
 1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
-{% elsif ghes < 3.3 or ghae %}
+{% elsif ghae %}
 1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
 {% endif %}
 1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. 
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
    Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 {% endif %}
 
@@ -162,7 +168,11 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 
 1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. Click **Dismiss alert**.
+{% else %}
+   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 {% ifversion dependabot-bulk-alerts %}
 
 ### Dismissing multiple alerts at once
@@ -182,22 +192,28 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 
 ## Viewing and updating closed alerts
 
-{% tip %}
-
-**Tip:** You can only reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
-{% endtip %}
+You can view all open alerts, and you can reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. To just view closed alerts, click **Closed**.{% ifversion dependabot-bulk-alerts %}
-  ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png){% else %}
-  ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png){% endif %}
-1. Click the alert that you would like to view or update.{% ifversion dependabot-bulk-alerts %}
-  ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png){% else %}
-  ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png){% endif %}
+1. To just view closed alerts, click **Closed**.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   {%- else %}
+   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png)
+   {%- endif %}
+1. Click the alert that you would like to view or update.
+
+   {%- ifversion dependabot-bulk-alerts %}
+   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
+   {%- else %}
+   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
 2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
-  ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
+   ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
@@ -214,3 +230,13 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
    ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}
+
+ 
+## Reviewing the audit logs for {% data variables.product.prodname_dependabot_alerts %}
+
+When a member of your organization {% ifversion not fpt %}or enterprise {% endif %}performs an action related to {% data variables.product.prodname_dependabot_alerts %}, you can review the actions in the audit log. For more information about accessing the log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log){% ifversion not fpt %}" and "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."{% else %}."{% endif %}
+{% ifversion dependabot-alerts-audit-log %}
+
+![Screenshot of the audit log showing Dependabot alerts](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
+
+Events in your audit log for {% data variables.product.prodname_dependabot_alerts %} include details such as who performed the action, what the action was, and when the action was performed. {% ifversion dependabot-alerts-audit-log %}The event also includes a link to the alert itself. When a member of your organization dismisses an alert, the event displays the dismissal reason and comment.{% endif %} For information on the {% data variables.product.prodname_dependabot_alerts %} actions, see the `repository_vulnerability_alert` category in "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions){% ifversion not fpt %}" and "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)."{% else %}."{% endif %}

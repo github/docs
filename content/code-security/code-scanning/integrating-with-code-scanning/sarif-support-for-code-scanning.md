@@ -31,7 +31,7 @@ SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https:
 
 To upload a SARIF file from a third-party static code analysis engine, you'll need to ensure that uploaded files use the SARIF 2.1.0 version. {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. For more information, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)." For more information about the SARIF 2.1.0 JSON schema, see [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json).
 
-If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %}{% ifversion codeql-runner-supported %}, using the {% data variables.product.prodname_codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% ifversion codeql-runner-supported %}, "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+If you're using {% data variables.product.prodname_actions %} with the {% data variables.code-scanning.codeql_workflow %}{% ifversion codeql-runner-supported %}, using the {% data variables.code-scanning.codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% ifversion codeql-runner-supported %}, "[Running {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
 - Using the {% data variables.product.prodname_codeql_cli %} directly, pass the `--sarif-category` argument to the `codeql database analyze` command when you generate SARIF files. For more information, see "[Configuring CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)."
@@ -45,15 +45,54 @@ If you upload a second SARIF file for a commit with the same category and from t
 
 If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
 
-## Preventing duplicate alerts using fingerprints
+## Providing data to track {% data variables.product.prodname_code_scanning %} alerts across runs
 
-Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the right line of code when files are edited.
+Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the correct line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
+ 
+### Reporting consistent filepaths
+
+The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepaths differ for the same result, each time there is a new analysis a new alert will be created, and the old one will be closed. This will cause having multiple alerts for the same result.
+
+### Including data for fingerprint generation
 
 {% data variables.product.prodname_dotcom %} uses the `partialFingerprints` property in the OASIS standard to detect when two results are logically identical. For more information, see the "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" entry in the OASIS documentation.
 
-SARIF files created by the {% data variables.product.prodname_codeql_workflow %}, {% ifversion codeql-runner-supported %}using the {% data variables.product.prodname_codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+SARIF files created by the {% data variables.code-scanning.codeql_workflow %}, {% ifversion codeql-runner-supported %}using the {% data variables.code-scanning.codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
 
 If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
+
+## Understanding rules and results
+
+SARIF files support both rules and results. The information stored in these elements is similar but serves different purposes.
+
+- Rules are an array of `reportingDescriptor` objects that are included in the `toolComponent` object. This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool.
+
+- Results are stored as a series of `result` objects under `results` in the `run` object. Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert.
+
+When you compare SARIF files generated by analyzing different codebases with the same tool and rules, you should see differences in the results of the analyses but not in the rules.
+
+## Specifying the root for source files
+
+{% data variables.product.prodname_code_scanning_capc %} interprets results that are reported with relative paths as relative to the root of the repository analyzed. If a result contains an absolute URI, the URI is converted to a relative URI. The relative URI can then be matched against a file committed to the repository.
+
+You can provide the source root for conversion from absolute to relative URIs in one of the following ways.
+
+- [`checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) input to the `github/codeql-action/analyze` action
+- `checkout_uri` parameter to the SARIF upload API endpoint. For more information, see "[{% data variables.product.prodname_code_scanning_capc %}](/rest/code-scanning#upload-an-analysis-as-sarif-data)" in the REST API documentation
+- [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the SARIF file
+
+If you provide a source root, any location of an artifact specified using an absolute URI must use the same URI scheme. If there is a mismatch between the URI scheme for the source root and one or more of the absolute URIs, the upload is rejected.
+
+For example, a SARIF file is uploaded using a source root of `file:///github/workspace`. 
+
+```
+# Conversion of absolute URIs to relative URIs for location artifacts
+
+file:///github/workspace/src/main.go -> src/main.go
+file:///tmp/go-build/tmp.go          -> file:///tmp/go-build/tmp.go
+```
+
+The file is successfully uploaded as both absolute URIs use the same URI scheme as the source root.
 
 ## Validating your SARIF file
 
@@ -66,6 +105,12 @@ You can check a SARIF file is compatible with {% data variables.product.prodname
 ## Supported SARIF output file properties
 
 If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
+
+{% note %}
+
+**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
+
+{% endnote %}
 
 Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
 
@@ -85,6 +130,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 |----|----|
 | `tool.driver` | **Required.** A `toolComponent` object that describes the analysis tool. For more information, see the [`toolComponent` object](#toolcomponent-object). |
 | `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
+| `invocation.workingDirectory.uri` | **Optional.** This field is used only when `checkout_uri` (SARIF upload API only) or `checkout_path` ({% data variables.product.prodname_actions %} only) are not provided. The value is used to convert absolute URIs used in [`physicalLocation` objects](#physicallocation-object) to relative URIs. For more information, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
 | `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
 
 ### `toolComponent` object
@@ -97,6 +143,8 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `rules[]` | **Required.** An array of `reportingDescriptor` objects that represent rules. The analysis tool uses rules to find problems in the code being analyzed. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). |
 
 ### `reportingDescriptor` object
+
+This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
 
 | Name | Description |
 |----|----|
@@ -114,6 +162,8 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 
 ### `result` object
 
+Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
 | Name | Description |
@@ -124,7 +174,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `level`| **Optional.** The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_capc %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
 | `message.text`| **Required.** A message that describes the result. {% data variables.product.prodname_code_scanning_capc %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
 | `locations[]`| **Required.** The set of locations where the result was detected up to a maximum of 10. Only one location should be included unless the problem can only be corrected by making a change at every specified location. **Note:** At least one location is required for {% data variables.product.prodname_code_scanning %} to display a result. {% data variables.product.prodname_code_scanning_capc %} will use this property to decide which file to annotate with the result. Only the first value of this array is used. All other values are ignored.
-| `partialFingerprints`| **Required.** A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_capc %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_capc %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Preventing duplicate alerts using fingerprints](#preventing-duplicate-alerts-using-fingerprints)."  **Note:** {% data variables.product.prodname_code_scanning_capc %} only uses the `primaryLocationLineHash`.
+| `partialFingerprints`| **Required.** A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_capc %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_capc %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Providing data to track code scanning alerts across runs](#providing-data-to-track-code-scanning-alerts-across-runs)."  **Note:** {% data variables.product.prodname_code_scanning_capc %} only uses the `primaryLocationLineHash`.
 | `codeFlows[].threadFlows[].locations[]`| **Optional.** An array of `location` objects for a `threadFlow` object, which describes the progress of a program through a thread of execution. A `codeFlow` object describes a pattern of code execution used to detect a result. If code flows are provided, {% data variables.product.prodname_code_scanning %} will expand code flows on {% data variables.product.prodname_dotcom %} for the relevant result. For more information, see the [`location` object](#location-object).
 | `relatedLocations[]`| A set of locations relevant to this result. {% data variables.product.prodname_code_scanning_capc %} will link to related locations when they are embedded in the result message. For more information, see the [`location` object](#location-object).
 
@@ -142,7 +192,7 @@ A location within a programming artifact, such as a file in the repository or a 
 
 | Name | Description |
 |----|----|
-| `artifactLocation.uri`| **Required.** A URI indicating the location of an artifact, usually a file either in the repository or generated during a build. If the URI is relative, it should be relative to the root of the {% data variables.product.prodname_dotcom %} repository being analyzed. For example, main.js or src/script.js are relative to the root of the repository. If the URI is absolute, {% data variables.product.prodname_code_scanning %} can use the URI to checkout the artifact and match up files in the repository. For example, `https://github.com/ghost/example/blob/00/src/promiseUtils.js`.
+| `artifactLocation.uri`| **Required.** A URI indicating the location of an artifact, usually a file either in the repository or generated during a build. For the best results we recommend that this is a relative path from the root of the GitHub repository being analyzed. For example, `src/main.js`. For more information about artifact URIs, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
 | `region.startLine` | **Required.** The line number of the first character in the region.
 | `region.startColumn` | **Required.** The column number of the first character in the region.
 | `region.endLine` | **Required.** The line number of the last character in the region.
@@ -190,7 +240,7 @@ These example SARIF output files show supported properties and example values.
 
 ### Example with minimum required properties
 
-This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties or don't include values, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}.
+This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties, omit values, or use an empty string, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}. 
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: Organization へのアクセス
-intro: 'To access an organization that you''re a member of, you must sign in to your personal account.'
+intro: 自分がメンバーになっている組織にアクセスするには、個人用アカウントにサインインする必要があります。
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization
   - /articles/cannot-log-in-that-account-is-an-organization
@@ -16,13 +16,17 @@ versions:
   ghec: '*'
 topics:
   - Accounts
+ms.openlocfilehash: 3c2e98d1b28d347ba901b6d0feed15aa54c7609c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164935'
 ---
-
 {% tip %}
 
-**ヒント:** Organization のオーナーだけが、Organization のアカウント設定を見て変更できます。
+**参考:** Organization のオーナーだけが Organization のアカウント設定を見て変更できます。
 
 {% endtip %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %}

@@ -1,8 +1,22 @@
-Utiliza `jobs.<job_id>.container` para crear un contenedor para ejecutar cualquier paso en un job que aún no especifique un contenedor. Si tienes pasos que usan tanto acciones de script como de contenedor, las acciones de contenedor se ejecutarán como contenedores hermanos en la misma red con los mismos montajes de volumen.
+---
+ms.openlocfilehash: 59a9cc8c52f8e3d28b2b392c28ef6abcb52439a9
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147718209"
+---
+Use `jobs.<job_id>.container` a fin de crear un contenedor para ejecutar cualquier paso de un trabajo que todavía no especifique un contenedor. Si tienes pasos que usan tanto acciones de script como de contenedor, las acciones de contenedor se ejecutarán como contenedores hermanos en la misma red con los mismos montajes de volumen.
 
-Si no configuras un `container`, todos los pasos se ejecutan directamente en el host especificado por `runs-on` a menos que un paso se refiera a una acción configurada para ejecutarse en un contenedor.
+Si no configura un objeto `container`, todos los pasos se ejecutarán directamente en el host especificado por `runs-on`, a menos que un paso haga referencia a una acción configurada para ejecutarse en un contenedor.
 
-### Ejemplo: Ejecutar un job dentro de un contenedor
+{% note %}
+
+**Nota:** El shell predeterminado para los pasos `run` dentro de un contenedor es `sh` en lugar de `bash`. Esto se puede invalidar con [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) o [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
+
+{% endnote %}
+
+### Ejemplo: Ejecución de un trabajo dentro de un contenedor
 
 ```yaml{:copy}
 name: CI
@@ -26,7 +40,7 @@ jobs:
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
 
-Cuando solo especificas una imagen de contenedor, puedes omitir la palabra clave `image`.
+Cuando solo especifique una imagen de contenedor, puede omitir la palabra clave `image`.
 
 ```yaml
 jobs:

@@ -1,6 +1,16 @@
+---
+ms.openlocfilehash: db4d0f2e82f8d7044c4c1c53f0ba2e19bec59dcc
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882828"
+---
 {% data reusables.profile.access_profile %}
-1. On your profile, click {% octicon "table" aria-label="The project icon" %} **Projects**. ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
-1. Click **New project**. ![新規プロジェクト](/assets/images/help/projects-v2/new-project-button.png)
-1. When prompted to select a template, click a template or, to start with an empty project, click **Table** or **Board**. Then, click **Create**.
+1. プロファイルで、{% octicon "table" aria-label="The project icon" %} **[プロジェクト]** をクリックします。
+  ![[プロジェクト] タブを示すスクリーンショット](/assets/images/help/projects-v2/tab-projects.png)
+1. **[新しいプロジェクト]** をクリックします。
+   ![新しいプロジェクト](/assets/images/help/projects-v2/new-project-button.png)
+1. テンプレートを選ぶように求められたら、テンプレートをクリックします。または、空のプロジェクトで開始するには、 **[テーブル]** または **[ボード]** をクリックします。 **[作成]** をクリックします。
 
-   ![Screenshot showing template selection modal](/assets/images/help/issues/projects-select-template.png)
+   ![テンプレート選択モーダルを示すスクリーンショット](/assets/images/help/issues/projects-select-template.png)

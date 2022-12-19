@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_codespaces %} is available for organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info-org-products %}

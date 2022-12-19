@@ -1,5 +1,13 @@
-When you enable organization discussions, you will choose a repository in the organization to be the source repository for your organization discussions. You can use an existing repository or create a repository specifically to hold your organization discussions. Discussions will appear both on the discussions page for the organization and on the discussion page for the source repository.
+---
+ms.openlocfilehash: bbc607de914bb87c81b24eaf777033bd1419edd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147409591"
+---
+Al habilitar debates de la organización, elegirás un repositorio de la organización a fin de que sea el repositorio de origen para los debates de la organización. Puedes usar un repositorio existente o crear uno específicamente para mantener debates de la organización. Los debates aparecerán en la página de debates de la organización y en la de debate del repositorio de origen.
 
-Permission to participate in or manage discussions in your organization is based on permission in the source repository. For example, a user needs write permission to the source repository in order to delete an organization discussion. This is identical to how a user needs write permission in a repository in order to delete a repository discussion.
+El permiso para participar en debates o administrarlos en tu organización se basa en el permiso en el repositorio de origen. Por ejemplo, un usuario necesita permiso de escritura en el repositorio de origen para eliminar un debate de la organización. Esto es idéntico a cómo un usuario necesita permiso de escritura en un repositorio para eliminar un debate del repositorio.
 
-You can change the source repository at any time. If you change the source repository, discussions are not transferred to the new source repository.
+Puedes cambiar el repositorio de origen en cualquier momento. Si cambias el repositorio de origen, los debates no se transfieren al nuevo repositorio de origen.

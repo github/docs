@@ -18,5 +18,11 @@ children:
   - /marketplace
   - /oauth-applications
   - /webhooks
+ms.openlocfilehash: d47b90083e59e72607472a6c217a759f590b7b80
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147066394'
 ---
 

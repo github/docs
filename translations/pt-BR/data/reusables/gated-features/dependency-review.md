@@ -1,13 +1,17 @@
-{%- ifversion fpt %}
-Dependency review is enabled on public repositories. Dependency review is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+---
+ms.openlocfilehash: 285d547af855fed298354ee62716de9e6c168608
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062968"
+---
+{%- ifversion fpt %} A revisão de dependência está habilitada em repositórios públicos. A revisão de dependência também está disponível em repositórios privados pertencentes a organizações que usam o {% data variables.product.prodname_ghe_cloud %} e que têm uma licença do {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghec %}
-Revisão de dependências está incluída em {% data variables.product.product_name %} para repositórios públicos. To use dependency review in private repositories owned by organizations, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+{%- elsif ghec %} A revisão de dependência está incluída no {% data variables.product.product_name %} em repositórios públicos. Para usar a revisão de dependência em repositórios privados pertencentes às organizações, você precisa ter uma licença do {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghes %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
+{%- elsif ghes %} A análise de dependência está disponível para repositórios pertencentes à organização no {% data variables.product.product_name %}. Esse recurso exige uma licença do {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghae %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+{%- elsif ghae %} A revisão de dependência está disponível para repositórios pertencentes à organização no {% data variables.product.product_name %}. Esse é um recurso do {% data variables.product.prodname_GH_advanced_security %} (gratuito durante a versão beta).
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

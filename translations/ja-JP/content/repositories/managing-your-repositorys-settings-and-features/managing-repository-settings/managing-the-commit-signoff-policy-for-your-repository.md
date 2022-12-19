@@ -1,24 +1,29 @@
 ---
-title: Managing the commit signoff policy for your repository
-intro: 'You can require users to automatically sign off on the commits they make to your repository using {% data variables.product.product_name %}''s web interface.'
+title: リポジトリのコミット サインオフ ポリシーの管理
+intro: 'リポジトリに対して行ったコミットを {% data variables.product.product_name %} の Web インターフェイスを使用して自動的にサインオフするようにユーザーに要求できます。'
 versions:
   feature: commit-signoffs
 permissions: Organization owners and repository administrators can require all commits to a repository to be signed off by the commit author.
 topics:
   - Repositories
-shortTitle: コミットサインオフポリシーの管理
+shortTitle: Manage the commit signoff policy
+ms.openlocfilehash: 078e80ed9f2b916c2c82b522eaad709fae5dc46c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107694'
 ---
+## コミットのサインオフについて
 
-## コミットサインオフについて
+コミット サインオフを使用すると、ユーザーは、コミットがリポジトリを管理するルールとライセンスに準拠していることを確認できます。 {% data variables.location.product_location %} の Web インターフェイスを介してコミットするユーザーに対して、個々のリポジトリで強制コミット サインオフを有効にして、コミットでのサインオフをコミット プロセスのシームレスな部分にすることができます。 リポジトリに対して強制コミット サインオフが有効になると、{% data variables.location.product_location %} の Web インターフェイスを介してそのリポジトリに対して行われたすべてのコミットが、コミット作成者によって自動的にサインオフされます。
 
-Commit signoffs enable users to affirm that a commit complies with the rules and licensing governing a repository. You can enable compulsory commit signoffs on individual repositories for users committing through {% data variables.product.product_location %}'s web interface, making signing off on a commit a seemless part of the commit process. Once compulsory commit signoffs are enabled for a repository, every commit made to that repository through {% data variables.product.product_location %}'s web interface will automatically be signed off on by the commit author.
-
-Organization owners can also enable compulsory commit signoffs at the organization level. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)."
+Organization の所有者は、Organization レベルで強制コミット サインオフを有効にすることもできます。 詳しくは、「[Organization のコミット サインオフ ポリシーの管理](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)」をご覧ください。
 
 {% data reusables.repositories.commit-signoffs %}
 
-## Enabling or disabling compulsory commit signoffs for your repository
+## リポジトリの強制コミット サインオフを有効または無効にする
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Select **Require contributors to sign off on web-based commits**. ![Webベースのコミット時のサインオフをコントリビューターに要求のスクリーンショット](/assets/images/help/repository/require-signoffs.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. **[共同作成者に Web ベースのコミットのサインオフを要求する]** を選びます。
+  ![[共同作成者に Web ベースのコミットのサインオフを要求する] のスクリーンショット](/assets/images/help/repository/require-signoffs.png)

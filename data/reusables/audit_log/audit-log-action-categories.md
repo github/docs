@@ -14,11 +14,16 @@
 {%- ifversion ghec or ghes or ghae %}
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
+{%- ifversion code-security-audit-log-events %}
+| `business_advanced_security` | Contains activities related to {% data variables.product.prodname_GH_advanced_security %} in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
+| `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an enterprise.
+{%- endif %}
+{%- ifversion code-security-audit-log-events %}
+| `business_secret_scanning_push_protection` | Contains activities related to the push protection feature of {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning_push_protection_custom_message` | Contains activities related to the custom message displayed when push protection is triggered in an enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {%- endif %}
 | `checks`   | Contains activities related to check suites and runs.
 {%- ifversion fpt or ghec %}
@@ -28,12 +33,10 @@
 {%- ifversion ghes %}
 | `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %} |
 | `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
 | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 %}
+{%- ifversion fpt or ghec or ghes %}
 | `dependabot_security_updates`   | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 | `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
 {%- endif %}
@@ -171,7 +174,8 @@
 {%- ifversion ghec or ghes or ghae %}
 | `ssh_certificate_authority` | Contains activities related to a SSH certificate authority in an organization or enterprise.
 | `ssh_certificate_requirement` | Contains activities related to requiring members use SSH certificates to access organization resources.
-{%- endif %}
+{%- endif %}{% ifversion sso-redirect %}
+| `sso_redirect` | Contains activities related to automatically redirecting users to sign in (see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)").{% endif %}
 | `staff` | Contains activities related to a site admin performing an action.
 | `team` | Contains activities related to teams in an organization.
 | `team_discussions` | Contains activities related to managing team discussions for an organization.

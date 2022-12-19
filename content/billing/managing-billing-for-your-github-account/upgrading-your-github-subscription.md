@@ -1,6 +1,6 @@
 ---
 title: Upgrading your GitHub subscription
-intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+intro: 'You can upgrade the subscription for any type of account on {% data variables.location.product_location %} at any time.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription

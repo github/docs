@@ -23,6 +23,12 @@ children:
   - /configuring-built-in-firewall-rules
   - /network-ports
   - /using-github-enterprise-server-with-a-load-balancer
-shortTitle: 配置网络设置
+shortTitle: Configure network settings
+ms.openlocfilehash: 6c6e7149a63683cf003671d37e14d39ea3ffb9af
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145098119'
 ---
 

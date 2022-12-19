@@ -1,6 +1,6 @@
 ---
 title: Managing GitHub Mobile for your enterprise
-intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.product.product_location %}.'
+intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.location.product_location %}.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
@@ -16,9 +16,9 @@ shortTitle: Manage GitHub Mobile
 
 ## About {% data variables.product.prodname_mobile %}
 
-{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.product.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
+{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.location.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
 
-You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.product.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is{% ifversion ghes > 3.3 %} enabled for people who use {% data variables.product.product_location %}.{% else %} not enabled for people who use {% data variables.product.product_location %}. To allow connection to your instance with {% data variables.product.prodname_mobile %}, you must enable the feature for your instance.{% endif %}
+You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.location.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is{% ifversion ghes > 3.3 %} enabled for people who use {% data variables.location.product_location %}.{% else %} not enabled for people who use {% data variables.location.product_location %}. To allow connection to your instance with {% data variables.product.prodname_mobile %}, you must enable the feature for your instance.{% endif %}
 
 {% ifversion ghes < 3.6 %}
 {% note %}

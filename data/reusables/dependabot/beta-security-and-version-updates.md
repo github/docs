@@ -1,4 +1,4 @@
-{% ifversion ghes > 3.2 and ghes < 3.5 %}
+{% ifversion ghes < 3.5 %}
 
 {% note %}
 {% ifversion ghes = 3.4 %}
@@ -11,7 +11,7 @@
 
 {% endif %}
 
-{% ifversion ghae-issue-5867 %}
+{% ifversion ghae = 3.4 %}
 
 {% note %}
 

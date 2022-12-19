@@ -1,43 +1,47 @@
 ---
 title: Ejecutar trabajos en un contenedor
-shortTitle: Ejecutar trabajos en un contenedor
-intro: Utiliza un contenedor para ejecutar los pasos de un job.
+shortTitle: Running jobs in a container
+intro: Usa un contenedor para ejecutar los pasos de un trabajo.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: 1ccae14ba6d242bd05dd3c8375375ef83b6c01cf
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145121034'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Resumen
+## Información general
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
-## Definir la imagen de contenedor
+## Definición de la imagen de contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-image %}
 
-## Definir las credenciales para un registro de contenedores
+## Definición de credenciales para un registro de contenedores
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-credentials %}
 
-## Utilziar variables de ambiente con un contenedor
+## Uso de variables de entorno con un contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-env %}
 
-## Exponer puertos de red en un contenedor
+## Exposición de puertos de red en un contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-ports %}
 
-## Montar volúmenes en un contenedor
+## Montaje de volúmenes en un contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-volumes %}
 
-## Configurar las opciones de recursos de contenedor
+## Establecimiento de opciones de recursos de contenedor
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
 

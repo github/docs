@@ -1,6 +1,6 @@
 ---
-title: GitHub に SSH で接続する
-intro: 'You can connect to {% data variables.product.product_name %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
+title: SSH を使用した GitHub への接続
+intro: 'セキュリティで保護されていないネットワーク経由でセキュリティで保護されたチャネルを提供する Secure Shell プロトコル (SSH) を使用して、{% data variables.product.product_name %} に接続できます。'
 redirect_from:
   - /key-setup-redirect
   - /linux-key-setup
@@ -26,5 +26,11 @@ children:
   - /testing-your-ssh-connection
   - /working-with-ssh-key-passphrases
 shortTitle: Connect with SSH
+ms.openlocfilehash: 372f67e2074d7a2b6ddfb1155fac027d8b38e141
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145115062'
 ---
 

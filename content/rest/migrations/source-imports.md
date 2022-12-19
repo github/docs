@@ -11,6 +11,8 @@ miniTocMaxHeadingLevel: 3
 
 ## About the Source imports API
 
+{% data reusables.user-settings.imports-api-classic-pat-only %}
+
 {% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. You can also create a webhook that listens for the [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) to find out the status of the import.
 
 A more detailed example can be seen in this diagram:

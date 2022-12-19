@@ -9,7 +9,7 @@
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. To upload {% data variables.product.prodname_code_scanning %} results as pull request checks, specify the pull request using the <nobr>`--ref`</nobr> flag. We recommend setting up the {% data variables.product.prodname_codeql_runner %} so that it runs on the [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) webhook event.
+2. To upload {% data variables.product.prodname_code_scanning %} results as pull request checks, specify the pull request using the <nobr>`--ref`</nobr> flag. We recommend setting up the {% data variables.code-scanning.codeql_runner %} so that it runs on the [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) webhook event.
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo

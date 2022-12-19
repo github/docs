@@ -1,0 +1,9 @@
+---
+ms.openlocfilehash: a50decbf7b52c536207be66eeaead2a4a7cfe724
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145091067"
+---
+1. **프로젝트 만들기** 를 클릭합니다.

@@ -1,4 +1,12 @@
-たとえばこのマトリックスは、マトリックス内の`os`及び`version`の各組み合わせに、`os`の値が`windows-latest`で`version`の値が`17`の場合を加えて、10個のジョブを実行します。
+---
+ms.openlocfilehash: d0e9408a29307848c49c9d0889c96b054e1d1222
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062163"
+---
+たとえば、このマトリックスでは 10 個のジョブが実行されます。マトリックス内の `os` と `version` の組み合わせごとに 1 つと、`windows-latest` の `os` 値と `17` の `version` 値のジョブです。
 
 ```yaml
 jobs:
@@ -12,7 +20,7 @@ jobs:
             version: 17
 ```
 
-マトリックス変数を指定しなければ、`include`以下のすべての設定が実行されます。 たとえば、以下のワークフローは`include`の各エントリに対応して2つのジョブを実行します。 これによって、完全にマトリックスを展開することなく、マトリックス戦略を活用できます。
+マトリックス変数を指定しない場合は、`include` の下のすべての構成が実行されます。 たとえば、次のワークフローでは、`include` エントリごとに 1 つずつ、2 つのジョブが実行されます。 これにより、マトリックスを完全に設定しなくても、マトリックス戦略を利用できます。
 
 ```yaml
 jobs:

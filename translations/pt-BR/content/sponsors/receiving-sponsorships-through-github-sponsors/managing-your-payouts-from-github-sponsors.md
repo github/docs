@@ -11,17 +11,20 @@ type: how_to
 topics:
   - Sponsors payments
   - Open Source
-shortTitle: Gerenciar pagamentos
+shortTitle: Manage payouts
+ms.openlocfilehash: 223deb6a68cbf900e985ba08e8ab3ed3eaf19238
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875570'
 ---
-
 ## Sobre pagamentos do {% data variables.product.prodname_sponsors %}
 
-Só é possível gerenciar seus pagamentos {% data variables.product.prodname_sponsors %} se você for pago por meio do Stripe Connect. Se você receber seus pagamentos na conta de pessoal patrocinada por meio de transferência ACH ou eletrônica, você não verá a aba **Pagamentos** no painel de contribuidor de código aberto. Organizações patrocinadas só podem usar o Stripe Connect para pagamentos. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_sponsors %} para contribuidores do código aberto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)".
+Só é possível gerenciar seus pagamentos {% data variables.product.prodname_sponsors %} se você for pago por meio do Stripe Connect. Se você receber seus pagamentos na conta pessoal patrocinada por meio de transferência ACH ou eletrônica, não verá a guia **Pagamentos** no painel de colaboradores de código aberto patrocinados. Organizações patrocinadas só podem usar o Stripe Connect para pagamentos. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_sponsors %} para colaboradores de código aberto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)".
 
 {% data reusables.sponsors.payout-info %}
 
 ## Visualizar e editar informações de pagamento
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-payouts-tab %}
-{% data reusables.sponsors.edit-bank-information %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-payouts-tab %} {% data reusables.sponsors.edit-bank-information %}

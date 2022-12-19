@@ -1,4 +1,12 @@
-この例では、`node-version`に対するマトリクスのエントリは、それぞれ環境変数の`site`及び`datacenter`に異なる値を使うように設定されています。 そして`Echo site details`ステップは{% raw %}`env: ${{ matrix.env }}`{% endraw %}を使ってカスタム変数を参照しています。
+---
+ms.openlocfilehash: 0e843d106ae2cdac0dbc2fc37baec5d035b6a3c2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145114166"
+---
+この例では、`node-version` のマトリックス エントリはそれぞれ、環境変数 `site` と `datacenter` に異なる値を使用するように構成されています。 次に `Echo site details` ステップでは、{% raw %}`env: ${{ matrix.env }}`{% endraw %} を使用してカスタム変数を参照します。
 
 {% raw %}
 ```yaml

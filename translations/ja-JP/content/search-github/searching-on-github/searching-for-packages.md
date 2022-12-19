@@ -13,34 +13,38 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
   - /github/searching-for-information-on-github/searching-on-github/searching-for-packages
+ms.openlocfilehash: de7a348b20f18315c58ab13b2e19f0b162b9b792
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145118894'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 ## パッケージの検索について
 
-{% data variables.product.product_name %} 全体にわたってグローバルにパッケージを検索できます。あるいは、特定の Organization のみのパッケージの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルにパッケージを検索できます。あるいは、特定の Organization のみのパッケージの検索もできます。 詳細については、「[{% data variables.product.prodname_dotcom %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
 
-{% ifversion ghes %}
-You can only search for packages on {% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
+{% ifversion ghes %} パッケージは、{% data variables.product.prodname_github_connect %} が有効になっている場合であっても、{% data variables.product.prodname_dotcom_the_website %} ではなく、{% data variables.product.product_name %} でのみ検索できます。
 {% endif %}
 
 {% data reusables.search.syntax_tips %}
 
 ## ユーザまたは Organization のパッケージ内の検索
 
-特定のユーザまたは Organization が所有するパッケージを検索するには、`user` 修飾子または `org` 修飾子を使います。
+特定のユーザーまたは Organization が所有するパッケージを見つけるには、`user` または `org` 修飾子を使用します。
 
-| 修飾子                       | サンプル                                                                                                                                                                       |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat                                         |
-| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization |
+| 修飾子        | 例
+| ------------- | -------------
+| <code>user:<em>USERNAME</em></code> | [ **`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) は、@codertocat が所有するパッケージに一致します
+| <code>org:<em>ORGNAME</em></code> | [ **`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) は、{% data variables.product.prodname_dotcom %} Organization が所有するパッケージに一致します
 
 ## パッケージの可視性によるフィルタリング
 
-パッケージがパブリックかプライベートかを基準に検索をフィルタリングするには、`is` 修飾子を使用します。
+パッケージがパブリックかプライベートかを基準に検索をフィルター処理するには、`is` 修飾子を使用します。
 
-| 修飾子          | サンプル                                                                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `is:public`  | [**is:public angular**](https://github.com/search?q=is%3Apublic+angular&type=RegistryPackages) は、「angular」という単語を含むパブリックパッケージにマッチします。 |
-| `is:private` | [**is:private php**](https://github.com/search?q=is%3Aprivate+php&type=RegistryPackages) は、「php」という単語を含むプライベートパッケージにマッチします。          |
+| 修飾子  | 例 |
+| ------------- | -------------
+| `is:public`| [**is:public angular**](https://github.com/search?q=is%3Apublic+angular&type=RegistryPackages) は、「angular」という単語を含むパブリック パッケージに一致します
+| `is:private`| [**is:private php**](https://github.com/search?q=is%3Aprivate+php&type=RegistryPackages) は、「php」という単語を含むプライベート パッケージに一致します

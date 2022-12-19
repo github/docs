@@ -1,1 +1,9 @@
-1. "{% data variables.product.prodname_secret_scanning_caps %}"の下の"Custom patterns（カスタムパターン）"の下で、 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}**New pattern（新規パターン）**{% elsif ghes = 3.2 %}**New custom pattern（新規カスタムパターン）**{% endif %}をクリックしてください。
+---
+ms.openlocfilehash: c455cfdb3706ad7173d511a2e4b4fb1ff445d648
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108814"
+---
+1. [{% data variables.product.prodname_secret_scanning_caps %}] の [カスタム パターン] で、 **[新しいパターン]** をクリックします。

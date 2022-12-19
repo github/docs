@@ -1,6 +1,5 @@
----
-#Issues 6054
-#Math support using LaTeX syntax
+# Issues 6054
+# Math support using LaTeX syntax
 versions:
   fpt: '*'
   ghec: '*'

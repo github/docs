@@ -8,31 +8,34 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: 构建和测试 .NET
+shortTitle: Build & test .NET
+ms.openlocfilehash: eadb00516976159f2efffcaa04cb4b46471c527f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063616'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
 本指南介绍如何构建、测试和发布 .NET 包。
 
-{% ifversion ghae %} 若要在 {% data variables.product.prodname_ghe_managed %} 上构建和测试 .NET 项目，需要 .NET Core SDK。 {% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 .NET Core SDK。 有关最新版软件以及 .NET Core SDK 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 自托管运行器上安装的软件](/actions/reference/specifications-for-github-hosted-runners)。
+{% ifversion ghae %} 若要在 {% data variables.product.prodname_ghe_managed %} 上构建和测试 .NET 项目，需要 .NET Core SDK。 {% data reusables.actions.self-hosted-runners-software %} {% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有一个带有预装软件的工具缓存，其中包括 .NET Core SDK。 有关最新软件和 .NET Core SDK 预安装版本的完整列表，请参阅[安装在 {% data variables.product.prodname_dotcom %} 托管的运行器上的软件](/actions/reference/specifications-for-github-hosted-runners)。
 {% endif %}
 
-## 基本要求
+## 先决条件
 
-您应该已经熟悉 YAML 语法及其如何与 {% data variables.product.prodname_actions %} 结合使用。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
+您应该已经熟悉 YAML 语法及其如何与 {% data variables.product.prodname_actions %} 结合使用。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
-建议您对 .NET Core SDK 有个基本的了解。 更多信息请参阅“[开始使用 .NET](https://dotnet.microsoft.com/learn)”。
+建议您对 .NET Core SDK 有个基本的了解。 有关详细信息，请参阅 [.NET 入门](https://dotnet.microsoft.com/learn)。
 
 ## 使用 .NET 入门工作流程
 
-{% data variables.product.prodname_dotcom %} 提供有 .NET 入门工作流程，应适合大多数 .NET 项目，本指南包括演示如何自定义此入门工作流程的示例。 更多信息请参阅 [.NET 入门工作流程](https://github.com/actions/setup-dotnet)。
+{% data variables.product.prodname_dotcom %} 提供有 .NET 入门工作流程，应适合大多数 .NET 项目，本指南包括演示如何自定义此入门工作流程的示例。 有关详细信息，请参阅 [.NET 起始工作流](https://github.com/actions/setup-dotnet)。
 
-要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
+若要快速开始，请将起始工作流添加到存储库的 `.github/workflows` 目录。
 
 ```yaml
 name: dotnet package
@@ -63,9 +66,9 @@ jobs:
 
 ## 指定 .NET 版本
 
-要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用预安装的 .NET Core SDK 版本，请使用 `setup-dotnet` 操作。 此操作从每个运行器上的工具缓存中查找特定版本的 .NET，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。
+若要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用预安装的 .NET Core SDK 版本，请使用 `setup-dotnet` 操作。 此操作从每个运行器上的工具缓存中查找特定版本的 .NET，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。
 
-`setup-dotnet` 操作是 .NET 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 .NET 行为一致。 如果使用自托管运行器，则必须安装 .NET 并将其添加到 `PATH`。 更多信息请参阅 [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) 操作。
+`setup-dotnet` 操作是 .NET 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 .NET 行为一致。 如果使用自托管运行器，则必须安装 .NET 并将其添加到 `PATH`。 有关详细信息，请参阅 [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) 一文。
 
 ### 使用多个 .NET 版本
 
@@ -95,7 +98,7 @@ jobs:
 
 ### 使用特定的 .NET 版本
 
-您可以将作业配置为使用 .NET 的特定版本，例如 3.1.3 `3.1.3`。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 .NET 3 最新的次要版本。
+可以将作业配置为使用 .NET 的特定版本，例如 `3.1.3`。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 .NET 3 最新的次要版本。
 
 ```yaml
     - name: Setup .NET 3.x
@@ -105,9 +108,9 @@ jobs:
         dotnet-version: '3.x'
 ```
 
-## 安装依赖项
+## 安装依赖关系
 
-{% data variables.product.prodname_dotcom %} 托管的运行器安装了 NuGet 软件包管理器。 在构建和测试代码之前，您可以使用 dotnet CLI 从 NuGet 软件包注册表安装依赖项。 例如，下面的 YAML 安装 `Newtonsoft` 软件包。
+{% data variables.product.prodname_dotcom %} 托管的运行器安装了 NuGet 软件包管理器。 在构建和测试代码之前，您可以使用 dotnet CLI 从 NuGet 软件包注册表安装依赖项。 例如，下面的 YAML 会安装 `Newtonsoft` 包。
 
 ```yaml
 steps:
@@ -124,9 +127,9 @@ steps:
 
 ### 缓存依赖项
 
-您可以使用唯一密钥缓存 NuGet 依赖项，以在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时恢复依赖项。 例如，下面的 YAML 安装 `Newtonsoft` 软件包。
+可使用唯一的键来缓存 NuGet 依赖项，这样就可以通过 [`cache`](https://github.com/marketplace/actions/cache) 操作还原未来工作流的依赖项。 例如，下面的 YAML 会安装 `Newtonsoft` 包。
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/guides/caching-dependencies-to-speed-up-workflows)”。
+有关详细信息，请参阅“[缓存依赖项以加快工作流](/actions/guides/caching-dependencies-to-speed-up-workflows)”。
 
 ```yaml
 steps:
@@ -148,7 +151,7 @@ steps:
 
 {% note %}
 
-**注意：**取决于依赖项的数量，使用依赖项缓存可能会更快。 有很多大型依赖项的项目应该能看到性能明显提升，因为下载所需的时间会缩短。 依赖项较少的项目可能看不到明显的性提升，甚至可能由于 NuGet 安装缓存依赖项的方式而看到性能略有下降。 性能因项目而异。
+注意：根据依赖项的数量，使用依赖项缓存可能会更快。 有很多大型依赖项的项目应该能看到性能明显提升，因为下载所需的时间会缩短。 依赖项较少的项目可能看不到明显的性提升，甚至可能由于 NuGet 安装缓存依赖项的方式而看到性能略有下降。 性能因项目而异。
 
 {% endnote %}
 
@@ -175,9 +178,9 @@ steps:
 
 ## 将工作流数据打包为构件
 
-工作流程完成后，您可以上传产生的项目进行分析。 例如，您可能需要保存日志文件、核心转储、测试结果或屏幕截图。 下面的示例演示如何使用 `upload-artifact` 操作来上传测试结果。
+工作流程完成后，您可以上传产生的项目进行分析。 例如，您可能需要保存日志文件、核心转储、测试结果或屏幕截图。 以下示例演示如何使用 `upload-artifact` 操作上传测试结果。
 
-更多信息请参阅“[使用构件持久化工作流程](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
+有关详细信息，请参阅“[使用项目持久保存工作流数据](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
 ```yaml
 name: dotnet package
@@ -213,7 +216,7 @@ jobs:
 
 ## 发布到包注册表
 
-您可以配置工作流程在 CI 测试通过后将 .NET 包发布到包注册表。 您可以使用仓库机密来存储发布二进制文件所需的任何令牌或凭据。 下面的示例使用 `dotnet core cli`创建并发布软件包到 {% data variables.product.prodname_registry %}。
+您可以配置工作流程在 CI 测试通过后将 .NET 包发布到包注册表。 您可以使用仓库机密来存储发布二进制文件所需的任何令牌或凭据。 以下示例使用 `dotnet core cli` 创建包并将其发布到 {% data variables.product.prodname_registry %}。
 
 ```yaml
 name: Upload dotnet package

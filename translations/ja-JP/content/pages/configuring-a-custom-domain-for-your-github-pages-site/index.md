@@ -22,6 +22,12 @@ children:
   - /managing-a-custom-domain-for-your-github-pages-site
   - /verifying-your-custom-domain-for-github-pages
   - /troubleshooting-custom-domains-and-github-pages
-shortTitle: カスタムドメインの設定
+shortTitle: Configure a custom domain
+ms.openlocfilehash: defe7dee85d79462ee421705ab05bb8591b7400f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140364'
 ---
 

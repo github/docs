@@ -7,9 +7,14 @@ permissions: 'Organization owners who are admins for a classroom can create and 
 redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
-shortTitle: 個人課題
+shortTitle: Individual assignment
+ms.openlocfilehash: 1ffa725be4e42695b297545f65c998b14ed8e000
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179749'
 ---
-
 ## 個人課題について
 
 {% data reusables.classroom.assignments-individual-definition %}
@@ -18,11 +23,11 @@ shortTitle: 個人課題
 
 {% data reusables.classroom.about-assignments %}
 
-個人課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
+個人課題の作成のビデオ デモについては、「[{% data variables.product.prodname_classroom %} のセットアップの基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」をご覧ください。
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## 必要な環境
+## 前提条件
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
@@ -41,7 +46,7 @@ shortTitle: 個人課題
 
 ### 課題に名前を付ける
 
-個人課題では、{% data variables.product.prodname_classroom %}はリポジトリのプレフィックスと学生の{% data variables.product.product_name %}ユーザ名から、リポジトリに名前を付けます。 デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 たとえば、課題に「assignment-1」と名付け、学生の{% data variables.product.product_name %}ユーザ名が「@octocat」である場合、「@octocat」の課題リポジトリ名は「`assignment-1-octocat`」となります。
+個人課題では、{% data variables.product.prodname_classroom %}はリポジトリのプレフィックスと学生の{% data variables.product.product_name %}ユーザ名から、リポジトリに名前を付けます。 デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 たとえば、課題に "assignment-1" という名前を付け、{% data variables.product.product_name %} での学生のユーザー名が @octocat である場合、@octocat の課題リポジトリの名前は `assignment-1-octocat` になります。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
@@ -51,9 +56,11 @@ shortTitle: 個人課題
 
 ### 課題のタイプを選択する
 
-[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Individual assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 グループ課題を作成する場合は、[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」を参照してください。
+[Individual or group assignment]\(個人またはグループの課題\) の下のドロップダウン メニューを選んで、 **[Individual assignment]\(個人課題\)** をクリックします。 課題の作成後は、課題タイプを変更できません。 グループ課題を作成する場合は、「[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」をご覧ください。
 
 ### 課題リポジトリの可視性を選択する
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
@@ -64,7 +71,7 @@ shortTitle: 個人課題
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [テンプレートリポジトリを作成する](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [統合開発環境 (IDE) を選択する](#choosing-an-integrated-development-environment-ide)
 
 ### テンプレートリポジトリを作成する
 
@@ -74,9 +81,9 @@ shortTitle: 個人課題
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Choosing an integrated development environment (IDE)
+### 統合開発環境 (IDE) を選択する
 
-{% data reusables.classroom.about-online-ides %}詳しい情報については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
+{% data reusables.classroom.about-online-ides %}詳細については、「[{% data variables.product.prodname_classroom %} と IDE の統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)」を参照してください。
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -87,7 +94,7 @@ shortTitle: 個人課題
 必要に応じて、課題を自動的に採点し、各提出物を学生と議論するための場を作成できます。
 
 - [課題を自動的にテストする](#testing-assignments-automatically)
-- [フィードバックのためにプルリクエストを作成する](#creating-a-pull-request-for-feedback)
+- [フィードバックのために pull request を作成する](#creating-a-pull-request-for-feedback)
 
 ### 課題を自動的にテストする
 
@@ -105,30 +112,30 @@ shortTitle: 個人課題
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
+課題の **[クラスルームの名簿]** タブで、学生がクラスルームに参加して課題を受け取ったか、または提出したかを確認できます。 このタブでは、学生の {% data variables.product.prodname_dotcom %} エイリアスを関連する名簿識別子にリンクしたり、その逆にリンクしたりすることもできます。{% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="個人課題" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
+  <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
+## 学生の進捗状況を監視する
+課題の概要ページには、課題の受け入れと学生の進捗状況の概要が表示されます。 課題の構成に基づいて、表示される概要情報が異なる場合があります。
 
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
--  **Accepted students**: The number of accounts have accepted this assignment.
--  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing students**: The number of students currently passing the autograding tests for this assignment.
+- **[名簿に登録された学生]** : Classroom の名簿に登録されている学生の数。
+- **[Added students]\(追加された学生\)** : 課題を受け入れていて、名簿識別子に関連付けられていない {% data variables.product.prodname_dotcom %} アカウントの数。
+-  **[Accepted students]\(受け入れた学生\)** : この課題を受け入れたアカウントの数。
+-  **[Assignment submissions]\(課題の提出\)** : 課題を提出した学生の数。 提出は、課題の期限にトリガーされます。
+-  **[Passing students]\(合格した学生\)** : 現在、この課題の自動採点テストに合格している学生の数。
 
-## 次のステップ
+## 次の手順
 
-- 課題を作成した後、学生はGitおよび{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたも学生も、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
+- 課題を作成した後、学生はGitおよび{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたも学生も、リポジトリのコミット履歴をレビューできます。 詳しくは、[{% data variables.product.prodname_dotcom %} の概要](/github/getting-started-with-github)、[リポジトリ](/repositories)、[issue と pull request での共同作業](/github/collaborating-with-issues-and-pull-requests)に関する記事をご覧ください。
 
-- 課題を完了した学生がいる場合には、その学生のリポジトリにあるファイルをレビューできます。また、学生の作業についてをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳しい情報については、「[リポジトリデータをグラフで可視化する](/github/visualizing-repository-data-with-graphs)」を参照してください。
+- 課題を完了した学生がいる場合には、その学生のリポジトリにあるファイルをレビューできます。また、学生の作業についてをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳細については、[グラフを使用したリポジトリ データの視覚化](/github/visualizing-repository-data-with-graphs)に関する記事を参照してください。
 
-- プルリクエストの内の個々のコミットや行にコメントすることで、課題にフィードバックを行うことができます。 詳しい情報については、「[プルリクエストへコメントする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)」および「[コードから Issue を開く](/github/managing-your-work-on-github/opening-an-issue-from-code)」を参照してください。 一般的なエラーに対するフィードバックを行うための、返信テンプレートの作成に関する詳しい情報については、「[返信テンプレートについて](/github/writing-on-github/about-saved-replies)」を参照してください。
+- プルリクエストの内の個々のコミットや行にコメントすることで、課題にフィードバックを行うことができます。 詳細については、「[pull request へコメントする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)」および[コードから issue を開く方法](/github/managing-your-work-on-github/opening-an-issue-from-code)に関する記事を参照してください。 返信テンプレートを作成して一般的なエラーに関するフィードバックを提供する方法の詳細については、「[返信テンプレートについて](/github/writing-on-github/about-saved-replies)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-- 「[教室や研究で{% data variables.product.prodname_dotcom %}を使う](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」
-- 「[学習管理システムを{% data variables.product.prodname_classroom %}に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)」
+- 「[教師向け {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)」
+- [学習管理システムを {% data variables.product.prodname_classroom %} に接続する](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)

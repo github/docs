@@ -1,8 +1,8 @@
 ---
 title: Configurar la autenticación y aprovisionamiento para tu empresa utilizando Okta
 shortTitle: Configure with Okta
-intro: 'Puedes utilizar Okta como un proveedor de identidad (IdP) para administrar centralmente la autenticación y aprovisionamiento de usuarios para {% data variables.product.prodname_ghe_managed %}.'
-permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
+intro: 'Puedes usar Okta como proveedor de identidades (IdP) para administrar centralmente la autenticación y el aprovisionamiento de usuarios para {% data variables.location.product_location %}.'
+permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
 redirect_from:
@@ -16,144 +16,158 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 62a1436fcedc4d90f767d0c612e70810132aff58
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192677'
 ---
-
 {% data reusables.saml.okta-ae-sso-beta %}
 
-## Acerca de SAML y SCIM con Okta
+## Acerca de la autenticación y el aprovisionamiento de usuarios con Okta
 
-Puedes utilizar Okta como un Proveedor de Identidad (IdP) para {% data variables.product.prodname_ghe_managed %}, lo cual permite que tus usuarios de Okta inicien sesión en {% data variables.product.prodname_ghe_managed %} utilizando sus credenciales de Okta.
+Puedes usar Okta como proveedor de identidades (IdP) para {% data variables.product.product_name %}, lo cual permite que tus usuarios de Okta inicien sesión en {% data variables.product.product_name %} con sus credenciales de Okta.
 
-Para utilizar Okta como tu IdP para {% data variables.product.prodname_ghe_managed %}, puedes agregar la app de {% data variables.product.prodname_ghe_managed %} a Okta, configurar Okta como tu IdP en {% data variables.product.prodname_ghe_managed %} y aprovisionar el acceso para tus usuarios y grupos de Okta.
+Para usar Okta como IdP para {% data variables.product.product_name %}, puedes agregar la aplicación de {% data variables.product.product_name %} a Okta, configurar Okta como IdP en {% data variables.product.product_name %} y aprovisionar el acceso para tus usuarios y grupos de Okta.
 
-Las siguientes características de aprovisionamiento están disponibles para todos los usuarios de Okta que asignes a tu aplicación de {% data variables.product.prodname_ghe_managed %}.
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- "[Asignación de grupos de Okta a equipos](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
 
-| Característica                    | Descripción                                                                                                                                                                         |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Subir Usuarios Nuevos             | Cuando crees un usuario nuevo en Okta, este se agregará a {% data variables.product.prodname_ghe_managed %}.                                                                      |
-| Subir Desactivaciones de Usuarios | Cuando desactivas un usuario en Okta, este suspenderá al usuario desde tu empresa en {% data variables.product.prodname_ghe_managed %}.                                           |
-| Subir Actualizaciones de Perfil   | Cuando actualices el perfil de un usuario en Okta, este actualizará los metadatos de la membrecía del usuario en tu empresa en {% data variables.product.prodname_ghe_managed %}. |
-| Reactivar Usuarios                | Cuando reactives a un usuario en Okta, este dejará de suspender al usuario en tu empresa en {% data variables.product.prodname_ghe_managed %}.                                    |
+Después de que habilites SCIM, las siguientes características de aprovisionamiento estarán disponibles para cualquier usuario al que asignes tu aplicación de {% data variables.product.product_name %} en Okta.
 
-## Agregar la aplicación {% data variables.product.prodname_ghe_managed %} en Okta
+{% data reusables.scim.ghes-beta-note %}
 
-{% data reusables.saml.okta-ae-applications-menu %}
-1. Haz clic en **Buscar en el catálogo de apps**
+Las siguientes características de aprovisionamiento están disponibles para todos los usuarios de Okta que asignes a tu aplicación de {% data variables.product.product_name %}.
 
-  !["Buscar en el catálogo de apps"](/assets/images/help/saml/okta-ae-browse-app-catalog.png)
+| Característica | Descripción |
+| --- | --- |
+| Subir Usuarios Nuevos | Cuando crees un usuario en Okta, se agregará a {% data variables.product.product_name %}. |
+| Subir Desactivaciones de Usuarios | Cuando desactives a un usuario en Okta, este suspenderá al usuario en tu empresa en {% data variables.product.product_name %}. |
+| Subir Actualizaciones de Perfil | Cuando actualices el perfil de un usuario en Okta, este actualizará los metadatos de la pertenencia del usuario en tu empresa en {% data variables.product.product_name %}. |
+| Reactivar Usuarios | Cuando reactives a un usuario en Okta, este anulará la suspensión del usuario en tu empresa en {% data variables.product.product_name %}. |
 
-1. En el campo de barra de búsqueda, teclea "GitHub AE" y luego haz clic en **GitHub AE** en los resultados.
+Para obtener más información sobre cómo administrar la identidad y el acceso de la empresa en{% data variables.location.product_location %}, consulta "[Administración de la identidad y el acceso para la empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)".
 
-  !["Resultado de búsqueda"](/assets/images/help/saml/okta-ae-search.png)
+## Requisitos previos
 
-1. Da clic en **Agregar**.
+- Para configurar la autenticación y el aprovisionamiento de usuarios para {% data variables.product.product_name %} con Okta, debes tener una cuenta y un inquilino de Okta.
 
-  !["Agregar la app de GitHub AE"](/assets/images/help/saml/okta-ae-add-github-ae.png)
+{%- ifversion scim-for-ghes %}
+- {% data reusables.saml.ghes-you-must-configure-saml-sso %} {%- endif %}
 
-1. Para la "URL Base", teclea la URL de tu empresa de {% data variables.product.prodname_ghe_managed %}.
+- {% data reusables.saml.create-a-machine-user %}
 
-  !["Configurar la URL Base"](/assets/images/help/saml/okta-ae-configure-base-url.png)
+## Adición de la aplicación {% data variables.product.product_name %} en Okta
 
-1. Haz clic en **Done** (listo).
 
-## Habilitar el SSO de SAML para {% data variables.product.prodname_ghe_managed %}
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-browse-app-catalog %} {%- ifversion ghae %}
+1. En el campo de búsqueda, escriba "GitHub AE" y, después, haga clic en **GitHub AE** en los resultados.
 
-Para habilitar el inicio de sesión único (SSO) para {% data variables.product.prodname_ghe_managed %}, debes configurar a {% data variables.product.prodname_ghe_managed %} para que utilice la URL de inicio de sesión, URL emisora y certificado público que proporcionó Okta. Puedes encontrar estos detalles en la app de "GitHub AE".
+  !["Resultado de la búsqueda"](/assets/images/help/saml/okta-ae-search.png)
+1. Haga clic en **Agregar**.
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
-1. Haz clic en **Iniciar sesión**.
+  !["Agregar aplicación GitHub AE"](/assets/images/help/saml/okta-ae-add-github-ae.png)
+1. En "URL base", escribe la URL de tu empresa en {% data variables.product.product_name %}.
 
-  ![Pestaña de inicio de sesión](/assets/images/help/saml/okta-ae-sign-on-tab.png)
+  !["Configurar la URL base"](/assets/images/help/saml/okta-ae-configure-base-url.png)
+1. Haga clic en **Done**(Listo).
+{%- elsif scim-for-ghes %}
+1. En el campo de búsqueda, escribe "GitHub Enterprise Server" y haz clic en **GitHub Enterprise Server** en los resultados.
+1. Haga clic en **Agregar**.
+1. En "URL base", escribe la URL de {% data variables.location.product_location %}.
+1. Haga clic en **Done**(Listo).
+{% endif %}
 
-1. Haz clic en **Visualizar instrucciones de configuración**.
+## Habilitación del SSO de SAML para {% data variables.product.product_name %}
 
-  ![Pestaña de inicio de sesión](/assets/images/help/saml/okta-ae-view-setup-instructions.png)
+Si quieres habilitar el inicio de sesión único (SSO) para {% data variables.product.product_name %}, debes configurar {% data variables.product.product_name %} de modo que use la URL de inicio de sesión, la URL del emisor y el certificado público que proporcionó Okta. Encontrarás estos detalles en la aplicación de Okta para {% data variables.product.product_name %}.
 
-1. Toma nota de los detalles de "URL de inicio de sesión", "Emisor" y "Certificado público".
-1. Utiliza los detalles para habilitar el SSO de SAML en tu empresa de {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% ifversion ghae %} {% data reusables.saml.okta-sign-on-tab %} {% data reusables.saml.okta-view-setup-instructions %}
+1. Toma nota de los detalles de "URL de inicio de sesión", "Emisor" y "Certificado público". 
+1. Usa los detalles para habilitar el SSO de SAML para tu empresa en {% data variables.product.product_name %}. Para más información, vea "[Configuración del inicio de sesión único de SAML para la empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
+{% elsif scim-for-ghes %} {% data reusables.saml.okta-sign-on-tab %}
+1. Usa los detalles para habilitar el SSO de SAML para {% data variables.location.product_location %}. Para más información, vea "[Configuración del inicio de sesión único de SAML para la empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
+{%- endif %}
 
 {% note %}
 
-**Nota:** Para probar tu configuración de SAML desde {% data variables.product.prodname_ghe_managed %}, tu cuenta de usuario de Okta debe asignarse a la app de {% data variables.product.prodname_ghe_managed %}.
+**Nota**: Para probar la configuración de SAML desde {% data variables.product.product_name %}, tu cuenta de usuario de Okta debe estar asignada a la aplicación de {% data variables.product.product_name %}.
 
 {% endnote %}
 
 ## Habilitar la integración con la API
 
-La app de "GitHub AE" en Okta utiliza la API de {% data variables.product.product_name %} para interactuar con t empresa para el SCIM y el SSO. Este procedimiento explica cómo habilitar y probar el acceso a la API si configuras a Okta con un token de acceso personal para {% data variables.product.prodname_ghe_managed %}.
+La aplicación de Okta usa la API REST para {% data variables.product.product_name %} para el aprovisionamiento de SCIM. Para habilitar y probar el acceso a la API, configura Okta con un {% data variables.product.pat_generic %} para {% data variables.product.product_name %}.
 
-1. En {% data variables.product.prodname_ghe_managed %}, genera un token de acceso personal con el alcance `admin:enterprise`. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
-{% data reusables.saml.okta-ae-provisioning-tab %}
-1. Da clic en **Configurar la integraciòn de la API**.
+1. En {% data variables.product.product_name %}, genera un {% data variables.product.pat_v1 %} con el ámbito `admin:enterprise`. Para obtener más información, consulta "[Creación de un {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
+1. Haga clic en **Configure API Integration** (Configurar la integración de la API).
 
-1. Selecciona **Habilitar la Integraciòn de la API**.
+1. Seleccione **Enable API integration** (Habilitar la integración con la API).
 
   ![Habilitar la integración con la API](/assets/images/help/saml/okta-ae-enable-api-integration.png)
 
-1. En el caso de un "Token de API", teclea el token de acceso personal de {% data variables.product.prodname_ghe_managed %} que generaste previamente.
+1. En "Token de API", escribe el {% data variables.product.pat_generic %} de {% data variables.product.product_name %} que generaste anteriormente.
 
-1. Haz clic en **Probar las credenciales de la API**.
+1. Haga clic en **Test API Credentials** (Probar credenciales de la API). 
 
 {% note %}
 
-**Nota:** Si ves un mensaje de `Error authenticating: No results for users returned`, confirma que habilitaste el SSO para {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Habilitar el SSO de SAML para {% data variables.product.prodname_ghe_managed %}](#enabling-saml-sso-for-github-ae)".
+**Nota**: Si se muestra `Error authenticating: No results for users returned`, confirma que has habilitado el inicio de sesión único para {% data variables.product.product_name %}. Para obtener más información, consulta "[Habilitación de SSO de SAML para {% data variables.product.product_name %}](#enabling-saml-sso-for-github-ae)".
 
 {% endnote %}
 
 ## Configurar los ajustes de aprovisionamiento de SCIM
 
-Este procedimiento demuestra cómo configurar los ajustes del SCIM para el aprovisionamiento de Okta. Estos ajustes definen qué características se utilizarán cuando aprovisiones las cuentas de usuario de Okta automáticamente en {% data variables.product.prodname_ghe_managed %}.
+Este procedimiento demuestra cómo configurar los ajustes del SCIM para el aprovisionamiento de Okta. Estos ajustes definen qué características se usarán cuando se aprovisionen cuentas de usuario de Okta automáticamente en {% data variables.product.product_name %}.
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
-{% data reusables.saml.okta-ae-provisioning-tab %}
-1. Debajo de "Ajustes", haz clic en **Hacia la app**.
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
+1. En "Settings" (Configuración), haga clic en **To App** (En la aplicación).
 
-  ![Ajustes de "A la app"](/assets/images/help/saml/okta-ae-to-app-settings.png)
+  ![Configuración de "En la aplicación"](/assets/images/help/saml/okta-ae-to-app-settings.png)
 
-1. A la derecha de "Aprovisionar a la App", da clic en **Editar**.
-1. A la derecha de "Crear Usuarios", selecciona **Habilitar**.
-1. A la derecha de "Actualizar Atributos de Usuario", selecciona **Habilitar**.
-1. A la derecha de "Desactivar Usuarios", selecciona **Habilitar**.
-1. Haz clic en **Save ** (guardar).
+1. A la derecha de "Provisioning to App" (Aprovisionamiento en aplicación), haga clic en **Edit** (Editar).
+1. A la derecha de "Create Users" (Crear usuarios), seleccione **Enable** (Habilitar).
+1. A la derecha de "Update User Attributes" (Actualizar atributos de usuario), seleccione **Enable** (Habilitar).
+1. A la derecha de "Deactivate Users" (Desactivar usuarios), seleccione **Enable** (Habilitar).
+1. Haga clic en **Save**(Guardar).
 
-## Permitir que los usuarios y grupos de Okta accedan a {% data variables.product.prodname_ghe_managed %}
+## Permiso para que los usuarios y grupos de Okta accedan a {% data variables.product.product_name %}
 
 Puedes aprovisionar el acceso a {% data variables.product.product_name %} para tus usuarios individuales de Okta o para grupos enteros.
 
 ### Aprovisionar el acceso para los usuarios de Okta
 
-Antes de que tus usuarios de Okta puedan utilizar sus credenciales para iniciar sesión en {% data variables.product.prodname_ghe_managed %}, debes asignarlos a la app de "GitHub AE" en Okta.
+Para que los usuarios de Okta puedan usar sus credenciales para iniciar sesión en {% data variables.product.product_name %}, debes asignarlos primero a la aplicación de Okta para {% data variables.product.product_name %}.
 
-{% data reusables.saml.okta-ae-applications-menu %}
-{% data reusables.saml.okta-ae-configure-app %}
+{% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %}
 
-1. Haz clic en **Asignaciones**.
+1. Haga clic en **Asignaciones**.
 
   ![Pestaña de tareas](/assets/images/help/saml/okta-ae-assignments-tab.png)
 
-1. Selecciona el menú desplegable de Asignar y haz clic en **Asignar a personas**.
+1. Seleccione el menú desplegable Assign (Asignar) y haga clic en **Assign to People** (Asignar a personas).
 
-  ![Botón de "Asignar a personas"](/assets/images/help/saml/okta-ae-assign-to-people.png)
+  ![Botón "Asignar a personas"](/assets/images/help/saml/okta-ae-assign-to-people.png)
 
-1. A la derecha de la cuenta de usuario requerida, haz clic en **Asignar**.
+1. A la derecha de la cuenta de usuario requerida, haga clic en **Assign** (Asignar).
 
   ![Lista de usuarios](/assets/images/help/saml/okta-ae-assign-user.png)
 
-1. A la derecha de "Rol", haz clic en un rol para el usuario, después, haz clic en **Guardar y regresar**.
+1. A la derecha de "Role" (Rol), haga clic en un rol para el usuario y luego en **Save and go back** (Guardar y volver).
 
   ![Selección de roles](/assets/images/help/saml/okta-ae-assign-role.png)
 
-1. Haz clic en **Done** (listo).
+1. Haga clic en **Done**(Listo).
 
+{% ifversion ghae %}
 ### Aprovisionar el acceso para grupos de Okta
 
-Puedes mapear tu grupo de Okta a un equipo en {% data variables.product.prodname_ghe_managed %}. Los miembros del grupo de Okta entonces se convertirán en miembros del equipo mapeado de {% data variables.product.prodname_ghe_managed %} automáticamente. Para obtener más información, consulta la sección "[Mapear grupos de Okta en los equipos](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".
+Puedes asignar tu grupo de Okta a un equipo en {% data variables.product.product_name %}. Los miembros del grupo de Okta se convertirán automáticamente en miembros del equipo de {% data variables.product.product_name %} asignado. Para más información, vea "[Asignación de grupos de Okta a equipos](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".
+{% endif %}
 
-## Leer más
+## Información adicional
 
-- [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) en la documentación de Okta.
-- [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) en la documentación de Okta.
+- [Descripción de SAML](https://developer.okta.com/docs/concepts/saml/) en la documentación de Okta
+- [Descripción de SCIM](https://developer.okta.com/docs/concepts/scim/) en la documentación de Okta

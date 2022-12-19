@@ -10,13 +10,19 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 976789de9da21b81c0af12e1113d32f0d8608a63
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108070'
 ---
-
 ## 关于突变
 
-每个 GraphQL 架构的查询和突变都有根类型。 [突变类型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)可定义用于更改服务器上数据的 GraphQL 操作。 此操作类似于执行 HTTP 请求方法，如 `POST`、`PATCH` 和 `DELETE`。
+每个 GraphQL 架构的查询和突变都有根类型。 [变更类型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)定义更改服务器数据的 GraphQL 操作。 类似于执行 Http 谓词，例如 `POST`、`PATCH` 和 `DELETE`。
 
-更多信息请参阅“[关于突变](/graphql/guides/forming-calls-with-graphql#about-mutations)。”
+有关详细信息，请参阅“[关于变更](/graphql/guides/forming-calls-with-graphql#about-mutations)”。
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-mutations.json -->
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

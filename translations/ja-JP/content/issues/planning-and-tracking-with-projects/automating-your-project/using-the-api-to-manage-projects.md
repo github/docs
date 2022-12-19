@@ -1,7 +1,7 @@
 ---
-title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
+title: 'API を使用して {% data variables.product.prodname_projects_v2 %} を管理する'
 shortTitle: Automating with the API
-intro: You can use the GraphQL API to automate your projects.
+intro: GraphQL API を使用して、プロジェクトを自動化できます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -11,9 +11,14 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: ab041e8473e310913eb1b794302415e9b6323e76
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169233'
 ---
-
-この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。 For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." 利用可能なデータタイプの完全なリストについては「[リファレンス](/graphql/reference)」を参照してください。
+この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。 {% data variables.product.prodname_actions %} ワークフローで API を使用する方法について詳しくは、「[Actions を使った {% data variables.product.prodname_projects_v2 %} の自動化](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)」を参照してください。 使用可能なデータ型の完全な一覧については、「[リファレンス](/graphql/reference)」を参照してください。
 
 {% data reusables.projects.graphql-deprecation %}
 
@@ -21,7 +26,7 @@ allowTitleToDifferFromFilename: true
 
 {% curl %}
 
-以下のすべてのcURLの例で、`TOKEN`を`read:projectプロジェクト`スコープ（クエリの場合）もしくは`project`スコープ（クエリ及びミューテーションの場合）を持つトークンで置き換えてください。 このトークンは、ユーザの場合は個人アクセストークンに、{% data variables.product.prodname_github_app %}の場合はインストールアクセストークンにできます。 個人アクセストークンの作成に関する詳しい情報については「[個人アクセストークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。 {% data variables.product.prodname_github_app %}のためのインストールアクセストークンの作成に関する詳しい情報については「[{% data variables.product.prodname_github_apps %}での認証](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)」を参照してください。
+次のすべての cURL の例では、`TOKEN` を、`read:project` スコープ (クエリの場合) または `project` スコープ (クエリとミューテーションの場合) を持つトークンに置き換えます。 このトークンは、ユーザーの{% data variables.product.pat_v1 %}でも、{% data variables.product.prodname_github_app %} のインストール アクセス トークンでもかまいません。 {% data variables.product.pat_generic %}の作成について詳しくは、「[{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」をご覧ください。 {% data variables.product.prodname_github_app %} のインストール アクセス トークンの作成の詳細については、「[{% data variables.product.prodname_github_apps %} を使用した認証](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)」を参照してください。
 
 {% endcurl %}
 
@@ -29,15 +34,15 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %}コマンドを実行する前に、`gh auth login --scopes "project"`を実行して認証を受けなければなりません。 読み取りだけが必要で、編集は必要ない場合、`project`の代わりに`read:project`スコープを提供することができます。 コマンドラインの認証に関する詳しい情報については「[ gh authログイン](https://cli.github.com/manual/gh_auth_login)」を参照してください。
+{% data variables.product.prodname_cli %} コマンドを実行する前に、`gh auth login --scopes "project"` を実行して認証する必要があります。 プロジェクトの読み取りだけを行い、編集を行う必要がないのであれば、`project` の代わりに `read:project` スコープを指定できます。 コマンド ライン認証の詳細については、「[gh auth login](https://cli.github.com/manual/gh_auth_login)」を参照してください。
 
 {% endcli %}
 
 {% cli %}
 
-## 変数の利用
+## 変数の使用
 
-以下のすべての例で、変数を使ってスクリプトをシンプルにできます。 数値、論理値あるいはヌルである変数を渡すには、`-F`を使ってください。 その他の変数には`-f`を使ってください。 例,
+以下のすべての例で、変数を使ってスクリプトをシンプルにできます。 数値、ブール値、または null 値である変数を渡すには、`-F` を使用ます。 その他の変数の場合は、`-f` を使用します。 たとえば、次のように入力します。
 
 ```shell
 my_org="octo-org"
@@ -52,26 +57,26 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-詳しい情報については「[GraphQLでの呼び出しの形成](/graphql/guides/forming-calls-with-graphql#working-with-variables)」を参照してください。
+詳細については、「[GraphQL での呼び出しの作成](/graphql/guides/forming-calls-with-graphql#working-with-variables)」を参照してください。
 
 {% endcli %}
 
 ## プロジェクトに関する情報を見つける
 
-プロジェクトに関するデータを取得するには、クエリを使ってください。 詳しい情報については「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
+プロジェクトに関するデータを取得するには、クエリを使ってください。 詳細については、「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
 
 ### OrganizationプロジェクトのノードIDを調べる
 
 APIを通じてプロジェクトを更新するには、プロジェクトのノードIDを知る必要があります。
 
-Organization名とプロジェクト番号が分かっていれば、OrganizationプロジェクトのノードIDを知ることができます。 `ORGANIZATION`をOrganization名で置き換えてください。 たとえば`octo-org`というようにします。 `NUMBER`をプロジェクト番号で置き換えてください。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
+Organization名とプロジェクト番号が分かっていれば、OrganizationプロジェクトのノードIDを知ることができます。 `ORGANIZATION` を自身の組織の名前に置き換えます。 たとえば、「 `octo-org` 」のように入力します。 `NUMBER` をプロジェクト番号に置き換えます。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば、`https://github.com/orgs/octo-org/projects/5` のプロジェクト番号は 5 です。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"query{organization(login: \"<em>ORGANIZATION</em>\") {projectV2(number: <em>NUMBER</em>){id}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"query{organization(login: \"ORGANIZATION\") {projectV2(number: NUMBER){id}}}"}'
 ```
 {% endcurl %}
 
@@ -79,8 +84,8 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-    organization(login: "<em>ORGANIZATION</em>"){
-      projectV2(number: <em>NUMBER</em>) {
+    organization(login: "ORGANIZATION"){
+      projectV2(number: NUMBER) {
         id
       }
     }
@@ -88,14 +93,14 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-Organization中のすべてのプロジェクトのノードIDを見つけることもできます。 以下の例は、Orgazation中の最初の20個のプロジェクトのノードIDとタイトルを返します。 `ORGANIZATION`をOrganization名で置き換えてください。 たとえば`octo-org`というようにします。
+Organization中のすべてのプロジェクトのノードIDを見つけることもできます。 以下の例は、Orgazation中の最初の20個のプロジェクトのノードIDとタイトルを返します。 `ORGANIZATION` を自身の組織の名前に置き換えます。 たとえば、「 `octo-org` 」のように入力します。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"{organization(login: \"<em>ORGANIZATION</em>\") {projectsV2(first: 20) {nodes {id title}}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"{organization(login: \"ORGANIZATION\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
 
@@ -103,7 +108,7 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-    organization(login: "<em>ORGANIZATION</em>") {
+    organization(login: "ORGANIZATION") {
       projectsV2(first: 20) {
         nodes {
           id
@@ -115,18 +120,18 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### ユーザプロジェクトのノードIDを調べる
+### ユーザプロジェクトのノードIDを調べる 
 
 APIを通じてプロジェクトを更新するには、プロジェクトのノードIDを知る必要があります。
 
-ユーザプロジェクトのノードIDは、プロジェクト番号を知っていれば見つけることができます。 `USER`を自分のユーザ名で置き換えてください。 `octocat`などです。 `NUMBER`はプロジェクト番号で置き換えてください。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば`https://github.com/users/octocat/projects/5`のプロジェクト番号は5です。
+ユーザプロジェクトのノードIDは、プロジェクト番号を知っていれば見つけることができます。 `USER` は、実際のユーザー名に置き換えます。 たとえば、「 `octocat` 」のように入力します。 `NUMBER`をプロジェクト番号に置き換えます。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば、`https://github.com/users/octocat/projects/5` のプロジェクト番号は 5 です。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"query{user(login: \"<em>USER</em>\") {projectV2(number: <em>NUMBER</em>){id}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"query{user(login: \"USER\") {projectV2(number: NUMBER){id}}}"}'
 ```
 {% endcurl %}
 
@@ -134,8 +139,8 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-    user(login: "<em>USER</em>"){
-      projectV2(number: <em>NUMBER</em>) {
+    user(login: "USER"){
+      projectV2(number: NUMBER) {
         id
       }
     }
@@ -143,14 +148,14 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-自分のすべてのプロジェクトのノードIDを知ることもできます。 以下の例では、自分の最初の20個のプロジェクトのノードIDとタイトルが返されます。 `USER`は自分のユーザ名で置き換えてください。 `octocat`などです。
+自分のすべてのプロジェクトのノードIDを知ることもできます。 以下の例では、自分の最初の20個のプロジェクトのノードIDとタイトルが返されます。 `USER` をご自分のユーザー名に置き換えます。 たとえば、`octocat` のようにします。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"{user(login: \"<em>USER</em>\") {projectsV2(first: 20) {nodes {id title}}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"{user(login: \"USER\") {projectsV2(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
 
@@ -158,7 +163,7 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-    user(login: "<em>USER</em>") {
+    user(login: "USER") {
       projectsV2(first: 20) {
         nodes {
           id
@@ -174,14 +179,14 @@ gh api graphql -f query='
 
 フィールドの値を更新するには、フィールドのノードIDを知る必要があります。 加えて、単一選択フィールドの選択肢のIDと、繰り返しフィールドの繰り返しのIDも知る必要があります。
 
-以下の例は、プロジェクト内の最初の20個のフィールドのID、名前、設定、構成を返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
+以下の例では、プロジェクト内の最初の 20 個のフィールドの ID、名前、設定、構成が返されます。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2Field { id name } ... on ProjectV2IterationField { id name configuration { iterations { startDate id }}} ... on ProjectV2SingleSelectField { id name options { id name }}}}}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2Field { id name } ... on ProjectV2IterationField { id name configuration { iterations { startDate id }}} ... on ProjectV2SingleSelectField { id name options { id name }}}}}}}"}'
 ```
 {% endcurl %}
 
@@ -189,7 +194,7 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-  node(id: "<em>PROJECT_ID</em>") {
+  node(id: "PROJECT_ID") {
     ... on ProjectV2 {
       fields(first: 20) {
         nodes {
@@ -223,7 +228,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-レスポンスは以下の例のようになります。
+応答は、次の例のようになります。
 
 ```json
 {
@@ -276,16 +281,16 @@ gh api graphql -f query='
 }
 ```
 
-各フィールドはIDと名前を持ちます。 単一選択フィールドは`ProjectV2SingleSelectField`オブジェクトとして返され、単一選択の各選択肢のIDを見つけることができる`options`フィールドがあります。 繰り返しのフィールドは`ProjectV2IterationField`オブジェクトとして返され、それぞれの繰り返しに関するIDと情報を持つ`iterations`フィールドを含む`configuration`を持っています。
+各フィールドには ID と名前があります。 単一選択フィールドは `ProjectV2SingleSelectField` オブジェクトとして返され、単一選択の各オプションの ID を見つけることができる `options` フィールドがあります。 繰り返しフィールドは `ProjectV2IterationField` オブジェクトとして返され、ID と各繰り返しに関する情報が含まれている `iterations` フィールドを含む `configuration` フィールドがあります。 
 
-フィールドのIDと名前だけが必要であり、繰り返しや単一選択フィールドの選択肢に関する情報は必要ない場合は、`ProjectV2FieldCommon`が利用できます。
+フィールドの名前と ID のみが必要で、繰り返しや単一選択フィールドのオプションに関する情報が必要ない場合は、`ProjectV2FieldCommon` オブジェクトを利用できます。 
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2FieldCommon { id name }}}}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { fields(first: 20) { nodes { ... on ProjectV2FieldCommon { id name }}}}}}"}'
 ```
 {% endcurl %}
 
@@ -293,7 +298,7 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-  node(id: "<em>PROJECT_ID</em>") {
+  node(id: "PROJECT_ID") {
     ... on ProjectV2 {
       fields(first: 20) {
         nodes {
@@ -305,11 +310,11 @@ gh api graphql -f query='
       }
     }
   }
-}
+}'
 ```
 {% endcli %}
 
-`ProjectV2FieldCommon`オブジェクトを使った場合のレスポンスは、以下の例のようになります。
+`ProjectV2FieldCommon` オブジェクトを使用する場合の応答は、次の例のようになります。
 
 ```json
 {
@@ -344,18 +349,18 @@ gh api graphql -f query='
 }
 ```
 
-### プロジェクト中のアイテムに関する情報を見つける
+### プロジェクト中のアイテムに関する情報を見つける 
 
 APIでクエリを行い、プロジェクト中のアイテムに関する情報を見つけることができます。
 
-以下の例は、プロジェクト内の先頭の20個のIssue、Pull Request、ドラフトのIssueを返します。 IssueとPull Requestについては、タイトルと先頭の10人のアサインされた人も返します。 ドラフトのIssueについては、タイトルとbodyを返します。 この例は、プロジェクトの先頭の8つのフィールドについて、フィールド名と任意のテキスト、日付、単一選択フィールドの値も返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
+次の例では、プロジェクトの最初の 20 件の issue、pull request、ドラフト issue が返されます。 issue と pull request の場合は、タイトルと最初の 10 人の担当者も返されます。 ドラフト issue の場合は、タイトルと本文が返されます。 この例では、プロジェクトの最初の 8 つのフィールドのテキスト、日付、または単一選択フィールドのフィールド名と値も返されます。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"query{ node(id: \"<em>PROJECT_ID</em>\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon {  name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon {  name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
 ```
 {% endcurl %}
 
@@ -363,7 +368,7 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   query{
-    node(id: "<em>PROJECT_ID</em>") {
+    node(id: "PROJECT_ID") {
         ... on ProjectV2 {
           items(first: 20) {
             nodes{
@@ -426,28 +431,28 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-プロジェクトは、ユーザが表示権限を持たないアイテムを含んでいることがあります。 この場合、アイテムタイプは`REDACTED`として返されます。
+プロジェクトは、ユーザが表示権限を持たないアイテムを含んでいることがあります。 この場合、アイテムの種類は `REDACTED` として返されます。
 
-## プロジェクトの更新
+## プロジェクトの更新 
 
-プロジェクトを更新するには、ミューテーションを使ってください。 詳しい情報については「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
+プロジェクトを更新するには、ミューテーションを使ってください。 詳細については、「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
 
 {% note %}
 
-**ノート:** 同じ呼び出し中で、アイテムを追加して更新することはできません。 アイテムを追加するために`addProjectV2ItemById`を使い、続いてアイテムを更新するために`updateProjectV2ItemFieldValue`を使わなければなりません。
+**注:** 同じ呼び出しで項目を追加および更新することはできません。 `addProjectV2ItemById` を使用して項目を追加してから、`updateProjectV2ItemFieldValue` を使用して項目を更新する必要があります。
 
 {% endnote %}
 
 ### プロジェクトへのアイテムの追加
 
-以下の例は、プロジェクトにIssueあるいはPull Requestを追加します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `CONTENT_ID`を、追加したいIssueあるいはPull RequestのノードIDで置き換えてください。
+以下の例は、プロジェクトにIssueあるいはPull Requestを追加します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `CONTENT_ID` は、追加する Issue または Pull Request のノード ID に置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {addProjectV2ItemById(input: {projectId: \"<em>PROJECT_ID</em>\" contentId: \"<em>CONTENT_ID</em>\"}) {item {id}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"mutation {addProjectV2ItemById(input: {projectId: \"PROJECT_ID\" contentId: \"CONTENT_ID\"}) {item {id}}}"}'
 ```
 {% endcurl %}
 
@@ -455,7 +460,7 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   mutation {
-    addProjectV2ItemById(input: {projectId: "<em>PROJECT_ID</em>" contentId: "<em>CONTENT_ID</em>"}) {
+    addProjectV2ItemById(input: {projectId: "PROJECT_ID" contentId: "CONTENT_ID"}) {
       item {
         id
       }
@@ -480,16 +485,16 @@ gh api graphql -f query='
 
 既に存在しているアイテムを追加しようとすると、代わりに既存のアイテムのIDが返されます。
 
-### プロジェクトへのドラフトIssueの追加
+### プロジェクトへのドラフト issue の追加
 
-以下の例は、プロジェクトにドラフトのIssueを追加します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `TITLE`と`BODY`を、新しいドラフトのIssueに設定したい内容で置き換えてください。
+次の例では、プロジェクトにドラフト issue を追加します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `TITLE` と `BODY` は、新しいドラフト issue に必要なコンテンツに置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {item {id}}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"mutation {addProjectV2DraftIssue(input: {projectId: \"PROJECT_ID\" title: \"TITLE\" body: \"BODY\"}) {projectItem {id}}}"}'
 ```
 {% endcurl %}
 
@@ -497,8 +502,8 @@ curl --request POST \
 ```shell
 gh api graphql -f query='
   mutation {
-    addProjectV2DraftIssue(input: {projectId: "<em>PROJECT_ID</em>" title: "<em>TITLE</em>" body: "<em>BODY</em>"}) {
-      item {
+    addProjectV2DraftIssue(input: {projectId: "PROJECT_ID" title: "TITLE" body: "BODY"}) {
+      projectItem {
         id
       }
     }
@@ -506,13 +511,13 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-レスポンスには、新たに作成されたドラフトのIssueのノードIDが含まれます。
+応答には、新しく作成されたドラフト issue のノード ID が含まれます。
 
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
-      "item": {
+    "addProjectV2DraftIssue": {
+      "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
     }
@@ -520,16 +525,16 @@ gh api graphql -f query='
 }
 ```
 
-### プロジェクトの設定の更新
+### プロジェクトの設定の更新 
 
-以下の例は、プロジェクトの設定を更新します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 プロジェクトを{% data variables.product.product_name %}上でパブリックにするために、`public`を`true`に設定してください。 プロジェクトのREADMEに変更を加えるため、`readme`を変更してください。
+以下の例は、プロジェクトの設定を更新します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `public` を `true` に設定し、{% data variables.product.product_name %} でプロジェクトをパブリックにします。 `readme` を変更し、プロジェクトの README に変更を加えます。
 
 {% curl %}
 ```shell
 curl --request POST \
 --url https://api.github.com/graphql \
---header 'Authorization: token <em>TOKEN</em>' \
---data '{"query":"mutation { updateProjectV2(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, readme: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectV2 { id, title, readme, shortDescription }}}"}'
+--header 'Authorization: Bearer TOKEN' \
+--data '{"query":"mutation { updateProjectV2(input: { projectId: \"PROJECT_ID\", title: \"Project title\", public: false, readme: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectV2 { id, title, readme, shortDescription }}}"}'
 ```
 {% endcurl %}
 
@@ -539,7 +544,7 @@ gh api graphql -f query='
   mutation {
     updateProjectV2(
       input: {
-        projectId: "<em>PROJECT_ID</em>", 
+        projectId: "PROJECT_ID", 
         title: "Project title",
         public: false,
         readme: "# Project README\n\nA long description",
@@ -557,16 +562,16 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### カスタムのテキスト、数値、日付フィールドの更新
+### カスタムのテキスト、数値、日付フィールドの更新 
 
-以下の例は、アイテムのテキストフィールドの値を更新します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `ITEM_ID`を、更新したいアイテムのノードIDで置き換えてください。 `FIELD_ID`を、更新したいフィールドのIDで置き換えてください。
+以下の例では、アイテムのテキスト フィールドの値を更新します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `ITEM_ID` は、更新する項目のノード ID に置き換えます。 `FIELD_ID` は、更新するフィールドの ID に置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { text: "Updated text" }}) { projectV2Item { id }}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { text: \"Updated text\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 
@@ -576,9 +581,9 @@ gh api graphql -f query='
   mutation {
     updateProjectV2ItemFieldValue(
       input: {
-        projectId: "<em>PROJECT_ID</em>"
-        itemId: "<em>ITEM_ID</em>"
-        fieldId: "<em>FIELD_ID</em>"
+        projectId: "PROJECT_ID"
+        itemId: "ITEM_ID"
+        fieldId: "FIELD_ID"
         value: { 
           text: "Updated text"        
         }
@@ -594,7 +599,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**ノート:** ` updateProjectV2ItemFieldValue `を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 その代わりに、以下のミューテーションを利用できます。
+**注:** `updateProjectV2ItemFieldValue` を使用して `Assignees`、`Labels`、`Milestone`、`Repository` を変更することはできません。これらのフィールドは、プロジェクト項目ではなく、Pull Request と Issue のプロパティであるためです。 代わりに、次のミューテーションを使用できます。
 
 - [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
 - [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
@@ -610,17 +615,17 @@ gh api graphql -f query='
 
 以下の例は、アイテムの単一選択フィールドの値を更新します。
 
-- `PROJECT_ID` - プロジェクトのノードIDで置き換えてください。
-- `ITEM_ID` - 更新したいアイテムのノードIDで置き換えてください。
-- `FIELD_ID` -  更新したい単一選択フィールドのIDで置き換えてください。
-- `OPTION_ID` - 希望する単一選択の選択肢のIDで置き換えてください。
+- `PROJECT_ID` - これをプロジェクトのノード ID に置き換えます。
+- `ITEM_ID` - これを、更新する項目のノード ID に置き換えます。
+- `FIELD_ID` - これを、更新する単一選択フィールドの ID に置き換えます。
+- `OPTION_ID` - これを、目的の単一選択オプションの ID に置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { singleSelectOptionId: "<em>OPTION_ID</em>" }}) { projectV2Item { id }}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 
@@ -630,11 +635,11 @@ gh api graphql -f query='
   mutation {
     updateProjectV2ItemFieldValue(
       input: {
-        projectId: "<em>PROJECT_ID</em>"
-        itemId: "<em>ITEM_ID</em>"
-        fieldId: "<em>FIELD_ID</em>"
+        projectId: "PROJECT_ID"
+        itemId: "ITEM_ID"
+        fieldId: "FIELD_ID"
         value: { 
-          singleSelectOptionId: "<em>OPTION_ID</em>"        
+          singleSelectOptionId: "OPTION_ID"        
         }
       }
     ) {
@@ -650,17 +655,17 @@ gh api graphql -f query='
 
 以下の例は、アイテムの繰り返しフィールドの値を更新します。
 
-- `PROJECT_ID` - プロジェクトのノードIDで置き換えてください。
-- `ITEM_ID` - 更新したいアイテムのノードIDで置き換えてください。
-- `FIELD_ID` -  更新したい繰り返しフィールドのIDで置き換えてください。
-- `ITERATION_ID` - 希望する繰り返しのIDで置き換えてください。 これは、アクティブな繰り返しでも完了した繰り返しでもかまいません。
+- `PROJECT_ID` - これをプロジェクトのノード ID に置き換えます。
+- `ITEM_ID` - これを、更新する項目のノード ID に置き換えます。
+- `FIELD_ID` - これを、更新する繰り返しフィールドの ID に置き換えます。
+- `ITERATION_ID` - これを、目的の繰り返しの ID に置き換えます。 これは、アクティブなまたは完了した繰り返しにすることができます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: "<em>PROJECT_ID</em>" itemId: "<em>ITEM_ID</em>" fieldId: "<em>FIELD_ID</em>" value: { singleSelectOptionId: "<em>OPTION_ID</em>" }}) { projectV2Item { id }}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 
@@ -670,11 +675,11 @@ gh api graphql -f query='
   mutation {
     updateProjectV2ItemFieldValue(
       input: {
-        projectId: "<em>PROJECT_ID</em>"
-        itemId: "<em>ITEM_ID</em>"
-        fieldId: "<em>FIELD_ID</em>"
+        projectId: "PROJECT_ID"
+        itemId: "ITEM_ID"
+        fieldId: "FIELD_ID"
         value: { 
-          singleSelectOptionId: "<em>OPTION_ID</em>"        
+          iterationId: "ITERATION_ID"        
         }
       }
     ) {
@@ -688,14 +693,14 @@ gh api graphql -f query='
 
 ### プロジェクトからのアイテムの削除
 
-以下の例は、プロジェクトからアイテムを削除します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `ITEM_ID`を、削除したいアイテムのノードIDで置き換えてください。
+以下の例は、プロジェクトからアイテムを削除します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `ITEM_ID` は、削除する項目のノード ID に置き換えます。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {deleteProjectV2Item(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\"}) {deletedItemId}}"}'
+  --header 'Authorization: Bearer TOKEN' \
+  --data '{"query":"mutation {deleteProjectV2Item(input: {projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\"}) {deletedItemId}}"}'
 ```
 {% endcurl %}
 
@@ -705,8 +710,8 @@ gh api graphql -f query='
   mutation {
     deleteProjectV2Item(
       input: {
-        projectId: "<em>PROJECT_ID</em>"
-        itemId: "<em>ITEM_ID</em>"
+        projectId: "PROJECT_ID"
+        itemId: "ITEM_ID"
       }
     ) {
       deletedItemId
@@ -715,6 +720,61 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-## Using webhooks
+## プロジェクトを管理する 
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
+### プロジェクトの作成
+
+ミューテーションを使って、新しいプロジェクトを作成できます。 詳細については、「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
+
+API を使って新しいプロジェクトを作成するには、プロジェクトの名前と、プロジェクトの所有者になる {% data variables.product.product_name %} ユーザーまたは Organization のノード ID を指定する必要があります。
+
+ユーザー名がわかっている場合は、{% data variables.product.product_name %} ユーザーまたは Organization のノード ID を確認できます。 <code>GITHUB_OWNER</code> を、新しいプロジェクト所有者の {% data variables.product.product_name %} ユーザー名に置き換えます。
+
+{% curl %}
+```shell
+curl --request GET \
+  --url https://api.github.com/users/<em>GITHUB_OWNER</em> \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --header 'Accept: application/vnd.github+json'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api -H "Accept: application/vnd.github+json" /users/<em>GITHUB_OWNER</em>
+```
+{% endcli %}
+
+プロジェクトを作成するには、`OWNER_ID` を新しいプロジェクト所有者のノード ID に置き換え、`PROJECT_NAME` をプロジェクトの名前に置き換えます。
+
+{% curl %}
+```shell
+curl --request POST \
+  --url https://api.github.com/graphql \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"<em>OWNER_ID</em>\" title: \"<em>PROJECT_NAME</em>\"}) {projectV2 {id}}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation{
+    createProjectV2(
+      input: {
+        ownerId: "<em>OWNER_ID</em>",
+        title: "<em>PROJECT_NAME</em>"
+      }
+    ){
+      projectV2 {
+        id
+      }
+     }
+  }'
+```
+{% endcli %}
+
+
+## Webhook の使用
+
+Webhook を使用して、プロジェクトで発生するイベントをサブスクライブできます。 たとえば、アイテムが編集されると、{% data variables.product.product_name %} では、サーバーでの自動化をトリガーできる Webhook の構成済み URL に HTTP POST ペイロードを送信できます。 Webhook について詳しくは、「[Webhook について](/developers/webhooks-and-events/webhooks/about-webhooks)」を参照してください。 `projects_v2_item` Webhook イベントについて詳しくは、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)」をご覧ください。

@@ -1,0 +1,21 @@
+date: '27.02.2020'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/19116, https://github.com/github/enterprise2/pull/19110, https://github.com/github/enterprise2/pull/19154, https://github.com/github/enterprise2/pull/19142 {% endcomment %}'
+  bugs:
+    - 'Bei der Wiederherstellung von Sicherungen trat ein Fehler mit Hinweis auf eine ungültige RDB-Versionsnummer auf. {% comment %} https://github.com/github/enterprise2/pull/19117, https://github.com/github/enterprise2/pull/19109 {% endcomment %}'
+    - 'Ein Upgrade eines Hochverfügbarkeitsreplikats wurde unbegrenzt verzögert, um auf den Start von MySQL zu warten. {% comment %} https://github.com/github/enterprise2/pull/19168, https://github.com/github/enterprise2/pull/19101 {% endcomment %}'
+    - 'PR-Reviewkommentare mit unerwarteten Werten für „position“ oder „original_position“ führten zu nicht erfolgreichen Importvorgängen. {% comment %} https://github.com/github/github/pull/135439, https://github.com/github/github/pull/135374 {% endcomment %}'
+    - 'Doppelte Webhookeinträge in der Datenbank konnten dazu führen, dass Upgrades von vorherigen Versionen nicht erfolgreich waren. {% comment %} https://github.com/github/hookshot/pull/1541, https://github.com/github/hookshot/pull/1426, https://github.com/github/hookshot/pull/1540 {% endcomment %}'
+  known_issues:
+    - 'Angreifer konnten in einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Beim Pushen an ein Gist konnte eine Ausnahme während des Post-Receive-Hooks ausgelöst werden. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Bei Upgrades und Einstellungsupdates treten Fehler auf, wenn Workerkonfigurationen im Hintergrund angepasst wurden. {% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
+    - 'Wenn „Benutzer können GitHub.com durchsuchen“ in GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Bei Upgrades von vorherigen Versionen werden Hintergrundauftragsworker möglicherweise nicht erzeugt, wodurch wichtige Features (z. B. das Zusammenführen von Pull Requests) verhindert werden. (Aktualisiert am 07.04.2020) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Beim Pushen in ein Repository über die Befehlszeile werden keine Sicherheitswarnungen gemeldet. (Aktualisiert am 23.06.2020) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Das Abhängigkeitsdiagramm erkennt keine Abhängigkeiten, wenn es in einer Clusterkonfiguration mit mehreren Redis-Knoten bereitgestellt wird. (Aktualisiert am 30.06.2020) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert.'

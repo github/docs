@@ -2,40 +2,43 @@
 title: codespace を作成する
 intro: リポジトリのブランチの codespace を作成して、オンラインで開発できます。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
-  - /github/developing-online-with-github-codespaces/creating-a-codespace
-  - /github/developing-online-with-codespaces/creating-a-codespace
+- /github/developing-online-with-github-codespaces/creating-a-codespace
+- /github/developing-online-with-codespaces/creating-a-codespace
 versions:
   fpt: '*'
   ghec: '*'
 type: how_to
 topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
+- Codespaces
+- Fundamentals
+- Developer
 shortTitle: Create a codespace
+ms.openlocfilehash: ae14b01f409f9c6bfb43c579aaa9c76bb2421cfe
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106734"
 ---
-
 ## codespace の作成について
 
-You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
+codespace は、{% data variables.product.prodname_dotcom_the_website %}、{% data variables.product.prodname_vscode %}、または {% data variables.product.prodname_cli %} を使用して作成できます。 {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces はリポジトリの特定のブランチに関連付けられており、リポジトリを空にすることはできません。 {% data reusables.codespaces.concurrent-codespace-limit %}詳しい情報については、「[codespace を削除する](/github/developing-online-with-codespaces/deleting-a-codespace)」を参照してください。
+Codespaces はリポジトリの特定のブランチに関連付けられており、リポジトリを空にすることはできません。 リポジトリごと、さらにはブランチごとに1つ以上のcodespaceを作成できます。
 
+codespace を作成すると、開発環境を作成して開発環境に接続するためのいくつかの手順が発生します。
 
-When you create a codespace, a number of steps happen to create and connect you to your development environment:
+- 手順 1: VM とストレージが codespace に割り当てられます。
+- 手順 2: コンテナーが作成され、リポジトリが複製されます。
+- 手順 3: codespace に接続できます。
+- 手順 4: codespace では、作成後のセットアップが続行されます。
 
-- Step 1: VM and storage are assigned to your codespace.
-- Step 2: Container is created and your repository is cloned.
-- Step 3: You can connect to the codespace.
-- Step 4: Codespace continues with post-creation setup.
+codespace を作成した場合に起きることの詳細については、[詳細情報](/codespaces/getting-started/deep-dive)に関するページを参照してください。
 
-For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
+codespace のライフサイクルの詳細については、「[Codespace のライフサイクル](/codespaces/developing-in-codespaces/codespaces-lifecycle)」を参照してください。
 
-For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
-
-If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+codespace に Git フックを使用する場合は、手順 4. で [`devcontainer.json`ライフサイクル スクリプト](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts) (例: `postCreateCommand`) を使用してフックを設定する必要があります。 リポジトリの複製後に codespace コンテナーが作成されるため、コンテナー イメージで構成された [Git テンプレート ディレクトリ](https://git-scm.com/docs/git-init#_template_directory) は codespace には適用されません。 代わりに、codespace の作成後にフックをインストールする必要があります。 `postCreateCommand` の使用について詳しくは、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[`devcontainer.json` リファレンス](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)」を参照してください。
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -43,29 +46,24 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Access to {% data variables.product.prodname_github_codespaces %}
+## {% data variables.product.prodname_github_codespaces %} へのアクセス
 
-{% data reusables.codespaces.availability %}
+{% data variables.product.prodname_github_codespaces %} へのアクセスがある場合、リポジトリを表示すると、 **{% octicon "code" aria-label="The code icon" %} [コード]** ドロップダウン メニューに [Codespaces] タブが表示されます。
 
-When you have access to {% data variables.product.prodname_github_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
+次の条件の下で、{% data variables.product.prodname_github_codespaces %} にアクセスできます。
 
-You'll have access to codespaces under the following conditions:
+次のすべてが当てはまります。
+* あなたは、{% data variables.product.prodname_codespaces %} が有効になっていて、使用制限が設定されている Organization のメンバーまたは外部コラボレーターです。
+* Organization の所有者から、Organization の費用で codespace を作成する許可を得ました。
+* Codespace を作成する対象のリポジトリは、この Organization によって所有されています。
 
-* You are a member of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
-* An organization owner has granted you access to {% data variables.product.prodname_codespaces %}.
-* The repository is owned by the organization that has enabled {% data variables.product.prodname_codespaces %}.
+または、次の両方が当てはまります。
+* 個々のユーザー向けの {% data variables.product.prodname_codespaces %} のベータ版に参加しています。
+* Codespace を作成する対象のリポジトリを所有しているか、ご自分がメンバーまたは外部コラボレーターである Organization によってこのリポジトリが所有されています。
 
-{% note %}
+{% data variables.product.prodname_codespaces %} を Organization 内で使用するには、所有者または支払いマネージャーが使用制限を設定しておく必要があります。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces#about-spending-limits-for-codespaces)」をご覧ください。
 
-**Note:** Individuals who have already joined the beta with their personal {% data variables.product.prodname_dotcom %} account will not lose access to {% data variables.product.prodname_codespaces %}, however {% data variables.product.prodname_codespaces %} for individuals will continue to remain in beta.
-
-{% endnote %}
-
-Organization owners can allow all members of the organization to create codespaces, limit codespace creation to selected organization members, or disable codespace creation. For more information about managing access to codespaces within your organization, see "[Enable Codespaces for users in your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
-
-Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
-
-If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_github_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork.
+Organization の所有者は、Organization の費用で codespace を作成して使うことができるユーザーを指定できます。 また、Organization の所有者は、Organization が codespace の使用について請求されないようにすることもできます。 詳しくは、「[Organization での {% data variables.product.prodname_github_codespaces %} の有効化](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)」をご覧ください。
 
 ## codespace を作成する
 
@@ -76,86 +74,88 @@ If you would like to create a codespace for a repository owned by your personal 
 
    ![[Branch] ドロップダウンメニュー](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
+1. **[{% octicon "code" aria-label="The code icon" %} コード]** ボタンをクリックし、 **[Codespaces]** タブをクリックします。
 
    ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Create your codespace, either using the default options, or after configuring advanced options:
+   このリポジトリの codespace が課金可能な場合は、 **[<ブランチ名> で codespace を作成する]** ボタンの下に、codespace の料金を支払うユーザーを示すメッセージが表示されます。
 
-   * **Use the default options**
+1. 既定のオプションを使用するか、詳細オプションを構成した後に、codespace を作成します。
+ 
+   * **既定のオプションを使用する**
 
-      To create a codespace using the default options, click **Create codespace on BRANCH**.
+      既定のオプションを使用して codespace を作成するには、 **[ブランチで codespace を作成する]** をクリックします。
 
-      Optionally, before clicking **Create codespace on BRANCH**, you can click the down arrow at the side of the button to see what machine type will be used for your codespace.
+      必要に応じて、 **[ブランチで codespace を作成する]** をクリックする前に、ボタンの横にある下矢印をクリックして、codespace に使用されるマシンの種類を確認できます。
 
-      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+      ![既定のマシンの種類を表示する](/assets/images/help/codespaces/default-machine-type.png)
 
       {% note %}
 
-      **Note**: The machine type with the lowest resources that are valid for the repository is selected by default.
+      **注**: 既定では、リポジトリに対する有効なリソースが最も少ないマシンの種類が選択されます。
 
       {% endnote %}
 
-   * **Configure options**
+   * **構成オプション**
 
-      To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
+      別のマシンの種類や特定の `devcontainer.json` ファイルなど、codespace の詳細オプションを構成するには:
 
-      1. Click the down arrow at the side of the **Create codespace on BRANCH** button, then click **Configure and create codespace**.
-      1. Click the **Configure and create codespace** button.
-      1. On the options page for your codespace, choose your preferred options from the drop-down menus.
+      1. **[ブランチで codespace を作成する]** ボタンの横にある下矢印をクリックし、 **[Configure and create codespace]\(codespace の構成と作成\)** をクリックします。
+      1. **[Configure and create codespace]\(codespace の構成と作成\)** ボタンをクリックします。
+      1. codespace のオプション ページで、ドロップダウン メニューから任意のオプションを選択します。
 
-         ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
+         ![codespace のオプション ページ](/assets/images/help/codespaces/advanced-options.png)
 
          {% note %}
-
-         **注釈**
-
-         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch.
-         * For more information about the `devcontainer.json` file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
-         * For more information about machine types, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+      
+         **メモ**
+      
+         * オプション ページをブックマークすると、このリポジトリとブランチの codespace をすばやく作成できるようになります。
+         * [https://github.com/codespaces/new](https://github.com/codespaces/new) ページでは、リポジトリとブランチの codespace をすばやく作成できます。 ブラウザーのアドレス バーに「`codespace.new`」と入力すると、このページにすばやくアクセスできます。
+         * `devcontainer.json` ファイルの詳細については、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)」をご覧ください。
+         * マシンの種類について詳しくは、「[codespace のマシンの種類を変更する](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」をご覧ください。
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
-
+      
          {% endnote %}
 
-      1. Click **Start session**.
+      1. **[セッションの開始]** をクリックします。
 
 {% endwebui %}
-
+   
 {% vscode %}
 
 {% data reusables.codespaces.creating-a-codespace-in-vscode %}
 
 {% endvscode %}
-
+   
 {% cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a new codespace, use the `gh codespace create` subcommand.
+新しい codespace を作成するには、`gh codespace create` サブコマンドを使用します。 
 
 ```shell
 gh codespace create 
 ```
 
-You are prompted to choose a repository, a branch, and a machine type (if more than one is available).
+リポジトリの選択を求められます。 このリポジトリの codespace が課金可能な場合は、codespace の料金を支払うユーザーを示すメッセージが表示されます。 その場合、ブランチ、開発コンテナー構成ファイル (複数ある場合)、コンピューターの種類 (複数ある場合) を選ぶように求められます。
 
-{% note %}
-
-**Note**: Currently, {% data variables.product.prodname_cli %} doesn't allow you to choose a dev container configuration when you create a codespace. If you want to choose a specific dev container configuration, use the {% data variables.product.prodname_dotcom %} web interface to create your codespace. For more information, click the "Web browser" tab at the top of this page.
-
-{% endnote %}
-
-Alternatively, you can use flags to specify some or all of the options:
+または、フラグを使用して、次に示すオプションの一部またはすべてを特定することもできます。
 
 ```shell
-gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>machine-type</em> 
+gh codespace create -r OWNER/REPO -b BRANCH --devcontainer-path PATH -m MACHINE-TYPE
 ```
 
-Replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
+この例の `owner/repo` をリポジトリ識別子に置き換えます。 `branch` を codespace で最初にチェックアウトするブランチの名前、またはコミットの完全な SHA ハッシュに置き換えます。 `b` フラグなしで `-r` フラグを使用する場合、codespace は既定のブランチから作成されます。
 
-Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your personal account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
+新しいコードスペースで使用する開発コンテナー構成ファイルへのパスに `path` を置き換えます。 このフラグを省略し、複数の開発コンテナー ファイルを使用できる場合は、リストから 1 つを選ぶダイアログが表示されます。 開発コンテナーの構成ファイルについて詳しくは、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)」を参照してください。
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
+`machine-type` を使用可能なマシンの種類の有効な識別子に置き換えます。 識別子は、`basicLinux32gb` や `standardLinux32gb` のような文字列です。 使用可能なマシンの種類は、リポジトリ、個人用アカウント、場所によって異なります。 無効または使用できないマシンの種類を入力すると、使用可能な種類がエラー メッセージに表示されます。 このフラグを省略し、複数のマシンの種類を使用できる場合は、リストから 1 つを選択するダイアログが表示されます。
+
+このコマンドのオプションについて詳しくは、[{% data variables.product.prodname_cli %} マニュアル](https://cli.github.com/manual/gh_codespace_create)を参照してください。
 
 {% endcli %}
+
+## 参考資料
+- [既存の codespace を開く](/codespaces/developing-in-codespaces/opening-an-existing-codespace)
+- 「[[GitHub Codespaces で開く] バッジを追加する](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)」

@@ -1,5 +1,4 @@
----
-#Reference: Issue #6964 Support for Rust manifest parsing in Dependency graph
+# Reference: Issue #6964 Support for Rust manifest parsing in Dependency graph
 versions:
   fpt: '*'
   ghec: '*'

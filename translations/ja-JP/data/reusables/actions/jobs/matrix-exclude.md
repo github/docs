@@ -1,4 +1,12 @@
-マトリックスで定義されている特定の設定を除外したい場合には、`jobs.<job_id>.strategy.matrix.exclude`を使ってください。 除外する設定は、部分一致だけでかまいません。 たとえば、以下のワークフローは9つのジョブを実行します。12個の各設定に対応するジョブから、`{os: macos-latest, version: 12, environment: production}`にマッチする1つのジョブと`{os: windows-latest, version: 16}`にマッチする2つのジョブが除外されます。
+---
+ms.openlocfilehash: a38aec9a1becf4c15877b2d3057d413b6d609f6c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147880189"
+---
+マトリックスで定義されている特定の構成を削除するには、`jobs.<job_id>.strategy.matrix.exclude` を使用します。 除外する構成は、それを除外するために部分一致である必要があるだけです。 たとえば、次のワークフローでは 9 つのジョブが実行されます。12 個の構成ごとに 1 つのジョブで、`{os: macos-latest, version: 12, environment: production}` と一致する 1 つのジョブと、`{os: windows-latest, version: 16}` と一致する 2 つのジョブが除外されます。
 
 ```yaml
 strategy:
@@ -17,6 +25,6 @@ runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 
 {% note %}
 
-**ノート:** すべての`include`の組み合わせは、`exclude`の後に処理されます。 このため、`include`を使って以前に除外された組み合わせを追加し直すことができます。
+**注:** すべての `include` の組み合わせは、`exclude` の後に処理されます。 このため、`include` を使って以前に除外された組み合わせを追加し直すことができます。
 
 {% endnote %}

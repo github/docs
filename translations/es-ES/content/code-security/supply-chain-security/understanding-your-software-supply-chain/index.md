@@ -1,5 +1,5 @@
 ---
-title: Understanding your software supply chain
+title: Entender tu cadena de suministro de software
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,5 +19,11 @@ children:
   - /configuring-dependency-review
   - /exploring-the-dependencies-of-a-repository
   - /troubleshooting-the-dependency-graph
+ms.openlocfilehash: 5310e33ff731c1a34e3a0df1e0ac64a8bbab5e9a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146458256'
 ---
 

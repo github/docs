@@ -9,9 +9,14 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
   - /github/searching-for-information-on-github/searching-on-github/searching-github-marketplace
-shortTitle: Buscar en GitHub Marketplace
+shortTitle: Search GitHub Marketplace
+ms.openlocfilehash: fed7320cfd88e40f227d61f9cad361947823f0cf
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145118873'
 ---
-
 ## Acerca de buscar en {% data variables.product.prodname_marketplace %}
 
 Puedes encontrar aplicaciones y acciones en{% data variables.product.prodname_marketplace %} de dos formas:
@@ -21,19 +26,23 @@ Puedes encontrar aplicaciones y acciones en{% data variables.product.prodname_ma
 
 ## Buscar en {% data variables.product.prodname_marketplace %}
 
-1. En la parte superior de cualquier página, da clic en **Mercado**. ![Enlace a Mercado](/assets/images/help/search/marketplace-link.png)
-2. Teclea cualquier palabra clave y presiona **Enter**. ![Buscar linter en {% data variables.product.prodname_marketplace %}](/assets/images/help/search/marketplace-apps-and-actions-search-field.png)
+1. En la parte superior de cualquier página, haga clic en **Marketplace**.
+  ![Enlace a Marketplace](/assets/images/help/search/marketplace-link.png)
+2. Escriba cualquier palabra clave y presione **Entrar**.
+  ![Búsqueda de linter en {% data variables.product.prodname_marketplace %}](/assets/images/help/search/marketplace-apps-and-actions-search-field.png)
 3. Opcionalmente, filtra tus resultados dando clic en una o más opciones en la barra lateral.
 
 ## Buscar a través de {% data variables.product.prodname_dotcom_the_website %}
 
 Cada vez que buscas en todo {% data variables.product.prodname_dotcom_the_website %}, puedes filtrar los resultados para ver las coincidencias de aplicaciones y acciones de {% data variables.product.prodname_marketplace %}.
 
-1. Navega hasta https://github.com/search.
-2. Teclea cualquier palabra clave y presiona **Enter**. ![campo buscar](/assets/images/help/search/search-field.png)
-3. En la barra lateral, da clic en **Mercado**. ![Buscar resultados para linter con la opción del menú lateral del Mercado resaltada](/assets/images/help/search/marketplace-left-side-navigation.png)
+1. Vaya a https://github.com/search.
+2. Escriba cualquier palabra clave y presione **Entrar**.
+  ![Campo de búsqueda](/assets/images/help/search/search-field.png)
+3. En la barra lateral de la izquierda, haga clic en **Marketplace**.
+  ![Resultados de la búsqueda de linter con la opción del menú lateral de Marketplace resaltada](/assets/images/help/search/marketplace-left-side-navigation.png)
 
-## Leer más
+## Información adicional
 
 - "[Acerca de {% data variables.product.prodname_marketplace %}](/github/customizing-your-github-workflow/about-github-marketplace)"
-- "[Utilizar acciones de {% data variables.product.prodname_marketplace %} en tu flujo de trabajo](/actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow)"
+- "[Uso de acciones de {% data variables.product.prodname_marketplace %} en el flujo de trabajo](/actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow)"

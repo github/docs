@@ -1,4 +1,12 @@
-1. Clique no **Comportamento da bifurcação** e, em seguida, selecione como você deseja usar a bifurcação.
+---
+ms.openlocfilehash: 1baaac068c008a45a8a9446dfccaf83c5901b1ba
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145127684"
+---
+1. Clique em **Comportamento do fork** e escolha como deseja usar o fork.
 
   {% mac %}
 

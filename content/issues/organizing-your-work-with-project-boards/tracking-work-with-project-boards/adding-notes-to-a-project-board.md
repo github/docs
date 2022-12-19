@@ -1,16 +1,16 @@
 ---
-title: Adding notes to a {% data variables.product.prodname_project_v1 %}
-intro: You can add notes to a {% data variables.projects.projects_v1_board %} to serve as task reminders or to add information related to the {% data variables.projects.projects_v1_board %}.
+title: 'Adding notes to a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can add notes to a {% data variables.projects.projects_v1_board %} to serve as task reminders or to add information related to the {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
   - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Add notes to {% data variables.product.prodname_project_v1 %}
+shortTitle: 'Add notes to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

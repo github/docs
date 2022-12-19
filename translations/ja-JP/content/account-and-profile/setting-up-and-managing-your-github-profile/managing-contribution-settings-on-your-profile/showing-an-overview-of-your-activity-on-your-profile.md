@@ -14,11 +14,17 @@ versions:
 topics:
   - Profiles
 shortTitle: Show an overview
+ms.openlocfilehash: a706c476cad8a2474ff1971dc8d81e680cf5c5c3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079954'
 ---
-
-{% data reusables.profile.activity-overview-summary %} 詳細は「[プロフィールでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile)」を参照してください。
+{% data reusables.profile.activity-overview-summary %} 詳細については、「[プロフィールでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile)」を参照してください。
 
 ![プロフィール上のアクティビティオーバービューセクション](/assets/images/help/profile/activity-overview-section.png)
 
 {% data reusables.profile.access_profile %}
-2. コントリビューショングラフの上で、[**Contribution settings**] ドロップダウンメニューを使い、[**Activity overview**] を選択または選択解除します。 ![コントリビューション設定ドロップダウンメニューからのアクティビティオーバービューの有効化](/assets/images/help/profile/activity-overview.png)
+2. コントリビューション グラフの上にある **[コントリビューション設定]** ドロップダウン メニューを使用し、 **[アクティビティの概要]** を選択または選択解除します。
+ ![コントリビューション設定ドロップダウン メニューからのアクティビティ オーバービューの有効化](/assets/images/help/profile/activity-overview.png)

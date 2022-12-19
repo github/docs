@@ -14,21 +14,26 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Dejar una organización
+shortTitle: Leave an organization
+ms.openlocfilehash: 8fc658b761999f5022675994cf673eaaeb19fcd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165170'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Advertencia:** Si actualmente eres responsable de pagar {% data variables.product.product_name %} en tu organización, eliminarte de la organización **no** actualiza la información de facturación archivada de la organización. Si actualmente eres responsable de la facturación, **debes** hacer que otro propietario o gerente de facturación de la organización [actualice el método de pago de la organización](/articles/adding-or-editing-a-payment-method).
+**Advertencia:** Si actualmente eres responsable de pagar {% data variables.product.product_name %} en tu organización, eliminarte de la organización **no** actualiza la información de facturación archivada de la organización. Si actualmente eres responsable de la facturación, **debes** pedir a otro propietario o administrador de facturación de la organización que [actualice el método de pago de la organización](/articles/adding-or-editing-a-payment-method).
 
-Para obtener más información, consulta "[Transferir la propiedad de la organización](/articles/transferring-organization-ownership)".
+Para obtener más información, consulta "[Transferencia de la propiedad de la organización](/articles/transferring-organization-ownership)".
 
 {% endwarning %}
 
 {% endif %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.organizations %}
-3. En "Organizations" (Organizaciones), busca la organización de la que quieres eliminarte, luego haz clic en **Leave** (Abandonar). ![Botón Leave organization (Abandonar organización) con roles exhibidos](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.organizations %}
+3. En "Organizaciones", busca la organización de la que quieres eliminarte y luego haz clic en **Abandonar**.
+  ![Botón Abandonar organización en el que se muestran los roles](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

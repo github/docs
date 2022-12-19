@@ -1,6 +1,6 @@
 ---
-title: Sending enterprise contributions to your GitHub.com profile
-intro: 'You can highlight your work on {% data variables.product.prodname_enterprise %} by sending the contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile.'
+title: GitHub.com プロファイルへのエンタープライズ コントリビューションの送信
+intro: '{% data variables.product.prodname_dotcom_the_website %} プロファイルにコントリビューションカウントを送ることで、{% data variables.product.prodname_enterprise %} の自分の作業をハイライトできます。'
 redirect_from:
   - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile
@@ -16,51 +16,49 @@ versions:
 topics:
   - Profiles
 shortTitle: Send enterprise contributions
+ms.openlocfilehash: 6fb1803f3a93dd03af24ce9ea3f360e579d7dbd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079945'
 ---
+## {% data variables.product.prodname_dotcom_the_website %} プロファイルのエンタープライズ コントリビューションについて
 
-## About enterprise contributions on your {% data variables.product.prodname_dotcom_the_website %} profile
+{% data variables.product.prodname_dotcom_the_website %} プロファイルには、過去 90 日間の {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} コントリビューション カウントが表示されます。 {% data reusables.github-connect.sync-frequency %} {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} からのコントリビューション カウントはプライベート コントリビューションと見なされます。 コミットの詳細に示されるのは、コントリビューション カウントと、これらのコントリビューションが {% data variables.product.prodname_dotcom_the_website %} の外部にある {% data variables.product.prodname_enterprise %} 環境で行われたことのみです。
 
-Your {% data variables.product.prodname_dotcom_the_website %} profile shows {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} contribution counts from the past 90 days. {% data reusables.github-connect.sync-frequency %} Contribution counts from {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} are considered private contributions. The commit details will only show the contribution counts and that these contributions were made in a {% data variables.product.prodname_enterprise %} environment outside of {% data variables.product.prodname_dotcom_the_website %}.
+プロファイルでプライベート コントリビューションのカウントを表示するかどうかを決定できます。 詳細については、「[プライベート コントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)」を参照してください。
 
-You can decide whether to show counts for private contributions on your profile. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)."
-
-For more information about how contributions are calculated, see "[Managing contribution graphs on your profile](/articles/managing-contribution-graphs-on-your-profile/)."
+コントリビューションの計算方法の詳細については、「[プロフィールでコントリビューション グラフを管理する](/articles/managing-contribution-graphs-on-your-profile/)」を参照してください。
 
 {% note %}
 
-**Notes:**
-- The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/github/site-policy/github-privacy-statement/) and users enabling the connection agree to the [GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service).
+**注:**
+- アカウント間の接続は [GitHub のプライバシーに関する声明](/free-pro-team@latest/github/site-policy/github-privacy-statement/)によって管理され、接続を有効にしているユーザーは [GitHub 利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service)に同意するものとします。
 
-- Before you can connect your {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} profile to your {% data variables.product.prodname_dotcom_the_website %} profile, your enterprise owner must enable {% data variables.product.prodname_github_connect %} and enable contribution sharing between the environments. For more information, contact your enterprise owner.
+- {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} プロファイルを {% data variables.product.prodname_dotcom_the_website %} プロファイルに接続できるようにするには、エンタープライズ所有者が、{% data variables.product.prodname_github_connect %} を有効にし、環境間で共有するコントリビューションを有効にする必要があります。 詳細については、エンタープライズ所有者にお問い合わせください。
 
 {% endnote %}
 
-## Sending your enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile
+## {% data variables.product.prodname_dotcom_the_website %} プロファイルへのエンタープライズ コントリビューションの送信
 
 {% ifversion fpt or ghec %}
 
-- To send enterprise contributions from {% data variables.product.prodname_ghe_server %} to your {% data variables.product.prodname_dotcom_the_website %} profile, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" in the {% data variables.product.prodname_ghe_server %} documentation.
-- To send enterprise contributions from {% data variables.product.prodname_ghe_managed %} to your {% data variables.product.prodname_dotcom_the_website %} profile, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" in the {% data variables.product.prodname_ghe_managed %} documentation.
+- {% data variables.product.prodname_ghe_server %} から {% data variables.product.prodname_dotcom_the_website %} プロファイルにエンタープライズ コントリビューションを送信する場合は、{% data variables.product.prodname_ghe_server %} ドキュメントの「[{% data variables.product.prodname_dotcom_the_website %} プロファイルへのエンタープライズ コントリビューションの送信](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)」を参照してください。
+- {% data variables.product.prodname_ghe_managed %} から {% data variables.product.prodname_dotcom_the_website %} プロファイルにエンタープライズ コントリビューションを送信する場合は、{% data variables.product.prodname_ghe_managed %} ドキュメントの「[{% data variables.product.prodname_dotcom_the_website %} プロファイルへのエンタープライズ コントリビューションの送信](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)」を参照してください。
 
 {% elsif ghes %}
 
-1. Sign in to {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
-{% data reusables.github-connect.github-connect-tab-user-settings %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
-1. Review the resources that {% data variables.product.prodname_ghe_server %} will access from your {% data variables.product.prodname_dotcom_the_website %} account, then click **Authorize**.
-   ![Authorize connection between GitHub Enterprise Server and GitHub.com](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)
-{% data reusables.github-connect.send-contribution-counts-to-githubcom %}
+1. {% data variables.product.prodname_ghe_server %} と {% data variables.product.prodname_dotcom_the_website %} にサインインします。
+1. {% data variables.product.prodname_ghe_server %} で、任意のページの右上隅にある自分のプロファイル写真をクリックしてから、 **[設定]** をクリックします。
+   ![ユーザー バーの [設定] アイコン](/assets/images/help/settings/userbar-account-settings.png) {% data reusables.github-connect.github-connect-tab-user-settings %} {% data reusables.github-connect.connect-dotcom-and-enterprise %}
+1. {% data variables.product.prodname_dotcom_the_website %} アカウントから {% data variables.product.prodname_ghe_server %} がアクセスするリソースをレビューし、 **[承認]** をクリックします。
+   ![GitHub Enterprise Server と GitHub.com の間の接続を承認する](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png) {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% elsif ghae %}
 
-1. Sign in to {% data variables.product.prodname_ghe_managed %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_managed %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
-{% data reusables.github-connect.github-connect-tab-user-settings %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
-{% data reusables.github-connect.authorize-connection %}
-{% data reusables.github-connect.send-contribution-counts-to-githubcom %}
+1. {% data variables.product.prodname_ghe_managed %} と {% data variables.product.prodname_dotcom_the_website %} にサインインします。
+1. {% data variables.product.prodname_ghe_managed %} で、任意のページの右上隅にある自分のプロファイル写真をクリックしてから、 **[設定]** をクリックします。
+   ![ユーザー バーの [設定] アイコン](/assets/images/help/settings/userbar-account-settings.png) {% data reusables.github-connect.github-connect-tab-user-settings %} {% data reusables.github-connect.connect-dotcom-and-enterprise %} {% data reusables.github-connect.authorize-connection %} {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% endif %}

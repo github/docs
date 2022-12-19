@@ -93,7 +93,7 @@
 
 					<description><![CDATA[GitHub Discussions GraphQL API public beta]]></description>
 										<content:encoded><![CDATA[<p>The GitHub Discussions GraphQL API public beta is now available. Get started with the <a href="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions">GitHub Discussions API</a>.</p>
-<p>For questions or feedback, visit <a href="https://github.com/github/feedback/discussions/categories/discussions-feedback">GitHub Discussions feedback</a>.</p>
+<p>For questions or feedback, visit <a href="https://github.com/community/community/discussions/categories/discussions">GitHub Discussions feedback</a>.</p>
 ]]></content:encoded>
 					
 		

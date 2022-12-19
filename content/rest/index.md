@@ -3,14 +3,17 @@ title: GitHub REST API
 shortTitle: REST API
 intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
 introLinks:
-  quickstart: /rest/guides/getting-started-with-the-rest-api
+  quickstart: /rest/quickstart
+  overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
   guides:
     - /rest/guides/getting-started-with-the-rest-api
     - /rest/guides/basics-of-authentication
     - /rest/guides/best-practices-for-integrators
+    - /rest/guides/using-pagination-in-the-rest-api
   popular:
     - /rest/overview/resources-in-the-rest-api
+    - /rest/overview/api-versions
     - /rest/overview/other-authentication-methods
     - /rest/overview/troubleshooting
     - /rest/overview/endpoints-available-for-github-apps
@@ -31,6 +34,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
   - /overview
   - /guides
   - /actions
@@ -77,4 +81,3 @@ children:
   - /users
   - /webhooks
 ---
-

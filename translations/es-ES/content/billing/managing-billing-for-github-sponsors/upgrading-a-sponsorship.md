@@ -12,9 +12,14 @@ type: how_to
 topics:
   - Sponsors
   - Upgrades
+ms.openlocfilehash: c1aaab00c5fd11a560327424290c396920505003
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091664'
 ---
-
-{% data reusables.sponsors.org-sponsors-release-phase %}
+{% data reusables.sponsors.org-sponsors-release-phase %} 
 
 ## Acerca de las mejoras de los patrocinios
 
@@ -22,8 +27,4 @@ Cuando subes de categoría tu nivel de patrocinio, el cambio entrará en vigor d
 
 ## Subir de categoría un patrocinio
 
-{% data reusables.sponsors.navigate-to-sponsored-account %}
-{% data reusables.sponsors.sponsorship-dashboard %}
-{% data reusables.sponsors.review-tiers-to-select %}
-{% data reusables.sponsors.select-a-tier %}
-{% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.review-tiers-to-select %} {% data reusables.sponsors.select-a-tier %} {% data reusables.sponsors.update-sponsorship %}

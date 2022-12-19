@@ -1,68 +1,71 @@
 ---
-title: Configuring OpenID Connect in Google Cloud Platform
+title: Google Cloud Platform での OpenID Connect の構成
 shortTitle: Configuring OpenID Connect in Google Cloud Platform
-intro: Use OpenID Connect within your workflows to authenticate with Google Cloud Platform.
+intro: ワークフロー内で OpenID Connect を使用して、Google Cloud Platform での認証を行います。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: f8b2c63d442fb5dc5758a6f33bb9db5c2a49c9cc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145091372'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 概要
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Google Cloud Platform (GCP), without needing to store the GCP credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
+OpenID Connect (OIDC) を使用すると、有効期間の長い {% data variables.product.prodname_dotcom %} シークレットとして Google Cloud Platform (GCP) 資格情報を格納しなくても、{% data variables.product.prodname_actions %} ワークフローから GCP 内のリソースにアクセスできます。 
 
-This guide gives an overview of how to configure GCP to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action that uses tokens to authenticate to GCP and access resources.
+このガイドでは、{% data variables.product.prodname_dotcom %} の OIDC をフェデレーション ID として信頼するように GCP を構成する方法の概要と、トークンを使用して GCP に対する認証とリソースへのアクセスを行う [`google-github-actions/auth`](https://github.com/google-github-actions/auth) アクションのワークフロー例を示します。
 
-## 必要な環境
+## 前提条件
 
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
 
-## Adding a Google Cloud Workload Identity Provider
+## Google Cloud Workload ID プロバイダーの追加
 
-To configure the OIDC identity provider in GCP, you will need to perform the following configuration. For instructions on making these changes, refer to [the GCP documentation](https://github.com/google-github-actions/auth).
+GCP で OIDC ID プロバイダーを構成するには、次の構成を実行する必要があります。 これらの変更を行う手順については、[GCP のドキュメント](https://github.com/google-github-actions/auth)を参照してください。
 
-1. Create a new identity pool.
-2. Configure the mapping and add conditions.
-3. Connect the new pool to a service account.
+1. 新しい ID プールを作成します。
+2. マッピングを構成し、条件を追加します。
+3. 新しいプールをサービス アカウントに接続します。 
 
-Additional guidance for configuring the identity provider:
+ID プロバイダーを構成するためのその他のガイダンス:
 
-- For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
-- For the service account to be available for configuration, it needs to be assigned to the `roles/iam.workloadIdentityUser` role. For more information, see [the GCP documentation](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions).
-- The Issuer URL to use: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+- セキュリティ強化については、「[クラウドとの OIDC 信頼の構成](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)」を確認してください。 例については、「[クラウド プロバイダーでのサブジェクトの構成](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)」を参照してください。
+- サービス アカウントを構成に使用できるようにするには、`roles/iam.workloadIdentityUser` ロールに割り当てる必要があります。 詳細については、[GCP のドキュメント](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions)を参照してください。
+- 使う発行者の URL: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 
 ## {% data variables.product.prodname_actions %} ワークフローを更新する
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
-2. Use the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action to exchange the OIDC token (JWT) for a cloud access token.
+OIDC のワークフローを更新するには、YAML に 2 つの変更を行う必要があります。
+1. トークンのアクセス許可設定を追加します。
+2. この [`google-github-actions/auth`](https://github.com/google-github-actions/auth) アクションを使用して、OIDC トークン (JWT) をクラウド アクセス トークンと交換します。
 
-### Adding permissions settings
+### アクセス許可設定の追加
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
-### Requesting the access token
+### アクセス トークンの要求
 
-The `google-github-actions/auth` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from GCP. For more information, see the GCP [documentation](https://github.com/google-github-actions/auth).
+この `google-github-actions/auth` アクションを使うと、{% data variables.product.prodname_dotcom %} OIDC プロバイダーから JWT を受け取り、アクセス トークンを GCP に要求します。 詳細については、GCP の[ドキュメント](https://github.com/google-github-actions/auth)を参照してください。
 
-This example has a job called `Get_OIDC_ID_token` that uses actions to request a list of services from GCP.
+この例には、アクションを使って GCP のサービス一覧を要求する `Get_OIDC_ID_token` というジョブがあります。
 
-- `<example-workload-identity-provider>`: Replace this with the path to your identity provider in GCP. For example, `projects/<example-project-id>/locations/global/workloadIdentityPools/<name-of-pool/providers/<name-of-provider>`
-- `<example-service-account>`: Replace this with the name of your service account in GCP.
-- `<project-id>`: Replace this with the ID of your GCP project.
+- `<example-workload-identity-provider>`: これを GCP の ID プロバイダーへのパスに置き換えます。 たとえば、`projects/<example-project-id>/locations/global/workloadIdentityPools/<name-of-pool/providers/<name-of-provider>` のように指定します。
+- `<example-service-account>`: これを GCP のサービス アカウント名に置き換えます。
+- `<project-id>`: これを GCP プロジェクトの ID に置き換えます。
 
-This action exchanges a {% data variables.product.prodname_dotcom %} OIDC token for a Google Cloud access token, using [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
+このアクションを使い、[ワークロード ID フェデレーション](https://cloud.google.com/iam/docs/workload-identity-federation)を使って、{% data variables.product.prodname_dotcom %} OIDC トークンを Google Cloud アクセス トークンと交換します。
 
 {% raw %}
 ```yaml{:copy}

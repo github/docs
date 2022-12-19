@@ -1,6 +1,6 @@
 ---
-title: Managing membership in your organization
-intro: 'After you create your organization, you can {% ifversion fpt %}invite people to become{% else %}add people as{% endif %} members of the organization. You can also remove members of the organization, and reinstate former members.'
+title: Administrar la pertenencia en su organización
+intro: 'Después de crear tu organización, puedes {% ifversion fpt %}invitar a personas para que se conviertan en{% else %}agregar personas como{% endif %} miembros de la organización. También puedes eliminar a miembros de la organización y reinstalar a miembros antiguos.'
 redirect_from:
   - /articles/removing-a-user-from-your-organization
   - /articles/managing-membership-in-your-organization
@@ -22,5 +22,11 @@ children:
   - /exporting-member-information-for-your-organization
   - /can-i-create-accounts-for-people-in-my-organization
 shortTitle: Manage membership
+ms.openlocfilehash: f465362d7aa9310a3ab8f286ee4e00519637c236
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109810'
 ---
 <!-- else -->

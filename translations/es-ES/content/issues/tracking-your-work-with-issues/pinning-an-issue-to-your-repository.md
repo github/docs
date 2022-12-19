@@ -14,12 +14,17 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Fija una propuesta
+shortTitle: Pin an issue
+ms.openlocfilehash: fd02bb1102e9da35fb534e95fce954ff5c11ec57
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145135409'
 ---
-
 ![Propuestas ancladas](/assets/images/help/issues/pinned-issues.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
 1. En la lista de propuestas, haz clic en la propuesta que deseas anclar.
-2. En la barra lateral derecha, haz clic **Pin issue (Anclar una propuesta)**. ![Botón para anclar una propuesta](/assets/images/help/repository/pin-issue.png)
+2. En la barra lateral derecha, haga clic en **Anclar incidencia**.
+  ![Botón Anclar incidencia](/assets/images/help/repository/pin-issue.png)

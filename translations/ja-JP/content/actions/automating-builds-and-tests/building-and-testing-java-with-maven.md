@@ -15,38 +15,39 @@ topics:
   - Java
   - Maven
 shortTitle: Build & test Java with Maven
+ms.openlocfilehash: 59d8961a7fdd1d8b84a05b8762bb09be3d2ab01c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179808'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
-このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、Pull Requestに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
+このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、プルリクエストに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CI ワークフローを{% ifversion actions-caching %}キャッシュ ファイルに{% endif %}拡張して、ワークフロー実行による成果物をアップロードできます。
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %}
-{% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びMavenを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 JDK および Maven のソフトウェアとプリインストールされたバージョンのリストについては、「[{% data variables.product.prodname_dotcom %} でホストされているランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}{% else %}{% data variables.product.prodname_dotcom %} ホステッド ランナーにはツール キャッシュとプレインストールされたソフトウェアがあり、それには Java Development Kit (JDK) と Maven が含まれます。 JDK と Maven に関するソフトウェアとプレインストールされたバージョンの一覧については、「[{% data variables.product.prodname_dotcom %} ホステッド ランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
-## 必要な環境
+## 前提条件
 
-YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、以下を参照してください。
-- [{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
-- 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
+YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳細については、次を参照してください。
+- [{% data variables.product.prodname_actions %} のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
+- [{% data variables.product.prodname_actions %} について](/actions/learn-github-actions)
 
-Java及びMavenフレームワークの基本的な理解をしておくことをおすすめします。 詳しい情報については、Mavenのドキュメンテーションの[Maven Getting Started Guide](http://maven.apache.org/guides/getting-started/index.html)を参照してください。
+Java及びMavenフレームワークの基本的な理解をしておくことをおすすめします。 詳細については、Maven ドキュメントの [Maven 使用開始ガイド](http://maven.apache.org/guides/getting-started/index.html)に関するページを参照してください。
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Maven starter workflow
+## Maven スターター ワークフローの使用
 
-{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} には、ほとんどの Maven ベースの Java プロジェクトで動作する Maven スターター ワークフローが用意されています。 詳細については、「[Maven スターター ワークフロー](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)」を参照してください。
 
-To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
+素早く始めるには、新しいワークフローを作成するときに事前構成済みの Maven スターター ワークフローを選択できます。 詳細については、[{% data variables.product.prodname_actions %} クイックスタート](/actions/quickstart)に関するページを参照してください。
 
-リポジトリの`.github/workflows`に新しいファイルを作成して、手作業でこのワークフローを追加することもできます。
+リポジトリの `.github/workflows` ディレクトリに新しいファイルを作成することにより、手作業でこのワークフローを追加することもできます。
 
 ```yaml{:copy}
 name: Java CI
@@ -70,11 +71,11 @@ jobs:
 
 このワークフローは以下のステップを実行します。
 
-1. `checkout`ステップは、ランナーにリポジトリのコピーをダウンロードします。
-2. `setup-java` ステップは、 Adoptium で Java 11 JDK を設定します。
-3. "Build with Maven"ステップは、Mavenの`package`ターゲットを非インタラクティブモードで実行し、コードがビルドされ、テストをパスし、パッケージが作成できることを保証します。
+1. `checkout` ステップでは、ランナーにリポジトリのコピーがダウンロードされます。
+2. `setup-java` ステップでは、Adoptium で Java 11 JDK が構成されます。
+3. "Build with Maven" ステップでは、Maven `package` ターゲットが非インタラクティブ モードで実行されて、コードをビルド、テストに合格し、パッケージを作成できるようになります。
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+既定のスターター ワークフローは、ビルドとテストのワークフローを構築するときに適した出発点であり、プロジェクトの要求に合わせてこのスターター ワークフローをカスタマイズできます。
 
 {% data reusables.actions.example-github-runner %}
 
@@ -84,9 +85,9 @@ The default starter workflows are excellent starting points when creating your b
 
 ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。
 
-スターターワークフローは、デフォルトで`package`タスクを実行します。 デフォルトのMavenの設定では、このコマンドは依存関係をダウンロードし、クラスをビルドし、テストを実行し、たとえばJARファイルのような配布可能なフォーマットにクラスをパッケージします。
+スターター ワークフローでは、既定で `package` ターゲットが実行されます。 デフォルトのMavenの設定では、このコマンドは依存関係をダウンロードし、クラスをビルドし、テストを実行し、たとえばJARファイルのような配布可能なフォーマットにクラスをパッケージします。
 
-プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを使いたいのであれば、それらを指定できます。 たとえば、_pom-ci.xml_ファイル中で設定された`verify`ターゲットを実行したいこともあるでしょう。
+プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを使いたいのであれば、それらを指定できます。 たとえば、_pom-ci.xml_ ファイルで構成されている `verify` ターゲットを実行できます。
 
 ```yaml{:copy}
 steps:
@@ -103,7 +104,7 @@ steps:
 
 ## 依存関係のキャッシング
 
-ワークフローの実行速度を上げるために、依存関係をキャッシュすることもできます。 After a successful run, your local Maven repository will be stored in a cache. その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
+ワークフローの実行速度を上げるために、依存関係をキャッシュすることもできます。 実行に成功すると、ローカルの Maven リポジトリはキャッシュに格納されます。 その後のワークフローの実行では、キャッシュがリストアされ、依存関係をリモートのMavenリポジトリからダウンロードする必要がなくなります。 [`setup-java` アクション](https://github.com/marketplace/actions/setup-java-jdk)を使用するだけで依存関係をキャッシュすることも、カスタム構成や高度な構成に対して [`cache` アクション](https://github.com/actions/cache)を使用することもできます。
 
 ```yaml{:copy}
 steps:
@@ -118,15 +119,15 @@ steps:
     run: mvn --batch-mode --update-snapshots verify
 ```
 
-このワークフローは、ランナーのホームディレクトリ内の`.m2`ディレクトリにあるローカルのMavenリポジトリの内容を保存します。 キャッシュのキーは_pom.xml_の内容をハッシュしたものになるので、_pom.xml_が変更されればキャッシュは無効になります。
+このワークフローでは、ランナーのホーム ディレクトリの `.m2` ディレクトリにあるローカル Maven リポジトリの内容が保存されます。 キャッシュ キーは _pom.xml_ ハッシュされた内容であるため、_pom.xml_ を変更するとキャッシュは無効になります。
 
 {% endif %}
 
 ## 成果物としてのワークフローのデータのパッケージ化
 
-ビルドが成功し、テストがパスした後には、結果のJavaのパッケージをビルドの成果物としてアップロードすることになるかもしれません。 そうすれば、ビルドされたパッケージをワークフローの実行の一部として保存することになり、それらをダウンロードできるようになります。 成果物によって、Pull Requestをマージする前にローカルの環境でテスト及びデバッグしやすくなります。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
+ビルドが成功し、テストがパスした後には、結果のJavaのパッケージをビルドの成果物としてアップロードすることになるかもしれません。 そうすれば、ビルドされたパッケージをワークフローの実行の一部として保存することになり、それらをダウンロードできるようになります。 成果物によって、Pull Requestをマージする前にローカルの環境でテスト及びデバッグしやすくなります。 詳細については、「[アーティファクトを使用してワークフロー データを永続化する](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
-Mavenは通常、JAR、EAR、WARのような出力ファイルを`target`ディレクトリに作成します。 それらを成果物としてアップロードするために、アップロードする成果物を含む新しいディレクトリにそれらをコピーできます。 たとえば、`staging`というディレクトリを作成できます。 として、そのディレクトリの内容を`upload-artifact`アクションを使ってアップロードできます。
+Maven では、通常、JAR、EAR、WAR のような出力ファイルが `target` ディレクトリに作成されます。 それらを成果物としてアップロードするために、アップロードする成果物を含む新しいディレクトリにそれらをコピーできます。 たとえば、`staging` というディレクトリを作成できます。 その後、`upload-artifact` アクションを使用して、そのディレクトリの内容をアップロードできます。
 
 ```yaml{:copy}
 steps:

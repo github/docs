@@ -28,6 +28,8 @@ includeGuides:
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
+  - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
   - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
@@ -51,8 +53,8 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
-  - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
   - /code-security/repository-security-advisories/about-github-security-advisories-for-repositories
+  - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
   - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
   - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
   - /code-security/repository-security-advisories/creating-a-repository-security-advisory
@@ -61,6 +63,10 @@ includeGuides:
   - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
   - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
   - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+  - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
+  - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
+  - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
+  - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
   - /code-security/security-overview/about-the-security-overview
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
   - /code-security/security-overview/viewing-the-security-overview

@@ -1,6 +1,14 @@
+---
+ms.openlocfilehash: fdfc4d75663309d617b1f30d36e1744fd6a8806e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145094084"
+---
 1. Na área "Alterar destino da política", clique no botão suspenso.
-1. Selecione **Todos os repositórios** ou **Repositórios selecionados** para determinar em quais repositórios esta política será aplicada.
-1. Se você escolheu **repositórios selecionados**:
+1. Escolha **Todos os repositórios** ou **Repositórios selecionados** para determinar a quais repositórios essa política se aplicará.
+1. Se você escolheu **Repositórios selecionados**:
    1. Clique em {% octicon "gear" aria-label="The settings icon" %}.
 
       ![Editar as configurações da política](/assets/images/help/codespaces/policy-edit.png)

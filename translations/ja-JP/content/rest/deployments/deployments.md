@@ -1,6 +1,6 @@
 ---
 title: デプロイメント
-intro: Deployments APIを使うと、デプロイメント及びデプロイメント環境の作成と削除ができます。
+intro: Deployments API を使うと、デプロイとデプロイ環境を作成および削除できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,17 +9,22 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 59567f92afddb8941005146a3fa92fd20549fa61
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147687053'
 ---
+## デプロイ API について
 
-## デプロイメントAPIについて
+デプロイメントとは、特定の ref (ブランチ、SHA、タグ) を配備するためるリクエストです。 GitHub では、[`deployment` イベント](/developers/webhooks-and-events/webhook-events-and-payloads#deployment)がディスパッチされますが、このイベントでは、新しいデプロイが作成されるタイミングを外部サービスがリッスンし、それに応じて動作できます。 デプロイメントにより、開発者や Organization はデプロイメントを中心として、さまざまな種類のアプリケーション (ウェブ、ネイティブなど) を提供するための実装に関する詳細を気にすることなく、疎結合ツールを構築できます。
 
-デプロイメントとは、特定の ref (ブランチ、SHA、タグ) を配備するためるリクエストです。 GitHub は、 外部サーバーがリッスンでき、新しいデプロイメントが作成されたときに実行される [`deployment` イベント](/developers/webhooks-and-events/webhook-events-and-payloads#deployment)をディスバッチします。 デプロイメントにより、開発者や Organization はデプロイメントを中心として、さまざまな種類のアプリケーション (ウェブ、ネイティブなど) を提供するための実装に関する詳細を気にすることなく、疎結合ツールを構築できます。
+デプロイ状態という機能では、外部サービスはデプロイに、[`deployment_status` イベント](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status)をリッスンするシステムが利用できる `error`、`failure`、`pending`、`in_progress`、`queued`、`success` という状態を付けることができます。
 
-デプロイメントのステータスを使用すると、外部サービスがデプロイメントに `error`、`failure`、`pending`、`in_progress`、`queued`、`success` ステータスを付けることができ、[`deployment_status` イベント](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status)をリッスンするシステムがその情報を使用できます。
+デプロイ状態には、任意で `description` と `log_url` も追加できます。デプロイ状態がさらに便利になるため、これらの状態は高く推奨されます。 `log_url` はデプロイ出力の完全 URL です。`description` は、デプロイで起こったことの概要がまとめられたものです。
 
-デプロイメントのステータスには、オプションとして `description` と `log_url` を含めることもできます。これによりデプロイメントのステータスがより有用なものになるので、非常におすすめです。 `log_url` はデプロイメントの出力の完全な URL で、`description` はデプロイメントで発生したことの概要を示すものです。
-
-GitHub は、新しいデプロイメント、デプロイメントのステータスが作成されたときに、`deployment` イベント、`deployment_status` イベントをディスパッチします。 これらのイベントにより、サードパーティのインテグレーションがデプロイメントのリクエストに対する応答を受けとり、進展があるたびにステータスを更新できます。
+GitHub では、新しいデプロイとデプロイ状態が作成されたとき、`deployment` イベントと `deployment_status` イベントがディスパッチされます。 これらのイベントにより、サードパーティの統合がデプロイの要求を受け取って応答し、進行状況に応じてデプロイの状態を更新できるようになります。
 
 以下は、これらの相互作用がどのように機能するかを示す簡単なシーケンス図です。
 
@@ -52,10 +57,10 @@ GitHub は、新しいデプロイメント、デプロイメントのステー�
 
 GitHub は、あなたのサーバーに実際にアクセスすることはないということは覚えておきましょう。 デプロイメントイベントとやり取りするかどうかは、サードパーティインテグレーション次第です。 複数のシステムがデプロイメントイベントをリッスンできます。コードをサーバーにプッシュする、ネイティブコードを構築するなどを行うかどうかは、それぞれのシステムが決めることができます。
 
-{% ifversion not ghae %}`public_repo` スコープおよび{% endif %}`repo` スコープはコードにもアクセス権を付与するのに対し、</code>repo_deployment</0> [OAuth scope](/developers/apps/scopes-for-oauth-apps) は、リポジトリのコードにアクセス権を付与**せず**、デプロイメントおよびデプロイメントステータスに絞ってアクセス権を付与することに注意してください。
+`repo_deployment` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps)は、リポジトリ コードにアクセスを許可 **せずに**、デプロイとデプロイの状態へのターゲット アクセスを許可しますが、{% ifversion not ghae %}`public_repo` スコープと {% endif %}`repo` スコープもコードにアクセス許可を付与することに注意してください。
 
 ### 非アクティブのデプロイメント
 
-デプロイメントのステータスを `success` に設定すると、同じ環境の同じリポジトリ内の一時的でない、非本番環境のデプロイメントはすべて `inactive` になります。 これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
+デプロイ状態を `success` に設定すると、同じ環境名で同じリポジトリにある以前の一時的ではない非運用環境デプロイが `inactive` になります。 これを回避するため、デプロイ状態を作成するとき、`auto_inactive` を `false` に設定できます。
 
-`state` を `inactive` に設定することで、一時的な環境が存在しなくなったことを伝えることができます。  `state` を `inactive` に設定すると、{% data variables.product.prodname_dotcom %} でデプロイメントが `destroyed` と表示され、アクセス権が削除されます。
+その `state` を `inactive` に設定することで、一時的な環境がなくなったことを通知できます。  `state` を `inactive` に設定すると、{% data variables.product.prodname_dotcom %} でデプロイが `destroyed` として表示され、それへのアクセスが削除されます。

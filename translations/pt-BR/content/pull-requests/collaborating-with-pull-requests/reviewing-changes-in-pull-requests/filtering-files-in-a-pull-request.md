@@ -14,24 +14,31 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Filtrar arquivos
+shortTitle: Filter files
+ms.openlocfilehash: 1ca50334e4329d40ee164cd01523abc69e127ab3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884170'
 ---
-
-Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo, como `. tml` ou `.js`, falta de extensão, propriedade de código ou dotfiles.{% ifversion pr-tree-view %} Você também pode usar a árvore de arquivos para filtrar por caminho de arquivo, navegar entre arquivos ou ver uma visão de alto nível os arquivos alterados.{% endif %}
+Você pode filtrar os arquivos em uma solicitação de pull por tipo de extensão de arquivo, como `.html` ou `.js`, falta de uma extensão, propriedade de código ou dotfiles.{% ifversion pr-tree-view %} Use também a árvore de arquivos para filtrar o conteúdo por caminho de arquivo, navegar entre arquivos ou ver uma exibição de alto nível dos arquivos alterados.{% endif %}
 
 ## Usando o menu de filtros de arquivo
 
 {% tip %}
 
-**Dica:** para simplificar a visualização do diff do pull request, também é possível ocultar temporariamente os arquivos excluídos ou aqueles que você já visualizou no diff do pull request a partir menu suspenso Filtro de arquivo.
+**Dica:** para simplificar a exibição de comparação de solicitações de pull, você também pode ocultar temporariamente os arquivos excluídos ou os arquivos que você já visualizou na comparação de solicitações de pull no menu suspenso do filtro de arquivos.
 
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique na pull request que você gostaria de filtrar.
 {% data reusables.repositories.changed-files %}
-4. Use o menu suspenso File filter (Filtro de arquivo) e selecione, desmarque ou clique nos filtros desejados. ![Opção File filter (Filtro de arquivo) acima do diff da pull request](/assets/images/help/pull_requests/file-filter-option.png)
-5. Como opção, para limpar a seleção de filtro, abaixo da aba **Files changed** (Arquivos alterados) clique em **Clear** (Limpar). ![Limpar a seleção File filter (Filtro de arquivo)](/assets/images/help/pull_requests/clear-file-filter.png)
+4. Use o menu suspenso File filter (Filtro de arquivo) e selecione, desmarque ou clique nos filtros desejados.
+  ![Opção Filtro de arquivos acima da comparação de solicitações de pull](/assets/images/help/pull_requests/file-filter-option.png)
+5. Opcionalmente, para limpar a seleção de filtro, na guia **Arquivos alterados**, clique em **Limpar**.
+  ![Limpar a seleção de filtro de arquivos](/assets/images/help/pull_requests/clear-file-filter.png)
 
 {% ifversion pr-tree-view %}
 ## Usando a árvore de arquivos
@@ -40,20 +47,20 @@ Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo,
 1. Na lista de pull requests, clique na pull request que você gostaria de filtrar.
 {% data reusables.repositories.changed-files %}
 
-1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. Se a árvore de arquivos estiver oculta, clique em {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} para exibir a árvore de arquivos.
+1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. Se a árvore de arquivos estiver oculta, clique em {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} para que ela seja exibida.
 
    {% note %}
 
-   **Observação**: A árvore de arquivos não será exibida se a largura da tela for muito estreita ou se o pull request incluir apenas um arquivo.
+   **Observação**: a árvore de arquivos não será exibida se a largura da tela for muito estreita ou se a solicitação de pull incluir apenas um arquivo.
 
    {% endnote %}
-
-   ![Captura de tela do filtro de caixa de pesquisa de arquivos alterada e a árvore de arquivos destacada](/assets/images/help/repository/file-tree.png)
-1. Para filtrar por caminho do arquivo, digite parte ou todo o caminho do arquivo na caixa de pesquisa **Filtrar arquivos alterados**. Como alternativa, use o menu suspenso do filtro de arquivos. Para obter mais informações, consulte "[Usando o menu suspenso do filro de arquivos](#using-the-file-filter-dropdown)."
+   
+   ![Captura de tela da caixa de pesquisa de arquivos alterados do filtro e da árvore de arquivos enfatizada](/assets/images/help/repository/file-tree.png)
+1. Para filtrar o conteúdo por caminho do arquivo, insira uma parte ou todo o caminho do arquivo na caixa de pesquisa **Filtrar arquivos alterados**. Como alternativa, use o menu suspenso do filtro de arquivos. Para obter mais informações, confira "[Como usar o menu suspenso de filtro de arquivo](#using-the-file-filter-dropdown)".
 
 {% endif %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre comparar branches em uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
-- "[Encontrar métodos e funções alterados em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request)"
+- "[Sobre a comparação de branches em uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
+- "[Como localizar funções e métodos alterados em uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request)"

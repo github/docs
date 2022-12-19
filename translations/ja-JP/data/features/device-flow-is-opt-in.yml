@@ -1,5 +1,4 @@
----
-#docs-content 6307. OAuth device auth flow is opt in.
+# docs-content 6307. OAuth device auth flow is opt in.
 versions:
   fpt: '*'
   ghec: '*'

@@ -1,7 +1,7 @@
 ---
-title: 'Closing and deleting your {% data variables.projects.projects_v2 %}'
+title: 'Cierre y eliminación de {% data variables.projects.projects_v2 %}'
 shortTitle: 'Closing and deleting {% data variables.projects.projects_v2 %}'
-intro: 'Learn about closing, re-opening, and permanently deleting a {% data variables.projects.project_v2 %}.'
+intro: 'Aprende a cerrar, volver a abrir y eliminar permanentemente una instancia de {% data variables.projects.project_v2 %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -11,36 +11,40 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: cfd4db85e8bd046e667b108c5c8d8c23102e0d29
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110065'
 ---
+## Eliminación de un proyecto
 
-
-## Deleting a project
-
-You can delete a project to permanently remove it.
+Puedes eliminar un proyecto para quitarlo permanentemente.
 
 {% data reusables.projects.project-settings %}
-1. At the bottom of the page, click **Delete this project**. ![Screenshot showing project delete button](/assets/images/help/issues/delete-project-button.png)
-1. Read the warnings, then type the name of your project into the text box. ![Screenshot showing project delete confirmation](/assets/images/help/issues/project-delete-confirm.png)
-1. Click **I understand the consequences, delete this project**.
+1. En la parte inferior de la página, haz clic en **Eliminar este recordatorio**. 
+   ![Captura de pantalla que muestra el botón Eliminar del proyecto](/assets/images/help/issues/delete-project-button.png)
+1. Lea las advertencias y escriba el nombre del proyecto en el cuadro de texto.
+   ![Captura de pantalla que muestra la confirmación de la eliminación del proyecto](/assets/images/help/issues/project-delete-confirm.png)
+1. Haz clic en **Entiendo las consecuencias, eliminar este repositorio**.
 
-## Closing a project
+## Cierre de un proyecto
 
-You can close a project to remove it from the list of projects but retain the contents and ability to re-open the project later.
+Puedes cerrar un proyecto para quitarlo de la lista de proyectos, pero conservar el contenido y la capacidad de volver a abrir el proyecto más adelante. 
 
 {% data reusables.projects.project-settings %}
-1. At the bottom of the page, click **Close this project**. ![Captura de pantalla que muestra el botón de cierre de un proyecto](/assets/images/help/issues/close-project-button.png)
+1. En la parte inferior de la página, haz clic en **Cerrar este proyecto**. 
+   ![Captura de pantalla que muestra el botón Cerrar del proyecto](/assets/images/help/issues/close-project-button.png)
 
-## Re-opening an organization project
+## Volver a abrir un proyecto organizacional
 
-Puedes volver a abrir un proyecto que se haya cerrado anteriormente.
+Puedes volver a abrir un proyecto cerrado previamente.
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.projects.reopen-a-project %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.projects.reopen-a-project %}
 
-## Re-opening a user project
+## Volver a abrir un proyecto de usuario
 
-Puedes volver a abrir un proyecto que se haya cerrado anteriormente.
+Puedes volver a abrir un proyecto cerrado previamente.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.projects.reopen-a-project %}
+{% data reusables.profile.access_profile %} {% data reusables.projects.reopen-a-project %}

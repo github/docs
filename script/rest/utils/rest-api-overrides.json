@@ -195,6 +195,11 @@
       "subcategory": null,
       "originalUrl": "/rest/reference/repos#get-a-dns-health-check-for-github-pages"
     },
+    "repos/create-pages-deployment": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#create-a-github-pages-deployment"
+    },
     "repos/get-code-frequency-stats": {
       "category": "metrics",
       "subcategory": "statistics",

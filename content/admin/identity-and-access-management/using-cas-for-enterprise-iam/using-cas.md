@@ -24,9 +24,9 @@ topics:
 
 CAS is a single sign-on (SSO) protocol that centralizes authentication to multiple web applications. For more information, see "[Central Authentication Service](https://en.wikipedia.org/wiki/Central_Authentication_Service)" on Wikipedia.
 
-After you configure CAS, people who use {% data variables.product.product_location %} must use a personal access token to authenticate API or Git requests over HTTP(S). CAS credentials cannot be used to authenticate these requests. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+After you configure CAS, people who use {% data variables.location.product_location %} must use a {% data variables.product.pat_generic %} to authenticate API or Git requests over HTTP(S). CAS credentials cannot be used to authenticate these requests. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-If you configure CAS, people with accounts on your identity provider (IdP) do not consume a user license until the person signs into {% data variables.product.product_location %}.
+If you configure CAS, people with accounts on your identity provider (IdP) do not consume a user license until the person signs into {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 

@@ -1,4 +1,4 @@
-You can create up to 10 one-time sponsorship tiers and 10 monthly tiers for sponsors to choose from. Each tier has its own one-time or monthly payment amount in US dollars, and you can choose to enable tiers for custom amounts. In addition, you can choose to enable tiers for custom amounts (monthly and one-time).
+You can publish up to 10 one-time sponsorship tiers and 10 monthly tiers for sponsors to choose from. Each tier has its own one-time or monthly payment amount in US dollars. Publishing tiers is optional.
 
 You can customize the rewards for each tier. For example, rewards for a tier could include:
 - Early access to new versions 

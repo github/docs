@@ -15,40 +15,44 @@ topics:
   - Publishing
   - Java
   - Gradle
-shortTitle: 带有 Gradle 的 Java 包
+shortTitle: Java packages with Gradle
+ms.openlocfilehash: 58bb9f872dbb136624c82ab7ae073d9b670e98e3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410281'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 简介
 
 {% data reusables.actions.publishing-java-packages-intro %}
 
-## 基本要求
+## 先决条件
 
-建议对工作流程文件和配置选项有一个基本了解。 更多信息请参阅“[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
+建议对工作流程文件和配置选项有一个基本了解。 有关详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-有关使用 Gradle 为 Java 项目创建 CI 工作流程的详细信息，请参阅“[使用 Gradle 构建和测试用 Java](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)”。
+有关使用 Gradle 为 Java 项目创建 CI 工作流的更多信息，请参阅“[使用 Gradle 构建和测试 Java](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)”。
 
 您可能还发现基本了解以下内容是有帮助的：
 
 - “[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)”
-- "[环境变量](/actions/reference/environment-variables)"
-- [加密的密码](/actions/reference/encrypted-secrets)"
-- "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"
+- “[环境变量](/actions/reference/environment-variables)”
+- [加密机密](/actions/reference/encrypted-secrets)
+- “[工作流中的身份验证](/actions/reference/authentication-in-a-workflow)”
 
 ## 关于包配置
 
-_build.gradle_ 文件 `MavenPublication` 部分的 `groupId` 和 `artifactId` 字段为包创建唯一标识符，供注册表用来将包链接到注册表。  这类似于 Maven _pom.xml_ 文件的 `groupId` 和 `artifactId` 字段。  更多信息请参阅 Gradle 文档中的“[Maven 发布插件](https://docs.gradle.org/current/userguide/publishing_maven.html)”。
+build.gradle 文件 `MavenPublication` 部分中的 `groupId` 和 `artifactId` 字段为包创建唯一标识符，注册表使用该标识符将包链接到注册表。  这类似于 Maven pom.xml 文件的 `groupId` 和 `artifactId` 字段。  有关详细信息，请参阅 Gradle 文档中的“[Maven 发布插件](https://docs.gradle.org/current/userguide/publishing_maven.html)”。
 
-_build.gradle_ 文件还包含 Gradle 将在其中部署包的分发管理仓库的配置。 每个仓库必须有名称、部署 URL 和验证凭据。
+build.gradle 文件还包含 Gradle 将向其发布包的分发管理存储库的配置。 每个仓库必须有名称、部署 URL 和验证凭据。
 
 ## 将包发布到 Maven 中心仓库
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程将包发布到 Maven 中心仓库。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程将包发布到 Maven 中心仓库。 有关 `release` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-您可以在 _build.gradle_ 文件的发布块中定义指向包仓库的新 Maven 仓库。  例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，则 _build.gradle_ 可以指定名称为 `"OSSRH"` 的仓库。
+你可以在指向包存储库的 build.gradle 文件的发布块中定义一个新的 Maven 存储库。  例如，如果通过 OSSRH 托管项目部署到 Maven 中央存储库，则 build.gradle 可以指定名称为 `"OSSRH"` 的存储库。
 
 {% raw %}
 ```groovy{:copy}
@@ -74,7 +78,7 @@ publishing {
 ```
 {% endraw %}
 
-使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 Maven 中心仓库。 在部署步骤中，您需要为用于向 Maven 仓库验证身份的用户名和密码或令牌设置环境变量。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+使用此配置，可以创建一个工作流，通过运行 `gradle publish` 命令将包发布到 Maven 中央存储库。 在部署步骤中，您需要为用于向 Maven 仓库验证身份的用户名和密码或令牌设置环境变量。 有关详细信息，请参阅“[创建和使用加密机密](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 ```yaml{:copy}
 
@@ -108,19 +112,19 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 `OSSRH` Maven 存储库。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。
+1. 使用 `publish` 参数运行 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作以发布到 `OSSRH` Maven 存储库。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 机密的内容进行设置，`MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 机密的内容进行设置。
 
-   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+   有关在工作流中使用机密的详细信息，请参阅“[创建和使用加密机密](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 ## 发布包到 {% data variables.product.prodname_registry %}
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。 有关 `release` 事件的详细信息，请参阅“[触发工作流的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-您可以在 _build.gradle_ 文件的发布块中定义指向 {% data variables.product.prodname_registry %} 的新 Maven 仓库。  在仓库配置中，您也可以利用在 CI 工作流程运行中设置的环境变量。  您可以使用 `GITHUB_ACTOR` 环境变量作为用户名，并且可以使用 `GITHUB_TOKENN` 密码设置 `GITHUB_TOKEN` 环境变量。
+可以在指向 {% data variables.product.prodname_registry %} 的 build.gradle 的发布块中定义一个新的 Maven 存储库。  在仓库配置中，您也可以利用在 CI 工作流程运行中设置的环境变量。  可以使用 `GITHUB_ACTOR` 环境变量作为用户名，并且可以使用 `GITHUB_TOKEN` 机密设置 `GITHUB_TOKEN` 环境变量。
 
 {% data reusables.actions.github-token-permissions %}
 
-例如，如果组织名为“octocat”且仓库名为“hello-world”，则 _build.gradle_ 中的 {% data variables.product.prodname_registry %} 配置看起来类似于以下示例。
+例如，如果组织名为“octocat”，存储库名为“hello-world”，则 build.gradle 中的 {% data variables.product.prodname_registry %} 配置类似于以下示例。
 
 {% raw %}
 ```groovy{:copy}
@@ -146,7 +150,7 @@ publishing {
 ```
 {% endraw %}
 
-使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 {% data variables.product.prodname_registry %}。
+使用此配置，可以创建一个工作流，通过运行 `gradle publish` 命令将包发布到 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 
@@ -181,19 +185,19 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 `permissions` 密钥指定 `GITHUB_TOKEN` 密钥将允许的访问。
+1. 使用 `publish` 参数运行 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 机密的内容进行设置。 `permissions` 密钥指定 `GITHUB_TOKEN` 机密允许的访问。
 
-   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+   有关在工作流中使用机密的详细信息，请参阅“[创建和使用加密机密](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 ## 发布包到 Maven 中心仓库和 {% data variables.product.prodname_registry %}
 
-您可以通过在 _build.gradle_ 文件中配置每项设置，将包发布到 Maven 中心仓库和 {% data variables.product.prodname_registry %}。
+可以通过在 build.gradle 文件中配置每个包来将包发布到 Maven 中央存储库和 {% data variables.product.prodname_registry %}。
 
-确保 _build.gradle_ 文件包含用于 {% data variables.product.prodname_dotcom %} 仓库和 Maven 中心仓库提供商的仓库。
+确保 build.gradle 文件包含 {% data variables.product.prodname_dotcom %} 存储库和 Maven 中央存储库提供程序的存储库。
 
-例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，您可能想要在分发管理仓库中指定它，并将 `name` 设置为 `OSSRH`。 如果您部署到 {% data variables.product.prodname_registry %}，您可能想要在分发管理仓库中指定它，并将 `name` 设置为 `GitHubPackages`。
+例如，如果通过 OSSRH 托管项目部署到中央存储库，可能希望在分发管理存储库中指定它，并将 `name` 设置为 `OSSRH`。 如果部署到 {% data variables.product.prodname_registry %}，可能希望在分发管理存储库中指定它，并将 `name` 设置为 `GitHubPackages`。
 
-如果组织名为“octocat”且仓库名为“hello-world”，则 _build.gradle_ 中的配置看起来类似于以下示例。
+如果组织名为“octocat”，存储库名为“hello-world”，则 build.gradle 中的配置类似于以下示例。
 
 {% raw %}
 ```groovy{:copy}
@@ -227,7 +231,7 @@ publishing {
 ```
 {% endraw %}
 
-使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 Maven 中心仓库和 {% data variables.product.prodname_registry %}。
+使用此配置，可以创建一个工作流，通过运行 `gradle publish` 命令将包发布到 Maven 中央存储库和 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 
@@ -265,6 +269,6 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 `OSSRH` Maven 存储库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 `permissions` 密钥指定 `GITHUB_TOKEN` 密钥将允许的访问。
+1. 使用 `publish` 参数运行 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作以发布到 `OSSRH` Maven 存储库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 机密的内容进行设置，`MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 机密的内容进行设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 机密的内容进行设置。 `permissions` 密钥指定 `GITHUB_TOKEN` 机密允许的访问。
 
-   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+   有关在工作流中使用机密的详细信息，请参阅“[创建和使用加密机密](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

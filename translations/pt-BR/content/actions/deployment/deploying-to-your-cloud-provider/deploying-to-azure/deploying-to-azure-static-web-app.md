@@ -10,21 +10,25 @@ type: tutorial
 topics:
   - CD
   - Azure Static Web Apps
+ms.openlocfilehash: 3e5b9a90e91e237fbd1b5679624ed3cdb3865856
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410544'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
 ## Introdução
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para criar e implantar um aplicativo web nos [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
+Este guia explica como usar o {% data variables.product.prodname_actions %} para criar e implantar um aplicativo Web nos [Aplicativos Web Estáticos do Azure](https://azure.microsoft.com/services/app-service/static/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Configurando OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Observação**: {% data reusables.actions.about-oidc-short-overview %} e "[Como configurar o OpenID Connect no Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
 
 {% endnote %}
 
@@ -34,22 +38,22 @@ Este guia explica como usar {% data variables.product.prodname_actions %} para c
 
 Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actions %}, primeiro você precisa concluir as etapas de configuração a seguir:
 
-1. Crie um Azure Static Web App usando a opção "Outro" para fonte de implantação. Para obter mais informações, consulte "[Início rápido: Criando o seu primeiro site estático no portal do Azure](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" na documentação do Azure.
+1. Crie um Azure Static Web App usando a opção "Outro" para fonte de implantação. Para obter mais informações, confira "[Guia de Início Rápido: Como criar seu primeiro site estático no portal do Azure](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" na documentação do Azure. 
 
-2. Crie um segredo chamado `AZURE_STATIC_WEB_APPS_API_TOKEN` com o valor do seu token estático de implantação do aplicativo web. Para mais informações sobre como encontrar seu token de implantação, consulte "[tokens de redefinição de deploy nos Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" na documentação do Azure.
+2. Crie um segredo chamado `AZURE_STATIC_WEB_APPS_API_TOKEN` com o valor do token de implantação do aplicativo Web estático. Para obter mais informações sobre como encontrar o token de implantação, confira "[Redefinir tokens de implantação nos Aplicativos Web Estáticos do Azure](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" na documentação do Azure.
 
 ## Criar o fluxo de trabalho
 
 Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-O fluxo de trabalho a seguir demonstra como construir e implantar um aplicativo estático do Azure quando há um push para o branch `principal` ou quando um pull request que direciona o `principal` é aberto, sincronizado ou reaberto. O fluxo de trabalho também desativa a implantação de pré-produção correspondente quando um pull request que aponta para o `principal` é fechado.
+O exemplo de fluxo de trabalho a seguir demonstra como criar e implantar um aplicativo Web estático do Azure quando há um push para o branch `main` ou quando uma solicitação de pull direcionada a `main` é aberta, sincronizada ou reaberta. O fluxo de trabalho também destrói a implantação de pré-produção correspondente quando uma solicitação de pull direcionada a `main` é fechada.
 
-Na chave do fluxo de trabalho `env`, altere os seguintes valores:
-- `APP_LOCATION` para o local do seu código de cliente
-- `API_LOCATION` para o local do seu código-fonte da API. Se `API_LOCATION` não é relevante. Você pode excluir a variável e as linhas onde ele é usado.
-- `APP_ARTIFACT_LOCATION` para a localização da saída da compilação do seu código de cliente
+Abaixo da chave `env` de fluxo de trabalho, altere os seguintes valores:
+- `APP_LOCATION` para o local do código do cliente
+- `API_LOCATION` para o local do código-fonte da API. Se `API_LOCATION` não for relevante, você poderá excluir a variável e as linhas em que ela é usada.
+- `APP_ARTIFACT_LOCATION` para o local da saída de build do código do cliente
 
-Para obter mais informações sobre esses valores, consulte "[Criar configuração para os Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" na documentação do Azure.
+Para obter mais informações sobre esses valores, confira "[Configuração de build para Aplicativos Web Estáticos do Azure](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" na documentação do Azure.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -111,6 +115,6 @@ jobs:
 
 Os seguintes recursos também podem ser úteis:
 
-* Para o fluxo de trabalho inicial original, consulte [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
-* A ação usada para implantar o aplicativo web é a ação oficial do Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy).
-* Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
+* Para o fluxo de trabalho inicial original, confira [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) no repositório `starter-workflows` do {% data variables.product.prodname_actions %}.
+* A ação usada para implantar o aplicativo Web é a ação [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) oficial do Azure.
+* Para ver mais exemplos de fluxos de trabalho do GitHub Action que são implantados no Azure, confira o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

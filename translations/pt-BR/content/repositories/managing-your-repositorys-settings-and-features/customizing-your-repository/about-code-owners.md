@@ -1,5 +1,5 @@
 ---
-title: Sobre proprietários do código
+title: Sobre os proprietários de código
 intro: Você pode usar um arquivo CODEOWNERS para definir indivíduos ou equipes que são responsáveis pelo código em um repositório.
 redirect_from:
   - /articles/about-codeowners
@@ -14,72 +14,82 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 12265f0627ca6d0feb34244aab1c021b5ae6cc10
+ms.sourcegitcommit: 9315c7dae9a673a2f8958df7632bf1af206a0bed
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188235'
 ---
-
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
 
-As pessoas escolhidas como proprietários do código devem ter permissões de leitura para o repositório. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
+As pessoas que você escolhe como proprietários do código devem ter permissões de gravação para o repositório. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
 
-## Sobre proprietários do código
+## Sobre os proprietários de código
 
-Solicita-se automaticamente que os proprietários do código revisem quando alguém abre um pull request que modifica o código que possuem. Solicita-se automaticamente que os proprietários do código revejam os rascunhos de pull requests. Para obter mais informações sobre pull requests em rascunho, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)". Solicita-se automaticamente que os proprietários do código revejam os rascunhos de pull requests. Se você converter um pull request em rascunho, as pessoas que já assinaram as notificações não terão suas assinaturas canceladas automaticamente. Para obter mais informações, consulte "[Alterar o stage de um pull request](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)".
+Solicita-se automaticamente que os proprietários do código revisem quando alguém abre um pull request que modifica o código que possuem. Solicita-se automaticamente que os proprietários do código revejam os rascunhos de pull requests. Para obter mais informações sobre as solicitações de pull de rascunho, confira "[Sobre as solicitações de pull](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)". Solicita-se automaticamente que os proprietários do código revejam os rascunhos de pull requests. Se você converter um pull request em rascunho, as pessoas que já assinaram as notificações não terão suas assinaturas canceladas automaticamente. Para obter mais informações, confira "[Como alterar a fase de uma solicitação de pull](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)".
 
-Quando alguém com permissões de administrador ou proprietário tiver habilitado revisões obrigatórias, se desejar, ele também poderá exigir aprovação de um proprietário do código para que o autor possa fazer merge de uma pull request no repositório. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
+Quando alguém com permissões de administrador ou proprietário tiver habilitado revisões obrigatórias, se desejar, ele também poderá exigir aprovação de um proprietário do código para que o autor possa fazer merge de uma pull request no repositório. Para obter mais informações, confira "[Sobre os branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
-Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre o {% octicon "shield-lock" aria-label="The edit icon" %}.
+Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, você pode procurar o arquivo e posicionar o mouse sobre o {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![Proprietário do código para um arquivo em um repositório](/assets/images/help/repository/code-owner-for-a-file.png)
 
 ## Local do arquivo CODEOWNERS
 
-Para usar um arquivo CODEOWNERS, crie um novo arquivo denominado `CODEOWNERS` na raiz, `docs/` ou no diretório `.github/` do repositório, no branch em que deseja adicionar os proprietários do código.
+Para usar um arquivo CODEOWNERS, crie um arquivo chamado `CODEOWNERS` na raiz, em `docs/` ou no diretório `.github/` do repositório, no branch em que deseja adicionar os proprietários de código.
 
-Cada arquivo CODEOWNERS atribui os proprietários do código para um único branch no repositório. Dessa forma, você pode atribuir diferentes proprietários de códigos para diferentes branches, como `@octo-org/codeowners-team` para uma base de código no branch-padrão e `@octocat` para um site do {% data variables.product.prodname_pages %} no branch de `gh-pages`.
+Cada arquivo CODEOWNERS atribui os proprietários do código para um único branch no repositório. Assim, você pode atribuir proprietários de código diferentes para diferentes branches, como `@octo-org/codeowners-team` para uma base de código no branch padrão e `@octocat` para um site do {% data variables.product.prodname_pages %} no branch `gh-pages`.
 
-Para que os proprietários do código recebam solicitações de revisão, o arquivo CODEOWNERS deve estar no branch base da pull request. Por exemplo, se você atribuir `@octocat` como o proprietário do código para arquivos *.js* no branch `gh-pages` do seu repositório, `@octocat` receberá solicitações de revisão quando uma pull request com alterações nos arquivos *.js* for aberta entre o branch head e `gh-pages`.
+Para que os proprietários do código recebam solicitações de revisão, o arquivo CODEOWNERS deve estar no branch base da pull request. Por exemplo, se você atribuir `@octocat` como o proprietário de código para arquivos *.js* no branch `gh-pages` do repositório, `@octocat` receberá solicitações de revisão quando uma solicitação de pull com alterações em arquivos *.js* for aberta entre o branch principal e `gh-pages`.
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## Tamanho do arquivo CODEOWNERS
 
 Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.
 
 Para reduzir o tamanho do seu arquivo CODEOWNERS, considere o uso de padrões curinga para consolidar múltiplas entradas em uma única entrada.
-{% endif %}
 
 ## Sintaxe de CODEOWNERS
 
-Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Os usuários devem ter acessso de `leitura` ao repositório e as equipes devem ter acesso explícito de `gravação`, mesmo que os integrantes da equipe já tenham acesso.
+{% warning %}
 
-{% ifversion fpt or ghec%}Na maioria dos casos você{% else %}Você{% endif %} também pode se referir a um usuário por um endereço de e-mail que foi adicionado a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, por exemplo, `user@example tom`. {% ifversion fpt or ghec %} Você não pode usar um endereço de e-mail para fazer referência a um {% data variables.product.prodname_managed_user %}. Para obter mais informações sobre {% data variables.product.prodname_managed_users %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
+**Aviso**: existem algumas regras de sintaxe para arquivos gitignore que *não funcionam* em arquivos CODEOWNERS:
+- Fazer o escape de um padrão que começa com `#` usando `\` para que ele seja tratado como um padrão e não como um comentário
+- Usar `!` para negar um padrão
+- Usar `[ ]` para definir um intervalo de caracteres
+
+{% endwarning %}
+
+Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas em arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipes do {% data variables.product.prodname_dotcom %} usando o padrão `@username` ou o formato `@org/team-name`. Os usuários e as equipes precisam ter acesso `write` explícito ao repositório, mesmo se os membros da equipe já têm acesso.
+
+{% ifversion fpt or ghec%}Na maioria dos casos, você{% else %}Você{% endif %} também pode se referir a um usuário por um endereço de email que foi adicionado à conta dele no {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, por exemplo, `user@example.com`. {% ifversion fpt or ghec %} Não é possível usar um endereço de email para se referir a um {% data variables.enterprise.prodname_managed_user %}. Para saber mais sobre {% data variables.enterprise.prodname_managed_users %}, confira "[Sobre os {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" na documentação do {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
 Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque {% data variables.product.prodname_dotcom %} usa um sistema de arquivos que diferencia maiúsculas e minúsculas. Uma vez que os CODEOWNERS são avaliados por {% data variables.product.prodname_dotcom %}, até mesmo sistemas que diferenciam maiúsculas de minúsculas (por exemplo, macOS) devem usar caminhos e arquivos que são tratados corretamente no arquivo dos CODEOWNERS.
 
-{% ifversion codeowners-errors %}
-Se alguma linha do seu arquivo do CODEOWNERS contiver uma sintaxe inválida, essa linha será ignorada. Ao acessar o arquivo do CODEOWNERS no seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá ver todos os erros destacados. Uma lista de erros no arquivo CODEOWNERS de um repositório também pode ser acessada por meio da API. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#list-codeowners-errors)" na documentação da API REST.
-{% else %}
-Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
+{% ifversion codeowners-errors %} Se alguma linha do arquivo CODEOWNERS contiver uma sintaxe inválida, essa linha será ignorada. Ao acessar o arquivo CODEOWNERS no repositório no {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, você verá todos os erros destacados. Uma lista de erros no arquivo CODEOWNERS de um repositório também pode ser acessada por meio da API. Para obter mais informações, confira "[Repositórios](/rest/reference/repos#list-codeowners-errors)" na documentação da REST.
+{% else %} Se alguma linha do arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
 {% endif %}
 
 ### Exemplo de um arquivo CODEOWNERS
 ```
-# Este é um comentário.
-# Cada linha é um padrão de arquivo seguido por um ou mais proprietários.
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
 
-# Esses proprietários serão os proprietários padrão para tudo no
-# repositório. A menos que uma correspondência posterior tenha precedência,
-# @global-owner1 e @global-owner2 serão solicitados para
-# revisão quando alguém abrir uma pull request.
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @global-owner1 and @global-owner2 will be requested for
+# review when someone opens a pull request.
 *       @global-owner1 @global-owner2
 
-# A ordem é importante; o último padrão de correspondência tem
-# prioridade. Quando alguém abre uma pull request que
-# modifica apenas arquivos JS, somente @js-owner, e não o(s)
-# proprietário(s) global(is), será solicitado para uma revisão.
-*.js    @js-owner
+# Order is important; the last matching pattern takes the most
+# precedence. When someone opens a pull request that only
+# modifies JS files, only @js-owner and not the global
+# owner(s) will be requested for a review.
+*.js    @js-owner #This is an inline comment.
 
-# Você também pode usar endereços de e-mail se preferir. Eles serão
-# usados para procurar usuários assim como fazemos com e-mails do
-# autor do commit.
+# You can also use email addresses if you prefer. They'll be
+# used to look up users just like we do for commit author
+# emails.
 *.go docs@example.com
 
 # Teams can be specified as code owners as well. Teams should
@@ -93,13 +103,13 @@ Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o ar
 # subdirectories.
 /build/logs/ @doctocat
 
-# O padrão `docs/*` corresponderá a arquivos como
-# `docs/getting-started.md`, mas a nenhum outro arquivo aninhado como
+# The `docs/*` pattern will match files like
+# `docs/getting-started.md` but not further nested files like
 # `docs/build-app/troubleshooting.md`.
 docs/*  docs@example.com
 
-# Neste exemplo, @octocat tem qualquer arquivo no diretório apps
-# em qualquer lugar do seu repositório.
+# In this example, @octocat owns any file in an apps directory
+# anywhere in your repository.
 apps/ @octocat
 
 # In this example, @doctocat owns any file in the `/docs`
@@ -117,20 +127,14 @@ apps/ @octocat
 /apps/ @octocat
 /apps/github
 ```
-### Exceções de sintaxe
-Existem algumas regras de sintaxe para arquivos gitignore que não funcionam em arquivos CODEOWNERS:
-- Fugir de um padrão que começa com `#` usando `\` para que seja tratado como um padrão e não como um comentário
-- Usar `!` para negar um padrão
-- Usar `[ ]` para definir um intervalo de caracteres
 
 ## Proteção de branch e de CODEOWNERS
-Os proprietários do repositório podem adicionar regras de proteção de branch para garantir que o código alterado seja revisado pelos proprietários dos arquivos alterados. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+Os proprietários do repositório podem adicionar regras de proteção de branch para garantir que o código alterado seja revisado pelos proprietários dos arquivos alterados. Para obter mais informações, confira "[Sobre os branches protegidos](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
 
+## Leitura adicional
 
-## Leia mais
-
-- "[Criar arquivos](/articles/creating-new-files)"
-- "[Convidar colaboradores para um repositório pessoal](/articles/inviting-collaborators-to-a-personal-repository)"
-- "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Gerenciar o acesso da equipe a um repositório da organização](/articles/managing-team-access-to-an-organization-repository)"
-- "[Exibir uma revisão de pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
+- "[Como criar arquivos](/articles/creating-new-files)"
+- "[Como convidar colaboradores para um repositório pessoal](/articles/inviting-collaborators-to-a-personal-repository)"
+- "[Como gerenciar o acesso de uma pessoa a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Como gerenciar o acesso da equipe a um repositório da organização](/articles/managing-team-access-to-an-organization-repository)"
+- "[Como ver uma revisão de solicitação de pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

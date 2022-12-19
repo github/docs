@@ -1,7 +1,7 @@
 ---
-title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
+title: 'Automatización de {% data variables.product.prodname_projects_v2 %} mediante acciones'
 shortTitle: Automating with Actions
-intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
+intro: 'Puedes usar {% data variables.product.prodname_actions %} para automatizar los proyectos.'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -11,44 +11,48 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: c21e201e538d09826bd0d00f22fe60508c9d6a61
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106849'
 ---
-
-
 ## Flujos de trabajo de {% data variables.product.prodname_actions %}
 
 Esta sección demuestra cómo utilizar la API de GraphQL y las {% data variables.product.prodname_actions %} para agregar una solicitud de cambios a un proyecto organizacional. En los flujos de trabajo de ejemplo, cuando la solicitud de cambios se marca como "lista para revisión", se agrega una tarea nueva al proyecto con un campo de "Estado" configurado en "Pendiente" y se agrega la fecha actual a un campo personalizado de "Fecha en la que se publicó".
 
 Puedes copiar uno de los siguientes flujos de trabajo y modificarlo de acuerdo con lo descrito en la siguiente tabla para que satisfaga tus necesidades.
 
-Un proyecto puede abarcar repositorios múltiples, pero un flujo de trabajo es específico par aun repositorio. Agrega el flujo de trabajo a cada repositorio que quieras que rastree tu proyecto. Para obtener más información sobre cómo crear archivos de flujo de trabajo, consulta la sección "[Inicio rápido para las {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Un proyecto puede abarcar repositorios múltiples, pero un flujo de trabajo es específico par aun repositorio. Agregue el flujo de trabajo a cada repositorio del que quiera que realice un seguimiento el proyecto. Para obtener más información sobre cómo crear archivos de flujo de trabajo, vea "[Inicio rápido para {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
-Este artículo asume que tienes un entendimiento básico de las {% data variables.product.prodname_actions %}. Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[{% data variables.product.prodname_actions %}](/actions)".
+Este artículo asume que tienes un entendimiento básico de las {% data variables.product.prodname_actions %}. Para obtener más información sobre {% data variables.product.prodname_actions %}, vea "[{% data variables.product.prodname_actions %}](/actions)".
 
-Para obtener más información sobre otros cambios que puedes hacer a tu proyecto a través de la API, consulta la sección "[Utilizar la API para administrar proyectos](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)".
+Para obtener más información sobre otros cambios que puede realizar en el proyecto mediante la API, consulte "[Uso de la API para administrar proyectos](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)".
 
-You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
+También puedes usar el flujo de trabajo **actions/add-to-project**, que mantiene {% data variables.product.company_short %} y agregará la incidencia o solicitud de incorporación de cambios actual al proyecto especificado. Para más información, consulta el repositorio [actions/add-to-project](https://github.com/actions/add-to-project) y el archivo LÉAME.
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). A continuación se muestran los ejemplos de flujo de trabajo para ambos acercamientos.
+**Nota:** `GITHUB_TOKEN` tiene como ámbito el nivel de repositorio y no puede acceder a {% data variables.projects.projects_v2 %}. Para acceder a {% data variables.projects.projects_v2 %}, puedes crear una {% data variables.product.prodname_github_app %} (recomendado para proyectos de la organización) o un {% data variables.product.pat_generic %} (recomendado para proyectos de usuario). A continuación se muestran los ejemplos de flujo de trabajo para ambos acercamientos.
 
 {% endnote %}
 
 ### Flujo de trabajo ejemplo autenticándose con una {% data variables.product.prodname_github_app %}
 
-1. Crea una {% data variables.product.prodname_github_app %} o elige una {% data variables.product.prodname_github_app %} existente que le pertenezca a tu organización. Para obtener más información, consulta la sección "[Crear una {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)".
-2. Dale a tu {% data variables.product.prodname_github_app %} permisos de lectura y escritura para los proyectos organizacionales. Para obtener más información, consulta la sección "[Editar los permisos de una {% data variables.product.prodname_github_app %}](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)".
+1. Crea una {% data variables.product.prodname_github_app %} o elige una {% data variables.product.prodname_github_app %} existente que le pertenezca a tu organización. Para obtener más información, vea "[Creación de una {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)".
+2. Dale a tu {% data variables.product.prodname_github_app %} permisos de lectura y escritura para los proyectos organizacionales. Para obtener más información, vea "[Edición de permisos de una {% data variables.product.prodname_github_app %}](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)".
 
    {% note %}
 
-   **Nota:** Puedes controlar los permisos de tu app con respecto a los proyectos organizacionales y de repositorio. Debes otorgar permisos de lectura y escritura de proyectos organizacionales; los permisos de lectura y escritura en los proyectos de repositorio no serán suficientes.
+   **Nota:** Puede controlar el permiso de la aplicación para los proyectos de la organización y para los proyectos del repositorio. Debes otorgar permisos de lectura y escritura de proyectos organizacionales; los permisos de lectura y escritura en los proyectos de repositorio no serán suficientes.
 
    {% endnote %}
 
-3. Instala la {% data variables.product.prodname_github_app %} en tu organización. Instálala para todos los repositorios a los cuales necesita acceso tu proyecto. Para obtener más información, consulta la sección "[Instalar {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)".
-4. Almacena la ID de tu {% data variables.product.prodname_github_app %} como un secreto en tu repositorio u organización. En el siguiente flujo de trabajo, reemplaza `APP_ID` con el nombre del secreto. Puedes encontrar tu ID de app en la página de ajustes de tu app o mediante la API de la misma. Para obtener más información, consulta la sección "[Apps](/rest/reference/apps#get-an-app)".
-5. Generar una llave privada para tu app. Almacena el contenido del archivo resultante como secreto en tu repositorio u organización. (Almacena todo el contenido del archivo, incluyendo `-----BEGIN RSA PRIVATE KEY-----` y `-----END RSA PRIVATE KEY-----`.) En el siguiente flujo de trabajo, reemplaza a `APP_PEM` con el nombre del secreto. Para obtener más información, consulta la sección "[Autenticarse con {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)".
-6. En el siguiente flujo de trabajo, reemplaza a `YOUR_ORGANIZATION` con el nombre de tu organización. Por ejemplo, `octo-org`. Reemplaza a `YOUR_PROJECT_NUMBER` con el número de tu proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
+3. Instala la {% data variables.product.prodname_github_app %} en tu organización. Instálala para todos los repositorios a los cuales necesita acceso tu proyecto. Para más información, vea "[Instalación de {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)".
+4. Almacena la ID de tu {% data variables.product.prodname_github_app %} como un secreto en tu repositorio u organización. En el flujo de trabajo siguiente, reemplace `APP_ID` por el nombre del secreto. Puedes encontrar tu ID de app en la página de ajustes de tu app o mediante la API de la misma. Para obtener más información, consulte "[Aplicaciones](/rest/reference/apps#get-an-app)".
+5. Generar una llave privada para tu app. Almacena el contenido del archivo resultante como secreto en tu repositorio u organización. (Almacene todo el contenido del archivo, incluido el contenido de `-----BEGIN RSA PRIVATE KEY-----` y `-----END RSA PRIVATE KEY-----`). En el flujo de trabajo siguiente, reemplace `APP_PEM` por el nombre del secreto. Para más información, vea "[Autenticación con {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)".
+6. En el flujo de trabajo siguiente, reemplace `YOUR_ORGANIZATION` por el nombre de la organización. Por ejemplo: `octo-org`. Reemplace `YOUR_PROJECT_NUMBER` por el número del proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -167,11 +171,11 @@ jobs:
 
 ```
 
-### Flujo de trabajo de ejemplo para autenticarse con un token de acceso personal
+### Flujo de trabajo de ejemplo de autenticación con una {% data variables.product.pat_generic %}
 
-1. Crea un token de acceso personal con los alcances `project` y `repo`. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-2. Guardar el token de acceso personal como secreto en tu organización o repositorio.
-3. En el siguiente flujo de trabajo, reemplaza a `YOUR_TOKEN` con el nombre del secreto. Reemplaza a `YOUR_ORGANIZATION` con el nombre de tu organización. Por ejemplo, `octo-org`. Reemplaza a `YOUR_PROJECT_NUMBER` con el número de tu proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
+1. Crea una {% data variables.product.pat_v1 %} con los ámbitos `project` y `repo`. Para obtener más información, consulta "[Creación de una {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+2. Guarda el {% data variables.product.pat_generic %} como un secreto en el repositorio u organización.
+3. En el flujo de trabajo siguiente, reemplace `YOUR_TOKEN` por el nombre del secreto. Reemplace `YOUR_ORGANIZATION` por el nombre de la organización. Por ejemplo, `octo-org`. Reemplace `YOUR_PROJECT_NUMBER` por el número del proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
 
 ```yaml{:copy}
 name: Add PR to project
@@ -304,7 +308,7 @@ Este flujo de trabajo se ejecuta cada que una solicitud de cambios en el reposit
 <tr>
 <td>
 
-{% data variables.product.prodname_github_app %} only:
+{% data variables.product.prodname_github_app %} solo:
 
 ```yaml
 - name: Generate token
@@ -317,13 +321,13 @@ Este flujo de trabajo se ejecuta cada que una solicitud de cambios en el reposit
 
 </td>
 <td>
-Utiliza la <a href="https://github.com/tibdex/github-app-token">acción tibdex/github-app-token</a> para generar un token de acceso a la instalación para tu app desde la ID y llave privada de la misma. Se puede acceder al token de acceso a la instalación más adelante en el flujo de trabajo como <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
+Usa la <a href="https://github.com/tibdex/github-app-token">acción tibdex/github-app-token</a> para generar un token de acceso de instalación para la aplicación a partir del id. de la aplicación y la clave privada. Más adelante en el flujo de trabajo se accede al token de acceso de instalación como <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
 <br>
 <br>
-Reemplaza <code>APP_ID</code> con el nombre del secreto que contiene la ID de tu app.
+Reemplace <code>APP_ID</code> por el nombre del secreto que contiene el id. de la aplicación.
 <br>
 <br>
-Reemplaza a <code>APP_PEM</code> con el nombre del secreto que contiene la llave privada de tu app.
+Reemplace <code>APP_PEM</code> por el nombre del secreto que contiene la clave privada de la aplicación.
 </td>
 </tr>
 
@@ -339,7 +343,7 @@ env:
   PROJECT_NUMBER: YOUR_PROJECT_NUMBER
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -353,13 +357,13 @@ env:
 Configura las variables para este paso.
 <br>
 <br>
-Si estás utilizando un token de acceso personal, reemplaza a <code>YOUR_TOKEN</code> con el nombre del secreto que contiene tu token de acceso personal.
+Si usas un {% data variables.product.pat_generic %}, reemplaza <code>YOUR_TOKEN</code> por el nombre del secreto que contiene tu {% data variables.product.pat_generic %}.
 <br>
 <br>
-Reemplaza <code>YOUR_ORGANIZATION</code> con el nombre de tu organización. Por ejemplo, <code>octo-org</code>.
+Reemplaza <code>YOUR_ORGANIZATION</code> por el nombre de la organización. Por ejemplo, <code>octo-org</code>.
 <br>
 <br>
-reemplaza <code>YOUR_PROJECT_NUMBER</code> con el número de tu proeycto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección <code>https://github.com/orgs/octo-org/projects/5</code> tiene "5" como número de proyecto.
+Reemplace <code>YOUR_PROJECT_NUMBER</code> por el número del proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, <code>https://github.com/orgs/octo-org/projects/5</code> tiene "5" como número de proyecto.
 </td>
 </tr>
 
@@ -395,9 +399,9 @@ gh api graphql -f query='
 
 </td>
 <td>
-<p>Utiliza al <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> para consultar la API para la ID del proyecto y devuelve el nombre y la ID de los primeros 20 campos en este. <code>fields</code> devuelve una unión y la consulta utiliza los fragmentos en línea (<code>... on</code>) para devolver información sobre cualquier campo de <code>ProjectV2Field</code> y <code>ProjectV2SingleSelectField</code>.</p>
+<p>Usa <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> para consultar a la API el id.del proyecto y devolver el nombre y el id. de los primeros 20 campos del proyecto. <code>fields</code> devuelve una unión y la consulta usa fragmentos insertados (<code>... on</code>) para devolver información acerca de los campos <code>ProjectV2Field</code> y <code>ProjectV2SingleSelectField</code>.</p>
 
-<p>La respuesta se almacena en un archivo que se llama <code>project_data.json</code>.</p>
+<p>La respuesta se almacena en un archivo denominado <code>project_data.json</code>.</p>
 </td>
 </tr>
 
@@ -415,10 +419,10 @@ echo 'TODO_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select
 <td>
 Analiza la respuesta desde la consulta de la API y almacena las ID relevantes como variables de ambiente. Modifica esto para obtener la ID para los campos u opciones diferentes. Por ejemplo:
 <ul>
-<li>Para obtener la ID de un campo llamado <code>Team</code>, agrega <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>.</li>
-<li>Para obtener la ID de una opción llamada <code>Octoteam</code> para el campo de selección sencilla <code>Team</code>, agrega <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code></li>
+<li>Para obtener el identificador de un campo denominado <code>Team</code>, agregue <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>.</li>
+<li>Para obtener el id. de una opción denominada <code>Octoteam</code> para el campo de selección única <code>Team</code>, agrega <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code>.</li>
 </ul>
-<strong>Nota: </strong> Este flujo de trabajo asume que tienes un proyecto con un campo de selección simple llamado "Status" que incluye una opción llamada "Todo" y un campo de fecha llamado "Date Posted". Debes modificar esta sección para empatar con los campos que están presentes en tu tabla.
+<strong>Nota:</strong> En este flujo de trabajo se da por hecho que tiene un proyecto con un único campo de selección denominado "Status" (Estado) que incluye una opción denominada "Todo" (Pendiente) y un campo de fecha denominado "Date posted" (Fecha de publicación). Debes modificar esta sección para empatar con los campos que están presentes en tu tabla.
 </td>
 </tr>
 
@@ -433,7 +437,7 @@ env:
   PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -443,7 +447,7 @@ env:
 
 </td>
 <td>
-Configura las variables para este paso. <code>GITHUB_TOKEN</code> se describe anteriormente. <code>PR_ID</code> es la ID de la solicitud de cambios que activó este flujo de trabajo.
+Configura las variables para este paso. <code>GITHUB_TOKEN</code> se ha descrito anteriormente. <code>PR_ID</code> es el identificador de la solicitud de incorporación de cambios que ha desencadenado este flujo de trabajo.
 
 </td>
 </tr>
@@ -464,7 +468,7 @@ item_id="$( gh api graphql -f query='
 
 </td>
 <td>
-Utiliza el <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> y la API para agrega la solicitud de cambios que activó este flujo de trabajo hacia el proyecto. La bandera <code>jq</code> analiza la respuesta para obtener la ID del elemento creado.
+Usa <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> y la API para agregar la solicitud de incorporación de cambios que ha desencadenado este flujo de trabajo al proyecto. La marca <code>jq</code> analiza la respuesta para obtener el identificador del elemento creado.
 </td>
 </tr>
 
@@ -490,7 +494,7 @@ echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
 
 </td>
 <td>
-Guarda la fecha actual como variable de ambiente en el formato <code>yyyy-mm-dd</code>.
+Guarda la fecha actual como una variable de entorno con el formato <code>yyyy-mm-dd</code>.
 </td>
 </tr>
 
@@ -504,7 +508,7 @@ env:
   GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -513,7 +517,7 @@ env:
 
 </td>
 <td>
-Configura las variables para este paso. <code>GITHUB_TOKEN</code> se describe anteriormente.
+Configura las variables para este paso. <code>GITHUB_TOKEN</code> se ha descrito anteriormente.
 
 </td>
 </tr>
@@ -560,7 +564,7 @@ gh api graphql -f query='
 
 </td>
 <td>
-Configura el valor del campo <code>Status</code> como <code>Todo</code>. Configura el valor del campo <code>Date posted</code>.
+Establece el valor del campo <code>Status</code> en <code>Todo</code>. Establece el valor del campo <code>Date posted</code>.
 </td>
 </tr>
 

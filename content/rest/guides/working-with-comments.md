@@ -32,7 +32,7 @@ Request is just an Issue with code, it makes sense to use the Issues API to
 create comments on a Pull Request.
 
 We'll demonstrate fetching Pull Request comments by creating a Ruby script using
-[Octokit.rb][octokit.rb]. You'll also want to create a [personal access token][personal token].
+[Octokit.rb][octokit.rb]. You'll also want to create a [{% data variables.product.pat_generic %}][personal token].
 
 The following code should help you get started accessing comments from a Pull Request
 using Octokit.rb:

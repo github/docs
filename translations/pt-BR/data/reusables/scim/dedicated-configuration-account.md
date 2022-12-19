@@ -1,1 +1,9 @@
-To use SCIM with your organization, you must use a third-party-owned {% data variables.product.prodname_oauth_app %}. The {% data variables.product.prodname_oauth_app %} must be authorized by, and subsequently acts on behalf of, a specific {% data variables.product.prodname_dotcom %} user. If the user who last authorized this {% data variables.product.prodname_oauth_app %} leaves or is removed from the organization, SCIM will stop working. To avoid this issue, we recommend creating a dedicated user account to configure SCIM. This user account must be an organization owner and will consume a license.
+---
+ms.openlocfilehash: 49888e7031e048c77d405b1e65d9e06510e3c789
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147063407"
+---
+Para usar o SCIM com sua organização, você deve usar um {% data variables.product.prodname_oauth_app %} de terceiros. O {% data variables.product.prodname_oauth_app %} deve ser autorizado por usuário específico do {% data variables.product.prodname_dotcom %} e, posteriormente, atuar em nome dele. Se o usuário que autorizou pela última vez esse {% data variables.product.prodname_oauth_app %} sair ou for removido da organização, o SCIM deixará de funcionar. Para evitar esse problema, recomendamos criar uma conta de usuário dedicada para configurar o SCIM. Essa conta de usuário deve ser uma proprietária da organização e consumirá uma licença.

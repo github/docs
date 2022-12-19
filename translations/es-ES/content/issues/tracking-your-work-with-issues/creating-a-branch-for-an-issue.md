@@ -1,34 +1,40 @@
 ---
-title: Crear una rama para trabajar en una propuesta
-intro: Puedes crear una rama para trabajar en una propuesta directamente desde la página de propuestas e iniciar de inmediato.
+title: Creación de una rama para trabajar en una incidencia
+intro: Puedes crear una rama para trabajar en una incidencia directamente desde la página de la incidencia y empezar de inmediato.
 versions:
   fpt: '*'
   ghes: '>=3.5'
-  ghae: issue-6234
+  ghae: '>= 3.5'
   ghec: '*'
 allowTitleToDifferFromFilename: true
 topics:
   - Issues
-shortTitle: Crear una rama para una propuesta
+shortTitle: Create branch for issue
+ms.openlocfilehash: 062b41705836537de23d882acc5342e0713c316d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147061142'
 ---
-
 {% note %}
 
-**Nota:** La capacidad de crear una rama para una propuesta se encuentra actualmente en beta y está sujeta a cambios.
+**Nota:** La capacidad de crear una rama para una incidencia se encuentra actualmente en versión beta pública y está sujeta a cambios.
 
 {% endnote %}
 
-## Acerca de las ramas conectadas a una propuesta
-Las ramas conectadas a una propuesta se muestran bajo la sección de "Desarrollo" en la barra lateral de una propuesta. Cuando creas una solicitud de cambios para alguna de estas ramas, esta se enlaza automáticamente a la propuesta. La conexión con esa rama se elimina y solo se muestra la solicitud de cambios en la sección de "Desarrollo". Para obtener más información, consulta la sección "[Vincular una solicitud de extracción a un informe de problemas](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
+## Acerca de las ramas conectadas a una incidencia
+Las ramas conectadas a una incidencia se muestran en la sección "Desarrollo" de la barra lateral de una incidencia. Al crear una solicitud de incorporación de cambios para una de estas ramas, se vincula automáticamente a la incidencia. La conexión con esa rama se quita y solo se muestra la solicitud de incorporación de cambios en la sección "Desarrollo". Para más información, vea "[Vinculación de una solicitud de incorporación de cambios a una incidencia](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
 
-## Crear una rama para una propuesta
+## Creación de una rama para una incidencia
 
-Cualquiera con permisos de escritura en un repositorio puede crear una rama para una propuesta. Puedes enlazar ramas múltiples para una propuesta.
+Cualquiera con permiso de escritura en un repositorio puede crear una rama para una incidencia. Puede vincular varias ramas para una incidencia.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. En la lista de propuestas, haz clic en aquella para la cuál t gustaría crear una rama.
-4. En la barra lateral derecha, debajo de "Desarrollo", haz clic en **Crear una rama**. Si la propuesta ya tiene una rama o solicitud de cambios enlazada, haz cli en {% octicon "gear" aria-label="The Gear icon" %} y, en la parte inferior del menú desplegable, haz clic en **Crear una rama**. ![Captura de pantalla que muestra la opción de crear rama en la barra lateral](/assets/images/help/issues/create-a-branch.png)
-5. Predeterminadamente, se creará la rama nueva en el repositorio actual de la rama predeterminada. Edita el nombre de rama y los detalles como se requiera en el diálogo "Crear una rama para esta propuesta". ![Captura de pantalla que muestra las opciones de diálogo de crear una rama](/assets/images/help/issues/create-a-branch-options.png)
-6. Elige si quieres trabajar en la rama localmente o abrirla en GitHub Desktop.
-7. Cuando estés listo para crear la rama, haz clic en **Crear rama**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. En la lista de incidencias, haga clic en aquella para la que quiera crear una rama.
+4. En la barra lateral derecha, en "Desarrollo", haga clic en **Crear una rama**. Si la incidencia ya tiene una rama vinculada o una solicitud de incorporación de cambios, haga clic en {% octicon "gear" aria-label="The Gear icon" %} y en la parte inferior del menú desplegable, haga clic en **Crear una rama**.
+   ![Captura de pantalla en la que se muestra la opción Crear una rama resaltada en la barra lateral](/assets/images/help/issues/create-a-branch.png)
+5. De forma predeterminada, la nueva rama se crea en el repositorio actual a partir de la rama predeterminada. Edite el nombre de la rama y los detalles según sea necesario en el cuadro de diálogo "Crear una rama para esta incidencia".
+   ![Captura de pantalla en la que se muestran las opciones del cuadro de diálogo Crear una rama](/assets/images/help/issues/create-a-branch-options.png)
+6. Elija si quiere trabajar en la rama localmente o abrirla en GitHub Desktop.
+7. Cuando esté listo para crear la rama, haga clic en **Crear rama**.

@@ -11,38 +11,40 @@ versions:
 topics:
   - Policy
   - Legal
-shortTitle: Gerenciar o uso de dados para repositório privado
+shortTitle: Manage data use for private repo
+ms.openlocfilehash: 36ddc4449726b67863e7d4e045dd1582b12f2c27
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147526667'
 ---
-
 ## Sobre o uso de dados para seu repositório privado
 
 
-É possível controlar o uso de dados no seu repositório privado com as funcionalidades de segurança e análise.
+Você pode controlar o uso de dados do seu repositório privado com os recursos de segurança e análise. 
 
-- Habilite o gráfico de dependências para permitir análise de dados somente leitura no repositório.
-- Desabilite o gráfico de dependências para bloquear a análise de dados somente leitura do repositório.
+- Habilite o grafo de dependência para permitir a análise de dados somente leitura no repositório. 
+- Desabilite o grafo de dependência para bloquear a análise de dados somente leitura do repositório. 
 
-Ao habilitar o uso de dados para seu repositório privado, poderá acessar o gráfico de dependências, em que você pode acompanhar as dependências do repositório e receber {% data variables.product.prodname_dependabot_alerts %} quando o {% data variables.product.product_name %} detectar dependências vulneráveis. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
+Ao habilitar o uso de dados para seu repositório privado, poderá acessar o gráfico de dependências, em que você pode acompanhar as dependências do repositório e receber {% data variables.product.prodname_dependabot_alerts %} quando o {% data variables.product.product_name %} detectar dependências vulneráveis. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
 
 
 {% note %}
 
-**Observação:** Se você desabilitar o gráfico de dependências, {% data variables.product.prodname_dependabot_alerts %} e {% data variables.product.prodname_dependabot_security_updates %} também serão desabilitados. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+**Observação:** se você desabilitar o grafo de dependência, os {% data variables.product.prodname_dependabot_alerts %} e as {% data variables.product.prodname_dependabot_security_updates %} também serão desabilitados. Para obter mais informações, confira "[Sobre o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)". 
 
 {% endnote %}
 
-## Habilitando ou desabilitando o uso de dados por meio das funcionalidades de segurança e análise
+## Habilitar ou desabilitar o uso de dados por meio dos recursos de segurança e análise
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Em "Segurança e análise de código", à direita do recurso, clique em **Desabilitar** ou **Habilitar**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+4. Em "Segurança e análise de código", à direita do recurso, clique em **Desabilitar** ou **Habilitar**.{% ifversion fpt %} ![" Botão Habilitar" ou "Desabilitar" para os recursos de "Configurar segurança e análise"](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %} !["Habilitar" ou "Desabilitar" para recursos de "Configurar segurança e análise"](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre o uso de seus dados pelo {% data variables.product.prodname_dotcom %}](/articles/about-github-s-use-of-your-data)"
-- "[Visualizando e atualizando {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[Sobre o uso dos seus dados pelo {% data variables.product.prodname_dotcom %}](/articles/about-github-s-use-of-your-data)"
+- "[Como ver e atualizar {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+- "[Como gerenciar as configurações de segurança e de análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"

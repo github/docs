@@ -1,6 +1,6 @@
 ---
 title: ファイルを管理する
-intro: 'You can create, edit, move, and delete files in a repository, directly on {% data variables.product.product_name %} or on the command line.'
+intro: 'リポジトリ内のファイルは、{% data variables.product.product_name %} で直接、またはコマンド ラインで作成、編集、移動、削除を行うことができます。'
 redirect_from:
   - /articles/managing-files-on-github
   - /github/managing-files-in-a-repository/managing-files-on-github
@@ -20,5 +20,12 @@ children:
   - /renaming-a-file
   - /deleting-files-in-a-repository
   - /customizing-how-changed-files-appear-on-github
+  - /navigating-files-with-the-new-code-view
+ms.openlocfilehash: 4c2a28474175d11d29f78d41a281f4072485eb62
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159880'
 ---
 

@@ -6,10 +6,10 @@ redirect_from:
   - /v3/apps/available-endpoints
   - /rest/reference/endpoints-available-for-github-apps
 versions:
-  fpt: "*"
-  ghes: "*"
-  ghae: "*"
-  ghec: "*"
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: GitHub App-enabled endpoints

@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-shortTitle: 提交疑难解答
+shortTitle: Troubleshoot commits
+ms.openlocfilehash: 2a1c89fa158f562bc93e1c76489a077a43e410c3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079522'
 ---
-
 ## 查看提交详细信息的预期行为
 
 在个人资料页面的时间表中，您可以单击特定仓库旁边的提交数量，以查看关于该时间段内提交的更多详细信息，包括仓库中进行的特定更改的差异。
@@ -28,7 +33,7 @@ shortTitle: 提交疑难解答
 
 如果单击个人资料页面中的提交链接而没有在仓库的提交页面上看到所有预期的提交，则可能会重写 Git 中的提交历史记录，并且提交创作日期和提交日期会不同。
 
-![含有表明“未找到 octocat 的任何提交”消息的仓库页面](/assets/images/help/repository/no-commits-found.png)
+![含有表明“未找到 octocat 的任何提交”消息的存储库页面](/assets/images/help/repository/no-commits-found.png)
 
 ## GitHub 如何使用 Git 创作日期和提交日期
 
@@ -36,11 +41,11 @@ shortTitle: 提交疑难解答
 
 在个人资料页面上，创作日期用于计算进行提交的时间。 而在仓库中，提交日期用于计算在仓库中进行提交的时间。
 
-通常，创作日期和提交日期是相同的，但如果提交历史记录发生变化，您可能会注意到提交顺序将被打乱。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
+通常，创作日期和提交日期是相同的，但如果提交历史记录发生变化，您可能会注意到提交顺序将被打乱。 有关详细信息，请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
 
 ## 查看时间表中提交缺少的提交详细信息
 
-您可以使用带有 `--pretty=fuller` 标志的 `git show` 命令检查提交创作日期与提交日期是否不同。
+可以将 `git show` 命令与 `--pretty=fuller` 标志一起使用，以检查提交创作日期和提交日期是否不同。
 
 ```shell
 $ git show <em>Your commit SHA number</em> --pretty=fuller

@@ -17,20 +17,20 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: 查看历史记录和收据
+shortTitle: View history & receipts
+ms.openlocfilehash: 620dcd8d38da01e9680e0cbc05c23dc97d241a41
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147877230'
 ---
-
 ## 查看个人帐户的收据
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.view-payment-history %}
-{% data reusables.dotcom_billing.download_receipt %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.view-payment-history %} {% data reusables.dotcom_billing.download_receipt %}
 
 ## 查看组织的收据
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.view-payment-history %}
-{% data reusables.dotcom_billing.download_receipt %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.view-payment-history %} {% data reusables.dotcom_billing.download_receipt %}

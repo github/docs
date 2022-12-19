@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% data variables.projects.projects_v1_boards %} in a repository'
-intro: 'Repository administrators can turn off {% data variables.projects.projects_v1_boards %} for a repository if you or your team manages work differently.'
+title: 'Deshabilitación de {% data variables.projects.projects_v1_boards %} en un repositorio'
+intro: 'Los administradores de repositorios pueden desactivar las instancias de {% data variables.projects.projects_v1_boards %} para un repositorio si tu equipo o tú administráis el trabajo de forma diferente.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-a-repository
   - /articles/disabling-project-boards-in-a-repository
@@ -15,12 +15,17 @@ topics:
   - Pull requests
 shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 8c550cd9ebc767327298e39dc0b3a6a11368dc3f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110025'
 ---
+Al deshabilitar {% data variables.projects.projects_v1_boards %}, ya no verás información de {% data variables.projects.projects_v1_board %} en escalas de tiempo ni [registros de auditoría](/articles/reviewing-your-security-log/).
 
-When you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/articles/reviewing-your-security-log/).
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. En "Características", desactive la casilla **Proyectos**.
+  ![Casilla Quitar proyectos](/assets/images/help/projects/disable-projects-checkbox.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. En "Características", quita la marca de selección de la casilla de verificación **Proyectos**. ![Casilla de verificación Eliminar proyectos](/assets/images/help/projects/disable-projects-checkbox.png)
-
-After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. {% data reusables.organizations.disable_project_board_results %}
+Una vez deshabilitados los datos {% data variables.projects.projects_v1_boards %}, los datos {% data variables.projects.projects_v1_boards %} no son accesibles en sus direcciones URL anteriores. {% data reusables.organizations.disable_project_board_results %}

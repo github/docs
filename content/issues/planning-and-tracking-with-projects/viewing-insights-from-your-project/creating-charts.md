@@ -1,9 +1,9 @@
 ---
-title: 'Creating charts'
-intro: 'Learn how to create new charts to save your configurations.'
+title: Creating charts
+intro: Learn how to create new charts to save your configurations.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:

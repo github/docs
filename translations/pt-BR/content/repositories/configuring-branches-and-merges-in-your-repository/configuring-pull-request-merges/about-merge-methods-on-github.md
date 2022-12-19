@@ -12,22 +12,25 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Sobre métodos de merge
+shortTitle: About merge methods
+ms.openlocfilehash: 97e8b7159ebadf1fe02ae56f707728c2bc8c439d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882438'
 ---
-
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} É possível aplicar um tipo de método de merge, como combinação por squash ou rebase de commit, apena habilitando o método desejado para o repositório.
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Observação:** Ao usar a fila de merge, você não poderá mais escolher o método de merge, uma vez que isso é controlado pela fila. {% data reusables.pull_requests.merge-queue-references %}
+**Observação:** ao usar a fila de mesclagem, você não pode mais escolher o método de mesclagem, pois isso é controlado pela fila. {% data reusables.pull_requests.merge-queue-references %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.pull_requests.default_merge_option %}
 
-O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)."
+O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, confira "[Sobre os branches protegidos](/github/administering-a-repository/about-protected-branches#require-linear-history)".
 
 ## Combinar por squash os commits de merge
 
@@ -35,17 +38,17 @@ O método de merge padrão cria um commit de mesclagem. Você pode impedir que u
 
 Antes de habilitar a combinação de commits por squash, considere estas desvantagens:
 - Você perde informações sobre quando alterações específicas foram originalmente feitas e quem criou os commits combinados por squash.
-- Se você continuar trabalhando no branch principal de um pull request após a combinação por squash e o merge, e, em seguida, criar um novo pull request entre os mesmos branches, commits que você já tenha combinado por squash e feito merge serão listados no novo pull request. Você também pode ter conflitos que tenha que resolver repetidamente em cada pull request consecutivo. Para obter mais informações, consulte "[Sobre merges da pull request](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch)".
-- Alguns comandos Git que usam a ID "SHA" ou "hash" podem ser mais difíceis de usar, pois a ID SHA para os commits originais é perdida. Por exemplo, usar [`git rerere`](https://git-scm.com/docs/git-rerere) pode não ser tão eficaz.
+- Se você continuar trabalhando no branch principal de um pull request após a combinação por squash e o merge, e, em seguida, criar um novo pull request entre os mesmos branches, commits que você já tenha combinado por squash e feito merge serão listados no novo pull request. Você também pode ter conflitos que tenha que resolver repetidamente em cada pull request consecutivo. Para obter mais informações, confira "[Sobre as mesclagens de solicitações de pull](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squashing-and-merging-a-long-running-branch)".
+- Alguns comandos Git que usam a ID "SHA" ou "hash" podem ser mais difíceis de usar, pois a ID SHA para os commits originais é perdida. Por exemplo, o uso de [`git rerere`](https://git-scm.com/docs/git-rerere) pode não ser tão eficaz.
 
-Para obter mais informações, consulte "[Configurar combinação de commits por squash para pull requests](/articles/configuring-commit-squashing-for-pull-requests)".
+Para obter mais informações, confira "[Como configurar o squash de commit para solicitações de pull](/articles/configuring-commit-squashing-for-pull-requests)".
 
 ## Fazer rebase e merge de seus commits
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
 Antes de habilitar o rebase de commit, leve em consideração estas desvantagens:
-- Os contribuidores do repositório podem ter que fazer rebase na linha de comando, resolver conflitos e forçar push de suas alterações no branch de tópico da pull request (ou branch de head remoto) para que possam usar a opção **rebase and merge** (fazer rebase e merge) no {% data variables.product.product_location %}. O push forçado deve ser feito com cuidado para que os contribuidores não substituam o trabalho que outras pessoas usaram como base para o respectivo trabalho. Para saber mais sobre quando a opção **Rebase and merge** (Fazer rebase e merge) é desabilitada no {% data variables.product.product_location %} e sobre o fluxo de trabalho para reabilitá-la, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
+- Os colaboradores do repositório podem precisar trocar a base novamente na linha de comando, resolver os conflitos e forçar por push as alterações para o branch do tópico da solicitação de pull (ou para o branch principal remoto) para usar a opção **Troca de base e mesclagem** do {% data variables.product.product_location %}. O push forçado deve ser feito com cuidado para que os contribuidores não substituam o trabalho que outras pessoas usaram como base para o respectivo trabalho. Para saber mais sobre quando a opção **Troca de base e mesclagem** é desabilitada no {% data variables.product.product_location %} e o fluxo de trabalho necessário para habilitá-la novamente, confira "[Sobre as mesclagens de solicitações de pull](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
 - {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=3 %}
 
-Para obter mais informações, consulte "[Configurar rebase de commit para pull requests](/articles/configuring-commit-rebasing-for-pull-requests)".
+Para obter mais informações, confira "[Como configurar a troca de base de commit para solicitações de pull](/articles/configuring-commit-rebasing-for-pull-requests)".

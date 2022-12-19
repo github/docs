@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: Gitignore APIは、ファイルやディレクトリを無視するために利用できる`.gitignore`テンプレートをフェッチします。
+intro: REST API を使用して、ファイルとディレクトリを無視するために使用できる `.gitignore` テンプレートを取得します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/gitignore
+ms.openlocfilehash: a3d6d35014a0c6bc46102fa7abfa11659fff6fbf
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193042'
 ---
+## gitignore について
 
-## Gitignore APIについて
+この API を使って {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} に新しいリポジトリを作成する場合、作成時にリポジトリに適用する [.gitignore テンプレート](/github/getting-started-with-github/ignoring-files)を指定できます。 REST API を使って、{% data variables.product.product_name %} [.gitignore リポジトリ](https://github.com/github/gitignore)から .gitignore テンプレートを取得できます。
 
-{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上に新しいリポジトリをAPIを介して作成する場合、作成時にリポジトリに適用する[.gitignoreテンプレート](/github/getting-started-with-github/ignoring-files)を指定できます。 .gitignore テンプレート API は、{% data variables.product.product_name %} の [.gitignore リポジトリ](https://github.com/github/gitignore)からテンプレートを一覧表示してフェッチします。
-
-### gitignore のカスタムメディアタイプ
-
-gitignore テンプレートを取得するときに、このカスタムメディアタイプを使用できます。
-
-    application/vnd.github.VERSION.raw
-
-詳しい情報については、「[メディアタイプ](/rest/overview/media-types)」を参照してください。
+gitignore テンプレートを取得するときに、この `application/vnd.github.raw` カスタム メディア タイプを使用できます。 詳細については、「[メディア タイプ](/rest/overview/media-types)」を参照してください。

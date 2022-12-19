@@ -1,5 +1,5 @@
 ---
-title: Exibir o uso do Git Large File Storage
+title: Exibindo o uso de Armazenamento de Arquivos Grandes do Git
 intro: 'Você pode auditar a cota de largura de banda mensal da sua conta e o armazenamento restante do {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-git-large-file-storage-usage
@@ -15,25 +15,27 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Visualizar o uso do LFS do Git
+shortTitle: View Git LFS usage
+ms.openlocfilehash: 1a0bc2ec9df2479cb0a56a54494fd4bead72e358
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083525'
 ---
-
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 
 ## Exibir o uso de armazenamento e largura de banda de uma conta pessoal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-data %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.lfs-data %}
 
 ## Exibir o uso de armazenamento e largura de banda de uma organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-data %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.lfs-data %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre o uso de armazenamento e largura de banda](/articles/about-storage-and-bandwidth-usage)"
-- "[Atualizar o {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"
+- "[Sobre o uso de armazenamento e de largura de banda](/articles/about-storage-and-bandwidth-usage)"
+- "[Como fazer upgrade do {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

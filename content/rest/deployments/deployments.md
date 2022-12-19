@@ -20,7 +20,7 @@ Deployment statuses allow external services to mark deployments with an `error`,
 Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
 the `description` is a high-level summary of what happened with the deployment.
 
-GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
+GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allow third-party integrations to receive and respond to deployment requests, and update the status of a deployment as progress is made.
 
 Below is a simple sequence diagram for how these interactions would work.
 

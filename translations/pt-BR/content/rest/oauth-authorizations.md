@@ -1,19 +1,22 @@
 ---
 title: Autorizações do OAuth
-intro: As autorizações do OAuth permitem gerenciar os aplicativos do OAuth para sua conta.
+intro: As autorizações OAuth permitem que você gerencie o acesso que os aplicativos OAuth têm à sua conta.
 versions:
-  fpt: '*'
-  ghec: '*'
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/oauth-authorizations
+ms.openlocfilehash: 7a690b1e874179496c80c4a235e61727b5f72a91
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147444666'
 ---
+## Sobre a API de Autorizações do OAuth
 
-## Sobre a API de autorizações do OAuth
+Você pode usar esta API para gerenciar o acesso do aplicativo OAuth à sua conta. Só é possível acessar essa API por meio da [Autenticação Básica](/rest/overview/other-authentication-methods#basic-authentication) usando seu nome de usuário e a senha, não os tokens.
 
-Você pode usar esta API para gerenciar o acesso do aplicativo OAuth à sua conta. Você só pode acessar esta API através da [Autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) usando seu nome de usuário e senha, não tokens.
-
-Se você ou seus usuários tiverem a autenticação de dois fatores habilitada, certifique-se de entender como [trabalhar com autenticação de dois fatores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
+Se você ou os usuários tiverem a autenticação de dois fatores habilitada, verifique se você entendeu como [usar a autenticação de dois fatores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).

@@ -36,13 +36,13 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.product.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
+4. To add an account on {% data variables.location.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
   ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.sign-in-browser %}
-1. To authenticate to {% data variables.product.product_location_enterprise %} account, type your account credentials and click **Sign in**.
+1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
   ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.product.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
 
 {% endmac %}
 
@@ -113,7 +113,7 @@ To troubleshoot, sign out of your account on {% data variables.product.prodname_
 ### Empty token
 
 ```shell
-info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
+info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - USERNAME (empty token)
 ```
 
 This error means that {% data variables.product.prodname_desktop %} is unable to find the access token that it created in the system keychain.

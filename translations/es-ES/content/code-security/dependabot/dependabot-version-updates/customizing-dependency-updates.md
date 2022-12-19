@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -19,37 +19,41 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
-shortTitle: Pesonalizar las actualizaciones
+shortTitle: Customize updates
+ms.openlocfilehash: 99a3869313598733493d21f8b15d46db98b1a53c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107745'
 ---
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## Acerca de personalizar las actualizaciones de las dependencias
 
-Después de que hayas habilitado la actualización de versiones, puedes personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus dependencias si agregas más opciones al archivo *dependabot.yml*. Por ejemplo, podrías:
+Después de habilitar la actualización de versiones, puede personalizar cómo mantiene {% data variables.product.prodname_dependabot %} sus dependencias. Para ello, agregue más opciones al archivo *dependabot.yml*. Por ejemplo, podría realizar estas acciones:
 
-- Especifica en qué día de la semana se abrirán las solicitudes de extracción para la actualización de versiones: `schedule.day`
-- Establece revisores, asignados y etiquetas para cada administrador de paquete: `reviewers`, `assignees`, y `labels`
-- Define una estrategia de versionamiento para los cambios que se realicen en cada archivo de manifiesto: `versioning-strategy`
-- Cambia la cantidad máxima de solicitudes de extracción abiertas para actualizaciones de versión del valor predeterminado que es 5: `open-pull-requests-limit`
-- Abre solicitudes de extracción para actualizaciones de versión para seleccionar una rama específica en vez de la rama predeterminada: `target-branch`
+- Especificar el día de la semana que se deben abrir las solicitudes de incorporación de cambios de las actualizaciones de versión: `schedule.day`
+- Establecer revisores, usuarios asignados y etiquetas para cada administrador de paquetes: `reviewers`, `assignees`y `labels`
+- Definir una estrategia de control de versiones para los cambios en cada archivo de manifiesto: `versioning-strategy`
+- Cambiar el número máximo de solicitudes de incorporación de cambios abiertas para las actualizaciones de versión a partir del valor predeterminado de 5: `open-pull-requests-limit`
+- Abrir solicitudes de incorporación de cambios de actualizaciones de versión para seleccionar una rama específica en vez de la rama predeterminada: `target-branch`
 
-Para obtener más información sobre las opciones de configuración, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
+Para obtener más información sobre las opciones de configuración, consulte "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
 
-Cuando actualizas el archivo *dependabot.yml* en tu repositorio, el {% data variables.product.prodname_dependabot %} ejecuta una revisión inmediata con la nueva configuración. Verás una lista de dependencias actualizada en cuestión de minutos en la pestaña de **{% data variables.product.prodname_dependabot %}**, esto podría tomar más tiempo si el reposiorio tiene muchas dependencias. También puedes ver las solicitudes de extracción nuevas para las actualizaciones de versión. Para obtener más información, consulta la sección "[Listar dependencias configuradas para actualizaciones de versión](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
+Cuando actualice el archivo *dependabot.yml* en el repositorio, {% data variables.product.prodname_dependabot %} ejecutará una comprobación inmediata con la nueva configuración. Verá una lista de dependencias actualizada en cuestión de minutos en la pestaña de **{% data variables.product.prodname_dependabot %}** ; esto podría demorarse más si el repositorio tiene muchas dependencias. También puedes ver las solicitudes de extracción nuevas para las actualizaciones de versión. Para obtener más información, consulte "[Enumerar las dependencias configuradas para las actualizaciones de versión](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
 
 ## Impacto de los cambios de configuración en las actualizaciones de seguridad
 
-Si personalizas el archivo *dependabot.yml*, podrías notar algunos cambios en las solicitudes de extracción que se levantan para las actualizaciones de seguridad. Estas solicitudes de extracción siempre se activan mediante una asesoría de seguridad para una dependencia en vez de mediante un calendario de programación del {% data variables.product.prodname_dependabot %}. Sin embargo, estas heredan la configuración de ajustes relevante del archivo *dependabot.yml* a menos de que especifiques una rama destino diferente para las actualizaciones de versión.
+Si personaliza el archivo *dependabot.yml*, podría notar algunos cambios en las solicitudes de incorporación de cambios que se envían para las actualizaciones de seguridad. Estas solicitudes de extracción siempre se activan mediante una asesoría de seguridad para una dependencia en vez de mediante un calendario de programación del {% data variables.product.prodname_dependabot %}. Sin embargo, heredan la configuración correspondiente del archivo *dependabot.yml* a menos que especifique una rama de destino diferente para las actualizaciones de versión.
 
-Por ejemplo, consulta la sección "[Configurar etiquetas personalizadas](#setting-custom-labels)" a más adelante.
+Para ver un ejemplo, consulte "[Configuración de etiquetas personalizadas](#setting-custom-labels)" a continuación.
 
 ## Modificar la programación
 
-Cuando configuras una actualización de tipo `daily`, predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones a las 05:00 UTC. Puedes utilizar `schedule.time` para especificar una hora alterna para que revise actualizaciones (en formato: `hh:mm`).
+Cuando configura una programación de actualización de tipo `daily`, de manera predeterminada, {% data variables.product.prodname_dependabot %} revisa si hay versiones nuevas a las 05:00 UTC. Puede usar `schedule.time` para especificar una hora alternativa y comprobar si hay actualizaciones (formato: `hh:mm`).
 
-El archivo *dependabot.yml* de ejemplo a continuación expande la configuración de npm para especificar cuándo el {% data variables.product.prodname_dependabot %} debería revisar si hay actualizaciones de versión para las dependencias.
+El archivo *dependabot.yml* de ejemplo expande la configuración de npm para especificar cuándo debe revisar {% data variables.product.prodname_dependabot %} las actualizaciones de versión para las dependencias.
 
 ```yaml
 # dependabot.yml file with
@@ -70,9 +74,9 @@ updates:
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} levanta solicitudes de extracción sin ningún revisor o asignado.
 
-Puedes utilizar `reviewers` y `assignees` para especificar los revisores y asignados para todas las solicitudes de extracción que se levanten para un administrador de paquete. Cuando especificas un equipo, debes utilizar el nombre completo de éste, como si estuvieras @mencionándolo (incluyendo la organización).
+Puede usar `reviewers` y `assignees`  para especificar revisores y usuarios asignados para todas las solicitudes de incorporación de cambios generadas de un administrador de paquetes. Cuando especifique un equipo, debe utilizar su nombre completo, como si estuviera @mentioning (incluida la organización).
 
-El ejemplo de archivo *dependabot.yml* mostrado a continuación cambia las configuraciones npm para que todas las solicitudes de extracción que se hayan abierto con actualizaciones de versión y de seguridad para npm tengan dos revisores y un asignado.
+El archivo *dependabot.yml* de ejemplo mostrado a continuación cambia la configuración de npm para que todas las solicitudes de incorporación de cambios que se hayan abierto con actualizaciones de versión y seguridad para npm tengan dos revisores y un usuario asignado.
 
 ```yaml
 # dependabot.yml file with
@@ -84,7 +88,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise all npm pull requests with reviewers
     reviewers:
       - "my-org/team-name"
@@ -98,13 +102,13 @@ updates:
 
 {% data reusables.dependabot.default-labels %}
 
-Puedes utilizar `labels` para anular las etiquetas predeterminadas y especificar etiquetas alternas para todas las solicitudes de extracción que se han levantado para un administrador de paquete. No puedes crear etiquetas nuevas en el archivo *dependabot.yml*, así que las etiquetas alternas ya deben existir en el repositorio.
+Puede utilizar `labels` para anular las etiquetas predeterminadas y especificar etiquetas alternas para todas las solicitudes de incorporación de cambios que se hayan generado para un administrador de paquetes. No puede crear etiquetas nuevas en el archivo *dependabot.yml*, así que las etiquetas alternativas ya deben existir en el repositorio.
 
-El siguiente ejemplo de archivo *dependabot.yml* cambia la configuración de npm para que las solicitudes de extracción abiertas con actualizaciones de versión y de seguridad para npm tengan etiquetas personalizadas. También cambia la configuración de Docker para revisar las actualizaciones de versión contra una rama personalizada y para levantar solicitudes de extracción con etiquetas personalizadas contra dicha rama personalizada. Los cambios en Docker no afectarán las solicitudes de extracción para actualizaciones de seguridad, ya que dichas actualizaciones de seguridad siempre se hacen contra la rama predeterminada.
+El archivo *dependabot.yml* de ejemplo mostrado a continuación cambia la configuración de npm para que todas las solicitudes de incorporación de cambios que se hayan abierto con actualizaciones de versión y seguridad para npm tengan etiquetas personalizadas. También cambia la configuración de Docker para revisar las actualizaciones de versión contra una rama personalizada y para levantar solicitudes de extracción con etiquetas personalizadas contra dicha rama personalizada. Los cambios en Docker no afectarán las solicitudes de extracción para actualizaciones de seguridad, ya que dichas actualizaciones de seguridad siempre se hacen contra la rama predeterminada.
 
 {% note %}
 
-**Nota:** La nueva `target-branch` deberá contener un Dockerfile para actualizar, de lo contrario, este cambio tendrá el efecto de inhabilitar las actualizaciones de versión para Docker.
+**Nota:** El nuevo `target-branch` debe contener un Dockerfile para actualizar; de lo contrario, este cambio tendrá el efecto de deshabilitar las actualizaciones de versión para Docker.
 
 {% endnote %}
 
@@ -118,7 +122,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise all npm pull requests with custom labels
     labels:
       - "npm dependencies"
@@ -128,7 +132,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise pull requests for Docker version updates
     # against the "develop" branch. The Docker configuration
     # no longer affects security update pull requests.
@@ -141,4 +145,4 @@ updates:
 
 ## Más ejemplos
 
-Para obtener más ejemplos, consulta la sección "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
+Para ver más ejemplos, consulte "[Opciones de configuración para el archivo dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".

@@ -1,79 +1,93 @@
 ---
 title: Organizationのプロフィールのカスタマイズ
-intro: Organizationのプロフィールをカスタマイズすれば、Organizationの情報を共有できます。
+intro: Organization のプロフィールをカスタマイズすれば、Organization についての情報を共有できます。
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: issue-4749
 topics:
   - Organizations
-shortTitle: Organizationのプロフィールのカスタマイズ
+shortTitle: Customize organization profile
+ms.openlocfilehash: 66f234427f6e47213578e8f906e123d98c07a092
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147447931'
 ---
+## Organization のプロフィール ページについて
 
+{% ifversion org-profile-pin-private %} Organization の [概要] ページをカスタマイズして、パブリック ユーザーまたは Organization メンバー専用の README とピン留めされたリポジトリを表示できます。
 
-## Organization のプロフィールページについて
+![パブリック Organization プロフィール ページの画像](/assets/images/help/organizations/public_profile.png)
 
-{% ifversion org-profile-pin-private %}
-Organizationの概要ページをカスタマイズして、一般ユーザあるいはOrganizationのメンバー専用のコンテンツを表示できます。 {% data variables.product.prodname_dotcom %}にサインインしたOrganizationのメンバーには、Organizationのプロフィールページにアクセスした際にメンバービューが表示されます。 Organizationのメンバーではないユーザには、公開ビューが表示されます。
+{% data variables.product.prodname_dotcom %} にサインインしている Organization のメンバーは、Organization のプロフィール ページにアクセスするときに、README とピン留めされたリポジトリの `member` または `public` のビューを選ぶことができます。 
 
-![Organizationプロフィールページの画像](/assets/images/help/organizations/new_organization_page.png)
+![パブリック Organization プロファイル ページ ビュー コンテキスト スイッチャーの画像](/assets/images/help/organizations/profile_view_switcher_public.png)
+
+ビューの既定値は、メンバー専用の README またはメンバー専用のピン留めされたリポジトリが存在する場合は `member`、それ以外の場合は `public` になります。
+
+![メンバー専用の Organization プロフィール ページの画像](/assets/images/help/organizations/member_only_profile.png)
+
+Organization のメンバーではないユーザーには、`public` ビューが表示されます。
 
 ### Pinned repositories
 
-最大で一般ユーザに対し6つのリポジトリ、そしてOrganizationのメンバーに対して6つのリポジトリを選択することによって、ユーザに対して重要なリポジトリや頻繁に利用されるリポジトリへアクセスを容易にできます。 Organizationのプロフィールにリポジトリを固定すると、"Pinned（ピン止め）"セクションがプロフィールページの"Repositories（リポジトリ）"セクションの上部に表示されます。
+ユーザーが、重要なリポジトリ、またはよく使うリポジトリに簡単にアクセスできるようにします。パブリック ユーザーには最大 6 つのリポジトリ、Organization のメンバーには 6 つのリポジトリを選ぶことができます。 リポジトリを Organization のプロフィールにピン留めすると、プロフィール ページの [リポジトリ] セクションの上に [ピン留め] セクションが表示されます。
 
-リポジトリをピン留めできるのはOrganizationのオーナーだけです。 詳しい情報については「[Organizationのプロフィールへのリポジトリのピン止め](#pinning-repositories-to-your-organizations-profile)」を参照してください。
+リポジトリをピン留めできるのは、Organization 所有者だけです。 詳しい情報については、「[Organization のプロフィールへのリポジトリのピン留め](#pinning-repositories-to-your-organizations-profile)」を参照してください。
 
-### OrganizationプロフィールのREADME
+### Organization プロフィールの README
+
 {% endif %}
 
-一般ユーザとOrganizationのメンバーの双方に向けてOrganizationのプロフィールのREADMEを作成することで、Organizationとの関わり方に関する情報を共有できます。 {% data variables.product.prodname_dotcom %}は、OrganizationのプロフィールのREADMEをOrgaizationの”Overview（概要）"タブに表示します。
+パブリック ユーザーと Organization のメンバーの両方に対して Organization プロフィールの README を作成すると、Organization との関わり方について、情報を共有できます。 {% data variables.product.prodname_dotcom %}は、OrganizationのプロフィールのREADMEをOrgaizationの”Overview（概要）"タブに表示します。
 
-OrganizationのプロフィールのREADMEにどういった情報を含めるかは選択できます。 以下は、役に立つかも知れない情報の例です。
+Organization プロフィールの README に含める情報を選ぶことができます。 以下は、役に立つかもしれない情報の例です。
 
 - Organizationについて説明する"About"セクション
 - Organization内で支援を受けるためのガイダンス
 
-{% data variables.product.company_short %}フレーバーのMarkdownを使って、OrganizationのプロフィールのREADME内のテキストをフォーマットし、絵文字や画像、GIFを含めることができます。 詳細は「[{% data variables.product.prodname_dotcom %} で書き、フォーマットしてみる](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)」を参照してください。
+{% data variables.product.company_short %}フレーバーのMarkdownを使って、OrganizationのプロフィールのREADME内のテキストをフォーマットし、絵文字や画像、GIFを含めることができます。 詳細については、「[{% data variables.product.prodname_dotcom %} での書き込みと書式設定の概要](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)」を参照してください。
 
-## 公開のOrganizationプロフィールのREADMEの追加
+## パブリック Organization プロフィールの README の追加
 
-1. Organizationがまだパブリックな`.github`リポジトリを持っていないなら、パブリックな`.github`リポジトリを作成してください。
-2. Organizationの`.github`リポジトリ内で、`profile`フォルダに`README.md`ファイルを作成してください。
-3. `README.md`ファイルへの変更をコミットしてください。 `README.md`の内容が、Organizationの公開プロフィールに表示されるようになります。
+1. Organization にパブリック `.github` リポジトリがまだない場合は、パブリック `.github` リポジトリを作成します。
+2. Organization の `.github` リポジトリで、`profile` フォルダーに `README.md` ファイルを作成します。
+3. `README.md` ファイルへの変更をコミットします。 `README.md` の内容は、Organization のパブリック プロフィールに表示されます。
 
-   ![Organizationの公開READMEの画像](/assets/images/help/organizations/org_public_readme.png)
+   ![Organization のパブリック README の画像](/assets/images/help/organizations/org_public_readme.png)
 
 {% ifversion org-profile-pin-private %}
 
-## メンバーのみのOrganizationプロフィールのREADMEの追加
+## メンバー専用の Organization プロフィールの README の追加
 
-1. Organizationがまだ`.github-private`リポジトリを持っていないなら、プライベートな`.github-private`というリポジトリを作成してください。
-2. Organizationの`.github-private`リポジトリで、`profile`フォルダ内に`README.md`というファイルを作成してください。
-3. `README.md`ファイルへの変更をコミットしてください。 `README.md`の内容は、Organizationプロフィールのメンバービューに表示されます。
+1. Organization にパブリック `.github-private` リポジトリがまだない場合は、`.github-private` という名前のプライベート リポジトリを作成します。 
+2. Organization の `.github-private` リポジトリで、`profile` フォルダーに `README.md` ファイルを作成します。
+3. `README.md` ファイルへの変更をコミットします。 `README.md` の内容は、Organization のプロフィールのメンバー ビューに表示されます。
 
-   ![OrganizationのプライベートREADMEの画像](/assets/images/help/organizations/org_member_readme.png)
+   ![Organization のメンバー専用の README の画像](/assets/images/help/organizations/org_member_readme.png)
 
-## Organizationのプロフィールへのリポジトリのピン止め
+## Organization のプロフィールにリポジトリをピン留めする
 
-頻繁に使われるようなリポジトリなど、強調したいリポジトリをOrganizationのプロフィールページにピン止めできます。 Organizaitonのプロフィールにピン止めするリポジトリを選択するには、Organizationのオーナーでなければなりません。
+よく使うリポジトリなど、特に使いたいリポジトリを Organization のプロフィール ページにピン留めできます。 Organization のプロフィールにピン留めするリポジトリを選ぶには、Organization 所有者である必要があります。
 
-1. Organizationのプロフィールページにアクセスしてください。
-2. ページの右のサイドバー内の{% octicon "eye" aria-label="The eye octicon" %} "View as"リンク内で、ドロップダウンメニューから**Public（公開）**もしくは**Member（メンバー）**プロフィールビューを選択してください。
+1. Organization のプロフィール ページに移動します。
+2. ページの右側のサイドバーの {% octicon "eye" aria-label="The eye octicon" %} [表示方法] リンクで、ドロップダウン メニューから **[パブリック]** または **[メンバー]** プロフィール ビューを選びます。
 
-   ![Organizationプロフィールビューのドロップダウンの画像](/assets/images/help/organizations/org_profile_view.png)
+   ![Organization の [プロフィール ビュー] ドロップダウンの画像](/assets/images/help/organizations/org_profile_view.png)
 
-3. ピン止めされたリポジトリのセクションで、**Customize pins（ピン止めのカスタマイズ）**を選択してください。
+3. ピン留めされたリポジトリのセクションで、 **[ピンのカスタマイズ]** を選びます。
 
-   ![ピン止めのカスタマイズリンクの画像](/assets/images/help/organizations/customize_pins_link.png)
+   ![[ピンのカスタマイズ] リンクの画像](/assets/images/help/organizations/customize_pins_link.png)
 
-   - まだOrganizationのプロフィールにピン止めしたリポジトリがないなら、代わりにプロフィールページの右のサイドバーにある**pin repositories（リポジトリのピン止め）**をクリックしなければなりません。 ![右のサイドバーにあるリポジトリのピン止めリンクの画像](/assets/images/help/organizations/pin_repositories_link.png)
+   - Organization のプロフィールにリポジトリをまだピン留めしていない場合は、代わりに、プロフィール ページの右側のサイドバーにある **[リポジトリのピン留め]** をクリックする必要があります。
+   ![右側のサイドバーの [リポジトリのピン留め] リンクの画像](/assets/images/help/organizations/pin_repositories_link.png)
 
-4. "Edit pinned repositories（ピン止めされたリポジトリの編集）"ダイアログボックスで、最大で6つの表示するパブリック、{% ifversion not fpt %}プライベート、もしくはインターナル{% else %}もしくはプライベート{% endif %}リポジトリの組み合わせを選択してください。
+4. [ピン留めされたリポジトリの編集] ダイアログ ボックスで、表示するパブリック リポジトリ、{% ifversion not fpt %}プライベートまたは内部{% else %}またはプライベート{% endif %} リポジトリを最大 6 つ組み合わせて選びます。
 
-   ![ピン止めされたリポジトリダイアログの画像](/assets/images/help/organizations/pinned_repo_dialog.png)
+   ![[ピン留めされたリポジトリ] ダイアログの画像](/assets/images/help/organizations/pinned_repo_dialog.png)
 
-5. [**Save pins**] をクリックします。
+5. **[ピンの保存]** をクリックします。
 
 {% endif %}

@@ -1,5 +1,5 @@
 ---
-title: GitHub e controles de negociação
+title: GitHub e Controle de Comércio
 redirect_from:
   - /articles/github-and-export-controls
   - /articles/github-and-trade-control
@@ -12,101 +12,106 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: e483abe3bffda4cdca5ee767b8e06ce4093f074a
+ms.sourcegitcommit: d298d354a4585e6c154f2a8428aebb214d49e2a1
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/07/2022
+ms.locfileid: '147858614'
 ---
+GitHub.com, GitHub Enterprise Server e as informações que você carrega em qualquer um dos produtos podem estar sujeitas a regulamentos de controle comercial, inclusive segundo os Regulamentos de Administração de Exportação dos EUA (o EAR).
 
-GitHub.com, GitHub Enterprise Server, e as informações que você enviar para qualquer produto podem estar sujeitas a regulamentações de controle de negociação, inclusive sob Regulamentos da Administração de Exportação dos EUA (EAR). Regulamentos Administrativos de Exportação (EAR).
+A visão do GitHub é ser a plataforma global para colaboração de desenvolvedores, não importa onde os desenvolvedores residam. Levamos a sério nossa responsabilidade de examinar cuidadosamente as sanções governamentais para garantir que usuários e clientes não sejam afetados além do que é exigido por lei. Isso inclui manter os serviços de repositório público, incluindo aqueles para projetos de software livre, disponíveis e acessíveis para dar suporte a comunicações pessoais envolvendo desenvolvedores em regiões sancionadas. Isso também significa que o GitHub defenderá que desenvolvedores em regiões sancionadas tenham maior acesso à plataforma e acesso total à comunidade global de software livre.
 
-O objetivo do GitHub é ser a plataforma global para a colaboração de desenvolvedores, não importa onde os desenvolvedores estiverem. Levamos a sério a nossa responsabilidade de examinar minuciosamente as sanções governamentais para ter a certeza de que os usuários e clientes não sejam impactados para além do que é exigido pela lei. Isso inclui manter os serviços públicos de repositórios, incluindo aqueles para projetos de código aberto, disponíveis e acessíveis para apoiar comunicações pessoais que envolvem desenvolvedores em regiões sancionadas. Isto também significa que o GitHub defenderá para desenvolvedores de regiões sancionadas para desfrutar de maior acesso à plataforma e total acesso à comunidade global de código aberto.
+Como resultado de nossa defesa e trabalho árduo com os reguladores dos EUA, o GitHub obteve uma licença da Agência de Controle de Ativos Estrangeiros (OFAC) do Departamento do Tesouro dos Estados Unidos para restaurar nossos serviços de nuvem para desenvolvedores no Irã. Continuaremos trabalhando com os reguladores dos EUA para garantir licenças semelhantes a fim de oferecer serviços de colaboração a desenvolvedores em outras regiões sancionadas, como a Síria e Crimeia. Estamos comprometidos em defender o acesso mais amplo possível ao desenvolvedor, pois acreditamos que oferecer serviços de colaboração de código para desenvolvedores em regiões sancionadas fortalece a comunidade global de desenvolvedores, promove o progresso humano e apoia a política externa permanente dos EUA de promover a liberdade de expressão e o fluxo livre de informações. Para obter informações sobre a licença que garantimos para desenvolvedores no Irã, leia [a postagem do blog](https://github.blog/2021-01-05-advancing-developer-freedom-github-is-fully-available-in-iran). 
 
-Como resultado de nossa defesa e trabalho duro com os EUA reguladores, o GitHub obteve uma licença dos EUA Controle de Ativos Externos do Departamento de Tesouro (OFAC) para restaurar nossos serviços em nuvem para desenvolvedores no Irã. E continuaremos a trabalhar com os EUA. reguladores para proteger licenças semelhantes a fim de oferecer serviços de colaboração a desenvolvedores de outras regiões sancionadas, como Síria e Crimeia. Estamos empenhados em defender o acesso de desenvolvedor mais amplo possível, já que acreditamos que oferecer serviços de colaboração de código para desenvolvedores de regiões sancionadas fortalece a comunidade de desenvolvedores, amplia o progresso humano e apoia o fortalecimento da política externa dos EUA de promoção da liberdade de expressão e da livre circulação da informação. Para obter informações sobre a licença que garantimos para desenvolvedores no Irã, leia [o post no blogue](https://github.blog/2021-01-05-advancing-developer-freedom-github-is-fully-available-in-iran).
-
-Embora tenhamos fornecido as seguintes informações para sua conveniência, em última análise, é sua responsabilidade garantir que o seu uso de produtos e serviços GitHub esteja de acordo com todas as leis e regulamentações aplicáveis, incluindo as leis de controle exportação dos EUA. de controle de exportação dos EUA.
+Embora tenhamos fornecido estas informações para sua conveniência, em última análise, é sua responsabilidade garantir que o uso que você faz dos produtos e serviços do GitHub esteja em conformidade com todas as leis e regulamentos aplicáveis, incluindo as leis de controle de exportação dos EUA.
 
 ## Visão geral da exportação
 
 ### GitHub.com
 
-De acordo com nossos [Termos de Serviço](/articles/github-terms-of-service), os usuários só podem acessar e usar o GitHub.com em conformidade com a lei aplicável, incluindo as leis de controle de exportação e sanções dos EUA. leis de controle das exportações e sanções.
+Segundo nossos [Termos de Serviços](/articles/github-terms-of-service), os usuários só podem acessar e usar o site GitHub.com em conformidade com a lei aplicável, incluindo o controle de exportação dos EUA e as leis de sanções.
 
-Os usuários são responsáveis por garantir que o conteúdo que eles desenvolvem e compartilham no GitHub.com esteja em conformidade com as leis de controle de exportação dos EUA, incluindo o EAR e os Regulamentos de Tráfego Internacional de Armas dos EUA (ITAR). leis de controle de exportação, incluindo a EAR e os EUA Tráfego Internacional em Regulamentos de Armas (ITAR). A oferta de serviço hospedado na nuvem disponível no [GitHub.com](https://github.com) não foi projetado para hospedar dados sujeitos ao ITAR e, atualmente, não oferece a capacidade de restringir o acesso a repositório por país. Se você estiver procurando colaborar em ITAR ou em outros dados controlados por exportação, recomendamos que você considere o [GitHub Enterprise Server](https://enterprise.github.com), a oferta local do GitHub.
+Os usuários são responsáveis por garantir que o conteúdo que eles desenvolvem e compartilham em GitHub.com está em conformidade com as leis de controle de exportação dos EUA, incluindo o EAR e os Regulamentos sobre o Tráfego Internacional de Armas (ITAR) dos EUA. A oferta de serviços hospedados na nuvem disponível em [GitHub.com](https://github.com) não foi projetada para hospedar dados sujeitos ao ITAR e, no momento, não oferece a capacidade de restringir o acesso ao repositório por país. Se você deseja colaborar com os ITAR ou outros dados com controle de exportação, recomendamos que você considere [GitHub Enterprise Server](https://enterprise.github.com), a oferta local do GitHub.
 
-O GitHub tem agora uma licença do OFAC para fornecer serviços em nuvem aos desenvolvedores localizados ou residentes do Irã. Isto inclui todos os serviços públicos e privados para indivíduos e organizações, tanto gratuitos como remunerados.
+O GitHub agora tem uma licença da OFAC para fornecer serviços em nuvem para desenvolvedores localizados ou residentes no Irã. Isso inclui todos os serviços públicos e privados para indivíduos e organizações, gratuitos e pagos.
 
-Serviços em nuvem do GitHub, gratuitos e pagos, também estão geralmente disponíveis para desenvolvedores localizados em Cuba.
+Os serviços de nuvem do GitHub, gratuitos e pagos, geralmente também estão disponíveis para desenvolvedores localizados em Cuba.
 
-Nacionais Designados Especialmente (SDNs) e outras partes negadas ou bloqueadas nos termos dos EUA e outras leis aplicáveis, e certos funcionários do governo, podem ter restrições para acessar ou usar o GitHub.com. Além disso, os usuários não podem usar o GitHub.com para ou em nome de tais entidades, incluindo, de modo geral, os governos de países sancionados. Além disso, GitHub.com não pode ser utilizado para fins proibidos conforme as leis de controle de exportação aplicáveis, incluindo usos finais proibidos descritos em [17 CFR 744](https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5).
+Cidadãos Especialmente Designados (SDNs), outras partes negadas ou bloqueadas de acordo com as leis dos EUA e outras leis aplicáveis e determinados funcionários do governo podem ser impedidos de acessar ou usar o GitHub.com. Além disso, os usuários talvez não possam usar o GitHub.com para ou em nome de tais partes, geralmente incluindo os Governos dos países sancionados. Ademais, o GitHub.com não pode ser usado para fins proibidos pelas leis de controle de exportação aplicáveis, incluindo usos finais proibidos descritos em [17 CFR 744](https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5).
 
 ### GitHub Enterprise Server
 
-O GitHub Enterprise Server é um appliance virtual auto-hospedado que pode ser executado dentro do seu próprio datacenter ou nuvem virtual privativa. Como tal, o GitHub Enterprise Server pode ser usado para armazenar informações sobre ITAR ou outras informações de controle de exportação, embora os usuários finais sejam responsáveis por assegurar o cumprimento do ITAR e de outros controlos aplicáveis à exportação.
+O GitHub Enterprise Server é um dispositivo virtual auto-hospedado que pode ser executado em seu próprio datacenter ou nuvem privada virtual. Como tal, o GitHub Enterprise Server pode ser usado para armazenar informações do ITAR ou outras informações com controle de exportação, embora os usuários finais sejam responsáveis por garantir a conformidade com o ITAR e com outros controles de exportação aplicáveis.
 
-O GitHub Enterprise Server é um produto comercial e em massa, que recebeu o Número de Classificação de Controle de Exportação (ECCN) de `5D992.c` e pode ser exportado para a maioria dos destinos sem licença obrigatória (NLR).
+O GitHub Enterprise Server é um produto comercial de mercado de massa, recebeu o Número de Classificação de Controle de Exportação (ECCN) `5D992.c` e pode ser exportado para a maioria dos destinos sem necessidade de licença (NLR).
 
-O GitHub Enterprise Server não pode ser vendido, exportado ou reexportado para qualquer país listado no Grupo de Países E:1 no Supplemento Núm. 1 referente à parte 740 da RAE ou às seguintes regiões da Ucrânia: Crimeia e as zonas separatistas de Donetsk e Luhansk. Os países actualmente enumerados incluem Cuba, Irã, Coreia do Norte, Síria, Rússia e Bielorrússia, mas esta lista está sujeita a mudanças.
+O GitHub Enterprise Server não pode ser vendido, exportado ou reexportado para qualquer país listado no Grupo de Países E:1 no Suplemento Número 1 até a parte 740 do EAR ou até as seguintes regiões da Ucrânia: Crimeia e as áreas separatistas de Donetsk e Luhansk. Os países listados atualmente incluem Cuba, Irã, Coreia do Norte, Síria, Rússia e Belarus, mas esta lista está sujeita a alterações.
 
 ## Perguntas frequentes
 
-### Em que países e territórios são aplicadas sanções governamentais dos EUA são aplicadas?
+### Em quais países e territórios as sanções do governo americano são aplicadas?
 
-Crimeia, as áreas separatistas de Donetsk e Luhasnk, Cuba, Irã, Coreia do Norte e Síria. No entanto, no que diz respeito ao Irã, o GitHub agora tem uma licença dos EUA. O Escritório de Controle de Ativos Externos do Departamento do Tesouro (OFAC) para fornecer serviços de nuvem a desenvolvedores localizados ou que residam em qualquer outro lugar nesse país. Serviços em nuvem do GitHub, gratuitos e pagos, também estão geralmente disponíveis para desenvolvedores localizados em Cuba.
+Crimeia, as áreas separatistas de Donetsk e Luhasnk, Cuba, Irã, Coreia do Norte e Síria. Com relação ao Irã, no entanto, o GitHub agora tem uma licença da Agência de Controle de Ativos Estrangeiros (OFAC) do Departamento do Tesouro dos Estados Unidos para fornecer serviços em nuvem para desenvolvedores localizados ou residentes naquele país. Os serviços de nuvem do GitHub, gratuitos e pagos, geralmente também estão disponíveis para desenvolvedores localizados em Cuba.
 
-### Como o GitHub garante que as pessoas que não vivem e/ou tenham ligações profissionais com os países e territórios sancionados ainda tenham acesso ou capacidade de recorrer?
+### Como o GitHub está garantindo que as pessoas que não vivem e/ou têm vínculos profissionais com os países e territórios sancionados ainda tenham acesso ou possibilidade de apelar?
 
-No caso raro de uma conta ser afetada não intencionalmente ou por engano, temos um processo de apelação para abordar essas instâncias.
+Nos raros casos em que uma conta é afetada acidentalmente ou por engano, temos um processo de recurso para resolver tais casos.
 
-Se um usuário individual ou administrador de organização acredita ter sido erroneamente sinalizado, então esse usuário tem a oportunidade de recorrer do sinalizador, fornecendo informações de verificação ao GitHub. Se o GitHub receber informações suficientes para verificar se o usuário ou organização não está afiliado a uma jurisdição não sancionada pelos EUA para a qual não temos uma licença ou seríamos, de outra forma, restringidos pelos EUA. sanções econômicas. Portanto, o sinalizador será removido. Por favor, consulte o [formulário de solicitação de apelação para conta individual](https://airtable.com/shrGBcceazKIoz6pY) e o [formulário de solicitação de apelação para conta organizacional](https://airtable.com/shrB2je5RBkqLEt5D).
+Se um usuário individual ou administrador da organização acreditar que foi sinalizado por engano, esse usuário terá a oportunidade de contestar a sinalização fornecendo informações de verificação ao GitHub. Se o GitHub receber informações suficientes para verificar que o usuário ou a organização não é afiliado a uma jurisdição sancionada pelos EUA para a qual não temos uma licença ou de outra forma restrita por sanções econômicas dos EUA, a sinalização será removida. Consulte o [formulário de solicitação de recurso de conta individual](https://airtable.com/shrGBcceazKIoz6pY) e [formulário de solicitação de recurso de conta corporativa](https://airtable.com/shrB2je5RBkqLEt5D).
 
-### A viagem para essas regiões pode ser impactada?
+### As viagens para essas regiões serão afetadas?
 
-Viajar para essas regiões pode impactar o status de sua conta, mas a disponibilidade pode ser restabelecida depois que você estiver fora da região sancionada ao enviar uma [solicitação de apelo de conta individual](https://airtable.com/shrGBcceazKIoz6pY) ou uma [solicitação de apelo de conta organizacional](https://airtable.com/shrB2je5RBkqLEt5D).
+Viagens para essas regiões podem afetar o status da sua conta, mas a disponibilidade poderá ser restabelecida quando você estiver fora da região sancionada e ao enviar uma [solicitação de recurso de conta individual](https://airtable.com/shrGBcceazKIoz6pY) ou uma [solicitação de recurso de conta corporativa](https://airtable.com/shrB2je5RBkqLEt5D) bem-sucedida.
 
-### O que está e o que não está disponível?
+### O que está disponível e o que não está disponível?
 
-Agora, o GitHub tem uma licença da OFAC para fornecer serviços em nuvem para os desenvolvedores localizados ou residentes no Irã, país sancionado pelos EUA. A licença inclui todos os serviços públicos e privados para indivíduos e organizações, tanto grátis como pagos. Serviços em nuvem do GitHub, gratuitos e pagos, também estão geralmente disponíveis para desenvolvedores localizados em Cuba.
+O GitHub agora tem uma licença da OFAC para fornecer serviços em nuvem para desenvolvedores localizados ou residentes no Irã, país com sanções impostas pelos EUA. A licença inclui todos os serviços públicos e privados para indivíduos e organizações, gratuitos e pagos. Os serviços de nuvem do GitHub, gratuitos e pagos, geralmente também estão disponíveis para desenvolvedores localizados em Cuba.
 
-O GitHub tem o compromisso de continuar oferecendo serviços de repositórios públicos gratuitos para desenvolvedores com contas individuais e organizacionais na Síria, Crimeia e as náreas separatistas de Donetsk e Luhansk. Isso inclui acesso limitado a serviços gratuitos, como repositórios públicos para projetos de código aberto (e páginas públicas associadas), gists públicos e minutos de Ação gratuitos alocados, apenas para comunicações pessoais, e não para fins comerciais.
+O GitHub está comprometido em continuar oferecendo serviços gratuitos de repositório público para desenvolvedores com contas individuais e corporativas na Síria, Crimeia e nas áreas separatistas de Donetsk e Luhansk. Isso inclui acesso limitado a serviços gratuitos, como repositórios públicos para projetos de software livre (e páginas públicas associadas), gists públicos e minutos de ação gratuitos alocados, apenas para comunicações pessoais e não para fins comerciais.
 
-Para contas organizacionais pagas nessas regiões sancionadas, os usuários podem ter acesso limitado aos seus repositórios públicos, que foram rebaixados para repositórios arquivados somente leitura. Para contas organizacionais gratuitas nessas regiões sancionadas, no entanto, os usuários continuarão a ter acesso total a repositórios públicos gratuitos para projetos de código aberto (e Páginas públicas associadas), gists públicos e minutos de Ação alocados grátis.
+Para contas corporativas pagas nessas regiões sancionadas, os usuários podem ter acesso limitado a seus repositórios públicos, que foram rebaixados para repositórios somente leitura arquivados. Para contas corporativas gratuitas nessas regiões sancionadas, no entanto, os usuários continuarão tendo acesso total a repositórios públicos gratuitos para projetos de software livre (e páginas públicas associadas), gists públicos e minutos de ação gratuitos alocados.
 
-O GitHub continuará defendendo junto com os EUA. reguladores para o maior acesso possível a serviços de colaboração de código para desenvolvedores de regiões sancionadas, como Síria e Crimeia, incluindo repositórios privados. Acreditamos que oferecer a esses serviços é um avanço para o progresso humano, comunicação internacional, assim como para o fortalecimento para as restrições permanentes da política externa dos EUA. de promoção da liberdade de expressão e da livre circulação da informação.
+O GitHub continuará defendendo junto aos reguladores dos EUA o maior acesso possível a serviços de colaboração de código para desenvolvedores em regiões sancionadas, como Síria e Crimeia, incluindo repositórios privados. Acreditamos que oferecer esses serviços promove o progresso humano, a comunicação internacional e a política externa permanente dos EUA de promover a liberdade de expressão e o livre fluxo de informações.
 
-Nacionais Designados Especialmente (SDNs) e outras partes negadas ou bloqueadas nos termos dos EUA e outras leis aplicáveis, e certos funcionários do governo podem receber restrições para acessar ou usar o GitHub, onde quer que se encontrem. Os usuários não podem usar o GitHub.com para ou em nome de tais entidades, incluindo, de modo geral, os governos de países sancionados.
+Cidadãos Especialmente Designados (SDNs), outras partes negadas ou bloqueadas de acordo com as leis dos EUA e outras leis aplicáveis e determinados funcionários públicos podem ser impedidos de acessar ou usar o GitHub, onde quer que estejam. Os usuários talvez não possam usar o GitHub.com para ou em nome de tais partes, geralmente incluindo os Governos dos países sancionados.
 
-Os serviços do GitHub não estão disponíveis para desenvolvedores localizados ou residentes na Coreia do Norte.
+Os serviços do GitHub não estão disponíveis para desenvolvedores localizados ou residentes na Coreia do Norte.  
 
 ### Como você define esses usuários específicos?
 
-Se o GitHub determinar que um usuário ou cliente está localizado em uma região sujeita às restrições de controle de negociação dos EUA, ou que um usuário está restrito pelas sanções econômicas dos EUA, então a conta afiliada será limitada para cumprir esses requisitos legais. restrições de controle de comércio para as quais o GitHub ainda não possui uma licença dos EUA. governo, ou um usuário está restrito de outra forma nos EUA. sanções econômicas. Em seguida, a conta afiliada será limitada para cumprir esses requisitos legais. A determinação da localização do usuário e cliente para implementar essas restrições legais deriva de várias fontes, incluindo endereços IP e histórico de pagamentos. A nacionalidade e a etnia não são utilizadas para sinalizar usuários para restrições de sanções.
+Se o GitHub determinar que um usuário ou cliente está localizado em uma região sujeita a restrições de controle comercial dos EUA para a qual o GitHub ainda não possui uma licença do governo americano ou que um usuário está restrito segundo as sanções econômicas dos EUA, a conta afiliada será restrita para o cumprimento desses requisitos legais. A determinação da localização do usuário e do cliente para implementar essas restrições legais é derivada de várias fontes, inclusive de endereços IP e histórico de pagamentos. A nacionalidade e a etnia não são usadas para sinalizar usuários para restrições de sanções.
 
-### Como as contas da organização são impactadas?
+### Como as contas corporativas são afetadas?
 
-Se uma organização tiver base ou se as principais pessoas ou integrantes de uma organização mostrarem laços suficientes a, um território ou país sancionado para o qual o GitHub ainda não possui uma licença dos EUA. governo, ou se a organização, de outra forma, parece estar sujeita aos EUA. sanções econômicas e, posteriormente, a conta de organização e a conta de proprietário afiliado serão restritas.
+Se uma organização estiver sediada ou se os principais indivíduos ou membros de uma organização mostrarem vínculos suficientes com um território ou país sancionado para o qual o GitHub ainda não tenha uma licença do governo americano ou se a organização parecer estar sujeita às sanções econômicas dos EUA, a conta corporativa e a conta do proprietário afiliado serão restritas.
 
-A restrição suspende o acesso a serviços de repositório privados e serviços pagos, como disponibilidade de repositórios privados gratuitos ou pagos, gists secretas, minutos de Ação pagos, Sponsors (patrocinadores) e serviços do GitHub Marketplace. Para contas organizacionais pagas associadas a regiões sancionadas, os usuários podem ter acesso limitado aos seus repositórios públicos, que foram rebaixados para repositórios arquivados somente leitura. Para contas organizacionais gratuitas em tais regiões sancionadas, os usuários continuarão a ter acesso total a repositórios públicos gratuitos para projetos de código aberto (e Páginas públicas associadas), gists públicos e minutos de Ação alocados gratuitos.
+A restrição suspende o acesso a serviços de repositórios privados e serviços pagos, como disponibilidade de repositórios privados gratuitos ou pagos, gists secretos, minutos de ação pagos, patrocinadores e serviços do GitHub Marketplace. Para contas corporativas pagas associadas a regiões sancionadas, os usuários podem ter acesso limitado a seus repositórios públicos, que foram rebaixados para repositórios somente leitura arquivados. Para contas corporativas gratuitas associadas a regiões sancionadas, no entanto, os usuários continuarão tendo acesso total a repositórios públicos gratuitos para projetos de software livre (e páginas públicas associadas), gists públicos e minutos de ação gratuitos alocados.
 
-### Os repositórios privados dos usuários com negociação restrita podem ser convertidos em públicos?
+### Os repositórios privados de usuários com restrição de comércio podem se tornar públicos?
 
-Os usuários de contas individuais gratuitas podem tornar repositórios privados restritos em públicos, apenas para comunicações pessoais, e não para fins comerciais. Os usuários podem fazer isso navegando até a guia configurações do repositório e clicando no botão "tornar público". Quando o repositório tornar-se público, os usuários terão acesso a serviços de repositórios públicos. Esta ação não pode ser desfeita.
+Os usuários de contas individuais gratuitas podem tornar públicos os repositórios privados restritos, apenas para comunicações pessoais, e não para fins comerciais. Os usuários podem fazer isso navegando até a guia de configurações do repositório e clicando no botão "tornar público". Uma vez que o repositório é público, os usuários têm acesso aos serviços de repositórios públicos. Essa ação não pode ser desfeita.
 
-### Os usuários restritos à negociação podem acessar dados de repositório privado (por exemplo, baixando ou excluindo dados do repositório)?
+### Os usuários com restrição de comércio podem acessar os dados do repositório privado (por exemplo, download ou exclusão de dados do repositório)?
 
-Infelizmente, a nossa interpretação da lei não nos dá a opção de permitir downloads ou exclusão de conteúdo de repositórios privados até que seja autorizado de outra forma pelo governo dos EUA. governo. Defenderemos energicamente com os EUA. Defenderemos, fortemente, junto dos órgãos reguladores dos EUA, o direito de usuários restritos à negociação protegerem o conteúdo de seus repositórios privados. Também defenderemos uma maior disponibilidade de serviços do GitHub para desenvolvedores em mercados sancionados, e reforçaremos ainda mais a importância da colaboração de códigos no apoio a comunicações pessoais para desenvolvedores em todo o mundo.
+Infelizmente, nosso entendimento da lei não nos dá a opção de permitir downloads ou exclusão de conteúdo de repositório privado, até que seja autorizado de outra forma pelo governo americano. Defenderemos veementemente, com os reguladores dos EUA, o direito de usuários com restrições de comércio de proteger o conteúdo de seus repositórios privados. Também defenderemos maior disponibilidade de serviços do GitHub para desenvolvedores em mercados sancionados e enfatizaremos ainda mais a importância da colaboração de código no suporte a comunicações pessoais para desenvolvedores em todo o mundo.
 
-### Sob a licença que o GitHub recebeu do OFAC, que tipos de contas estarão disponíveis no Irã?
+### Sob a licença que o GitHub recebeu da OFAC, quais tipos de contas estarão disponíveis no Irã?
 
-A licença que garantimos inclui todos os serviços públicos e privados, indivíduos e organizações, tanto grátis como pagos.
+A licença assegurada por nós inclui todos os serviços públicos e privados para indivíduos e organizações, gratuitos e pagos.
 
-Por exemplo, um desenvolvedor no Irã pode inscrever-se em um plano grátis ou Pro para seu uso individual, e uma universidade iraniana pode criar uma conta de organização para colaborar com os estudantes.
+Por exemplo, um desenvolvedor no Irã pode se inscrever em um plano Gratuito ou Pro para uso individual, e uma universidade iraniana pode configurar uma conta corporativa para colaborar com os alunos.
 
-Nacionais Designados Especialmente (SDNs) e outras partes negadas ou bloqueadas nos termos dos EUA e outras leis aplicáveis, e certos funcionários do governo, podem ter restrições para acessar ou usar o GitHub.
+Cidadãos Especialmente Designados (SDNs), outras partes negadas ou bloqueadas de acordo com as leis dos EUA e outras leis aplicáveis e determinados funcionários públicos podem ser impedidos de acessar ou usar o GitHub.
 
-Se o GitHub determinar que um indivíduo ou organização pertence a uma categoria restrita (SDNs, outros grupos bloqueados. ou certos funcionários do governo), a conta deles será sinalizada e eles não poderão usar nenhuma funcionalidade do GitHub. Se acharem que foram marcados por engano, eles terão a oportunidade de recorrer, fornecendo informações de verificação ao GitHub usando o nosso[formulário de solicitação de reivindicação de conta individual ou formulário de solicitação de reivindicação de conta de organização](https://airtable.com/shrGBcceazKIoz6pY). Se o GitHub recebe informações suficientes para verificar se o indivíduo não está em categoria restrita pelos EUA. sanções econômicas. Portanto, o sinalizador será removido.
+Se o GitHub determinar que um indivíduo ou organização se enquadra em uma categoria restrita (SDNs, outras partes bloqueadas ou determinados funcionários públicos), sua conta será sinalizada, e eles não poderão usar nenhum recurso do GitHub. Se eles acreditarem que foram sinalizados por engano, eles terão a oportunidade de contestar a sinalização fornecendo informações de verificação ao GitHub usando nosso [formulário de solicitação de recurso de conta individual ou formulário de solicitação de recurso de conta corporativa](https://airtable.com/shrGBcceazKIoz6pY). Se o GitHub receber informações suficientes para verificar se o indivíduo não está em uma categoria restrita por sanções econômicas dos EUA, a sinalização será removida.
 
-### Os usuários iranianos do GitHub poderão utilizar os serviços pagos sob a licença?
+### Os usuários iranianos do GitHub poderão usar serviços pagos segundo a licença?
 
-Em conformidade com a licença que recebemos do OFAC, estamos restaurando todos os serviços em nuvem para usuários iranianos, incluindo serviços pagos. Aceitamos todos os principais cartões de crédito, mas terceiros processam pagamentos para nós. Portanto, os pagamentos estão sujeitos aos termos e condições de nossos processadores de pagamento. Esses terceiros podem incluir restrições que bloqueiam os pagamentos do Irã. .
+De acordo com a licença que recebemos da OFAC, estamos restaurando todos os serviços em nuvem para usuários iranianos, incluindo serviços pagos. Aceitamos todos os principais cartões de crédito, mas os pagamentos são processados por terceiros, portanto, os pagamentos estão sujeitos aos termos e condições de nossos processadores de pagamento. Esses terceiros podem incluir restrições que bloqueiam pagamentos do Irã.
 
 ### Você pode esclarecer a disponibilidade do GitHub para desenvolvedores cubanos?
 
-Os serviços de nuvem do GitHub, gratuitos e pagos, estão geralmente disponíveis para desenvolvedores localizados em Cuba.  
-Nacionais Designados de modo especial (SDNs), outros partidos negados ou bloqueados sob os EUA. e outras leis aplicáveis, e certos funcionários do governo podem receber restrições para acessar ou usar o GitHub, onde quer que se encontrem. Além disso, os usuários não podem usar o GitHub.com para ou em nome de tais entidades, incluindo, de modo geral, os governos de países sancionados.
+Os serviços de nuvem do GitHub, gratuitos e pagos, geralmente estão disponíveis para desenvolvedores localizados em Cuba.  
+Cidadãos Especialmente Designados (SDNs), outras partes negadas ou bloqueadas de acordo com as leis dos EUA e outras leis aplicáveis e determinados funcionários públicos podem ser impedidos de acessar ou usar o GitHub, onde quer que estejam. Além disso, os usuários talvez não possam usar o GitHub.com para ou em nome de tais partes, geralmente incluindo os Governos dos países sancionados.

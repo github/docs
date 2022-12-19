@@ -1,5 +1,5 @@
 ---
-title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
+title: '{% data variables.product.prodname_projects_v2 %} の分析情報について'
 intro: プロジェクトのデータから構築されたグラフを表示させ、カスタマイズできます。
 miniTocMaxHeadingLevel: 3
 versions:
@@ -11,41 +11,48 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 809d8492bb1ec7c8cd4eb051b1eaefb00d29097e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158574'
 ---
-
 {% ifversion fpt %}
 
 {% note %}
 
-**Note:** Historical charts are currently available as a feature preview for organizations using {% data variables.product.prodname_team %} and are generally available for organizations using {% data variables.product.prodname_ghe_cloud %}.
+**注:** 履歴グラフは現在、{% data variables.product.prodname_team %} を使用している Organization の機能プレビューとして利用でき、{% data variables.product.prodname_ghe_cloud %} を使用している Organization に一般提供されています。
 
 {% endnote %}
 
 {% endif %}
 
- You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. デフォルトのグラフにフィルタを適用することも、独自のグラフを作成することもできます。 When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
+ {% data variables.product.prodname_projects_v2 %} の分析情報を使って、プロジェクトにソースデータとして追加された項目を使うグラフを表示、作成、カスタマイズすることができます。 既定のグラフにフィルターを適用し、独自のグラフを作成することもできます。 グラフを作成するときは、フィルター、グラフの種類、表示される情報を設定します。グラフは、プロジェクトを表示できるすべてのユーザーが使用できます。 現在のグラフと履歴グラフの 2 種類のグラフを生成できます。
 
- ### About current charts
+ Insights では、アーカイブまたは削除した項目は追跡されません。
 
-You can create current charts to visualize your project items. For example, you can create charts to show how many items are assigned to each individual, or how many issues are assigned to each upcoming iteration.
+ ### 現在のグラフについて
 
-You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. 詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。
+現在のグラフを作成して、プロジェクト項目を視覚化できます。 たとえば、グラフを作成して、各個人に割り当てられている項目の数や、今後の繰り返しごとに割り当てられている issue の数を示すことができます。
 
- ![各イテレーションのアイテムの種類を表示する積み上げ列グラフのスクリーンショット](/assets/images/help/issues/column-chart-example.png)
+フィルターを使用して、グラフの作成に使用するデータを操作することもできます。 たとえば、今後の作業量を示すグラフを作成し、それらの結果を特定のラベルまたは担当者に限定することができます。 詳細については、[プロジェクトのフィルター処理](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)に関するページを参照してください。
 
-For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
+ ![各繰り返しのアイテムの種類を示す積み上げ縦棒グラフを示すスクリーンショット](/assets/images/help/issues/column-chart-example.png)
 
- ### About historical charts
+詳しくは、「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」を参照してください。
 
- Historical charts are time-based charts that allow you to view your project's trends and progress. You can view the number of items, grouped by status and other fields, over time.
+ ### 履歴グラフについて
 
- デフォルトの「バーンアップ」グラフは、時間の経過に伴うアイテムのステータスを表示し、進捗を可視化して時間の経過にともなるパターンを特定できます。
+ 履歴グラフは、プロジェクトの傾向と進行状況を表示できる時間ベースのグラフです。 項目の数は、時間の経過に伴い、状態やその他のフィールドでグループ化して表示できます。
+ 
+ 既定の "バーンアップ" グラフは、時間の経過に伴うアイテムの状態を表示し、時間の経過に沿って進行状況を可視化することができます。 
 
 ![現在の繰り返しに対するデフォルトのバーンアップグラフの例を表示しているスクリーンショット](/assets/images/help/issues/burnup-example.png)
 
- To create a historical chart, set your chart's X-axis to "Time." For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[Configuring charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+ 履歴グラフを作成するには、グラフの X 軸を "時間" に設定します。 詳しくは、「[グラフの作成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)」および「[グラフの構成](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)」を参照してください。
 
-## 参考リンク
+## 参考資料
 
-- [{% data variables.product.prodname_projects_v2 %}について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-- "[Disabling insights for {% data variables.product.prodname_projects_v2 %} in your organization](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+- [{% data variables.product.prodname_projects_v2 %} について](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+- [Organization で {% data variables.product.prodname_projects_v2 %} の分析情報を無効にする](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)

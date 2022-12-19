@@ -16,6 +16,12 @@ topics:
 children:
   - /managing-two-factor-authentication-for-your-organization
   - /managing-security-settings-for-your-organization
-shortTitle: 组织安全
+shortTitle: Organization security
+ms.openlocfilehash: 21d2d6e6ee641dd1be2441c4ba00baf172bedb2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145127528'
 ---
 

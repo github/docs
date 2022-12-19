@@ -1,4 +1,12 @@
-たとえば、以下のワークフローは`os`と`node`の組み合わせに対応する6つのジョブを実行します。 `os`の値が`windows-latest`で`node`の値が`16`に対するジョブが実行されると、そのジョブには`npm`という追加の変数が`6`を値として含まれます。
+---
+ms.openlocfilehash: c999fec9a5ab78a42f78c5d7312f54a62b81cbef
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883085"
+---
+たとえば、次のワークフローでは、`os` と `node` の組み合わせごとに 1 つずつ、計 6 つのジョブが実行されます。 `os` の値が `windows-latest` で `node` の値が `16` のジョブが実行されると、`6` の値を持つ `npm` という追加の変数がジョブに含まれます。
 
 ```yaml
 jobs:

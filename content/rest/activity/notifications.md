@@ -13,6 +13,8 @@ miniTocMaxHeadingLevel: 3
 
 ## About the Notifications API
 
+{% data reusables.user-settings.notifications-api-classic-pat-only %}
+
 The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.

@@ -1,7 +1,7 @@
 ---
-title: Automating builds and tests
+title: ビルドとテストの自動化
 shortTitle: Build and test
-intro: 'You can automatically build and test your projects with {% data variables.product.prodname_actions %}.'
+intro: '{% data variables.product.prodname_actions %} でプロジェクトを自動的にビルドし、テストできます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -29,5 +29,11 @@ children:
   - /building-and-testing-ruby
   - /building-and-testing-swift
   - /building-and-testing-xamarin-applications
+ms.openlocfilehash: fb95fa1cbd04dfd8484755fd5ee444a8fae93a38
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146682286'
 ---
 

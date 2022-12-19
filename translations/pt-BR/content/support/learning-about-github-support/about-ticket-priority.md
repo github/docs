@@ -1,15 +1,20 @@
 ---
 title: Sobre a prioridade do tíquete
 intro: 'Você pode comunicar a gravidade do seu problema e como ele está afetando você e sua equipe, definindo a prioridade do seu tíquete de suporte.'
-shortTitle: Prioridade to tíquete
+shortTitle: Ticket priority
 versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
   - Support
+ms.openlocfilehash: bce2a30ad25b93274e982991f81be5b1b796c685
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145128168'
 ---
-
 Ao entrar em contato com {% data variables.contact.enterprise_support %}, você pode escolher {% ifversion ghes or ghae %}four{% else %}três{% endif %} prioridades de tíquete: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
 
 {% ifversion ghes or ghae %}
@@ -24,15 +29,13 @@ Ao entrar em contato com {% data variables.contact.enterprise_support %}, você 
 
 ## Prioridade do tíquete para {% data variables.product.prodname_advanced_security %}
 
-|                          Prioridade                           | Descrição                                                                                                                                                                                                                                             |
-|:-------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  {% data variables.product.support_ticket_priority_high %}  | O {% data variables.product.prodname_advanced_security %} não está funcionando, ou está parado ou seriamente afetado, de modo que o usuário final não pode razoavelmente continuar o uso do software e nenhuma solução alternativa está disponível. |
-| {% data variables.product.support_ticket_priority_normal %} | O {% data variables.product.prodname_advanced_security %} está funcionando de maneira inconsistente, causando prejuízo no uso e na produtividade do usuário final.                                                                                  |
-|  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %} está funcionando de maneira consistente, mas o usuário final solicita pequenas alterações no software, como atualizações de documentação, defeitos estéticos ou aprimoramentos.             |
+| Prioridade | Descrição |
+| :---: | --- |
+| {% data variables.product.support_ticket_priority_high %} | O {% data variables.product.prodname_advanced_security %} não está funcionando, ou está parado ou seriamente afetado, de modo que o usuário final não pode razoavelmente continuar o uso do software e nenhuma solução alternativa está disponível. |
+| {% data variables.product.support_ticket_priority_normal %} | O {% data variables.product.prodname_advanced_security %} está funcionando de maneira inconsistente, causando prejuízo no uso e na produtividade do usuário final. |
+| {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} está funcionando de maneira consistente, mas o usuário final solicita pequenas alterações no software, como atualizações de documentação, defeitos estéticos ou aprimoramentos.|
 
-{% elsif ghae %}
-{% data reusables.support.ghae-priorities %}
-{% endif %}
+{% elsif ghae %} {% data reusables.support.ghae-priorities %} {% endif %}
 
 {% elsif ghec %}
 
@@ -49,7 +52,7 @@ Perguntas qualificadas para respostas prioritárias:
 - Incluem perguntas somente sobre organizações que utilizam o {% data variables.product.prodname_ghe_cloud %} atualmente
 
 Para se qualificar para uma resposta prioritária, você deve:
-- Enviar sua pergunta para [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) a partir de um endereço de e-mail verificado associado a uma organização que atualmente usa o {% data variables.product.prodname_ghe_cloud %}
+- Envie sua pergunta ao [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) usando um endereço de email verificado associado a uma organização que atualmente usa o {% data variables.product.prodname_ghe_cloud %}
 - Enviar um novo tíquete de suporte para cada situação prioritária individual
 - Enviar a pergunta de segunda a sexta-feira, em seu fuso horário local
 - Entender que a resposta a uma pergunta prioritária será recebida por e-mail
@@ -57,7 +60,7 @@ Para se qualificar para uma resposta prioritária, você deve:
 
 {% note %}
 
-**Observação:** As perguntas não se qualificam para uma resposta prioritária se forem enviadas em um feriado local na sua jurisdição.
+**Observação:** as perguntas não serão qualificadas para uma resposta prioritária se forem enviadas em um feriado local na sua jurisdição.
 
 {% endnote %}
 
@@ -68,12 +71,12 @@ O tempo alvo de oito horas para respostas:
 
 {% note %}
 
-**Observação:** o {% data variables.contact.github_support %} não garante a resolução de sua pergunta prioritária. O {% data variables.contact.github_support %} pode escalar ou tirar os problemas do status de perguntas prioritárias com base em uma avaliação sensata sobre as informações que você forneceu.
+**Observação:** o {% data variables.contact.github_support %} não garante a resolução da sua pergunta prioritária. O {% data variables.contact.github_support %} pode escalar ou tirar os problemas do status de perguntas prioritárias com base em uma avaliação sensata sobre as informações que você forneceu.
 
 {% endnote %}
 
 {% endif %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Criando um ticket de suporte](/support/contacting-github-support/creating-a-support-ticket)"
+- "[Como criar um tíquete de suporte](/support/contacting-github-support/creating-a-support-ticket)"

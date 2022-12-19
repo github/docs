@@ -15,11 +15,16 @@ versions:
 topics:
   - Pull requests
 shortTitle: Check out a PR locally
+ms.openlocfilehash: bdb63d3951c92996ca4d6dc393bdc49b8d37acce
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145139571'
 ---
-
 {% note %}
 
-  **注釈:** プルリクエストの作者は、上流のリポジトリメンテナ、あるいは上流のリポジトリへのプッシュアクセスを持っている人に対し、ユーザ所有のフォークでプルリクエストの比較ブランチにコミットする権限を与えることができます。 詳しい情報については、「[フォークから作成されたプルリクエストブランチへの変更を許可する](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)」を参照してください。
+  **注:** pull request の作成者だけが、上流のリポジトリ メンテナ、または上流のリポジトリへのプッシュ アクセスを持っているユーザーに対し、ユーザ所有のフォークで pull request の比較ブランチにコミットする権限を与えることができます。 詳細については、「[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)」 (フォークから作成された pull request ブランチへの変更を許可する) を参照してください。
 
   {% endnote %}
 
@@ -28,10 +33,13 @@ shortTitle: Check out a PR locally
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. プルリクエストのリストで、変更するプルリクエストをクリックします。{% ifversion fpt or ghec %}
-3. プルリクエストをオープンする場所を選択するには、[**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**] ドロップダウンを選択して、いずれかのタブをクリックします。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
-3. マージボックスで、[**command line instructions**] をクリックします。 手順に従い、提案されたプルリクエストをローカルにダウンロードしてください。 ![コマンドラインのプルリクエスト手順へのリンク](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. オプションで、提案された変更を {% data variables.product.prodname_desktop %} で表示するには、[**open this in {% data variables.product.prodname_desktop %}**] をクリックします。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+2. pull request の一覧で、変更する pull request をクリックします。{% ifversion fpt or ghec %}
+3. pull request を開く場所を選択するには、 **[Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}]\({% octicon "triangle-down" aria-label="The down triangle icon" %} で開く)** ドロップ ダウンを選択して、いずれかのタブをクリックします。
+  ![コマンド ラインの pull request にアクセスする手順へのリンク](/assets/images/help/pull_requests/open-with-button.png){% else %}
+3. マージ ボックスで、 **[Comand LIne Instructions]\(コマンド ラインの手順)** をクリックします。 手順に従い、提案されたプルリクエストをローカルにダウンロードしてください。
+  ![コマンド ラインの pull request にアクセスする手順へのリンク](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
+4. 必要に応じて、{% data variables.product.prodname_desktop %} で提案された変更を表示するには、 **[open this in {% data variables.product.prodname_desktop %}]\({% data variables.product.prodname_desktop %} でこれを開く)** をクリックします。
+  ![pull request をデスクトップでローカルで開くリンク](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 {% endwebui %}
 
@@ -39,7 +47,7 @@ shortTitle: Check out a PR locally
 
 {% data reusables.cli.cli-learn-more %}
 
-To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+pull request をローカルでチェックアウトするには、`gh pr checkout` サブコマンドを使用します。 `pull-request` を、pull request の番号、URL、またはヘッド ブランチで置き換えます。
 
 ```shell
 gh pr checkout <em>pull-request</em>
@@ -57,8 +65,8 @@ gh pr checkout <em>pull-request</em>
 
 {% data reusables.repositories.sidebar-issue-pr %}
 2. [Pull Requests] リストで、マージしたいプルリクエストをクリックします。
-3. アクティブではないプルリクエストの ID 番号を検索します。 ID 番号は、プルリクエストのタイトルの後に付いている数字です。 ![プルリクエストの ID 番号](/assets/images/help/pull_requests/pull_request_id_number.png)
-{% data reusables.command_line.open_the_multi_os_terminal %}
+3. アクティブではないプルリクエストの ID 番号を検索します。 ID 番号は、プルリクエストのタイトルの後に付いている数字です。
+  ![ の ID 番号](/assets/images/help/pull_requests/pull_request_id_number.png) {% data reusables.command_line.open_the_multi_os_terminal %}
 5. ID 番号を元に、プルリクエストへの参照をフェッチします。この過程で、新しいブランチが作成されます。
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -80,11 +88,11 @@ gh pr checkout <em>pull-request</em>
   > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
-9. 新しいブランチで[新しいプルリクエストを作成](/articles/creating-a-pull-request)します。
+9. 新しいブランチで[新しい pull request を作成](/articles/creating-a-pull-request)します。
 
 ## エラー: 一部の ref をプッシュできませんでした
 
-リモートの `refs/pull/` 名前空間は *読み取り専用*です。 ここにコミットをプッシュしようとすると、以下のエラーが表示されます。
+リモートの `refs/pull/` 名前空間は "*読み取り専用*" です。 ここにコミットをプッシュしようとすると、以下のエラーが表示されます。
 ```shell
 ! [remote rejected] HEAD -> refs/pull/1/head (deny updating a hidden ref)
 error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOSITORY</em>.git'
@@ -92,6 +100,6 @@ error: failed to push some refs to 'git@github.local:<em>USERNAME</em>/<em>REPOS
 
 {% tip %}
 
-**ヒント:** リモート参照の削除や名前変更を行った場合、ローカルの `refs/pull/origin/` 名前空間は `git-remote` への呼び出しに影響されません。
+**ヒント:** リモート参照の削除または名前変更を行う場合、ローカルの `refs/pull/origin/` 名前空間は、`git-remote` への呼び出しの影響を受けません。
 
 {% endtip %}

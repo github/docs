@@ -23,7 +23,7 @@ The `git push` command takes two arguments:
 For example:
 
 ```shell
-git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
+git push REMOTE-NAME BRANCH-NAME
 ```
 
 As an example, you usually run `git push origin main` to push your local changes
@@ -35,10 +35,10 @@ To rename a branch, you'd use the same `git push` command, but you would add
 one more argument: the name of the new branch. For example:
 
 ```shell
-git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
+git push REMOTE-NAME LOCAL-BRANCH-NAME:REMOTE-BRANCH-NAME
 ```
 
-This pushes the `LOCALBRANCHNAME` to your `REMOTENAME`, but it is renamed to `REMOTEBRANCHNAME`.
+This pushes the `LOCAL-BRANCH-NAME` to your `REMOTE-NAME`, but it is renamed to `REMOTE-BRANCH-NAME`.
 
 ## Dealing with "non-fast-forward" errors
 
@@ -57,13 +57,13 @@ that have the same names as remote branches.
 To push a single tag, you can issue the same command as pushing a branch:
 
 ```shell
-git push <em> &lt;REMOTENAME> &lt;TAGNAME> </em>
+git push REMOTE-NAME TAG-NAME
 ```
 
 To push all your tags, you can type the command:
 
 ```shell
-git push <em> &lt;REMOTENAME></em> --tags
+git push REMOTE-NAME --tags
 ```
 
 ## Deleting a remote branch or tag
@@ -71,12 +71,12 @@ git push <em> &lt;REMOTENAME></em> --tags
 The syntax to delete a branch is a bit arcane at first glance:
 
 ```shell
-git push <em> &lt;REMOTENAME></em> :<em>&lt;BRANCHNAME> </em>
+git push REMOTE-NAME:BRANCH-NAME
 ```
 
 Note that there is a space before the colon. The command resembles the same steps
 you'd take to rename a branch. However, here, you're telling Git to push _nothing_
-into `BRANCHNAME` on `REMOTENAME`. Because of this, `git push` deletes the branch
+into `BRANCH-NAME` on `REMOTE-NAME`. Because of this, `git push` deletes the branch
 on the remote repository.
 
 ## Remotes and forks
@@ -89,7 +89,7 @@ repository, you'd add a new remote URL, typically called `upstream`, to
 your local Git clone:
 
 ```shell
-git remote add upstream <em> &lt;THEIR_REMOTE_URL> </em>
+git remote add upstream THEIR_REMOTE_URL
 ```
 
 Now, you can fetch updates and branches from *their* fork:
@@ -101,7 +101,7 @@ git fetch upstream
 > remote: Compressing objects: 100% (53/53), done.
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
-> From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
+> From https://{% data variables.command_line.codeblock %}/OCTOCAT/REPO
 >  * [new branch]      main     -> upstream/main
 ```
 

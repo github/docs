@@ -16,29 +16,27 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: Atualizar armazenamento do LFS do Git
+shortTitle: Upgrade Git LFS storage
+ms.openlocfilehash: 261ef75ee139cf8c1bcec01c09d95444d64ecc89
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145083527'
 ---
-
 ## Comprar mais armazenamento e largura de banda para uma conta pessoal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-add-data %}
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.lfs-add-data %} {% data reusables.large_files.pack_selection %} {% data reusables.large_files.pack_confirm %}
 
 ## Comprar mais armazenamento e largura de banda para uma organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-add-data %}
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.lfs-add-data %} {% data reusables.large_files.pack_selection %} {% data reusables.large_files.pack_confirm %}
 
-## Leia mais
+## Leitura adicional
 
 - "[Sobre a cobrança do {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
-- "[Sobre o uso de armazenamento e largura de banda](/articles/about-storage-and-bandwidth-usage)"
-- "[Exibir o uso do {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Controlar versões em arquivos grandes](/articles/versioning-large-files)"
+- "[Sobre o uso de armazenamento e de largura de banda](/articles/about-storage-and-bandwidth-usage)"
+- "[Como ver seu uso do {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)"
+- "[Como fazer o controle de versão de arquivos grandes](/articles/versioning-large-files)"

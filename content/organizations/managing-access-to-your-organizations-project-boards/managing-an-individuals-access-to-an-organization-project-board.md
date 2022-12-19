@@ -1,5 +1,5 @@
 ---
-title: Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}
+title: 'Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}'
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can manage an individual member''s access to a {% data variables.projects.projects_v1_board %} owned by your organization.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board

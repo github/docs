@@ -1,6 +1,6 @@
 ---
 title: GitHub でオープンソースにコントリビュートする方法を見つける
-intro: '自分に関連する {% data variables.product.product_location %} のオープンソースプロジェクトにコントリビュートする方法を見つけることができます。'
+intro: '自分に関連する {% data variables.product.product_location %} のオープンソース プロジェクトにコントリビュートする方法を見つけることができます。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on
@@ -17,41 +17,46 @@ versions:
 topics:
   - Open Source
 shortTitle: Contribute to open source
+ms.openlocfilehash: 434927bb3fd1f6816cf76b82a949a4b3369acba9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119478'
 ---
-
 ## 関連プロジェクトを発見する
 
-興味のある特定の Topics がある場合は、`github.com/topics/<topic>` にアクセスしてください。 たとえば、機械学習に興味がある場合は、https://github.com/topics/machine-learning にアクセスして、関連するプロジェクトと good first issue を見つけることができます。 [[Topics](https://github.com/topics)] にアクセスすると、人気のある Topics を閲覧できます。 興味のある Topics に一致するリポジトリを検索することもできます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories#search-by-topic)を参照してください。
+興味のある特定のトピックがある場合は、`github.com/topics/<topic>` にアクセスしてください。 たとえば、機械学習に関心がある場合は、 https://github.com/topics/machine-learning にアクセスして、関連するプロジェクトと good first issues を見つけることができます。 [Topics](https://github.com/topics) にアクセスすると、人気のあるトピックを参照できます。 興味のある Topics に一致するリポジトリを検索することもできます。 詳細については、「[リポジトリを検索する](/search-github/searching-on-github/searching-for-repositories#search-by-topic)」を参照してください。
 
-{% data variables.product.product_location %} で積極的に活動している場合は、[Explore](https://github.com/explore) での過去のコントリビューション、Star、およびその他のアクティビティに基づいて、プロジェクトについての個別の推奨事項と good first issue を見つけることができます。 Explore ニュースレターにサインアップして、あなたの興味に基づいて {% data variables.product.product_name %} にコントリビュートする機会について記載されたメールを受け取ることもできます。 サインアップするには、「[Explore メールニュースレター](https://github.com/explore/subscribe)」を参照してください。
+{% data variables.product.product_location %} で積極的に活動している場合は、[Explore](https://github.com/explore) での過去のコントリビューション、Star、その他のアクティビティに基づいて、プロジェクトについての個別の推奨事項と good first issues を見つけることができます。 Explore ニュースレターにサインアップして、あなたの興味に基づいて {% data variables.product.product_name %} にコントリビュートする機会について記載されたメールを受け取ることもできます。 サインアップするには、「[メール ニュースレターの詳細](https://github.com/explore/subscribe)」を参照してください。
 
-Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+注視しているリポジトリおよびフォローしているユーザーや組織の最近のアクティビティを、個人用ダッシュボードで常に把握してください。 詳細については、[個人用ダッシュボード](/articles/about-your-personal-dashboard)に関するページを参照してください。
 
 {% data reusables.support.ask-and-answer-forum %}
 
 ## good first issue を見つける
 
-作業するプロジェクトが既にわかっている場合は、[`github.com/<owner>/<repository>/contribute`] にアクセスして、そのリポジトリで初心者向けの Issue を見つけることができます。 たとえば、https://github.com/electron/electron/contribute で `electron/electron` に初めてコントリビュートする方法を見つけることができます。
+作業するプロジェクトが既にわかっている場合は、`github.com/<owner>/<repository>/contribute` にアクセスすると、そのリポジトリの初めての方向けの Issue を見つけることができます。 たとえば、`electron/electron` に初めて投稿する方法は https://github.com/electron/electron/contribute で見つけることができます。
 
-## Issue を開くこと
+## イシューのオープン
 
-If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
+オープンソース プロジェクトでバグが発生した場合は、バグが既に報告されているかどうかを確認します。 バグが報告されていない場合は、プロジェクトの投稿ガイドラインに従って Issue を開いてバグを報告できます。
 
-## Validating an issue or pull request
+## Issue または pull request を検証する
 
-There are a variety of ways that you can contribute to open source projects.
+オープンソース プロジェクトにコントリビュートするには、さまざまな方法があります。
 
-### Reproducing a reported bug
-You can contribute to an open source project by validating an issue or adding additional context to an existing issue.
+### 報告されたバグを再現する
+Issue を検証するか、既存の Issue にコンテキストを追加することで、オープンソース プロジェクトにコントリビュートすることができます。 
 
-### Testing a pull request
-You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+### pull request をテストする
+pull request をプロジェクトのローカル コピーにマージし、変更をテストすることで、オープンソース プロジェクトにコントリビュートすることができます。 pull request のコメントにテストの結果を追加します。
 
-### Updating issues
-You can contribute to an open source project by adding additional information to existing issues.
+### Issue を更新する
+既存の Issue に補足情報を追加することで、オープンソース プロジェクトにコントリビュートすることができます。
 
 
-## 参考リンク
+## 参考資料
 
-- [Topics によるリポジトリの分類](/articles/classifying-your-repository-with-topics)
-- 「[Organization ダッシュボードについて](/articles/about-your-organization-dashboard)」
+- 「[トピックでリポジトリを分類する](/articles/classifying-your-repository-with-topics)」
+- [Organization ダッシュボードについて](/articles/about-your-organization-dashboard)

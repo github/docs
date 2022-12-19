@@ -1,0 +1,27 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 'Após desbloquear um repositório para acesso temporário, o administrador do site não conseguiu gerenciar as configurações dos produtos de segurança no repositório.'
+    - 'Chaves SSH administrativas duplicadas podem aparecer tanto no Console de Gerenciamento quanto no arquivo `/home/admin/.ssh/authorized_keys`.'
+    - 'A página de administração do site para usuários individuais em <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> continha funcionalidades não destinadas ao Servidor do GitHub Enterprise.'
+    - 'Em alguns casos, executar `ghe-cluster-config-apply` pode replicar uma configuração vazia para nós existentes em um cluster.'
+    - 'Em alguns casos, as execuções de configuração iniciadas com `ghe-config-apply` não foram concluídas ou retornaram um erro `Incompatibilidade de contagem de contêiner`.'
+    - 'Depois de atualizar um certificado TLS autoassinado em uma instância de servidor do GitHub Enterprise, os elementos da interface do usuário em algumas páginas da interface da Web não apareciam.'
+    - 'A barra de administração do site na parte superior da interface da Web continha um link desfeito para o SHA da versão do aplicativo em execução no momento.'
+    - 'Em alguns casos, as tarefas em segundo plano podem parar devido ao uso concomitante de uma biblioteca, embora não seja thread-safe.'
+    - 'Alertas da verificação de segredo para clientes da Segurança Avançada do GitHub ficariam ausentes na interface do usuário da Web e na API REST se um administrador do site não atualizasse diretamente para o GitHub Enterprise Server 3.4. Os alertas agora estão visíveis.'
+    - 'Quando um usuário bifurcava um repositório em uma organização, uma longa lista de organizações não era renderizada corretamente.'
+  changes:
+    - 'Como resultado da sanitização de log paralelizada, a geração de pacotes de suporte ficou mais rápida. Para ver mais informações sobre pacotes de suporte, confira "[Como fornecer dados ao suporte do GitHub](/support/contacting-github-support/providing-data-to-github-support)."'
+    - 'As APIs que contêm a rota `organização` ou `org` agora aceitam o slug ou a ID da organização. Anteriormente, as APIs aceitavam apenas slugs, o que fazia com que os cabeçalhos `Link` dos pontos de extremidade do GitHub Advanced Security ficassem inacessíveis. Para ver mais informações, confira "[Organizações](https://docs.github.com/rest/orgs/orgs)" na documentação da API REST.'
+    - 'O log de auditoria empresarial agora inclui mais eventos gerados pelo usuário, como `project.create`. A API REST também retorna eventos adicionais gerados pelo usuário, como `repo.create`. Para ver mais informações, confira "[Como acessar o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" e "[Como usar a API de log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."'
+    - 'Em alguns casos, as réplicas de cache podem rejeitar algumas operações do Git em repositórios atualizados recentemente. Para ver mais informações sobre o armazenamento em cache do repositório, confira "[Sobre o armazenamento em cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+  known_issues:
+    - 'Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.'
+    - 'As regras de firewall personalizadas são removidas durante o processo de atualização.'
+    - 'Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta.'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob''s é maior que 255 caracteres.'
+    - 'Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.'
+    - 'O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes.'
+    - 'Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.'
+    - 'Os serviços de ação devem ser reiniciados após a restauração de um dispositivo a partir do backup tomado em um host diferente.'

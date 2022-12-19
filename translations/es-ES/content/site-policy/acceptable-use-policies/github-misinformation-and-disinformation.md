@@ -1,6 +1,6 @@
 ---
-title: Información errónea y desinformación de GitHub
-shortTitle: Información erróna y desinformación
+title: Información Errónea y Desinformación en GitHub
+shortTitle: Misinformation and Disinformation
 versions:
   fpt: '*'
 topics:
@@ -9,13 +9,18 @@ topics:
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation
+ms.openlocfilehash: ece95f9da0b1953c821531837418e75ed03af4c3
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556669'
 ---
+No puede publicar contenido que presente una visión distorsionada de la realidad, ya sea inexacta o falsa (información errónea) o intencionadamente engañosa (desinformación), cuando dicho contenido pueda resultar perjudicial para el público o interferir con las oportunidades justas y equitativas para que todo el mundo participe en una sociedad libre y abierta. Esto puede incluir: 
+- alegaciones médicas inexactas o sin respaldo científico que pongan en peligro la salud o la seguridad pública;  
+- contenido multimedia manipulado, ya sea sonoro o visual, susceptible de inducir a error o engaño de forma que pueda perjudicar el interés público;
+- contenido falso o engañoso que pueda interferir en la capacidad de una persona de participar en actividades cívicas; o
+- afirmaciones infundadas que pudieran promover el odio o el acoso dirigido a grupos específicos de personas.
 
-No puedes publicar contenido que presente una visión distorsionada de la realidad, ya sea que no tenga exactitud o sea falsa (información errónea) o que tenga la intención de engañar (desinformación), en donde dicho contenido pueda dar como resultado el daño al público o interferir con oportunidades iguales y justas para que todo tome lugar en una sociedad abierta y libre. Puede incluir:
-- Las declaraciones médicas inexactas o sin sustento científico que pongan en peligro la salud o seguridad pública
-- Medios manipulados, ya sean auditivos o visuales, que puedan hacer declaraciones falsas o engañar de forma que pueda dañar el interés público
-- Contenido falso o engañoso que pueda interferir con la capacidad de un individuo para participar en las actividades civiles
-- Reclamos infundados que pudieran promover el odio o acoso dirigido a grupos de personas específicos
-
-Fomentamos la participación activa en la expresión de ideas, perspectivas y experiencias y podríamos no estar en posición de disputar cuentas personales u observaciones. Generalmente permitimos la parodia y la sátira que se alinee con nuestras [Políticas de uso aceptable](/github/site-policy/github-acceptable-use-policies) y consideramos que el contexto es importante en cómo se recibe y entiende la información. Cuando revisas contenido bajo esta política, GitHub considerará el impacto de varios factores que podrían ayudar a orientar al espectador, tal como si el contenido se proporcionó con cláusulas de descargo de responsabilidad claras, citas de fuentes confiables o si incluye otros detalles que aclaran la exactitud de la información que se está compartiendo.
+Fomentamos la participación activa en la expresión de ideas, puntos de vista y experiencias, y es posible que no estemos en disposición de rebatir los relatos u observaciones personales. Por lo general, permitimos la parodia y la sátira siempre que sean acordes con nuestras [Directivas de Uso Aceptable](/github/site-policy/github-acceptable-use-policies) y consideramos que el contexto es importante en la forma en que se recibe y entiende la información. Al revisar el contenido en virtud de esta directiva, GitHub tendrá en cuenta el impacto de diversos factores que pueden contribuir a orientar al espectador, por ejemplo, si el contenido se ha proporcionado con exenciones de responsabilidad claras, citas a fuentes creíbles o incluye otros detalles que aclaren la exactitud de la información que se comparte.
 

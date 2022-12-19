@@ -1,6 +1,6 @@
 ---
-title: Sending enterprise contributions to your GitHub.com profile
-intro: 'You can highlight your work on {% data variables.product.prodname_enterprise %} by sending the contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile.'
+title: 将企业贡献发送到您的 GitHub.com 个人资料
+intro: '通过将贡献计数发送到你的 {% data variables.product.prodname_dotcom_the_website %} 个人资料，可以在 {% data variables.product.prodname_enterprise %} 上突出显示你的工作。'
 redirect_from:
   - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile
@@ -16,51 +16,49 @@ versions:
 topics:
   - Profiles
 shortTitle: Send enterprise contributions
+ms.openlocfilehash: 6fb1803f3a93dd03af24ce9ea3f360e579d7dbd1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079532'
 ---
+## 关于 {% data variables.product.prodname_dotcom_the_website %} 个人资料上的企业贡献
 
-## About enterprise contributions on your {% data variables.product.prodname_dotcom_the_website %} profile
+您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料显示过去 90 天内 {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 贡献计数。 {% data reusables.github-connect.sync-frequency %} {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 的贡献计数被视为私人贡献。 提交详细信息将仅显示贡献计数，这些贡献是在 {% data variables.product.prodname_dotcom_the_website %} 以外的 {% data variables.product.prodname_enterprise %} 环境中进行的。
 
-Your {% data variables.product.prodname_dotcom_the_website %} profile shows {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} contribution counts from the past 90 days. {% data reusables.github-connect.sync-frequency %} Contribution counts from {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} are considered private contributions. The commit details will only show the contribution counts and that these contributions were made in a {% data variables.product.prodname_enterprise %} environment outside of {% data variables.product.prodname_dotcom_the_website %}.
+您可以决定是否在个人资料中显示私人贡献的计数。 有关详细信息，请参阅“[在个人资料中公开或隐藏你的私人贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)”。
 
-You can decide whether to show counts for private contributions on your profile. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)."
-
-For more information about how contributions are calculated, see "[Managing contribution graphs on your profile](/articles/managing-contribution-graphs-on-your-profile/)."
+有关如何计算贡献的详细信息，请参阅“[管理个人资料中的贡献图](/articles/managing-contribution-graphs-on-your-profile/)”。
 
 {% note %}
 
-**Notes:**
-- The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/github/site-policy/github-privacy-statement/) and users enabling the connection agree to the [GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service).
+**注意：**
+- 帐户之间的连接受 [GitHub 的隐私声明](/free-pro-team@latest/github/site-policy/github-privacy-statement/)约束，启用连接即表示用户同意 [GitHub 的服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)。
 
-- Before you can connect your {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} profile to your {% data variables.product.prodname_dotcom_the_website %} profile, your enterprise owner must enable {% data variables.product.prodname_github_connect %} and enable contribution sharing between the environments. For more information, contact your enterprise owner.
+- 在将 {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} 配置文件连接到 {% data variables.product.prodname_dotcom_the_website %} 配置文件之前，企业所有者必须启用 {% data variables.product.prodname_github_connect %} 并启用环境之间的贡献共享。 有关详细信息，请与企业所有者联系。
 
 {% endnote %}
 
-## Sending your enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile
+## 将您的企业贡献发送到您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料
 
 {% ifversion fpt or ghec %}
 
-- To send enterprise contributions from {% data variables.product.prodname_ghe_server %} to your {% data variables.product.prodname_dotcom_the_website %} profile, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" in the {% data variables.product.prodname_ghe_server %} documentation.
-- To send enterprise contributions from {% data variables.product.prodname_ghe_managed %} to your {% data variables.product.prodname_dotcom_the_website %} profile, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" in the {% data variables.product.prodname_ghe_managed %} documentation.
+- 若要将来自 {% data variables.product.prodname_ghe_server %} 的企业贡献发送到你的 {% data variables.product.prodname_dotcom_the_website %} 个人资料，请参阅 {% data variables.product.prodname_ghe_server %} 文档中的“[将企业贡献发送到你的 {% data variables.product.prodname_dotcom_the_website %} 个人资料](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)”。
+- 若要将来自 {% data variables.product.prodname_ghe_managed %} 的企业贡献发送到你的 {% data variables.product.prodname_dotcom_the_website %} 个人资料，请参阅 {% data variables.product.prodname_ghe_managed %} 文档中的“[将企业贡献发送到你的 {% data variables.product.prodname_dotcom_the_website %} 个人资料](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)”。
 
 {% elsif ghes %}
 
-1. Sign in to {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
-{% data reusables.github-connect.github-connect-tab-user-settings %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
-1. Review the resources that {% data variables.product.prodname_ghe_server %} will access from your {% data variables.product.prodname_dotcom_the_website %} account, then click **Authorize**.
-   ![Authorize connection between GitHub Enterprise Server and GitHub.com](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)
-{% data reusables.github-connect.send-contribution-counts-to-githubcom %}
+1. 登录到 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. 在 {% data variables.product.prodname_ghe_server %} 任意页的右上角，单击个人资料照片，然后单击“设置”。
+   ![用户栏中的“设置”图标](/assets/images/help/settings/userbar-account-settings.png) {% data reusables.github-connect.github-connect-tab-user-settings %} {% data reusables.github-connect.connect-dotcom-and-enterprise %}
+1. 查看 {% data variables.product.prodname_ghe_server %} 将从你的 {% data variables.product.prodname_dotcom_the_website %} 帐户访问的资源，然后单击“授权”。
+   ![授权 GitHub Enterprise Server 与 GitHub.com 之间的连接](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png) {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% elsif ghae %}
 
-1. Sign in to {% data variables.product.prodname_ghe_managed %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_managed %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
-{% data reusables.github-connect.github-connect-tab-user-settings %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
-{% data reusables.github-connect.authorize-connection %}
-{% data reusables.github-connect.send-contribution-counts-to-githubcom %}
+1. 登录到 {% data variables.product.prodname_ghe_managed %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. 在 {% data variables.product.prodname_ghe_managed %} 任意页的右上角，单击个人资料照片，然后单击“设置”。
+   ![用户栏中的“设置”图标](/assets/images/help/settings/userbar-account-settings.png) {% data reusables.github-connect.github-connect-tab-user-settings %} {% data reusables.github-connect.connect-dotcom-and-enterprise %} {% data reusables.github-connect.authorize-connection %} {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% endif %}

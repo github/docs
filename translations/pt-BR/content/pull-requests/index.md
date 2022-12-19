@@ -1,5 +1,5 @@
 ---
-title: Pull requests
+title: Solicitações de pull
 intro: 'Aprenda a usar pull requests para sugerir alterações a um projeto, receber alterações sugeridas em seus próprios projetos e resolver problemas em pull requests, como conflitos de merge.'
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
@@ -32,5 +32,11 @@ topics:
 children:
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests
+ms.openlocfilehash: ef158e51034ee5f8d9aba19323654ab413d244b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063967'
 ---
 

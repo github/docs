@@ -10,48 +10,53 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Extensions & integrations
+ms.openlocfilehash: f33ce9b9ae55e523bedff1309f3f2f15202dcf82
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884214'
 ---
-
 ## エディタツール
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and {% data variables.product.prodname_vs %}.
+Atom、Unity、{% data variables.product.prodname_vs %} などのサードパーティ エディター ツール内で、{% data variables.product.product_name %} リポジトリに接続できます。
 
 ### {% data variables.product.product_name %} for Atom
 
-{% data variables.product.product_name %} for Atom機能拡張を使うと、Atomエディタからコミット、プッシュ、プル、マージコンフリクトの解決などが行えます。 詳しい情報については公式の[{% data variables.product.product_name %} for Atomサイト](https://github.atom.io/)を参照してください。
+{% data variables.product.product_name %} for Atom機能拡張を使うと、Atomエディタからコミット、プッシュ、プル、マージコンフリクトの解決などが行えます。 詳細については、公式の [{% data variables.product.product_name %} for Atom サイト](https://github.atom.io/)を参照してください。
 
 ### {% data variables.product.product_name %} for Unity
 
-{% data variables.product.product_name %} for Unityエディタ機能拡張を使うと、オープンソースのゲーム開発プラットフォームであるUnity上で開発を行い、作業内容を{% data variables.product.product_name %}上で見ることができます。 詳しい情報については公式のUnityエディタ機能拡張[サイト](https://unity.github.com/)あるいは[ドキュメンテーション](https://github.com/github-for-unity/Unity/tree/master/docs)を参照してください。
+{% data variables.product.product_name %} for Unityエディタ機能拡張を使うと、オープンソースのゲーム開発プラットフォームであるUnity上で開発を行い、作業内容を{% data variables.product.product_name %}上で見ることができます。 詳細については、公式の Unity エディター拡張機能の[サイト](https://unity.github.com/)または[ドキュメント](https://github.com/github-for-unity/Unity/tree/master/docs)を参照してください。
 
-### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
+### {% data variables.product.prodname_vs %} の {% data variables.product.product_name %}
 
-With the {% data variables.product.product_name %} for {% data variables.product.prodname_vs %} extension, you can work in {% data variables.product.product_name %} repositories without leaving {% data variables.product.prodname_vs %}. For more information, see the official {% data variables.product.prodname_vs %} extension [site](https://visualstudio.github.com/) or [documentation](https://github.com/github/VisualStudio/tree/master/docs).
+{% data variables.product.prodname_vs %} 拡張機能の {% data variables.product.product_name %} を使用すると、{% data variables.product.prodname_vs %} を離れることなく、{% data variables.product.product_name %} リポジトリで作業できます。 詳しい情報については、公式の {% data variables.product.prodname_vs %} 拡張機能の[サイト](https://visualstudio.github.com/)または[ドキュメント](https://github.com/github/VisualStudio/tree/master/docs)を参照してください。
 
-### {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %}
+### {% data variables.product.prodname_vscode %} の {% data variables.product.prodname_dotcom %}
 
-With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
+{% data variables.product.prodname_vscode %} 拡張機能の {% data variables.product.prodname_dotcom %} を使用すると、{% data variables.product.prodname_vscode_shortname %} で {% data variables.product.product_name %} pull requests を確認および管理できます。 詳しい情報については、公式の {% data variables.product.prodname_vscode_shortname %} 拡張機能の[サイト](https://vscode.github.com/)または[ドキュメント](https://github.com/Microsoft/vscode-pull-request-github)を参照してください。
 
 ## プロジェクト管理ツール
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
+{% data variables.product.product_location %} の個人または Organization アカウントを Jira などのサードパーティのプロジェクト管理ツールと統合できます。
 
 ### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
-Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 詳細については、Marketplace の[Jira 統合アプリケーション](https://github.com/marketplace/jira-software-github)にアクセスしてください。
+Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 詳細については、マーケットプレースの [Jira 統合アプリ](https://github.com/marketplace/jira-software-github)を参照してください。
 
 ## チームコミュニケーションツール
 
-You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+{% data variables.product.product_location %} の個人または Organization アカウントを Slack や Microsoft Teams などのサードパーティのコミュニケーション ツールと統合できます。
 
 ### Slack と {% data variables.product.product_name %} の統合
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+Slack + {% data variables.product.prodname_dotcom %} アプリを使用すると、リポジトリまたは Organization をサブスクライブし、Issue、pull request、コミット、ディスカッション、リリース、デプロイ レビュー、デプロイの状態に関するリアルタイムの更新を取得できます。 また、Issue を開いたり閉じたりするなどのアクティビティを実行したり、Slack を離れることなく、Issue や pull request に関する詳細な参照を確認することもできます。 また、あなたがチャネルや個人用チャットで受信した {% data variables.product.prodname_dotcom %} 通知の一部でメンションされている場合、このアプリから Slack であなたに直接 ping が実行されます。
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+Slack + {% data variables.product.prodname_dotcom %} アプリも [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid) と互換性があります。 詳細については、マーケットプレースの [Slack + {% data variables.product.prodname_dotcom %} アプリ](https://github.com/marketplace/slack-github)を参照してください。
 
 ### Microsoft Teams と {% data variables.product.product_name %} の統合
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+{% data variables.product.prodname_dotcom %} for Teams アプリを使用すると、リポジトリまたは Organization をサブスクライブし、Issue、pull request、コミット、ディスカッション、リリース、デプロイ レビュー、デプロイの状態に関するリアルタイムの更新を取得できます。 また、Issue の開始と終了、Issue や pull request へのコメントなどのアクティビティを実行したり、Microsoft Teams を離れることなく Issue や pull request に関する詳細な参照を確認したりすることができます。 また、あなたがチャネルや個人用チャットで受信した {% data variables.product.prodname_dotcom %} 通知の一部でメンションされている場合、このアプリから Teams であなたに直接 ping が実行されます。
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+詳細については、Microsoft AppSource で [{% data variables.product.prodname_dotcom %} for Teams アプリ](https://appsource.microsoft.com/en-us/product/office/WA200002077)を参照してください。

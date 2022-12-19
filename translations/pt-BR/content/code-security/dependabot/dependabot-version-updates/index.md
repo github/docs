@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 topics:
   - Repositories
   - Dependabot
@@ -21,6 +21,12 @@ children:
   - /listing-dependencies-configured-for-version-updates
   - /customizing-dependency-updates
   - /configuration-options-for-the-dependabot.yml-file
-shortTitle: Atualizações de versão do Dependabot
+shortTitle: Dependabot version updates
+ms.openlocfilehash: 7d926dd11d8d97511a66109273e30aa018f2707a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108271'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Estados de confirmación
-intro: 'The Commit status API allows external services to mark commits with a status, which is then reflected in pull requests involving those commits.'
+intro: La API de estado de confirmación permite que los servicios externos marquen las confirmaciones con un estado que después se refleja en las solicitudes de incorporación de cambios que implican estas confirmaciones.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,16 +10,21 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 4c75b4817ecddad0e91460d7d12eddabc634d588
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882299'
 ---
+## Acerca de la API de estados de confirmación
 
-## About the Commit statuses API
+La API de estado de confirmación permite que los servicios externos marquen las confirmaciones con un estado `error`, `failure`, `pending` o `success`, que después se refleja en las solicitudes de incorporación de cambios que implican esas confirmaciones. Los estados también incluyen valores `description` y `target_url` opcionales, y se recomienda encarecidamente proporcionarlos, ya que hacen que los estados sean mucho más útiles en la IU de GitHub.
 
-The Commit status API allows external services to mark commits with an `error`, `failure`, `pending`, or `success` state, which is then reflected in pull requests involving those commits. Statuses can also include an optional `description` and `target_url`, and we highly recommend providing them as they make statuses much more useful in the GitHub UI.
+Como ejemplo, un uso común es para que los servicios de integración continua marquen las confirmaciones como compilaciones correctas o con error por medio de los estados.  `target_url` sería la dirección URL completa de la salida de la compilación y `description` sería el resumen general de lo que ha ocurrido con la compilación.
 
-As an example, one common use is for continuous integration services to mark commits as passing or failing builds using status.  The `target_url` would be the full URL to the build output, and the `description` would be the high level summary of what happened with the build.
+Los estados pueden incluir un valor `context` para indicar qué servicio proporciona ese estado. Por ejemplo, puede hacer que el servicio de integración continua inserte estados con un contexto de `ci` y que una herramienta de auditoría de seguridad inserte estados con un contexto de `security`.  Después, puede usar [Obtener el estado combinado de una referencia específica](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) para recuperar todo el estado de una confirmación.
 
-Los estados pueden incluir un `context` para indicar qué servicio está proporcionando ese estado. Por ejemplo, puedes hacer que tu servicio de integración continua cargue estados con un contexto de `ci`, y que una herramienta de auditoria de seguridad cargue estados con un contexto de `security`.  You can then use the [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
+Tenga en cuenta que el [ámbito de OAuth](/developers/apps/scopes-for-oauth-apps) `repo:status` concede acceso de destino a los estados **sin** conceder también acceso al código del repositorio, mientras que el ámbito `repo` concede permiso para el código y los estados.
 
-Toma en cuenta que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo:status` otorga acceso dirigido a los estados **sin** otorgar también el acceso al código del repositorio, mientras que el alcance `repo` otorga permisos para el código y también para los estados.
-
-Si estás desarrollando una GitHub App y quieres proporcionar información más detallada sobre un servicio externo, tal vez quieras utilizar la [API de Verificaciones](/rest/reference/checks).
+Si va a desarrollar una aplicación de GitHub y quiere proporcionar información más detallada sobre un servicio externo, es posible que quiera utilizar [Checks API](/rest/reference/checks).

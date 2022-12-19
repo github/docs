@@ -1,8 +1,8 @@
 ---
-title: GitHub Actions Permissions
+title: Permisos de Acciones de GitHub
 allowTitleToDifferFromFilename: true
-shortTitle: Permisos
-intro: 'The {% data variables.product.prodname_actions %} Permissions API allows you to set permissions for what enterprises, organizations, and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed to run.'
+shortTitle: Permissions
+intro: 'Permissions API de {% data variables.product.prodname_actions %} permite establecer permisos para qué empresas, organizaciones y repositorios pueden ejecutar {% data variables.product.prodname_actions %}, y qué acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} se pueden ejecutar.'
 topics:
   - API
 versions:
@@ -10,8 +10,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 33dce77111812ba9cf5b05a170bc713c3506c00e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147060678'
 ---
+## Acerca de Permissions API
 
-## About the Permissions API
-
-La API de permisos de {% data variables.product.prodname_actions %} te permite configurar permisos sobre cuáles empresas, organizaciones y repositorios pueden ejecutar {% data variables.product.prodname_actions %} y qué acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} pueden ejecutarse.{% ifversion fpt or ghec or ghes %} Para obtener más información, consulta la sección "[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".{% endif %}
+Permissions API de {% data variables.product.prodname_actions %} permite establecer permisos para qué empresas, organizaciones y repositorios pueden ejecutar {% data variables.product.prodname_actions %}, y qué acciones{% ifversion actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} se pueden ejecutar.{% ifversion fpt or ghec or ghes %} Para más información, consulta "[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".{% endif %}

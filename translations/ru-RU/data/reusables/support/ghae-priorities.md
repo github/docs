@@ -1,0 +1,14 @@
+---
+ms.openlocfilehash: 7e2e213cb4dfee1e19063a729652ecf8709c72a3
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145139822"
+---
+| Приоритет | Описание | Примеры |
+| :---: | --- | --- |
+| {% data variables.product.support_ticket_priority_urgent %} — приоритет A | {% data variables.product.product_name %} недоступен или завершается сбоем, а сбой напрямую влияет на работу вашей компании.<br/><br/>_После отправки запроса в службу поддержки обратитесь в {% data variables.contact.github_support %} по телефону._ | <ul><li>Ошибки или сбои, влияющие на основные функции Git или веб-приложения для всех пользователей</li><li>Серьезное ухудшение работы сети или снижение производительности для большинства пользователей</li><li>Полное или быстрое заполнение хранилища</li><li>Известные инциденты безопасности или нарушение доступа</li></ul> |
+| {% data variables.product.support_ticket_priority_high %} — приоритет B | {% data variables.product.product_name %} завершается сбоем в рабочей среде с ограниченным воздействием на бизнес-процессы или затрагивает только отдельных клиентов. | <ul><li>Снижение производительности и, как следствие, эффективности для многих пользователей</li><li>Проблемы уменьшения избыточности из-за сбоев или снижения производительности служб</li><li>Ошибки, влияющие на рабочую среду</li><li>Проблемы безопасности конфигурации {% data variables.product.product_name %}</li></ul> |
+| {% data variables.product.support_ticket_priority_normal %} — приоритет C | В {% data variables.product.product_name %} имеют мето ограниченные или умеренные проблемы и ошибки с {% data variables.product.product_name %} либо у вас есть общие проблемы или вопросы по работе {% data variables.product.product_name %}. | <ul><li>Рекомендации по использованию API и функций {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} либо вопросы по интеграции рабочих процессов</li><li>Проблемы с пользовательскими инструментами и методами сбора данных</li><li>Обновления</li><li>Отчеты об ошибках, вопросы по общей безопасности или другие вопросы, связанные с функциями</li> |
+| {% data variables.product.support_ticket_priority_low %} — приоритет D| {% data variables.product.product_name %} работает должным образом, но у вас есть вопрос или предложение в отношении {% data variables.product.product_name %}, которые не требуют сиюминутного решения и не влияют на продуктивность вашей команды. | <ul><li>Запросы функций и отзывы о продукте</li><li>Общие вопросы по конфигурации в целом или по использованию {% data variables.product.product_name %}</li><li>Уведомление {% data variables.contact.github_support %} о любых запланированных изменениях</li></ul> |

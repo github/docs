@@ -14,7 +14,7 @@ sections:
           - Write access on security settings at the organization level.
           - Write access on security settings at the repository level.
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          The security manager role is available as a public beta and subject to change. For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)." [Updated 2022-07-29]
 
     - heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
       notes:
@@ -22,7 +22,7 @@ sections:
         - |
           {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.product.product_location %}, allowing you to perform any post-job management.
+          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.location.product_location %}, allowing you to perform any post-job management.
 
           You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
 
@@ -253,7 +253,7 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
     - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'
-
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.22
       notes:
@@ -289,7 +289,7 @@ sections:
         - |
           Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are now deprecated in {% data variables.product.prodname_ghe_server %} 3.3.
 
-          Any repositories that were already present and active on {% data variables.product.product_location %} running version 3.1 or 3.2 will have been automatically updated.
+          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
           Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 

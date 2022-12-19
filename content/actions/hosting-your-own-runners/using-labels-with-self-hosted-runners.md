@@ -13,13 +13,13 @@ shortTitle: Label runners
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)." {% ifversion target-runner-groups %}You can also route jobs to runners in a specific group. For more information, see "[Targeting runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)."{% endif %}
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
 ## Creating a custom label
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
@@ -38,7 +38,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 
 ## Assigning a label to a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}
@@ -53,7 +53,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 
 ## Removing a custom label from a self-hosted runner
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}
@@ -66,24 +66,35 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 1. Click on the assigned label to remove it from your self-hosted runner. {% data reusables.actions.actions-unused-labels %}
 {% endif %}
 
-## Using the configuration script to create and assign labels
+## Programmatically assign labels
 
-You can use the configuration script on the self-hosted runner to create and assign custom labels. For example, this command assigns a label named `gpu` to the self-hosted runner. 
+You can programmatically assign labels to a self-hosted runner after the runner is created, or during its initial configuration.
 
-```shell
-./config.sh --labels gpu
-```
+* To programmatically assign labels to an existing self-hosted runner, you must use the REST API. For more information, see the "[Self-hosted runners](/rest/actions/self-hosted-runners)" REST API.
+* To programmatically assign labels to a self-hosted runner during the initial runner configuration, you can pass label names to the `config` script using the `labels` parameter.
 
-The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
+  {% note %}
+  
+  **Note:** You cannot use the `config` script to assign labels to an existing self-hosted runner.
+  
+  {% endnote %}
 
-You can use comma separation to assign multiple labels. For example:
+  For example, this command assigns a label named `gpu` when configuring a new self-hosted runner:
 
-```shell
-./config.sh --labels gpu,x64,linux
-```
+  ```
+  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
+  ```
 
-{% note %}
+  The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
 
-** Note:** If you replace an existing runner, then you must reassign any custom labels.
+  You can use comma separation to assign multiple labels. For example:
 
-{% endnote %}
+  ```
+  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
+  ```
+
+  {% note %}
+
+  ** Note:** If you replace an existing runner, then you must reassign any custom labels.
+
+  {% endnote %}

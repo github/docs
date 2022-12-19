@@ -2,23 +2,28 @@
 title: Acerca de la divulgación coordinada de las vulnerabilidades de seguridad
 intro: La divulgación de vulnerabilidaes es un esfuerzo coordinado entre los reporteros de seguridad y los mantenedores de los repositorios.
 redirect_from:
-  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
 type: overview
 topics:
-  - Security advisories
-  - Vulnerabilities
-shortTitle: Divulgación coordinada
+- Security advisories
+- Vulnerabilities
+shortTitle: Coordinated disclosure
+ms.openlocfilehash: a5d4445525b46536cbfd3301cccb78140589de22
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145091533"
 ---
-
 ## Acerca de divulgar las vulnerabilidades en la industria
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
-El reporte inicial de una vulnerabilidad se hace en privado y los detalles completos solo se publican una vez que el mantenedor reconoce el problema e idealmente generó remediaciones o un parche disponible, algunas veces con un retraso para dar más tiempo para que se instalen los parches. Para obtener más información, consulta la "[Serie de Páginas de Referencia de OWASP sobre la divulgación de vulnerabilidades](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" en el sitio web de la Serie de Páginas de Referencia de OWASP.
+El reporte inicial de una vulnerabilidad se hace en privado y los detalles completos solo se publican una vez que el mantenedor reconoce el problema e idealmente generó remediaciones o un parche disponible, algunas veces con un retraso para dar más tiempo para que se instalen los parches. Para más información, vea la "[serie de hojas de referencia rápida de OWASP sobre divulgación de vulnerabilidades](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" en el sitio web de OWASP Cheat Sheet Series.
 
 ### Mejores prácticas para los reporteros de vulnerabilidades
 
@@ -28,9 +33,9 @@ Es una buena práctica reportar las vulnerabilidades a los mantenedores en priva
 - Divulgar la vulnerabilidad antes de que se encuentre disponible una versión corregida del código.
 - Esperar que se te recompense por reportar un problema cuando no existe un programa público de recompensas.
 
-Es aceptable que los reporteroes de vulnerabilidades divulguen una vulnerabilidad públicamente después de cierto tiempo, si han tratado de contactar a los mantenedores y no han recibido respuesta o si los contactaron y se les pidió esperar demasiado para divulgarla.
+Es aceptable que los reporteroes de vulnerabilidades divulguen una vulnerabilidad públicamente después de cierto tiempo, si han tratado de contactar a los mantenedores y no han recibido respuesta o si los contactaron y se les pidió esperar demasiado para divulgarla. 
 
-Recomendamos a los reporteros de vulnerabilidades que declaren claramente las condiciones de su política de divulgación como parte de su proceso de reporte. Aún si la vulnerabilidad no se apega a una política estricta, es una buena idea establecer expectativas claras para los mantenedores con respecto a los periodos de tiempo para cuando se pretende divulgar una vulnerabilidad. Para encontrar un ejemplo de política de divulgación, consulta la sección "[Política de divulgación del Security Lab](https://securitylab.github.com/advisories#policy)" en el sitio web de GitHub Security Lab.
+Recomendamos a los reporteros de vulnerabilidades que declaren claramente las condiciones de su política de divulgación como parte de su proceso de reporte. Aún si la vulnerabilidad no se apega a una política estricta, es una buena idea establecer expectativas claras para los mantenedores con respecto a los periodos de tiempo para cuando se pretende divulgar una vulnerabilidad. Para obtener un ejemplo de directiva de divulgación, vea la "[Directiva de divulgación de Security Lab](https://securitylab.github.com/advisories#policy)" en el sitio web de GitHub Security Lab.
 
 ### Mejores prácticas para los mantenedores
 
@@ -51,21 +56,21 @@ El publicar los detalles de una vulnerabilidad de seguridad no da una mala image
 
 El proceso para reportar y divulgar vulnerabilidades para los proyectos en {% data variables.product.prodname_dotcom_the_website %} es el siguiente:
 
- Si reportas una vulnerabilidad (por ejemplo, si eres un investigador de seguridad) y te gustaría proceder, revisa primero si existe una política de seguridad para el repositorio en cuestión. Para encontrar más información, consulta la sección "[Acerca de las políticas de seguridad](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Si esta existe, síguela para entender el proceso antes de contactar al equipo de seguridad de este repositorio.
-
+ Si reportas una vulnerabilidad (por ejemplo, si eres un investigador de seguridad) y te gustaría proceder, revisa primero si existe una política de seguridad para el repositorio en cuestión. Para más información, vea "[Acerca de las directivas de seguridad](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Si esta existe, síguela para entender el proceso antes de contactar al equipo de seguridad de este repositorio. 
+ 
  Si no existe una política de seguridad en vigor, la forma más eficiente de establecer un medio de comunicación privado con los mantenedores es crear una propuesta que solicite un conteacto preferente para asuntos de seguridad. No sirve de nada que la propuesta sea visible al público inmediatamente, así que no debería incluir ningún tipo de información sobre el error. Una vez que se haya establecido la comunicación, puedes sugerir a los mantenedores que definan una política de seguridad para su uso futuro.
 
 {% note %}
 
-**Nota**: _Solo para npm_ - Si recibimos un reporte de malware en un paquete de npm, intentaremos contactarte en privado. Si no tratas la propuesta de forma oportuna, la divulgaremos. Para obtener más información, consulta la sección "[Reportar malware en un paquete de npm](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" en el sitio web de los documentos de npm.
+**Nota**: _Solo para npm_: Si recibimos un informe de malware en un paquete npm, intentaremos ponernos en contacto con usted de forma privada. Si no tratas la propuesta de forma oportuna, la divulgaremos. Para más información, vea "[Notificación de malware en un paquete npm](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" en el sitio web de la documentación de npm.
 
 {% endnote %}
 
- Si encontraste una vulnerabilidad de seguridad en {% data variables.product.prodname_dotcom_the_website %}, por favor, repórtala a través de nuestro proceso de divulgación coordinada. Para obtener más información, consulta el sitio web de [Recompensa por Errores de Seguridad de {% data variables.product.prodname_dotcom %}](https://bounty.github.com/).
+ Si encontraste una vulnerabilidad de seguridad en {% data variables.product.prodname_dotcom_the_website %}, por favor, repórtala a través de nuestro proceso de divulgación coordinada. Para más información, vea el sitio web [Recompensas de errores de seguridad de {% variables.product.prodname_dotcom %}](https://bounty.github.com/).
 
- Si eres un mantenedor, puedes tomar la responsabilidad del proceso desde el inicio de la red de comunicación si configuras una política de seguridad para tu repositorio o, de otra forma, poner las instrucciones de reporte de seguridad claramente disponibles, por ejemplo, en el archivo README de tu proyecto. Para obtener más información sobre cómo agregar una política de seguridad, consulta la sección "[Acerca de las políticas de seguridad](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Si no hay políticas de seguridad, es probable que alguien que reporta una vulnerabilidad intente enviarte un correo electrónico o contactarte en privado de alguna otra forma. Como alternativa, alguien podría abrir una propuesta (pública) con detalles de un problema de seguridad.
+ Si eres un mantenedor, puedes tomar la responsabilidad del proceso desde el inicio de la red de comunicación si configuras una política de seguridad para tu repositorio o, de otra forma, poner las instrucciones de reporte de seguridad claramente disponibles, por ejemplo, en el archivo README de tu proyecto. Para obtener información sobre cómo agregar una directiva de seguridad, vea "[Acerca de las directivas de seguridad](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)". Si no hay políticas de seguridad, es probable que alguien que reporta una vulnerabilidad intente enviarte un correo electrónico o contactarte en privado de alguna otra forma. Como alternativa, alguien podría abrir una propuesta (pública) con detalles de un problema de seguridad.
 
- Como mantenedor, para divulgar una vulnerabilidad en tu código, primero debes creer un borrador de asesoría de seguridad en el repositorio del paquete en {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_security_advisories %} para los repositorios](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)".
+ Como mantenedor, para divulgar una vulnerabilidad en tu código, primero debes creer un borrador de asesoría de seguridad en el repositorio del paquete en {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} Para más información, vea "[Acerca de {% data variables.product.prodname_security_advisories %} para repositorios](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)".
 
 
- Para comenzar, consulta [Crear un aviso de seguridad de repositorio](/code-security/repository-security-advisories/creating-a-repository-security-advisory)".
+ Para empezar, vea "[Creación de un aviso de seguridad de repositorio](/code-security/repository-security-advisories/creating-a-repository-security-advisory)".

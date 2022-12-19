@@ -31,7 +31,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/github/getting-started-with-github/about-remote-repositories) you're using:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPO-NAME.git
 > Cloning into 'reponame'...
 > remote: Counting objects: 84, done.
 > remote: Compressing objects: 100% (45/45), done.

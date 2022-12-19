@@ -1,6 +1,6 @@
 ---
-title: Dismissing a pull request review
-intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
+title: Descartar una revisión de solicitud de extracción
+intro: 'Si tu repositorio requiere revisiones, puedes descartar las revisiones de solicitudes de cambios que ya no son válidas o que el revisor no puede aprobar.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review
   - /articles/dismissing-a-pull-request-review
@@ -14,22 +14,26 @@ versions:
 topics:
   - Pull requests
 shortTitle: Dismiss a PR review
+ms.openlocfilehash: 658f0b69a24c622a3b5f75d6e330d132040d62c5
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147879296'
 ---
-{% data reusables.pull_requests.dismiss_review %}
-This changes the status of the review to a review comment. When you dismiss a review, you must add a comment explaining why you dismissed it. Your comment will be added to the pull request conversation.
+{% data reusables.pull_requests.dismiss_review %} Esto cambia el estado de la revisión, que pasa a ser un comentario de revisión. Cuando descartas una revisión, debes agregar un comentario que explique por qué la descartaste. Tu comentario se agregará a la conversación de la solicitud de extracción.
 
 {% data reusables.search.requested_reviews_search %}
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-3. On the "Conversation" tab, scroll to the review you'd like to dismiss, then click {% octicon "chevron-down" aria-label="The down button" %}. ![Chevron icon in the merge box](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
-4. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Dismiss review**.
-![Kebab icon in merge box](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
-5. Type your reason for dismissing the review, then click **Dismiss review**.
-  ![Dismiss review button](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
+{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %}
+3. En la pestaña "Conversation" (Conversación), desplácese hasta la revisión que quiere descartar y haga clic en {% octicon "chevron-down" aria-label="The down button" %}. ![Icono de comillas angulares en el cuadro de fusión](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
+4. Haga clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y después en **Dismiss review** (Descartar revisión).
+![Icono de kebab en el cuadro de combinación](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
+5. Escriba el motivo para descartar la revisión y después haga clic en **Dismiss review** (Descartar revisión).
+  ![Botón Dismiss review (Descartar revisión)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-## Further reading
+## Información adicional
 
-- "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
-- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
-- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Acerca de las revisiones de solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
+- "[Revisión de los cambios propuestos en una solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+- "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"

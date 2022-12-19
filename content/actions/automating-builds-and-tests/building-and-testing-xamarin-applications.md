@@ -28,8 +28,8 @@ This guide shows you how to create a workflow that performs continuous integrati
 
 For a full list of available Xamarin SDK versions on the {% data variables.product.prodname_actions %}-hosted macOS runners, see the documentation:
 
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.actions.macos-runner-preview %}
 

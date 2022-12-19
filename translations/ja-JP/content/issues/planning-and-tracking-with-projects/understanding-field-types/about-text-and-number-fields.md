@@ -1,33 +1,42 @@
 ---
-title: About text and number fields
+title: テキストと数値フィールドについて
 shortTitle: About text and number fields
-intro: You can add custom text and number fields to your project.
+intro: プロジェクトにカスタムのテキストと数値フィールドを追加できます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
-  - Projects
+- Projects
+ms.openlocfilehash: 2ef01bbd4ec13e37fdcd95e2a536e73c6da2304d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109267"
 ---
+テキスト フィールドを使用して、プロジェクトに注釈やその他のフリーフォーム テキストを含めることができます。
 
-You can use text fields to include notes or any other freeform text in your project.
+テキスト フィールドは、`field:"exact text"` のようにフィルターで使用できます。 フィールドを指定せずにテキストをフィルター処理する場合は、テキスト フィールドと項目タイトルも使用されます。 
 
-Text fields can be used in filters, for example: `field:"exact text"`. Text fields and item titles will also be used if you filter for text without specifying a field.
+数値フィールドもフィルターで使用できます。 `>`、`>=`、`<`、`<=`、`..` 範囲クエリを使用して、数値フィールドでフィルター処理できます。 たとえば、`field:5..15` や `field:>=20` などです。 詳細については、[プロジェクトのフィルター処理](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)に関するページを参照してください。
 
-Number fields can also be used in filters. You can use `>`, `>=`, `<`, `<=`, and `..` range queries to filter by a number field. For example: `field:5..15` or `field:>=20`. 詳しい情報については「[プロジェクトのフィルタリング](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)」を参照してください。
-
-## Adding a text field
-
-{% data reusables.projects.new-field %}
-1. Select **Text** ![Screenshot showing the text option](/assets/images/help/projects-v2/new-field-text.png)
-1. [**Save**] をクリックします。 ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
-
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
-
-## Adding a number field
+## テキスト フィールドの追加
 
 {% data reusables.projects.new-field %}
-1. Select **Number** ![Screenshot showing the number option](/assets/images/help/projects-v2/new-field-number.png)
-1. [**Save**] をクリックします。 ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
+1. **[テキスト]** を選びます
+   ![[テキスト] オプションを示すスクリーンショット](/assets/images/help/projects-v2/new-field-text.png)
+1. **[保存]** をクリックします。
+   ![[保存] ボタンを示すスクリーンショット](/assets/images/help/projects-v2/new-field-save.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Create new field」と入力し始めます。
+
+## 数値フィールドの追加
+
+{% data reusables.projects.new-field %}
+1. **[数値]** を選びます
+   ![[数値] オプションを示すスクリーンショット](/assets/images/help/projects-v2/new-field-number.png)
+1. **[保存]** をクリックします。
+   ![[保存] ボタンを示すスクリーンショット](/assets/images/help/projects-v2/new-field-save.png)
+
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Create new field」と入力し始めます。

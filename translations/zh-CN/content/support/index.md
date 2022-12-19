@@ -1,8 +1,8 @@
 ---
 title: 使用 GitHub 支持
-shortTitle: GitHub 支持
+shortTitle: GitHub Support
 layout: product-landing
-intro: 'GitHub 为每个产品提供不同级别的支持，包括社区论坛支持和针对每个人的有限电子邮件支持，针对所有付费产品的完整电子邮件支持，以及 24/7 全天候电子邮件和回叫支持（如果您的帐户包含 {% data variables.contact.premium_support %}）。'
+intro: 'GitHub 为每个产品提供不同级别的支持，包括社区论坛支持和针对所有人的有限电子邮件支持、对所有付费产品的完整电子邮件支持，以及全天候电子邮件和回调支持（如果帐户包含 {% data variables.contact.premium_support %}）。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -30,5 +30,11 @@ featuredLinks:
   popular:
     - /support/learning-about-github-support/about-github-support
     - /support/contacting-github-support/creating-a-support-ticket
+ms.openlocfilehash: 2d255401f41ce30340144e6e11f71de924b8998d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145130220'
 ---
 

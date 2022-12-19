@@ -13,6 +13,12 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
   - /caching-repositories
-shortTitle: 'Monitorar, gerenciar e atualizar seu dispositivo'
+shortTitle: 'Monitor, manage, and update your appliance'
+ms.openlocfilehash: 1d2a9dfb22d8243617ba5844df93e5bfcaf6d99d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882736'
 ---
 

@@ -8,36 +8,41 @@ versions:
   ghes: <3.4
 topics:
   - GitHub Apps
+ms.openlocfilehash: f557a804d48144df24398f75e90a589d563d941b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147081028'
 ---
-
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ## Acerca de los adjuntos de contenido
 
-Una GitHub App puede registrar dominios que activarán los eventos de `content_reference`. Cuando alguien incluye una URL que vincule a un dominio registrado en el cuerpo o en el comentario de un informe de problemas o de una solicitud de extracción, la app recibe el [webhook de `content_reference`](/webhooks/event-payloads/#content_reference). Puedes utilizar los adjuntos de contenido para proporcionar visualmente más contenido o datos para la URL que se agregó a un informe de problemas o a una solicitud de extracción. La URL debe estar completamente calificada, comenzando ya sea con `http://` o con `https://`. Las URL que sean parte de un enlace de markdown se ignorarán y no activarán el evento de `content_reference`.
+Una aplicación de GitHub puede registrar dominios que desencadenarán eventos de `content_reference`. Cuando alguien incluye una dirección URL que se vincula a un dominio registrado en el cuerpo o comentario de una incidencia o solicitud de incorporación de cambios, la aplicación recibe el [`content_reference` webhook](/webhooks/event-payloads/#content_reference). Puedes utilizar los adjuntos de contenido para proporcionar visualmente más contenido o datos para la URL que se agregó a un informe de problemas o a una solicitud de extracción. La dirección URL debe ser una URL completa que empiece por `http://` o `https://`. Las direcciones URL que forman parte de un vínculo de Markdown se omiten y no desencadenan el evento `content_reference`.
 
 Antes de que puedas utilizar la API de {% data variables.product.prodname_unfurls %}, necesitarás configurar las referencias de contenido para tu GitHub App:
-* Concede los permisos de `Read & write` a tu app para "Referencias de contenido".
+* Conceda permisos de `Read & write` a la aplicación para "Referencias de contenido".
 * Registra hasta 5 dominios válidos y accesibles al público cuando configures el permiso de "Referencias de contenido". No utilices direcciones IP cuando configures dominios con referencias de contenido. Puedes registrar un nombre de dominio (ejemplo.com) o un subdominio (subdominio.ejemplo.com).
 * Suscribe a tu app al evento de "Referencia de contenido".
 
-Una vez que tu app se instale en un repositorio, los comentarios de solicitudes de extracción o de informes de problemas en éste, los cuales contengan URL para tus dominios registrados, generarán un evento de referencia de contenido. La app debe crear un adjunto de contenido en las seis horas siguientes a la publicación de la URL de referencia de contenido.
+Una vez que tu app se instale en un repositorio, los comentarios de solicitudes de extracción o de informes de problemas en éste, los cuales contengan URL para tus dominios registrados, generarán un evento de referencia de contenido. La app debe crear un adjunto de contenido en seis horas desde que se publique la URL de referencia de contenido.
 
 Los adjuntos de contenido no actualizarán las URL retroactivamente. Esto solo funciona para aquellas URL que se agerguen a las solicitudes de extracción o informes de problemas después de que configuras la app utilizando los requisitos descritos anteriormente y que después alguien instale la app en su repositorio.
 
-Consulta la sección "[Crear una GitHub App](/apps/building-github-apps/creating-a-github-app/)" o "[Editar los permisos de las GitHub Apps](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para encontrar los pasos necesarios para configurar los permisos de las GitHub Apps y las suscripciones a eventos.
+Consulte "[Crear una aplicación de GitHub](/apps/building-github-apps/creating-a-github-app/)" o "[Editar los permisos de una aplicación de GitHub](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para conocer los pasos necesarios para configurar permisos de aplicación y suscripciones de eventos de GitHub.
 
 ## Implementar el flujo de los adjuntos de contenido
 
-El flujo de los adjuntos de contenido te muestra la relación entre la URL en el informe de problemas o en la solicitud de extracción, el evento de webhook de `content_reference`, y la terminal de la API de REST que necesitas para llamar o actualizar dicho informe de problemas o solicitud de extracción con información adicional:
+El flujo de los datos adjuntos de contenido muestra la relación entre la dirección URL en la incidencia o solicitud de incorporación de cambios, el evento de webhook de `content_reference` y el punto de conexión de la API de REST a la que necesita llamar para actualizar la incidencia o solicitud de incorporación de cambios con información adicional:
 
-**Paso 1.** Configura tu app utilizando los lineamientos descritos en la sección [Acerca de los adjuntos de contenido](#about-content-attachments). También puedes utilizar el [ejemplo de la App de Probot](#example-using-probot-and-github-app-manifests) para iniciar con los adjuntos de contenido.
+**Paso 1.** Configure la aplicación con las directrices que se describen en [Acerca de los datos adjuntos de contenido](#about-content-attachments). También puede usar el [ejemplo de la aplicación Probot](#example-using-probot-and-github-app-manifests) para empezar a trabajar con datos adjuntos de contenido.
 
-**Paso 2.** Agrega la URL para el dominio que registraste a un informe de problemas o solicitud de extracción. Debes utilizar una URL totalmente calificada que comience con `http://` o con `https://`.
+**Paso 2.** Agregue la dirección URL del dominio que registró en una incidencia o solicitud de incorporación de cambios. Debe usar una dirección URL completa que comience por `http://` o `https://`.
 
 ![URL que se agregó a un informe de problemas](/assets/images/github-apps/github_apps_content_reference.png)
 
-**Paso 3.** Tu app recibirá el [webhook de `content_reference`](/webhooks/event-payloads/#content_reference) con la acción `created`.
+**Paso 3.** La aplicación recibirá el [`content_reference` webhook](/webhooks/event-payloads/#content_reference) con la acción `created`.
 
 ``` json
 {
@@ -58,12 +63,11 @@ El flujo de los adjuntos de contenido te muestra la relación entre la URL en el
 }
 ```
 
-**Paso 4.** La app utiliza los campos de la `id` de `content_reference` y del `full_name` del `repository` para [Crear un adjunto de contenido ](/rest/reference/apps#create-a-content-attachment) utilizando la API de REST. También necesitas la `id` de la `installation` para autenticarte como una [Instalación de una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Paso 4.** La aplicación usa los campos `content_reference``id` y `repository``full_name` para [crear datos adjuntos de contenido](/rest/reference/apps#create-a-content-attachment) mediante la API de REST. También necesitará `installation` `id` para autenticarse como una [instalación de aplicación de GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
-{% data reusables.pre-release-program.corsair-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.corsair-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-El parámetro `body` puede contener lenguaje de markdown:
+El parámetro `body` puede contener Markdown:
 
 ```shell
 curl -X POST \
@@ -76,17 +80,16 @@ curl -X POST \
 }'
 ```
 
-Para obtener más información acerca de crear un token de instalación, consulta la sección "[Autenticarte como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
+Para obtener más información sobre cómo crear un token de instalación, consulte "[Autenticación como una aplicación de GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
-**Paso 5.** Verás como el nuevo adjunto de contenido aparece bajo el enlace en un comentario de una solicitud de extracción o informe de problemas:
+**Paso 5.** Verá que los nuevos datos adjuntos de contenido aparecen debajo del vínculo en una solicitud de incorporación de cambios o un comentario de incidencia:
 
 ![Contenido adjunto a una referencia en un informe de problemas](/assets/images/github-apps/content_reference_attachment.png)
 
 ## Utilizar adjuntos de contenido en GraphQL
-Proporcionamos la `node_id` en el evento de [Webhook de `content_reference` ](/webhooks/event-payloads/#content_reference) para que puedas referirte a la mutación `createContentAttachment` en la API de GraphQL.
+Proporcionamos el `node_id` en el evento de [`content_reference`webhook](/webhooks/event-payloads/#content_reference) para que pueda hacer referencia a la mutación de `createContentAttachment` en GraphQL API.
 
-{% data reusables.pre-release-program.corsair-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.corsair-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
 Por ejemplo:
 
@@ -119,16 +122,16 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-Para obtener más información aacerca de `node_id`, consulta la sección "[Utilizar las Node ID Globales](/graphql/guides/using-global-node-ids)".
+Para obtener más información sobre `node_id`, consulte "[Uso de identificadores de nodo global](/graphql/guides/using-global-node-ids)".
 
 ## Ejemplo de uso con Probot y Manifiestos de GitHub Apps
 
-Para configurar rápidamente una GitHub App que pueda utilizar la API de {% data variables.product.prodname_unfurls %}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear Github Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
+Para configurar rápidamente una aplicación de GitHub que puede usar la API de {% data variables.product.prodname_unfurls %}, puede utilizar [Probot](https://probot.github.io/). Consulte "[Creación de aplicaciones GitHub a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para obtener información sobre cómo usa Probot los manifiestos de aplicaciones de GitHub.
 
 Para crear una App de Probot, sigue estos pasos:
 
-1. [Genera una GitHub App Nueva](https://probot.github.io/docs/development/#generating-a-new-app).
-2. Abre el proyecto que creaste y personaliza la configuración en el archivo `app.yml`. Suscríbete al evento `content_reference` y habilita los permisos de escritura de `content_references`:
+1. [Genere una nueva aplicación de GitHub](https://probot.github.io/docs/development/#generating-a-new-app).
+2. Abra el proyecto que ha creado y personalice la configuración en el archivo `app.yml`. Suscríbase al evento `content_reference` y habilite los permisos de escritura `content_references`:
 
    ``` yml
     default_events:
@@ -147,7 +150,7 @@ Para crear una App de Probot, sigue estos pasos:
         value: example.org
    ```
 
-3. Agrega este código al archivo `index.js` para gestionar los eventos de `content_reference` y llamar a la API de REST:
+3. Agregue este código al archivo `index.js` para controlar eventos de `content_reference` y llame a la API de REST:
 
     ``` javascript
     module.exports = app => {
@@ -168,13 +171,13 @@ Para crear una App de Probot, sigue estos pasos:
     }
     ```
 
-4. [Ejecuta la GitHub App localmente](https://probot.github.io/docs/development/#running-the-app-locally). Navega hasta `http://localhost:3000`, y da clic en el botón **Registrar GitHub App**:
+4. [Ejecute la aplicación de GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Vaya a `http://localhost:3000` y haga clic en el botón **Register GitHub App**:
 
    ![Registrar una GitHub App de Probot](/assets/images/github-apps/github_apps_probot-registration.png)
 
 5. Instala la app en un repositorio de prueba.
 6. Crea un informe de problemas en tu repositorio de prueba.
-7. Agrega un comentario en el informe de problemas que abriste, el cual incluya la URL que configuraste en el archivo `app.yml`.
+7. Agregue un comentario a la incidencia que abrió que incluye la dirección URL que configuró en el archivo `app.yml`.
 8. Revisa el comentario del informe de problemas y verás una actualización que se ve así:
 
    ![Contenido adjunto a una referencia en un informe de problemas](/assets/images/github-apps/content_reference_attachment.png)

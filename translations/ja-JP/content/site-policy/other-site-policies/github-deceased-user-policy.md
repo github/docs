@@ -1,5 +1,5 @@
 ---
-title: お亡くなりになったユーザに関するGitHubのポリシー
+title: GitHub の死亡ユーザー ポリシー
 versions:
   fpt: '*'
 topics:
@@ -8,20 +8,25 @@ topics:
 redirect_from:
   - /github/site-policy/github-deceased-user-policy
   - /github/site-policy/github-terms-and-other-site-policies/github-deceased-user-policy
+ms.openlocfilehash: a78a0c99d0edf9891748101d238b26598df96c77
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556521'
 ---
+GitHub ユーザーが死亡した場合、当社は、権限を与えられた人と協力してそのアカウントのコンテンツをどうするかを判断します。 
 
-万が一、GitHubのユーザがお亡くなりになった場合は、アカウントのコンテンツに関する取り扱いを決定するため、権限を与えられた個人と協力できます。
+死亡したユーザーの近親者、[事前指定された後継者](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)、または権限を与えられたその他の人 (コラボレーターやビジネス パートナーが含まれる可能性があります) が故人のアカウントに関する要求を行う場合は、https://support.github.com/contact で当社にご連絡ください。 メッセージに以下の情報を記入してください。
 
-お亡くなりになったユーザの最近親者、[事前に指定された後継者](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)、その他の権限を与えられた個人 (コラボレータや共同経営者などを含む) で、そのアカウントに関するリクエストを行いたい場合は、https://support.github.com/contactから当社にご連絡ください。 メッセージには、以下の情報をご記入願います。
-
-- 名前
+- 名称
 - 連絡先情報
-- お亡くなりになったアカウント所有者の名前
-- お亡くなりになったアカウント所有者のGitHubユーザ名
-- お亡くなりになったアカウント所有者との関係 (GitHub.comでアカウントの後継者として指定されているかについてもご記入願います)
-- アカウントの後継者として指定されている場合、GitHubアカウントのユーザ名
-- 求めるアクション (パブリックリポジトリの移譲、アカウントの支払いキャンセルなど)
+- 死亡したアカウント所有者の名前
+- 死亡したアカウント所有者の GitHub ユーザー名
+- 死亡したアカウント所有者との関係 (自身が GitHub.com でアカウント後継者として指定されているかどうかを記入してください)
+- アカウント後継者として指定されている場合は、自身の GitHub アカウントのユーザー名
+- 要求の内容 (パブリック リポジトリの移転やアカウントに対する請求の取り消しなど)
 
-リクエストを受領後、お客様のリクエストを処理する適切な権限が当社に与えられていることを確認するため、写真付き身分証明書のコピー、死亡診断書のコピー、お亡くなりになったユーザのアカウントに関して行動する権限が与えられていることを確認する文書などの追加情報を請求する場合があります。
+当社は要求を受け取ったら、当社に要求の処理が適切に許可されることを確認するために、さらに追加の情報 (要求者の写真付き ID のコピー、死亡証明書のコピー、死亡したユーザーのアカウントに関する措置を要求者に許可することを確認する書類など) を要求する場合があります。 
 
-リクエストにおいてお客様が提供する情報については、当社の [プライバシーについての声明](/github/site-policy/github-privacy-statement)に従って収集され、当社はその情報を、当社の法的義務順守および紛争解決に必要な限りにおいてのみ保持するものとします。
+要求の際に提供された情報は、当社の[プライバシーに関する声明](/github/site-policy/github-privacy-statement)に従って収集されます。当社は、法的義務を遵守し、紛争を解決するために必要な場合にのみ、この情報を保持します。

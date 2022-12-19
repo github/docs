@@ -1,0 +1,19 @@
+date: '14/04/2021'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - 'Un message d’avertissement `jq: error (at <stdin>:0): Cannot index number with string "settings"` pouvait s’afficher pendant la promotion du réplica.'
+    - La restauration continue des sauvegardes sur un cluster pouvait échouer en raison de l’échec de la connexion des réplicas MySQL au primaire.
+    - La coloration syntaxique pouvait échouer si le conteneur Treelights manquait de mémoire.
+    - La visite de la page `/settings/emails` stockait un état qui pouvait provoquer des redirections incorrectes lors de la déconnexion et de la reconnexion.
+    - Les alertes du graphe des dépendances n’étaient pas affichées pour certains composants dont les avis ont des noms de packages en majuscules dans `vulnerable_version_ranges`.
+    - Les applications d’intégration GitHub n’étaient pas en mesure de notifier les équipes lorsqu’elles étaient mentionnées directement via une mention (avec arobase) dans un commentaire de problème.
+    - "Lorsque ghe-migrator rencontrait des erreurs d’importation, il interrompait parfois l’ensemble du processus, et les journaux n’incluaient pas suffisamment de contexte."
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

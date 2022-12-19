@@ -16,8 +16,13 @@ topics:
   - Enterprise
   - Git
   - Logging
+ms.openlocfilehash: c759d380b7cbc54918e87ed354c8264bc533c31b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145116470'
 ---
-
 プッシュログの項目には次の情報が含まれています。
 
 - プッシュを開始した人
@@ -32,9 +37,10 @@ topics:
 
 1. サイト管理者として {% data variables.product.prodname_ghe_server %} にサインインします。
 1. リポジトリにアクセスします。
-1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}. ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
-{% data reusables.enterprise_site_admin_settings.security-tab %}
-4. 左のサイドバーで、**Push Log（プッシュログ）** をクリックしてください。 ![プッシュログのタブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
+1. リポジトリのページの右上隅にある {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。
+    ![サイト管理者設定にアクセスするための Rocketship アイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png) {% data reusables.enterprise_site_admin_settings.security-tab %}
+4. 左側のサイドバーで、 **[プッシュ ログ]** をクリックします。
+![[プッシュ ログ] タブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% ifversion ghes %}
 ## コマンドラインでリポジトリのプッシュログを表示する

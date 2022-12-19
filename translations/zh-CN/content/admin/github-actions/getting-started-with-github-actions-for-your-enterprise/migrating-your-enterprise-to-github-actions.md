@@ -1,6 +1,6 @@
 ---
 title: 将企业迁移到 GitHub Actions
-shortTitle: 迁移到 Actions
+shortTitle: Migrate to Actions
 intro: '了解如何规划从其他提供商迁移到企业的 {% data variables.product.prodname_actions %}。'
 versions:
   ghec: '*'
@@ -10,8 +10,13 @@ type: how_to
 topics:
   - Actions
   - Enterprise
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159790'
 ---
-
 ## 关于企业迁移到 {% data variables.product.prodname_actions %}
 
 要将企业从现有系统迁移到 {% data variables.product.prodname_actions %}，您可以规划迁移、完成迁移和停用现有系统。
@@ -32,7 +37,7 @@ topics:
 
 首先，创建企业内现有构建和发布工作流的清单，收集有关哪些工作流程正被使用但需要迁移以及哪些工作流程留在后面迁移的信息。
 
-接下来，了解当前提供商与 {% data variables.product.prodname_actions %} 之间的区别。 这将帮助您评估迁移每个工作流程时遇到的任何困难，以及您的企业在哪些方面可能会遇到功能差异。 更多信息请参阅“[迁移到 {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)”。
+接下来，了解当前提供商与 {% data variables.product.prodname_actions %} 之间的区别。 这将帮助您评估迁移每个工作流程时遇到的任何困难，以及您的企业在哪些方面可能会遇到功能差异。 有关详细信息，请参阅“[迁移到 {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)”。
 
 使用此信息，您将能够确定哪些工作流程要迁移到 {% data variables.product.prodname_actions %}。
 
@@ -48,7 +53,7 @@ topics:
 
 ### 识别和验证迁移工具
 
-自动迁移工具可以将企业的工作流程从现有系统的语法转换为 {% data variables.product.prodname_actions %} 所需的语法。 确定第三方工具或者联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}，询问 {% data variables.product.company_short %} 可以提供的工具。
+自动迁移工具可以将企业的工作流程从现有系统的语法转换为 {% data variables.product.prodname_actions %} 所需的语法。 确定第三方工具或者联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}，询问 {% data variables.product.company_short %} 可以提供的工具。 例如，可以使用 {% data variables.product.prodname_actions_importer %} 来规划 CI 管道、限定其范围以及将 CI 管道从各种受支持的服务迁移到 {% data variables.product.prodname_actions %}。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions_importer %} 自动执行迁移](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)”。
 
 确定用于自动执行迁移的工具后，请通过在某些测试工作流程上运行该工具并验证结果是否符合预期来验证该工具。
 
@@ -60,7 +65,7 @@ topics:
 
 我们建议采用将主动管理与自助服务相结合的迭代方法。 从一小群早期采用者开始，他们可以充当您的内部拥护者。 确定一些足够全面的工作流程，以代表您的业务广度。 与早期采用者合作，将这些工作流程迁移到 {% data variables.product.prodname_actions %}，根据需要进行迭代。 这将让其他团队相信他们的工作流程也可以迁移。
 
-然后，使 {% data variables.product.prodname_actions %} 可供您的大型组织使用。 提供资源以帮助这些团队将自己的工作流程迁移到 {% data variables.product.prodname_actions %}，并在现有系统将要停用时通知团队。
+然后，使 {% data variables.product.prodname_actions %} 可供您的大型组织使用。 提供资源以帮助这些团队将自己的工作流程迁移到 {% data variables.product.prodname_actions %}，并在现有系统将要停用时通知团队。 
 
 最后，通知仍在使用旧系统的任何团队，以便在特定时间范围内完成迁移。 您可以指出其他团队的成功案例，以向他们保证迁移是可能的，也是可取的。
 

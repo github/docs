@@ -11,19 +11,3 @@ function getScriptData($, key) {
 
 export const getNextData = ($) => getScriptData($, NEXT_DATA_QUERY)
 export const getPrimerData = ($) => getScriptData($, PRIMER_DATA_QUERY)
-
-export const getUserLanguage = ($) => {
-  // Because the page might come from the middleware rendering cache,
-  // the DOM won't get updated until the first client-side React render.
-  // But we can assert the data that would be used for that first render.
-  const { props } = getNextData($)
-  return props.languagesContext.userLanguage
-}
-
-export const getIsDotComAuthenticated = ($) => {
-  // Because the page might come from the middleware rendering cache,
-  // the DOM won't get updated until the first client-side React render.
-  // But we can assert the data that would be used for that first render.
-  const { props } = getNextData($)
-  return props.dotComAuthenticatedContext.isDotComAuthenticated
-}

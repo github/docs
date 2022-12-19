@@ -1,6 +1,6 @@
 ---
 title: Defining outputs for jobs
-shortTitle: Defining outputs for jobs
+shortTitle: Define outputs for jobs
 intro: Create a map of outputs for your jobs.
 versions:
   fpt: '*'

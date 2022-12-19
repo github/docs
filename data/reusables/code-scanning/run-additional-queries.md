@@ -1,5 +1,13 @@
 When you use {% data variables.product.prodname_codeql %} to scan code, the {% data variables.product.prodname_codeql %} analysis engine generates a database from the code and runs queries on it. {% data variables.product.prodname_codeql %} analysis uses a default set of queries, but you can specify more queries to run, in addition to the default queries.
 
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+{% tip %}
+
+You can also specify the queries you want to exclude from analysis, or include in the analysis. This requires the use of a custom configuration file. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)" and "[Excluding specific queries from analysis](#excluding-specific-queries-from-analysis) " below.
+
+{% endtip %}
+{% endif %}
+
 {% ifversion codeql-packs %}
 You can run extra queries if they are part of a {% data variables.product.prodname_codeql %} pack (beta) published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_ql %} pack stored in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 

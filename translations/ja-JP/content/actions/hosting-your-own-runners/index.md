@@ -28,7 +28,11 @@ children:
   - /managing-access-to-self-hosted-runners-using-groups
   - /monitoring-and-troubleshooting-self-hosted-runners
   - /removing-self-hosted-runners
+ms.openlocfilehash: 512f00d6133fbbe50abd944a588e6414eec94720
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '146381457'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

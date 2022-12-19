@@ -1,0 +1,20 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |**KRITISCH**: Der Elasticsearch-Container von GitHub Enterprise Server verwendete eine Version von OpenJDK 8, die bei der Verarbeitung bösartiger XSLT-Stylesheets für das Abschneiden von Ganzzahlen anfällig war. Das Sicherheitsrisiko wird als [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf) verfolgt.
+
+|
+    - |**HOCH**: Zuvor auf Benutzerkonten installierte Apps erhielten automatisch die Berechtigung zum Zugriff auf eine Organisation über bereichsbezogene Zugriffstoken, nachdem das Benutzerkonto in ein Organisationskonto umgewandelt wurde. Dieses Sicherheitsrisiko wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet.
+
+|
+  bugs:
+    - "Wenn für die Instanz ein benutzerdefinierter Inaktivitätsschwellenwert festgelegt wurde, wurde dieser Schwellenwert bei der Sperrung aller inaktiven Benutzer nicht zuverlässig eingehalten. Weitere Informationen über Inaktivität findest du unter [Inaktive Benutzer verwalten](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

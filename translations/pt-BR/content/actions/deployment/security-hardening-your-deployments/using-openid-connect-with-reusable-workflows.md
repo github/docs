@@ -1,39 +1,42 @@
 ---
 title: Usando o OpenID Connect com fluxos de trabalho reutilizáveis
-shortTitle: Usando o OpenID Connect com fluxos de trabalho reutilizáveis
+shortTitle: Using OpenID Connect with reusable workflows
 intro: Você pode usar fluxos de trabalho reutilizáveis com o OIDC para padronizar e melhorar as suas etapas de implantação.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: issue-4757
   ghec: '*'
   ghes: '>=3.5'
 type: how_to
 topics:
   - Workflows
   - Security
+ms.openlocfilehash: c9b5daf88f6e2dc91aad8890a3a8833cfbd2b0f0
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '146273047'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## <a name="about-reusable-workflows"></a>Sobre fluxos de trabalho reutilizáveis
 
-## Sobre fluxos de trabalho reutilizáveis
-
-Em vez de copiar e colar trabalhos de implantação de um fluxo de trabalho para outro, é possível criar um fluxo de trabalho reutilizável que executa as etapas de implantação. Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se ele cumprir um dos requisitos de acesso descritos em "[Reutilizando os fluxos de trabalho](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)".
+Em vez de copiar e colar trabalhos de implantação de um fluxo de trabalho para outro, é possível criar um fluxo de trabalho reutilizável que executa as etapas de implantação. Um fluxo de trabalho reutilizável poderá ser usado por outro fluxo de trabalho se atender a um dos requisitos de acesso descritos em ["Como reutilizar fluxos de trabalho](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)".
 
 Quando combinado com o OpenID Connect (OIDC), os fluxos de trabalho reutilizáveis permitem que você aplique implantações consistentes no seu repositório, organização ou empresa. Você pode fazer isso definindo condições de confiança nas funções da nuvem com base em fluxos de trabalho reutilizáveis.
 
-Para criar condições de confiança com base em fluxos de trabalho reutilizáveis, o seu provedor de nuvem deve ser compatível com reivindicações personalizadas para `job_workflow_ref`. Isso permite que seu provedor de nuvem identifique de qual repositório veio originalmente. Se o seu provedor de nuvem é compatível apenas as reivindicações padrão (_audiência_ e _assunto_), não poderá determinar que o trabalho teve origem no repositório do fluxo de trabalho reutilizável. Os provedores de nuvem que sao compatíveis com `job_workflow_ref` incluem Google Cloud Platform e HashiCorp Vault.
+Para criar condições de relação de confiança com base em fluxos de trabalho reutilizáveis, o provedor de nuvem precisa dar suporte a declarações personalizadas de `job_workflow_ref`. Isso permite que seu provedor de nuvem identifique de qual repositório veio originalmente. Se o seu provedor de nuvem só der suporte às declarações padrão (_público-alvo_ e _entidade_), ele não poderá determinar que o trabalho teve origem no repositório do fluxo de trabalho reutilizável. Entre os provedores de nuvem que dão suporte à `job_workflow_ref` estão o Google Cloud Platform e o HashiCorp Vault.
 
-Antes de prosseguir, você deve estar familiarizado com os conceitos de [fluxos de trabalho reutilizáveis](/actions/learn-github-actions/reusing-workflows) e [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+Antes de continuar, você deve estar familiarizado com os conceitos de [fluxos de trabalho reutilizáveis](/actions/learn-github-actions/reusing-workflows) e do [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
-## Como o token funciona com fluxos de trabalho reutilizáveis
+## <a name="how-the-token-works-with-reusable-workflows"></a>Como o token funciona com fluxos de trabalho reutilizáveis
 
-Durante uma execução de um fluxo de trabalho, o provedor do OIDC de {% data variables.product.prodname_dotcom %} apresenta um token de OIDC para o provedor de nuvem que contém informações sobre o trabalho. Se esse trabalho faz parte de um fluxo de trabalho reutilizável, o token incluirá as reclamações padrão que contêm informações sobre o fluxo de trabalho de chamadas e também incluirá uma reivindicação personalizada denominada `job_workflow_ref` que contém informações sobre o fluxo de trabalho chamado.
+Durante uma execução de um fluxo de trabalho, o provedor do OIDC de {% data variables.product.prodname_dotcom %} apresenta um token de OIDC para o provedor de nuvem que contém informações sobre o trabalho. Se esse trabalho fizer parte de um fluxo de trabalho reutilizável, o token incluirá as declarações padrão que contêm informações sobre o fluxo de trabalho chamador e incluirá uma declaração personalizada chamada `job_workflow_ref` que contém informações sobre o fluxo de trabalho chamado.
 
-Por exemplo, o token do OIDC a seguir é para um trabalho que fazia parte de um fluxo de trabalho chamado. O `workflow`, `ref` e outros atributos descrevem o fluxo de trabalho da chamada, enquanto `job_workflow_ref` refere-se ao fluxo de trabalho chamado:
+Por exemplo, o token do OIDC a seguir é para um trabalho que fazia parte de um fluxo de trabalho chamado. O `workflow`, a `ref` e outros atributos descrevem o fluxo de trabalho chamador, enquanto a `job_workflow_ref` se refere ao fluxo de trabalho chamado:
 
 ```yaml{:copy}
 {
@@ -72,28 +75,28 @@ Por exemplo, o token do OIDC a seguir é para um trabalho que fazia parte de um 
 
 Se o seu fluxo de trabalho reutilizável executa etapas de implantação, ele, de modo geral, irá precisar de acesso a um função de nuvem específica, e você deverá permitir que qualquer repositório da sua organização chame esse fluxo de trabalho reutilizável. Para permitir isso, você criará uma condição de confiança que permite qualquer repositório e fluxo de trabalho de chamadas, e, em seguida, irá filtrar a organização e o fluxo de trabalho chamado. Veja a próxima seção para obter alguns exemplos.
 
-## Exemplos
+## <a name="examples"></a>Exemplos
 
-**Filtragem para fluxos de trabalho reutilizáveis dentro de um repositório específico**
+**Filtragem para fluxos de trabalho reutilizáveis em um repositório específico**
 
-É possível configurar uma reivindicação personalizada que filtra para qualquer fluxo de trabalho reutilizável em um repositório específico. Neste exemplo, a execução do fluxo de trabalho deve ter sido originada de um trabalho definido em um fluxo de trabalho reutilizável no repositório `octo-org/octo-automation`, e em qualquer repositório que pertença à organização `octo-org`.
+É possível configurar uma reivindicação personalizada que filtra para qualquer fluxo de trabalho reutilizável em um repositório específico. Neste exemplo, a execução de fluxo de trabalho precisa ter se originado de um trabalho definido em um fluxo de trabalho reutilizável no repositório `octo-org/octo-automation` e em qualquer repositório pertencente à organização `octo-org`.
 
 - **Assunto**:
   - Sintaxe: `repo:ORG_NAME/*`
   - Exemplo: `repo:octo-org/*`
 
-- **Reivindicação personalizada**:
+- **Declaração personalizada**:
   - Sintaxe: `job_workflow_ref:ORG_NAME/REPO_NAME`
   - Exemplo: `job_workflow_ref:octo-org/octo-automation@*`
 
-**Filtrando um fluxo de trabalho específico reutilizável em um ref específico**
+**Filtragem de um fluxo de trabalho específico reutilizável em uma referência específica**
 
-Você pode configurar uma reivindicação personalizada que filtra um fluxo de trabalho específico reutilizável. Neste exemplo, a execução do fluxo de trabalho deve ter origem em um trabalho definido no fluxo de trabalho reutilizável `octo-org/octo-automation/.github/workflows/deployment.yml` e em qualquer repositório que pertença à organização `octo-org`.
+Você pode configurar uma reivindicação personalizada que filtra um fluxo de trabalho específico reutilizável. Neste exemplo, a execução de fluxo de trabalho precisa ter se originado de um trabalho definido no fluxo de trabalho reutilizável `octo-org/octo-automation/.github/workflows/deployment.yml` e em qualquer repositório pertencente à organização `octo-org`.
 
 - **Assunto**:
-  - Sintaxe: `repo:ORG_NAME/*`
-  - Exemplo: `repo:octo-org/*`
+  - Sintaxe: `repo:ORG_NAME/*` 
+  - Exemplo: `repo:octo-org/*` 
 
-- **Reivindicação personalizada**:
-  - Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref`
-  - Examplo: `job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`
+- **Declaração personalizada**:
+  - Sintaxe: `job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref` 
+  - Exemplo: `job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`

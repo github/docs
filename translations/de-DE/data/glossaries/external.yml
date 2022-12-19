@@ -1,0 +1,564 @@
+- term: '@Erwähnung'
+  description:
+    "Ermöglicht es, eine Person auf GitHub mittels „@“ vor ihrem Benutzernamen zu benachrichtigen. Benutzer in einer Organisation auf GitHub können auch einem Team angehören, das erwähnt werden kann."
+- term: Zugriffstoken
+  description: >-
+    Ein Token, das anstelle eines Kennworts verwendet wird, wenn Git-Vorgänge über HTTPS mit Git über die Befehlszeile oder über die API ausgeführt werden. Wird auch als persönliches Zugriffstoken bezeichnet.
+- term: API-Vorschau
+  description: >-
+    Eine Möglichkeit, die neuen APIs und die Änderungen an den vorhandenen API-Methoden zu testen, bevor sie Bestandteil der offiziellen GitHub-API werden.
+- term: "-Anwendung"
+  description: >-
+    Eine mit Just Enough Operating System (JeOS) kombinierte Softwareanwendung für die optimale Ausführung auf branchenüblicher Hardware (in der Regel ein Server) oder auf einem virtuellen Computer.
+- term: assignee
+  description: "Der Benutzer, der einem Issue zugewiesen ist."
+- term: Authentifizierungscode
+  description: >-
+    Ein Code, den du zusätzlich zu deinem GitHub-Kennwort angibst, wenn du dich mittels Zwei-Faktor-Authentifizierung (2FA) über den Browser anmeldest. Dieser Code wird entweder von einer Anwendung generiert oder per SMS an dein Smartphone gesendet. Er wird auch als „2FA-Authentifizierungscode“ bezeichnet.
+- term: Basisbranch
+  description:
+    "Der Branch, in dem Änderungen kombiniert werden, wenn du einen Pull Request mergst. Wenn du einen Pull Request erstellst, kannst du bei Bedarf den Basisbranch vom Standardbranch des Repositorys in einen anderen Branch ändern."
+- term: Standardauthentifizierung
+  description: >-
+    Eine Authentifizierungsmethode, bei der die Anmeldeinformationen als unverschlüsselter Text gesendet werden.
+- term: Biografie
+  description: >-
+    Die vom Benutzer generierte Beschreibung in einem Profil: [Hinzufügen einer Biografie zu deinem Profil](/articles/adding-a-bio-to-your-profile)
+- term: Abrechnungszeitraum
+  description: Das Zeitintervall für deinen spezifischen Abrechnungsplan.
+- term: E-Mail-Adresse für die Abrechnung
+  description: >-
+    Die E-Mail-Adresse der Organisation, an die GitHub Quittungen, Kreditkarten- oder PayPal-Abrechnungen und andere abrechnungsbezogene Informationen sendet.
+- term: Abrechnungsmanager
+  description: "Das Organisationsmitglied, das die Abrechnungseinstellungen für eine Organisation verwaltet."
+- term: Abrechnungsplan
+  description: >-
+    Zahlungspläne für Benutzer und Organisationen, die festgelegte Features für jede Art von Plan enthalten.
+- term: Blame
+  description: >-
+    Das Blame-Feature in Git beschreibt die letzte Änderung jeder Zeile einer Datei. Im Allgemeinen werden die Revision, der Autor und die Zeit angezeigt. Diese Funktion ist hilfreich, um zu ermitteln, wann ein Feature hinzugefügt wurde oder welcher Commit zu einem bestimmten Fehler geführt hat.
+- term: block
+  description: >-
+    Sorgt dafür, dass ein Benutzer nicht mehr an den Repositorys einer Organisation mitarbeiten kann.
+- term: Verzweigung
+  description: >-
+    Ein Branch ist eine parallele Version eines Repositorys. Er ist im Repository enthalten, wirkt sich aber nicht auf den primären Branch (oder Mainbranch) aus. Dies ermöglicht uneingeschränktes Arbeiten ohne Beeinträchtigung der Liveversion. Nachdem du die gewünschten Änderungen vorgenommen hast, kannst du deinen Branch wieder mit dem Mainbranch mergen, um deine Änderungen zu veröffentlichen.
+- term: Branch-Einschränkung
+  description: >-
+    Eine Einschränkung, die von Repositoryadministratoren aktiviert werden kann, sodass nur bestimmte Benutzer oder Teams Änderungen an den Branch pushen oder daran vornehmen können.
+- term: Business-Plan
+  description: >-
+    Ein Organisationsabrechnungsplan, bei dem du an unbegrenzten öffentlichen und privaten Repositorys zusammenarbeiten kannst, Organisationsmitgliedern erlauben oder vorschreiben kannst, sich mittels SAML-SSO bei GitHub zu authentifizieren, und den Zugriff mittels SAML oder SCIM bereitstellen oder die entsprechende Bereitstellung aufheben kannst.
+- term: ZS-Zertifikat
+  description: >-
+    Ein von einer Zertifizierungsstelle (ZS) ausgestelltes digitales Zertifikat, das sicherstellt, dass zwischen zwei Computern (beispielsweise dem Computer eines Benutzers und GitHub.com) eine gültige Verbindung besteht, und das das Eigentum an einer Website verifiziert.
+- term: Karte
+  description: "Ein bewegliches Quadrat innerhalb eines Projektboards, das einem Issue oder einem Pull Request zugeordnet ist."
+- term: Häkchen
+  description: >-
+    Ein Check ist eine Art von Statuscheck für {% data variables.product.product_name %}. Siehe [Statuschecks](#status-checks).
+- term: Check-Out
+  description: >-
+    Mit „git checkout“ kannst du über die Befehlszeile einen neuen Branch erstellen, deinen aktuellen Arbeitsbranch in einen anderen Branch ändern und mithilfe von „git checkout [Branchname] [Dateipfad]“ sogar zu einer anderen Version einer Datei aus einem anderen Branch wechseln. Die Aktion „checkout“ aktualisiert die gesamte oder einen Teil der Arbeitsstruktur mit einem Strukturobjekt oder Blob aus der Objektdatenbank und aktualisiert den Index und HEAD, wenn die gesamte Arbeitsstruktur auf einen neuen Branch verweist.
+- term: Cherrypicking
+  description: >-
+    Beim Cherrypicking wird eine Teilmenge von Änderungen aus einer Reihe von Änderungen (in der Regel Commits) ausgewählt und als neue Reihe von Änderungen für eine andere Codebasis erfasst. In Git wird dies durch den Befehl „git cherry-pick“ erreicht, um die Änderung zu extrahieren, die durch einen vorhandenen Commit in einem anderen Branch vorgenommen wurde, und sie basierend auf der Spitze des aktuellen Branchs als neuen Commit zu erfassen. Weitere Informationen findest du in der Git-Dokumentation unter [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick).
+- term: untergeordnetes Team
+  description: >-
+    In einer geschachtelten Teamstruktur das untergeordnete Team, das die Zugriffsberechtigungen und @Erwähnungen des übergeordneten Teams erbt.
+- term: sauber
+  description: >-
+    Eine Arbeitsstruktur ist sauber, wenn sie der Revision entspricht, auf die der aktuelle HEAD verweist. Siehe auch „modifiziert“.
+- term: Klon
+  description: >-
+    Ein Klon ist eine Kopie eines Repositorys, die nicht auf einem Server einer Website, sondern auf deinem Computer gespeichert ist. Das Erstellen einer solchen Kopie wird als Klonen bezeichnet. Mit einem Klon kannst du die Dateien in deinem bevorzugten Editor bearbeiten und deine Änderungen mithilfe von Git nachverfolgen, ohne dabei online sein zu müssen. Das von dir geklonte Repository ist weiterhin mit der Remoteversion verbunden, sodass du deine lokalen Änderungen an die Remoteinstanz pushen kannst, um sie zu synchronisieren, wenn du online bist.
+- term: Clustering
+  description: >-
+    Die Fähigkeit, GitHub Enterprise-Dienste knotenübergreifend auszuführen und einen Lastenausgleich für Anforderungen zwischen ihnen zu nutzen.
+- term: Code-Verlaufsdiagramm
+  description: >-
+    Ein Repositorydiagramm, das die Inhaltsergänzungen und -löschungen für jede Woche im Verlauf eines Repositorys darstellt.
+- term: Verhaltensregeln
+  description: "Ein Dokument, in dem die Standards für die Interaktion in einer Community definiert sind."
+- term: Codebesitzer
+  description: >-
+    Eine Person, die als Besitzer eines Teils des Codes eines Repositorys festgelegt ist. Wenn jemand außerhalb des Entwurfsmodus einen Pull Request öffnet, der Änderungen an Code des Codebesitzers vornimmt, wird der Codebesitzer automatisch für ein Review angefordert.
+- term: Projektmitarbeiter
+  description: >-
+    Ein Projektmitarbeiter ist eine Person mit Lese- und Schreibzugriff auf ein Repository, die vom Repositorybesitzer zur Teilnahme eingeladen wurde.
+- term: Commit
+  description: >-
+    Ein Commit (oder eine Revision) ist eine individuelle Änderung an einer Datei oder an einer Gruppe von Dateien. Wenn du einen Commit durchführst, um deine Arbeit zu speichern, erstellt Git eine eindeutige ID (auch „SHA“ oder „Hash“ genannt), um zu dokumentieren, wer wann welche Änderungen committet hat. Commits enthalten in der Regel eine Commitnachricht, in der die vorgenommenen Änderungen kurz beschrieben werden.
+- term: Commitautor
+  description: "Der Benutzer, der den Commit durchführt."
+- term: Commitdiagramm
+  description: >-
+    Ein Repositorydiagramm, in dem alle für ein Repository durchgeführten Commits des vergangenen Jahres angezeigt werden.
+- term: Commit-ID
+  description: "Wird auch als SHA bezeichnet. Hierbei handelt es sich um einen 40-stelligen Prüfsummenhash, der den Commit identifiziert."
+- term: Commitnachricht
+  description: >-
+    Ein kurzer, beschreibender Text zu einem Commit, in dem die durch den Commit vorgenommene Änderung kommuniziert wird.
+- term: Vergleichsbranch
+  description: >-
+    Der Branch, der zum Erstellen eines Pull Requests verwendet wird. Dieser Branch wird mit dem Basisbranch verglichen, den du für den Pull Request auswählst, und die Änderungen werden identifiziert. Wenn der Pull Request gemergt wird, wird der Basisbranch mit den Änderungen aus dem Vergleichsbranch aktualisiert. Wird auch als Head-Branch des Pull Requests bezeichnet.
+- term: Continuous Integration
+  description: >-
+    Wird auch als CI bezeichnet. Ein Prozess, der automatisierte Buildvorgänge und Tests ausführt, wenn eine Person eine Änderung an einem konfigurierten Repository auf GitHub committet. CI ist eine gängige bewährte Methode in der Softwareentwicklung, die dabei hilft, Fehler zu finden.
+- term: Beitragsdiagramm
+  description: >-
+    Der Teil eines Benutzerprofils, der die Beiträge des Benutzers für einen Zeitraum von bis zu einem Jahr zeigt (Tag für Tag).
+- term: Beitragsrichtlinien
+  description: "Ein Dokument, in dem erläutert wird, wie andere etwas zu deinem Projekt beitragen können."
+- term: Beiträge
+  description: >-
+    Spezifische Aktivitäten auf GitHub, die dem Beitragsdiagramm eines Benutzers ein Quadrat hinzufügen (siehe: [Was zählt als ein Beitrag](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)) und die der Zeitleiste eines Benutzers in dessen Profil Aktivitäten hinzufügen (siehe: [Beitragsaktivität](/articles/viewing-contributions-on-your-profile/#contribution-activity)).
+- term: Mitwirkender
+  description: >-
+    Ein Mitwirkender verfügt nicht über Projektmitarbeiterzugriff für ein Repository, hat jedoch an einem Projekt mitgewirkt, und ein von ihm geöffneter Pull Request wurde in das Repository gemergt.
+- term: Mitwirkendendiagramm
+  description: "Ein Repositorydiagramm, in dem die 100 wichtigsten Mitwirkenden eines Repositorys angezeigt werden."
+- term: Gutschein
+  description: >-
+    Ein von GitHub bereitgestellter Code, der von Benutzern oder Organisationen verwendet werden kann, um ihr gesamtes Abonnement oder einen Teil davon zu bezahlen.
+- term: cron
+  description: Ein zeitbasierter Auftragsplaner in Unix-ähnlichen Computerbetriebssystemen.
+- term: cURL
+  description: Wird in Befehlszeilen oder Skripts zum Übertragen von Daten verwendet.
+- term: Dashboard
+  description: >-
+    Dein persönliches Dashboard ist der primäre Hub für deine Aktivitäten auf GitHub. Über dein persönliches Dashboard kannst du den Überblick über Probleme und Pull Requests behalten, denen du folgst oder an denen du arbeitest. Außerdem kannst du zu deinen wichtigsten Repositorys und Teamseiten navigieren und dich über die neuesten Aktivitäten in Repositorys informieren, die du beobachtest oder an denen du mitwirkst. Du kannst auch neue empfohlene Repositorys entdecken. Die Empfehlungen basieren auf Benutzern, denen Du folgst, sowie auf Repositorys, die du als Favorit markiert hast. Wenn du nur Aktivitäten für eine bestimmte Organisation anzeigen möchtest, besuche das Dashboard deiner Organisation. Weitere Informationen findest du unter [Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard) bzw. unter [Informationen zum Dashboard deiner Organisation](/articles/about-your-organization-dashboard).
+- term: Standardbranch
+  description: >-
+    Der Basisbranch für neue Pull Requests und Codecommits in einem Repository. Jedes Repository verfügt über mindestens einen Branch. Dieser wird von Git beim Initialisieren des Repositorys erstellt. Der erste Branch heißt üblicherweise {% ifversion ghes < 3.2 %}Masterbranch{% else %}Mainbranch{% endif %} und ist häufig der Standardbranch.
+- term: Abhängigkeitendiagramm
+  description: >-
+    Ein Repositorydiagramm mit den Paketen, Projekten und Repositorys, die von einem öffentlichen Repository abhängen.
+- term: Abhängigkeitsdiagramm
+  description: >-
+    Ein Repositorydiagramm mit den Paketen und Projekten, von denen das Repository abhängig ist.
+- term: Bereitstellungsschlüssel
+  description: >-
+    Ein Bereitstellungsschlüssel ist ein SSH-Schlüssel, der auf deinem Server gespeichert ist und Zugriff auf ein einzelnes GitHub-Repository gewährt. Dieser Schlüssel ist direkt mit dem Repository und nicht mit einem persönlichen Benutzerkonto verknüpft.
+- term: loser HEAD
+  description: >-
+    Git warnt dich, wenn du an einem losen HEAD arbeitest. Das bedeutet, dass Git nicht auf einen Branch verweist und dass die von dir vorgenommenen Commits nicht im Commitverlauf angezeigt werden.  Wenn du beispielsweise einen beliebigen Commit auscheckst, der nicht der neueste Commit eines bestimmten Branchs ist, arbeitest du an einem losen HEAD.
+- term: Diagnose
+  description: Eine Übersicht über die Einstellungen und die Umgebung einer GitHub Enterprise-Instanz.
+- term: diff
+  description: >-
+    Ein Diff ist der Unterschied bei Änderungen zwischen zwei Commits oder gespeicherten Änderungen. Diffs beschreiben visuell, was seit dem letzten Commit zu einer Datei hinzugefügt oder aus ihr entfernt wurde.
+- term: directory
+  description: >-
+    Ein Ordner, der mindestens eine Datei bzw. mindestens einen Ordner enthält. Verzeichnisse können erstellt werden, um den Inhalt eines Repositorys zu strukturieren.
+- term: modifiziert
+  description: >-
+    Eine Arbeitsstruktur gilt als modifiziert, wenn sie Änderungen enthält, die nicht im aktuellen Branch committet wurden.
+- term: E-Mail-Benachrichtigungen
+  description: An die E-Mail-Adresse eines Benutzers gesendete Benachrichtigungen.
+- term: Enterprise-Konto
+  description: "Enterprise-Konten ermöglichen die zentrale Verwaltung von Richtlinien und Abrechnungen für mehrere Organisationen. {% data reusables.gated-features.enterprise-accounts %}"
+- term: Explorer
+  description: >-
+    Eine Instanz von GraphiQL (eine grafische interaktive browserinterne GraphQL-IDE).
+- term: Fast-Forward
+  description: >-
+    Ein Fast-Forward ist eine spezielle Art von Merge, bei der du über eine Revision verfügst und die Änderungen eines anderen Branchs mergst, die zufällig ein Nachfolgerelement dessen sind, worüber du verfügst. In einem solchen Fall wird kein neuer Merge-Commit ausgeführt. Stattdessen wird einfach auf diese Revision aktualisiert. Dies kommt häufig in einem Remote-Tracking-Branch eines Remoterepositorys vor.
+- term: Featurebranch
+  description: >-
+    Ein Branch, der verwendet wird, um mit einem neuen Feature zu experimentieren oder ein nicht in der Produktion befindliches Issue zu korrigieren. Wird auch als Topic-Branch bezeichnet.
+- term: Fenced-Code-Block
+  description: "Ein eingerückter Codeblock, den du mit GitHub Flavored Markdown mit dreifachen Backticks (\\`\\`\\`) vor und nach dem Codeblock erstellen kannst. Ein Beispiel findest du [hier](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)."
+- term: fetch
+  description: >-
+    Wenn du „git fetch“ verwendest, werden die Änderungen aus dem Remoterepository deinem lokalen Arbeitsbranch hinzugefügt, ohne sie zu committen. Anders als bei „git pull“ kannst beim Abrufen mit „fetch“ Änderungen überprüfen, bevor du sie in deinem lokalen Branch committest.
+- term: folgen (Benutzern)
+  description: Das Erhalten von Benachrichtigungen zu Beiträgen und Aktivitäten anderer Benutzer.
+- term: erzwungener Push
+  description: >-
+    Ein Git-Push, der das Remoterepository ungeachtet von Konflikten durch die lokalen Änderungen überschreibt.
+- term: Fork
+  description: >-
+    Ein Fork ist eine persönliche Kopie des Repositorys eines anderen Benutzers. Der Fork gehört zu deinem Konto. Mit Forks kannst du nach Belieben Änderungen an einem Projekt vornehmen, ohne das ursprüngliche Upstreamrepository zu beeinträchtigen. Darüber hinaus kannst du einen Pull Request im Upstreamrepository öffnen und deinen Fork mit den neuesten Änderungen synchronisieren, da beide Repositorys weiterhin verbunden sind.
+- term: Free-Plan
+  description: >-
+    Ein kostenloser Abrechnungsplan für Benutzerkonten. Benutzer können in unbegrenzten öffentlichen Repositorys mit unbegrenzt vielen Projektmitarbeitern interagieren.
+- term: Gist
+  description: >-
+    Ein Gist ist eine freigabefähige Datei, die du auf GitHub bearbeiten, klonen und forken kannst. Ein Gist kann {% ifversion ghae %}intern{% else %}öffentlich{% endif %} oder geheim sein. Geheime Gists sind allerdings für {% ifversion ghae %}alle Unternehmensmitglieder{% else %}alle Personen{% endif %} verfügbar, die über die entsprechende URL verfügen.
+- term: Git
+  description: >-
+    Git ist ein Open-Source-Programm zum Nachverfolgen von Änderungen in Textdateien. Es wurde vom Urheber des Linux-Betriebssystems geschrieben bildet die Kerntechnologie, auf der GitHub (die soziale Schnittstelle und Benutzeroberfläche) basiert.
+- term: GitHub-App
+  description: >-
+    GitHub-Apps stellen einen Dienst für eine gesamte Organisation bereit und verwenden ihre eigene Identität, wenn sie ihre Funktion ausführen. Sie können direkt in Organisationen und Benutzerkonten installiert werden, und ihnen kann Zugriff auf spezifische Repositorys gewährt werden. Außerdem verfügen sie über präzise Berechtigungen und integrierte Webhooks.
+- term: GitHub Flavored Markdown
+  description: "GitHub-spezifisches Markdown zum Formatieren von Fließtext und Code innerhalb von GitHub. Weitere Informationen findest du in der [Spezifikation zu GitHub Flavored Markdown](https://github.github.com/gfm/) sowie unter [Erste Schritte mit dem Schreiben und Formatieren auf GitHub](/articles/getting-started-with-writing-and-formatting-on-github)."
+- term: GitHub Importer
+  description: >-
+    Ein Tool zum schnellen Importieren von Quellcoderepositorys in GitHub (einschließlich Commits und Revisionsverlauf) für Benutzer.
+- term: GitHub Jobs
+  description: >-
+    Eine GitHub-Website, auf der Auftraggeber Aufträge posten können, die für GitHub-Benutzer ggf. interessant sind.
+- term: GitHub Marketplace
+  description: >-
+    Eine Unterwebsite, über die GitHub-Benutzer und Organisationen Anwendungen erwerben und installieren können, die ihren Workflow erweitern und ergänzen.
+- term: GitHub Pages
+  description: >-
+    Wird auch als Pages bezeichnet. Ein statischer Websitehostingdienst zum direkten Hosten deiner persönlichen Seiten sowie deiner Organisations- oder Projektseiten über ein GitHub-Repository.
+- term: GitHub-Wiki
+  description: Ein Abschnitt zum Hosten von Dokumentationen im Wiki-Stil in einem GitHub-Repository.
+- term: GIT-Datei
+  description: >-
+    Eine unformatierte GIT-Datei, die sich immer am Stamm einer Arbeitsstruktur befindet und auf das Git-Verzeichnis verweist, in dem sich das gesamte Git-Repository und die zugehörigen Metadaten befinden. Du kannst diese Datei für dein Repository über die Befehlszeile mithilfe von „git rev-parse --git-dir“ anzeigen. Hierbei handelt es sich um das echte Repository.
+- term: GraphQL
+  description: >-
+    Eine Abfragesprache für APIs und eine Runtime zur Erfüllung dieser Abfragen mit deinen vorhandenen Daten.
+- term: HEAD
+  description: "Ein bestimmter Commit in einem Branch, normalerweise der neueste Commit an der Spitze des Branchs."
+- term: Head-Branch
+  description: "Der Branch, dessen Änderungen im Basisbranch vereint werden, wenn du einen Pull Request mergst. Wird auch als Vergleichsbranch bezeichnet."
+- term: 'Hello, World'
+  description: >-
+    Ein Programm vom Typ „Hello, World!“ ist ein Computerprogramm, das „Hello, World!“ für einen Benutzer ausgibt oder anzeigt. Da dieses Programm in der Regel sehr einfach ist, wird es häufig als Beispiel für die grundlegende Syntax einer Programmiersprache verwendet und fungiert als allgemeine erste Übung beim Erlernen einer neuen Programmiersprache.
+- term: Hochverfügbarkeit
+  description: >-
+    Ein System oder eine Komponente, das bzw. die für eine gewünschte Dauer kontinuierlich betriebsbereit ist.
+- term: Hook
+  description: >-
+    Während der normalen Ausführung verschiedener Git-Befehle werden Aufrufe an optionalen Skripts gerichtet, die es Entwicklern ermöglichen, Funktionen hinzuzufügen oder zu überprüfen. In der Regel ermöglichen es die Hooks, einen Befehl vorab zu verifizieren und ggf. abzubrechen. Des Weiteren ermöglichen sie eine Benachrichtigung nach Abschluss des Vorgangs.
+- term: hostname
+  description: >-
+    Für Menschen lesbare Spitznamen, die der Adresse eines mit einem Netzwerk verbundenen Geräts entsprechen.
+- term: Identicon
+  description: >-
+    Ein automatisch generiertes Bild, das als standardmäßiges Profilfoto verwendet wird, wenn sich Benutzer für GitHub registrieren. Benutzer können ihr Identicon durch ihr eigenes Profilfoto ersetzen.
+- term: Identitätsanbieter
+  description: >-
+    Wird auch als IdP bezeichnet. Ein vertrauenswürdiger Anbieter, der die Verwendung von SAML-SSO (Single Sign-On, einmaliges Anmelden) ermöglicht, um auf andere Websites zuzugreifen.
+- term: instance
+  description: >-
+    Die private GitHub-Kopie einer Organisation auf einem virtuellen Computer, der von der Organisation konfiguriert und gesteuert wird.
+- term: Integration
+  description: >-
+    Eine in GitHub integrierte Drittanbieteranwendung. Hierbei kann es sich um GitHub-Apps, OAuth-Apps oder Webhooks handeln.
+- term: Problem
+  description: >-
+    Issues sind Verbesserungsvorschläge, Aufgaben oder Fragen im Zusammenhang mit dem Repository. Issues können von jedem Benutzer erstellt werden (für öffentliche Repositorys) und werden von Projektmitarbeitern des Repositorys moderiert. Jedes Issue enthält einen eigenen Diskussionsthread. Du kannst ein Issue auch mit Bezeichnungen kategorisieren und es jemandem zuweisen.
+- term: Jekyll
+  description: Ein Generator für statische Websites für persönliche Websites sowie für Projekt- oder Organisationswebsites.
+- term: Jekyll Theme Chooser
+  description: >-
+    Eine automatisierte Möglichkeit zum Auswählen eines visuellen Designs für deine Jekyll-Website, ohne die CSS-Dateien zu bearbeiten oder zu kopieren.
+- term: Schlüsselfingerabdruck
+  description: "Eine kurze Folge von Bytes, die zum Identifizieren eines längeren öffentlichen Schlüssels verwendet wird."
+- term: Keychain
+  description: Ein Kennwortverwaltungssystem in macOS.
+- term: Schlüsselwort (keyword)
+  description: "Ein spezifisches Wort, das ein Issue schließt, wenn es in einem Pull Request verwendet wird."
+- term: label
+  description: >-
+    Ein Tag für ein Issue oder einen Pull Request. Für Repositorys stehen standardmäßig einige Standardbezeichnungen zur Verfügung. Benutzer können jedoch benutzerdefinierte Bezeichnungen erstellen.
+- term: LFS
+  description: >-
+    Git Large File Storage. Eine Open-Source-Git-Erweiterung zur Versionsverwaltung für große Dateien.
+- term: license
+  description: >-
+    Ein Dokument, das du in dein Projekt einschließen kannst, um Personen mitzuteilen, was sie mit deinem Quellcode tun dürfen und was nicht.
+- term: Linguist
+  description: >-
+    Eine auf GitHub verwendete Bibliothek zum Ermitteln von Blobsprachen, zum Ignorieren von Binärdateien oder weiterverkauften Dateien, zum Unterdrücken von generierten Dateien in Diffs und zum Generieren von Sprachaufschlüsselungsdiagrammen.
+- term: Zeilenkommentar
+  description: Ein Kommentar in einem Pull Request zu einer spezifischen Codezeile.
+- term: Zeilenabschluss
+  description: >-
+    Mindestens ein unsichtbares Zeichen, das das Zeilenende in einer Textdatei symbolisiert.
+- term: gesperrtes persönliches Konto
+  description: >-
+    Ein persönliches Konto, auf das der Benutzer nicht zugreifen kann. Konten werden gesperrt, wenn Benutzer ihr bezahltes Konto auf ein kostenloses Konto downgraden oder wenn die Zahlung für ihren kostenpflichtigen Plan überfällig ist.
+- term: Verwaltungskonsole
+  description: >-
+    Ein Abschnitt mit Verwaltungsfeatures auf der GitHub Enterprise-Oberfläche.
+- term: Markdown
+  description: >-
+    Markdown ist ein sehr einfaches semantisches Dateiformat, das sich nicht allzu stark von DOC, RTF und TXT unterscheidet. Mit Markdown können auch Benutzer ohne Webpublishing-Erfahrung Fließtext schreiben (auch mit Links, Listen, Aufzählungen etc.), der dann wie eine Website angezeigt wird. GitHub unterstützt Markdown und verwendet eine bestimmte Form von Markdown: GitHub Flavored Markdown. Weitere Informationen findest du in der [Spezifikation zu GitHub Flavored Markdown](https://github.github.com/gfm/) sowie unter [Erste Schritte mit dem Schreiben und Formatieren auf GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
+- term: Markup
+  description: "Ein System, um ein Dokument mit Anmerkungen zu versehen und zu formatieren."
+- term: Standard
+  description: >-
+    {% ifversion fpt or ghes > 3.1 or ghae %} Der standardmäßige Entwicklungsbranch. Wenn du ein Git-Repository erstellst, wird ein sogenannter Masterbranch erstellt und als aktiver Branch festgelegt. In den meisten Fällen enthält dieser die lokale Entwicklung. Dies hat sich jedoch lediglich so eingebürgert und muss nicht zwingend so sein.{% else %}Name, der häufig alternativ zu „master“ für den Standardbranch eines Repositorys verwendet wird.{% endif %}
+- term: master
+  description: >-
+    Der Standardbranch in vielen Git-Repositorys. Standardmäßig wird ein Branch namens „master“ erstellt, wenn du ein neues Git-Repository über die Befehlszeile erstellst. In vielen Tools wird ein alternativer Name für den Standardbranch verwendet.{% ifversion fpt or ghes > 3.1 or ghae %} Wenn du beispielsweise auf GitHub ein neues Repository erstellst, hat der Standardbranch den Namen „main“.{% endif %}
+- term: Mitgliederdiagramm
+  description: "Ein Repositorydiagramm, das alle Forks eines Repositorys zeigt."
+- term: Erwähnung
+  description: >-
+    Eine Benachrichtigung, die an einen Benutzer gesendet wird, wenn seinem Benutzernamen das @-Symbol vorangestellt wird. Benutzer in einer Organisation auf GitHub können auch einem Team angehören, das erwähnt werden kann.
+- term: merge
+  description: >-
+    Beim Mergen werden Änderungen von einem Branch (im gleichen Repository oder aus einem Fork) verwendet und auf einen anderen Branch angewendet. Dies erfolgt häufig in Form eines Pull Requests (gewissermaßen eine Merge-Anforderung) oder über die Befehlszeile. Ein Merge kann auf der GitHub.com-Weboberfläche über einen Pull Request erfolgen, sofern keine in Konflikt stehenden Änderungen vorliegen. Alternativ kann er aber auch immer über die Befehlszeile vorgenommen werden.
+- term: Mergekonflikt
+  description: >-
+    Ein Unterschied zwischen gemergten Branches. Mergekonflikte treten auf, wenn verschiedene Änderungen an der gleichen Zeile der gleichen Datei vorgenommen werden oder wenn eine Person eine Datei bearbeitet und eine andere Person die gleiche Datei löscht. Der Mergekonflikt muss aufgelöst werden, um die Branches mergen zu können.
+- term: Meilenstein
+  description: >-
+    Eine Möglichkeit zum Nachverfolgen des Fortschritts bei Gruppen von Issues oder Pull Requests in einem Repository.
+- term: Spiegel
+  description: Eine neue Kopie eines Repositorys.
+- term: geschachteltes Team
+  description: >-
+    Ein untergeordnetes Team eines übergeordneten Teams. Du kannst über mehrere untergeordnete (oder geschachtelte) Teams verfügen.
+- term: Netzwerkdiagramm
+  description: >-
+    Ein Repositorydiagramm, in dem der Branch-Verlauf des gesamten Repositorynetzwerks angezeigt wird – einschließlich der Branches des Stammrepositorys und der Branches von Forks, die netzwerkspezifische Commits enthalten.
+- term: Newsfeed
+  description: >-
+    Eine Aktivitätsansicht für von dir beobachtete Repositorys oder Personen. Der Newsfeed einer Organisation zeigt die Aktivitäten für Repositorys, die der Organisation gehören.
+- term: Non-Fast-Forward
+  description: >-
+    Wenn deine lokale Kopie eines Repositorys nicht mit dem Upstreamrepository synchron ist und du vor dem Pushen deiner lokalen Änderungen die Upstreamänderungen abrufen musst.
+- term: Benachrichtigung
+  description: >-
+    Aktuelle Informationen zu den für dich relevanten Aktivitäten, die abhängig von deinen Einstellungen entweder im Web oder per E-Mail bereitgestellt werden.
+- term: OAuth-App
+  description: >-
+    Eine Drittanbieteranwendung, die anstelle von Kennwörtern Zugriffstoken verwendet, um auf Informationen für Benutzer zuzugreifen.
+- term: OAuth-Token
+  description: Das in OAuth-Apps verwendete Zugriffstoken für den Zugriff auf Informationen für Benutzer.
+- term: externer Projektmitarbeiter
+  description: >-
+    Ein Benutzer, dem Zugriff auf mindestens ein Repository einer Organisation gewährt wurde, der ansonsten aber keinen Zugriff auf die Organisation hat und auch kein Mitglied der Organisation ist.
+- term: Open Source
+  description: >-
+    Open-Source-Software kann kostenlos verwendet, geändert und geteilt (in geänderter und unveränderter Form) werden. Inzwischen geht das Konzept von Open Source oftmals über Software hinaus und steht für eine Philosophie der Zusammenarbeit, in der Arbeitsmaterialien online zum Forken, Bearbeiten, Diskutieren und Mitwirken bereitgestellt werden.
+- term: organization
+  description: >-
+    Organisationen sind Gruppen mit mindestens zwei Benutzern, die in der Regel echte Organisationen widerspiegeln. Sie werden von Benutzern verwaltet und können Repositorys und Teams enthalten.
+- term: Organisationsbesitzer
+  description: "Benutzer, die über uneingeschränkten Verwaltungszugriff auf die ihnen gehörende Organisation verfügen."
+- term: origin
+  description: >-
+    Das standardmäßige Upstreamrepository. Die meisten Projekte verfügen über mindestens ein nachverfolgtes Upstreamprojekt. Standardmäßig wird „origin“ für diesen Zweck verwendet.
+- term: owner
+  description: >-
+    Organisationsmitglieder, die über uneingeschränkten Verwaltungszugriff auf die Organisation verfügen.
+- term: übergeordnetes Team
+  description: >-
+    Innerhalb von geschachtelten Teams das Hauptteam, von dem untergeordnete Teams Zugriffsberechtigungen und @Erwähnungen erben.
+- term: Teilnahmebenachrichtigungen
+  description: >-
+    Eine Benachrichtigung über eine Aktualisierung in einer Unterhaltung in einem Issue oder Pull Request, in dem dein Benutzername oder Team erwähnt wurde oder in dem du zuvor in einem Kommentar geantwortet hast.
+- term: Permalink
+  description: Ein permanenter statischer Hyperlink zu einer bestimmten Webseite.
+- term: persönliches Konto
+  description: >-
+    Ein GitHub-Konto, das zu einem einzelnen Benutzer gehört.
+- term: primäre E-Mail-Adresse
+  description: >-
+    Die Haupt-E-Mail-Adresse, an die GitHub Quittungen, Kreditkarten- oder PayPal-Abrechnungen und andere abrechnungsbezogene Informationen sendet.
+- term: angeheftetes Repository
+  description: >-
+    Ein Repository, das gut sichtbar im Profil eines Benutzers angezeigt wird.
+- term: Pre-Receive-Hooks
+  description: >-
+    Skripts, die in der GitHub Enterprise Server-Instanz ausgeführt werden und zum Implementieren von Qualitätsprüfungen verwendet werden können.
+- term: private Beiträge
+  description: Die einem privaten (nicht öffentlichen) Repository beigesteuerten Beiträge.
+- term: privates Repository
+  description: >-
+    Private Repositorys sind nur für den Repositorybesitzer und für die vom Besitzer angegebenen Projektmitarbeiter sichtbar.
+- term: Produktionsbranch
+  description: >-
+    Ein Branch mit endgültigen Änderungen, die in einer Anwendung oder auf einer Website verwendet oder bereitgestellt werden können.
+- term: profile
+  description: "Die Seite, auf der Informationen zur Aktivität eines Benutzers auf GitHub angezeigt werden."
+- term: Profilfoto
+  description: >-
+    Ein von Benutzer*innen hochgeladenes Bild zur Identifikation der eigenen Aktivität. Wird in der Regel zusammen mit dem Benutzernamen verwendet. Wird auch als Avatar bezeichnet.
+- term: Projektboard
+  description: >-
+    Boards innerhalb von GitHub mit Issues, Pull Requests und Hinweisen, die als Karten in Spalten strukturiert sind.
+- term: geschützter Branch
+  description: >-
+    Bei geschützten Branches werden verschiedene Features von Git für einen Branch blockiert, für den ein Repositoryadministrator den Schutz aktiviert hat. Sie können weder bei erzwungenen Pushvorgängen verwendet noch gelöscht werden. Außerdem können ihre Änderungen nicht gemergt werden, ohne dass die erforderlichen Überprüfungen bestanden oder die erforderlichen Reviews genehmigt wurden, und es können keine Dateien über die GitHub-Weboberfläche in sie hochgeladen werden. Ein geschützter Branch ist in der Regel der Standardbranch.
+- term: öffentliche Beiträge
+  description: Die einem öffentlichen (nicht privaten) Repository beigesteuerten Beiträge.
+- term: öffentliches Repository
+  description: >-
+    Öffentliche Repositorys können von jeder beliebigen Person angezeigt werden – auch von Personen, die keine GitHub-Benutzer sind.
+- term: Pullabonnement
+  description: >-
+    Pullen bezieht sich auf das Abrufen und Mergen von Änderungen. Wenn beispielsweise jemand die Remotedatei bearbeitet hat, an der ihr beide arbeitet, empfiehlt es sich, diese Änderungen in deine lokale Kopie zu pullen, damit sie aktuell ist. Siehe auch „abrufen“.
+- term: Pullzugriff
+  description: Ein Synonym für Lesezugriff.
+- term: Pull Request
+  description: >-
+    Pull Requests sind vorgeschlagene Änderungen an einem Repository, die von einem Benutzer übermittelt und von den Projektmitarbeitern eines Repositorys akzeptiert oder abgelehnt werden. Pull Requests verfügen analog zu Issues über ihr eigenes Diskussionsforum.
+- term: Pull-Request-Review
+  description: >-
+    Kommentare von Projektmitarbeitern zu Pull Requests, die die Änderungen genehmigen oder weitere Änderungen anfordern, bevor der Pull Request gemergt wird.
+- term: Pulsdiagramm
+  description: Ein Repositorydiagramm mit einer Übersicht über die Aktivität eines Repositorys.
+- term: Punch-Diagramm
+  description: >-
+    Ein Repositorydiagramm, das die Häufigkeit der Aktualisierungen eines Repository basierend auf dem Wochentag und der Uhrzeit anzeigt.
+- term: push
+  description: >-
+    Pushen bedeutet, die von dir committeten Änderungen an ein Remoterepository auf GitHub.com zu senden. Wenn du beispielsweise lokale Änderungen vornimmst, kannst du diese Änderungen pushen, damit andere darauf zugreifen können.
+- term: Pushen eines Branchs
+  description: >-
+    Wenn du einen Branch erfolgreich in ein Remoterepository pushst, wird der Remotebranch mit Änderungen aus deinem lokalen Branch aktualisiert. Beim Pushen eines Branchs such Git im Remoterepository nach der HEAD-Referenz des Branches und überprüft, ob es sich um ein direktes Vorgängerelement der lokalen HEAD-Referenz des Branchs handelt. Nach dieser Überprüfung pullt Git alle Objekte (die über die lokale HEAD-Referenz erreichbar und im Remoterepository nicht vorhanden sind) in die Remoteobjektdatenbank und aktualisiert anschließend die Remote-HEAD-Referenz. Ist der Remote-HEAD kein Vorgängerelement des lokalen HEAD, ist der Pushvorgang nicht erfolgreich.
+- term: Pushzugriff
+  description: Ein Synonym für Schreibzugriff.
+- term: Lesezugriff
+  description: >-
+    Eine Berechtigungsebene für ein Repository, die dem Benutzer erlaubt, Informationen aus dem Repository zu pullen (bzw. zu lesen). Bei öffentlichen Repositorys verfügen alle GitHub-Benutzer über Lesezugriff. Ein Synonym für Pullzugriff.
+- term: Infodatei
+  description: "Eine Textdatei, die Informationen zu den Dateien in einem Repository enthält. Hierbei handelt es sich in der Regel um die erste Datei, die einem Besucher deines Repositorys angezeigt wird. Zusammen mit einer Repositorylizenz, Beitragsrichtlinien und Verhaltensregeln hilft eine Infodatei dabei, Erwartungen zu kommunizieren und Beiträge für dein Projekt zu verwalten."
+- term: Rebase ausführen
+  description: >-
+    Ermöglicht es, eine Reihe von Änderungen aus einem Branch erneut auf eine andere Basis anzuwenden und den HEAD dieses Branchs auf das Ergebnis zurückzusetzen.
+- term: Wiederherstellungscode
+  description: "Ein Code, der dir dabei hilft, den Zugriff auf dein GitHub-Konto zurückzuerlangen."
+- term: Freigabe
+  description: "Die Methode, mit der GitHub Software verpackt und für deine Benutzer bereitstellt."
+- term: Remote
+  description: >-
+    Dies ist die Version eines Repositorys oder Branchs, die auf einem Server gehostet wird (in den meisten Fällen wahrscheinlich auf GitHub.com). Remoteversionen können mit lokalen Klonen verbunden werden, um Änderungen zu synchronisieren.
+- term: Remoterepository
+  description: >-
+    Ein Repository, das zum Nachverfolgen des gleichen Projekts verwendet wird, sich aber anderswo befindet.
+- term: Remote-URL
+  description: >-
+    Der Speicherort deines Codes: ein Repository auf GitHub, im Fork eines anderen Benutzers oder sogar auf einem anderen Server.
+- term: Replikat
+  description: >-
+    Eine GitHub Enterprise-Instanz, die Redundanz für die primäre GitHub Enterprise-Instanz bietet.
+- term: repository
+  description: >-
+    Ein Repository ist das grundlegendste Element von GitHub. Du kannst es dir am einfachsten als Ordner eines Projekts vorstellen. Ein Repository enthält alle Projektdateien (einschließlich der Dokumentation) und speichert den Revisionsverlauf jeder Datei. Repositorys können mehrere Projektmitarbeiter haben und öffentlich oder privat sein.
+- term: Repositorycache
+  description: >-
+    Eine schreibgeschützte Spiegelung von Repositorys für deine GitHub Enterprise Server-Instanz, die sich in der Nähe von verteilten Teams und CI-Clients befindet.
+- term: Repositorydiagramm
+  description: Eine visuelle Darstellung der Daten deines Repositorys.
+- term: Repositoryverwalter
+  description: >-
+    Eine Person, die ein Repository verwaltet. Diese Person kann bei der Selektierung von Issues helfen sowie Bezeichnungen und andere Features verwenden, um die Arbeit des Repositorys zu verwalten. Darüber hinaus ist diese Person ggf. für die Aktualisierung der Infodatei und der beitragenden Dateien zuständig.
+- term: erforderlicher Pull-Request-Review
+  description: >-
+    Mithilfe von erforderlichen Reviews wird sichergestellt, dass Pull Requests mindestens einen genehmigten Review aufweisen, bevor Projektmitarbeiter Änderungen an einem geschützten Branch vornehmen können.
+- term: erforderlicher Statuscheck
+  description: >-
+    Checks für Pull Requests, die sicherstellen, dass alle erforderlichen CI-Tests bestanden wurden, bevor Projektmitarbeiter Änderungen an einem geschützten Branch vornehmen können.
+- term: resolve
+  description: "Die manuelle Korrektur dessen, was nach einem nicht erfolgreichen automatischen Mergevorgang übrig geblieben ist."
+- term: rückgängig machen
+  description: >-
+    Wenn du einen Pull Request auf GitHub rückgängig machst, wird automatisch ein neuer Pull Request mit einem einzelnen Commit geöffnet, der den Merge-Commit aus dem ursprünglich gemergten Pull Request rückgängig macht. In Git können Commits mithilfe von „git revert“ rückgängig gemacht werden.
+- term: Review
+  description: >-
+    Im Rahmen von Reviews können andere Personen mit Zugriff auf dein Repository die in Pull Requests vorgeschlagenen Änderungen kommentieren und die Änderungen genehmigen oder weitere Änderungen anfordern, bevor der Pull Request gemergt wird.
+- term: Stammverzeichnis
+  description: Das erste Verzeichnis in einer Hierarchie.
+- term: Stammdateisystem
+  description: Das Basisbetriebssystem und die GitHub Enterprise-Anwendungsumgebung.
+- term: gespeicherte Antwort
+  description: >-
+    Ein Kommentar, den du speichern, deinem GitHub-Benutzerkonto hinzufügen und dann überall auf GitHub in Issues und Pull Requests verwenden kannst.
+- term: scope
+  description: >-
+    Benannte Gruppe von Berechtigungen, die von einer OAuth-App angefordert werden können, um auf öffentliche und private Daten zuzugreifen.
+- term: Arbeitsplatz
+  description: >-
+    Ein Benutzer innerhalb einer GitHub Enterprise-Organisation. Wird auch als Arbeitsplatzanzahl bezeichnet.
+- term: nichtöffentliches Team
+  description: >-
+    Ein Team, das nur für andere Personen im Team und für Personen mit Besitzerberechtigungen sichtbar ist.
+- term: Sicherheitsprotokoll
+  description: >-
+    Ein Protokoll, in dem die letzten 50 Aktionen oder die Aktionen aufgelistet werden, die in den letzten 90 Tagen ausgeführt wurden.
+- term: Server-zu-Server-Anforderungen
+  description: >-
+    Eine API-Anforderung, die von einer Anwendung verwendet wird, die als Bot agiert (unabhängig von einem bestimmten Benutzer). Ein Beispiel wäre etwa eine zeitplangesteuerte Anwendung, die Issues schließt, bei denen lange keine Aktivität zu verzeichnen war. Anwendungen mit dieser Art von Authentifizierung verwenden kein lizenziertes GitHub-Konto. In einem Unternehmen mit einem Abrechnungsplan, der die Verwendung einer bestimmten Anzahl von Lizenzen erlaubt, wird von einem Server-zu-Server-Bot keine deiner GitHub-Lizenzen beansprucht. Das in einer Server-zu-Server-Anforderung verwendete Token wird programmgesteuert über die [GitHub-API](/rest/reference/apps#create-an-installation-access-token-for-an-app) abgerufen. Siehe auch [Benutzer-zu-Server-Anforderung](#user-to-server-request).
+- term: Service Hook
+  description: >-
+    Wird auch als Webhook bezeichnet. Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen Webserver zu senden, wenn bestimmte Aktionen in einem Repository oder in einer Organisation ausgeführt werden.
+- term: Einmaliges Anmelden
+  description: >-
+    Wird auch als SSO (Single Sign-On) bezeichnet. Ermöglicht es Benutzern, sich an einem einzelnen Ort (Identitätsanbieter, IdP) anzumelden und daraufhin Zugriff auf andere Dienstanbieter zu erhalten.
+- term: Momentaufnahme
+  description: Ein Prüfpunkt eines virtuellen Computers zu einem bestimmten Zeitpunkt.
+- term: squashen
+  description: Das Kombinieren mehrerer Commits in einem einzelnen Commit. „squash“ ist auch ein Git-Befehl.
+- term: SSH-Schlüssel
+  description: >-
+    SSH-Schlüssel sind eine Möglichkeit, sich mithilfe einer verschlüsselten Nachricht bei einem Onlineserver zu identifizieren. Das ist so als ob dein Computer über ein eigenes eindeutiges Passwort für einen anderen Dienst verfügt. {% data variables.product.product_name %} verwendet SSH-Schlüssel, um Informationen sicher an deinen Computer zu übermitteln.
+- term: Staginginstanz
+  description: >-
+    Eine Möglichkeit, Änderungen zu testen, bevor sie auf deine tatsächliche GitHub Enterprise-Instanz angewendet werden.
+- term: status
+  description: >-
+    Eine visuelle Darstellung innerhalb eines Pull Requests, um dich darüber zu informieren, ob deine Commits die Bedingungen erfüllen, die für das Repository festgelegt wurden, an dem du mitwirkst.
+- term: Statuschecks
+  description: >-
+    Statuschecks sind externe Prozesse wie etwa Continuous Integration-Buildvorgänge, die für jeden Commit ausgeführt werden, den du in einem Repository vornimmst. Weitere Informationen findest du unter [Informationen zu Statuschecks](/articles/about-status-checks).
+- term: Sternchen
+  description: >-
+    Ein Lesezeichen oder ein Zeichen der Wertschätzung für ein Repository. Sterne ermöglichen die manuelle Bewertung der Beliebtheit von Projekten.
+- term: Abonnement
+  description: Der GitHub-Plan eines Benutzers oder einer Organisation.
+- term: Team
+  description: >-
+    Eine Gruppe von Organisationsmitgliedern, die die Struktur deines Unternehmens oder deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegelt.
+- term: Teamverwalter
+  description: >-
+    Organisationsmitglieder, die über eine Teilmenge der Berechtigungen verfügen, die den Organisationsbesitzern zur Verwaltung von Teams zur Verfügung stehen.
+- term: Teamplan
+  description: >-
+    Ein Organisationsabrechnungsplan, der dir unbegrenzte öffentliche und private Repositorys bietet.
+- term: Zeitleiste
+  description: Eine Reihe von Ereignissen in einem Pull Request oder in einem Benutzerprofil.
+- term: Topic-Branch
+  description: >-
+    Ein regulärer Git-Branch, der von einem Entwickler verwendet wird, um eine konzeptionelle Entwicklungslinie zu identifizieren. Da Branches sehr einfach und günstig sind, empfiehlt es sich häufig, mehrere kleine Branches zu verwenden, die jeweils über sehr gut definierte Konzepte oder über geringfügige zusammenhängende Änderungen verfügen. Kann auch als Featurebranch bezeichnet werden.
+- term: topics
+  description: >-
+    Eine Möglichkeit, Repositorys in einem bestimmten Themenbereich zu erkunden, nach Projekten zu suchen, zu denen beigetragen werden soll, und neue Lösungen zu einem spezifischen Problem auf GitHub zu finden.
+- term: Datenverkehrsdiagramm
+  description: >-
+    Ein Repositorydiagramm, das den Datenverkehr eines Repositorys anzeigt – einschließlich vollständiger Klone (nicht Abrufe), der Besucher der letzten 14 Tage, verweisender Websites und beliebten Inhalten.
+- term: Übertragen
+  description: >-
+    Beim Übertragen eines Repositorys wird der Besitzer des Repositorys geändert. Der neue Besitzer kann die Inhalte, Issues, Pull Requests, Releases und Einstellungen des Repositorys sofort verwalten.
+- term: Upstream
+  description: >-
+    Bei einem Branch oder Fork wird der primäre Branch des ursprünglichen Repositorys oftmals als Upstreambranch/-fork bezeichnet, da es sich hierbei um den primären Ort handelt, von dem aus andere Änderungen eingehen. Der Branch/Fork, an dem du arbeitest, wird entsprechend als Downstreambranch/-fork bezeichnet. Wird auch als Ursprung bezeichnet.
+- term: Upstreambranch
+  description: >-
+    Der Standardbranch, der in den betreffenden Branch gemergt wird (oder auf dessen Grundlage ein Rebase für den betreffenden Branch ausgeführt wird). Wird mittels „branch.<Name>.remote“ und „branch.<Name>.merge“ konfiguriert. Wenn der Upstreambranch von A „origin/B“ ist, wird manchmal gesagt: A verfolgt origin/B.
+- term: user
+  description: >-
+    Benutzer sind Personen mit persönlichen GitHub-Konten. Jeder Benutzer besitzt ein persönliches Profil und kann über mehrere öffentliche oder private Repositorys verfügen. Sie können Organisationen erstellen oder zum Beitritt eingeladen werden oder am Repository eines anderen Benutzers mitwirken.
+- term: username
+  description: Der Identifikator eines Benutzers auf GitHub.
+- term: Benutzer-zu-Server-Anforderung
+  description: >-
+    Eine API-Anforderung, die von einer Anwendung verwendet wird, die eine Aufgabe im Namen eines bestimmten Benutzers ausführt. Wenn eine Aufgabe mit Benutzer-zu-Server-Authentifizierung ausgeführt wird, wird sie auf GitHub als Aufgabe angezeigt, die von einem Benutzer über eine Anwendung ausgeführt wurde. So kannst du beispielsweise in einer Drittanbieteranwendung ein Issue erstellen, und diese Aufgabe wird dann von der Anwendung in deinem Namen auf GitHub ausgeführt. Der Umfang der Aufgaben, die eine Anwendung mit einer Benutzer-zu-Server-Anforderung ausführen kann, wird durch die Berechtigungen und den Zugriff der App und des Benutzers eingeschränkt. Das bei einer Benutzer-zu-Server-Anforderung verwendete Token wird über OAuth abgerufen. Weitere Informationen findest du unter [Identifizieren und Autorisieren von Benutzern für GitHub-Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps). Siehe auch [Server-zu-Server-Anforderung](#server-to-server-request).
+- term: öffentliches Team
+  description: "Ein Team, das von jedem Organisationsmitglied gesehen und @erwähnt werden kann."
+- term: beobachten
+  description: >-
+    Du kannst ein Repository oder Issue beobachten, um Benachrichtigungen zu erhalten, wenn ein Issue oder Pull Request aktualisiert wird.
+- term: Beobachtungsbenachrichtigungen
+  description: "Eine Benachrichtigung zu Aktivitäten in einem Repository, das von einem Benutzer abonniert wurde."
+- term: Webbenachrichtigungen
+  description: >-
+    Auf der Weboberfläche von GitHub angezeigte Benachrichtigungen: https://github.com/notifications
+- term: webhooks
+  description: >-
+    Mithilfe von Webhooks kannst du GitHub-Apps erstellen oder einrichten, die bestimmte Ereignisse auf GitHub.com abonnieren. Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen Webserver zu senden, wenn bestimmte Aktionen in einem Repository oder in einer Organisation ausgeführt werden. Werden auch als Service Hook bezeichnet.
+- term: Schreibzugriff
+  description: >-
+    Eine Berechtigungsebene in einem Repository, die es Benutzern ermöglicht, Änderungen an das Repository zu pushen (in das Repository zu schreiben).

@@ -1,5 +1,5 @@
 ---
-title: Política de Eliminación de Información Privada de GitHub
+title: Directiva de Eliminación de Información Privada de GitHub
 redirect_from:
   - /articles/github-sensitive-data-removal-policy
   - /github/site-policy/github-sensitive-data-removal-policy
@@ -9,84 +9,89 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 42dbae3bcd7a1ee09a209c7bb5d81506e2d473bf
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '147099176'
 ---
+Ofrecemos este proceso de eliminación de información privada como un servicio excepcional solo para contenido de alto riesgo que infrinja los [Términos de Servicio de GitHub](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions), como cuando su seguridad está en riesgo por la exposición de las credenciales de acceso. En esta guía se describe la información que GitHub necesita de usted a fin de procesar una solicitud de eliminación de información privada de un repositorio.
 
-Ofrecemos este proceso de eliminación de información privada como un servicio excepcional únicamente para el contenido de alto riesgo que viola las [Condiciones de Servicio de GitHub](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions), tal como cuando tu seguridad está en riesgo debido a que se expusieron tus credenciales de acceso. Esta guía describe la información que GitHub necesita de ti para procesar una solicitud para eliminar la información privada de un repositorio.
+## ¿Qué se entiende por Información Privada?
 
-## ¿Qué es la información privada?
+A efectos de este documento, se entiende por «información privada» el contenido que (i) debería haberse mantenido confidencial, *y* (ii) cuya disponibilidad pública represente un riesgo de seguridad específico o concreto para usted o su organización. 
 
-Para los propósitos de este documento, "información privada" se refiere al contenido que (i) debe haberse mantenido como confidencial, *y* (ii) cuya disponibilidad al público representa un riesgo específico o dirigido de seguridad para tu organización.
+«Riesgo de seguridad» se refiere a una situación que implica la exposición a un peligro físico, el robo de identidad o una mayor probabilidad de acceso no autorizado a instalaciones físicas o de red.
 
-"Riesgo de seguridad" se refiere a una situación que involucra la exposición a un daño físico, robo de identidad o posibilidad incrementada de acceso no autorizado a las instalaciones físicas o de red.
+### Las solicitudes de eliminación de información privada son adecuadas para:
+- Las credenciales de acceso, como los nombres de usuario combinados con las contraseñas, los tokens de acceso u otros secretos de carácter confidencial que pueden conceder acceso al servidor, la red o el dominio de su organización.
+- Tokens de AWS y otras credenciales de acceso similares que otorgan acceso a un tercero en su nombre. Debe poder demostrar que el token le pertenece.
+- Documentación (como diagramas de red o arquitectura) que suponga un riesgo de seguridad específico para una organización. 
+- [Información](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) relacionada con usted como persona y que represente un riesgo para su seguridad (como números de la Seguridad Social u otros números de identificación oficiales).
 
-### Las solicitudes de eliminación de la información privada son adecuadas para:
-- Credenciales de acceso, como nombres de usuario combinados con contraseñas, tokens de acceso, u otros secretos sensibles que pueden conceder acceso al servidor, red o dominio de tu organización.
-- Los token AWS y otras credenciales de acceso similares que conceden acceso a un tercero en tu nombre. Debes tener la capacidad de mostrar que el token te pertenece.
-- Documnetación (tal como diagramas de red o de arquitectura) que posea un riesgo de seguridad específico para una organización.
-- [Información](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) relacionada con y que represente un riesgo de seguridad para ti, como individuo (tal como números de seguridad social u otros números de identificación gubernamental).
+### Las solicitudes de eliminación de información privada _no_ son adecuadas para:
+- Nombres de servidores internos, direcciones IP y URL, por sí solos. Debe poder demostrar que su uso en un archivo o elemento de código en particular representa una amenaza para la seguridad.
+- Las meras menciones de la identidad, el nombre, la marca, el nombre de dominio o cualquier otra referencia a su empresa en los archivos de GitHub. Debe ser capaz de articular por qué el uso de la identidad de su empresa supone una amenaza para la seguridad de su empresa.
+- Archivos o repositorios enteros que no supongan un riesgo específico para la seguridad, pero que usted crea que son censurables por otros motivos.
+- Solicitudes para eliminar contenidos que puedan infringir sus derechos de autor o los de su organización. Si tiene alguna pregunta sobre cómo gestiona GitHub las cuestiones relativas a los derechos de autor o si desea denunciar contenido potencialmente infractor, consulte nuestra [Directiva de Retirada de la DMCA](/articles/dmca-takedown-policy/). El proceso de eliminación de información privada generalmente no está pensado para la eliminación de archivos o repositorios completos: solo para partes específicas de información privada en dichos archivos. Aunque puede haber casos en los que los archivos estén repletos de información privada, debe justificar el riesgo de seguridad para la eliminación de tales archivos y esto puede prolongar el tiempo necesario para procesar la solicitud.
+- Conflictos de marcas registradas. Si tiene preguntas sobre cómo gestiona GitHub las cuestiones relativas a las marcas comerciales o desea informar sobre contenidos que incluyan marcas comerciales o de servicio de su organización, revise nuestra [Directiva de Marcas Registradas](/articles/github-trademark-policy/).
+- Reclamaciones de privacidad. Si desea acceder, transferir, modificar o eliminar su información personal en GitHub, póngase en contacto con nosotros a través de [nuestro formulario de contacto de Privacidad](https://github.com/contact/privacy). 
+- Contenido que se rige por nuestras [Directrices de la Comunidad](/articles/github-community-guidelines/), como malware o herramientas para fines generales. Si tiene preguntas acerca de nuestras Directrices de la Comunidad o cree que el contenido de GitHub podría infringir nuestras directrices, puede usar {% data variables.contact.report_content %} para ponerse en contacto con nosotros.
 
-### Las solicitudes de eliminación de información privada _no_ son adecuados para:
-- Nombres de servidores internos, direcciones IP y URL, por sí solos. Debes poder demostrar que su uso en un archivo en particular o una pieza de código representan un riesgo de seguridad.
-- Menciones simples de la identidad de tu empresa, nombre, marca, nombre de dominio, u otras referencias a tu empresa en archivos en GitHub. Debes poder explicar por qué el utilizar la identidad de tu empresa representa un riesgo a la postura de seguridad de ella.
-- Archivos completos o repositorios que no plantean un riesgo de seguridad específico, pero consideras que son censurables de otro modo.
-- Solicitudes para eliminar contenido que pueda infringir los derechos de autor de tu empresa o de tu organización. Si tienes preguntas sobre cómo maneja GitHub los asuntos relacionados con los derechos de autor o te gustaría informar sobre contenido que potencialmente infractor, por favor revisa nuestra [política de retiro DMCA](/articles/dmca-takedown-policy/). No se pretende generalmente que el proceso de eliminación de información privada se utilice para eliminar archivos o repositorios completos, sino únicamente pedazos específicos de la información privada que estos contienen. Si bien podrían existir casos en donde los archivos se llenen integralmente con información privada, debes justificar el riesgo de seguridad para eliminar dichos archivos y esto podría aumentar el tiempo que se necesita para procesar tu solicitud.
-- Disputas de marcas registradas. Si tiene preguntas sobre cómo maneja GitHub los asuntos relacionados con la marca o deseas informar sobre contenido que contiene marcas comerciales o marcas de servicio, revisa nuestra [Política de Marcas](/articles/github-trademark-policy/).
-- Reclamaciones de privacidad. Si quieres acceder, transferir, cambiar o borrar tu información personal en GitHub, por favor, contáctanos a través de nuestro [Formato de contacto para la Privacidad](https://github.com/contact/privacy).
-- Contenido regido por nuestras [Directrices de la comunidad](/articles/github-community-guidelines/), tales como malware o herramientas de uso general. Si tienes dudas sobre nuestros Lineamientos de Comunidad crees que algún contenido de GitHub podría violarlos, puedes utilizar {% data variables.contact.report_content %} para contactarnos.
+## Información importante
 
-## Cosas que debes saber
+**Pregunte educadamente primero.** Un primer paso recomendable antes de enviarnos una solicitud de eliminación de datos es intentar ponerse en contacto con el usuario directamente. Puede que haya incluido información de contacto en su página de perfil público o en el archivo LÉAME o de Soporte del repositorio, o puede ponerse en contacto creando una incidencia o una solicitud de extracción en el repositorio. Esto no es estrictamente necesario, pero es un gesto que se agradece.
 
-**Realiza preguntas educadamente.** Un gran primer paso antes de enviarnos una solicitud para eliminar datos es intentar contactar directamente con el usuario. Pueden haber ingresado información de contacto en su página de perfil público o en el archivo de soporte o README del repositorio o podrías ponerte en contacto creando una propuesta o solicitud de extracción en el repositorio. Esto no es estrictamente necesario, pero es común.
+**Sin bots.** Debe hacer que un profesional capacitado evalúe los hechos de cada solicitud que envíe. Si subcontrata las tareas a un tercero, asegúrese de conocer cómo opera y de que no utiliza bots automatizados para presentar reclamaciones en masa. Estas reclamaciones suelen incluir datos que no suponen ninguna amenaza para la seguridad y no incluyen explicaciones suficientes, lo que requiere trámites adicionales y provoca retrasos, incluso cuando la reclamación es válida.
 
-**Sin bots.** Debes tener un profesional capacitado para evaluar los hechos de cada solicitud que envíes. Si estás subcontratando tus labores a un tercero, asegúrate de saber cómo trabaja y asegúrate que no estén utilizando bots automatizados para presentar quejas en masa. Estas quejas a menudo incluyen datos que no suponen ninguna amenaza para la seguridad y no incluyen suficientes explicaciones, que requieran un retroceso adicional y resulten en retrasos, incluso cuando la queja es válida.
+**Envíe la solicitud correcta.** Como se ha indicado anteriormente, ofrecemos este proceso de eliminación de información privada como un servicio excepcional solo para contenidos de alto riesgo. No podemos utilizar este proceso para eliminar otro tipo de contenidos, como los potencialmente infractores y no podemos procesar ningún otro tipo de solicitudes de eliminación simultánea mientras procesamos las solicitudes de eliminación de información privada. Podremos ayudarle antes si envía las solicitudes de eliminación de información privada por separado de cualquier solicitud de eliminación de contenidos potencialmente infractores. Si no está seguro de si la solicitud implica solo información privada o también otras cuestiones legales, consulte a un asesor legal. 
 
-**Envía la solicitud correcta.** Como se explica anteriormente, ofrecemos este proceso de eliminación de información privada como un servicio excepcional únicamente para el contenido de alto riesgo. No podemos utilizar este proceso para eliminar otro tipo de contenido, tal como contenido que pudiera vulnerar derechos potencialmente y no podemos procesar ningún otro tipo de solicitudes de eliminación simultáneamente mientras procesamos las solicitudes de eliminación de información privada. Podremos ayudarte más rápidamente si envías las solicitudes de eliminación de información privada por separado de cualquier otra solicitud para eliminar contenido que vulnere derechos potencialmente. Si no estás seguro si tu solicitud involucra únicamente información privada o si también involucra otros asuntos legales, por favor, busca asesoramiento legal.
+**Tiempo de procesamiento.** Aunque tramitamos las solicitudes de eliminación de información privada lo más pronto posible, dado el volumen de solicitudes que tramitamos, puede pasar algún tiempo hasta que se revise su solicitud. Las solicitudes adicionales o solicitudes múltiples de puntos de contacto adicionales pueden ocasionar demoras.
 
-**Tiempo de procesamiento.** Si bien procesamos las solicitudes de eliminación de información privada tan pronto como nos es posible, debido al volúmen de solicitudes que rocesamos, podría tomarnos algo de tiempo revisar la tuya. Las solicitudes adicionales, o múltiples solicitudes de puntos de contacto adicionales, pueden provocar retrasos.
+## ¿Cómo funciona esto realmente?
 
-## ¿Cómo funciona realmente?
+1. **El demandante investiga.** Corresponde a la parte solicitante llevar a cabo su propia investigación y facilitarnos los [detalles que solicitamos](#your-request-must-include) y, lo más importante, una explicación de las razones por las que los datos suponen un riesgo para la seguridad. GitHub no está en disposición de buscar o hacer valoraciones iniciales sobre la información privada en nombre de ninguna persona física u organización.
 
-1. **El reclamante investiga.** Corresponde a la parte solicitante llevar a cabo su propia investigación y proporcionarnos los [detalles que necesitamos](#your-request-must-include) — lo que es más importante, una explicación de cómo los datos plantean un riesgo para la seguridad. GitHub no se encuentra en una posición para buscar o hacer determinaciones iniciales sobre la información privada en nombre de ningún individuo u organización.
+2. **El demandante envía una solicitud de eliminación de información privada.** Después de llevar a cabo una investigación, el demandante prepara y [envía una solicitud de eliminación de información privada](#sending-a-private-information-removal-request) a GitHub. Si la solicitud no es lo suficientemente detallada a la hora de demostrar el riesgo de seguridad y para que GitHub pueda localizar los datos, le responderemos y solicitaremos información adicional.
 
-2. **El quejoso es quien envía la solicitud de eliminación de información privada.** Después de llevar a cabo una investigación, el quejoso se preparará y [enviará una solicitud de eliminación de información privada ](#sending-a-private-information-removal-request) a GitHub. Si la solicitud no está lo suficientemente detallada para demostrar el riesgo de seguridad y para que GitHub localice los datos, te responderemos y te solicitaremos más información.
+3. **GitHub solicita al usuario que realice cambios.** En la mayoría de los casos, nos pondremos en contacto con el usuario que creó el repositorio y le ofreceremos la oportunidad de eliminar o modificar la información privada especificada en la solicitud o de impugnar la reclamación.
 
-3. **GitHub pide a los usuarios hacer los cambios.** En la mayoría de los casos, contactaremos al usuario que creó el repositorio y le daremos la oportunidad de borrar o modificar la información privada que se especifica en la solicitud o de disputar el reclamo.
-
-4. **El usuario notifica a GitHub de los cambios.** Si el usuario decide realizar los cambios especificados, debe comunicarnos dentro del período de tiempo que hayan sido permitidos. Si no lo hace, deshabilitaremos el repositorio. Si el usuario nos notifica que ha realizado cambios, verificaremos que los cambios se hayan realizado y notificaremos al demandante.
+4. **El usuario notifica a GitHub los cambios.** Si el usuario decide llevar a cabo los cambios especificados, nos los debe indicar dentro del plazo que se le ha concedido. Si no lo hace, deshabilitaremos el repositorio. Si el usuario nos notifica que ha realizado cambios, comprobaremos que dichos cambios se hayan realizado y se lo notificaremos al demandante.
 
   O
 
-5. **El usuario podría disputar la solicitud.** Si un usuario cree que el contenido en cuestión no constituye información privada que esté sujeta a esta Política, podrían disputarlo. Si lo hacen, generalmente dejaremos que el demandante se ponga en contacto con el usuario y trabaje directamente con él, dentro de los límites razonables.
+5. **El usuario puede impugnar la solicitud.** Si un usuario considera que el contenido en cuestión no es información privada sujeta a esta Directiva, puede impugnarlo. Si lo hace, generalmente dejaremos que el demandante se ponga en contacto con el usuario y resuelva la cuestión directamente con él, dentro de lo razonable.
 
-6. **Cambios a las revisiones del demandante.** Si el usuario realiza cambios, el demandante debe revisarlos. Si los cambios son insuficientes, el demandante debe proporcionar a GitHub detalles explicando por qué. GitHub puede desactivar el repositorio o dar al usuario una oportunidad adicional de hacer los cambios.
+6. **Cambios en las revisiones del demandante.** Si el usuario realiza cambios, el demandante debe revisarlos. Si los cambios son insuficientes, el demandante debe facilitar detalles a GitHub que expliquen la razón. GitHub puede deshabilitar el repositorio o darle al usuario otra oportunidad de realizar los cambios.
 
-7. **Los usuarios podrían solicitar una ventana de tiempo adicional para realizar los cambios.** Si el usuario no aprovechó la oportunidad para eliminar la información privada que se especifica en la notificación, podremos permitirles una ventana de tiempo adicional de aproximadamente 1 día laboral, bajo solicitud, para realizar los cambios pertinentes. En ese caso, GitHub notificará al demandante.
+7. **El usuario puede solicitar un plazo adicional para realizar los cambios.** Si el usuario no tuvo la oportunidad de eliminar la información privada especificada en el aviso, podemos concederle un plazo adicional de aproximadamente un (1) día hábil, previa solicitud, para realizar esos cambios. En ese caso, GitHub se lo notificará al demandante.
 
-### ¿Qué hay de las bifurcaciones? (o ¿Qué es una bifurcación?)
-Una de las mejores características de GitHub es la capacidad de los usuarios de "bifurcar" los repositorios de otros. ¿Qué significa eso? Básicamente, significa que los usuarios pueden hacer una copia de un proyecto en GitHub en sus propios repositorios. Según lo permita la licencia o la ley, los usuarios pueden hacer cambios en esa bifurcación para volver al proyecto principal o simplemente mantener como la propia variación de su proyecto. Cada una de estas copias es una "[bifurcación](/articles/github-glossary/#fork)" del repositorio original, que a su vez también se puede llamar la "matriz" de la bifurcación.
+### ¿Qué hay de las bifurcaciones? (o ¿Qué es una «bifurcación»?)
+Una de las mejores características de GitHub es la capacidad de los usuarios de «bifurcar» («fork» en inglés) los repositorios de los demás. ¿Qué significa eso? Básicamente, significa que los usuarios pueden hacer una copia de un proyecto en GitHub en sus propios repositorios. Según lo permita la licencia o la ley, los usuarios pueden hacer cambios en esa bifurcación para volver al proyecto principal o simplemente mantenerlo como su propia variante de un proyecto. Cada una de estas copias es una «[bifurcación](/articles/github-glossary/#fork)» del repositorio original, que a su vez también puede llamarse «matriz» de la bifurcación.
 
-GitHub no deshabilitará automáticamente las bifurcaciones cuando se deshabilite un repositorio matriz. Esto se debe a que las bifurcaciones pertenecen a diferentes usuarios y pueden haber sido alteradas de manera significativa. GitHub no lleva a cabo ninguna investigación independiente sobre las bifucaciones. Esperamos que aquellos que envían solicitudes de eliminación de información privada lleven a cabo esta investigación y, en caso de que crean que las bifurcaciones también contienen información privada, las incluyan expresamente en su solicitud.
+GitHub no deshabilitará automáticamente las bifurcaciones cuando deshabilite un repositorio matriz. Esto se debe a que las bifurcaciones pertenecen a diferentes usuarios y se pueden haber alterado de manera importante. GitHub no lleva a cabo ninguna investigación independiente sobre las bifurcaciones. Esperamos que quienes envían solicitudes de eliminación de información privada lleven a cabo esa investigación y, si consideran que las bifurcaciones también contienen información privada, las incluyan expresamente en su solicitud.
 
-Si en el momento en el que emitiste tu notificación identificaste todas las bifurcaciones existentes en ese repositorio, podríamos procesar un reclamo válido contra todas las bifurcaciones en esa red en el momento en el que procesemos la notificación. Haremos esto dada la probabilidad de que todas las bifurcaciones recién creadas contengan lo mismo. Adicionalmente, si la red que se reportó y que contiene el contendo reportado es mayor a cien (100) repositorios y, por lo tanto, sería difícil revisarla integralmente, podríamos considerar inhabilitar toda la red si declaras en la notificación que, con base en la cantidad representativa de bifurcaciones que revisaste, crees que todas o la mayoría de las bifrucaciones albergan el contenido que se reporta en el repositorio padre.
+Si en el momento de enviar la notificación, identificó todas las bifurcaciones existentes de ese repositorio, procesaríamos una reclamación válida contra todas las bifurcaciones en esa red al momento de procesar la notificación. Lo haríamos dada la probabilidad de que todas las bifurcaciones recién creadas tengan el mismo contenido. Además, si la red que se denuncia por incluir contenido denunciado tiene más de cien (100) repositorios y, por lo tanto, es difícil revisarla íntegramente, podríamos plantearnos deshabilitar toda la red si declara en su aviso que, de acuerdo con la cantidad representativa de bifurcaciones que ha revisado, cree que todas o la mayoría de las bifurcaciones contienen el contenido denunciado en el repositorio principal.
 
-## Enviar una solicitud de eliminación de información privada
+## Envío de una solicitud de eliminación de información privada
 
-Debido al tipo de contenido de los hosts de GitHub (principalmente de código de software) y a la forma en que se gestiona el contenido (con Git), necesitamos que las quejas sean lo más específicas posible. Para que podamos verificar que un usuario eliminó integralmente la información privada que se reportó, necesitamos saber exactamente en dónde buscar.
+Debido al tipo de contenido que aloja GitHub (principalmente código de software) y la forma en que se administra el contenido (con Git), necesitamos que las quejas sean lo más específicas posible. Para poder verificar si un usuario ha eliminado por completo la información privada denunciada, tenemos que saber dónde buscar exactamente.
 
-Estos lineamientos se diseñan para hacer el procesamiento de las solicitudes para eliminar la información privada tan sencillamente como sea posible.
+Estas directrices se han diseñado para que la tramitación de las solicitudes de eliminación de información privada resulte lo más sencilla posible.
 
-### Tu solicitud debe incluir:
+### Su solicitud debe incluir:
 
-1. Un enlace funcional y que se pueda seguir con un clic para cada archivo que contenga información privada. (Ten en cuenta que no podemos trabajar a partir de resultados de búsqueda, ejemplos o capturas de pantalla.)
+1. Un enlace funcional en el que se pueda hacer clic para cada archivo que contenga información privada. (Tenga en cuenta que no podemos trabajar a partir de resultados de búsqueda, ejemplos o capturas de pantalla).
 2. Números de línea específicos dentro de cada archivo que contenga la información privada.
-3. Una breve descripción de cómo cada elemento identificado supone un riesgo de seguridad para ti o tu organización. ***Es importante que proporciones una explicación de cómo plantean los datos un riesgo de seguridad más allá de simplemente indicar que lo hace.***
-4. Si eres un tercero actuando como agente de una organización que se enfrenta a un riesgo de seguridad, incluye una declaración de que tienes un derecho legal a actuar en nombre de dicha organización.
-5. OPCIONAL: Haznos saber si tu solicitud es especialmente urgente y por qué. Responderemos a todas las solicitudes de eliminación de información privada tan rápidamente como sea posible. Sin embargo, si esta solicitud es especialmente sensible al tiempo, como una exposición de credenciales muy reciente, por favor explica por qué.
+3. Una breve descripción de por qué cada elemento que ha identificado supone un riesgo de seguridad para usted o su organización. ***Es importante ofrecer una explicación de por qué los datos suponen un riesgo para la seguridad más allá de limitarse a indicar que lo hacen.***
+4. Si usted es un tercero que actúa como agente de una organización que se enfrenta a un riesgo de seguridad, incluya una declaración en la que se indique que tiene derecho legal a actuar en nombre de dicha organización.
+5. OPCIONAL: Díganos si su solicitud es especialmente urgente y por qué. Respondemos a todas las solicitudes de eliminación de información privada lo antes posible. Sin embargo, si esta solicitud es especialmente urgente, como una exposición de credenciales muy reciente, explique los motivos.
 
-## Como presentar tu solicitud
+## Cómo enviar su solicitud
 
-Puedes enviar tu solicitud para eliminar información privada a través de nuestro [formato de contacto](https://support.github.com/contact?tags=docs-private-information). Por favor, incluye una versión de texto plano de tu solicitud en el cuerpo de tu mensaje. El envío de tu solicitud en un archivo adjunto puede resultar en retrasos en el proceso.
+Puede enviar su solicitud para eliminar información privada a través de nuestro [formulario de contacto](https://support.github.com/contact?tags=docs-private-information). Incluya una versión de texto sin formato de su solicitud en el cuerpo del mensaje. El envío de la solicitud en un archivo adjunto puede provocar retrasos en la tramitación.
 
-## Disputas
+## Conflictos
 
-Si recibes una solicitud de eliminación de información privada de nuestra parte, puedes disputarla si respondes a nuestro correo electrónico y nos dejas saber, con tanto detalle como sea posible, la razón por la cual el contenido en cuestión no constituye información privada que esté sujeta a esta Política.
+Si ha recibido una solicitud de eliminación de información privada por nuestra parte, puede impugnarla respondiendo a nuestro correo electrónico y haciéndonos saber, con el máximo detalle posible, por qué cree que el contenido en cuestión no es información privada sujeta a esta Directiva.

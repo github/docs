@@ -1,22 +1,21 @@
----
 date: '2021-08-24'
 sections:
   security_fixes:
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - 画像あるいはPull Requestに非常に大きな画像もしくはアニメーションGIFを添付すると失敗します。
-    - 自動アップデートに関係するJournaldのメッセージ (`Adding h/m/s random time.`)が、syslogに記録されました。
-    - 'bashのサブシェルを使うカスタムのpre-receive フックは、`No such file or directory`というエラーを返します。'
-    - 名前付きパイプ（FIFO）を作成したカスタムのpre-receive フックは、クラッシュもしくはハングし、タイムアウトエラーを生じさせます。
-    - 監査ログの高度な検索ページにフィルタを追加しても、適切なファセットプレフィックスと値付きでクエリテキストボックスがリアルタイムで展開されませんでした。
-    - リクエストに失敗する内部APIへのGitフックが、明示的な`nil`を返す代わりに`undefined method body for "success":String (NoMethodError)`という例外を返しました。
-    - インテグレーションが削除されると、関係の無いOAuthアプリケーションあるいはインテグレーションも削除されてしまう可能性がありました。
-    - 絵文字を含む必須のメッセージが追加された場合、そのメッセージを表示あるいは変更しようとすると500 Internal Server Errorが返されます。
+    - 画像または pull request に非常に大きな画像もしくはアニメーション GIF を添付すると失敗します。
+    - "自動更新に関連する Journald メッセージ (\"h/m/s ランダム時間の追加。\") が、syslog に記録されました。"
+    - 'bash のサブシェルを使うカスタム pre-receive フックが、"そのようなファイルまたはディレクトリは存在しません" というエラーを返しました。'
+    - 名前付きパイプ (FIFO) を作成したカスタムの pre-receive フックがクラッシュまたはハングし、タイムアウト エラーが発生します。
+    - 監査ログの高度な検索ページにフィルターを追加しても、適切なファセット プレフィックスと値を持つクエリ テキスト ボックスがリアルタイムで設定されませんでした。
+    - "要求に失敗する内部 API への Git フックが、明示的な \"nil\" を返す代わりに \"\"success\" に対して定義されていないメソッド本文: String (NoMethodError)\"という例外を返しました。"
+    - 統合が削除されると、関連のない OAuth アプリケーションまたは統合も削除されてしまう可能性がありました。
+    - 絵文字を含む必須のメッセージが追加された場合、そのメッセージを表示あるいは変更しようとすると 500 内部サーバー エラーが返されます。
   known_issues:
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

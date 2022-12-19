@@ -9,9 +9,16 @@ import enterpriseServerReleases, {
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+// This is temporary solution until we have certainty in that the
+// dedicated search results page works.
+// In a near future, we won't be needing this and assume it's always
+// true.
+const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(
+  JSON.parse(process.env.ENABLE_SEARCH_RESULTS_PAGE || 'false')
+)
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -53,16 +60,27 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      expect(res.statusCode).toBe(302)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-      expect(res.headers.location).toBe(expected)
+      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
+        expect(res.statusCode).toBe(301)
+        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      } else {
+        expect(res.statusCode).toBe(302)
+        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      }
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = '/en/enterprise/admin?query=pulls'
-      expect(res.headers.location).toBe(expected)
+      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
+        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      } else {
+        const expected = `/en/enterprise/admin?query=pulls`
+        expect(res.headers.location).toBe(expected)
+      }
     })
 
     test('have faq= not converted to query=', async () => {
@@ -71,13 +89,6 @@ describe('redirects', () => {
       const res = await get('/en/enterprise/admin?faq=pulls')
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
-      expect(res.headers.location).toBe(expected)
-    })
-
-    test('work with redirected search paths', async () => {
-      const res = await get('/en/enterprise/admin/search?utf8=%E2%9C%93&query=pulls')
-      expect(res.statusCode).toBe(301)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?utf8=%E2%9C%93&query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -97,7 +108,7 @@ describe('redirects', () => {
 
     test('are absent from all destination URLs', async () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => !to.includes('://'))
+        .filter(([, to]) => !to.includes('://'))
         .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
@@ -115,55 +126,17 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
-    test('homepage redirects to preferred language', async () => {
-      const res = await get('/', { headers: { 'Accept-Language': 'ja' }, followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/ja')
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
-
-    test('homepage redirects to preferred language by cookie', async () => {
-      const res = await get('/', {
-        headers: {
-          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
-          'Accept-Language': 'es', // note how this is going to be ignored
-        },
-        followRedirects: false,
-      })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/ja')
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
-
-    test('homepage redirects to preferred language by cookie if valid', async () => {
-      const res = await get('/', {
-        headers: {
-          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=xy`,
-          'Accept-Language': 'ja', // note how this is going to be ignored
-        },
-        followRedirects: false,
-      })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/ja')
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
-
-    test('trailing slash on languaged homepage should permantently redirect', async () => {
+    test('trailing slash on languaged homepage should permanently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toContain('public')
-      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    })
-
-    test('trailing slash with query string on languaged homepage should permantently redirect', async () => {
-      const res = await get('/ja/?foo=bar&bar=foo')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('/ja?foo=bar&bar=foo')
       expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
@@ -173,7 +146,7 @@ describe('redirects', () => {
   describe('external redirects', () => {
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => to.includes('://'))
+        .filter(([, to]) => to.includes('://'))
         .map(([from_]) => from_)
         .filter((from_) => from_.startsWith('/en/'))
       expect(values.length).toBe(0)
@@ -200,87 +173,10 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('https://gitready.com/')
     })
-
-    test('work for top-level request paths with /ja/ prefix', async () => {
-      const res = await get('/ja/git-ready')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('https://gitready.com/')
-    })
-  })
-
-  describe('localized redirects', () => {
-    const redirectFrom =
-      '/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop'
-    const redirectTo =
-      '/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
-
-    test('redirect_from for renamed pages', async () => {
-      const res = await get(`/ja${redirectFrom}`)
-      expect(res.statusCode).toBe(301)
-      const expected = `/ja${redirectTo}`
-      expect(res.headers.location).toBe(expected)
-    })
-
-    test('redirect_from for renamed pages by Accept-Language header', async () => {
-      const res = await get(redirectFrom, {
-        headers: {
-          'Accept-Language': 'ja',
-        },
-        followRedirects: false,
-      })
-      expect(res.statusCode).toBe(302)
-      const expected = `/ja${redirectTo}`
-      expect(res.headers.location).toBe(expected)
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
-
-    test('redirect_from for renamed pages but ignore Accept-Language header if not recognized', async () => {
-      const res = await get(redirectFrom, {
-        headers: {
-          // None of these are recognized
-          'Accept-Language': 'sv,fr,gr',
-        },
-        followRedirects: false,
-      })
-      expect(res.statusCode).toBe(302)
-      const expected = `/en${redirectTo}`
-      expect(res.headers.location).toBe(expected)
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
-
-    test('redirect_from for renamed pages but ignore unrecognized Accept-Language header values', async () => {
-      const res = await get(redirectFrom, {
-        headers: {
-          // Only the last one is recognized
-          'Accept-Language': 'sv,ja',
-        },
-        followRedirects: false,
-      })
-      expect(res.statusCode).toBe(302)
-      const expected = `/ja${redirectTo}`
-      expect(res.headers.location).toBe(expected)
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
-
-    test('will inject the preferred language from cookie', async () => {
-      const res = await get(redirectFrom, {
-        headers: {
-          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
-          'Accept-Language': 'es', // note how this is going to be ignored
-        },
-        followRedirects: false,
-      })
-      // 302 because the redirect depended on cookie
-      expect(res.statusCode).toBe(302)
-      const expected = `/ja${redirectTo}`
-      expect(res.headers.location).toBe(expected)
-      expect(res.headers['cache-control']).toBe('private, no-store')
-    })
   })
 
   describe('enterprise home page', () => {
     const enterpriseHome = `/en/enterprise-server@${enterpriseServerReleases.latest}`
-    const japaneseEnterpriseHome = enterpriseHome.replace('/en/', '/ja/')
 
     test('/enterprise', async () => {
       const res = await get('/enterprise')
@@ -298,12 +194,6 @@ describe('redirects', () => {
       const res = await get('/en/enterprise')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(enterpriseHome)
-    })
-
-    test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseEnterpriseHome)
     })
 
     test('hardcoded @latest redirects to latest version', async () => {
@@ -348,7 +238,6 @@ describe('redirects', () => {
     const { firstRestoredAdminGuides, getPreviousReleaseNumber, latest } = enterpriseServerReleases
     const lastBeforeRestoredAdminGuides = getPreviousReleaseNumber(firstRestoredAdminGuides)
     const enterpriseAdmin = `/en/enterprise-server@${latest}/admin`
-    const japaneseEnterpriseAdmin = enterpriseAdmin.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
       const res = await get(`/enterprise/${latest}/admin`)
@@ -403,30 +292,10 @@ describe('redirects', () => {
       const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server`
       expect(res.headers.location).toBe(expected)
     })
-
-    test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/admin')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
-    })
-
-    test('admin/guides redirects to admin on <2.21 (japanese)', async () => {
-      const res = await get(`/ja/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides`)
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(
-        japaneseEnterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides)
-      )
-    })
-
-    test('admin/guides does not redirect to admin on >=2.21 (japanese)', async () => {
-      const res = await get(`/ja/enterprise-server@${firstRestoredAdminGuides}/admin/guides`)
-      expect(res.statusCode).toBe(200)
-    })
   })
 
   describe('enterprise user homepage', () => {
     const enterpriseUser = `/en/enterprise-server@${enterpriseServerReleases.latest}`
-    const japaneseEnterpriseUser = enterpriseUser.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product', async () => {
       const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user`)
@@ -445,17 +314,10 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(enterpriseUser)
     })
-
-    test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/user/github')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseEnterpriseUser)
-    })
   })
 
   describe('enterprise user article', () => {
     const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
-    const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
@@ -484,18 +346,11 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
-
-    test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/articles/fork-a-repo')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseUserArticle)
-    })
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
     const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
     const redirectFromPath = '/articles/fork-a-repo'
-    const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {
       const res = await get(
@@ -518,18 +373,11 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
-
-    test('no version redirects to latest version (japanese)', async () => {
-      const res = await get(`/ja/enterprise/user${redirectFromPath}`)
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseUserArticle)
-    })
   })
 
   describe('desktop guide', () => {
     const desktopGuide =
       '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
-    const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
       const res = await get(
@@ -545,14 +393,6 @@ describe('redirects', () => {
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(desktopGuide)
-    })
-
-    test('desktop/guides redirects to desktop (japanese)', async () => {
-      const res = await get(
-        '/ja/desktop/guides/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
-      )
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseDesktopGuides)
     })
   })
 
@@ -611,7 +451,6 @@ describe('redirects', () => {
         'rate-limit',
         'reactions',
         'repos',
-        'scim',
         'search',
         'teams',
         'users',
@@ -649,6 +488,21 @@ describe('redirects', () => {
       const res = await get(`/en//`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en`)
+    })
+  })
+
+  describe('redirects from old Lunr search to ES legacy search', () => {
+    test('redirects even without query string', async () => {
+      const res = await get(`/search`, { followRedirects: false })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/api/search/legacy`)
+    })
+
+    test('redirects with query string', async () => {
+      const params = new URLSearchParams({ foo: 'bar' })
+      const res = await get(`/search?${params}`, { followRedirects: false })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/api/search/legacy?${params}`)
     })
   })
 })

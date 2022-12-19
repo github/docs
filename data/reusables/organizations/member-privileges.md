@@ -1,4 +1,4 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-label="The people icon" %} Member privileges**.
 {% else %}
 4. In the left sidebar, click **Member privileges**.

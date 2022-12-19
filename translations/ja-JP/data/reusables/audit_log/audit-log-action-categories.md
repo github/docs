@@ -1,188 +1,116 @@
-| Category name | Description
+---
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183981"
+---
+| カテゴリ名 | 説明
 |------------------|-------------------
-{%- ifversion fpt or ghec %}
-| `account` | Contains activities related to an organization account.
-| `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-{%- endif %}
-| `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts.
-{%- ifversion audit-log-streaming %}
-| `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account.
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `billing` | Contains activities related to an organization's billing.
-{%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
-{%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
-{%- endif %}
-{%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
-{%- endif %}
-| `checks`   | Contains activities related to check suites and runs.
-{%- ifversion fpt or ghec %}
-| `codespaces` | Contains activities related to an organization's codespaces.
-{%- endif %}
-| `commit_comment` | Contains activities related to updating or deleting commit comments.
-{%- ifversion ghes %}
-| `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %} |
-| `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-| `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
-| `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
-{%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 %}
-| `dependabot_security_updates`   | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
-| `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.
-{%- endif %}
-| `dependency_graph` | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
-| `dependency_graph_new_repos`  | Contains organization-level configuration activities for new repositories created in the organization.
-{%- ifversion fpt or ghec %}
-| `discussion` | Contains activities related to team discussions.
-| `discussion_comment` | Contains activities related to comments posted in discussions on a team page.
-| `discussion_post`   | Contains activities related to discussions posted to a team page.
-| `discussion_post_reply`   | Contains activities related to replies to discussions posted to a team page.
-{%- endif %}
-{%- ifversion ghec or ghes %}
-| `dotcom_connection` | Contains activities related to {% data variables.product.prodname_github_connect %}.
-| `enterprise` | Contains activities related to enterprise settings.
-{%- endif %}
-{%- ifversion ghec %}
-| `enterprise_domain` | Contains activities related to verified enterprise domains.
-| `enterprise_installation` | Contains activities related to {% data variables.product.prodname_github_app %}s associated with an {% data variables.product.prodname_github_connect %} enterprise connection.
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `environment` | Contains activities related to {% data variables.product.prodname_actions %} environments.
-{%- endif %}
-{%- ifversion ghae %}
-| `external_group` | Contains activities related to Okta groups.
-| `external_identity` | Contains activities related to a user in an Okta group.
-{%- endif %}
-| `gist` | Contains activities related to Gists.
-| `hook` | Contains activities related to webhooks.
-| `integration` | Contains activities related to integrations in an account.
-| `integration_installation` | Contains activities related to integrations installed in an account.
-| `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
-{%- ifversion ghec or ghae %}
-| `ip_allow_list`   | Contains activities related to enabling or disabling the IP allow list for an organization.
-| `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
-{%- endif %}
-| `issue`  | Contains activities related to pinning, transferring, or deleting an issue in a repository.
-| `issue_comment` | Contains activities related to pinning, transferring, or deleting issue comments.
-| `issues` | Contains activities related to enabling or disabling issue creation for an organization.
-{%- ifversion fpt or ghec %}
-| `marketplace_agreement_signature` | Contains activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| `marketplace_listing` | Contains activities related to listing apps in {% data variables.product.prodname_marketplace %}.
-{%- endif %}
-| `members_can_create_pages`   | Contains activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
-| `members_can_create_private_pages` | Contains activities related to managing the publication of private {% data variables.product.prodname_pages %} sites for repositories in the organization.
-| `members_can_create_public_pages` | Contains activities related to managing the publication of public {% data variables.product.prodname_pages %} sites for repositories in the organization.
-{%- ifversion ghec or ghes or ghae %}
-| `members_can_delete_repos` | Contains activities related to enabling or disabling repository creation for an organization.
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `members_can_view_dependency_insights` | Contains organization-level configuration activities allowing organization members to view dependency insights.
-| `migration` | Contains activities related to transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
-{%- endif %}
-| `oauth_access` | Contains activities related to OAuth access tokens.
-| `oauth_application` | Contains activities related to OAuth Apps.
-{%- ifversion fpt or ghec %}
-| `oauth_authorization` | Contains activities related to authorizing OAuth Apps.
-{%- endif %}
-| `org`   | Contains activities related to organization membership.
-{%- ifversion ghec or ghes or ghae %}
-| `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
-{%- endif %}
-{%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
-| `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-{%- endif %}
-| `organization_default_label` | Contains activities related to default labels for repositories in an organization.
-{%- ifversion fpt or ghec or ghes %}
-| `organization_domain` | Contains activities related to verified organization domains.
-| `organization_projects_change` | Contains activities related to organization-wide project boards in an enterprise.
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}.
-| `payment_method`  | Contains activities related to how an organization pays for {% data variables.product.prodname_dotcom %}.
-| `prebuild_configuration` | Contains activities related to prebuild configurations for {% data variables.product.prodname_github_codespaces %}.
-{%- endif %}
-{%- ifversion ghes %}
-| `pre_receive_environment` | Contains activities related to pre-receive hook environments.
-| `pre_receive_hook` | Contains activities related to pre-receive hooks.
-{%- endif %}
-{%- ifversion ghes %}
-| `private_instance_encryption` | Contains activities related to enabling private mode for an enterprise.
-{%- endif %}
-| `private_repository_forking` | Contains activities related to allowing forks of private and internal repositories, for a repository, organization or enterprise.
-{%- ifversion fpt or ghec %}
-| `profile_picture`   | Contains activities related to an organization's profile picture.
-{%- endif %}
-| `project` | Contains activities related to project boards.
-| `project_field` | Contains activities related to field creation and deletion in a project board.
-| `project_view` | Contains activities related to view creation and deletion in a project board.
-| `protected_branch` | Contains activities related to protected branches.
-| `public_key` | Contains activities related to SSH keys and deploy keys.
-| `pull_request` | Contains activities related to pull requests.
-| `pull_request_review` | Contains activities related to pull request reviews.
-| `pull_request_review_comment` | Contains activities related to pull request review comments.
-| `repo` | Contains activities related to the repositories owned by an organization.
-{%- ifversion fpt or ghec %}
-| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-| `repository_content_analysis`   | Contains activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).
-| `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
-{%- endif %}
-| `repository_image` | Contains activities related to images for a repository.
-| `repository_invitation` | Contains activities related to invitations to join a repository.
-| `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
-{%- ifversion ghec or ghes or ghae %}
-| `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-{%- endif %}
-{%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
-{%- endif %}
-| `repository_vulnerability_alert`   | Contains activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
-{%- ifversion fpt or ghec %}
-| `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.
-| `required_status_check` | Contains activities related to required status checks for protected branches.
-{%- endif %}
-{%- ifversion ghec or ghes %}
-| `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
-{%- endif %}
-{%- ifversion custom-repository-roles %}
-| `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
-{%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `secret_scanning`   | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `secret_scanning_new_repos` | Contains organization-level configuration activities for secret scanning for new repositories created in the organization.
-{%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `security_key` | Contains activities related to security keys registration and removal.
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `sponsors`  | Contains events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)").
-{%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `ssh_certificate_authority` | Contains activities related to a SSH certificate authority in an organization or enterprise.
-| `ssh_certificate_requirement` | Contains activities related to requiring members use SSH certificates to access organization resources.
-{%- endif %}
-| `staff` | Contains activities related to a site admin performing an action.
-| `team` | Contains activities related to teams in an organization.
-| `team_discussions` | Contains activities related to managing team discussions for an organization.
-{%- ifversion ghec %}
-| `team_sync_tenant` | Contains activities related to team synchronization with an IdP for an enterprise or organization.
-{%- endif %}
-{%- ifversion fpt or ghes %}
-| `two_factor_authentication` | Contains activities related to two-factor authentication.
-{%- endif %}
-| `user` | Contains activities related to users in an enterprise or organization.
-{%- ifversion ghec or ghes %}
-| `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise.
-{%- endif %}
-| `workflows`   | Contains activities related to {% data variables.product.prodname_actions %} workflows.
+{%- ifversion fpt or ghec %} | `account` | Organization アカウントに関連するアクティビティが含まれます。
+| `advisory_credit`   | {% data variables.product.prodname_advisory_database %} のセキュリティ アドバイザリのコントリビューターのクレジットに関連するアクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dotcom %} セキュリティ アドバイザリの概要](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+{%- endif %} | `artifact` | {% data variables.product.prodname_actions %} ワークフロー実行成果物に関連するアクティビティが含まれます。
+{%- ifversion audit-log-streaming %} | `audit_log_streaming`  | Enterprise アカウント内の Organization のストリーミング監査ログに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion fpt or ghec %} | `billing` | Organization の請求先に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghec or ghes or ghae %} | `business`  | Enterprise のビジネス設定に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_advanced_security` | エンタープライズ内の {% data variables.product.prodname_GH_advanced_security %} に関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+| `business_secret_scanning` | エンタープライズ内の {% data variables.product.prodname_secret_scanning %} に関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+{%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `business_secret_scanning_custom_pattern` | Enterprise 内の{% data variables.product.prodname_secret_scanning %}のカスタム パターンに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_secret_scanning_push_protection` | Enterprise 内の{% data variables.product.prodname_secret_scanning %}のプッシュ保護機能に関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+| `business_secret_scanning_push_protection_custom_message` | エンタープライズでプッシュ保護がトリガーされたときに表示されるカスタム メッセージに関連するアクティビティが含まれます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+{%- endif %} | `checks`   | チェック スイートと実行に関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `codespaces` | Organization の codespace に関連するアクティビティが含まれます。
+{%- endif %} | `commit_comment` | コミット コメントの更新または削除に関連するアクティビティが含まれます。
+{%- ifversion ghes %} | `config_entry` | 構成設定に関連するアクティビティが含まれます。 これらのイベントは、サイト管理者の監査ログにのみ表示されます。
+{%- endif %} | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %} に対する組織レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
+| `dependabot_alerts_new_repos`   | Organization 内に作成された新しいリポジトリ内の {% data variables.product.prodname_dependabot_alerts %} に対する Organization レベルの構成アクティビティが含まれます。
+| `dependabot_repository_access` | Organization {% data variables.product.prodname_dependabot %} 内のどのプライベート リポジトリへのアクセスが許可されているかに関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | 既存のリポジトリの {% data variables.product.prodname_dependabot_security_updates %} に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %} の構成](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
+| `dependabot_security_updates_new_repos` | Organization 内に作成された新しいリポジトリ内の {% data variables.product.prodname_dependabot_security_updates %} の Organization レベルの構成アクティビティが含まれます。
+{%- endif %} | `dependency_graph` | リポジトリの依存関係グラフの Organization レベルの設定アクティビティが含まれます。 詳細については、「[依存関係グラフの概要](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
+| `dependency_graph_new_repos`  | Organization 内に作成された新しいリポジトリの Organization レベルの構成アクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `discussion` | チーム ディスカッションに関連するアクティビティが含まれます。
+| `discussion_comment` | チーム ページのディスカッションに投稿されたコメントに関連するアクティビティが含まれます。
+| `discussion_post`   | チーム ページに投稿されたディスカッションに関連するアクティビティが含まれます。
+| `discussion_post_reply`   | チーム ページに投稿されたディスカッションへの返答に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghec or ghes %} | `dotcom_connection` | {% data variables.product.prodname_github_connect %} に関連するアクティビティが含まれます。
+| `enterprise` | Enterprise 設定に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghec %} | `enterprise_domain` | 検証済みの Enterprise ドメインに関連するアクティビティが含まれます。
+| `enterprise_installation` | {% data variables.product.prodname_github_connect %} Enterprise 接続に関連付けられた {% data variables.product.prodname_github_app %} に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion fpt or ghec %} | `environment` | {% data variables.product.prodname_actions %} 環境に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghae %} | `external_group` | Okta グループに関連するアクティビティが含まれます。
+| `external_identity` | Okta グループ内のユーザーに関連するアクティビティが含まれます。
+{%- endif %} | `gist` | Git に関連するアクティビティが含まれます。
+| `hook` | Webhook に関連するアクティビティが含まれます。
+| `integration` | アカウント内の統合に関連するアクティビティが含まれます。
+| `integration_installation` | アカウント内にインストールされた統合に関連するアクティビティが含まれます。
+| `integration_installation_request`  | 所有者が Organaization 内で使用する統合を承認するように求める Organization メンバーの要求に関連するアクティビティが含まれます。
+{%- ifversion ghec or ghae %} | `ip_allow_list`   | Organization の IP 許可リストの有効化または無効化に関連するアクティビティが含まれます。
+| `ip_allow_list_entry`   | Organization の IP 許可リスト エントリの作成、削除、編集に関連するアクティビティが含まれます。
+{%- endif %} | `issue`  | リポジトリ内の issue のピン留め、転送、または削除に関連するアクティビティが含まれます。
+| `issue_comment` | issue コメントのピン留め、転送、または削除に関連するアクティビティが含まれます。
+| `issues` | Organization の issue 作成の有効化または無効化に関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `marketplace_agreement_signature` | {% data variables.product.prodname_marketplace %} 開発者契約の署名に関連するアクティビティが含まれます。
+| `marketplace_listing` | {% data variables.product.prodname_marketplace %} のアプリの一覧表示に関連するアクティビティが含まれます。
+{%- endif %} | `members_can_create_pages`   | Organization 内のリポジトリの {% data variables.product.prodname_pages %} サイトの公開の管理に関連するアクティビティが含まれます。 詳細については、「[Organization の {% data variables.product.prodname_pages %} サイトの公開を管理する](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)」を参照してください。
+| `members_can_create_private_pages` | Organization 内のリポジトリの {% data variables.product.prodname_pages %} サイトの公開の管理に関連するアクティビティが含まれます。
+| `members_can_create_public_pages` | Organization 内のリポジトリの公開の {% data variables.product.prodname_pages %} サイトの公開の管理に関連するアクティビティが含まれます。
+{%- ifversion ghec or ghes or ghae %} | `members_can_delete_repos` | Organization のリポジトリ作成の有効化または無効化に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion fpt or ghec %} | `members_can_view_dependency_insights` | Organization メンバーが依存関係の分析情報を表示できるようにする Organization レベルの構成アクティビティが含まれます。
+| `migration` | *ソース* の場所 ({% data variables.product.prodname_dotcom_the_website %} Organization、{% data variables.product.prodname_ghe_server %} インスタンスなど) から *ターゲット* の {% data variables.product.prodname_ghe_server %} インスタンスへのデータの転送に関連するアクティビティが含まれます。
+{%- endif %} | `oauth_access` | OAuth アクセス トークンに関連するアクティビティが含まれます。
+| `oauth_application` | OAuth アプリに関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `oauth_authorization` | OAuth アプリの認可に関連するアクティビティが含まれます。
+{%- endif %} | `org`   | Organization メンバーシップに関連するアクティビティが含まれます。
+{%- ifversion ghec or ghes or ghae %} | `org_credential_authorization` | SAML シングル サインオンで使用する資格情報の認可に関連するアクティビティが含まれます。
+{%- endif %}{%- ifversion secret-scanning-audit-log-custom-patterns %} | `org_secret_scanning_custom_pattern` | Organization 内のシークレット スキャンのカスタム パターンに関連するアクティビティが含まれます。 詳細については、「[Secret Scanning のカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
+| `org.secret_scanning_push_protection` | Organization 内のカスタム パターンをスキャンするシークレットに関連するアクティビティが含まれます。 詳細については、「[シークレット スキャンによるプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。
+{%- endif %} | `organization_default_label` |Organization のリポジトリのデフォルト ラベルに関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec or ghes %} | `organization_domain` | 検証済みの Organization ドメインに関連するアクティビティが含まれます。
+| `organization_projects_change` | Enterprise 内の Organization 全体のプロジェクト ボードに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion fpt or ghec %} | `pages_protected_domain` | {% data variables.product.prodname_pages %} の検証済みカスタム ドメインに関連するアクティビティが含まれます。
+| `payment_method`  | Organization が {% data variables.product.prodname_dotcom %}. に対して支払う方法に関連するアクティビティが含まれます。
+| `prebuild_configuration` | {% data variables.product.prodname_github_codespaces %} の事前ビルド構成に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghes %} | `pre_receive_environment` | pre-receive フック環境に関連するアクティビティが含まれます。
+| `pre_receive_hook` | pre-receive フックに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghes %} | `private_instance_encryption` | Enterprise のプライベート モードの有効化に関連するアクティビティが含まれます。
+{%- endif %} | `private_repository_forking` | リポジトリ、Organization、または Enterprise のプライベート リポジトリと内部リポジトリのフォークの許可に関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `profile_picture`   | Organization のプロファイル画像に関連するアクティビティが含まれます。
+{%- endif %} | `project` | プロジェクト ボードに関連するアクティビティが含まれます。
+| `project_field` | プロジェクト ボードでのフィールドの作成と削除に関連するアクティビティが含まれます。
+| `project_view` | プロジェクト ボードでのビューの作成と削除に関連するアクティビティが含まれます。
+| `protected_branch` | 保護されたブランチに関連するアクティビティが含まれます。
+| `public_key` | SSH キーとデプロイ キーに関連するアクティビティが含まれます。
+| `pull_request` | pull request に関連するアクティビティが含まれます。
+| `pull_request_review` | pull request レビューに関連するアクティビティが含まれます。
+| `pull_request_review_comment` | pull request レビュー コメントに関連するアクティビティが含まれます。
+| `repo` | Organization が所有するリポジトリに関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `repository_advisory` | {% data variables.product.prodname_advisory_database %} のセキュリティ アドバイザリに関連するリポジトリレベルのアクティビティが含まれます。  詳細については、「[{% data variables.product.prodname_dotcom %} セキュリティ アドバイザリの概要](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+| `repository_content_analysis`   | [プライベート リポジトリのデータ使用の有効化または無効化](/articles/about-github-s-use-of-your-data)に関連するアクティビティが含まれます。
+| `repository_dependency_graph`   | {% ifversion fpt or ghec %}プライベート {% endif %}リポジトリの依存関係グラフの有効化または無効化に関連するリポジトリレベルのアクティビティが含まれます。 詳細については、「[依存関係グラフの概要](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
+{%- endif %} | `repository_image` | リポジトリの画像に関連するアクティビティが含まれます。
+| `repository_invitation` | リポジトリに参加するための招待に関連するアクティビティが含まれます。
+| `repository_projects_change` | リポジトリに対する、または Organaization 内のすべてのリポジトリに対する、プロジェクトの有効化に関連するアクティビティが含まれます。
+{%- ifversion ghec or ghes or ghae %} | `repository_secret_scanning`  | シークレット スキャンに関連するリポジトリレベルのアクティビティが含まれます。 詳細については、「[シークレット スキャンについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
+{%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `repository_secret_scanning_custom_pattern` | リポジトリ内のシークレット スキャン カスタム パターンに関連するアクティビティが含まれます。 詳細については、[シークレット スキャンのカスタム パターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)に関する記事を参照してください。 {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %} | `repository_secret_scanning_push_protection` | リポジトリ内のシークレット スキャン カスタム パターンに関連するアクティビティが含まれます。 詳細については、「[シークレット スキャンによるプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。
+{%- endif %} {%- ifversion fpt or ghec %} | `repository_visibility_change` | Organaization メンバーによる Organaization のリポジトリの可視性の変更許可に関連するアクティビティが含まれます。
+{%- endif %} | `repository_vulnerability_alert`   | [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) に関連するアクティビティが含まれます。
+{%- ifversion fpt or ghec %} | `repository_vulnerability_alerts` | {% data variables.product.prodname_dependabot_alerts %} に対するリポジトリレベルの構成アクティビティが含まれます。
+| `required_status_check` | 保護されたブランチの必要な状態チェックに関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghec or ghes %} | `restrict_notification_delivery` | Enterprise の承認済みドメインまたは検証済みドメインへのメール通知の制限に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion custom-repository-roles %} | `role` | [カスタム リポジトリ ロール](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion ghec or ghes or ghae %} | `secret_scanning`   | 既存のリポジトリ内のシークレット スキャンに対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[シークレット スキャンについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
+| `secret_scanning_new_repos` | Organization 内に作成された新しいリポジトリ内のシークレット スキャンに対する Organization レベルの構成アクティビティが含まれます。
+{%- endif %} {%- ifversion ghec or ghes or ghae %} | `security_key` | セキュリティ キーの登録と削除に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | スポンサー ボタンに関連するイベントが含まれます (「[リポジトリにスポンサー ボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)。
+{%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Organaization または Enterprise の SSH 証明機関に関連するアクティビティが含まれます。
+| `ssh_certificate_requirement` | メンバーが SSH 証明書を使用して Organaization リソースにアクセスすることを要求することに関連するアクティビティが含まれます。
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | サインインへのユーザーの自動リダイレクトに関連するアクティビティが含まれます (「[エンタープライズでセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)」を参照)。{% endif %} | `staff` | アクションを実行するサイト管理者に関連するアクティビティが含まれます。
+| `team` | Organization 内のチームに関連するアクティビティが含まれます。
+| `team_discussions` | Organization のチーム ディスカッション管理に関連するアクティビティが含まれます。
+{%- ifversion ghec %} | `team_sync_tenant` | Enterprise または Organaization の IdP とのチーム同期に関連するアクティビティが含まれます。
+{%- endif %} {%- ifversion fpt or ghes %} | `two_factor_authentication` | 2 要素認証に関連するアクティビティが含まれます。
+{%- endif %} | `user` | Enterprise または Organaization 内のユーザーに関連するアクティビティが含まれます。
+{%- ifversion ghec or ghes %} | `user_license` | Enterprise のライセンスシートを使用し、Enterprise のメンバーであるユーザーに関連するアクティビティが含まれます。
+{%- endif %} | `workflows`   | {% data variables.product.prodname_actions %} ワークフローに関連するアクティビティが含まれます。

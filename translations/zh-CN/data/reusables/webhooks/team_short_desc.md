@@ -1,1 +1,9 @@
-与组织的团队相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[团队](/rest/reference/teams)”REST API。
+---
+ms.openlocfilehash: a7d94faf92918e516e86d4c2c316a698f0902c00
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876012"
+---
+与组织的团队相关的活动。 {% data reusables.webhooks.action_type_desc %} 有关详细信息，请参阅“[团队](/rest/reference/teams)”REST API。

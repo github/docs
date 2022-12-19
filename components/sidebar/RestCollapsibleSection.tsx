@@ -45,7 +45,8 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     router.query.productId === 'rest' ||
     // These pages need the Article Page mini tocs instead of the Rest Pages
     router.asPath.includes('/rest/guides') ||
-    router.asPath.includes('/rest/overview')
+    router.asPath.includes('/rest/overview') ||
+    router.asPath.includes('/rest/quickstart')
       ? []
       : useAutomatedPageContext().miniTocItems
 
@@ -66,7 +67,11 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   }, [])
 
   useEffect(() => {
-    if (!router.asPath.includes('guides') && !router.asPath.includes('overview')) {
+    if (
+      !router.asPath.includes('guides') &&
+      !router.asPath.includes('overview') &&
+      !router.asPath.includes('quickstart')
+    ) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -176,7 +181,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
               </div>
             ) : (
               page.childPages.map((childPage, i) => {
-                const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+                const childTitle = childPage.shortTitle || childPage.title
                 const isActive = routePath.includes(childPage.href)
                 const isCurrent = routePath === childPage.href
 

@@ -14,6 +14,9 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 shortTitle: Azure Blob storage
 ---
+
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Prerequisites
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
@@ -33,14 +36,14 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage
 
-{% data reusables.enterprise_installation.ssh-into-instance %}
-{% data reusables.actions.perform-blob-storage-precheck %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}
 {% data reusables.actions.enterprise-enable-checkbox %}
 1. Under "Artifact & Log Storage", select **Azure Blob Storage**, and enter your Azure storage account's connection string. For more information on getting the connection string for your storage account, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys).
-  ![Radio button for selecting Azure Blob Storage and the Connection string field](/assets/images/enterprise/management-console/actions-azure-storage.png)
+
+   ![Radio button for selecting Azure Blob Storage and the Connection string field](/assets/images/enterprise/management-console/actions-azure-storage.png)
+{% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

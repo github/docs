@@ -12,9 +12,14 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Crear una app con la API de REST
+shortTitle: Build an app with the REST API
+ms.openlocfilehash: 93679e41fe145406ed1eb99e2daaba6bf8e10e76
+ms.sourcegitcommit: 872c4751a3fc255671295a5dea6a2081c66b7b71
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/30/2022
+ms.locfileid: '145092191'
 ---
-
 ## Introducción
 
 Esta guía te ayudará a crear una GitHub App y a ejecutarla en un servidor. La app que crees agregará una etiqueta a todos los informes de problemas nuevos que estén abiertos en el repositorio en donde ésta se instale.
@@ -26,76 +31,76 @@ Este proyecto te mostrará cómo hacer lo siguiente:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% ifversion fpt or ghec %}Puedes revisar los ejemplos exitosos de estas aplicaciones en [GitHub Marketplace](https://github.com/marketplace) y en [Compatible con GitHub](https://github.com/works-with).{% endif %}
+Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% ifversion fpt or ghec %}Puedes consultar ejemplos correctos de aplicaciones en [GitHub Marketplace](https://github.com/marketplace) y [Trabajos con GitHub](https://github.com/works-with).{% endif %}
 
 ## Prerrequisitos
 
 Puede que te sea útil tener un entendimiento básico de lo siguiente:
 
-* [GitHub Apps](/apps/about-apps)
+* [Aplicaciones de GitHub](/apps/about-apps)
 * [Webhooks](/webhooks)
-* [El lenguaje de programación Ruby](https://www.ruby-lang.org/en/)
-* [Las API de REST](/rest)
+* [Lenguaje de programación Ruby](https://www.ruby-lang.org/en/)
+* [API de REST](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 Pero puedes seguir esta guía sin importar tu nivel de experiencia. ¡Colocaremos enlaces para la información que requieras en cada fase!
 
 Antes de que comiences, necesitas hacer lo siguiente:
 
-1. Clona el repositorio [Utilizar la API de GitHub en tu app](https://github.com/github-developer/using-the-github-api-in-your-app).
+1. Clone el repositorio [Uso de la API de GitHub en la aplicación](https://github.com/github-developer/using-the-github-api-in-your-app).
   ```shell
     $ git clone https://github.com/github-developer/using-the-github-api-in-your-app.git
   ```
 
-  Dentro del directorio, encontrarás un archivo de nombre `template_server.rb` con el código de plantilla que utilizarás en este inicio rápido, y un archivo llamado `server.rb` con el código del proyecto completo.
+  En el directorio, encontrarás un archivo `template_server.rb` con el código de plantilla que usarás en este inicio rápido y un archivo `server.rb` con el código del proyecto completado.
 
-1. Sigue los pasos en la guía de inicio rápido "[Configurar tu ambiente de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/)" para configurar y ejecutar el servidor `template_server.rb` de la app. Si ya habías completado alguna guía de inicio rápido para las GitHub Apps diferente a aquella de [Configurar tu ambiente de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/), deberás registrar una GitHub App _nueva_ e iniciar un canal de Smee nuevo para utilizarlo con esta guía.
+1. Sigue los pasos de la guía de inicio rápido [Configuración del entorno de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/) para configurar y ejecutar el servidor de la aplicación `template_server.rb`. Si anteriormente has completado un inicio rápido de aplicación de GitHub diferente de [Configuración del entorno de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/), debes registrar una _nueva_ aplicación de GitHub e iniciar un nuevo canal Smee para usarlo con este inicio rápido.
 
-  Esta guía de inicio rápido incluye el mismo código de `template_server.rb` que aquella llamada [Configurar tu ambiente de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/). **Nota:** Mientras sigues la guía de inicio rápido de [Configurar tu ambiente de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/) asegúrate de utilizar los archivos de proyecto que se incluyen en el repositorio [Utilizar la API de GitHub para tu app](https://github.com/github-developer/using-the-github-api-in-your-app).
+  Este inicio rápido incluye el mismo código `template_server.rb` que el inicio rápido [Configuración del entorno de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/). **Nota:** A medida que sigas el inicio rápido [Configuración del entorno de desarrollo](/apps/quickstart-guides/setting-up-your-development-environment/), asegúrate de usar los archivos del proyecto incluidos en el repositorio [Uso de la API de GitHub en la aplicación](https://github.com/github-developer/using-the-github-api-in-your-app).
 
-  Consulta la sección [Solución de problemas](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) si te encuentras con algún problema al configurar tu GitHub App de plantilla.
+  Consulta la sección [Solución de problemas](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) si tienes problemas para configurar la aplicación de plantilla de GitHub.
 
 ## Crear la app
 
-Ahora que estás familiarizado con el código de `template_server.rb`, vas a crear el código que agregará la etiqueta `needs-response` automáticamente a todos los informes de problemas que estén abiertos en el repositorio en donde se instale la app.
+Ahora que estás familiarizado con el código `template_server.rb`, crearás código que agrega automáticamente la etiqueta `needs-response` a todas las propuestas abiertas en el repositorio en el que está instalada la aplicación.
 
-El archivo `template_server.rb` contiene el código de la plantilla de la app que no se ha personalizado aún. En este archivo, verás código de marcador de posición para gestionar eventos de webhook y algún otro tipo de código para inicializar el cliente de Octokit.rb.
+El archivo `template_server.rb` contiene código de plantilla de aplicación que aún no se ha personalizado. En este archivo, verás código de marcador de posición para gestionar eventos de webhook y algún otro tipo de código para inicializar el cliente de Octokit.rb.
 
 {% note %}
 
-**Nota:** El `template_server.rb` contiene muchos comentarios de código que complementan esta guía y explican detalles técnicos adicionales. Es posible que le resulte útil leer los comentarios de ese archivo ahora, antes de continuar con esta sección, para obtener resumen de cómo funciona el código.
+**Nota:** `template_server.rb` contiene muchos comentarios de código que complementan esta guía y explican detalles técnicos adicionales. Es posible que le resulte útil leer los comentarios de ese archivo ahora, antes de continuar con esta sección, para obtener resumen de cómo funciona el código.
 
-El código personalizado final que crees al terminar esta guía se proporciona en el archivo [`server.rb`](https://github.com/github-developer/using-the-github-api-in-your-app/blob/master/server.rb). Pero, ¡intenta esperar hasta que termines para darle un vistazo!
+El código personalizado final que crearás al final de esta guía se proporciona en [`server.rb`](https://github.com/github-developer/using-the-github-api-in-your-app/blob/master/server.rb). Pero, ¡intenta esperar hasta que termines para darle un vistazo!
 
 {% endnote %}
 
 Estos son los pasos que tendrás que completar para crear tu primer GitHub App:
 
-1. [Actualizar los permisos de la app](#step-1-update-app-permissions)
+1. [Actualización de los permisos de la aplicación](#step-1-update-app-permissions)
 2. [Agregar la gestión de eventos](#step-2-add-event-handling)
-3. [Crear una etiqueta nueva](#step-3-create-a-new-label)
+3. [Creación de una nueva etiqueta](#step-3-create-a-new-label)
 4. [Agregar la gestión de etiquetas](#step-4-add-label-handling)
 
-## Paso 1. Actualizar los permisos de la app
+## Paso 1. Actualización de los permisos de la aplicación
 
-Cuando [registraste tu app por primera vez](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), aceptaste los permisos predeterminados, lo que significa que tu app no tiene acceso a la mayoría de los recursos. Para este ejemplo, tu app necesitará el permiso para leer los informes de problemas y escribir etiquetas.
+Cuando [registraste por primera vez la aplicación](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), aceptaste los permisos predeterminados, lo que significa que la aplicación no tiene acceso a la mayoría de los recursos. Para este ejemplo, tu app necesitará el permiso para leer los informes de problemas y escribir etiquetas.
 
 Para actualizar los permisos de tu app:
 
-1. Selecciona tu app de la [página de configuración de la app](https://github.com/settings/apps) y da clic en **Permisos & Webhooks** en la barra lateral.
-1. En la sección de "Permisos", encuentra "Informes de problemas"; y selecciona **Lectura & Escritura** en el menú desplegable de "Acceso" que está a un costado. La descripción dice que esta opción otorga acceso tanto a informes de problemas como a etiquetas, que es exactamente lo que buscas.
-1. En la sección "Suscribirse a los eventos", selecciona **Informes de problemas** para suscribirte a este evento.
+1. Selecciona la aplicación en la [página de configuración de la aplicación](https://github.com/settings/apps) y haz clic en **Permisos y webhooks** en la barra lateral.
+1. En la sección "Permisos", busca "Propuestas" y, al lado, selecciona **Lectura y escritura** en la lista desplegable "Acceso". La descripción dice que esta opción otorga acceso tanto a informes de problemas como a etiquetas, que es exactamente lo que buscas.
+1. En la sección "Suscribirse a eventos", selecciona **Propuestas** para suscribirte al evento.
 {% data reusables.apps.accept_new_permissions_steps %}
 
-¡Genial! Tu app tiene permiso para realizar las tareas que quieres que haga. Ahora puedes agregar el código para que funcione.
+Magnífico. Tu app tiene permiso para realizar las tareas que quieres que haga. Ahora puedes agregar el código para que funcione.
 
-## Paso 2. Agregar la gestión de eventos
+## Paso 2. Agregar la gestión de eventos
 
-Lo primero que tiene que hacer tu app es escuchar si se han abierto informes de problemas nuevos. Ahora que te has suscrito alevento de **Informes de problemas**, comenzarás a recibir el webhook [`issues`](/webhooks/event-payloads/#issues), el cual se activa cuando ocurren algunas acciones relacionadas con los informes de problemas. Puedes filtrar este tipo de evento para la acción específica que quieres en tu código.
+Lo primero que tiene que hacer tu app es escuchar si se han abierto informes de problemas nuevos. Ahora que te has suscrito al evento **Propuestas**, empezarás a recibir el webhook [`issues`](/webhooks/event-payloads/#issues), que se desencadena cuando se producen determinadas acciones relacionadas con la propuesta. Puedes filtrar este tipo de evento para la acción específica que quieres en tu código.
 
-GitHub envía las cargas útiles de los webhooks como solicitudes de tipo `POST`. Ya que reenviaste las cargas útiles del webhook de Smee a `http://localhost/event_handler:3000`, tu servidor recibirá las cargas útiles de la solicitud de `POST` en la ruta `post '/event_handler'`.
+GitHub envía cargas de webhook como solicitudes `POST`. Dado que has reenviado las cargas de webhook de Smee a `http://localhost/event_handler:3000`, el servidor recibirá las cargas de solicitud `POST` en la ruta `post '/event_handler'`.
 
-Ya se incluye una ruta de `post '/event_handler'` vacía en el archivo `template_server.rb`, el cual descargaste en la sección de [prerrequisitos](#prerequisites). La ruta vacía se ve así:
+Ya se incluye una ruta vacía `post '/event_handler'` en el archivo `template_server.rb`, que has descargado en la sección de [requisitos previos](#prerequisites). La ruta vacía se ve así:
 
 ``` ruby
   post '/event_handler' do
@@ -108,7 +113,7 @@ Ya se incluye una ruta de `post '/event_handler'` vacía en el archivo `template
   end
 ```
 
-Utiliza esta ruta para gestionar el evento `issues` agregando el siguiente código:
+Use esta ruta para controlar el evento `issues`; para ello, agregue el código siguiente:
 
 ``` ruby
 case request.env['HTTP_X_GITHUB_EVENT']
@@ -119,9 +124,9 @@ when 'issues'
 end
 ```
 
-Cada vento que envíe GitHub incluye un encabezado de solicitud que se llama `HTTP_X_GITHUB_EVENT`, el cual indica el tipo de evento en la solicitud de `POST`. Ahora mismo solo te interesan los tipos de evento `issues`. Cada evento tiene un campo adicional de `action` que indica el tipo de acción que activó los eventos. Para los `issues`, el campo de `action` puede estar como `assigned`, `unassigned`, `labeled`, `unlabeled`, `opened`, `edited`, `milestoned`, `demilestoned`, `closed`, o `reopened`.
+Cada evento que GitHub envía incluye un encabezado de solicitud denominado `HTTP_X_GITHUB_EVENT`, que indica el tipo de evento en la solicitud `POST`. En este momento, solo te interesan los tipos de eventos `issues`. Cada evento tiene un campo `action` adicional que indica el tipo de acción que ha activado los eventos. Para `issues`, el campo `action` puede ser `assigned`, `unassigned`, `labeled`, `unlabeled`, `opened`, `edited`, `milestoned`, `demilestoned`, `closed` o `reopened`.
 
-Para probar tu gestor de eventos, intenta agregar un método auxiliar temporal. Lo actualizarás más adelante cuando [Agregues la gestión de etiquetas](#step-4-add-label-handling). Por ahora, agrega el siguiente código dentro de la sección `helpers do` del mismo. Puedes poner el método nuevo arriba o abajo de cualquiera de los métodos auxiliares. El orden no importa.
+Para probar tu gestor de eventos, intenta agregar un método auxiliar temporal. Se actualizará más adelante cuando [agregues la gestión de etiquetas](#step-4-add-label-handling). Por ahora, agrega el código siguiente dentro de la sección `helpers do` del código. Puedes poner el método nuevo arriba o abajo de cualquiera de los métodos auxiliares. El orden no importa.
 
 ``` ruby
 def handle_issue_opened_event(payload)
@@ -129,37 +134,37 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-Este método recibe una carga útil de evento formateada con JSON a manera de argumento. Esto significa que puedes analizar la carga útil en el método y profundizar hacia cualquier tipo de datos específico que necesites. Podría parecerte útil el inspeccionar totalmente la carga útil en algún memoento: intenta cambiar el mensaje `logger.debug 'An issue was opened!` a `logger.debug payload`. La estructura de la carga útil que ves deberá coincidir con lo que [se muestra en los documentos del evento de webhook `issues`](/webhooks/event-payloads/#issues).
+Este método recibe una carga útil de evento formateada con JSON a manera de argumento. Esto significa que puedes analizar la carga útil en el método y profundizar hacia cualquier tipo de datos específico que necesites. Es posible que te resulte útil inspeccionar la carga completa en algún momento: intenta cambiar `logger.debug 'An issue was opened!` a `logger.debug payload`. La estructura de carga que verás debe coincidir con lo que [se muestra en la documentación del evento de webhook `issues`](/webhooks/event-payloads/#issues).
 
-¡Genial! Es momento de probar los cambios.
+Magnífico. Es momento de probar los cambios.
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
 En tu buscador, visita el repositorio en donde instalaste tu app. Abre un informe de problemas nuevo en este repositorio. El informe de problemas puede decir lo que gustes. Esto es solo para hacer la prueba.
 
-Cuando regreses a ver tu terminal, deberás ver un mensaje en la salida, el cual diga, `An issue was opened!` ¡Felicidades! Acabas de agregar un gestor de eventos a tu app. 💪
+Al mirar de nuevo el terminal, deberías ver un mensaje en la salida que dice "`An issue was opened!` ¡Felicidades!". Acabas de agregar un gestor de eventos a tu app. 💪
 
-## Paso 3. Crear una etiqueta nueva
+## Paso 3. Creación de una nueva etiqueta
 
-Bien, tu app puede decirte qué informes de problemas están abiertos. Ahora querrás que agregue la etiqueta `needs-response` a cualquier informe de problemas nuevo que esté abierto en el repositorio en donde se instale.
+Bien, tu app puede decirte qué informes de problemas están abiertos. Ahora quieres que agregue la etiqueta `needs-response` a cualquier nueva propuesta abierta en un repositorio en el que la aplicación está instalada.
 
-Antes de que puedas _agregar_ la etiqueta a alguna parte, necesitarás _crear_ la etiqueta personalizada en tu repositorio. Solo necesitas hacer esto una vez. Para fines de esta guía, crea la etiqueta manualmente en GitHub. En tu repositorio, da clic en **Informes de problemas**, luego en **Etiquetas**, y después da clic en **Etiqueta nueva**. Nombra la nueva etiqueta como `needs-response`.
+Para _poder agregar_ la etiqueta en cualquier lugar, deberás _crear_ la etiqueta personalizada en el repositorio. Solo necesitas hacer esto una vez. Para fines de esta guía, crea la etiqueta manualmente en GitHub. En el repositorio, haz clic en **Propuestas**, luego en **Etiquetas** y, por último, en **Nueva etiqueta**. Asigna el nombre `needs-response` a la etiqueta nueva.
 
 {% tip %}
 
-**Tip**: ¿No sería genial si tu app pudiera crear la etiqueta mediante programación? Pues ¡[Puede hacerlo](/rest/reference/issues#create-a-label)! Intenta agregar tú mismo el código para que lo haga después de que completes los pasos en esta guía.
+**Sugerencia**: ¿No sería genial si la aplicación pudiera crear la etiqueta mediante programación? [¡Sí puede!](/rest/reference/issues#create-a-label) Intenta agregar tú mismo el código para que lo haga después de que completes los pasos en esta guía.
 
 {% endtip %}
 
-Ahora que existe la etiqueta, puedes programar tu app para que utilice la API de REST para [agregar la etiqueta a cualquier informe de problemas recién abierto](/rest/reference/issues#add-labels-to-an-issue).
+Ahora que la etiqueta existe, puedes programar la aplicación para que use la API de REST para [agregar la etiqueta a cualquier propuesta recién abierta](/rest/reference/issues#add-labels-to-an-issue).
 
 ## Paso 4. Agregar la gestión de etiquetas
 
-Felicidades—llegste al último paso: agregar la gestión de etiquetas a tu app. Para esta tarea, querrás utilizar la [Biblioteca Ocktokit.rb de Ruby](http://octokit.github.io/octokit.rb/).
+Felicidades—llegste al último paso: agregar la gestión de etiquetas a tu app. Para esta tarea, querrás usar la [biblioteca de Ruby Octokit.rb](http://octokit.github.io/octokit.rb/).
 
-En los documentos de Octokit, encuentra una lista de los [métodos de las etiquetas](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html). El método que necesitarás usar es [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method).
+En la documentación de Octokit.rb, busca la lista de [métodos de etiqueta](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html). El método que querrás usar es [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method).
 
-Una vez de regreso en el `template_server.rb`, encuentra el método que definiste previamente:
+De nuevo en `template_server.rb`, busca el método que has definido anteriormente:
 
 ``` ruby
 def handle_issue_opened_event(payload)
@@ -167,13 +172,13 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-Los documentos de [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) te muestran que necesitarás pasar tres argumentos en este método:
+La documentación de [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) muestra que deberás pasar tres argumentos a este método:
 
-* Repo (secuencia en formato `"owner/name"`)
+* Repositorio (cadena en formato `"owner/name"`)
 * Número de informe de problemas (número entero)
 * Etiquetas (matriz)
 
-Puedes analizar la carga útil para obtener tanto el repo y el número de informe de problemas. Ya que el nombre de la etiqueta siempre será el mismo (`needs-response`), podrás pasarlo como una secuencia fijada en la matriz de etiquetas. Al juntar estas piezas, tu método actualizado se podría ver más o menos así:
+Puedes analizar la carga útil para obtener tanto el repo y el número de informe de problemas. Dado que el nombre de la etiqueta siempre será el mismo (`needs-response`), puedes pasarlo como una cadena codificada de forma rígida en la matriz de etiquetas. Al juntar estas piezas, tu método actualizado se podría ver más o menos así:
 
 ``` ruby
 # When an issue is opened, add a label
@@ -186,41 +191,41 @@ end
 
 ¡Intenta abrir un informe de problemas nuevo en tu repositorio de prueba y ver lo que pasa! Si no pasa nada de inmediato, intenta actualizarlo.
 
-No verás mucho en la terminal, _pero_ deberías ver que el usuario bot agregó la etiqueta al informe de problemas.
+No verás mucho contenido en el terminal, _pero_ deberías ver que el usuario bot ha agregado una etiqueta a la propuesta.
 
 {% note %}
 
-**Nota:** Cuando las GitHub Apps toman acciones a través de la API, tales como agregar etiquetas, GitHub muestra estas acciones como si las cuentas _bot_ las realizaran. Para obtener más información, consulta la sección "[Cuentas de máquina vs cuentas de bot](/apps/differences-between-apps/#machine-vs-bot-accounts)".
+**Nota:** Cuando las aplicaciones de GitHub realizan acciones a través de la API, como agregar etiquetas, GitHub muestra estas acciones como si las realizaran cuentas de _bot_. Para obtener más información, consulta "[Comparación entre cuentas de máquina y cuentas de bot](/apps/differences-between-apps/#machine-vs-bot-accounts)".
 
 {% endnote %}
 
 Si es así, ¡felicidades! ¡Has creado una app funcional exitosamente! 🎉
 
-Puedes ver el código final en el `server.rb` dentro del [repositorio de plantilla de app](https://github.com/github-developer/using-the-github-api-in-your-app).
+Puedes ver el código final en `server.rb` en el [repositorio de plantillas de la aplicación](https://github.com/github-developer/using-the-github-api-in-your-app).
 
-Consulta la sección "[Pasos siguientes](#next-steps)" para obtener ideas de qué puedes hacer después.
+Consulta "[Pasos siguientes](#next-steps)" para obtener ideas sobre cómo puedes continuar.
 
 ## Solución de problemas
 
-Aquí te presentamos algunos problemas comunes y sus soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejos en el {% data variables.product.prodname_support_forum_with_url %}.
+Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {% data variables.product.prodname_support_forum_with_url %}.
 
-* **P:** ¡Mi servidor no está escuchando los eventos! El cliente de Smee está ejecutándose en una ventana de la terminal, y estoy enviando eventos en GitHub.com mediante la apertura de informes de problemas nuevos, pero no veo ninguna salida en la ventana de la terminal en donde estoy ejecutando el servidor.
+* **P:** Mi servidor no escucha eventos. El cliente de Smee está ejecutándose en una ventana de la terminal, y estoy enviando eventos en GitHub.com mediante la apertura de informes de problemas nuevos, pero no veo ninguna salida en la ventana de la terminal en donde estoy ejecutando el servidor.
 
-    **R:** Tal vez no tengas el dominio correcto de Smee en la configuración de tu app. Visita tu [página de configuración de la app](https://github.com/settings/apps) y vuelve a revisar los campos que se muestran en "[Registrar una app nueva con GitHub](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)". Asegúrate que el dominio en estos campos empate con el dominio que utilizaste en tu comando de `smee -u <unique_channel>` en "[Iniciar un canal de Smee nuevo](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)".
+    **R:** Es posible que no tengas el dominio de Smee correcto en la configuración de la aplicación. Visita la [página de configuración de la aplicación](https://github.com/settings/apps) y vuelve a comprobar los campos que se muestran en "[Registrar una nueva aplicación con GitHub](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)". Asegúrate de que el dominio de esos campos coincida con el dominio que has usado en el comando `smee -u <unique_channel>` en "[Inicio de un nuevo canal Smee](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)".
 
-* **P:** ¡Mi app no funciona! Abrí un nuevo informe de problemas, pero aún después de actualizar, no se le ha agregado ninguna etiqueta.
+* **P:** Mi aplicación no funciona. Abrí un nuevo informe de problemas, pero aún después de actualizar, no se le ha agregado ninguna etiqueta.
 
-    **R:** Asegúrate de que hayas hecho todo lo siguiente:
+    **R:** Asegúrate de que todo lo siguiente sea cierto:
 
-    * [Instalaste la app](/apps/quickstart-guides/setting-up-your-development-environment/#step-7-install-the-app-on-your-account) en el repositorio en donde estás abriendo el informe de problemas.
-    * Tu [cliente de Smee se está ejecutando](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel) en una ventana de la terminal.
-    * Tu [servidor web se está ejecutando](/apps/quickstart-guides/setting-up-your-development-environment/#step-6-start-the-server) sin errores en otra ventana de la terminal.
-    * Tu app tiene permisos de [lectura & escritura en los informes de problemas y está suscrita a los eventos de los mismos](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
-    * [Revisaste tu cuenta de correo electrónico](#step-1-update-app-permissions) después de actualizar los permisos y aceptaste los permisos nuevos.
+    * Has [instalado la aplicación](/apps/quickstart-guides/setting-up-your-development-environment/#step-7-install-the-app-on-your-account) en el repositorio en el que vas a abrir la propuesta.
+    * El [cliente Smee se ejecuta](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel) en una ventana del Terminal.
+    * El [servidor web se ejecuta](/apps/quickstart-guides/setting-up-your-development-environment/#step-6-start-the-server) sin errores en otra ventana del Terminal.
+    * La aplicación tiene [permisos de lectura y escritura en propuestas y está suscrita a eventos de propuesta](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
+    * Has [comprobado el correo electrónico](#step-1-update-app-permissions) después de actualizar los permisos y has aceptado los nuevos permisos.
 
 ## Conclusión
 
-Después de seguir esta guía, ¡habrás aprendido los fundamentos básicos para desarrollar GitHub Apps! Para revisar todo, debes:
+Después de seguir esta guía, ¡habrás aprendido los fundamentos básicos para desarrollar GitHub Apps! Para hacer una revisión:
 
 * Programaste tu app para escuchar eventos
 * Utilizaste la biblioteca de Octokit para hacer operaciones de la API de REST
@@ -229,11 +234,11 @@ Después de seguir esta guía, ¡habrás aprendido los fundamentos básicos para
 
 Aquí tienes algunas ideas para lo que puedes hacer después:
 
-* ¡[Vuelve a escribir tu app utilizando GraphQL](https://developer.github.com/changes/2018-04-30-graphql-supports-github-apps/)!
-* ¡Vuelve a escribir tu app en Node.js utilizando al [Probot](https://github.com/probot/probot)!
-* Haz que la app revise si la etiqueta `needs-response` ya existe en el informe de problemas, y si no, agrégala.
+* [Vuelve a escribir la aplicación con GraphQL](https://developer.github.com/changes/2018-04-30-graphql-supports-github-apps/).
+* Vuelve a escribir la aplicación en Node.js con [Probot](https://github.com/probot/probot).
+* Haz que la aplicación compruebe si la etiqueta `needs-response` ya existe en la propuesta y, si no es así, agrégala.
 * Cuando el bot agregue la etiqueta exitosamente, muestra un mensaje en la terminal. (Pista: compara la ID de la etiqueta `needs-response` con la ID de la etiqueta en la carga útil como una condición para tu mensaje, para que así, el mensaje solo muestre cuando la etiqueta relevante se agregue y no lo haga con otra etiqueta).
-* Agrega una página de llegada para tu app y conéctale una [Ruta de Sinatra](https://github.com/sinatra/sinatra#routes).
+* Agrega una página de aterrizaje a la aplicación y conecta una [ruta de Sinatra](https://github.com/sinatra/sinatra#routes) para ella.
 * Migra tu código a un servidor hospedado (como Heroku). No olvides actualizar la configuración de tu app con el dominio nuevo.
-* Comparte tu proyecto u obtén consejos en el {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
-* ¿Has creado una nueva y reluciente app que crees que pueda ser útil para otros? ¡[Agrégala a GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}
+* Comparte el proyecto u obtén consejos en {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
+* ¿Has creado una nueva y reluciente app que crees que pueda ser útil para otros? [Agrégala a GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/).{% endif %}

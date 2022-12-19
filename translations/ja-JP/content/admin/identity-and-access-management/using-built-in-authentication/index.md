@@ -1,7 +1,7 @@
 ---
 title: ビルトイン認証の利用
 shortTitle: Built-in authentication
-intro: 'If you don''t use a centralized, external system for your users'' identity, you can use built-in authentication to allow {% data variables.product.prodname_ghe_server %} to manage accounts and perform local authentication.'
+intro: 'ユーザーの ID に一元化された外部システムを使わない場合は、組み込みの認証を使って、{% data variables.product.prodname_ghe_server %} でアカウントを管理し、ローカル認証を実行できるようにすることができます。'
 versions:
   ghes: '*'
 topics:
@@ -12,5 +12,11 @@ children:
   - /configuring-built-in-authentication
   - /inviting-people-to-use-your-instance
   - /disabling-unauthenticated-sign-ups
+ms.openlocfilehash: 0bf5c4657d92a6795edfd4bb1e2528eb0ebb8682
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067284'
 ---
 

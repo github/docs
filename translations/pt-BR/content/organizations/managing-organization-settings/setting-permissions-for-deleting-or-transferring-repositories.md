@@ -13,13 +13,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Definir política de gerenciamento de repositórios
+shortTitle: Set repo management policy
+ms.openlocfilehash: 3d5aff7d4a06dae2d3b3bb010ecbf68e186b58d0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095608'
 ---
-
 Proprietários podem definir permissões para excluir ou transferir repositórios na organização.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Em "Repository deletion and transfer" (Exclusão e transferência de repositório), marque ou desmarque a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios na organização). ![Caixa de seleção para permitir que os integrantes excluam repositórios](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
-6. Clique em **Salvar**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
+5. Em "Exclusão e transferência do repositório", marque ou desmarque a opção **Permitir que os membros excluam ou transfiram repositórios para esta organização**.
+![Caixa de seleção para permitir que os integrantes excluam repositórios](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
+6. Clique em **Save** (Salvar).

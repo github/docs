@@ -21,14 +21,19 @@ topics:
   - Discounts
   - Fundamentals
   - Upgrades
-shortTitle: Sobre a cobrança
+shortTitle: About billing
+ms.openlocfilehash: a17f487d707949885a3cb8f0585feac21708bac1
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083473'
 ---
+Para obter mais informações sobre os produtos disponíveis para sua conta, confira "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.  
 
-Para obter mais informações sobre os produtos disponíveis para sua conta, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.
+Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou fazer downgrade da assinatura a qualquer momento. Para obter mais informações, confira "[Como gerenciar a cobrança para sua conta do {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)".
 
-Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou fazer downgrade da assinatura a qualquer momento. Para obter mais informações, consulte "[Gerenciar cobrança para sua conta do {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)."
-
-É possível comprar outros recursos e produtos com suas informações de pagamento existentes do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+É possível comprar outros recursos e produtos com suas informações de pagamento existentes do {% data variables.product.product_name %}. Para obter mais informações, confira "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
 
 {% data reusables.accounts.accounts-billed-separately %}
 
@@ -36,7 +41,7 @@ Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou faz
 
 {% tip %}
 
-**Dica:** o {% data variables.product.prodname_dotcom %} tem programas para estudantes e docentes acadêmicos, que incluem descontos acadêmicos. Para obter mais informações, visite [{% data variables.product.prodname_education %}](https://education.github.com/).
+**Dica:** o {% data variables.product.prodname_dotcom %} tem programas para alunos e docentes acadêmicos, que incluem descontos acadêmicos. Para obter mais informações, acesse [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 {% endtip %}
 

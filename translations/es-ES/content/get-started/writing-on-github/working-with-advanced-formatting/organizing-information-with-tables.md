@@ -10,19 +10,24 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Datos organizados con tablas
+shortTitle: Organized data with tables
+ms.openlocfilehash: 6045e9f27432233cbfcdb654c303bc02ea5666cd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145069831'
 ---
+## Creación de una tabla
 
-## Crear una tabla
-
-Puede crear tablas con barras verticales `|` y guiones `-`. Los guiones se usan para crear el encabezado de cada columna, mientras que las barras verticales separan cada columna. Debes incluir una línea en blanco antes de tu tabla para que se representen correctamente.
+Puede crear tablas con canalizaciones `|` y guiones `-`. Los guiones se usan para crear cada encabezado de columna, mientras que las barras verticales separan cada columna. Debes incluir una línea en blanco antes de tu tabla para que se representen correctamente.
 
 ```markdown
 
-| Primer encabezado | Segundo encabezado |
+| First Header  | Second Header |
 | ------------- | ------------- |
-| Contenido de la celda  | Contenido de la celda  |
-| Contenido de la celda  | Contenido de la celda  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 ```
 
 ![Tabla presentada](/assets/images/help/writing/table-basic-rendered.png)
@@ -32,10 +37,10 @@ Las barras verticales en cada lado de la tabla son opcionales.
 Las celdas pueden variar en el ancho y no es necesario que estén perfectamente alineadas dentro de las columnas. Debe haber al menos tres guiones en cada columna de la línea de encabezamiento.
 
 ```markdown
-| Comando | Descripción |
+| Command | Description |
 | --- | --- |
-| git status | Enumera todos los archivos nuevos o modificados |
-| git diff | Muestra las diferencias de archivo que no han sido preparadas |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
 ```
 
 ![Tabla presentada con ancho de celda variado](/assets/images/help/writing/table-varied-columns-rendered.png)
@@ -44,21 +49,21 @@ Las celdas pueden variar en el ancho y no es necesario que estén perfectamente 
 
 ## Formatear el contenido dentro de tu tabla
 
-Puedes utilizar [formato](/articles/basic-writing-and-formatting-syntax) como enlaces, bloques de códigos insertados y el estilo de texto dentro de tu tabla:
+Puede usar [formatos](/articles/basic-writing-and-formatting-syntax), como vínculos, bloques de código insertados y estilos de texto en la tabla:
 
 ```markdown
-| Comando | Descripción |
+| Command | Description |
 | --- | --- |
-| `git status` | Enumera todos los archivos *nuevos o modificados* |
-| `git diff` | Muestra las diferencias de archivo que **no han sido** preparadas |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
 ```
 
 ![Tabla presentada con texto formateado](/assets/images/help/writing/table-inline-formatting-rendered.png)
 
-Puedes alinear el texto a la izquierda, la derecha o en el centro de una columna al incluir dos puntos `:` a la izquierda, la derecha, o en ambos lados de los guiones dentro de la línea de encabezamiento.
+Puede alinear el texto a la izquierda, a la derecha o en el centro de una columna al incluir dos puntos `:` a la izquierda, a la derecha o a ambos lados de los guiones en la línea de encabezamiento.
 
 ```markdown
-| Alineado a la izquierda | Alineado en el centro | Alineado a la derecha |
+| Left-aligned | Center-aligned | Right-aligned |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
 | git diff     | git diff       | git diff      |
@@ -66,18 +71,18 @@ Puedes alinear el texto a la izquierda, la derecha o en el centro de una columna
 
 ![Tabla presentada con alineación de texto a la izquierda, a la derecha o al centro](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-Para incluir una barra vertical `|` como contenido dentro de tu celda, utiliza una `\` antes de la barra:
+Para incluir una barra vertical `|` como contenido en su celda, utilice una `\` antes de la barra vertical:
 
 ```markdown
-| Nombre     | Símbolo |
+| Name     | Character |
 | ---      | ---       |
-| Comilla simple | `         |
-| Barra vertical | \|        |
+| Backtick | `         |
+| Pipe     | \|        |
 ```
 
 ![Tabla presentada con una barra vertical liberada](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-## Leer más
+## Información adicional
 
-- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
+- [Especificación de {% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/gfm/)
 - "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

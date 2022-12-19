@@ -1,6 +1,6 @@
 ---
 title: 認証
-intro: '{% ifversion not ghae %}2 要素認証、{% endif %}SSH{% ifversion not ghae %}、{% endif %}コミット署名検証などの機能を使用して、アカウントとデータを安全に保ちます。'
+intro: '{% ifversion not ghae %}2 要素認証、{% endif %}SSH{% ifversion not ghae %}、{% endif %}およびコミット署名の検証などの機能を使って、アカウントとデータをセキュリティで保護された状態に保ちます。'
 redirect_from:
   - /categories/56/articles
   - /categories/ssh
@@ -56,5 +56,11 @@ children:
   - /troubleshooting-ssh
   - /managing-commit-signature-verification
   - /troubleshooting-commit-signature-verification
+ms.openlocfilehash: b5428934e7300a8e7581b03c7d43d2afd7c600bd
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145115061'
 ---
 

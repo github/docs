@@ -8,6 +8,12 @@ children:
   - /about-github-marketplace
   - /about-marketplace-badges
   - /applying-for-publisher-verification-for-your-organization
-shortTitle: Visão Geral
+shortTitle: Overview
+ms.openlocfilehash: 9534f77c571bc8d7530418c04d3ec4cd7111c3c2
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083952'
 ---
 

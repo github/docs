@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -16,9 +16,14 @@ topics:
   - Secret store
   - Repositories
   - Dependencies
-shortTitle: 暗号化されたシークレットの管理
+shortTitle: Manage encrypted secrets
+ms.openlocfilehash: 94b9e4c1945385ee9abca9cc548b159231e212c3
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106374'
 ---
-
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
 ## {% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットについて
@@ -26,7 +31,7 @@ shortTitle: 暗号化されたシークレットの管理
 {% data variables.product.prodname_dependabot %} シークレットとは、Organization レベルまたはリポジトリレベルで作成する、暗号化された資格情報のことです。
 シークレットを Organization レベルで追加した場合、そのシークレットにどのリポジトリがアクセスできるかを指定できます。 シークレットを使用して、プライベートパッケージレジストリにある依存関係を {% data variables.product.prodname_dependabot %} が更新できるようにすることができます。 シークレットを追加すると、それが {% data variables.product.prodname_dotcom %} に届く前に暗号化され、それを {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスするために使用するまで暗号化されたままとなります。
 
-{% data variables.product.prodname_dependabot %} シークレットを追加後は、_dependabot.yml_ 設定ファイルで {% raw %}`${{secrets.NAME}}`{% endraw %} のように参照できます。「NAME」は、シークレットに付けた名前としてください。 例:
+{% data variables.product.prodname_dependabot %} シークレットを追加後は、_dependabot.yml_ 設定ファイルで {% raw %}`${{secrets.NAME}}`{% endraw %} のように参照できます。「NAME」は、シークレットに付けた名前としてください。 たとえば次のような点です。 
 
 {% raw %}
 ```yaml
@@ -34,29 +39,26 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
 {% endraw %}
 
-詳しい情報については「[dependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)」を参照してください。
+詳細については、「[dependabot.yml ファイルの構成オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)」を参照してください。
 
 ### シークレットに名前を付ける
 
 {% data variables.product.prodname_dependabot %} シークレットの名前には、以下の制限があります。
-* 英数字 (`[A-Z]`, `[0-9]`)、(`_`) のみ含めることができます。 スペースは使用できません。 小文字を入力すると、大文字に変換されます。
-* 名前の最初を `GITHUB_` プレフィックスにすることはできません。
+* 英数字 (`[A-Z]`、`[0-9]`) またはアンダースコア (`_`) のみを含めることができます。 スペースは使用できません。 小文字を入力すると、大文字に変換されます。
+* `GITHUB_` プレフィックスで始めることはできません。
 * 最初を数字にすることはできません。
 
 ## {% data variables.product.prodname_dependabot %} にリポジトリシークレットを追加する
 
 {% data reusables.actions.permissions-statement-secrets-repository %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
-{% data reusables.dependabot.dependabot-secrets-button %}
-1. **New repository secret（新しいリポジトリのシークレット）**をクリックしてください。
-1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.dependabot.sidebar-secret %}
+1. **[新しいリポジトリ シークレット]** をクリックします。
+1. **[名前]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの値を入力します。
-1. [**Add secret（シークレットの追加）**] をクリックします。
+1. **[シークレットの追加]** をクリックします。
 
-   シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 [**Update**] をクリックすると、シークレットの値を変更できます。 [**Remove**] をクリックすると、シークレットを削除できます。
+   シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 **[更新]** をクリックしてシークレットの値を変更できます。 **[削除]** をクリックしてシークレットを削除できます。
 
    ![リポジトリシークレットの更新または削除](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
@@ -66,26 +68,24 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-{% data reusables.dependabot.dependabot-secrets-button %}
-1. **New organization secret（新しいOrganizationのシークレット）**をクリックしてください。
-1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
-1. シークレットの **Value（値）** を入力します。
-1. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。
-1. [**Selected repositories**] を選択した場合、以下の手順に従います。
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.dependabot.sidebar-secret %}
+1. **[新しい組織シークレット]** をクリックします。
+1. **[名前]** 入力ボックスにシークレットの名前を入力します。
+1. シークレットの **[値]** を入力します。
+1. **[リポジトリアクセス]** ドロップダウンリストから、アクセスポリシーを選びます。
+1. **[選択したリポジトリ]** を選択した場合は、次のようにします。
 
    * {% octicon "gear" aria-label="The Gear icon" %} をクリックします。
-   * このシークレットにアクセスできるリポジトリを選択します。 ![シークレットに対するリポジトリの選択](/assets/images/help/dependabot/secret-repository-access.png)
-   * [**Update selection**] をクリックします。
+   * このシークレットにアクセスできるリポジトリを選択します。 
+     ![シークレットに対するリポジトリの選択](/assets/images/help/dependabot/secret-repository-access.png)
+   * **[選択の更新]** をクリックします。
 
-1. [**Add secret（シークレットの追加）**] をクリックします。
+1. **[シークレットの追加]** をクリックします。
 
-   シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 [**Update**] をクリックすると、シークレットの値やアクセスポリシーを変更できます。 [**Remove**] をクリックすると、シークレットを削除できます。
+   シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 **[更新]** をクリックしてシークレット値またはそのアクセスポリシーを変更できます。 **[削除]** をクリックしてシークレットを削除できます。
 
    ![Organization シークレットの更新または削除](/assets/images/help/dependabot/update-remove-org-secret.png)
-
+   
 ## レジストリのIP許可リストへの{% data variables.product.prodname_dependabot %}の追加
 
-プライベートレジストリがIP許可リストとともに設定されているなら、{% data variables.product.prodname_dependabot %}がレジストリへのアクセスに使うIPアドレスは、メタAPIエンドポイントで`dependabot`の下にあります。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。
+プライベートレジストリが IP 許可リストとともに設定されているなら、{% data variables.product.prodname_dependabot %}がレジストリへのアクセスに使う IP アドレスは、メタ API エンドポイントで `dependabot` の下にあります。 詳細については、「[メタ](/rest/reference/meta)」を参照してください。

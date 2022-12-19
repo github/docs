@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} permissions for an organization'
-intro: 'Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization’s {% data variables.projects.projects_v1_boards %}.'
+title: 'Permissões de {% data variables.product.prodname_project_v1_caps %} para uma organização'
+intro: 'Proprietários de organizações e pessoas com permissões de administrador {% data variables.projects.projects_v1_board %} podem personalizar quem tem permissões de leitura, gravação e administração para o {% data variables.projects.projects_v1_boards %} da organização.'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
@@ -12,38 +12,45 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 'Permissões do {% data variables.product.prodname_project_v1_caps %}'
+shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fbc3ec7db52d6b4a417a4e9e93aea9ae717e2fca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614204'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 ## Visão geral das permissões
 
-There are three levels of permissions to a {% data variables.projects.projects_v1_board %} for people and teams:
+Há três níveis de permissões em um {% data variables.projects.projects_v1_board %} para pessoas e equipes:
 
 {% data reusables.project-management.project-board-permissions %}
 
-Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
+Os proprietários da organização e as pessoas com permissões de administrador podem conceder acesso a alguém a um {% data variables.projects.projects_v1_board %} da organização individualmente, como colaborador externo ou membro da organização ou ainda por meio da associação dele a uma equipe ou organização. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
 
-Organization owners and people with admin permissions to a {% data variables.projects.projects_v1_board %} can also:
+Proprietários de organizações e pessoas com permissões de administrador de um {% data variables.projects.projects_v1_board %} também podem:
 - Definir permissões de quadro de projeto padrão para todos os integrantes da organização.
-- Gerenciar o acesso de integrantes, equipes e colaboradores externos da organização ao quadro de projeto. For more information, see "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)", "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)", or "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
-- Gerenciar a visibilidade do quadro de projeto. For more information, see "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
+- Gerenciar o acesso de integrantes, equipes e colaboradores externos da organização ao quadro de projeto. Para obter mais informações, confira "[Gerenciar o acesso de uma equipe ao {% data variables.product.prodname_project_v1 %} de uma organização](/articles/managing-team-access-to-an-organization-project-board)", "[Gerenciar o acesso de um indivíduo ao {% data variables.product.prodname_project_v1 %} de uma organização](/articles/managing-an-individual-s-access-to-an-organization-project-board)" ou "[Gerenciar o acesso de membros da organização a um {% data variables.product.prodname_project_v1 %}](/articles/managing-access-to-a-project-board-for-organization-members)".
+- Gerenciar a visibilidade do quadro de projeto. Para obter mais informações, confira "[Gerenciar o acesso de membros da organização a um {% data variables.product.prodname_project_v1 %}](/articles/managing-access-to-a-project-board-for-organization-members)".
 
-## Cascading permissions for {% data variables.projects.projects_v1_boards %}
+## Permissões em cascata para {% data variables.projects.projects_v1_boards %}
 
 {% data reusables.project-management.cascading-permissions %}
 
-For example, if an organization owner has given all organization members read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the {% data variables.projects.projects_v1_board %}.
+Por exemplo, se um proprietário da organização dar permissões de leitura a todos os membros da organização para um {% data variables.projects.projects_v1_board %}, e um administrador do {% data variables.projects.projects_v1_board %} fornecer permissões de gravação a um membro da organização para esse quadro como um colaborador individual, essa pessoa terá permissões de gravação para o {% data variables.projects.projects_v1_board %}.
 
-## {% data variables.projects.projects_v1_board_caps %} visibility
+## Visibilidade de {% data variables.projects.projects_v1_board_caps %}
 
-{% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)."
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-## Leia mais
+{% data reusables.project-management.project-board-visibility %} Você pode alterar a visibilidade do {% data variables.projects.projects_v1_board %} de privado para {% ifversion ghae %}interno{% else %}público{% endif %} e de volta novamente. Para obter mais informações, confira "[Alterar a visibilidade do {% data variables.product.prodname_project_v1 %}](/articles/changing-project-board-visibility)".
 
-- "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility)"
-- "[Managing an individual’s access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization {% data variables.product.prodname_project_v1 %}](/articles/managing-team-access-to-an-organization-project-board)"
-- "[Managing access to a {% data variables.product.prodname_project_v1 %} for organization members](/articles/managing-access-to-a-project-board-for-organization-members)"
+## Leitura adicional
+
+- "[Alterar a visibilidade do {% data variables.product.prodname_project_v1 %}](/articles/changing-project-board-visibility)"
+- "[Gerenciar o acesso de um indivíduo ao {% data variables.product.prodname_project_v1 %} de uma organização](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
+- "[Gerenciar o acesso de uma equipe ao {% data variables.product.prodname_project_v1 %} de uma organização](/articles/managing-team-access-to-an-organization-project-board)"
+- "[Gerenciar o acesso de membros da organização a um {% data variables.product.prodname_project_v1 %}](/articles/managing-access-to-a-project-board-for-organization-members)"

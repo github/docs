@@ -1,7 +1,6 @@
 ---
-title: Troubleshooting creation and deletion of Codespaces
-intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: codespace の作成と削除のトラブルシューティング
+intro: この記事では、ストレージや構成の issue など、codespace の作成または削除時に発生する可能性のある一般的な issue に対するトラブルシューティング手順について説明します。
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,51 +8,94 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
+ms.openlocfilehash: 4a12c848fa7400ec336f5ad086eb4d2858a431f0
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180820'
 ---
+## codespace を作成する
 
-## Creating codespaces
+### codespace を作成するアクセス権がない
+{% data variables.product.prodname_github_codespaces %} は、すべてのリポジトリで利用できるわけではありません。 codespace を作成するためのオプションが表示されない場合は、そのリポジトリで {% data variables.product.prodname_github_codespaces %} を使用できない可能性があります。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces)」を参照してください。
 
-### No access to create a codespace
-{% data variables.product.prodname_codespaces %} are not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)」を参照してください。
+個人アカウントに {% data variables.product.prodname_github_codespaces %} の毎月の使用料が残っている場合、または支払い方法と使用制限を設定している場合は、パブリック リポジトリの codespaces を作成できます。 ただし、リポジトリに変更をプッシュできる場合、またはリポジトリをフォークできる場合にのみ、プライベート リポジトリの codespace を作成できます。
 
-If you believe your organization has [enabled {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_codespaces %}. 詳しい情報については「[{% data variables.product.prodname_codespaces %}の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)」を参照してください。
+個人アカウントに含まれる使用量と使用制限の設定について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の請求について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」および「[{% data variables.product.prodname_github_codespaces %} の使用制限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)」を参照してください。
 
-### Codespace does not open when created
+### 作成時に codespace が開かない
 
-If you create a codespace and it does not open:
+codespace を作成しても開かない場合:
 
-1. Try reloading the page in case there was a caching or reporting problem.
-2. Go to your {% data variables.product.prodname_github_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
-3. Retry creating the codespace for the repository to rule out a transient communication failure.
+1. キャッシュまたはレポートの問題が発生した場合は、ページを再度読み込んでみてください。
+2. {% data variables.product.prodname_github_codespaces %} ページ (https://github.com/codespaces ) に移動し、そこに新しい codespace が一覧表示されているかどうかを確認します。 このプロセスで、codespace が正常に作成されたが、ブラウザーに報告できなかった可能性があります。 新しい codespace が一覧表示されている場合は、そのページから直接開くことができます。
+3. 一時的な通信エラーを除外するように、リポジトリの codespace の作成を再試行します。
 
-If you still cannot create a codespace for a repository where {% data variables.product.prodname_codespaces %} are available, {% data reusables.codespaces.contact-support %}
+{% data variables.product.prodname_github_codespaces %} を使用できるリポジトリの codespace をまだ作成できない場合は、{% data reusables.codespaces.contact-support %}
 
-## Deleting codespaces
+### codespace の作成に失敗する
 
-The owner of a codespace has full control over it and only they can delete their codespaces. You cannot delete a codespace created by another user.
+codespace の作成に失敗する場合は、クラウドの一時的なインフラストラクチャの問題 (codespace の仮想マシンのプロビジョニングに関する問題など) が原因の可能性があります。 あまり一般的ではない失敗の理由は、コンテナーのビルドに 1 時間以上かかる場合です。 この場合、ビルドは取り消され、codespace の作成は失敗します。
 
-You can delete your codespaces in the browser, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} also allows you to bulk delete codespaces. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+{% note %}
 
-## Container storage
+**注:** 正常に作成されなかった codespace は使用できなくなり、削除する必要があります。 詳細については、「[codespace の削除](/codespaces/developing-in-codespaces/deleting-a-codespace)」を参照してください。
 
-codespace を作成すると、ストレージ容量に限りがあるため、時間の経過とともにスペースを解放する必要がある場合があります。 Try running any of the following commands in the {% data variables.product.prodname_codespaces %} terminal to free up storage space.
+{% endnote %}
 
-- Remove packages that are no longer used by using `sudo apt autoremove`.
-- `sudo apt clean` を使用して apt キャッシュをクリーンアップする.
-- See the top 10 largest files in the codespace with`sudo find / -printf '%s %p\n'| sort -nr | head -10`.
-- Delete unneeded files, such as build artifacts and logs.
+codespace を作成し、作成に失敗した場合:
 
-Some more destructive options:
+1. {% data variables.product.prodname_dotcom %} の [[状態] ページ](https://githubstatus.com) でアクティブなインシデントがないか確認します。
+1. [{% data variables.product.prodname_github_codespaces %} ページ](https://github.com/codespaces)に移動し、codespace を削除して、新しい codespace を作成します。
+1. コンテナーがビルドされている場合は、ストリーミング中のログを確認し、ビルドがスタックしていないことを確認します。 1 時間以上かかるコンテナー ビルドは取り消され、作成が失敗します。
 
-- Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes).
-- 追跡されていないファイルをワーキングツリーから削除する: `git clean -i`.
+   これが発生する可能性がある一般的なシナリオの 1 つは、ユーザー入力のダイアログが表示され、回答を待つスクリプトが実行されている場合です。 この場合は、対話型プロンプトを削除して、ビルドを非対話型で完了できるようにします。
 
-## Configuration
+   {% note %}
+
+   **注**: ビルド中にログを表示するには:
+   * ブラウザーで、 **[ログの表示]** をクリックします。 
+
+   ![[ログの表示] リンクが強調された Codespaces Web UI のスクリーンショット](/assets/images/help/codespaces/web-ui-view-logs.png)
+
+   * VS Code デスクトップ アプリケーションで、表示されている "リモート接続のセットアップ" の **[codespace のビルド]** をクリックします。 
+
+   ![[codespace のビルド] リンクが強調された VS Code のスクリーンショット](/assets/images/help/codespaces/vs-code-building-codespace.png)
+
+    {% endnote %}
+2. ビルドに時間がかかるコンテナーがある場合は、プレビルドを使用して codespace の作成を速めることを検討してください。 詳しくは、「[事前ビルドを構成する](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)」をご覧ください。
+
+## codespace を削除する
+
+codespace は、次の方法でのみ削除できます。
+* codespace を作成したユーザー。
+* Organization 所有の codespace の Organization 所有者。
+* 保持期間の終了時の自動的な削除。 
+
+詳しくは、「[codespace の削除](/codespaces/developing-in-codespaces/deleting-a-codespace)」と「[codespace の自動削除を構成する](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)」をご覧ください。
+
+## コンテナー ストレージ
+
+codespace を作成すると、ストレージ容量に限りがあるため、時間の経過とともにスペースを解放する必要がある場合があります。 {% data variables.product.prodname_github_codespaces %} ターミナルで次のコマンドのいずれかを実行してみて、ストレージ スペースを解放します。
+
+- `sudo apt autoremove` を使用して、使用されなくなったパッケージを削除します。
+- `sudo apt clean` を使用して apt キャッシュをクリーンアップします。
+- `sudo find / -printf '%s %p\n'| sort -nr | head -10` で、codespace 内でサイズが上位 10 個のファイルを参照します。
+- ビルド成果物やログなど、不要なファイルを削除します。
+
+より破壊的なオプション:
+
+- `docker system prune` を使用して (すべての画像を削除する場合は `-a` を、すべてのボリュームを削除する場合は `--volumes` を付加します)、未使用の Docker イメージ、ネットワーク、コンテナーを削除します。
+- 追跡されていないファイルを作業ツリーから削除します: `git clean -i`。
+
+## 構成
 
 {% data reusables.codespaces.recovery-mode %}
 
 ```
 This codespace is currently running in recovery mode due to a container error.
 ```
+作成ログを確認し、必要に応じて開発コンテナーの構成を更新します。 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} のログ](/codespaces/troubleshooting/github-codespaces-logs)」を参照してください。
 
-Review the creation logs, update the dev container configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."
+その後、codespace を再起動するか、コンテナーをリビルドしてみてください。 コンテナーの再構築について詳しくは、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)」を参照してください。

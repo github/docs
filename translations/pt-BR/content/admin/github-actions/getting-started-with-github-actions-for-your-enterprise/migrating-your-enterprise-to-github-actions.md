@@ -1,6 +1,6 @@
 ---
 title: Fazendo a migração da sua empresa para o GitHub Actions
-shortTitle: Migrar para Ações
+shortTitle: Migrate to Actions
 intro: 'Aprenda a planejar uma migração para {% data variables.product.prodname_actions %} para sua empresa a partir de outro provedor.'
 versions:
   ghec: '*'
@@ -10,15 +10,20 @@ type: how_to
 topics:
   - Actions
   - Enterprise
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159535'
 ---
-
 ## Sobre as migrações corporativas para {% data variables.product.prodname_actions %}
 
 Para fazer a migração da sua empresa para {% data variables.product.prodname_actions %} a partir de um sistema existente, você pode planejar a migração, concluir a migração e desativar os sistemas existentes.
 
-Este guia aborda considerações específicas sobre migrações. Para obter informações adicionais sobre a introdução de {% data variables.product.prodname_actions %} à sua empresa, consulte "[Apresentando {% data variables.product.prodname_actions %} à sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise). "
+Este guia aborda considerações específicas sobre migrações. Para obter mais informações sobre como apresentar o {% data variables.product.prodname_actions %} à sua empresa, confira "[Apresentação do {% data variables.product.prodname_actions %} à sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
 
-## Planejando a sua migração
+## Como planejar a migração
 
 Antes de começar a fazer a migração da sua empresa para {% data variables.product.prodname_actions %}, você deverá identificar quais fluxos de trabalho serão migrados e como essas migrações afetarão suas equipes e, em seguida, planejar como e quando você concluirá as migrações.
 
@@ -32,7 +37,7 @@ Antes de fazer a migração para {% data variables.product.prodname_actions %}, 
 
 Primeiro, crie um inventário da criação existente e libere os fluxos de trabalho dentro de sua empresa, recolha informações sobre quais os fluxos de trabalho que estão sendo ativamente utilizados e que devem ser migrados e quais podem ser deixados para trás.
 
-Em seguida, aprenda as diferenças entre o seu provedor atual e {% data variables.product.prodname_actions %}. Isso ajudará você a avaliar quaisquer dificuldades na migração de cada fluxo de trabalho, e onde sua empresa pode experimentar diferentes funcionalidades. Para obter mais informações, consulte "[Fazendo a migração para {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)".
+Em seguida, aprenda as diferenças entre o seu provedor atual e {% data variables.product.prodname_actions %}. Isso ajudará você a avaliar quaisquer dificuldades na migração de cada fluxo de trabalho, e onde sua empresa pode experimentar diferentes funcionalidades. Para obter mais informações, confira "[Como migrar para o {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)".
 
 Com estas informações, você será capaz de determinar quais fluxos de trabalho você pode e deseja migrar para {% data variables.product.prodname_actions %}.
 
@@ -48,7 +53,7 @@ Identifique os portões e verificações em seu sistema existente e verifique se
 
 ### Identificando e validando as ferramentas de migração
 
-As ferramentas de migração automatizadas podem traduzir os fluxos de trabalho da sua empresa da sintaxe do sistema existente para a sintaxe exigida por {% data variables.product.prodname_actions %}. Identifique ferramentas de terceiros ou entre em contato com seu representante dedicado ou com {% data variables.contact.contact_enterprise_sales %} para perguntar sobre ferramentas que {% data variables.product.company_short %} pode fornecer.
+As ferramentas de migração automatizadas podem traduzir os fluxos de trabalho da sua empresa da sintaxe do sistema existente para a sintaxe exigida por {% data variables.product.prodname_actions %}. Identifique ferramentas de terceiros ou entre em contato com seu representante dedicado ou com {% data variables.contact.contact_enterprise_sales %} para perguntar sobre ferramentas que {% data variables.product.company_short %} pode fornecer. Por exemplo, é possível usar o {% data variables.product.prodname_actions_importer %} para planejar, definir o escopo e migrar pipelines de CI para {% data variables.product.prodname_actions %} de vários serviços com suporte. Para saber mais, confira "[Como automatizar a migração com o {% data variables.product.prodname_actions_importer %}](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)".
 
 Depois de identificar uma ferramenta para automatizar suas migrações, valide a ferramenta executando a ferramenta em alguns fluxos de trabalho de teste e verificando que os resultados são como esperado.
 
@@ -60,7 +65,7 @@ Determine a abordagem de migração que funcionará melhor para a sua empresa. A
 
 Recomendamos uma abordagem iterativa que combina gerenciamento ativo com autosserviço. Comece com um pequeno grupo de primeiros usuários que podem atuar como seus campeões internos. Identifique um punhado de fluxos de trabalho que são abrangentes o suficiente para representar a amplitude do seu negócio. Trabalhe com seus primeiros usuários para fazer a migração desses fluxos de trabalho para {% data variables.product.prodname_actions %}, iterando conforme necessário. Isto dará a outras equipas confiança de que os seus fluxos de trabalho também podem ser migrados.
 
-Em seguida, disponibilize {% data variables.product.prodname_actions %} para as outras partes da sua organização. Forneça recursos para ajudar estas equipes a migrar seus próprios fluxos de trabalho para {% data variables.product.prodname_actions %}, e informe às equipes quando os sistemas existentes serão desativados.
+Em seguida, disponibilize {% data variables.product.prodname_actions %} para as outras partes da sua organização. Forneça recursos para ajudar estas equipes a migrar seus próprios fluxos de trabalho para {% data variables.product.prodname_actions %}, e informe às equipes quando os sistemas existentes serão desativados. 
 
 Por fim, informe qualquer a equipe que ainda esteja usando seus sistemas antigos que conclua a migração dentro de um prazo específico. Podem mostrar os sucessos de outras equipas para garantir que a migração é possível e desejável.
 

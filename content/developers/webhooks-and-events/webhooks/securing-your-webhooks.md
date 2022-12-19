@@ -30,19 +30,19 @@ To set your token on GitHub:
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
-$ export SECRET_TOKEN=<em>your_token</em>
+$ export SECRET_TOKEN=YOUR-TOKEN
 ```
 
 **Never** hardcode the token into your app!
 
 ## Validating payloads from GitHub
 
-When your secret token is set, {% data variables.product.product_name %} uses it to create a hash signature with each payload. This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
+When your secret token is set, {% data variables.product.product_name %} uses it to create a hash signature with each payload. This hash signature is included with the headers of each request as `x-hub-signature-256`.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrates using the `X-Hub-Signature-256` header.
+**Note:** For backward-compatibility, we also include the `x-hub-signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `x-hub-signature-256` header for improved security. The example below demonstrates using the `x-hub-signature-256` header.
 
 {% endnote %}
 {% endif %}

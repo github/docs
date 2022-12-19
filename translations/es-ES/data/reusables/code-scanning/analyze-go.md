@@ -1,1 +1,9 @@
-{% data variables.product.prodname_codeql %} también ejecuta una compilación para que los proyectos de Go configuren el proyecto. Sin embargo, en contraste con el resto de los lenguajes compilados, todos los archivos de Go en el repositorio se extraen, y no únicamente aquellos que se compilaron. Puedes utilizar comandos personalizados de compilación para saltarte la extracción de archivos de Go que no haya tocado la compilación.
+---
+ms.openlocfilehash: 60f5abc1af5d94ad0c6e7565cf2edca9f009719a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106961"
+---
+En estos lenguajes, {% data variables.product.prodname_codeql %} analiza los archivos de origen del repositorio que se han compilado. En cualquiera de estos lenguajes, puedes deshabilitar `autobuild` y, en su lugar, usar comandos de compilación personalizados para analizar solo los archivos compilados con estos comandos personalizados.

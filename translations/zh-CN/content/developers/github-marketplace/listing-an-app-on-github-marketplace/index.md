@@ -21,6 +21,12 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
-shortTitle: 在 Marketplace 中上架应用程序
+shortTitle: List an app on the Marketplace
+ms.openlocfilehash: e20f44f2287195ed5cdf0f914b64e6a9a1bbeda2
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145084964'
 ---
 

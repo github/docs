@@ -1,2 +1,10 @@
-- {% data variables.product.prodname_copilot %}は、検証済みの学生やオープンソースのメンテナなら無料で使用できます。
-- 学生やオープンソースのメンテナではない人は、1回60日のトライアルで{% data variables.product.prodname_copilot %}を無料で試すことができます。 無料のトライアルが終わったあと、継続して使うには有料プランが必要になります。 無料トライアルを始めるには、支払い情報を提供しなければなりません。 詳しい情報については、「[{% data variables.product.prodname_copilot %}の支払いについて](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
+---
+ms.openlocfilehash: 69fce359695e2b23342e04a73397ac717d580b7b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193455"
+---
+- 検証済みの学生、教師とオープンソースのメンテナンス担当者は、{% data variables.product.prodname_copilot %} を無料で使えます。 
+- 学生、教師、またはオープンソースのメンテナンス担当者でない場合は、アクティブな無料試用版またはサブスクリプションが必要です。 詳しくは、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」をご覧ください。

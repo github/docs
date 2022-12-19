@@ -1,15 +1,14 @@
----
 date: '2021-08-24'
 sections:
   security_fixes:
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - 自動アップデートに関係するJournaldのメッセージ (`Adding h/m/s random time.`)が、syslogに記録されました。
-    - リクエストに失敗する内部APIへのGitフックが、明示的な`nil`を返す代わりに`undefined method body for "success":String (NoMethodError)`という例外を返しました。
+    - "自動更新に関連する Journald メッセージ (\"h/m/s ランダム時間の追加。\") が、syslog に記録されました。"
+    - "要求に失敗する内部 API への Git フックが、明示的な \"nil\" を返す代わりに \"\"success\" に対して定義されていないメソッド本文: String (NoMethodError)\"という例外を返しました。"
   known_issues:
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"

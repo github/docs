@@ -13,16 +13,21 @@ topics:
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
 shortTitle: HA for GitHub Actions
+ms.openlocfilehash: c8b71ddb651baa0757100c356ce3f9edb0e1edee
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145112702'
 ---
-
 ## {% data variables.product.prodname_actions %} データのレプリケーションまたは冗長性
 
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
 データの冗長性またはレプリケーションを使用するように、{% data variables.product.prodname_actions %} 外部ストレージを設定することを強くお勧めします。 詳細については、次のストレージプロバイダのドキュメントを参照してください。
 
-* [Azure Storage 冗長性ドキュメント](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-* [Amazon S3 レプリケーションドキュメント](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
+* [Azure Storage 冗長性に関するドキュメント](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
+* [Amazon S3 レプリケーションに関するドキュメント](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
 
 ## High Availability レプリカ
 
@@ -30,7 +35,7 @@ shortTitle: HA for GitHub Actions
 
 High Availability 設定を有効にすると、レプリカは {% data variables.product.prodname_actions %} 外部ストレージ設定を使用するように自動的に設定されます。 レプリカを昇格させるためにフェイルオーバーを開始する場合、{% data variables.product.prodname_actions %} に対して追加の設定変更は必要ありません。
 
-詳しい情報については、「[レプリカアプライアンスへのフェイルオーバーを開始する](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)」を参照してください。
+詳細については、「[レプリカ アプライアンスへのフェイルオーバーの開始](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)」を参照してください。
 
 ### High Availabilityレプリカの削除
 

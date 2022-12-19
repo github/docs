@@ -18,49 +18,48 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
-shortTitle: Revisar alterações de dependência
+shortTitle: Review dependency changes
+ms.openlocfilehash: 34cefbae8b7ccfd32773a47de2509a6eccc7a799
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106602'
 ---
-
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% data reusables.dependency-review.beta %}
-
-## Sobre revisão de dependências
+## Sobre a análise de dependência
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Antes de usar a revisão de dependências em um repositório privado, você deve habilitar o gráfico de dependências. Para obter mais informações, consulte "[Explorando as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)"{% endif %}
+{% ifversion ghec %}Antes de usar a revisão de dependências em um repositório privado, você deve habilitar o gráfico de dependências. Para obter mais informações, confira "[Como explorar as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".{% endif %}
 
-{% ifversion ghes %} Antes de você poder usar a revisão de dependências, você deverá habilitar o gráfico de dependências e conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
+{% ifversion ghes %} Para usar a revisão de dependência, você precisará habilitar o grafo de dependência e conectar {% data variables.location.product_location %} ao {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, confira "[Como habilitar alertas para dependências vulneráveis no {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
 
-Revisão de dependência permite a você "desloque para a esquerda". Você pode usar as informações preditivas fornecidas para capturar dependências vulneráveis antes que elas cheguem à produção. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
+Revisão de dependência permite a você "desloque para a esquerda". Você pode usar as informações preditivas fornecidas para capturar dependências vulneráveis antes que elas cheguem à produção. Para obter mais informações, confira "[Sobre a revisão de dependência](/code-security/supply-chain-security/about-dependency-review)".
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 
-Você pode usar o {% data variables.product.prodname_dependency_review_action %} para ajudar a aplicar as revisões de dependências em seus repositórios. {% data reusables.dependency-review.dependency-review-action-overview %}
+Você pode usar o {% data variables.product.prodname_dependency_review_action %} para impor revisões de dependência em solicitações de pull no repositório. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
-Você pode configurar o {% data variables.product.prodname_dependency_review_action %} para melhor atender às suas necessidades, especificando o tipo de vulnerabilidade de dependência que você deseja capturar. Para obter mais informações, consulte [Configurando revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)".
-{% endif %}
+{% ifversion dependency-review-action-configuration %} Você pode configurar o {% data variables.product.prodname_dependency_review_action %} de acordo com suas necessidades especificando o tipo de vulnerabilidade de dependência que deseja capturar. Para obter mais informações, confira "[Como configurar a análise de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)". {% endif %}
 
 {% endif %}
 ## Revisar as dependências em um pull request
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %}
 
-1. Se o pull request contiver muitos arquivos, use o menu suspenso **Filtro de arquivo** para recolher todos os arquivos que não registram dependências. Isso fará com que seja mais fácil focar a sua revisão nas alterações de dependência.
+1. Se a solicitação de pull contiver muitos arquivos, use o menu suspenso **Filtro de arquivo** para recolher todos os arquivos que não registram dependências. Isso fará com que seja mais fácil focar a sua revisão nas alterações de dependência.
 
-   ![Menu de filtro de arquivos](/assets/images/help/pull_requests/file-filter-menu-json.png) A revisão sobre dependências fornece uma visão mais clara do que mudou nos grandes arquivos de bloqueio, em que o diff de origem não é representado por padrão.
+   ![O menu Filtro de arquivo](/assets/images/help/pull_requests/file-filter-menu-json.png) A revisão de dependência fornece uma visão mais clara do que mudou nos arquivos de bloqueio grandes, em que a comparação de origem não é renderizada por padrão.
 
   {% note %}
 
-   **Observação:** Revisões de Dependência de diffs avançados não estão disponíveis para arquivos estáticos do JavaScript que passaram por commit como, por exemplo, `jquery.js`.
+   **Observação:** as comparações avançadas de revisão de dependência não estão disponíveis para arquivos JavaScript estáticos confirmados, como `jquery.js`.
 
    {% endnote %}
 
-1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
+1. À direita do cabeçalho de um arquivo de manifesto ou de bloqueio, veja a revisão de dependências clicando no botão de comparação avançada **{% octicon "file" aria-label="The rich diff icon" %}** .
 
    ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
@@ -70,7 +69,7 @@ Você pode configurar o {% data variables.product.prodname_dependency_review_act
 
    Quaisquer dependências adicionadas ou alteradas com vulnerabilidades são listadas primeiro, ordenadas por gravidade e, posteriormente, pelo nome da dependência. Isso significa que as dependências de severidade mais elevadas estão sempre na parte superior de uma revisão de dependência. Outras dependências estão listadas em ordem alfabética pelo nome das dependências.
 
-   O ícone ao lado de cada dependência indica se a dependência foi adicionada (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), atualizada (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>) ou removida (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) neste pull request.
+   O ícone ao lado de cada dependência indica se a dependência foi adicionada (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), atualizada (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>) ou removida (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) nesta solicitação de pull.
 
    Outras informações incluem:
 

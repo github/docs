@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting identity and access management for your enterprise
 shortTitle: Troubleshoot IAM
-intro: "Review common issues and solutions for identity and access management for your enterprise."
+intro: Review common issues and solutions for identity and access management for your enterprise.
 versions:
   ghec: '*'
   ghes: '*'
@@ -27,6 +27,7 @@ If you're experiencing problems while switching between different authentication
 
 - "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
 - "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)"
+- "[Migrating your enterprise to a new identity provider or tenant](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant)"
 
 ## Accessing your enterprise when SSO is not available
 

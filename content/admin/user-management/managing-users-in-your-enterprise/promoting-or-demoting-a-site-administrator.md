@@ -50,7 +50,7 @@ For information about promoting a user to an organization owner, see the `ghe-or
 1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
 2. Run [ghe-user-promote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-promote) with the username to promote.
   ```shell
-  $ ghe-user-promote <em>username</em>
+  $ ghe-user-promote USERNAME
   ```
 
 ## Demoting a site administrator from the command line
@@ -58,5 +58,5 @@ For information about promoting a user to an organization owner, see the `ghe-or
 1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
 2. Run [ghe-user-demote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-demote) with the username to demote.
   ```shell
-  $ ghe-user-demote <em>username</em>
+  $ ghe-user-demote USERNAME
   ```

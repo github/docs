@@ -1,1 +1,9 @@
-Atividade relacionada a pull requests. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST de "[pull requests](/rest/reference/pulls)".
+---
+ms.openlocfilehash: 775058cb2303990aa23cd2f69642bb70fe341b3a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145083274"
+---
+Atividade relacionada a pull requests. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, confira a API REST de "[solicitações de pull](/rest/reference/pulls)".

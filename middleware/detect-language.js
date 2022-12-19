@@ -1,21 +1,25 @@
 import languages, { languageKeys } from '../lib/languages.js'
 import parser from 'accept-language-parser'
 
-const chineseRegions = ['CN', 'HK']
+import { USER_LANGUAGE_COOKIE_NAME } from '../lib/constants.js'
 
-// This value is replicated in two places! See <LanguagePicker/> component.
-// Note, the only reason this is exported is to benefit the tests.
-export const PREFERRED_LOCALE_COOKIE_NAME = 'preferredlang'
+const chineseRegions = [
+  'CN', // Mainland
+  'HK', // Hong Kong
+  'SG', // Singapore
+  'TW', // Taiwan
+]
 
 function translationExists(language) {
   if (language.code === 'zh') {
     return chineseRegions.includes(language.region)
   }
-  return languageKeys.includes(language.code)
+  // 92BD1212-61B8-4E7A: Remove ` && !languages[language.code].wip` for the public ship of ko, fr, de, ru
+  return languageKeys.includes(language.code) && !languages[language.code].wip
 }
 
 function getLanguageCode(language) {
-  return language.code === 'zh' && chineseRegions.includes(language.region) ? 'cn' : language.code
+  return language.code === 'cn' && chineseRegions.includes(language.region) ? 'zh' : language.code
 }
 
 function getUserLanguage(browserLanguages) {
@@ -35,8 +39,8 @@ function getUserLanguage(browserLanguages) {
 }
 
 function getUserLanguageFromCookie(req) {
-  const value = req.cookies[PREFERRED_LOCALE_COOKIE_NAME]
-  // But if it's a WIP language, reject it.
+  const value = req.cookies[USER_LANGUAGE_COOKIE_NAME]
+  // 92BD1212-61B8-4E7A: Remove ` && !languages[value].wip` for the public ship of ko, fr, de, ru
   if (value && languages[value] && !languages[value].wip) {
     return value
   }

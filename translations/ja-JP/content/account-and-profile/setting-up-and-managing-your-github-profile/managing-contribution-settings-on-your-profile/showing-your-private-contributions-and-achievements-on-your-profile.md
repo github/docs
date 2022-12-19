@@ -1,5 +1,5 @@
 ---
-title: Showing your private contributions and achievements on your profile
+title: プロフィールに非公開のコントリビューションとアチーブメントを表示する
 intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from {% ifversion fpt or ghes or ghec %}private and internal{% else %}private{% endif %} repositories{% ifversion fpt or ghes or ghec %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
@@ -14,13 +14,18 @@ versions:
 topics:
   - Profiles
 shortTitle: Private contributions and achievements
+ms.openlocfilehash: b40e3835bf1548ff4ced75d1207de9a5b493dc90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079951'
 ---
-
-プライベートコントリビューションを公開しても、あなたが作業しているプライベートリポジトリへのアクセス権がないユーザーがあなたのプライベートコントリビューションを見ることはできません。 かわりに、特定の日におけるプライベートコントリビューションの数だけを見ることができます。 パブリックコントリビューションには、詳細な情報が含まれます。 For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)."
+プライベートコントリビューションを公開しても、あなたが作業しているプライベートリポジトリへのアクセス権がないユーザーがあなたのプライベートコントリビューションを見ることはできません。 かわりに、特定の日におけるプライベートコントリビューションの数だけを見ることができます。 パブリックコントリビューションには、詳細な情報が含まれます。 詳細については、[プロファイル ページでの投稿の表示](/articles/viewing-contributions-on-your-profile-page)に関する説明を参照してください。
 
 {% note %}
 
-**Note:** {% ifversion fpt or ghes or ghec %}On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+**注:** {% ifversion fpt or ghes or ghec %}{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %} で、ご自分のプロファイル上のパブリック コントリビューションは、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %} にアクセスできる世界中のすべてのユーザーが参照できます。{% data variables.product.product_location%}{% endif %}の他のユーザーのみ。{% elsif ghae %}{% data variables.product.prodname_ghe_managed %} で、ご自分のプロファイル上のコントリビューションは、ご自分のエンタープライズのその他のメンバーのみが参照できます。{% endif %}
 
 {% endnote %}
 
@@ -28,17 +33,21 @@ shortTitle: Private contributions and achievements
 
 {% data reusables.profile.access_profile %}
 1. プライベートコントリビューションをプロフィールで公開または非公開にする
-    - プライベートコントリビューションを公開するには、コントリビューショングラフの上で、[**Contribution settings**] ドロップダウンメニューから [**Private contributions**] を選択します。 訪問者には、プライベートコントリビューションの数だけが表示され、それ以上の詳細は表示されません。 ![[Contribution settings] メニューで、訪問者がプライベートコントリビューションを見られるようにする](/assets/images/help/profile/private-contributions-on.png)
-    - プライベートコントリビューションを非公開にするには、コントリビューショングラフの上で、[**Contribution settings**] ドロップダウンメニューを使用し、[**Private contributions**] の選択を解除します。訪問者には、パブリックコントリビューションのみが表示されるようになります。 ![[Contribution settings] メニューで、訪問者がプライベートコントリビューションを見られるようにする](/assets/images/help/profile/private-contributions-off.png)
+    - プライベート コントリビューションを公開するには、コントリビューション グラフの上にある **[コントリビューションの設定]** ドロップダウン メニューを使用して、 **[プライベート コントリビューション]** を選択します。 訪問者には、プライベートコントリビューションの数だけが表示され、それ以上の詳細は表示されません。
+  ![[コントリビューションの設定] ドロップダウン メニューで、閲覧者がプライベート コントリビューションを見られるようにする](/assets/images/help/profile/private-contributions-on.png)
+    - プライベート コントリビューションを非公開にするには、コントリビューション グラフの上にある **[コントリビューションの設定]** ドロップダウン メニューを使用して、 **[プライベート コントリビューション]** を選択解除します。 閲覧者には、公開されたコントリビューションのみが表示されます。
+   ![[コントリビューションの設定] ドロップダウン メニューで、閲覧者がプライベート コントリビューションを見られるようにする](/assets/images/help/profile/private-contributions-off.png)
 
-## Changing the visibility of Achievements
+## アチーブメントの表示を変更する
 
 {% data reusables.user-settings.access_settings %}
-1. Show or hide Achievements on your profile:
-    - To show Achievements on your profile, navigate to **Profile settings**, and select the checkbox next to **Show Achievements on my profile.** ![Enable visitors to see Achievements from profile settings](/assets/images/achievements-profile-settings-off.png)
-    - To hide Achievements from your profile, navigate to **Profile settings**, and unselect the checkbox next to **Show Achievements on my profile.** ![Hide Achievements from visitors in profile settings](/assets/images/achievements-profile-settings-on.png)
+1. プロフィールでアチーブメントを表示または非表示にします。
+    - プロフィールにアチーブメントを表示するには、 **[プロフィールの設定]** に移動し、 **[自分のプロフィールにアチーブメントを表示する]** チェックボックスをオンにします。
+  ![プロフィールの設定で、訪問者がアチーブメントを見られるようにする](/assets/images/achievements-profile-settings-off.png)
+    - プロフィールにアチーブメントが表示されないようにするには、 **[プロフィールの設定]** に移動し、 **[自分のプロフィールにアチーブメントを表示する]** チェックボックスをオフにします。
+  ![プロフィールの設定で、訪問者に対してアチーブメントを非表示にする](/assets/images/achievements-profile-settings-on.png)
 
-## 参考リンク
+## 参考資料
 
-- [プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)
-- [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)
+- "[プロフィール ページでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)"
+- "[コントリビューションがプロフィールに表示されないのはなぜですか?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

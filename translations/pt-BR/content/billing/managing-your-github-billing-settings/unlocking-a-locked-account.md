@@ -20,15 +20,20 @@ topics:
   - Downgrades
   - Organizations
   - User account
-shortTitle: Conta bloqueada
+shortTitle: Locked account
+ms.openlocfilehash: e9b51d82dcd2f184003add575338625ea01fa1df
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083430'
 ---
-
 Você pode desbloquear e acessar sua conta atualizando a forma de pagamento da sua organização e retomando o status de pago. sem precisar pagar pelo tempo decorrido no modo bloqueado.
 
-Você pode fazer o downgrade da sua organização para o {% data variables.product.prodname_free_team %} para continuar com os mesmos recursos avançados em repositórios públicos. Para obter mais informações, consulte "[Rebaixando sua assinatura {% data variables.product.product_name %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+Você pode fazer o downgrade da sua organização para o {% data variables.product.prodname_free_team %} para continuar com os mesmos recursos avançados em repositórios públicos. Para obter mais informações, confira "[Como fazer downgrade da sua assinatura do {% data variables.product.product_name %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)".
 
 ## Desbloqueando recursos da organização devido a pagamento recusado
 
-Se os recursos avançados de sua organização foram bloqueados devido a pagamento recusado, você precisará atualizar as informações de cobrança para que uma nova cobrança seja autorizada. Para obter mais informações, consulte "[Adicionar ou editar forma de pagamento](/articles/adding-or-editing-a-payment-method)".
+Se os recursos avançados de sua organização foram bloqueados devido a pagamento recusado, você precisará atualizar as informações de cobrança para que uma nova cobrança seja autorizada. Para obter mais informações, confira "[Como adicionar ou editar uma forma de pagamento](/articles/adding-or-editing-a-payment-method)".
 
 Se as novas informações de cobrança forem aprovadas, cobraremos imediatamente pelo produto pago que você escolheu. A organização será desbloqueada assim que o pagamento for confirmado.

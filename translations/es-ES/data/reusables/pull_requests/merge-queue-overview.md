@@ -1,5 +1,13 @@
-Una cola de fusión puede aumentar la tasa en la que se fusionan las solicitudes de cambios en una rama destino mientras se asegura de que pasen todas las verificaciones de protección de rama requeridas.
+---
+ms.openlocfilehash: 9960ade469b1d52c0f880067e4dd449082b190c6
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145092815"
+---
+Una cola de combinación puede aumentar la velocidad a la que se combinan las solicitudes de incorporación de cambios en una rama de destino muy activa, a la vez que garantiza que se superen todas las comprobaciones de protección de rama necesarias.
 
-Una vez que una solicitud de cambios pasa el resto de las verificaciones de protección de rama requeridas, un usuario con acceso de escritura al repositorio puede agregar dicha solicitud de cambios a una cola de fusión.
+Una vez que una solicitud de incorporación de cambios ha superado todas las comprobaciones de protección de rama necesarias, un usuario con acceso de escritura al repositorio puede agregar esa solicitud de incorporación de cambios a una cola de combinación.
 
-Una cola de fusión podría utilizar {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[{% data variables.product.prodname_actions %}](/actions/)".
+Un cola de combinación puede usar {% data variables.product.prodname_actions %}. Para más información, vea "[{% data variables.product.prodname_actions %}](/actions/)".

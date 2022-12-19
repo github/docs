@@ -1,15 +1,15 @@
 date: '2022-02-17'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
   bugs:
-    - Fixes SystemStackError (stack too deep) when getting more than 2<sup>^16</sup> keys from memcached. 
+    - memcached から 2<sup>^16</sup> を超えるキーを取得した場合の SystemStackError (スタックが深すぎます) を修正します。 
   known_issues:
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で \"ユーザーが GitHub.com を検索できる\" が有効にされている場合、プライベートおよび内部リポジトリの issue が GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

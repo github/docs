@@ -21,41 +21,55 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f37ebc1492ae26998a596d90734d1d509b8f73c9
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160681'
 ---
-
 ## リポジトリの移譲について
 
-リポジトリを新たなオーナーに移譲すると、そのオーナーはすぐにリポジトリの内容、Issue、プルリクエスト、リリース、プロジェクトボード、そして設定を管理できるようになります。
+リポジトリを新たなオーナーに移譲すると、そのオーナーはすぐにリポジトリの内容、Issue、プルリクエスト、リリース、{% data variables.product.prodname_projects_v1 %}、そして設定を管理できるようになります。
 
-Prerequisites for repository transfers:
-- When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. 新しいオーナーが移譲を 1 日以内に受け入れなければ、招待は期限切れになります。{% endif %}
+リポジトリの移譲の前提条件:
+- 所有しているリポジトリを別の個人用アカウントに移譲すると、新しいオーナーに確認のメールが送られます。{% ifversion fpt or ghec %}確認のメールには、移譲を受け入れる手順が記載されています。 新しいオーナーが移譲を 1 日以内に受け入れなければ、招待は期限切れになります。{% endif %}
 - 自分が所有しているリポジトリを Organization に移譲するには、対象 Organization のリポジトリを作成する権限が必要です。
 - ターゲットのアカウントは、同じ名前のリポジトリを持っていたり、同じネットワーク内にフォークを持っていたりしてはなりません。
-- リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 Other collaborators to the transferred repository remain intact.{% ifversion ghec or ghes or ghae %}
-- Internal repositories can't be transferred.{% endif %}
+- リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 移譲されたリポジトリの他のコラボレーターはそのまま変わりません。{% ifversion ghes < 3.7 or ghae %}
+- 内部リポジトリを移譲することはできません。{% endif %}
 - プライベートフォークは移譲できません。
+{%- ifversion ghec %}
+- 1 つの Enterprise アカウントが所有する Organization から、別の Enterprise アカウントが所有する Organization に内部リポジトリを転送することはできません。
+{%- endif %}
 
-{% ifversion fpt or ghec %}プライベートリポジトリを {% data variables.product.prodname_free_user %} ユーザまたは Organization アカウントに移譲すると、リポジトリは保護されたブランチや {% data variables.product.prodname_pages %} などの機能にアクセスできなくなります。 {% data reusables.gated-features.more-info %}{% endif %}
+{% ifversion fpt or ghec %}プライベート リポジトリを {% data variables.product.prodname_free_user %} ユーザーまたは Organization アカウントに移譲すると、リポジトリは保護されたブランチや {% data variables.product.prodname_pages %} などの機能にアクセスできなくなります。 {% data reusables.gated-features.more-info %}{% endif %}
 
 ### リポジトリと共に移譲されるものは？
 
-リポジトリを移譲すると、その Issue、プルリクエスト、ウィキ、Star、そして Watch しているユーザも移譲されます。 移譲されたリポジトリに webhook、サービス、シークレット、あるいはデプロイキーが含まれている場合、移譲が完了した後もそれらは関連付けられたままになります。 コミットに関する Git の情報は、コントリビューションを含めて保持されます。 加えて、
+リポジトリを移譲すると、その Issue、プルリクエスト、ウィキ、Star、そして Watch しているユーザも移譲されます。 移譲されたリポジトリに webhook、サービス、シークレット、あるいはデプロイキーが含まれている場合、移譲が完了した後もそれらは関連付けられたままになります。 コミットに関する Git の情報は、コントリビューションを含めて保持されます。 さらに:
 
 - 移譲されたリポジトリがフォークである場合、それは上流のリポジトリに関連付けられたままになります。
 - 移譲されたリポジトリにフォークがある場合、それらのフォークは移譲が完了した後リポジトリに関連付けられたままになります。
-- 移譲されたリポジトリが {% data variables.large_files.product_name_long %} を使う場合、すべての {% data variables.large_files.product_name_short %} オブジェクトは自動的に移動します。 This transfer occurs in the background, so if you have a large number of {% data variables.large_files.product_name_short %} objects or if the {% data variables.large_files.product_name_short %} objects themselves are large, it may take some time for the transfer to occur.{% ifversion fpt or ghec %} Before you transfer a repository that uses {% data variables.large_files.product_name_short %}, make sure the receiving account has enough data packs to store the {% data variables.large_files.product_name_short %} objects you'll be moving over. 個人アカウントにストレージを追加する方法の詳細については、「[{% data variables.large_files.product_name_long %} をアップグレードする](/articles/upgrading-git-large-file-storage)」を参照してください。{% endif %}
-- When a repository is transferred between two personal accounts, issue assignments are left intact. When you transfer a repository from a personal account to an organization, issues assigned to members in the organization remain intact, and all other issue assignees are cleared. Organization の中のオーナーだけが、新しい Issue のアサインを作成できます。 When you transfer a repository from an organization to a personal account, only issues assigned to the repository's owner are kept, and all other issue assignees are removed.
+- 移譲されたリポジトリが {% data variables.large_files.product_name_long %} を使う場合、すべての {% data variables.large_files.product_name_short %} オブジェクトは自動的に移動します。 この移譲はバックグラウンドで行われます。このため、多数の {% data variables.large_files.product_name_short %} オブジェクトがあるか、{% data variables.large_files.product_name_short %} オブジェクト自体のサイズが大きい場合、移譲には時間がかかることがあります。{% ifversion fpt or ghec %}{% data variables.large_files.product_name_short %} を利用するリポジトリを移譲する前に、受信側のアカウントが、移動する {% data variables.large_files.product_name_short %} オブジェクトを保存するために十分なデータ パックを所有していることを確認してください。 個人用アカウントにストレージを追加する方法について詳しくは、「[{% data variables.large_files.product_name_long %} をアップグレードする](/articles/upgrading-git-large-file-storage)」をご覧ください。{% endif %}
+- リポジトリを 2 つの個人用アカウント間で移譲する場合、Issue の割り当てはそのまま残ります。 個人用アカウントから Organization にリポジトリを移譲する場合、Organization のメンバーに割り当てられた Issue はそのまま残ります。その他のすべての Issue 担当者はクリアされます。 Organization の中のオーナーだけが、新しい Issue のアサインを作成できます。 Organization から個人用アカウントにリポジトリを移譲する場合、リポジトリのオーナーに割り当てられた Issue のみが保持されて、その他のすべての Issue 担当者は削除されます。
 - 移譲されたリポジトリが {% data variables.product.prodname_pages %} サイトを含む場合、Web 上の Git リポジトリへのリンクや Git のアクティビティを通じたリンクはリダイレクトされます。 しかし、リポジトリに関連付けられている {% data variables.product.prodname_pages %} はリダイレクトされません。
-- 以前のリポジトリの場所へのすべてのリンクは、新しい場所へ自動的にリダイレクトされます。 移譲されたリポジトリ上で `git clone`、`git fetch`、または `git push` を使う場合には、これらのコマンドは新しいリポジトリの場所あるいは URL にリダイレクトされます。 しかし、混乱を避けるため、既存のローカルクローンは新しいリポジトリの URL を指すよう更新することを強くおすすめします。 それは `git remote` をコマンドライン上で使って行えます。
+- 以前のリポジトリの場所へのすべてのリンクは、新しい場所へ自動的にリダイレクトされます。 移譲されたリポジトリで `git clone`、`git fetch`、または `git push` を使う場合には、これらのコマンドは新しいリポジトリの場所または URL にリダイレクトされます。 しかし、混乱を避けるため、既存のローカルクローンは新しいリポジトリの URL を指すよう更新することを強くおすすめします。 これはコマンド ラインで `git remote` を使うことで行えます。
 
   ```shell
-  $ git remote set-url origin <em>新しい URL</em>
+  $ git remote set-url origin NEW_URL
   ```
 
-- When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
-- Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
+  {% warning %}
 
-詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
+  **警告**: 将来的にアカウントで新しいリポジトリを作成する場合、移譲したリポジトリの元の名前を再利用しないでください。 そうすると、移譲されたリポジトリへのリダイレクトは機能しなくなります。
+
+  {% endwarning %}
+
+- Organization から個人用アカウントにリポジトリを移譲する場合、リポジトリの読み取り専用コラボレーターは移譲されません。 個人用アカウントが所有するリポジトリに対して、コラボレーターが読み取り専用アクセス権を持つことはできないからです。 リポジトリの権限レベルについて詳しくは、「[個人用アカウントのリポジトリの権限レベル](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)」と「[Organization のリポジトリ ロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」をご覧ください。{% ifversion fpt or ghec %}
+- スポンサーシップ層を通じてリポジトリにアクセスできるスポンサーが影響を受ける可能性があります。 詳しくは、「[スポンサーシップ層へのリポジトリの追加](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)」をご覧ください。{% endif %}
+
+詳細については、「[リモート リポジトリを管理する](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 ### リポジトリの移譲および Organization
 
@@ -65,19 +79,15 @@ Organization にリポジトリが移譲されたら、Organization のデフォ
 
 ## 個人アカウントが所有しているリポジトリを移譲する
 
-You can transfer your repository to any personal account that accepts your repository transfer. When a repository is transferred between two personal accounts, the original repository owner and collaborators are automatically added as collaborators to the new repository.
+リポジトリの移譲を受け入れるどの個人用アカウントにも、リポジトリを移譲できます。 2 つの個人用アカウント間でリポジトリを移譲する場合、元のリポジトリ オーナーとコラボレーターは、新しいリポジトリにコラボレーターとして自動的に追加されます。
 
-{% ifversion fpt or ghec %}If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, before transferring the repository, you may want to remove or update your DNS records to avoid the risk of a domain takeover. 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}プライベート リポジトリに {% data variables.product.prodname_pages %} サイトを公開し、カスタム ドメインを追加した場合、ドメイン乗っ取りのリスクを避けるために、リポジトリを移譲する前に DNS レコードを削除または更新することをお勧めします。 詳しくは、「[{% data variables.product.prodname_pages %} サイトのカスタム ドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」をご覧ください。{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}
 
 ## Organization が所有しているリポジトリを移譲する
 
-If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your personal account or to another organization.
+Organization でオーナー権限がある場合、または Organization のリポジトリの 1 つに対する管理者権限がある場合、Organization が所有しているリポジトリを個人用アカウントまたは別の Organization に移譲できます。
 
-1. Sign into your personal account that has admin or owner permissions in the organization that owns the repository.
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+1. リポジトリを所有している Organization で管理者またはオーナー権限がある個人用アカウントにサインインします。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}

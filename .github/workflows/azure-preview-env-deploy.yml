@@ -17,6 +17,7 @@ on:
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
   pull_request_target:
+  merge_group:
   workflow_dispatch:
     inputs:
       PR_NUMBER:
@@ -27,9 +28,6 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
-  push:
-    branches:
-      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -44,6 +42,10 @@ jobs:
   build-and-deploy-azure-preview:
     name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
+    # Ensure this is actually a pull request and not a merge group
+    # If its a merge group, report success without doing anything
+    # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
+    if: ((github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)) && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -68,18 +70,18 @@ jobs:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
           username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           ref: 'main'
           persist-credentials: 'false'
@@ -87,7 +89,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -139,7 +141,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -152,7 +154,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -198,16 +200,6 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        # This 'if' will be truth, if this workflow is...
-        #  - run as a workflow_dispatch
-        #  - run because of a push to main (or gh-readonly-queue/main)
-        #  - run as a regular pull request
-        # But if it's a pull request, *and* for whatever reason, the pull
-        # request has "Auto-merge" enabled, don't bother.
-        # The idea is that if auto-merge has been abled, by humans or by
-        # bots, they have no intention of viewing the deployed preview anyway.
-        # This saves time because the PR can merge sooner.
-        if: ${{ !github.event.pull_request.auto_merge }}
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
@@ -219,3 +211,15 @@ jobs:
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
+
+      - name: Check that it can reached
+        # This introduces a necessary delay. Because the preview evironment
+        # URL is announced to the pull request as soon as all the steps
+        # finish, what sometimes happens is that a viewer of the PR clicks
+        # that link too fast and are confronted with a broken page.
+        # It's because there's a delay between the `azure/arm-deploy`
+        # and when the server is actually started and can receive and
+        # process requests.
+        # By introducing a slight "delay" here we avoid announcing a
+        # preview environment URL that isn't actually working just yet.
+        run: curl --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

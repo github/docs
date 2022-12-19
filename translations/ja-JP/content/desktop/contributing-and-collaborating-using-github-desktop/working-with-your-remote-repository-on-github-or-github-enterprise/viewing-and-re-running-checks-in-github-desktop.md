@@ -1,25 +1,30 @@
 ---
-title: Viewing and re-running checks in GitHub Desktop
+title: GitHub Desktop でのチェックの表示と再実行
 shortTitle: Viewing and re-running checks
-intro: 'You can view the status of checks and re-run them in {% data variables.product.prodname_desktop %}.'
+intro: '{% data variables.product.prodname_desktop %} で、チェックの状態を確認して実行し直すことができます。'
 versions:
   fpt: '*'
+ms.openlocfilehash: d763dc4e4b30844b905b4e601df6c9cb500c8094
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147068023'
 ---
+## {% data variables.product.prodname_desktop %} でのチェックについて
 
-## About checks in {% data variables.product.prodname_desktop %}
+{% data variables.product.prodname_desktop %} には、pull request ブランチで実行されたチェックのステータスが表示されます。 ブランチ名の横にあるチェック バッジには *、チェックの保留中、合格、* または *失敗* の状態が表示されます。 {% data variables.product.prodname_desktop %} のチェックのステータスを表示するときに、すべて、失敗した、または個々のチェックを再実行することもできます。 リポジトリでチェックを設定する方法について詳しくは、「[ステータス チェックについて](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)」をご覧ください。
 
-{% data variables.product.prodname_desktop %} displays the status of checks that have run in your pull request branches. The checks badge next to the branch name will display the *pending, passing,* or *failing* state of the checks. You can also re-run all, failed, or individual checks when viewing the status of the checks in {% data variables.product.prodname_desktop %}. For more information on setting up checks in your repository, see "[About status checks](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+{% data variables.product.prodname_desktop %} では、チェックが失敗したときにもシステム通知が表示されます。 通知を有効にする方法について詳しくは、「[GitHub Desktop での通知の構成](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)」をご覧ください。
 
-{% data variables.product.prodname_desktop %} will also show a system notification when checks fail. For more information on enabling notifications, see "[Configuring notifications in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)."
+## チェックの表示と再実行
 
-## Viewing and re-running checks
-
-{% data reusables.desktop.current-branch-menu %}
-{% data reusables.desktop.click-pull-requests %}
-  ![[Current Branch] のドロップダウンメニュー内にある [Pull Requests] タブ](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
-{% data reusables.desktop.choose-pr-from-list %}
-  ![リポジトリ内のオープンプルリクエストのリスト](/assets/images/help/desktop/click-pull-request.png)
-4. Click on the pull request number, to the right of the pull request branch name. ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
-5. To re-run failed checks, click **{% octicon "sync" aria-label="The sync icon" %} Re-run** and select **Re-run Failed Checks**. ![Re-run failed checks](/assets/images/help/desktop/re-run-failed-checks.png)
-6. To re-run individual checks, hover over the individual check you want to re-run and select the {% octicon "sync" aria-label="The sync icon" %} icon to re-run the check. ![Re-run individual checks](/assets/images/help/desktop/re-run-individual-checks.png)
-7. You will see a confirmation dialog with the summary of the checks that will be re-run. Click **Re-run Checks** to confirm that you want to perform the re-run. ![Re-run confirmation dialog](/assets/images/help/desktop/re-run-confirmation-dialog.png)
+{% data reusables.desktop.current-branch-menu %} {% data reusables.desktop.click-pull-requests %} ![[Current Branch] ドロップダウン メニューの [Pull Request] タブ](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png) {% data reusables.desktop.choose-pr-from-list %} ![リポジトリのオープンな pull request のリスト](/assets/images/help/desktop/click-pull-request.png)
+4. pull request ブランチ名の右側にある pull request 番号をクリックします。
+  ![ブランチ名の横のチェック表示](/assets/images/help/desktop/checks-dialog.png)
+5. 失敗したチェックを再実行するには、 **[{% octicon "sync" aria-label="The sync icon" %} 再実行]** をクリックし、 **[失敗したチェックの再実行]** を選びます。
+  ![失敗したチェックを再実行する](/assets/images/help/desktop/re-run-failed-checks.png)
+6. 個々のチェックを再実行するには、再実行する個々のチェックにカーソルを合わせ、{% octicon "sync" aria-label="The sync icon" %} アイコンを選んでチェックを再実行します。
+  ![個々のチェックを再実行する](/assets/images/help/desktop/re-run-individual-checks.png)
+7. 再実行されるチェックの概要を含む確認ダイアログが表示されます。 **[チェックの再実行]** をクリックして、再実行することを確認します。
+  ![再実行の確認ダイアログ](/assets/images/help/desktop/re-run-confirmation-dialog.png)

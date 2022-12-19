@@ -35,26 +35,26 @@ shortTitle: Export from your enterprise
 2. To prepare a repository for export, use the `ghe-migrator add` command with the repository's URL:
     * If you're locking the repository, append the command with `--lock`. If you're performing a trial run, `--lock` is not needed.
       ```shell
-      $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
+      $ ghe-migrator add https://HOSTNAME/USERNAME/REPO-NAME --lock
       ```
     * You can exclude file attachments by appending `--exclude_attachments` to the command. {% data reusables.enterprise_migrations.exclude-file-attachments %}
     * To prepare multiple repositories at once for export, create a text file listing each repository URL on a separate line, and run the `ghe-migrator add` command with the `-i` flag and the path to your text file.
       ```shell
-      $ ghe-migrator add -i <em>PATH</em>/<em>TO</em>/<em>YOUR</em>/<em>REPOSITORY_URLS</em>.txt
+      $ ghe-migrator add -i PATH/TO/YOUR/REPOSITORY_URL.txt
       ```
 
 3. When prompted, enter your {% data variables.product.prodname_ghe_server %} username:
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. When prompted for a personal access token, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
+4. When prompted for a {% data variables.product.pat_generic %}, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
   ```shell
-  Enter personal access token:  **************
+  Enter {% data variables.product.pat_generic %}:  **************
   ```
 5. When `ghe-migrator add` has finished it will print the unique "Migration GUID" that it generated to identify this export as well as a list of the resources that were added to the export. You will use the Migration GUID that it generated in subsequent `ghe-migrator add` and `ghe-migrator export` steps to tell `ghe-migrator` to continue operating on the same export.
   ```shell
   > 101 models added to export
-  > Migration GUID: <em>example-migration-guid</em>
+  > Migration GUID: EXAMPLE-MIGRATION-GUID
   > Number of records in this migration:
   > users                        |  5
   > organizations                |  1
@@ -78,28 +78,28 @@ shortTitle: Export from your enterprise
 3. If you locked the source repository, you can use the `ghe-migrator target_url` command to set a custom lock message on the repository page that links to the repository's new location. Pass the source repository URL, the target repository URL, and the Migration GUID from Step 5:
 
   ```shell
-  $ ghe-migrator target_url https://<em>hostname</em>/<em>username</em>/<em>reponame</em> https://<em>target_hostname</em>/<em>target_username</em>/<em>target_reponame</em> -g <em>MIGRATION_GUID</em>
+  $ ghe-migrator target_url https://HOSTNAME/USERNAME/REPO-NAME https://TARGET-HOSTNAME/TARGET-USER-NAME/TARGET-REPO-NAME -g MIGRATION-GUID
   ```
 
 6. To add more repositories to the same export, use the `ghe-migrator add` command with the `-g` flag. You'll pass in the new repository URL and the Migration GUID from Step 5:
   ```shell
-  $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>other_reponame</em> -g <em>MIGRATION_GUID</em> --lock
+  $ ghe-migrator add https://HOSTNAME/USERNAME/OTHER-REPO-NAME -g MIGRATION-GUID --lock
   ```
 7. When you've finished adding repositories, generate the migration archive using the `ghe-migrator export` command with the `-g` flag and the Migration GUID from Step 5:
     ```shell
-    $ ghe-migrator export -g <em>MIGRATION_GUID</em>
-    > Archive saved to: /data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz
+    $ ghe-migrator export -g MIGRATION-GUID
+    > Archive saved to: /data/github/current/tmp/MIGRATION-GUID.tar.gz
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Close the connection to {% data variables.product.product_location %}:
+8. Close the connection to {% data variables.location.product_location %}:
   ```shell
   $ exit
   > logout
-  > Connection to <em>hostname</em> closed.
+  > Connection to HOSTNAME closed.
   ```
 9. Copy the migration archive to your computer using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
   ```shell
-  $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
+  $ scp -P 122 admin@HOSTNAME:/data/github/current/tmp/MIGRATION-GUID.tar.gz ~/Desktop
   ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}

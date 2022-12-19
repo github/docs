@@ -1,45 +1,50 @@
 ---
-title: Getting started with GitHub Community Exchange
-shortTitle: Começar
-intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
+title: Introdução ao GitHub Community Exchange
+shortTitle: Get started
+intro: 'Saiba como acessar {% data variables.product.prodname_community_exchange %} e enviar seu repositório.'
 versions:
   fpt: '*'
+ms.openlocfilehash: b9c866ef33c321b70b87d8bcd3682d0c02737bfe
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107974'
 ---
-
 ## Introdução
 
-{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
+{% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} pode ajudar você a fazer a sua primeira contribuição de software livre ou expandir o próprio projeto de software livre.
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
+Para obter mais informações sobre como {% data variables.product.prodname_community_exchange %} pode ajudar você enquanto aluno, confira "[Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
 
-## Accessing {% data variables.product.prodname_community_exchange %}
+## Como acessar {% data variables.product.prodname_community_exchange %}
 
 {% data reusables.education.access-github-community-exchange %}
 
-## Finding interesting repositories
+## Como localizar repositórios interessantes
 
-You can browse repositories submitted to {% data variables.product.prodname_community_exchange %} from the gallery page.
+Você pode procurar repositórios enviados para {% data variables.product.prodname_community_exchange %} da página de galeria.
 
-As you think about what open source repositories may be interesting, consider if you're wanting to learn or collaborate, or if there are particular topics or languages that could be a good starting point.
+Ao pensar sobre quais repositórios de software livre podem ser interessantes, considere se você deseja aprender ou colaborar, ou se há tópicos ou linguagens específicos que poderiam ser um bom ponto de partida.
 
-When exploring repositories in the {% data variables.product.prodname_community_exchange %} gallery, you can filter available repositories by purpose, topics, or languages, and search for repositories by name and description. You can sort the list of repositories in the gallery by submission date, or by the number of stars, forks, or issues a repository has.
+Ao explorar repositórios na galeria de {% data variables.product.prodname_community_exchange %}, você pode filtrar repositórios disponíveis por finalidade, tópicos ou linguagens, e pesquise repositórios por nome e descrição. Você pode classificar a lista de repositórios na galeria por data de envio ou pelo número de estrelas, forks ou problemas que um repositório tem.
 
-![Screenshot of Community Exchange search box and dropdown filters](/assets/images/help/education/community-exchange-search-and-filter.png)
+![Captura de tela da caixa de pesquisa e dos filtros de menu suspenso do Community Exchange](/assets/images/help/education/community-exchange-search-and-filter.png)
 
-## Starring repositories
+## Como marcar repositórios com estrelas
 
-You can star repositories listed in the {% data variables.product.prodname_community_exchange %} gallery. Starring makes it easy to find a repository in the gallery again later. Marcar um repositório com estrelas também demonstra apreciação ao trabalho do mantenedor de repositório.
+Você pode marcar com estrelas repositórios listados na galeria de {% data variables.product.prodname_community_exchange %}. Marcar com estrelas facilita a localização de um repositório na galeria futuramente. Marcar um repositório com estrelas também demonstra apreciação ao trabalho do mantenedor de repositório.
 
-Repository listings in the {% data variables.product.prodname_community_exchange %} gallery can be sorted on the number of stars a repository has.
+As listagens de repositório na galeria de {% data variables.product.prodname_community_exchange %} podem ser classificadas pelo número de estrelas que um repositório tem.
 
-To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click {% octicon "star" aria-label="The star icon" %} **Star** button found right by its name.
+Para marcar um repositório com estrela: acesse a página inicial de {% data variables.product.prodname_community_exchange %}, localize o repositório que deseja marcar com estrela e clique no botão **Marcar com estrela** {% octicon "star" aria-label="The star icon" %} localizado ao lado do nome dele.
 
-## Reporting abuse
+## Relatando abuso
 
-The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
+A comunidade do {% data variables.product.prodname_community_exchange %} modera os envios de repositório. Você pode denunciar repositórios abusivos, spam ou conteúdo problemático a qualquer momento.
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click {% octicon "report" aria-label="The report symbol" %} **Report abuse**.
+Para denunciar um repositório abusivo: acesse a página inicial do {% data variables.product.prodname_community_exchange %}, localize o repositório que deseja denunciar, clique no menu suspenso de {% octicon "kebab-horizontal" aria-label="The edit icon" %} ao lado do nome e em {% octicon "report" aria-label="The report symbol" %} **Denunciar abuso**.
 
-## Leia mais
+## Leitura adicional
 
-- "[Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)"
+- ""[Sobre {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)""

@@ -1,6 +1,6 @@
 ---
-title: Creating and managing repositories
-intro: 'You can create a repository on {% data variables.product.product_name %} to store and collaborate on your project''s files, then manage the repository''s name and location.'
+title: リポジトリの作成と管理
+intro: '{% data variables.product.product_name %} にリポジトリを作成して、プロジェクトのファイルを保存して共同作業し、リポジトリの名前と場所を管理できます。'
 redirect_from:
   - /articles/creating-a-repository-on-github
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
@@ -13,6 +13,7 @@ topics:
   - Repositories
 children:
   - /about-repositories
+  - /best-practices-for-repositories
   - /creating-a-new-repository
   - /creating-a-repository-from-a-template
   - /creating-a-template-repository
@@ -25,5 +26,11 @@ children:
   - /deleting-a-repository
   - /restoring-a-deleted-repository
 shortTitle: Create & manage repositories
+ms.openlocfilehash: 06a0bfa43ca81b6b1feb2e796cacac051fb11749
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163559'
 ---
 

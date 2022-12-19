@@ -1,5 +1,5 @@
 ---
-title: 许可
+title: 许可证
 intro: Licenses API 可让您检索热门开源许可证，以及有关特定项目许可文件的信息。
 versions:
   fpt: '*'
@@ -11,22 +11,27 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/licenses
+ms.openlocfilehash: f6d229eb27764441ae040abaaca211b5a894e7ef
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064864'
 ---
-
 ## 关于许可证 API
 
-许可证 API 使用[开源 Ruby Gem 许可](https://github.com/benbalter/licensee)来尝试识别项目的许可。 被许可人将项目 `LICENSE` 文件（如果有）的内容与已知许可的简短列表相匹配。 因此，API 不考虑项目依赖项的许可或其他记录项目许可的方式，例如对文档中许可名称的引用。
+许可 API 使用[开源 Ruby Gem 许可接收方](https://github.com/benbalter/licensee) 来尝试标识项目的许可。 许可接收方将项目的 `LICENSE` 文件（如果有）的内容与已知许可的简短列表相匹配。 因此，API 不考虑项目依赖项的许可或其他记录项目许可的方式，例如对文档中许可名称的引用。
 
-如果许可匹配，则返回的许可密钥和名称符合 [SPDX 规格](https://spdx.org/)。
+如果许可匹配，则返回的许可密钥和名称符合 [SPDX 规范](https://spdx.org/)。
 
-**注：**这些端点还将返回仓库的许可信息：
+注意：这些终结点还将返回存储库的许可信息：
 
-- [获取仓库](/rest/reference/repos#get-a-repository)
-- [列出用户的仓库](/rest/reference/repos#list-repositories-for-a-user)
-- [列出组织仓库](/rest/reference/repos#list-organization-repositories)
-- [列出复刻](/rest/reference/repos#list-forks)
-- [列出用户关注的仓库](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [列出团队仓库](/rest/reference/teams#list-team-repositories)
+- [获取存储库](/rest/reference/repos#get-a-repository)
+- [列出用户的存储库](/rest/reference/repos#list-repositories-for-a-user)
+- [列出组织存储库](/rest/reference/repos#list-organization-repositories)
+- [列出分支](/rest/reference/repos#list-forks)
+- [列出用户关注的存储库](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [列出团队存储库](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 

@@ -1,10 +1,16 @@
-{% ifversion fpt or ghec %}
-{% note %}
+---
+ms.openlocfilehash: 3974c3f895e361805d364cb11a8f97cd8bbcbc92
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193197"
+---
+{% ifversion fpt or ghec %} {% note %}
 
-**Notas:**
+**Observações:** 
 
-* This API only applies to {% data variables.product.prodname_projects_v1 %}. {% data variables.product.prodname_projects_v2 %} can be managed with the GraphQL API. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
-* You can only create a new {% data variables.projects.projects_v1_board %} for an organization, user, or repository that already has at least one {% data variables.projects.projects_v1_board %}.
+* Esses pontos de extremidade interagem apenas com o {% data variables.product.prodname_projects_v1 %}. Para gerenciar o {% data variables.product.prodname_projects_v2 %}, use a API do GraphQL. Para mais informações, confira "[Como usar a API para gerenciar projetos](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)".
+* Para criar um novo {% data variables.projects.projects_v1_board %}, a organização, usuário ou repositório já deve ter pelo menos um {% data variables.projects.projects_v1_board %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}

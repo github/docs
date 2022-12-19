@@ -26,7 +26,7 @@ topics:
 
 **Notes:**
 
-- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021. 
+- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
 
 - {% data reusables.support.data-protection-and-privacy %}
 
@@ -43,12 +43,14 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
-| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
+| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
 | Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
 | Members with support entitlements | 20 | 20 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
-| Health Checks | Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)") | <ul><li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li><li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
+Escalation management | For High and Urgent priority tickets | For High and Urgent priority tickets
+Incident management | None | For Urgent priority tickets, as needed
+| Health Checks | Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)") | <ul><li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li><li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
 | Technical advisory hours| None | 4 hours per month  |
 | Application upgrade assistance | None | By request |
 | Cloud planning | None | By request |
@@ -60,7 +62,6 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
   - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
 
   {% endnote %}
-
 
 ## Signing up for {% data variables.contact.premium_support %}
 
@@ -87,9 +88,18 @@ For tickets you submit, support is available 24 hours a day, 7 days per week. Th
 | {% data variables.product.support_ticket_priority_urgent %} | 30 minutes |
 | {% data variables.product.support_ticket_priority_high %} | 4 hours |
 
+During the initial response time for Urgent priority tickets, you can expect us to do the following:
+
+- The paged Support Engineer or CRE assigns and carefully reviews your ticket. The goal is to understand the issue, start troubleshooting, and identify next steps.
+- In the initial response, the assigned Support Engineer or CRE will acknowledge ticket receipt and assignment as well as provide next steps to clarify and troubleshoot the situation. To assist with resolving your issue, the Support Engineer or CRE may ask for additional information such as screenshots, error messages, log files, diagnostics files, support bundles, or the output of specific console commands.
+- Depending on the issue, the assigned Support Engineer or CRE may collaborate with others in Support, Engineering, or the regional incident commander.
+- If a callback was requested upon opening the Urgent ticket, the assigned Support Engineer or CRE will determine if, at the current time, screen sharing is the most efficient way of driving the ticket towards resolution. If so, they will extend an offer to you to join a screen sharing session.
+
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
+{% ifversion ghes %}
 You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
+{% endif %}
 
 ## Assigning a priority to a support ticket
 
@@ -105,7 +115,7 @@ When you contact {% data variables.contact.premium_support %}, you can choose on
 | {% data variables.product.support_ticket_priority_urgent %} | Production workflows for your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are failing due to critical service errors or outages, and the failure directly impacts the operation of your business. | <ul><li>Errors or outages on {% data variables.product.prodname_dotcom_the_website %} affect core Git or web application functionality for all members of your organization or enterprise</li></ul> |
 | {% data variables.product.support_ticket_priority_high %} | Account or security issues with your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are causing limited impact to your business. | <ul><li>An organization or enterprise owner has unintentionally deleted an organization</li><li>An organization or enterprise member has uploaded sensitive data in a commit, issue, pull request, or issue attachment</li></ul> |
 | {% data variables.product.support_ticket_priority_normal %} | Members of your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are experiencing limited or moderate issues with {% data variables.product.prodname_dotcom_the_website %}, or you have general concerns or questions about your organization or enterprise. | <ul><li>Questions about using APIs and features for your organization or enterprise</li><li>Issues with tools for organization data migration that {% data variables.product.company_short %} provides</li><li>Features related to your organization or enterprise not working as expected</li><li>General security questions about your organization or enterprise</li></ul> |
-| {% data variables.product.support_ticket_priority_low %} | You have a question or suggestion about your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} that is not time-sensitive, or does not otherwise block the productivity of your team. | <ul><li>Excessive resource usage for your organization or enterprise</li><li>Requests for health checks</li><li>Help with using Gists, notifications, wikis, {% data variables.product.prodname_pages %}, {% data variables.product.prodname_desktop %}, Atom, or other peripheral services or features with your organization or enterprise</li><li>Feature requests</li><li>Product feedback</li></ul> |
+| {% data variables.product.support_ticket_priority_low %} | You have a question or suggestion about your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} that is not time-sensitive, or does not otherwise block the productivity of your team. | <ul><li>Excessive resource usage for your organization or enterprise</li><li>Requests for health checks</li><li>Help with using Gists, notifications, wikis, {% data variables.product.prodname_pages %}, {% data variables.product.prodname_desktop %}, or other peripheral services or features with your organization or enterprise</li><li>Feature requests</li><li>Product feedback</li></ul> |
 
 
 ### Ticket priorities for {% data variables.product.prodname_ghe_server %}
@@ -127,7 +137,7 @@ If you don't receive an initial response within the guaranteed response time to 
 The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit.
 
 To receive a refund, you must submit a completed credit request to <supportcredits@github.com>. To be eligible, the credit request must:
-- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
+- Be sent from an email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
 - Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
 - Include "Credit Request" in the subject line
 

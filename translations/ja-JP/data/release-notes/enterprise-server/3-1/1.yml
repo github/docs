@@ -1,30 +1,34 @@
 date: '2021-06-10'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions.
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - SVN 1.7 and older clients showed an error when using the `svn co` and `svn export` commands.
-    - Accessing a repository through the administrative shell using `ghe-repo <owner>/<reponame>` would hang.
-    - After upgrading, users experienced reduced availability during heavy usage, because services restarted too frequently. This would occur due to timeout mismatches between the nomad configuration and that of the internal services.
-    - In some instances, running `ghe-repl-status` after setting up GitHub Actions would produce an error and `ghe-actions-teardown` would fail.
-    - '`ghe-dbconsole` would return errors under some circumstances.'
-    - Import failures of organizations or repositories from non-GitHub sources could produce an `undefined method '[]' for nil:NilClass` error.
-    - GitHub profile names might have changed unintentionally when using SAML authentication, if the GitHub profile name did not match the value of the attribute mapped to the `Full name` field in the Management Console.
-    - Upgrading an instance that had previously ran a 2.13 release, but not a 2.14 release, resulted in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
+    - "SVN 1.7 以前のクライアントで、\"svn co\" と \"svn export\" コマンドを使うとエラーが表示されました。"
+    - "管理シェルで \"ghe-repo <owner>/<reponame>\" を使ってリポジトリにアクセスすると、ハングしました。"
+    - アップグレード後、サービスの再起動が多すぎたため、高負荷の際にユーザーの可用性が低下しました。これは、nomad の構成と内部サービスの構成の間でタイムアウトが一致しないために発生しました。
+    - "場合によっては、GitHub Actions をセットアップした後で \"ghe-repl-status\" を実行するとエラーが発生し、\"ghe-actions-teardown\" が失敗しました。"
+    - '状況によっては、"ghe-dbconsole" がエラーを返しました。'
+    - "GitHub 以外のソースからの Organization またはリポジトリのインポートの失敗により、\"nil:NilClass に対して未定義のメソッド '[]'\" エラーが発生することがありました。"
+    - "GitHub のプロフィール名が管理コンソールの [フル ネーム] フィールドにマップされる属性の値と一致しない場合、SAML 認証を使うと、GitHub のプロフィール名が意図せず変更されることがありました。"
+    - "以前に 2.13 リリースを実行していて、2.14 リリースを実行していなかったインスタンスをアップグレードすると、\"AddRepositoryIdToCheckRuns\" データ移行に関係するデータベース移行エラーが発生しました。"
   changes:
-    - Users of the GraphQL API can query the public field `closingIssuesReferences` on the `PullRequest` object. This field retrieves issues that will be automatically closed when the related pull request is merged. This approach will also allow this data to be migrated in future, as part of a higher fidelity migration process.
+    - "GraphQL API のユーザーは、\"PullRequest\" オブジェクトのパブリック フィールド \"closingIssuesReferences\" のクエリを実行できます。このフィールドは、関連する pull request がマージされると自動的にクローズされる issue を取得します。このアプローチにより、このデータも、将来、忠実度がさらに高い移行プロセスの一部として移行できます。"
   known_issues:
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - |
-      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
-      ```
-      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
-      ```
-    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - |3.0.x から 3.1.x にアップグレードすると、GitHub Actions が "このワークフローの実行時に、予期しないエラーが発生しました" というエラーで失敗する場合があります。この問題を回避するには、管理シェル (ssh) に接続して以下を実行してください。
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、\"ghe-repl-teardown\" でのレプリカ ノードの破棄は成功しますが、\"エラー: 移行の実行\" が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

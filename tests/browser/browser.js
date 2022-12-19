@@ -1,6 +1,5 @@
 import { jest } from '@jest/globals'
 import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
-import languages from '../../lib/languages.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -14,6 +13,8 @@ describe('homepage', () => {
   })
 })
 
+// Note, we can only test Elasticsearch searches on things we have indexed
+// in the fixtures. See the contents of /tests/content/fixtures/search-indexes/
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
@@ -21,10 +22,10 @@ describe('browser search', () => {
     await page.goto('http://localhost:4000/en/actions')
     await page.click('[data-testid=mobile-menu-button]')
     await page.click('[data-testid=mobile-header] [data-testid=site-search-input]')
-    await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'workflows')
+    await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'foo')
     await page.waitForSelector('[data-testid=search-results]')
     const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(5)
+    expect(hits.length).toBeGreaterThan(3)
   })
 
   it('works on desktop landing pages', async () => {
@@ -32,10 +33,10 @@ describe('browser search', () => {
     await page.setViewport({ width: 1024, height: 768 })
     await page.goto('http://localhost:4000/en/actions')
     await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
-    await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'workflows')
+    await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'foo')
     await page.waitForSelector('[data-testid=search-results]')
     const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(5)
+    expect(hits.length).toBeGreaterThan(3)
     await page.setViewport(initialViewport)
   })
   // 404 page is statically generated with next, so search is not available, but may possibly be brought back
@@ -49,20 +50,24 @@ describe('browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to search for Enterprise Server', async () => {
+  // Elasticsearch fixtures only work for dotco and GHAE
+  it.skip('sends the correct data to search for Enterprise Server', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
     await newPage.goto(
-      `http://localhost:4000/ja/enterprise-server@${oldestSupported}/admin/installation`
+      `http://localhost:4000/en/enterprise-server@${oldestSupported}/admin/installation`
     )
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/legacy\?/i.test(interceptedRequest.url())
+      ) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe(oldestSupported)
-        expect(searchParams.get('language')).toBe('ja')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
@@ -76,17 +81,20 @@ describe('browser search', () => {
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 
-  it('sends the correct data to search for GHEC', async () => {
+  it('sends the correct data to search for dotcom', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4000/en/enterprise-cloud@latest/admin/overview')
+    await newPage.goto('http://localhost:4000/en')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
+      ) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('ghec')
+        expect(searchParams.get('version')).toBe('dotcom')
         expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
@@ -97,7 +105,7 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
+    await searchInput.type('foo')
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 
@@ -109,7 +117,10 @@ describe('browser search', () => {
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
+      ) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('ghae')
         expect(searchParams.get('language')).toBe('en')
@@ -122,7 +133,7 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
+    await searchInput.type('silly')
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 })
@@ -418,22 +429,6 @@ describe('filter cards', () => {
     )
     shownCardTypes.map((type) => expect(type).toBe('Overview'))
     expect(shownCards.length).toBeGreaterThan(0)
-  })
-})
-
-describe('language banner', () => {
-  it('directs user to the English version of the article', async () => {
-    const wipLanguageKey = Object.keys(languages).find((key) => languages[key].wip)
-
-    // This kinda sucks, but if we don't have a WIP language, we currently can't
-    // run a reliable test. But hey, on the bright side, if we don't have a WIP
-    // language then this code will never run anyway!
-    if (wipLanguageKey) {
-      const res = await page.goto(`http://localhost:4000/${wipLanguageKey}/actions`)
-      expect(res.ok()).toBe(true)
-      const href = await page.$eval('a#to-english-doc', (el) => el.href)
-      expect(href.endsWith('/en/actions')).toBe(true)
-    }
   })
 })
 

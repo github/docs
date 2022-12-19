@@ -13,15 +13,17 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Revisa las apps de OAuth
+shortTitle: Review OAuth apps
+ms.openlocfilehash: fbc35fdca9ab64bf97224911d9adff560ba62eab
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091815'
 ---
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.access_applications %} {% data reusables.user-settings.access_authorized_oauth_apps %} {% data reusables.user-settings.review-oauth-apps %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-{% data reusables.user-settings.review-oauth-apps %}
-
-## Leer más
+## Lecturas adicionales
 {% ifversion fpt or ghec %}
 - "[Acerca de las integraciones](/articles/about-integrations)"{% endif %}
-- "[Revisar tus integraciones autorizadas](/articles/reviewing-your-authorized-integrations)"
+- "[Revisión de las integraciones autorizadas](/articles/reviewing-your-authorized-integrations)"

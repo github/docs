@@ -13,9 +13,14 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Permiso negado para other-repo
+shortTitle: Permission denied other-repo
+ms.openlocfilehash: 4d4898e947338e39c5ade86b5ea0a71f54f36f03
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091741'
 ---
+Para corregirlo, quita la clave de implementación del repositorio y, en su lugar, [agrega la clave a tu cuenta personal](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-Para corregir esto, elimina la clave de despliegue del repositorio y [agrégala a tu cuenta personal](/articles/adding-a-new-ssh-key-to-your-github-account) en su lugar.
-
-Si la clave que estás usando está diseñada para funcionar como una llave de implementación, consulta [nuestra guía sobre llaves de implementación](/guides/managing-deploy-keys) para conocer más detalles.
+Si la clave que usa está pensada para ser una clave de implementación, vea [nuestra guía sobre la implementación de claves](/guides/managing-deploy-keys) para más información.

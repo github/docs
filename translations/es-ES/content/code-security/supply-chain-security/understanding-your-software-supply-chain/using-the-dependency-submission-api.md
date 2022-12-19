@@ -1,6 +1,6 @@
 ---
-title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
+title: Uso de Dependency submission API
+intro: 'Puedes usar Dependency submission API para enviar dependencias para proyectos, como las dependencias resueltas cuando se crea o compila un proyecto.'
 shortTitle: Dependency submission API
 topics:
   - API
@@ -9,29 +9,34 @@ topics:
   - REST
 versions:
   feature: dependency-submission-api
+ms.openlocfilehash: f81967a46763d299afd14727cd884a36cb0b3d9c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880818'
 ---
-
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
-## Acerca de la API de emisión de dependencias
+## Acerca de Dependency submission API
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Las dependencias se envían a la API de emisión de dependencias en forma de una captura. Una captura es un conjunto de dependencias asociadas con el SHA de una confirmación y otros metadatos, la cual refleja el estado actual de tu repositorio para una confirmación. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Las dependencias se envían a Dependency submission API en forma de instantánea. Una instantánea es un conjunto de dependencias asociadas a un SHA de confirmación y otros metadatos, que refleja el estado actual del repositorio para una confirmación. Para más información sobre Dependency submission API, consulta la [documentación de Dependency submission REST API](/rest/dependency-graph/dependency-submission).
 
-## Submitting dependencies at build-time
+## Envío de dependencias en tiempo de compilación
 
-You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built.
+Puedes usar Dependency submission API en un flujo de trabajo de {% data variables.product.prodname_actions %} para enviar dependencias para tu proyecto cuando se compila. 
 
-### Using pre-made actions
+### Uso de acciones hechas previamente
 
-The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta and beyond. You can find links to the currently available actions in the table below:
+La manera más sencilla de usar Dependency submission API es agregar una acción hecha previamente al repositorio que recopilará y convertirá la lista de dependencias al formato de instantánea requerido y enviará la lista a la API. Las acciones que completan estos pasos para varios ecosistemas están disponibles en {% data variables.product.prodname_marketplace %} y se crearán más acciones durante el transcurso de la versión beta y más adelante. Encuentra vínculos a las acciones que actualmente están disponibles en la tabla que se muestra a continuación:
 
-| Ecosystem | Acción                                                                          |
-| --------- | ------------------------------------------------------------------------------- |
-| Go        | [Go Dependency Submission](https://github.com/actions/go-dependency-submission) |
+Ecosistema | Acción |
+--- | --- |
+Go | [Envío de dependencias de Go](https://github.com/actions/go-dependency-submission)
 
-For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API.
+Por ejemplo, el flujo de trabajo de [Envío de dependencias de Go](https://github.com/actions/go-dependency-submission) siguiente calcula las dependencias de un destino de compilación de Go (un archivo de Go con una función `main`) y envía la lista a Dependency Submission API. 
 
 ```yaml
 
@@ -40,7 +45,7 @@ on:
   push:
     branches:
       - main
-
+      
 # The API requires write permission on the repository to submit dependencies
 permissions:
   contents: write
@@ -55,11 +60,11 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: {% data reusables.actions.action-checkout %}
-
+        
       - uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: ">=1.18.0"
-
+          
       - name: Run snapshot action
         uses: @actions/go-dependency-submission@v1
         with:
@@ -75,12 +80,12 @@ jobs:
             go-build-target: go-example/cmd/octocat.go
 
 ```
-### Creating your own action
+### Creación de una acción propia
 
-Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
+De manera alternativa, puedes escribir tu propia acción para enviar dependencias para el proyecto en tiempo de compilación. El flujo de trabajo debe:
 
-  1. Generate a list of dependencies for your project.
-  2. Translate the list of dependencies into the snapshot format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
-  3. Submit the formatted list of dependencies to the Dependency submission API.
+  1. Generar una lista de dependencias para el proyecto.
+  2. Traducir la lista de dependencias al formato de instantánea que Dependency submission API acepta. Para más información sobre el formato, consulta los parámetros de cuerpo para la operación "Crear una instantánea de repositorio" de la API en la [documentación de Dependency submission REST API](/rest/dependency-graph/dependency-submission).
+  3. Enviar la lista de dependencias con formato a Dependency submission API.
 
-{% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
+{% data variables.product.product_name %} mantiene el [kit de herramientas de envío de dependencias](https://github.com/github/dependency-submission-toolkit), una biblioteca de TypeScript que te ayuda a crear tu propia acción de Acciones de GitHub para enviar dependencias a Dependency submission API. Para más información sobre cómo escribir una acción, consulta "[Creación de acciones](/actions/creating-actions)".

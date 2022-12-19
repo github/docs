@@ -16,6 +16,7 @@ topics:
 children:
   - /about-organizations
   - /about-your-organization-dashboard
+  - /best-practices-for-organizations
   - /creating-a-new-organization-from-scratch
   - /accessing-your-organizations-settings
   - /customizing-your-organizations-profile

@@ -7,21 +7,27 @@ permissions: Organization owners can limit which users can submit reviews that a
 topics:
   - Organizations
   - Pull requests
-shortTitle: Pull Requestレビューの管理
+shortTitle: Manage pull request reviews
+ms.openlocfilehash: 2d097e95572932f05795bd28627cb73b1fad43ca
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145125718'
 ---
-
 ## コードレビューの制限について
 
 デフォルトでは、パブリックなリポジトリにおいてはどのユーザもPull Requestの承認や変更リクエストをするレビューをサブミットできます。
 
 Organizationが所有するパブリックリポジトリでは、Pull Requestの承認や変更リクエストを行える人を制限できます。 コードレビューの制限を有効化すると、パブリックリポジトリでPull Requestに湖面度することは誰でもできますが、Pull Requestの承認や変更リクエストができるのは、リポジトリに明示的なアクセスを持っている人に限られます。
 
-個々のリポジトリでコードレビューの制限を有効化することもできます。 Organizationで制限を有効化すると、そのOrganizationが所有する個々のリポジトリに対する制限は上書きされます。 詳しい情報については「[リポジトリにおけるPull Requestレビューの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)」を参照してください。
+個々のリポジトリでコードレビューの制限を有効化することもできます。 Organizationで制限を有効化すると、そのOrganizationが所有する個々のリポジトリに対する制限は上書きされます。 詳細については、「[リポジトリでの pull request レビューの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)」を参照してください。
 
 ## コードレビューの制限の有効化
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. サイドバーの"Access"セクションで、**{% octicon "report" aria-label="The report icon" %} Moderation**をクリックしてください。
-1. 「{% octicon "report" aria-label="The report icon" %} Moderation（モデレーション）」の下で、**Code review limits（コードレビューの制限）**をクリックしてください。 ![Organizationのコードレビュー制限のサイドバーアイテムのスクリーンショット](/assets/images/help/organizations/code-review-limits-organizations.png)
-1. 画面上の情報をレビューしてください。 明示的なアクセスを持つ人にだけレビューを制限するには**Limit review on all repositories（すべてのリポジトリ上でレビューを制限）**を、あるいはOrganizationのすべてのパブリックリポジトリから制限を削除するには**Remove review limits from all repositories（すべてのリポジトリからレビューの制限を削除）**をクリックしてください。 ![Organizationのコードレビュー制限設定のスクリーンショット](/assets/images/help/organizations/code-review-limits-organizations-settings.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. サイドバーの [アクセス] セクションで、 **[{% octicon "report" aria-label="The report icon" %} モデレーション]** をクリックします。
+1. [{% octicon "report" aria-label="The report icon" %} モデレーション] で、 **[コード レビューの制限]** をクリックします。
+![Organization のコード レビュー制限のサイドバー項目のスクリーンショット](/assets/images/help/organizations/code-review-limits-organizations.png)
+1. 画面上の情報をレビューしてください。 **[すべてのリポジトリでレビューを制限する]** をクリックして、レビューを明示的なアクセス権を持つリポジトリに制限するか、 **[すべてのリポジトリからレビューの制限を削除]** をクリックして、Organization 内のすべてのパブリック リポジトリから制限を削除します。
+![Organization のコード レビュー制限設定のスクリーンショット](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

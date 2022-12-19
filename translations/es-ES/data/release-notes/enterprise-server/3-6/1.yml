@@ -1,0 +1,33 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 'Tras desbloquear un repositorio para su acceso temporal, un administrador de sitio no podía administrar los ajustes de los productos de seguridad en el repositorio.'
+    - 'Podían aparecer claves SSH administrativas duplicadas en la Consola de administración y en el archivo `/home/admin/.ssh/authorized_keys`.'
+    - 'La página de administración del sitio de usuarios individuales en <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contenía funciones no dirigidas a GitHub Enterprise Server.'
+    - 'En algunos casos, la ejecución de `ghe-cluster-config-apply` podía replicar una configuración vacía en nodos existentes de un clúster.'
+    - 'En algunos casos, las ejecuciones de configuración que se iniciaban con `ghe-config-apply` no se completaban, o devolvían un error de tipo `Container count mismatch`.'
+    - 'Después de actualizar un certificado TLS autofirmado en una instancia de GitHub Enterprise Server, los elementos de la interfaz de usuario de algunas páginas de la interfaz web no aparecían.'
+    - 'En algunos casos, las tareas en segundo plano se bloqueaban porque se utilizaba una biblioteca simultáneamente a pesar de no ser segura para subprocesos.'
+    - 'La barra de administrador del sitio de la parte superior de la interfaz web contenía un enlace roto al SHA de la versión en ejecución de la aplicación.'
+    - 'Los propietarios de la organización no pudieron establecer el nivel de acceso requerido para crear discusiones.'
+    - 'Los usuarios de las discusiones fueron dirigidos incorrectamente a las guías de la comunidad de GitHub.com.'
+    - 'En algunos casos, se solicitó incorrectamente a los usuarios que verificasen su correo electrónico antes de crear una discusión.'
+    - 'Las alertas de los clientes de escaneo de secretos de GitHub Advanced Security no aparecían en la interfaz de usuario web ni en la API REST si el administrador de un sitio no actualizaba directamente a GitHub Enterprise Server 3.4. Las alertas ya son visibles.'
+  changes:
+    - 'Se ha acelerado la generación de conjuntos de soporte gracias a un saneamiento de registros en paralelo. Si desea más información sobre los conjuntos de soporte, consulte "[Facilitar información al equipo de soporte de GitHub](/support/contacting-github-support/providing-data-to-github-support)".'
+    - 'Las API que contienen la ruta `organization` o `org` ahora aceptan el slug o el ID de la organización. Anteriormente, las API solo aceptaban slugs, lo que provocaba que los encabezados de enlaces de puntos de conexión de GitHub Advanced Security no fueran accesibles. Para más información, consulte "[Organizaciones](https://docs.github.com/rest/orgs/orgs)" en la documento de la API REST.'
+    - 'El registro de auditoría empresarial incluye ahora más eventos generados por el usuario, como `project.create`. La API REST también devuelve eventos adicionales generados por el usuario, como `repo.create`. Para más información, consulte "[Acceso al registro de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" y "[Uso de la API de registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)".'
+    - 'En algunos casos, las réplicas en caché rechazaban algunas operaciones de Git en repositorios recientemente actualizados. Para obtener más información sobre el almacenamiento en caché de repositorios, consulte la sección "[Acerca del almacenamiento en caché de repositorios](/admin/enterprise-management/caching-repositories/about-repository-caching)".'
+    - 'Ahora puede configurar el banner de anuncio global para que se pueda descartar mediante la API de REST. Para obtener más información, consulte "[Personalizar los mensajes de usuario para su empresa](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)".'
+  known_issues:
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio.'
+    - "Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255\_caracteres."
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com.'
+    - 'El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes.'
+    - 'Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.'
+    - 'Los servicios de Acciones se deben reiniciar después de restaurar una instancia a partir de una copia de seguridad realizada en otro host.'
+    - 'En la configuración de un repositorio, habilitar la opción de permitir a los usuario acceso de lectura para crear discusiones no habilita esta funcionalidad.'
+    - 'En algunos casos, los usuarios no pueden convertir incidencias existentes en discusiones.'
+    - 'Los patrones personalizados de examen de secretos tienen `.*`como delimitador de final, específicamente en el campo "Después del secreto". Este delimitador causa inconsistencias en los exámenes de secretos entre repositorios y es posible que note brechas en el historial de un repositorio en el que no se han completado exámenes. Los exámenes incrementales también pueden verse afectados. Para evitar incidencias con los exámenes, modifique el final del patrón para quitar el delimitador `.*`.'

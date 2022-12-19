@@ -1,6 +1,6 @@
 ---
-title: Níveis de permissão para um quadro de projeto pertencente a uma conta pessoal
-intro: 'Um quadro de projeto pertencente a uma conta pessoal tem dois níveis de permissão: o proprietário e colaboradores do quadro do projeto.'
+title: Níveis de permissão para um comitê de projeto pertencente a uma conta pessoal
+intro: 'Um quadro de projeto pertencente a uma conta pessoal tem dois níveis de permissão: proprietário do quadro de projeto e colaboradores.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -13,12 +13,17 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Permissões do quadro de projeto
+shortTitle: Project board permissions
+ms.openlocfilehash: 353b9ac497abc7110437aafdf691ca48a3ff6cec
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145164650'
 ---
-
 ## Visão geral das permissões
 
-Há apenas um proprietário de um quadro de projeto pertencente a um usuário; esta permissão não pode ser compartilhada com outra conta pessoal. Além do proprietário, outras pessoas podem colaborar em quadros de projeto.
+Só existe um único proprietário de quadro de projeto pertencente a um usuário. Essa permissão não pode ser compartilhada com outra conta pessoal. Além do proprietário, outras pessoas podem colaborar em quadros de projeto.
 
 Existem três níveis de permissões para colaboradores de quadro de projeto:
 
@@ -28,11 +33,11 @@ Existem três níveis de permissões para colaboradores de quadro de projeto:
 
 O proprietário do quadro de projeto e colaboradores com acesso de administrador têm controle total do quadro de projeto. Além de todas as permissões de colaboradores de quadro de projeto, um proprietário de quadro de projeto e um colaborador com acesso de administrador podem:
 
-- [Gerenciar, visualizar e adicionar colaboradores](/articles/managing-access-to-your-user-account-s-project-boards)
-- [Configurar um quadro de projeto como {% ifversion ghae %}interno{% else %}público{% endif %} ou privado](/articles/changing-project-board-visibility)
-- [Excluir um quadro de projeto](/articles/deleting-a-project-board/)
-- [Fechar um quadro de projeto](/articles/closing-a-project-board/)
-- [Reabrir um quadro de projeto fechado](/articles/reopening-a-closed-project-board)
+- [Gerenciar, ver e adicionar colaboradores](/articles/managing-access-to-your-user-account-s-project-boards)
+- [Configurar um quadro de projetos como {% ifversion ghae %}interno{% else %}público{% endif %} ou privado](/articles/changing-project-board-visibility)
+- [Excluir um quadro de projetos](/articles/deleting-a-project-board/)
+- [Fechar um quadro de projetos](/articles/closing-a-project-board/)
+- [Reabrir um quadro de projetos fechado](/articles/reopening-a-closed-project-board)
 
 ## Permissões de leitura e gravação em um quadro de projeto pertencente a um usuário
 
@@ -58,8 +63,8 @@ Colaboradores com acesso de gravação em um quadro de projeto pertencente a um 
 
 ## Visibilidade do quadro de projeto
 
-Você pode alterar a visibilidade do painel do projeto de privado para {% ifversion ghae %}interno{% else %}público{% endif %} e de volta. Por padrão, os quadros de projeto pertencentes a um usuário são privados. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
+Você pode alterar a visibilidade do quadro de projetos de privado para {% ifversion ghae %}interno{% else %}público{% endif %} e de volta novamente. Por padrão, os quadros de projeto pertencentes a um usuário são privados. Para obter mais informações, confira "[Como alterar a visibilidade do quadro de projetos](/articles/changing-project-board-visibility)".
 
-## Leia mais
+## Leitura adicional
 
-  - "[Gerenciando o acesso aos quadros de projetos da sua conta pessoal](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - "[Como gerenciar o acesso aos quadros de projetos da sua conta pessoal](/articles/managing-access-to-your-user-account-s-project-boards)"

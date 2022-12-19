@@ -8,9 +8,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Problemas de conectividad
+shortTitle: Connectivity problems
+ms.openlocfilehash: 77e88f4721c5dfa9cdde22ddee23a9188785e994
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145069887'
 ---
-
 La mayoría de las veces, los problemas de conexión ocurren porque un firewall, servidor proxy, red corporativa u otra red está configurada de una forma que bloquea {% data variables.product.prodname_dotcom %}.
 
 ## Permitir las direcciones IP de {% data variables.product.prodname_dotcom %}
@@ -25,15 +30,15 @@ Si tienes problemas de conectividad con la red de tu empresa u organización, co
 
 Si no puedes verificar con el captcha:
 - Asegúrate de que tu buscador tenga JavaScript habilitado.
-- Asegúrate de que tu navegador sea compatible. Si tu navegador no es compatible, actualízalo o instala un navegador compatible. Para obtener una lista de navegadores compatibles, consulta "[Navegadores compatibles](/articles/supported-browsers)".
-- Asegúrate de que tu configuración de red no esté bloqueando https://octocaptcha.com/ o https://arkoselabs.com/. Si estás detrás de un cortafuegos corporativo, contacta a tu administrador de TI para que incluya esos dominios. Para verificar el acceso a estos dominios, visita https://octocaptcha.com/test y asegúrate de que se muestre el texto "¡La conexión se llevó a cabo exitosamente!", luego visita https://client-demo.arkoselabs.com/github y asegúrate de que puedes cargar el captcha.
+- Asegúrate de que tu navegador sea compatible. Si tu navegador no es compatible, actualízalo o instala un navegador compatible. Para obtener una lista completa de los exploradores compatibles, consulta "[Exploradores compatibles](/articles/supported-browsers)".
+- Asegúrate de que la configuración de red no bloquee https://octocaptcha.com/ ni https://arkoselabs.com/. Si estás detrás de un cortafuegos corporativo, contacta a tu administrador de TI para que incluya esos dominios. Para comprobar el acceso a estos dominios, visita https://octocaptcha.com/test y asegúrate de que se muestra el texto "Conexión realizada correctamente"; a continuación, visita https://client-demo.arkoselabs.com/github y asegúrate de que puedes cargar el captcha.
 - Asegúrate de que tu navegador no tenga plug-ins o extensiones que puedan estar interfiriendo con GitHub. En tal caso, inhabilita de manera temporal los plug-ins o extensiones durante la verificación del captcha.
 
 ## Cambiar métodos de clonación
 
-Cambiar desde la clonación por SSH a la clonación por HTTPS, o viceversa, puede mejorar la conectividad. Para obtener más información, consulta la sección "[Solucionar problemas para los errores de clonado](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)".
+Cambiar desde la clonación por SSH a la clonación por HTTPS, o viceversa, puede mejorar la conectividad. Para obtener más información, consulta "[Solución de problemas relacionados con los errores de clonación](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)".
 
-Si están ocurriendo interrupciones con SSH, consulta "[Error: Número de archivo erróneo](/articles/error-bad-file-number)".
+Si se agotan los tiempos de espera con SSH, consulta "[Error: Número de archivo incorrecto](/articles/error-bad-file-number)".
 
 ## Solucionar problemas de descargas lentas y conexiones lentas intermitentes
 

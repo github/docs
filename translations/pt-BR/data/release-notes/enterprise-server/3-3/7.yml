@@ -1,32 +1,32 @@
----
 date: '2022-04-20'
 sections:
   security_fixes:
-    - Os pacotes foram atualizados para as últimas versões de segurança.
+    - 'Os pacotes foram atualizados para as últimas versões de segurança.'
   bugs:
-    - Quando um arquivo de manifesto foi excluído de um repositório, o manifesto não seria removido da página "Gráfico de dependência" do repositório.
-    - Resolvida uma regressão que poderia levar a falhas consistentes para recuperar artefatos e fazer o download dos arquivos de log para {% data variables.product.prodname_actions %}. Em algumas circunstâncias, paramos de resolver URLs para comunicações internas que usavam `localhost` e em vez disso usavam incorretamente o nome do host da instância.
-    - Atualizar os nós em um par de alta disponibilidade com um pacote de atualização pode fazer com que o Elasticsearch entre em um estado inconsistente em alguns casos.
-    - Arquivos de log rotacionados com o `.backup` da extensão seriam acumulados em diretórios que contêm logs de sistema.
-    - Em algumas topologias de cluster, os utilitários de linha de comando 'ghe-spokesctl' e 'ghe-btop' falharam em executar.
-    - Os índices de pesquisa do Elasticsearch podem ser duplicados durante uma atualização do pacote, devido a um serviço `elasticsearch-upgrade` em execução várias vezes em paralelo.
-    - Nas visualizações de pull request e de commit, os diffs avançados falhariam em carregar alguns arquivos rastreados pelo LFS do Git.
-    - Ao converter a conta de um usuário em uma organização, se a conta de usuário era proprietáris da conta corporativa de {% data variables.product.prodname_ghe_server %}, a organização convertida apareceria incorretamente na lista de proprietários da empresa.
-    - Criar um token OAuth de representação usando a API REST da Administração Enterprise resultou em um erro quando uma integração que corresponde ao ID do Aplicativo OAuth já existia.
-    - A API REST de digitalização de segredo retornaria um código de resposta `500` se houvesse UTF8 caracteres presentes em um segredo detectado.
-    - Os servidores de cache do repositório podem servir dados de locais que não são do cache mesmo quando os dados estavam disponíveis no local do cache local.
+    - 'Quando um arquivo de manifesto fosse excluído de um repositório, o manifesto não seria removido da página “Grafo de dependência” do repositório.'
+    - 'Foi resolvida uma regressão que poderia levar a falhas consistentes na recuperação de artefatos e no download de arquivos de log para o {% data variables.product.prodname_actions %}. Em algumas circunstâncias, paramos de resolver URLs para comunicações internas que usavam “localhost” mas que, incorretamente, usavam o nome do host da instância.'
+    - 'Atualizar os nós em um par de alta disponibilidade com um pacote de atualização poderia fazer com que o Elasticsearch entrasse em um estado inconsistente em alguns casos.'
+    - 'Os arquivos de log alternados com a extensão “.backup” seriam acumulados nos diretórios que contém logs do sistema.'
+    - 'Em algumas topologias de grupo, os utilitários de linha de comando "ghe-spokesctl" e "ghe-btop" falharam em serem executados.'
+    - 'Os índices de Elasticsearch podem ser duplicados durante a atualização de um pacote devido à um serviço "elasticsearch-upgrade" executando diversas vezes paralelamente.'
+    - 'Nas exibições de commit e solicitação de pull, diffs avançados não carregariam alguns arquivos acompanhados por Git LFS.'
+    - 'Ao fazer a conversão de uma conta de usuário para uma organização, se a conta de usuário fosse um proprietário da conta da empresa {% data variables.product.prodname_ghe_server %}, a organização convertida apareceria incorretamente na lista de proprietário da empresa.'
+    - 'Criar um token OAuth de representação usando a API REST da Enterprise Administration resultava em um erro quando já existia uma integração correspondendo a ID do OAuth Application.'
+    - 'A API REST Exame Secreto retornaria o código de resposta "500" quando houvesse caracteres UTF8 presentes em um segredo detectado.'
+    - 'Os servidores de cache de repositório poderiam fornecer dados de locais que não estão em cache mesmo quando os dados estivessem disponíveis na localização de cache local.'
   changes:
-    - Os erros de configuração que interrompem a execução de uma configuração aplicada agora são retornados para o terminal, além do log de configuração.
-    - Ao tentar armazenar em cache um valor maior que o máximo permitido no Memcached, ocorreu um erro, porém a chave não foi relatada.
-    - Se as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} estiverem habilitadas na sua instância, o desempenho de trabalhos em segundo plano melhorou ao processar lotes para contribuições no repositório.
+    - 'Agora a saída do log de configuração e dos erros de configuração que interrompem uma execução de aplicação de configuração é feita no terminal.'
+    - 'Ao tentar armazenar em cache um valor maior do que o máximo permitido em Memcached, foi gerado um erro, mas a chave não foi relatada.'
+    - 'Se os recursos do {% data variables.product.prodname_GH_advanced_security %} estiverem habilitados em sua instância, o desempenho dos trabalhos em segundo plano foi aprimorado no processamento de lotes para contribuições ao repositório.'
   known_issues:
-    - Após a atualização para {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} pode não ser iniciado automaticamente. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.
-    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
-    - As regras de firewall personalizadas são removidas durante o processo de atualização.
-    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
-    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
-    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas nos repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_website %}.
-    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
-    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
-    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
-    - '{% data variables.product.prodname_ghe_server %} 3.3 instâncias instaladas no Azure e com mais de 32 núcleos de CPU provisionadas não conseguiriam iniciar, devido a um erro presente no kernel do Linux atual. [Atualizado: 2022-04-08]'
+    - 'Depois da atualização para o {% data variables.product.prodname_ghe_server %} 3.3, as {% data variables.product.prodname_actions %} podem falhar na inicialização automática. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando "ghe-actions-start".'
+    - 'Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.'
+    - 'As regras de firewall personalizadas são removidas durante o processo de atualização.'
+    - 'Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta.'
+    - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo de blob é maior que 255 caracteres.'
+    - 'Quando "Usuários podem pesquisar GitHub.com" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_Website %}.'
+    - 'O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes.'
+    - 'Os limites de recursos que são específicos para processamento de ganchos de pré-recebimento podem causar falha em alguns ganchos de pré-recebimento.'
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando a opção "Forçar estilo de caminho" estiver selecionada e deverão ser definidas com a ferramenta de linha de comando "ghe-actions-precheck".'
+    - 'As instâncias do {% data variables.product.prodname_ghe_server %} 3.3 instaladas no Azure e provisionadas com mais de 32 núcleos de CPU falhariam na inicialização devido a um bug presente no kernel do Linux atual. [Atualizado em: 08-04-2022]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

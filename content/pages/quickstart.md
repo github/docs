@@ -27,13 +27,12 @@ This guide will lead you through creating a user site at `username.github.io`.
    ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Click **Choose a theme**.
-   ![Choose a theme button](/assets/images/help/pages/choose-theme.png)
-2. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now.
-   ![Theme options and Select theme button](/assets/images/help/pages/select-theme.png)
-3. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-4. When you are done editing the file, click **Commit changes**.
-5. Visit `username.github.io` to view your new website. **Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
+1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+
+   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
+1. Optionally, open the `README.md` file of your repository. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
+1. Visit `username.github.io` to view your new website. **Note:** It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 ## Changing the title and description
 

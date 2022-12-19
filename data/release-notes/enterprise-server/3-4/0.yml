@@ -31,13 +31,19 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2004
         - |
-          {% data variables.product.prodname_dependabot %} is now available in {% data variables.product.prodname_ghe_server %} 3.4 as a public beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_dependabot %} to be enabled by an administrator. Beta feedback and suggestions can be shared in the [{% data variables.product.prodname_dependabot %} Feedback GitHub discussion](https://github.com/github/feedback/discussions/categories/dependabot-feedback). For more information and to try the beta, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+          {% data variables.product.prodname_dependabot %} is now available in {% data variables.product.prodname_ghe_server %} 3.4 as a public beta, offering both version updates and security updates for several popular ecosystems. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} requires {% data variables.product.prodname_actions %} and a pool of self-hosted runners configured for {% data variables.product.prodname_dependabot %} use. {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_ghe_server %} also requires {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_dependabot %} to be enabled by an administrator. Beta feedback and suggestions can be shared in the [{% data variables.product.prodname_dependabot %} Feedback GitHub discussion](https://github.com/community/community/discussions/categories/dependabot). For more information and to try the beta, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
 
     - heading: SAML authentication supports encrypted assertions
       notes:
         # https://github.com/github/releases/issues/1946
         - |
-          If you use SAML authentication for {% data variables.product.prodname_ghe_server %}, you can now configure encrypted assertions from your IdP to improve security. Encrypted assertions add an additional layer of encryption when your IdP transmits information to {% data variables.product.product_location %}. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+          If you use SAML authentication for {% data variables.product.prodname_ghe_server %}, you can now configure encrypted assertions from your IdP to improve security. Encrypted assertions add an additional layer of encryption when your IdP transmits information to {% data variables.location.product_location %}. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+
+    - heading: Edit files within pull requests in GitHub Mobile for iOS
+      notes:
+        # https://github.com/github/releases/issues/2514
+        - |
+          In GitHub Mobile for iOS 1.80.0 and later, users can now edit files within a pull request's topic branch. Support for editing files will come to GitHub Mobile for Android in a future release. [Updated: 2022-09-13]
 
   changes:
     - heading: Administration Changes
@@ -227,7 +233,6 @@ sections:
         # https://github.com/github/enterprise2/pull/28057
         - Support for {% data variables.product.prodname_mobile %} is now enabled by default for new {% data variables.product.prodname_ghe_server %} instances. If you have not explicitly disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled when you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information, see "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)."
 
-
   # No security/bug fixes for the GA release
   # security_fixes:
   #   - PLACEHOLDER
@@ -252,7 +257,9 @@ sections:
       To work around this problem, you can take one of the two following actions.
       - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
       - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
-
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 3.0
       notes:
@@ -293,7 +300,7 @@ sections:
         - |
           Starting in {% data variables.product.prodname_ghe_server %} 3.1, support for {% data variables.product.company_short %}'s proprietary bit-cache extensions began to be phased out. These extensions are deprecated in {% data variables.product.prodname_ghe_server %} 3.3 onwards.
 
-          Any repositories that were already present and active on {% data variables.product.product_location %} running version 3.1 or 3.2 will have been automatically updated.
+          Any repositories that were already present and active on {% data variables.location.product_location %} running version 3.1 or 3.2 will have been automatically updated.
 
           Repositories which were not present and active before upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may not perform optimally until a repository maintenance task is run and has successfully completed.
 

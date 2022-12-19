@@ -30,7 +30,7 @@ To resolve a merge conflict, you must manually edit the conflicted file to selec
 
 If you have a merge conflict on the command line, you cannot push your local changes to {% data variables.product.product_name %} until you resolve the merge conflict locally on your computer. If you try merging branches on the command line that have a merge conflict, you'll get an error message. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
 ```shell
-$ git merge <em>BRANCH-NAME</em>
+$ git merge BRANCH-NAME
 > Auto-merging styleguide.md
 > CONFLICT (content): Merge conflict in styleguide.md
 > Automatic merge failed; fix conflicts and then commit the result

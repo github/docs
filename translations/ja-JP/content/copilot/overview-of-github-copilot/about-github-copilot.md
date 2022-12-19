@@ -1,39 +1,47 @@
 ---
-title: About GitHub Copilot
-intro: '{% data variables.product.prodname_copilot %} can help you code by offering autocomplete-style suggestions. You can learn what to consider while using {% data variables.product.prodname_copilot %}, and how {% data variables.product.prodname_copilot %} works.'
+title: GitHub Copilot について
+intro: '{% data variables.product.prodname_copilot %} はオートコンプリート スタイルの候補を提示することでコーディングを支援します。 {% data variables.product.prodname_copilot %} のしくみと、{% data variables.product.prodname_copilot %} の使用時の考慮事項がわかります。'
 versions:
   feature: copilot
 topics:
   - Copilot
 shortTitle: About GitHub Copilot
+ms.openlocfilehash: 4ff4c73e61c10c2c3f75d9581bf426266122550b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192779'
 ---
+## {% data variables.product.prodname_copilot %} について
 
-## {% data variables.product.prodname_copilot %}について
+{% data variables.product.prodname_copilot %} では、コーディング時にオートコンプリート スタイルの候補を提示する AI ペア プログラマーです。 使用するコードを書き始めるか、そのコードに何をさせたいかを自然言語のコメントで記述することで、{% data variables.product.prodname_copilot %} から候補を取り入れることができます。 {% data variables.product.prodname_copilot %} は、編集中のファイルや関連ファイルのコンテキストを分析し、テキスト エディター内から候補の提示を行います。 {% data variables.product.prodname_copilot %} は、OpenAI によって作成された新しい AI システムである OpenAI Codex を利用しています。
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor.
+{% data variables.product.prodname_copilot %} は、パブリック リポジトリに表示されるすべて言語でトレーニングされます。 各言語で、受け取る提案の品質は、その言語のトレーニング データの量と多様性によって異なります。 たとえば、JavaScript は、パブリック リポジトリで適切に表現されており、{% data variables.product.prodname_copilot %} でサポートされている最適な言語の 1 つです。 パブリック リポジトリでの表現が少ない言語では、生成される候補の信頼性が低下する可能性があります。
 
-{% data variables.product.prodname_copilot %} is optimized to help you write Python, JavaScript, TypeScript, Ruby, Go, C#, or C++. You can also use {% data variables.product.prodname_copilot %} to generate suggestions in other languages and a wide variety of frameworks. {% data variables.product.prodname_copilot %} is powered by OpenAI Codex, a new AI system created by OpenAI.
+{% data variables.product.prodname_copilot %} は、Visual Studio Code、Visual Studio、Neovim、JetBrains での一連の IDE で拡張機能として使用できます。 詳しくは、「[{% data variables.product.prodname_copilot %} の概要](/copilot/getting-started-with-github-copilot)」を参照してください。
 
-{% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, Neovim and the JetBrains suite of IDEs. 詳細は「[{% data variables.product.prodname_copilot %} を使ってみる](/copilot/getting-started-with-github-copilot)」を参照してください。
+## {% data variables.product.prodname_copilot %} の使用
 
-## {% data variables.product.prodname_copilot %}を使用する
+{% data variables.product.prodname_copilot %} の動作する実際の例を確認することができます。 詳しくは、[{% data variables.product.prodname_copilot %}](https://copilot.github.com/) の Web サイトを参照してください。 
 
-You can see real-world examples of {% data variables.product.prodname_copilot %} in action. 詳しい情報については、 [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)のウェブサイトを参照してください。
+{% data variables.product.prodname_copilot %} からは、無数のオープン ソース コード行から OpenAI によって構築されたモデルからの提案が提供されます。 その結果、{% data variables.product.prodname_copilot %} のトレーニング セットには、安全でないコーディング パターン、バグ、または古い API やイディオムへの参照が含まれている可能性があります。 {% data variables.product.prodname_copilot %} がこのトレーニング データに基づいて候補を生成する場合、それらの候補にも望ましくないパターンが含まれる場合があります。 
 
-GitHub Copilot offers suggestions from a model that OpenAI built from billions of lines of open source code. As a result, the training set for {% data variables.product.prodname_copilot %} may contain insecure coding patterns, bugs, or references to outdated APIs or idioms. When {% data variables.product.prodname_copilot %} produces suggestions based on this training data, those suggestions may also contain undesirable patterns.
+コードのセキュリティと品質を確保するのは、ご自分の責任です。 {% data variables.product.prodname_copilot %} で生成されたコードを使うときは、自分自身で書いていないコードを使うときと同じ予防措置を講じることをお勧めします。 これらの予防措置には、厳密なテスト、IP スキャン、セキュリティの脆弱性の追跡などが含まれます。 {% data variables.product.company_short %} には、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_dependabot %}、{% data variables.product.prodname_codeql %}、{% data variables.product.prodname_code_scanning %} など、コード品質を監視および改善できる多数の機能が用意されています。 これらの機能はすべて、パブリック リポジトリで自由に使用できます。 詳しくは、「[{% data variables.product.prodname_actions %} について](/actions/learn-github-actions/understanding-github-actions)」と「[{% data variables.product.company_short %} のセキュリティ機能](/code-security/getting-started/github-security-features)」を参照してください。
 
-You are responsible for ensuring the security and quality of your code. We recommend you take the same precautions when using code generated by {% data variables.product.prodname_copilot %} that you would when using any code you didn't write yourself. These precautions include rigorous testing, IP scanning, and tracking for security vulnerabilities. {% data variables.product.company_short %} provides a number of features to help you monitor and improve code quality, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_codeql %} and {% data variables.product.prodname_code_scanning %}. All these features are free to use in public repositories. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)" and "[{% data variables.product.company_short %} security features](/code-security/getting-started/github-security-features)."
+{% data variables.product.prodname_copilot %} では、プロンプト内の不快な単語をブロックし、機密性の高いコンテキストにある候補を生成しないようにフィルターを使っています。 私たちは、{% data variables.product.prodname_copilot %} によって生成された不快な候補 (偏った、差別的、または虐待的な出力など) をよりインテリジェントに検出して削除するため、フィルター システムを常に改善することに取り組んでいます。 {% data variables.product.prodname_copilot %} によって生成された不快な候補が表示される場合は、安全対策を改善できるように、その候補を copilot-safety@github.com に直接報告してください。 
 
-{% data variables.product.prodname_copilot %} uses filters to block offensive words in the prompts and avoid producing suggestions in sensitive contexts. We are committed to constantly improving the filter system to more intelligently detect and remove offensive suggestions generated by {% data variables.product.prodname_copilot %}, including biased, discriminatory, or abusive outputs. If you see an offensive suggestion generated by {% data variables.product.prodname_copilot %}, please report the suggestion directly to copilot-safety@github.com so that we can improve our safeguards.
+## {% data variables.product.prodname_copilot %} の課金について
 
-## {% data variables.product.prodname_copilot %}の支払いについて
+{% data variables.product.prodname_copilot %} は有料機能であり、月単位または年単位のサブスクリプションが必要です。 {% data variables.product.prodname_copilot %} サブスクリプションの支払いと管理は、{% data variables.product.prodname_copilot_for_individuals %} の {% data variables.product.prodname_dotcom_the_website %} の個人アカウントから可能です。あるいは、{% data variables.product.prodname_copilot_for_business %} の {% data variables.product.prodname_ghe_cloud %} のエンタープライズ アカウントからまとめて支払い、管理できます。
 
-{% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. Verified students and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. If you do not meet the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will be offered a 60 day free trial, after which a paid subscription is required for continued use. 詳しい情報については、「[{% data variables.product.prodname_copilot %}の支払いについて](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
+確認が取れている学生、教師、および {% data variables.product.prodname_dotcom %} 上のオープン ソース プロジェクトのメンテナンス担当者は、{% data variables.product.prodname_copilot_individuals_short %} を無料で使うことができます。 無料の {% data variables.product.prodname_copilot_individuals_short %} サブスクリプションの条件を満たしている場合は、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスしたときに、自動的に通知されます。 無料の {% data variables.product.prodname_copilot_individuals_short %} サブスクリプションの条件を満たしていない場合、60 日間の無料試用版が提供され、その後継続して使うには有料のサブスクリプションが必要になります。 {% data variables.product.prodname_copilot_for_business %} には無料試用版は含まれていません。 詳細については、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
 
-## About the license for the {% data variables.product.prodname_copilot %} plugin in JetBrains IDEs
+## JetBrains IDE での {% data variables.product.prodname_copilot %} プラグインのライセンスについて
 
-{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
+{% data variables.product.prodname_dotcom %}, Inc. は、JetBrains プラグインのライセンサーです。 このプラグインのエンド ユーザー ライセンス契約は、[{% data variables.product.prodname_dotcom %} 追加製品および機能の利用規約](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)であり、このプラグインの使用はこれらの利用規約の対象となります。 JetBrains は、本プラグインまたはかかる契約に関連して、一切の責任または義務を負わないものとします。 プラグインを使うことにより、お客様は前述の利用規約に同意したものと見なされます。
 
-## 参考リンク
+## 参考資料
 
-- "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+- "[{% data variables.product.company_short %} 追加製品および機能の利用規約](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
+- "[{% data variables.product.prodname_copilot_for_business %} プライバシーに関する声明](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}

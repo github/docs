@@ -2,4 +2,3 @@
 # OIDC/CAP for Enterprise Managed Users
 versions:
   ghec: '*'
-  ghae: 'issue-6495'

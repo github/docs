@@ -11,39 +11,43 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Sobre 2FA
+shortTitle: About 2FA
+ms.openlocfilehash: f4b15aeeece76ce5e5afe915e0e0bc4893c4dbb6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145083590'
 ---
-
-No {% data variables.product.product_name %}, a segunda forma de autenticação é um código gerado por um aplicativo no seu dispositivo móvel{% ifversion fpt or ghec %} ou enviado como uma mensagem de texto (SMS){% endif %}. Após habilitar a 2FA, {% data variables.product.product_name %} irá gerar um código de autenticação sempre que alguém tenta entrar na sua conta em {% data variables.product.product_location %}. A única maneira de alguém entrar na sua conta é se ele souber sua senha e tiver acesso ao código de autenticação no seu telefone.
+Para o {% data variables.product.product_name %}, a segunda forma de autenticação é um código gerado por um aplicativo no seu dispositivo móvel{% ifversion fpt or ghec %} ou enviado como um SMS (mensagem de texto){% endif %}. Após habilitar a 2FA, {% data variables.product.product_name %} irá gerar um código de autenticação sempre que alguém tenta entrar na sua conta em {% data variables.product.product_location %}. A única maneira com a qual alguém poderá entrar na sua conta é se souber a sua senha e tiver acesso ao código de autenticação no seu telefone.
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
-{% ifversion fpt or ghec %}
-Além das chaves de segurança, você também pode usar {% data variables.product.prodname_mobile %} para 2FA após configurar um aplicativo TOTP para dispositivo móvel ou mensagens de texto. {% data variables.product.prodname_mobile %} usa criptografia de chave pública para proteger sua conta, permitindo que você use qualquer dispositivo móvel que usou para efetuar o login no {% data variables.product.prodname_mobile %} como segundo fator.
+{% ifversion fpt or ghec %} Além das chaves de segurança, você também pode usar o {% data variables.product.prodname_mobile %} para a 2FA depois de configurar um aplicativo móvel TOTP ou mensagens de texto. O {% data variables.product.prodname_mobile %} usa criptografia de chave pública para proteger sua conta, permitindo que você use qualquer dispositivo móvel que usou para entrar no {% data variables.product.prodname_mobile %} como segundo fator.
 {% endif %}
 
-Você também pode configurar métodos de recuperação adicionais, caso você o acesso às suas credenciais de autenticação de dois fatores. Para obter mais informações sobre como configurar a 2FA, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)" e "[Configurar métodos de recuperação de autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)".
+Você também pode configurar métodos de recuperação adicionais, caso você o acesso às suas credenciais de autenticação de dois fatores. Para obter mais informações sobre como configurar a 2FA, confira "[Como configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)" e "[Como configurar métodos de recuperação da autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)".
 
-É **altamente** recomendável que você habilite a 2FA para a segurança de sua conta, não apenas em {% data variables.product.product_name %}, mas em outros sites e aplicativos compatíveis com a 2FA. Você pode habilitar o 2FA para acessar {% data variables.product.product_name %} e {% data variables.product.prodname_desktop %}.
+Pedimos **fortemente** que você habilite a 2FA para a segurança da sua conta, não apenas no {% data variables.product.product_name %}, mas em outros sites e aplicativos que dão suporte à 2FA. Você pode habilitar o 2FA para acessar {% data variables.product.product_name %} e {% data variables.product.prodname_desktop %}.
 
-Para obter mais informações, consulte "[Acessar o {% data variables.product.prodname_dotcom %} usando a autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication)".
+Para obter mais informações, confira "[Como acessar o {% data variables.product.prodname_dotcom %} usando a autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication)".
 
 ## Códigos de recuperação da autenticação de dois fatores
 
-{% data reusables.two_fa.about-recovery-codes %} Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+{% data reusables.two_fa.about-recovery-codes %} Para obter mais informações, confira "[Como recuperar sua conta se você perder suas credenciais de 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)".
 
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Aviso**: {% data reusables.two_fa.support-may-not-help %} Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+**Aviso**: {% data reusables.two_fa.support-may-not-help %} Para obter mais informações, confira "[Como recuperar sua conta se você perder suas credenciais de 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)".
 
 {% endwarning %}
 
 {% endif %}
 
-## Exigir autenticação de dois fatores em sua organização
+## Exigindo a autenticação de dois fatores na sua organização
 
-Os proprietários da organização podem exigir que integrantes da organização{% ifversion fpt or ghec %}, gerentes de cobrança{% endif %} e colaboradores externos usem a autenticação de dois fatores para proteger suas contas pessoais. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
+Os proprietários da organização podem exigir que os membros da organização{% ifversion fpt or ghec %}, os gerentes de cobrança{% endif %} e os colaboradores externos usem a autenticação de dois fatores para proteger as contas pessoais. Para obter mais informações, confira "[Como exigir a autenticação de dois fatores na sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
 
 {% data reusables.two_fa.auth_methods_2fa %}

@@ -1,5 +1,5 @@
 ---
-title: GitHub Threats of Violence and Gratuitously Violent Content
+title: GitHub の暴力の脅威と根拠のない暴力的コンテンツ
 shortTitle: Threats of Violence and Gratuitously Violent Content
 versions:
   fpt: '*'
@@ -10,13 +10,17 @@ redirect_from:
   - /github/site-policy/github-threats-of-violence-and-gratuitously-violent-content
   - /github/site-policy/github-community-guidelines#threats-of-violence
   - /github/site-policy/github-community-guidelines#gratuitously-violent-content
+ms.openlocfilehash: 4dc5d6eb2b79dc500b29d3a3bf8bfc9b77244680
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556529'
 ---
+GitHub を使用して、暴力行為の組織化、推進、奨励、脅迫、または扇動を行うことはできません。 人や動物に対する暴力または身体的危害を表現または美化するコンテンツを投稿することはできません。 こうした行為には、以下が含まれます。
 
+- 虐待、危害、性的暴力、または死によって他人または集団を脅迫すること
+- 自身、他人、集団、動物に対する暴力の生々しい描写を美化するまたは含むテキスト、画像、または音声コンテンツを投稿すること
+- 他人に自傷行為に関わるように促すこと
 
-You may not use GitHub to organize, promote, encourage, threaten, or incite acts of violence. You may not post content that depicts or glorifies violence or physical harm against human beings or animals. これは以下のものが含まれます。
-
-- Threatening another individual or group with abuse, harm, sexual violence, or death
-- Posting text, imagery, or audio content glorifying or containing a graphic depiction of violence toward oneself, another individual, group, or animal
-- Encouraging another individual to engage in self harm
-
-We do not allow violent content to be posted indiscriminately or in a way that is difficult for other users to avoid, such as a profile avatar or an issue comment. However, we understand there may be legitimate reasons to post violent content, such as for educational or documentary purposes, creative works, or depictions of historical events. In those cases, a clear warning or disclaimer can help users make an educated decision as to whether or not they want to engage with such content. Still, GitHub may decide to limit the visibility of such content to those who choose to opt in. 
+当社は、無差別に、またはプロファイルのアバターや問題のコメントなど、他のユーザーが避けにくい方法で、暴力的コンテンツを投稿することを禁止しています。 ただし、教育上の目的やドキュメンタリー、創造的な作品、歴史的事実の表現など、場合によっては暴力的コンテンツを投稿する正当な理由があることを当社は理解しています。 そのような場合、明確な警告や免責事項をユーザーに知らせることで、ユーザーがかかるコンテンツに関わるかどうかについて経験に基づく意思決定を行うことができます。 GitHub は、オプトインを選択したユーザーに対し、かかるコンテンツの表示を制限することを決定する場合があります。 

@@ -1,6 +1,6 @@
 ---
 title: Encontrar maneras para colaborar con el código abierto en GitHub
-intro: 'Puedes encontrar maneras de contribuir a los proyectos de código abierto en {% data variables.product.product_location %} que te parezcan relevantes.'
+intro: 'Puedes encontrar maneras de contribuir a los proyectos de código abierto en {% data variables.product.product_location %} que te parezcan pertinentes.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on
@@ -16,24 +16,29 @@ versions:
   ghec: '*'
 topics:
   - Open Source
-shortTitle: Contribuir al código abierto
+shortTitle: Contribute to open source
+ms.openlocfilehash: 434927bb3fd1f6816cf76b82a949a4b3369acba9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119481'
 ---
-
 ## Descubrir proyectos relevantes
 
-Si hay un tema en particular que te interese, visita `github.com/topics/<topic>`. Por ejemplo, si te interesa el aprendizaje automático, puedes encontrar proyectos relevantes e informes de problemas iniciales si visitas https://github.com/topics/machine-learning. Puedes buscar temas populares si visitas [Temas](https://github.com/topics). También puedes buscar repositorios que empaten con algún tema que te interese. Para obtener más información, consulta "[Buscar repositorios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
+Si hay un tema determinado que le interese, visite `github.com/topics/<topic>`. Por ejemplo, si le interesa el aprendizaje automático, puede encontrar proyectos relevantes e incidencias iniciales visitando https://github.com/topics/machine-learning. Para examinar temas populares, visite [Temas](https://github.com/topics). También puedes buscar repositorios que empaten con algún tema que te interese. Para más información, vea "[Búsqueda de repositorios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)".
 
-Si has tenido actividad en {% data variables.product.product_location %} recientemente, puedes encontrar recomendaciones personalizadas para proyectos e informes de problemas iniciales que se basen en tus contribuciones, estrellas y otras actividades previas en [Explore](https://github.com/explore). También puedes registrarte para el boletín Explore para recibir correos electrónicos sobre las oportunidades disponibles para colaborar con {% data variables.product.product_name %} de acuerdo a tus intereses. Para registrarte, consulta [Boletín Explore por correo](https://github.com/explore/subscribe).
+Si ha sido activo en {% data variables.product.product_location %}, puede encontrar recomendaciones personalizadas para proyectos e incidencias iniciales que se basen en sus contribuciones, estrellas y otras actividades previas en [Exploración](https://github.com/explore). También puedes registrarte para el boletín Explore para recibir correos electrónicos sobre las oportunidades disponibles para colaborar con {% data variables.product.product_name %} de acuerdo a tus intereses. Para registrarse, vea [Exploración del boletín de correo electrónico](https://github.com/explore/subscribe).
 
-Mantente al tanto con la actividad reciente de los repositorios que observas, así como de las personas y organizaciones que sigues con tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
+Usa tu panel personal para mantenerte al día con la actividad reciente de los repositorios que inspeccionas, así como con las personas y las organizaciones que sigues. Para más información, vea "[Acerca del panel personal](/articles/about-your-personal-dashboard)".
 
 {% data reusables.support.ask-and-answer-forum %}
 
 ## Encontrar informes de problemas iniciales
 
-Si ya sabes en qué proyecto quieres trabajar, puedes encontrar informes de problemas aptos para principiantes en ese repositorio si visitas `github.com/<owner>/<repository>/contribute`. Como ejemplo, puedes encontrar cómo realizar tu primera contribución a `electron/electron` en https://github.com/electron/electron/contribute.
+Si ya sabe en qué proyecto quiere trabajar, puede encontrar incidencias sencillas para principiantes en ese repositorio visitando `github.com/<owner>/<repository>/contribute`. Por ejemplo, puede encontrar formas de realizar su primera contribución a `electron/electron` en https://github.com/electron/electron/contribute.
 
-## Abrir una propuesta
+## Abrir una incidencia
 
 Si encuentras un error en un proyecto de código abierto, verifica si ya se reportó. Si aún no se ha reportado el error, peudes abrir una propuesta para reportarlo de acuerdo con los lineamientos de contribución del proyecto.
 
@@ -42,7 +47,7 @@ Si encuentras un error en un proyecto de código abierto, verifica si ya se repo
 Hay varias formas en las que puedes contribuir con los proyectos de código abierto.
 
 ### Reproducir un error que se haya reportado
-Puedes contribuir con un proyecto de código abierto si validas la propuesta o si agregas contexto adicional a una propuesta existente.
+Puedes contribuir con un proyecto de código abierto si validas la propuesta o si agregas contexto adicional a una propuesta existente. 
 
 ### Probar una solicitud de cambios
 Puedes contribuir a un proyecto de código abierto si fusionas una solicitud de cambios en tu copia local del proyecto y pruebas los cambios. Agrega el resultado de tus pruebas en un comentario de la solicitud de cambios.
@@ -51,7 +56,7 @@ Puedes contribuir a un proyecto de código abierto si fusionas una solicitud de 
 Puedes contribuir con un proyecto de código abierto si agregas información adicional a las propuestas existentes.
 
 
-## Leer más
+## Información adicional
 
-- "[Clasificar tu repositorio con temas](/articles/classifying-your-repository-with-topics)"
-- "[Acerca del tablero de tu organización](/articles/about-your-organization-dashboard)"
+- "[Clasificación del repositorio con temas](/articles/classifying-your-repository-with-topics)"
+- "[Acerca del panel de la organización](/articles/about-your-organization-dashboard)"

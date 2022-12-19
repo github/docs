@@ -1,7 +1,7 @@
 ---
 title: Enabling unified search for your enterprise
 shortTitle: Unified search
-intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.product.product_location %}.'
+intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.location.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com
@@ -22,30 +22,30 @@ topics:
   - GitHub search
 ---
 
-## About {% data variables.product.prodname_unified_search %}
+## About {% data variables.enterprise.prodname_unified_search %}
 
 {% data reusables.github-connect.beta %}
 
-When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.product.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. 
+When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. 
 
 You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
 
-Users will never be able to search {% data variables.product.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
+Users will never be able to search {% data variables.location.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
 
-After you enable unified search for {% data variables.product.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_dotcom_the_website %} in {% data variables.product.product_location %}, each user must also connect their user account on {% data variables.product.product_name %} with a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search in your private enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+After you enable unified search for {% data variables.location.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_dotcom_the_website %} in {% data variables.location.product_location %}, each user must also connect their user account on {% data variables.product.product_name %} with a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search in your private enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
 
 Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_dotcom_the_website %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_dotcom_the_website %} are not supported.
 
-## Enabling {% data variables.product.prodname_unified_search %}
+## Enabling {% data variables.enterprise.prodname_unified_search %}
 
-Before you can enable {% data variables.product.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Before you can enable {% data variables.enterprise.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 {% ifversion ghes %}
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. Sign into {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
+1. Sign into {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
 1. Under "Users can search {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
   ![Enable search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)

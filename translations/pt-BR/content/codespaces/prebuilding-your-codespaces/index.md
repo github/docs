@@ -1,7 +1,6 @@
 ---
 title: Pré-construindo seus codespaces
 intro: 'Para acelerar a criação de codespaces, você pode configurar seu projeto para pré-criar codespaces para branches específicos em regiões específicas.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +11,14 @@ redirect_from:
 children:
   - /about-github-codespaces-prebuilds
   - /configuring-prebuilds
+  - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
+ms.openlocfilehash: 67f9051b9e33a7088f4f2ed3d1951babb4b61abe
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159393'
 ---
 

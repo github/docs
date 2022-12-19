@@ -10,16 +10,21 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Planes de precios para las apps
+shortTitle: Pricing plans for apps
+ms.openlocfilehash: e1ab751c26e59ec42e16dc7d9e5c0118dedffbde
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147879297'
 ---
+Los planes de precios de {% data variables.product.prodname_marketplace %} pueden ser gratuitos, de tasa fija, o por unidad. Los precios se configuran, muestran y procesan en dólares estadounidenses. Los planes de pago se restringen para las apps que publican los publicadores verificados. Para obtener más información sobre cómo convertirse en un publicador verificado, consulta "[Solicitar la verificación de publicador en su organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
-Los planes de precios de {% data variables.product.prodname_marketplace %} pueden ser gratuitos, de tasa fija, o por unidad. Los precios se configuran, muestran y procesan en dólares estadounidenses. Los planes de pago se restringen para las apps que publican los publicadores verificados. Para obtener más información acerca de cómo convertirse en un publicador verificado, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
-
-Los clientes compran tu app utilizando un método de pago adjunto a su cuenta de {% data variables.product.product_location %} sin tener que salir de {% data variables.product.prodname_dotcom_the_website %}. No tienes que escribir código para realizar las transacciones de facturación, pero tendrás que administrar los eventos desde la API de {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
+Los clientes compran tu app utilizando un método de pago adjunto a su cuenta de {% data variables.product.product_location %} sin tener que salir de {% data variables.product.prodname_dotcom_the_website %}. No tienes que escribir código para realizar las transacciones de facturación, pero tendrás que administrar los eventos desde la API de {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta "[Uso de la API de {% data variables.product.prodname_marketplace %} en la aplicación](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
 Si la app que estás listando en {% data variables.product.prodname_marketplace %} tiene opciones de plan múltiples, puedes configurar los planes de precios correspondientes. Por ejemplo, si tu app tiene dos opciones de plan, u plan de código abierto y un plan profesional, puedes configurar un plan de precios gratuito para tu plan de código abierto y un plan de tasa fija para tu plan profesional. Cada listado de {% data variables.product.prodname_marketplace %} debe tener un precio mensual y anual para cada plan que se liste.
 
-Para obtener más información sobre cómo crear un plan de precios, consulta la sección "[Configurar un plan de precios del listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
+Para obtener más información sobre cómo crear un plan de precios, consulta "[Establecimiento de un plan de precios del listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
 
 {% data reusables.marketplace.free-plan-note %}
 
@@ -31,7 +36,7 @@ Para obtener más información sobre cómo crear un plan de precios, consulta la
 
 Los planes gratuitos no tienen costo alguno para los usuarios. Si configuras un plan de precios gratuito, no puedes cobrar a los usuarios que elijan dicho plan por utilizar tu app. Puedes crear planes tanto de pago como gratuitos para tu listado.
 
-Todas las apps necesitan administrar los eventos de las compras nuevas y de las cancelaciones. Aquellas apps que solo tengan planes gratuitos no necesitan administrar los eventos de las pruebas gratuitas, mejoras y retrocesos. Para obtener más información, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
+Todas las apps necesitan administrar los eventos de las compras nuevas y de las cancelaciones. Aquellas apps que solo tengan planes gratuitos no necesitan administrar los eventos de las pruebas gratuitas, mejoras y retrocesos. Para obtener más información, consulta "[Uso de la API de {% data variables.product.prodname_marketplace %} en la aplicación](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
 Si agregas un plan de pago a una app que ya esté listada en {% data variables.product.prodname_marketplace %} como un servicio gratuito, necesitarás solicitar una verificación para dicha app y pasar por un proceso de integración financiera.
 
@@ -45,16 +50,16 @@ Hay dos tipos de planes de pago:
 
 Puede que también quieras ofrecer pruebas gratuitas. Estas proporcionan periodos de prueba gratuitos de 14 días en aplicaciones de GitHub y de OAuth. Cuandoconfiguras un plan de precios en Marketplace, puedes seleccionar la opción de proporcionar un plan gratuito para los planes de tasa fija o o de costo por unidad.
 
-## Periodos de prueba gratuitos
+## Pruebas gratuitas
 
 Los clientes pueden iniciar un periodo de prueba gratuto para cualquier plan de pago en una lista de Marketplace que incluya pruebas gratuitas. Sin embargo, los clientes no pueden crear más de una prueba gratuita por producto de marketplace.
 
 Los periodos de prueba gratuitos tienen una longitud fija de 14 días. Se les notifica a los clientes 4 días antes del fin de su periodo de pruebas gratuito (en el día 11 del este periodo) sobre la mejora que se hará a su plan. Al final del periodo de pruebas gratuito, los clientes se matricularán automáticamente en el plan desde el cual estaban generando el periodo gratuito en caso de que no lo cancelen.
 
-Para obtener más información, consulta la sección "[Administrar las compras nuevas y las pruebas gratuitas](/developers/github-marketplace/handling-new-purchases-and-free-trials/)".
+Para obtener más información, consulta "[Control de nuevas compras y pruebas gratuitas](/developers/github-marketplace/handling-new-purchases-and-free-trials/)".
 
 {% note %}
 
-**Nota:** GitHub espera que borres cualquier dato privado del cliente dentro de los primeros 30 días después de que se cancela una prueba, iniciando con la recepción del evento de cancelación.
+**Nota:** GitHub espera que borres cualquier dato privado del cliente dentro de los primeros 30 días después de que se cancela una prueba, a partir de la recepción del evento de cancelación.
 
 {% endnote %}

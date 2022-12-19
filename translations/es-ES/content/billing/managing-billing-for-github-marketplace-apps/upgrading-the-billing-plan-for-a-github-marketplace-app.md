@@ -16,28 +16,22 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: Mejorar un plan de facturación
+shortTitle: Upgrade billing plan
+ms.openlocfilehash: bf24ee931df72fbe113fbc1fcc2c10be48fa74c5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145091682'
 ---
-
-Cuando subes de categoría una app, a tu método de pago se le cobra un monto prorrateado en función del tiempo restante hasta tu próxima fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
+Cuando subes de categoría una app, a tu método de pago se le cobra un monto prorrateado en función del tiempo restante hasta tu próxima fecha de facturación. Para más información, vea "[Acerca de la facturación de {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
 ## Subir de categoría una app para tu cuenta personal
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.marketplace.upgrade-app-billing-settings %}
-{% data reusables.marketplace.choose-new-plan %}
-{% data reusables.marketplace.choose-new-quantity %}
-{% data reusables.marketplace.issue-plan-changes %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.marketplace.upgrade-app-billing-settings %} {% data reusables.marketplace.choose-new-plan %} {% data reusables.marketplace.choose-new-quantity %} {% data reusables.marketplace.issue-plan-changes %}
 
 ## Subir de categoría una app para tu organización
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.marketplace.upgrade-app-billing-settings %}
-{% data reusables.marketplace.choose-new-plan %}
-{% data reusables.marketplace.choose-new-quantity %}
-{% data reusables.marketplace.issue-plan-changes %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %} {% data reusables.marketplace.upgrade-app-billing-settings %} {% data reusables.marketplace.choose-new-plan %} {% data reusables.marketplace.choose-new-quantity %} {% data reusables.marketplace.issue-plan-changes %}

@@ -1,8 +1,7 @@
 ---
-title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
-shortTitle: 暗号化されたシークレット
+title: リポジトリの暗号化されたシークレットと GitHub Codespaces の Organization を管理する
+shortTitle: Encrypted secrets
 intro: '暗号化されたシークレットを使用すると、機密情報を Organization、リポジトリ、または {% data variables.product.prodname_github_codespaces %} に保存できます。'
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -13,15 +12,18 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
+ms.openlocfilehash: 817ed72e76ddd13846dd9db78f992a1c5dcda101
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158622'
 ---
-
- 
-
 ## シークレットについて
 
-シークレットは、Organization またはリポジトリで作成する暗号化された環境変数です。 作成したシークレットは、{% data variables.product.prodname_github_codespaces %} で使用できます。 GitHub は [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) を使用して、シークレットが GitHub に到達する前に暗号化し、codespace で使用する場合にのみ復号化します。
+シークレットは、Organization またはリポジトリで作成する暗号化された環境変数です。 作成したシークレットは、{% data variables.product.prodname_github_codespaces %} で使用できます。 GitHub では、[libsodium シール ボックス](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使用して、シークレットが GitHub に到達する前に暗号化し、codespace で使用する場合にのみ復号化します。
 
-Organization レベルのシークレットを使用すると、複数のリポジトリ間でシークレットを共有できるため、重複するシークレットを作成する必要が軽減されます。 アクセスポリシーを使用して、Organization のシークレットを使用できるリポジトリを制御できます。
+Organization レベルのシークレットを使用すると、複数のリポジトリ間でシークレットを共有できるため、重複するシークレットを作成する必要が軽減されます。 アクセスポリシーを使用して、Organization のシークレットを使用できるリポジトリを制御できます。 
 
 {% data reusables.codespaces.secrets-on-start %}
 
@@ -41,13 +43,12 @@ Organization ごとに最大 100 個のシークレット、リポジトリご�
 
 Organization リポジトリのシークレットを作成するには、管理者アクセス権が必要です。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
-2. ページの上部にある [**New repository secret**] をクリックします。
-3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.codespaces.sidebar-secret %}
+
+2. ページの上部にある **[新しいリポジトリ シークレット]** をクリックします。
+3. **[名前]** 入力ボックスにシークレットの名前を入力します。
 4. シークレットの値を入力します。
-5. [**Add secret（シークレットの追加）**] をクリックします。
+5. **[シークレットの追加]** をクリックします。
 
 ## Organization にシークレットを追加する
 
@@ -55,25 +56,24 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
-2. ページの上部にある [**New organization secret**] をクリックします。
-3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
-4. シークレットの **Value（値）** を入力します。
-5. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。 ![プライベートリポジトリが選択された [Repository Access] リスト](/assets/images/help/codespaces/secret-repository-access.png)
-6. [**Add secret（シークレットの追加）**] をクリックします。
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.codespaces.sidebar-secret %}
+
+2. ページの上部にある **[新しい Organization のシークレット]** をクリックします。
+3. **[名前]** 入力ボックスにシークレットの名前を入力します。
+4. シークレットの **[値]** を入力します。
+5. **[リポジトリ アクセス]** ドロップダウン リストから、アクセス ポリシーを選択します。
+    ![プライベート リポジトリが選択された [リポジトリ アクセス] リスト](/assets/images/help/codespaces/secret-repository-access.png)
+6. **[シークレットの追加]** をクリックします。
 
 ## Organizationレベルのシークレットへのアクセスの確認
 
 Organization 内のシークレットに適用されているアクセスポリシーを確認できます。
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. シークレットのリストには、設定済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
-1. 各シークレットに設定されているアクセス許可の詳細については、[**Update（更新）**] をクリックしてください。
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.codespaces.sidebar-secret %}
 
-## 参考リンク
+1. シークレットのリストには、設定済みのアクセス許可とポリシーが含まれます。 次に例を示します。 ![シークレットの一覧](/assets/images/help/settings/actions-org-secrets-list.png)
+1. 各シークレットに構成されているアクセス許可の詳細については、 **[更新]** をクリックします。
 
-- 「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」
+## 参考資料
+
+- 「[codespace の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」

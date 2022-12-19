@@ -1,1 +1,9 @@
-If an invitee does not accept the invitation within seven days, the pending invitation expires automatically. After expiration, {% data variables.product.company_short %} will no longer bill you for the pending invitation.{% ifversion ghec %} If a SCIM request from your identity provider (IdP) generates the invitation, the invitation will not expire.{% endif %}
+---
+ms.openlocfilehash: 5cc309eef4a786e150774afb03e77843e59667d1
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147875489"
+---
+Se um convidado não aceitar o convite em até sete dias, o convite pendente vencerá automaticamente. Após o vencimento, o {% data variables.product.company_short %} não cobrará você mais pelo convite pendente.{% ifversion ghec %} Se uma solicitação do SCIM do seu IdP (provedor de identidade) gerar o convite, o convite não vencerá.{% endif %}

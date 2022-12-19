@@ -1,6 +1,6 @@
 ---
-title: Finding changed methods and functions in a pull request
-intro: 'You can quickly find proposed changes to a method or function in a pull request in *.go*, *.js*, *.ts*, *.py*, *.php*, and *.rb* files.'
+title: Encontrar funciones y métodos cambiados en una solicitud de extracción
+intro: 'Puedes encontrar rápidamente los cambios propuestos en un método o función en una solicitud de incorporación de cambios en los archivos *.go*, *.js*, *.ts*, *.py*, *.php* y *.rb*.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/finding-changed-methods-and-functions-in-a-pull-request
   - /articles/finding-changed-methods-and-functions-in-a-pull-request
@@ -14,34 +14,39 @@ versions:
 topics:
   - Pull requests
 shortTitle: Methods & functions
+ms.openlocfilehash: be891fe01166ee0eccf9ba7c824a1017c9d8fc11
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145139194'
 ---
-Anyone with read access to a repository can see a summary list of the functions and methods changes in certain files of a pull request.
+Cualquier usuario con acceso de lectura a un repositorio puede ver una lista resumida de los cambios en las funciones y los métodos en determinados archivos o solicitud de extracción.
 
-The summary list of methods and functions is created from these supported file types:
+La lista resumida de métodos y funciones se crea a partir de estos tipos de archivos compatibles:
   - Go
-  - JavaScript (includes Typescript, Flow, and other types of JavaScript)
+  - JavaScript (incluidos Typescript, Flow y otros tipos de JavaScript)
   - PHP
   - Python
   - Ruby
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request where you'd like to find the changed functions and methods.
+2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción en la que deseas encontrar los métodos y funciones modificados.
 {% data reusables.repositories.changed-files %}
-4. To see a summary list of the changed functions and methods, click **Jump to...**.
-![Jump to drop-down menu](/assets/images/help/pull_requests/jump-to-menu.png)
-5. Select the changed function or method from the drop-down menu. You can also enter the name of the function or method to filter results.
-  ![Filter function and methods](/assets/images/help/pull_requests/filter-function-and-methods.png)
+4. Para ver una lista de resumen de las funciones y métodos modificados, haga clic en **Saltar a...** . ![Menú desplegable Saltar a](/assets/images/help/pull_requests/jump-to-menu.png)
+5. Selecciona el método o la función cambiada dentro del menú desplegable. También puedes ingresar el nombre del método o la función en los resultados del filtro.
+  ![Función y métodos de filtro](/assets/images/help/pull_requests/filter-function-and-methods.png)
 
  {% note %}
 
- **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in *.go*, *.js*, *.ts*, *.py*, *.php*, and *.rb* files appear in the drop-down menu.
+ **Nota:** Si no ve las funciones o los métodos que esperaba, confirme que el código se compila y no contiene errores. En el menú desplegable solo se muestran las funciones y los métodos modificados en esta solicitud de incorporación de cambios y detectados en archivos *.go*, *.js*, *.ts*, *.py*, *.php* y *.rb*.
 
  {% endnote %}
 
-6. You'll be redirected to the first line of the function or method you selected.
- ![view function or method in files changed](/assets/images/help/pull_requests/view-selected-function-or-method.png)
+6. Serás redireccionado a la primera línea de la función o el método seleccionado.
+ ![Ver la función o el método en los archivos modificados](/assets/images/help/pull_requests/view-selected-function-or-method.png)
 
-## Further reading
+## Información adicional
 
-- "[About comparing branches in a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
-- "[Filtering files in a pull request by file type](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)"
+- "[Acerca de la comparación de ramas en solicitudes de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
+- "[Filtrado de archivos en una solicitud de incorporación de cambios por tipo de archivo](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)"

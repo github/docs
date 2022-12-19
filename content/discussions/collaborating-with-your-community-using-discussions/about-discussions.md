@@ -13,6 +13,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 - Share announcements and information, gather feedback, plan, and make decisions
 - Ask questions, discuss and answer the questions, and mark the discussions as answered
 - Create polls to gauge community opinion
+- Upvote discussions and comments to give higher visibility to ideas you find valuable
 - Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
 ![Discussions tab for a repository](/assets/images/help/discussions/hero.png)
@@ -63,7 +64,7 @@ You can spotlight discussions that contain important, useful, or exemplary conve
 
 ## Sharing feedback
 
-You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
 ## Further reading
 

@@ -1,6 +1,6 @@
 ---
 title: リポジトリ
-intro: Learn to use and manage the repositories that allow you to store and collaborate on your project's code.
+intro: プロジェクトのコードを保存して共同作業できるリポジトリを使用および管理する方法について学習します。
 introLinks:
   quickstart: /get-started/quickstart/create-a-repo
   overview: /repositories/creating-and-managing-repositories/about-repositories
@@ -39,5 +39,11 @@ children:
   - /releasing-projects-on-github
   - /viewing-activity-and-data-for-your-repository
   - /archiving-a-github-repository
+ms.openlocfilehash: 8644edb5a572bedc1bd2e032f43e964be6a068f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132282'
 ---
 

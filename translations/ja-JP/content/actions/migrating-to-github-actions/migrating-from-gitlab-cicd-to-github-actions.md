@@ -15,10 +15,14 @@ topics:
   - CI
   - CD
 shortTitle: Migrate from GitLab CI/CD
+ms.openlocfilehash: d0d5f2cae928f95b1a614826f270342f376db0de
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146178984'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## はじめに
 
@@ -39,7 +43,7 @@ GitLab CI/CD のジョブは、{% data variables.product.prodname_actions %} の
 * ジョブは、個別のマシンまたは個別のコンテナで実行できます。
 * ジョブは、デフォルトでは並列に実行されますが、順次実行するように設定することもできます。
 
-ジョブ内でスクリプトまたはシェルコマンドを実行できます。 GitLab CI/CD では、`script` キーを使用してスクリプトステップを指定します。 {% data variables.product.prodname_actions %}では、すべてのスクリプトは`run`キーを使って指定されます。
+ジョブ内でスクリプトまたはシェルコマンドを実行できます。 GitLab CI/CD では、`script` キーを使ってスクリプトのステップを指定します。 {% data variables.product.prodname_actions %} では、`run` キーを使ってすべてのスクリプトを指定します。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -80,7 +84,7 @@ jobs:
 
 ## ランナー
 
-ランナーは、ジョブが実行されるマシンです。 GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、マネージドおよびセルフホストのランナーのバリエーションを提供しています。 GitLab CI/CD では、さまざまなプラットフォームでジョブを実行するために `tags` を使用しますが、{% data variables.product.prodname_actions %} では `runs-on` を使用します。
+ランナーは、ジョブが実行されるマシンです。 GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、マネージドおよびセルフホストのランナーのバリエーションを提供しています。 GitLab CI/CD では、異なるプラットフォームでジョブを実行するために `tags` を使いますが、{% data variables.product.prodname_actions %} では `runs-on` を使います。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -103,10 +107,8 @@ windows_job:
   script:
     - echo Hello, %USERNAME%!
 
-linux_job:
-  tags:
-    - linux
-  script:
+linux_job: tags:
+    - linux script:
     - echo "Hello, $USER!"
 ```
 {% endraw %}
@@ -129,11 +131,11 @@ linux_job:
 </tr>
 </table>
 
-詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)」を参照してください。
+詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)に関するページを参照してください。
 
 ## Docker イメージ
 
-GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、Docker イメージ内でのジョブの実行をサポートしています。 In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
+GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、Docker イメージ内でのジョブの実行をサポートしています。 GitLab CI/CD では、`image` キーを使って Docker イメージを定義しますが、{% data variables.product.prodname_actions %} では `container` キーで行います。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -167,11 +169,11 @@ jobs:
 </tr>
 </table>
 
-詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)」を参照してください。
+詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)に関するページを参照してください。
 
 ## 条件と式の構文
 
-GitLab CI/CD は、特定の条件でジョブを実行するかどうかを決定するために `rules` を使用します。 {% data variables.product.prodname_actions %} は、`if` キーワードを使用して、条件が満たされない限りジョブが実行されないようにします。
+GitLab CI/CD では、特定の条件でジョブを実行するかどうかを決定するために `rules` を使います。 {% data variables.product.prodname_actions %} では、条件が満たされない場合にジョブが実行されないようにするには、`if` キーワードを使います。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -212,13 +214,13 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+詳細については、「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
 ## ジョブ間の依存関係
 
-GitLab CI/CD と {% data variables.product.prodname_actions %} の両方で、ジョブの依存関係を設定できます。 どちらのシステムでも、ジョブはデフォルトで並行して実行されますが、{% data variables.product.prodname_actions %} のジョブの依存関係は `needs` キーで明示的に指定できます。 GitLab CI/CD には、`stages` の概念もあります。ステージ内のジョブは同時に実行されますが、次のステージは、前のステージのすべてのジョブが完了すると開始されます。 このシナリオは、`needs` キーを使用して {% data variables.product.prodname_actions %} で再作成できます。
+GitLab CI/CD と {% data variables.product.prodname_actions %} の両方で、ジョブの依存関係を設定できます。 どちらのシステムでも、ジョブは既定で並列に実行されますが、{% data variables.product.prodname_actions %} のジョブの依存関係は `needs` キーで明示的に指定できます。 GitLab CI/CD には、`stages` の概念もあります。ステージ内のジョブは同時に実行されますが、次のステージは、前のステージのすべてのジョブが完了した時点で開始されます。 {% data variables.product.prodname_actions %} では、`needs` キーを使ってこのシナリオを作り直すことができます。
 
-以下は、それぞれのシステムにおける構文の例です。 ワークフローは、`build_a` と `build_b` という名前の 2 つのジョブを並行して実行することから始まり、これらのジョブが完了すると、`test_ab` という別のジョブが実行されます。 最後に、`test_ab` が完了すると、`deploy_ab` ジョブが実行されます。
+以下は、それぞれのシステムにおける構文の例です。 ワークフローは並列に実行される `build_a` と `build_b` という名前の 2 つのジョブで開始し、それらのジョブが完了すると、`test_ab` という別のジョブが実行されます。 最後に、`test_ab` が完了すると、`deploy_ab` ジョブが実行されます。
 
 <table class="d-block">
 <tr>
@@ -238,24 +240,16 @@ stages:
   - test
   - deploy
 
-build_a:
-  stage: build
-  script:
+build_a: stage: build script:
     - echo "This job will run first."
 
-build_b:
-  stage: build
-  script:
+build_b: stage: build script:
     - echo "This job will run first, in parallel with build_a."
 
-test_ab:
-  stage: test
-  script:
+test_ab: stage: test script:
     - echo "This job will run after build_a and build_b have finished."
 
-deploy_ab:
-  stage: deploy
-  script:
+deploy_ab: stage: deploy script:
     - echo "This job will run after test_ab is complete"
 ```
 {% endraw %}
@@ -291,21 +285,21 @@ jobs:
 </tr>
 </table>
 
-詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
+詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)に関するページを参照してください。
 
 ## ワークフローのスケジューリング
 
 GitLab CI/CD と {% data variables.product.prodname_actions %} の両方を使用すると、特定の間隔でワークフローを実行できます。 GitLab CI/CD では、パイプラインスケジュールは UI で設定されますが、{% data variables.product.prodname_actions %} では、「on」キーを使用してスケジュールされた間隔でワークフローをトリガーできます。
 
-詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#scheduled-events)」を参照してください。
+詳細については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#scheduled-events)」を参照してください。
 
 ## 変数とシークレット
 
 GitLab CI/CD および {% data variables.product.prodname_actions %} は、パイプラインまたはワークフロー設定ファイルでの環境変数の設定、および GitLab または {% data variables.product.product_name %} UI を使用したシークレットの作成をサポートしています。
 
-詳しい情報については、「[環境変数](/actions/reference/environment-variables)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+詳しくは、「[環境変数](/actions/reference/environment-variables)」と「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」をご覧ください。
 
-## キャッシング
+## キャッシュ
 
 GitLab CI/CD と {% data variables.product.prodname_actions %} では、設定ファイルにワークフローファイルを手動でキャッシュするためのメソッドがあります。
 
@@ -328,16 +322,13 @@ GitLab CI/CD
 ```yaml
 image: node:latest
 
-cache:
-  key: $CI_COMMIT_REF_SLUG
-  paths:
+cache: key: $CI_COMMIT_REF_SLUG paths:
     - .npm/
 
 before_script:
   - npm ci --cache .npm --prefer-offline
 
-test_async:
-  script:
+test_async: script:
     - node ./specs/start.js ./specs/async.spec.js
 ```
 {% endraw %}
@@ -367,7 +358,7 @@ jobs:
 
 {% endif %}
 
-## 成果物
+## Artifacts
 
 GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、ジョブによって作成されたファイルとディレクトリを成果物としてアップロードできます。 {% data variables.product.prodname_actions %} では、成果物を使用して、複数のジョブ間でデータを永続化できます。
 
@@ -407,13 +398,13 @@ artifacts:
 </tr>
 </table>
 
-詳しい情報については、「[ワークフローデータを成果物として保存する](/actions/guides/storing-workflow-data-as-artifacts)」を参照してください。
+詳しくは、「[ワークフロー データを成果物として保存する](/actions/guides/storing-workflow-data-as-artifacts)」をご覧ください。
 
 ## データベースとサービスコンテナ
 
 どちらのシステムでも、データベース、キャッシング、あるいはその他の依存関係のための追加コンテナを含めることができます。
 
-GitLab CI/CD では、ジョブのコンテナは `image` キーで指定しますが、{% data variables.product.prodname_actions %} は `container` キーを使用します。 どちらのシステムでも、追加のサービスコンテナは `services` キーで指定します。
+GitLab CI/CD ではジョブのコンテナーを `image` キーで指定しますが、{% data variables.product.prodname_actions %} では `container` キーを使います。 どちらのシステムでも、追加のサービス コンテナーは `services` キーで指定します。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -433,20 +424,20 @@ GitLab CI/CD
 container-job:
   variables:
     POSTGRES_PASSWORD: postgres
-    # PostgreSQLサービスコンテナと通信するために
-    # 使われるホスト名
+    # The hostname used to communicate with the
+    # PostgreSQL service container
     POSTGRES_HOST: postgres
-    # PostgreSQLのデフォルトのポート
+    # The default PostgreSQL port
     POSTGRES_PORT: 5432
   image: node:10.18-jessie
   services:
     - postgres
   script:
-    # `package.json`ファイル中のすべての依存関係を
-    # クリーンインストールする
+    # Performs a clean installation of all dependencies
+    # in the `package.json` file
     - npm ci
-    # PostgreSQLクライアントを作成し、クライアントにデータを
-    # 展開し、データを取り出すスクリプトを実行する
+    # Runs a script that creates a PostgreSQL client,
+    # populates the client with data, and retrieves data
     - node client.js
   tags:
     - docker
@@ -492,4 +483,4 @@ jobs:
 </tr>
 </table>
 
-詳しい情報については、「[サービスコンテナについて](/actions/guides/about-service-containers)」を参照してください。
+詳細については、「[サービス コンテナーについて](/actions/guides/about-service-containers)」を参照してください。

@@ -1,5 +1,5 @@
 ---
-title: Guia de envio do contra-aviso de retirada DMCA
+title: Guia para Enviar uma Contranotificação da DMCA
 redirect_from:
   - /dmca-counter-notice-how-to
   - /articles/dmca-counter-notice-how-to
@@ -10,60 +10,79 @@ versions:
 topics:
   - Policy
   - Legal
+ms.openlocfilehash: 6bc5091c47401b3d55ef7ccd681d6c9eba48fd1a
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556417'
 ---
+Este guia descreve as informações de que o GitHub precisa para processar uma contranotificação a uma solicitação de remoção da DMCA. Se você tiver dúvidas mais gerais sobre o que é a DMCA ou como o GitHub processa solicitações de remoção da DMCA, consulte nossa [Política de Remoção da DMCA](/articles/dmca-takedown-policy).
 
-Este guia descreve as informações de que o GitHub precisa para processar um contra-aviso em uma solicitação de retirada DMCA. Se você tiver dúvidas mais gerais sobre o que é a DMCA ou como o GitHub processa solicitações de retirada DMCA, por favor, reveja nossa [Política de Aviso de Retirada DMCA](/articles/dmca-takedown-policy).
+Se você acredita que seu conteúdo no GitHub foi desativado por engano por uma solicitação de remoção da DMCA, você tem o direito de contestar a remoção enviando uma contranotificação. Nesse caso, aguardaremos de 10 a 14 dias e, em seguida, reativaremos seu conteúdo, a menos que o proprietário dos direitos autorais inicie uma ação legal contra você antes disso. Nosso formulário de contranotificação apresentado abaixo é consistente com o formulário sugerido pelo estatuto da DMCA, que pode ser encontrado no site oficial do US Copyright Office: <https://www.copyright.gov>.
 
-Se você acredita que seu conteúdo no GitHub foi erroneamente desabilitado por uma solicitação de retirada DMCA, você tem o direito de contestá-la, enviando um contra-aviso. Se o fizer, esperaremos entre 10 a 14 dias, e então reativaremos seu conteúdo, a menos que o proprietário dos direitos autorais inicie uma ação judicial contra você antes disso. Nossa forma de contra-aviso descrita abaixo é consistente com o formulário sugerido pelo estatuto DMCA, que pode ser encontrado no site oficial do Escritório de Direitos Autorais dos Estados Unidos: <https://www.copyright.gov>. Site oficial do escritório de direitos autorais: <https://www.copyright.gov>.
+Como em todas as questões jurídicas, é sempre melhor consultar um profissional a respeito de dúvidas ou situações específicas. Nós incentivamos você a fazê-lo antes de tomar qualquer medida que possa afetar seus direitos. Este guia não constitui aconselhamento jurídico e não deve ser considerado como tal.
 
-Como em todas as questões jurídicas, é sempre melhor consultar um profissional sobre suas dúvidas ou situação específica. Incentivamos a fazê-lo antes de tomar quaisquer medidas que possam impactar seus direitos. Este guia não é um aconselhamento jurídico e não deve ser tomado como tal.
+## Antes de iniciar
 
-## Antes de começar
+***Diga a verdade.***
+A DMCA exige que você faça um juramento em relação à sua contranotificação *sob pena de perjúrio*. É crime federal mentir intencionalmente em uma declaração juramentada. (*Consulte o* [Código dos EUA, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) O envio de informações falsas também pode ocasionar responsabilidade civil, ou seja, você pode ser processado por danos financeiros.
 
-***Diga a verdade.*** A DMCA requer que você jure pelos fatos relatados no seu contra-aviso, *sob pena de perjúrio*. Nos Estados Unidos, é crime federal mentir intencionalmente numa declaração juramentada. (*Consulte* [U.S. Código, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) (*Veja* [Código dos EUA, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) O envio de informações falsas também pode resultar em responsabilidade civil — ou seja, você poderia ser processado por danos financeiros.
+***Investigar.***
+O envio de uma contranotificação da DMCA pode ter consequências legais reais. Se a parte reclamante discordar de que o aviso de remoção foi incorreto, ela poderá decidir entrar com uma ação judicial contra você para manter o conteúdo desativado. Você deve realizar uma investigação completa sobre as alegações feitas na notificação de remoção e provavelmente conversar com um advogado antes de enviar uma contranotificação.
 
-***Investigação.*** Enviar um contra-aviso DMCA pode ter consequências legais reais. Se a parte reclamante discordar que o aviso de retirada dela foi um erro, ela pode decidir instaurar uma queixa contra você para manter o conteúdo desativado. Você deve conduzir uma investigação exaustiva sobre as alegações feitas no aviso de retirada e, provavelmente, falar com um advogado antes de enviar um contra-aviso.
+***Você deve ter um bom motivo para enviar uma contranotificação.***
+Para protocolar uma contranotificação, você deve ter “uma crença de boa-fé de que o material foi removido ou desativado como resultado de um erro ou identificação incorreta do material a ser removido ou desativado”. ([Código dos EUA, Título 17, Seção 512(g)](https://www.copyright.gov/title17/92chap5.html#512).) Decidir explicar por que acredita que houve um erro cabe a você e ao seu advogado, mas você *precisa* identificar um erro antes de enviar uma contranotificação. No passado, recebemos contranotificações citando erros na notificação de remoção, como: a parte reclamante não possui os direitos autorais; eu tenho uma licença; o código foi lançado sob uma licença de código aberto que permite o uso; ou a reclamação não leva em conta o fato de que o uso é protegido pela doutrina do uso justo. Obviamente, pode haver outras falhas na notificação de remoção.
 
-***Você precisa ter uma boa razão para enviar um contra-aviso.*** Para registrar um contra-aviso, você deve ter "o entendimento, de boa-fé, de que o material foi removido ou desabilitado como resultado de erro ou identificação incorreta do material a ser removido ou desabilitado". ([U.S. Código, Título 17, Seção 512(g)](https://www.copyright.gov/title17/92chap5.html#512).) Se você decide explicar o porquê de acreditar que houve um erro, cabe a você e ao seu advogado, mas você *precisa* identificar um erro antes de enviar uma notificação. No passado, recebemos contra-avisos que citavam erros no aviso de retirada, tais como: a parte reclamante não possui os direitos de autor; eu tenho uma licença; o código foi publicado sob uma licença de código aberto que permite meu uso; ou a reclamação não conta o fato de que meu uso está protegido pela doutrina de uso justo. É claro que poderiam existir outros defeitos em relação ao aviso de retirada.
+***As leis de direitos autorais são complicadas.***
+Às vezes, uma notificação de remoção pode alegar violação de uma maneira que pareça estranha ou indireta. As leis de direitos autorais são complicadas e podem ocasionar alguns resultados inesperados. Em alguns casos, uma notificação de remoção pode alegar que seu código-fonte é infrator em virtude do que ele pode fazer depois de compilado e executado. Por exemplo:
+  - A notificação pode alegar que seu software é usado para [burlar controles de acesso](https://www.copyright.gov/title17/92chap12.html) a obras protegidas por direitos autorais.
+  - [Às vezes](https://www.copyright.gov/docs/mgm/) distribuir software poderá constituir uma violação de direitos autorais, se você induzir os usuários finais a usar o software para violar obras protegidas por direitos autorais.
+  - Uma reclamação de direitos autorais também pode se basear em [cópia não literal](https://en.wikipedia.org/wiki/Substantial_similarity) de elementos de design do software e não no próprio código-fonte. Em outras palavras, alguém enviou uma notificação dizendo que acha que seu *projeto* se parece muito com o dele.
 
-***As leis de direitos autorais são complicadas.*** Às vezes, um aviso de retirada pode alegar violação de uma forma que parece atípica ou indireta. As leis de direitos autorais são complicadas e podem dar origem a alguns resultados inesperados. Em alguns casos, um aviso de retirada pode alegar que o seu código-fonte infringe os direitos por causa do que ele pode fazer após ser compilado e executado. Por exemplo:
-  - O aviso pode afirmar que seu software é usado para [contornar controles de acesso](https://www.copyright.gov/title17/92chap12.html) de trabalhos protegidos por direitos autorais.
-  - [Algumas vezes,](https://www.copyright.gov/docs/mgm/) o software de distribuição pode violar direitos autorais, se você induzir os usuários finais a usarem o software para infringir trabalhos protegidos por direitos autorais.
-  - Uma reclamação de direitos autorais também pode ser baseada na [cópia não literal](https://en.wikipedia.org/wiki/Substantial_similarity) de elementos do design no software, ao invés do próprio código fonte — em outras palavras, alguém enviou um aviso dizendo que eles acham que o seu *design* se parece com o deles.
+Estes são apenas alguns exemplos das complexidades da lei de direitos autorais. Como há muitas nuances na lei e algumas questões não resolvidas nesses tipos de caso, é especialmente importante obter aconselhamento profissional se as alegações de violação não parecerem objetivas.
 
-Esses são apenas alguns exemplos da complexidade da legislação em direitos autorais. Considerando que há muitas nuances na lei e algumas questões por resolver nesses tipos de casos, é especialmente importante obter aconselhamento profissional se as alegações por infração não parecerem simples.
+***Uma contranotificação é uma declaração legal.***
+Exigimos que você preencha todos os campos de uma contranotificação integralmente, porque se trata de uma declaração legal – não apenas para nós, mas para a parte reclamante. Como mencionamos anteriormente, se a parte reclamante desejar manter o conteúdo desativado após receber uma contranotificação, ela precisará iniciar uma ação legal buscando uma decisão judicial para impedir que você realize atividades infratoras relacionadas ao conteúdo no GitHub. Em outras palavras, você pode ser processado (e você concorda com isso na contranotificação).
 
-***Um contra-aviso é uma declaração legal.*** Exigimos que você preencha todos os campos de um contra-aviso, porque um contra-aviso é uma declaração legal — não apenas para nós, mas para a parte reclamante. Conforme mencionado acima, se a parte reclamante desejar manter o conteúdo desabilitado após receber um contra-aviso, ela precisará iniciar uma ação na justiça em busca de uma decisão judicial para impedir você de continuar uma atividade infratora relacionada ao conteúdo no GitHub. Em outras palavras, você pode ser processado (e você concorda com isso no contra-aviso).
+***Sua contranotificação será publicada.***
+Conforme observado em nossa [Política de Remoção da DMCA](/articles/dmca-takedown-policy#d-transparency), **depois de editar as informações pessoais,** publicamos todas as contranotificações completas e acionáveis em <https://github.com/github/dmca>. Observe também que, embora divulguemos apenas notificações editadas, podemos fornecer uma cópia completa não editada de quaisquer notificações que recebermos diretamente a qualquer parte cujos direitos sejam afetados por elas. Se estiver preocupado com sua privacidade, você poderá pedir a um advogado ou outro representante legal que protocole a contranotificação em seu nome.
 
-***Seu contra-aviso será publicado.*** Conforme observado em nossa [Política de Contra-aviso DMCA](/articles/dmca-takedown-policy#d-transparency), **depois de suprimir as informações pessoais,** publicamos todos os contra-avisos completos e válidos em <https://github.com/github/dmca>. Note também que, embora divulguemos publicamente somente avisos com conteúdo pessoal suprimido, podemos fornecer uma cópia completa sem conteúdo suprimido de qualquer aviso que recebermos diretamente para qualquer uma das partes cujos direitos seriam afetados por ele. Se você está preocupado com sua privacidade, consulte um advogado para que ele envie o contra-aviso em seu nome.
+***O GitHub não é o juiz.***
+O GitHub tem pouca atuação nesse processo além de determinar se as notificações atendem aos requisitos mínimos da DMCA. Cabe às partes (e seus advogados) avaliar o mérito dos requisitos judiciais e/ou extrajudiciais, lembrando que as notificações devem ser feitas sob pena de perjúrio.
 
-***O GitHub não é juiz.*** O GitHub se envolve pouco no processo, limitando-se a determinar se os avisos atendem aos requisitos mínimos da DMCA. Cabe às partes (e aos seus advogados) avaliar o mérito das suas reivindicações, tendo em conta que os avisos devem ser feitos corretamente sob pena de perjúrio.
+***Recursos adicionais.***
+Se precisar de ajuda adicional, há muitos recursos de autoajuda online. A Lumen tem um conjunto informativo de guias sobre [direito autoral](https://www.lumendatabase.org/topics/5) e [Porto seguro da DMCA](https://www.lumendatabase.org/topics/14). Se você estiver envolvido com um projeto de código aberto que precise de aconselhamento jurídico, você pode entrar em contato com a [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/). E se você acha que tem um caso particularmente desafiador, organizações sem fins lucrativos como a [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) também podem ajudar diretamente ou encaminhar você a um advogado.
 
-***Recursos Adicionais.*** Se você precisar de ajuda adicional, há muitos recursos de autoajuda online. A Lumen possui um conjunto informativo de guias sobre [direitos autorais](https://www.lumendatabase.org/topics/5) e [porto-seguro DMCA](https://www.lumendatabase.org/topics/14). Se você estiver envolvido com um projeto de código aberto precisando de aconselhamento jurídico, entre em contato com o [Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/). E se você acredita que tem um caso particularmente desafiador, organizações sem fins lucrativos como a [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) também podem estar dispostas a ajudá-lo diretamente ou encaminhá-lo a um advogado.
+## Sua contranotificação deve...
 
-## Seu contra-aviso deve...
+1. **Incluir a seguinte declaração: “Li e entendi o Guia do GitHub para Protocolar uma Contranotificação da DMCA.”**
+Não nos recusaremos a processar uma contranotificação completa se você não incluir esta declaração; no entanto, saberemos que você não leu essas diretrizes e poderemos solicitar que você o faça.
 
-1. **Incluir a seguinte instrução: "Eu li e compreendi o Guia do GitHub para o Preenchimento de um Contra-aviso DMCA.** Não nos recusaremos a processar um contra-aviso se você não incluir esta declaração. No entanto, saberemos que você não leu estas orientações e poderemos pedir para que você o faça.
+2. ***Identificar o conteúdo que foi desativado e o local onde ele apareceu.***
+O conteúdo desativado deve ter sido identificado por URL na notificação de remoção. Basta copiar os URLs que deseja contestar.
 
-2. ***Identificar o conteúdo que foi desabilitado e o local onde aparece.*** O conteúdo desabilitado deve ser identificado pela URL no aviso de retirada. Você precisa simplesmente copiar a(s) URL(s) que você deseja alterar.
+3. **Fornecer suas informações de contato.**
+Inclua seu endereço de email, nome, número de telefone e endereço físico.
 
-3. **Fornecer suas informações de contato.** Inclua seu endereço de e-mail, nome, número de telefone e endereço físico.
+4. ***Incluir a seguinte declaração: “Juro, sob pena de perjúrio, que tenho uma crença de boa-fé de que o material foi removido ou desativado como resultado de um erro ou identificação incorreta do material a ser removido ou desativado.”***
+Você também pode optar por comunicar os motivos pelos quais acredita que houve um erro ou uma identificação incorreta. Se você tratar sua contranotificação como uma “observação” para a parte reclamante, será uma chance de explicar por que ela não deve dar o próximo passo e ingressar com uma ação judicial em resposta. Esse é mais um motivo para trabalhar com um advogado ao enviar uma contranotificação.
 
-4. ***Incluir a seguinte declaração: "Eu juro, sob pena de perjúrio, que acredito de boa-fé, que o material foi removido ou desabilitado em consequência de um erro ou de uma identificação incorreta do material a ser removido ou desabilitado.*** Você também pode optar por comunicar as razões pelas quais você acredita que houve um erro ou identificação incorreta. Se você pensar que seu contra-aviso representa uma "notificação" para a parte reclamante, essa é uma oportunidade para explicar por que razão ela não deve dar o próximo passo e ingressar com uma ação judicial em resposta. Esse é mais um motivo para contar com um advogado ao enviar um contra-aviso.
-
-5. ***Incluir a seguinte declaração: "Aceito a jurisdição do Tribunal Distrital Federal para a comarca em que meu endereço está localizado (caso esteja nos Estados Unidos, caso contrário, o Distrito do Norte da Califórnia, onde o GitHub está localizado), e aceitarei a citação processual da pessoa que forneceu o aviso DMCA ou um representante dessa pessoa".***
+5. ***Incluir a seguinte declaração: “Concordo com a jurisdição do Tribunal Distrital Federal para o distrito judicial em que meu endereço está localizado (se nos Estados Unidos, caso contrário, o Distrito Norte da Califórnia, onde o GitHub está localizado), e aceitarei a citação da pessoa que forneceu a notificação da DMCA ou um agente dessa pessoa.”***
 
 6. **Incluir sua assinatura física ou eletrônica.**
 
-## Como enviar seu contra-aviso
+## Como enviar sua contranotificação
 
-A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
+A maneira mais rápida de obter uma resposta é inserir suas informações e responder a todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
 
-Você também pode enviar notificações de e-mail para <copyright@github.com>. Você pode incluir um anexo, se quiser, mas inclua também uma versão em texto simples da sua carta no corpo da sua mensagem.
+Você também pode enviar uma notificação por email para <copyright@github.com>. Você pode incluir um anexo, se desejar, mas inclua também uma versão em texto simples de sua carta no corpo da mensagem.
 
-Se você precisa enviar seu aviso por correio físico, você também pode fazê-lo, mas levaremos um tempo *substancialmente* maior para que possamos receber e responder a ele — e o período de espera de 10 a 14 dias começa a contar a partir do dia em que *recebermos* seu contra-aviso. Avisos que recebemos por e-mail em texto simples têm um tempo de resposta muito mais rápido do que por PDF anexado ou mensagem física. Se você ainda assim deseja nos enviar seu aviso por correio, nosso endereço físico é:
+Se você precisar enviar sua notificação pelos correios, também poderá fazê-lo, mas levará *substancialmente* mais tempo para recebermos e respondermos à notificação, e o período de espera de 10 a 14 dias começa a partir do momento em que *recebemos* sua contranotificação. As notificações que recebemos por email em texto simples têm uma resposta muito mais rápida do que anexos em PDF ou enviadas pelos correios. Se você ainda deseja nos enviar sua notificação pelos correios, nosso endereço físico é:
 
 ```
-GitHub, Inc Attn: DMCA Agent
-88 Colin P Kelly Jr St San Francisco, CA. 94107
+GitHub, Inc
+Attn: DMCA Agent
+88 Colin P Kelly Jr St
+San Francisco, CA. 94107
 ```

@@ -1,0 +1,32 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |**위험**: GitHub Enterprise Server의 Elasticsearch 컨테이너는 악의적인 XSLT 스타일시트를 처리할 때 정수 잘라내기 문제에 취약한 OpenJDK 8 버전을 사용했습니다. 취약성은 [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf)로 추적됩니다.
+
+|
+    - |**높음**: 사용자 계정이 조직 계정으로 변환된 후 사용자 계정에 이전에 설치된 앱에 범위 액세스 토큰의 조직에 액세스할 수 있는 권한이 자동으로 부여되었습니다. 이 취약성은 [GitHub 버그 장려금 프로그램](https://bounty.github.com)을 통해 보고되었습니다.
+
+|
+  bugs:
+    - 경우에 따라 `r4.4xlarge` 인스턴스 유형을 사용한 AWS의 GitHub Enterprise Server 인스턴스가 부팅되지 않습니다.
+    - 경우에 따라 끌어오기 요청의 **Files changed** 탭 내의 UI 요소가 겹칠 수 있습니다. 
+    - "인스턴스에 대해 사용자 지정 휴면 임계값을 설정한 경우 모든 휴면 사용자를 일시 중단하면 임계값을 안정적으로 준수하지 않습니다. 휴면에 대한 자세한 내용은 \"[휴면 사용자 관리](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)\"를 참조하세요."
+    - "GitHub Advanced Security에 대한 커밋을 계산할 때 개별 리포지토리를 지정할 수 없습니다. 자세한 내용은 \"[사이트 관리자 대시보드](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)\"를 참조하세요."
+    - "경우에 따라 Elasticsearch의 업그레이드 후 `es:upgrade` 프로세스가 완료되기 전에 충돌할 수 있습니다."
+    - "내부 리포지토리로 마이그레이션하기 위한 스크립트가 공용 리포지토리의 가시성을 내부 또는 개인으로 변환하지 못했습니다. 마이그레이션에 대한 자세한 내용은 \"[내부 리포지토리로 마이그레이션](/admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories)\"을 참조하세요."
+    - "종속성 그래프에 대한 GitHub Actions 워크플로 파일 검색은 GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 및 3.5.3에서 사용할 수 없었지만 이제 3.5.4에서 사용할 수 있습니다. 자세한 내용은 \"[종속성 그래프 정보](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)\"를 참조하세요."
+    - "해제된 Dependabot 경고를 다시 여는 기능은 GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 및 3.5.3에서 사용할 수 없었지만 이제 3.5.4에서 사용할 수 있습니다. 자세한 내용은 \"[Dependabot 경고 보기 및 업데이트](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)\"를 참조하세요."
+    - "GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 및 3.5.3에서는 기본 분기에서 끌어오기 요청의 HEAD로 업데이트를 항상 제안하는 기능을 사용할 수 없었지만 이제 3.5.4에서 사용할 수 있습니다. 자세한 내용은 \"[끌어오기 요청 분기를 업데이트하는 제안 관리](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)\"를 참조하세요."
+    - "GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 및 3.5.3에서는 밝은 고대비 테마를 사용할 수 없었지만 이제 3.5.4에서 사용할 수 있습니다. 자세한 내용은 \"[테마 설정 관리](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)\"를 참조하세요."
+  changes:
+    - '`pre_receive_hook.rejected_push` 이벤트가 엔터프라이즈 감사 로그에 표시되지 않았습니다.'
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - 다른 호스트에서 수행된 백업에서 어플라이언스를 복원한 후에는 작업 서비스를 다시 시작해야 합니다.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

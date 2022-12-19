@@ -13,24 +13,30 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 4e98e0a4eb4f2f75056621bd0123c651a04a9b6d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145126737'
 ---
-
 ## Configurar arquivos ignorados para um único repositório
 
-Você pode criar um arquivo *.gitignore* arquivo no diretório-raiz do seu repositório para dizer ao Git quais arquivos e diretórios devem ser ignorados ao fazer um commit. Para compartilhar as regras de ignorar com outros usuários que clonarem o repositório, faça o commit do arquivo *.gitignore* no seu repositório.
+Você pode criar um arquivo *.gitignore* no diretório raiz do repositório para informar o Git de quais arquivos e diretórios devem ser ignorados durante um commit.
+Para compartilhar as regras de ignorar com outros usuários que clonam o repositório, faça commit do arquivo *.gitignore* no repositório.
 
-O GitHub mantém uma lista oficial de arquivos *.gitignore* recomendados para muitos sistemas operacionais populares, ambientes e linguagens no repositório público `github/gitignore`. É possível usar gitignore.io para criar um arquivo *.gitignore* para seu sistema operacional, linguagem de programação ou Ambiente de Desenvolvimento Integrado (IDE, Integrated Development Environment). Para obter mais informações, consulte "[github/gitignore](https://github.com/github/gitignore)" e o site "[gitignore.io](https://www.gitignore.io/)".
+O GitHub mantém uma lista oficial de arquivos *.gitignore* recomendados para vários sistemas operacionais, ambientes e linguagens populares no repositório público `github/gitignore`. Use também o gitignore.io para criar um arquivo *.gitignore* para seu sistema operacional, sua linguagem de programação ou seu IDE. Para obter mais informações, confira "[github/gitignore](https://github.com/github/gitignore)" e o site "[gitignore.io](https://www.gitignore.io/)".
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navegue para o local do seu repositório do Git.
-3. Crie um arquivo de *.gitignore* para o seu repositório.
+3. Crie um arquivo *.gitignore* para seu repositório.
    ```shell
    $ touch .gitignore
   ```
 
    Se o comando for bem-sucedido, não haverá saída.
-
-Por obter um exemplo do arquivo *.gitignore*, consulte "[Algumas configurações comuns do .gitignore](https://gist.github.com/octocat/9257657)" no repositório do Octocat.
+   
+Para ver um exemplo de arquivo *.gitignore*, confira "[Algumas configurações comuns do .gitignore](https://gist.github.com/octocat/9257657)" no repositório do Octocat.
 
 Se você deseja ignorar um arquivo que já foi ingressado, você deve cancelar o rastreamento do arquivo antes de adicionar uma regra para ignorá-lo. No seu terminal, deixe de rastrear o arquivo.
 
@@ -40,29 +46,27 @@ $ git rm --cached <em>FILENAME</em>
 
 ## Configurar arquivos ignorados para todos os repositórios no seu computador
 
-Você também pode criar um arquivo global *.gitignore* para definir uma lista de regras para ignorar arquivos em cada repositório do Git no seu computador. Por exemplo, você deverá criar o arquivo em *~/.gitignore_global* e adicionar algumas regras a ele.
+Crie também um arquivo *.gitignore* global para definir uma lista de regras a fim de ignorar os arquivos de todos os repositórios Git no computador. Por exemplo, crie o arquivo em *~/.gitignore_global* e adicione algumas regras a ele.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Configure o Git para usar o arquivo de exclusão *~/.gitignore_global* para todos os repositórios do Git.
+2. Configure o Git para usar o arquivo de exclusão *~/.gitignore_global* para todos os repositórios Git.
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
   ```
 
-## Excluir arquivos locais sem criar um arquivo *.gitignore*
+## Como excluir arquivos locais sem criar um arquivo *.gitignore*
 
-Se você não quiser criar um arquivo *.gitignore* para compartilhar com outras pessoas, é possível criar regras sem fazer o commit no repositório. Você pode usar essa técnica para arquivos que você gerou localmente e que não espera que outros usuários o façam, como arquivos criados pelo seu editor.
+Caso não deseje criar um arquivo *.gitignore* para compartilhar com outras pessoas, crie regras que não sejam confirmadas no repositório. Você pode usar essa técnica para arquivos que você gerou localmente e que não espera que outros usuários o façam, como arquivos criados pelo seu editor.
 
-Use seu editor de textos preferido para abrir o arquivo *.git/info/exclude* dentro da raiz do repositório Git. Qualquer regra que você adicionar aqui não será verificada e ignorará arquivos somente em seu repositório local.
+Use seu editor de texto favorito para abrir o arquivo chamado *.git/info/exclude* na raiz do repositório Git. Qualquer regra que você adicionar aqui não será verificada e ignorará arquivos somente em seu repositório local.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navegue para o local do seu repositório do Git.
-3. Abra o arquivo *.git/info/exclude* com seu editor de texto preferido.
+3. Usando seu editor de texto favorito, abra o arquivo *.git/info/exclude*.
 
-## Leia mais
+## Leitura Adicional
 
-* [Ignorar arquivos](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) no livro do Pro Git
-* [.gitignore](https://git-scm.com/docs/gitignore) nas páginas de man para o Git
-*
-Uma coleção de *modelos úteis de *.gitignore*</a> no repositório github/gitignore</li> 
-  
-  * Site do [gitignore.io](https://www.gitignore.io/)</ul>
+* [Como ignorar arquivos](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) no livro Pro Git
+* [.gitignore](https://git-scm.com/docs/gitignore) nas páginas de manual do Git
+* [Uma coleção de modelos *.gitignore* úteis](https://github.com/github/gitignore) no repositório github/gitignore
+* Site [gitignore.io](https://www.gitignore.io/)

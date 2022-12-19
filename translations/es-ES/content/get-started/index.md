@@ -1,6 +1,6 @@
 ---
-title: Comenzar con GitHub
-shortTitle: Empezar
+title: Introducción a GitHub
+shortTitle: Get started
 intro: 'Aprende cómo comenzar a crear, enviar y mantener software con {% data variables.product.prodname_dotcom %}. Explora nuestros productos, regístrate para una cuenta y conéctate con la comunidad de desarrollo más grande del mundo.'
 redirect_from:
   - /categories/54/articles
@@ -23,25 +23,23 @@ versions:
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /github/getting-started-with-github/quickstart
+  quickstart: /get-started/quickstart
 featuredLinks:
   guides:
     - /github/getting-started-with-github/githubs-products
-    - /github/getting-started-with-github/create-a-repo
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
     - /get-started/onboarding/getting-started-with-github-ae
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/hello-world
     - /github/getting-started-with-github/set-up-git
     - /get-started/learning-about-github/about-versions-of-github-docs
     - /github/getting-started-with-github/github-glossary
-    - /github/getting-started-with-github/fork-a-repo
     - /github/getting-started-with-github/keyboard-shortcuts
-    - /github/getting-started-with-github/saving-repositories-with-stars
   guideCards:
     - /github/getting-started-with-github/types-of-github-accounts
     - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
@@ -64,5 +62,11 @@ children:
   - /using-git
   - /customizing-your-github-workflow
   - /privacy-on-github
+ms.openlocfilehash: 7671e605fa3644c4690de6ed16bd9a255bb6b1f6
+ms.sourcegitcommit: 2ecb6ba7d01b2bc9a44ad74a5953b98413216051
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165357'
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: GitHub の他のユーザに Issue およびPull Requestをアサインする
+title: GitHub の他のユーザに Issue およびプルリクエストをアサインする
 intro: アサインされた人によって、誰が特定の Issue やPull Requestで作業しているかが明確になります。
 permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
@@ -14,32 +14,40 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Issue及びPRのアサイン
+shortTitle: Assign issues & PRs
+ms.openlocfilehash: 0e1f4029ddcd180e892e43257ae3a75d0046ce1d
+ms.sourcegitcommit: 219fb805abddaef3e5547638bd798da890020bfd
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878455'
 ---
-
 ## Issue およびPull Requestをアサインされた人について
 
-自身、該当する Issue またはPull Requestにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、複数人を各 Issue またはPull Requestにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+自分自身、該当する issue または pull request にコメントした任意の人、リポジトリへの書き込みアクセス許可を持つ任意の人、リポジトリの読み取りアクセス許可を持つ Organization メンバーを含む複数の人を各 issue または pull request に割り当てることができます。 詳細については、「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
-パブリックリポジトリのIssue及びPull Request、そして有料アカウントのプライベートリポジトリでは、最大10人を割り当てできます。 無料プランのプライベートリポジトリでは、IssueあるいはPull Requestごとに1人に制限されます。
+パブリック リポジトリと有料アカウントのプライベート リポジトリ内にある issue と pull request には、最大 10 人を割り当てることができます。 無料プランのプライベート リポジトリは、issue また pull request ごとに 1 人に制限されます。
 
 ## 個別の Issue またはPull Requestを割り当てる
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
 3. ユーザに割り当てる Issue またはPull Requestを開きます。
-4. Issue またはPull Requestに誰も割り当てられていない場合は、[**assign yourself**] をクリックして自分を割り当てます。 ![自分にアイテムを割り当てる](/assets/images/help/issues/assign_yourself.png)
-5. 右メニューで、[**Assignees**] をクリックします。 ![アサインされた人のメニュー項目](/assets/images/help/issues/assignee_menu.png)
-6. Issue またはPull Requestをユーザに割り当てるには、ユーザ名を入力し、表示された名前をクリックします。 Issue またはPull Requestには、最大で 10 人を選択してアサインできます。 ![Issue のアサインのドロップダウンメニュー](/assets/images/help/issues/issues_assigning_dropdown.png)
+4. issue または pull request に誰も割り当てられていない場合は、 **[自分自身を割り当てる]** をクリックして自分を割り当てます。
+  ![[自分自身に割り当てる] 項目](/assets/images/help/issues/assign_yourself.png)
+5. 右側のメニューで **[担当者]** をクリックします。
+   ![[担当者] メニュー項目](/assets/images/help/issues/assignee_menu.png)
+6. Issue またはPull Requestをユーザに割り当てるには、ユーザ名を入力し、表示された名前をクリックします。 Issue またはPull Requestには、最大で 10 人を選択してアサインできます。
+  ![issue の割り当てドロップダウン メニュー](/assets/images/help/issues/issues_assigning_dropdown.png)
 
 ## 複数の Issue またはPull Requestを割り当てる
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-3. 誰かにアサインしたいアイテムの隣のチェックボックスを選択してください。 ![Issue のメタデータチェックボックス](/assets/images/help/issues/issues_assign_checkbox.png)
-4. 右上隅にある [**Assign**] をクリックします。
-5. アイテムをユーザにアサインするには、その人のユーザ名を入力し始め、その名前が表示されたらクリックします。 Issue またはPull Requestには、最大で 10 人を選択してアサインできます。 ![Issue のアサインのドロップダウンメニュー](/assets/images/help/issues/issues_assigning_dropdown.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
+3. 誰かにアサインしたいアイテムの隣のチェックボックスを選択してください。
+  ![問題のメタデータ チェックボックス](/assets/images/help/issues/issues_assign_checkbox.png)
+4. 右上隅の **[割り当て]** をクリックします。
+5. アイテムをユーザにアサインするには、その人のユーザ名を入力し始め、その名前が表示されたらクリックします。 Issue またはPull Requestには、最大で 10 人を選択してアサインできます。
+  ![issue の割り当てドロップダウン メニュー](/assets/images/help/issues/issues_assigning_dropdown.png)
 
-## 参考リンク
+## 参考資料
 
-* [アサインされた人による Issue およびPull Requestのフィルタリング](/articles/filtering-issues-and-pull-requests-by-assignees)
+* [issue および pull request を担当者でフィルタリングする](/articles/filtering-issues-and-pull-requests-by-assignees)

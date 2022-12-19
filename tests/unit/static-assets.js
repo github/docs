@@ -44,6 +44,12 @@ const mockResponse = () => {
       }
     }
   }
+  res.removeHeader = (key) => {
+    delete res.headers[key]
+  }
+  res.hasHeader = (key) => {
+    return key in res.headers
+  }
   return res
 }
 
@@ -106,10 +112,10 @@ describe('archived enterprise static assets', () => {
     setDefaultFastlySurrogateKey(req, res, () => {})
     await archivedEnterpriseVersionsAssets(req, res, next)
     expect(res.statusCode).toBe(200)
-    checkCachingHeaders(res, true, 60)
+    checkCachingHeaders(res, false, 60)
   })
 
-  it('should proxy if the Referrer header indicates so', async () => {
+  it('should proxy if the Referrer header indicates so on home page', async () => {
     const req = mockRequest('/_next/static/only-on-proxy.css', {
       headers: {
         Referrer: '/enterprise/2.21',
@@ -122,10 +128,10 @@ describe('archived enterprise static assets', () => {
     setDefaultFastlySurrogateKey(req, res, () => {})
     await archivedEnterpriseVersionsAssets(req, res, next)
     expect(res.statusCode).toBe(200)
-    checkCachingHeaders(res, true, 60)
+    checkCachingHeaders(res, false, 60)
   })
 
-  it('should proxy if the Referrer header indicates so', async () => {
+  it('should proxy if the Referrer header indicates so on sub-page', async () => {
     const req = mockRequest('/_next/static/only-on-2.3.css', {
       headers: {
         Referrer: '/en/enterprise-server@2.3/some/page',
@@ -138,7 +144,7 @@ describe('archived enterprise static assets', () => {
     setDefaultFastlySurrogateKey(req, res, () => {})
     await archivedEnterpriseVersionsAssets(req, res, next)
     expect(res.statusCode).toBe(200)
-    checkCachingHeaders(res, true, 60)
+    checkCachingHeaders(res, false, 60)
   })
 
   it('might still 404 even with the right referrer', async () => {

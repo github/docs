@@ -1,5 +1,6 @@
 ---
 title: About GitHub-hosted runners
+shortTitle: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
@@ -14,7 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -86,6 +86,15 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 ## Supported runners and hardware resources
 
+{% ifversion actions-hosted-runners %}
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Machine specs for {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."  
+
+{% endnote %}
+{% endif %}
+
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU (x86_64)
 - 7 GB of RAM
@@ -102,23 +111,24 @@ Workflow logs list the runner used to run a job. For more information, see "[Vie
 
 ## Supported software
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends. 
+The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
+
 ### Preinstalled software
 
-Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
 ![Installed software link](/assets/images/actions-runner-installed-software-link.png)
 For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 22.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2204-Readme.md)
-* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
-* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
-* [macOS 12](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
-* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+* [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
+* [Ubuntu 18.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu1804-Readme.md) (deprecated)
+* [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
+* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+* [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
+* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md)
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
 
@@ -128,7 +138,7 @@ We recommend using actions to interact with the software installed on runners. T
 - Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
 - It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
-If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
+If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
 
 ### Installing additional software
 

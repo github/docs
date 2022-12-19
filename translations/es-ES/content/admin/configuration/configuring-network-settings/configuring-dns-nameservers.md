@@ -14,10 +14,15 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Configurar los servidores DNS
+shortTitle: Configure DNS servers
+ms.openlocfilehash: b01dc25b9002bf1feb672bbce597c8046b93f12f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147419717'
 ---
-
-Los servidores de nombres que especifiques deben resolver el nombre del host de {% data variables.product.product_location %}.
+Los servidores de nombres que especifique deben resolver el nombre del host de {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -31,7 +36,7 @@ Los servidores de nombres que especifiques deben resolver el nombre del host de 
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. Para obtener más información, consulta la sección "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)".
+2. Para editar los servidores de nombres, usa el comando `ghe-setup-network` en modo visual. Para más información, vea "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)".
 
   ```shell
   ghe-setup-network -v

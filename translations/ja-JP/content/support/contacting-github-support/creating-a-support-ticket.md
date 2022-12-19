@@ -1,6 +1,6 @@
 ---
-title: Creating a support ticket
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
+title: サポートチケットの作成
+intro: '{% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} を使ってサポート チケットを作成し、{% data variables.contact.github_support %} とお話ください。'
 shortTitle: Creating a ticket
 versions:
   fpt: '*'
@@ -22,39 +22,39 @@ redirect_from:
   - /github/working-with-github-support/submitting-a-ticket
 topics:
   - Support
+ms.openlocfilehash: 4be0e3be4154354bbc8ea592c9c13af4c0e217b4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145140139'
 ---
-
 {% ifversion fpt or ghec or ghes %}
 
-## About support tickets
+## サポート チケットについて
 
 {% data reusables.support.zendesk-old-tickets %}
 
-{% ifversion fpt %}
-{% data reusables.support.free-and-paid-support %}
+{% ifversion fpt %} {% data reusables.support.free-and-paid-support %} {% endif %}
+
+{% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
+
+{% ifversion ghes %} サポート チケットを作成するには、{% data variables.contact.support_portal %} を使用するか、またはサポート チケットに診断を含める場合は GitHub Enterprise サーバー管理コンソールを使用します。
 {% endif %}
 
-{% ifversion ghes or ghec %}
-{% data reusables.enterprise-accounts.support-entitlements %}
-{% endif %}
+チケットを作成すると、{% data variables.contact.contact_landing_page_portal %} の {% data variables.contact.github_support %} からチケットと応答を表示できます。 詳細については、「[サポート チケットの表示と更新](/support/contacting-github-support/viewing-and-updating-support-tickets)」を参照してください。 
 
-{% ifversion ghes %}
-You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
-{% endif %}
+## サポート チケットに含める内容
 
-After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)."
-
-## What to include in your support ticket
-
-Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
+{% data variables.contact.github_support %} に問題を理解、特定、再現するために必要なすべてのものを提供することで、解決を高速化し、サポート チームとの間のやり取りを減らします。 {% data variables.contact.github_support %} から支援を受けられるように、チケットを作成する際には次の点を考慮してください。
 
 - {% data variables.contact.github_support %} による問題の追跡、優先順位付け、再現、調査を支援する情報の取得
-- Include full URLs, repository names, and usernames wherever possible.
+- 可能な限り、完全な URL、リポジトリ名、ユーザー名を含めます。
 - 可能であれば問題を再現し、問題発生の手順を共有できるようにしてください。
 - 問題の詳細な説明と期待される結果を提供できるように準備してください。
 - 問題に関連するすべてのエラーメッセージをそのままコピーしてください。
 - {% data variables.contact.github_support %} との進行中のやりとりがあれば、既存のチケット番号があるかを確認してください。
-- Include relevant logs and attach any screenshots that demonstrate the issue.
+- 関連するログを含め、問題を示すスクリーンショットを添付します。
 
 {% ifversion ghes %}
 ## 担当者の選択
@@ -62,53 +62,52 @@ Providing {% data variables.contact.github_support %} with everything they need 
 特にチケットの優先度が {% data variables.product.support_ticket_priority_urgent %} の場合、{% data variables.contact.github_support %} に問い合わせるユーザは、次のことを確認してください。
 
  - 社内のシステム、ツール、ポリシー、実務をよく知っていること。
- - {% data variables.product.product_name %} に熟練したユーザであること。
+ - {% data variables.product.product_name %} の熟練したユーザーである。
  - 問題のトラブルシューティングに必要なすべてのサービスへの完全なアクセスと権限を持っていること。
  - 推奨された変更をネットワーク及び該当する製品に行う権限を持っていること。
 
 {% endif %}
 
-## Creating a support ticket{% ifversion ghes %} using the support portal{% endif %}
+## {% ifversion ghes %}サポート ポータルを使用したサポート チケットの作成{% endif %}
 
 1. {% data variables.contact.contact_support_portal %} に移動します。
 {% data reusables.support.submit-a-ticket %}
 
 {% ifversion ghes %}
 
-## Creating a ticket using the GitHub Enterprise Server Management Console
+## GitHub Enterprise サーバー管理コンソールを使用したチケットの作成
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.type-management-console-password %}
-{% data reusables.enterprise_management_console.support-link %}
-1. サポートチケットにDiagnosticを含めたい場合には、"Diagnostics"の下の**Download diagnostic info（Diagnostic情報のダウンロード）**をクリックし、ファイルをローカルに保存してください。 このファイルは、後でサポートチケットに添付します。 ![Screenshot of button labelled "Download diagnostics info" on Management Console Support page.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
-1. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**. ![Screenshot of button labelled "New support request" on Management Console Support page.](/assets/images/enterprise/management-console/open-support-request.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %} {% data reusables.enterprise_management_console.support-link %}
+1. サポート チケットに診断を含めたい場合には、[診断] の下の **[診断情報のダウンロード]** をクリックし、ファイルをローカルに保存します。 このファイルは、後でサポートチケットに添付します。
+  ![管理コンソールの [サポート] ページの [診断情報のダウンロード] というラベルの付いたボタンのスクリーンショット。](/assets/images/enterprise/support/download-diagnostics-info-button.png)
+1. チケットを完成させ、{% data variables.contact.enterprise_portal %} を表示するには、[サポートリクエストを開く] の下の **[新しいサポート リクエスト]** をクリックします。
+  ![管理コンソールの [サポート] ページの [新しいサポート リクエスト] というラベルの付いたボタンのスクリーンショット。](/assets/images/enterprise/management-console/open-support-request.png)
 {% data reusables.support.submit-a-ticket %}
 
 {% endif %}
 
 {% elsif ghae %}
 
-You can submit a ticket for support with {% data variables.product.prodname_ghe_managed %} from the {% data variables.contact.ae_azure_portal %}.
+サポートのチケットは、{% data variables.contact.ae_azure_portal %} から {% data variables.product.prodname_ghe_managed %} を使用して送信できます。
 
-## 必要な環境
+## 前提条件
 
-To submit a ticket for {% data variables.product.prodname_ghe_managed %} in the {% data variables.contact.ae_azure_portal %}, you must provide the ID for your {% data variables.product.prodname_ghe_managed %} subscription in Azure to your Customer Success Account Manager (CSAM) at Microsoft.
+{% data variables.contact.ae_azure_portal %} で {% data variables.product.prodname_ghe_managed %} のチケットを送信するには、ご自分の Azure の {% data variables.product.prodname_ghe_managed %} サブスクリプションの ID を Microsoft のカスタマー サクセス アカウント マネージャー (CSAM) に提供する必要があります。
 
-## {% data variables.contact.ae_azure_portal %} を使ってチケットをサブミットする
+## {% data variables.contact.ae_azure_portal %} を使ってチケットを送信する
 
-法人のお客様は、{% data variables.contact.contact_ae_portal %} でサポートリクエストをサブミットできます。 政府機関のお客様は、[政府機関のお客様向けの Azure ポータル](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)をご利用ください。 For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft Docs.
+法人のお客様は、{% data variables.contact.contact_ae_portal %} でサポートリクエストをサブミットできます。 政府機関のお客様は、[政府機関のお客様向けの Azure portal](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) を使用する必要があります。 詳細については、Microsoft Docs の「[Azure サポート要求を作成する](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)」を参照してください。
 
-## Troubleshooting problems in the {% data variables.contact.ae_azure_portal %}
+## {% data variables.contact.ae_azure_portal %} の問題のトラブルシューティング
 
-{% data variables.product.company_short %} is unable to troubleshoot access and subscription issues in the Azure portal. For help with the Azure portal, contact your CSAM at Microsoft or review the following information.
+{% data variables.product.company_short %} は、Azure portal のアクセスとサブスクリプションの問題のトラブルシューティングを行うことができません。 Azure portal に関するヘルプについては、Microsoft の CSAM にお問い合わせいただくか、次の情報をご確認ください。
 
-- If you cannot sign into the Azure portal, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue) in the Microsoft Docs or [submit a request directly](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178).
+- Azure portal にサインインできない場合は、Microsoft Docs の「[Azure サブスクリプションのサインインに関する問題のトラブルシューティング](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)」を参照するか[、リクエストを直接送信してください](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178)。
 
-- If you can sign into the Azure portal but you cannot submit a ticket for {% data variables.product.prodname_ghe_managed %}, review the prerequisites for submitting a ticket. For more information, see "[Prerequisites](#prerequisites)".
+- Azure portal にサインインすることはできるものの、{% data variables.product.prodname_ghe_managed %} のチケットを送信できない場合は、チケットを送信するための前提条件をご確認ください。 詳細については、「[前提条件](#prerequisites)」を参照してください。
 
 {% endif %}
 
-## 参考リンク
+## 参考資料
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[GitHub サポートについて](/support/learning-about-github-support/about-github-support)"

@@ -1,5 +1,15 @@
-Si tu sitio es un proyecto independiente, puedes crear un repositorio nuevo para almacenar el código fuente del mismo. Si tu sitio se asocia con un proyecto existente, puedes agregar el código fuente al repositorio de dicho proyecto en una carpeta de `/docs` en la rama predeterminada o en una diferente. Por ejemplo, si estás creando un sitio para publicar documentación para un proyecto que ya está en {% data variables.product.product_name %}, podrías querer almacenar el código fuente para este sitio en el mismo repositorio donde se encuentra el proyecto.
+---
+ms.openlocfilehash: 33f427d38193ad14c5df35ebab14bd08208c08e0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148110022"
+---
+Puedes crear un repositorio o elegir un repositorio existente para el sitio.
+
+Si quieres crear un sitio de {% data variables.product.prodname_pages %} para un repositorio donde no todos los archivos del repositorio están relacionados con el sitio, podrás configurar una fuente de publicación para el sitio. Por ejemplo, puedes tener una rama dedicada y una carpeta para contener los archivos de origen del sitio {% ifversion pages-custom-workflow %}, o bien usar un flujo de trabajo de {% data variables.product.prodname_actions %} personalizado para compilar e implementar los archivos de origen del sitio. {% data reusables.actions.settings-ui.settings-actions-pages-custom-workflow %}{% else %}files.{% endif %}
 
 {% ifversion fpt or ghec %}Si la cuenta a la que pertenece el repositorio utiliza {% data variables.product.prodname_free_user %} o {% data variables.product.prodname_free_team %} para organizaciones, el repositorio deberá ser público.{% endif %}
 
-Si quieres crear un sitio en un repositorio existente, salta hasta la sección "[Crear tu sitio](#creating-your-site)".
+ Si quiere crear un sitio en un repositorio existente, vaya a la sección "[Crear tu sitio](#creating-your-site)".

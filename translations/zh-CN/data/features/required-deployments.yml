@@ -1,6 +1,5 @@
----
-#Issue 6384
-#Required deployments branch protection rule
+# Issue 6384
+# Required deployments branch protection rule
 versions:
   fpt: '*'
   ghec: '*'

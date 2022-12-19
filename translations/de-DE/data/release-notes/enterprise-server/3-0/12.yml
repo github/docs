@@ -1,0 +1,21 @@
+date: '27.07.2021'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - 'Benutzerdefinierte Pre-Receive-Hooks konnten beispielsweise zu folgendem Fehler führen: „Fehler: ''Objektverzeichnis /data/user/repositories/0/nw/12/34/56/7890/network.git/objects'' existiert nicht; überprüfe ''.git/objects/info/alternates''“.'
+    - "Ein nicht authentifizierter HTTP-Proxy für den Seitencontainerbuild wurde für Benutzer, die HTTP-Proxys verwenden, nicht unterstützt."
+    - "Eine große Anzahl des Fehlers 503 wurde immer dann protokolliert, wenn Benutzer die Seite „/settings“ eines Repositorys besuchten und das Abhängigkeitsdiagramm nicht aktiviert war."
+    - "Interne Repositorys wurden nur dann zurückgegeben, wenn Benutzer über ein Team oder den Projektmitarbeiterstatus zu dem Repository gehörten oder es mit dem Parameter „?type=internal“ abfragten."
+    - "Hintergrundaufträge, bei denen Fehler auftraten, verfügten über unbegrenzte Wiederholungen, was lange Warteschlangen verursachen konnte."
+    - "Wenn der geplante Auftrag zum Synchronisieren von Sicherheitsrisiken mit GitHub.com ausgeführt werden sollte, während das Abhängigkeitsdiagramm nicht aktiviert war und die Inhaltsanalyse aktiviert war, trat eine große Anzahl des Fehlers 503 auf."
+  changes:
+    - "Die Protokolle für „babeld“ enthalten jetzt das Feld „cmd“ für HTTP-Referenzankündigungsanforderungen, anstatt diese nur während der Verhandlungsanforderungen einzufügen."
+  known_issues:
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer verringert."
+    - "Ressourcengrenzwerte, die nur beim Verarbeiten von Pre-Receive-Hooks gelten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

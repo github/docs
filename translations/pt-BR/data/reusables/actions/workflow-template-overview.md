@@ -1,3 +1,11 @@
-{% data variables.product.prodname_dotcom %} fornece o fluxo de trabalho inicial pré-configurado que você pode personalizar para criar o seu próprio fluxo de trabalho de integração contínua. O {% data variables.product.product_name %} analisa o seu código e mostra o fluxo de trabalho inicial da CI que pode ser útil para o repositório. Por exemplo, se o seu repositório contiver o código Node.js, você verá sugestões para projetos Node.js. Você pode usar o fluxo de trabalho inicial como um ponto inicial para construir o fluxo de trabalho personalizado ou usá-lo como se apresenta.
+---
+ms.openlocfilehash: 51d4b7e23640eafc3bd7830b4ce8f4b6d209f40f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145083801"
+---
+O {% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial pré-configurado que você pode personalizar para criar seu fluxo de trabalho de integração contínua. O {% data variables.product.product_name %} analisa seu código e mostra o fluxo de trabalho inicial de CI que pode ser útil para seu repositório. Por exemplo, se o seu repositório contiver o código Node.js, você verá sugestões para projetos Node.js. Você pode usar o fluxo de trabalho inicial como ponto de partida para criar seu fluxo de trabalho personalizado ou usá-lo no estado em que se encontra.
 
-Você pode pesquisar a lista completa do fluxo de trabalho inicial no repositório {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
+Navegue pela lista completa do fluxo de trabalho inicial no repositório `actions/starter-workflows` {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows){% else %} no {% data variables.product.product_location %}{% endif %}.

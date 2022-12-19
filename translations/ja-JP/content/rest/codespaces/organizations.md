@@ -1,18 +1,21 @@
 ---
-title: Codespaces organizations
+title: Codespaces Organizations
 allowTitleToDifferFromFilename: true
-shortTitle: Organization
-intro: Codespaces organizations APIを使うと、OrganizationのメンバーのcodespacesをREST APIを使って管理できます。
+shortTitle: Organizations
+intro: REST API を使用して、Organization メンバーの codespace を管理します。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: e6c260456a4d34f2de83bf8f936c0789adabd225
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193090'
 ---
+## {% data variables.product.prodname_codespaces %} Organization について
 
-{% data reusables.codespaces.codespaces-api-beta-note %}
-
-## Codespaces organizations APIについて
-
-{% data variables.product.prodname_codespaces %} organizations APIを使うと、Organizationに対して請求される{% data variables.product.prodname_codespaces %}をREST APIを使って管理できます。 このAPIは、認証されたOrganizationの管理者、OAuth Appsで利用できますが、GitHub Appsでは利用できません。 詳しい情報については「[{% data variables.product.prodname_codespaces %}](/codespaces)」を参照してください。
+Organization に請求される {% data variables.product.prodname_codespaces %} を管理できます。 このエンドポイントは、認証された Organization 管理者と OAuth Apps に使用できますが、GitHub Apps には使用できません。 詳細については、「[{% data variables.product.prodname_codespaces %}](/codespaces)」を参照してください。

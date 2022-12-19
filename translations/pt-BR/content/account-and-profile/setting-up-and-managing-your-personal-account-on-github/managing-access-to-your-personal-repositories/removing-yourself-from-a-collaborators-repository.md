@@ -18,14 +18,20 @@ versions:
 topics:
   - Accounts
   - Repositories
-shortTitle: Remover-se
+shortTitle: Remove yourself
+ms.openlocfilehash: 3b760d7947d734d8fa6e1e366795ce698f9c0b7f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164583'
 ---
-
-{% data reusables.user-settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-2. Na seção "código, planejamento e automação" na barra lateral, clique em **Repositórios de {% octicon "repo" aria-label="The repo icon" %}**.
+{% data reusables.user-settings.access_settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+2. Na seção "Código, planejamento e automação" da barra lateral, clique em **{% octicon "repo" aria-label="The repo icon" %} Repositórios**.
 {% else %}
-2. Na barra lateral esquerda, clique em **Repositories** (Repositórios). ![Guia Repositories (Repositórios)](/assets/images/help/settings/settings-sidebar-repositories.png)
-{% endif %}
-3. Clique em **Leave** (Sair) ao lado do repositório do qual deseja sair. ![Botão Leave (Sair)](/assets/images/help/repository/repo-leave.png)
-4. Leia o aviso com atenção, depois clique em "I understand, leave this repository" (Eu compreendo, sair deste repositório). ![Caixa de diálogo avisando você para sair](/assets/images/help/repository/repo-leave-confirmation.png)
+2. Na barra lateral esquerda, clique em **Repositórios**.
+  ![Guia Repositórios](/assets/images/help/settings/settings-sidebar-repositories.png) {% endif %}
+3. Ao lado do repositório do qual deseja sair, clique em **Sair**.
+  ![Botão Sair](/assets/images/help/repository/repo-leave.png)
+4. Leia o aviso com atenção, depois clique em "I understand, leave this repository" (Eu compreendo, sair deste repositório).
+  ![Caixa de diálogo com aviso de saída](/assets/images/help/repository/repo-leave-confirmation.png)

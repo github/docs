@@ -23,7 +23,7 @@ You can download and back up your repositories manually:
 - To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 - You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)."
 
-When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to your local machine:
+When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to your local machine:
 
 - [Issues](/rest/reference/issues#list-issues-for-a-repository)
 - [Pull requests](/rest/reference/pulls#list-pull-requests)

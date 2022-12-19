@@ -1,1 +1,9 @@
-提交评论已创建。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[提交评论](/rest/reference/repos#comments)”REST API。
+---
+ms.openlocfilehash: f854ca7eaa31e3104624176968823d5faaa8f8cc
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881970"
+---
+提交评论已创建。 {% data reusables.webhooks.action_type_desc %} 有关详细信息，请参阅“[提交评论](/rest/reference/repos#comments)”REST API。

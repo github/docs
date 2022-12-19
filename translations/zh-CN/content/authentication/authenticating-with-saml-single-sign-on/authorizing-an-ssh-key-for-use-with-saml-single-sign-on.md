@@ -10,10 +10,15 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: 使用 SAML 的 SSH 密钥
+shortTitle: SSH Key with SAML
+ms.openlocfilehash: 11df62f1a4adc5a0de1f54efbccafe71ad0feb83
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145099902'
 ---
-
-您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。 有关创建新 SSH 密钥的更多信息，请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。 有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -21,17 +26,18 @@ shortTitle: 使用 SAML 的 SSH 密钥
 
 {% note %}
 
-**注：**如果您的 SSH 密钥授权被组织撤销，您便博学多才再授权该密钥。 此时您需要创建新 SSH 密钥并授权。 有关创建新 SSH 密钥的更多信息，请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+注意：如果你的 SSH 密钥授权被组织撤销，你将无法再授权该密钥。 此时您需要创建新 SSH 密钥并授权。 有关创建新的 SSH 密钥的详细信息，请参阅“[生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. 在要授权的 SSH 密钥旁边，单击 **Enable SSO（启用 SSO）**或 **Disable SSO（禁用 SSO）**。 ![SSO 令牌授权按钮](/assets/images/help/settings/ssh-sso-button.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. 在要授权的 SSH 密钥旁边，单击“启用 SSO”或“禁用 SSO” 。
+![SSO 令牌授权按钮](/assets/images/help/settings/ssh-sso-button.png)
 4. 找到要为其授权访 SSH 密钥的组织。
-5. 单击 **Authorize（授权）**。 ![令牌授权按钮](/assets/images/help/settings/ssh-sso-authorize.png)
+5. 单击“授权”。
+![令牌授权按钮](/assets/images/help/settings/ssh-sso-authorize.png)
 
 ## 延伸阅读
 
-- "[检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)"
-- "[关于使用 SAML 单点登录进行身份验证](/articles/about-authentication-with-saml-single-sign-on)"
+- “[检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)”
+- “[关于使用 SAML 单一登录进行身份验证](/articles/about-authentication-with-saml-single-sign-on)”

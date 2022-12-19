@@ -23,6 +23,7 @@ With {% data variables.product.prodname_mobile %} you can:
 
 - Manage, triage, and clear notifications
 - Read, review, and collaborate on issues and pull requests
+- Edit files in pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
 {% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
@@ -48,7 +49,7 @@ You can be simultaneously signed into mobile with one personal account on {% dat
 
 You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.location.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
 During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -82,9 +83,7 @@ To re-enable Universal Links, long-press any {% data variables.product.product_n
 
 ## Sharing feedback
 
-If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
-
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_discussions %}](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
 ## Opting out of beta releases for iOS
 

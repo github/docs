@@ -1,6 +1,6 @@
 ---
 title: Gerenciando faturas da sua empresa
-shortTitle: Gerenciar faturas
+shortTitle: Manage invoices
 intro: 'Você pode visualizar, pagar ou fazer o download de uma fatura atual da sua empresa e poderá ver seu histórico de pagamentos.'
 versions:
   ghec: '*'
@@ -8,41 +8,42 @@ type: how_to
 topics:
   - Enterprise
   - Licensing
+ms.openlocfilehash: 030d91667630445f0811db6e51d5fe33ed863182
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083455'
 ---
-
 ## Sobre as faturas da sua empresa
 
-{% data reusables.billing.about-invoices-for-enterprises %} Para obter mais informações, consulte "[Sobre cobrança para a sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
+{% data reusables.billing.about-invoices-for-enterprises %} Para obter mais informações, confira "[Sobre a cobrança para sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
 
-Para obter mais informações sobre a visualização da assinatura e uso da conta corporativa, consulte "[Visualizando a assinatura e o uso da sua conta corporativa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
+Para obter mais informações sobre como ver a assinatura e o uso da sua conta corporativa, confira "[Como ver a assinatura e o uso da sua conta corporativa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
 
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 
 ## Visualizando sua fatura atual
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Em "Fatura atual", clique em **Visualizar fatura**. ![Link de visualização da fatura](/assets/images/help/business-accounts/view-invoice-link.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. Em "Fatura Atual", clique em **Exibir fatura**.
+  ![Link de Exibir fatura](/assets/images/help/business-accounts/view-invoice-link.png)
 
 ## Pagando sua fatura atual
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Em "Pagamento devido", clique em **Pagar fatura**. ![Link de pagamento da fatura](/assets/images/help/business-accounts/pay-invoice-link.png)
-5. Em "Pagar fatura", digite as informações do seu cartão de crédito no formulário de segurança e clique em **Pay Invoice** (Pagar fatura). ![Confirmar e pagar a fatura](/assets/images/help/business-accounts/pay-invoice.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. Em "Pagamento Vencido", clique em **Pagar fatura**.
+  ![Link de Pagar fatura](/assets/images/help/business-accounts/pay-invoice-link.png)
+5. Em "Pagar fatura", digite as informações do seu cartão de crédito no formulário seguro e clique em **Pagar Fatura**.
+  ![Confirmar e pagar a fatura](/assets/images/help/business-accounts/pay-invoice.png)
 
 ## Baixando sua fatura atual
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Em "Quick Actions" (Ações rápidas), clique em **Download current invoice** (Baixar fatura atual). ![Link para baixar fatura atual](/assets/images/help/business-accounts/download-current-invoice.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. Em "Ações Rápidas", clique em **Baixar a fatura atual**.
+  ![Link de Baixar a fatura atual](/assets/images/help/business-accounts/download-current-invoice.png)
 
 ## Visualizando seu histórico de pagamento
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-4. Para ver um resumo de sua atividade de cobrança anterior, em "Cobrança", clique na aba **Faturas anteriores**. ![Aba de visualização de histórico de pagamento](/assets/images/help/business-accounts/view-payment-history.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+4. Para ver um resumo da sua atividade de cobrança anterior, em "Cobrança", clique na guia **Faturas Anteriores**. ![Guia Exibir histórico de pagamentos](/assets/images/help/business-accounts/view-payment-history.png)

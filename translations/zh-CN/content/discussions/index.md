@@ -30,11 +30,17 @@ versions:
   feature: discussions
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/discussions'
 children:
   - /quickstart
   - /guides
   - /collaborating-with-your-community-using-discussions
   - /managing-discussions-for-your-community
+ms.openlocfilehash: a91dbef4ac8c511cc6b94b7ab412a16772f7db33
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147433402'
 ---
 

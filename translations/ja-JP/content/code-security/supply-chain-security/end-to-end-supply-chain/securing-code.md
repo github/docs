@@ -1,8 +1,8 @@
 ---
-title: サプライチェーン中のコードの保護のベストプラクティス
-shortTitle: コードの保護
+title: サプライ チェーンのコードをセキュリティで保護するためのベスト プラクティス
+shortTitle: Securing code
 allowTitleToDifferFromFilename: true
-intro: サプライチェーンの中心である、あなたが書くコードと依存するコードの保護の方法に関するガイダンス。
+intro: サプライ チェーンの中心、つまり記述するコードと依存するコードを保護する方法に関するガイダンスです。
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,106 +15,108 @@ topics:
   - Vulnerabilities
   - Advanced Security
   - Secret scanning
+ms.openlocfilehash: 9fa10b05cfeadb4e2cde37829e703fc527571c67
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184005'
 ---
-
 ## このガイドについて
 
-このガイドは、コードのセキュリティを高めることができる、もっと影響の大きい変更について説明します。 各セクションは、セキュリティを改善するためにプロセスに加えることができる変更の概要を説明します。 影響の大きい変更から最初にリストされています。
+このガイドでは、コードのセキュリティを向上させるために行うことができる最も影響が大きい変更について説明します。 各セクションで、セキュリティを向上させるためにプロセスに対して行うことができる変更の概要を示します。 変更は影響が大きい順に示されます。
 
-## リスクとは何か？
+## リスクとは
 
-開発プロセス中のキーとなるリスクは以下を含みます。
+開発プロセスの主なリスクは次のとおりです。
 
-- 攻撃者が悪用できるセキュリティ脆弱性を持つ依存関係の利用。
-- 攻撃者がリソースへのアクセスに利用できる認証情報やトークンの漏洩。
-- 攻撃者が悪用できる脆弱性のコードへの導入。
+- 攻撃者が悪用する可能性がある、セキュリティの脆弱性を含む依存関係の使用。
+- 攻撃者がリソースへのアクセスに使用できる、認証資格情報またはトークンの漏洩。
+- 攻撃者が悪用する可能性がある、脆弱性の自身のコードへの取り込み。
 
-これらのリスクによって、リソースやプロジェクトが攻撃に対してオープンになり、それらのリスクはあなたが作成するパッケージを使う人に直接渡ります。 以下のセクションは、あなた自身とあなたのユーザをこれらのリスクから保護する方法を説明します。
+これらのリスクによって、リソースとプロジェクトが攻撃を受け入れるようになります。また、それらのリスクが、作成したパッケージを使用するすべてのユーザーに直接引き継がれます。 次のセクションでは、これらのリスクに対して自身とユーザーを保護する方法について説明します。
 
-## 依存関係に対する脆弱性管理プログラムの作成
+## 依存関係の脆弱性管理プログラムを作成する
 
-依存関係に対する脆弱性管理プログラムを作成することによって、依存するコードを保護できます。 高いレベルでは、これには以下を保証するプロセスが含まれていなければなりません。
+依存関係の脆弱性管理プログラムを作成ことで、依存するコードをセキュリティで保護できます。 概要としては次を保証するプロセスが含める必要があります。
 
-1. 依存関係のインベントリの作成。
+1. 依存関係のインベントリを作成します。
 
-2. 依存関係にセキュリティ脆弱性がある場合に把握すること。
+1. セキュリティ脆弱性が依存関係に含まれたときに把握します。
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+1. pull request に依存関係のレビューを適用します。{% endif %}
 
-3. 自分のコードに対するその脆弱性のインパクトを評価し、行うべきアクションを判断すること。
+1. その脆弱性がコードに及ぼす影響を評価し、実行するアクションを決定します。
 
-### 自動的なインベントリの生成
+### 自動インベントリ生成
 
-最初のステップとして、依存関係の完全なインベントリを作成します。 リポジトリの依存関係グラフは、サポートされているエコシステムの依存関係が表示されます。 依存関係をチェックインするか、他のエコシステムを使うと、これをサードパーティのツールからのデータで補足するか、手動で依存関係をリストする必要があります。 詳しい情報については、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
+最初の手順として、依存関係の完全なインベントリを作成することをお勧めします。 リポジトリの依存関係グラフに、サポートされているエコシステムの依存関係が表示されます。 依存関係をチェックインする場合、または他のエコシステムを使用する場合は、これを補完するために、サードパーティ製ツールのデータを使用したり、依存関係を手動で指定したりする必要があります。 詳細については、「[依存関係グラフの概要](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
 
-### 依存関係内の脆弱性の自動検出
+### 依存関係の脆弱性の自動検出
 
-{% data variables.product.prodname_dependabot %}は、依存関係をモニタリングし、既知の脆弱性が含まれている場合に通知することによって助けてくれます。 {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot %}が依存関係をセキュアなバージョンに更新するのに必要なPull Requestを自動的に起こせるようにすることができます。{% endif %}詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」{% ifversion fpt or ghec or ghes > 3.2 %}及び「[Dependabotセキュリティアップデートについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」{% endif %}を参照してください。
+{% data variables.product.prodname_dependabot %} は、依存関係を監視して、既知の脆弱性が含まれる場合に通知することで役立ちます。 {% ifversion fpt or ghec or ghes %}さらに、依存関係をセキュアなバージョンに更新するための pull request を {% data variables.product.prodname_dependabot %} が自動的に生成できるようにすることもできます。{% endif %}詳しくは、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」{% ifversion fpt or ghec or ghes %}および「[Dependabot のセキュリティ更新プログラムについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」{% endif %}を参照してください。
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+### pull request の脆弱性の自動検出
 
-### 脆弱性のある依存関係からのリスクへの暴露の評価
+{% data variables.product.prodname_dependency_review_action %} は pull request に対する依存関係のレビューを適用するため、pull request によってリポジトリに脆弱なバージョンの依存関係が導入されるかどうかを簡単に確認できます。 脆弱性が検出された場合、{% data variables.product.prodname_dependency_review_action %} によって pull request のマージをブロックできます。 詳しい情報については、「[依存関係レビューの適用](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)」を参照してください。{% endif %} 
+    
 
-たとえばライブラリやフレームワークなど、脆弱性のある依存関係を使っていることが判明した場合、プロジェクトの露出レベルを評価し、取るべきアクションを決定しなければなりません。 脆弱性は通常、その影響がどの程度重要になるかを示す重要度スコアとともに報告されます。 この重要度スコアは有益なガイドですが、コードに対する脆弱性の完全な影響を示しはしません。
+### 脆弱な依存関係によるリスク露出の評価
 
-コードに対する脆弱性の影響を評価するには、そのライブラリをどのように使っているかを考慮し、実際にどの程度のリスクがシステムにもたらされるかを判断する必要もあります。 その脆弱性はあなたが使用していない機能の一部かもしれず、影響されるライブラリをアップデートして通常のリリースサイクルを継続できるかもしれません。 あるいはあなたのコードはひどくリスクにさらされており、影響されているライブラリをアップデートしてすぐに更新されたビルドを出荷する必要があるかもしれません。 この判断は、そのライブラリをシステム中でどのように使っているかに依存するものであり、判断するための知識を持っているのはあなただけです。
+脆弱な依存関係 (ライブラリやフレームワークなど) を使用していることが判明した場合は、プロジェクトの露出レベルを評価し、実行するアクションを決定する必要があります。 通常、脆弱性は、影響がどれほど深刻であるかを示す重大度スコアを使用して報告されます。 重大度スコアは指針として役立ちますが、コードに対する脆弱性の影響を完全に示すことはできません。
 
-## 通信トークンの保護
+コードに対する脆弱性の影響を評価するには、ライブラリの使用方法を検討し、実際にシステムにもたらされるリスクの程度を判断する必要もあります。 仮に、この脆弱性が使用しない機能に含まれているのであれば、影響を受けるライブラリを更新し、通常のリリース サイクルを続行することができます。 または、仮に、コードが重大な危険にさらされているのであれば、影響を受けるライブラリを更新し、更新されたビルドをすぐに出荷する必要があります。 この決定はシステムでライブラリを使用している方法によって異なり、それを行うために必要な知識があるのは自分だけです。
 
-コードはしばしば、ネットワークを介して他のシステムと通信しなければならず、認証のためのシークレット（パスワードやAPIキーなど）を必要とします。 システムが実行されるためにはそれらのシークレットにアクセスできなければなりませんが、それらをソースコードには含めないのがベストプラクティスです。 これは特に、多くの人がアクセスするかもしれないリポジトリで重要で{% ifversion not ghae %}あり、パブリックリポジトリではきわめて重要で{% endif %}す。
+## 通信トークンをセキュリティで保護する
 
-### リポジトリのコミットされたシークレットの自動検出
+多くの場合、コードはネットワーク経由で他のシステムと通信する必要があり、認証のためにシークレット (パスワードや API キーなど) が必要です。 システムが作動するためにはこれらのシークレットにアクセスする必要がありますが、ソース コードにはシークレットを含めないことをお勧めします。 これは、多くのユーザーがアクセス権を持つリポジトリではなく{% ifversion not ghae %}、パブリック リポジトリにとって重要である場合に特に重要です{% endif %}。
+
+### リポジトリにコミットされたシークレットの自動検出
 
 {% note %}
 
-**ノート:** {% data reusables.gated-features.secret-scanning-partner %}
+**注:** {% data reusables.gated-features.secret-scanning-partner %}
 
 {% endnote %}
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% ifversion fpt or ghec %}
-{% data variables.product.prodname_dotcom %}は多くのプロバイダとパートナーになり、パブリックリポジトリにシークレットがコミットあるいは保存されたときに自動的に検出し、アカウントがセキュアな状態を保たれるように適切なアクションをプロバイダが取れるよう、プロバイダに通知します。 詳しい情報については「[パートナーパターンのための{% data variables.product.prodname_secret_scanning %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」を参照してください。
+プロバイダーが多い {% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} パートナーは、シークレットがパブリック リポジトリにいつコミットまたは格納されたかを自動的に検出して、プロバイダーに通知します。これにより、プロバイダーはアカウントのセキュリティを確保するために適切なアクションを実行することができます。 詳細については、「[パートナー パターンの{% data variables.product.prodname_secret_scanning %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)」を参照してください。
 {% endif %}
 
-{% ifversion fpt %}
-{% data reusables.secret-scanning.fpt-GHAS-scans %}
-{% elsif ghec %}
-Organizationが{% data variables.product.prodname_GH_advanced_security %}を使っているなら、Organizationが所有するいずれのリポジトリでも{% data variables.product.prodname_secret_scanning_GHAS %}を有効化できます。 リポジトリ、Organization、Entepriseのレベルで、追加のシークレットを検出するためのカスタムパターンを定義することもできます。 詳しい情報については「[{% data variables.product.prodname_secret_scanning_GHAS %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)」を参照してください。
-{% else %}
-多くのサービスプロバイダが発行したシークレットをチェックし、検出されたときには通知してくれるよう{% data variables.product.prodname_secret_scanning %}を設定できます。 リポジトリ、Organization、Entepriseのレベルで、追加のシークレットを検出するためのカスタムパターンを定義することもできます。 詳しい情報については「[Secret scanningについて](/code-security/secret-scanning/about-secret-scanning)」及び「[Secret scanningのパターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
+{% ifversion fpt %} {% data reusables.secret-scanning.fpt-GHAS-scans %} {% elsif ghec %} 組織が {% data variables.product.prodname_GH_advanced_security %} を使用している場合、組織が所有するすべてのリポジトリで{% data variables.product.prodname_secret_scanning_GHAS %}を有効にすることができます。 また、カスタム パターンを定義して、リポジトリ、組織、またはエンタープライズ レベルで追加のシークレットを検出することもできます。 詳細については、「[{% data variables.product.prodname_secret_scanning_GHAS %}について](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)」を参照してください。
+{% else %} {% data variables.product.prodname_secret_scanning %}を構成して、多くのサービス プロバイダーによって発行されたシークレットを確認し、それらが検出されたときに通知できます。 また、カスタム パターンを定義して、リポジトリ、組織、またはエンタープライズ レベルで追加のシークレットを検出することもできます。 詳細については、「[シークレット スキャンについて](/code-security/secret-scanning/about-secret-scanning)」と「[シークレット スキャン パターン](/code-security/secret-scanning/secret-scanning-patterns)」を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae %}
-### {% data variables.product.product_name %}で使用するシークレットの安全なストレージ
+### {% data variables.product.product_name %} で使用するシークレットのストレージをセキュリティで保護する
+
+{% ifversion fpt or ghec %} コード以外に、他の場所でシークレットを使用する必要がある可能性があります。 たとえば、{% data variables.product.prodname_actions %} ワークフロー、{% data variables.product.prodname_dependabot %}、または自身の {% data variables.product.prodname_github_codespaces %} 開発環境が、他のシステムと通信できるようにする場合です。 シークレットを安全に格納して使用する方法の詳細については、「[アクションでの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」、「[Dependabot の暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」、「[codespace の暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghec %}
-コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば、{% data variables.product.prodname_actions %}や{% data variables.product.prodname_dependabot %}や自分の{% data variables.product.prodname_codespaces %}開発環境を他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」、「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」、「[codespacesのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。
-{% endif %}
+{% ifversion ghes or ghae %}コード以外に、他の場所でシークレットを使用する必要がある可能性があります。 たとえば、{% data variables.product.prodname_actions %} ワークフロー{% ifversion ghes %}または {% data variables.product.prodname_dependabot %} {% endif %}が他のシステムと通信できるようにする場合です。 シークレットを安全に格納して使用する方法について詳しくは、「[アクションでの暗号化されたシークレット](/actions/security-guides/encrypted-secrets){% ifversion ghes %}」および「[Dependabot の暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」{% else %}」{% endif %}を参照してください。{% endif %}
 
-{% ifversion ghes > 3.2 or ghae %}
-コードに加えて、他の場所にあるシークレットを使う必要もあるでしょう。 たとえば{% data variables.product.prodname_actions %}ワークフロー{% ifversion ghes %}あるいは{% data variables.product.prodname_dependabot %}{% endif %}が他のシステムと通信できるようにするためです。 シークレットの安全な保存と利用方法に関する詳しい情報については「[Actionsの暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」{% ifversion ghes %}及び「[Dependabotのための暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」{% else %}{% endif %}を参照してください。
-{% endif %}
-
-## リポジトリからの脆弱性のあるコーディングパターンの排除
+## 脆弱なコーディング パターンをリポジトリから除外する
 
 {% note %}
 
-**ノート:** {% data reusables.gated-features.code-scanning %}
+**注:** {% data reusables.gated-features.code-scanning %}
 
 {% endnote %}
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Pull Requestレビュープロセスの作成
+### pull request レビュー プロセスを作成する
 
-コードの品質とセキュリティを、すべてのPull Requestがマージ前にレビューされ、テストされていることを保証することによって改善できます。 {% data variables.product.prodname_dotcom %}には、レビューとマージのプロセスの制御に使える多くの機能があります。 「[保護されたブランチ](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)」を見て始めていってください。
+マージの前にすべての pull request がレビューおよびテストされるようにして、コードの品質とセキュリティを向上させることができます。 {% data variables.product.prodname_dotcom %} には、レビューとマージのプロセスを制御するために使用できる多くの機能があります。 作業を開始するには、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)」を参照してください。
 
-### 脆弱性のあるパターンを探してコードをスキャン
+### コードの脆弱なパターンをスキャンする
 
-安全でないコードパターンは、支援なしではレビューアが特定するのが難しいことがよくあります。 シークレットを探してコードをスキャンするのに加えて、セキュリティ脆弱性に関連するパターンを探してコードをチェックできます。 たとえばメモリセーフではない関数や、インジェクション脆弱性につながるかもしれないユーザの入力のエスケーピングの失敗などです。 {% data variables.product.prodname_dotcom %}は、コードをスキャンする方法とタイミングの両方にアプローチする様々な方法を提供します。 「[Code scanningについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)」を見て始めていってください。
+多くの場合、セキュアでないコード パターンをレビュー担当者が見つけるのは困難です。 コードでのシークレットのスキャンに加え、セキュリティの脆弱性に関連するパターンがないかを確認できます。 たとえば、メモリセーフではない関数や、インジェクションの脆弱性につながる可能性があるユーザー入力のエスケープもれです。 {% data variables.product.prodname_dotcom %} には、コードのスキャンの方法とタイミングの両方にアプローチするいくつかの異なる方法が用意されています。 作業を開始するには、「[コード スキャンについて](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)」を参照してください。
 
-## 次のステップ
+## 次の手順
 
-- 「[エンドツーエンドのサプライチェーンの保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
+- 「[エンドツーエンドのサプライ チェーンのセキュリティ保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
 
-- 「[アカウントの保護のベストプラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)」
+- 「[アカウントをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)」
 
-- 「[ビルドシステムの保護のベストプラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)」
+- 「[ビルド システムをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)」

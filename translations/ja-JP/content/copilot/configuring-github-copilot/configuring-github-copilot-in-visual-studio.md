@@ -1,49 +1,67 @@
 ---
-title: Configuring GitHub Copilot in Visual Studio
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}.'
+title: Visual Studio での GitHub Copilot の構成
+intro: '{% data variables.product.prodname_vs %} で {% data variables.product.prodname_copilot %} を有効、構成、無効化できます。'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 shortTitle: Visual Studio
 topics:
   - Copilot
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193471'
 ---
+## {% data variables.product.prodname_vs %} の {% data variables.product.prodname_copilot %} について
 
-## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}
+{% data variables.product.prodname_vs %} を使用する場合、{% data variables.product.prodname_copilot %} では、入力時にコードをオートコンプリートできます。 インストール後、{% data variables.product.prodname_copilot %} を有効または無効にしたり、{% data variables.product.prodname_vs %} または {% data variables.product.prodname_dotcom_the_website %} で詳細設定を構成したりできます。
 
-If you use {% data variables.product.prodname_vs %}, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within {% data variables.product.prodname_vs %} or on {% data variables.product.prodname_dotcom_the_website %}.
+## 前提条件
 
-## 必要な環境
+{% data variables.product.prodname_vs %} で {% data variables.product.prodname_copilot %} を構成するには、{% data variables.product.prodname_copilot %} プラグインをインストールする必要があります。 詳しくは、「[{% data variables.product.prodname_vs %} での {% data variables.product.prodname_copilot %} の概要](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)」を参照してください。
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
+## {% data variables.product.prodname_copilot %} のキーボード ショートカット
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+{% data variables.product.prodname_copilot %} を使用する場合は、{% data variables.product.prodname_vs %} の既定のキーボード ショートカットを使用できます。 または、特定のコマンドごとに任意のキーボード ショートカットを使用して、{% data variables.product.prodname_vs %} の [ツール] 設定でショートカットを再バインドすることもできます。 各キーボード ショートカットは、キーボード ショートカット エディターのコマンド名で検索できます。
 
-You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
+| アクション | ショートカット | [コマンド名] |
+|:---|:---|:---|
+|次のインライン提案を表示する|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>|Tools.Nextsuggestion|
+|前のインライン提案を表示する|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>|Tools.Previoussuggestion|
+|インライン提案をトリガーする|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
-| アクション                           | Shortcut                                     | Command name                         |
-|:------------------------------- |:-------------------------------------------- |:------------------------------------ |
-| Show next inline suggestion     | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>  | Tools.Nextsuggestion                 |
-| Show previous inline suggestion | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>  | Tools.Previoussuggestion             |
-| Trigger inline suggestion       | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd> | Edit.Copilot.TriggerInlineSuggestion |
+## キーボード ショートカットの再バインド
 
-## Rebinding keyboard shortcuts
+{% data variables.product.prodname_copilot %} を使用するときに {% data variables.product.prodname_vs %} の既定のキーボード ショートカットを使用しない場合は、特定のコマンドごとに任意のキーボード ショートカットを使用してキーボード エディターでショートカットを再バインドできます。
 
-If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
+1. {% data variables.product.prodname_vs %} ツール バーの **[ツール]** で、 **[オプション]** をクリックします。
+   
+   ![{% data variables.product.prodname_vs %} ツール バーの [オプション] オプションのスクリーンショット](/assets/images/help/copilot/vs-toolbar-options.png)
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**. ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
-1. In the "Options" dialog, under **Environment**, click **Keyboard**. ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
-1. Under "Show commands containing:", search for the command you want to rebind. ![Screenshot of the show commands containing searchbar](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**. ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
+1. [オプション] ダイアログの **[環境]** で、 **[キーボード]** をクリックします。
+   
+   ![[オプション] ダイアログの [キーボード] オプションのスクリーンショット](/assets/images/help/copilot/vs-options-dialogue.png)
+
+1. [以下の文字列を含むコマンドを表示] で、再バインドするコマンドを検索します。
+   
+   ![[以下の文字列を含むコマンドを表示] 検索バーのスクリーンショット](/assets/images/help/copilot/vs-show-commands-containing.png)
+
+1. [ショートカット キー] で、コマンドに割り当てるショートカットを入力し、 **[割り当て]** をクリックします。
+
+   ![キーボード ショートカットの割り当てのスクリーンショット](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
-## Configuring ReSharper for {% data variables.product.prodname_copilot %}
+## {% data variables.product.prodname_copilot %} の ReSharper の構成
 
-If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
+ReSharper を使用する場合、{% data variables.product.prodname_copilot %} は、{% data variables.product.prodname_copilot %} のネイティブ IntelliSense を使用するように ReSharper を構成すると最適に動作できます。 ReSharper について詳しくは、[ReSharper のドキュメント](https://www.jetbrains.com/resharper/documentation/documentation.html)を参照してください。
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**. ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
-1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**. ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
-1. Under "General" select **Visual Studio** and then click **Save**.
+1. {% data variables.product.prodname_vs %} ツール バーの **[ツール]** で、 **[オプション]** をクリックします。
+   ![{% data variables.product.prodname_vs %} ツール バーの [オプション] オプションのスクリーンショット](/assets/images/help/copilot/vs-toolbar-options.png)
+1. [オプション] ダイアログの **[環境]** で、 **[IntelliSense]** をクリックし、 **[全般]** をクリックします。
+    ![[オプション] ダイアログの IntelliSense オプションのスクリーンショット](/assets/images/help/copilot/vs-options-intellisense.png)
+1. [全般] で **[Visual Studio]** を選び、 **[保存]** をクリックします。
 
 {% data reusables.copilot.dotcom-settings %}

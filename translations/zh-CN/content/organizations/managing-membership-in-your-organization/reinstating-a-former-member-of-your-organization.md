@@ -1,6 +1,6 @@
 ---
-title: Reinstating a former member of your organization
-intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+title: Reinstating a former member of your organization（恢复组织前成员的身份）
+intro: '组织所有者可以{% ifversion fpt or ghec %}邀请前组织成员重新加入{% else %}将前成员添加到{% endif%}您的组织，并可选择是否恢复该人员以前的角色、访问权限、复刻和设置。'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -14,69 +14,58 @@ topics:
   - Organizations
   - Teams
 shortTitle: Reinstate a member
+ms.openlocfilehash: b9ad15f9fc882206ed7b335bcc6dea698c2f1f8e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145097334'
 ---
+## 关于成员恢复
 
-## About member reinstatement
+如果通过以下方式之一将用户从您的组织中移除，则该用户的访问权限和设置将保存三个月。 
 
-If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months. 
+- 您手动从组织中删除了该用户。 有关详细信息，请参阅[从组织中删除成员](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)。{% ifversion not ghae %}
+- 该用户已从您的组织中删除，因为您要求成员和外部协作者启用双重身份验证 (2FA)。 有关详细信息，请参阅[要求在组织中进行双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)。{% endif %}{% ifversion fpt or ghec %}
+- 该用户已从您的组织中删除，因为您强制实施了 SAML 单点登录。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[强制实施组织的 SAML 单一登录](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}”{% else %}。{% endif %}{% endif %}
+- 您已将组织成员转换为外部协作者。 有关详细信息，请参阅[将组织成员转换为外部协作者](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)。
 
-- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
-- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
-- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-- You converted an organization member to an outside collaborator. For more information, see "[Converting an organization member to an outside collaborator](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
-
-You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+如果您在该时间范围内将用户{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
 
 {% note %}
 
-**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
+注意：{% data reusables.saml.removed-users-can-rejoin %}不需要邀请这些用户重新加入。 相反，用户可以登录到其个人帐户，导航到组织，然后单击横幅以通过 SAML 单点登录进行身份验证。
 
 {% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former organization member, you can restore:
- - The user's role in the organization
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+恢复前组织成员时，您可以恢复以下各项：
+ - 用户在组织中的角色
+ - 组织拥有的仓库的任何私有复刻
+ - 组织团队的成员身份
+ - 组织仓库以前的访问权限和权限
+ - 组织仓库的星标
+ - 组织中的议题分配
+ - 仓库订阅（关注、不关注或忽略仓库活动的通知设置）
 
-{% ifversion ghes %}
-If an organization member was removed from the organization because they did not use two-factor authentication and your organization still requires members to use 2FA, the former member must enable two-factor authentication before you can reinstate their membership.
+{% ifversion ghes %}如果组织成员由于未使用双重身份验证已从组织中删除，并且你的组织仍要求成员使用双重身份验证，则前成员必须启用双重身份验证，然后才能恢复其成员身份。
 {% endif %}
 
-{% ifversion fpt or ghec %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-scim %}
-{% endif %}
+{% ifversion fpt or ghec %}如果你的组织采用付费的每用户订阅，则必须有未使用的许可才可恢复前组织成员。 有关详细信息，请参阅[关于每用户定价](/articles/about-per-user-pricing)。 {% data reusables.organizations.org-invite-scim %} {% endif %}
 
-## Reinstating a former member of your organization
+## Reinstating a former member of your organization（恢复组织前成员的身份）
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.invite_member_from_people_tab %}
-{% data reusables.organizations.reinstate-user-type-username %}
-{% ifversion fpt or ghec %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Invite and reinstate** or **Invite and start fresh**.
-  ![Choose to restore info or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
-{% else %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Add and reinstate** or **Add and start fresh**.
-  ![Choose whether to restore privileges](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
-{% else %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.invite_member_from_people_tab %} {% data reusables.organizations.reinstate-user-type-username %} {% ifversion fpt or ghec %}
+6. 选择是恢复该人员在组织中以前的权限还是清除其以前的权限并设置新的访问权限，然后单击“邀请并恢复”或“邀请并重新开始” 。
+  ![选择是否恢复信息](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png) {% else %}
+6. 选择是恢复该人员在组织中以前的权限还是清除其以前的权限并设置新的访问权限，然后单击“添加并恢复”或“添加并重新开始” 。
+  ![选择是否恢复权限](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png) {% endif %} {% ifversion fpt or ghec %}
+7. 如果清除了前组织成员以前的权限，请为该用户选择一个角色，并（可选）将其添加到某些团队，然后单击“发送邀请”。
+  ![角色和团队选项及发送邀请按钮](/assets/images/help/organizations/add-role-send-invitation.png) {% else %}
+7. 如果清除了前组织成员以前的权限，请为该用户选择一个角色，并（可选）将其添加到某些团队，然后单击“添加成员”。
+  ![角色和团队选项以及添加成员按钮](/assets/images/help/organizations/add-role-add-member.png) {% endif %} {% ifversion fpt or ghec %} {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %} {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- [将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator)

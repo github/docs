@@ -1,6 +1,6 @@
 ---
 title: Fazer push de commits para um repositório remote
-intro: Use `git push` para fazer push de commits de seu branch local para um repositório remote.
+intro: Use `git push` para fazer push de commits de seu branch local para um repositório remoto.
 redirect_from:
   - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
@@ -12,14 +12,19 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Fazer push de commits para um controle remoto
+shortTitle: Push commits to a remote
+ms.openlocfilehash: 61a3eb3e0b0147810b561b59b58879688dd4ba36
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145097285'
 ---
-
-## Sobre `git push`
+## Sobre o `git push`
 O comando `git push` usa dois argumentos:
 
-* Um nome de remote, por exemplo, `origin`
-* Um nome de branch, por exemplo, `principal`
+* Um nome de repositório remoto, por exemplo, `origin`
+* Um nome de branch, por exemplo, `main`
 
 Por exemplo:
 
@@ -27,27 +32,28 @@ Por exemplo:
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-Como exemplo, você normalmente executa o `git push origin main` para fazer push das suas alterações locais para o seu repositório on-line.
+Por exemplo, em geral, `git push origin main` é executado para efetuar push das alterações locais para o repositório online.
 
 ## Renomear branches
 
-Para renomear um branch, você usaria o mesmo comando `git push`, mas adicionaria mais um argumento: o nome do novo branch. Por exemplo:
+Para renomear um branch, use o mesmo comando `git push`, mas adicione mais um argumento: o nome do novo branch. Por exemplo:
 
 ```shell
 git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
 ```
 
-Isso faz push do `LOCALBRANCHNAME` para seu `REMOTENAME`, mas ele é renomeado para `REMOTEBRANCHNAME`.
+Isso efetua push do `LOCALBRANCHNAME` para o `REMOTENAME`, mas ele é renomeado como `REMOTEBRANCHNAME`.
 
 ## Lidar com erros "non-fast-forward"
 
-Se a cópia local de um repositório não está sincronizada, ou está "atrasada", com o repositório upstream que você está fazendo push, você receberá uma mensagem informando que `non-fast-forward updates were rejected` (as atualizações non-fast-forward foram rejeitadas). Isso significa que você deve recuperar ou fazer "fetch" das alterações upstream, antes de conseguir fazer push das alterações locais.
+Se a cópia local de um repositório estiver fora de sincronia ou "atrasado" em relação ao repositório upstream do qual você está efetuando push, você receberá a mensagem `non-fast-forward updates were rejected`.
+Isso significa que você precisa recuperar ou "buscar" as alterações upstream antes de conseguir efetuar push das alterações locais.
 
-Para obter mais informações sobre esse erro, consulte "[Lidar com erros non-fast-forward](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)".
+Para obter mais informações sobre esse erro, confira "[Como tratar erros que não são de avanço rápido](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)".
 
 ## Fazer push de tags
 
-Por padrão, e sem parâmetros adicionais, `git push` envia todos os branches correspondentes que têm os mesmos nomes de branches remote.
+Por padrão, e sem parâmetros adicionais, `git push` envia todos os branches correspondentes que têm os mesmos nomes dos branches remotos.
 
 Para fazer push de uma única tag, você pode usar o mesmo comando usado para fazer push de um branch:
 
@@ -69,39 +75,39 @@ git push <em> &lt;REMOTENAME></em> --tags
 git push <em> &lt;REMOTENAME></em> :<em>&lt;BRANCHNAME> </em>
 ```
 
-Observe que há um espaço antes dos dois pontos. O comando se parece com as mesmas etapas que você usaria para renomear um branch. No entanto, aqui você está dizendo ao Git para fazer push de _nada_ no `BRANCHNAME` em `REMOTENAME`. Por causa disso, `git push` exclui o branch no repositório remote.
+Observe que há um espaço antes dos dois pontos. O comando se parece com as mesmas etapas que você usará para renomear um branch. No entanto, aqui, você está informando o Git para não efetuar push de _nada_ para `BRANCHNAME` no `REMOTENAME`. Por isso, `git push` exclui o branch do repositório remoto.
 
 ## Remotes e bifurcações
 
-Você já deve saber que [é possível "bifurcar" repositórios](https://guides.github.com/overviews/forking/) no GitHub.
+Talvez você já saiba que [pode "criar forks" de repositórios](https://guides.github.com/overviews/forking/) no GitHub.
 
-Ao clonar um repositório de sua propriedade, você fornece um URL remoto que informa o Git onde fazer fetch e push de atualizações. Se deseja colaborar com o repositório original, você deve adicionar uma nova URL remota, normalmente denominado `upstream`, em seu clone do Git local:
+Ao clonar um repositório de sua propriedade, você fornece uma URL remota que informa ao Git o local em que ele deve efetuar fetch e push das atualizações. Caso deseje colaborar com o repositório original, adicione uma nova URL remota, normalmente chamada `upstream`, ao clone do Git local:
 
 ```shell
 git remote add upstream <em> &lt;THEIR_REMOTE_URL> </em>
 ```
 
-Agora, é possível fazer fetch de atualizações e branches da bifurcação *deles*:
+Agora, você pode buscar as atualizações e os branches do fork *deles*:
 
 ```shell
 git fetch upstream
-# Captura os branches dos remotes upstream
-> remote: Contando objetos: 75, concluído.
-> remote: Compactação de objetos: 100% (53/53), concluída.
-> remote: Total 62 (delta 27), reutilizados 44 (delta 9)
-> Descompactação de objetos: 100% (62/62), concluída.
+# Grab the upstream remote's branches
+> remote: Counting objects: 75, done.
+> remote: Compressing objects: 100% (53/53), done.
+> remote: Total 62 (delta 27), reused 44 (delta 9)
+> Unpacking objects: 100% (62/62), done.
 > From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
 >  * [new branch]      main     -> upstream/main
 ```
 
-Quando finalizar as alterações locais, você pode fazer push do seu branch local para o GitHub e [iniciar uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+Quando terminar de fazer alterações locais, efetue push do branch local para o GitHub e [inicie uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-Para obter mais informações sobre como trabalhar com bifurcações, consulte "[Sincronizar uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
+Para obter mais informações sobre como trabalhar com forks, confira "[Como sincronizar um fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
-## Leia mais
+## Leitura adicional
 
-- [Capítulo "Remotes" do livro "Pro Git"](https://git-scm.com/book/ch5-2.html)
-- [Página principal do `git remote`](https://git-scm.com/docs/git-remote.html)
-- "[Folha de consultas Git](/articles/git-cheatsheet)"
-- "[Fluxos de trabalho Git](/github/getting-started-with-github/git-workflows)"
+- [Capítulo "Repositórios remotos" do livro "Pro Git"](https://git-scm.com/book/ch5-2.html)
+- [Página principal de `git remote`](https://git-scm.com/docs/git-remote.html)
+- "[Folha de referências do Git](/articles/git-cheatsheet)"
+- "[Fluxos de trabalho do Git](/github/getting-started-with-github/git-workflows)"
 - "[Manual do Git](https://guides.github.com/introduction/git-handbook/)"

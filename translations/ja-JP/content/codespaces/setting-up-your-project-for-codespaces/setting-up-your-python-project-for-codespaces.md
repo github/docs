@@ -1,8 +1,8 @@
 ---
-title: Setting up your Python project for Codespaces
+title: GitHub Codespaces 用に Python プロジェクトを設定する
+allowTitleToDifferFromFilename: true
 shortTitle: Setting up your Python project
-intro: 'カスタム開発コンテナを作成して、{% data variables.product.prodname_codespaces %} で Python プロジェクトを始めます。'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'カスタム開発コンテナーを作成して、{% data variables.product.prodname_github_codespaces %} で Python プロジェクトを始めます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,49 +15,54 @@ topics:
   - Python
 hasExperimentalAlternative: true
 hidden: true
+ms.openlocfilehash: 2d9c627907f447a3efd873fceba963b899b57c39
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159848'
 ---
-
 ## はじめに
 
-このガイドでは、Python プロジェクトを {% data variables.product.prodname_codespaces %} で設定する方法を説明します。 codespace でプロジェクトを開き、テンプレートから開発コンテナ設定を追加および変更する例を紹介します。
+このガイドでは、Python プロジェクトの設定方法を紹介します {% data reusables.codespaces.setting-up-project-intro %}
 
-### 必要な環境
+### 前提条件
 
-- {% data variables.product.prodname_dotcom_the_website %} のリポジトリに既存の Python プロジェクトがあります。 プロジェクトがない場合は、https://github.com/2percentsilk/python-quickstart の例でこのチュートリアルを試すことができます。
-- Organization で {% data variables.product.prodname_codespaces %} を有効にする必要があります。
+- {% data variables.product.prodname_dotcom_the_website %} のリポジトリに既存の Python プロジェクトがあります。 プロジェクトがない場合は、次の例を使用してこのチュートリアルを試すことができます: https://github.com/2percentsilk/python-quickstart 。
+- Organization で {% data variables.product.prodname_github_codespaces %} を有効にする必要があります。
 
 ## ステップ 1: codespace でプロジェクトを開く
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. リポジトリ名の下で、 **{% octicon "code" aria-label="The code icon" %} コード** のドロップダウン メニューを使い、 **[Codespaces]** タブでプラス記号 {% octicon "plus" aria-label="The plus icon" %} をクリックします。
 
   ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
-
-  If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
 
 codespace を作成すると、プロジェクトは専用のリモート VM 上に作成されます。 デフォルト設定では、codespace のコンテナには、Node.js、JavaScript、Typescript、nvm、npm、yarn を含む多くの言語とランタイムがあります。 また、git、wget、rsync、openssh、nano などの一般的なツールセットも含まれています。
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## Step 2: Add a dev container configuration to your repository from a template
+## ステップ 2: テンプレートからリポジトリに開発コンテナーの構成を追加する
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. これにより、リポジトリ内のすべての {% data variables.product.prodname_github_codespaces %} ユーザに対して完全に再現可能な環境を確保できます。
+{% data variables.product.prodname_github_codespaces %} の既定の開発コンテナー ("dev コンテナー") には、Python の最新バージョン、パッケージ マネージャー (pip、Miniconda)、その他の一般的なツールがプレインストールされています。 ただし、独自の開発コンテナーを構成して、プロジェクトに必要なすべてのツールとスクリプトを含めることをお勧めします。 これにより、リポジトリのすべての {% data variables.product.prodname_github_codespaces %} ユーザーに対して、完全に再現可能な環境が保証されます。
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. この例では、[**Python 3**] をクリックします。 追加機能が必要な場合は、Python に固有の任意のコンテナ、または Python 3 と PostgreSQL などのツールの組み合わせを選択できます。 ![リストから Python オプションを選択](/assets/images/help/codespaces/add-python-prebuilt-container.png)
-1. Python の推奨バージョンをクリックします。 ![Python バージョンの選択](/assets/images/help/codespaces/add-python-version.png)
-1. デフォルトのオプションを使用して、Node.js をカスタマイズに追加します。 ![Node.js の選択に追加](/assets/images/help/codespaces/add-nodejs-selection.png)
-{% data reusables.codespaces.rebuild-command %}
+1. この例では、 **[Python 3]** をクリックします。 追加機能が必要な場合は、Python に固有の任意のコンテナ、または Python 3 と PostgreSQL などのツールの組み合わせを選択できます。
+  ![リストから Python オプションを選択する](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+1. Python の推奨バージョンをクリックします。
+  ![Python バージョンの選択](/assets/images/help/codespaces/add-python-version.png)
+1. デフォルトのオプションを使用して、Node.js をカスタマイズに追加します。
+  ![Node.js の選択に追加](/assets/images/help/codespaces/add-nodejs-selection.png) {% data reusables.codespaces.rebuild-command %}
 
 ### 開発コンテナの構造
 
-Adding the Python dev container template adds a `.devcontainer` directory to the root of your project's repository with the following files:
+Python 開発コンテナー テンプレートを追加すると、次のファイルを含む `.devcontainer` ディレクトリが、プロジェクトのリポジトリのルートに追加されます。
 
 - `devcontainer.json`
 - Dockerfile
 
-新しく追加された `devcontainer.json` ファイルは、サンプルの後に説明されるいくつかのプロパティを定義します。
+新しく追加された `devcontainer.json` ファイルでは、サンプルの後に説明されるいくつかのプロパティを定義します。
 
 #### devcontainer.json
 
@@ -101,49 +106,49 @@ Adding the Python dev container template adds a `.devcontainer` directory to the
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
 
-    // コンテナの作成後にコマンドを実行するには、「postCreateCommand」を使用します。
+    // Use 'postCreateCommand' to run commands after the container is created.
     // "postCreateCommand": "pip3 install --user -r requirements.txt",
 
-    // 代わりに、connect を root としてコメントアウトします。 詳細は https://aka.ms/vscode-remote/containers/non-root を参照します。
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode"
 }
 ```
 
-- **名前** - 開発コンテナには任意の名前を付けることができます。これはデフォルトです。
-- **ビルド** - ビルドプロパティです。
-  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+- **name** - 開発コンテナーには任意の名前を付けることができます。これは既定値です。
+- **build** - ビルドのプロパティ。
+  - **dockerfile** - `build` オブジェクトの `dockerfile` には、やはりテンプレートから追加された Dockerfile へのパスが含まれます。
   - **args**
-    - **variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
-- **設定** - これらは {% data variables.product.prodname_vscode %} 設定です。
-  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
-- **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
-  - **ms-python.python** - Microsoft Python 機能拡張は、IntelliSense、linting、デバッグ、コードナビゲーション、コード形式、リファクタリング、変数エクスプローラ、テストエクスプローラなどの機能を含む、Python 言語（言語のアクティブにサポートされているすべてのバージョン 3.6 または以降）の豊富なサポートを提供します。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
-- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, like `pip3 install -r requirements`, after your codespace is created.
-- **remoteUser** - デフォルト設定では、`vscode` ユーザとして実行していますが、オプションでこれを `root` に設定できます。
+    - **variant**: このファイルにはビルド引数が 1 つだけ含まれています。それは使用するノード バリアントで、Dockerfile に渡されます。
+- **settings** - これらは {% data variables.product.prodname_vscode %} 設定です。
+  - **terminal.integrated.shell.linux** - ここでは bash が既定値ですが、これを変更すると他のターミナル シェルを使用できます。
+- **extensions** - これらは既定で含まれる拡張機能です。
+  - **ms-python.python** - Microsoft Python 機能拡張は、IntelliSense、linting、デバッグ、コードナビゲーション、コード形式、リファクタリング、変数エクスプローラ、テストエクスプローラなどの機能を含む、Python 言語 (言語のアクティブにサポートされているすべてのバージョン 3.6 または以降) の豊富なサポートを提供します。
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。
+- **postCreateCommand** - codespace が作成された後に、`pip3 install -r requirements` のような Dockerfile で定義されていないコマンドを実行するには、これを使います。
+- **remoteUser** - 既定では、`vscode` ユーザーとして実行されていますが、必要に応じてこれを `root` に設定することができます。
 
 #### Dockerfile
 
 ```bash
-# [Choice] Python バージョン: 3, 3.9, 3.8, 3.7, 3.6
+# [Choice] Python version: 3, 3.9, 3.8, 3.7, 3.6
 ARG VARIANT="3"
 FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
-# [Option] Node.js をインストールします
+# [Option] Install Node.js
 ARG INSTALL_NODE="true"
 ARG NODE_VERSION="lts/*"
 RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
-# [Optional] pip の要件をめったに変更しない場合は、このセクションのコメントを解除して、画像に追加します。
+# [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp/pip-tmp/
 # RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
 #    && rm -rf /tmp/pip-tmp
 
-# [Optional] このセクションのコメントを解除して追加の OS パッケージをインストールします。
+# [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-# [Optional] この行のコメントを解除してグローバルノードパッケージをインストールします。
+# [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
@@ -151,13 +156,13 @@ Dockerfile を使用して、コンテナレイヤーを追加し、コンテナ
 
 ## ステップ 3: devcontainer.json ファイルを変更する
 
-With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. この例では、コードスペースの起動時に拡張機能とプロジェクトの依存関係をインストールするためのプロパティを追加します。
+開発コンテナーの構成を追加し、すべての機能を基本的に理解したので、変更を行って環境をさらにカスタマイズできます。 この例では、コードスペースの起動時に拡張機能とプロジェクトの依存関係をインストールするためのプロパティを追加します。
 
-1. Explorer で `.devcontainer` フォルダを展開し、ツリーから `devcontainer.json` ファイルを選択して開きます。
+1. エクスプローラーで、`.devcontainer` フォルダーを展開し、ツリーから `devcontainer.json` ファイルを選択してそれを開きます。
 
-  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+  ![エクスプローラーの devcontainer.json ファイル](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. `devcontainer.json` ファイルの `extensions` リストを更新し、プロジェクトでの作業に役立ついくつかの機能拡張を追加します。
+2. `devcontainer.json` ファイル内の `extensions` 一覧を更新して、プロジェクトを操作する際に役立つ拡張機能をいくつか追加します。
 
   ```json{:copy}
   "extensions": [
@@ -167,10 +172,10 @@ With your dev container configuration added and a basic understanding of what ev
       ],
   ```
 
-3. `postCreateCommand` のコメントを解除して、Codespaces の設定プロセスの一部として要件を自動インストールします。
+3. `postCreateCommand` のコメントを解除して、codespaces の設定プロセスの一環として要件を自動インストールします。
 
   ```json{:copy}
-  // コンテナの作成後にコマンドを実行するには、「postCreateCommand」を使用します。
+  // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "pip3 install --user -r requirements.txt",
   ```
 
@@ -182,15 +187,15 @@ With your dev container configuration added and a basic understanding of what ev
 
    ![機能拡張のリスト](/assets/images/help/codespaces/python-extensions.png)
 
-## Step 4: アプリケーションを実行する
+## 手順 4:アプリケーションを実行する
 
-前のセクションでは、`postCreateCommand` を使用して pip3 を介してパッケージのセットをインストールしました。 依存関係がインストールされたら、アプリケーションを実行できます。
+前のセクションでは、`postCreateCommand` 使用して、一連のパッケージを pip3 を介してインストールしました。 依存関係がインストールされたら、アプリケーションを実行できます。
 
-1. `F5` キーを押すか、codespace ターミナルで `python -m flask run` と入力してアプリケーションを実行します。
+1. codespace ターミナルで `F5` を押すか、`python -m flask run` を入力してアプリケーションを実行します。
 
-2. プロジェクトが開始されると、プロジェクトが使用するポートに接続するためのプロンプトが表示されたトーストが右下隅に表示されます。
+2. プロジェクトが始まると、{% data variables.product.prodname_vscode_shortname %} の右下隅に "トースト" 通知メッセージが表示されるはずです。プロジェクトで使用されるポートに接続するように促されます。
 
-  ![ポートフォワーディングトースト](/assets/images/help/codespaces/python-port-forwarding.png)
+  ![ポート転送の "トースト" 通知](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ## ステップ 5: 変更をコミットする
 
@@ -198,6 +203,6 @@ With your dev container configuration added and a basic understanding of what ev
 
 ## 次のステップ
 
-これで、{% data variables.product.prodname_codespaces %} で Python プロジェクトの開発を始める準備ができました。 より高度なシナリオ向けの追加のリソースは次のとおりです。
+これで、Python で {% data variables.product.prodname_github_codespaces %} プロジェクトの開発を始める準備ができました。 より高度なシナリオ向けの追加のリソースは次のとおりです。
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

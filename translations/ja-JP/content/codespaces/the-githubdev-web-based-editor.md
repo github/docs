@@ -1,6 +1,6 @@
 ---
-title: The github.dev web-based editor
-intro: 'Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.'
+title: github.dev Web ベース エディター
+intro: 'リポジトリから github.dev {% data variables.codespaces.serverless %}を使うか、pull request を使って、変更を作成およびコミットします。'
 versions:
   feature: githubdev-editor
 type: how_to
@@ -12,102 +12,108 @@ topics:
 shortTitle: Web-based editor
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
+ms.openlocfilehash: adc5622d666f6a32e698a29ceedfc24217b27df9
+ms.sourcegitcommit: 57bef7d45acfa987d82e320c7581c87df320a28a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172180'
 ---
-
 {% note %}
 
-**Note:** The github.dev {% data variables.product.prodname_serverless %} is currently in beta preview. You can provide feedback [in our Discussions](https://github.co/browser-editor-feedback).
+**注:** 現在、github.dev {% data variables.codespaces.serverless %}はベータ プレビュー段階です。 ユーザーは[ディスカッションで](https://github.com/community/community/discussions/categories/general)フィードバックを提供できます。
 
 {% endnote %}
 
-## {% data variables.product.prodname_serverless %} について
+## {% data variables.codespaces.serverless %}について
 
-The {% data variables.product.prodname_serverless %} introduces a lightweight editing experience that runs entirely in your browser. With the {% data variables.product.prodname_serverless %}, you can navigate files and source code repositories from {% data variables.product.prodname_dotcom %}, and make and commit code changes. You can open any repository, fork, or pull request in the editor.
+{% data variables.codespaces.serverless %}では、完全にブラウザー内で実行される軽量の編集エクスペリエンスが導入されています。 {% data variables.codespaces.serverless %}を使うと、{% data variables.product.prodname_dotcom %} からファイルとソース コード リポジトリに移動し、コードの変更を行ってコミットできます。 ユーザーは任意のリポジトリ、フォーク、または pull request をエディターで開くことができます。
 
-The {% data variables.product.prodname_serverless %} is available to everyone for free on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.codespaces.serverless %}は、{% data variables.product.prodname_dotcom_the_website %} から誰でも無料で入手できます。
 
-The {% data variables.product.prodname_serverless %} provides many of the benefits of {% data variables.product.prodname_vscode %}, such as search, syntax highlighting, and a source control view. You can also use Settings Sync to share your own {% data variables.product.prodname_vscode_shortname %} settings with the editor. For more information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+{% data variables.codespaces.serverless %}では、検索、構文の強調表示、ソース管理ビューなど、{% data variables.product.prodname_vscode %} の多くの利点が提供されます。 Settings Sync を使用して、独自の {% data variables.product.prodname_vscode_shortname %} 設定をエディターと共有することもできます。 詳しい情報については、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)」を参照してください。
 
-The {% data variables.product.prodname_serverless %} runs entirely in your browser’s sandbox. The editor doesn’t clone the repository, but instead uses the [GitHub Repositories extension](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) to carry out most of the functionality that you will use. Your work is saved in the browser’s local storage until you commit it. You should commit your changes regularly to ensure that they're always accessible.
+{% data variables.codespaces.serverless %}は、完全にブラウザーのサンドボックス内で実行されます。 エディターではリポジトリは複製されず、代わりに [GitHub Repositories 拡張機能](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)を使用して、ユーザーが使用するほとんどの機能が実行されます。 作業内容は、コミットするまでブラウザーのローカル ストレージに保存されます。 変更内容に常にアクセスできるようにするために、変更を定期的にコミットするようにしてください。
 
-## Opening the {% data variables.product.prodname_serverless %}
+Web ベースのエディターを使用するには、サインインする必要があります。
 
-You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} in either of the following ways:
+## {% data variables.codespaces.serverless %}を開く
 
-- To open the repository in the same browser tab, press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
+{% data variables.codespaces.serverless %}で {% data variables.product.prodname_dotcom %} リポジトリを開くには、次のいずれかの方法を使用できます。
 
-   To open the repository in a new browser tab, hold down the shift key and press `.`.
+- 同じブラウザー タブでリポジトリを開くには、<kbd>.</kbd> キーを押します ({% data variables.product.prodname_dotcom %} のリポジトリまたは pull request を参照しているとき)。
+ 
+  新しいブラウザー タブでリポジトリを開くには、<kbd>></kbd> キーを押します。
 
-- Change the URL from "github.com" to "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+- URL を "github.com" から "github.dev" に変更します。
+- ファイルを表示する場合は、{% octicon "pencil" aria-label="The edit icon" %} の横にあるドロップダウン メニューを使用し、 **[github.dev で開く]** を選びます。
 
-  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
+  ![ファイルの編集ボタンのドロップダウン メニュー](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
-## {% data variables.product.prodname_codespaces %} and the {% data variables.product.prodname_serverless %}
+## {% data variables.product.prodname_codespaces %} と {% data variables.codespaces.serverless %}
 
-Both the {% data variables.product.prodname_serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
+{% data variables.codespaces.serverless %}と {% data variables.product.prodname_github_codespaces %} のどちらでも、リポジトリから直接コードを編集できます。 ただし、ユース ケースによって、それぞれの利点が若干異なります。
 
-|                     | {% data variables.product.prodname_serverless %}                                                                                                                                                  | {% data variables.product.prodname_codespaces %}
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **料金**              | 無料.                                                                                                                                                                                               | Costs for compute and storage. For information on pricing, see "[Codespaces pricing](/en/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."                                                                                                                                              |
-| **利用の可否**           | Available to everyone on GitHub.com.                                                                                                                                                              | Available for organizations using GitHub Team or GitHub Enterprise Cloud.                                                                                                                                                                                                                                                               |
-| **Start up**        | The {% data variables.product.prodname_serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a Codespace](/codespaces/developing-in-codespaces/creating-a-codespace)." |
-| **Compute**         | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal.                                                                                   | With  {%  data   variables.product.prodname_codespaces %}, you get the power of dedicated VM on which you can run and debug your application.                                                                                                                                                                                           |
-| **Terminal access** | なし.                                                                                                                                                                                               | {% data variables.product.prodname_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.                                                                                                                                                       |
-| **Extensions**      | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."                   | With Codespaces, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.                                                                                                                                                                                                                       |
+|| {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
+|-|----------------|---------|
+| **コスト** | フリー。      | 個人用アカウントでの 1 か月あたりの使用量の Free クォータ。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の課金について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)」を参照してください。|
+| **可用性** | GitHub.com のすべてのユーザーが利用できます。 | GitHub.com のすべてのユーザーが利用できます。 |
+| **起動** | {% data variables.codespaces.serverless %}は、キーを押すとすぐに開き、追加の構成やインストールを待たずに、すぐに使い始めることができます。 | codespace を作成または再開すると、codespace に VM が割り当てられ、`devcontainer.json` ファイルの内容に基づいてコンテナーが構成されます。 この設定では、環境の作成に数分かかる場合があります。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)」を参照してください。 |
+| **Compute**  | 関連付けられたコンピューティングがないので、コードをビルドして実行したり、統合ターミナルを使用したりすることはできません。 | {%  data variables.product.prodname_github_codespaces %} を使うと、専用の VM を通じてアプリケーションを実行およびデバッグできます。|
+| **ターミナル アクセス** | [なし] : | {% data variables.product.prodname_github_codespaces %} には、既定で共通のツール セットが用意されています。つまり、ローカル環境の場合とまったく同じようにターミナルを使用できます。|
+| **拡張機能**  | Web で実行できる拡張機能のサブセットのみが拡張機能ビューに表示され、それらをインストールできます。 詳細については、「[拡張機能の使用](#using-extensions)」を参照してください。| {% data variables.product.prodname_github_codespaces %} では、{% data variables.product.prodname_vscode_marketplace %} のほとんどの拡張機能を使用できます。|
 
-### Continue working on {%  data   variables.product.prodname_codespaces %}
+### 引き続き {% data variables.product.prodname_codespaces %} で作業する
 
-You can start your workflow in the {% data variables.product.prodname_serverless %} and continue working on a codespace, provided you have [access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces). If you try to access the Run and Debug View or the Terminal, you'll be notified that they are not available in the {% data variables.product.prodname_serverless %}.
+{% data variables.codespaces.serverless %}でワークフローを始めて、codespace で作業を続けることができます。 実行およびデバッグ ビューまたはターミナルにアクセスしようとすると、{% data variables.codespaces.serverless %}では使えないことが通知されます。
 
-To continue your work in a codespace, click **Continue Working on…** and select **Create New Codespace** to create a codespace on your current branch. Before you choose this option, you must commit any changes.
+codespace で作業を続行するには、 **[Continue Working on…]\(作業の続行...\)** をクリックし、 **[Create New Codespace]\(新しい codespace の作成\)** を選択して、現在のブランチに codespace を作成します。 このオプションを選択する前に、変更をコミットする必要があります。
 
-![A screenshot that shows the "Continue Working on" button in the UI](/assets/images/help/codespaces/codespaces-continue-working.png)
+![UI の [Continue Working on]\(作業の続行\) ボタンを示すスクリーンショット](/assets/images/help/codespaces/codespaces-continue-working.png)
 
-## Using source control
+## ソース管理の使用
 
-When you use the {% data variables.product.prodname_serverless %}, all actions are managed through the Source Control View, which is located in the Activity Bar on the left hand side. For more information on the Source Control View, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+{% data variables.codespaces.serverless %}を使うときは、左側のアクティビティ バーにあるソース管理ビューですべてのアクションが管理されます。 ソース管理ビューの詳細については、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[バージョン管理](https://code.visualstudio.com/docs/editor/versioncontrol)」を参照してください。
 
-Because the web-based editor uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Web ベース エディターでは GitHub Repositories 拡張機能を使用して機能が強化されるため、変更を一時退避することなくブランチを切り替えることができます。 詳しい情報については、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)」を参照してください。
 
-### 新規ブランチの作成
+### 新しいブランチを作成する
 
-{% data reusables.codespaces.create-or-switch-branch %}
-  Any uncommitted changes you have made in your old branch will be available on your new branch.
+{% data reusables.codespaces.create-or-switch-branch %} 古いブランチで行った変更のうち、コミットされていないものは新しいブランチで使用できます。
 
-### Commit your changes
+### 変更をコミットする
 
-{% data reusables.codespaces.source-control-commit-changes %}
-5. Once you have committed your changes, they will automatically be pushed to your branch on {% data variables.product.prodname_dotcom %}.
-### Pull Requestの作成
+{% data reusables.codespaces.source-control-commit-changes %} 
+5. 変更をコミットすると、{% data variables.product.prodname_dotcom %} のブランチに自動的にプッシュされます。
+### pull request を作成する
 
 {% data reusables.codespaces.source-control-pull-request %}
 
-### Working with an existing pull request
+### 既存の pull request の操作
 
-You can use the {% data variables.product.prodname_serverless %} to work with an existing pull request.
+{% data variables.codespaces.serverless %}を使って、既存の pull request を操作できます。
 
-1. Browse to the pull request you'd like to open in the {% data variables.product.prodname_serverless %}.
-2. Press `.` to open the pull request in the {% data variables.product.prodname_serverless %}.
-3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
+1. {% data variables.codespaces.serverless %}で開きたい pull request を参照します。
+2. `.` キーを押して、{% data variables.codespaces.serverless %}で pull request を開きます。
+3. 変更を行ったら、「[変更をコミットする](#commit-your-changes)」の手順を使用して変更をコミットします。 変更はブランチに直接コミットされます。変更をプッシュする必要はありません。
 
-## Using extensions
+## 拡張機能の使用
 
-The {% data variables.product.prodname_serverless %} supports {% data variables.product.prodname_vscode_shortname %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+{% data variables.codespaces.serverless %}では、Web で実行するように特に作成または更新された {% data variables.product.prodname_vscode_shortname %} 拡張機能がサポートされています。 これらの拡張機能は、"Web 拡張機能" と呼ばれます。 Web 拡張機能を作成する方法、または Web で動作するように既存の拡張機能を更新する方法については、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[Web 拡張機能](https://code.visualstudio.com/api/extension-guides/web-extensions)」を参照してください。
 
-Extensions that can run in the {% data variables.product.prodname_serverless %} will appear in the Extensions View and can be installed. If you use Settings Sync, any compatible extensions are also installed automatically. For information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+{% data variables.codespaces.serverless %}で実行できる拡張機能は、拡張機能ビューに表示され、インストールできます。 Settings Sync を使用すると、互換性のある拡張機能も自動的にインストールされます。 詳細については、{% data variables.product.prodname_vscode_shortname %} ドキュメントの「[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)」を参照してください。
 
 
 ## トラブルシューティング
 
-If you have issues opening the {% data variables.product.prodname_serverless %}, try the following:
+{% data variables.codespaces.serverless %}を開くときに問題が発生する場合は、次の手順を試してください。
 
-- Make sure you are signed in to {% data variables.product.prodname_dotcom %}.
-- Disable any ad blockers.
-- Use a non-incognito window in your browser to open the {% data variables.product.prodname_serverless %}.
+- {% data variables.product.prodname_dotcom %} にサインインしていることを確認します。
+- 広告ブロッカーを無効にします。
+- ブラウザーで incognito 以外のウィンドウを使って、{% data variables.codespaces.serverless %}を開きます。
 
-### Known limitations
+### 既知の制限事項
 
-- The {% data variables.product.prodname_serverless %} is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
-- Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode_shortname %} documentation.
-- `.` may not work to open the {% data variables.product.prodname_serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} by changing the URL from `github.com` to `github.dev`.
+- 現在、{% data variables.codespaces.serverless %}は、Chrome (およびその他の各種 Chromium ベース ブラウザー)、Edge、Firefox、Safari でサポートされています。 最新バージョンの SDK を使用することをお勧めします。
+- 使用しているブラウザーによっては、一部のキー バインドが機能しない場合があります。 これらのキー バインドの制限事項は、{% data variables.product.prodname_vscode_shortname %} ドキュメントの[既知の制限事項と対応](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)に関するセクションに記載されています。
+- 使っているローカル キーボード レイアウトによっては、`.` キーで {% data variables.codespaces.serverless %}を開けない場合があります。 その場合は、URL を `github.com` から `github.dev` に変えることで、{% data variables.product.prodname_dotcom %} リポジトリを {% data variables.codespaces.serverless %}で開くことができます。

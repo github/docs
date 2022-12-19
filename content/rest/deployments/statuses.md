@@ -1,5 +1,5 @@
 ---
-title: Deployment Statuses
+title: Deployment statuses
 intro: ''
 versions:
   fpt: '*'

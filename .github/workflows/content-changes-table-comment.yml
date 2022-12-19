@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   PR-Preview-Links:
-    if: github.event.pull_request.user.login != 'Octomerger'
+    if: github.event.pull_request.user.login != 'Octomerger' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     name: Add staging/live links to PR
     runs-on: ubuntu-latest
     outputs:
@@ -49,7 +49,7 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - name: Get preview app info
         env:
@@ -57,9 +57,9 @@ jobs:
         run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install temporary dependencies
@@ -68,6 +68,7 @@ jobs:
 
       - name: Get changes table
         id: changes
+        timeout-minutes: 30
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APP_URL: ${{ env.APP_URL }}
@@ -82,7 +83,7 @@ jobs:
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
-        uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
+        uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
@@ -98,4 +99,10 @@ jobs:
             ### Content directory changes
             _You may find it useful to copy this table into the pull request summary. There you can edit it to share links to important articles or changes and to give a high-level overview of how the changes in your pull request support the overall goals of the pull request._
             ${{ steps.changes.outputs.changesTable }}
+
+            ---
+            fpt: Free, Pro, Team
+            ghec: GitHub Enterprise Cloud
+            ghes: GitHub Enterprise Server
+            ghae: GitHub AE
           edit-mode: replace

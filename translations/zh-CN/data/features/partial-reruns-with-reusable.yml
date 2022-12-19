@@ -1,7 +1,6 @@
----
-#Issue #7062
+# Issue #7062
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.5'
-  ghae: 'issue-7062'
+  ghae: '问题-7062'

@@ -13,9 +13,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Teamの同期の管理
+shortTitle: Manage team synchronization
+ms.openlocfilehash: 027669f75f3671394503e5036b8f6c86351697cf
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147093151'
 ---
-
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
 ## Team の同期について
@@ -30,7 +35,7 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳しい情報については「[Enterprise内のOrganizationでのTeam同期の管理](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)」を参照してください。
+Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳細については、「[企業で Organization の Team 同期を管理する](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)」を参照してください。
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 
@@ -38,17 +43,17 @@ Enterprise アカウントが所有する Organization に対して Team の同�
 
 ## Team の同期を有効化する
 
-Team の同期を有効化する手順は、使用する IdP によって異なります。 各 IdP によって、Team の同期を有効化するうえで必要な環境があります。 個々の IdP ごとに、さらに必要な環境があります。
+Team の同期を有効にする手順は、使用したい IdP によって異なります。 各 IdP によって、Team の同期を有効化するうえで必要な環境があります。 個々の IdP ごとに、さらに必要な環境があります。
 
-### 必要な環境
+### 前提条件
 
 {% data reusables.identity-and-permissions.team-sync-required-permissions %}
 
-Organization と、サポートされている IdP について、SAMLシングルサインオンを有効にする必要があります。 詳細は「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
+Organization と、サポートされている IdP について、SAMLシングルサインオンを有効にする必要があります。 詳細については、「[Organization に SAML シングル サインオンを適用する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-リンクされたSAMLアイデンティティを持っていなければなりません。 リンクされたアイデンティティを作成するには、最低一回はSAML SSOとサポートされたIdPを使ってOrganizationに認証を受けていなければなりません。 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
+リンクされたSAMLアイデンティティを持っていなければなりません。 リンクされたアイデンティティを作成するには、最低一回はSAML SSOとサポートされたIdPを使ってOrganizationに認証を受けていなければなりません。 詳細については、「[SAML シングル サインオンを使用した認証](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
-SAMLの設定は、**Issuer**フィールドに有効なIdP URLを含んで**いなければなりません**。
+SAML 設定には、 **[発行者]** フィールドの有効な IdP URL が含まれている **必要があります**。 
 
 ![SAML Issuerフィールド](/assets/images/help/saml/saml_issuer.png)
 
@@ -58,41 +63,34 @@ SAMLの設定は、**Issuer**フィールドに有効なIdP URLを含んで**い
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-6. Organization に接続したいアイデンティティプロバイダのテナント情報を確認してから、[**Approve**] をクリックします。 ![特定の IdP テナントに対して、Team の同期を有効化するペンディングリクエストと、リクエストを承認またはキャンセルするオプション](/assets/images/help/teams/approve-team-synchronization.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.identity-and-permissions.team-sync-confirm-saml %} {% data reusables.identity-and-permissions.enable-team-sync-azure %} {% data reusables.identity-and-permissions.team-sync-confirm %}
+6. Organization に接続したい ID プロバイダーのテナント情報を確認してから、 **[承認]** をクリックします。
+  ![特定の IdP テナントに対して、Team の同期を有効化する保留要求と、要求を承認またはキャンセルするオプション](/assets/images/help/teams/approve-team-synchronization.png)
 
 ### Okta で Team の同期を有効化する
 
 OktaのTeam同期には、事前にOrganizationでOktaでのSAMLとSCIMがセットアップされていることが必要です。
 
-OktaでのTeam同期のエラーの可能性を回避するために、{% data variables.product.prodname_dotcom %}でTeam同期を有効化する前に、選択したOktaのグループのメンバーになっているすべてのOrganizationメンバーに対して、SCIMのリンクされたアイデンティティが正しくセットアップされているのを確認することをおすすめします。
+OktaでのTeam同期のエラーの可能性を回避するために、{% data variables.product.prodname_dotcom %}でTeam同期を有効化する前に、選択したOktaのグループのメンバーになっているすべてのOrganizationメンバーに対して、SCIMのリンクされたアイデンティティが正しくセットアップされているのを確認することをおすすめします。 
 
 OrganizationのメンバーがリンクされたSCIMアイデンティティを持たない場合、Teamの同期は期待された動作をせず、そのユーザはTeamに追加も削除もされないかもしれません。 もしもユーザの中にSCIMのリンクされたアイデンティティを持たない者がいた場合、それらのユーザはプロビジョニングし直さなければなりません。
 
-SCIMのリンクされたアイデンティティを欠いているユーザのプロビジョニングに関するヘルプについては「[Organizationのアイデンティティ及びアクセス管理のトラブルシューティング](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)」を参照してください。
+SCIM にリンクされた ID が欠落しているユーザーのプロビジョニングに関するヘルプについては、「[組織の ID とアクセス管理のトラブルシューティング](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)」を参照してください。
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.team-sync-confirm-scim %}
-1. OrganizationでSAMLを施行し、OrganizationのメンバーがSAMLとSCIMのアイデンティティを確実にリンクするようにすることを検討してください。 詳細は「[Organization で SAML シングルサインオンを施行する](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.identity-and-permissions.team-sync-confirm-saml %} {% data reusables.identity-and-permissions.team-sync-confirm-scim %}
+1. OrganizationでSAMLを施行し、OrganizationのメンバーがSAMLとSCIMのアイデンティティを確実にリンクするようにすることを検討してください。 詳細については、「[Organization に SAML シングル サインオンを適用する](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
-7. Organization 名の下で、有効な SSWS トークンと Okta インスタンスの URL を入力します。 ![Okta Organization で Team の同期を有効化するフォーム](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
-6. Organization に接続したいアイデンティティプロバイダのテナント情報を確認してから、[**Create**] をクリックします。 ![Team の同期を有効化する [Create] ボタン](/assets/images/help/teams/confirm-team-synchronization-okta.png)
+7. Organization 名の下で、有効な SSWS トークンと Okta インスタンスの URL を入力します。
+  ![Okta Organization で Team の同期を有効化するフォーム](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
+6. Organization に接続したい ID プロバイダーのテナント情報を確認してから、 **[作成]** をクリックします。
+  ![Team の同期を有効化する [作成] ボタン](/assets/images/help/teams/confirm-team-synchronization-okta.png)
 
 ## Team の同期を無効化する
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-5. [Team synchronization] の下にある [**Disable team synchronization**] をクリックします。 ![Team の同期を無効化する](/assets/images/help/teams/disable-team-synchronization.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+5. [Team の同期] で、 **[Team の同期を無効にする]** をクリックします。
+  ![Team の同期を無効にする](/assets/images/help/teams/disable-team-synchronization.png)

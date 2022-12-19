@@ -18,7 +18,7 @@ There are three types of migrations you can perform:
 
 - A migration from a {% data variables.product.prodname_ghe_server %} instance to another {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by any user or organization on the instance. Before performing a migration, you must have site administrator access to both instances.
 - A migration from a {% data variables.product.prodname_dotcom_the_website %} organization to a {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by the organization. Before performing a migration, you must have [administrative access](/enterprise/user/articles/permission-levels-for-an-organization/) to the {% data variables.product.prodname_dotcom_the_website %} organization as well as site administrator access to the target instance.
-- *Trial runs* are migrations that import data to a [staging instance](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). These can be useful to see what *would* happen if a migration were applied to {% data variables.product.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
+- *Trial runs* are migrations that import data to a [staging instance](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). These can be useful to see what *would* happen if a migration were applied to {% data variables.location.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
 
 ## Migrated data
 
@@ -32,7 +32,7 @@ The items in the table below can be migrated with a repository. Any items not sh
 |---------------------------------------------|--------|
 | Users | **@mentions** of users are rewritten to match the target.
 | Organizations | An organization's name and details are migrated.
-| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects.
+| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects. Internal repositories are migrated as private repositories. Archive status is unset.
 | Wikis | All wiki data is migrated.
 | Teams | **@mentions** of teams are rewritten to match the target.
 | Milestones | Timestamps are preserved.

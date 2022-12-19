@@ -1,8 +1,7 @@
 ---
-title: Setting your timeout period for GitHub Codespaces
-shortTitle: Configurar el tiempo de inactividad
-intro: 'Puedes configurar tu periodo de inactividad predeterminado para los {% data variables.product.prodname_codespaces %} en tu página de ajustes personales.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: Configuración del periodo de tiempo de espera para GitHub Codespaces
+shortTitle: Set the timeout
+intro: 'Puedes configurar el periodo de tiempo de espera predeterminado para {% data variables.product.prodname_github_codespaces %} en tu página de configuración personal.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,35 +10,44 @@ topics:
 type: how_to
 redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
+ms.openlocfilehash: 6ca559fefddc34eb6de0441d17344ff8054db509
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159931'
 ---
+## Acerca del tiempo de espera de inactividad
 
-Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes especificar la longitud de este periodo. El ajuste actualizado se aplicará a cualquier codespace recién creado.
-
-Algunas organizaciones podrían tener una política de tiempo de inactividad máximo. Si una política de organización configura un tiempo de inactividad máximo, el cual sea menos que el predeterminado que ya hayas configurado, el tiempo de espera de la organización se utilizará en vez de tu ajuste y se te notificará de esto después de que se haya creado el codespace. Para obtener más información, consulta la sección "[Restringir el periodo de tiempo de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
+Un codespace dejará de ejecutarse después de un periodo de inactividad. De manera predeterminada, este periodo es de 30 minutos, pero puedes especificar un periodo de tiempo de espera predeterminado más largo o más corto en tu configuración personal en {% data variables.product.prodname_dotcom %}. La configuración actualizada se aplicará a los codespaces que crees o a los existentes la próxima vez que los inicies. También puedes especificar un tiempo de espera al usar la {% data variables.product.prodname_cli %} para crear un codespace.
 
 {% warning %}
 
-**Advertencia**: Los Coespaces se facturan por minuto. Si no estás utilizando un codespace activamente, pero este no ha llegado a su tiempo de inactividad, se te cobrará por el tiempo durante el cual este se ejecute de todos modos. Para obtener más información, consulta la sección "[Acerca de la facturación para el {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
+**Advertencia**: El uso de proceso de codespaces se factura según la duración para la que un codespace permanece activo. Si no usas un codespace pero permanece en ejecución y aún no has agotado el tiempo de espera, se te factura el tiempo total durante el cual el codespace estaba activo, independientemente de si lo estabas usando. Para más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)".
 
 {% endwarning %}
 
+### Periodos de tiempo de espera para repositorios propiedad de la organización
+
+Las organizaciones pueden establecer una directiva de tiempo de espera de inactividad máxima para los codespaces creados a partir de algunos de tus repositorios o de todos ellos. Si una directiva de organización establece un tiempo de espera máximo que es menor que el tiempo de espera predeterminado que has establecido, se usará el tiempo de espera de la organización en lugar del de la configuración. Esta opción se te notificará después de crear el codespace. Para obtener más información, consulta "[Restricción del periodo de tiempo de espera de inactividad](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)".
+
 {% webui %}
 
-## Configurar tu periodo predeterminado de tiempo de inactividad
+## Configuración del período de tiempo de espera predeterminado
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Debajo de "Tiempo de inactividad predeterminado", ingresa el tiempo que quieras y luego haz clic en **Guardar**. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas). ![Seleccionar tu tiempo de inactividad](/assets/images/help/codespaces/setting-default-timeout.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. En "Tiempo de espera de inactividad predeterminado", escriba la hora que quiera y, después, haga clic en **Guardar**. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas).
+   ![Selección de la hora de inactividad](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Configurar el periodo de tiempo de inactividad para un codespace
+## Configuración del período de tiempo de espera para un codespace
 
 {% data reusables.cli.cli-learn-more %}
 
-Para configurar el periodo de inactividad cuando creas un codespace, utiliza el argumento `idle-timeout` con el subcomando `codespace create`. Especifica el tiempo en minutos, seguido de `m`. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas).
+Para establecer el período de tiempo de espera al crear un codespace, use el argumento `idle-timeout` con el subcomando `codespace create`. Especifique el tiempo en minutos, seguido de `m`. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas).
 
 ```shell
 gh codespace create --idle-timeout 90m
@@ -51,8 +59,8 @@ Si no especificas un periodo de inactividad cuando creas un codespace, entonces 
 
 {% vscode %}
 
-## Configurar un periodo de tiempo de inactividad
+## Configuración de un período de tiempo de espera
 
-Puedes configurar tu periodo predeterminado de tiempo de inactividad en tu buscador web, en {% data variables.product.prodname_dotcom_the_website %}. Como alternativa, si utilizas el {% data variables.product.prodname_cli %} para crear un codespace, puedes configurar un periodo de tiempo de inactividad para ese codespace en particular. Para obtener más información, haz clic en la pestaña adecuada arriba.
+Puedes establecer el período de tiempo de espera predeterminado en el explorador web, en {% data variables.product.prodname_dotcom_the_website %}. De manera alternativa, si usas {% data variables.product.prodname_cli %} para crear un codespace, puedes establecer un período de tiempo de espera para ese codespace en particular. Para más información, haz clic en la pestaña correspondiente arriba.
 
 {% endvscode %}

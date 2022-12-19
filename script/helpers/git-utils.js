@@ -50,7 +50,7 @@ export async function getTreeSha(owner, repo, commitSha) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-tree
-export async function getTree(owner, repo, ref, allowedPaths = []) {
+export async function getTree(owner, repo, ref) {
   const commitSha = await getCommitSha(owner, repo, ref)
   const treeSha = await getTreeSha(owner, repo, commitSha)
   try {
@@ -70,11 +70,11 @@ export async function getTree(owner, repo, ref, allowedPaths = []) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-blob
-export async function getContentsForBlob(owner, repo, blob) {
+export async function getContentsForBlob(owner, repo, sha) {
   const { data } = await github.git.getBlob({
     owner,
     repo,
-    file_sha: blob.sha,
+    file_sha: sha,
   })
   // decode blob contents
   return Buffer.from(data.content, 'base64')
@@ -89,7 +89,13 @@ export async function getContents(owner, repo, ref, path) {
       ref,
       path,
     })
-    // decode contents
+
+    if (!data.content) {
+      const blob = await getContentsForBlob(owner, repo, data.sha)
+      // decode Base64 encoded contents
+      return Buffer.from(blob, 'base64').toString()
+    }
+    // decode Base64 encoded contents
     return Buffer.from(data.content, 'base64').toString()
   } catch (err) {
     console.log(`error getting ${path} from ${owner}/${repo} at ref ${ref}`)

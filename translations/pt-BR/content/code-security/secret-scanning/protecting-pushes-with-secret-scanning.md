@@ -1,6 +1,6 @@
 ---
-title: Proteger pushes com digitalização de segredo
-intro: 'Você pode usar o {% data variables.product.prodname_secret_scanning %} para evitar que segredos compatíveis sejam enviados por push para a sua organização ou repositório, habilitando a proteção por push push.'
+title: Como proteger pushes com a verificação de segredos
+intro: 'Você pode usar a {% data variables.product.prodname_secret_scanning %} para impedir que segredos com suporte sejam enviados por push à {% ifversion secret-scanning-enterprise-level %}empresa,{% endif %} organização{% ifversion secret-scanning-enterprise-level %},{% endif %} ou ao repositório habilitando a proteção contra push.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,114 +13,131 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Proteção por push
+shortTitle: Enable push protection
+ms.openlocfilehash: 518013033ac5d87fd8428d1c99d5f633a3bc2e65
+ms.sourcegitcommit: fc8b57e068b6922b45318029e22ceb3d6c1c3087
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184493'
 ---
-
-{% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
-{% data reusables.secret-scanning.push-protection-beta %}
+{% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %} {% data reusables.secret-scanning.push-protection-beta %}
 
 ## Sobre a proteção por push para segredos
 
-Até agora, {% data variables.product.prodname_secret_scanning_GHAS %} verifica segredos _após_ um push e alerta usuários de segredos expostos. {% data reusables.secret-scanning.push-protection-overview %}
+Até agora, o {% data variables.product.prodname_secret_scanning_GHAS %} verifica se há segredos _após_ um push e alerta os usuários sobre os segredos expostos. {% data reusables.secret-scanning.push-protection-overview %}
 
-If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
-- generates an alert.
-- creates an alert in the "Security" tab of the repository.
-- adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
-- sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
+Se um colaborador ignorar um bloco de proteção por push para um segredo, {% data variables.product.prodname_dotcom %}:
+- cria um alerta na guia "Segurança" do repositório no estado descrito na tabela abaixo.
+- adicionará o evento bypass ao log de auditoria.{% ifversion secret-scanning-push-protection-email %}
+- enviará um alerta por email para proprietários da organização, gerentes de segurança e administradores de repositório que estiverem vendo o repositório, com um link para o segredo e o motivo pelo qual ele foi permitido.{% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} como proteção por push atualmente verifica repositórios de segredos emitidos pelos seguintes prestadores de serviços.
+{% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+Para obter informações sobre segredos e provedores de serviços compatíveis com a proteção por push, confira "[Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)".
 
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+## Como habilitar a {% data variables.product.prodname_secret_scanning %} como uma proteção por push
 
-## Habilitando {% data variables.product.prodname_secret_scanning %} como uma proteção por push
+Para que você use a {% data variables.product.prodname_secret_scanning %} como uma proteção contra push, {% ifversion secret-scanning-enterprise-level %}a empresa,{% endif %} a organização{% ifversion secret-scanning-enterprise-level %},{% endif %} ou o repositório precisa ter o {% data variables.product.prodname_GH_advanced_security %} e a {% data variables.product.prodname_secret_scanning %} habilitado. Para obter mais informações, confira {% ifversion secret-scanning-enterprise-level %}"[Como gerenciar as configurações de segurança e análise da empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)",{% endif %} "[Como gerenciar as configurações de segurança e análise da organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)", "[Como gerenciar as configurações de segurança e análise do repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" e "[Sobre o {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
-Para você usar {% data variables.product.prodname_secret_scanning %} como proteção por push, a organização ou repositório deverá ter {% data variables.product.prodname_GH_advanced_security %} e {% data variables.product.prodname_secret_scanning %} habilitados. Para obter mais informações, consulte "[Gerenciando as configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization), "[Gerenciando as configurações de segurança e análise do seu repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)e "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".
+Os proprietários da organização, os gerentes de segurança e os administradores de repositório podem habilitar a proteção por push na {% data variables.product.prodname_secret_scanning %} por meio da interface do usuário e da API. Para obter mais informações, confira "[Repositórios](/rest/reference/repos#update-a-repository)" e expanda a seção "Propriedades do objeto `security_and_analysis`" na documentação da API REST.
 
-Os proprietários da organização, gerentes de segurança e administradores de repositórios podem habilitar a proteção por push para {% data variables.product.prodname_secret_scanning %} por meio da interface do usuário e da API. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#update-a-repository)" e expanda as "Propriedades do objeto `security_and_analysis` " na documentação da API REST.
+{% ifversion secret-scanning-enterprise-level %}
+### Como habilitar a {% data variables.product.prodname_secret_scanning %} como uma proteção contra push na empresa
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %}
+1. Na barra lateral esquerda, clique em **Segurança e análise de código**. {% data reusables.advanced-security.secret-scanning-push-protection-enterprise %} {% endif %}
 
-### Habilitando {% data variables.product.prodname_secret_scanning %} como uma proteção por push para uma organização
+### Como habilitar a {% data variables.product.prodname_secret_scanning %} como uma proteção por push para uma organização
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-push-protection-org %}
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-push-protection-org %}
 
-### Habilitando {% data variables.product.prodname_secret_scanning %} como uma proteção por push para um repositório
+### Como habilitar a {% data variables.product.prodname_secret_scanning %} como uma proteção por push para um repositório
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-push-protection-repo %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+## Usar a verificação de segredos como uma proteção por push da linha de comando
 
-## Usando {% data variables.product.prodname_secret_scanning %} como proteção por push da linha de comando
+{% data reusables.secret-scanning.push-protection-command-line-choice %}
 
-Ao tentar enviar um segredo compatível para um repositório ou organização com {% data variables.product.prodname_secret_scanning %} como uma proteção push habilitada, o {% data variables.product.prodname_dotcom %} bloqueará o push. Você pode remover o segredo do seu commit ou seguir um URL fornecido para permitir o push.
+Até cinco segredos detectados serão exibidos por vez na linha de comando. Se um segredo específico já tiver sido detectado no repositório e um alerta já existir, o {% data variables.product.prodname_dotcom %} não bloqueará esse segredo. 
 
-Até cinco segredos detectados serão exibidos por vez na linha de comando. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
+{% ifversion push-protection-custom-link-orgs %} 
 
-![Captura de tela que mostra que um push está bloqueado quando um usuário tenta fazer push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+Os administradores da organização podem fornecer um link personalizado que será exibido quando um push for bloqueado. Esse link personalizado pode conter recursos e conselhos específicos da organização, como instruções sobre como usar um cofre de segredos recomendado ou para quem entrar em contato para perguntas relacionadas ao segredo bloqueado.
 
-Se você precisar remover o segredo do seu último commit (ou seja, `HEAD`) no branch pressionado e quaisquer commits anteriores que contenham o segredo, você poderá remover o segredo de `HEAD` e, em seguida, fazer a combinação por squash dos commits entre quando o commit foi introduzido e a primeira versão do `HEAD` para a qual o segredo foi removido.
+![Captura de tela que mostra que um push é bloqueado quando um usuário tenta efetuar push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
 
-{% note %}
+{% else %}
 
-**Atenção**:
+![Captura de tela que mostra que um push é bloqueado quando um usuário tenta efetuar push de um segredo para um repositório](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-* Se sua configuração do git é compatível com pushes para vários branches, e não apenas para o branch padrão, seu push pode ser bloqueado devido a novos refs indesejados. Para obter mais informações, consulte as opções [`push.default`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) na documentação do Git.
-* Se {% data variables.product.prodname_secret_scanning %} vencer em um push, {% data variables.product.prodname_dotcom %} ainda executará uma digitalização após o push.
+{% endif %}
 
-{% endnote %}
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre como corrigir segredos bloqueados, confira "[Efetuar push de um branch bloqueado pela proteção por push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)".
 
-### Permitindo que um segredo bloqueado seja enviado por push
+Se você confirmar que um segredo é real e que pretende corrigi-lo mais tarde, tente corrigi-lo o mais rápido possível. Por exemplo, você pode revogar o segredo e removê-lo do histórico de commits do repositório. Segredos reais que foram expostos devem ser revogados para evitar acesso não autorizado. Você pode considerar primeiro rotacionar o segredo antes de revogá-lo. Para obter mais informações, confira "[Como remover dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
 
-Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido.
+{% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível. Por exemplo, você pode revogar o segredo e remover o segredo do histórico de commit do repositório. Para obter mais informações, consulte "[Removendo dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+{% ifversion ghes < 3.6 or ghae < 3.6 %}
+
+{% tip %}
+
+**Dica:** Você pode usar {% data variables.product.prodname_secret_scanning %} como uma proteção por push da interface do usuário da web, bem como a linha de comando, em {% data variables.product.product_name %} versão 3.6 ou posterior.
+
+{% endtip %}
+
+{% endif %}
+
+### Como permitir o push de um segredo bloqueado
+
+Se o {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro para push, permita o segredo e especifique o motivo pelo qual ele deve ser permitido.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-1. Acesse o URL retornado por {% data variables.product.prodname_dotcom %} quando seu push foi bloqueado. ![Captura de tela que mostra o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-unblock-form.png)
-{% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
-1. Clique **Me permite enviar por push este segredo**.
-2. Tente novamente na linha de comando em três horas. Se não enviou por push em três horas, você terá de repetir este processo.
+1. Acesse a URL retornada pelo {% data variables.product.prodname_dotcom %} quando o push foi bloqueado.
+  ![Captura de tela mostrando o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-unblock-form.png) {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+1. Clique em **Permitir que eu efetue push deste segredo**.
+2. Tente efetuar push novamente na linha de comando em até três horas. Se você não efetuar push em até três horas, precisará repetir esse processo.
 
 {% ifversion secret-scanning-push-protection-web-ui %}
-## Usando a digitalização de segredo como uma proteção de push da interface de usuário web
+## Como usar a verificação de segredos como uma proteção de push da interface do usuário da Web
 
-Ao usar a interface de usuário web para tentar confirmar um segredo suportado para um repositório ou organização com digitalização de segredo como uma proteção de push habilitada {% data variables.product.prodname_dotcom %} bloqueará o commit. Você verá um banner no topo da página com informações sobre a localização do segredo, e o segredo também será sublinhado no arquivo para que você possa encontrá-lo facilmente.
+{% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-  ![Captura de tela que mostra o commit na interface de usuário da web bloqueado devido à proteção de push da digitalização de segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+O {% data variables.product.prodname_dotcom %} exibirá apenas um segredo detectado por vez na interface do usuário da Web. Se um segredo específico já tiver sido detectado no repositório e um alerta já existir, o {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
 
-{% data variables.product.prodname_dotcom %} só exibirá um segredo detectado por vez na interface do usuário. Se um segredo específico já foi detectado no repositório e um alerta já existe, {% data variables.product.prodname_dotcom %} não bloqueará esse segredo.
+{% ifversion push-protection-custom-link-orgs %} 
 
-Você pode remover o segredo do arquivo usando a interface de usuário da web. Depois de remover o segredo, o banner no topo da página mudará e dirá que agora você pode fazeer commit das suas alterações.
+Os administradores da organização podem fornecer um link personalizado que será exibido quando um push for bloqueado. Esse link personalizado pode conter recursos e conselhos específicos para sua organização. Por exemplo, o link personalizado pode apontar para um arquivo README com informações sobre o cofre secreto da organização, para quais equipes e indivíduos escalar perguntas ou a política aprovada pela organização para trabalhar com segredos e reescrever o histórico de confirmação.
+{% endif %}
 
-  ![Captura de tela que mostra o commit na interface de usuário da web, permitido após correção do segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+Você pode remover o segredo do arquivo usando a interface do usuário da Web. Depois de remover o segredo, a faixa na parte superior da página será alterada e informará que agora você pode fazer commit das suas alterações.
 
-### Ignorando a proteção de push para um segredo
+  ![Captura de tela mostrando o commit na interface do usuário da Web permitida após a correção do segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
 
-Se {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro enviar por push, você poderá permitir o segredo e especificar a razão pela qual ele deve ser permitido. Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
+### Ignorando a proteção por push em um segredo
+
+{% data reusables.secret-scanning.push-protection-remove-secret %} Para obter mais informações sobre como corrigir segredos bloqueados, confira "[Efetuar push de um branch bloqueado pela proteção por push](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-in-the-web-ui)". 
+
+Se você confirmar que um segredo é real e que pretende corrigi-lo mais tarde, tente corrigi-lo o mais rápido possível. Para obter mais informações, confira "[Como remover dados confidenciais de um repositório](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)".
+
+Se o {% data variables.product.prodname_dotcom %} bloquear um segredo que você acredita ser seguro para push, permita o segredo e especifique o motivo pelo qual ele deve ser permitido.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-Se você confirmar que um segredo é real e pretender corrigi-lo mais tarde, você deverá procurar remediar o segredo o mais rápido possível.
+Se você confirmar que um segredo é real e que pretende corrigi-lo mais tarde, tente corrigi-lo o mais rápido possível.
 
-1. No banner que apareceu na parte suérior da página quando {% data variables.product.prodname_dotcom %} bloqueou o seu commit, clique em **Ignorar proteção**.
+1. Na faixa que apareceu na parte superior da página quando o {% data variables.product.prodname_dotcom %} bloqueou seu commit, clique em **Ignorar proteção**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 
   ![Captura de tela que mostra o formulário com opções para desbloquear o push de um segredo](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
-1. Clique **Permitir segredo**.
+1. Clique em **Permitir segredo**.
+
 
 {% endif %}

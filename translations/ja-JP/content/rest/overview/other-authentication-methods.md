@@ -1,5 +1,5 @@
 ---
-title: その他の認証方式
+title: その他の認証方法
 intro: 本番環境以外でのテストには、Basic 認証を使用できます。
 redirect_from:
   - /v3/auth
@@ -10,76 +10,80 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: その他の認証方式
+shortTitle: Other authentication methods
+ms.openlocfilehash: a979c5e688f6f6942a56c9cff55386bb72a92e57
+ms.sourcegitcommit: f392aa98511e0889d96af2e4a56e67f8adfb025f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172718'
 ---
-
-
-{% ifversion fpt or ghes or ghec %}
-API は複数の認証方式を提供していますが、本番アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト（完全な OAuth では過剰になる場合）に使用するために提供されています。 認証に
-{% data variables.product.product_name %} を利用するサードパーティのアプリケーションでは、{% data variables.product.product_name %} 認証情報を要求または収集してはなりません。
-代わりに、[OAuth web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使用してください。
+{% ifversion fpt or ghes or ghec %} この API には認証のための方法が複数用意されていますが、運用アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト (完全な OAuth では過剰になる場合) に使うために提供されています。 認証に {% data variables.product.product_name %} を使うサードパーティのアプリケーションでは、{% data variables.product.product_name %} の認証情報を要求することも収集することもしてはなりません。
+代わりに、[OAuth Web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使う必要があります。
 
 {% endif %}
 
 {% ifversion ghae %}
 
-認証には、[OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) トークン、たとえば [OAuth web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/) を介した個人アクセストークンなどを使用することをお勧めします。
+認証には、[OAuth Web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を介した{% data variables.product.pat_generic %}などの [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) トークンを使うことをお勧めします。
 
 {% endif %}
 
-## Basic 認証
+## 基本認証
 
-API は、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている Basic 認証をサポートしていますが、若干の違いがあります。 主な違いは、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要がある点です。 これにより、多くの場所でユーザデータの存在が明らかになります。 その代わりに、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは`404 Not Found`を返します。 これにより、`401 Unauthorized` レスポンスを想定する HTTP ライブラリで問題が発生する可能性があります。 これは `Authorization` ヘッダを手動で作成することで解決できます。
+API では、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている基本認証がサポートされていますが、わずかな相違点があります。
+主な相違点は、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要があるという点です。 これにより、多くの場所でユーザー データの存在が明らかになります。 その代わりに、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API は、`404 Not Found` で応答します。
+これにより、`401 Unauthorized` を応答を想定する HTTP ライブラリに問題が発生する可能性があります。 解決策は、`Authorization` ヘッダーを手動で作成することです。
 
-### OAuth と個人アクセストークンを使用する
+### {% data variables.product.pat_generic %}の使用
 
-GitHub API への認証には OAuth トークンを使用することをお勧めします。 OAuth トークンには[個人アクセストークン][personal-access-tokens]が含まれており、ユーザはいつでもアクセスを取り消すことができます。
+{% ifversion pat-v2%}{% data variables.product.pat_v2 %}{% else %}{% data variables.product.pat_generic %}{% endif %}を使って GitHub API に対する認証を行うことをお勧めします。
 
 ```shell
-$ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre %}/user
+$ curl -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
-このアプローチは、ツールが Basic 認証のみをサポートしているが、OAuth アクセストークンのセキュリティ機能を利用したい場合に役立ちます。
+この方法は、ツールは基本認証のみをサポートしているが、{% data variables.product.pat_generic %}のセキュリティ機能を利用したい場合に役立ちます。
 
+{% ifversion not ghae %}
 ### ユーザ名とパスワードを使用する
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec %} {% note %}
 
-{% note %}
+**注:** {% data variables.product.prodname_dotcom %} は、2020 年 11 月 13 日以降、{% data variables.product.prodname_dotcom_the_website %} アカウントの API へのパスワード認証を廃止しました。これには、{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランに対するものが含まれます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API に対する認証は、トークンで行う必要があることに応じて、OAuth アクセス トークン、GitHub App インストール アクセス トークン、{% data variables.product.pat_generic %}などの API トークンを使って行う必要があります。 詳細については、[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)に関するページを参照してください。
+ 
+{% endnote %} {% else %}
 
-**注釈:** {% data variables.product.prodname_dotcom %} は、すべての {% data variables.product.prodname_dotcom_the_website %} アカウントについて、API に対するパスワード認証を 2020 年 11 月 13 日で終了しました。{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランのアカウントもこれに該当します。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIでは、トークンを使ってやりたいことに応じて、OAuthアクセストークン、GitHub Appインストールアクセストークン、あるいは個人アクセストークンのようなAPIトークンで認証を受けなければならなくなりました。 詳しい情報については、「[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)」を参照してください。
+{% data variables.product.product_name %} API で基本認証を使うには、アカウントに関連付けられているユーザー名とパスワードを送信するだけです。
 
-{% endnote %}
-
-{% endif %}
-
-{% ifversion ghes %}
-Basic 認証を
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、アカウントに
-対応するユーザ名とパスワードを送信するだけです。
-
-たとえば、[cURL][curl] を介して API にアクセスしている場合、`<username>` を {% data variables.product.product_name %} のユーザ名に置き換えると、次のコマンドで認証されます。 （cURL からパスワードの入力を求められます。）
+たとえば、[cURL][curl] を介して API にアクセスする場合、`<username>` を実際の {% data variables.product.product_name %} ユーザー名に置き換えて次のコマンドを実行すると、認証が行われます。
+（cURL からパスワードの入力を求められます。）
 
 ```shell
-$ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
+$ curl -u USERNAME {% data variables.product.api_url_pre %}/user
 ```
-2 要素認証を有効にしている場合は、[2 要素認証の使用方法](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)を理解した上で行ってください。
-
-{% endif %}
+ご自分が 2 要素認証を有効にしている場合は、[2 要素認証の使用](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)方法を理解していることを確認してください。
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 ### SAML SSO を認証する
 
 {% note %}
 
-**注釈:** 他のユーザに代わってトークンを生成するインテグレーションおよび OAuth アプリケーションは、自動的に承認されます。
+**注:** 他のユーザーに代わってトークンを生成するインテグレーションおよび OAuth アプリケーションは、自動的に承認されます。
 
 {% endnote %}
 
-認証に[SAML SSO][saml-sso]を強制しているOrganizationにアクセスするためAPIを使用している場合は、個人アクセストークン (PAT) を作成し、Organizationに対して[そのトークンを認証する][allowlist]必要があります。 `X-GitHub-SSO` で指定された URL にアクセスして、Organization のトークンを承認します。
+{% note %}
+
+**注:** {% data reusables.getting-started.bearer-vs-token %}
+
+{% endnote %}
+
+API を使って、認証に [SAML SSO][saml-sso] を適用する組織にアクセスする場合は、{% data variables.product.pat_generic %}を作成し、その組織の[トークンを承認する][allowlist]必要があります。 `X-GitHub-SSO` で指定された URL にアクセスして、組織のトークンを承認します。
 
 ```shell
-$ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
+$ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
 
 > X-GitHub-SSO: required; url=https://github.com/orgs/octodocs-test/sso?authorization_request=AZSCKtL4U8yX1H3sCQIVnVgmjmon5fWxks5YrqhJgah0b2tlbl9pZM4EuMz4
 {
@@ -88,41 +92,41 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 }
 ```
 
-複数の Organization からのデータをリクエストする場合（たとえば、[ユーザが作成した Issue のリストをリクエストする場合][user-issues]）、`X-GitHub-SSO` ヘッダは、個人アクセストークンを承認する必要がある Organization を示します。
+複数の組織からのデータを要求する場合 (たとえば、[ユーザーが作成した issue のリストの要求][user-issues])、`X-GitHub-SSO` ヘッダーは{% data variables.product.pat_generic %}の承認を必要とする組織を示します。
 
 ```shell
-$ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api_url_pre %}/user/issues
+$ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/user/issues
 
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```
 
-`organizations` の値は、個人アクセストークンの承認が必要な Organization の Organization IDのカンマ区切りのリストです。
+値 `organizations` は、{% data variables.product.pat_generic %}の承認が必要な組織を表す組織 ID のコンマ区切りのリストです。
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 ## 2 要素認証を使用する
 
-2 要素認証を有効にしている場合、REST API の_ほとんど_のエンドポイントの [Basic 認証](#basic-authentication)では、個人アクセストークン{% ifversion ghes %} または OAuth トークンをユーザ名とパスワードの代わりに{% endif %} を使用する必要があります。
+2 要素認証を有効にしている場合、REST API での "ほとんどの" エンドポイントに対する[基本認証](#basic-authentication)では、{% data variables.product.pat_generic %}{% ifversion ghes %}またはユーザー名とパスワードではなく OAuth トークン{% endif %}を使う必要があります。
 
-{% ifversion fpt or ghec %}[{% data variables.product.product_name %} 開発者設定](https://github.com/settings/tokens/new)を使用して{% endif %}新しい個人アクセストークンを生成する{% ifversion ghes %}か、 OAuth Authorizations API で \[新しい認証の作成\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\] エンドポイントを使用して新しい OAuth トークンを生成する{% endif %}ことができます。 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 そうすれば、それらのトークンを使って{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIから[OAuthトークンで認証を受け][oauth-auth]ます。{% ifversion ghes %}ユーザ名とパスワードで認証を受ける必要があるのは、OAuthトークンを作成する際、あるいはOAuth Authorizations APIを使用するときのみです。{% endif %}
+{% ifversion fpt or ghec %}[{% data variables.product.product_name %} 開発者設定](https://github.com/settings/tokens/new)を使って、{% endif %}新しい{% data variables.product.pat_generic %}を生成できます。{% ifversion ghes %}または、OAuth Authorizations API の「[新しい承認を作成する][/rest/reference/oauth-authorizations#create-a-new-authorization]」エンドポイントで新しい OAuth トークンを生成できます。{% endif %} 詳しくは、[コマンド ライン用の{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)に関する記事をご覧ください。 そうすれば、それらのトークンを使用して、[OAuth トークンを使用した認証を ][oauth-auth]{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API で行うことができます。{% ifversion ghes %}ユーザー名とパスワードで認証する必要があるのは、OAuth トークンを作成するときまたは OAuth 認証 API を使用するときのみです。{% endif %}
 
 {% endif %}
 
 {% ifversion ghes %}
 ### 2 要素認証で OAuth Authorizations API を使用する
 
-OAuth Authorizations API を呼び出す場合、Basic 認証では、トークンの代わりにワンタイムパスワード（OTP）とユーザ名とパスワードを使用する必要があります。 OAuth Authorizations API で認証しようとすると、サーバは `401 Unauthorized` とこれらのヘッダの 1 つで応答し、2 要素認証コードが必要であることを通知します。
+OAuth Authorizations API を呼び出す場合、Basic 認証では、トークンの代わりにワンタイムパスワード（OTP）とユーザ名とパスワードを使用する必要があります。 OAuth Authorizations API で認証しようとすると、サーバーは `401 Unauthorized` とこれらのヘッダーの 1 つで応答し、2 要素認証コードが必要であることを通知します。
 
-`X-GitHub-OTP: required; SMS` または `X-GitHub-OTP: required; app`
+`X-GitHub-OTP: required; SMS` または `X-GitHub-OTP: required; app`。  
 
-このヘッダは、アカウントの 2 要素認証コードの受け取り方法を示します。 アカウントの設定方法に応じて、SMS 経由で OTP コードを受け取るか、Google 認証システムや 1Password などのアプリケーションを使用します。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。 ヘッダーで次のように OTP を渡します。
+このヘッダは、アカウントの 2 要素認証コードの受け取り方法を示します。 アカウントの設定方法に応じて、SMS 経由で OTP コードを受け取るか、Google 認証システムや 1Password などのアプリケーションを使用します。 詳細については、「[2 要素認証の構成](/articles/configuring-two-factor-authentication)」を参照してください。 ヘッダーで次のように OTP を渡します。
 
 ```shell
 $ curl --request POST \
   --url https://api.github.com/authorizations \
-  --header 'authorization: Basic <em>PASSWORD</em>' \
+  --header 'authorization: Basic PASSWORD' \
   --header 'content-type: application/json' \
-  --header 'x-github-otp: <em>OTP</em>' \
+  --header 'x-github-otp: OTP' \
   --data '{"scopes": ["public_repo"], "note": "test"}'
 ```
 {% endif %}
@@ -131,5 +135,6 @@ $ curl --request POST \
 [oauth-auth]: /rest/overview/resources-in-the-rest-api#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
+[saml-sso-tokens]: https://github.com/settings/tokens
 [allowlist]: /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 [user-issues]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user

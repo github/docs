@@ -9,7 +9,8 @@ import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-o
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
 import frontmatter from '../../lib/frontmatter.js'
-import loadSiteData from '../../lib/site-data.js'
+import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
+import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -21,15 +22,19 @@ import loadSiteData from '../../lib/site-data.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
-const siteData = loadSiteData()
-const featureVersions = Object.entries(siteData.en.site.data.features)
+const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
 const featureVersionNames = featureVersions.map((fv) => fv[0])
 const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
-  test.each(featureVersions)('data/features/%s matches the schema', (_, featureVersion) => {
-    const { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+  test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
+    let { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+
+    // TODO temporary kludge! See notes in the module.
+    if (errors.length) {
+      errors = cleanUpDeprecatedGhaeFlagErrors(errors)
+    }
 
     const errorMessage = errors
       .map((error) => {
@@ -101,15 +106,23 @@ describe('lint Liquid versioning', () => {
 })
 
 // Return true if the shortname in the conditional is supported (fpt, ghec, ghes, ghae, all feature names).
-// If not, see if the shortname matches any exception pattern defined in lib/all-versions.js.
 function validateVersion(version) {
-  const isSupported = allowedVersionNames.includes(version)
-  const isException = Object.values(allVersions).some(
-    (v) => v.allowedInlinePattern && new RegExp(v.allowedInlinePattern).test(version)
+  return (
+    allowedVersionNames.includes(version) ||
+    // TODO - REMOVE THE FOLLOWING 'OR' WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
+    /ghae-issue-\d{4}/.test(version)
   )
-  const isValid = isSupported || isException
+}
 
-  return isValid
+// TODO: Temporary check for presence of deprecated GHAE feature flags in FM.
+// See details in docs-internal#29178.
+// We can remove this after semantic versioning has been in place for a while.
+function checkForDeprecatedGhaeVersioning(version, errors) {
+  if (/ghae-issue-\d+/.test(version)) {
+    errors.push(`
+      Lightweight feature flags ('${version}') are no longer supported in content. Use semantic versioning instead (ghae > 3.x or ghae: '> 3.x').
+    `)
+  }
 }
 
 function validateIfversionConditionals(conds) {
@@ -129,6 +142,9 @@ function validateIfversionConditionals(conds) {
       // if length = 1, this should be a valid short version or feature version name.
       if (strParts.length === 1) {
         const version = strParts[0]
+        // TODO: This is temporary, see comment on the function.
+        checkForDeprecatedGhaeVersioning(version, errors)
+        // END TODO.
         const isValidVersion = validateVersion(version)
         if (!isValidVersion) {
           errors.push(`"${version}" is not a valid short version or feature version name`)
@@ -138,6 +154,9 @@ function validateIfversionConditionals(conds) {
       // if length = 2, this should be 'not' followed by a valid short version name.
       if (strParts.length === 2) {
         const [notKeyword, version] = strParts
+        // TODO: This is temporary, see comment on the function.
+        checkForDeprecatedGhaeVersioning(version, errors)
+        // END TODO.
         const isValidVersion = validateVersion(version)
         const isValid = notKeyword === 'not' && isValidVersion
         if (!isValid) {
@@ -150,9 +169,12 @@ function validateIfversionConditionals(conds) {
       // the second item is a supported operator, and the third is a supported GHES release.
       if (strParts.length === 3) {
         const [version, operator, release] = strParts
-        if (version !== 'ghes') {
+        const hasSemanticVersioning = Object.values(allVersions).some(
+          (v) => (v.hasNumberedReleases || v.internalLatestRelease) && v.shortName === version
+        )
+        if (!hasSemanticVersioning) {
           errors.push(
-            `Found "${version}" inside "${cond}" with a "${operator}" operator; expected "ghes"`
+            `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`
           )
         }
         if (!allowedVersionOperators.includes(operator)) {

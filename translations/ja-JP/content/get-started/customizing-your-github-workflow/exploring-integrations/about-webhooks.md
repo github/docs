@@ -12,11 +12,16 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 30232a560237d473f17ec01d6451cb25195521fc
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880614'
 ---
-
 {% tip %}
 
-**ヒント:** {% data reusables.organizations.owners-and-admins-can %}は Organization の webhook を管理します。 {% data reusables.organizations.new-org-permissions-more-info %}
+**ヒント:** {% data reusables.organizations.owners-and-admins-can %} は、組織の Webhook を管理します。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
@@ -27,6 +32,6 @@ webhook は、リポジトリあるいは Organization にさまざまなアク�
 * {% data variables.product.prodname_pages %}サイトの構築
 * Team への新しいメンバーの追加
 
-Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API を使用すると、これらの Webhook で外部のイシュー トラッカーを更新したり、CI ビルドをトリガーしたり、バックアップ ミラーを更新したり、運用サーバーに展開したりできます。
 
-新しい webhook をセットアップするには、外部サーバーにアクセスでき、関連する技術的な手順に精通している必要があります。 関連付けられるアクションの完全なリストを含む、webhook の作成に関するヘルプについては、「[ webhook](/webhooks)」を参照してください。
+新しい webhook をセットアップするには、外部サーバーにアクセスでき、関連する技術的な手順に精通している必要があります。 関連付けることができるアクションの完全な一覧など、Webhook の構築に関するヘルプについては、「[Webhook](/webhooks)」を参照してください。

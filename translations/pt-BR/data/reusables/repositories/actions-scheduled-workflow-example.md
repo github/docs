@@ -1,4 +1,12 @@
-É possível programar um fluxo de trabalho para ser executado em horários de UTC específicos usando a [sintaxe de cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Fluxos de trabalho agendados executados no último commit no branch padrão ou branch de base. O intervalo mais curto que você pode executar fluxos de trabalho agendados é a cada 5 minutos.
+---
+ms.openlocfilehash: d17a60d7bf330c0c7fd3acfacd7652a054cf7c86
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147885016"
+---
+Você pode agendar um fluxo de trabalho para ser executado em horários UTC específicos usando a [sintaxe cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Fluxos de trabalho agendados executados no último commit no branch padrão ou branch de base. O intervalo mais curto que você pode executar fluxos de trabalho agendados é a cada 5 minutos.
 
 Este exemplo aciona o fluxo de trabalho todos os dias às 17:30 e 17:30 UTC:
 
@@ -10,7 +18,7 @@ on:
 
 ```
 
-A single workflow can be triggered by multiple `schedule` events. You can access the schedule event that triggered the workflow through the `github.event.schedule` context. This example triggers the workflow to run at 5:30 UTC every Monday-Thursday, but skips the `Not on Monday or Wednesday` step on Monday and Wednesday.
+Um fluxo de trabalho individual pode ser disparado por vários eventos `schedule`. Você pode acessar o evento de agendamento que disparou o fluxo de trabalho por meio do contexto `github.event.schedule`. Este exemplo dispara o fluxo de trabalho a ser executado às 5h30 UTC todas as segundas e quintas, mas ignora a etapa `Not on Monday or Wednesday` às segundas e quartas.
 
 ```yaml
 on:

@@ -1,65 +1,99 @@
 ---
-title: Solucionar problemas de las precompilaciones
-shortTitle: Precompilaciones de los codespaces
-intro: Puedes utilizar las precompilaciones para acelerar la creación de los codespaces. Este artículo te proporciona los pasos de solución de problemas para las propuestas comunes con las precompilaciones.
+title: Solución de problemas de precompilaciones
+shortTitle: Codespaces prebuilds
+intro: Puedes usar precompilaciones para acelerar la creación de codespaces. En este artículo se proporcionan los pasos para la solución de problemas comunes con las precompilaciones.
 versions:
   fpt: '*'
   ghec: '*'
 type: reference
 topics:
   - Codespaces
-product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: b8c45f9eae6094b78026d055ebea27c3748a8681
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158889'
 ---
+Para obtener más información sobre las precompilaciones de {% data variables.product.prodname_github_codespaces %}, consulta "[Precompilación de codespaces](/codespaces/prebuilding-your-codespaces)".
 
-Para obtener más información sobre las precompilaciones de los {% data variables.product.prodname_codespaces %}, consulta la sección "[Precompilar tus codespaces](/codespaces/prebuilding-your-codespaces)".
+## ¿Quiere comprobar si un codespace se ha creado a partir de una precompilación?
 
-## Verificar si un codespace se creó desde una precompilación
+Al crear un codespace, puedes elegir el tipo de la máquina virtual que quieres usar. Si hay disponible un precompilado para el tipo de máquina virtual, "{% octicon "zap" aria-label="The zap icon" %} Precompilación lista" se muestra junto a él.
 
-Cuando creas un codespace, puedes elegir el tipo de máquina virtual que quieres utilizar. Si hay una precompilación disponible para el tipo de máquina virtual, se mostrará el diálogo "{% octicon "zap" aria-label="The zap icon" %} Precompilaciòn lista" junto a ella.
+![Una lista de los tipos de objeto disponibles.](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-![Una lista de tipos de máquina disponibles](/assets/images/help/codespaces/choose-custom-machine-type.png)
+Si tienes la preferencia del editor de {% data variables.product.prodname_github_codespaces %} establecida en "{% data variables.product.prodname_vscode %} para la web", en la página "Configuración del codespace" se mostrará el mensaje "Se ha encontrado un codespace precompilado" si se usa una precompilación. 
 
-So configuraste las preferencias de tu editor de {% data variables.product.prodname_codespaces %} en "{% data variables.product.prodname_vscode %} para web", entonces la página de "Configurar tu codespace" mostrará el mensaje "Se encontró una precompilación de codespace" en caso de que se esté utilizando una precompilación.
+![Mensaje "Codespace creado previamente encontrado"](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-![El mensaje de 'se encontró un codespace precompilado'](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+Del mismo modo, si la preferencia del editor es "{% data variables.product.prodname_vscode_shortname %}", el terminal integrado contendrá el mensaje "Estás en un codespace precompilado definido por la configuración de precompilación para el repositorio" al crear un codespace. Para más información, consulta "[Configuración del editor predeterminado para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
 
-Del mismo modo, si tu preferencia de editor es "{% data variables.product.prodname_vscode_shortname %}", entonces la terminal integrada contendrá el mensaje "Estás en un codespace precompilado que definió la configuración de precompilación de tu repositorio" cuando crees un codespace nuevo. Para obtener más información, consulta la sección "[Configurar tu editor predeterminado para {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)".
-
-Después de que hayas creado un codespace, puedes verificar si se creó desde una precompilación que ejecutó el siguiente comando del {% data variables.product.prodname_cli %} en la terminal:
+Después de crear un codespace, puede comprobar si se ha creado a partir de una precompilación si ejecuta el comando {% data variables.product.prodname_cli %} siguiente en el terminal:
 
 ```shell{:copy}
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
-Esto devuelve `true` si el codespace se creó utilizando una precompilación.
+Esto devuelve `true` si el codespace se ha creado mediante una precompilación.
 
-Como alternativa, si no está instalado el {% data variables.product.prodname_cli %} (`gh`), puedes utilizar el siguiente comando, el cual devolverá `createFromPrebuild` si el codespace se creó desde una precompilación:
+Como alternativa, si {% data variables.product.prodname_cli %} (`gh`) no está instalado, puede usar el comando siguiente, que devuelve `createFromPrebuild` si el codespace se ha creado a partir de una precompilación: 
 
 ```shell{:copy}
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
-## Algunas veces falta la etiqueta de "Precompilación lista"
+## En ocasiones falta la etiqueta "Prebuild Ready" (Listo para precompilación)
 
-Es posible que notes que, algunas veces cuando creas un codespace desde una rama habilitada para precompilaciones, la etiqueta de "{% octicon "zap" aria-label="The zap icon" %} Precompilaciòn lista" no se muestra en la caja de diálogo para elegir un tipo de máquina. Esto significa que las precompilaciones no están disponibles actualmente.
+Es posible que observe que, en ocasiones, al crear un codespace desde una rama habilitada para la precompilación, la etiqueta "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" (Listo para precompilación) no se muestra en el cuadro de diálogo para elegir un tipo de máquina. Esto significa que las precompilaciones no están disponibles actualmente.
 
-Predeterminadamente, la plantilla de precompilación se actualizará cada que subas información a una rama habilitada para precompilaciones. Si la subida de información involucra un cambio a la configuración del contenedor dev, entonces, mientras la actualización está en curso, la etiqueta de "{% octicon "zap" aria-label="The zap icon" %} Precompilaciòn lista" se eliminará de la lista de los tipos de máquina. Durante este tiempo aún podrás crear codespaces sin una plantilla de precompilación. De requerirse, puedes reducir las ocasiones en las cuales las precompilaciones no están disponibles para un repositorio si ajustas la plantilla de precompilación para que se actualice únicamente cuando haces un cambio a tus archivos de configuración de contenedor dev o únicamente en un itinerario personalizado. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+De forma predeterminada, cada vez que se inserta en una rama habilitada para precompilación, se actualiza la precompilación. Si la inserción implica un cambio en el contenedor de desarrollo, mientras la actualización está en curso, la etiqueta "{% octicon "zap" aria-label="The zap icon" %} Precompilación lista" se quita de la lista de tipos de máquina. Durante este tiempo, todavía puede crear codespace sin una precompilación. Si es necesario, puede reducir las ocasiones en las que las precompilaciones no están disponibles para un repositorio estableciendo que la precompilación se actualice solo cuando realice un cambio en los archivos de configuración del contenedor de desarrollo o solo en una programación personalizada. Para obtener más información, consulta "[Configuración de precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)".
 
-Si tu rama no está habilitada específicamente para las precompilaciones, es posible que aún así se beneficie de estas si se deriva de una rama habilitada para precompilaciones. Sin embargo, si la configuración de contenedor dev cambia en tu rama para que no sea la misma que aquella configuración de la rama base, las precompilaciones ya no estarán disponibles en tu rama.
+Si la rama no está habilitada específicamente para las precompilaciones, todavía se puede beneficiar de ellas si se bifurca desde una rama habilitada para la precompilación. Pero si la configuración del contenedor de desarrollo se cambia en la rama, de modo que no sea la mismo que la de la rama base, las precompilaciones ya no estarán disponibles en la rama.
 
-Aquí tienes lo que puedes verificar si la etiqueta de "{% octicon "zap" aria-label="The zap icon" %} Precompilaciòn lista" no se muestra en una rama particular:
+Estos son los aspectos para comprobar si la etiqueta "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" (Listo para precompilación) no se muestra para una rama determinada:
 
-* Confirma que existe una configuración de precompilación para esta rama. Si no eres un administrador de repositorio, necesitarás contactar a alguno para confirmar esto.
-* Confirma que la configuración de precompilación incluye a tu región.
-* Verifica si el cambio en el contenedor dev se subió recientemente en la rama habilitada para precompilación. De ser así, habitualmente tendrás que esperar hasta que la ejecución de flujo de trabajo de precompilación para esta subida se complete antes de que las precompilaciones estén disponibles nuevamente.
-* Si no se hicieron cambios de configuración recientemente, dirígete a la pestaña de **Acciones** de tu repositorio, haz clic en **{% octicon "codespaces" aria-label="The Codespaces icon" %} Preconfiguraciones de los {% data variables.product.prodname_codespaces %} ** en la lista de flujos de trabajo y verifica que las ejecuciones de flujo de trabajo precompliladas para la rama estén teniendo éxito. Si las ejecuciones más recientes de un flujo de trabajo fallaron y una o más de estas ejecuciones fallidas contenían cambios a la configuración del contenedor dev, entonces no habrán precompilaciones disponibles para la rama asociada.
+* Confirme que existe una configuración de precompilación para esta rama. Si no es administrador del repositorio, tendrá que ponerse en contacto con uno para confirmarlo. 
+* Confirme que la configuración de precompilación incluye la región.
+* Compruebe si se ha insertado recientemente un cambio de la configuración del contenedor de desarrollo en la rama habilitada para la precompilación. En caso afirmativo, normalmente tendrás que esperar hasta que se complete el flujo de trabajo de precompilación para esta inserción antes de que los precompilaciones vuelvan a estar disponibles.
+* Si no se han realizado cambios de configuración recientemente, vaya a la pestaña **Actions** (Acciones) del repositorio, haga clic en **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** (Precompilaciones) en la lista de flujos de trabajo y compruebe que las ejecuciones de flujo de trabajo de precomplilación para la rama sean correctas. Si se ha producido un error en las ejecuciones más recientes de un flujo de trabajo y una o varias de estas ejecuciones con errores contenían cambios en la configuración del contenedor de desarrollo, no habrá precompilaciones disponibles para la rama asociada. 
 
-## Ejecuciones de flujo de trabajo con solución de problemas fallida para las precompilaciones
+## No se puede acceder a algunos recursos en codespaces creados mediante una precompilación
 
-Si las ejecuciones de flujo de trabajo para una configuración de precompilación están fallando, puedes inhabilitar temporalmente dicha configuración de precompilación mientras haces tu investigación. Para obtener más información, consulta la sección "[Administrar las precompilaciones](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)".
+Si el archivo de configuración de `devcontainer.json` de una configuración de precompilación especifica que se requieren permisos para el acceso a otros repositorios, se pedirá al administrador del repositorio que autorice estos permisos cuando cree o actualice la configuración de precompilación. Si el administrador no concede todos los permisos solicitados, existe la posibilidad de que se produzcan problemas en la precompilación y en los codespaces creados a partir de la misma. Esto es cierto incluso si el usuario que crea un codespace basado en esta precompilación _concede_ todos los permisos cuando se le pide que lo haga.
 
-## Leer más
+## Solución de problemas de ejecuciones de flujo de trabajo con errores para precompilaciones
 
-- "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[Administrar las precompilaciones](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"
+### Aumento del límite de gasto de {% data variables.product.prodname_actions %} 
+
+Las precompilaciones se crean y actualizan con {% data variables.product.prodname_actions %}. Se producirá un error en los flujos de trabajo de precompilación si has usado todos los minutos de {% data variables.product.prodname_actions %} y has alcanzado el límite de gasto. Si esto ocurre, puedes aumentar el límite de gasto de {% data variables.product.prodname_actions %} para permitir que se ejecuten los flujos de trabajo. Para obtener más información, consulta "[Administración del límite de gasto para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)".
+
+### Autorización de permisos de acceso
+
+Si se actualiza el archivo de configuración de `devcontainer.json` de una configuración de precompilación para especificar que se requieren permisos para el acceso a otros repositorios y no se ha solicitado a un administrador de repositorio que autorice estos permisos para la configuración de precompilación, es posible que se produzca un error en el flujo de trabajo de precompilación. Prueba a actualizar la configuración de precompilación sin realizar ningún cambio. Si, al hacer clic en **Actualizar**, se muestra la página de autorización, comprueba que los permisos solicitados son adecuados y, si es así, autoriza la solicitud. Para obtener más información, consulta "[Administración de precompilaciones](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)" y "[Administración del acceso a otros repositorios dentro del codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)".
+
+Si se produce un error en la ejecución del flujo de trabajo para una configuración de precompilación, puedes deshabilitar temporalmente la configuración de precompilación mientras investigas. Consulta "[Administración del estado](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)" para obtener más información.
+
+### Prevención del uso de precompilaciones obsoletas
+
+De forma predeterminada, si se ha producido un error en el flujo de trabajo de precompilación más reciente, se usará una precompilación anterior para la misma combinación de repositorio, rama y archivo de configuración `devcontainer.json` para crear espacios de código. Este comportamiento se denomina "optimización de precompilación".
+
+Se recomienda mantener habilitada la optimización de precompilación, ya que ayuda a garantizar que los codespaces sigan pudiéndose crear rápidamente si no hay disponible una precompilación actualizada. Aun así, como administrador del repositorio, puedes deshabilitar la optimización de precompilación si tienes problemas porque los codespaces precompilados están detrás del estado actual de la rama. En caso de que deshabilites la optimización de precompilación, los codespaces para la combinación pertinente de repositorio, rama y archivo `devcontainer.json` se crearán sin una precompilación si el flujo de trabajo de precompilación más reciente ha generado un error o se está ejecutando actualmente.
+
+{% data reusables.codespaces.accessing-prebuild-configuration %}
+1. A la derecha de la configuración de precompilación afectada, selecciona los puntos suspensivos ( **…** ) y haz clic en **Editar**.
+
+   ![Captura de pantalla de una lista de precompilaciones, con "Editar" resaltado](/assets/images/help/codespaces/edit-prebuild-configuration.png)
+1. Desplázate hasta la parte inferior de la página "Editar configuración" y haz clic en **Mostrar opciones avanzadas**.
+
+   ![Captura de pantalla de la página de configuración de precompilación, con la opción "Mostrar opciones avanzadas" resaltada](/assets/images/help/codespaces/show-advanced-options.png)
+1. Si sabes con seguridad que quieres deshabilitar la configuración predeterminada, selecciona **Deshabilitar la optimización de precompilación**.
+
+   ![Captura de pantalla de la sección "Opciones avanzadas" y la opción "Deshabilitar la optimización de precompilación"](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+1. Para guardar el cambio, haz clic en **Actualizar**.
+
+## Información adicional
+
+- "[Configuración de precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+- "[Administración de precompilaciones](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"

@@ -1,6 +1,6 @@
 ---
 title: 配置内置防火墙规则
-intro: '您可以查看默认防火墙规则并自定义 {% data variables.product.product_location %} 的规则。'
+intro: '可以查看默认防火墙规则并自定义 {% data variables.product.product_location %} 的规则。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -14,21 +14,26 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: 配置防火墙规则
+shortTitle: Configure firewall rules
+ms.openlocfilehash: 7492f69c6b334847229c76f7462beaabbc4154a2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145100090'
 ---
-
 ## 关于 {% data variables.product.product_location %} 的防火墙
 
-{% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 更多信息请参阅 Ubuntu 文档中的“[UFW](https://help.ubuntu.com/community/UFW)”。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
+{% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 有关详细信息，请参阅 Ubuntu 文档中的 [UFW](https://help.ubuntu.com/community/UFW)。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
 
-安装 {% data variables.product.prodname_ghe_server %} 之后，所有必要的网络端口都会自动打开，以接受连接。 每个非必要的端口都会自动配置为 `deny`，默认传出策略会配置为 `allow`。 会为任何新连接启用状态跟踪；这些连接通常是 `SYN` 位置 1 的网络数据包。 更多信息请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports)”。
+安装 {% data variables.product.prodname_ghe_server %} 之后，所有必要的网络端口都会自动打开，以接受连接。 每个非必要的端口都会自动配置为 `deny`，默认传出策略会配置为 `allow`。 会为任何新连接启用状态跟踪；这些连接通常是设置了 `SYN` 位的网络数据包。 有关详细信息，请参阅“[网络端口](/enterprise/admin/guides/installation/network-ports)”。
 
-UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所需的其他多个端口才能正常运行。 更多关于 UFW 规则集的信息，请参阅 [UFW 自述文件](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)。
+UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所需的其他多个端口才能正常运行。 有关 UFW 规则集的详细信息，请参阅 [UFW 自述文件](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)。
 
 ## 查看默认防火墙规则
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. 要查看默认防火墙规则，请使用 `sudo ufw status` 命令。 您看到的输出应类似于：
+2. 若要查看默认防火墙规则，请使用 `sudo ufw status` 命令。 此时会看到与下面类似的输出：
   ```shell
   $ sudo ufw status
   > Status: active
@@ -60,21 +65,21 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
 
 {% warning %}
 
-**警告：** 在添加自定义防火墙规则之前，请备份当前规则，以便在需要时可以重置为已知的工作状态。 如果您被锁定在服务器之外，请与 {% data variables.contact.contact_ent_support %} 联系，以重新配置原始防火墙规则。 恢复原始防火墙规则会导致服务器停机。
+警告：在添加自定义防火墙规则之前，请备份当前规则，以便在需要时可以重置为已知的工作状态。 如果您被锁定在服务器之外，请与 {% data variables.contact.contact_ent_support %} 联系，以重新配置原始防火墙规则。 恢复原始防火墙规则会导致服务器停机。
 
 {% endwarning %}
 
 1. 配置自定义防火墙规则。
-2. 使用`状态编号`命令检查每个新规则的状态。
+2. 使用 `status numbered` 命令检查每条新规则的状态。
   ```shell
   $ sudo ufw status numbered
   ```
-3. 要备份自定义防火墙规则，请使用 `cp` 命令将规则移至新文件。
+3. 要备份自定义防火墙规则，请使用 `cp` 命令将规则移动到新文件。
   ```shell
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-升级 {% data variables.product.product_location %} 后，您必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
+升级 {% data variables.product.product_location %} 后，必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
 
 ## 恢复默认防火墙规则
 
@@ -82,16 +87,16 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
 
 {% warning %}
 
-**警告**：如果您对防火墙进行更改之前未备份原始规则，请联系 {% data variables.contact.contact_ent_support %} 获取更多帮助。
+警告：如果对防火墙进行更改之前未备份原始规则，请联系 {% data variables.contact.contact_ent_support %} 获取更多帮助。
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. 要恢复之前的备份规则，请使用 `cp` 命令将规则复制到防火墙。
+2. 要还原之前的备份规则，请使用 `cp` 命令将规则复制到防火墙。
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
-3. 使用 `systemctl` 命令重新启动防火墙。
+3. 使用 `systemctl` 命令重启防火墙。
   ```shell
   $ sudo systemctl restart ufw
   ```

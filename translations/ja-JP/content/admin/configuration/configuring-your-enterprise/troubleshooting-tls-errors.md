@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting TLS errors
-intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
+title: TLS エラーのトラブルシューティング
+intro: アプライアンスで TLS の問題が生じた場合は、解決のためのアクションを取ってください。
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
@@ -19,8 +19,13 @@ topics:
   - Security
   - Troubleshooting
 shortTitle: Troubleshoot TLS errors
+ms.openlocfilehash: 855737f89f0380333b1f37c26d512c889f2ee786
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881252'
 ---
-
 ## 鍵ファイルからのパスフレーズの除去
 
 OpenSSLがインストールされたLinuxマシンを使うなら、パスフレーズを除去できます。
@@ -36,25 +41,25 @@ OpenSSLがインストールされたLinuxマシンを使うなら、パスフ�
 
 このコマンドを実行すると、鍵のパスフレーズを入力するようプロンプトが表示されます。
 
-OpenSSL に関する詳しい情報については、[OpenSSL のドキュメンテーション](https://www.openssl.org/docs/)を参照してください。
+OpenSSL の詳細については、[OpenSSL のドキュメント](https://www.openssl.org/docs/)を参照してください。
 
-## Converting your TLS certificate or key into PEM format
+## TLS 証明書または TLS キーを PEM 形式に変換する
 
-OpenSSL をインストールしている場合、`openssl` コマンドを使って鍵を PEM フォーマットに変換できます。 たとえば鍵を DER フォーマットから PEM フォーマットに変換できます。
+OpenSSL をインストールしている場合、`openssl` コマンドを使ってキーを PEM 形式に変換できます。 たとえば鍵を DER フォーマットから PEM フォーマットに変換できます。
 
 ```shell
 $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 ```
 
-あるいは SSL Converter ツールを使って証明書を PEM フォーマットに変換することもできます。 詳しい情報については [SSL Converter ツールのドキュメンテーション](https://www.sslshopper.com/ssl-converter.html)を参照してください。
+あるいは SSL Converter ツールを使って証明書を PEM フォーマットに変換することもできます。 詳細については、[SSL Converter ツールのドキュメント](https://www.sslshopper.com/ssl-converter.html)を参照してください。
 
 ## 鍵のアップロード後の反応のない環境
 
-If {% data variables.product.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
+TLS キーのアップロード後に {% data variables.product.product_location %} が応答しない場合は、[{% data variables.product.prodname_enterprise %} サポートに連絡して](https://enterprise.github.com/support)、TLS 証明書のコピーを含む具体的な詳細を伝えてください。 秘密キーが **含まれていない** ことを確認します。 
 
 ## 証明書の検証エラー
 
-Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an TLS certificate. これはしばしば自己署名証明書の場合や、クライアントが認識しない中間ルート証明書から発行された "チェーンドルート" 証明書の場合に生じます。
+Web ブラウザーやコマンドラインの Git などのクライアントでは、TLS 証明書の有効性を検証できないと、エラー メッセージが表示されます。 これはしばしば自己署名証明書の場合や、クライアントが認識しない中間ルート証明書から発行された "チェーンドルート" 証明書の場合に生じます。
 
 証明書認証局 (CA) によって署名された証明書を使っている場合は、{% data variables.product.prodname_ghe_server %} にアップロードする証明書ファイルには CA のルート証明を持つ証明書チェーンが含まれていなければなりません。 そのようなファイルを作成するには、証明書チェーン全体 (「証明書バンドル」とも呼ばれます) を証明書の終わりにつなげ、プリンシパル証明書の先頭にホスト名が来るようにしてください。 ほとんどのシステムでは、以下のようなコマンドでこの処理を行えます:
 
@@ -62,7 +67,7 @@ Clients such as web browsers and command-line Git will display an error message 
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
-You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or TLS vendor.
+証明機関または TLS ベンダーから証明書バンドル (`bundle-certificates.crt` など) をダウンロードできるはずです。
 
 ## 自己署名もしくは信頼されない証明書認証者（CA）ルート証明書のインストール
 
@@ -82,6 +87,6 @@ You should be able to download a certificate bundle (for example, `bundle-certif
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
 
-## Updating a TLS certificate
+## TLS 証明書の更新
 
-You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. 詳しい情報については、「[コマンドラインユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)」を参照してください。
+`ghe-ssl-certificate-setup` コマンド ライン ユーティリティを使用して、{% data variables.product.product_location %} の新しい自己署名証明書を生成したり、既存の TLS 証明書を更新したりできます。 詳細については、「[コマンド ライン ユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)」を参照してください。

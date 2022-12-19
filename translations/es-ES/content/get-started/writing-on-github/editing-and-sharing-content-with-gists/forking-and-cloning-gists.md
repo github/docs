@@ -11,8 +11,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 74161c03eca21f3a2dc6465439d22fee0edb758d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145069878'
 ---
-
 ## Bifurcar gists
 
 Cada gist indica qué bifurcaciones tiene actividad, haciéndo más fácil el encontrar cambios interesantes de otras personas.
@@ -21,7 +26,7 @@ Cada gist indica qué bifurcaciones tiene actividad, haciéndo más fácil el en
 
 ## Clonar gists
 
-Si deseas hacer cambios locales en un gist y subirlos a la web, puedes clonar un gist y hacer confirmaciones de la misma manera que lo harías con cualquier repositorio de Git. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
+Si deseas hacer cambios locales en un gist y subirlos a la web, puedes clonar un gist y hacer confirmaciones de la misma manera que lo harías con cualquier repositorio de Git. Para más información, vea "[Clonación de un repositorio](/articles/cloning-a-repository)".
 
 ![Botón Clonar gist](/assets/images/help/gist/gist_clone_btn.png)
 

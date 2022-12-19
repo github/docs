@@ -14,11 +14,16 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Manejar los extremos de línea
+shortTitle: Handle line endings
+ms.openlocfilehash: 4aa89f244e45da6905d6d5348c84faf8d5e6418c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884209'
 ---
-
 ## Acerca de los finales de línea
-Cada vez que presionas <kbd>Enter</kbd> en tu teclado, insertas un caracter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.
+Cada vez que presiona <kbd>Entrar</kbd> en el teclado, se inserta un carácter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.
 
 Cuando colaboras en proyectos con Git y {% data variables.product.product_name %}, Git podría producir resultados inesperados si, por ejemplo, estás trabajando en una máquina Windows y tu colaborador hizo cambios en macOS.
 
@@ -26,11 +31,11 @@ Puedes configurar Git para que maneje los fines de línea automáticamente y as�
 
 ## Parámetros globales para finales de línea
 
-El comando `git config core.autocrlf` se usa para cambiar el modo en que Git maneja los finales de línea. Toma un solo argumento.
+El comando `git config core.autocrlf` se usa para cambiar cómo controla Git los finales de línea. Toma un solo argumento.
 
 {% mac %}
 
-En macOS, simplemente pasas `input` a la configuración. Por ejemplo:
+En macOS, simplemente pase `input` a la configuración. Por ejemplo:
 
 ```shell
 $ git config --global core.autocrlf input
@@ -41,7 +46,7 @@ $ git config --global core.autocrlf input
 
 {% windows %}
 
-En Windows, simplemente escribes `true` en la configuración. Por ejemplo:
+En Windows, simplemente pase `true` a la configuración. Por ejemplo:
 
 ```shell
 $ git config --global core.autocrlf true
@@ -53,7 +58,7 @@ $ git config --global core.autocrlf true
 
 {% linux %}
 
-En Linux, simplemente escribes `input` en la configuración. Por ejemplo:
+En Linux, simplemente pase `input` a la configuración. Por ejemplo:
 
 ```shell
 $ git config --global core.autocrlf input
@@ -64,51 +69,51 @@ $ git config --global core.autocrlf input
 
 ## Parámetros por repositorio
 
-Como ocpión, puedes configurar un archivo de tipo *.gitattributes* para administrar cómo Git lee los fines de línea en un repositorio específico. Cuando confirmas este archivo en un repositorio, éste invalida la configuración de `core.autocrlf` para todos los colaboradores del mismo. Esto garantiza un comportamiento consistente para todos los usuarios, sin importar su configuración y ambiente de Git.
+Opcionalmente, puede configurar un archivo *.gitattributes* para administrar cómo lee Git los fines de línea en un repositorio concreto. Al confirmar este archivo en un repositorio, invalida el valor `core.autocrlf` de todos los colaboradores del repositorio. Esto garantiza un comportamiento consistente para todos los usuarios, sin importar su configuración y ambiente de Git.
 
-El archivo *.gitattributes* debe crearse en la raíz del repositorio y confirmarse como cualquier otro archivo.
+El archivo *.gitattributes* se debe crear en la raíz del repositorio y confirmarse como cualquier otro archivo.
 
-Un archivo *.gitattributes* se asemeja a una tabla con dos columnas:
+Un archivo *.gitattributes* es similar a una tabla con dos columnas:
 
 * A la izquierda está el nombre del archivo que coincide con Git.
 * A la derecha está la configuración de fin de línea que Git debería usar para esos archivos.
 
 ### Ejemplo
 
-Aquí hay un ejemplo de archivo *.gitattributes*. Puedes usarlo como plantilla para tus repositorios:
+Este es un archivo *.gitattributes* de ejemplo. Puedes usarlo como plantilla para tus repositorios:
 
 ```
-# Esteblece el comportamiento predeterminado, en caso de que las personas no tengan configurado core.autocrlf.
+# Set the default behavior, in case people don't have core.autocrlf set.
 * text=auto
 
-# Declara explícitamente los archivos de texto que siempre quieres que estén normalizados y convertidos
-# a finales de línea nativos en el control.
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
 *.c text
 *.h text
 
-# Declara los archivos que siempre tendrán los finales de línea CRLF en el control.
+# Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
 
-# Denota todos los archivos que son absolutamente binarios y no deberían modificarse.
+# Denote all files that are truly binary and should not be modified.
 *.png binary
 *.jpg binary
 ```
 
-Notarás que los archivos coinciden—`*.c`, `*.sln`, `*.png`—, separados con un espacio, y luego se les dará una configuración —`text`, `text eol=crlf`, `binary`. Revisaremos algunas configuraciones posibles a continuación.
+Observará que los archivos se comparan (`*.c`, `*.sln`, `*.png`) separados por un espacio y, después, se les asigna un valor (`text`, `text eol=crlf`, `binary`). Revisaremos algunas configuraciones posibles a continuación.
 
-- `text=auto` Git manejará los archivos en cualquier manera que crea sea mejor. Esta es una buena opción predeterminada.
+- `text=auto` Git administrará los archivos de la manera que considere óptima. Esta es una buena opción predeterminada.
 
-- `text eol=crlf` Git siempre convertirá los fines de línea en `CRLF` a la salida. Deberías usar esto para los archivos que deben conservar los finales `CRLF`, incluso en OSX o Linux.
+- `text eol=crlf` Git siempre convertirá los finales de línea a `CRLF` durante la restauración. Debe usar esto para los archivos que tienen que conservar los finales `CRLF`, incluso en OSX o Linux.
 
-- `text eol=lf` Git siempre convertirá los finales de línea en `LF` a la salida. Deberías usar esto para los archivos que deben conservar los finales LF, incluso en Windows.
+- `text eol=lf` Git siempre convertirá los finales de línea a `LF` durante la restauración. Deberías usar esto para los archivos que deben conservar los finales LF, incluso en Windows.
 
-- `binary` Git entenderá que los archivos especificados no son de texto, y no deberá intentar cambiarlos. El parámetro `binario` también es un alias para `text -diff`.
+- `binary` Git comprenderá que los archivos especificados no son de texto y no debería intentar cambiarlos. El valor `binary` también es un alias para `-text -diff`.
 
 ## Actualizar un repositorio después de los finales de línea
 
-Cuando configuras la opción `core.autocrlf` o confirmas un archivo de tipo *.gitattributes* podrías encontrar que Git reporta cambios a archivos que no has modificado. Git ha cambiado los fines de línea para que concuerden con tu nueva configuración.
+Al establecer la opción `core.autocrlf` o confirmar un archivo *.gitattributes*, es posible que Git notifique cambios en archivos que no haya modificado. Git ha cambiado los fines de línea para que concuerden con tu nueva configuración.
 
-Para garantizar que todos los fines de línea en tu repositorio concuerdan con tu nueva configuración, respalda tus archivos con Git, borra los archivos en tu repositorio (con excepción de el directorio `.git`), y luego restablece todos los archivos al mismo tiempo.
+Para garantizar que todos los fines de línea del repositorio coinciden con la nueva configuración, cree una copia de seguridad de los archivos con Git, borre todos los archivos del repositorio (menos los del directorio `.git`) y, después, restaure todos los archivos al mismo tiempo.
 
 1. Guarda los archivos actuales en Git, de manera que nada de tu trabajo se pierda.
   ```shell
@@ -128,9 +133,9 @@ Para garantizar que todos los fines de línea en tu repositorio concuerdan con t
   $ git commit -m "Normalize all the line endings"
   ```
 
-## Leer más
+## Información adicional
 
-- [Personalizar Git - Atributos de Git](https://git-scm.com/book/en/Customizing-Git-Git-Attributes) en el libro de Pro Git
-- [git-config](https://git-scm.com/docs/git-config) en las páginas man para Git
-- [Comenzar -Configuración Inicial](https://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup) en el libro de Pro Git
-- [Mind the End of Your Line](http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) por [Tim Clem](https://github.com/tclem)
+- [Personalización de Git: Atributos de Git](https://git-scm.com/book/en/Customizing-Git-Git-Attributes) en el libro Pro Git
+- [git-config](https://git-scm.com/docs/git-config) en las páginas man de Git
+- [Introducción: Configuración inicial de Git](https://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup) en el libro Pro Git
+- [Mind the End of Your Line](http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) (Cuidado con los finales de línea) de [Tim Clem](https://github.com/tclem)

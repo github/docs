@@ -1,6 +1,6 @@
 ---
 title: Migrar dados para e da sua empresa
-intro: 'É possível exportar dados de usuário, organização e repositório de {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_dotcom_the_website %}, e depois importar esses dados para o {% data variables.product.product_location %}.'
+intro: 'É possível exportar dados de usuário, organização e repositório do {% data variables.product.prodname_ghe_server %} ou do {% data variables.product.prodname_dotcom_the_website %}, e depois importá-los no {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/articles/moving-a-repository-from-github-com-to-github-enterprise
   - /enterprise/admin/categories/migrations-and-upgrades
@@ -17,6 +17,12 @@ children:
   - /preparing-to-migrate-data-to-your-enterprise
   - /migrating-data-to-your-enterprise
   - /importing-data-from-third-party-version-control-systems
-shortTitle: Migração para uma empresa
+shortTitle: Migration for an enterprise
+ms.openlocfilehash: 1f08da59c2b9330f2230f8377230132bc2a57704
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145094848'
 ---
 

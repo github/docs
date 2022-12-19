@@ -1,5 +1,13 @@
-The Dependency submission API lets you submit dependencies for a project. This enables you to add dependencies, such as those resolved when software is compiled or built, to {% data variables.product.prodname_dotcom %}'s dependency graph feature, providing a more complete picture of all of your project's dependencies.
+---
+ms.openlocfilehash: 23a47438a4b4091ec5034671fa226eff68a08ef6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147079426"
+---
+A API de envio de dependências permite enviar dependências para um projeto. Isso permite que você adicione dependências, como aquelas resolvidas quando o software é compilado ou criado, ao recurso de gráfico de dependências do {% data variables.product.prodname_dotcom %}, fornecendo uma visão mais completa de todas as dependências do seu projeto.
 
-The dependency graph shows any dependencies you submit using the API in addition to any dependencies that are identified from manifest or lock files in the repository (for example, a `package-lock.json` file in a JavaScript project). For more information about viewing the dependency graph, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#viewing-the-dependency-graph)."
+O gráfico mostra todas as dependências que você envia usando a API, além de quaisquer dependências identificadas por meio de arquivos de manifesto ou de bloqueio no repositório (por exemplo, um arquivo `package-lock.json` em um projeto JavaScript). Para ver mais informações sobre como visualizar o gráfico de dependências, confira "[Como explorar as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#viewing-the-dependency-graph)". 
 
-Submitted dependencies will receive {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} for any known vulnerabilities. Você só obterá {% data variables.product.prodname_dependabot_alerts %} para dependências que são de um dos [ecossistemas compatíveis](https://github.com/github/advisory-database#supported-ecosystems) do {% data variables.product.prodname_advisory_database %}. Submitted dependencies will not be surfaced in dependency review or your organization's dependency insights.
+As dependências enviadas receberão {% data variables.product.prodname_dependabot_alerts %} e {% data variables.product.prodname_dependabot_security_updates %} para quaisquer vulnerabilidades conhecidas. Você só obterá {% data variables.product.prodname_dependabot_alerts %} para dependências que são de um dos [ecossistemas com suporte](https://github.com/github/advisory-database#supported-ecosystems) do {% data variables.product.prodname_advisory_database %}. As dependências enviadas não serão exibidas na revisão de dependência ou nas informações de dependência da sua organização.

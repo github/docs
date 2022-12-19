@@ -1,6 +1,5 @@
----
-#Issue #6171
-#Documentation for the "Org profile pin private/internal repos"
+# Issue #6171
+# Documentation for the "Org profile pin private/internal repos"
 versions:
   fpt: '*'
   ghec: '*'

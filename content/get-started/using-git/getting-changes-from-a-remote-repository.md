@@ -23,7 +23,7 @@ These commands are very useful when interacting with [a remote repository](/gith
 To grab a complete copy of another user's repository, use `git clone` like this:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
 # Clones a repository to your computer
 ```
 
@@ -49,7 +49,7 @@ Use `git fetch` to retrieve new work done by other people. Fetching from a repos
 If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
 
 ```shell
-$ git fetch <em>remotename</em>
+$ git fetch REMOTE-NAME
 # Fetches updates made to a remote repository
 ```
 
@@ -62,7 +62,7 @@ Merging combines your local changes with changes made by others.
 Typically, you'd merge a remote-tracking branch (i.e., a branch fetched from a remote repository) with your local branch:
 
 ```shell
-$ git merge <em>remotename</em>/<em>branchname</em>
+$ git merge REMOTE-NAME/BRANCH-NAME
 # Merges updates made online with your local work
 ```
 
@@ -71,7 +71,7 @@ $ git merge <em>remotename</em>/<em>branchname</em>
 `git pull` is a convenient shortcut for completing both `git fetch` and `git merge `in the same command:
 
 ```shell
-$ git pull <em>remotename</em> <em>branchname</em>
+$ git pull REMOTE-NAME BRANCH-NAME
 # Grabs online updates and merges them with your local work
 ```
 

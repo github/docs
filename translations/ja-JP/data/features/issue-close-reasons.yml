@@ -1,6 +1,5 @@
----
-#Issues 6363
-#Closed issue states
+# Issues 6363
+# Closed issue states
 versions:
   fpt: '*'
   ghec: '*'

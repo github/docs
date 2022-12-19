@@ -1,8 +1,8 @@
 ---
-title: 为 Codespaces 设置 Java 项目
-shortTitle: 使用 Java 项目进行设置
-intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Java 项目。'
-product: '{% data reusables.gated-features.codespaces %}'
+title: 为 GitHub Codespaces 设置 Java 项目
+allowTitleToDifferFromFilename: true
+shortTitle: Setting up with your Java project
+intro: '通过创建自定义开发容器，在 {% data variables.product.prodname_github_codespaces %} 中开始使用 Java 项目。'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
 versions:
@@ -12,48 +12,52 @@ topics:
   - Codespaces
 hasExperimentalAlternative: true
 hidden: true
+ms.openlocfilehash: b861744483f61bc01e8069188c1ce6298411d57e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158763'
 ---
-
 ## 简介
 
-本指南介绍如何在 {% data variables.product.prodname_codespaces %} 中设置 Java 项目。 它将演示在代码空间中打开项目以及从模板添加和修改开发容器配置的示例。
+本指南介绍如何设置 Java 项目 {% data reusables.codespaces.setting-up-project-intro %}
 
-### 基本要求
+### 先决条件
 
-- 您应该在 {% data variables.product.prodname_dotcom_the_website %} 的仓库中有现有的 Java 项目。 如果您没有项目，可以使用以下示例尝试本教程：https://github.com/microsoft/vscode-remote-try-java
-- 您必须为组织启用 {% data variables.product.prodname_codespaces %} 。
+- 您应该在 {% data variables.product.prodname_dotcom_the_website %} 的仓库中有现有的 Java 项目。 如果没有项目，可以使用以下示例尝试本教程： https://github.com/microsoft/vscode-remote-try-java
+- 必须为组织启用 {% data variables.product.prodname_github_codespaces %}。
 
 ## 步骤 1：在代码空间中打开项目
 
-1. 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 **Create codespace on main（在主分支上创建代码空间）**。
+1. 在存储库名称下，使用“{% octicon "code" aria-label="The code icon" %} 代码”下拉菜单，然后在“Codespaces”选项卡中，单击加号 ({% octicon "plus" aria-label="The plus icon" %}) 。
 
   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
-
-  如果您看不到此选项，则表示 {% data variables.product.prodname_codespaces %} 不适用于您的项目。 有关详细信息，请参阅 [访问 {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)。
 
 创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 默认情况下，代码空间的容器有许多语言和运行时，包括 Java、nvm、npm 和 Yarn。 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## 第 2 步：将开发容器配置从模板添加到存储库
+## 步骤 2：从模板将开发容器配置添加到存储库
 
-{% data variables.product.prodname_github_codespaces %} 的默认开发容器预安装了最新的Java版本、包管理器（Maven、Gradle）和其他常用工具。 但是，我们建议你配置自己的开发容器，以包含项目所需的所有工具和脚本。 这将确保仓库中的所有 {% data variables.product.prodname_github_codespaces %} 用户都拥有完全可复制的环境。
+{% data variables.product.prodname_github_codespaces %} 的默认开发容器或“开发容器”预先安装了最新的 Java 版本、包管理器（Maven、Gradle）和其他常用工具。 但是，我们建议配置自己的开发容器，以包含项目所需的所有工具和脚本。 这将确保存储库中的所有 {% data variables.product.prodname_github_codespaces %} 用户都拥有完全可复制的环境。
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. 对于此示例，单击 **Java**。 实际上，您可以选择任何特定于 Java 的容器或 Java 和 Azure 函数等工具的组合。 ![从列表中选择 Java 选项](/assets/images/help/codespaces/add-java-prebuilt-container.png)
-1. 单击推荐的 Java 版本。 ![Java 版本选择](/assets/images/help/codespaces/add-java-version.png)
-{% data reusables.codespaces.rebuild-command %}
+1. 对于本示例，请单击“Java”。 实际上，您可以选择任何特定于 Java 的容器或 Java 和 Azure 函数等工具的组合。
+  ![从列表中选择 Java 选项](/assets/images/help/codespaces/add-java-prebuilt-container.png)
+1. 单击推荐的 Java 版本。
+  ![Java 版本选择](/assets/images/help/codespaces/add-java-version.png) {% data reusables.codespaces.rebuild-command %}
 
 ### 开发容器的剖析
 
-添加 Java 开发容器模板会将 `.devcontainer` 目录添加到项目仓库的根目录中，其中包含以下文件：
+添加 Java 开发容器模板会将 `.devcontainer` 目录添加到项目存储库的根目录中，其中包含以下文件：
 
 - `devcontainer.json`
 - Dockerfile
 
-新添加的 `devcontainer.json` 文件定义了几个在样本之后描述的属性。
+新添加的 `devcontainer.json` 文件定义了在示例之后描述的几个属性。
 
 #### devcontainer.json
 
@@ -93,23 +97,23 @@ hidden: true
     // Use 'postCreateCommand' to run commands after the container is created.
     // "postCreateCommand": "java -version",
 
-    // Uncomment to connect as a non-root user. 请参阅 https://aka.ms/vscode-remote/containers/non-root。
+    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode"
 }
 ```
 
-- **name** - 您可以将开发容器命名为任何名称，这只是默认名称。
-- **build** - 构建属性。
-  - **dockerfile** - 在 `build` 对象中，`dockerfile` 包含也从模板添加的 Dockerfile 的路径。
+- name - 可以将开发容器命名为任何名称，这只是默认名称。
+- build - 生成属性。
+  - dockerfile - 在 `build` 对象中，`dockerfile` 包含 Dockerfile 的路径，该文件也是从模板中添加的。
   - **args**
-    - **Variant**：此文件仅包含一个构建参数，即传递到 Dockerfile 的 Java 版本。
-- **settings** - 它们是您可以设置的 {% data variables.product.prodname_vscode %} 设置。
-  - **terminal.integrated.shell.linux** - 虽然 bash 是这里的默认设置，但您可以通过修改它来使用其他终端 shell。
-- **extensions** - 它们是默认包含的扩展名。
-  - **vscjava.vscode-java-pack** - Java 扩展包为 Java 开发提供了流行的扩展，以帮助您入门。
-- **forwardPorts** - 此处列出的任何端口都将自动转发。 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
-- **postCreateCommand** - 在创建代码空间后，使用此选项可运行 Docker 文件中未定义的命令。
-- **remoteUser** - 默认情况下，您以 `vscode` 用户身份运行，但您可以选择将其设置为 `root`。
+    - variant：此文件仅包含一个生成参数，即传递到 Dockerfile 的 Java 版本。
+- settings - 这些是你可以设置的 {% data variables.product.prodname_vscode %} 设置。
+  - terminal.integrated.shell.linux - 虽然 bash 是此处的默认设置，但你可以通过修改它来使用其他终端 shell。
+- extensions - 这些是默认包含的扩展。
+  - vscjava.vscode-java-pack - Java 扩展包为 Java 开发提供了常用的扩展，以帮助你入门。
+- **forwardPorts** - 此处列出的任何端口都将自动转发。 有关详细信息，请参阅“[在 codespace 中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)。”
+- postCreateCommand - 使用此方法在创建 codespace 后，运行未在 Dockerfile 中定义的命令。
+- **remoteUser** - 默认情况下以 `vscode` 用户身份运行，但可以选择将其设置为 `root`。
 
 #### Dockerfile
 
@@ -139,17 +143,17 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-您可以使用 Dockerfile 添加其他容器层，以指定要包含在容器中的操作系统包、Java 版本或全局包。
+你可以使用 Dockerfile 添加其他容器层，以指定要包含在容器中的操作系统包、Java 版本或全局包。
 
 ## 步骤 3：修改 devcontainer.json 文件
 
-添加开发容器配置并基本了解所有内容的功能后，现在可以进行更改以进一步自定义环境。 在此示例中，您将在代码空间启动时添加属性以安装扩展和项目依赖项。
+添加了开发容器配置并基本了解所有功能之后，现在可以进行更改以进一步自定义你的环境。 在此示例中，您将在代码空间启动时添加属性以安装扩展和项目依赖项。
 
-1. 在 Explorer 中，从树中选择 `devcontainer.json` 文件来打开它。 您可能需要展开 `.devcontainer` 文件夹才能看到它。
+1. 在资源管理器中，从树中选择 `devcontainer.json` 文件以将其打开。 可能需要展开 `.devcontainer` 文件夹才能看到它。
 
    ![Explorer 中的 devcontainer.json 文件](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. 在 `devcontainer.json` 文件中的 `extensions` 后面添加以下行。
+2. 将以下行添加到 `devcontainer.json` 文件的 `extensions` 之后：
 
    ```json{:copy}
    "postCreateCommand": "npm install",
@@ -164,13 +168,13 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 
 ## 步骤 4：运行应用程序
 
-在上一节中，您使用 `postCreateCommand` 通过 npm 安装了一组包。 您现在可以使用它来通过 npm 运行应用程序。
+在上一部分中，你使用 `postCreateCommand` 通过 npm 安装了一组包。 您现在可以使用它来通过 npm 运行应用程序。
 
 1. 按 `F5` 运行应用程序。
 
-2. 项目启动时，您应该在右下角看到一个信息框，提示您连接到项目使用的端口。
+2. 项目启动时，应会在 {% data variables.product.prodname_vscode_shortname %} 的右下角看到一条“toast”通知消息，其中包含连接到项目使用的端口的提示。
 
-   ![端口转发信息框](/assets/images/help/codespaces/codespaces-port-toast.png)
+   ![端口转发“toast”通知](/assets/images/help/codespaces/codespaces-port-toast.png)
 
 ## 步骤 5：提交更改
 
@@ -178,6 +182,6 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 
 ## 后续步骤
 
-现在，您应该准备开始在 {% data variables.product.prodname_codespaces %} 中开发您的 Java 项目。 以下是用于更高级场景的一些额外资源。
+现在，你应该准备好了在 {% data variables.product.prodname_github_codespaces %} 中开始开发 Java 项目。 以下是用于更高级场景的一些额外资源。
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

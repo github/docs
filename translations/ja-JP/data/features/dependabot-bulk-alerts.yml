@@ -1,5 +1,4 @@
----
-#Reference: Issue #6076 ability to dismiss or re-open multiple Dependabot alerts
+# Reference: Issue #6076 ability to dismiss or re-open multiple Dependabot alerts
 versions:
   fpt: '*'
   ghec: '*'

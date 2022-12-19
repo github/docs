@@ -16,48 +16,52 @@ topics:
   - Publishing
   - Node
   - JavaScript
-shortTitle: Pacotes do Node.js
+shortTitle: Node.js packages
+ms.openlocfilehash: afa780db8d6c044d57bc2bfdb0a8ca851a32635f
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '147064095'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introdução
+## <a name="introduction"></a>Introdução
 
 Este guia mostra como criar um fluxo de trabalho que publica pacotes do Node.js em {% data variables.product.prodname_registry %} e nos registros npm após os testes de integração contínua (CI) serem aprovados.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você tenha um entendimento básico das opções de configuração do fluxo de trabalho e de como criar um arquivo do fluxo de trabalho. Para obter mais informações, consulte "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+Recomendamos que você tenha um entendimento básico das opções de configuração do fluxo de trabalho e de como criar um arquivo do fluxo de trabalho. Para obter mais informações, confira "[Aprenda a usar o {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-Para obter mais informações sobre a criação de um fluxo de trabalho de CI para seu projeto Node.js, consulte "[Usando Node.js com {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)".
+Para obter mais informações sobre como criar um fluxo de trabalho de CI para seu projeto Node.js, confira "[Usar Node.js com {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)".
 
 Você também pode achar útil ter um entendimento básico do seguinte:
 
-- "[Trabalhando com o registro npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[Como trabalhar com o registro npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
 - "[Variáveis de ambiente](/actions/reference/environment-variables)"
 - "[Segredos criptografados](/actions/reference/encrypted-secrets)"
 - "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow)"
 
-## Sobre a configuração do pacote
+## <a name="about-package-configuration"></a>Sobre a configuração do pacote
 
- Os campos `nome` e `versão` no arquivo *package.json* cria um identificador único que os registros usam para vincular seu pacote a um registro. Você pode adicionar um resumo para página de listagem do pacote ao incluir um campo `descrição` no arquivo *package.json*. Para obter mais informações, consulte "[Criando um pacote package.json](https://docs.npmjs.com/creating-a-package-json-file)" e "[Criando módulos Node.js](https://docs.npmjs.com/creating-node-js-modules)" na documentação do npm.
+ Os campos `name` e `version` no arquivo *package.json* criam um identificador exclusivo que os registros usam para vincular seu pacote a um registro. Você pode adicionar um resumo para a página de listagem de pacotes incluindo um campo `description` no arquivo *package.json*. Para obter mais informações, confira "[Criar um arquivo package.json](https://docs.npmjs.com/creating-a-package-json-file)" e "[Criar módulos Node.js](https://docs.npmjs.com/creating-node-js-modules)" na documentação npm.
 
-Quando um arquivo *.npmrc* local existe e tem um valor de `registro` especificado, o comando `publicação do npm` usa o registro configurado no arquivo *.npmrc*. {% data reusables.actions.setup-node-intro %}
+Quando um arquivo *.npmrc* local existe e tem um valor especificado `registry`, o comando `npm publish` usa o registro configurado no arquivo *.npmrc*. {% data reusables.actions.setup-node-intro %}
 
 Você pode especificar a versão do Node.js instalada no executor usando a ação `setup-node`.
 
-Se você adicionar etapas ao seu fluxo de trabalho para configurar os campos `publishConfig` no seu arquivo *package.json*, você não precisará especificar o registry-url usando a ação de `setup-node`. No entanto, você estará limitado à publicação do pacote em um registro. Para obter mais informações, consulte "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" na documentação npm.
+Se você adicionar etapas ao seu fluxo de trabalho para configurar os campos `publishConfig` no seu arquivo *package.json*, você não precisará especificar o registry-url usando a ação de `setup-node`. No entanto, você estará limitado à publicação do pacote em um registro. Para obter mais informações, confira "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" na documentação do npm.
 
-## Publicar pacotes no registro npm
+## <a name="publishing-packages-to-the-npm-registry"></a>Publicar pacotes no registro npm
 
-Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado quando o evento `versão` é acionado com o tipo `criado`. O fluxo de trabalho publica o pacote no registro npm se o teste de CI for aprovado.
+Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado quando o evento `release` é disparado com o tipo `created`. O fluxo de trabalho publica o pacote no registro npm se o teste de CI for aprovado.
 
-Para executar operações autenticadas para o registro npm em seu fluxo de trabalho, você precisará armazenar seu token de autenticação npm como um segredo. Por exemplo, crie um repositório secreto denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Para executar operações autenticadas para o registro npm em seu fluxo de trabalho, você precisará armazenar seu token de autenticação npm como um segredo. Por exemplo, crie um segredo do repositório chamado `NPM_TOKEN`. Para obter mais informações, confira "[Como criar e usar segredos criptografados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-Por padrão, o npm usa o campo `nome` do arquivo *package.json* para determinar o nome do seu pacote publicado. Ao publicar em um namespace global, você precisa incluir apenas o nome do pacote. Por exemplo, você publicaria um pacote denominado `npm-hello-world-test` em `https://www.npmjs.com/package/npm-hello-world-test`.
+Por padrão, o npm usa o campo `name` do arquivo *package.json* para determinar o nome do seu pacote publicado. Ao publicar em um namespace global, você precisa incluir apenas o nome do pacote. Por exemplo, você publicaria um pacote nomeado `npm-hello-world-test` para `https://www.npmjs.com/package/npm-hello-world-test`.
 
-Se você estiver publicando um pacote que inclui um prefixo de escopo, inclua o escopo no nome do arquivo *package.json*. Por exemplo, se o prefixo de escopo do npm é octocat e o nome do pacote é hello-world, o `nome` no seu arquivo *package.json* deverá ser `@octocat/hello-world`. Se seu pacote npm usar um prefixo de escopo e for público, você deverá usar a opção `npm publish --access public`. Essa é uma opção que o npm requer para impedir que alguém publique um pacote privado de forma não intencional.
+Se você estiver publicando um pacote que inclui um prefixo de escopo, inclua o escopo no nome do arquivo *package.json*. Por exemplo, se o prefixo do escopo do npm for octocat e o nome do pacote for hello-world, o `name` no seu arquivo *package.json* deverá ser `@octocat/hello-world`. Se o seu pacote npm usar um prefixo de escopo e for público, você deverá usar a opção `npm publish --access public`. Essa é uma opção que o npm requer para impedir que alguém publique um pacote privado de forma não intencional.
 
 Este exemplo armazena o segredo `NPM_TOKEN` na variável de ambiente `NODE_AUTH_TOKEN`. Quando a ação `setup-node` cria um arquivo *.npmrc*, ela faz referência ao token da variável de ambiente `NODE_AUTH_TOKEN`.
 
@@ -82,7 +86,7 @@ jobs:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
 
-No exemplo acima, a ação `setup-node` cria um arquivo *.npmrc* no executor com o conteúdo a seguir:
+No exemplo acima, a ação `setup-node` cria um arquivo *.npmrc* no executor com o seguinte conteúdo:
 
 ```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
@@ -90,17 +94,17 @@ registry=https://registry.npmjs.org/
 always-auth=true
 ```
 
-Observe que você precisa definir o `registry-url` como `https://registry.npmjs.org/` em `setup-node` para configurar corretamente suas credenciais.
+Observe que você precisa definir o `registry-url` para `https://registry.npmjs.org/` no `setup-node` para configurar corretamente suas credenciais.
 
-## Publicar pacotes em {% data variables.product.prodname_registry %}
+## <a name="publishing-packages-to--data-variablesproductprodname_registry-"></a>Publicar pacotes em {% data variables.product.prodname_registry %}
 
-Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado sempre que ocorre o evento `versão` com o tipo `criado`. O fluxo de trabalho publica o pacote em {% data variables.product.prodname_registry %} se o teste de CI for aprovado.
+Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado sempre que o evento `release` com tipo `created` ocorre. O fluxo de trabalho publica o pacote em {% data variables.product.prodname_registry %} se o teste de CI for aprovado.
 
-### Configurar o repositório de destino
+### <a name="configuring-the-destination-repository"></a>Configurar o repositório de destino
 
-Se você não fornecer a chave do `repositório` no seu arquivo *package.json*, {% data variables.product.prodname_registry %} irá publicar um pacote no repositório de {% data variables.product.prodname_dotcom %} especificado no campo `nome` do arquivo *package.json*. Por exemplo, um pacote denominado `@my-org/test` é publicado no `my-org/test` repositório de {% data variables.product.prodname_dotcom %}.
+Se você não fornecer a chave `repository` em seu arquivo *package.json*, {% data variables.product.prodname_registry %} publicará um pacote no repositório {% data variables.product.prodname_dotcom %} especificado no campo `name` do arquivo *package.json*. Por exemplo, você publicará um pacote chamado `@my-org/test` no repositório `my-org/test` do {% data variables.product.prodname_dotcom %}.
 
-No entanto, se você fornecer a chave `repositório`, o repositório nessa chave será usado como o registro de npm de destino para {% data variables.product.prodname_registry %}. Por exemplo, publicar os resultados *package.json* abaixo em um pacote denominado `my-amazing-package` publicado no repositório `octocat/meu-repo` de {% data variables.product.prodname_dotcom %}.
+No entanto, se você fornecer a chave `repository`, o repositório nessa chave será usado como o registro de npm de destino para {% data variables.product.prodname_registry %}. Por exemplo, publicar o *package.json* abaixo resulta em um pacote nomeado `my-amazing-package` publicado no repositório `octocat/my-other-repo` {% data variables.product.prodname_dotcom %}.
 
 ```json
 {
@@ -111,13 +115,13 @@ No entanto, se você fornecer a chave `repositório`, o repositório nessa chave
   },
 ```
 
-### Efetuar a autenticação no repositório de destino
+### <a name="authenticating-to-the-destination-repository"></a>Efetuar a autenticação no repositório de destino
 
 Para realizar operações autenticadas no registro do {% data variables.product.prodname_registry %} em seu fluxo de trabalho, você pode usar o `GITHUB_TOKEN`. {% data reusables.actions.github-token-permissions %}
 
-Se você quiser publicar seu pacote em um repositório diferente, você deverá usar um token de acesso pessoal (PAT) que tenha permissão para escrever pacotes no repositório de destino. Para obter mais informações, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+Se você quiser publicar seu pacote em um repositório diferente, você deverá usar um token de acesso pessoal (PAT) que tenha permissão para escrever pacotes no repositório de destino. Para obter mais informações, confira "[Como criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
-### Exemplo de fluxo de trabalho
+### <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 
 Este exemplo armazena o segredo `GITHUB_TOKEN` na variável de ambiente `NODE_AUTH_TOKEN`. Quando a ação `setup-node` cria um arquivo *.npmrc*, ela faz referência ao token da variável de ambiente `NODE_AUTH_TOKEN`.
 
@@ -147,7 +151,7 @@ jobs:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-A ação `setup-node` cria um arquivo *.npmrc* no executor. Ao usar a entrada do `escopo` para a ação `setup-node`, o arquivo *.npmrc* incluirá o prefixo do escopo. Por padrão, a ação `setup-node` define o escopo no arquivo *.npmrc* na conta que contém esse arquivo do fluxo de trabalho.
+A ação `setup-node` cria um arquivo *.npmrc* no executor. Quando você usa a entrada `scope` para a ação `setup-node`, o arquivo *.npmrc* inclui o prefixo de escopo. Por padrão, a ação `setup-node` define o escopo no arquivo *.npmrc* para a conta que contém esse arquivo de fluxo de trabalho.
 
 ```ini
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
@@ -155,7 +159,7 @@ A ação `setup-node` cria um arquivo *.npmrc* no executor. Ao usar a entrada do
 always-auth=true
 ```
 
-## Publicar pacotes usando o yarn
+## <a name="publishing-packages-using-yarn"></a>Publicar pacotes usando o yarn
 
 Se você usar o gerenciador de pacotes Yarn, você poderá instalar e publicar pacotes usando o Yarn.
 

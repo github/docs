@@ -41,10 +41,15 @@ versions:
 topics:
   - Issues
   - Pull requests
-shortTitle: Filtrar e pesquisar
+shortTitle: Filter and search
 type: how_to
+ms.openlocfilehash: 24f91958f98f4b6744ee3b21bf3d748aef062eb6
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107594'
 ---
-
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
 ## Filtrar problemas e pull requests
@@ -57,41 +62,40 @@ Problemas e pull requests possuem um conjunto de filtros padrão que podem ser a
 - Todos os problemas e pull requests abertos
 - Problemas e pull requests criados
 - Problemas e pull requests atribuídos a você
-- Problemas e pull requests nos quais você foi [**@mentioned**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) (@mencionado)
+- Problemas e solicitações de pull em que você é [ **@mentioned**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-3. Clique em **Filters** (Filtros) para escolher o tipo de filtro desejado. ![Usar o menu suspenso Filters (Filtros)](/assets/images/help/issues/issues_filter_dropdown.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
+3. Clique em **Filtros** para escolher o tipo de filtro do seu interesse.
+  ![Como usar o menu suspenso Filtros](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ## Filtrar problemas e pull requests por responsáveis
 
-Uma vez que você [atribuiu um problema ou pull request a alguém](/articles/assigning-issues-and-pull-requests-to-other-github-users), você poderá encontrar itens baseado em quem está trabalhando neles.
+Depois de [atribuir um problema ou uma solicitação de pull a alguém](/articles/assigning-issues-and-pull-requests-to-other-github-users), você pode encontrar itens com base na pessoa que está trabalhando neles.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
 3. No canto superior direito, selecione o menu suspenso Assignee (Responsável).
-4. O menu suspenso Assignee (Responsável) lista todas as pessoas que têm acesso de gravação no repositório. Clique sobre o nome da pessoa cujos itens atribuídos você quer ver ou clique **Assigned to nobody** (Atribuído a ninguém) para verificar quais problemas estão sem responsáveis. ![Usar a aba suspensa Assignees (Responsáveis)](/assets/images/help/issues/issues_assignee_dropdown.png)
+4. O menu suspenso Assignee (Responsável) lista todas as pessoas que têm acesso de gravação no repositório. Clique no nome da pessoa cujos itens atribuídos deseja ver ou clique em **Atribuído a ninguém** para ver os problemas que estão sem atribuição.
+![Como usar a guia suspensa Responsáveis](/assets/images/help/issues/issues_assignee_dropdown.png)
 
 {% tip %}
 
-Para limpar a seleção de filtro, clique em **Clear current search query, filters, and sorts** (Limpar consulta atual, filtros e ordenar).
+Para limpar a seleção de filtro, clique em **Limpar a consulta de pesquisa atual, filtros e classificações**.
 
 {% endtip %}
 
 ## Filtrar problemas e pull requests por etiquetas
 
-Depois que [aplicou etiquetas a um problema ou pull request](/articles/applying-labels-to-issues-and-pull-requests), você poderá encontrar itens baseados nas suas etiquetas.
+Depois de [aplicar rótulos a um problema ou uma solicitação de pull](/articles/applying-labels-to-issues-and-pull-requests), você pode encontrar itens com base nos respectivos rótulos.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.labels %}
-4. Na lista de etiquetas, clique em uma etiqueta para visualizar os problemas e pull requests atribuídas a ela. ![Lista de etiquetas de um repositório](/assets/images/help/issues/labels-page.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %} {% data reusables.project-management.labels %}
+4. Na lista de etiquetas, clique em uma etiqueta para visualizar os problemas e pull requests atribuídas a ela.
+  ![Lista de rótulos de um repositório](/assets/images/help/issues/labels-page.png)
 
 {% tip %}
 
-**Dica: **para limpar a seleção de filtro, clique em **Clear current search query, filters, and sorts** (Limpar consulta atual, filtros e ordenar).
+**Dica:** para limpar a seleção de filtro, clique em **Limpar a consulta de pesquisa atual, filtros e classificações**.
 
 {% endtip %}
 
@@ -100,18 +104,19 @@ Depois que [aplicou etiquetas a um problema ou pull request](/articles/applying-
 É possível usar filtros para listar pull requests por status de revisão e encontrar as que você revisou ou outras pessoas solicitaram que você revisasse.
 
 Você pode filtrar uma lista de pull requests do repositório para encontrar:
-- Pull requests que ainda não foram [revisadas](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)
-- Pull requests que [necessitam de revisão](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) antes de serem mescladas
+- Solicitações de pull que ainda não foram [revisadas](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)
+- Solicitações de pull que [exigem uma revisão](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) para serem mescladas
 - Pull requests que um revisor aprovou
 - Pull requests nas quais um revisor solicitou alterações
-- Os pull requests que você revisou{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
-- Pull requests que alguém pediu para você para revisar diretamente{% endif %}
-- Pull requests que [alguém solicitou revisão a você ou a uma equipe a que você pertence](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)
+- Solicitações de pull que você revisou
+- As solicitações de pull que alguém pediu diretamente para você para revisar
+- Solicitações de pull para as quais [alguém solicitou uma revisão a você ou a uma equipe da qual você é membro](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-3. No canto superior direito, selecione o menu suspenso Reviews (Revisões). ![Menu suspenso Reviews (Revisões) no menu filter (filtro) acima da lista de pull requests](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
-4. Escolha um filtro para encontrar todas as pull requests com o status do filtro. ![Lista de filtros no menu suspenso Reviews (Revisões)](/assets/images/help/pull_requests/pr-review-filters.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+3. No canto superior direito, selecione o menu suspenso Reviews (Revisões).
+  ![Menu suspenso Revisões no menu Filtro acima da lista de solicitações de pull](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
+4. Escolha um filtro para encontrar todas as pull requests com o status do filtro.
+  ![Lista de filtros no menu suspenso Revisões](/assets/images/help/pull_requests/pr-review-filters.png)
 
 ## Usar a pesquisa para filtrar problemas e pull requests
 
@@ -121,7 +126,7 @@ Você pode usar filtros avançados para pesquisar problemas e pull requests que 
 
 {% webui %}
 
-A barra de pesquisa de problemas e pull requests permite que você defina seus próprios filtros personalizados e ordene por uma ampla variedade de critérios. A barra de pesquisa pode ser encontrada nas guias **Problemas** e **Pull requests** de cada repositório nos [Painéis de problemas e pull requests](/articles/viewing-all-of-your-issues-and-pull-requests).
+A barra de pesquisa de problemas e pull requests permite que você defina seus próprios filtros personalizados e ordene por uma ampla variedade de critérios. Encontre a barra de pesquisa nas guias **Problemas** e **Solicitações pull** de cada repositório e nos [painéis Problemas e Solicitações de pull](/articles/viewing-all-of-your-issues-and-pull-requests).
 
 ![A barra de pesquisa de problemas e pull request](/assets/images/help/issues/issues_search_bar.png)
 
@@ -137,15 +142,15 @@ A barra de pesquisa de problemas e pull requests permite que você defina seus p
 
 {% data reusables.cli.cli-learn-more %}
 
-Você pode usar o {% data variables.product.prodname_cli %} para pesquisar problemas ou pull requests. Use o subcomando `gh issue list` ou `gh pr list` junto com o argumento `--search` e uma consulta de pesquisa.
+Você pode usar o {% data variables.product.prodname_cli %} para pesquisar problemas ou pull requests. Use o subcomando `gh issue list` ou `gh pr list` subcomando com o argumento `--search` e uma consulta de pesquisa.
 
-Por exemplo, você pode listar, na ordem da data de criação, todos os problemas que não têm nenhum responsável e que têm a etiqueta `help wanted` ou `erro`.
+Por exemplo, você pode listar, por ordem de data criada, todos os problemas que não têm um destinatário e que têm o rótulo `help wanted` ou `bug`.
 
 ```shell
 gh issue list --search 'no:assignee label:"help wanted",bug sort:created-asc'
 ```
 
-Você também pode listar todos os pull requests que mencionam a equipe `octo-org/octo-team`.
+Você também pode listar todas as solicitações de pull que mencionam a equipe `octo-org/octo-team`.
 
 ```shell
 gh pr list --search "team:octo-org/octo-team"
@@ -157,38 +162,36 @@ gh pr list --search "team:octo-org/octo-team"
 
 Com os termos da pesquisa de problemas e pull requests, é possível:
 
-- Filtrar problemas e pull requests por autor: `state:open type:issue author:octocat`
-- Filtrar problemas e pull requests que envolvem determinadas pessoas, mas não necessariamente as [**@mencionam**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams): `state:open type:issue involves:octocat`
-- Filtrar problemas e pull requests por responsável: `state:open type:issue assignee:octocat`
-- Filtrar problemas e pull requests por etiqueta: `state:open type:issue label:"bug"`
-- Filtrar termos da pesquisa usando `-` antes do termo: `state:open type:issue -author:octocat`
+- Filtrar problemas e solicitações de pull por autor: `state:open type:issue author:octocat`
+- Filtrar problemas e solicitações de pull que envolvem, mas não necessariamente [ **@mention**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), determinadas pessoas: `state:open type:issue involves:octocat`
+- Filtrar problemas e solicitações de pull por destinatário: `state:open type:issue assignee:octocat`
+- Filtrar problemas e solicitações de pull por rótulo: `state:open type:issue label:"bug"`
+- Filtrar os termos de pesquisa usando `-` antes do termo: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
-**Dica:** Você pode filtrar problemas e pull requests por etiqueta, usando a lógica OU ou E.
-- Para filtrar problemas usando ROM OR, use a sintaxe de vírgula: `label:"bug","wip"`.
-- Para filtrar problemas usando a lógica E, use filtros separados de etiqueta: `label:"bug" label:"wip"`.
+**Dica:** você pode filtrar problemas e solicitações de pull por rótulo usando OR lógico ou AND lógico.
+- Para filtrar problemas usando OR lógico, use a sintaxe de vírgula: `label:"bug","wip"`.
+- Para filtrar problemas usando AND lógico, use filtros de rótulo separados: `label:"bug" label:"wip"`.
 
 {% endtip %}
-{% endif %}
 
 Para problemas, você também pode usar a busca para:
 
-- Filtro problemas vinculados a um pull request por uma referência de fechamento: `linked:pr`{% ifversion issue-close-reasons %}
-- Filtrar problemas pelo motivo pelo qual foram fechados: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
+- Filtre por problemas vinculados a uma solicitação pull por uma referência de fechamento: `linked:pr`{% ifversion issue-close-reasons %}
+- Filtre os problemas pelo motivo pelo qual foram fechados: `is:closed reason:complete` ou `is:closed reason:"not planned"`{% endif %}
 
 Para pull requests, você também pode usar a pesquisa para:
-- Filtrar pull requests de [rascunho](/articles/about-pull-requests#draft-pull-requests): `is:draft`
-- Filtrar pull requests que não tenham sido [revisadas](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet: `state:open type:pr review:none`
-- Filtrar pull requests que [exijam uma revisão](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) para que o merge possa ser feito: `state:open type:pr review:required`
-- Filtrar pull requests que tenham sido aprovadas por um revisor: `state:open type:pr review:approved`
-- Filtrar pull requests nas quais um revisor tenha solicitado alterações: `state:open type:pr review:changes_requested`
-- Filtrar pull requests por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filtrar pull requests por usuário específico [solicitado para revisão](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
-- Filtrar pull requests que alguém pediu para você revisar diretamente: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filtrar pull requests pela equipe solicitada para revisão: `state:open type:pr team-review-requested:github/atom`
-- Filtro por pull requests que estão vinculadas a um problema que a pull request pode concluir: `linked:issue`
+- Filtrar solicitações de pull de [rascunho](/articles/about-pull-requests#draft-pull-requests) : `is:draft`
+- Filtrar solicitações de pull que ainda não foram [revisadas](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews): `state:open type:pr review:none`
+- Filtrar solicitações de pull que [exigem uma revisão](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) para serem mescladas: `state:open type:pr review:required`
+- Filtrar solicitações de pull aprovadas por um revisor: `state:open type:pr review:approved`
+- Filtrar solicitações de pull nas quais um revisor solicitou alterações: `state:open type:pr review:changes_requested`
+- Filtrar solicitações de pull por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
+- Filtrar as solicitações de pull pelo usuário específico [solicitado para revisão](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
+- Filtrar as solicitações de pull cuja revisão alguém solicitou diretamente a você: `state:open type:pr user-review-requested:@me`
+- Filtrar solicitações de pull da equipe solicitadas para revisão: `state:open type:pr team-review-requested:github/docs`
+- Filtrar solicitações de pull que estão vinculadas a um problema que a solicitação de pull poderá fechar: `linked:issue`
 
 ## Ordenar problemas e pull requests
 
@@ -204,11 +207,11 @@ Você pode ordenar qualquer exibição filtrada por:
 * Prolemas ou pull requests com data de atualização mais antiga
 * A reação mais adicionada em problemas ou pull requests
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-1. No canto superior direito, selecione o menu suspenso Sort (Ordenar). ![Usar a aba suspensa Sort (Ordenar)](/assets/images/help/issues/issues_sort_dropdown.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issue-pr %}
+1. No canto superior direito, selecione o menu suspenso Sort (Ordenar).
+  ![Como usar a guia suspensa Classificar](/assets/images/help/issues/issues_sort_dropdown.png)
 
-Para limpar a seleção da ordenação, clique em **Sort** (Ordenar) > **Newest** (Mais recente).
+Para limpar a seleção de classificação, clique em **Classificar** > **Mais Recente**.
 
 ## Compartilhar filtros
 
@@ -222,6 +225,6 @@ Por exemplo, se você filtrar por problemas atribuídos a Hubot e ordenar pelos 
 /issues?q=state:open+type:issue+assignee:hubot+sort:created-asc
 ```
 
-## Leia mais
+## Leitura adicional
 
-- "[Pesquisando problemas e pull requests](/articles/searching-issues)"
+- "[Como pesquisar problemas e solicitações de pull](/articles/searching-issues)"

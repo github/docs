@@ -11,17 +11,22 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 68b043b92589bf1c1b3a6b543168d5b5b8c85118
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066839'
 ---
+## Sobre a API de Webhooks da organização
 
-## Sobre a API de webhooks da organização
+Os webhooks da organização permitem que você receba conteúdo `POST` HTTP sempre que determinados eventos ocorrerem em uma organização. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. {% data reusables.webhooks.webhooks-rest-api-links %}
-
-Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
+Para obter mais informações sobre ações nas quais você pode se inscrever, confira "[Tipos de eventos do {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
 ### Escopos e restrições
 
-Todas as ações contra webhooks da organização exigem que o usuário autenticado seja um administrador da organização que está sendo gerenciada. Além disso, os tokens do OAuth requerem o escopo `admin:org_hook`. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
+Todas as ações contra webhooks da organização exigem que o usuário autenticado seja um administrador da organização que está sendo gerenciada. Além disso, os tokens OAuth exigem o escopo `admin:org_hook`. Para obter mais informações, confira "[Escopos para Aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)".
 
 Para proteger dados sensíveis que podem estar presentes nas configurações do webhook, também aplicamos as seguintes regras de controle de acesso:
 
@@ -32,8 +37,8 @@ Para proteger dados sensíveis que podem estar presentes nas configurações do 
 
 Para que {% data variables.product.product_name %} envie cargas de webhook, seu servidor deve ser acessível pela internet. É altamente recomendável o uso de SSL para que possamos enviar cargas criptografadas por HTTPS.
 
-Para obter mais práticas recomendadas, [consulte nosso guia](/guides/best-practices-for-integrators/).
+Para ver as melhores práticas, [confira nosso guia](/guides/best-practices-for-integrators/).
 
 #### Cabeçalhos de webhook
 
-{% data variables.product.product_name %} enviará ao longo de vários cabeçalhos de HTTP para diferenciar entre tipos de evento e identificadores de carga. Consulte [cabeçalhos de webhook](/webhooks/event-payloads/#delivery-headers) para obter informações.
+{% data variables.product.product_name %} enviará ao longo de vários cabeçalhos de HTTP para diferenciar entre tipos de evento e identificadores de carga. Confira [Cabeçalhos de webhook](/webhooks/event-payloads/#delivery-headers) para ver detalhes.

@@ -1,28 +1,27 @@
----
 date: '2021-05-25'
 sections:
   security_fixes:
-    - '** 中: ** 特定の環境下で、TeamあるいはOrganizationから削除されたユーザは、オープンな既存のPull Requestを持つブランチへの書き込みアクセス権を持ったままになることがあります。'
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - '**中:** 特定の環境では、チームまたは Organization から削除されたユーザーが、既存の pull request を開いたブランチへの書き込みアクセス権を持ったままになることがありました。'
+    - パッケージは最新のセキュリティ バージョンに更新されました。
   bugs:
-    - 初期のインストールプロセスの"Configure Actions and Packages"ページで、管理者が"Test domain settings"ボタンをクリックしてもテストが完了しませんでした。
-    - '`ghe-btop`の実行が`cannot find a ''babeld'' container`というエラーで失敗しました。'
-    - 内部及び外部のタイムアウト値のミスマッチのために、アップグレード後にサービスが利用できなくなっていました。
-    - MySQLでの通常のレプリケーションの遅延で警告が生じました。
-    - 管理コンソールのGitHub Enterprise Clustering Guideへのリンクが正しくありませんでした。
-    - '"Create Whitelist Entry"ボタンを使って管理者が追加したIPアドレスが、ロックアウトされたままになることがあります。'
-    - '「依存関係グラフ」及び「Dependabotアラート」機能への参照が、それらが有効化されていないリポジトリで表示されました。'
-    - '`/hooks`エンドポイントへのHTTP POSTリクエストが、`hookID`が正しく設定されていないため、401レスポンスで失敗することがあります。'
-    - '`build-server`がプロセスのクリーンアップに失敗し、それらのプロセスが`defunct`状態で残ったままになりました。'
-    - '`spokesd`が"fixing placement skipped"というフレーズを含む過剰なログのエントリを生成しました。'
+    - "初期インストール プロセスの [Actions と Packages の構成] ページで、管理者が [ドメインの設定のテスト] ボタンをクリックすると、テストが完了しませんでした。"
+    - "\"ghe-btop\" の実行が、\"'babeld' コンテナーが見つかりません\" というエラーで失敗しました。"
+    - 内部と外部のタイムアウト値の不一致のため、アップグレード後にユーザーはサービスを利用できませんでした。
+    - MSSQL での通常のレプリケーションの遅延で警告が発生しました。
+    - 管理コンソールの GitHub Enterprise Clustering Guide へのリンクが正しくありませんでした。
+    - "[ホワイトリスト エントリの作成] ボタンを使って管理者が追加した IP アドレスが、ロックアウトされたままになることがありました。"
+    - "\"依存関係グラフ\" と \"Dependabot アラート\" 機能への参照が、それらが有効になっていないリポジトリで表示されました。"
+    - "\"/hooks\" エンドポイントへの HTTP POST 要求が、\"hookID\" が正しく設定されていないため、401 の応答で失敗することがありました。"
+    - "\"build-server\" プロセスがプロセスのクリーンアップに失敗し、それらが \"機能していない\" 状態のままになりました。"
+    - '"spokesd" で、"配置の修正がスキップされました" というフレーズを含む過剰なログ エントリが作成されました。'
   changes:
-    - 4ヶ月以上経過したチェックアノテーションがアーカイブされます。
+    - 4 か月以上経過したチェック注釈がアーカイブされます。
   known_issues:
-    - '`ghe-repo <owner>/<reponame>`を使って管理シェルを通じてリポジトリにアクセスすると、ハングします。回避策として、次のバージョンで修正が提供されるまで`ghe-repo <owner>/<reponame> -c "bash -i"`を使ってください。'
-    - 新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。
-    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - "管理シェルで \"ghe-repo <owner>/<reponame>\" を使ってリポジトリにアクセスすると、ハングします。回避するには、次のバージョンで修正が提供されるまで、\"ghe-repo <owner>/<reponame> -c \"bash -i\"\" を使ってください。"
+    - 新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。
+    - カスタム ファイアウォール規則は、アップグレードの間に維持されません。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

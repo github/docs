@@ -1,6 +1,14 @@
-Use `jobs.<job_id>.strategy.matrix.include` para expandir as configurações da matriz existentes ou para adicionar novas configurações. O valor de `incluir` é uma lista de objetos.
+---
+ms.openlocfilehash: 58fe7bc6f3568b066453ea1e2fa5b6defc7c5048
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145065428"
+---
+Use `jobs.<job_id>.strategy.matrix.include` para expandir as configurações de matriz existentes ou para adicionar novas configurações. O valor de `include` é uma lista de objetos.
 
-Para cada objeto na lista `incluir`, os pares chave-valor no objeto serão adicionados a cada uma das combinações da matriz se nenhum dos pares chave-valor sobrescrever qualquer dos valores originais da matriz. Se o objeto não pode ser adicionado a qualquer das combinações matriz, será criada uma nova combinação matriz. Observe que os valores originais da matriz não serão substituídos, mas valores adicionados da matriz podem ser substituídos.
+Para cada objeto na lista `include`, os pares key:value no objeto serão adicionados a cada uma das combinações de matriz se nenhum dos pares key:value substituir qualquer um dos valores de matriz originais. Se o objeto não puder ser adicionado a nenhuma das combinações de matriz, uma nova combinação de matriz será criada. Observe que os valores de matriz originais não serão substituídos, mas os valores de matriz adicionados podem ser substituídos.
 
 Por exemplo, esta matriz:
 
@@ -31,8 +39,8 @@ resultará em seis trabalhos com as seguintes combinações de matriz:
 
 seguindo esta lógica:
 
-- `{color: green}` é adicionado a todas as combinações de matrizes originais, porque pode ser adicionado sem substituir nenhuma parte das combinações originais.
-- `{color: pink, animal: cat}` adiciona `color>pink` apenas para as combinações originais da matriz que incluem `animal: cat`. Isto sobrescreve `color: green` que foi adicionada pela entrada `incluir` anterior.
-- `{fruit: apple, shape: circle}` adiciona `shape: circle` apenas às combinações da matriz original que incluem `fruit: apple`.
-- `{fruit: banana}` não pode ser adicionado a qualquer combinação da matriz original sem substituir um valor. Portanto, ele é adicionado como uma combinação da matriz adicional.
-- `{fruit: banana, animal: cat}` não pode ser adicionado a qualquer combinação da matriz original sem substituir um valor. Portanto, ele é adicionado como uma combinação da matriz adicional. Não se adiciona à combinação da matriz `{fruit: banana}` porque essa combinação não era uma das combinações originais da matriz.
+- `{color: green}` será adicionado a todas as combinações de matriz originais porque ele pode ser adicionado sem substituir nenhuma parte das combinações originais.
+- `{color: pink, animal: cat}` adiciona `color:pink` apenas às combinações de matriz originais que incluem `animal: cat`. Isso substitui o `color: green` que foi adicionado pela entrada anterior `include`.
+- O `{fruit: apple, shape: circle}` adiciona `shape: circle` apenas às combinações de matriz originais que incluem `fruit: apple`.
+- O `{fruit: banana}` não pode ser adicionado a nenhuma combinação de matriz original sem substituir um valor, portanto, ele é adicionado como uma combinação de matriz adicional.
+- O `{fruit: banana, animal: cat}` não pode ser adicionado a nenhuma combinação de matriz original sem substituir um valor, portanto, ele é adicionado como uma combinação de matriz adicional. Ele não adiciona à combinação de matriz `{fruit: banana}` porque essa combinação não era uma das combinações de matriz originais.

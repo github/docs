@@ -12,13 +12,18 @@ versions:
   ghec: '*'
 topics:
   - SSH
+ms.openlocfilehash: db2a47ad6029790cdbf9f0212087acc659326941
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145088218'
 ---
-
 リモート Git コマンドや SSH の実行時に、接続がタイムアウトする場合があります:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
-> OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
 > ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out
@@ -29,7 +34,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 ### HTTPS を使用する
 
-最もシンプルな解決策は、単に SSH を一切回避することです。 多くのファイアウォールやプロキシでは、HTTPS トラフィックを問題なく許可しています。 これを活かすには、使用している[リモート URL](/github/getting-started-with-github/about-remote-repositories) を変更します。
+最もシンプルな解決策は、単に SSH を一切回避することです。 多くのファイアウォールやプロキシでは、HTTPS トラフィックを問題なく許可しています。 これを活用するには、使用中の[リモート URL](/github/getting-started-with-github/about-remote-repositories) を変更します。
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
@@ -48,14 +53,14 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 ### HTTPS ポートを介して SSH を使用する
 
-HTTPS を使用せず、ファイアウォール管理者が SSH 接続を許可しなかった場合は、[HTTPS ポートを介した SSH](/articles/using-ssh-over-the-https-port) の使用を試すことができます。
+HTTPS を使用することができず、ファイアウォール管理者が SSH 接続を許可しない場合は、代わりに [HTTPS ポートを介して SSH を使用](/articles/using-ssh-over-the-https-port)します。
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## 参考リンク
+## 参考資料
 
-- [接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)
+- 「[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)」 (接続問題のトラブルシューティング)
 
 {% endif %}

@@ -1,8 +1,8 @@
 ---
 title: Árvores do Git
-shortTitle: Árvores
+shortTitle: Trees
 allowTitleToDifferFromFilename: true
-intro: 'A API de árvores do Git permite que você leia e escreva objetos em seu banco de dados Git em {% data variables.product.product_name %}.'
+intro: 'Use a API REST para interagir com objetos de árvore em seu banco de dados Git no {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,8 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ecd3781bbc78fff8b2d75f25b16d303081a7d605
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193046'
 ---
+## Sobre as árvores de Git
 
-## Sobre a API de árvores do Git
-
-Um objeto da árvore do Git cria a hierarquia entre arquivos em um repositório do Git. Você pode usar o objeto da árvore do Git para criar a relação entre diretórios e os arquivos que eles contêm. Estes pontos de extremidade permitem que você leia e escreva [objetos de árvore](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects) em seu banco de dados do Git em {% data variables.product.product_name %}.
+Um objeto da árvore do Git cria a hierarquia entre arquivos em um repositório do Git. Você pode usar o objeto da árvore do Git para criar a relação entre diretórios e os arquivos que eles contêm. Esses pontos de extremidade permitem que você leia e grave [objetos de árvore](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_tree_objects) no banco de dados do Git no {% data variables.product.product_name %}.

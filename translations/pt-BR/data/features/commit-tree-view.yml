@@ -1,6 +1,5 @@
----
-#Issue 6662
-#Commit file tree view
+# Issue 6662
+# Commit file tree view
 versions:
   fpt: '*'
   ghec: '*'

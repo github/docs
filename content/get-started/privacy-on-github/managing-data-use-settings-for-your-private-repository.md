@@ -45,5 +45,5 @@ When you enable data use for your private repository, you'll be able to access t
 ## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %}'s use of your data](/articles/about-github-s-use-of-your-data)"
-- "[Viewing and updatng {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
 - "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"

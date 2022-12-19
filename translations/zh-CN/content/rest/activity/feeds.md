@@ -1,5 +1,5 @@
 ---
-title: 馈送
+title: 源
 intro: ''
 versions:
   fpt: '*'
@@ -9,15 +9,20 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 327d47eeee98a2b8a3fd5e1a7a07ae671c691686
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064296'
 ---
+## 关于源 API
 
-## 关于馈送 API
-
-要查看哪些源可供您使用，请使用[获取馈送](#get-feeds)操作。 然后，您可以通过向其中一个馈送 URL 发送请求来获取馈送。
+若要查看可用的源，请使用[“获取源”](#get-feeds)操作。 然后，可以通过向其中一个源 URL 发送请求来获取源。
 
 ### 获取 Atom 馈送的示例
 
-要获取 Atom 格式的馈送，您必须在 `Accept` 标头中指定 `application/atom+xml` 类型。 例如，要获取 GitHub 安全通告的 Atom 馈送：
+若要获取 Atom 格式的馈送，必须在 `Accept` 标头中指定 `application/atom+xml` 类型。 例如，要获取 GitHub 安全通告的 Atom 馈送：
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 

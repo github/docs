@@ -32,6 +32,8 @@ If you're unable to verify with the captcha:
 
 Switching from cloning via SSH to cloning via HTTPS, or vice versa may improve connectivity. For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
 
+If you prefer to use SSH but the port is blocked, you can use an alternative port. For more information, see "[Using SSH over the HTTPS port](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)".
+
 If you're encountering timeouts with SSH, see "[Error: Bad file number](/articles/error-bad-file-number)."
 
 ## Troubleshooting slow downloads and intermittent slow connections

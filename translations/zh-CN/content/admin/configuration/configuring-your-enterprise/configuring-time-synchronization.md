@@ -17,16 +17,23 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: 配置时间设置
+shortTitle: Configure time settings
+ms.openlocfilehash: 34ab851e50467a06eb0003d32306d1cd26e9a2d8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098101'
 ---
-
 ## 更改默认 NTP 服务器
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. 在左侧边栏中，单击 **Time**。 ![{% data variables.enterprise.management_console %} 边栏中的 Time 按钮](/assets/images/enterprise/management-console/sidebar-time.png)
-3. 在“Primary NTP server”下，输入主 NTP 服务器的主机名。 在“Secondary NTP server”下，输入辅助 NTP 服务器的主机名。 ![{% data variables.enterprise.management_console %} 中用于主 NTP 服务器和辅助 NTP 服务器的字段](/assets/images/enterprise/management-console/ntp-servers.png)
-4. 在页面底部，单击 **Save settings**。 ![{% data variables.enterprise.management_console %} 中的 Save settings 按钮](/assets/images/enterprise/management-console/save-settings.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. 在左侧边栏中，单击“时间”。
+    ![{% data variables.enterprise.management_console %} 边栏中的“时间”按钮](/assets/images/enterprise/management-console/sidebar-time.png)
+3. 在“Primary NTP server”下，输入主 NTP 服务器的主机名。 在“Secondary NTP server”下，输入辅助 NTP 服务器的主机名。
+    ![{% data variables.enterprise.management_console %} 中用于主 NTP 服务器和辅助 NTP 服务器的字段](/assets/images/enterprise/management-console/ntp-servers.png)
+4. 在页面的底部，单击“保存更改”。
+    ![{% data variables.enterprise.management_console %} 中的“保存设置”按钮](/assets/images/enterprise/management-console/save-settings.png)
 5. 等待配置运行完毕。
 
 ## 更正较大的时间偏差

@@ -21,6 +21,12 @@ children:
   - /removing-a-collaborator-from-a-personal-repository
   - /removing-yourself-from-a-collaborators-repository
   - /maintaining-ownership-continuity-of-your-personal-accounts-repositories
-shortTitle: Acceder a tus repositorios
+shortTitle: Access to your repositories
+ms.openlocfilehash: 98b504beea02ce0dfb73ebe2db34fea498c75776
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145165211'
 ---
 

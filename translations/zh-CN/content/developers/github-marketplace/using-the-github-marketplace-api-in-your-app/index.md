@@ -17,6 +17,12 @@ children:
   - /handling-new-purchases-and-free-trials
   - /handling-plan-changes
   - /handling-plan-cancellations
-shortTitle: Marketplace API 使用
+shortTitle: Marketplace API usage
+ms.openlocfilehash: c1c2134c916c2832cf73c2f0c61ef5036f7fe410
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145098017'
 ---
 

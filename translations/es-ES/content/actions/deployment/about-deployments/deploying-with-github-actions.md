@@ -11,25 +11,29 @@ redirect_from:
   - /actions/deployment/deploying-with-github-actions
 topics:
   - CD
-shortTitle: Desplegar con GitHub Actions
+shortTitle: Deploy with GitHub Actions
+ms.openlocfilehash: 533d85d83bea53d34af3d8b9a47d0d4426ea4bc6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145179188'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
-{% data variables.product.prodname_actions %} ofrece características que te permiten controlar los despliegues. Puedes:
+{% data variables.product.prodname_actions %} ofrece características que te permiten controlar los despliegues. Puede:
 
 - Activar flujos de trabajo con eventos diversos.
 - Configura ambientes para establecer reglas antes de que un job pueda proceder y para limitar el acceso a los secretos.
 - Utiliza la concurrencia para controlar la cantidad de despliegues que se ejecutan al mismo tiempo.
 
-Para obtener más información sobre los despliegues continuos, consulta la sección "[Acerca de los despliegues continuos](/actions/deployment/about-continuous-deployment)".
+Para más información sobre la implementación continua, vea "[Acerca de la implementación continua](/actions/deployment/about-continuous-deployment)".
 
 ## Prerrequisitos
 
-Debes estar familiarizado con la sintaxis de las {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+Debes estar familiarizado con la sintaxis de las {% data variables.product.prodname_actions %}. Para más información, vea "[Más información sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
 ## Activar tu despliegue
 
@@ -37,8 +41,8 @@ Puedes utilizar varios eventos para activar tu flujo de trabajo de despliegue. A
 
 Por ejemplo, un flujo de trabajo con los siguientes activadores se ejecuta en cualquier momento:
 
-- Hay una subida a la rama `main`.
-- Se abrió, sincronizó o reabrió una solicitud de cambios que apunta a la rama `main`.
+- Hay una inserción en la rama `main`.
+- Una solicitud de incorporación de cambios dirigida a la rama `main` se ha abierto, sincronizado o vuelto a abrir.
 - Alguien lo activó manualmente.
 
 ```yaml
@@ -52,7 +56,7 @@ on:
   workflow_dispatch:
 ```
 
-Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
+Para más información, vea "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
 
 ## Utilizar ambientes
 
@@ -64,11 +68,11 @@ La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el 
 
 {% note %}
 
-**Nota:** la `concurrency` y el `environment` no están conectados. El valor de concurrencia puede ser cualquier secuencia; no necesita ser un nombre de ambiente. Adicionalmente, si otro flujo de trabajo utiliza el mismo ambiente pero no especifica una concurrencia, este no estará sujeto a ninguna regla de concurrencia.
+**Nota:** `concurrency` y `environment` no están conectados. El valor de concurrencia puede ser cualquier secuencia; no necesita ser un nombre de ambiente. Adicionalmente, si otro flujo de trabajo utiliza el mismo ambiente pero no especifica una concurrencia, este no estará sujeto a ninguna regla de concurrencia.
 
 {% endnote %}
 
-Por ejemplo, cuando se ejecuta el siguiente flujo de trabajo, este se pausará con el estado `pending` si cualquier job o flujo de trabajo que utiliza el grupo de concurrencia `production` está en progreso. También cancelará cualquier job o flujo de trabajo que utilice el grupo de concurrencia `production` y que tenga el estado de `pending`. Esto significa que habrá un máximo de un job o flujo de trabajo ejecutándose y uno pendiente que utilice el grupo de concurrencia `production`.
+Por ejemplo, cuando se ejecuta el siguiente flujo de trabajo, se pausará con el estado `pending` si cualquier trabajo o flujo de trabajo que utiliza el grupo de simultaneidad `production` está en curso. También cancelará cualquier trabajo o flujo de trabajo que use el grupo de simultaneidad `production` y tenga el estado `pending`. Esto significa que habrá un máximo de un trabajo o flujo de trabajo en ejecución, y un trabajo o flujo de trabajo pendiente que utilice el grupo de simultaneidad `production`.
 
 ```yaml
 name: Deployment
@@ -89,7 +93,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-También puedes especificar la concurrencia a nivel del job. Esto permitirá a otros jobs del flujo de trabajo proceder aún si el job concurrente está como `pending`.
+También puedes especificar la concurrencia a nivel del job. Esto permitirá que los demás trabajos del flujo de trabajo continúen aunque el trabajo simultáneo sea `pending`.
 
 ```yaml
 name: Deployment
@@ -109,7 +113,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-También puedes utilizar `cancel-in-progress` para cancelar cualquier job o flujo de trabajo que se esté ejecutando concurrentemente en el mismo grupo de concurrencia.
+También puede usar `cancel-in-progress` para cancelar cualquier trabajo o flujo de trabajo actualmente en ejecución en el mismo grupo de simultaneidad.
 
 ```yaml
 name: Deployment
@@ -132,31 +136,30 @@ jobs:
         # ...deployment-specific steps
 ```
 
-Para obtener orientación sobre cómo escribir pasos específicos para los despliegues, consulta la sección "[Encontrar ejemplos de despliegues](#finding-deployment-examples)".
+Para obtener instrucciones sobre cómo escribir pasos específicos de la implementación, vea "[Búsqueda de ejemplos de implementación](#finding-deployment-examples)".
 
-## Visualizar el historial de despliegues
+## Visualización del historial de implementación
 
-Cuando se despliega un flujo de trabajo de {% data variables.product.prodname_actions %} en un ambiente, dicho ambiente se desplegará en la página principal del repositorio. Para obtener más información sobre cómo visualizar los despliegues hacia los ambientes, consulta la sección "[Ver el historial de despliegue](/developers/overview/viewing-deployment-history)".
+Cuando se despliega un flujo de trabajo de {% data variables.product.prodname_actions %} en un ambiente, dicho ambiente se desplegará en la página principal del repositorio. Para más información sobre cómo ver las implementaciones en los entornos, vea "[Visualización del historial de implementación](/developers/overview/viewing-deployment-history)".
 
 ## Monitorear las ejecuciones de flujo de trabajo
 
-Cada ejecución de flujo de trabajo genera una gráfica en tiempo real que ilustra el progreso de la misma. Puedes utilizar esta gráfica para monitorear y depurar los despliegues. Para obtener más información, consulta la sección "[Utilizar la gráfica de visualización](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)".
+Cada ejecución de flujo de trabajo genera una gráfica en tiempo real que ilustra el progreso de la misma. Puedes utilizar esta gráfica para monitorear y depurar los despliegues. Para más información, vea "[Uso del gráfico de visualización](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)".
 
-También puedes ver las bitácoras de cada ejecución de flujo de trabajo y el historial de estos. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
+También puedes ver las bitácoras de cada ejecución de flujo de trabajo y el historial de estos. Para más información, vea "[Visualización del historial de ejecución de flujos de trabajo](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
 
 ## Rastrear los despliegues a través de las apps
 
-{% ifversion fpt or ghec %}
-Si tu cuenta personal u organización de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} está integrada con Microsoft Teams o Slack, puedes rastrear los despliegues que utilizan ambientes a través de estos programas. Por ejemplo, puedes recibir notificaciones a través de la app cuando la aprobación de un despliegue está pendiente, cuando está aprobado o cuando cambia su estado. Para obtener más información sobre cómo integrar Microsoft Teams o Slack, consulta la sección "[Extensiones e integraciones de GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)".
+{% ifversion fpt or ghec %} Si la cuenta personal o de la organización de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} está integrada con Microsoft Teams o Slack, puede realizar el seguimiento de las implementaciones que usan entornos por medio de Microsoft Teams o Slack. Por ejemplo, puedes recibir notificaciones a través de la app cuando la aprobación de un despliegue está pendiente, cuando está aprobado o cuando cambia su estado. Para más información sobre la integración de Microsoft Teams o Slack, vea ["Extensiones e integraciones de GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)".
 {% endif %}
 
-También puedes crear una app que utilice despliegues y webhooks de estados de despliegues para rastrearlos. {% data reusables.actions.environment-deployment-event %} Para obtener más información, consulta las secciones "[Apps](/developers/apps)" y "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
+También puedes crear una app que utilice despliegues y webhooks de estados de despliegues para rastrearlos. {% data reusables.actions.environment-deployment-event %} Para más información, vea "[Aplicaciones](/developers/apps)" y "[Eventos y cargas de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
 
 {% ifversion fpt or ghes or ghec %}
 
 ## Elegir un ejecutor
 
-Puedes ejecutar tu flujo de trabajo de despliegue en los ejecutores hospedados en {% data variables.product.company_short %} o en los auto-hospedados. El tráfico de los ejecutores hospedados en {% data variables.product.company_short %} puede venir desde un [rango amplio de direcciones de red](/rest/reference/meta#get-github-meta-information). Si estás desplegando hacia un ambiente interno y tu empresa restringe el tráfico externo en las redes privadas, los flujos de trabajo de {% data variables.product.prodname_actions %} que se ejecutan en los ejecutores hospedados en {% data variables.product.company_short %} podrían no tener la capacidad de comunicarse con tus recursos o servicios internos. Para superar esto, puedes hospedar tus propios ejecutores. Para obtener más información, consulta las secciones "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Acercad e los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+Puede ejecutar el flujo de trabajo de implementación en los ejecutores hospedados en {% data variables.product.product_name %} o en los autohospedados. El tráfico de los ejecutores hospedados en {% data variables.product.company_short %} puede provenir de una [amplia gama de direcciones de red](/rest/reference/meta#get-github-meta-information). Si vas a realizar la implementación en un entorno interno y la empresa restringe el tráfico externo a redes privadas, es posible que los flujos de trabajo de {% data variables.product.prodname_actions %} que se ejecutan en ejecutores autohospedados de {% data variables.product.company_short %} no puedan comunicarse con los servicios o recursos internos. Para superar esto, puedes hospedar tus propios ejecutores. Para más información, vea "[Acerca de los ejecutores autohospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" y "[Acerca de los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners)".
 
 {% endif %}
 
@@ -164,7 +167,7 @@ Puedes ejecutar tu flujo de trabajo de despliegue en los ejecutores hospedados e
 
 Puedes utilizar una insignia de estado para mostrar el estado de tu flujo de trabajo de despliegue. {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
+Para más información, vea "[Adición de un distintivo de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
 ## Encontrar ejemplos de despliegues
 

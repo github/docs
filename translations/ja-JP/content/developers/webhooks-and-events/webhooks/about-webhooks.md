@@ -1,6 +1,6 @@
 ---
-title: About webhooks
-intro: Learn the basics of how webhooks work to help you build and set up integrations.
+title: webhook について
+intro: インテグレーションの構築とセットアップに役立つwebhookの動作の基本を学んでください。
 redirect_from:
   - /webhooks
   - /developers/webhooks-and-events/about-webhooks
@@ -11,26 +11,32 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: 08b038d5a35c4c692502545e640d04993d169b6a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112389'
 ---
-Webhooks allow you to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), which subscribe to certain events on GitHub.com. When one of those events is triggered, we'll send a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server. You're only limited by your imagination.
+Webhook を使用すると、GitHub.com の特定のイベントをサブスクライブする [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) や [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) などの統合を構築または設定できます。 それらのイベントのいずれかがトリガーされると、webhookに設定されたURLにHTTP POSTペイロードが送信されます。 webhookは、外部のIssueトラッカーを更新したり、CIビルドをトリガーしたり、バックアップミラーを更新したり、さらにはプロダクションサーバーへのデプロイをしたりするのに利用できます。 想像力が及ぶかぎりのことが可能です。
 
-Webhooks can be installed on{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/),{% endif %} an [organization][org-hooks], a specific [repository][repo-hooks], or a {% data variables.product.prodname_github_app %}. Once installed, the webhook will be sent each time one or more subscribed events occurs.
+Webhooks は、{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/)、{% endif %}[Organization][org-hooks]、特定の[リポジトリ][repo-hooks]、{% data variables.product.prodname_github_app %} のいずれかにインストールできます。 インストールされると、1つ以上のサブスクライブされたイベントが発生するたびに、webhookが送信されます。
 
-You can create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks for each event on each installation target {% ifversion ghes or ghae %}({% data variables.product.prodname_ghe_server %} instance, specific organization, or specific repository).{% else %}(specific organization or specific repository).{% endif %}
+各インストール ターゲット {% ifversion ghes or ghae %}({% data variables.product.prodname_ghe_server %} インスタンス、特定の組織、または特定のリポジトリ) {% else %}(特定の Organization または特定のリポジトリ){% endif %} のイベントごとに最大 {% ifversion ghes or ghae %}250{% else %}20{% endif %} の Webhook を作成できます。
 
-## Events
+## イベント
 
 {% data reusables.webhooks.webhooks_intro %}
 
-Each event corresponds to a certain set of actions that can happen to your organization and/or repository. For example, if you subscribe to the `issues` event you'll receive detailed payloads every time an issue is opened, closed, labeled, etc.
+それぞれのイベントは、Organizationやリポジトリに生じうる一連のアクションに対応します。 たとえば、`issues` イベントをサブスクライブしている場合、Issue のオープン、クローズ、ラベル付けなどが生じるたびに詳細なペイロードを受け取ります。
 
-For a complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
+使用可能な Webhook イベントとそのペイロードの完全な一覧については、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhook-events-and-payloads)」を参照してください。
 
-## Ping event
+## Pingイベント
 
 {% data reusables.webhooks.ping_short_desc %}
 
-For more information about the `ping` event webhook payload, see the [`ping`](/webhooks/event-payloads/#ping) event.
+`ping` イベントの Webhook ペイロードの詳細については、[`ping`](/webhooks/event-payloads/#ping) イベントを参照してください。
 
 [org-hooks]: /rest/reference/orgs#webhooks/
 [repo-hooks]: /rest/reference/repos#webhooks

@@ -16,6 +16,12 @@ children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
   - /customizing-a-workflow-for-triaging-your-notifications
-shortTitle: Personalizar um fluxo de trabalho
+shortTitle: Customize a workflow
+ms.openlocfilehash: a4130fe6877b7071211494226f67906e2870224b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145094779'
 ---
 
