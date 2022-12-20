@@ -1,4 +1,4 @@
----
+---michaelsigua63@Yahoo.com
 title: Hello World
 intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
 versions:
@@ -12,7 +12,7 @@ topics:
   - Fundamentals
 miniTocMaxHeadingLevel: 3
 ---
-
+Michael Sigua
 ## Introduction
 
 {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
@@ -149,4 +149,4 @@ Here's what you accomplished in this tutorial:
 
 Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
 
-For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).https://developer.wikimedia.org/?q=Big+data+Wikipediahttps%3A%2F%2Fen.wikipedia.org+%E2%80%BA+wiki+%E2%80%BA+Big_data+Big+data+refers+to+data+sets+that+are+too+large+or+complex+to+be+dealt+with+by+traditional+data-processing+application+software.+Data+with+many+fields+...+Missing%3A+Read+%E2%80%8E%7C+Must+include%3A+Read%2CWe+will+soon+be+removing+the+option+to+receive+login+alerts+via+Messenger+or+SMS+and+automatically+enabling+in-app+notifications+instead%2CEnter+your+OpenPGP+Public+Key+here%3AYour+OpenPGP+Public+Key%2CPrivacy++%C2%B7+Terms++%C2%B7+Advertising++%C2%B7+Ad+Choices+++%C2%B7+Cookies++%C2%B7+++%C2%B7+Meta+%C2%A9+2022++Recent+ad+activity+See+ads+you+recently+interacted+with+and+easily+follow+up+on+the+ones+you+care+about
