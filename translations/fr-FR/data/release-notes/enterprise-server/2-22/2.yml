@@ -1,0 +1,37 @@
+date: '20/10/2020'
+sections:
+  security_fixes:
+    - "Les packages ont été mis à jour vers les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/23097, https://github.com/github/enterprise2/pull/23081 {% endcomment %}"
+
+  bugs:
+    - |Si les paramètres du compte de stockage n’étaient pas validés pendant la configuration de GitHub Actions, vous deviez exécuter « ghe-actions-teardown » avant de procéder à une nouvelle tentative. {% comment %} https://github.com/github/enterprise2/pull/23057, https://github.com/github/enterprise2/pull/22981 {% endcomment %}
+
+|
+    - |Une configuration de proxy personnalisée pouvait affecter négativement l’environnement GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23121, https://github.com/github/enterprise2/pull/23092, https://github.com/github/c2c-actions-platform/issues/2254 {% endcomment %}
+
+|
+    - |Lors d’un changement d’adresse dans eth0, Nomad et Consul pouvaient ne plus répondre. {% comment %} https://github.com/github/enterprise2/pull/23227, https://github.com/github/enterprise2/pull/23153 {% endcomment %}
+
+|
+    - |Lorsque vous utilisiez des certificats auto-signés, GHES pouvait rencontrer des exceptions de validation SSL lors de la configuration de GitHub Actions. {% comment %} https://github.com/github/enterprise2/pull/23381 {% endcomment %}
+
+|
+    - |L’utilisation d’une action GitHub à partir d’un nom de branche comportant un caractère « + » ou « / » provoquait l’erreur « Impossible de résoudre l’action ». {% comment %} https://github.com/github/github/pull/157942, https://github.com/github/github/pull/157819, https://github.com/github/launch/pull/3463 {% endcomment %}
+
+|
+    - |Le message « Confirmer l’exigence de stratégie pour l’authentification à 2 facteurs » du compte d’entreprise était incorrect. {% comment %} https://github.com/github/github/pull/158735 {% endcomment %}
+
+|
+    - |Lors de certaines requêtes dépassant les 100 Mo, la mémoire tampon de Kafka pouvait être surallouée. {% comment %} https://github.com/github/kafka-lite/pull/286, https://github.com/github/kafka-lite/pull/285 {% endcomment %}
+
+|
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin du fichier est supérieur à 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "GitHub Actions peut ne pas démarrer s’il a été activé précédemment sur une instance exécutant la version 2.22.0 et que celle-ci a été mise à niveau vers la version 2.22.2. (mise à jour : 23/10/2020) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "Sur une instance 2.22.2 fraîchement configurée ou mise à niveau vers la version 2.22.2, le flux d’activités du tableau de bord d’une organisation ne pourra plus être mis à jour. (mise à jour : 27/10/2020) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Les journaux d’audit peuvent être attribués à 127.0.0.1 au lieu de l’adresse IP source réelle. (mise à jour : 02/11/2020) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Quand un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

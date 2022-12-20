@@ -321,7 +321,7 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 
 Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+Additionally, the Search endpoints have dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
@@ -359,15 +359,15 @@ When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per reposit
 
 ### Checking your rate limit status
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+You can use the REST API to find the current number of API calls available to you or your app at any given time.
 
-#### Rate Limit API
+#### API to manage rate limits
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+You can use the REST API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
 
 #### Rate limit HTTP headers
 
-The returned HTTP headers of any API request show your current rate limit status:
+You can view the returned headers of any API request to see your current rate limit status:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
@@ -655,7 +655,7 @@ Note that these rules apply only to data passed to the API, not to data returned
 
 ### Explicitly providing an ISO 8601 timestamp with timezone information
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the API to manage commits. For more information, see "[Commits](/rest/reference/git#commits)."
 
 These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
@@ -667,7 +667,7 @@ It is possible to supply a `Time-Zone` header which defines a timezone according
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[Contents](/rest/reference/repos#contents)." This header will determine the timezone used for generating that current timestamp.
 
 ### Using the last known timezone for the user
 

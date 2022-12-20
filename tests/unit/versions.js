@@ -1,5 +1,3 @@
-import path from 'path'
-import { readdir } from 'fs/promises'
 import { jest } from '@jest/globals'
 import revalidator from 'revalidator'
 
@@ -22,27 +20,6 @@ describe('versions module', () => {
       const expectation = JSON.stringify({ versionObj, errors }, null, 2)
       expect(valid, expectation).toBe(true)
     })
-  })
-
-  test('check that the correct REST API versions are versioned and/or unversioned', async () => {
-    const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
-    const files = await readdir(dereferencedPath)
-    for (const file of files) {
-      const version = file.replace('.deref.json', '')
-      const versionObj = Object.values(allVersions).find((versionObj) =>
-        version.startsWith(versionObj.openApiVersionName)
-      )
-      const dateRegex = /\d{4}-\d{2}-\d{2}/
-      const isApiVersioned = dateRegex.test(version)
-
-      if (isApiVersioned) {
-        const apiVersion = version.split(`${versionObj.openApiVersionName}.`)[1]
-        expect(versionObj.apiVersions).toContain(apiVersion)
-        expect()
-      } else {
-        expect(version).toBe(versionObj.openApiVersionName)
-      }
-    }
   })
 
   test('check REST api calendar date versioned versions set to correct latestApiVersion', () => {

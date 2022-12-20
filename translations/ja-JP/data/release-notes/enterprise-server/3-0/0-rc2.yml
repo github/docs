@@ -1,0 +1,24 @@
+date: '2021-01-29'
+release_candidate: true
+deprecated: true
+intro: "リリース候補バージョンは、非運用環境でテストする必要があります。リリース候補プログラムについて詳しくは、[GitHub のブログ](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/)または「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」をご覧ください。"
+sections:
+  bugs:
+    - heading: リリース候補 1 の既知の問題の修正
+      notes:
+        - GitHub Actions のセットアップに失敗した後、続けて GitHub Actions を無効にすると、最初のユーザーを作成できず、アプライアンスを使うことができなくなります。
+        - "\"必須メッセージが表示されました\" 監査ログイベントが保存されませんでした。"
+        - 'レプリケーションを始めるために "ghe-repl-setup" を実行するには、それに先だって、初期セットアップの間にレプリカで "ghe-config-apply" を実行する必要がありました。'
+        - Enterprise 所有者として自分を削除すると、404 が返されました。
+    - heading: 他の問題の修正
+      notes:
+        - 3.0.0 への移行とアップグレードの問題が修正されました。
+        - Backup Utilities のバージョン管理が、リリース候補バージョンでも動作するようになりました。
+        - サポート バンドルを生成すると、オーケストレーターのログにエラーが記録されました。
+        - 大規模な復元を行うと、Redis がメモリ不足になることがありました。
+        - 管理コンソールで GitHub Actions を有効にするチェックボックスが、どの認証方式でも表示されるようになりました。
+        - GitHub Actions は、必要なストレージも構成されている場合にのみ有効にできます。
+        - 'MSSQL のレプリケーションが構成されていない場合、"ghe-repl-status" が通知なしで失敗することがありました。'
+
+  known_issues:
+    - バグ修正の一覧で示されているものを除き、リリース候補 1 の既知の問題は引き続き残っています。

@@ -1,6 +1,6 @@
 ---
-title: About pre-receive hooks
-intro: '*Pre-receive hooks* are scripts that run on the {% data variables.product.prodname_ghe_server %} appliance that you can use to implement quality checks.'
+title: Сведения о перехватчиках предварительного получения
+intro: '*Обработчики предварительного получения* — это скрипты, выполняемые на устройстве {% data variables.product.prodname_ghe_server %}, которые можно использовать для реализации проверок качества.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -12,25 +12,26 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+ms.openlocfilehash: 79a7bd616549a7bf5bc9447555d937edfb595424
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097762'
 ---
+При отправке каждый скрипт выполняется в изолированной среде и может проводить проверки содержимого отправки. Отправка принимается, если состояние выхода скриптов имеет значение 0, или отклоняется при ином состоянии выхода.
 
-## About pre-receive hooks
+## Сценарии использования
+Используйте перехватчики предварительного получения для выполнения бизнес-правил, обеспечения соответствия нормативным требованиям и предотвращения некоторых распространенных ошибок.
 
-When a push occurs, each script runs in an isolated environment and can perform checks on the content of the push. The scripts will cause the push to be accepted if the exit status is 0, or rejected if the exit status is non-zero.
+Примеры использования перехватчиков предварительного получения:
 
-Use pre-receive hooks to satisfy business rules, enforce regulatory compliance, and prevent certain common mistakes.
+- обязательное соответствие сообщений о фиксации определенному шаблону или формату, например наличие допустимого номера обращения или определенная длина сообщений;
+- блокировка ветви или репозитория путем отклонения всех отправок;
+- запрет на добавление конфиденциальных данных в репозиторий путем блокировки ключевых слов, шаблонов или типов файлов;
+- предотвращение слияния собственных изменений автором запроса на вытягивание.
 
-Examples of how you can use pre-receive hooks:
+## Влияние на производительность и рабочие процессы
+Влияние на разработчиков и их рабочие процессы может быть значительным и должно быть тщательно рассмотрено. Перехватчики предварительного получения должны быть грамотно реализованы с учетом бизнес-потребностей, чтобы приносить максимальную пользу организации в целом.
 
-- Require commit messages to follow a specific pattern or format, such as including a valid ticket number or being over a certain length.
-- Lock a branch or repository by rejecting all pushes.
-- Prevent sensitive data from being added to the repository by blocking keywords, patterns or file types.
-- Prevent a PR author from merging their own changes.
-
-{% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}
-
-## Impact on performance and workflows
-
-Impact to developers and their workflows can be significant and must be considered carefully. Pre-receive hooks that are based on business needs and implemented thoughtfully will provide the most benefit to the organization as a whole.
-
-Pre-receive hooks can have unintended effects on the performance of {% data variables.location.product_location %} and should be carefully implemented and reviewed.
+Обработчики предварительного получения могут оказать непреднамеренное влияние на производительность {% данных variables.location.product_location %} и должны быть тщательно реализованы и проверены.

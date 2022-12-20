@@ -1,6 +1,6 @@
 ---
-title: Checking for existing SSH keys
-intro: 'Before you generate an SSH key, you can check to see if you have any existing SSH keys.'
+title: 既存の SSH キーの確認
+intro: SSH キーを生成する前に、SSH キーがすでに存在するかどうかを確認できます。
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
   - /github/authenticating-to-github/checking-for-existing-ssh-keys
@@ -13,41 +13,46 @@ versions:
 topics:
   - SSH
 shortTitle: Check for existing SSH key
+ms.openlocfilehash: 4487e44b1cbba7038364e92f3194d5c3c06c505b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409108'
 ---
+## SSH キーについて
 
-## About SSH keys
+SSH を使用して、{% ifversion fpt or ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} のリポジトリで Git 操作を実行できます。 詳細については、「[SSH について](/authentication/connecting-to-github-with-ssh/about-ssh)」を参照してください。
 
-You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+既存の SSH キーがある場合は、そのキーを使用して SSH 経由で Git 操作を認証できます。
 
-If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
+## 既存の SSH キーの確認
 
-## Checking for existing SSH keys
-
-Before you generate a new SSH key, you should check your local machine for existing keys.
+新しい SSH キーを生成する前に、ローカル コンピューターで既存のキーを確認する必要があります。
 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
+2. `ls -al ~/.ssh` を入力して、既存の SSH キーが存在するかどうかを確認します。
 
   ```shell
   $ ls -al ~/.ssh
   # Lists the files in your .ssh directory, if they exist
   ```
 
-3. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+3. ディレクトリの一覧から、公開 SSH キーをすでに持っているか確認します。 既定では、{% ifversion ghae %}{% data variables.product.product_name %} でサポートされている公開キーのファイル名は *id_rsa.pub* です。{% else %}{% data variables.product.product_name %} でサポートされている公開キーのファイル名は、次のいずれかです。
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}
 
   {% tip %}
 
-  **Tip**: If you receive an error that *~/.ssh* doesn't exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
+  **ヒント**: *~/.ssh* が存在しないというエラーを受け取った場合、既定の場所に既存の SSH キーの組はありません。 次の手順で、新しい SSH キーの組を作成できます。
 
   {% endtip %}
 
-4. Either generate a new SSH key or upload an existing key.
-    - If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
-    - If you see an existing public and private key pair listed (for example, *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
+4. 新しい SSH キーを生成するか、既存のキーをアップロードします。
+    - サポートされている公開キーと秘密キーの組がない場合、または使用可能なものを使用しない場合は、新しい SSH キーを生成します。
+    - {% data variables.product.product_name %} への接続に使用する既存の公開キーと秘密キーの組 (*id_rsa.pub* や *id_rsa* など) が一覧表示されている場合は、ssh-agent にキーを追加できます。
 
-      For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+      新しい SSH キーの生成、または ssh-agent への既存のキーの追加について詳しくは、「[新しい SSH キーを生成して ssh-agent に追加する](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。

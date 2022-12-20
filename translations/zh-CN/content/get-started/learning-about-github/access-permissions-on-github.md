@@ -1,5 +1,5 @@
 ---
-title: Access permissions on GitHub
+title: GitHub 上的访问权限
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
   - /articles/what-are-the-different-types-of-team-permissions
@@ -7,7 +7,7 @@ redirect_from:
   - /articles/access-permissions-on-github
   - /github/getting-started-with-github/access-permissions-on-github
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
-intro: 'With roles, you can control who has access to your accounts and resources on {% data variables.product.product_name %} and the level of access each person has.'
+intro: '使用角色，您可以控制谁有权访问您在 {% data variables.product.product_name %} 上的帐户和资源，以及每个人拥有的访问权限级别。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,40 +17,41 @@ topics:
   - Permissions
   - Accounts
 shortTitle: Access permissions
+ms.openlocfilehash: 32db1949cbc110559023f719682caed0319aae9e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145128916'
 ---
-
-## About access permissions on {% data variables.product.prodname_dotcom %}
+## 关于 {% data variables.product.prodname_dotcom %} 上的访问权限
 
 {% data reusables.organizations.about-roles %} 
 
-Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+对于不同类型的帐户，角色的工作方式不同。 有关帐户的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户类型](/get-started/learning-about-github/types-of-github-accounts)”。
 
-## Personal accounts
+## 个人帐户
 
-A repository owned by a personal account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)."
+个人帐户拥有的存储库有两种权限级别：存储库所有者和协作者 。 有关详细信息，请参阅“[个人帐户存储库的权限级别](/articles/permission-levels-for-a-user-account-repository)”。
 
-## Organization accounts
+## 组织帐户
 
-Organization members can have *owner*{% ifversion fpt or ghec %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt or ghec %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
-- "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[About teams](/articles/about-teams)"
+组织成员可以拥有所有者{% ifversion fpt or ghec %}、计费管理员{% endif %}或成员角色  。 所有者对组织具有完全管理权限{% ifversion fpt or ghec %}，而计费管理员可以管理计费设置{% endif %}。 成员是其他每个人的默认角色。 您可以通过团队一次管理多个成员的访问权限。 有关详细信息，请参阅：
+- [组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
+- [组织的项目委员会权限](/articles/project-board-permissions-for-an-organization)
+- [组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)
+- [关于团队](/articles/about-teams)
 
-## Enterprise accounts
+## 企业帐户
 
-{% ifversion fpt %}
-{% data reusables.gated-features.enterprise-accounts %} 
+{% ifversion fpt %} {% data reusables.gated-features.enterprise-accounts %} 
 
-For more information about permissions for enterprise accounts, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github).
-{% else %}
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account.{% ifversion ghec or ghes %} *Billing managers* can manage your enterprise account's billing settings.{% endif %} Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+有关企业帐户权限的详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github)。
+{% else %}企业所有者对企业帐户拥有最终执行权，并且可以在企业帐户中执行所有操作。{% ifversion ghec or ghes %}计费管理员可以管理企业帐户的计费设置。{% endif %}企业帐户所拥有的组织的成员和外部协作者自动成为企业帐户的成员，尽管他们无法访问企业帐户本身或其设置 。 有关详细信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
 
-{% ifversion ghec %}
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new personal accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.enterprise.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.enterprise.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-{% endif %}
-{% endif %}
+{% ifversion ghec %}如果企业使用 {% data variables.product.prodname_emus %}，成员将在 {% data variables.product.prodname_dotcom %} 上预配作为新个人帐户，并由标识提供者完全托管。 {% data variables.product.prodname_managed_users %} 对不属于其企业的存储库具有只读访问权限，并且无法与不是企业成员的用户进行交互。 在企业拥有的组织中，可以向 {% data variables.product.prodname_managed_users %} 授予与常规组织相同的粒度访问级别。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+{% endif %} {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+- [{% data variables.product.prodname_dotcom %} 帐户类型](/articles/types-of-github-accounts)

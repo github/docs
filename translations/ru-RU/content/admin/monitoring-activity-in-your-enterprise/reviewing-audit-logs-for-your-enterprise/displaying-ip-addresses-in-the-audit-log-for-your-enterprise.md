@@ -1,6 +1,6 @@
 ---
-title: Displaying IP addresses in the audit log for your enterprise
-intro: You can display the source IP address for events in your enterprise's audit log.
+title: Отображение IP-адресов в журнале аудита для предприятия
+intro: Исходный IP-адрес для событий можно отобразить в журнале аудита предприятия.
 shortTitle: IP addresses in audit log
 permissions: Enterprise owners can display IP addresses in the audit log for an enterprise.
 versions:
@@ -12,41 +12,44 @@ topics:
   - Logging
   - Networking
   - Security
+ms.openlocfilehash: 425cef8193f0ddeeb6c1ac46bb90b36711310c74
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099271'
 ---
+## Сведения об отображении IP-адресов в журнале аудита
 
-## About display of IP addresses in the audit log
+По умолчанию в {% data variables.product.product_name %} не отображается исходный IP-адрес для событий в журнале аудита предприятия. При необходимости, чтобы обеспечить соответствие требованиям и реагировать на угрозы, можно отобразить полный IP-адрес, связанный с субъектом, ответственным за каждое событие. Субъекты обычно являются пользователями, но также могут быть приложениями или интеграциями.
 
-By default, {% data variables.product.product_name %} does not display the source IP address for events in your enterprise's audit log. Optionally, to ensure compliance and respond to threats, you can display the full IP address associated with the actor responsible for each event. Actors are typically users, but can also be apps or integrations.
+Вы обязаны соблюдать любые юридические обязательства в отношении просмотра или хранения IP-адресов, отображаемых в журнале аудита предприятия.
 
-You are responsible for meeting any legal obligations that accompany the viewing or storage of IP addresses displayed within your enterprise's audit log.
+Если вы решили отобразить IP-адреса, они отображаются только в журнале аудита предприятия. IP-адреса не будут отображаться для событий в журналах аудита для отдельных организаций вашего предприятия. Дополнительные сведения о журналах аудита организации см. в разделе [Просмотр журнала аудита для вашей организации](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
 
-If you choose to display IP addresses, the IP addresses only appear in your enterprise's audit log. IP addresses will not appear for events in the audit logs for individual organizations owned by your enterprise. For more information about organization audit logs, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+IP-адреса можно отображать в журнале аудита независимо от того, какой метод проверки подлинности используется для вашего предприятия, на {% данных variables.location.product_location %}. Дополнительные сведения см. в разделе [Сведения о проверке подлинности для предприятия](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
 
-You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.location.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+Когда кто-либо создает учетную запись на {% данных variables.location.product_location %}, пользователь соглашается с коллекцией {% данных variables.product.company_short %}сбора основных сведений о подключениях к службам {% данных variables.product.company_short %}, включая исходный IP-адрес. Дополнительные сведения см. в [заявлении о конфиденциальности GitHub](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information).
 
-When anyone creates an account on {% data variables.location.product_location %}, the person agrees to {% data variables.product.company_short %}'s collection of basic information about connections to {% data variables.product.company_short %}'s services, including source IP address. For more information, see "[GitHub Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#usage-information)."
+## События, в которых отображаются IP-адреса в журнале аудита
 
-## Events that display IP addresses in the audit log
+В {% data variables.product.product_name %} отображается IP-адрес в журнале аудита, когда сотрудник предприятия взаимодействует с ресурсом, принадлежащим предприятию или организации в предприятии. Например, вы увидите IP-адрес для событий аудита, включающие внутренний или частный репозиторий, принадлежащий организации в предприятии, или ресурсы, связанные с этими репозиториями, такие как проблема, запрос на вытягивание, действие или проект.
 
-{% data variables.product.product_name %} displays an IP address in the audit log when a member of the enterprise interacts with a resource owned by your enterprise or an organization in your enterprise. For example, you will see an IP address for audited events involving an internal or private repository owned by an organization in your enterprise, or resources associated with those repositories, such as an issue, pull request, action, or project.
-
-If members of your enterprise access {% data variables.location.product_location %} with personal accounts that they manage, because you do not use {% data variables.product.prodname_emus %}, {% data variables.product.product_name %} does not display an event or IP address in the audit log for the following actions.
+Если участники корпоративного доступа {% к данным variables.location.product_location %} с личными учетными записями, которыми они управляют, так как вы не используете {% данных variables.product.prodname_emus %}, {% данных variables.product.product_name %} не отображает событие или IP-адрес в журнале аудита для следующих действий.
   
-- Authentication to {% data variables.location.product_location %}
-- Interactions with a resource owned by the personal account, including a repository, gist, or project
-- Interactions with a public repository owned by an organization in your enterprise
+- Проверка подлинности в {% данных variables.location.product_location %}
+- взаимодействие с ресурсом, принадлежащим личной учетной записи, включая репозиторий, gist или проект;
+- взаимодействие с общедоступным репозиторием, принадлежащим организации вашего предприятия.
 
-## Enabling display of IP addresses in the audit log
+## Включение отображения IP-адресов в журнале аудита
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
-1. Under "Audit log", click **Source IP disclosure**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}
+1. В разделе "Журнал аудита" щелкните **Раскрытие исходного IP-адреса**.
 
-   ![Screenshot of "Source IP disclosure" tab](/assets/images/help/enterprises/audit-log-source-ip-disclosure-tab.png)
-1. Under "Disclose actor IP addresses in audit logs", select **Enable source IP disclosure**.
+   ![Снимок экрана: вкладка "Раскрытие исходного IP-адреса"](/assets/images/help/enterprises/audit-log-source-ip-disclosure-tab.png)
+1. В разделе "Раскрывать IP-адреса субъектов в журналах аудита" выберите **Включить раскрытие исходных IP-адресов**.
 
-   ![Screenshot of checkbox to enable display of IP addresses in audit logs](/assets/images/help/enterprises/audit-log-enable-source-ip-disclosure-checkbox.png)
-1. Click **Save**.
+   ![Снимок экрана: флажок для включения отображения IP-адресов в журналах аудита](/assets/images/help/enterprises/audit-log-enable-source-ip-disclosure-checkbox.png)
+1. Выберите команду **Сохранить**.
 
-After you enable the feature, you can access the audit log to view events that include IP addresses. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+После включения функции можно получить доступ к журналу аудита для просмотра событий, включающих IP-адреса. Дополнительные сведения см. в разделе [Доступ к журналу аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise).

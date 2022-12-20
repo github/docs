@@ -1,0 +1,31 @@
+date: '09.11.2021'
+sections:
+  security_fixes:
+    - "Ein Path Traversal-Sicherheitsrisiko wurde in {% data variables.product.prodname_pages %}-Builds auf {% data variables.product.prodname_ghe_server %} erkannt, wodurch ein Angreifer Systemdateien lesen könnte. Um dieses Sicherheitsrisiko auszunutzen, benötigt ein Angreifer die Berechtigung zum Erstellen einer {% data variables.product.prodname_pages %}-Website auf der {% data variables.product.prodname_ghe_server %}-Instanz. Dieses Sicherheitsrisiko betraf alle Versionen von {% data variables.product.prodname_ghe_server %} vor Version 3.3 und wurde in den Versionen 3.0.19, 3.1.11 und 3.2.3 behoben. Dieses Sicherheitsrisiko wurde über das {% data variables.product.company_short %} Bug Bounty Program gemeldet und weist die Kennung CVE-2021-22870 auf."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Bei einigen Git-Vorgänge traten nach dem Upgrade eines {% data variables.product.prodname_ghe_server %} 3.x-Clusters aufgrund der HAProxy-Konfiguration Fehler auf."
+    - Die Anzahl der Unicorn-Worker wurde möglicherweise im Clusteringmodus falsch festgelegt.
+    - Die Anzahl der Resqued-Worker wurde möglicherweise im Clusteringmodus falsch festgelegt.
+    - "Wenn der UFW-Status von Ubuntu (uncomplicated Firewall) inaktiv war, hat ein Client dies nicht direkt in den Protokollen erkennen können."
+    - "Bei einem Upgrade von {% data variables.product.prodname_ghe_server %} 2.x auf Version 3.x traten Fehler auf, wenn UTF8-Zeichen in einer LDAP-Konfiguration vorhanden waren."
+    - Einige Seiten und mit Git im Zusammenhang stehende Hintergrundaufgaben können möglicherweise nicht im Clustermodus mit bestimmten Clusterkonfigurationen ausgeführt werden.
+    - Der Dokumentationslink für die Serverstatistik war defekt.
+    - "Wenn ein neues Tag erstellt wurde, wurde von den [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push)-Webhooknutzdaten kein richtiges `head_commit`-Objekt angezeigt. Wenn jetzt ein neues Tag erstellt wird, schließen die Push-Webhooknutzdaten nun immer ein `head_commit`-Objekt ein, das die Daten des Commits enthält, auf das das neue Tag verweist. Deshalb enthält das `head_commit`-Objekt immer die Commitdaten des `after`-Commits der Nutzdaten."
+    - "Die Seite mit dem Unternehmensüberwachungsprotokoll hat keine Überwachungsereignisse für {% data variables.product.prodname_secret_scanning %} angezeigt."
+    - Es wurde eine unzureichende Auftragstimeouteinstellung für Replikatreparaturen ausgegeben.
+    - "Die Releases-Seite eines Repositorys gab einen 500-Fehler zurück, wenn Releases angezeigt wurden."
+    - 'Benutzer wurden nicht vor potenziell gefährlichen bidirektionalen Unicode-Zeichen beim Anzeigen von Dateien gewarnt. Weitere Informationen findest du unter [Warnung zu bidirektionalem Unicode-Text](https://github.co/hiddenchars) im {% data variables.product.prodname_blog %}.'
+    - "Hookshot Go hat Verteilungstypmetriken gesendet, die von Collectd nicht verarbeitet werden können, wodurch eine Erhöhung von Analysefehlern verursacht wurde."
+    - "In öffentlichen Repositorys wurden unerwartete Ergebnisse von {% data variables.product.prodname_secret_scanning %} mit dem Typ `Unbekanntes Token` angezeigt."
+  changes:
+    - "Verbesserungen an der Kafka-Konfiguration wurden hinzugefügt. Wenn Repositorys gelöscht werden, werden Paketdateien jetzt sofort aus dem Speicherkonto gelöscht, um Speicherplatz freizugeben. `DestroyDeletedPackageVersionsJob` löscht nun Paketdateien aus dem Speicherkonto für veraltete Pakete zusammen mit Metadatendatensätzen."
+  known_issues:
+    - "Auf einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

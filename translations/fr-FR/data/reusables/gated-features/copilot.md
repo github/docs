@@ -1,3 +1,11 @@
-{% data variables.product.prodname_copilot %} is available to {% data variables.product.company_short %} customers with a personal account on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_cloud %} organizations owned by an enterprise account.<br><br>
+---
+ms.openlocfilehash: e6c9e8027320ab57758f8709c6f4ddecebda34bf
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192760"
+---
+{% data variables.product.prodname_copilot %} est disponible pour les clients {% data variables.product.company_short %} disposant d’un compte personnel sur les organisations {% data variables.product.prodname_dotcom_the_website %} et {% data variables.product.prodname_ghe_cloud %} appartenant à un compte d’entreprise.<br><br>
 
-{% data variables.product.prodname_copilot %} is free to use for verified students, teachers, and maintainers of popular open source projects. If you are not a student, teacher, or maintainer of a popular open source project, you can try {% data variables.product.prodname_copilot %} for free with a one-time 60-day trial. After the free trial, you will need a paid subscription for continued use. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+L’utilisation de {% data variables.product.prodname_copilot %} est gratuite pour les étudiants, enseignants et responsables vérifiés de projets open source. Si vous êtes ni étudiant, ni enseignant, ni responsable d’un projet open source connu, vous pouvez essayer {% data variables.product.prodname_copilot %} gratuitement avec une version d’évaluation de 60 jours. Après l’évaluation gratuite, vous aurez besoin d’un abonnement payant pour continuer à l’utiliser. Pour plus d’informations, consultez « [À propos de la facturation pour {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) ».

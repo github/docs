@@ -1,0 +1,25 @@
+date: '12.10.2021 г.'
+sections:
+  security_fixes:
+    - 'Системы безопасности в пакетах обновлены до последних версий. {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'Могли происходить сбои пользовательских обработчиков, запускаемых перед получением, из-за ограничений виртуальной памяти или времени ЦП. {% comment %} https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'При попытке очистить все существующие параметры конфигурации с помощью "ghe-cleanup-settings" не удавалось перезапустить службу консоли управления. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Во время удаления репликации с помощью "ghe-repl-teardown" не удавалось перезапустить Memcached. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'В периоды высокой нагрузки пользователи получали коды состояния HTTP 503, когда вышестоящие службы не проходили внутреннюю проверку работоспособности. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Средам обработчиков перед получением было запрещено вызывать команду cat через BusyBox на Alpine. {% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'Пароль внешней базы данных регистрировался в виде открытого текста. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'При запуске "ghe-config-apply" могло отображаться ложное сообщение об ошибке "jq". {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Отработка отказа с первичного центра обработки данных кластера на вторичный выполняется успешно, но в дальнейшем при переключении на изначальный первичный центр обработки данных кластера не удавалось повышать уровни индексов Elasticsearch. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Страница администрирования сайта для локальных средств выполнения тестов репозиториев возвращала HTTP-ответ с кодом 500. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - 'В некоторых случаях при попытках просмотреть станицу "Dormant users" (Неактивные пользователи) администраторы GitHub Enterprise получали ответ "502 Bad Gateway" (502: недопустимый шлюз) или "504 Gateway Timeout" (504: истекло время ожидания шлюза). {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'Более эффективно удаляются журналы веб-перехватчиков, которые не попадают в период удержания. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - "Злоумышленник мог создать первого пользователя с правами администратора на новом, только что настроенном сервере {% data variables.product.prodname_ghe_server %} без пользователей."
+    - Настраиваемые правила брандмауэра удаляются в процессе обновления.
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий."
+    - "Проблемы невозможно закрывать, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с файловым путем, длина которого превышает 255 символов."
+    - "Когда в GitHub Connect включен параметр \"Users can search GitHub.com\" (Пользователи могут выполнять поиск на GitHub.com), результаты поиска на GitHub.com не включают в себя проблемы в частных и внутренних репозиториях."
+    - "Если узел реплики пребывает в автономном состоянии в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на автономный узел, снижая доступность {% data variables.product.prodname_pages %} для пользователей."
+    - "Ограничения ресурсов, относящиеся к работе с обработчиками перед получением, могут служить причиной сбоев некоторых из них."

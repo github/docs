@@ -46,7 +46,7 @@ In the examples below, replace `:enabled` with `:not-enabled` to see repositorie
 | -------- | -------- |
 | `code-scanning:enabled` | Display repositories that have set up {% data variables.product.prodname_code_scanning %}. | 
 | `dependabot:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}. |
-| `secret-scanning:enabled` | Display repositories that have enabled {% data variables.product.prodname_secret_scanning %} alerts. {% ifversion security-overview-org-risk-coverage %} |
+| `secret-scanning:enabled` | Display repositories that have enabled {% data variables.secret-scanning.alerts %}. {% ifversion security-overview-org-risk-coverage %} |
 | `any-feature:enabled` | Display repositories where at least one security feature is enabled. |{% else %}
 | `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |{% endif %}
 
@@ -101,7 +101,7 @@ These qualifiers are available in the enterprise-level view.
 | Qualifier | Description |
 | -------- | -------- |
 | <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
+| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.secret-scanning.alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
 | <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
 
 

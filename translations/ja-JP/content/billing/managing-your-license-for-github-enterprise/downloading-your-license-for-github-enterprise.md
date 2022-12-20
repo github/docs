@@ -1,6 +1,6 @@
 ---
-title: Downloading your license for GitHub Enterprise
-intro: 'You can download a copy of your license file for {% data variables.product.prodname_ghe_server %}.'
+title: GitHub Enterpriseのライセンスのダウンロード
+intro: '{% data variables.product.prodname_ghe_server %}のライセンスファイルのコピーをダウンロードできます。'
 permissions: 'Enterprise owners can download license files for {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghec: '*'
@@ -10,29 +10,33 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Download your license
+ms.openlocfilehash: eed588e2580558280e2e11639f0904b5f9fcf118
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145087809'
 ---
+## {% data variables.product.prodname_enterprise %}のライセンスファイルについて
 
-## About license files for {% data variables.product.prodname_enterprise %}
-
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see "[About licenses for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+{% data variables.contact.contact_enterprise_sales %}から{% data variables.product.prodname_enterprise %}のライセンスを購入あるいはアップグレードした後は、新しいライセンスファイルをダウンロードしなければなりません。 {% data variables.product.prodname_enterprise %} のライセンスの詳細については、「[{% data variables.product.prodname_enterprise %} のライセンスについて](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)」を参照してください。
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
-## Downloading your license from {% data variables.product.prodname_dotcom_the_website %}
+## {% data variables.product.prodname_dotcom_the_website %}からのライセンスのダウンロード
 
-You must have an enterprise account on {% data variables.product.prodname_dotcom_the_website %} to download your license from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
+{% data variables.product.prodname_dotcom_the_website %}からライセンスをダウンロードするには、{% data variables.product.prodname_dotcom_the_website %}上でEnterpriseアカウントを持っていなければなりません。 詳細については、{% ifversion ghes %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% elsif ghec %}「[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)」を参照してください。{% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Enterprise licensing**.
-  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-1. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file.
-  ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %}
+1. 左側のサイドバーで、 **[Enterprise ライセンス]** をクリックします。
+  ![[Enterprise アカウント設定] サイドバーの [Enterprise ライセンス] タブ](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+1. [Enterprise Server Instances] で、{% octicon "download" aria-label="The download icon" %} をクリックしてライセンスファイルをダウンロードします。
+  ![GitHub Enterprise Server ライセンスをダウンロードする](/assets/images/help/business-accounts/download-ghes-license.png)
 
-After you download your license file, you can upload the file to {% data variables.location.product_location_enterprise %} to validate your application. For more information, see {% ifversion ghec %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% endif %}
+ライセンスファイルをダウンロードしたら、そのファイルを{% data variables.product.product_location_enterprise %}にアップロードして、アプリケーションを検証できます。 詳細については、{% ifversion ghec %}{% data variables.product.prodname_ghe_server %} documentation ドキュメントで「[{% data variables.product.prodname_ghe_server %} への新しいライセンスのアップロード](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)」{% elsif ghes %}「[{% data variables.product.prodname_ghe_server %} への新しいライセンスのアップロード](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)」{% endif %}を参照してください。
 
-## Downloading your license if you don't have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}
+## {% data variables.product.prodname_dotcom_the_website %}上にEnterpriseアカウントを持っていない場合のライセンスのダウンロード
 
-If you do not have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, or if you're not sure, you may be able to download your {% data variables.product.prodname_ghe_server %} license from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
+{% data variables.product.prodname_dotcom_the_website %} 上に Enterprise アカウントをお持ちでない場合、または不明な場合は、[{% data variables.product.prodname_enterprise %} Web サイト](https://enterprise.github.com/download)から {% data variables.product.prodname_ghe_server %} ライセンスをダウンロードできる場合があります。
 
-If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}.
+ライセンスのダウンロードに関する質問がある場合は、{% data variables.contact.contact_enterprise_sales %}にお問い合わせください。

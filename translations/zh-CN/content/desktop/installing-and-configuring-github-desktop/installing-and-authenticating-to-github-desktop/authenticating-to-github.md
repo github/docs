@@ -1,126 +1,120 @@
 ---
-title: Authenticating to GitHub
+title: 对 GitHub 进行身份验证
 shortTitle: Authentication
-intro: 'You can securely access your account''s resources on {% data variables.product.prodname_desktop %} by authenticating to {% data variables.product.prodname_dotcom %}.'
+intro: '您可以通过向 {% data variables.product.prodname_dotcom %} 验证来安全地访问您的帐户在 {% data variables.product.prodname_desktop %} 上的资源。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
   fpt: '*'
+ms.openlocfilehash: e88d59a03d876b23d8eb72aae7324db64981096f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145099231'
 ---
-## About authentication
+## 关于身份验证
 
-To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.prodname_dotcom %}.
+为确保帐户安全，必须先进行身份验证，然后才可使用 {% data variables.product.prodname_desktop %} 访问 {% data variables.product.prodname_dotcom %}上的资源。
 
-Before you authenticate, {% data reusables.desktop.get-an-account %}
+在进行身份验证之前，{% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上验证帐户
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %}
+3. 在“{% data variables.product.prodname_dotcom_the_website %}”的右侧，单击“登录”。
+  ![GitHub 的登录按钮](/assets/images/help/desktop/mac-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. 在 {% data variables.product.prodname_dotcom %} 验证帐户后，按照提示返回到 {% data variables.product.prodname_desktop %}。
 
-## Authenticating an account on {% data variables.product.prodname_ghe_server %}
+## 在 {% data variables.product.prodname_ghe_server %} 上验证帐户
 
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.location.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{% data reusables.desktop.sign-in-browser %}
-1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
-  ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. 若要在 {% data variables.product.product_location_enterprise %} 上添加帐户，请在“企业地址”下键入实例的 URL，然后单击“继续”。
+  ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png) {% data reusables.desktop.sign-in-browser %}
+1. 若要对 {% data variables.product.product_location_enterprise %} 帐户进行身份验证，请键入帐户凭据，然后单击“登录”。
+  ![浏览器中 {% data variables.product.prodname_ghe_server %} 的“登录”按钮](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  或者，如果你已登录 {% data variables.product.product_location_enterprise %} 帐户，请按照提示返回 {% data variables.product.prodname_desktop %} 完成身份验证。 
 
 {% endmac %}
 
 {% windows %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上验证帐户
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-3. To the right of "GitHub.com," click **Sign in**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %}
+3. 在“GitHub.com”右侧，单击“登录”。
+  ![GitHub 的登录按钮](/assets/images/help/desktop/windows-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. 在 {% data variables.product.prodname_dotcom %} 验证帐户后，按照提示返回到 {% data variables.product.prodname_desktop %}。
 
-## Authenticating an account on {% data variables.product.prodname_enterprise %}
+## 在 {% data variables.product.prodname_enterprise %} 上验证帐户
 
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{% data reusables.desktop.retrieve-2fa %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. 若要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“企业地址”下键入凭据，然后单击“继续”。
+  ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png) {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
-## Troubleshooting authentication issues
+## 排查身份验证问题
 
-If {% data variables.product.prodname_desktop %} encounters an authentication error, you can use error messages to troubleshoot.
+如果 {% data variables.product.prodname_desktop %} 遇到身份验证错误，可以使用错误消息进行故障排除。
 
-If you encounter an authentication error, first try signing out and signing back in to your account on {% data variables.product.prodname_desktop %}.
+如果您遇到身份验证错误，请先尝试在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-For some errors, {% data variables.product.prodname_desktop %} will prompt you with an error message. If you are not prompted, or to find more information about any error, view the {% data variables.product.prodname_desktop %} log files by using the following steps.
+对于某些错误，{% data variables.product.prodname_desktop %} 会以错误消息提示您。 如果没有提示，或者要查找任何错误的更多信息，请使用以下步骤查看 {% data variables.product.prodname_desktop %} 日志文件。
 
 {% mac %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Finder**.
-  ![The Show Logs in Finder button](/assets/images/help/desktop/mac-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. 使用“帮助”下拉菜单，然后单击“在 Finder 中显示日志” 。
+  ![“在 Finder 中显示日志”按钮](/assets/images/help/desktop/mac-show-logs.png)
+2. 选择您遇到身份验证错误之日的日志文件。
 
 {% endmac %}
 
 {% windows %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Explorer**.
-  ![The Show Logs in Explorer button](/assets/images/help/desktop/windows-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. 使用“帮助”下拉菜单，然后单击“在 Explorer 中显示日志” 。
+  ![“在 Explorer 中显示日志”按钮](/assets/images/help/desktop/windows-show-logs.png)
+2. 选择您遇到身份验证错误之日的日志文件。
 
 {% endwindows %}
 
-Review the troubleshooting information below for the error message that you encounter.
+查看下面的故障排除信息，了解您遇到的错误消息。
 
-### Bad credentials
+### 无效凭据
 
 ```shell
 Error: Bad credentials
 ```
 
-This error means that there is an issue with your stored account credentials.
+此错误意味着存储的帐户凭据有问题。
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+要解决问题，请在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-### Empty token
+### 空令牌
 
 ```shell
-info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - USERNAME (empty token)
+info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
 ```
 
-This error means that {% data variables.product.prodname_desktop %} is unable to find the access token that it created in the system keychain.
+这个错误表示 {% data variables.product.prodname_desktop %} 找不到它在系统密钥链中创建的访问令牌。
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+要解决问题，请在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-### Repository not found
+### 未找到仓库
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -128,11 +122,11 @@ fatal: repository 'https://github.com/<user>/<repo>.git' not found
 (The error was parsed as 8: The repository does not seem to exist anymore. You may not have access, or it may have been deleted or renamed.)
 ```
 
-This error means that you do not have permission to access the repository that you are trying to clone.
+这个错误表示您没有权限访问您想克隆的仓库。
 
-To troubleshoot, contact the person in your organization who administers permissions.
+要解决问题，请联系您组织中管理权限的人。
 
-### Could not read from remote repository
+### 无法读取远程仓库
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -141,11 +135,11 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights and the repository exists.
 ```
 
-This error means that you do not have a valid SSH key set up.
+这个错误表示您没有设置有效的 SSH 密钥。
 
-To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+若要进行故障排除，请参阅“[生成新的 SSH 密钥并将其添加到 SSH 代理](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
-### Failed to clone
+### 无法克隆
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -157,34 +151,34 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-This error means that either the repository that you are trying to clone has submodules that you do not have access to or you do not have a valid SSH key set up.
+这个错误表示您尝试克隆的仓库包含您无法访问的子模块，或者您没有设置有效的 SSH 密钥。
 
-If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
+如果您无法访问子模块，请通过联系管理仓库权限的人解决问题。
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+如果没有设置有效的 SSH 密钥，请参阅“[生成新的 SSH 密钥并将其添加到 SSH 代理](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
 {% windows %}
 
-### Unable to read AskPass response
+### 无法读取 AskPass 响应
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
 fatal: could not read Username for 'https://github.com': terminal prompts disabled
 ```
 
-This error can be caused by multiple events.
+这个错误可能是多个事件造成的。
 
-If the `Command Processor` registry entries are modified, {% data variables.product.prodname_desktop %} will respond with an `Authentication failed` error. To check if these registry entries have been modified, follow these steps.
+如果 `Command Processor` 注册表项已修改，{% data variables.product.prodname_desktop %} 将以 `Authentication failed` 错误响应。 要检查这些注册表条目是否已修改，请按照以下步骤操作。
 
-1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations.
+1. 打开注册表编辑器 (`regedit.exe`) 并导航到以下位置。
   `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
   `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
-2. Check to see if there is an `Autorun` value in either location.
-3. If there is an `Autorun` value, delete it.
+2. 检查任一位置是否有 `Autorun` 值。
+3. 如果有 `Autorun` 值，请将其删除。
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+如果您的 Windows 用户名延长了 Unicode 字符，可能导致 AskPass 响应错误。 要解决问题，请创建新的 Windows 用户帐户，然后将文件迁移到该帐户。 有关详细信息，请参阅 Microsoft 文档中的“[在 Windows 中创建用户帐户](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)”。
 
 {% endwindows %}
 
-## Further reading
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+## 延伸阅读
+- [关于向 GitHub 进行身份验证](/github/authenticating-to-github/about-authentication-to-github)

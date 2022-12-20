@@ -1,29 +1,33 @@
 ---
-title: Pre-receive Hooks
-intro: 'The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks.'
+title: Перехватчики предварительного получения
+intro: 'API перехватчиков предварительного получения позволяет создавать, перечислять, обновлять и удалять перехватчики перед получением.'
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cfda2bb88d276b8d0bd34888475eb9c32a5a4872
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098887'
 ---
+*Он доступен только администраторам сайта, [прошедшим проверку подлинности](/rest/overview/resources-in-the-rest-api#authentication).* Если получить доступ к нему попытаются обычные пользователи, будет выведен ответ `404`.
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+{% данных reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+### Атрибуты объектов
 
-### Object attributes
+#### Перехватчик предварительного получения
 
-#### Pre-receive Hook
-
-| Name                             | Type      | Description                                                     |
+| Имя                             | Тип      | Описание                                                     |
 |----------------------------------|-----------|-----------------------------------------------------------------|
-| `name`                           | `string`  | The name of the hook.                                           |
-| `script`                         | `string`  | The script that the hook runs.                                  |
-| `script_repository`              | `object`  | The GitHub repository where the script is kept.                 |
-| `environment`                    | `object`  | The pre-receive environment where the script is executed.       |
-| `enforcement`                    | `string`  | The state of enforcement for this hook.                         |
-| `allow_downstream_configuration` | `boolean` | Whether enforcement can be overridden at the org or repo level. |
+| `name`                           | `string`  | Имя перехватчика.                                           |
+| `script`                         | `string`  | Скрипт, выполняемый перехватчиком.                                  |
+| `script_repository`              | `object`  | Репозиторий GitHub, в котором хранится скрипт.                 |
+| `environment`                    | `object`  | Среда предварительного получения, в которой выполняется скрипт.       |
+| `enforcement`                    | `string`  | Состояние принудительного применения этого перехватчика.                         |
+| `allow_downstream_configuration` | `boolean` | Возможность переопределения принудительного применения на уровне организации или репозитория. |
 
-Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject
-any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+Возможные значения для *принудительного применения*: `enabled`, `disabled` и `testing`. `disabled` указывает, что перехватчик предварительного получения не будет выполняться. `enabled` указывает, что он будет выполняться и отклонять все отправки, результатом которых является переход в ненулевое состояние. `testing` означает, что скрипт будет выполняться, но отправки отклоняться не будут.

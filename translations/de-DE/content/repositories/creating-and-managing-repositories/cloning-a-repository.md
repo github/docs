@@ -1,6 +1,6 @@
 ---
-title: Cloning a repository
-intro: 'When you create a repository on {% data variables.location.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
+title: Ein Repository klonen
+intro: 'Wenn du ein Repository auf {% data variables.product.product_location %} erstellst, liegt es als Remoterepository vor. Du kannst dein Repository klonen, um eine lokale Kopie auf deinem Computer zu erstellen, und die beiden Speicherorte synchronisieren.'
 redirect_from:
   - /articles/cloning-a-repository
   - /articles/cloning-a-repository-from-github
@@ -13,25 +13,26 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: fbe00d1568a2f746362d434e769aef2f3466bcf1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145132346'
 ---
-## About cloning a repository
+## Über das Klonen eines Repositorys
 
-You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
+Du kannst ein Repository aus {% data variables.product.product_location %} auf deinen lokalen Computer klonen, um das Beheben von Zusammenführungskonflikten, das Hinzufügen oder Entfernen von Dateien und das Pushen großer Commits zu vereinfachen. Beim Klonen eines Repositorys kopierst du das Repository aus {% data variables.product.product_location %} auf deinen lokalen Computer.
 
-Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
+Das Klonen eines Repository ruft eine vollständige Kopie aller Repository-Daten ab, die {% data variables.product.product_location %} zu diesem Zeitpunkt hat, inklusive aller Versionen jeder Datei und jedes Ordners für das Projekt. Du kannst deine Änderungen an das Remoterepository auf {% data variables.product.product_location %} pushen oder die Änderungen anderer Benutzer*innen aus {% data variables.product.product_location %} abrufen. Weitere Informationen findest du unter [Verwenden von Git](/github/getting-started-with-github/using-git).
 
-You can clone your existing repository or clone another person's existing repository to contribute to a project.
+Du kannst ein vorhandenes Repository oder das Repository einer anderen Person klonen, um zu einem Projekt beizutragen.
 
-## Cloning a repository
+## Ein Repository klonen
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-{% data reusables.command_line.git-clone-url %}
-{% data reusables.command_line.local-clone-created %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %} {% data reusables.command_line.git-clone-url %} {% data reusables.command_line.local-clone-created %}
 
 {% endwebui %}
 
@@ -39,59 +40,54 @@ You can clone your existing repository or clone another person's existing reposi
 
 {% data reusables.cli.cli-learn-more %}
 
-To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
+Verwende den Unterbefehl `repo clone`, um ein Repository lokal zu klonen. Ersetze den `repository`-Parameter durch den Namen des Repositorys. Beispiel: `octo-org/octo-repo`, `monalisa/octo-repo` oder `octo-repo`. Wenn der `OWNER/`-Teil des `OWNER/REPO`-Repositoryarguments nicht angegeben wird, wird er standardmäßig auf den Namen des authentifizierenden Benutzers festgelegt.
 
 ```shell
-gh repo clone REPOSITORY
+gh repo clone <em>repository</em>
 ```
 
-You can also use the GitHub URL to clone a repository.
+Du kannst auch die GitHub-URL verwenden, um ein Repository zu klonen.
 
 ```shell
-gh repo clone https://github.com/PATH-TO/REPOSITORY
+gh repo clone <em>https://github.com/cli/cli</em>
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.open-with-github-desktop %}
-4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.open-with-github-desktop %}
+4. Befolge die Aufforderungen in {% data variables.product.prodname_desktop %}, um den Klon zu vervollständigen.
 
-For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
+Weitere Informationen findest du unter [Klonen eines Repositorys aus {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/).
 
 {% enddesktop %}
 
-## Cloning an empty repository
+## Ein leeres Repository klonen
 
-An empty repository contains no files. It's often made if you don't initialize the repository with a README when creating it.
+Ein leeres Repository enthält keine Dateien. Dies geschieht öfters, wenn du das Repository bei der Erstellung nicht mit einer README-Datei initialisierst.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "clippy" aria-label="The clipboard icon" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}.
-   ![Empty repository clone URL button](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. Wenn du dein Repository über die Befehlszeile mit HTTPS klonen möchtest, klicke unter „Schnelle Einrichtung“ auf {% octicon "clippy" aria-label="The clipboard icon" %}. Wenn du das Repository mithilfe eines SSH-Schlüssels klonen möchtest, einschließlich eines Zertifikats, das von der SSH-Zertifizierungsstelle deiner Organisation ausgestellt wurde, klicke auf **SSH** und dann auf {% octicon "clippy" aria-label="The clipboard icon" %}.
+   ![Die Schaltfläche „URL zum Klonen eines leeren Repositorys“](/assets/images/help/repository/empty-https-url-clone-button.png)
 
-   Alternatively, to clone your repository in Desktop, click {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** and follow the prompts to complete the clone.
-   ![Empty repository clone desktop button](/assets/images/help/repository/empty-desktop-clone-button.png)
+   Klicke alternativ auf {% octicon "desktop-download" aria-label="The desktop download button" %} **Auf dem Desktop einrichten**, und folge den Eingabeaufforderungen, um dein Repository auf den Desktop zu klonen.
+   ![Die Schaltfläche „Leeres Repository auf den Desktop klonen“](/assets/images/help/repository/empty-desktop-clone-button.png)
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.change-current-directory-clone %}
-{% data reusables.command_line.git-clone-url %}
-{% data reusables.command_line.local-clone-created %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.change-current-directory-clone %} {% data reusables.command_line.git-clone-url %} {% data reusables.command_line.local-clone-created %}
 
-## Troubleshooting cloning errors
+## Beheben von Fehlern beim Klonen
 
-When cloning a repository it's possible that you might encounter some errors.
+Beim Klonen eines Repositorys wirst du allenfalls Fehlern begegnen.
 
-If you're unable to clone a repository, check that:
+Wenn du ein Repository nicht klonen kannst, überprüfe Folgendes:
 
-- You can connect using HTTPS. For more information, see "[HTTPS cloning errors](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
-- You have permission to access the repository you want to clone. For more information, see "[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)."
-- The default branch you want to clone still exists. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
+- Du kannst zu HTTPS verbinden. Weitere Informationen findest du unter [HTTPS-Klonfehler](/github/creating-cloning-and-archiving-repositories/https-cloning-errors).
+- Du hast die Berechtigung zum Zugriff auf das Repository, das du klonen willst. Weitere Informationen findest du unter [Fehler: Repository nicht gefunden](/github/creating-cloning-and-archiving-repositories/error-repository-not-found).
+- Der Standardbranch, den du klonen willst, existiert immer noch. Weitere Informationen findest du unter [Fehler: Remote-HEAD verweist auf nicht vorhandene Referenz, Auschecken nicht möglich](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout).
 
 {% ifversion fpt or ghec %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
-{% endif %}
+- [Beheben von Verbindungsproblemen](/articles/troubleshooting-connectivity-problems) {% endif %}

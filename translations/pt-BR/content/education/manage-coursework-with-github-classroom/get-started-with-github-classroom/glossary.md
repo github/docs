@@ -1,53 +1,59 @@
 ---
-title: Glossary
-intro: 'You can review explanations of terminology for {% data variables.product.prodname_classroom %}.'
+title: Glossário
+intro: 'Você pode revisar as explicações de terminologia para {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
+ms.openlocfilehash: ac81489db055ef019789ae77a6ca44bd235f5eaa
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145093856'
 ---
-## assignment
+## atribuição
 
-An assignment is coursework in {% data variables.product.prodname_classroom %}. A teacher can assign an assignment to an individual student or a group of students. Teachers can import starter code for the assignment, assign students, and create a deadline for each assignment. For more information, see the definitions for "[individual assignment](#individual-assignment)" and "[group assignment](#group-assignment)."
+Uma atividade é um curso em {% data variables.product.prodname_classroom %}. Um professor pode atribuir uma atividade a um aluno ou a um grupo de alunos. Os professores podem importar o código inicial para a atividade, atribuir alunos e criar um prazo para cada atividade. Para obter mais informações, confira as definições de "[tarefa individual](#individual-assignment)" e "[tarefa em grupo](#group-assignment)".
 
 ---
 
-## classroom
+## sala de aula
 
-A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom_the_website %}. To administer a classroom, you must be an organization owner for the organization on {% data variables.product.prodname_dotcom %}. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)."
+Uma sala de aula é a unidade básica de {% data variables.product.prodname_classroom %}. Os professores podem usar uma sala de aula para organizar e gerenciar alunos, professores e recomendações de curso único. Uma sala de aula pertence a uma organização em {% data variables.product.prodname_dotcom_the_website %}. Para administrar uma sala de aula, você precisa ser o proprietário da organização para a organização em {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms)".
 
 ---
 
 ## {% data variables.product.prodname_classroom %}
 
-{% data variables.product.prodname_classroom %} is a web application for educators that provides course administration tools integrated with {% data variables.product.prodname_dotcom %}. For more information, see the [{% data variables.product.prodname_classroom %}](https://classroom.github.com/) website.
+{% data variables.product.prodname_classroom %} é um aplicativo da web para educadores que fornece ferramentas de administração do curso integradas a {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira o site do [{% data variables.product.prodname_classroom %}](https://classroom.github.com/).
 
 ---
 
-## group assignment  
+## atividade em grupo  
 
-{% data reusables.classroom.assignments-group-definition %} For more information, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
-
----
-
-## identifier
-
-An identifier in {% data variables.product.prodname_classroom %} is a unique ID for a student participating in a course. For example, an identifier can be a student name, alphanumeric ID, or email address.
+{% data reusables.classroom.assignments-group-definition %} Para obter mais informações, confira "[Criar uma tarefa em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
 
 ---
 
-## individual assignment
+## identificador
 
-{% data reusables.classroom.assignments-individual-definition %} For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
-
----
-
-## roster
-
-A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of "[identifier](#identifier)." For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+Um identificador em {% data variables.product.prodname_classroom %} é um ID exclusivo para um aluno que participa de um curso. Por exemplo, um identificador pode ser um nome de aluno, um ID alfanumérico ou endereço de e-mail.
 
 ---
 
-## Further reading
+## atividade individual
 
-- "[{% data variables.product.prodname_dotcom %} glossary](/github/getting-started-with-github/github-glossary)"
+{% data reusables.classroom.assignments-individual-definition %} Para obter mais informações, confira "[Criar uma tarefa individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)".
+
+---
+
+## lista
+
+Uma lista permite que um professor gerencie os alunos e os envios de atividades em uma sala de aula em {% data variables.product.prodname_classroom %}. Os professores podem criar uma lista de participantes inserindo uma lista de identificadores dos alunos, ou conectando {% data variables.product.prodname_classroom %} a um sistema de gerenciamento de aprendizagem (LMS). Para obter mais informações sobre identificadores, confira a definição de "[identificador](#identifier)". Para obter mais informações sobre como conectar o {% data variables.product.prodname_classroom %} a um LMS, confira "[Conectar um sistema de gerenciamento de aprendizagem ao {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)".
+
+---
+
+## Leitura adicional
+
+- "[Glossário do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-glossary)"

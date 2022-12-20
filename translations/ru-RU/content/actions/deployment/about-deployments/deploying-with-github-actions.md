@@ -1,6 +1,6 @@
 ---
-title: Deploying with GitHub Actions
-intro: Learn how to control deployments with features like environments and concurrency.
+title: Развертывание с помощью GitHub Actions
+intro: 'Узнайте, как управлять развертываниями с помощью таких функций, как среды и параллелизм.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,34 +12,38 @@ redirect_from:
 topics:
   - CD
 shortTitle: Deploy with GitHub Actions
+ms.openlocfilehash: 1e832b9fb4094009bc9b977e1ee2ab937839db41
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098423'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-## Introduction
+{% data variables.product.prodname_actions %} предлагает возможности, позволяющие управлять развертываниями. Можно сделать следующее:
 
-{% data variables.product.prodname_actions %} offers features that let you control deployments. You can:
+- Активировать рабочие процессы с различными событиями.
+- Настроить среды для задания правил, прежде чем задание сможет продолжить работу, и ограничить доступ к секретам.
+- Использовать параллелизм для управления количеством развертываний, выполняемых за раз.
 
-- Trigger workflows with a variety of events.
-- Configure environments to set rules before a job can proceed and to limit access to secrets.
-- Use concurrency to control the number of deployments running at a time.
+Дополнительные сведения о непрерывном развертывании см. в статье [Сведения о непрерывном развертывании](/actions/deployment/about-continuous-deployment).
 
-For more information about continuous deployment, see "[About continuous deployment](/actions/deployment/about-continuous-deployment)."
+## Предварительные требования
 
-## Prerequisites
+Требуются знания синтаксиса для {% data variables.product.prodname_actions %}. Дополнительные сведения см. в статье со [сведениями о {% data variables.product.prodname_actions %}](/actions/learn-github-actions).
 
-You should be familiar with the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+## Активация развертывания
 
-## Triggering your deployment
+Для активации рабочего процесса развертывания можно использовать различные события. Некоторые из наиболее распространенных вариантов: `pull_request`, `push` и `workflow_dispatch`.
 
-You can use a variety of events to trigger your deployment workflow. Some of the most common are: `pull_request`, `push`, and `workflow_dispatch`.
+Например, рабочий процесс со следующими триггерами выполняется каждый раз, когда:
 
-For example, a workflow with the following triggers runs whenever:
-
-- There is a push to the `main` branch.
-- A pull request targeting the `main` branch is opened, synchronized, or reopened.
-- Someone manually triggers it.
+- Есть отправка в ветвь `main`.
+- Запрос на вытягивание, предназначенный для ветви `main`, открывается, синхронизируется или открывается повторно.
+- Кто-то активирует его вручную.
 
 ```yaml
 on:
@@ -52,23 +56,23 @@ on:
   workflow_dispatch:
 ```
 
-For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+Дополнительные сведения см. в разделе [События, активирующие рабочие процессы](/actions/reference/events-that-trigger-workflows).
 
-## Using environments
+## Использование сред
 
 {% data reusables.actions.about-environments %}
 
-## Using concurrency
+## Использование параллелизма
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time.
+Параллелизм обеспечивает одновременное выполнение только одного задания или процесса с использованием одной группы параллелизма. Параллелизм нужен для того, чтобы в среде одновременно выполнялось не более одного развертывания и было не более одного ожидающего развертывания.
 
 {% note %}
 
-**Note:** `concurrency` and `environment` are not connected. The concurrency value can be any string; it does not need to be an environment name. Additionally, if another workflow uses the same environment but does not specify concurrency, that workflow will not be subject to any concurrency rules.
+**Примечание.** `concurrency` и `environment` не подключены. Значением параллелизма может быть любая строка. Это не обязательно должно быть имя среды. Кроме того, если та же среда используется для другого рабочего процесса, но не указывается параллелизм, этот рабочий процесс не будет подчиняться правилам параллелизма.
 
 {% endnote %}
 
-For example, when the following workflow runs, it will be paused with the status `pending` if any job or workflow that uses the `production` concurrency group is in progress. It will also cancel any job or workflow that uses the `production` concurrency group and has the status `pending`. This means that there will be a maximum of one running and one pending job or workflow in that uses the `production` concurrency group.
+Например, если выполняется следующий рабочий процесс, он будет приостановлен с состоянием `pending`, в случае выполнения задания или рабочего процесса, использующего группу параллелизма `production`. Кроме этого, будет отменено любое задание или рабочий процесс, использующий группу параллелизма `production` и имеющий состояние `pending`. Это означает, что в нем будет не более одного запущенного и одного ожидающего задания или рабочего процесса, в котором используется группа параллелизма `production`.
 
 ```yaml
 name: Deployment
@@ -89,7 +93,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-You can also specify concurrency at the job level. This will allow other jobs in the workflow to proceed even if the concurrent job is `pending`.
+Вы также можете указать параллелизм на уровне задания. Это позволит продолжить выполнение других заданий в рабочем процессе, даже если этим параллельным заданием является `pending`.
 
 ```yaml
 name: Deployment
@@ -109,7 +113,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-You can also use `cancel-in-progress` to cancel any currently running job or workflow in the same concurrency group.
+Вы также можете использовать `cancel-in-progress`, чтобы отменить задание или рабочий процесс, которые сейчас выполняются в той же группе параллелизма.
 
 ```yaml
 name: Deployment
@@ -132,42 +136,41 @@ jobs:
         # ...deployment-specific steps
 ```
 
-For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+Руководство по написанию действий по развертыванию см. в статье [Поиск примеров развертывания](#finding-deployment-examples).
 
-## Viewing deployment history
+## Просмотр журнала развертывания
 
-When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
+Когда рабочий процесс {% data variables.product.prodname_actions %} выполняет развертывание в среде, эта среда отображается на главной странице репозитория. Дополнительные сведения о просмотре развертываний в средах см. в разделе [Просмотр журнала развертывания](/developers/overview/viewing-deployment-history).
 
-## Monitoring workflow runs
+## Мониторинг выполнения рабочего процесса
 
-Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug deployments. For more information see, "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
+Во время каждого выполнения рабочего процесса создается граф в режиме реального времени, иллюстрирующий ход выполнения. Этот граф можно использовать для мониторинга и отладки развертываний. Дополнительные сведения см. в статье [Использование графа визуализации](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph).
 
-You can also view the logs of each workflow run and the history of workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+Кроме этого, вы можете просматривать журналы каждого выполнения рабочего процесса, а также журнал запусков рабочего процесса. Дополнительные сведения см. в статье "[Просмотр журнала выполнения рабочего процесса](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".
 
-## Tracking deployments through apps
+## Отслеживание развертываний с помощью приложений
 
-{% ifversion fpt or ghec %}
-If your personal account or organization on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[GitHub extensions and integrations](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
+{% ifversion fpt или ghec %} Если ваша личная учетная запись или организация на {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} интегрирована с Microsoft Teams или Slack, вы можете отслеживать развертывания, использующие среды с помощью Microsoft Teams или Slack. Например, вы можете через приложение получать уведомления, когда развертывание ожидает утверждения, развертывание утверждено или когда изменяется состояние развертывания. Дополнительные сведения об интеграции Microsoft Teams или Slack см. в статье [Расширения и интеграции GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools).
 {% endif %}
 
-You can also build an app that uses deployment and deployment status webhooks to track deployments. {% data reusables.actions.environment-deployment-event %} For more information, see "[Apps](/developers/apps)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+Вы также можете создать приложение, использующее веб-перехватчики развертываний и их состояния для отслеживания развертываний. {% data reusables.actions.environment-deployment-event %} Дополнительные сведения см. в статьях [Приложения](/developers/apps) и [События веб-перехватчика и полезные данные](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment).
 
 {% ifversion fpt or ghes or ghec %}
 
-## Choosing a runner
+## Выбор средства выполнения тестов
 
-You can run your deployment workflow on {% data variables.product.company_short %}-hosted runners or on self-hosted runners. Traffic from {% data variables.product.company_short %}-hosted runners can come from a [wide range of network addresses](/rest/reference/meta#get-github-meta-information). If you are deploying to an internal environment and your company restricts external traffic into private networks, {% data variables.product.prodname_actions %} workflows running on {% data variables.product.company_short %}-hosted runners may not be able to communicate with your internal services or resources. To overcome this, you can host your own runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[About GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+Вы можете выполнять рабочий процесс развертывания в средствах выполнения тестов, размещенных в {% data variables.product.company_short %} или в локальных средствах выполнения. Трафик от средств выполнения тестов, размещенных в {% data variables.product.company_short %}, может поступать из [широкого диапазона сетевых адресов](/rest/reference/meta#get-github-meta-information). Если вы выполняете развертывание во внутренней среде, а ваша компания ограничивает внешний трафик частными сетями, рабочие процессы {% data variables.product.prodname_actions %}, выполняемые в средствах выполнения тестов, размещенных в {% data variables.product.company_short %}, могут не иметь возможности взаимодействовать с внутренними службами или ресурсами. Чтобы решить эту проблему, вы можете разместить собственные средства выполнения тестов. Дополнительные сведения см. в статьях [Сведения о локальных средствах выполнения тестов](/actions/hosting-your-own-runners/about-self-hosted-runners) и [Сведения о средствах выполнения тестов, размещенных в GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners).
 
 {% endif %}
 
-## Displaying a status badge
+## Отображение эмблемы состояния
 
-You can use a status badge to display the status of your deployment workflow. {% data reusables.repositories.actions-workflow-status-badge-intro %}
+Для отображения состояния рабочего процесса развертывания можно использовать эмблему состояния. {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+Дополнительные сведения см. в статье [Добавление индикатора состояния рабочего процесса](/actions/managing-workflow-runs/adding-a-workflow-status-badge).
 
-## Finding deployment examples
+## Поиск примеров развертывания
 
-This article demonstrated features of {% data variables.product.prodname_actions %} that you can add to your deployment workflows.
+В этой статье продемонстрированы возможности {% data variables.product.prodname_actions %}, которые можно добавить в рабочие процессы развертывания.
 
 {% data reusables.actions.cd-templates-actions %}

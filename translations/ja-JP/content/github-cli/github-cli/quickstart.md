@@ -1,6 +1,6 @@
 ---
-title: GitHub CLI quickstart
-intro: 'Start using {% data variables.product.prodname_cli %} to work with {% data variables.product.company_short %} in the command line.'
+title: GitHub CLI クイックスタート
+intro: '{% data variables.product.prodname_cli %} を使用して、コマンド ラインで {% data variables.product.company_short %} を操作します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,37 +11,41 @@ topics:
 type: overview
 allowTitleToDifferFromFilename: true
 shortTitle: Quickstart
+ms.openlocfilehash: 004f848e973aa66d19b9de6b922d65dba76f1aea
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145068537'
 ---
-
-## About {% data variables.product.prodname_cli %}
+## {% data variables.product.prodname_cli %} について
 
 {% data reusables.cli.about-cli %}
 
-## Getting started
+## 作業の開始
 
-1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
-1. In the command line, authenticate to {% data variables.product.company_short %}.
+1. macOS、Windows、または Linux に {% data variables.product.prodname_cli %} を[インストール](https://github.com/cli/cli#installation)します。
+1. コマンド ラインで、{% data variables.product.company_short %} に対して認証します。
 
   ```shell
   gh auth login
   ```
 
-  {% ifversion not fpt or ghec %}
-  To authenticate to {% data variables.location.product_location %}, use the `--hostname` flag.
+  {% ifversion not fpt or ghec %} {% data variables.product.product_location %} に対して認証するには、`--hostname` フラグを使用します。
 
   ```shell
-  gh auth login --hostname HOSTNAME
+  gh auth login --hostname <em>hostname</em>
   ```
 
   {% endif %}
-1. Start working with {% data variables.product.company_short %} in the command line. For example, find an issue to work on with `gh issue status` or `gh issue list --assignee @me`. Create a pull request with `gh pr create`. Review a pull request with `gh pr checkout`, `gh pr diff` and `gh pr review`.
+1. コマンド ラインで {% data variables.product.company_short %} の操作を開始します。 たとえば、`gh issue status` または `gh issue list --assignee @me` を使用して、作業する Issue を見つけます。 `gh pr create` を使用してプルリクエストを作成します。 `gh pr checkout`、`gh pr diff`、`gh pr review` を使用してプルリクエストを確認します。
 
-## Next steps
+## 次の手順
 
-- Tell {% data variables.product.prodname_cli %} which text editor to use for commands that open a text editor. For example, enter `gh config set editor "code -w"` to set your preferred text editor to {% data variables.product.prodname_vscode %}. For more information, see [`gh config set`](https://cli.github.com/manual/gh_config_set).
+- テキスト エディターを開くコマンドで使用されるテキスト エディターを {% data variables.product.prodname_cli %} に指定します。 たとえば、`gh config set editor "code -w"` を入力して、優先するテキスト エディターに {% data variables.product.prodname_vscode %} を設定します。 詳細については、「[`gh config set`](https://cli.github.com/manual/gh_config_set)」を参照してください。
 
-- Define aliases for commands that you commonly run. For example, if you run `gh alias set prd "pr create --draft"`, you will then be able to run `gh prd` to quickly open a draft pull request. For more information, see [`gh alias`](https://cli.github.com/manual/gh_alias).
+- よく実行するコマンドのエイリアスを定義します。 たとえば、`gh alias set prd "pr create --draft"` を実行した場合、`gh prd` を実行すると、下書きのプルリクエストをすばやく開くことができるようになります。 詳細については、「[`gh alias`](https://cli.github.com/manual/gh_alias)」を参照してください。
 
-- Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[Using {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/using-github-cli-extensions)" and "[Creating {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/creating-github-cli-extensions)."
+- {% data variables.product.prodname_cli %} 拡張機能を使用して、カスタム コマンドを作成または追加します。 詳細については、「[{% data variables.product.prodname_cli %} 拡張機能の使用](/github-cli/github-cli/using-github-cli-extensions)」および「[{% data variables.product.prodname_cli %} 拡張機能の作成](/github-cli/github-cli/creating-github-cli-extensions)」を参照してください。
 
-- For more information about all of the commands that you can run with {% data variables.product.prodname_cli %}, see "[{% data variables.product.prodname_cli %} reference](/github-cli/github-cli/github-cli-reference)."
+- {% data variables.product.prodname_cli %} で実行できるすべてのコマンドの詳細については、「[{% data variables.product.prodname_cli %} リファレンス](/github-cli/github-cli/github-cli-reference)」を参照してください。

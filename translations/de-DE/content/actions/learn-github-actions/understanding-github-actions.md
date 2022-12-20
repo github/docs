@@ -1,7 +1,7 @@
 ---
-title: Understanding GitHub Actions
-shortTitle: Understand GitHub Actions
-intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
+title: Grundlegendes zu GitHub Actions
+shortTitle: Understanding GitHub Actions
+intro: 'Hier erfährst du mehr über die Grundlagen von {% data variables.product.prodname_actions %}, einschließlich der Kernkonzepte und wesentlichen Terminologie.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -16,87 +16,96 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: b1e82506da6ede65b5ab93f94ce67dee681f81f1
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147763572'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Übersicht
 
-## Overview
+{% data reusables.actions.about-actions %} Du kannst Workflows erstellen, mit denen du alle Pull Requests für dein Repository erstellen und testen sowie gemergte Pull Requests für die Produktion bereitstellen kannst.
 
-{% data reusables.actions.about-actions %}  You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
-
-{% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+{% data variables.product.prodname_actions %} ist nicht auf DevOps beschränkt und kann auch für andere Ereignisse in deinem Repository Workflows ausführen. So kannst du z. B. einen Workflow für das automatische Hinzufügen geeigneter Bezeichnungen ausführen, sobald in deinem Repository ein neues Issue erstellt wird.
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+{% data variables.product.prodname_dotcom %} stellt virtuelle Linux-, Windows- und macOS-Computer für die Ausführung deiner Workflows bereit. Alternativ dazu kannst du eigene selbstgehostete Runner in deinem Rechenzentrum oder deiner Cloudinfrastruktur hosten.
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+Zum Ausführen von Workflows für {% data variables.product.product_location %} musst du deine eigenen virtuellen Linux-, Windows- oder macOS-Computer hosten. {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+Weitere Informationen zur Einführung von {% data variables.product.prodname_actions %} in deinem Unternehmen findest du unter [Einführen von {% data variables.product.prodname_actions %} in deinem Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
 
 {% endif %}
 
-## The components of {% data variables.product.prodname_actions %}
+## Die Komponenten von {% data variables.product.prodname_actions %}
 
-You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
+Du kannst konfigurieren, dass bei einem _Ereignis_ in deinem Repository ein {% data variables.product.prodname_actions %}-_Workflow_ ausgelöst wird. Dabei kann es sich etwa um das Öffnen eines Pull Requests oder das Erstellen eines Issues handeln.  Der Workflow enthält einen oder mehrere _Aufträge_, die nacheinander oder gleichzeitig ausgeführt werden können.  Jeder Auftrag wird innerhalb eines eigenen _Runners_ der VM oder in einem Container ausgeführt und verfügt über einen oder mehrere _Schritte_. Diese führen entweder ein von Ihnen definiertes Skript oder eine _Aktion_ aus. Dabei handelt es sich um eine wiederverwendbare Erweiterung zur Vereinfachung des Workflows.
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Übersicht über Workflow](/assets/images/help/images/overview-actions-simple.png)
 
 ### Workflows
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Du kannst auch auf einen Workflow in einem anderen Workflow verweisen. Informationen hierzu findest du unter [Wiederverwenden von Workflows](/actions/learn-github-actions/reusing-workflows).{% endif %}
 
-For more information about workflows, see "[Using workflows](/actions/using-workflows)."
+Weitere Informationen zu Workflows findest du unter [Verwenden von Workflows](/actions/using-workflows).
 
-### Events
+### Ereignisse
 
-An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow run on a schedule, by [posting to a REST API](/rest/reference/repos#create-a-repository-dispatch-event), or manually.
+Bei einem Ereignis handelt es sich um eine bestimmte Aktivität in einem Repository, die die Ausführung eines Workflows auslöst. Die Aktivität kann beispielsweise von {% data variables.product.prodname_dotcom %} stammen, wenn ein Pull Request erstellt, ein Issue geöffnet oder ein Commit per Push in ein Repository übertragen wird.  Die Ausführung eines Workflows kann auch nach einem Zeitplan, durch [Posten in einer REST-API](/rest/reference/repos#create-a-repository-dispatch-event) oder manuell ausgelöst werden.
 
-For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+Eine vollständige Liste der Ereignisse zum Auslösen von Workflows findest du unter [Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows).
 
-### Jobs
+### Aufträge
 
-A job is a set of _steps_ in a workflow that execute on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
+Ein Auftrag umfasst mehrere _Schritte_ in einem Workflow, die im gleichen Runner ausgeführt werden.  Jeder Schritt besteht entweder aus einem Shellskript oder aus einer _Aktion_, die ausgeführt werden.  Die Schritte werden nacheinander ausgeführt und sind voneinander abhängig.  Da alle Schritte im gleichen Runner ausgeführt werden, kannst du Daten eines Schritts für andere Schritte freigeben.  So kann z. B. in einem Schritt eine Anwendung erstellt und im nächsten Schritt die erstellte Anwendung getestet werden.
 
-You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
+Du kannst einen Auftrag so konfigurieren, dass er Abhängigkeiten zu anderen Aufträgen enthält. Standardmäßig verfügen Aufträge nicht über Abhängigkeiten und werden gleichzeitig ausgeführt.  Verfügt ein Auftrag über eine Abhängigkeit zu einem anderen Auftrag, wird er erst nach dessen Abschluss ausgeführt.  Du kannst z. B. mehrere Buildaufträge für unterschiedliche Architekturen ohne Abhängigkeiten erstellen und anschließend einen Auftrag zur Paketerstellung, der von diesen abhängig ist.  Dadurch werden die Buildaufträge gleichzeitig ausgeführt, und der Auftrag zur Paketerstellung wird erst ausgeführt, nachdem diese erfolgreich abgeschlossen wurden.
 
-For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+Weitere Informationen zu Aufträgen findest du unter [Verwenden von Aufträgen](/actions/using-jobs).
 
-### Actions
+### Aktionen
 
-An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+Bei einer _Aktion_ handelt es sich um eine benutzerdefinierte Anwendung für die {% data variables.product.prodname_actions %}-Plattform zur Ausführung einer komplexen und häufig ausgeführten Aufgabe.  Mit einer Aktion kannst du die Menge des Codes in deinen Workflowdateien reduzieren.  Mit einer Aktion kannst du dein Git-Repository aus {% data variables.product.prodname_dotcom %} abrufen, die korrekte Toolkette für deine Buildumgebung einrichten oder die Authentifizierung bei deinem Cloudanbieter einrichten.
 
-You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
+Du kannst eigene Aktionen schreiben oder im {% data variables.product.prodname_marketplace %} nach Aktionen für deine Workflows suchen.
 
 {% data reusables.actions.internal-actions-summary %}
 
-For more information, see "[Creating actions](/actions/creating-actions)."
+Weitere Informationen findest du unter [Erstellen von Aktionen](/actions/creating-actions).
 
-### Runners
+### Runner
 
-{% data reusables.actions.about-runners %} Each runner can run a single job at a time. {% ifversion ghes or ghae %} You must host your own runners for {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)." {% endif %}If you need a different operating system or require a specific hardware configuration, you can host your own runners.{% endif %} For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% data reusables.actions.about-runners %} Ein Runner kann immer nur einen Auftrag ausführen. {% ifversion ghes or ghae %} Für {% data variables.product.product_name %} musst du eigene Runner hosten. {% elsif fpt or ghec %}{% data variables.product.company_short %} stellt Runner für Ubuntu Linux, Microsoft Windows und macOS zum Ausführen von Workflows bereit. Jede Workflowausführung erfolgt in einer neu bereitgestellten VM. {% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} bietet zudem {% data variables.actions.hosted_runner %}, die in größeren Konfigurationen verfügbar sind. Weitere Informationen findest du unter [Verwenden von {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners). {% endif %}Wenn du ein anderes Betriebssystem oder eine bestimmte Hardwarekonfiguration benötigst, kannst du deine eigenen Runner hosten.{% endif %} Weitere Informationen{% ifversion fpt or ghec %} zu selbstgehosteten Runnern{% endif %} findest du unter [Hosten eigener Runner](/actions/hosting-your-own-runners).
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-## Next steps
+## Komplexere Beispiele
+{% data reusables.actions.link-to-example-library %}
 
-{% data reusables.actions.onboarding-next-steps %}
+## Nächste Schritte
 
-## Contacting support
+- Weitere Informationen zu {% data variables.product.prodname_actions %} findest du unter [Suchen und Anpassen von Aktionen](/actions/learn-github-actions/finding-and-customizing-actions).
+{% ifversion fpt or ghec or ghes %}
+- Informationen zu Abrechnungsfunktionen für {% data variables.product.prodname_actions %} findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions).
+{% endif %}
+
+## Kontaktaufnahme mit dem Support
 
 {% data reusables.actions.contacting-support %}
 
 {% ifversion ghec or ghes or ghae %}
-## Further reading
+## Weitere Informationsquellen
 
-- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
-{% endif %}
+- [Informationen zu {% data variables.product.prodname_actions %} für Unternehmen](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises) {% endif %}

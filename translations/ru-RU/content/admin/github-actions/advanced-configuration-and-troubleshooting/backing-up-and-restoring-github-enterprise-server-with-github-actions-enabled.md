@@ -1,7 +1,7 @@
 ---
-title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
+title: Резервное копирование и восстановление сервера GitHub Enterprise с включенным GitHub Actions
 shortTitle: Backing up and restoring
-intro: 'To restore a backup of {% data variables.location.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.'
+intro: 'Чтобы восстановить резервную копию {% данных variables.location.product_location %} при включении {% данных variables.product.prodname_actions %} необходимо настроить {% данных variables.product.prodname_actions %} перед восстановлением резервной копии с помощью {% данных variables.product.prodname_enterprise_backup_utilities %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -12,33 +12,37 @@ topics:
   - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+ms.openlocfilehash: 43279c6b99cce6618de9253c5d0451c0a661b095
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107312'
 ---
+## Сведения о резервном копировании данных {% variables.product.product_name %} при использовании {% данных variables.product.prodname_actions %}
 
-## About backups of {% data variables.product.product_name %} when using {% data variables.product.prodname_actions %}
+Вы можете использовать {% данных variables.product.prodname_enterprise_backup_utilities %} для резервного копирования и восстановления данных и конфигурации для {% данных variables.location.product_location %} в новый экземпляр. Дополнительные сведения см. в статье "[Настройка резервных копий на устройстве](/admin/configuration/configuring-backups-on-your-appliance)".
 
-You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.location.product_location %} to a new instance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
+Однако не все данные для {% данных variables.product.prodname_actions %} включены в эти резервные копии. {% data reusables.actions.enterprise-storage-ha-backups %}
 
-However, not all the data for {% data variables.product.prodname_actions %} is included in these backups. {% data reusables.actions.enterprise-storage-ha-backups %}
+## Восстановление резервной копии {% данных variables.product.product_name %} при включении {% данных variables.product.prodname_actions %}
 
-## Restoring a backup of {% data variables.product.product_name %} when {% data variables.product.prodname_actions %} is enabled
+Чтобы восстановить резервную копию {% данных variables.location.product_location %} с {% данных variables.product.prodname_actions %}}, необходимо вручную настроить параметры сети и внешнее хранилище на целевом экземпляре перед восстановлением резервной копии из {% данных variables.product.prodname_enterprise_backup_utilities %}. 
 
-To restore a backup of {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}, you must manually configure network settings and external storage on the destination instance before you restore your backup from {% data variables.product.prodname_enterprise_backup_utilities %}. 
-
-1. Confirm that the source instance is offline.
-1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
-1. SSH into the destination instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. Убедитесь, что исходный экземпляр находится в автономном режиме.
+1. Вручную настройте параметры сети для замены экземпляра {% данных variables.product.prodname_ghe_server %}. Параметры сети исключаются из моментального снимка резервной копии и не перезаписываются `ghe-restore`. Дополнительные сведения см. в разделе [Настройка параметров сети](/admin/configuration/configuring-network-settings).
+1. SSH в целевом экземпляре. Дополнительные сведения см. в разделе [Доступ к административной оболочке (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh).
 
    ```shell{:copy}
    $ ssh -p 122 admin@HOSTNAME
    ```
-1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the destination instance, enter the following command.
+1. Настройте целевой экземпляр для использования той же внешней службы хранилища для {% данных variables.product.prodname_actions %} в качестве исходного экземпляра, введя одну из следующих команд.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% данных reusables.actions.configure-storage-provider %}
+1. Чтобы подготовиться к включению {% данных variables.product.prodname_actions %} в целевом экземпляре, введите следующую команду.
 
    ```shell{:copy}
    ghe-config app.actions.enabled true
    ```
-{% data reusables.actions.apply-configuration-and-enable %}
-1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
-1. Re-register your self-hosted runners on the destination instance. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+{% данных reusables.actions.apply-configuration-and-enable %}
+1. После настройки и включения {% данных variables.product.prodname_actions %} для восстановления остальных данных из резервной копии используйте `ghe-restore` команду. Дополнительные сведения см. в разделе [Восстановление резервной копии](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup).
+1. Повторно зарегистрируйте локальные средства выполнения в целевом экземпляре. Дополнительные сведения см. в разделе [Добавление локальных средств выполнения](/actions/hosting-your-own-runners/adding-self-hosted-runners).

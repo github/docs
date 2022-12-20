@@ -1,0 +1,16 @@
+date: '2022-03-01'
+sections:
+  security_fixes:
+    - "高: 情報漏洩と RCE につながる可能性のある整数オーバーフローの脆弱性が GitHub の markdown パーサーで確認されました。この脆弱性は、Google の Project Zero の Felix Wilhelm 氏により、GitHub バグ報奨金プログラムを通じて報告され、CVE-2022-24724 が割り当てられました。"
+  bugs:
+    - 高可用性レプリカのクロックがプライマリと同期されていなかった場合、アップグレードに失敗する場合があります。 
+    - "2020 年 9 月 1 日以降に作成された OAuth アプリケーションでは、[認可を確認](https://docs.github.com/en/enterprise-server@3.2/rest/reference/apps#check-an-authorization) API エンドポイントを使用することができません。" 
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

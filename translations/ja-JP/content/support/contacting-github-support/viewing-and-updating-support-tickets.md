@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
+title: サポート チケットの表示と更新
+intro: '{% data variables.contact.support_portal %} を使って、サポート チケットを表示したり、{% ifversion ghes or ghec %}同僚と共同でチケットの作業を行ったり、{% endif %}{% data variables.contact.github_support %} に応答したりできます。'
 shortTitle: Managing your tickets
 versions:
   fpt: '*'
@@ -8,64 +8,67 @@ versions:
   ghes: '*'
 topics:
   - Support
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193620'
 ---
-
-## About ticket management
+## チケット管理について
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+[GitHub Support ポータル](https://support.github.com/)を使用して、現在および過去のサポート チケットを表示し、{% data variables.contact.github_support %} に応答できます。 120 日を過ぎると、解決されたチケットはアーカイブされ{% ifversion ghec or ghes or ghae %}、アーカイブされたチケットは Enterprise アカウントについてのみ表示でき{% endif %}ます。
 
-{% ifversion ghes or ghec %}
-{% data reusables.enterprise-accounts.support-entitlements %}
-{% endif %}
+{% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
 
-## Viewing your recent support tickets
+## 最近のサポート チケットを表示する
 
 {% data reusables.support.view-open-tickets %}
-1. Under the text box, you can read the comment history. The most recent response is at the top.
+1. テキスト ボックスの下で、コメント履歴を読むことができます。 最新の応答は一番上にあります。
 
-   ![Screenshot of support ticket comment history, with the most recent response at the top](/assets/images/help/support/support-recent-response.png)
+   ![サポート チケットのコメント履歴のスクリーンショット。最新の応答が一番上にあります](/assets/images/help/support/support-recent-response.png)
 
-1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
+1. 必要に応じて、チケット コメントを翻訳するには、{% octicon "globe" aria-label="The globe icon" %} をクリックし、ドロップダウン メニューから任意の言語を選択します。 サポート チケットは、中国語 (簡体字)、フランス語、ドイツ語、日本語、ポルトガル語 (ブラジル)、またはスペイン語に翻訳できます。
 
-   ![Screenshot of a support ticket with the dropdown menu showing the options for translation emphasized](/assets/images/help/support/support-ticket-translation-options.png)
+   ![サポート チケットのスクリーンショット。ドロップダウン メニューでは、翻訳のオプションが強調表示されています](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
-## Viewing your archived support tickets
+## アーカイブされたサポート チケットを表示する
 
-You can only view archived tickets for an enterprise account.
+Enterprise アカウントのアーカイブ済みチケットのみを表示できます。
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
+1. **[マイ チケット]** ドロップダウン メニューを選んで、Enterprise アカウントの名前をクリックします。 
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. Under the "My tickets" table, click **View archived tickets**.
+   ![[マイ チケット] ドロップダウン メニューのスクリーンショット。](/assets/images/help/support/ticket-context.png)
+1. [マイ チケット] テーブルで **[アーカイブ済みチケットの表示]** をクリックします。
 
 {% endif %}
 
-## Updating support tickets
+## サポート チケットの更新
 
 {% data reusables.support.view-open-tickets %}
-1. Optionally, if the issue is resolved, under the text box, click **Close ticket**.
-![Screenshot showing location of the "Close ticket" button.](/assets/images/help/support/close-ticket.png)
-1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
-![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
-1. To add your comment to the ticket, click **Comment**.
-![Screenshot of the "Comment" button.](/assets/images/help/support/add-comment.png)
+1. 必要に応じて、Issue が解決した場合は、テキスト ボックスの下にある **[チケットを閉じる]** をクリックします。
+![[チケットを閉じる] ボタンの場所を示すスクリーンショット。](/assets/images/help/support/close-ticket.png)
+1. GitHub Support に返信し、チケットに新しいコメントを追加するには、テキスト ボックスに返信を入力します。
+![[コメントの追加] テキスト フィールドのスクリーンショット。](/assets/images/help/support/new-comment-field.png)
+1. チケットにコメントを追加するには、 **[コメント]** をクリックします。
+![[コメント] ボタンのスクリーンショット。](/assets/images/help/support/add-comment.png)
 
 {% ifversion ghec or ghes %}
-## Collaborating on support tickets
+## サポート チケットでの共同作業
 
-You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+サポート ポータルを使用して、サポート チケットについて同僚と共同作業を行うことができます。 所有者、課金マネージャー、サポート資格を持つその他のエンタープライズ メンバーは、エンタープライズ アカウントまたはエンタープライズ アカウントによって管理されている Organization に関連付けられているチケットを表示できます。 詳細については、「[Managing support entitlements for your enterprise (エンタープライズのサポート エンタイトルメントの管理)](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)」を参照してください。
 
-In addition to viewing tickets, you can also add comments to support tickets if your email address is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Verifying or approving a domain for your organization](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+チケットの表示に加えて、チケットに自分のメール アドレスがコピーされている場合や、チケットを開いた人がエンタープライズ アカウントまたはエンタープライズ アカウントで管理されている Organization で確認済みのドメインを持つメール アドレスを使用した場合は、サポート チケットにコメントを追加することもできます。 ドメインの確認の詳細については、「[企業のドメインの確認または承認](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」および「[Organization のドメインの確認または承認](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」を参照してください。
 
 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[GitHub サポートについて](/support/learning-about-github-support/about-github-support)"

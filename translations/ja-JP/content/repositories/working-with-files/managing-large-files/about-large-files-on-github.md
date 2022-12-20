@@ -1,6 +1,6 @@
 ---
-title: About large files on GitHub
-intro: '{% data variables.product.product_name %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
+title: GitHub での大きいファイルについて
+intro: '{% data variables.product.product_name %} には、通常の Git リポジトリで追跡できるファイルのサイズに制限があります。 制限を超えるファイルを追跡または削除する方法について説明します。'
 redirect_from:
   - /articles/distributing-large-binaries
   - /github/managing-large-files/distributing-large-binaries
@@ -22,85 +22,88 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Large files
+ms.openlocfilehash: c9910f669b13c0c2bc4a8517ac6b33476b23b475
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331649'
 ---
+## {% data variables.product.product_name %} でのサイズ制限について
 
-## About size limits on {% data variables.product.product_name %}
+{% ifversion fpt or ghec %} {% data variables.product.product_name %} は、すべての Git リポジトリに対して十分なストレージを提供するよう努めていますが、ファイルとリポジトリのサイズにはハード制限があります。 ユーザのパフォーマンスと信頼性を確保するため、リポジトリ全体の健全性のシグナルを積極的に監視しています。 リポジトリの健全性は、サイズ、コミット頻度、コンテンツ、構造など、さまざまな相互作用要因の機能よるものです。
 
-{% ifversion fpt or ghec %}
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
-
-### File size limits
+### ファイル サイズ制限
 {% endif %}
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
+{% data variables.product.product_name %} には、リポジトリで許可されるファイルのサイズに制限があります。 {% data variables.large_files.warning_size %}より大きいファイルを追加または更新しようとすると、Gitから警告が表示されます。 変更は引き続きリポジトリに正常にプッシュされますが、パフォーマンスへの影響を最小限に抑えるためにコミットを削除することを検討してもよいでしょう。 詳しくは、「[ファイルをリポジトリの履歴から削除する](#removing-files-from-a-repositorys-history)」をご覧ください。
 
 {% note %}
 
-**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+**注:** ブラウザーからリポジトリにファイルを追加する場合、そのファイルは {% data variables.large_files.max_github_browser_size %} 以下でなければなりません。 詳細については、「[リポジトリにファイルを追加する](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)」を参照してください。
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}既定では、{% endif %}{% data variables.product.product_name %} は {% data variables.large_files.max_github_size %} を超えるプッシュをブロックします。 {% ifversion ghes %}ただし、サイト管理者は、{% data variables.product.product_location %} に対して異なる制限を構成できます。  詳しくは、「[Git のプッシュ制限を設定](/enterprise/admin/guides/installation/setting-git-push-limits)」をご覧ください。{% endif %}
 
-To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
+この制限を超えるファイルを追跡するには、{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) を使う必要があります。 詳しくは、「[{% data variables.large_files.product_name_long %} について](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)」をご覧ください。
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
+リポジトリ内で大きなファイルを配布する必要がある場合は、ファイルを追跡するのではなく、{% data variables.product.product_location %} でリリースを作成できます。 詳しくは、「[大きなバイナリを配布する](#distributing-large-binaries)」をご覧ください。
 
-Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
+Git は、大きい SQL ファイルを処理するようには設計されていません。 大きいデータベースを他の開発者と共有するには、[Dropbox](https://www.dropbox.com/) を使うことをお勧めします。
 
-{% ifversion fpt or ghec or ghae %}
-### Repository size limits
+{% ifversion fpt or ghec %}
+### リポジトリ サイズの制限
 
-We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. {% ifversion ghae %}The maximum size for a repository on {% data variables.product.product_name %} is 100 GB. {% endif %}Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
+リポジトリは小さく保ち、理想としては 1GB 未満、および 5GB 未満にすることを強くお勧めします。 リポジトリが小さいほど、クローン作成が速く、操作やメンテナンスが簡単になります。 リポジトリがインフラストラクチャに過度に影響する場合は、{% data variables.contact.github_support %} から是正措置を求めるメールが送られてくる場合があります。 特に多くのコラボレータが参加している大規模なプロジェクトでは、柔軟に対応するよう努めており、可能な限り解決策を見つけるために協力します。 リポジトリのサイズと全体的な健全性を効果的に管理することで、リポジトリがインフラストラクチャに影響を与えることを防ぎます。 [`github/git-sizer`](https://github.com/github/git-sizer) リポジトリには、リポジトリ分析のためのアドバイスとツールがあります。
 
-External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
+外部依存関係によって、Git リポジトリが非常に大きくなる場合があります。 リポジトリが外部依存関係で埋まってしまうことを避けるために、パッケージマネージャーの使用をお勧めします。 一般的な言語で人気のあるパッケージ マネージャーには、[Bundler](http://bundler.io/)、[Node のパッケージ マネージャー](http://npmjs.org/)、[Maven](http://maven.apache.org/) などがあります。 これらのパッケージマネージャーは Git リポジトリの直接使用をサポートしているため、事前にパッケージ化されたソースは必要ありません。
 
-Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
+Git はバックアップツールとして機能するようには設計されていません。 ただし、[Arq](https://www.arqbackup.com/)、[Carbonite](http://www.carbonite.com/)、[CrashPlan](https://www.crashplan.com/en-us/) など、バックアップを実行するために特別に設計された多くのソリューションがあります。
 {% endif %}
 
-## Removing files from a repository's history
+## ファイルをリポジトリの履歴から削除する
 
 {% warning %}
 
-**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
+**警告**: この手順では、ファイルをコンピューターのリポジトリと {% data variables.product.product_location %} から完全に削除します。 ファイルが重要なものである場合は、ローカルバックアップコピーをリポジトリ外にあるディレクトリに作成してください。
 
 {% endwarning %}
 
-### Removing a file added in the most recent unpushed commit
+### プッシュされていない直近のコミットで追加されたファイルを削除する
 
-If the file was added with your most recent commit, and you have not pushed to {% data variables.location.product_location %}, you can delete the file and amend the commit:
+ファイルが直近のコミットで追加され、{% data variables.product.product_location %} にプッシュしていない場合は、ファイルを削除してコミットを修正することができます。
 
-{% data reusables.command_line.open_the_multi_os_terminal %}
-{% data reusables.command_line.switching_directories_procedural %}
-3. To remove the file, enter `git rm --cached`:
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.command_line.switching_directories_procedural %}
+3. ファイルを削除するには、「`git rm --cached`」と入力します。
   ```shell
-  $ git rm --cached GIANT_FILE
+  $ git rm --cached <em>giant_file</em>
   # Stage our giant file for removal, but leave it on disk
   ```
-4. Commit this change using `--amend -CHEAD`:
+4. `--amend -CHEAD` を使って、この変更をコミットします。
   ```shell
   $ git commit --amend -CHEAD
   # Amend the previous commit with your change
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Push your commits to {% data variables.location.product_location %}:
+5. コミットを {% data variables.product.product_location %} にプッシュします。
   ```shell
   $ git push
   # Push our rewritten, smaller commit
   ```
 
-### Removing a file that was added in an earlier commit
+### 以前のコミットで追加されたファイルを削除する
 
-If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-branch` command. For more information see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
+以前のコミットでファイルを追加した場合は、リポジトリの履歴から削除する必要があります。 リポジトリの履歴からファイルを削除するには、BFG Repo-Cleaner または `git filter-branch` コマンドを使用できます。 詳しくは、「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」をご覧ください。
 
-## Distributing large binaries
+## 大きなバイナリを配布する
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
+リポジトリ内で大きなファイルを配布する必要がある場合は、{% data variables.product.product_location %}でリリースを作成できます。 リリースでは、他の人が使用できるように、ソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージ化できます。 詳しくは、「[リリースについて](/github/administering-a-repository/about-releases)」をご覧ください。
 
 {% ifversion fpt or ghec %}
 
-We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
+リリース内のバイナリファイルの合計サイズや、それらの配布に使用される帯域は制限されません。 ただし、個々のファイルは{% data variables.large_files.max_lfs_size %}未満でなければなりません。
 
 {% endif %}
 

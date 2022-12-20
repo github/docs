@@ -1,6 +1,6 @@
 ---
-title: Reviewing dependency changes in a pull request
-intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+title: Révision des changements de dépendances dans une demande de tirage
+intro: 'Si une demande de tirage contient des modifications de dépendances, vous pouvez afficher un résumé de ce qui a changé et déterminer s’il existe des vulnérabilités connues dans l’une des dépendances.'
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
@@ -19,70 +19,71 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
+ms.openlocfilehash: 34cefbae8b7ccfd32773a47de2509a6eccc7a799
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106604'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-## About dependency review
+## À propos de la vérification des dépendances
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
+{% ifversion ghec %} Avant de pouvoir utiliser une révision des dépendances dans un dépôt privé, vous devez activer le graphique de dépendance. Pour plus d’informations, consultez « [Exploration des dépendances d’un dépôt](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository) ».{% endif %}
 
-{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %} Avant de pouvoir utiliser une révision des dépendances, vous devez activer le graphe de dépendances et connecter {% data variables.location.product_location %} à {% data variables.product.prodname_dotcom_the_website %}. Pour plus d’informations, consultez « [Activation des alertes pour les dépendances vulnérables sur {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+La révision des dépendances vous permet d’effectuer un « shift-left ». Vous pouvez utiliser les informations prédictives fournies pour intercepter les dépendances vulnérables avant qu’elles atteignent la production. Pour plus d’informations, consultez « [À propos de la révision des dépendances](/code-security/supply-chain-security/about-dependency-review) ».
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 
-You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
+Vous pouvez utiliser {% data variables.product.prodname_dependency_review_action %} pour vous aider à appliquer des révisions de dépendances sur les demandes de tirage (pull requests) dans votre référentiel. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-{% endif %}
+{% ifversion dependency-review-action-configuration %} Vous pouvez configurer {% data variables.product.prodname_dependency_review_action %} pour mieux répondre à vos besoins en spécifiant le type de vulnérabilité de dépendance que vous souhaitez intercepter. Pour plus d’informations, consultez « [Configuration de l’évaluation des dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action) ». {% endif %}
 
 {% endif %}
-## Reviewing dependencies in a pull request
+## Révision des dépendances dans une demande de tirage
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %}
 
-1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
+1. Si la demande de tirage contient de nombreux fichiers, utilisez le menu déroulant **Filtre de fichiers** pour écarter les fichiers qui n’enregistrent pas de dépendances. Cela vous aidera à concentrer votre révision sur les modifications de dépendances.
 
-   ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
-   The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+   ![Menu du filtre de fichiers](/assets/images/help/pull_requests/file-filter-menu-json.png) La révision des dépendances fournit une vue plus claire de ce qui a changé dans des fichiers de verrouillage volumineux, où la différence de source n’est pas rendue par défaut.
 
   {% note %}
 
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+   **Remarque :** des différences enrichies de révision des dépendances ne sont pas disponibles pour les fichiers JavaScript statiques validés comme `jquery.js`.
 
    {% endnote %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. À droite de l’en-tête d’un fichier manifeste ou d’un fichier de verrouillage, affichez la révision des dépendances en cliquant sur le bouton des différences enrichies **{% octicon "file" aria-label="The rich diff icon" %}** .
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Bouton des différences enrichies](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. Check the dependencies listed in the dependency review.
+2. Vérifiez les dépendances répertoriées dans la révision des dépendances.
 
-   ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
+   ![Avertissements de vulnérabilité dans une révision des dépendances](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 
-   Any added or changed dependencies that have vulnerabilities are listed first, ordered by severity and then by dependency name. This means that the highest severity dependencies are always at the top of a dependency review. Other dependencies are listed alphabetically by dependency name.
+   Toutes les dépendances ajoutées ou modifiées qui présentent des vulnérabilités sont répertoriées en premier, classées par gravité, puis par nom de dépendance. Cela signifie que les dépendances dont la gravité est la plus élevée figurent toujours en haut d’une révision des dépendances. Les autres dépendances sont répertoriées dans l’ordre alphabétique des noms de dépendance.
 
-   The icon beside each dependency indicates whether the dependency has been added (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), updated (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>), or removed (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) in this pull request.
+   L’icône en regard de chaque dépendance indique si celle-ci a été ajoutée (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), mise à jour (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>) ou supprimée (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) dans cette demande de tirage.
 
-   Other information includes:
+   Les informations sont les suivantes :
 
-   * The version, or version range, of the new, updated, or deleted dependency.
-   * For a specific version of a dependency:
-      * The age of that release of the dependency.
-      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
-      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
+   * Version, ou plage de versions, de la dépendance nouvelle, mise à jour ou supprimée.
+   * Pour une version spécifique d’une dépendance :
+      * Âge de cette mise en production de la dépendance.
+      * Nombre de projets dépendants de ce logiciel. Ces informations sont extraites du graphique de dépendance. La vérification du nombre de dépendants peut vous aider à éviter d’ajouter accidentellement la mauvaise dépendance.
+      * Licence utilisée par cette dépendance si cette information est disponible. Ceci est utile si vous voulez éviter que du code avec certaines licences soit utilisé dans votre projet.
 
-   Where a dependency has a known vulnerability, the warning message includes:
+   Quand une dépendance a une vulnérabilité connue, le message d’avertissement les informations suivantes :
 
-   * A brief description of the vulnerability.
-   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
-   * The severity of the vulnerability.
-   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
+   * Brève description de la vulnérabilité.
+   * Numéro d’identification des vulnérabilités et expositions courantes (CVE) ou {% data variables.product.prodname_security_advisories %} (GHSA). Vous pouvez cliquer sur cet ID pour en savoir plus sur la vulnérabilité.
+   * Gravité de la vulnérabilité.
+   * Version de la dépendance dans laquelle la vulnérabilité a été corrigée. Si vous examinez une demande de tirage pour quelqu’un, vous pourriez demander au contributeur de mettre à jour la dépendance vers la version corrigée ou une mise en production ultérieure.
 
 {% data reusables.repositories.return-to-source-diff %}

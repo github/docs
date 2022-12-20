@@ -1,126 +1,120 @@
 ---
-title: Authenticating to GitHub
+title: GitHub に認証する
 shortTitle: Authentication
-intro: 'You can securely access your account''s resources on {% data variables.product.prodname_desktop %} by authenticating to {% data variables.product.prodname_dotcom %}.'
+intro: '{% data variables.product.prodname_dotcom %} を認証することで、{% data variables.product.prodname_desktop %} 上のアカウントのリソースに安全にアクセスできます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
 versions:
   fpt: '*'
+ms.openlocfilehash: e88d59a03d876b23d8eb72aae7324db64981096f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145117357'
 ---
-## About authentication
+## 認証について
 
-To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.prodname_dotcom %}.
+アカウントを安全に保つには、{% data variables.product.prodname_desktop %} を使用して {% data variables.product.prodname_dotcom %} のリソースにアクセスする前に認証する必要があります。
 
-Before you authenticate, {% data reusables.desktop.get-an-account %}
+認証する前には、{% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %} 上のアカウントを認証する
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %}
+3. [{% data variables.product.prodname_dotcom_the_website %}] の右にある **[サインイン]** をクリックします。
+  ![GitHub の [サインイン] ボタン](/assets/images/help/desktop/mac-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. アカウントが {% data variables.product.prodname_dotcom %} に認証されたら、プロンプトに従って {% data variables.product.prodname_desktop %} に戻ります。
 
-## Authenticating an account on {% data variables.product.prodname_ghe_server %}
+## {% data variables.product.prodname_ghe_server %} 上のアカウントを認証する
 
 
-{% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.location.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{% data reusables.desktop.sign-in-browser %}
-1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
-  ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %} {% data reusables.desktop.mac-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. {% data variables.product.product_location_enterprise %} のアカウントを追加するには、[Enterprise アドレス] にインスタンスの URL を入力し、 **[続行]** をクリックします。
+  ![GitHub Enterprise の [サインイン] ボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png) {% data reusables.desktop.sign-in-browser %}
+1. {% data variables.product.product_location_enterprise %} アカウントに対して認証するには、アカウントの資格情報を入力し、 **[サインイン]** をクリックします。
+  ![ブラウザーの {% data variables.product.prodname_ghe_server %} のサインイン ボタン](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  あるいは、既に {% data variables.product.product_location_enterprise %} アカウントにサインインしているなら、プロンプトに従って {% data variables.product.prodname_desktop %} に戻り、認証を完了させてください。 
 
 {% endmac %}
 
 {% windows %}
 
-## Authenticating an account on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %} 上のアカウントを認証する
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-3. To the right of "GitHub.com," click **Sign in**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-{% data reusables.desktop.sign-in-browser %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %}
+3. [GitHub.com] の右側にある **[サインイン]** をクリックします。
+  ![GitHub の [サインイン] ボタン](/assets/images/help/desktop/windows-sign-in-github.png) {% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
-{% data reusables.desktop.authenticate-in-browser %}
-{% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+{% data reusables.desktop.authenticate-in-browser %} {% data reusables.desktop.2fa-in-browser %}
+7. アカウントが {% data variables.product.prodname_dotcom %} に認証されたら、プロンプトに従って {% data variables.product.prodname_desktop %} に戻ります。
 
-## Authenticating an account on {% data variables.product.prodname_enterprise %}
+## {% data variables.product.prodname_enterprise %} 上のアカウントを認証する
 
 
-{% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{% data reusables.desktop.retrieve-2fa %}
+{% data reusables.desktop.windows-choose-options %} {% data reusables.desktop.windows-select-accounts %} {% data reusables.desktop.choose-product-authenticate %}
+4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise のアドレス] に資格情報を入力して **[続行]** をクリックします。
+  ![GitHub Enterprise の [サインイン] ボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png) {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
-## Troubleshooting authentication issues
+## 認証の問題のトラブルシューティング
 
-If {% data variables.product.prodname_desktop %} encounters an authentication error, you can use error messages to troubleshoot.
+{% data variables.product.prodname_desktop %} で認証エラーが発生した場合は、エラーメッセージを使用してトラブルシューティングを行うことができます。
 
-If you encounter an authentication error, first try signing out and signing back in to your account on {% data variables.product.prodname_desktop %}.
+認証エラーが発生した場合は、まず {% data variables.product.prodname_desktop %} 上のアカウントからサインアウトした後にサインインします。
 
-For some errors, {% data variables.product.prodname_desktop %} will prompt you with an error message. If you are not prompted, or to find more information about any error, view the {% data variables.product.prodname_desktop %} log files by using the following steps.
+一部のエラーでは、{% data variables.product.prodname_desktop %} がエラーメッセージを表示します。 プロンプトが表示されない場合、またはエラーに関する詳細情報を確認する場合は、次のステップに従って {% data variables.product.prodname_desktop %} ログファイルを表示します。
 
 {% mac %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Finder**.
-  ![The Show Logs in Finder button](/assets/images/help/desktop/mac-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. **[ヘルプ]** ドロップダウン メニューを使用し、 **[Show Logs in Finder]\(Finder でログを表示\)** をクリックします。
+  ![[Show Logs in Finder]\(Finder でログを表示\) ボタン](/assets/images/help/desktop/mac-show-logs.png)
+2. 認証エラーが発生した日付からログファイルを選択します。
 
 {% endmac %}
 
 {% windows %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Explorer**.
-  ![The Show Logs in Explorer button](/assets/images/help/desktop/windows-show-logs.png)
-2. Select the log file from the date when you encountered the authentication error.
+1. **[ヘルプ]** ドロップダウン メニューを使用し、 **[Show Logs in Explorer]\(Explorer でログを表示\)** をクリックします。
+  ![[Show Logs in Explorer]\(Explorer でログを表示) ボタン](/assets/images/help/desktop/windows-show-logs.png)
+2. 認証エラーが発生した日付からログファイルを選択します。
 
 {% endwindows %}
 
-Review the troubleshooting information below for the error message that you encounter.
+エラーメッセージについては、下記のトラブルシューティング情報を確認してください。
 
-### Bad credentials
+### 不正な認証情報
 
 ```shell
 Error: Bad credentials
 ```
 
-This error means that there is an issue with your stored account credentials.
+このエラーは、保存されているアカウントの認証情報に問題があることを示しています。
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+トラブルシューティングを行うには、{% data variables.product.prodname_desktop %} でアカウントからサインアウトして、再度サインインします。
 
-### Empty token
+### 空のトークン
 
 ```shell
-info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - USERNAME (empty token)
+info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
 ```
 
-This error means that {% data variables.product.prodname_desktop %} is unable to find the access token that it created in the system keychain.
+このエラーは、{% data variables.product.prodname_desktop %} がシステムキーチェーンに作成したアクセストークンを見つけられないことを示しています。
 
-To troubleshoot, sign out of your account on {% data variables.product.prodname_desktop %} and then sign back in.
+トラブルシューティングを行うには、{% data variables.product.prodname_desktop %} でアカウントからサインアウトして、再度サインインします。
 
-### Repository not found
+### リポジトリが見つからない
 
 ```shell
 fatal: repository 'https://github.com/<user>/<repo>.git' not found
@@ -128,11 +122,11 @@ fatal: repository 'https://github.com/<user>/<repo>.git' not found
 (The error was parsed as 8: The repository does not seem to exist anymore. You may not have access, or it may have been deleted or renamed.)
 ```
 
-This error means that you do not have permission to access the repository that you are trying to clone.
+このエラーは、クローンを作成しようとしているリポジトリにアクセスする権限がないことを意味します。
 
-To troubleshoot, contact the person in your organization who administers permissions.
+トラブルシューティングを行うには、権限を管理する Organization 内の担当者にお問い合わせください。
 
-### Could not read from remote repository
+### リモートリポジトリから読み込めない
 
 ```shell
 git@github.com: Permission denied (publickey).
@@ -141,11 +135,11 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights and the repository exists.
 ```
 
-This error means that you do not have a valid SSH key set up.
+このエラーは、有効な SSH キーが設定されていないことを示しています。
 
-To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+トラブルシューティングを行うには、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
-### Failed to clone
+### クローン失敗
 
 ```shell
 fatal: clone of 'git@github.com:<user>/<repo>' into submodule path '<path>' failed
@@ -157,34 +151,34 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-This error means that either the repository that you are trying to clone has submodules that you do not have access to or you do not have a valid SSH key set up.
+このエラーは、クローンを作成しようとしているリポジトリにアクセス権のないサブモジュールがあるか、有効な SSH キーが設定されていないことを示しています。
 
-If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
+サブモジュールにアクセスできない場合は、リポジトリの権限の管理者に連絡してトラブルシューティングを行ってください。
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+有効な SSH キーが設定されていない場合は、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
 {% windows %}
 
-### Unable to read AskPass response
+### AskPass レスポンスが読み取れない
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
 fatal: could not read Username for 'https://github.com': terminal prompts disabled
 ```
 
-This error can be caused by multiple events.
+このエラーは、複数のイベントによって発生する可能性があります。
 
-If the `Command Processor` registry entries are modified, {% data variables.product.prodname_desktop %} will respond with an `Authentication failed` error. To check if these registry entries have been modified, follow these steps.
+`Command Processor` レジストリ エントリが変更された場合、{% data variables.product.prodname_desktop %} は `Authentication failed` エラーで応答します。 これらのレジストリエントリが変更されているかどうかを確認するには、次のステップを実行します。
 
-1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations.
+1. レジストリ エディター (`regedit.exe`) を開き、次の場所に移動します。
   `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
   `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
-2. Check to see if there is an `Autorun` value in either location.
-3. If there is an `Autorun` value, delete it.
+2. いずれかの場所に `Autorun` 値があるかどうかを確認します。
+3. `Autorun` 値がある場合は、削除します。
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+Windows ユーザ名に拡張 Unicode 文字が含まれている場合、AskPass レスポンスエラーが発生する可能性があります。 トラブルシューティングを行うには、新しい Windows ユーザアカウントを作成し、ファイルをそのアカウントに移行します。 詳細については、Microsoft ドキュメントの「[Windows のユーザー アカウントを作成する](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)」を参照してください。
 
 {% endwindows %}
 
-## Further reading
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+## 参考資料
+- 「[GitHub への認証方法について](/github/authenticating-to-github/about-authentication-to-github)」

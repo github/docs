@@ -1,18 +1,23 @@
 ---
-title: Codespaces machines
+title: Máquinas de Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
-intro: 'Use the REST API to manage availability of machine types for a codespace.'
+intro: Usa la API de REST para administrar la disponibilidad de los tipos de máquina de un codespace.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5b53ceb3fb7cf137f61285b1f9ed0aa7838a9179
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193546'
 ---
+## Acerca de las máquinas de {% data variables.product.prodname_codespaces %}
 
-## About {% data variables.product.prodname_codespaces %} machines
+Puedes determinar qué tipos de máquina están disponibles para crear un codespace, ya sea en un repositorio definido o como un usuario autenticado. Para más información, vea "[Acerca de los tipos de máquina](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)".
 
-You can determine which machine types are available to create a codespace, either on a given repository or as an authenticated user. For more information, see "[About machine types](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)."
-
-You can also use this information when changing the machine of an existing codespace by updating its `machine` property. The machine update will take place the next time the codespace is restarted. For more information, see "[Changing the machine type for your codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)."
+También puede usar esta información cuando cambie la máquina de un codespace existente mediante la actualización de su propiedad `machine`. La actualización de la máquina tomará lugar la siguiente vez que el codespace se reinicie. Para más información, vea "[Cambio del tipo de máquina para el codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)".

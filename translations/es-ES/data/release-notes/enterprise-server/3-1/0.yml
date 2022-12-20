@@ -1,0 +1,204 @@
+date: '03-06-2021'
+intro: "Para encontrar los requisitos mínimos de infraestructura, consulta la sección \"[Acerca de los requisitos mínimos para {% data variables.product.prodname_ghe_server %} 3.0 y posterior](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)\"."
+sections:
+  features:
+    - heading: Examen de secretos de GitHub Advanced Security
+      notes:
+        - |[Examen de secretos](https://github.com/features/security) ahora está disponible con carácter general en {% data variables.product.prodname_ghe_server %} 3.1+. Examina repositorios públicos y privados en busca de credenciales confirmadas, encuentra secretos y notifica al proveedor o administrador de secretos el momento en que se confirman en un repositorio.
+
+
+
+Esta versión incluye varias mejoras de la versión beta del examen de secretos en {% data variables.product.prodname_ghe_server %}:
+
+
+
+- Ampliamos nuestra [cobertura de patrones](/enterprise-server@3.1/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-private-repositories) de 24 asociados a 37
+
+- Se han agregado una [API](/rest/reference/secret-scanning) y [webhooks](/developers/webhooks-and-events/webhook-events-and-payloads#secret_scanning_alert)
+
+- Se han agregado [notificaciones para autores de confirmaciones] (https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/) cuando confirman secretos
+
+- Se actualizó la vista de índice para facilitar la evaluación de prioridades de secretos en masa
+
+- Se ha reducido la tasa de falsos positivos en muchos patrones
+
+
+
+Los administradores que usan {% data variables.product.prodname_GH_advanced_security %} pueden [habilitar y configurar](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) el examen de secretos de {% data variables.product.prodname_GH_advanced_security %}. Puedes revisar los [requisitos mínimos actualizados para la plataforma](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) antes de activar el examen de secretos de {% data variables.product.prodname_GH_advanced_security %}.
+
+|
+    - heading: Mejoras en la facturación de GitHub Advanced Security
+      notes:
+        - |En esta versión se incluyen varias mejoras en la facturación de {% data variables.product.prodname_GH_advanced_security %} en {% data variables.product.prodname_ghe_server %}:
+
+
+
+- Los clientes de {% data variables.product.prodname_GH_advanced_security %} ahora pueden ver su recuento de confirmadores activos y el número restante de puestos de confirmadores no utilizados en la página Facturación de su organización o cuenta empresarial. Si se adquiere Advanced Security para una empresa, los administradores también pueden ver los puestos de confirmadores activos que otras organizaciones dentro de tu empresa están utilizando. Para más información, consulta "[Acerca de las licencias de GitHub Advanced Security](/enterprise-server@3.1/admin/advanced-security/about-licensing-for-github-advanced-security)" y "[Visualización del uso de GitHub Advanced Security](/enterprise-server@3.1/admin/advanced-security/viewing-your-github-advanced-security-usage)".
+
+- Los clientes de GitHub Advanced Security ahora pueden ver su recuento de confirmadores activos para cualquier repositorio habilitado para Advanced Security en la página Facturación de su organización o cuenta empresarial. Estos cambios ayudan a los administradores de facturación a realizar un seguimiento de su uso con respecto a la cantidad de licencias de confirmador que adquirieron. Para más información, consulta "[Administración de la configuración de seguridad y análisis para la organización](/enterprise-server@3.1/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
+
+|
+    - heading: Mejoras en Dependabot
+      notes:
+        - |Esta versión incluye mejoras en las alertas de Dependabot en {% data variables.product.prodname_ghe_server %}:
+
+
+
+- Los usuarios con las alertas de Dependabot habilitadas pueden ver cuáles de sus repositorios se ven afectados por una vulnerabilidad determinada yendo a su entrada en [GitHub Advisory Database](https://github.com/advisories). Esta característica está disponible en versión beta pública. Para más información, consulta "[Visualización y actualización de dependencias vulnerables en el repositorio](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)".
+
+- Cuando se agrega una vulnerabilidad a GitHub Advisory Database, ya no recibirás [notificaciones por correo electrónico y web](https://github.com/notifications) para alertas de Dependabot sobre vulnerabilidades de gravedad baja y moderada. Todavía se puede acceder a estas alertas desde la pestaña Seguridad del repositorio. Para más información, consulta "[Visualización y actualización de dependencias vulnerables en el repositorio](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)".
+
+- Ahora puedes dar instrucciones a las personas sobre cómo informar de manera responsable de las vulnerabilidades de seguridad en el proyecto agregando un archivo "SECURITY.md" a la carpeta "root", "docs" o ".github" del repositorio. Cuando alguien crea una incidencia en el repositorio, verá un enlace a la directiva de seguridad de tu proyecto. Para más información, consulta "[Incorporación de una directiva de seguridad al repositorio](/enterprise-server@3.1/code-security/getting-started/adding-a-security-policy-to-your-repository)".
+
+|
+    - heading: Versión beta de la visualización del flujo de trabajo de Acciones de GitHub
+      notes:
+        - |{% data variables.product.prodname_actions %} ahora puede generar un gráfico visual del flujo de trabajo en cada ejecución. Con la visualización del flujo de trabajo, puedes:
+
+- Ver y comprender flujos de trabajo complejos
+
+- Realizar un seguimiento del progreso de los flujos de trabajo en tiempo real
+
+- Solucionar problemas de ejecuciones rápidamente accediendo fácilmente a los metadatos de registros y trabajos
+
+- Supervisar el progreso de los trabajos de implementación y acceder fácilmente a los objetivos de implementación
+
+
+
+Para más información, consulta "[Uso del gráfico de visualización](/actions/managing-workflow-runs/using-the-visualization-graph)".
+
+|
+    - heading: Concesión de autorización a dispositivos de OAuth 2.0
+      notes:
+        - |[Concesión de autorización a dispositivos de OAuth 2.0](https://github.com/login/device) permite que cualquier cliente de la CLI o herramienta de desarrollador se autentique mediante un sistema secundario con un explorador.
+
+
+
+Los administradores que usan [aplicaciones de OAuth](/developers/apps/authorizing-oauth-apps#device-flow) y [aplicaciones de GitHub](/developers/apps/authorizing-oauth-apps#device-flow) pueden habilitar y configurar el flujo de autorización de dispositivos de OAuth 2.0, además del flujo de la aplicación web. Puedes revisar los [requisitos mínimos actualizados para la plataforma](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) antes de habilitar el flujo de autorización de dispositivos de OAuth 2.0.
+
+|
+    - heading: Combinación automática de solicitud de incorporación de cambios
+      notes:
+        - |Con la combinación automática, las solicitudes de incorporación de cambios se pueden establecer para que se combinen automáticamente cuando se hayan satisfecho todos los requisitos de combinación. Esto evita que los usuarios tengan que comprobar constantemente el estado de sus solicitudes de incorporación de cambios solo para combinarlas. La combinación automática la puede habilitar un usuario con permiso para combinar y en solicitudes de incorporación de cambios que tienen requisitos de combinación no satisfechos. Para más información, consulta "[Combinación automática de una solicitud de incorporación de cambios](/enterprise-server@3.1/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".
+
+|
+    - heading: Notificaciones personalizadas
+      notes:
+        - |Puedes personalizar los tipos de notificaciones que deseas recibir de repositorios individuales. Para más información, consulta "[Configuración de notificaciones](/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual- repositorio)".
+
+|
+    - heading: Filtrado de GitHub Mobile
+      notes:
+        - |El filtrado de [{% data variables.product.prodname_mobile %}](https://github.com/mobile) permite buscar y encontrar incidencias, solicitudes de incorporación de cambios y debates desde el dispositivo. Los nuevos metadatos para incidencias y los elementos de lista de solicitudes de incorporación de cambios permiten filtrar por asignados, comprobar el estado, revisar el estado y contar comentarios.
+
+
+
+La versión beta de {% data variables.product.prodname_mobile %} está disponible para {% data variables.product.prodname_ghe_server %}. Inicia sesión con nuestras aplicaciones [Android](https://play.google.com/store/apps/details?id=com.github.android) e [iOS](https://apps.apple.com/app/github/id1477376905) para evaluar las prioridades de las notificaciones y administrar incidencias y solicitudes de incorporación de cambios sobre la marcha. Los administradores pueden deshabilitar la compatibilidad móvil para sus empresas mediante la consola de administración o ejecutando "ghe-config app.mobile.enabled false". Para más información, consulta "[GitHub Mobile](/get-started/using-github/github-mobile)".
+
+|
+  changes:
+    - heading: Cambios de administración
+      notes:
+        - "Al hacer un cálculo previo de las sumas de comprobación, la cantidad de tiempo que un repositorio está bloqueado se ha reducido drásticamente, lo que permite que más operaciones de escritura se realicen correctamente de inmediato y el rendimiento de los repositorios únicos mejore."
+        - "La versión más reciente de la CLI de CodeQL admite la carga de resultados de análisis en GitHub. Esto facilita la ejecución de análisis de código para los clientes que deseen utilizar sistemas de CI/CD distintos de {% data variables.product.prodname_actions %}. Anteriormente, estos usuarios tenían que usar el ejecutor de CodeQL por separado, que seguirá estando disponible. Para más información, consulta \"[Acerca del examen del código CodeQL en su sistema CI](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)\"."
+        - '{% data variables.product.prodname_actions %} ahora admite la omisión de los flujos de trabajo "push" y "pull_request" mediante la búsqueda de algunas palabras clave comunes en el mensaje de confirmación.'
+        - Se archivarán las anotaciones de comprobación con más de cuatro meses de antigüedad.
+        - "Se ha revisado el escalado de la asignación de trabajos para tareas en segundo plano. Es recomendable validar que los nuevos valores predeterminados sean apropiados para la carga de trabajo. Las anulaciones de trabajos en segundo plano personalizadas deben anularse en la mayoría de los casos. [Actualizado: 2022-03-18]"
+
+    - heading: Cambios en la seguridad
+      notes:
+        - "Después de los comentarios, se seguirá admitiendo la visualización de los resultados del examen del código en una solicitud de incorporación de cambios sin enviarse con un id. de solicitud de incorporación de cambios. Para más información, consulta \"[Configuración del examen del código](/enterprise-server@3.1/code-security/secure-coding/configuring-code-scanning#scanning-pull-requests)\" y \"[Configuración del examen del código CodeQL en el sistema de IC](/enterprise-server@3.1/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system#scanning-pull-requests)\"."
+        - La compatibilidad de carga SARIF aumentó a un máximo de 5000 resultados por carga.
+
+    - heading: Cambios del desarrollador
+      notes:
+        - Puedes especificar varias direcciones URL de devolución de llamada mientras configuras una aplicación de GitHub. Esto se puede usar en servicios con varios dominios o subdominios. GitHub siempre denegará la autorización si la dirección URL de devolución de llamada de la solicitud no está en la lista de direcciones URL de devolución de llamada de autorización.
+        - El permiso de archivo de la aplicación de GitHub se ha actualizado para permitir que un desarrollador de aplicaciones especifique hasta 10 archivos para acceso de solo lectura o de lectura y escritura a los que su aplicación puede solicitar acceso.
+        - "CodeQL ahora admite más [bibliotecas y marcos](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) para una amplia variedad de lenguajes ([C++](https://github.com/github/codeql/tree/main/cpp), [JavaScript](https://github.com/github/codeql/tree/main/javascript), [Python](https://github.com/github/codeql/tree/main/python),[Java](https://github.com/github/codeql/tree/main/java), [Go](https://github.com/github/codeql-go/tree/main)). El motor de CodeQL ahora puede detectar más fuentes de datos de usuarios que no son de confianza, lo que mejora la calidad y la profundidad de las alertas de examen del código. Para más información, consulta \"[Acerca de CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)\"."
+        - "Al configurar una aplicación de GitHub, la dirección URL de devolución de llamada de autorización es un campo obligatorio. Ahora, permitimos que el desarrollador especifique varias direcciones URL de devolución de llamada. Esto se puede usar en servicios con varios dominios o subdominios. GitHub siempre denegará la autorización si la dirección URL de devolución de llamada de la solicitud no está en la lista de direcciones URL de devolución de llamada de autorización."
+        - "Elimina un directorio completo de archivos, incluidos los subdirectorios, del explorador web. Para más información, consulta \"[Eliminación de un archivo o directorio](/enterprise-server@3.1/github/managing-files-in-a-repository/deleting-files-in-a-repository#deleting-a-directory). \""
+        - 'Incluye varias palabras después de "#" en un comentario de incidencia, debate o solicitud de incorporación de cambios para restringir aún más la búsqueda.'
+        - 'Cuando estás escribiendo una incidencia, una solicitud de incorporación de cambios o un comentario de debate, la sintaxis de lista para viñetas, números y tareas se autocompleta después de presionar "Retorno" o "Entrar".'
+
+    - heading: Cambios de API
+      notes:
+        - "La API de examen del código permite a los usuarios cargar datos sobre los resultados de las pruebas de seguridad del análisis estático o exportar datos sobre alertas. Para más información, consulta la [referencia de la API de examen del código](/rest/reference/code-scanning)."
+        - "La [API de aplicaciones de GitHub](/rest/reference/apps) para administrar instalaciones ahora se ha escalonado desde una vista previa de API a una API disponible con carácter general. El [encabezado de vista previa](/rest/overview/api-previews) ya no es necesario para acceder a estos puntos de conexión."
+
+  security_fixes:
+    - '**MEDIO** En determinadas circunstancias, los usuarios que se eliminaron de un equipo u organización podían conservar el acceso de escritura a las ramas para las que tenían solicitudes de incorporación de cambios existentes abiertas.'
+    - Los paquetes se han actualizado a las versiones de seguridad más recientes.
+
+  bugs:
+    - heading: Soluciones para incidencias conocidas de versión candidata para lanzamiento
+      notes:
+        - "Todas las incidencias conocidas de la versión candidata para lanzamiento 1 se han solucionado, excepto las enumeradas en la sección Incidencias conocidas a continuación."
+    - heading: Correcciones para otras incidencias
+      notes:
+        - "En la página \"Configurar acciones y paquetes\" del proceso de instalación inicial, al hacer clic en el botón \"Probar la configuración del dominio\" no se completó la prueba."
+        - 'Se produjo un error al ejecutar "ghe-btop" y no puede encontrar un contenedor "babeld".'
+        - MySQL podría recargarse y causar un tiempo de inactividad si cambias la configuración de conmutación por error automática.
+        - "Después de la actualización, una discordancia de los valores de tiempo de espera interno y externo creó la indisponibilidad del servicio."
+        - Retrasos de replicación esperados en las advertencias generadas por MSSQL.
+        - 'El vínculo a "[Configuración de clústeres](/admin/enterprise-management/configuring-clustering)" en la consola de administración era incorrecto.'
+        - "Al crear o editar un enlace previo a la recepción, una condición de carrera en la UI significaba que después de seleccionar un repositorio, los archivos dentro de dicho repositorio a veces no se rellenaban en el menú desplegable de archivos."
+        - "Cuando se agregaba una dirección IP a una lista blanca usando el botón \"Crear entrada en la lista blanca\", aún podría mostrarse como bloqueada."
+        - "Las referencias a las características \"Gráfico de dependencias\" y \"Alertas de Dependabot\" no se mostraban como deshabilitadas en algunos repositorios."
+        - Establecer un anuncio en la configuración de la cuenta empresarial podía generar un error interno del servidor 500.
+        - "Las solicitudes HTTP POST al punto de conexión \"/hooks\" podrían dar error con una respuesta 401 debido a un \"hookID\" configurado incorrectamente."
+        - "El proceso \"build-server\" no podía limpiar los procesos, dejándolos en el estado \"inactivos\"."
+        - '"spokesd" creaba demasiadas entradas de registro, incluida la frase "se omitió la colocación de corrección".'
+        - "Mientras se actualizan las acciones, la actualización podía dar error si la instancia no podía realizar autosolicitudes a través de su nombre de host configurado."
+        - "La actualización de 2.22.x a 3.1.0.rc1 podría generar un error de migración de la base de datos relacionado con la transición de datos \"BackfillIntegrationApplicationCallbackUrlsTransition\"."
+
+  known_issues:
+    - "El acceso a un repositorio a través del shell administrativo mediante \"ghe-repo <owner>/<reponame>\" se bloqueará. Como solución temporal, use \"ghe-repo <owner>/<reponame> -c \"bash -i\"\" hasta que haya una corrección disponible en la próxima versión."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de tiempo en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en un futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - "En un {% data variables.product.prodname_ghe_server %} recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados a través la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "La actualización de una instancia que anteriormente ejecutaba una versión 2.13, pero no una versión 2.14, genera un error de migración de base de datos relacionado con la transición de datos \"AddRepositoryIdToCheckRuns\"."
+    - |Después de actualizar de la versión 3.0.x a la 3.1.x, en algunos casos, Acciones de GitHub puede dar el error "Se produjo un error inesperado al ejecutar este flujo de trabajo". Para encontrar una solución alternativa para este problema, conéctate al shell administrativo (ssh) y ejecuta:
+
+"""
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+"""
+
+|
+    - "Cuando un nodo de réplica está sin conexión en una configuración de alta disponibilidad, {% data variables.product.product_name %} aún se pueden enrutar solicitudes de {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para el procesamiento de enlaces previos a la recepción pueden provocar un error en algunos enlaces previos a la recepción.
+
+  deprecations:
+    - heading: Desuso de GitHub Enterprise Server 2.20
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.20 se interrumpió el 2 de marzo de 2021**. Eso significa que no se lanzarán revisiones, ni siquiera para incidencias críticas de seguridad, después de esta fecha. Para un mejor rendimiento, seguridad mejorada y nuevas característica, [actualiza a la versión más reciente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server) lo antes posible.'
+    - heading: Desuso de GitHub Enterprise Server 2.21
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.21 se interrumpirá el 9 de junio de 2021**. Eso significa que no se lanzarán revisiones, ni siquiera para incidencias críticas de seguridad, después de esta fecha. Para un mejor rendimiento, seguridad mejorada y nuevas característica, [actualiza a la versión más reciente de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server) lo antes posible.'
+    - heading: Desuso de los eventos heredados de webhook de la aplicación de GitHub
+      notes:
+        - 'A partir de {% data variables.product.prodname_ghe_server %} 2.21.0, dos eventos de webhook heredados relacionados con aplicaciones de GitHub han quedado en desuso y se quitarán en {% data variables.product.prodname_ghe_server %} 3.2.0. Los eventos en desuso "integration_installation" e "integration_installation_repositories" tienen eventos equivalentes que serán compatibles. Hay más información disponible en la [entrada de blog del anuncio de desuso](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/).'
+    - heading: Desuso del punto de conexión heredado de las aplicaciones de GitHub
+      notes:
+        - "A partir de {% data variables.product.prodname_ghe_server %} 2.21.0, el punto de conexión heredado de las aplicaciones de GitHub para crear tokens de acceso de instalación ha quedado en desuso y se quitará en {% data variables.product.prodname_ghe_server %} 3.2.0.  Hay más información disponible en la [entrada de blog del anuncio de desuso](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)."
+    - heading: Desuso de la API de aplicación de OAuth
+      notes:
+        - 'GitHub ya no es compatible con los puntos de conexión de la aplicación de OAuth que contienen "access_token" como parámetro de ruta. Hemos introducido nuevos puntos de conexión que le permiten administrar tokens de forma segura para aplicaciones de OAuth moviendo "access_token" al cuerpo de la solicitud. Si bien están en desuso, los puntos de conexión aún son accesibles en esta versión. Tenemos la intención de quitar estos puntos de conexión en {% data variables.product.prodname_ghe_server %} 3.4. Para más información, consulta la [entrada de blog del anuncio de desuso](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).'
+    - heading: Desuso del soporte SHA corto de Acciones de GitHub
+      notes:
+        - '{% data variables.product.prodname_actions %} eliminará la compatibilidad con las acciones de referencia mediante la versión abreviada de un SHA de confirmación de Git. Esto puede provocar que algunos flujos de trabajo del repositorio se interrumpan. Para corregir estos flujos de trabajo, debes actualizar la referencia de acción para usar el SHA de confirmación completo. Para más información, consulta "[Reforzamiento de la seguridad para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)".'
+    - heading: Desuso de la compatibilidad con XenServer Hypervisor
+      notes:
+        - "A partir de {% data variables.product.prodname_ghe_server %} 3.1, se empezará a interrumpir el soporte técnico para Xen Hypervisor. El desuso completo está programado para {% data variables.product.prodname_ghe_server %} 3.3, siguiendo la ventana de desuso estándar de un año."
+    - heading: El cambio en el formato de los tokens de autenticación afecta a GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |GitHub Connect ya no funcionará después del 3 de junio para las instancias que ejecutan GitHub Enterprise Server 3.1 o anterior, debido al cambio de formato de los tokens de autenticación de GitHub. Para continuar usando GitHub Connect, actualiza a GitHub Enterprise Server 3.2 o una versión posterior. Para más información, consulta el [blog de GitHub](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/). [Actualizado: 2022-06-14]
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.1 requiere al menos [GitHub Enterprise Backup Utilities 3.1.0](https://github.com/github/backup-utils) para [copias de seguridad y recuperación ante desastres](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance).'

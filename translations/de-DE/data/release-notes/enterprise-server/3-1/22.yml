@@ -1,0 +1,20 @@
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - "Ein internes Skript zur Überprüfung von Hostnamen in der {% data variables.product.prodname_ghe_server %}-Konfigurationsdatei gab einen Fehler zurück, wenn die Hostnamenzeichenfolge mit einem „.“ (Punkt) begann." 
+    - "In HA-Konfigurationen, bei denen der Hostname des primären Knotens länger als 60 Zeichen war, konnte MySQL nicht konfiguriert werden."
+    - "Die Berechnung der „maximalen Anzahl von Committern in der gesamten Instanz“, die im Administratordashboard der Site angezeigt wurde, war falsch."
+    - "Ein falscher Datenbankeintrag für Repositoryreplikate führte zu einer Datenbankbeschädigung, wenn eine Wiederherstellung mit {% data variables.product.prodname_enterprise_backup_utilities %} durchgeführt wurde."
+  changes:
+    - "In HA-Konfigurationen, in denen Elasticsearch einen gültigen gelben Status meldete, blockierten Änderungen, die in einem früheren Fix eingeführt wurden, den Befehl „ghe-repl-stop“ und ließen ein Beenden der Replikation nicht zu. Mit „ghe-repo-stop --force“ wird nun das Beenden von Elasticsearch erzwungen, wenn sich der Dienst in einem normalen oder gültigen gelben Status befindet."
+  known_issues:
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit „ghe-repl-teardown“ erfolgreich, kann jedoch den Fehler „ERROR:Running migrations“ zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

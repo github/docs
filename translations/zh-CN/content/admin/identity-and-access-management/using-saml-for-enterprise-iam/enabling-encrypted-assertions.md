@@ -1,7 +1,7 @@
 ---
-title: Enabling encrypted assertions
+title: 启用加密断言
 shortTitle: Enable encrypted assertions
-intro: 'You can improve {% data variables.location.product_location %}''s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.'
+intro: '通过加密 SAML 标识提供者 (IdP) 发送的消息，可以使用 SAML 单一登录 (SSO) 提高 {% data variables.product.product_location %} 的安全性。'
 permissions: 'Site administrators can configure encrypted assertions for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '> 3.3'
@@ -13,48 +13,51 @@ topics:
   - Identity
   - Security
   - SSO
+ms.openlocfilehash: ecb60a4398993155fa7498f26e7628660e88e54a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063776'
 ---
+## 关于加密断言
 
-## About encrypted assertions
+如果 IdP 支持断言加密，则可以在 {% data variables.product.product_name %} 上配置加密断言，以提高身份验证过程中的安全性。
 
-If your IdP support encryption of assertions, you can configure encrypted assertions on {% data variables.product.product_name %} for increased security during the authentication process.
+## 先决条件
 
-## Prerequisites
+若要启用加密断言以对 {% data variables.product.product_name %} 进行身份验证，则必须配置 SAML 身份验证，并且 IdP 必须支持加密断言。
 
-To enable encrypted assertions for authentication to {% data variables.product.product_name %}, you must configure SAML authentication, and your IdP must support encrypted assertions.
+## 启用加密断言
 
-## Enabling encrypted assertions
-
-To enable encrypted assertions, you must provide {% data variables.location.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
+要启用加密断言，必须向 IdP 提供 {% data variables.product.product_location %} 的公共证书，并配置与 IdP 匹配的加密设置。
 
 {% note %}
 
-**Note**: {% data reusables.enterprise.test-in-staging %}
+注意：{% data reusables.enterprise.test-in-staging %}
 
 {% endnote %}
 
-1. Optionally, enable SAML debugging. SAML debugging records verbose entries in {% data variables.product.product_name %}'s authentication log, and may help you troubleshoot failed authentication attempts. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.authentication %}
-1. Select **Require encrypted assertions**.
+1. （可选）启用 SAML 调试。 SAML 调试在 {% data variables.product.product_name %} 的身份验证日志中记录详细条目，并且可以帮助你排查身份验证尝试失败的问题。 有关详细信息，请参阅“[对 SAML 身份验证进行故障排除](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)”。
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
+1. 选择“需要加密断言”。
 
-   ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-1. To the right of "Encryption Certificate", click **Download** to save a copy of {% data variables.location.product_location %}'s public certificate on your local machine.
+   ![管理控制台“身份验证”部分中“启用加密断言”复选框的屏幕截图](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
+1. 在“加密证书”右侧，单击“下载”，将 {% data variables.product.product_location %} 的公共证书副本保存在本地计算机上。
 
-   ![Screenshot of "Download" button for public certificate for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
-1. Sign into your SAML IdP as an administrator.
-1. In the application for {% data variables.location.product_location %}, enable encrypted assertions.
-   - Note the encryption method and key transport method.
-   - Provide the public certificate you downloaded in step 7.
-1. Return to the management console on {% data variables.location.product_location %}.
-1. To the right of "Encryption Method", select the encryption method for your IdP from step 9.
+   ![用于加密断言的公共证书的“下载”按钮的屏幕截图](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
+1. 以管理员身份登录到 SAML IdP。
+1. 在 {% data variables.product.product_location %} 的应用程序中，启用加密断言。
+   - 请注意加密方法和密钥传输方法。
+   - 提供你在步骤 7 中下载的公共证书。
+1. 返回到 {% data variables.product.product_location %} 上的管理控制台。
+1. 在“加密方法”的右侧，选择步骤 9 中的 IdP 加密方法。
 
-   ![Screenshot of "Encryption Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
-1. To the right of "Key Transport Method", select the key transport method for your IdP from step 9.
+   ![加密断言的“加密方法”屏幕截图](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
+1. 在“密钥传输方法”的右侧，选择步骤 9 中的 IdP 密钥传输方法。
 
-   ![Screenshot of "Key Transport Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
-1. Click **Save settings**.
+   ![加密断言的“密钥传输方法”屏幕截图](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
+1. 单击“保存设置”。 
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+如果启用了 SAML 调试以使用加密断言测试身份验证，请在完成测试后禁用 SAML 调试。 有关详细信息，请参阅“[对 SAML 身份验证进行故障排除](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)”。

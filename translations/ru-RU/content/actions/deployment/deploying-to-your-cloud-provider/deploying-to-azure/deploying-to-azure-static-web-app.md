@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Static Web App
-intro: You can deploy your web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
+title: Развертывание статического веб-приложения Azure
+intro: Веб-приложение можно развернуть в статическом веб-приложении Azure в рамках рабочих процессов непрерывного развертывания (CD).
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,46 +10,50 @@ type: tutorial
 topics:
   - CD
   - Azure Static Web Apps
+ms.openlocfilehash: 3e5b9a90e91e237fbd1b5679624ed3cdb3865856
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410550'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## Введение
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
+Это руководство объясняет, как использовать {% data variables.product.prodname_actions %} для сборки и развертывания веб-приложения в [Статических веб-приложениях Azure](https://azure.microsoft.com/services/app-service/static/).
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Примечание**. {% data reusables.actions.about-oidc-short-overview %} и [Настройка OpenID Connect в Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## Предварительные требования
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+Перед созданием рабочего процесса {% data variables.product.prodname_actions %} сначала нужно выполнить следующие действия по настройке:
 
-1. Create an Azure Static Web App using the 'Other' option for deployment source. For more information, see "[Quickstart: Building your first static site in the Azure portal](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" in the Azure documentation. 
+1. Создайте статическое веб-приложение Azure, используя параметр "Другое" для источника развертывания. Дополнительные сведения см. в разделе [Краткое руководство. Создание первого статического сайта на портале Azure](https://docs.microsoft.com/azure/static-web-apps/get-started-portal) в документации Azure. 
 
-2. Create a secret called `AZURE_STATIC_WEB_APPS_API_TOKEN` with the value of your static web app deployment token. For more information about how to find your deployment token, see "[Reset deployment tokens in Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" in the Azure documentation.
+2. Создайте секрет с именем `AZURE_STATIC_WEB_APPS_API_TOKEN` со значением токена развертывания статического веб-приложения. Дополнительные сведения о том, как найти токен развертывания, см. в разделе [Сброс токенов развертывания в Статических веб-приложениях Azure](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management) в документации Azure.
 
-## Creating the workflow
+## Создание рабочего процесса
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Выполнив предварительные требования, можно приступить к созданию рабочего процесса.
 
-The following example workflow demonstrates how to build and deploy an Azure static web app when there is a push to the `main` branch or when a pull request targeting `main` is opened, synchronized, or reopened. The workflow also tears down the corresponding pre-production deployment when a pull request targeting `main` is closed.
+В следующем примере рабочего процесса показано, как собрать и развернуть статическое веб-приложение Azure при отправке в ветвь `main` или при открытии, синхронизации или повторном открытии запроса на вытягивание, нацеленного на `main`. Рабочий процесс также удаляет соответствующее предварительное развертывание при закрытии запроса на вытягивание, нацеленного на `main`.
 
-Under the workflow `env` key, change the following values:
-- `APP_LOCATION` to the location of your client code
-- `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
-- `APP_ARTIFACT_LOCATION` to the location of your client code build output
+Под ключом `env` рабочего процесса измените следующие значения:
+- `APP_LOCATION` в расположение кода клиента
+- `API_LOCATION` на расположение исходного кода API. Если `API_LOCATION` не имеет значения, можно удалить переменную и строки, в которых она используется.
+- `APP_ARTIFACT_LOCATION` на расположение вывода сборки кода клиента
 
-For more information about these values, see "[Build configuration for Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" in the Azure documentation.
+Дополнительные сведения об этих значениях см. в разделе [Конфигурация сборки для Статических веб-приложений Azure](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions) в документации Azure.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -107,10 +111,10 @@ jobs:
           action: "close"
 ```
 
-## Additional resources
+## Дополнительные ресурсы
 
-The following resources may also be useful:
+Следующие ресурсы также содержат полезные сведения на эти темы:
 
-* For the original starter workflow, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Исходный начальный рабочий процесс см. в [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) из репозитория `starter-workflows` {% data variables.product.prodname_actions %}.
+* Действие, используемое для развертывания веб-приложения, является официальным действием [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) Azure.
+* Дополнительные примеры рабочих процессов GitHub Actions, которые развертываются в Azure, см. в репозитории [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

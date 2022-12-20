@@ -1,6 +1,6 @@
 ---
-title: About teams
-intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
+title: Informationen zu Teams
+intro: 'Teams sind Gruppen von Organisationsmitgliedern, die Ihr Unternehmen oder die Struktur Ihrer Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.'
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
@@ -12,71 +12,76 @@ versions:
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 7b899cf08ca58170acdf8fb2fb2ad13d251b76e3
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145149845'
 ---
+![Liste der Teams in einer Organisation](/assets/images/help/teams/org-list-of-teams.png)
 
-![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
+Organisationsbesitzer und Teambetreuer können Teams Administrator-, Lese- oder Schreibzugriff auf die Repositorys der Organisation gewähren. Organisationsmitglieder können eine Benachrichtigung an ein ganzes Team senden, indem sie den Namen des Teams erwähnen. Organisationsmitglieder können eine Benachrichtigung auch an ein ganzes Team senden, indem sie eine Überprüfung von diesem Team anfordern. Außerdem können Organisationsmitglieder Überprüfungen von spezifischen Teams mit Lesezugriff auf das Repository anfordern, in dem der Pull Request geöffnet wird. Teams können als Inhaber bestimmter Codetypen oder Codebereiche in einer CODEOWNERS-Datei bestimmt werden.
 
-Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+Weitere Informationen finden Sie unter
+- [Verwalten des Teamzugriffs auf ein Organisationsrepository](/articles/managing-team-access-to-an-organization-repository).
+- [Erwähnen von Personen und Teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
+- [Informationen zu Codeinhabern](/articles/about-code-owners/)
 
-For more information, see:
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)"
-- "[About code owners](/articles/about-code-owners/)"
-
-![Image of a team mention](/assets/images/help/teams/team-mention.png)
+![Bild einer Teamerwähnung](/assets/images/help/teams/team-mention.png)
 
 {% ifversion ghes %}
 
-You can also use LDAP Sync to synchronize {% data variables.location.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.location.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+Du kannst außerdem die LDAP-Synchronisierung verwenden, um {% data variables.product.product_location %}-Teammitglieder und -Teamrollen mit deinen vorhandenen LDAP-Gruppen zu synchronisieren. So kannst du die rollenbasierte Zugriffssteuerung für Benutzer über deinen LDAP-Server statt manuell in {% data variables.product.product_location %} einrichten. Weitere Informationen findest du unter [Aktivieren der LDAP-Synchronisierung](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync).
 
 {% endif %}
 
 {% data reusables.organizations.team-synchronization %}
 
-## Team visibility
+## Sichtbarkeit eines Teams
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
+Du kannst auf deinem persönlichen Dashboard alle Teams anzeigen, zu denen du gehörst. Weitere Informationen findest du unter [Informationen zu deinem persönlichen Dashboard](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams).
 
-## Team pages
+## Teamseiten
 
-Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
+Jedes Team hat seine eigene Seite innerhalb einer Organisation. Auf der Seite eines Teams kannst Du Teammitglieder, untergeordnete Teams und Repositorys des Teams anzeigen. Organisationsinhaber und Team-Betreuer können auf die Teameinstellungen zugreifen und die Beschreibung sowie das Profilbild des Teams über die Seite des Teams aktualisieren.
 
-Organization members can create and participate in discussions with the team. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran teilnehmen. Weitere Informationen findest du unter [Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions).
 
-![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
+![Teamseite mit einer Auflistung der Teammitglieder und Diskussionen](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-## Nested teams
+## Verschachtelte Teams
 
-You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+Du kannst die Hierarchie Deiner Gruppe oder Deines Unternehmens innerhalb Deiner {% data variables.product.product_name %}-Organisation mit mehreren Ebenen von verschachtelten Teams abbilden. Ein übergeordnetes Team kann über mehrere untergeordnete Teams verfügen, während jedes untergeordnete Team nur ein übergeordnetes Team aufweist. Du kannst geheime Teams nicht schachteln.
 
-Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
+Untergeordnete Teams erben die Zugriffsberechtigungen des übergeordneten Teams, wodurch die Berechtigungsverwaltung für große Gruppen vereinfacht wird. Mitglieder untergeordneter Teams erhalten ebenfalls Benachrichtigungen, wenn das übergeordnete Team per @mentioned erwähnt wird, wodurch die Kommunikation mit mehreren Personengruppen vereinfacht wird.
 
-For example, if your team structure is Employees > Engineering > Application Engineering > Identity, granting Engineering write access to a repository means Application Engineering and Identity also get that access. If you @mention the Identity Team or any team at the bottom of the organization hierarchy, they're the only ones who will receive a notification.
+Wenn deine Teamstruktur beispielsweise „Mitarbeiter > Engineering > Application Engineering > Application Engineering > Identity“ lautet, bedeutet die Gewährung von Schreibzugriff für Engineering auf ein Repository, dass auch Application Engineering und Identity diesen Zugriff erhalten. Wenn du das Identity-Team oder ein Team im unteren Bereich der Organisationshierarchie per @mention erwähnst, erhält nur dieses Team eine Benachrichtigung.
 
-![Teams page with a parent team and child teams](/assets/images/help/teams/nested-teams-eng-example.png)
+![Teamseite mit einem übergeordneten und einem untergeordneten Team](/assets/images/help/teams/nested-teams-eng-example.png)
 
-To easily understand who shares a parent team's permissions and mentions, you can see all of the members of a parent team's child teams on the Members tab of the parent team's page. Members of a child team are not direct members of the parent team.
+Um zu verstehen, wer die Berechtigungen und Erwähnungen eines übergeordneten Teams teilt, kannst Du alle Mitglieder der untergeordneten Teams eines übergeordneten Teams auf der Registerkarte „Members“ (Mitglieder) auf der Seite des übergeordneten Teams sehen. Mitglieder eines untergeordneten Teams sind keine direkten Mitglieder des übergeordneten Teams.
 
-![Parent team page with all members of child teams](/assets/images/help/teams/team-and-subteam-members.png)
+![Seite eines übergeordneten Teams mit allen Mitgliedern der untergeordneten Teams](/assets/images/help/teams/team-and-subteam-members.png)
 
-You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
+Du kannst beim Erstellen des Teams ein übergeordnetes Team auswählen oder ein Team in der Hierarchie Deiner Organisation später verschieben. Weitere Informationen findest du unter [Verschieben eines Teams in der Hierarchie deiner Organisation](/articles/moving-a-team-in-your-organization-s-hierarchy).
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-## Preparing to nest teams in your organization
+## Die Verschachtelung von Teams in Deiner Organisation vorbereiten
 
-If your organization already has existing teams, you should audit each team's repository access permissions before you nest teams above or below it. You should also consider the new structure you'd like to implement for your organization.
+Wenn in Deiner Organisation bereits Teams vorhanden sind, solltest Du die Zugriffsberechtigungen für das Repository jedes Teams überprüfen, bevor Du Teams über- oder unterordnest. Du solltest außerdem die neue Struktur berücksichtigen, die Du für Deine Organisation implementieren möchtest.
 
-At the top of the team hierarchy, you should give parent teams repository access permissions that are safe for every member of the parent team and its child teams. As you move toward the bottom of the hierarchy, you can grant child teams additional, more granular access to more sensitive repositories.
+An der Spitze der Teamhierarchie solltest Du den übergeordneten Teams nur Zugriffsberechtigungen für Repositorys erteilen, die für jedes Mitglied des übergeordneten Teams und seine untergeordneten Teams sicher sind. Wenn Du Dich in der Hierarchie nach unten bewegst, kannst Du untergeordneten Teams zusätzlichen, detaillierteren Zugriff auf sensiblere Repositorys gewähren.
 
-1. Remove all members from existing teams
-2. Audit and adjust each team's repository access permissions and give each team a parent
-3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
-4. Add people directly to teams
+1. Entferne alle Mitglieder aus vorhandenen Teams
+2. Überprüfe und bearbeite die Zugriffsrechte für Repositorys für jedes Team, und weise jedem Team ein übergeordnetes Team zu
+3. Erstelle alle gewünschten neuen Teams, wähle ein übergeordnetes Team für jedes neue Team, und gewähre seinen Mitgliedern Zugriff auf Repositorys
+4. Füge Personen direkt zu Teams hinzu
 
-## Further reading
+## Weiterführende Themen
 
-- "[Creating a team](/articles/creating-a-team)"
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+- [Erstellen eines Teams](/articles/creating-a-team)
+- [Hinzufügen von Organisationsmitgliedern zu einem Team](/articles/adding-organization-members-to-a-team)

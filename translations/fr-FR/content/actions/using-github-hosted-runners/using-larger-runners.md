@@ -1,123 +1,110 @@
 ---
-title: Using larger runners
+title: Utilisation des exécuteurs plus grands
 shortTitle: Larger runners
-intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
+intro: "{% data variables.product.prodname_dotcom %} propose des exécuteurs disposant d’une plus grande mémoire\_RAM et d’une plus grande puissance de processeur."
 miniTocMaxHeadingLevel: 3
 product: '{% data reusables.gated-features.hosted-runners %}'
 versions:
   feature: actions-hosted-runners
+ms.openlocfilehash: bbae77f1f027dd4a238de6ba636eb3cb842790b1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106434'
 ---
+## Présentation des {% data variables.actions.hosted_runner %}
 
-## Overview of {% data variables.actions.hosted_runner %}s
+En plus des [exécuteurs standard hébergés par {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} propose également aux utilisateurs des plans {% data variables.product.prodname_team %} et {% data variables.product.prodname_ghe_cloud %} une gamme de {% data variables.actions.hosted_runner %} disposant d’une plus grande mémoire RAM et de processeurs plus puissants. Ces exécuteurs sont hébergés par {% data variables.product.prodname_dotcom %}, et l’application exécuteur ainsi que d’autres outils y sont préinstallés.
 
-In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled.
+Quand des {% data variables.actions.hosted_runner %} sont activés pour votre organisation, un groupe d’exécuteurs par défaut est automatiquement créé pour vous avec un ensemble de quatre {% data variables.actions.hosted_runner %} préconfigurés.
 
-When {% data variables.actions.hosted_runner %}s are enabled for your organization, a default runner group is automatically created for you with a set of four pre-configured {% data variables.actions.hosted_runner %}s.
+Lorsque vous ajoutez un {% data variables.actions.hosted_runner %} à une organisation, vous définissez un type d’ordinateur à partir d’une sélection de spécifications matérielles et d’images de systèmes d’exploitation. {% data variables.product.prodname_dotcom %} crée ensuite plusieurs instances de cet exécuteur qui font l’objet d’un scale-up ou d’un scale-down afin de répondre aux besoins de votre organisation, en fonction des limites de mise à l’échelle automatique que vous définissez.
 
-When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
+## Specs des ordinateurs pour les {% data variables.actions.hosted_runner %} 
 
-## Machine specs for {% data variables.actions.hosted_runner %}s 
-
-|Size (vcpu) | Memory (GB) | Storage (SSD) |
+|Taille (vcpu) | Mémoire (Go) | Stockage (SSD) |
 | ------------- | ------------- | ------------- |
-|4 cores | 16  RAM  | 150 GB|
-| 8 cores | 32 RAM | 300 GB |
-|16 cores| 64 RAM | 600 GB |
-|32 cores| 128 RAM| 1200 GB|
-|64 cores| 256 RAM | 2040 GB|
+|4 cœurs | 16 RAM  | 150 Go|
+| 8 cœurs | 32 RAM | 300 Go |
+|16 cœurs| 64 RAM | 600 Go |
+|32 cœurs| 128 RAM| 1200 Go|
+|64 cœurs| 256 RAM | 2 040 Go|
 
-## Architectural overview of {% data variables.actions.hosted_runner %}s
+## Présentation de l’architecture des {% data variables.actions.hosted_runner %}
 
-The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target either the group name or the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+Les {% data variables.actions.hosted_runner %} sont gérés au niveau de l’organisation, où ils sont organisés en groupes pouvant contenir plusieurs instances d’exécuteur. Ils peuvent également être créés au niveau de l’entreprise et partagés avec les organisations de la hiérarchie. Une fois que vous avez créé un groupe, vous pouvez y ajouter un exécuteur et mettre à jour vos workflows afin de cibler l’étiquette affectée au {% data variables.actions.hosted_runner %}. Vous pouvez également contrôler quels dépôts sont autorisés à envoyer des travaux au groupe à des fins de traitement. Pour plus d’informations sur les groupes, consultez « [Contrôle de l’accès aux {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/controlling-access-to-larger-runners) ».
 
-In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` has been defined with customized hardware and operating system configuration.
+Dans le schéma suivant, une classe d’exécuteur hébergé nommée `ubuntu-20.04-16core` a été définie avec une configuration personnalisée concernant le matériel et le système d’exploitation.
 
-![Diagram explaining {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
+![Schéma détaillant un {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
 
-1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`. 
-2. The runners have been assigned the label `ubuntu-20.04-16core`. 
-3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
-4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
-5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
+1. Les instances de cet exécuteur sont automatiquement créées et ajoutées à un groupe appelé `ubuntu-20.04-16core`. 
+2. Les exécuteurs ont reçu l’étiquette `ubuntu-20.04-16core`. 
+3. Les travaux de workflow utilisent l’étiquette `ubuntu-20.04-16core` dans leur clé `runs-on` pour indiquer le type d’exécuteur dont ils ont besoin pour s’exécuter.
+4. {% data variables.product.prodname_actions %} vérifie le groupe d’exécuteurs pour voir si votre dépôt est autorisé à envoyer des travaux à l’exécuteur.
+5. Le travail s’exécute sur la prochaine instance disponible de l’exécuteur `ubuntu-20.04-16core`.
 
-## Autoscaling {% data variables.actions.hosted_runner %}s
+## Mise à l’échelle automatique des {% data variables.actions.hosted_runner %}
 
-Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Vos {% data variables.actions.hosted_runner %} peuvent être configurés pour être mis à l’échelle automatiquement en fonction de vos besoins. Lorsque des travaux sont envoyés en vue de leur traitement, d’autres ordinateurs peuvent être automatiquement provisionnés pour exécuter les travaux, jusqu’à atteindre la limite maximale prédéfinie. Chaque machine ne gère qu’un seul travail à la fois. Ces paramètres déterminent donc le nombre de travaux qui peuvent être exécutés simultanément. 
 
-During the runner deployment process, you can configure the _Max_ option, which allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
+Pendant le processus de déploiement de l’exécuteur, vous pouvez configurer l’option _Max_, qui vous permet de contrôler vos coûts en définissant le nombre maximal de machines créées dans cet ensemble. Une valeur élevée peut vous permettre d’éviter que les workflows ne soient bloqués en raison du parallélisme.
 
-## Networking for {% data variables.actions.hosted_runner %}s
+## Réseaux des {% data variables.actions.hosted_runner %}
 
-By default, {% data variables.actions.hosted_runner %}s receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runner %}s to receive a static IP address from {% data variables.product.prodname_dotcom %}'s IP address pool. When enabled, instances of the {% data variables.actions.hosted_runner %} will receive an address from a range that is unique to the runner, allowing you to use this range to configure a firewall allowlist. {% ifversion fpt %}You can use up to 10 static IP address ranges in total across all your {% data variables.actions.hosted_runner %}s{% endif %}{% ifversion ghec %}You can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the enterprise level. In addition, you can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the organization level, for each organization in your enterprise{% endif %}.
-
-{% note %}
-
-**Note**: If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
-
-{% endnote %}
-
-## Planning for {% data variables.actions.hosted_runner %}s
-
-### Create a runner group
-
-Runner groups are used to collect sets of virtual machines and create a security boundary around them. You can then decide which organizations or repositories are permitted to run jobs on those sets of machines. During the {% data variables.actions.hosted_runner %} deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-
-### Understanding billing
+Par défaut, les {% data variables.actions.hosted_runner %} reçoivent une adresse IP dynamique qui change à chaque exécution du travail. Les clients {% data variables.product.prodname_ghe_cloud %} ont la possibilité de configurer leurs {% data variables.actions.hosted_runner %} pour recevoir une adresse IP statique provenant du pool d’adresses IP de {% data variables.product.prodname_dotcom %}. Lorsque cette option est activée, les instances du {% data variables.actions.hosted_runner %} reçoivent une adresse provenant d’une plage qui est propre à l’exécuteur, ce qui vous permet d’utiliser cette plage pour configurer une liste d’autorisation de pare-feu. {% ifversion fpt %} Vous pouvez utiliser jusqu’à 10 plages d’adresses IP statiques au total sur tous vos {% data variables.actions.hosted_runner %}{% endif %}{% ifversion ghec %}Vous pouvez utiliser jusqu’à 10 plages d’adresses IP statiques pour les {% data variables.actions.hosted_runner %} créées au niveau de l’entreprise. De plus, vous pouvez utiliser jusqu’à 10 plages d’adresses IP statiques pour les {% data variables.actions.hosted_runner %} créés au niveau de l’organisation, pour chaque organisation de votre entreprise{% endif %}.
 
 {% note %}
 
-**Note**: The {% data variables.actions.hosted_runner %}s do not use included entitlement minutes, and are not free for public repositories.
+**Remarque** : Si les exécuteurs ne sont pas utilisés pendant plus de 30 jours, leurs plages d’adresses IP sont automatiquement supprimées sans récupération possible.
 
 {% endnote %}
 
-Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s are billed differently. For more information, see "[Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)".
+## Planification des {% data variables.actions.hosted_runner %}
 
-## Adding a {% data variables.actions.hosted_runner %} to an enterprise
+### Créer un groupe d’exécuteurs
 
-You can add {% data variables.actions.hosted_runner %}s to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use the runners. To add a {% data variables.actions.hosted_runner %} to an enterprise, you must be an enterprise owner.
+Les groupes d’exécuteurs sont utilisés pour collecter des ensembles de machines virtuelles et créer une limite de sécurité autour d’elles. Vous pouvez ensuite décider quelles organisations ou dépôts sont autorisés à exécuter des travaux sur ces ensembles de machines. Pendant le processus de déploiement du {% data variables.actions.hosted_runner %}, l’exécuteur peut être ajouté à un groupe existant. Sinon, il rejoint un groupe par défaut. Vous pouvez créer un groupe en suivant les étapes décrites dans « [Contrôle de l’accès aux {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/controlling-access-to-larger-runners) ».
+
+### Présentation de la facturation
+
+{% note %}
+
+**Remarque** : Les {% data variables.actions.hosted_runner %} ne se servent pas des minutes de droits d’utilisation comprises et ne sont pas gratuits pour les dépôts publics.
+
+{% endnote %}
+
+Les {% data variables.actions.hosted_runner %} sont facturés différemment des exécuteurs standard hébergés dans {% data variables.product.prodname_dotcom %}. Pour plus d’informations, consultez « [Tarifs à la minute](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates) ».
+
+## Ajout d’un {% data variables.actions.hosted_runner %} à une entreprise
+
+Vous pouvez ajouter des {% data variables.actions.hosted_runner %} à une entreprise, où ils pourront être affectés à plusieurs organisations. Les administrateurs des organisations peuvent ensuite contrôler quels dépôts peuvent utiliser les exécuteurs. Pour ajouter un {% data variables.actions.hosted_runner %} à une entreprise, vous devez être propriétaire de l’entreprise.
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.enterprise-accounts.actions-runners-tab %} {% data reusables.actions.add-hosted-runner %}
+1. Pour permettre aux organisations d’accéder à vos {% data variables.actions.hosted_runner %}, spécifiez la liste des organisations qui peuvent les utiliser. Pour plus d’informations, consultez « [Gestion de l’accès à vos exécuteurs](#managing-access-to-your-runners) ».
 
-## Adding a {% data variables.actions.hosted_runner %} to an organization
+## Ajout d’un {% data variables.actions.hosted_runner %} à une organisation
 
-You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it. 
+Vous pouvez ajouter un {% data variables.actions.hosted_runner %} à une organisation. Les administrateurs de l’organisation pourront contrôler quels dépôts peuvent l’utiliser. 
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% data reusables.actions.add-hosted-runner %}
+1. Pour autoriser les dépôts à accéder à vos {% data variables.actions.hosted_runner %}, ajoutez-les à la liste des dépôts qui peuvent les utiliser. Pour plus d’informations, consultez « [Gestion de l’accès à vos exécuteurs](#managing-access-to-your-runners) ».
 
-## Running jobs on your runner
+## Exécution de travaux sur votre exécuteur
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run. 
-
-Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
-
-### Using groups to control where jobs are run
-
-{% data reusables.actions.jobs.example-runs-on-groups %}
-
-### Using labels to control where jobs are run
-
-In this example, a runner group is populated with Ubuntu 16-core runners, which have also been assigned the label `ubuntu-20.04-16core`. The `runs-on` key sends the job to any available runner with a matching label:
+Une fois que votre type d’exécuteur a été défini, vous pouvez mettre à jour vos fichiers YAML de workflow pour envoyer des travaux aux instances de l’exécuteur qui viennent d’être créées afin de les traiter. Dans cet exemple, un groupe d’exécuteurs est rempli avec des exécuteurs Ubuntu 16 cœurs, qui ont reçu l’étiquette `ubuntu-20.04-16core`. Si vous avez un exécuteur qui correspond à cette étiquette, le travail `check-bats-version` utilise la clé `runs-on` pour cibler cet exécuteur chaque fois que le travail est exécuté :
 
 ```yaml
 name: learn-github-actions
 on: [push]
 jobs:
   check-bats-version:
-    runs-on:
-      labels: ubuntu-20.04-16core
+    runs-on: ubuntu-20.04-16core
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}
@@ -127,66 +114,39 @@ jobs:
       - run: bats -v
 ```
 
-### Using labels and groups to control where jobs are run
+Pour savoir quels exécuteurs sont activés pour votre dépôt et votre organisation, vous devez contacter l’administrateur de votre organisation. L’administrateur de votre organisation peut créer des exécuteurs et des groupes d’exécuteurs, ainsi que configurer des autorisations pour spécifier quels dépôts peuvent accéder à un groupe d’exécuteurs.
 
-{% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
-
-### Using multiple labels
-
-You can specify multiple labels that need to be matched for a job to run on a runner. A runner will need to match all labels to be eligible to run the job.
-
-In this example, a runner will need to match all three of the labels to run the job:
-
-```yaml
-name: learn-github-actions
-on: [push]
-jobs:
-  check-bats-version:
-    runs-on:
-      labels: [ ubuntu-20.04-16core, gpu, qa ]
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-```
-
-{% data reusables.actions.section-using-unique-names-for-runner-groups %}
-
-## Managing access to your runners
+## Gestion de l’accès aux exécuteurs
 
 {% note %}
 
-**Note**: Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.
+**Remarque** : Avant que vos workflows ne puissent envoyer des travaux aux {% data variables.actions.hosted_runner %}, vous devez d’abord configurer des autorisations pour le groupe d’exécuteurs. Pour plus d’informations, consultez les sections suivantes.
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
+Les groupes d’exécuteurs sont utilisés pour contrôler les dépôts qui peuvent exécuter des travaux sur vos {% data variables.actions.hosted_runner %}. Vous devez accorder l’accès au groupe à partir de chaque niveau de la hiérarchie de gestion, selon l’emplacement où vous avez défini le {% data variables.actions.hosted_runner %} :
 
-- **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
-- **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
+- **Exécuteurs au niveau de l’entreprise** : configurez le groupe d’exécuteurs pour accorder l’accès à toutes les organisations nécessaires. En outre, pour chaque organisation, vous devez configurer le groupe afin de spécifier les dépôts qui sont autorisés à y accéder.
+- **Exécuteurs au niveau de l’organisation** : configurez le groupe d’exécuteurs en spécifiant les dépôts qui sont autorisés à y accéder.
 
-For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization; you must then configure the group at the organization level to allow access from `octo-repo`:
+Par exemple, le schéma suivant comporte un groupe d’exécuteurs nommé `grp-ubuntu-20.04-16core` au niveau de l’entreprise. Avant que le dépôt nommé `octo-repo` puisse utiliser les exécuteurs du groupe, vous devez d’abord configurer le groupe au niveau de l’entreprise pour autoriser l’accès à partir de l’organisation `octo-org`. Vous devez ensuite configurer le groupe au niveau de l’organisation pour autoriser l’accès à partir de `octo-repo` :
 
-![Diagram explaining {% data variables.actions.hosted_runner %} groups](/assets/images/hosted-runner-mgmt.png)
+![Schéma détaillant des groupes de {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner-mgmt.png)
 
-### Allowing repositories to access a runner group
+### Autoriser les dépôts à accéder à un groupe d’exécuteurs
 
-This procedure demonstrates how to configure group permissions at the enterprise and organization levels:
+Cette procédure montre comment configurer des autorisations de groupe aux niveaux de l’entreprise et de l’organisation :
 
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-  - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
-  - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
+{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+  - Pour les groupes d’exécuteurs d’une entreprise, sous **Accès des organisations**, modifiez la liste des organisations qui peuvent accéder au groupe d’exécuteurs.
+  - Pour les groupes d’exécuteurs d’une organisation, sous **Accès au dépôt**, modifiez les dépôts qui peuvent accéder au groupe d’exécuteurs.
 
 {% warning %}
 
-**Warning**:
+**Avertissement** :
 
 {% data reusables.actions.hosted-runner-security %}
 
-For more information, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+Pour plus d’informations, consultez « [Contrôle de l’accès aux {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/controlling-access-to-larger-runners) ».
 
 {% endwarning %}

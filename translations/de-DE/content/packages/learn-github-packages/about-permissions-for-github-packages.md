@@ -1,6 +1,6 @@
 ---
-title: About permissions for GitHub Packages
-intro: Learn about how to manage permissions for your packages.
+title: Informationen zu Berechtigungen für GitHub-Pakete
+intro: 'Hier erfährst du, wie du Berechtigungen für deine Pakete verwalten kannst.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
@@ -8,91 +8,83 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: About permissions
+ms.openlocfilehash: 1663fa3bfc8fd6149e43fd9cf09a8362739c7341
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147704939'
 ---
-
-{% ifversion packages-registries-v2 %}
-The permissions for packages can be scoped either to a user or an organization or to a repository.
-
-## Granular permissions for user/organization-scoped packages
-
-Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of the package separately from a repository that is connected (or linked) to a package.
-
-The following {% data variables.product.prodname_registry %} registries support granular permissions.
-
-- {% data variables.product.prodname_container_registry %}
-{% ifversion packages-npm-v2 %}- npm registry{% endif %}
-{% ifversion packages-nuget-v2 %}- NuGet registry{% endif %}
-
+{% ifversion fpt or ghec %} Die Berechtigungen für Pakete beziehen sich entweder auf Repositorys oder auf Benutzer/Organisationen.
 {% endif %}
 
-## Permissions for {% ifversion packages-registries-v2 %}repository-scoped {% endif %}packages
+## Berechtigungen für repositorybezogene Pakete
 
-A {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
+Ein repositorybezogenes Paket erbt die Berechtigungen und Sichtbarkeit des Repositorys, in dessen Besitz es sich befindet. Du kannst ein auf ein Repository ausgerichtetes Paket finden, indem du zur Hauptseite des Repositorys wechselst und rechts auf der Seite auf den Link **Pakete** klickst. {% ifversion fpt or ghec %}Weitere Informationen findest du unter [Verbinden eines Repositorys mit einem Paket](/packages/learn-github-packages/connecting-a-repository-to-a-package).{% endif %}
 
-{% ifversion packages-registries-v2 %}
-The following {% data variables.product.prodname_registry %} registries **only** support repository-scoped permissions.
+Die folgenden {% data variables.product.prodname_registry %}-Registrierungen verwenden **nur** repositorybezogene Berechtigungen:
 
-{% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
-{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-- RubyGems registry
-- Apache Maven registry
-- Gradle registry
-{% ifversion packages-nuget-v2 %}{% else %}- NuGet registry{% endif %}
+  {% ifversion not fpt or ghec %}- Docker-Registrierung (`docker.pkg.github.com`){% endif %} {% ifversion packages-npm-v2 %}{% else %}- npm-Registrierung{% endif %}
+  - RubyGems-Registrierung
+  - Apache Maven-Registrierung
+  - NuGet-Registrierung
 
-For {% ifversion ghes %}the {% data variables.product.prodname_container_registry %}{% else %}other registries{% endif %}, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. {% ifversion docker-ghcr-enterprise-migration %}For information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+{% ifversion packages-npm-v2 %}Für {% data variables.product.prodname_ghcr_and_npm_registry %} kannst du auswählen, dass Pakete für einen Benutzer oder eine Organisation zulässig oder mit einem Repository verknüpft sind.{% endif %}
 
-{% endif %}
+{% ifversion fpt or ghec %}
+## Differenzierte Berechtigungen für benutzer-/organisationsbezogene Pakete
 
-{% ifversion packages-registries-v2 %}
-## Visibility and access permissions for container images
+Für Pakete mit differenzierten Berechtigungen wird ein persönliches Benutzerkonto oder ein Organisationskonto als Gültigkeitsbereich festgelegt. Du kannst die Zugriffssteuerung und Sichtbarkeit eines Pakets getrennt von einem Repository ändern, mit dem es verbunden (oder verknüpft) ist.
+
+Derzeit bietet die {% data variables.product.prodname_ghcr_and_npm_registry %} differenzierte Berechtigungen für deine Containerimagepakete.
+
+## Sichtbarkeit und Zugriffsberechtigungen für Containerimages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Weitere Informationen findest du unter [Konfigurieren der Zugriffssteuerung und Sichtbarkeit eines Pakets](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
 
 {% endif %}
 
-## About scopes and permissions for package registries
+## Informationen zu Bereichen und Berechtigungen für Paketregistrierungen
 
-{% data reusables.package_registry.packages-classic-pat-only %}
+Um ein Paket zu verwenden oder zu verwalten, das von einer Paketregistrierung gehostet wird, musst du ein Token mit dem entsprechenden Gültigkeitsbereich verwenden, und dein persönliches Konto muss über entsprechende Berechtigungen verfügen.
 
-To use or manage a package hosted by a package registry, you must use a {% data variables.product.pat_v1 %} with the appropriate scope, and your personal account must have appropriate permissions.
+Beispiel:
+-  Um Pakete aus einem Repository herunterzuladen und zu installieren, muss dein Token den `read:packages`-Gültigkeitsbereich aufweisen, und dein Benutzerkonto muss über eine Leseberechtigung verfügen.
+- {% ifversion fpt or ghes or ghec %}Um ein Paket auf {% data variables.product.product_name %} zu löschen, muss dein Token mindestens über die Gültigkeitsbereiche `delete:packages` und `read:packages` verfügen. Der `repo`-Umfang ist auch für repositorybezogene Pakete erforderlich. Weitere Informationen findest du unter [Löschen und Wiederherstellen eines Pakets](/packages/learn-github-packages/deleting-and-restoring-a-package).{% elsif ghae %}Um eine angegebene Version eines Pakets auf {% data variables.product.product_name %} zu löschen, muss dein Token über den Gültigkeitsbereich `delete:packages` und `repo` verfügen. Weitere Informationen findest du unter [Löschen und Wiederherstellen eines Pakets](/packages/learn-github-packages/deleting-and-restoring-a-package).{% endif %}
 
-For example:
--  To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
-- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must have the `delete:packages` and `repo` scope. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-
-| Scope | Description | Required permission |
+| `Scope` | BESCHREIBUNG | Erforderliche Berechtigung |
 | --- | --- | --- |
-|`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
-|`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
-| `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
-| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
+|`read:packages`| Herunterladen und Installieren von Paketen aus {% data variables.product.prodname_registry %} | Lesen |
+|`write:packages`| Hochladen und Veröffentlichen von Paketen in {% data variables.product.prodname_registry %} | Schreiben |
+| `delete:packages` | {% ifversion fpt or ghes or ghec %} Löschen von Paketen aus {% data variables.product.prodname_registry %} {% elsif ghae %} Löschen der angegebenen Versionen von Paketen aus {% data variables.product.prodname_registry %} {% endif %} | admin |
+| `repo` | Hochladen und Löschen von Paketen (zusammen mit `write:packages`oder `delete:packages`) | Schreib- oder Administratorberechtigung |
 
-When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
+Wenn du einen {% data variables.product.prodname_actions %}-Workflow erstellst, kannst du das `GITHUB_TOKEN` zum Veröffentlichen und Installieren von Paketen in {% data variables.product.prodname_registry %} verwenden, ohne ein persönliches Zugriffstoken zu speichern und zu verwalten.
 
-For more information, see:{% ifversion fpt or ghec %}
-- "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
-- "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
-- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token/)"
-- "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
+Weitere Informationen findest du hier:{% ifversion fpt or ghec %}
+- [Konfigurieren der Zugriffssteuerung und Sichtbarkeit von Paketen](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}
+- [Veröffentlichen und Installieren eines Pakets mit {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)
+- [Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token/)
+- [Verfügbare Bereiche](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)
 
-## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
+## Verwalten des Zugriffs auf Pakete in {% data variables.product.prodname_actions %}-Workflows
 
-To ensure your workflows will maintain access to your packages, ensure that you're using the right access token in your workflow and that you've enabled {% data variables.product.prodname_actions %} access to your package.
+Um sicherzustellen, dass deine Workflows Zugriff auf deine Pakete erhalten, stelle sicher, dass du das richtige Zugriffstoken in deinem Workflow verwendest und dass du den {% data variables.product.prodname_actions %}-Zugriff auf dein Paket aktiviert hast.
 
-For more conceptual background on {% data variables.product.prodname_actions %} or examples of using packages in workflows, see "[Managing GitHub Packages using GitHub Actions workflows](/packages/managing-github-packages-using-github-actions-workflows)."
+Weitere konzeptionelle Hintergründe zu {% data variables.product.prodname_actions %} oder Beispiele für die Verwendung von Paketen in Workflows findest du unter [Verwalten von GitHub-Paketen mit GitHub Actions-Workflows](/packages/managing-github-packages-using-github-actions-workflows).
 
-### Access tokens  
+### Zugriffstoken  
 
-- To publish packages associated with the workflow repository, use `GITHUB_TOKEN`.
-- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
+- Um Pakete zu veröffentlichen, die dem Workflowrepository zugeordnet sind, verwende `GITHUB_TOKEN`.
+- Zum Installieren von Paketen, die anderen privaten Repositorys zugeordnet sind, auf die `GITHUB_TOKEN` nicht zugreifen kann, verwende ein persönliches Zugriffstoken.
 
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+Weitere Informationen zum `GITHUB_TOKEN`, das in {% data variables.product.prodname_actions %}-Workflows verwendet wird, findest du unter [Authentifizierung in einem Workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow).
 
 {% ifversion fpt or ghec %}
-### {% data variables.product.prodname_actions %} access for container images
+### {% data variables.product.prodname_actions %}-Zugriff für Containerimages
 
-To ensure your workflows have access to your container image, you must enable {% data variables.product.prodname_actions %} access to the repositories where your workflow is run. You can find this setting on your package's settings page. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
+Um sicherzustellen, dass deine Workflows auf dein Containerimage zugreifen können, musst du den {% data variables.product.prodname_actions %}-Zugriff auf die Repositorys ermöglichen, in denen dein Workflow ausgeführt wird. Du kannst diese Einstellung auf der Seite mit den Einstellungen für dein Paket finden. Weitere Informationen findest du unter [Sicherstellen des Workflowzugriffs auf dein Paket](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
 
 {% endif %}

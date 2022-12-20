@@ -1,6 +1,6 @@
 ---
-title: Changing authentication methods
-intro: 'You can change the way {% data variables.product.prodname_ghe_server %} authenticates with your existing accounts at any time.'
+title: Modification des méthodes d’authentification
+intro: 'Vous pouvez changer la façon dont {% data variables.product.prodname_ghe_server %} authentifie vos comptes existants à tout moment.'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -16,27 +16,33 @@ topics:
   - Enterprise
   - Identity
 shortTitle: Change authentication methods
+ms.openlocfilehash: 074c4fe8784d3ea7b8ada6b532e680384571facf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882690'
 ---
-User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
+Les comptes d’utilisateur sur {% data variables.product.product_location %} sont conservés lorsque vous modifiez la méthode d’authentification, et les utilisateurs continuent à se connecter au même compte tant que leur nom d’utilisateur ne change pas.
 
-If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
+Si la nouvelle méthode d’authentification modifie les noms d’utilisateur, de nouveaux comptes sont créés. En tant qu’administrateur, vous pouvez renommer des utilisateurs via les paramètres d’administration du site ou l’[’API Administration des utilisateurs](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
-Other issues you should take into consideration include:
+Les autres problèmes que vous devez prendre en compte sont les suivants :
 
-* **Passwords:** If you switch to using built-in authentication for your instance, users must [set a password](/enterprise/user/articles/how-can-i-reset-my-password/) after the change is completed.
+* **Mots de passe :** Si vous passez à l’authentification intégrée pour votre instance, les utilisateurs doivent [définir un mot de passe](/enterprise/user/articles/how-can-i-reset-my-password/) une fois la modification terminée.
 
-* **Site administrators:** Administrative privileges are [controlled by your identity provider when you use SAML](/enterprise/admin/guides/user-management/using-saml/#saml-attributes) and can be [controlled by group membership when you use LDAP](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance).
+* **Administrateurs de site :** Les privilèges d’administration sont [contrôlés par votre fournisseur d’identité lorsque vous utilisez SAML](/enterprise/admin/guides/user-management/using-saml/#saml-attributes) et peuvent être [contrôlés par l’appartenance au groupe lorsque vous utilisez LDAP](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance).
 
-* **Team membership:** Only LDAP lets you [control team membership](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance) from your directory server.
+* **Appartenance à l’équipe :** Seul LDAP vous permet de [contrôler l’appartenance à l’équipe](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance) à partir de votre serveur d’annuaire.
 
-* **User suspension:** When you use LDAP to authenticate, access to {% data variables.product.prodname_ghe_server %} can be controlled via _restricted groups_. After switching to LDAP, if restricted groups are configured, existing users who are not in one of those groups will be suspended. Suspension will occur either when they log in or during the next LDAP Sync.
+* **Suspension d’utilisateur :** Lorsque vous utilisez LDAP pour vous authentifier, l’accès à {% data variables.product.prodname_ghe_server %} peut être contrôlé via des _groupes restreints_. Après avoir basculé vers LDAP, si des groupes restreints sont configurés, les utilisateurs existants qui ne se trouvent pas dans l’un de ces groupes sont suspendus. Une suspension se produit lorsqu’ils se connectent ou lors de la prochaine synchronisation LDAP.
 
-* **Group membership:** When you use LDAP to authenticate, users are automatically [suspended and unsuspended](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) based on restricted group membership and account status with Active Directory.
+* **Appartenance au groupe :** Lorsque vous utilisez LDAP pour l’authentification, les utilisateurs sont automatiquement [suspendus et rétablis](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) en fonction de l’appartenance à un groupe restreint et de l’état du compte avec Active Directory.
 
-* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a {% data variables.product.pat_generic %} or SSH key.
+* **Authentification Git :** SAML et CAS prennent uniquement en charge l’authentification Git via HTTP ou HTTPS à l’aide d’un [jeton d’accès personnel](/articles/creating-an-access-token-for-command-line-use). L’authentification par mot de passe via HTTP ou HTTPS n’est pas prise en charge. LDAP prend en charge l’authentification Git par défaut basée sur un mot de passe, mais nous vous recommandons de [désactiver cette méthode](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) et de forcer l’authentification via un jeton d’accès personnel ou une clé SSH.
 
-* **API authentication:** SAML and CAS only supports API authentication using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
+* **Authentification d’API :** SAML et CAS prennent uniquement en charge l’authentification d’API à l’aide d’un [jeton d’accès personnel](/articles/creating-an-access-token-for-command-line-use). L’authentification de base n’est pas prise en charge.
 
-* **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
+* **Authentification à 2 facteurs :** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **Authentification de secours pour les utilisateurs sans compte sur votre fournisseur d’authentification externe :** Vous pouvez inviter des utilisateurs à s’authentifier sur {% data variables.product.product_location %} sans les ajouter à votre fournisseur d’identité. Pour plus d’informations, consultez « [Autorisation de l’authentification intégrée pour les utilisateurs en dehors de votre fournisseur](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider) ».

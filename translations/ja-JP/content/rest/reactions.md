@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'Use the REST API to interact with reactions on {% data variables.product.prodname_dotcom %}.'
+title: リアクション
+intro: 'REST API を使って、{% data variables.product.prodname_dotcom %} 上のリアクションを操作できます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,10 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/reactions
+ms.openlocfilehash: b6b8b10a28fdc48963fae6da931d9dd5b3af5a4d
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193551'
 ---
+## リアクションについて
 
-## About reactions
-
-You can create and manage reactions to comments, issues, pull requests, and discussions on {% data variables.product.prodname_dotcom %}. When creating a reaction, the allowed values for the `content` parameter are as follows (with the corresponding emoji for reference):
+{% data variables.product.prodname_dotcom %} 上のコメント、Issue、pull request、ディスカッションに対するリアクションを作成および管理できます。 リアクションを作成する際、`content` パラメーターで利用可能な値は以下の通りです (参考のため、対応する絵文字も掲載します)。
 
 {% data reusables.repositories.reaction_list %}

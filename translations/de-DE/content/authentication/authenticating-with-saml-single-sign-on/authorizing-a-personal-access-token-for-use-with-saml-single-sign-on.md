@@ -1,6 +1,6 @@
 ---
-title: Authorizing a personal access token for use with SAML single sign-on
-intro: 'To use a {% data variables.product.pat_v1 %} with an organization that uses SAML single sign-on (SSO), you must first authorize the token.'
+title: Ein persönliches Zugriffstoken für die Verwendung mit SAML Single Sign-On autorisieren
+intro: 'Um ein persönliches Zugriffstoken in einer Organisation zu verwenden, die SAML Single Sign-On (SSO) nutzt, musst Du zunächst das Token autorisieren.'
 redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
@@ -10,24 +10,27 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: '{% data variables.product.pat_generic_caps %} with SAML'
+shortTitle: PAT with SAML
+ms.openlocfilehash: a6e1d4c2e1fa5cf1f4738e06127c5e7875a2ef5d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145104691'
 ---
-You must authorize your {% data variables.product.pat_v1 %} after creation before the token can access an organization that uses SAML single sign-on (SSO). For more information about creating a new {% data variables.product.pat_v1 %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.{% endif %}
+Du kannst ein vorhandenes persönliches Zugriffstoken autorisieren oder [ein neues persönliches Zugriffstoken erstellen](/github/authenticating-to-github/creating-a-personal-access-token) und dann autorisieren.
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.personal_access_tokens %}
-3. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.personal_access_tokens %}
+3. Klicke neben dem Token, das Du autorisieren möchtest, auf **SSO konfigurieren**.
+   ![Screenshot des Dropdownmenüs zum Konfigurieren von SSO für ein persönliches Zugriffstoken](/assets/images/help/settings/sso-allowlist-button.png)
+4. Klicke rechts neben der Organisation, für die Du das Token autorisieren möchtest, auf **Autorisieren**.
+   ![Schaltfläche „Token autorisieren“](/assets/images/help/settings/token-authorize-button.png)
 
-   ![Screenshot of the dropdown menu to configure SSO for a {% data variables.product.pat_v1 %}](/assets/images/help/settings/sso-allowlist-button.png)
-4. To the right of the organization you'd like to authorize the token for, click **Authorize**.
-   ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)
+## Weiterführende Themen
 
-## Further reading
-
-- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"
-- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
+- [Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)
+- [Informationen zur Authentifizierung mit SAML Single Sign-On](/articles/about-authentication-with-saml-single-sign-on)

@@ -1,30 +1,36 @@
 ---
-title: View autograding results
-intro: You can see results from autograding within the repository for your assignment.
+title: Ver los resultados de calificaciones automáticas
+intro: Puedes ver los resultados de las calificaciones automáticas dentro del repositorio de tu tarea.
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+ms.openlocfilehash: ea4de9b0122e39f5ecb4d960d4f0ee8c94ba2ee5
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119553'
 ---
-## About autograding
+## Acerca de las calificaciones automáticas
 
-Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
+Tu maestro puede configurar las pruebas que verifican tu trabajo automáticamente cuando subres información a un repositorio de tarea en {% data variables.product.product_location %}.
 
-If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
+Si eres un alumno y tu instructor configuró las calificaciones automáticas para tu tarea en {% data variables.product.prodname_classroom %}, encontrarás los resultados de las pruebas de calificación automática a lo largo de tu repositorio de tareas. Si todas las pruebas de una confirmación son exitosas, verás una marca verde. Si cualquiera de las pruebas de una confirmación falla, verás una X roja. Puedes ver las bitácoras detalladas si das clic en la marca verde o en la X roja.
 
-## Viewing autograding results for an assignment repository
+## Visualizr los resultados de calificaciones automáticas para un repositorio de tarea
 
-{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+{% data variables.product.prodname_classroom %} utiliza {% data variables.product.prodname_actions %} para ejecutar las pruebas de calificación automática. Para obtener más información sobre cómo ver los registros de una prueba de evaluación automática, vea "[Usar registros de ejecución de flujo de trabajo](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
 
-The **Actions** tab shows the full history of test runs.
+La pestaña **Actions** (Acciones) muestra el historial completo de series de pruebas.
 
-!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
+![Pestaña "Actions" (Acciones) con la opción "All workflows" (Todos los flujos de trabajo) seleccionada](/assets/images/help/classroom/autograding-actions-tab.png)
 
-You can click a specific test run to review log output, like compilation errors and test failures.
+Puedes dar clic en una ejecución de prueba específica para revisar la bitácora de salida, como en los errores de compilación y fallos de pruebas.
 
-![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![Los registros de resultados de las pruebas de "Flujo de trabajo de evaluación automática de {% data variables.product.prodname_classroom %} en {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-## Further reading
+## Información adicional
 
-- "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- "[Acerca de las comprobaciones de estado](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"

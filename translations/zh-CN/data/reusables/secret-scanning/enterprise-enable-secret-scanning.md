@@ -1,9 +1,16 @@
+---
+ms.openlocfilehash: bd43779cdfde11268b296b12ad5f328d3fdbc291
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876123"
+---
 {% ifversion ghes %}
 
 {% note %}
 
-**Note:** Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)."   
-{% ifversion security-feature-enablement-policies %} You may not be able to enable or disable {% data variables.product.prodname_secret_scanning %}, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing policies for code security and analysis for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."{% endif %}
+注意：站点管理员必须为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_secret_scanning %}，你才能使用这些功能。 有关详细信息，请参阅“[为设备配置 {% data variables.product.prodname_secret_scanning %}](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)”。
 
 {% endnote %}
 

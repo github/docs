@@ -1,0 +1,18 @@
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '**中:** 特定の環境では、チームまたは Organization から削除されたユーザーが、既存の pull request を開いたブランチへの書き込みアクセス権を持ったままになることがありました。'
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - MSSQL での通常のレプリケーションの遅延で警告が発生しました。
+    - "[ホワイトリスト エントリの作成] ボタンを使って管理者が追加した IP アドレスが、ロックアウトされたままになることがありました。"
+    - '"spokesd" で、"配置の修正がスキップされました" というフレーズを含む過剰なログ エントリが作成されました。'
+  changes:
+    - 4 か月以上経過したチェック注釈がアーカイブされます。
+  known_issues:
+    - 新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。
+    - カスタム ファイアウォール規則は、アップグレード中維持されません。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。"

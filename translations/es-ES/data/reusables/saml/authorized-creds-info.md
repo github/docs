@@ -1,7 +1,15 @@
-Before you can authorize a {% data variables.product.pat_generic %} or SSH key, you must have a linked SAML identity. If you're a member of an organization where SAML SSO is enabled, you can create a linked identity by authenticating to your organization with your IdP at least once. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
+---
+ms.openlocfilehash: 4055717eec0cdd95951ec6fb5bdea20efaed1948
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147573381"
+---
+Antes de que puedas autorizar un token de acceso personal o llave SSH, debes haber vinculado una identidad de SAML. Si eres miembro de una organización en donde está habilitado el SSO de SAML, puedes crear una identidad vinculada autenticándote en tu organización con tu IdP por lo menos una vez. Para más información, vea "[Acerca de la autenticación con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)".
 
-After you authorize a {% data variables.product.pat_generic %} or SSH key, the token or key will stay authorized until revoked in one of the following ways.
-- An organization or enterprise owner revokes the authorization.
-- You are removed from the organization.
-- The scopes in a {% data variables.product.pat_generic %} are edited, or the token is regenerated.
-- The {% data variables.product.pat_generic %} expired as defined during creation.
+Después de autorizar un token de acceso personal o una clave SSH, el token o la clave conservarán la autorización hasta que se revoque de una de las maneras siguientes.
+- Un propietario de la organización o la empresa revoca la autorización.
+- Se te elimina de la organización.
+- Se editan los alcances en un token de acceso personal o este se regenera.
+- El token de acceso personal venció conforme a lo definido durante su creación.

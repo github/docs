@@ -36,7 +36,7 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 {% data reusables.saml.okta-ae-applications-menu %}
 {% data reusables.saml.okta-browse-app-catalog %}
 {% data reusables.saml.okta-add-ghec-org-integration %}
-1. Fill out the form, providing the name of your organization on {% data variables.product.prodname_dotcom %} and a unique name for your OAuth App Integration application.
+1. Fill out the form, providing the name of your organization on {% data variables.product.prodname_dotcom %} and a unique name in the "Application Label" field.
 {% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}

@@ -1,6 +1,6 @@
 ---
-title: Recommended alert thresholds
-intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
+title: Seuils d’alerte recommandés
+intro: 'Vous pouvez configurer une alerte pour vous avertir des problèmes de ressources système avant qu’ils n’affectent les performances de votre appliance {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -17,36 +17,42 @@ topics:
   - Performance
   - Storage
 shortTitle: Recommended alert thresholds
+ms.openlocfilehash: 73adc62a8a322666e08da01a76568c16ed18458c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145102962'
 ---
-## Monitoring storage
+## Supervision du stockage
 
-We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
+Nous vous recommandons de superviser les dispositifs de stockage racines et utilisateur et de configurer une alerte avec des valeurs qui autorisent un temps de réponse suffisant quand l’espace disque disponible devient faible.
 
-| Severity | Threshold |
+| severity | Seuil |
 | -------- | --------- |
-| **Warning** | Disk use exceeds 70% of total available |
-| **Critical** | Disk use exceeds 85% of total available |
+| **Avertissement** | L’utilisation du disque dépasse 70 % du volume total disponible |
+| **Critical** | L’utilisation du disque dépasse 85 % du volume total disponible |
 
-You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
+Vous pouvez ajuster ces valeurs en fonction de la quantité totale de stockage allouée, des modèles de croissance historiques et du temps de réponse attendu. Nous vous recommandons de surallouer des ressources de stockage pour tenir compte de la croissance et éviter les temps d’arrêt nécessaires à l’allocation de capacités de stockage supplémentaires.
 
-## Monitoring CPU and load average usage
+## Supervision de l’utilisation moyenne du processeur et de la charge
 
-Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
+Bien qu’il soit normal que l’utilisation du processeur fluctue au gré des opérations Git gourmandes en ressources, nous vous recommandons de configurer une alerte pour une utilisation de processeur anormalement élevée, car les pics prolongés peuvent être le signe que votre instance est sous-provisionnée. Nous vous recommandons de superviser la moyenne de charge système de quinze minutes pour des valeurs proches ou supérieures au nombre de cœurs de processeur alloués à la machine virtuelle.
 
-| Severity | Threshold |
+| severity | Seuil |
 | -------- | --------- |
-| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
-| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
+| **Avertissement** | La moyenne de charge de quinze minutes dépasse d’une fois le nombre de cœurs de processeur |
+| **Critical** | La moyenne de charge de quinze minutes dépasse de deux fois le nombre de cœurs de processeur |
 
-We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
+Nous vous recommandons aussi de superviser le temps d’« appropriation » de la virtualisation pour veiller à ce que d’autres machines virtuelles s’exécutant sur le même système hôte n’utilisent pas toutes les ressources de l’instance.
 
-## Monitoring memory usage
+## Surveillance de l'utilisation de la mémoire
 
-The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
+La quantité de mémoire physique allouée à {% data variables.product.product_location %} peut avoir un impact important sur les performances globales et la réactivité des applications. Le système a été conçu pour utiliser de façon intensive le cache de disque du noyau pour accélérer les opérations Git. Notre recommandation est que l’ensemble de travail RSS normal s’intègre dans les 50 % de la quantité totale de RAM disponible en période de pointe.
 
-| Severity | Threshold |
+| severity | Seuil |
 | -------- | --------- |
-| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
-| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
+| **Avertissement**  | L’utilisation soutenue de RSS dépasse 50 % de la quantité totale de mémoire disponible |
+| **Critical** | L’utilisation soutenue de RSS dépasse 70 % de la quantité totale de mémoire disponible |
 
-If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.
+Si la mémoire est épuisée, le tueur OOM du noyau tente de libérer des ressources de mémoire en tuant de force les processus d’application gourmands en RAM, ce qui peut entraîner une interruption du service. Nous vous recommandons d’allouer à la machine virtuelle plus de mémoire que nécessaire dans le cours normal des opérations.

@@ -14,12 +14,12 @@ topics:
   - Enterprise
   - Logging
   - API
-ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: f5dd0a3dcca1e7fd60361f0cb7c8ecf84296e036
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184257'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192661'
 ---
 ## Utilizar la API de bitácoras de auditoría
 
@@ -120,11 +120,11 @@ Para más información sobre la API REST del registro de auditoría, vea "[Admin
 
 ### Ejemplo 1: Todos los eventos de una empresa, para una fecha específica, con paginación
 
-Puedes usar la paginación basada en páginas o la basada en cursores. Para más información, consulta "[Recorrido con paginación](/rest/guides/traversing-with-pagination)".
+Puedes usar la paginación basada en páginas o la basada en cursores. Para obtener más información sobre la paginación, consulta "[Uso de la paginación en la API de REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 #### Ejemplo de paginación basada en páginas
 
-La consulta siguiente busca eventos de registro de auditoría creados el 1 de enero de 2022 en la empresa `avocado-corp` y devuelve la primera página con un máximo de 100 elementos por página mediante la [paginación de la API REST](/rest/overview/resources-in-the-rest-api#pagination):
+La consulta siguiente busca eventos de registro de auditoría creados el 1 de enero de 2022 en la empresa `avocado-corp` y devuelve la primera página con un máximo de 100 elementos por página mediante paginación. Para obtener más información sobre la paginación, consulta "[Uso de la paginación en la API de REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### Ejemplo de paginación basada en cursores
 
-La consulta siguiente busca eventos de registro de auditoría creados el 1 de enero de 2022 en la empresa `avocado-corp` y devuelve la primera página con un máximo de 100 elementos por página mediante la [paginación de la API de REST](/rest/overview/resources-in-the-rest-api#pagination). La marca `--include` hace que se devuelvan los encabezados junto con la respuesta.
+La consulta siguiente busca eventos de registro de auditoría creados el 1 de enero de 2022 en la empresa `avocado-corp` y devuelve la primera página con un máximo de 100 elementos por página mediante paginación. Para obtener más información sobre la paginación, consulta "[Uso de la paginación en la API de REST](/rest/guides/using-pagination-in-the-rest-api)". La marca `--include` hace que se devuelvan los encabezados junto con la respuesta.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

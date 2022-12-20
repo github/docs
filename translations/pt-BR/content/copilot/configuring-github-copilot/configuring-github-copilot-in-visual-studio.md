@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786026'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193162'
 ---
 ## Sobre o {% data variables.product.prodname_copilot %} no {% data variables.product.prodname_vs %}
 
@@ -37,13 +37,20 @@ Você pode usar os atalhos de teclado padrão no {% data variables.product.prodn
 Se você não quiser usar os atalhos de teclado padrão no {% data variables.product.prodname_vs %} ao usar o {% data variables.product.prodname_copilot %}, reassocie os atalhos no editor de teclado usando seus atalhos de teclado preferidos para cada comando específico.
 
 1. Na barra de ferramentas do {% data variables.product.prodname_vs %}, em **Ferramentas**, clique em **Opções**.
+   
    ![Captura de tela da opção Opções na barra de ferramentas do {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. Na caixa de diálogo "Opções", em **Ambiente**, clique em **Teclado**.
+   
    ![Captura de tela da opção Teclado na caixa de diálogo "Opções"](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. Em "Mostrar comandos que contêm:", procure o comando que você deseja reassociar.
+   
    ![Captura de tela de Mostrar comandos, que contêm a barra de pesquisa](/assets/images/help/copilot/vs-show-commands-containing.png)
+
 1. Em "Pressione as teclas de atalho", digite o atalho que você quer atribuir ao comando e clique em **Atribuir**.
-   ![Captura de tela da atribuição de atalho de teclado](/assets/images/help/copilot/vs-rebind-shortcut.png)
+
+   ![Captura de tela da atribuição de atalho de teclado](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

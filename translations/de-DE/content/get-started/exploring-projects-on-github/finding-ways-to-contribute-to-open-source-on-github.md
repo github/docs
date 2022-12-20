@@ -1,6 +1,6 @@
 ---
-title: Finding ways to contribute to open source on GitHub
-intro: 'You can find ways to contribute to open source projects on {% data variables.location.product_location %} that are relevant to you.'
+title: 'Möglichkeiten finden, um zu Open-Source auf GitHub beizutragen'
+intro: 'Du kannst Möglichkeiten finden, um zu Open-Source-Projekten auf {% data variables.product.product_location %} beizutragen, die für dich relevant sind.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on
@@ -17,40 +17,46 @@ versions:
 topics:
   - Open Source
 shortTitle: Contribute to open source
+ms.openlocfilehash: 434927bb3fd1f6816cf76b82a949a4b3369acba9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145106335'
 ---
-## Discovering relevant projects
+## Relevante Projekte finden
 
-If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
+Auf `github.com/topics/<topic>` findest du Informationen zu bestimmten Themen, die dich interessieren könnten. Wenn du dich zum Beispiel für maschinelles Lernen interessierst, findest du auf https://github.com/topics/machine-learning relevante Projekte und gute erste Issues. Unter [Themen](https://github.com/topics) kannst du beliebte Themen durchsuchen. Du kannst auch nach Repositories suchen, die zu einem Thema passen, das Dich interessiert. Weitere Informationen findest du unter [Suchen nach Repositorys](/search-github/searching-on-github/searching-for-repositories#search-by-topic).
 
-If you've been active on {% data variables.location.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore). You can also sign up for the Explore newsletter to receive emails about opportunities to contribute to {% data variables.product.product_name %} based on your interests. To sign up, see [Explore email newsletter](https://github.com/explore/subscribe).
+Wenn du auf {% data variables.product.product_location %} aktiv warst, findest du personalisierte Empfehlungen für Projekte und gute erste Issues basierend auf deinen bisherigen Beiträgen, Sternen und anderen Aktivitäten unter [Explore](https://github.com/explore). Du kannst Dich auch für den 'Erkunden'-Newsletter anmelden, um basierend auf deinen Interessen E-Mails zu erhalten mit Möglichkeiten für Beiträge zu {% data variables.product.product_name %}. Informationen zur Registrierung findest du unter [E-Mail-Newsletter erkunden](https://github.com/explore/subscribe).
 
-Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Bleibe mit deinem persönlichen Dashboard auf dem Laufenden über aktuelle Aktivitäten in den Repositorys, die du beobachtest, und die Personen und Organisationen, denen du folgst. Weitere Informationen findest du unter „[Informationen zu deinem persönlichen Dashboard](/articles/about-your-personal-dashboard)“.
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Finding good first issues
+## Suche nach guten ersten Issues
 
-If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
+Wenn du bereits weißt, an welchem Projekt du arbeiten möchtest, findest du in diesem Repository auf `github.com/<owner>/<repository>/contribute` Issues für Einsteiger. So findest du auf https://github.com/electron/electron/contribute beispielsweise Möglichkeiten, deinen ersten Beitrag zu `electron/electron` zu leisten.
 
-## Opening an issue
+## Öffnen eines Issues
 
-If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
+Wenn in einem Open Source-Projekt ein Fehler auftritt, überprüfe, ob er bereits gemeldet wurde. Wenn der Fehler noch nicht gemeldet wurde, kannst du einen Issue eröffnen, um den Fehler gemäß den Beitragsrichtlinien des Projekts zu melden.
 
-## Validating an issue or pull request
+## Überprüfen eines Issues oder Pull Requests
 
-There are a variety of ways that you can contribute to open source projects.
+Es gibt verschiedene Möglichkeiten, zu Open Source-Projekten beizutragen.
 
-### Reproducing a reported bug
-You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
+### Reproduzieren eines gemeldeten Fehlers
+Du kannst zu einem Open Source-Projekt beitragen, indem du einen Issue überprüfst oder einen vorhandenen Issue durch zusätzlichen Kontext ergänzt. 
 
-### Testing a pull request
-You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+### Testen eines Pull Requests
+Du kannst zu einem Open Source-Projekt beitragen, indem du einen Pull Request mit der lokalen Kopie des Projekts zusammenführst und die Änderungen testest. Füge das Ergebnis deiner Tests in einen Kommentar zum Pull Request ein.
 
-### Updating issues
-You can contribute to an open source project by adding additional information to existing issues.
+### Aktualisieren von Issues
+Du kannst zu einem Open Source-Projekt beitragen, indem du vorhandenen Issues zusätzliche Informationen hinzufügst.
 
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
-- "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+- [Klassifizieren deines Repositorys mit Themen](/articles/classifying-your-repository-with-topics)
+- [Informationen zum Dashboard deiner Organisation](/articles/about-your-organization-dashboard)

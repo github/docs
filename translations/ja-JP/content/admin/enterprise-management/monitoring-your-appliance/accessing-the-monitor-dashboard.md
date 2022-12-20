@@ -1,6 +1,6 @@
 ---
-title: Accessing the monitor dashboard
-intro: '{% data variables.product.prodname_ghe_server %} includes a web-based monitoring dashboard that displays historical data about your {% data variables.product.prodname_ghe_server %} appliance, such as CPU and storage usage, application and authentication response times, and general system health.'
+title: モニターダッシュボードへのアクセス
+intro: '{% data variables.product.prodname_ghe_server %} には、CPU やストレージの使用状況、アプリケーションや認証の応答時間、一般的なシステム健全性など、{% data variables.product.prodname_ghe_server %} アプライアンスに関する履歴データを表示する Web ベースのモニタリングダッシュボードが搭載されています。'
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -15,28 +15,33 @@ topics:
   - Monitoring
   - Performance
 shortTitle: Access the monitor dashboard
+ms.openlocfilehash: b529369813635a8cafe5f7c7ac6fc04af39001f5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332369'
 ---
-## Accessing the monitor dashboard
+## モニターダッシュボードへのアクセス
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Monitor**.
-![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. ページの上部にある **[モニター]** をクリックします。
+![モニター ダッシュボードのリンク](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-## Troubleshooting common resource allocation problems on your appliance
+## アプライアンスにおける一般的なリソース割り当ての問題のトラブルシューティング
 
 {% note %}
 
-**Note**: Because regularly polling {% data variables.location.product_location %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/user/articles/about-webhooks/)".
+**注**: 継続的インテグレーション (CI) またはビルド サーバーで定期的に {% data variables.product.product_location %} をポーリングすると、実質的にサービス拒否攻撃となって問題が生じることがあるため、更新のプッシュには Webhook の使用をお勧めします。 詳細については、「[Webhook について](/enterprise/user/articles/about-webhooks/)」を参照してください。
 
 {% endnote %}
 
-Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.  
+モニターダッシュボードを使ってアプライアンスリソースの健全性を把握し、高利用率の問題の解決方法を判断してください。  
 
-| Problem | Possible cause(s) | Recommendations |
+| 問題 | 考えられる原因 | 推奨事項 |
 | -------- | ----------------- | --------------- |
-| High CPU usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use fewer CPU resources. To increase total CPU resources for the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| High memory usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use less memory. To increase the total memory available on the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
-| Low disk space availability | Large binaries or log files consuming disk space | If possible, host large binaries on a separate server, and compress or archive log files. If necessary, increase disk space on the VM by following the steps for your platform in "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)." |
-| Higher than usual response times | Often caused by one of the above issues | Identify and fix the underlying issues. If response times remain high, contact {% data variables.contact.contact_ent_support %}. |
-| Elevated error rates | Software issues  | Contact {% data variables.contact.contact_ent_support %} and include your support bundle. For more information, see "[Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)." |
+| CPU 使用率が高い | 同一ホスト上で動作する他のサービスやプログラムとのVM競合 | 可能であれば、CPU消費を下げるように他のサービスやプログラムを再設定する。 VM の CPU リソースの合計を増やすには、「[CPU またはメモリ リソースの増加](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)」を参照してください。 |
+| メモリ使用量が多い | 同一ホスト上で動作する他のサービスやプログラムとのVM競合 | 可能であれば、メモリ消費を下げるように他のサービスやプログラムを再設定する。 VM で使用可能なメモリの合計を増やすには、「[CPU またはメモリ リソースの増加](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)」を参照してください。 |
+| ディスクの空き容量の低下 | 大きなバイナリあるいはログファイルによるディスク領域の消費 | 可能であれば大きなバイナリは個別のサーバー上に置き、ログファイルは圧縮もしくはアーカイブする。 必要に応じて、「[ストレージ容量の増加](/enterprise/admin/guides/installation/increasing-storage-capacity/)」のプラットフォームの手順に従って、VM のディスク領域を増やします。 |
+| 通常よりも長いレスポンスタイム | 多くの場合上記のいずれかの問題によって生ずる | 原因となっている問題を特定して修復してください。 それでもレスポンスタイムが長い場合は、{% data variables.contact.contact_ent_support %} に連絡してください。 |
+| エラーレートの増大 | ソフトウェアの問題  | {% data variables.contact.contact_ent_support %}に連絡し、Support Bundleを含めてください。 詳細については、「[{% data variables.product.prodname_enterprise %} サポートへのデータの提供](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)」を参照してください。 |
