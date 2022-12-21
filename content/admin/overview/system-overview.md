@@ -82,7 +82,7 @@ For more information, see "[Configuring backups on your appliance](/admin/config
 
 {% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-{% ifversion ghes > 3.2 %}
+{% ifversion ghes > 3.1 %}
 Currently, the base operating system for {% data variables.product.product_name %} is Debian 10 (Buster), which receives support under the Debian Long Term Support program. 
 
 {% endif %}
