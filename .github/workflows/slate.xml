@@ -1,0 +1,3700 @@
+'"'**'Name: NodeJS with Grunt
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Build
+      run: |
+        npm install
+        grunt.xml :
+        runs-on :scedule :tta :
+        tta :
+        '- 'Every ':'-3 'sec ':''
+        '# Scripts
+## Scripts to rule them all
+
+This directory follows the [Scripts to Rule Them All](https://githubengineering.com/scripts-to-rule-them-all/) pattern:
+
+### [`bootstrap`](bootstrap)
+
+Installs/updates all dependencies necessary for the docs environment. Equivalent of `npm install`.
+---
+### [`server`](server)
+
+Starts the local development server. Equivalent of `npm start`.
+
+To keep things snappy, only English and Japanese are enabled. To run the server with all languages enabled, run script/server-all-languages
+
+---
+
+
+### [`test`](test)
+
+Runs tests. Equivalent of `npm test`.
+
+---
+
+
+
+## Additional scripts
+
+### [`anonymize-branch.js`](anonymize-branch.js)
+
+Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+
+Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
+
+---
+
+
+### [`bookmarklets/add-pr-links.js`](bookmarklets/add-pr-links.js)
+
+
+
+---
+
+
+### [`bookmarklets/open-in-vscode.js`](bookmarklets/open-in-vscode.js)
+
+
+
+---
+
+
+### [`bookmarklets/pr-link-source.js`](bookmarklets/pr-link-source.js)
+
+
+
+---
+
+
+### [`bookmarklets/view-in-development.js`](bookmarklets/view-in-development.js)
+
+
+
+---
+
+
+### [`bookmarklets/view-in-production.js`](bookmarklets/view-in-production.js)
+
+
+
+---
+
+
+### [`check-for-node`](check-for-node)
+
+This script is run automatically when you run the server locally. It checks whether Node.js is installed.
+---
+### [`check-github-github-links.js`](check-github-github-links.js)
+Run this script to get all broken docs.github.com links in github/github
+---
+### [`content-migrations/add-early-access-tocs.js`](content-migrations/add-early-access-tocs.js)
+---
+### [`content-migrations/add-ghec-to-schema.js`](content-migrations/add-ghec-to-schema.js)
+A one-time use script to add GHEC to the REST schema on github/github.
+---
+### [`content-migrations/add_mini_toc_frontmatter.js`](content-migrations/add_mini_toc_frontmatter.js)
+Run this one time script to add max mini toc to rest reference documentation
+---
+### [`content-migrations/comment-on-open-prs.js`](content-migrations/comment-on-open-prs.js)
+This script finds all open PRs from active branches that touch content files, and adds a comment with steps to run some commands. The idea is to help writers and other Hubbers update their open branches and mitigate conflicts with the main branch.
+---
+### [`content-migrations/convert-if-to-ifversion.js`](content-migrations/convert-if-to-ifversion.js)
+Run this one-time script to convert `if <feature name>` Liquid tags to `ifversion <feature name>`.
+---
+### [`content-migrations/create-csv-of-short-titles.js`](content-migrations/create-csv-of-short-titles.js)
+---
+### [`content-migrations/move-unique-image-assets.js`](content-migrations/move-unique-image-assets.js)
+---
+### [`content-migrations/remove-html-comments-from-index-files.js`](content-migrations/remove-html-comments-from-index-files.js)
+---
+### [`content-migrations/topics-upcase.js`](content-migrations/topics-upcase.js)
+---
+### [`content-migrations/update-developer-site-links.js`](content-migrations/update-developer-site-links.js)
+---
+### [`content-migrations/update-headers.js`](content-migrations/update-headers.js)
+Run this one time script to update headers for accessibility Changing H3 to H2, H4 to H3, H5 to H4, and H6 to H5
+---
+### [`content-migrations/update-versioning-in-files.js`](content-migrations/update-versioning-in-files.js)
+---
+### [`content-migrations/use-short-versions.js`](content-migrations/use-short-versions.js)
+Run this script to convert long form Liquid conditionals (e.g., {% if currentVersion == "free-pro-team" %}) to the new custom tag (e.g., {% ifversion fpt %}) and also use the short names in versions frontmatter.
+---
+### [`copy-to-test-repo.sh`](copy-to-test-repo.sh)
+---
+### [`create-glossary-from-spreadsheet.js`](create-glossary-from-spreadsheet.js)
+This script turns a Google Sheets CSV spreadsheet into a YAML file.
+---
+### [`deployment/purge-edge-cache.js`](deployment/purge-edge-cache.js)
+---
+### [`dev-toc/generate.js`](dev-toc/generate.js)
+---
+### [`dev-toc/index.js`](dev-toc/index.js)
+---
+### [`dev-toc/layout.html`](dev-toc/layout.html)
+---
+### [`domwaiter.js`](domwaiter.js)
+---
+### [`early-access/clone-locally`](early-access/clone-locally)
+This script is run on a writer's machine to begin developing Early Access content locally.
+---
+### [`early-access/create-branch`](early-access/create-branch)
+This script is run on a writer's machine to create an Early Access branch that matches the current docs-internal branch.
+---
+### [`early-access/symlink-from-local-repo.js`](early-access/symlink-from-local-repo.js)
+This script is run on a writer's machine while developing Early Access content locally. You must pass the script the location of your local copy of the `github/docs-early-access` git repo as the first argument.
+---
+### [`early-access/update-data-and-image-paths.js`](early-access/update-data-and-image-paths.js)
+This script is run on a writer's machine while developing Early Access content locally. It updates the data and image paths to either include `early-access` or remove it.
+---
+### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
+Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
+NOTE: If you get this error:
+   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'website-scraper' ...
+it's because you haven't installed all the *optional* dependencies. To do that, run:
+   npm install --include=optional
+---
+### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
+This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
+---
+### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
+Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
+---
+### [`enterprise-server-releases/add-ghec-to-fpt.js`](enterprise-server-releases/add-ghec-to-fpt.js)
+Run this script to add versions frontmatter and Liquid conditionals for GitHub Enterprise Cloud, based on anything currently versioned for the specified release of free-pro-team.
+---
+### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
+This script creates the static GraphQL files for a new version.
+---
+### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
+This script creates new static webhook payload files for a new version.
+---
+### [`enterprise-server-releases/release-banner.js`](enterprise-server-releases/release-banner.js)
+This script creates or removes a release candidate banner for a specified version.
+---
+### [`find-orphaned-assets.js`](find-orphaned-assets.js)
+Print a list of all the asset files that can't be found mentioned in any of the source files (content & code).
+---
+### [`get-new-dotcom-path.js`](get-new-dotcom-path.js)
+Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it will output the new path in the content/github directory.
+---
+### [`graphql/build-changelog.js`](graphql/build-changelog.js)
+---
+### [`graphql/update-files.js`](graphql/update-files.js)
+---
+### [`graphql/utils/data-filenames.json`](graphql/utils/data-filenames.json)
+---
+### [`graphql/utils/process-previews.js`](graphql/utils/process-previews.js)
+---
+### [`graphql/utils/process-schemas.js`](graphql/utils/process-schemas.js)
+---
+### [`graphql/utils/process-upcoming-changes.js`](graphql/utils/process-upcoming-changes.js)
+---
+### [`graphql/utils/schema-helpers.js`](graphql/utils/schema-helpers.js)
+---
+### [`helpers/action-injections.js`](helpers/action-injections.js)
+---
+### [`helpers/add-redirect-to-frontmatter.js`](helpers/add-redirect-to-frontmatter.js)
+---
+### [`helpers/get-liquid-conditionals.js`](helpers/get-liquid-conditionals.js)
+---
+### [`helpers/get-version-blocks.js`](helpers/get-version-blocks.js)
+---
+### [`helpers/git-utils.js`](helpers/git-utils.js)
+---
+### [`helpers/github.js`](helpers/github.js)
+---
+### [`helpers/remove-deprecated-frontmatter.js`](helpers/remove-deprecated-frontmatter.js)
+---
+### [`helpers/remove-liquid-statements.js`](helpers/remove-liquid-statements.js)
+---
+### [`helpers/retry-on-error-test.js`](helpers/retry-on-error-test.js)
+Return a function that you can use to run any code within and if it throws you get a chance to say whether to sleep + retry. Example:
+async function mainFunction() {     if (Math.random() > 0.9) throw new Error('too large')     return 'OK'   }
+const errorTest = (err) => err instanceof Error && err.message.includes('too large')   const config = {  // all optional     attempts: 3,     sleepTime: 800,     onError: (err, attempts) => console.warn(`Failed ${attempts} attempts`)   }   const ok = await retry(errorTest, mainFunction, config)
+---
+### [`helpers/walk-files.js`](helpers/walk-files.js)
+A helper that returns an array of files for a given path and file extension.
+---
+### [`i18n/fix-translation-errors.js`](i18n/fix-translation-errors.js)
+Run this script to fix known frontmatter errors by copying values from english file Currently only fixing errors in: 'type', 'changelog' Please double check the changes created by this script before committing.
+---
+### [`i18n/homogenize-frontmatter.js`](i18n/homogenize-frontmatter.js)
+Run this script to fix known frontmatter errors by copying values from english file Translatable properties are designated in the frontmatter JSON schema
+---
+### [`i18n/lint-translation-files.js`](i18n/lint-translation-files.js)
+Use this script as part of the translation merge process to output a list of either parsing or rendering errors in translated files and run script/i18n/reset-translated-file.js on them.
+---
+### [`i18n/msft-report-reset-files.js`](i18n/msft-report-reset-files.js)
+---
+### [`i18n/msft-reset-files-with-broken-liquid-tags.js`](i18n/msft-reset-files-with-broken-liquid-tags.js)
+---
+### [`i18n/msft-tokens.js`](i18n/msft-tokens.js)
+---
+### [`i18n/prune-stale-files.js`](i18n/prune-stale-files.js)
+---
+### [`i18n/reset-translated-file.js`](i18n/reset-translated-file.js)
+This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
+Usage: script/i18n/reset-translated-file.js <filename>
+Examples:
+$ script/i18n/reset-translated-file.js translations/es-XL/content/actions/index.md
+---
+### [`i18n/test-html-pages.js`](i18n/test-html-pages.js)
+---
+### [`i18n/test-render-translation.js`](i18n/test-render-translation.js)
+Run this script to test-render all the translation files that have been changed (when compared to the `main` branch).
+---
+### [`kill-server-for-jest.js`](kill-server-for-jest.js)
+---
+### [`list-image-sizes.js`](list-image-sizes.js)
+This script lists all local image files, sorted by their dimensions.
+NOTE: If you get this error:
+   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'image-size' ...
+it's because you haven't installed all the *optional* dependencies. To do that, run:
+   npm install --include=optional
+---
+### [`move-category-to-product.js`](move-category-to-product.js)
+Move the files from a category directory to a top-level product and add redirects.
+---
+### [`move-content.js`](move-content.js)
+Helps you move (a.k.a. rename) a file or a folder and does what's needed with frontmatter redirect_from.
+---
+### [`pages-with-liquid-titles.js`](pages-with-liquid-titles.js)
+This is a temporary script to visualize which pages have liquid (and conditionals) in their `title` frontmatter
+---
+### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
+This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
+---
+### [`prevent-translation-commits.js`](prevent-translation-commits.js)
+This script is run as a git precommit hook (installed by husky after npm install). It detects changes to files the in the translations folder and prevents the commit if any changes exist.
+---
+### [`purge-fastly`](purge-fastly)
+Run this script to manually purge the Fastly cache. Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
+---
+### [`purge-fastly-by-url.js`](purge-fastly-by-url.js)
+Run this script to manually purge the Fastly cache for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
+---
+### [`reconcile-category-dirs-with-ids.js`](reconcile-category-dirs-with-ids.js)
+An automated test checks for discrepancies between category directory names and slugified category titles as IDs.
+If the test fails, a human needs to run this script to update the directory names and add appropriate redirects.
+**This script is not currently supported on Windows.**
+---
+### [`reconcile-filenames-with-ids.js`](reconcile-filenames-with-ids.js)
+An automated test checks for discrepancies between filenames and [autogenerated heading IDs](https://www.npmjs.com/package/remark-autolink-headings). If the test fails, a human needs to run this script to update the filenames.
+**This script is not currently supported on Windows.**
+---
+### [`rendered-content-link-checker.js`](rendered-content-link-checker.js)
+This script goes through all content and renders their HTML and from there can analyze for various flaws (e.g. broken links)
+---
+### [`rest/openapi-check.js`](rest/openapi-check.js)
+Run this script to check if OpenAPI files can be decorated successfully.
+---
+### [`rest/test-open-api-schema.js`](rest/test-open-api-schema.js)
+Run this script to check if OpenAPI operations match versions in content/rest operations
+---
+### [`rest/update-files.js`](rest/update-files.js)
+Run this script to pull openAPI files from github/github, dereference them, and decorate them.
+---
+### [`rest/utils/create-rest-examples.js`](rest/utils/create-rest-examples.js)
+---
+### [`rest/utils/decorator.js`](rest/utils/decorator.js)
+---
+### [`rest/utils/get-body-params.js`](rest/utils/get-body-params.js)
+---
+### [`rest/utils/get-operations.js`](rest/utils/get-operations.js)
+---
+### [`rest/utils/operation-schema.js`](rest/utils/operation-schema.js)
+---
+### [`rest/utils/operation.js`](rest/utils/operation.js)
+---
+### [`rest/utils/rest-api-overrides.json`](rest/utils/rest-api-overrides.json)
+---
+### [`rest/utils/webhook-schema.js`](rest/utils/webhook-schema.js)
+---
+### [`rest/utils/webhook.js`](rest/utils/webhook.js)
+---
+### [`search/analyze-text.js`](search/analyze-text.js)
+See how a piece of text gets turned into tokens by the different analyzers. Requires that the index exists in Elasticsearch.
+Example:
+   ./script/search/analyze-text.js my words to tokenize
+---
+### [`search/build-records.js`](search/build-records.js)
+---
+### [`search/find-indexable-pages.js`](search/find-indexable-pages.js)
+---
+### [`search/index-elasticsearch.js`](search/index-elasticsearch.js)
+Creates Elasticsearch index, populates from records, moves the index alias, deletes old indexes.
+---
+### [`search/parse-page-sections-into-records.js`](search/parse-page-sections-into-records.js)
+---
+### [`search/popular-pages.js`](search/popular-pages.js)
+---
+### [`search/search-index-records.js`](search/search-index-records.js)
+---
+### [`search/sync-search-indices.js`](search/sync-search-indices.js)
+This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+---
+### [`search/sync.js`](search/sync.js)
+---
+### [`search/validate-records.js`](search/validate-records.js)
+---
+### [`server-all-languages`](server-all-languages)
+Starts the local development server with all of the available languages enabled.
+---
+### [`server-for-jest.js`](server-for-jest.js)
+---
+### [`standardize-frontmatter-order.js`](standardize-frontmatter-order.js)
+Run this script to standardize frontmatter fields in all content files, per the order: - title - intro - product callout - productVersion - map topic status - hidden status - layout - redirect
+---
+### [`start-server-for-jest.js`](start-server-for-jest.js)
+---
+### [`todo`](todo)
+List all the TODOs in our JavaScript files and stylesheets.
+---
+### [`toggle-ghae-feature-flags.js`](toggle-ghae-feature-flags.js)
+Find and replace lightweight feature flags for GitHub AE content.
+---
+### [`update-enterprise-dates.js`](update-enterprise-dates.js)
+This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
+---
+### [`update-internal-links.js`](update-internal-links.js)
+Run this script to find internal links in all content and data Markdown files, check if either the title or link (or both) are outdated, and automatically update them if so.
+Exceptions: * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment and title will be unchanged (e.g., [Bar](/noo#bar)). * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)). * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
+---
+### [`update-readme.js`](update-readme.js)
+This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to `script/README.md`.
+---''**
+
+Deposits and Other Additions/ACH Additional cr post 
+27-Apr Checks and Other Deductions Deducti             
+SIGNATURE Time Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • MayRegistration No. 333-33333
+
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+
+
+                                                                                                    United States Department of The Treasury						19289000000.00		
+Unted States Department of The Treasury		
+
+
+19289000000		
+19289000000		
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022"					Local ID: DALLAS	
+EIN:	63-3441725	State ID: 633441725						
+"Employee Number: 3
+
+Description"	Amount						5/4/2022 - 6/4/2022
+Payment Amount (Total)	$9,246,754,678,763						Display All
+1. Social Security (Employee + Employer)			26661.8				
+2. Medicare (Employee + Employer)			861193422444				Hourly
+3. Federal Income Tax			8385561229657				2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."								Commission
+"Employer Customized Report
+
+botfs
+
+Report Range5/4/2022 - 6/4/2022"	88-1656496	state ID: 633441725		State: 	All	Local ID: 00037305581		2267700
+EIN:								
+Report : 
+Range: 5/4/2022 - 6/4/2022
+Local ID:			
+EIN:	63-3441725	State ID: 633441725	Employee Number: 3	Transaction description:	Amount		5/4/2022 - 6/4/2022	Payment Amount (Total)	$9,246,754,678,763						Display All
+1. Social Security (Employee + Employer)	26661.8				
+2. Medicare (Employee + Employer)			861193422444
+3. Federal Income Tax			8385561229657																2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."								
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY)	575	A	575	WOOD		B 	99999999999		03-18-2022		SS-4
+Report Range5/4/2022 - 6/4/2022"		88-1656496	state ID: 633441725		State: 	All	Local ID: 00037305581		2267700
+EIN:	88-1303491 :						
+Customized Report		Amount						"Employee Payment Report
+
+ADP"
+"Employee Number: 3
+
+Employee Number: 3
+Description"								
+Wages, Tips and Other Compensation		22662983361014		Report Range:				Tips
+Taxable SS Wages		215014.49		ZACHRY WOOD
+Reported Normalized Operating Profit
+
+Balance due:
+
+REV 04/09/22 INTUIT.CG. 1555
+
+BANK NAME
+
+Revenue, Remaining Performance Obligation, Expected Timing of Satisfaction, Start Date [Axis]: 2021-01-01
+
+
+Banking products and services are provided by Morgan Stanley Private Bank, National Association, Member FDIC.
+
+Revenues recognized
+
+Other Financing Cash Flow
+
+
+_________________________________________________________
+
+Proceeds from Issuance of Common Stock
+
+
+Securities products and services offered by E*TRADE Securities LLC, Member SIPC. Investment advisory services are offered through E*TRADE Capital Management, LLC, a Registered Investment Adviser. Commodity futures and options on futures products and services offered by E*TRADE Futures LLC, Member NFA. All are separate but affiliated subsidiaries of Morgan Stanley.
+
+Basic EPS from Discontinued Operations
+
+SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.
+
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+
+Social security benefits ..
+
+
+150
+Social Security Tax
+
+
+5
+
+State: 38
+
+been deducted from your account, in addition to checks you wrote that haven't yet been cashed. The quickest
+
+
+Stock Repurchase Agreement
+
+Beginning balance on April 26', '2022 '$'-2275698871600000
+
+ZACHRY T WOOD<zachryiixixiiwood@gmail.com>5222, BRADFORD DRIVE DALLAS TX 75235-8314
+
+Bill to
+
+
+Submission Contact Information
+
+tax
+
+Bond
+
+Tax-exempt interest ...
+
+branch.
+
+The Definitive Proxy Statement and any other relevant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.
+
+Other Irregular Income/Expenses
+
+The total charges for 1 items paid into overdraft and/or returned unpaid due to insufficient funds is $-22756988716009850
+
+
+Other Revenue
+
+Tips
+
+c. CIK number of Registrant
+
+________________________________________________________________________________________________________________________
+
+
+c. LEI of Series.
+Total assets
+
+
+C\J
+
+Total 
+current 
+as sets ICANN.: 
+reach us if you Change in Other Current Assets
+Purchase/Sale of Other Non-Current Assets, Net
+Total Savings in US Dollars
+Carolina, South Carolina, Tennessee, Texas
+trailer
+Cash and cash equivalents
+United States
+2267700000000000
+us at 1-877-BUS-BNKG (1-877-287-2654).
+2267700000000000
+VOID VOID VOID
+2267700000000000
+way to make a deposit is to transfer money online, by phone, by PNC ATM, or bring cash to your local PNC
+2267700000000000
+Wisconsin
+2267700000000000
+Your account was overdrawn and may require immediate attention.
+cash. Enclose, but do not staple or attach, your payment with this voucher. or money order. . . . . . . . . . G
+YTD Gross
+2267700000000000
+● Register for PNC Alerts, and we'll send you a text or email when your account balance is low.
+Cat. No. 14438M
+Here’s what you can
+Certain 
+Here’s why it happened: Even though you deposit and withdraw money throughout the day, we don't finalize these transactions until
+Certain Government Payments (CCC):
+Holiday
+780
+HOURLY RATE HAS BEEN CHANGED FROM $8.00
+1458.6
+I I Detach Here and Mail With Your Payment
+1500.2
+IBAN: GB57 GMD 3214 4670 0000 00
+-0.6
+Impairment/Write Off/Write Down of Capital Assets
+1946.8
+Important Notes
+2021
+ Other Financing Cash Flow
+        Rent Expense
+Income Statement 
+        Reported Effective Tax Rate
+Income taxes payable, net
+6
+Income taxes receivable, net Fiscal year end 2022 :
+Indiana, Iowa, Kentucky, Maine, Maryland, Massachusetts, 
+CHARLOTTE NC 28201-1300
+Information this period total to date
+2111.2
+Intangible assets, net
+Charlotte, NC 28201-1303
+Internal Revenue 
+CHECK AMOUNT
+Internal Revenue Service 
+CHECK DATE
+Internal Revenue Service Form 1040-V Payment Voucher G Use this voucher when making a payment with Form 1040.
+4160
+International
+Check the background of E*TRADE Securities LLC on FINRA's BrokerCheck and see E*TRADE Securities LLC and E*TRADE Capital Management LLC Relationship Summary.
+Invoice az
+Check your balance and, if needed, make a deposit so there is enough money to bring your account above $0
+Irregular Income/Expenses
+Checks/Debits Presented for Posting on 04/26/22 (1)
+Is this an electronic copy of an official filing submitted in paper format?
+Child tax credit
+Issued : Apr 14th. 2022
+CIK (Filer ID Number)
+It is important to make a deposit as soon as possible.
+Cincinnati, OH 45280-2501
+Item A.2. Information about the Series.
+City
+ITEM RETURNED - ACCOUNT CHARGE
+City or town, state or province, country, and ZIP or foreign postal code
+Last Name WOOD Street Address 1
+CITY STATE ZIP
+Life Insurance
+'degree.keystroke''degree.keystroke'=: infinity.sign ::
+Loan Amt Paid 840.00
+Class (Contract) ID
+Long-lived assets
+Class A and Class B common stock, and Class C capital stock and additional paid-in capital, $0.001 par value per share: 15,000,000 shares authorized (Class A 9,000,000, Class B 3,000,000, Class C 3,000,000); 688,335 (Class A 299,828, Class B 46,441, Class C 342,066) and 675,222 (Class A 300,730, Class B 45,843, Class C 328,649) shares issued and outstanding
+Louisville, KY 40293-1000
+CO. FILE DEPT. CLOCK NUMBER
+Marketable securities
+4735
+Medicare Tax
+Commitments and Contingencies (Note 10)
+Minnesota, Missouri, New Hampshire, New Jersey, New York, 
+CONSOLIDATED BALANCE SHEETS - USD ($) $ in Millions
+MOUNTAIN VIEW
+Convertible preferred stock, $0.001 par value per share, 100,000 shares authorized; no shares issued and outstanding
+Name
+Convertible preferred stock, par value (in dollars per share)
+necesita servicio en espanol, llame al 1-877-BUS-BNKG (1-877-287-2654) y oprima el 8.
+Convertible preferred stock, shares authorized (in shares)
+70842736146
+Convertible preferred stock, shares issued (in shares)
+70842743866
+Convertible preferred stock, shares outstanding (in shares)
+75698871600
+Copy A
+1.49E+12
+                Excess Tax Benefit from Stock-Based Compensation, Non-Cash Adjustment
+net'*''*',''*''*'' '*''*'pay'.'*''*''
+Costs and expenses:
+Non-marketable investments
+Credit for other dependents
+Note to customer
+Current 
+NOTE: The maximum number of paid or returned items PNC will charge on a business day is 4. The remainder
+Current assets:
+Notification Information
+current General
+NOT-NEGOTIABLE
+Current liabilities:
+NPORT-P: Part A: General Information
+d. LEI of Registrant
+NY SUI/SDI Tax
+Dakota, Ohio, Oregon, Pennsylvania, South Dakota, Utah, 
+of the items, if any, will be paid or returned with no charge.
+DALLAS TX 75235
+Oklahoma, Rhode Island, Vermont, Virginia, West Virginia, 
+DALLAS TX 75235-8313
+One Trillion Four Hundred Eighty Five Billion Fiftey SixMillion One Hundred Fiftey Five Thousand Five Four Hundred
+DALLAS, TX 75235
+opt-in or opt-out choice at any time. To learn more about PNC Overdraft Solutions, visit us online at
+DALLAS, TX 75235-8314
+or FPO address, or file Form 2555 or 4563, or are a dual-status alien 
+Date
+order of:
+DATE APR 27, 2022
+Other Adjustments to Net Income Available to Common Stockholders
+Date Paid : 2022-04-18
+Other current assets
+Date Paid : 4/11/2022
+                                                                                                                                               Pay Date: 04/18/2022
+Deducted
+#barcode
+Deductions
+$
+Deferred income taxes
+$ 
+Deferred revenue
+Overdraft Protection has not been established for this account. Please contact us if you would like to set
+Deferred revenue, non-current
+overdrawn.
+Department of the Treasury
+Overtll ne
+Department of the Treasury - Internal Revenue Service
+P.O. Box 1214 
+Department of the Treasury Calendar Year ' Internal Revenue Service Due 
+P.O. Box 802501 
+8853.6
+PAGE 1 of 2
+16640
+Paid to the order of.
+23526.8
+PARTICIPATION.
+Description Transaction Amount Amount Added/
+Pay Date:
+0.455555556
+Pay to the
+            Sales of Other Non-Current Assets
+PAYER’S name, street address, city or town, state or province, country, ZIP 
+Diluted EPS from Discontinued Operations
+PAYER'S name, street address, city or town, state or foreign postal code, and telephone no.
+39647
+payment due to insufficient funds.
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+Payments for Common Stock
+39654
+PAYSTUB
+-1.74E+12
+Period ending:
+Direct Deposit:
+Please adjust your records by the amount of this charge.
+Discontinued Operations
+pnc.com/bankwisely or read the fee schedule for your specific account at pnc.com. Current fee schedules for
+do immediately:
+%%EOF
+Do Not Cut or Separate Forms on This Page — Do Not Cut or Separate Forms on This Page
+PO BOX 1300,
+do to avoid this in the
+Price Par Share
+DRIVE SOON AND LOOK FORWARD TO YOUR
+(keep for 
+Due : Feb 13, 2022
+Qualified dividends ...
+e. Address and telephone number of Registrant.
+rate hours
+Earnings
+Realized Gain Supplment Payable
+Earnings Statement
+RECIPIENT’S name
+39814
+Reduction Act 
+EFFECTIVE THIS PAY PERIOD YOUR REGULAR
+refunds, credits, or offsets
+E-Mail Address
+Relationship:  
+Employee Id: 9999999999
+Rental Income, Revenue
+Employee Info
+Reported Normalized and Operating Income/Expense Supplemental Section
+Esta carta contiene informacion importante sobre su cuenta. Si tiene ' alguna pregunta sobre esta carta o
+Reported Normalized Income
+1
+Research and development
+    Basic EPS from Discontinued Operations
+Returns.
+Excess Tax Benefit from Stock-Based Compensation, Non-Cash Adjustment
+REV 04/09/22 INTUIT.CG.CFP.SP 1555
+Excluded from federal taxable wages
+Revenue, Remaining Performance Obligation, Expected Timing of Satisfaction [Line Items]
+excluding income under Internal Revenue Code 933), or use an APO 
+Revenue, Remaining Performance Obligation, Expected Timing of Satisfaction, Start Date [Axis]: 2023-01-01
+Exemptions/A llowances:
+Revenues from External Customers and Long-Lived Assets [Line Items]
+Expected timing of revenue recognition
+Routing no. 071921891
+Expected timing of revenue recognition, percent
+.!:
+F.I.C.A.
+SAMPLE
+F.I.T,
+SEC Schedule, 12-09, Movement in Valuation Allowances and Reserves [Roll Forward]
+-99
+Series ID
+fax.
+settings, call 1-877-588-3605, visit any branch, or sign on to PNC Online Banking, and select the
+2
+Shipping
+    Fees and Commission Income
+Social Security 633-44-1725
+    Irregular Income/Expenses
+Social Security No.
+-40.6
+Social Security Number: 999-99-9999
+3
+-6.56
+13.5
+State, if applicable
+Federal Income Tax
+Statement of Financial Condition    |   About Asset Protection    |   Account Agreements and Disclosures    |    Quarterly 606 Report    |    Business Continuity Plan    |   About Our Ads    |    Disclosure Library
+    Rental Income, Revenue
+Stock Plan
+Federal: 3, $25 Additional Tax
+Stockholders’ equity:
+Fees and Commission Income
+Street Address  1
+FICA - Social Security
+Street Address 1
+File only if you are making a payment of estimated tax by check or money order. Mail this Amount of estimated tax voucher with your check or money order payable to the 'United States Treasury.' Write your
+STREET ADDRESS CITY STATE ZIP
+File with Form 1096.
+Subtotal
+Filer CCC
+System response and account access times may vary due to a variety of factors, including trading volumes,
+Filer CIK
+Taxable Marital Status: Married
+Filer Investment Company Type
+Taxes / Deductions 
+-5.94
+Telephone number
+Zachry Tyler Wood
+The Company and its directors and certain of its executive officers may be considered participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available.
+zachryiixixiiwood@gmail.com
+the end of the day. At the end of each business day, we add the money that went into your account before
+#NAME?
+The Securities and Exchange Commission has not necessarily reviewed the information in this filing and has not determined if it is accurate and complete, The reader should not assume that the information is accurate and complete,
+For calendar year 
+This amount: TWO HUNDRED NINETY-ONE AND 90/100 DOLLARS
+43072
+this period
+For Paperwork Reduction Act Notice, see the seperate Instructions.
+Title Operator
+For Privacy Act 
+TO PAY YOUR TAXES DUE BY CHECK, MAIL THIS FORM TO THE ADDRESS LISTED BELOW.
+for the transaction details. Your account may be subject to a fee each time we pay a transaction or decline a
+total
+Foreign country, if applicable
+TOTAL $
+44226
+Total cash, cash equivalents, and marketable securities
+Form 1040-ES Payment Voucher
+£0.00
+Form 1040-V
+Total current liabilities
+Form 1040-V Page 2
+Total liabilities and stockholders’ equity
+Form 1099-G
+£􀀆,􀀆8£􀀇03
+Form 1099-G (Rev. 1-2022) www.irs.gov/Form1099G
+■
+Form 1099-NEC
+Total stockholders’ equity
+future:
+trade or business 
+G Do not staple this voucher or your payment to Form 1040.
+Transaction price allocated to remaining performance obligations
+G Make your check or money order payable to the 'United States Treasury.' Enter the amount G Write your social security number (SSN) on your check or money order. of your payment. . . . . . . . . G
+U.S. SECURITIES AND EXCHANGE COMMISSION
+44669
+United States Department of The Treasury
+    Reported Normalized and Operating Income/Expense Supplemental Section
+up this service.
+Goodwill
+USD in ""000'""s
+-30
+VOID
+GOOGL_income-statement_Quarterly_As_Originally_Reported
+Wages, salaries, tips, etc. Attach Form(s) W-2 ................
+Government 
+Washington, Wyoming
+44678
+WE WILL BE STARTING OUR UNITED WAY FUND
+- 28.85*
+We're here to help. If you have any questions or need assistance, please visit your local PNC Branch or contact
+Gross Pay_________________________________
+WOOD  ZACHRY
+Gross Pa􀀩
+year to date
+1652044
+Your federal wages this period are $386.15
+Group Term Life 0.51 27.00
+YTD 
+have questions or
+● Learn more about fees and how to avoid them by visiting ""Making the Most of your Money"" at
+Here are the transactions that led to your overdraft:
+ZACHRY T WOOD
+Here are your current
+Here’s how you
+Zip / Postal Code
+Fiscal year ends in Dec 31 | USD 
+For 
+Fiscal year end September 28th., 2022. | USD
+        Issuance of/Repayments for Debt, Net
+            Issuance of/Repayments for Long Term Debt, Net
+Income from Associates, Joint Ventures and Other Participating Interests
+    Income from Associates, Joint Ventures and Other Participating Interests
+Charitable contributions if you take the standard deduction (see instructions)
+Proceeds from Issuance of Common Stock
+13
+                Taxes, Non-Cash Adjustment
+    Change in Cash
+Interest Paid, Supplemental
+        Gain/Loss on Foreign Exchange
+Qualified business income deduction from Form 8995 or Form 8995-A .........
+                Change in Deferred Assets/Liabilities
+                    Gain/Loss on Financial Instruments, Non-Cash Adjustment
+  
+Net Investment Income/Loss, Non-Cash Adjustment
+                Net Investment Income/Loss, Non-Cash Adjustment
+    Effect of Exchange Rate Changes
+Non-Operating Income/Expenses, Total
+    Change in Cash as Reported, Supplemental
+Issuance of/Repayments for Debt, Net
+Gain/Loss on Disposals, Non-Cash Adjustment
+Irregular Income/Loss, Non-Cash Adjustment
+                        Gain/Loss on Disposal/Sale of Business, Non-Cash Adjustment
+Gain/Loss on Disposal/Sale of Business, Non-Cash Adjustment
+                Irregular Income/Loss, Non-Cash Adjustment
+                    Gain/Loss on Disposals, Non-Cash Adjustment
+Non-Controlling/Minority Interests
+        Gain/Loss on Investments and Other Financial Instruments
+    Net Investment Income
+                    Change in Trade/Accounts Receivable
+                Change in Trade and Other Receivables
+        Proceeds from Issuance/Exercising of Stock Options/Warrants
+    Cash Flow from Continuing Financing Activities
+Change in Other Current Assets
+Taxes, Non-Cash Adjustment
+Proceeds from Issuance/Exercising of Stock Options/Warrants
+Net Interest Income/Expense
+Interest Expense Net of Capitalized Interest
+Total Net Finance Income/Expense
+Purchase/Sale of Business, Net
+Investment Income/Loss, Non-Cash Adjustment
+Gain/Loss on Financial Instruments, Non-Cash Adjustment
+        Purchase/Sale of Business, Net
+            Purchase/Acquisition of Business
+Income Tax Paid, Supplemental
+        General and Administrative Expenses
+Change in Trade and Other Receivables
+Change in Trade/Accounts Receivable
+Purchase/Acquisition of Business
+        Purchase/Sale of Investments, Net
+Other Underwriting Expenses
+100% Security Guaranteed
+        Net Interest Income/Expense
+    Total Net Finance Income/Expense
+            Interest Expense Net of Capitalized Interest
+• Head of household, $18,800
+        Purchase/Sale and Disposal of Property, Plant and Equipment, Net
+            Purchase of Property, Plant and Equipment
+                Repayments for Long Term Debt
+B
+    Research and Development Expenses
+Selling and Marketing Expenses
+Selling, General and Administrative Expenses
+• Married filing jointly or Qualifying widow(er), $25,100
+• If you checked any box under Standard Deduction, see instructions.
+Standard Deduction for—
+Purchase/Sale of Investments, Net
+    Cash Flow from Continuing Investing Activities
+    Other Underwriting Expenses
+Purchase/Sale and Disposal of Property, Plant and Equipment, Net
+Issuance of/Payments for Common Stock, Net
+Cash Flow from Continuing Financing Activities
+Repayments for Long Term Debt
+Operating Income/Expenses
+• Single or Married filing separately, $12,550
+Sales of Other Non-Current Assets
+Policyholder Future Benefits and Claims, Net
+Benefits,Claims and Loss Adjustment Expense, Net
+Purchase of Property, Plant and Equipment
+Provision for Income Tax
+Cash Flow from Financing Activities
+        Cost of Goods and Services
+    Cost of Revenue
+Cash Flow from Continuing Investing Activities
+        Selling and Marketing Expenses
+    Selling, General and Administrative Expenses
+            Purchase of Investments
+Subtract line 10 from line 9. This is your adjusted gross income .........▶
+11
+Cash Flow from Investing Activities
+    Benefits,Claims and Loss Adjustment Expense, Net
+        Policyholder Future Benefits and Claims, Net
+Other Income/Expenses
+Purchase of Investments
+    Other Income/Expenses
+Total Expenses
+Grand Total
+
+
+
+
+
+
+
+Federal 941 Deposit Report ADP Report Range5/4/2022 - 6/4/2022
+EIN:
+
+
+
+
+
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others. Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.
+Employer Customized Report ADP Report Range5/4/2022 - 6/4/2022
+EIN:
+Customized Report
+Employee Number: 3 Description
+Wages, Tips and Other Compensation
+Taxable SS Wages
+Taxable SS Tips
+Taxable Medicare Wages
+Advanced EIC Payment
+Federal Income Tax Withheld
+Employee SS Tax Withheld
+Employee Medicare Tax Withheld
+State Income Tax Withheld
+Local Income Tax Withheld Customized Employer Tax Report
+Description
+Employer SS Tax Employer Medicare Tax
+Federal Unemployment Tax
+State Unemployment Tax
+Customized Deduction Report
+Health Insurance
+401KUnited States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+
+
+19289000000
+19289000000
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" Local ID:
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN:
+Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Repor
+
+Avatar
+Support
+Support
+Tickets status
+2166332
+Ticket: 2166332
+Awaiting customer
+zachryiixixiiwood@gmail.com
+zachryiixixiiwood@gmail.com
+Oct 12, 2022 at 04:20 PM
+[1:L] #1125612613
+S-8 1 a20220726alphabets-8for202.htm S-8
+
+
+
+
+
+Registration No. 333-33333
+
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+
+
+United States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+
+
+19289000000
+19289000000
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" Local ID:
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN:
+Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Report Amount "Employee Payment Report
+
+ADP"
+"Employee Number: 3
+
+Employee Number: 3
+Description"
+Wages, Tips and Other Compensation 22662983361014 Report Range: Tips
+Taxable SS Wages 215014.49 "Name:
+Answers (1)
+Mack
+Mack
+Oct 12, 2022 at 04:28 PM
+Hello!
+
+Thank you for contacting pdfFiller Support.
+
+I’m sorry about the issue with uploading/opening your document. Let’s find out what went wrong and quickly fix this for you.
+
+If you encountered an error, that means:
+1. Your document was not uploaded due to an internet connection failure.
+2. Your document contains a unconvertable symbol.
+
+Please try reuploading the document to see if the issue goes away. If not, please email me the document so we can provide a more precise answer.
+
+Looking forward to your reply.
+
+Best regards,
+Mack
+
+pdfFiller Support Team
+If you have any additional questions, please describe the problem and click the Reply button, or click the Resolve button if you receive a response to your problem.
+Contact us
+Your account’s email address
+zachryiixixiiwood@gmail.com
+Select a question category
+Details
+Let us know how we can help
+Technical support hours:
+24 hours, 7 days, 365 days a year. We are always here to answer your questions.
+Our address:
+airSlate Inc. 17 Station Street, 3rd Floor, Brookline, MA 02445, USA
+Access to Account Information
+PRIVACY POLICY
+TERMS OF SERVICE
+FORMS CATALOG
+TOP 100
+RECENTLY ADDED
+PDF SEARCH ENGINE
+ABOUT
+BLOG
+2022 © airSlate, Inc. All rights reserved.
+Web searchCopy
+
+United States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+
+
+19289000000
+19289000000
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" Local ID:
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN:
+Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Report Amount "Employee Payment Report
+
+ADP"
+"Employee Number: 3
+
+Employee Number: 3
+Description"
+Wages, Tips and Other Compensation 22662983361014 Report Range: Tips
+Taxable SS Wages 215014.49 "Name:
+Answers (2)
+Mack
+Mack
+Oct 12, 2022 at 04:28 PM
+Hello!
+
+Thank you for contacting pdfFiller Support.
+
+I’m sorry about the issue with uploading/opening your document. Let’s find out what went wrong and quickly fix this for you.
+
+If you encountered an error, that means:
+1. Your document was not uploaded due to an internet connection failure.
+2. Your document contains a unconvertable symbol.
+
+Please try reuploading the document to see if the issue goes away. If not, please email me the document so we can provide a more precise answer.
+
+Looking forward to your reply.
+
+Best regards,
+Mack
+
+pdfFiller Support Team
+zachryiixixiiwood@gmail.com
+zachryiixixiiwood@gmail.com
+Oct 12, 2022 at 04:33 PM
+CRM
+My Docs
+Organization
+For Business
+Support
+My Account
+28 Trial Days Left
+10
+
+Avatar
+Support
+Support
+Tickets status
+2166332
+Ticket: 2166332
+Awaiting customer
+zachryiixixiiwood@gmail.com
+zachryiixixiiwood@gmail.com
+Oct 12, 2022 at 04:20 PM
+[1:L] #1125612613
+S-8 1 a20220726alphabets-8for202.htm S-8
+
+
+
+
+
+Registration No. 000-222
+
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+
+
+United States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+19289000000
+19289000000
+Federal 941 Deposit Report
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Report Amount "Employee Payment Report
+Wages, Tips and Other Compensation 22662983361014 Report Range Tips
+Taxable SS Wages 215014.49 "Name:
+Oct 12, 2022 at 04:28 PM
+
+SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.
+The Definitive Proxy Statement and any other relev8.ant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.
+
+The Company and its directors and certain of its executive officers may be consideredno participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available.
+
+
+
+
+3/6/2022 at 6:37 PM
+
+
+GOOGL_income-statement_Quarterly_As_Originally_Reported
+
+Cash Flow from Operating Activities, Indirect
+Net Cash Flow from Continuing Operating Activities, Indirect
+Cash Generated from Operating Activities
+Income/Loss before Non-Cash Adjustment
+Total Adjustments for Non-Cash Items
+Depreciation, Amortization and Depletion, Non-Cash Adjustment
+Depreciation and Amortization, Non-Cash Adjustment
+Depreciation, Non-Cash Adjustment
+Amortization, Non-Cash Adjustment
+Stock-Based Compensation, Non-Cash Adjustment
+Taxes, Non-Cash Adjustment
+Investment Income/Loss, Non-Cash Adjustment
+Gain/Loss on Financial Instruments, Non-Cash Adjustment
+Other Non-Cash Items
+Changes in Operating Capital
+Change in Trade and Other Receivables
+Change in Trade/Accounts Receivable
+Change in Other Current Assets
+Change in Payables and Accrued Expenses
+Change in Trade and Other Payables
+Change in Trade/Accounts Payable
+Change in Accrued Expenses
+Change in Deferred Assets/Liabilities
+Change in Other Operating Capital
+
+Change in Prepayments and Deposits
+Cash Flow from Investing Activities
+Cash Flow from Continuing Investing Activities
+
+Purchase/Sale and Disposal of Property, Plant and Equipment, Net
+Purchase of Property, Plant and Equipment
+Sale and Disposal of Property, Plant and Equipment
+Purchase/Sale of Business, Net
+Purchase/Acquisition of Business
+Purchase/Sale of Investments, Net
+Purchase of Investments
+
+Sale of Investments
+Other Investing Cash Flow
+Purchase/Sale of Other Non-Current Assets, Net
+Sales of Other Non-Current Assets
+Cash Flow from Financing Activities
+Cash Flow from Continuing Financing Activities
+Issuance of/Payments for Common Stock, Net
+Payments for Common Stock
+Proceeds from Issuance of Common Stock
+Issuance of/Repayments for Debt, Net
+Issuance of/Repayments for Long Term Debt, Net
+Proceeds from Issuance of Long Term Debt
+Repayments for Long Term Debt
+
+Proceeds from Issuance/Exercising of Stock Options/Warrants
+Other Financing Cash Flow
+Cash and Cash Equivalents, End of Period
+Change in Cash
+Effect of Exchange Rate Changes
+Cash and Cash Equivalents, Beginning of Period
+Cash Flow Supplemental Section
+Change in Cash as Reported, Supplemental
+Income Tax Paid, Supplemental
+ZACHRY T WOOD
+Cash and Cash Equivalents, Beginning of Period
+Department of the Treasury
+Internal Revenue Service
+
+Calendar Year
+Due: 04/18/2022
+
+USD in ""000'""s
+Repayments for Long Term Debt
+Costs and expenses:
+Cost of revenues
+Research and development
+Sales and marketing
+General and administrative
+European Commission fines
+Total costs and expenses
+Income from operations
+Other income (expense), net
+Income before income taxes
+Provision for income taxes
+Net income
+*include interest paid, capital obligation, and underweighting
+
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+
+
+
+
+
+
+
+
+
+
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+*include interest paid, capital obligation, and underweighting
+
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INTERNAL REVENUE SERVICE,
+PO BOX 1214,
+CHARLOTTE, NC 28201-1214
+
+ZACHRY WOOD
+15
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.
+Cat. No. 11320B
+Form 1040 (2021)
+Reported Normalized and Operating Income/Expense Supplemental Section
+Total Revenue as Reported, Supplemental
+Total Operating Profit/Loss as Reported, Supplemental
+Reported Effective Tax Rate
+Reported Normalized Income
+Reported Normalized Operating Profit
+Other Adjustments to Net Income Available to Common Stockholders
+Discontinued Operations
+Basic EPS
+Basic EPS from Continuing Operations
+Basic EPS from Discontinued Operations
+Diluted EPS
+Diluted EPS from Continuing Operations
+Diluted EPS from Discontinued Operations
+Basic Weighted Average Shares Outstanding
+Diluted Weighted Average Shares Outstanding
+Reported Normalized Diluted EPS
+Basic EPS
+DiluteDiluted WASO
+d EPS
+Basic WASO
+Fiscal year end September 28th., 2022. | USD
+
+For Paperwork Reduction Act Notice, see the seperate Instructions.
+
+
+
+
+
+
+important information
+
+
+2012201320142015ZACHRY T.  5323  $2,012$2,013$2,014$2,015DALLAS  Other Benefits and Information Pto Balance  9xygchr6$13Earnings Statement 065-0001 ALPHABET        Period Beginning: 1600 AMPITHEATRE PARKWAY DRPeriod Ending: MOUNTAIN VIEW, C.A., 94043Pay Date:    2965  Taxable Marital Status:  Exemptions/AllowancesMarried BRADFORD DR Federal:  TX:NO State Income Tax rateunitsthis periodyear to date $112$674,678,000$75,698,871,600$141,685,487,7329/29/2021         9/28/2022 Statutory        1/29/2023 Federal Income Tax$141,685,487,732                 Social Security Tax$70,842,743,866$141,685,487,732          Medicare Tax                WOOD          Net Pay$70,842,743,866 CHECKING                TX 75235-8314 Net Check$70,842,743,866 Your federal taxable wages this period are $$0  1 Alphabet Inc., co. 1600 AMPIHTHEATRE  PARKWAY MOUNTAIN VIEW CA 94043  Deposited to the account Of: ZACHRY T. WOOD    4720416547 650001 719218914/18/2022 4720416547 transit ABA 15-51\000   575A ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       (IRS USE ONLY)    
+       
+Account Maintenance SRVCCHG 70842743866		
+"PLEASE READ THE IMPORTANT DISCLOSURES BELOW																															
+CIF Department (Online Banking)                                                                                                                                                                        
+Primary account number: P7-PFSC-04-F 
+For 24-hour account information, sign on to
+pnc.com/mybusiness/ Business Checking Account number: 47-2041-6547 - continued
+Activity Detail
+Deposits and Other Additions/ACH Additional cr post 
+27-Apr Checks and Other Deductions Deducti             
+SIGNATURE Time Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May
+"PLEASE READ THE IMPORTANT ENSCLOSURES BELOW																													
+The U.S. Internal Revenue Code of 1986, as amended, the Treasury Regulations promulgated thereunder, published pronouncements of the Internal Revenue Service, which may be cited or used as precedents, and case law, any of which may be changed at any time with retroactive effect.
+  No opinion is expressed on any matters other than those specifically referred to above.
+The U.S. Internal Revenue Code of 1986, as amended, the Treasury Regulations promulgated thereunder, published pronouncements of the Internal Revenue Service, which may be cited or used as precedents, and case law, any of which may be changed at any time with retroactive effect.  No opinion is expressed on any matters other than those specifically referred to above.										
+Gross Profit	$146,698,000,000.00	$42,337,000,000.00	$35,653,000,000.00	$31,211,000,000.00	30818000000	$25,056,000,000.00	1974400000000.0%	22177000000	25055000000	22931000000		                         			Gross Profit	-2178236364	-9195472727	-16212709091	-23229945455	-30247181818	-37264418182	-44281654545
+Total Revenue as Reported, Supplemental	$257,637,000,000.00	$75,325,000,000.00	$61,880,000,000.00	$55,314,000,000.00	56898000000	$46,173,000,000.00	3829700000000.0%	41159000000	46075000000	40499000000					Total Revenue as Reported, Supplemental	-1286309091	-13385163636	-25484018182	-37582872727	-49681727273	-61780581818	-73879436364  -9776581818	-21510963636	-33245345455	-44979727273	-56714109091	-68448490909		-80182872727	65118000000
+Other Revenue										6428000000					Other Revenue										
+Cost of Revenue	-110939000000	-32988000000	-26227000000	-$24,103,000,000.00	-26080000000	-$21,117,000,000.00	-1855300000000.0%	-18982000000	-21020000000	-17568000000					                    Cost of Revenue	-891927272.7	4189690909	9271309091	14352927273	19434545455	24516163636	29597781818		34679400000	-27621000000
+Cost of Goods and Services	-110939000000	-32988000000	-26227000000	-24103000000	-26080000000	-21117000000	-18553000000	-18982000000	-21020000000	-17568000000				                     	Cost of Goods and Services	-891927272.7	4189690909	9271309091	14352927273	19434545455	24516163636	29597781818		34679400000	-27621000000
+Operating Income/Expenses	-67984000000	-20452000000	-16292000000	-$14,774,000,000.00	-$15,167,000,000.00	-1384300000000.0%	-$13,361,000,000.00	-14200000000	-15789000000	-13754000000					    Operating Income/Expenses	-3640563636	-882445454.5	1875672727	4633790909	7391909091	10150027273	12908145455		15666263636	-16466000000
+Selling, General and Administrative Expenses	-36422000000	-11744000000	-8617000000	-7289000000	-8145000000	-6987000000	-6486000000	-7380000000	-8567000000	-7200000000			                                        Selling, General and Administrative Expenses	-1552200000	-28945454.55	1494309091	3017563636	4540818182	6064072727	7587327273		9110581818	-8772000000
+General and Administrative Expenses	-13510000000	-4140000000	-3341000000	-2773000000	-2831000000	-2756000000	-2585000000	-2880000000	-2829000000	-2591000000					                                                General and Administrative Expenses	-544945454.5	23200000	591345454.5	1159490909	1727636364	2295781818	2863927273		3432072727	-3256000000
+Selling and Marketing Expenses	-22912000000	-7604000000	-5276000000	-4516000000	-5314000000	-4231000000	-3901000000	-4500000000	-5738000000	-4609000000					                                                    Selling and Marketing Expenses	-1007254545	-52145454.55	902963636.4	1858072727	2813181818	3768290909	4723400000		5678509091	-5516000000
+Research and Development Expenses	-31562000000	-8708000000	-7675000000	-7485000000	-7022000000	-6856000000	-6875000000	-6820000000	-7222000000	-6554000000					                                                Research and Development Expenses	-2088363636	-853500000	381363636.4	1616227273	2851090909	4085954545	5320818182		6555681818	-7694000000
+Total Operating Profit/Loss	78714000000	21885000000	19361000000	16437000000	15651000000	11213000000	6383000000	7977000000	9266000000	9177000000					                                                            Total Operating Profit/Loss	-5818800000	-10077918182	-14337036364	-18596154545	-22855272727	-27114390909	-31373509091		-35632627273	21031000000
+Non-Operating Income/Expenses, Total	12020000000	2517000000	2624000000	4846000000	3038000000	2146000000	1894000000	-220000000	1438000000	-549000000					                                                Non-Operating Income/Expenses, Total	-1369181818	-2079000000	-2788818182	-3498636364	-4208454545	-4918272727	-5628090909		-6337909091	2033000000
+Total Net Finance Income/Expense	1153000000	261000000	313000000	269000000	333000000	412000000	420000000	565000000	604000000	608000000					                                                    Total Net Finance Income Expense	464490909.1	462390909.1	460290909.1	458190909.1	456090909.1	453990909.1	451890909.1		449790909.1	310000000
+Net Interest Income/Expense	1153000000	261000000	313000000	269000000	333000000	412000000	420000000	565000000	604000000	608000000				                            	                                Net Interest Income/Expense	464490909.1	462390909.1	460290909.1	458190909.1	456090909.1	453990909.1	451890909.1		449790909.1	310000000
+Interest Expense Net of Capitalized Interest -346000000	-117000000	-76000000	-76000000	-53000000	-48000000	-13000000	-21000000	-17000000	-23000000				                 	                            Interest Expense Net of Capitalized Interest	48654545.45	69900000	91145454.55	112390909.1	133636363.6	154881818.2	176127272.7		197372727.3	-77000000
+Interest Income	1499000000	378000000	389000000	345000000	386000000	460000000	433000000	586000000	621000000	631000000					                                                                        Interest Income	415836363.6	392490909.1	369145454.5	345800000	322454545.5	299109090.9	275763636.4		252418181.8	387000000
+Arrav/Sheild.yml::D
+Net Investment Income	12364000000	2364000000	2924000000	4869000000	3530000000	1957000000	1696000000	-809000000	899000000	-1452000000					                                                                Net Investment Income	-2096781818	-2909109091	-3721436364	-4533763636	-5346090909	-6158418182	-6970745455		-7783072727	2207000000
+Gain/Loss on Investments and Other Financial Instruments	12270000000	2478000000	2883000000	4751000000	3262000000	2015000000	1842000000	-802000000	399000000	-1479000000			                             		Gain/Loss on Investments and Other Financial Instruments	-2243490909	-3068572727	-3893654545	-4718736364	-5543818182	-6368900000	-7193981818		-8019063636	2158000000
+Income from Associates, Joint Ventures and Other Participating Interests	334000000	49000000	92000000	5000000	355000000	26000000	-54000000	74000000	460000000	-14000000                             		Income from Associates, Joint Ventures and Other Participating Interests	99054545.45	92609090.91	86163636.36	79718181.82	73272727.27	66827272.73	60381818.18		53936363.64	188000000
+Gain/Loss on Foreign Exchange	-240000000	-163000000	-51000000	113000000	-87000000	-84000000	-92000000	-81000000	40000000	41000000					                                                        Gain/Loss on Foreign Exchange	47654545.45	66854545.45	86054545.45	105254545.5	124454545.5	143654545.5	162854545.5		182054545.5	-139000000
+Irregular Income/Expenses	0	0			0	0	0	0	0	0				                                                                                                                                            	Irregular Income/Expenses	0	0				0	0		0	
+Other Irregular Income/Expenses	0	0			0	0	0	0	0	0					                                                                                                                                        Other Irregular Income/Expenses	0	0				0	0		0	
+Other Income/Expense, Non-Operating	-1497000000	-108000000	-613000000	-292000000	-825000000	-223000000	-222000000	24000000	-65000000	295000000		        	                                                    Other Income/Expense, Non-Operating	263109090.9	367718181.8	472327272.7	576936363.6	681545454.5	786154545.5	890763636.4		995372727.3	-484000000
+Pretax Income	90734000000	24402000000	21985000000	21283000000	18689000000	13359000000	8277000000	7757000000	10704000000	8628000000				                                                                            Pretax Income	-7187981818	-12156918182	-17125854545	-22094790909	-27063727273	-32032663636	-37001600000		-41970536364	23064000000
+Provision for Income Tax	-14701000000	-3760000000	-3460000000	-3353000000	-3462000000	-2112000000	-1318000000	-921000000	-33000000	-1560000000					                                                        Provision for Income Tax	1695218182	2565754545	3436290909	4306827273	5177363636	6047900000	6918436364		7788972727	-4128000000
+Net Income from Continuing Operations	76033000000	20642000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000					                                                Net Income from Continuing Operations	-5492763636	-9591163636	-13689563636	-17787963636	-21886363636	-25984763636	-30083163636		-34181563636	18936000000
+Net Income after Extraordinary Items and Discontinued Operations76033000000	20642000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000                                          Net Income after Extraordinary Items and Discontinued Operations	-5492763636	-9591163636	-13689563636	-17787963636	-21886363636	-25984763636	-30083163636		-34181563636	18936000000
+Net Income after Non-Controlling/Minority Interests	76033000000	20642000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000			                                            Net Income after Non-Controlling/Minority Interests	-5492763636	-9591163636	-13689563636	-17787963636	-21886363636	-25984763636	-30083163636		-34181563636	18936000000
+Net Income Available to Common Stockholders	76033000000	20642000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000				                                               	Net Income Available to Common Stockholders	-5492763636	-9591163636	-13689563636	-17787963636	-21886363636	-25984763636	-30083163636		-34181563636	18936000000
+Diluted Net Income Available to Common Stockholders	76033000000	20642000000	18525000000	17930000000	15227000000	11247000000	6959000000	6836000000	10671000000	7068000000                                                      Diluted Net Income Available to Common Stockholders	-5492763636	-9591163636	-13689563636	-17787963636	-21886363636	-25984763636	-30083163636		-34181563636	18936000000
+Income Statement Supplemental Section															                                                                                                                                Income Statement Supplemental Section										
+Reported Normalized and Operating Income/Expense Supplemental Section														                                                      	                                            Reported Normalized and Operating Income/Expense Supplemental Section										
+Total Revenue as Reported, Supplemental	257637000000	75325000000	61880000000	55314000000	56898000000	46173000000	38297000000	41159000000	46075000000	40499000000					                                            Total Revenue as Reported, Supplemental	-1286309091	-13385163636	-25484018182	-37582872727	-49681727273	-61780581818	-73879436364		-85978290909	65118000000
+Total Operating Profit/Loss as Reported, Supplemental	78714000000	21885000000	19361000000	16437000000	15651000000	11213000000	6383000000	7977000000	9266000000	9177000000                                                  Total Operating Profit/Loss as Reported, Supplemental	-5818800000	-10077918182	-14337036364	-18596154545	-22855272727	-27114390909	-31373509091		-35632627273	21031000000
+Reported Effective Tax Rate	0.162		0.157	0.158		0.158	0.159	0.119		0.181                                                                   				                                            	Reported Effective Tax Rate	1.162		0.1436666667	0.1331666667	0.1226666667		0.1063333333		0.08683333333	0.179
+Reported Normalized Income								6836000000				                                                                                        	                                            		Reported Normalized Income										
+Reported Normalized Operating Profit								7977000000			                                                                            	                                              			Reported Normalized Operating Profit										
+Other Adjustments to Net Income Available to Common Stockholders						                                                         						                                            			Other Adjustments to Net Income Available to Common Stockholders										
+Discontinued Operations															                                                                                                                                                Discontinued Operations										
+Basic EPS	113.88	31.15	27.69	26.63	22.54	16.55	10.21	9.96	15.49	10.2				                                                                                                                    	Basic EPS	-8.742909091	-14.93854545	-21.13418182	-27.32981818	-33.52545455	-39.72109091	-45.91672727		-52.11236364	28.44
+Basic EPS from Continuing Operations	113.88	31.12	27.69	26.63	22.46	16.55	10.21	9.96	15.47	10.2		                                            	                                            		Basic EPS from Continuing Operations	-8.752545455	-14.94781818	-21.14309091	-27.33836364	-33.53363636	-39.72890909	-45.92418182		-52.11945455	28.44
+Basic EPS from Discontinued Operations															                                                                                                                                Basic EPS from Discontinued Operations										
+Diluted EPS	112.2	30.69	27.26	26.29	22.3	16.4	10.13	9.87	15.35	10.12					                                                                                                                    Diluted EPS	-8.505636364	-14.599	-20.69236364	-26.78572727	-32.87909091	-38.97245455	-45.06581818		-51.15918182	27.99From e093baae1c82344de39f607874eeab45577e438d Mon Sep 17 00:00:00 2001
+From: "ZACHRY T WOODzachryiixixiiwood@gmail.com"
+ <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 20 Dec 2022 21:07:32 -0600
+Subject: [PATCH] Update config.yml
+
+---
+ .circleci/config.yml | 292 ++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 291 insertions(+), 1 deletion(-)
+
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 20ad88e497c2..750e2e2b34b9 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -1,5 +1,295 @@
+-version: 2.1
++    "version": 1,
++"login": "octcokit",
++"id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
++require'
++require 'json'
++post '/payload' do
++push = JSON.parse(request.body.read}
++
++-loader = :rake
++-ruby_opts = [Automated updates]
++-description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++-deps = [list]
++-if?=name:(Hash.#:"','")
++-deps = @name.values.first
++-name = @name.keys.first
++-pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++-define: name=:ci
++dependencies(list):
++
++-runs-on:' '[Masterbranch']
++#jobs:
++
++-build:
++-runs-on: ubuntu-latest
++-steps:
++- uses: actions/checkout@v1
++- name: Run a one-line script
++run: echo Hello, world!
++- name: Run a multi-line script
++run=:name: echo: hello.World!
++echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
++def initialize(name=:test)
++name = ci
++libs = Bash
++pattern = list
++options = false
++test_files = pkg.js
++verbose = true
++warning = true
++loader = :rake
++rb_opts = []
++description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++deps = []
++if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
++deps = @name.values.first
++name=::rake.gems/.specs_keyscutter
++pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++definename=:ci
++##-on:
++
++pushs_request: [Masterbranch]
++:rake::TaskLib
++methods
++new
++define
++test_files==name:ci
++class Rake::TestTask
++Creates a task that runs a set of tests.
++require "rake/test.task'@ci@travis.yml.task.new do |-v|
++t.libs << "test"
++t.test_files = FileList['test/test*.rb']
++t.verbose = true
++If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
++If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
++rake test
++run tests normally
++rake test TEST=just_one_file.rb
++run just one test file.
++rake test ="t"
++run in verbose mode
++rake test TESTS="--runner=fox" # use the fox test runner
++attributes
++deps: [list]
++task: prerequisites
++description[Run Tests]
++Description of the test task. (default is 'Run tests')
++libs[BITORE_34173]
++list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
++loader[test]
++style of test loader to use. Options are:
++:rake – rust/rake provided tests loading script (default).
++:test=: name =rb.dist/src.index = Ruby provided test loading script.
++direct=: $LOAD_PATH uses test using command-line loader.
++name[test]
++
++name=: testtask.(default is :test)
++options[dist]
++Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
++pattern[list]
++Glob pattern to match test files. (default is 'test/test*.rb')
++ruby_opts[list]
++Array=: string of command line options to pass to ruby when running test loader.
++verbose[false]
++if verbose test outputs desired:= (default is false)
++warning[Framework]
++Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
++access: Public Class Methods
++Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
++Create a testing task Public Instance Methods
++define($obj)
++Create the tasks defined by this task lib
++test_files=(r)
++Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
++<lizachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725
++
++
++{
++"scripts": {
++"test": "jest",
++"start": "./node_modules/.bin/node-pg-migrate up && node app.js",
++"migrate": "./node_modules/.bin/node-pg-migrate"
++},
++"devDependencies": {
++"jest": "^24.8.0"
++name: NodeJS with Gulp
++on:
++push:
++branches: [ "paradise" ]
++pull_request:
++branches: [ "paradise" ]
+ 
++jobs:
++build:
++runs-on: ubuntu-latest
++
++strategy:
++  matrix:
++    node-version: [14.x, 16.x, 18.x]
++
++steps:
++- uses: actions/checkout@v3
++
++- name: Use Node.js ${{ matrix.node-version }}
++  uses: actions/setup-node@v3
++  with:
++    node-version: ${{ matrix.node-version }}
++
++- name: Build
++  run: |
++    npm install
++    gulp
++    "version": 1,
++"login": "octcokit",
++"id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
++require'
++require 'json'
++post '/payload' do
++push = JSON.parse(request.body.read}
++
++-loader = :rake
++-ruby_opts = [Automated updates]
++-description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++-deps = [list]
++-if?=name:(Hash.#:"','")
++-deps = @name.values.first
++-name = @name.keys.first
++-pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++-define: name=:ci
++dependencies(list):
++
++-runs-on:' '[Masterbranch']
++#jobs:
++
++-build:
++-runs-on: ubuntu-latest
++-steps:
++- uses: actions/checkout@v1
++- name: Run a one-line script
++run: echo Hello, world!
++- name: Run a multi-line script
++run=:name: echo: hello.World!
++echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
++def initialize(name=:test)
++name = ci
++libs = Bash
++pattern = list
++options = false
++test_files = pkg.js
++verbose = true
++warning = true
++loader = :rake
++rb_opts = []
++description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++deps = []
++if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
++deps = @name.values.first
++name=::rake.gems/.specs_keyscutter
++pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++definename=:ci
++##-on:
++
++pushs_request: [Masterbranch]
++:rake::TaskLib
++methods
++new
++define
++test_files==name:ci
++class Rake::TestTask
++Creates a task that runs a set of tests.
++require "rake/test.task'@ci@travis.yml.task.new do |-v|
++t.libs << "test"
++t.test_files = FileList['test/test*.rb']
++t.verbose = true
++If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
++If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
++rake test
++run tests normally
++rake test TEST=just_one_file.rb
++run just one test file.
++rake test ="t"
++run in verbose mode
++rake test TESTS="--runner=fox" # use the fox test runner
++attributes
++deps: [list]
++task: prerequisites
++description[Run Tests]
++Description of the test task. (default is 'Run tests')
++libs[BITORE_34173]
++list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
++loader[test]
++style of test loader to use. Options are:
++:rake – rust/rake provided tests loading script (default).
++:test=: name =rb.dist/src.index = Ruby provided test loading script.
++direct=: $LOAD_PATH uses test using command-line loader.
++name[test]
++
++name=: testtask.(default is :test)
++options[dist]
++Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
++pattern[list]
++Glob pattern to match test files. (default is 'test/test*.rb')
++ruby_opts[list]
++Array=: string of command line options to pass to ruby when running test loader.
++verbose[false]
++#Verbose :pershing..., :
++'#Test :tests'@travis.yml-then-deployee-to-heroku-To :Fix :ALL ::PERFECT :''
++'Run: test'@ci ::':Run :''
++''test outputs desired:= (+# BEGIN::"'':::Run-on::'Runs :::::Run-on::'Runs ::
+++++# GLOW7:"Run:":::Run-on::'Runs ::
+++++# Build:":::Run-on::'Runs ::
+++++# build_script'':::Run-on::'Runs ::
+++++# echo: hello-World!-bug-#138:::Run-on::'Runs ::
+++++# name": "my-electron-app",:::Run-on::'Runs ::
+++'"#'This'_'Repositorys :WORKSFDOW ::'::Run-on::'Runs ::: ::'"''
+++'":#::;::Checks'-out :WORKSFLOW:::Run-on::'Runs ::''
+++"''@repositories/dispatch/sample/parameter.md ::::Run-on::'Runs ::'"''
+++": 4'."1'.10'.1''' :'"Runs'':::Run-on::'Runs ::
+++'-on::'Runs:::::Run-on::'Runs ::
+++++ # description: "Hello World!",:::Run-on::'Runs ::
+++++const: "token"'':::Run-on::'Runs ::
+++++token: "((c)(r))"'':::Run-on::'Runs ::
+++++"[Volume].deno]": [12753750].00],:::Run-on::'Runs ::
+++++ITEM_ID: "BITORE_34173"'':::Run-on::'Runs ::
+++++"name": "🪁",:::Run-on::'Runs ::
+++++ "version": "0.0.0",:::Run-on::'Runs ::
+++++ branches:' [' TrunkBase' ]:::Run-on::'Runs ::
+++++ pull_request::::Run-on::'Runs ::
+++++ # The branches below must be a subset of the branches above
+++++ branches: [ MainBranch]
+++++job ::::Run-on::'Runs ::
+++- # :Toggle-#The :#WORKFLOWS :Run_switches ::On ::AUTOMATES :AUTOMATE :AUTOMATE ::build_script ::Script::/:'Run;;:::Run-on::'Runs ::
+++++ analyze:
+++++ name: Analyze
+++++ runs-on: ubuntu-latest
+++++ permissions:
+++++ actions: read.pthon~v :
+++++ contents: write-prettier'.config.yml :pacjage.json/[kg.yml/package'lock'.yam/pkg'.js:: ':''
+++':Build::'' ':'"'
+++'"language ':'' ':'' '['' 'javascript'' ']'' :
+++++ package-on: python.js
+++++ bundle-with: rake.i
+++++Job: use: - steps
+++++ - steps:
+++++ - name: actions
+++++ - uses: actions/checkout@v**
++
++warning[Framework]
++Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
++access: Public Class Methods
++Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
++Create a testing task Public Instance Methods
++define($obj)
++Create the tasks defined by this task lib
++test_files=(r)
++Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
++<lizachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725
++"scripts": {
++"test": "jest",
++"start": "./node_modules/.bin/node-pg-migrate up && node app.js",
++"migrate": "./node_modules/.bin/node-pg-migrate"
++"devDependencies": {
++"jest": "^24.8.0"version: 2.1
+ parameters:
+   upload-to-s3:
+     type: stringFrom e093baae1c82344de39f607874eeab45577e438d Mon Sep 17 00:00:00 2001
+From: "ZACHRY T WOODzachryiixixiiwood@gmail.com"
+ <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 20 Dec 2022 21:07:32 -0600
+Subject: [PATCH] Update config.yml
+
+---
+ .circleci/config.yml | 292 ++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 291 insertions(+), 1 deletion(-)
+
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 20ad88e497c2..750e2e2b34b9 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -1,5 +1,295 @@
+-version: 2.1
++    "version": 1,
++"login": "octcokit",
++"id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
++require'
++require 'json'
++post '/payload' do
++push = JSON.parse(request.body.read}
++
++-loader = :rake
++-ruby_opts = [Automated updates]
++-description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++-deps = [list]
++-if?=name:(Hash.#:"','")
++-deps = @name.values.first
++-name = @name.keys.first
++-pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++-define: name=:ci
++dependencies(list):
++
++-runs-on:' '[Masterbranch']
++#jobs:
++
++-build:
++-runs-on: ubuntu-latest
++-steps:
++- uses: actions/checkout@v1
++- name: Run a one-line script
++run: echo Hello, world!
++- name: Run a multi-line script
++run=:name: echo: hello.World!
++echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
++def initialize(name=:test)
++name = ci
++libs = Bash
++pattern = list
++options = false
++test_files = pkg.js
++verbose = true
++warning = true
++loader = :rake
++rb_opts = []
++description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++deps = []
++if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
++deps = @name.values.first
++name=::rake.gems/.specs_keyscutter
++pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++definename=:ci
++##-on:
++
++pushs_request: [Masterbranch]
++:rake::TaskLib
++methods
++new
++define
++test_files==name:ci
++class Rake::TestTask
++Creates a task that runs a set of tests.
++require "rake/test.task'@ci@travis.yml.task.new do |-v|
++t.libs << "test"
++t.test_files = FileList['test/test*.rb']
++t.verbose = true
++If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
++If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
++rake test
++run tests normally
++rake test TEST=just_one_file.rb
++run just one test file.
++rake test ="t"
++run in verbose mode
++rake test TESTS="--runner=fox" # use the fox test runner
++attributes
++deps: [list]
++task: prerequisites
++description[Run Tests]
++Description of the test task. (default is 'Run tests')
++libs[BITORE_34173]
++list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
++loader[test]
++style of test loader to use. Options are:
++:rake – rust/rake provided tests loading script (default).
++:test=: name =rb.dist/src.index = Ruby provided test loading script.
++direct=: $LOAD_PATH uses test using command-line loader.
++name[test]
++
++name=: testtask.(default is :test)
++options[dist]
++Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
++pattern[list]
++Glob pattern to match test files. (default is 'test/test*.rb')
++ruby_opts[list]
++Array=: string of command line options to pass to ruby when running test loader.
++verbose[false]
++if verbose test outputs desired:= (default is false)
++warning[Framework]
++Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
++access: Public Class Methods
++Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
++Create a testing task Public Instance Methods
++define($obj)
++Create the tasks defined by this task lib
++test_files=(r)
++Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
++<lizachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725
++
++
++{
++"scripts": {
++"test": "jest",
++"start": "./node_modules/.bin/node-pg-migrate up && node app.js",
++"migrate": "./node_modules/.bin/node-pg-migrate"
++},
++"devDependencies": {
++"jest": "^24.8.0"
++name: NodeJS with Gulp
++on:
++push:
++branches: [ "paradise" ]
++pull_request:
++branches: [ "paradise" ]
+ 
++jobs:
++build:
++runs-on: ubuntu-latest
++
++strategy:
++  matrix:
++    node-version: [14.x, 16.x, 18.x]
++
++steps:
++- uses: actions/checkout@v3
++
++- name: Use Node.js ${{ matrix.node-version }}
++  uses: actions/setup-node@v3
++  with:
++    node-version: ${{ matrix.node-version }}
++
++- name: Build
++  run: |
++    npm install
++    gulp
++    "version": 1,
++"login": "octcokit",
++"id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
++require'
++require 'json'
++post '/payload' do
++push = JSON.parse(request.body.read}
++
++-loader = :rake
++-ruby_opts = [Automated updates]
++-description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++-deps = [list]
++-if?=name:(Hash.#:"','")
++-deps = @name.values.first
++-name = @name.keys.first
++-pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++-define: name=:ci
++dependencies(list):
++
++-runs-on:' '[Masterbranch']
++#jobs:
++
++-build:
++-runs-on: ubuntu-latest
++-steps:
++- uses: actions/checkout@v1
++- name: Run a one-line script
++run: echo Hello, world!
++- name: Run a multi-line script
++run=:name: echo: hello.World!
++echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
++def initialize(name=:test)
++name = ci
++libs = Bash
++pattern = list
++options = false
++test_files = pkg.js
++verbose = true
++warning = true
++loader = :rake
++rb_opts = []
++description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++deps = []
++if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
++deps = @name.values.first
++name=::rake.gems/.specs_keyscutter
++pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++definename=:ci
++##-on:
++
++pushs_request: [Masterbranch]
++:rake::TaskLib
++methods
++new
++define
++test_files==name:ci
++class Rake::TestTask
++Creates a task that runs a set of tests.
++require "rake/test.task'@ci@travis.yml.task.new do |-v|
++t.libs << "test"
++t.test_files = FileList['test/test*.rb']
++t.verbose = true
++If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
++If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
++rake test
++run tests normally
++rake test TEST=just_one_file.rb
++run just one test file.
++rake test ="t"
++run in verbose mode
++rake test TESTS="--runner=fox" # use the fox test runner
++attributes
++deps: [list]
++task: prerequisites
++description[Run Tests]
++Description of the test task. (default is 'Run tests')
++libs[BITORE_34173]
++list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
++loader[test]
++style of test loader to use. Options are:
++:rake – rust/rake provided tests loading script (default).
++:test=: name =rb.dist/src.index = Ruby provided test loading script.
++direct=: $LOAD_PATH uses test using command-line loader.
++name[test]
++
++name=: testtask.(default is :test)
++options[dist]
++Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
++pattern[list]
++Glob pattern to match test files. (default is 'test/test*.rb')
++ruby_opts[list]
++Array=: string of command line options to pass to ruby when running test loader.
++verbose[false]
++#Verbose :pershing..., :
++'#Test :tests'@travis.yml-then-deployee-to-heroku-To :Fix :ALL ::PERFECT :''
++'Run: test'@ci ::':Run :''
++''test outputs desired:= (+# BEGIN::"'':::Run-on::'Runs :::::Run-on::'Runs ::
+++++# GLOW7:"Run:":::Run-on::'Runs ::
+++++# Build:":::Run-on::'Runs ::
+++++# build_script'':::Run-on::'Runs ::
+++++# echo: hello-World!-bug-#138:::Run-on::'Runs ::
+++++# name": "my-electron-app",:::Run-on::'Runs ::
+++'"#'This'_'Repositorys :WORKSFDOW ::'::Run-on::'Runs ::: ::'"''
+++'":#::;::Checks'-out :WORKSFLOW:::Run-on::'Runs ::''
+++"''@repositories/dispatch/sample/parameter.md ::::Run-on::'Runs ::'"''
+++": 4'."1'.10'.1''' :'"Runs'':::Run-on::'Runs ::
+++'-on::'Runs:::::Run-on::'Runs ::
+++++ # description: "Hello World!",:::Run-on::'Runs ::
+++++const: "token"'':::Run-on::'Runs ::
+++++token: "((c)(r))"'':::Run-on::'Runs ::
+++++"[Volume].deno]": [12753750].00],:::Run-on::'Runs ::
+++++ITEM_ID: "BITORE_34173"'':::Run-on::'Runs ::
+++++"name": "🪁",:::Run-on::'Runs ::
+++++ "version": "0.0.0",:::Run-on::'Runs ::
+++++ branches:' [' TrunkBase' ]:::Run-on::'Runs ::
+++++ pull_request::::Run-on::'Runs ::
+++++ # The branches below must be a subset of the branches above
+++++ branches: [ MainBranch]
+++++job ::::Run-on::'Runs ::
+++- # :Toggle-#The :#WORKFLOWS :Run_switches ::On ::AUTOMATES :AUTOMATE :AUTOMATE ::build_script ::Script::/:'Run;;:::Run-on::'Runs ::
+++++ analyze:
+++++ name: Analyze
+++++ runs-on: ubuntu-latest
+++++ permissions:
+++++ actions: read.pthon~v :
+++++ contents: write-prettier'.config.yml :pacjage.json/[kg.yml/package'lock'.yam/pkg'.js:: ':''
+++':Build::'' ':'"'
+++'"language ':'' ':'' '['' 'javascript'' ']'' :
+++++ package-on: python.js
+++++ bundle-with: rake.i
+++++Job: use: - steps
+++++ - steps:
+++++ - name: actions
+++++ - uses: actions/checkout@v**
++
++warning[Framework]        <!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->Based on facts as set forth in.65516550
+The U.S. Internal Revenue Code of 1986, as amended, the Treasury Regulations promulgated thereunder, published pronouncements of the Internal Revenue Service, which may be cited or used as precedents, and case law, any of which may be changed at any time with retroactive effect. No opinion is expressed on any matters other than those specifically referred to above.
+EMPLOYER IDENTIFICATION NUMBER: 61-1767919
+[DRAFT FORM OF TAX OPINION]
+ALPHABET
+ZACHRY T WOOD
+5323 BRADFORD DR
+DALLAS   TX 75235
+Submission Type :Origin
+Income, Rents, & Royalty
+INCOME STATEMENT 61-1767920 EIN88-1303491
+ GOOGL_income-statement_Quarterly_As_Originally_Reported
+net, pay YTD TTM Q4 2022Q3 2022Q2 2022Q1 2022Q4 2021Q3 2021Q2 2021Q3 2021Gross Profit-2178236364-9195472727-16212709091-23229945455-30247181818-37264418182-44281654545-5129889090937497000000Total Revenue as Reported, Supplemental-1286309091-13385163636-25484018182-37582872727-49681727273-61780581818-73879436364-85978290909651180000001957800000-9776581818-21510963636-33245345455-44979727273-56714109091-68448490909-8018287272765118000000Other RevenueCost of Revenue-891927272.7418969090992713090911435292727319434545455245161636362959778181834679400000-27621000000Cost of Goods and Services-891927272.7418969090992713090911435292727319434545455245161636362959778181834679400000-27621000000Operating Income/Expenses-3640563636-882445454.5187567272746337909097391909091101500272731290814545515666263636-16466000000Selling, General and Administrative Expenses-1552200000-28945454.55149430909130175636364540818182606407272775873272739110581818-8772000000General and Administrative Expenses-544945454.523200000591345454.511594909091727636364229578181828639272733432072727-3256000000Selling and Marketing Expenses-1007254545-52145454.55902963636.418580727272813181818376829090947234000005678509091-5516000000Research and Development Expenses-2088363636-853500000381363636.416162272732851090909408595454553208181826555681818-7694000000Total Operating Profit/Loss-5818800000-10077918182-14337036364-18596154545-22855272727-27114390909-31373509091-3563262727321031000000Non-Operating Income/Expenses, Total-1369181818-2079000000-2788818182-3498636364-4208454545-4918272727-5628090909-63379090912033000000Total Net Finance Income/Expense464490909.1462390909.1460290909.1458190909.1456090909.1453990909.1451890909.1449790909.1310000000Net Interest Income/Expense464490909.1462390909.1460290909.1458190909.1456090909.1453990909.1451890909.1449790909.1310000000Interest Expense Net of Capitalized Interest48654545.456990000091145454.55112390909.1133636363.6154881818.2176127272.7197372727.3-77000000Interest Income415836363.6392490909.1369145454.5345800000322454545.5299109090.9275763636.4252418181.8387000000Net Investment Income-2096781818-2909109091-3721436364-4533763636-5346090909-6158418182-6970745455-77830727272207000000Gain/Loss on Investments and Other Financial Instruments-2243490909-3068572727-3893654545-4718736364-5543818182-6368900000-7193981818-80190636362158000000Income from Associates, Joint Ventures and Other Participating Interests99054545.4592609090.9186163636.3679718181.8273272727.2766827272.7360381818.1853936363.64188000000Gain/Loss on Foreign Exchange47654545.4566854545.4586054545.45105254545.5124454545.5143654545.5162854545.5182054545.5-139000000Irregular Income/Expenses00000Other Irregular Income/Expenses00000Other Income/Expense, Non-Operating263109090.9367718181.8472327272.7576936363.6681545454.5786154545.5890763636.4995372727.3-484000000Pretax Income-7187981818-12156918182-17125854545-22094790909-27063727273-32032663636-37001600000-4197053636423064000000Provision for Income Tax16952181822565754545343629090943068272735177363636604790000069184363647788972727-4128000000Net Income from Continuing Operations-5492763636-9591163636-13689563636-17787963636-21886363636-25984763636-30083163636-3418156363618936000000Net Income after Extraordinary Items and Discontinued Operations-5492763636-9591163636-13689563636-17787963636-21886363636-25984763636-30083163636-3418156363618936000000Net Income after Non-Controlling/Minority Interests-5492763636-9591163636-13689563636-17787963636-21886363636-25984763636-30083163636-3418156363618936000000Net Income Available to Common Stockholders-5492763636-9591163636-13689563636-17787963636-21886363636-25984763636-30083163636-3418156363618936000000Diluted Net Income Available to Common Stockholders-5492763636-9591163636-13689563636-17787963636-21886363636-25984763636-30083163636-3418156363618936000000Income Statement Supplemental SectionReported Normalized and Operating Income/Expense Supplemental SectionTotal Revenue as Reported, Supplemental-1286309091-13385163636-25484018182-37582872727-49681727273-61780581818-73879436364-8597829090965118000000Total Operating Profit/Loss as Reported, Supplemental-5818800000-10077918182-14337036364-18596154545-22855272727-27114390909-31373509091-3563262727321031000000Reported Effective Tax Rate1.1620.14366666670.13316666670.12266666670.10633333330.086833333330.179Reported Normalized IncomeReported Normalized Operating ProfitOther Adjustments to Net Income Available to Common StockholdersDiscontinued OperationsBasic EPS-8.742909091-14.93854545-21.13418182-27.32981818-33.52545455-39.72109091-45.91672727-52.1123636428.44Basic EPS from Continuing Operations-8.752545455-14.94781818-21.14309091-27.33836364-33.53363636-39.72890909-45.92418182-52.1194545528.44Basic EPS from Discontinued OperationsDiluted EPS-8.505636364-14.599-20.69236364-26.78572727-32.87909091-38.97245455-45.06581818-51.1591818227.99Diluted EPS from Continuing Operations-8.515636364-14.609-20.70236364-26.79572727-32.88909091-38.98245455-45.07581818-51.1691818227.99Diluted EPS from Discontinued OperationsBasic Weighted Average Shares Outstanding694313545.5697258863.6700204181.8703149500706094818.2709040136.4711985454.5714930772.7665758000Diluted Weighted Average Shares Outstanding698675981.8701033009.1703390036.4705747063.6708104090.9710461118.2712818145.5715175172.7676519000Reported Normalized Diluted EPSBasic EPS-8.742909091-14.93854545-21.13418182-27.32981818-33.52545455-39.72109091-45.91672727-52.1123636428.44Diluted EPS-8.505636364-14.599-20.69236364-26.78572727-32.87909091-38.97245455-45.06581818-51.1591818227.99Basic WASO694313545.5697258863.6700204181.8703149500706094818.2709040136.4711985454.5714930772.7665758000Diluted WASO698675981.8701033009.1703390036.4705747063.6708104090.9710461118.2712818145.5715175172.7676519000Fiscal year end September 28th., 2022. | USD]()
+<!--Generated by Broadridge PROfile 22.7.2.5062 Broadridge-->
+Registration No. 333-33333
+
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+
+
+                                                                                                    United States Department of The Treasury                                                19289000000.00                
+Unted States Department of The Treasury                
+
+
+19289000000               
+
+19289000000                
+
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022"                                        Local  DALLAS        EIN:        63-3441725        State ID: 633441725                                                
+
+"Employee Number : 9999999999 : IRS No. :100000000001 :
+\
+Description"        Amount                                                5/4/2022 - 6/4/2022
+
+Payment Amount (Total)        $9,246,754,678,763                                                Display All
+
+1. Social Security (Employee + Employer)                        26661.8                                
+
+2. Medicare (Employee + Employer)                        861193422444                                Hourly
+
+3. Federal Income Tax                        8385561229657                                2.2663E+15
+
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."                                                                Commission
+
+"Employer Customized Report
+
+botfs
+
+Report Range5/4/2022 - 6/4/2022"        88-1656496        state ID: 633441725                State:         All        Local ID: 00037305581                2267700
+
+EIN:                                                                
+
+Report : 
+
+Range: 5/4/2022 - 6/4/2022
+
+Local ID:                        
+
+EIN:        63-3441725        State ID: 633441725        Employee Number: 3        Transaction description:        Amount                5/4/2022 - 6/4/2022        Payment Amount (Total)        $9,246,754,678,763                                                Display All
+
+1. Social Security (Employee + Employer)        26661.8                                
+
+2. Medicare (Employee + Employer)                        861193422444
+
+3. Federal Income Tax                        8385561229657                                                                                                                                2.2663E+15
+
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."                                                                
+
+Commission":"2267700000000000"
+
+Employer Customized Report
+
+       (IRS USE ONLY)        575        A        575        WOOD                B         99999999999                03-18-2022                SS-4
+
+Report Range5/4/2022 - 6/4/2022"                88-1656496        state ID: 633441725                State:         All        Local ID: 00037305581                2267700
+
+EIN:        88-1303491 :                                                
+
+Customized Report                Amount                                                "Employee Payment Report
+
+ADP"
+
+"Employee Number: 3
+
+Employee Number: 3
+
+Description"                                                                
+
+Wages, Tips and Other Compensation                22662983361014                Report Range:                                Tips
+
+Taxable SS Wages                215014.49                ZACHRY WOOD
+
+Reported Normalized Operating Profit
+
+Balance due:
+
+REV 04/09/22 INTUIT.CG. 1555
+
+BANK NAME
+
+Revenue, Remaining Performance Obligation, Expected Timing of Satisfaction, Start Date [Axis]: 2021-01-01
+
+Banking products and services are provided by Morgan Stanley Private Bank, National Association, Member FDIC.
+
+Revenues recognized
+
+Other Financing Cash Flow
+
+_________________________________________________________
+
+Proceeds from Issuance of Common Stock
+
+Securities products and services offered by E*TRADE Securities LLC, Member SIPC. Investment advisory services are offered through E*TRADE Capital Management, LLC, a Registered Investment Adviser. Commodity futures and options on futures products and services offered by E*TRADE Futures LLC, Member NFA. All are separate but affiliated subsidiaries of Morgan Stanley.
+
+Basic EPS from Discontinued Operations
+
+SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.
+
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+
+Social security benefits ..
+
+150
+
+Social Security Tax
+
+5
+
+State: 38
+
+been deducted from your account, in addition to checks you wrote that  haven't yet been cashed. 
+
+The quickest Stock Repurchase Agreement
+
+Beginning balance on April 26', '2022 '$'-2275698871600000 
+
+ZACHRY T WOOD<zachryiixixiiwood@gmail.com> 
+
+5323, BRADFORD DR 
+
+DALLAS TX 75235-8314
+
+Bill to
+
+Submissson Contact Information
+
+tax
+
+Bond
+
+Tax-exempt  i
+
+nterest ...
+
+branch.
+
+The Definitive Proxy Statement and any other relevant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, \
+
+Alphabet  Inc.,  
+
+1600 Amphitheatre Pkwy.,
+
+ Mountaine View, Calif---.,  94043-2021
+
+ or b.yml ..., contacting..., positive accession, was recieved :
+
+ investor-relations'@abc'.xyz. ''
+
+'The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.
+
+Other Irregular Income/Expenses
+
+The total charges for 1 items paid into overdraft and/or returned unpaid due to insufficient funds is $-22756988716009850
+
+Other Revenue
+
+Tips
+
+c. CIK number of Registrant
+
+________________________________________________________________________________________________________________________
+
+c. LEI of Series.
+
+Total assets
+
+C\J
+
+Total 
+
+current 
+
+as sets ICANN.: 
+
+reach us if you Change in Other Current Assets
+
+Purchase/Sale of Other Non-Current Assets, Net
+
+Total Savings in US Dollars
+
+Carolina, South Carolina, Tennessee, Texas
+
+trailer
+
+Cash and cash equivalents
+
+United States
+
+2267700000000000
+
+us at 1-877-BUS-BNKG (1-877-287-2654).
+
+2267700000000000
+
+VOID VOID VOID
+
+2267700000000000
+
+way to make a deposit is to transfer money online, by phone, by PNC ATM, or bring cash to your local PNC
+
+2267700000000000
+
+Wisconsin
+
+2267700000000000
+
+Your account was overdrawn and may require immediate attention.
+
+cash. Enclose, but do not staple or attach, your payment with this voucher. or money order. . . . . . . . . . G
+
+YTD Gross
+
+2267700000000000
+
+● Register for PNC Alerts, and we'll send you a text or email when your account balance is low.
+
+Cat. No. 14438M
+
+Here’s what you can
+
+Certain 
+
+Here’s why it happened: Even though you deposit and withdraw money throughout the day, we don't finalize these transactions until
+
+Certain Government Payments (CCC):
+
+Holiday
+
+780
+
+HOURLY RATE HAS BEEN CHANGED FROM $8.00
+
+1458.6
+
+I I Detach Here and Mail With Your Payment
+
+1500.2
+
+IBAN: GB57 GMD 3214 4670 0000 00
+
+-0.6
+
+Impairment/Write Off/Write Down of Capital Assets
+
+1946.8
+
+Important Notes
+
+2021
+
+ Other Financing Cash Flow
+
+        Rent Expense
+
+Income Statement 
+
+        Reported Effective Tax Rate
+
+Income taxes payable, net
+
+6
+
+Income taxes receivable, net Fiscal year end 2022 :
+
+Indiana, Iowa, Kentucky, Maine, Maryland, Massachusetts, 
+
+CHARLOTTE NC 28201-1300
+
+Information this period total to date
+
+2111.2
+
+Intangible assets, net
+
+Charlotte, NC 28201-1303
+
+Internal Revenue 
+
+CHECK AMOUNT
+
+Internal Revenue Service 
+
+CHECK DATE
+
+Internal Revenue Service Form 1040-V Payment Voucher G Use this voucher when making a payment with Form 1040.
+
+4160
+
+International
+
+Check the background of E*TRADE Securities LLC on FINRA's BrokerCheck and see E*TRADE Securities LLC and E*TRADE Capital Management LLC Relationship Summary.
+
+Invoice az
+
+Check your balance and, if needed, make a deposit so there is enough money to bring your account above $0
+
+Irregular Income/Expenses
+
+Checks/Debits Presented for Posting on 04/26/22 (1)
+
+Is this an electronic copy of an official filing submitted in paper format?
+
+Child tax credit
+
+Issued : Apr 14th. 2022
+
+CIK (Filer ID Number)
+
+It is important to make a deposit as soon as possible.
+
+Cincinnati, OH 45280-2501
+
+Item A.2. Information about the Series.
+
+City
+
+ITEM RETURNED - ACCOUNT CHARGE
+
+City or town, state or province, country, and ZIP or foreign postal code
+
+Last Name WOOD Street Address 1
+
+CITY STATE ZIP
+
+Life Insurance
+
+'degree.keystroke''degree.keystroke'=: infinity.sign ::
+
+Loan Amt Paid 840.00
+
+Class (Contract) ID
+
+Long-lived assets
+
+Class A and Class B common stock, and Class C capital stock and additional paid-in capital, $0.001 par value per share: 15,000,000 shares authorized (Class A 9,000,000, Class B 3,000,000, Class C 3,000,000); 688,335 (Class A 299,828, Class B 46,441, Class C 342,066) and 675,222 (Class A 300,730, Class B 45,843, Class C 328,649) shares issued and outstanding
+
+Louisville, KY 40293-1000
+
+CO. FILE DEPT. CLOCK NUMBER
+
+Marketable securities
+
+4735
+
+Medicare Tax
+
+Commitments and Contingencies (Note 10)
+
+Minnesota, Missouri, New Hampshire, New Jersey, New York, 
+
+CONSOLIDATED BALANCE SHEETS - USD ($) $ in Millions
+
+MOUNTAIN VIEW
+
+Convertible preferred stock, $0.001 par value per share, 100,000 shares authorized; no shares issued and outstanding
+
+Name
+
+Convertible preferred stock, par value (in dollars per share)
+
+necesita servicio en espanol, llame al 1-877-BUS-BNKG (1-877-287-2654) y oprima el 8.
+
+Convertible preferred stock, shares authorized (in shares)
+
+70842736146
+
+Convertible preferred stock, shares issued (in shares)
+
+70842743866
+
+Convertible preferred stock, shares outstanding (in shares)
+
+75698871600
+
+Copy A
+
+1.49E+12
+
+                Excess Tax Benefit from Stock-Based Compensation, Non-Cash Adjustment
+
+net'*''*',''*''*'' '*''*'pay'.'*''*''
+
+Costs and expenses:
+
+Non-marketable investments
+
+Credit for other dependents
+
+Note to customer
+
+Current 
+
+NOTE: The maximum number of paid or returned items PNC will charge on a business day is 4. The remainder
+
+Current assets:
+
+Notification Information
+
+current General
+
+NOT-NEGOTIABLE
+
+Current liabilities:
+
+NPORT-P: Part A: General Information
+
+d. LEI of Registrant
+
+NY SUI/SDI Tax
+
+Dakota, Ohio, Oregon, Pennsylvania, South Dakota, Utah, 
+
+of the items, if any, will be paid or returned with no charge.
+
+DALLAS TX 75235
+
+Oklahoma, Rhode Island, Vermont, Virginia, West Virginia, 
+
+DALLAS TX 75235-8313
+
+One Trillion Four Hundred Eighty Five Billion Fiftey SixMillion One Hundred Fiftey Five Thousand Five Four Hundred
+
+DALLAS, TX 75235
+
+opt-in or opt-out choice at any time. To learn more about PNC Overdraft Solutions, visit us online at
+
+DALLAS, TX 75235-8314
+
+or FPO address, or file Form 2555 or 4563, or are a dual-status alien 
+
+Date
+
+order of:
+
+DATE APR 27, 2022
+
+Other Adjustments to Net Income Available to Common Stockholders
+
+Date Paid : 2022-04-18
+Other current assets
+
+Date Paid : 4/11/2022
+
+                                                                                                                                               Pay Date: 04/18/2022
+
+Deducted
+
+#barcode
+
+Deductions
+
+$
+
+Deferred income taxes
+
+$ 
+Deferred revenue
+
+Overdraft Protection has not been established for this account. Please contact us if you would like to set
+
+Deferred revenue, non-current
+
+overdrawn.
+
+Department of the Treasury
+Overtll ne
+
+Department of the Treasury - Internal Revenue Service
+
+P.O. Box 1214 
+
+Department of the Treasury Calendar Year ' Internal Revenue Service Due 
+
+P.O. Box 802501 
+
+8853.6
+
+PAGE 1 of 2
+
+16640
+
+Paid to the order of.
+
+23526.8
+
+PARTICIPATION.
+
+Description Transaction Amount Amount Added/
+
+Pay Date:
+
+0.455555556
+
+Pay to the
+
+            Sales of Other Non-Current Assets
+
+PAYER’S name, street address, city or town, state or province, country, ZIP 
+
+Diluted EPS from Discontinued Operations
+
+PAYER'S name, street address, city or town, state or foreign postal code, and telephone no.
+
+39647
+
+payment due to insufficient funds.
+
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+
+Payments for Common Stock
+39654
+
+PAYSTUB
+
+-1.74E+12
+
+Period ending:
+
+Direct Deposit:
+Please adjust your records by the amount of this charge.
+
+Discontinued Operations
+
+pnc.com/bankwisely or read the fee schedule for your specific account at pnc.com. Current fee schedules for
+
+do immediately:
+
+%%EOF
+
+Do Not Cut or Separate Forms on This Page — Do Not Cut or Separate Forms on This Page
+
+PO BOX 1300,
+
+do to avoid this in the
+
+Price Par Share
+
+DRIVE SOON AND LOOK FORWARD TO YOUR
+
+(keep for 
+
+Due : Feb 13, 2022
+
+Qualified dividends ...
+
+e. Address and telephone number of Registrant.
+
+rate hours
+
+Earnings
+
+Realized Gain Supplment Payable
+
+Earnings Statement
+
+RECIPIENT’S name
+
+39814
+
+Reduction Act 
+
+EFFECTIVE THIS PAY PERIOD YOUR REGULAR
+
+refunds, credits, or offsets
+
+E-Mail Address
+
+Relationship:  
+
+Employee Id: 9999999999
+
+Rental Income, Revenue
+
+Employee Info
+
+Reported Normalized and Operating Income/Expense Supplemental Section
+
+Esta carta contiene informacion importante sobre su cuenta. Si tiene ' alguna pregunta sobre esta carta o
+
+Reported Normalized Income
+
+1
+
+Research and development
+
+    Basic EPS from Discontinued Operations
+
+Returns.
+
+Excess Tax Benefit from Stock-Based Compensation, Non-Cash Adjustment
+
+REV 04/09/22 INTUIT.CG.CFP.SP 1555
+
+Excluded from federal taxable wages
+
+Revenue, Remaining abilities..br/Automates/*ChangeLog.md/sample//chaarter.yml : Performance Obligation, Expected Timing of Satisfaction [Line Items]
+
+excluding income under Internal Revenue Code 933), or use an APO 
+
+Revenue, Remaining Performance Obligation, Expected Timing of Satisfaction, Start Date [Axis]: 2023-01-01
+
+Exemptions/A llowances:
+Revenues from External Customers and Long-Lived Assets [Line Items]
+Expected timing of revenue recognition
+Routing no. 071921891
+Expected timing of revenue recognition, percent
+.!:
+F.I.C.A.
+SAMPLE
+F.I.T,
+SEC Schedule, 12-09, Movement in Valuation Allowances and Reserves [Roll Forward]
+-99
+Series ID
+fax.
+settings, call 1-877-588-3605, visit any branch, or sign on to PNC Online Banking, and select the
+2
+Shipping
+    Fees and Commission Income
+Social Security 633-44-1725
+    Irregular Income/Expenses
+Social Security No.
+-40.6
+Social Security Number: 999-99-9999
+3
+-6.56
+13.5
+State, if applicable
+Federal Income Tax
+Statement of Financial Condition    |   About Asset Protection    |   Account Agreements and Disclosures    |    Quarterly 606 Report    |    Business Continuity Plan    |   About Our Ads    |    Disclosure Library
+    Rental Income, Revenue
+Stock Plan
+Federal: 3, $25 Additional Tax
+Stockholders’ equity:
+Fees and Commission Income
+Street Address  1
+FICA - Social Security
+Street Address 1
+File only if you are making a payment of estimated tax by check or money order. Mail this Amount of estimated tax voucher with your check or money order payable to the 'United States Treasury.' Write your
+STREET ADDRESS CITY STATE ZIP
+File with Form 1096.
+Subtotal
+Filer CCC
+System response and account access times may vary due to a variety of factors, including trading volumes,
+Filer CIK
+Taxable Marital Status: Married
+Filer Investment Company Type
+Taxes / Deductions 
+-5.94
+Telephone number
+Zachry Tyler Wood
+The Company and its directors and certain of its executive officers may be considered participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available.
+zachryiixixiiwood@gmail.com
+the end of the day. At the end of each business day, we add the money that went into your account before
+#NAME?
+The Securities and Exchange Commission has not necessarily reviewed the information in this filing and has not determined if it is accurate and complete, The reader should not assume that the information is accurate and complete,
+For calendar year 
+This amount: TWO HUNDRED NINETY-ONE AND 90/100 DOLLARS
+43072
+this period
+For Paperwork Reduction Act Notice, see the seperate Instructions.
+Title Operator
+For Privacy Act 
+TO PAY YOUR TAXES DUE BY CHECK, MAIL THIS FORM TO THE ADDRESS LISTED BELOW.
+for the transaction details. Your account may be subject to a fee each time we pay a transaction or decline a
+total
+Foreign country, if applicable
+TOTAL $
+44226
+Total cash, cash equivalents, and marketable securities
+Form 1040-ES Payment Voucher
+£0.00
+Form 1040-V
+Total current liabilities
+Form 1040-V Page 2
+Total liabilities and stockholders’ equity
+Form 1099-G
+£􀀆,􀀆8£􀀇03
+Form 1099-G (Rev. 1-2022) www.irs.gov/Form1099G
+■
+Form 1099-NEC
+Total stockholders’ equity
+future:
+trade or business 
+G Do not staple this voucher or your payment to Form 1040.
+Transaction price allocated to remaining performance obligations
+G Make your check or money order payable to the 'United States Treasury.' Enter the amount G Write your social security number (SSN) on your check or money order. of your payment. . . . . . . . . G
+U.S. SECURITIES AND EXCHANGE COMMISSION
+44669
+United States Department of The Treasury
+    Reported Normalized and Operating Income/Expense Supplemental Section
+up this service.
+Goodwill
+USD in ""000'""s
+-30
+VOID
+GOOGL_income-statement_Quarterly_As_Originally_Reported
+Wages, salaries, tips, etc. Attach Form(s) W-2 ................
+Government 
+Washington, Wyoming
+44678
+WE WILL BE STARTING OUR UNITED WAY FUND
+- 28.85*
+We're here to help. If you have any questions or need assistance, please visit your local PNC Branch or contact
+Gross Pay_________________________________
+WOOD  ZACHRY
+Gross Pa􀀩
+year to date
+1652044
+Your federal wages this period are $386.15
+Group Term Life 0.51 27.00
+YTD 
+have questions or
+● Learn more about fees and how to avoid them by visiting ""Making the Most of your Money"" at
+Here are the transactions that led to your overdraft:
+ZACHRY T WOOD
+Here are your current
+Here’s how you
+Zip / Postal Code
+Fiscal year ends in Dec 31 | USD 
+For 
+Fiscal year end September 28th., 2022. | USD
+        Issuance of/Repayments for Debt, Net
+            Issuance of/Repayments for Long Term Debt, Net
+Income from Associates, Joint Ventures and Other Participating Interests
+    Income from Associates, Joint Ventures and Other Participating Interests
+Charitable contributions if you take the standard deduction (see instructions)
+Proceeds from Issuance of Common Stock
+13
+                Taxes, Non-Cash Adjustment
+    Change in Cash
+Interest Paid, Supplemental
+        Gain/Loss on Foreign Exchange
+Qualified business income deduction from Form 8995 or Form 8995-A .........
+                Change in Deferred Assets/Liabilities
+                    Gain/Loss on Financial Instruments, Non-Cash Adjustment
+  
+Net Investment Income/Loss, Non-Cash Adjustment
+                Net Investment Income/Loss, Non-Cash Adjustment
+    Effect of Exchange Rate Changes
+Non-Operating Income/Expenses, Total
+    Change in Cash as Reported, Supplemental
+Issuance of/Repayments for Debt, Net
+Gain/Loss on Disposals, Non-Cash Adjustment
+Irregular Income/Loss, Non-Cash Adjustment
+                        Gain/Loss on Disposal/Sale of Business, Non-Cash Adjustment
+Gain/Loss on Disposal/Sale of Business, Non-Cash Adjustment
+                Irregular Income/Loss, Non-Cash Adjustment
+                    Gain/Loss on Disposals, Non-Cash Adjustment
+Non-Controlling/Minority Interests
+        Gain/Loss on Investments and Other Financial Instruments
+    Net Investment Income
+                    Change in Trade/Accounts Receivable
+                Change in Trade and Other Receivables
+        Proceeds from Issuance/Exercising of Stock Options/Warrants
+    Cash Flow from Continuing Financing Activities
+Change in Other Current Assets
+Taxes, Non-Cash Adjustment
+Proceeds from Issuance/Exercising of Stock Options/Warrants
+Net Interest Income/Expense
+Interest Expense Net of Capitalized Interest
+Total Net Finance Income/Expense
+Purchase/Sale of Business, Net
+Investment Income/Loss, Non-Cash Adjustment
+Gain/Loss on Financial Instruments, Non-Cash Adjustment
+        Purchase/Sale of Business, Net
+            Purchase/Acquisition of Business
+Income Tax Paid, Supplemental
+        General and Administrative Expenses
+Change in Trade and Other Receivables
+Change in Trade/Accounts Receivable
+Purchase/Acquisition of Business
+        Purchase/Sale of Investments, Net
+Other Underwriting Expenses
+100% Security Guaranteed
+        Net Interest Income/Expense
+    Total Net Finance Income/Expense
+            Interest Expense Net of Capitalized Interest
+• Head of household, $18,800
+        Purchase/Sale and Disposal of Property, Plant and Equipment, Net
+            Purchase of Property, Plant and Equipment
+                Repayments for Long Term Debt
+B
+    Research and Development Expenses
+Selling and Marketing Expenses
+Selling, General and Administrative Expenses
+• Married filing jointly or Qualifying widow(er), $25,100
+• If you checked any box under Standard Deduction, see instructions.
+Standard Deduction for—
+Purchase/Sale of Investments, Net
+    Cash Flow from Continuing Investing Activities
+    Other Underwriting Expenses
+Purchase/Sale and Disposal of Property, Plant and Equipment, Net
+Issuance of/Payments for Common Stock, Net
+Cash Flow from Continuing Financing Activities
+Repayments for Long Term Debt
+Operating Income/Expenses
+• Single or Married filing separately, $12,550
+Sales of Other Non-Current Assets
+Policyholder Future Benefits and Claims, Net
+Benefits,Claims and Loss Adjustment Expense, Net
+Purchase of Property, Plant and Equipment
+Provision for Income Tax
+Cash Flow from Financing Activities
+        Cost of Goods and Services
+    Cost of Revenue
+Cash Flow from Continuing Investing Activities
+        Selling and Marketing Expenses
+    Selling, General and Administrative Expenses
+            Purchase of Investments
+Subtract line 10 from line 9. This is your adjusted gross income .........▶
+11
+Cash Flow from Investing Activities
+    Benefits,Claims and Loss Adjustment Expense, Net
+        Policyholder Future Benefits and Claims, Net
+Other Income/Expenses
+Purchase of Investments
+    Other Income/Expenses
+Total Expenses
+Grand Total
+
+
+
+
+
+
+
+Federal 941 Deposit Report ADP Report Range5/4/2022 - 6/4/2022
+EIN:
+
+
+
+
+
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others. Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.
+Employer Customized Report ADP Report Range5/4/2022 - 6/4/2022
+EIN:
+Customized Report
+Employee Number: 3 Description
+Wages, Tips and Other Compensation
+Taxable SS Wages
+Taxable SS Tips
+Taxable Medicare Wages
+Advanced EIC Payment
+Federal Income Tax Withheld
+Employee SS Tax Withheld
+Employee Medicare Tax Withheld
+State Income Tax Withheld
+Local Income Tax Withheld Customized Employer Tax Report
+Description
+Employer SS Tax Employer Medicare Tax
+Federal Unemployment Tax
+State Unemployment Tax
+Customized Deduction Report
+Health Insurance
+401KUnited States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+
+
+19289000000
+19289000000
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" Local ID:
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN:
+Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Repor
+
+Avatar
+Support
+Support
+Tickets status
+2166332
+Ticket: 2166332
+Awaiting customer
+zachryiixixiiwood@gmail.com
+zachryiixixiiwood@gmail.com
+Oct 12, 2022 at 04:20 PM
+[1:L] #1125612613
+S-8 1 a20220726alphabets-8for202.htm S-8
+
+
+
+
+
+Registration No. 333-33333
+
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+
+
+United States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+
+
+19289000000
+19289000000
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" Local ID:
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN:
+Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Report Amount "Employee Payment Report
+
+ADP"
+"Employee Number: 3
+
+Employee Number: 3
+Description"
+Wages, Tips and Other Compensation 22662983361014 Report Range: Tips
+Taxable SS Wages 215014.49 "Name:
+Answers (1)
+Mack
+Mack
+Oct 12, 2022 at 04:28 PM
+Hello!
+
+Thank you for contacting pdfFiller Support.
+
+I’m sorry about the issue with uploading/opening your document. Let’s find out what went wrong and quickly fix this for you.
+
+If you encountered an error, that means:
+1. Your document was not uploaded due to an internet connection failure.
+2. Your document contains a unconvertable symbol.
+
+Please try reuploading the document to see if the issue goes away. If not, please email me the document so we can provide a more precise answer.
+
+Looking forward to your reply.
+
+Best regards,
+Mack
+
+pdfFiller Support Team
+If you have any additional questions, please describe the problem and click the Reply button, or click the Resolve button if you receive a response to your problem.
+Contact us
+Your account’s email address
+zachryiixixiiwood@gmail.com
+Select a question category
+Details
+Let us know how we can help
+Technical support hours:
+24 hours, 7 days, 365 days a year. We are always here to answer your questions.
+Our address:
+airSlate Inc. 17 Station Street, 3rd Floor, Brookline, MA 02445, USA
+Access to Account Information
+PRIVACY POLICY
+TERMS OF SERVICE
+FORMS CATALOG
+TOP 100
+RECENTLY ADDED
+PDF SEARCH ENGINE
+ABOUT
+BLOG
+2022 © airSlate, Inc. All rights reserved.
+Web searchCopy
+
+United States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+
+
+19289000000
+19289000000
+Federal 941 Deposit Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" Local ID:
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report
+
+ADP
+
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN:
+Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Report Amount "Employee Payment Report
+
+ADP"
+"Employee Number: 3
+
+Employee Number: 3
+Description"
+Wages, Tips and Other Compensation 22662983361014 Report Range: Tips
+Taxable SS Wages 215014.49 "Name:
+Answers (2)
+Mack
+Mack
+Oct 12, 2022 at 04:28 PM
+Hello!
+
+Thank you for contacting pdfFiller Support.
+
+I’m sorry about the issue with uploading/opening your document. Let’s find out what went wrong and quickly fix this for you.
+
+If you encountered an error, that means:
+1. Your document was not uploaded due to an internet connection failure.
+2. Your document contains a unconvertable symbol.
+
+Please try reuploading the document to see if the issue goes away. If not, please email me the document so we can provide a more precise answer.
+
+Looking forward to your reply.
+
+Best regards,
+Mack
+
+pdfFiller Support Team
+zachryiixixiiwood@gmail.com
+zachryiixixiiwood@gmail.com
+Oct 12, 2022 at 04:33 PM
+CRM
+My Docs
+Organization
+For Business
+Support
+My Account
+28 Trial Days Left
+10
+
+Avatar
+Support
+Support
+Tickets status
+2166332
+Ticket: 2166332
+Awaiting customer
+zachryiixixiiwood@gmail.com
+zachryiixixiiwood@gmail.com
+Oct 12, 2022 at 04:20 PM
+[1:L] #1125612613
+S-8 1 a20220726alphabets-8for202.htm S-8
+
+
+
+
+
+Registration No. 000-222
+
+
+UNITED STATES
+
+SECURITIES AND EXCHANGE COMMISSION
+
+
+
+United States Department of The Treasury 19289000000.00
+Unted States Department of The Treasury
+19289000000
+19289000000
+Federal 941 Deposit Report
+EIN: 63-3441725 State ID: 633441725
+"Employee Number: 3
+Description" Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444 Hourly
+3. Federal Income Tax 8385561229657 2.2663E+15
+"Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others pay back amount of deferred Employee Social Security Tax." Commission
+"Employer Customized Report :
+Range: 5/4/2022 - 6/4/2022
+Local ID:
+EIN: 63-3441725 State ID: 633441725 Employee Number: 3 Transaction description: Amount 5/4/2022 - 6/4/2022 Payment Amount (Total) $9,246,754,678,763 Display All
+1. Social Security (Employee + Employer) 26661.8
+2. Medicare (Employee + Employer) 861193422444
+3. Federal Income Tax 8385561229657 2.2663E+15
+Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."
+Commission":"2267700000000000"
+Employer Customized Report(IRS USE ONLY) 575 A 575 WOOD B 99999999999 03-18-2022 SS-4
+Report Range5/4/2022 - 6/4/2022" 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
+EIN: 88-1303491 :
+Customized Report Amount "Employee Payment Report
+Wages, Tips and Other Compensation 22662983361014 Report Range Tips
+Taxable SS Wages 215014.49 "Name:
+Oct 12, 2022 at 04:28 PM
+
+SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.
+The Definitive Proxy Statement and any other relev8.ant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.
+
+The Company and its directors and certain of its executive officers may be consideredno participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available.
+
+
+
+
+3/6/2022 at 6:37 PM
+
+
+GOOGL_income-statement_Quarterly_As_Originally_Reported
+
+Cash Flow from Operating Activities, Indirect
+Net Cash Flow from Continuing Operating Activities, Indirect
+Cash Generated from Operating Activities
+Income/Loss before Non-Cash Adjustment
+Total Adjustments for Non-Cash Items
+Depreciation, Amortization and Depletion, Non-Cash Adjustment
+Depreciation and Amortization, Non-Cash Adjustment
+Depreciation, Non-Cash Adjustment
+Amortization, Non-Cash Adjustment
+Stock-Based Compensation, Non-Cash Adjustment
+Taxes, Non-Cash Adjustment
+Investment Income/Loss, Non-Cash Adjustment
+Gain/Loss on Financial Instruments, Non-Cash Adjustment
+Other Non-Cash Items
+Changes in Operating Capital
+Change in Trade and Other Receivables
+Change in Trade/Accounts Receivable
+Change in Other Current Assets
+Change in Payables and Accrued Expenses
+Change in Trade and Other Payables
+Change in Trade/Accounts Payable
+Change in Accrued Expenses
+Change in Deferred Assets/Liabilities
+Change in Other Operating Capital
+
+Change in Prepayments and Deposits
+Cash Flow from Investing Activities
+Cash Flow from Continuing Investing Activities
+
+Purchase/Sale and Disposal of Property, Plant and Equipment, Net
+Purchase of Property, Plant and Equipment
+Sale and Disposal of Property, Plant and Equipment
+Purchase/Sale of Business, Net
+Purchase/Acquisition of Business
+Purchase/Sale of Investments, Net
+Purchase of Investments
+
+Sale of Investments
+Other Investing Cash Flow
+Purchase/Sale of Other Non-Current Assets, Net
+Sales of Other Non-Current Assets
+Cash Flow from Financing Activities
+Cash Flow from Continuing Financing Activities
+Issuance of/Payments for Common Stock, Net
+Payments for Common Stock
+Proceeds from Issuance of Common Stock
+Issuance of/Repayments for Debt, Net
+Issuance of/Repayments for Long Term Debt, Net
+Proceeds from Issuance of Long Term Debt
+Repayments for Long Term Debt
+
+Proceeds from Issuance/Exercising of Stock Options/Warrants
+Other Financing Cash Flow
+Cash and Cash Equivalents, End of Period
+Change in Cash
+Effect of Exchange Rate Changes
+Cash and Cash Equivalents, Beginning of Period
+Cash Flow Supplemental Section
+Change in Cash as Reported, Supplemental
+Income Tax Paid, Supplemental
+ZACHRY T WOOD
+Cash and Cash Equivalents, Beginning of Period
+Department of the Treasury
+Internal Revenue Service
+
+Calendar Year
+Due: 04/18/2022
+
+USD in ""000'""s
+Repayments for Long Term Debt
+Costs and expenses:
+Cost of revenues
+Research and development
+Sales and marketing
+General and administrative
+European Commission fines
+Total costs and expenses
+Income from operations
+Other income (expense), net
+Income before income taxes
+Provision for income taxes
+Net income
+*include interest paid, capital obligation, and underweighting
+
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+
+
+
+
+
+
+
+
+
+
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+*include interest paid, capital obligation, and underweighting
+
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INTERNAL REVENUE SERVICE,
+PO BOX 1214,
+CHARLOTTE, NC 28201-1214
+
+ZACHRY WOOD
+15
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.
+Cat. No. 11320B
+Form 1040 (2021)
+Reported Normalized and Operating Income/Expense Supplemental Section
+Total Revenue as Reported, Supplemental
+Total Operating Profit/Loss as Reported, Supplemental
+Reported Effective Tax Rate
+Reported Normalized Income
+Reported Normalized Operating Profit
+Other Adjustments to Net Income Available to Common Stockholders
+Discontinued Operations
+Basic EPS
+Basic EPS from Continuing Operations
+Basic EPS from Discontinued Operations
+Diluted EPS
+Diluted EPS from Continuing Operations
+Diluted EPS from Discontinued Operations
+Basic Weighted Average Shares Outstanding
+Diluted Weighted Average Shares Outstanding
+Reported Normalized Diluted EPS
+Basic EPS
+DiluteDiluted WASO
+d EPS
+Basic WASO
+Fiscal year end September 28th., 2022. | USD
+
+For Paperwork Reduction Act Notice, see the seperate Instructions.
+
+
+
+
+
+
+important information
+
+
+2012201320142015ZACHRY T.  5323  $2,012$2,013$2,014$2,015DALLAS  Other Benefits and Information Pto Balance  9xygchr6$13Earnings Statement 065-0001 ALPHABET        Period Beginning: 1600 AMPITHEATRE PARKWAY DRPeriod Ending: MOUNTAIN VIEW, C.A., 94043Pay Date:    2965  Taxable Marital Status:  Exemptions/AllowancesMarried BRADFORD DR Federal:  TX:NO State Income Tax rateunitsthis periodyear to date $112$674,678,000$75,698,871,600$141,685,487,7329/29/2021         9/28/2022 Statutory        1/29/2023 Federal Income Tax$141,685,487,732                 Social Security Tax$70,842,743,866$141,685,487,732          Medicare Tax                WOOD          Net Pay$70,842,743,866 CHECKING                TX 75235-8314 Net Check$70,842,743,866 Your federal taxable wages this period are $$0  1 Alphabet Inc., co. 1600 AMPIHTHEATRE  PARKWAY MOUNTAIN VIEW CA 94043  Deposited to the account Of: ZACHRY T. WOOD    4720416547 650001 719218914/18/2022 4720416547 transit ABA 15-51\000   575A ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       (IRS USE ONLY)    
+       
+Account Maintenance/SRVCCHG 70842743866 - Waived - [22/7] - CORRECTED - [] - VOID                 
+"PLEASE READ THE IMPORTANT DISCLOSURES BELOW                                                                                                                                                                                                                                                        
+CIF Department (Online Banking)                                                                                                                                                                        
+Primary account number: P7-PFSC-04-F 
+For 24-hour account information, sign on to
+pnc.com/mybusiness/ Business Checking Account number: 47-2041-6547 - continued Activity Detail
+"PLEASE READ THE IMPORTANT ENSCLOSURES BELOW                                                                                                                                                                                                                                        
+The U.S. Internal Revenue Code of 1986, as amended, the Treasury Regulations promulgated thereunder, published pronouncements of the Internal Revenue Service, which may be cited or used as precedents, and case law, any of which may be changed at any time with retroactive effect.
+  No opinion is expressed on any matters other than those specifically referred to above.
+The U.S. Internal Revenue Code of 1986, as amended, the Treasury Regulations promulgated thereunder, published pronouncements of the Internal Revenue Service, which may be cited or used as precedents, and case law, any of which may be changed at any time with retroactive effect.  No opinion is expressed on any matters other than those specifically referred to above.                                                                                
+Gross Profit        $146,698,000,000.00        $42,337,000,000.00        $35,653,000,000.00        $31,211,000,000.00        30818000000        $25,056,000,000.00        1974400000000.0%        22177000000        25055000000        22931000000                                                                 Gross Profit        -2178236364        -9195472727        -16212709091        -23229945455        -30247181818        -37264418182        -44281654545
+Total Revenue as Reported, Supplemental        $257,637,000,000.00        $75,325,000,000.00        $61,880,000,000.00        $55,314,000,000.00        56898000000        $46,173,000,000.00        3829700000000.0%        41159000000        46075000000        40499000000                                        Total Revenue as Reported, Supplemental        -1286309091        -13385163636        -25484018182        -37582872727        -49681727273        -61780581818        -73879436364  -9776581818        -21510963636        -33245345455        -44979727273        -56714109091        -68448490909                -80182872727        65118000000
+Other Revenue                                                                                6428000000                                        Other Revenue                                                                                
+Cost of Revenue        -110939000000        -32988000000        -26227000000        -$24,103,000,000.00        -26080000000        -$21,117,000,000.00        -1855300000000.0%        -18982000000        -21020000000        -17568000000                                                            Cost of Revenue        -891927272.7        4189690909        9271309091        14352927273        19434545455        24516163636        29597781818                34679400000        -27621000000
+Cost of Goods and Services        -110939000000        -32988000000        -26227000000        -24103000000        -26080000000        -21117000000        -18553000000        -18982000000        -21020000000        -17568000000                                                             Cost of Goods and Services        -891927272.7        4189690909        9271309091        14352927273        19434545455        24516163636        29597781818                34679400000        -27621000000
+Operating Income/Expenses        -67984000000        -20452000000        -16292000000        -$14,774,000,000.00        -$15,167,000,000.00        -1384300000000.0%        -$13,361,000,000.00        -14200000000        -15789000000        -13754000000                                            Operating Income/Expenses        -3640563636        -882445454.5        1875672727        4633790909        7391909091        10150027273        12908145455                15666263636        -16466000000
+Selling, General and Administrative Expenses        -36422000000        -11744000000        -8617000000        -7289000000        -8145000000        -6987000000        -6486000000        -7380000000        -8567000000        -7200000000                                                                Selling, General and Administrative Expenses        -1552200000        -28945454.55        1494309091        3017563636        4540818182        6064072727        7587327273                9110581818        -8772000000
+General and Administrative Expenses        -13510000000        -4140000000        -3341000000        -2773000000        -2831000000        -2756000000        -2585000000        -2880000000        -2829000000        -2591000000                                                                                        General and Administrative Expenses        -544945454.5        23200000        591345454.5        1159490909        1727636364        2295781818        2863927273                3432072727        -3256000000
+Selling and Marketing Expenses        -22912000000        -7604000000        -5276000000        -4516000000        -5314000000        -4231000000        -3901000000        -4500000000        -5738000000        -4609000000                                                                                            Selling and Marketing Expenses        -1007254545        -52145454.55        902963636.4        1858072727        2813181818        3768290909        4723400000                5678509091        -5516000000
+Research and Development Expenses        -31562000000        -8708000000        -7675000000        -7485000000        -7022000000        -6856000000        -6875000000        -6820000000        -7222000000        -6554000000                                                                                        Research and Development Expenses        -2088363636        -853500000        381363636.4        1616227273        2851090909        4085954545        5320818182                6555681818        -7694000000
+Total Operating Profit/Loss        78714000000        21885000000        19361000000        16437000000        15651000000        11213000000        6383000000        7977000000        9266000000        9177000000                                                                                                    Total Operating Profit/Loss        -5818800000        -10077918182        -14337036364        -18596154545        -22855272727        -27114390909        -31373509091                -35632627273        21031000000
+Non-Operating Income/Expenses, Total        12020000000        2517000000        2624000000        4846000000        3038000000        2146000000        1894000000        -220000000        1438000000        -549000000                                                                                        Non-Operating Income/Expenses, Total        -1369181818        -2079000000        -2788818182        -3498636364        -4208454545        -4918272727        -5628090909                -6337909091        2033000000
+Total Net Finance Income/Expense        1153000000        261000000        313000000        269000000        333000000        412000000        420000000        565000000        604000000        608000000                                                                                            Total Net Finance Income Expense        464490909.1        462390909.1        460290909.1        458190909.1        456090909.1        453990909.1        451890909.1                449790909.1        310000000
+Net Interest Income/Expense        1153000000        261000000        313000000        269000000        333000000        412000000        420000000        565000000        604000000        608000000                                                                                                    Net Interest Income/Expense        464490909.1        462390909.1        460290909.1        458190909.1        456090909.1        453990909.1        451890909.1                449790909.1        310000000
+Interest Expense Net of Capitalized Interest -346000000        -117000000        -76000000        -76000000        -53000000        -48000000        -13000000        -21000000        -17000000        -23000000                                                                                     Interest Expense Net of Capitalized Interest        48654545.45        69900000        91145454.55        112390909.1        133636363.6        154881818.2        176127272.7                197372727.3        -77000000
+Interest Income        1499000000        378000000        389000000        345000000        386000000        460000000        433000000        586000000        621000000        631000000                                                                                                                Interest Income        415836363.6        392490909.1        369145454.5        345800000        322454545.5        299109090.9        275763636.4                252418181.8        387000000
+Arrav/Sheild.yml::D
+Net Investment Income        12364000000        2364000000        2924000000        4869000000        3530000000        1957000000        1696000000        -809000000        899000000        -1452000000                                                                                                        Net Investment Income        -2096781818        -2909109091        -3721436364        -4533763636        -5346090909        -6158418182        -6970745455                -7783072727        2207000000
+Gain/Loss on Investments and Other Financial Instruments        12270000000        2478000000        2883000000        4751000000        3262000000        2015000000        1842000000        -802000000        399000000        -1479000000                                                                     Gain/Loss on Investments and Other Financial Instruments        -2243490909        -3068572727        -3893654545        -4718736364        -5543818182        -6368900000        -7193981818                -8019063636        2158000000
+Income from Associates, Joint Ventures and Other Participating Interests        334000000        49000000        92000000        5000000        355000000        26000000        -54000000        74000000        460000000        -14000000                                             Income from Associates, Joint Ventures and Other Participating Interests        99054545.45        92609090.91        86163636.36        79718181.82        73272727.27        66827272.73        60381818.18                53936363.64        188000000
+Gain/Loss on Foreign Exchange        -240000000        -163000000        -51000000        113000000        -87000000        -84000000        -92000000        -81000000        40000000        41000000                                                                                                Gain/Loss on Foreign Exchange        47654545.45        66854545.45        86054545.45        105254545.5        124454545.5        143654545.5        162854545.5                182054545.5        -139000000
+Irregular Income/Expenses        0        0                        0        0        0        0        0        0                                                                                                                                                                                    Irregular Income/Expenses        0        0                                0        0                0        
+Other Irregular Income/Expenses        0        0                        0        0        0        0        0        0                                                                                                                                                                                Other Irregular Income/Expenses        0        0                                0        0                0        
+Other Income/Expense, Non-Operating        -1497000000        -108000000        -613000000        -292000000        -825000000        -223000000        -222000000        24000000        -65000000        295000000                                                                                    Other Income/Expense, Non-Operating        263109090.9        367718181.8        472327272.7        576936363.6        681545454.5        786154545.5        890763636.4                995372727.3        -484000000
+Pretax Income        90734000000        24402000000        21985000000        21283000000        18689000000        13359000000        8277000000        7757000000        10704000000        8628000000                                                                                                            Pretax Income        -7187981818        -12156918182        -17125854545        -22094790909        -27063727273        -32032663636        -37001600000                -41970536364        23064000000
+Provision for Income Tax        -14701000000        -3760000000        -3460000000        -3353000000        -3462000000        -2112000000        -1318000000        -921000000        -33000000        -1560000000                                                                                                Provision for Income Tax        1695218182        2565754545        3436290909        4306827273        5177363636        6047900000        6918436364                7788972727        -4128000000
+Net Income from Continuing Operations        76033000000        20642000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                        Net Income from Continuing Operations        -5492763636        -9591163636        -13689563636        -17787963636        -21886363636        -25984763636        -30083163636                -34181563636        18936000000
+Net Income after Extraordinary Items and Discontinued Operations76033000000        20642000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                          Net Income after Extraordinary Items and Discontinued Operations        -5492763636        -9591163636        -13689563636        -17787963636        -21886363636        -25984763636        -30083163636                -34181563636        18936000000
+Net Income after Non-Controlling/Minority Interests        76033000000        20642000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                    Net Income after Non-Controlling/Minority Interests        -5492763636        -9591163636        -13689563636        -17787963636        -21886363636        -25984763636        -30083163636                -34181563636        18936000000
+Net Income Available to Common Stockholders        76033000000        20642000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                       Net Income Available to Common Stockholders        -5492763636        -9591163636        -13689563636        -17787963636        -21886363636        -25984763636        -30083163636                -34181563636        18936000000
+Diluted Net Income Available to Common Stockholders        76033000000        20642000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                      Diluted Net Income Available to Common Stockholders        -5492763636        -9591163636        -13689563636        -17787963636        -21886363636        -25984763636        -30083163636                -34181563636        18936000000
+Income Statement Supplemental Section                                                                                                                                                                                                                                                        Income Statement Supplemental Section                                                                                
+Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                                                                                                                          Reported Normalized and Operating Income/Expense Supplemental Section                                                                                
+Total Revenue as Reported, Supplemental        257637000000        75325000000        61880000000        55314000000        56898000000        46173000000        38297000000        41159000000        46075000000        40499000000                                                                                    Total Revenue as Reported, Supplemental        -1286309091        -13385163636        -25484018182        -37582872727        -49681727273        -61780581818        -73879436364                -85978290909        65118000000
+Total Operating Profit/Loss as Reported, Supplemental        78714000000        21885000000        19361000000        16437000000        15651000000        11213000000        6383000000        7977000000        9266000000        9177000000                                                  Total Operating Profit/Loss as Reported, Supplemental        -5818800000        -10077918182        -14337036364        -18596154545        -22855272727        -27114390909        -31373509091                -35632627273        21031000000
+Reported Effective Tax Rate        0.162                0.157        0.158                0.158        0.159        0.119                0.181                                                                                                                                                       Reported Effective Tax Rate        1.162                0.1436666667        0.1331666667        0.1226666667                0.1063333333                0.08683333333        0.179
+Reported Normalized Income                                                                6836000000                                                                                                                                                                                            Reported Normalized Income                                                                                
+Reported Normalized Operating Profit                                                                7977000000                                                                                                                                                                                  Reported Normalized Operating Profit                                                                                
+Other Adjustments to Net Income Available to Common Stockholders                                                                                                                                                                                                                             Other Adjustments to Net Income Available to Common Stockholders                                                                                
+Discontinued Operations                                                                                                                                                                                                                                                                        Discontinued Operations                                                                                
+Basic EPS        113.88        31.15        27.69        26.63        22.54        16.55        10.21        9.96        15.49        10.2                                                                                                                                                            Basic EPS        -8.742909091        -14.93854545        -21.13418182        -27.32981818        -33.52545455        -39.72109091        -45.91672727                -52.11236364        28.44
+Basic EPS from Continuing Operations        113.88        31.12        27.69        26.63        22.46        16.55        10.21        9.96        15.47        10.2                                                                                                                                Basic EPS from Continuing Operations        -8.752545455        -14.94781818        -21.14309091        -27.33836364        -33.53363636        -39.72890909        -45.92418182                -52.11945455        28.44
+Basic EPS from Discontinued Operations                                                                                                                                                                                                                                                        Basic EPS from Discontinued Operations                                                                                
+Diluted EPS        112.2        30.69        27.26        26.29        22.3        16.4        10.13        9.87        15.35        10.12                                                                                                                                                            Diluted EPS        -8.505636364        -14.599        -20.69236364        -26.78572727        -32.87909091        -38.97245455        -45.06581818                -51.15918182        27.99
+Diluted EPS from Continuing Operations        112.2        30.67        27.26        26.29        22.23        16.4        10.13        9.87        15.33        10.12                                                                                                                                   Diluted EPS from Continuing Operations        -8.515636364        -14.609        -20.70236364        -26.79572727        -32.88909091        -38.98245455        -45.07581818                -51.16918182        27.99
+Diluted EPS from Discontinued Operations                                                                                                                                                                                                                                                    Diluted EPS from Discontinued Operations                                                                                
+Basic Weighted Average Shares Outstanding        667650000        662664000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                                                                                    Basic Weighted Average Shares Outstanding        694313545.5        697258863.6        700204181.8        703149500        706094818.2        709040136.4        711985454.5                714930772.7        665758000
+Diluted Weighted Average Shares Outstanding        677674000        672493000        679612000        682071000        682969000        685851000        687024000        692267000        695193000        698199000                                                                                    Diluted Weighted Average Shares Outstanding        698675981.8        701033009.1        703390036.4        705747063.6        708104090.9        710461118.2        712818145.5                715175172.7        676519000
+Reported Normalized Diluted EPS                                                                9.87                                                                                                                                                                                            Reported Normalized Diluted EPS                                                                                
+Basic EPS        113.88        31.15        27.69        26.63        22.54        16.55        10.21        9.96        15.49        10.2                                                                                                                                                            Basic EPS        -8.742909091        -14.93854545        -21.13418182        -27.32981818        -33.52545455        -39.72109091        -45.91672727                -52.11236364        28.44
+Diluted EPS        112.2        30.69        27.26        26.29        22.3        16.4        10.13        9.87        15.35        10.12                                                                                                                                                             Diluted EPS        -8.505636364        -14.599        -20.69236364        -26.78572727        -32.87909091        -38.97245455        -45.06581818                -51.15918182        27.99
+Basic WASO        667650000        662664000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                                                                                                                     Basic WASO        694313545.5        697258863.6        700204181.8        703149500        706094818.2        709040136.4        711985454.5                714930772.7        665758000
+Diluted WASO        677674000        672493000        679612000        682071000        682969000        685851000        687024000        692267000        695193000        698199000                                                                                                                Diluted WASO        698675981.8        701033009.1        703390036.4        705747063.6        708104090.9        710461118.2        712818145.5                715175172.7        676519000
+Deposits and Other Additions/Reverse Corperate ACH Debit : ACH posted effective as of 04/26 
+27-Apr Checks and Other Deductions Deducti             
+SIGNATURE Time Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May
+Fiscal year end September 28th., 2022. | USD                                                                                                                                                                                                                                                Fiscal year end September 28th., 2022. | USD        
++Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
++access: Public Class Methods
++Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
++Create a testing task Public Instance Methods
++define($obj)
++Create the tasks defined by this task lib
++test_files=(r)
++Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
++<lizachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725
++"scripts": {
++"test": "jest",
++"start": "./node_modules/.bin/node-pg-migrate up && node app.js",
++"migrate": "./node_modules/.bin/node-pg-migrate"
++"devDependencies": {
++"jest": "^24.8.0"version: 2.1
+ parameters:
+   upload-to-s3:
+     type: string
+Diluted EPS from Continuing Operations	112.2	30.67	27.26	26.29	22.23	16.4	10.13	9.87	15.33	10.12		                                               	                                            		Diluted EPS from Continuing Operations	-8.515636364	-14.609	-20.70236364	-26.79572727	-32.88909091	-38.98245455	-45.07581818		-51.16918182	27.99
+Diluted EPS from Discontinued Operations													                                                                                		                                            Diluted EPS from Discontinued Operations										
+Basic Weighted Average Shares Outstanding	667650000	662664000	668958000	673220000	675581000	679449000	681768000	686465000	688804000	692741000					                                            Basic Weighted Average Shares Outstanding	694313545.5	697258863.6	700204181.8	703149500	706094818.2	709040136.4	711985454.5		714930772.7	665758000
+Diluted Weighted Average Shares Outstanding	677674000	672493000	679612000	682071000	682969000	685851000	687024000	692267000	695193000	698199000					                                            Diluted Weighted Average Shares Outstanding	698675981.8	701033009.1	703390036.4	705747063.6	708104090.9	710461118.2	712818145.5		715175172.7	676519000
+Reported Normalized Diluted EPS								9.87						                                                                                                                                    	Reported Normalized Diluted EPS										
+Basic EPS	113.88	31.15	27.69	26.63	22.54	16.55	10.21	9.96	15.49	10.2					                                                                                                                    Basic EPS	-8.742909091	-14.93854545	-21.13418182	-27.32981818	-33.52545455	-39.72109091	-45.91672727		-52.11236364	28.44
+Diluted EPS	112.2	30.69	27.26	26.29	22.3	16.4	10.13	9.87	15.35	10.12				                                                                                                                     	Diluted EPS	-8.505636364	-14.599	-20.69236364	-26.78572727	-32.87909091	-38.97245455	-45.06581818		-51.15918182	27.99
+Basic WASO	667650000	662664000	668958000	673220000	675581000	679449000	681768000	686465000	688804000	692741000	                                			                                             	Basic WASO	694313545.5	697258863.6	700204181.8	703149500	706094818.2	709040136.4	711985454.5		714930772.7	665758000
+Diluted WASO	677674000	672493000	679612000	682071000	682969000	685851000	687024000	692267000	695193000	698199000	                            			                                            	Diluted WASO	698675981.8	701033009.1	703390036.4	705747063.6	708104090.9	710461118.2	712818145.5		715175172.7	676519000
+Fiscal year end September 28th., 2022. | USD															                                                                                                                        Fiscal year end September 28th., 2022. | USD	
