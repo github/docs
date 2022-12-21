@@ -23,7 +23,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 The following repositories have detailed instructions for setting up these autoscalers: 
 
-- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
 - [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
 
 Each solution has certain specifics that may be important to consider:
