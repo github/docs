@@ -1,17 +1,17 @@
 ---
 title: GitHub Copilot について
-intro: '{% data variables.product.prodname_copilot %} はオートコンプリート スタイルの候補を提示することでコーディングを支援します。 {% data variables.product.prodname_copilot %} を使うための注意点や、{% data variables.product.prodname_copilot %} のしくみについて説明します。'
+intro: '{% data variables.product.prodname_copilot %} はオートコンプリート スタイルの候補を提示することでコーディングを支援します。 {% data variables.product.prodname_copilot %} のしくみと、{% data variables.product.prodname_copilot %} の使用時の考慮事項がわかります。'
 versions:
   feature: copilot
 topics:
   - Copilot
 shortTitle: About GitHub Copilot
-ms.openlocfilehash: dd4538cb4cf6fc9dd84bb3f0d05bf8a85559d5ec
-ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.openlocfilehash: 4ff4c73e61c10c2c3f75d9581bf426266122550b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160641'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192779'
 ---
 ## {% data variables.product.prodname_copilot %} について
 
@@ -25,17 +25,17 @@ ms.locfileid: '148160641'
 
 {% data variables.product.prodname_copilot %} の動作する実際の例を確認することができます。 詳しくは、[{% data variables.product.prodname_copilot %}](https://copilot.github.com/) の Web サイトを参照してください。 
 
-GitHub Copilot は、OpenAI が何十億行ものオープンソース コードにより構築されたモデルから候補を提示します。 その結果、{% data variables.product.prodname_copilot %} のトレーニング セットには、安全でないコーディング パターン、バグ、または古い API やイディオムへの参照が含まれている可能性があります。 {% data variables.product.prodname_copilot %} がこのトレーニング データに基づいて候補を生成する場合、それらの候補にも望ましくないパターンが含まれる場合があります。 
+{% data variables.product.prodname_copilot %} からは、無数のオープン ソース コード行から OpenAI によって構築されたモデルからの提案が提供されます。 その結果、{% data variables.product.prodname_copilot %} のトレーニング セットには、安全でないコーディング パターン、バグ、または古い API やイディオムへの参照が含まれている可能性があります。 {% data variables.product.prodname_copilot %} がこのトレーニング データに基づいて候補を生成する場合、それらの候補にも望ましくないパターンが含まれる場合があります。 
 
 コードのセキュリティと品質を確保するのは、ご自分の責任です。 {% data variables.product.prodname_copilot %} で生成されたコードを使うときは、自分自身で書いていないコードを使うときと同じ予防措置を講じることをお勧めします。 これらの予防措置には、厳密なテスト、IP スキャン、セキュリティの脆弱性の追跡などが含まれます。 {% data variables.product.company_short %} には、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_dependabot %}、{% data variables.product.prodname_codeql %}、{% data variables.product.prodname_code_scanning %} など、コード品質を監視および改善できる多数の機能が用意されています。 これらの機能はすべて、パブリック リポジトリで自由に使用できます。 詳しくは、「[{% data variables.product.prodname_actions %} について](/actions/learn-github-actions/understanding-github-actions)」と「[{% data variables.product.company_short %} のセキュリティ機能](/code-security/getting-started/github-security-features)」を参照してください。
 
 {% data variables.product.prodname_copilot %} では、プロンプト内の不快な単語をブロックし、機密性の高いコンテキストにある候補を生成しないようにフィルターを使っています。 私たちは、{% data variables.product.prodname_copilot %} によって生成された不快な候補 (偏った、差別的、または虐待的な出力など) をよりインテリジェントに検出して削除するため、フィルター システムを常に改善することに取り組んでいます。 {% data variables.product.prodname_copilot %} によって生成された不快な候補が表示される場合は、安全対策を改善できるように、その候補を copilot-safety@github.com に直接報告してください。 
 
-{% data reusables.copilot.emus-cannot-use-copilot %}
-
 ## {% data variables.product.prodname_copilot %} の課金について
 
-{% data variables.product.prodname_copilot %} は有料機能であり、月単位または年単位のサブスクリプションが必要です。 確認が取れている学生、教師、および {% data variables.product.prodname_dotcom %} 上のオープン ソース プロジェクトのメンテナンス担当者は、{% data variables.product.prodname_copilot %} を無料で使うことができます。 無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしている場合は、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスしたときに、自動的に通知されます。 無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしていない場合、60 日間の無料試用版が提供され、その後継続して使うには有料のサブスクリプションが必要になります。 詳細については、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
+{% data variables.product.prodname_copilot %} は有料機能であり、月単位または年単位のサブスクリプションが必要です。 {% data variables.product.prodname_copilot %} サブスクリプションの支払いと管理は、{% data variables.product.prodname_copilot_for_individuals %} の {% data variables.product.prodname_dotcom_the_website %} の個人アカウントから可能です。あるいは、{% data variables.product.prodname_copilot_for_business %} の {% data variables.product.prodname_ghe_cloud %} のエンタープライズ アカウントからまとめて支払い、管理できます。
+
+確認が取れている学生、教師、および {% data variables.product.prodname_dotcom %} 上のオープン ソース プロジェクトのメンテナンス担当者は、{% data variables.product.prodname_copilot_individuals_short %} を無料で使うことができます。 無料の {% data variables.product.prodname_copilot_individuals_short %} サブスクリプションの条件を満たしている場合は、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスしたときに、自動的に通知されます。 無料の {% data variables.product.prodname_copilot_individuals_short %} サブスクリプションの条件を満たしていない場合、60 日間の無料試用版が提供され、その後継続して使うには有料のサブスクリプションが必要になります。 {% data variables.product.prodname_copilot_for_business %} には無料試用版は含まれていません。 詳細については、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
 
 ## JetBrains IDE での {% data variables.product.prodname_copilot %} プラグインのライセンスについて
 
@@ -43,4 +43,5 @@ GitHub Copilot は、OpenAI が何十億行ものオープンソース コード
 
 ## 参考資料
 
-- 「[{% data variables.product.company_short %} 追加製品および機能の利用規約](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)」
+- "[{% data variables.product.company_short %} 追加製品および機能の利用規約](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
+- "[{% data variables.product.prodname_copilot_for_business %} プライバシーに関する声明](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}

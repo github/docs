@@ -28,7 +28,7 @@ program
   )
   .option(
     '-v --versions <VERSIONS...>',
-    'A list of undeprecated, published versions to build, separated by a space. Example "ghes-3.1" or "api.github.com github.ae"'
+    'A list of undeprecated, published versions to build, separated by a space. Example `-v ghes-3.1` or `-v api.github.com github.ae`'
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
   .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
@@ -131,9 +131,8 @@ async function getBundlerOptions() {
 async function validateInputParameters() {
   // The `--versions` and `--decorate-only` options cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  const numberOfOptions = Object.keys(program.opts()).length
-  if (numberOfOptions > 1 && (decorateOnly || versions)) {
-    const errorMsg = `🛑 You cannot use the versions and decorate-only options with any other options.\nThe decorate-only switch will decorate all dereferenced schemas files in the docs-internal repo.\nThis script doesn't support generating individual deprecated or unpublished schemas.\nPlease reach out to #docs-engineering if this is a use case that you need.`
+  if ((includeDeprecated || includeUnpublished) && (decorateOnly || versions)) {
+    const errorMsg = `🛑 You cannot use the versions option with the include-unpublished or include-deprecated options. This is not currently supported in the bundler.\nYou cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 

@@ -17,26 +17,38 @@ topics:
   - Advanced Security
   - Repositories
 shortTitle: Configure secret scans
-ms.openlocfilehash: 00983398e326997b6472da319d342ab0758018d3
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 7739cca195f46043945f39f48aad8bf88aa97fed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147885720'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192941'
 ---
 {% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## Habilitación de {% data variables.product.prodname_secret_scanning_GHAS %}
 
-Puedes habilitar {% data variables.product.prodname_secret_scanning_GHAS %} para cualquier repositorio que sea propiedad de una organización. Una vez que se habilite, {% data reusables.secret-scanning.secret-scanning-process %}
+Puedes habilitar {% data variables.product.prodname_secret_scanning_GHAS %} para cualquier repositorio que sea propiedad de una organización. Una vez habilitado, {% data reusables.secret-scanning.secret-scanning-process %} {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
+
+{% note %}
+
+**Nota:** {% data variables.product.prodname_secret_scanning_caps %} para las descripciones del problema y los comentarios se encuentra en versión beta pública y está sujeto a cambios.
+
+{% endnote %} {% endif %}
+
+{% ifversion secret-scanning-enterprise-level %} {% note %}
+
+**Nota:** Si tu organización es propiedad de una cuenta de empresa, un propietario de la empresa también puede habilitar {% data variables.product.prodname_secret_scanning %} en el nivel empresarial. Para obtener más información, consulta "[Administración de características de {% data variables.product.prodname_GH_advanced_security %} para la empresa](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)".
+
+{% endnote %} {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Si {% data variables.product.prodname_advanced_security %} todavía no está habilitado para el repositorio, a la derecha de "{% data variables.product.prodname_GH_advanced_security %}", haz clic en **Habilitar**.
+1. Si {% data variables.product.prodname_advanced_security %} todavía no está habilitado para el repositorio, a la derecha de "{% data variables.product.prodname_GH_advanced_security %}", haz clic en **Habilitar**.
    {% ifversion fpt or ghec %}![Habilitación de {% data variables.product.prodname_GH_advanced_security %} para el repositorio](/assets/images/help/repository/enable-ghas-dotcom.png) {% elsif ghes or ghae %}![Habilitación de {% data variables.product.prodname_GH_advanced_security %} para el repositorio](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
-5. Revisa el impacto de habilitar la {% data variables.product.prodname_advanced_security %} y luego haz clic en **Habilitar la {% data variables.product.prodname_GH_advanced_security %} para este repositorio**.
-6. Cuando habilitas la {% data variables.product.prodname_advanced_security %}, puede que el {% data variables.product.prodname_secret_scanning %} se habilite en el repositorio debido a la configuración de la organización. Si "{% data variables.product.prodname_secret_scanning_caps %}" se muestra con un botón **Habilitar**, debes habilitar {% data variables.product.prodname_secret_scanning %} haciendo clic en **Habilitar**. Si ves un botón **Deshabilitar**, {% data variables.product.prodname_secret_scanning %} ya está habilitado. 
+2. Revisa el impacto de habilitar la {% data variables.product.prodname_advanced_security %} y luego haz clic en **Habilitar la {% data variables.product.prodname_GH_advanced_security %} para este repositorio**.
+3. Cuando habilitas la {% data variables.product.prodname_advanced_security %}, puede que el {% data variables.product.prodname_secret_scanning %} se habilite en el repositorio debido a la configuración de la organización. Si "{% data variables.product.prodname_secret_scanning_caps %}" se muestra con un botón **Habilitar**, debes habilitar {% data variables.product.prodname_secret_scanning %} haciendo clic en **Habilitar**. Si ves un botón **Deshabilitar**, {% data variables.product.prodname_secret_scanning %} ya está habilitado. 
    ![Habilitación de {% data variables.product.prodname_secret_scanning %} para el repositorio](/assets/images/help/repository/enable-secret-scanning-dotcom.png) {% ifversion secret-scanning-push-protection %}
-7. Opcionalmente, si quieres habilitar la protección de los envíos de cambios, haz clic en **Habilitar** a la derecha de "Protección de envíos de cambios". {% data reusables.secret-scanning.push-protection-overview %} Para obtener más información, consulta "[Protección de envíos de cambios con {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
+1. Opcionalmente, si quieres habilitar la protección de los envíos de cambios, haz clic en **Habilitar** a la derecha de "Protección de envíos de cambios". {% data reusables.secret-scanning.push-protection-overview %} Para obtener más información, consulta "[Protección de envíos de cambios con {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
    ![Habilitar la protección de envíos de cambios para el repositorio](/assets/images/help/repository/secret-scanning-enable-push-protection.png) {% endif %} {% ifversion ghae %}
 1. Antes de que puedas habilitar el {% data variables.product.prodname_secret_scanning %}, necesitas habilitar primero la {% data variables.product.prodname_GH_advanced_security %}. A la derecha de "{% data variables.product.prodname_GH_advanced_security %}", haz clic en **Habilitar**.
    ![Habilitación de la {% data variables.product.prodname_GH_advanced_security %} para tu repositorio](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)

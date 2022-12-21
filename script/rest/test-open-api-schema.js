@@ -27,13 +27,6 @@ export async function getDiffOpenAPIContentRest() {
   // Create categories/subcategories from OpenAPI Schemas
   const openAPISchemaCheck = await createOpenAPISchemasCheck()
 
-  // One off edge case for secret-scanning Docs-content issue 6637
-  const fptApiVersions = getOnlyApiVersions('free-pro-team@latest')
-
-  fptApiVersions.forEach((fptApiVersion) => {
-    delete openAPISchemaCheck[fptApiVersion]['secret-scanning']
-  })
-
   // Get Differences between categories/subcategories from dereferenced schemas and the content/rest directory frontmatter versions
   const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages = {}

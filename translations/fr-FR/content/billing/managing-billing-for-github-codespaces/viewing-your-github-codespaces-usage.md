@@ -1,7 +1,9 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: Consultation de votre utilisation de GitHub Codespaces
 shortTitle: Viewing your usage
-intro: 'You can view the compute hours and storage used by {% data variables.product.prodname_github_codespaces %}.'
+intro: 'Vous pouvez visualiser les minutes de calcul et le stockage utilisés par {% data variables.product.prodname_github_codespaces %}.'
+permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,63 +13,46 @@ topics:
   - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
+ms.openlocfilehash: c3024840f48bda68470b9ab12693f4a79daddb48
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107148'
 ---
+## Consultation de l’utilisation de {% data variables.product.prodname_github_codespaces %} pour votre organisation
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your personal account
-
-You can see how much of the usage included in your personal account you have used so far in the current monthly billing cycle. If you have set up a payment method, set a spending limit, and used all of your included usage, you can also check your bill for the current month.
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Under "{% data variables.product.prodname_codespaces %}," you can see how many core hours of {% data variables.product.prodname_github_codespaces %} compute usage and GB-months of storage you have used so far in the current billing month.
-
-   ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
-
-   For information about "core hours" and "GB-months," see "[About billing for {% data variables.product.prodname_github_codespaces %}](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
-
-1. Optionally, click **Usage hours** and **Storage** to see more details.
-
-   ![Screenshot of the expanded view of personal usage](/assets/images/help/codespaces/view-personal-usage-expanded.png)
-
-   The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
-
-   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. For more information, see "[Adding or editing a payment method](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
-
-{% data reusables.codespaces.usage-report-download %}
-
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization account
-
-Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for the organization.
+Les propriétaires d’organisation et les gestionnaires de facturation peuvent afficher l’utilisation de {% data variables.product.prodname_github_codespaces %} pour une organisation. Dans le cas des organisations gérées par un compte d’entreprise, les propriétaires d’organisation peuvent voir les informations relatives à l’utilisation de {% data variables.product.prodname_github_codespaces %} dans la page de facturation de l’organisation, alors que les administrateurs d’entreprise peuvent voir ces informations pour l’ensemble de l’entreprise.
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+1. Sous « {% data variables.product.prodname_codespaces %} », consultez les détails des heures de calcul et du stockage utilisés jusqu’ici ce mois-ci.
 
-   ![Screenshot of compute usage and storage details](/assets/images/help/billing/codespaces-compute-storage.png)
+   ![Détails de l’utilisation des minutes](/assets/images/help/billing/codespaces-compute-storage.png)
 
-   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+   Vous pouvez également voir et mettre à jour votre limite de dépense actuelle. Pour plus d’informations, consultez « [Gestion des limites de dépense pour {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces) ».
 
    {% note %}
 
-   **Notes**: 
-   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
-   * The figures on this page are updated every hour.
+   **Remarques**: 
+   * Les coûts affichés ici sont les coûts cumulés pour la période de facturation mensuelle en cours. Les coûts contrôlés pour {% data variables.product.prodname_github_codespaces %}, affichés sur cette page, sont réinitialisés à zéro au début de chaque période de facturation mensuelle. Les coûts impayés des mois précédents ne sont pas affichés.
+   * Les chiffres de cette page sont mis à jour toutes les heures.
 
    {% endnote %}
 
-{% data reusables.codespaces.usage-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %} Les données utilisées pour ce rapport sont mises à jour quotidiennement. 
+1. Filtrez le rapport pour afficher uniquement les lignes qui mentionnent « Codespaces » dans le champ `Product`.
+
+   ![Rapport d’utilisation filtré avec Codespaces](/assets/images/help/codespaces/CSV-usage-report.png)
 
 {% ifversion ghec %}
-## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
+## Affichage de l’utilisation de {% data variables.product.prodname_codespaces %} pour votre compte d’entreprise
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
+Les propriétaires d’entreprise et les gestionnaires de facturation peuvent voir les informations relatives à l’utilisation de {% data variables.product.prodname_github_codespaces %} pour un compte d’entreprise.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
-{% data reusables.codespaces.usage-report-download %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. Sous « Utilisation mensuelle de {% data variables.product.prodname_codespaces %} », visualisez les détails relatifs à l’utilisation de chaque organisation dans votre compte d’entreprise.
+{% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %} {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+- « [Liste des codespaces de votre organisation](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization) »

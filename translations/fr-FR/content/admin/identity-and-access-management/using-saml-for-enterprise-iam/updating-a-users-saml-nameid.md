@@ -1,7 +1,7 @@
 ---
-title: Updating a user's SAML NameID
+title: Mise à jour du paramètre NameID SAML d’un utilisateur
 shortTitle: Update SAML NameID
-intro: 'When an account''s `NameID` changes on your identity provider (IdP) and the person can no longer {% ifversion ghes or ghae %}sign into {% data variables.location.product_location %}{% elsif ghec %}authenticate to access your enterprise''s resources{% endif %}, you must {% ifversion ghec %}either contact {% data variables.product.company_short %} Support or revoke the person''s linked identity{% elsif ghes %}update the `NameID` mapping on {% data variables.location.product_location %}{% elsif ghae %}contact {% data variables.product.company_short %} Support{% endif %}.'
+intro: 'Quand le `NameID` d’un compte change au niveau de votre fournisseur d’identité (IdP) et que la personne ne peut plus {% ifversion ghes or ghae %}se connecter à {% data variables.product.product_location %}{% elsif ghec %}s’authentifier pour accéder aux ressources de votre entreprise{% endif %}, vous devez {% ifversion ghec %}contacter {% data variables.product.company_short %} le support ou révoquer l’identité liée de la personne{% elsif ghes %}mettre à jour le mappage de `NameID` sur {% data variables.product.product_location %}{% elsif ghae %}contacter {% data variables.product.company_short %} le support{% endif %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -11,25 +11,29 @@ topics:
   - Enterprise
   - Identity
   - SSO
+ms.openlocfilehash: 7a151143219fc0885861beedb69a2608983c5588
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147717900'
 ---
+## À propos des mises à jour du paramètre `NameID` SAML des utilisateurs
 
-## About updates to users' SAML `NameID`
+Dans certains cas, vous pouvez être amené à mettre à jour les valeurs associées au compte d’une personne sur votre fournisseur d’identité SAML. Si cet identificateur est également le paramètre `NameID` que vous utilisez pour l’authentification sur {% data variables.product.product_name %}, vous devez mettre à jour le mappage de `NameID` sur votre instance afin que la personne puisse continuer à s’authentifier correctement. Pour plus d’informations, consultez « [Considérations relatives au nom d’utilisateur pour l’authentification externe](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication) ».
 
-In some situations, you may need to update values associated with a person's account on your SAML IdP. If that identifier is also the `NameID` that you use for authentication on {% data variables.product.product_name %}, you must update the `NameID` mapping on your instance so the person can continue to authenticate successfully. For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+## Mise à jour du `NameID` SAML d’un utilisateur
 
-## Updating a user's SAML `NameID`
-
-Enterprise owners can update a user's SAML `NameID` on a {% data variables.product.product_name %} instance.
+Les propriétaires d’entreprise peuvent mettre à jour un paramètre `NameID` SAML d’un utilisateur sur une instance {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, click **All users**.
-  !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
-3. In the list of users, click the username you'd like to update the `NameID` mapping for.
-  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
-{% data reusables.enterprise_site_admin_settings.security-tab %}
-5. To the right of "Update SAML NameID", click **Edit** .
-  !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
-6. In the "NameID" field, type the new `NameID` for the user.
-  !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. Click **Update NameID**.
-  !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+2. Dans la barre latéral de gauche, cliquez sur **Tous les utilisateurs**.
+  ![Élément « Tous les utilisateurs » dans les paramètres d’administrateur de site de la barre latérale](/assets/images/enterprise/site-admin-settings/all-users.png)
+3. Dans la liste des utilisateurs, cliquez sur le nom d’utilisateur pour lequel vous souhaitez mettre à jour le mappage de `NameID`.
+  ![Nom d’utilisateur dans la liste des comptes d’utilisateurs de l’instance](/assets/images/enterprise/site-admin-settings/all-users-click-username.png) {% data reusables.enterprise_site_admin_settings.security-tab %}
+5. À droite de « Mettre à jour le NameID SAML », cliquez sur **Modifier**.
+  ![Bouton « Modifier » sous « Authentification SAML » et à droite de « Mettre à jour le NameID SAML »](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
+6. Dans le champ « NameID », tapez le nouveau `NameID` de l’utilisateur.
+  ![Champ « NameID » dans la boîte de dialogue modale avec le NameID tapé](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
+7. Cliquez sur **Mettre à jour le NameID**.
+  ![Bouton « Mettre à jour le NameID » sous la valeur mise à jour du NameID dans la boîte de dialogue modale](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)

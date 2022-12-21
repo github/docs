@@ -1,19 +1,19 @@
 ---
 title: Espaços de código
-intro: A API Codespaces permite que você gerencie os codespaces usando a API REST.
+intro: 'Use a API REST para gerenciar o {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 0108e8ac59714ecea24e1f19d5adf3f2d0371f15
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 17be7c400c2db08bf55cf23229a9dcb978e01b7f
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110567'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193110'
 ---
-## Sobre a API de Codespaces
+## Sobre os {% data variables.product.prodname_github_codespaces %}
 
-A API {% data variables.product.prodname_github_codespaces %} permite que você gerencie os {% data variables.product.prodname_codespaces %} usando a API REST. Esta API está disponível para usuários autenticados e aplicativos OAuth, mas não para aplicativos GitHub. Para obter mais informações, confira "[{% data variables.product.prodname_codespaces %}](/codespaces)".
+Você pode gerenciar o {% data variables.product.prodname_codespaces %} usando a API REST. Esses pontos de extremidade estão disponíveis para usuários autenticados, {% data variables.product.prodname_oauth_apps %} e {% data variables.product.prodname_github_apps %}. Para obter mais informações, confira "[{% data variables.product.prodname_codespaces %}](/codespaces)".

@@ -48,7 +48,7 @@ You can enable or disable features for all repositories.
 - **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
 {%- ifversion ghec %}
 - **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. This option controls whether or not {% data variables.product.prodname_secret_scanning_GHAS %} is enabled. {% data variables.product.prodname_secret_scanning_partner_caps %} always runs on all public repositories.
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
 {% endif %}
 
 {% endif %}

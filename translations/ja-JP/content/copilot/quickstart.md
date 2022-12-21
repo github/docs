@@ -8,18 +8,18 @@ versions:
 shortTitle: Quickstart
 topics:
   - Copilot
-ms.openlocfilehash: 5aa3071cddc2bf83e7ee7082eabea00f79a66ea5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d2131a506990a959f803b13353b794a9dd347174
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080245'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193476'
 ---
 ## はじめに
 
 {% data variables.product.prodname_copilot %} は AI ペア プログラマーです。 {% data variables.product.prodname_copilot %} を使うと、エディター内で行全体または関数全体の候補を得ることができます。
 
-このガイドでは、{% data variables.product.prodname_copilot %} にサインアップし、{% data variables.product.prodname_vscode %} に {% data variables.product.prodname_copilot %} 拡張機能をインストールして、最初の候補を得る方法について説明します。 {% data variables.product.prodname_copilot %} の詳しい情報については、「[{% data variables.product.prodname_copilot %}について](/copilot/overview-of-github-copilot/about-github-copilot)」をご覧ください。 さまざまな環境で {% data variables.product.prodname_copilot %} を使う方法の詳しい情報については、「[使用を開始する](/copilot/getting-started-with-github-copilot)」をご覧ください。
+このガイドでは、個人アカウントで {% data variables.product.prodname_copilot %} にサインアップし、{% data variables.product.prodname_vscode %} に {% data variables.product.prodname_copilot %} 拡張機能をインストールして、最初の候補を得る方法について説明します。 {% data variables.product.prodname_copilot %} の詳しい情報については、「[{% data variables.product.prodname_copilot %}について](/copilot/overview-of-github-copilot/about-github-copilot)」をご覧ください。 さまざまな環境で {% data variables.product.prodname_copilot %} を使う方法の詳しい情報については、「[使用を開始する](/copilot/getting-started-with-github-copilot)」をご覧ください。
 
 ## 前提条件
 
@@ -27,6 +27,14 @@ ms.locfileid: '147080245'
 - {% data variables.product.prodname_vscode %} で {% data variables.product.prodname_copilot %} を使うには、{% data variables.product.prodname_vscode %} がインストールされている必要があります。 詳しい情報については、[{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) のドキュメントをご覧ください。
 
 ## {% data variables.product.prodname_copilot %} にサインアップする
+
+{% data variables.product.prodname_copilot %} を使い始める前に、個人アカウント用の無料試用版またはサブスクリプションを設定する必要があります。 
+
+{% note %}
+
+**注:** {% data variables.product.prodname_ghe_cloud %} アカウントが所有する Organization のメンバーで、{% data variables.product.prodname_copilot %} サブスクリプションを持っていて、Organization から {% data variables.product.prodname_copilot %} シートが割り当てられている場合、「[{% data variables.product.prodname_vscode %} 用の {% data variables.product.prodname_copilot %} の拡張機能をインストールする](/copilot/quickstart#installing-the-github-copilot-extension-for-visual-studio-code)」に進むことができます。
+
+{% endnote %}
 
 {% data reusables.copilot.signup-procedure %}
 
@@ -46,6 +54,8 @@ ms.locfileid: '147080245'
 1. {% data variables.product.prodname_vscode %} の [{% data variables.product.prodname_vscode %}] ダイアログ ボックスで、認証を確認するには、 **[開く]** をクリックします。 
 
 ## 最初の候補を得る
+
+{% data reusables.copilot.code-examples-limitations %}
 
 {% data reusables.copilot.supported-languages %} 次のサンプルは JavaScript で記述されていますが、他の言語も同様に動作します。
 

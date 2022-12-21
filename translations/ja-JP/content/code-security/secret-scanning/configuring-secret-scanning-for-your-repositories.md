@@ -17,26 +17,38 @@ topics:
   - Advanced Security
   - Repositories
 shortTitle: Configure secret scans
-ms.openlocfilehash: 00983398e326997b6472da319d342ab0758018d3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7739cca195f46043945f39f48aad8bf88aa97fed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147062003'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192938'
 ---
 {% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## {% data variables.product.prodname_secret_scanning_GHAS %}の有効化
 
-{% data variables.product.prodname_secret_scanning_GHAS %}は、組織が所有する任意のリポジトリで有効化できます。 有効にすると、{% data reusables.secret-scanning.secret-scanning-process %}
+{% data variables.product.prodname_secret_scanning_GHAS %}は、組織が所有する任意のリポジトリで有効化できます。 有効にすると、{% data reusables.secret-scanning.secret-scanning-process %} {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
+
+{% note %}
+
+**注:** Issue の説明とコメントの {% data variables.product.prodname_secret_scanning_caps %} はパブリック ベータ版であり、変更される可能性があります。
+
+{% endnote %} {% endif %}
+
+{% ifversion secret-scanning-enterprise-level %} {% note %}
+
+**注:** 組織がエンタープライズ アカウントの所有になっている場合、エンタープライズ所有者はエンタープライズ レベルで {% data variables.product.prodname_secret_scanning %} を有効にすることもできます。 詳しくは、「[Enterprise での {% data variables.product.prodname_GH_advanced_security %} 機能の管理](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)」を参照してください。
+
+{% endnote %} {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. {% data variables.product.prodname_advanced_security %} がまだリポジトリで有効化されていなければ、[{% data variables.product.prodname_GH_advanced_security %}] の右側で **[有効化]** をクリックしてください。
+1. {% data variables.product.prodname_advanced_security %} がまだリポジトリで有効化されていなければ、[{% data variables.product.prodname_GH_advanced_security %}] の右側で **[有効化]** をクリックしてください。
    {% ifversion fpt or ghec %}![リポジトリで {% data variables.product.prodname_GH_advanced_security %} を有効にする](/assets/images/help/repository/enable-ghas-dotcom.png) {% elsif ghes or ghae %}![リポジトリで {% data variables.product.prodname_GH_advanced_security %} を有効にする](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
-5. {% data variables.product.prodname_advanced_security %}の有効化の影響をレビューしてから、 **[このリポジトリで {% data variables.product.prodname_GH_advanced_security %} を有効化]** をクリックしてください。
-6. {% data variables.product.prodname_advanced_security %}を有効化すると、Organizationの設定によってはリポジトリで{% data variables.product.prodname_secret_scanning %}が自動的に有効化されることがあります。 "{% data variables.product.prodname_secret_scanning_caps %}" が **[有効]** ボタンと共に表示されている場合でも、 **[有効]** をクリックして{% data variables.product.prodname_secret_scanning %}を有効にする必要があります。 **[無効]** ボタンが表示された場合、{% data variables.product.prodname_secret_scanning %}は既に有効になっています。 
+2. {% data variables.product.prodname_advanced_security %}の有効化の影響をレビューしてから、 **[このリポジトリで {% data variables.product.prodname_GH_advanced_security %} を有効化]** をクリックしてください。
+3. {% data variables.product.prodname_advanced_security %}を有効化すると、Organizationの設定によってはリポジトリで{% data variables.product.prodname_secret_scanning %}が自動的に有効化されることがあります。 "{% data variables.product.prodname_secret_scanning_caps %}" が **[有効]** ボタンと共に表示されている場合でも、 **[有効]** をクリックして{% data variables.product.prodname_secret_scanning %}を有効にする必要があります。 **[無効]** ボタンが表示された場合、{% data variables.product.prodname_secret_scanning %}は既に有効になっています。 
    ![リポジトリで {% data variables.product.prodname_secret_scanning %}を有効にする](/assets/images/help/repository/enable-secret-scanning-dotcom.png) {% ifversion secret-scanning-push-protection %}
-7. 必要に応じて、プッシュ保護を有効にする場合は、[プッシュ保護] の右側にある **[有効]** をクリックします。 {% data reusables.secret-scanning.push-protection-overview %} 詳細については、「[ {% data variables.product.prodname_secret_scanning %}を使用したプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。
+1. 必要に応じて、プッシュ保護を有効にする場合は、[プッシュ保護] の右側にある **[有効]** をクリックします。 {% data reusables.secret-scanning.push-protection-overview %} 詳細については、「[ {% data variables.product.prodname_secret_scanning %}を使用したプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。
    ![リポジトリのプッシュ保護を有効にする](/assets/images/help/repository/secret-scanning-enable-push-protection.png) {% endif %} {% ifversion ghae %}
 1. {% data variables.product.prodname_secret_scanning %} を有効化する前に、まず {% data variables.product.prodname_GH_advanced_security %} を有効化する必要があります。 [{% data variables.product.prodname_GH_advanced_security %}] の右側にある **[有効]** をクリックします。
    ![リポジトリで {% data variables.product.prodname_GH_advanced_security %} を有効化する](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)

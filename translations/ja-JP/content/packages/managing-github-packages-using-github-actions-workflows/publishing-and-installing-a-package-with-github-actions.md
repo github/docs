@@ -12,12 +12,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
-ms.openlocfilehash: 4996d6c180b3e54608184ce4c40b8e0595f60d3e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 80516eb55e9ffc8f2de3f92cf24a7d7f230b8407
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147705044'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193123'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -27,37 +27,40 @@ ms.locfileid: '147705044'
 
 ワークフローの一部としてパッケージの公開やインストールを行うことで、リポジトリのCI及びCDの機能を拡張できます。
 
-{% ifversion fpt or ghec %}
-### {% data variables.product.prodname_ghcr_and_npm_registry %} に対する認証
+{% ifversion packages-registries-v2 %}
+### 詳細なアクセス許可を持つパッケージ レジストリに対する認証
 
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
+### リポジトリがスコープ指定されたアクセス許可を持つパッケージ レジストリに対する認証
+
 {% endif %}
 
-### {% data variables.product.prodname_dotcom %} 上のパッケージレジストリを認証する
+{% ifversion packages-registries-v2 %}一部の {% data variables.product.prodname_registry %} レジストリでは、リポジトリがスコープ指定されたアクセス許可のみがサポートされ、詳細なアクセス許可はサポートされていません。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」をご覧ください。
 
-{% ifversion fpt or ghec %}ワークフローが {% data variables.product.prodname_registry %} に対して認証されるようにして、{% data variables.product.product_location %} 上の {% data variables.product.prodname_container_registry %} 以外のパッケージ レジストリにアクセスできるようにしたい場合は、{% else %}{% data variables.product.product_name %} 上のパッケージ レジストリに対して認証を行いたい場合は、{% endif %}、認証用の個人用アクセス トークンではなく、{% data variables.product.prodname_actions %} を有効化する際に {% data variables.product.product_name %} でリポジトリに対して自動的に作成される、`GITHUB_TOKEN` を使用することをお勧めします。 ワークフロー ファイルでこのアクセス トークンにアクセス許可を設定して、`contents` スコープに対する読み取りアクセス権と、`packages` スコープに対する書き込みアクセス権を付与する必要があります。 フォークの場合、`GITHUB_TOKEN` には親リポジトリの読み取りアクセス権が付与されます。 詳細については、「[GITHUB_TOKEN を使用した認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+詳細なアクセス許可がサポートされていない {% data variables.product.prodname_registry %} レジストリにアクセスするワークフローが必要な場合{% else %}{% data variables.product.product_name %} のパッケージ レジストリの認証を受けるには、{% endif %}{% data variables.product.prodname_actions %} を有効にするときに、{% data variables.product.product_name %} によってレポジトリに対して自動的に作成される `GITHUB_TOKEN` を使うことをお勧めします。 ワークフロー ファイルでこのアクセス トークンにアクセス許可を設定して、`contents` スコープに対する読み取りアクセス権と、`packages` スコープに対する書き込みアクセス権を付与する必要があります。 フォークの場合、`GITHUB_TOKEN` には親リポジトリの読み取りアクセス権が付与されます。 詳細については、「[GITHUB_TOKEN を使用した認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
 ワークフロー ファイル内の `GITHUB_TOKEN` は、{% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} コンテキストを使って参照できます。 詳細については、「[GITHUB_TOKEN を使用した認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。
 
-## リポジトリが所有するパッケージに対する権限とパッケージアクセスについて
+## アクセス許可とパッケージのアクセスについて
 
-{% note %}
+{% ifversion packages-registries-v2 %}
 
-**注:** RubyGems、{% ifversion packages-npm-v2 %}{% else %}npm、{% endif %}Apache Maven、NuGet、{% ifversion fpt or ghec %}、Gradle{% else %}Gradle、名前空間 `docker.pkg.github.com` を使用する Docker パッケージ{% endif %}などの一部のレジストリでは、レポジトリ所有のパッケージのみが許可されます。 {% data variables.product.prodname_ghcr_and_npm_registry_full %} を使用すると、ユーザーまたは Organization がパッケージを所有できるようにするか、リポジトリにリンクできるようにするかを選択できます。
+### ユーザーまたは Organization にスコープ指定されたパッケージ
 
-{% endnote %}
+詳細なアクセス許可をサポートするレジストリを使うと、ユーザーは Organization レベルで独立したリソースとしてパッケージを作成および管理できます。 Organization または個人アカウントがパッケージを所有でき、それぞれのパッケージへのアクセスはリポジトリ権限とは別にカスタマイズできます。
+
+詳細なアクセス許可をサポートするレジストリにアクセスするすべてのワークフローで、{% data variables.product.pat_generic %} の代わりに `GITHUB_TOKEN` を使う必要があります。 セキュリティのベスト プラクティスについて詳しくは、「[GitHub Actions のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)」を参照してください。
+
+### リポジトリにスコープ指定されたパッケージ
+
+{% endif %}
 
 GitHub Actionsを有効化すると、GitHubはリポジトリにGitHub Appをインストールします。 `GITHUB_TOKEN` シークレットは、GitHub App インストール アクセス トークンです。 このインストールアクセストークンは、リポジトリにインストールされたGitHub Appの代わりに認証を受けるために使うことができます。 このトークンの権限は、ワークフローを含むリポジトリに限定されます。 詳細については、「[GITHUB_TOKEN のアクセス許可](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)」を参照してください。
 
 {% data variables.product.prodname_registry %} を使用すると、{% data variables.product.prodname_actions %} ワークフローで利用できる `GITHUB_TOKEN` を通じてパッケージをプッシュしたりプルしたりできます。
 
-{% ifversion fpt or ghec %}
-## {% data variables.product.prodname_ghcr_and_npm_registry %} の権限とパッケージ アクセスについて
-
-{% data variables.product.prodname_ghcr_and_npm_registry_full %} を使うと、ユーザーは Organization レベルの自立リソースとしてパッケージを作成し、管理できます。 Organization または個人アカウントがパッケージを所有でき、それぞれのパッケージへのアクセスはリポジトリ権限とは別にカスタマイズできます。
-
-{% data variables.product.prodname_ghcr_and_npm_registry %} にアクセスするすべてのワークフローは、個人用アクセス トークンではなく `GITHUB_TOKEN` を使う必要があります。 セキュリティのベスト プラクティスについて詳しくは、「[GitHub Actions のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)」を参照してください。
+{% ifversion packages-registries-v2 %}
 
 ## ワークフローを通じて変更されたコンテナに対するデフォルトの権限及びアクセス設定
 
@@ -469,14 +472,14 @@ docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt or ghec %}
-## PAT を使用してレジストリにアクセスするワークフローのアップグレード
+{% ifversion packages-registries-v2 %}
+## {% data variables.product.pat_generic %} を使ってレジストリにアクセスするワークフローのアップグレード
 
-{% data variables.product.prodname_ghcr_and_npm_registry %} は、ワークフロー内での、簡単でセキュリティで保護された認証のために `GITHUB_TOKEN` をサポートしています。 お使いのワークフローで個人アクセス トークン (PAT) を使用してレジストリの認証を受ける場合、`GITHUB_TOKEN` を使用するようにワークフローを更新することを強くお勧めします。
+{% data variables.product.prodname_registry %} は、ワークフロー内での容易でセキュリティで保護された認証のために `GITHUB_TOKEN` をサポートしています。 詳細なアクセス許可をサポートするレジストリを使っており、お使いのワークフローで {% data variables.product.pat_generic %} を使ってレジストリの認証を受ける場合、`GITHUB_TOKEN` を使うようにワークフローを更新することを強くお勧めします。
 
 `GITHUB_TOKEN` の詳細については「[ワークフローで認証する](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
 
-PAT の代わりに `repo` スコープを含む `GITHUB_TOKEN` を使えば、ワークフローが実行されるリポジトリへの不要なアクセスを提供する長期間有効な PAT を使う必要がなくなるので、リポジトリのセキュリティが向上します。 セキュリティのベスト プラクティスについて詳しくは、「[GitHub Actions のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)」を参照してください。
+{% data variables.product.pat_v1 %} の代わりに `repo` スコープを含む `GITHUB_TOKEN` を使えば、ワークフローが実行されるリポジトリへの不要なアクセスを提供する長期間有効な {% data variables.product.pat_generic %} を使う必要がなくなるので、リポジトリのセキュリティが向上します。 セキュリティのベスト プラクティスについて詳しくは、「[GitHub Actions のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)」を参照してください。
 
 1. パッケージのランディングページにアクセスしてください。
 1. 左側のサイドバーで、 **[アクションのアクセス]** をクリックします。
@@ -489,7 +492,7 @@ PAT の代わりに `repo` スコープを含む `GITHUB_TOKEN` を使えば、�
   {% endnote %}
 1. あるいは"role（ロール）"ドロップダウンメニューを使い、コンテナイメージに対してリポジトリに持たせたいデフォルトのアクセスレベルを選択してください。
   ![リポジトリに付与するアクセス レベル](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. ワークフローファイルを開いてください。 レジストリへのログインの行で、お使いの PAT を {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} に置き換えてください。
+1. ワークフローファイルを開いてください。 レジストリへのログインの行で、お使いの {% data variables.product.pat_generic %} を {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} に置き換えてください。
 
 たとえば、このワークフローでは、Docker イメージを {% data variables.product.prodname_container_registry %} に公開し、{% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} を使って認証します。
 
@@ -529,7 +532,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
-        # This is where you will update the PAT to GITHUB_TOKEN
+        # This is where you will update the {% data variables.product.pat_generic %} to GITHUB_TOKEN
         run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image

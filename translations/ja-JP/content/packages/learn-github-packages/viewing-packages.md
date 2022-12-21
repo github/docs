@@ -14,12 +14,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 75e3d0a69a06274e803fc59affc959b2cb5abee3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4fe01f80ec64f8029b1b2bce1d776da4eddfbd75
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147704996'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192842'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -27,16 +27,15 @@ ms.locfileid: '147704996'
 
 パッケージを見ることができるかどうかは、いくつかの要素に依存します。 デフォルトでは、公開したパッケージはすべて見ることができます。
 
-リポジトリをスコープとするパッケージは、そのパッケージを所有するリポジトリから権限と可視性を継承します。 以下のレジストリでは、この種類のアクセス許可 **のみ** が使用されます。{% ifversion not fpt or ghec %}
-- Docker レジストリ (`docker.pkg.github.com`){% endif %} {% ifversion packages-npm-v2 %}{% else %}- npm レジストリ{% endif %}
-- RubyGemsレジストリ
-- Apache Mavenレジストリ
-- NuGetレジストリ
+{% ifversion packages-registries-v2 %} リポジトリを範囲とするパッケージは、そのパッケージを所有するリポジトリから権限と表示の有無を継承します。 リポジトリを範囲とするアクセス許可 **のみ** をサポートするレジストリもあります。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」を参照してください。
 
-{% ifversion fpt or ghec %} {% data variables.product.prodname_ghcr_and_npm_registry %}では、個人ユーザーまたは組織アカウントが所有する各パッケージごとにカスタマイズできる、細かいアクセス許可と可視性設定のオプションが提供されます。 詳細な権限を利用することも、パッケージをレジストリに接続してその権限を継承することもできます。 詳細については、「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
+その他のレジストリは、個人ユーザーもしくは Organization アカウントが所有する各パッケージごとにカスタマイズできる、詳細な権限および表示の有無の設定のオプションを提供します。 細かなアクセス許可を利用することも、パッケージをリポジトリに接続し、そのリポジトリのアクセス許可を継承することもできます。 詳しくは、「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」と「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。
+
+{% else %}
+
+パッケージは、それがホストされているリポジトリのアクセス許可と表示の有無を継承します。 詳細については、「[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)」 ({% data variables.product.prodname_registry %} へのアクセス許可) を参照してください。
+
 {% endif %}
-
-詳細については、「[GitHub Packages の権限について](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}」および「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}」を参照してください。
 
 {% data reusables.package_registry.package-page-info %}
 

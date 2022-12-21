@@ -1,23 +1,29 @@
-{% data reusables.package_registry.packages-classic-pat-only %}
-
-1. Create a new {% data variables.product.pat_v1 %} with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
+---
+ms.openlocfilehash: 50e7f623d6585c8697d0b1c6c827a855df26c571
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145100394"
+---
+1. 针对要完成的任务，新创具有适当作用域的个人访问令牌 (PAT)。 如果您的组织需要 SSO，则必须为新令牌启用 SSO。
   {% warning %}
 
-  **Note:** By default, when you select the `write:packages` scope for your {% data variables.product.pat_v1 %} in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for {% data variables.product.prodname_actions %} workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your {% data variables.product.pat_v1 %} in the user interface with this url: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
+  注意：默认情况下，在用户界面中为个人访问令牌 (PAT) 选择 `write:packages` 范围时，`repo` 范围也将被选中。 `repo` 范围提供了不必要和广泛的访问权限，我们建议你尤其避免使用 GitHub Actions 工作流。 有关详细信息，请参阅“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。 解决方法是在以下 URL 的用户界面中为 PAT 选择 `write:packages` 范围：`https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`。 
 
   {% endwarning %}
 
-    - Select the `read:packages` scope to download container images and read their metadata.
-    - Select the `write:packages` scope to download and upload container images and read and write their metadata.
-    - Select the `delete:packages` scope to delete container images.
+    - 选择 `read:packages` 范围以下载容器映像并读取其元数据。
+    - 选择 `write:packages` 范围以下载和上传容器映像并读写其元数据。
+    - 选择 `delete:packages` 范围以删除容器映像。
 
-  For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
+  有关详细信息，请参阅“[为命令行创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。
 
-2. Save your {% data variables.product.pat_v1 %}. We recommend saving your token as an environment variable.
+2. 保存您的 PAT。 我们建议将 PAT 保存为环境变量。
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
+3. 使用容器类型的 CLI，登录到 `{% data reusables.package_registry.container-registry-hostname %}` 上的 {% data variables.product.prodname_container_registry %} 服务。
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin

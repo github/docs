@@ -1,0 +1,49 @@
+date: '23-03-2021'
+intro: Les téléchargements ont été désactivés en raison d’un bogue majeur affectant plusieurs clients. Un correctif sera disponible dans la prochaine version corrective.
+sections:
+  security_fixes:
+    - '**ÉLEVÉE : ** Une vulnérabilité d’exécution de code à distance a été identifiée dans GitHub Enterprise Server ; elle pouvait être exploitée lors de la génération d’un site GitHub Pages. Les options de configuration contrôlée par l’utilisateur qui sont utilisées par GitHub Pages n’étaient pas suffisamment restreintes et permettaient de remplacer des variables d’environnement, ce qui entraînait l’exécution de code sur l’instance GitHub Enterprise Server. Pour exploiter cette vulnérabilité, un attaquant devait avoir l’autorisation de créer et générer un site GitHub Pages sur l’instance GitHub Enterprise Server. Cette vulnérabilité affectait toutes les versions de GitHub Enterprise Server antérieures à la version 3.0.3 et a été corrigée dans les versions 3.0.3, 2.22.9 et 2.21.17. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty et s’est vu affecter le numéro CVE-2021-22864.'
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - L’exécution de « ghe-cluster-config-init » pouvait rendre un cluster inutilisable.
+    - La résolution des conflits de fusion dans l’interface utilisateur graphique échouent lorsque des hooks de pré-réception personnalisés sont configurés sur un dépôt.
+    - '« launch-deployer » et « launch-receiver » effectuaient la journalisation au niveau DEBUG et remplissait les journaux avec des informations inutiles.'
+    - Systemd pouvait perdre la trace du PID de HAProxy.
+    - "Quand Actions était configuré pour utiliser le stockage S3, le chargement des journaux pour une action échouait parfois."
+    - L’avertissement mysql-failover s’affichait indéfiniment après un basculement réussi.
+    - "L’exécution de « ghe-cluster-config-init » ne tenait pas entièrement compte du code de sortie des travaux d’arrière-plan, ce qui entraînait une mauvaise gestion des vérifications préalables."
+    - "Lors de l’activation de GitHub Actions, l’initialisation peut échouer silencieusement."
+    - "Quand les alertes de vulnérabilité sont activées, les mises à niveau vers la série 3.0 échouent."
+    - "Les travaux associés à Codespaces étaient mis en file d’attente, ce qui entraîne une accumulation de travaux non traités."
+  changes:
+    - L’utilisation d’un nombre relatif pour « bootstrap_expect » consul et nomad permettait à un cluster de démarrer même si plusieurs nœuds étaient arrêtés.
+    - La rotation des journaux se fera en fonction de leur taille en plus du temps.
+    - Ajout de kafka-lite à la commande « ghe-cluster-status ».
+  known_issues:
+    - "Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant peut créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt."
+    - "Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob se trouvant dans le même dépôt, où le chemin de fichier dépasse 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Quand le mode maintenance est activé, certains services continuent d’être listés en tant que « processus actifs ». Les services identifiés sont censés s’exécuter en mode maintenance. Si vous rencontrez ce problème et que vous avez des doutes, contactez le [support GitHub Enterprise](https://support.github.com/contact)."
+    - Le rendu de Jupyter Notebook dans l’interface utilisateur web peut échouer si le notebook comprend des caractères UTF-8 non-ASCII.
+    - Le rendu de reStructuredText (RST) dans l’interface utilisateur web peut échouer et afficher du texte de balisage RST brut à la place.
+    - "Les anciennes builds de Pages ne sont pas nettoyées, ce qui pourrait entraîner la saturation du disque utilisateur (« /data/user/ »)."
+    - "Lors de la suppression d’une branche après la fusion d’une demande de tirage (pull request), un message d’erreur s’affiche même en cas de réussite de la suppression."
+    - |La rotation des journaux peut ne pas signaler aux services de passer à de nouveaux fichiers journaux, ce qui entraîne la poursuite de l’utilisation des anciens fichiers journaux et l’épuisement éventuel de l’espace disque racine.
+
+Pour remédier à ce problème et/ou le prévenir, exécutez les commandes suivantes dans le [shell d’administration](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), ou contactez le [support GitHub Enterprise](https://support.github.com/) pour obtenir de l’aide :
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - "Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."
+    - Les limites de ressources propres au traitement des hooks de pré-réception peuvent entraîner l’échec de certains d’entre eux.

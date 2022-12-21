@@ -1,5 +1,6 @@
 ---
 title: Creación de una acción de JavaScript
+shortTitle: Create a JavaScript action
 intro: 'En esta guía, aprenderás como desarrollar una acción de JavaScript usando el kit de herramientas de acciones.'
 redirect_from:
   - /articles/creating-a-javascript-action
@@ -15,13 +16,12 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
-shortTitle: JavaScript action
-ms.openlocfilehash: c42dca4205519f6799d7f92b254b75696853b7f9
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 60fd562df55756afd081c395d9cffee89c2c04d6
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145091877'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192749'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -41,11 +41,11 @@ Una vez que completes este proyecto, deberías comprender cómo crear tu propia 
 
 Antes de que comiences, necesitarás descargar Node.js y crear un repositorio público de {% data variables.product.prodname_dotcom %}.
 
-1. Descargue e instale Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, el cual incluye npm.
+1. Descargue e instale Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}16.x{% else %}12.x{% endif %}, el cual incluye npm.
 
-  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %} https://nodejs.org/en/download/{% else %} https://nodejs.org/en/download/releases/{% endif %}
+  {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %} https://nodejs.org/en/download/{% else %} https://nodejs.org/en/download/releases/{% endif %}
 
-1. Crea un repositorio público nuevo en {% data variables.product.product_location %} y llámalo "hello-world-javascript-action". Para más información, vea "[Creación de un repositorio](/articles/creating-a-new-repository)".
+1. Crea un repositorio público nuevo en {% data variables.location.product_location %} y llámalo "hello-world-javascript-action". Para más información, vea "[Creación de un repositorio](/articles/creating-a-new-repository)".
 
 1. Clona tu repositorio en tu computadora. Para más información, vea "[Clonación de un repositorio](/articles/cloning-a-repository)".
 
@@ -77,7 +77,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -145,29 +145,31 @@ En el directorio `hello-world-javascript-action`, cree un archivo `README.md` qu
 - Las variables de entorno que usa la acción.
 - Un ejemplo de cómo usar la acción en un flujo de trabajo.
 
-```markdown{:copy}
+````markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
 ## Inputs
 
-## `who-to-greet`
+### `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-## `time`
+### `time`
 
 The time we greeted you.
 
 ## Example usage
 
+```yaml
 uses: actions/hello-world-javascript-action@v1.1
 with:
   who-to-greet: 'Mona the Octocat'
 ```
+````
 
 ## Confirma, etiqueta y sube tu acción a GitHub
 
@@ -273,3 +275,10 @@ jobs:
 En el repositorio, haga clic en la pestaña **Actions** y seleccione la última ejecución de flujo de trabajo. En **Jobs** o en el gráfico de visualización, haga clic en **A job to say hello**. En el registro, debería ver "Hello Mona the Octocat", o el nombre que haya usado para la entrada `who-to-greet`, y la marca de tiempo.
 
 ![Una captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+
+## Repositorios de plantillas para crear acciones de JavaScript
+
+{% data variables.product.prodname_dotcom %} ofrece repositorios de plantillas para crear acciones de JavaScript y TypeScript. Puedes usar estas plantillas para empezar a crear rápidamente una nueva acción que incluya pruebas, linting y otros procedimientos recomendados.
+
+* [Repositorio de plantilla de `javascript-action`](https://github.com/actions/javascript-action)
+* [Repositorio de plantilla de `typescript-action`](https://github.com/actions/typescript-action)

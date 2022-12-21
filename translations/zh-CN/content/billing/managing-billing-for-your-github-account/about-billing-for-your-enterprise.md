@@ -1,6 +1,6 @@
 ---
-title: About billing for your enterprise
-intro: 'You can view billing information for your enterprise{% ifversion ghec or ghes %} account on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
+title: 关于企业的计费
+intro: '您可以在查看您在 {% data variables.product.prodname_dotcom_the_website %} 上的{% ifversion ghec or ghes %}企业帐户{% endif %}的帐单信息。'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -14,68 +14,69 @@ type: overview
 topics:
   - Enterprise
 shortTitle: Billing for your enterprise
+ms.openlocfilehash: 1b048c16293b7183636bc383ca926c4e5c7f0bd2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573407'
 ---
-
-## About billing for your enterprise
+## 关于企业的计费
 
 {% ifversion ghae %}
 
-{% data reusables.github-ae.about-billing %} Once per day, {% data variables.product.prodname_dotcom %} will count the number of users with a license for your enterprise. {% data variables.product.company_short %} bills you for each licensed user regardless of whether the user logged into {% data variables.product.prodname_ghe_managed %} that day.
+{% data reusables.github-ae.about-billing %} 每天一次，{% data variables.product.prodname_dotcom %} 将计算拥有企业许可证的用户数目。 {% data variables.product.company_short %} 对每个许可的用户计费，而不论用户当天是否登录 {% data variables.product.prodname_ghe_managed %}。
 
-For commercial regions, the price per user per day is $1.2580645161. For 31-day months, the monthly cost for each user is $39. For months with fewer days, the monthly cost is lower. Each billing month begins at a fixed time on the first day of the calendar month.
+对于商业区，每个用户每天的价格是 1.2580645161 美元。 在 31 天的月份中，每个用户的每月费用为 39 美元。 对于天数较少的月份，每月费用较低。 每个计费月份在日历月第一天的固定时间开始。
 
-If you add a licensed user mid-month, that user will only be included in the count for the days they have a license. When you remove a licensed user, that user will remain in the count until the end of that month. Therefore, if you add a user mid-month and later remove the user in the same month, the user will be included in the count from the day the user was added through the end of the month. There is no additional cost if you re-add a user during the same month the user was removed.
+如果月中添加许可用户，则该用户将仅包含在其拥有许可证的天数的计数中。 当您移除授权用户时，该用户将在计数中保留到该月底。 因此，如果在一个月中添加用户然后在该月移除该用户，则用户将从添加之日到月底包含在计数中。 如果您在用户被移除的同一个月内重新添加该用户，不会有额外的费用。
 
-For example, here are the costs for users with licenses on different dates.
+例如，以下是在不同日期具有许可证的用户的费用。
 
-User | License dates | Counted days | Cost
+用户 | 许可日期 | 计入的天数 | Cost
 ---- | ------------ | ------- | -----
-@octocat | January 1 - January 31 | 31 | $39
-@robocat | February 1 - February 28 | 28 | $35.23
-@devtocat  | January 15 - January 31 | 17 | $21.39
-@doctocat | January 1 - January 15 | 31 | $39
-@prodocat | January 7 - January 15 | 25 | $31.45
-@monalisa | January 1 - January 7,<br>January 15 - January 31 | 31 | $39
+@octocat | 1 月 1 日至 1 月 31 日 | 31 | $39
+@robocat | 2 月 1 日至 2 月 28 日 | 28 | $35.23
+@devtocat  | 1 月 15 日至 1 月 31 日 | 17 | $21.39
+@doctocat | 1 月 1 日至 1 月 15 日 | 31 | $39
+@prodocat | 1 月 7 日至 1 月 15 日 | 25 | $31.45
+@monalisa | 1 月 1 日至 1 月 7 日，<br>1 月 15 日至 1 月 31 日 | 31 | $39
 
-{% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
+{% data variables.product.prodname_ghe_managed %} 的每个实例至少 500 个用户。 {% data variables.product.company_short %} 按每个实例至少 500 个用户计费，即使当天拥有许可证的用户少于 500 个也一样。
 
-You can see your current usage in your [Azure account portal](https://portal.azure.com).
+可在 [Azure 帐户门户中](https://portal.azure.com)查看当前使用情况。
 
 {% elsif ghec or ghes %}
 
 {% ifversion ghec %}
 
-When you use an enterprise account on {% data variables.location.product_location %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
+当你在 {% data variables.product.product_location %} 上使用企业帐户时，企业帐户是企业内所有计费的中心点，包括企业拥有的组织。
 
-If you use {% data variables.product.product_name %} with an individual organization and do not yet have an enterprise account, you create an enterprise account and add your organization. For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+如果将 {% data variables.product.product_name %} 用于单个组织，但尚未拥有企业帐户，请创建企业帐户并添加组织。 有关详细信息，请参阅“[创建企业帐户](/admin/overview/creating-an-enterprise-account)”。
 
-{% data variables.product.company_short %} bills monthly for the total number of licensed seats for your enterprise account, as well as any additional services you use with {% data variables.product.prodname_ghe_cloud %}, such as {% data variables.product.prodname_actions %} minutes. If you use a standalone organization on {% data variables.product.product_name %}, you'll be billed at the organization level for all usage. For more information your bill's license seats, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} 每月对你的企业帐户的许可席位总数以及你与 {% data variables.product.prodname_ghe_cloud %} 一起使用的任何其他服务进行计费（如 {% data variables.product.prodname_actions %} 分钟）。 如果在 {% data variables.product.product_name %} 上使用独立组织，则会在组织级别按所有使用量计费。 有关帐单的许可证席位的详细信息，请参阅“[关于每用户定价](/billing/managing-billing-for-your-github-account/about-per-user-pricing)”。
 
 {% elsif ghes %}
 
-Each user on {% data variables.location.product_location %} consumes a seat on your license. {% data variables.product.company_short %} bills monthly for the total number of seats consumed on your license.
+{% data variables.product.product_location %} 上的每个用户都会占用许可证上的一个席位。 {% data variables.product.company_short %} 按月收取许可证上消耗的席位总数的费用。
 
 {% endif %}
 
-{% ifversion ghec %}For {% data variables.product.prodname_ghe_cloud %} customers with an enterprise account, {% data variables.product.company_short %} bills through your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For invoiced customers, each{% elsif ghes %}For invoiced {% data variables.product.prodname_enterprise %} customers, {% data variables.product.company_short %} bills through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each{% endif %} invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information about {% ifversion ghes %}licensing, usage, and invoices{% elsif ghec %}usage and invoices{% endif %}, see the following{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+{% ifversion ghec %}对于拥有企业帐户的 {% data variables.product.prodname_ghe_cloud %} 客户，{% data variables.product.company_short %} 通过 {% data variables.product.prodname_dotcom_the_website %} 上的企业帐户计费。 对于已开票的客户，每个{% elsif ghes %}对于已开票的 {% data variables.product.prodname_enterprise %} 客户，{% data variables.product.company_short %} 通过 {% data variables.product.prodname_dotcom_the_website %} 上的企业帐户计费。 每张{% endif %}发票都包含所有已付费的 {% data variables.product.prodname_dotcom_the_website %} 服务和任何 {% data variables.product.prodname_ghe_server %} 实例的单笔帐单费用。 有关{% ifversion ghes %}许可、使用情况和发票{% elsif ghec %}使用情况和发票{% endif %}的详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的以下内容{% ifversion ghes %}。{% else %}{% endif %}
 
 {%- ifversion ghes %}
-- "[About per-user pricing](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"
-{%- endif %}
-- "[Viewing the subscription and usage for your enterprise account]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
-- "[Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)"
+- “[关于每用户定价](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)”{%- endif %}
+- “[查看企业帐户的订阅和使用情况]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”
+- “[管理企业的发票]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)”
 
-Administrators for your enterprise account on {% data variables.product.prodname_dotcom_the_website %} can access and manage billing for the enterprise. For more information, see "[Roles in an enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}."{% elsif ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+您在 {% data variables.product.prodname_dotcom_the_website %} 上的企业帐户的管理员可以访问和管理企业的帐单。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[企业中的角色]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}."{% elsif ghes %}”。{% endif %}
 
-{% ifversion ghec %}
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %} {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 有关详细信息，请参阅“[将 Azure 订阅连接到企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
 {% endif %}
 
-{% ifversion ghes %}
-{% data reusables.billing.ghes-with-no-enterprise-account %}
-{% endif %}
+{% ifversion ghes %} {% data reusables.billing.ghes-with-no-enterprise-account %} {% endif %}
 
 {% endif %}
-## Further reading
+## 延伸阅读
 
-- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- “[关于企业帐户](/admin/overview/about-enterprise-accounts)”

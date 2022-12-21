@@ -16,12 +16,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Introduction
-ms.openlocfilehash: a141c93378f836eebf5ff33b0ced482409d6e577
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1ad319ead16f10186b330f876ccaa83bc44bdbcd
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147704948'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193026'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
@@ -55,10 +55,8 @@ ms.locfileid: '147704948'
 
 |                    |        |
 |--------------------|--------------------|
-| アクセス許可        | {% ifversion fpt or ghec %}パッケージの権限は、パッケージがホストされているリポジトリから継承したり、{% data variables.product.prodname_ghcr_and_npm_registry %}内のパッケージの場合は特定のユーザーまたは Organization アカウントに対して定義したりできます。 詳しくは、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。 {% else %}それぞれのパッケージは、ホストされているリポジトリの権限を継承します。 <br> <br> たとえば、リポジトリの読み取り権限を持つ人であれば、プロジェクトに依存関係としてパッケージをインストールでき、書き込み権限を持つ人であれば、新しいパッケージバージョンを公開できます。{% endif %} |
+| アクセス許可        | {% ifversion packages-registries-v2 %}パッケージのアクセス許可は、パッケージがホストされているリポジトリから継承することも、特定のユーザーや組織アカウント用に定義することもできます。 一部のレジストリでは、リポジトリから継承されたアクセス許可のみがサポートされます。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」をご覧ください。 パッケージのアクセスについて詳しくは、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」をご覧ください。 {% else %}それぞれのパッケージは、ホストされているリポジトリの権限を継承します。 <br> <br> たとえば、リポジトリの読み取り権限を持つ人であれば、プロジェクトに依存関係としてパッケージをインストールでき、書き込み権限を持つ人であれば、新しいパッケージバージョンを公開できます。{% endif %} |
 | 視程         | {% data reusables.package_registry.public-or-private-packages %} |
-
-詳細については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
 {% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_registry %} の請求について
@@ -102,17 +100,9 @@ ms.locfileid: '147704948'
 
 ## パッケージを管理する
 
-{% ifversion fpt or ghec %}{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} ユーザー インターフェイスまたは REST API を使用して、パッケージを削除できます。 詳しくは、「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package)」および [{% data variables.product.prodname_registry %} API](/rest/reference/packages) に関するページをご覧ください。
+パッケージの削除は、{% data variables.product.product_name %} のユーザー インターフェイス{% ifversion fpt or ghec %} から、もしくは REST API を使って行うことができます。 詳しくは、「[パッケージの削除と復元](/packages/learn-github-packages/deleting-and-restoring-a-package)」と「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」をご覧ください。{% else %} {% endif %} {% data reusables.package_registry.about-graphql-support %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %} {% endif %}
-
-{% ifversion ghes %} {% data variables.product.product_name %} のユーザー インターフェイスでは、非公開あるいはパブリック パッケージを削除できます。 また、repoスコープのパッケージでは、GraphQLを使用してプライベートパッケージのバージョンを削除できます。
-{% endif %}
-
-{% ifversion ghae %} パッケージのバージョンは、{% data variables.product.product_name %} ユーザー インターフェイス内で、または GraphQL API を使って削除できます。
-{% endif %}
-
-GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。
+GraphQL API を使ってプライベート パッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %} の認証に使うのと同じ {% data variables.product.pat_v1 %} を使わなければなりません。
 
 詳しくは、{% ifversion ghes or ghae %}「[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package)」および{% endif %}「[GraphQL での呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」をご覧ください。
 

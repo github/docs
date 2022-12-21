@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786027'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193226'
 ---
 ## 关于 {% data variables.product.prodname_vs %} 中的 {% data variables.product.prodname_copilot %}
 
@@ -37,13 +37,20 @@ ms.locfileid: '147786027'
 如果不想在使用 {% data variables.product.prodname_copilot %} 时使用 {% data variables.product.prodname_vs %} 中的默认键盘快捷方式，可使用每个特定命令的首选键盘快捷方式在键盘编辑器中重新绑定快捷方式。
 
 1. 在 {% data variables.product.prodname_vs %} 工具栏中的“工具”下，单击“选项” 。
+   
    ![{% data variables.product.prodname_vs %} 工具栏中“选项”选项的屏幕截图](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. 在“选项”对话框中的“环境”下，单击“键盘” 。
+   
    ![“选项”对话框中“键盘”选项的屏幕截图](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. 在“显示命令包含:”下，搜索要重新绑定的命令。
+   
    ![“显示命令包含”搜索栏的屏幕截图](/assets/images/help/copilot/vs-show-commands-containing.png)
+
 1. 在“按快捷键”下，键入要分配给命令的快捷键，然后单击“分配”。
-   ![键盘快捷方式分配的屏幕截图](/assets/images/help/copilot/vs-rebind-shortcut.png)
+
+   ![键盘快捷方式分配的屏幕截图](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

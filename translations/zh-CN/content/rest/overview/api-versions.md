@@ -4,12 +4,12 @@ shortTitle: API Versions
 intro: 必须指定在向 REST API 发出请求时要使用的 REST API 版本。
 versions:
   feature: api-date-versioning
-ms.openlocfilehash: c1209120fab4c4cc26962991ad48b76638627db5
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: 6689d8c342930a44c7d243c3872cdc431007eb1c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184391'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192863'
 ---
 ## 关于 API 版本控制
 

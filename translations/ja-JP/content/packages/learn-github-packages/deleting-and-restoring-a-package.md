@@ -13,12 +13,12 @@ versions:
   ghec: '*'
   ghae: '*'
 shortTitle: Delete & restore a package
-ms.openlocfilehash: 4491e7cd25fbec2a19abb06c552ba0e0d3ac7b24
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 57f90bb6dbcda759e90444a40c7deef84d907b9c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147704988'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193074'
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
@@ -40,10 +40,11 @@ ms.locfileid: '147704988'
 
 {% data variables.product.prodname_dotcom %}では、以下の場合にパッケージ全体またはパッケージバージョンを復元できます。
 - 削除後30日以内にパッケージを復元する。
-- 同一のパッケージ名前空間が使用可能であり、新しいパッケージで使用されていない。
+- 同じパッケージ名前空間が現在も使用可能であり、新しいパッケージに使用されていない場合。
 
-{% ifversion fpt or ghec or ghes %}
 ## パッケージAPIのサポート
+
+{% data reusables.package_registry.packages-classic-pat-only %}
 
 {% ifversion fpt or ghec %}
 
@@ -51,34 +52,29 @@ REST APIを使用してパッケージを管理できます。 詳しくは、[{
 
 {% endif %}
 
-リポジトリからアクセス許可とアクセス権を継承するパッケージの場合は、GraphQL を使用して特定のパッケージ バージョンを削除できます。{% data reusables.package_registry.no-graphql-to-delete-packages %} GraphQL のサポートについて詳しくは、「[GraphQL を使用してリポジトリ スコープ パッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」をご覧ください。
-
-{% endif %}
+{% data reusables.package_registry.about-graphql-support %}
 
 ## パッケージの削除や復元に必要な権限
 
-リポジトリからアクセス権限を継承しているパッケージの場合、そのリポジトリに対する管理者権限がある場合はパッケージを削除できます。
+{% ifversion packages-registries-v2 %} 詳細なアクセス許可をサポートするレジストリでは、パッケージをユーザーまたは組織にスコープ指定するか、リポジトリにリンクすることを許可できます。
 
-以下の {% data variables.product.prodname_registry %} レジストリでは、リポジトリ スコープのアクセス許可 **のみ** を使います。
+{% ifversion ghes %}`https://containers.HOSTNAME/OWNER/PACKAGE-NAME`{% else %}`https://ghcr.io/OWNER/PACKAGE-NAME`{% endif %}{% ifversion packages-npm-v2 %} または `https://npm.pkg.github.com/OWNER/PACKAGE-NAME` に保存されたパッケージ{% endif %}に保存されているコンテナー イメージなど、リポジトリとは別の詳細なアクセス許可を持つパッケージを削除するには、パッケージへの管理者アクセス権が必要です。 詳細については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
-  {% ifversion not fpt or ghec %}- `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` の Docker イメージ{% endif %} {% ifversion packages-npm-v2 %}{% else %}- npm{% endif %}
-  - RubyGemsレジストリ
-  - Apache Mavenレジストリ
-  - NuGetレジストリ
+リポジトリからアクセス許可を継承するパッケージの場合、リポジトリに対する管理者アクセス許可があれば、パッケージを削除できます。
 
-{% ifversion packages-npm-v2 %}{% data variables.product.prodname_ghcr_and_npm_registry %}の場合、パッケージのスコープをユーザー、組織に設定、またはリポジトリにリンクすることを許可できます。{% endif %}
+一部のレジストリは、リポジトリがスコープ指定されたパッケージ **のみ** をサポートします。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」をご覧ください。
 
-{% ifversion fpt or ghec %}
+{% else %}
 
-`https://ghcr.io/OWNER/PACKAGE-NAME` または `https://npm.pkg.github.com/OWNER/PACKAGE-NAME` に保存されたコンテナー イメージなど、リポジトリとは別に細かいアクセス許可を持つパッケージを削除する場合は、そのパッケージに対する管理者アクセス権が必要です。 詳細については、「[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)」 ({% data variables.product.prodname_registry %} へのアクセス許可) を参照してください。
+パッケージが発行されるリポジトリに対する管理者アクセス許可がある場合は、パッケージを削除できます。
 
 {% endif %}
 
 ## パッケージのバージョンを削除する
 
-### {% data variables.product.prodname_dotcom %}上でリポジトリのスコープが付いたバージョンを削除する
+### {% data variables.product.prodname_dotcom %} 上の{% ifversion packages-registries-v2 %}リポジトリがスコープ指定された{% endif %}パッケージのバージョンを削除する
 
-リポジトリのスコープが付いたパッケージのバージョンを削除するには、パッケージを所有するリポジトリの管理者権限が必要です。 詳細については、「[必要なアクセス許可](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
+{% ifversion packages-registries-v2 %}リポジトリがスコープ指定された{% endif %}パッケージのバージョンを削除するには、パッケージを所有するリポジトリに対する管理者アクセス許可が必要です。 詳細については、「[必要なアクセス許可](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.package-settings-option %}
 5. 左側の **[バージョンの管理]** をクリックします。
@@ -88,13 +84,11 @@ REST APIを使用してパッケージを管理できます。 詳しくは、[{
   ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
 {% ifversion fpt or ghec or ghes %}
-### GraphQLでリポジトリのスコープが付いたパッケージのバージョンを削除する
+### GraphQL を使用して{% ifversion packages-registries-v2 %}リポジトリがスコープ指定された{% endif %}パッケージのバージョンを削除する
 
-リポジトリから権限とアクセスを継承しているパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。
+{% data reusables.package_registry.about-graphql-support %}{% ifversion fpt or ghec %} 代わりに REST API を使用する方法については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」をご覧ください。{% endif %}
 
-{% data reusables.package_registry.no-graphql-to-delete-packages %}{% ifversion fpt or ghec %} ただし、REST API は使用できます。 詳しくは、[{% data variables.product.prodname_registry %} API](/rest/reference/packages) に関するページをご覧ください。{% endif %}
-
-GraphQL API の `deletePackageVersion` ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo` スコープを持つトークンを使わなければなりません。 トークンについて詳しくは、「[{% data variables.product.prodname_registry %} について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」をご覧ください。
+GraphQL API の `deletePackageVersion` ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo` のスコープとともに {% data variables.product.pat_v1 %} を使う必要があります。 {% data variables.product.pat_v1_plural %} について詳しくは、「[{% data variables.product.prodname_registry %} について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」をご覧ください。
 
 以下の例では、`MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg` の `packageVersionId` を使用して、パッケージ バージョンを削除する方法を示します。
 
@@ -106,7 +100,7 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-{% data variables.product.prodname_registry %} に公開したすべてのプライベート パッケージをバージョン ID と併せて見つけるには、`repository` オブジェクトを通じて `packages` コネクションを使うことができます。 `read:packages` および `repo` のスコープを持つトークンが必要です。 詳細については、[`packages`](/graphql/reference/objects#repository) コネクションまたは [`PackageOwner`](/graphql/reference/interfaces#packageowner) インターフェイスを参照してください。
+{% data variables.product.prodname_registry %} に公開したすべてのプライベート パッケージをバージョン ID と併せて見つけるには、`repository` オブジェクトを通じて `packages` コネクションを使うことができます。 `read:packages` と `repo` スコープを含む {% data variables.product.pat_v1 %} が必要になります。 詳細については、[`packages`](/graphql/reference/objects#repository) コネクションまたは [`PackageOwner`](/graphql/reference/interfaces#packageowner) インターフェイスを参照してください。
 
 `deletePackageVersion` ミューテーションの詳細については、「[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)」を参照してください。
 
