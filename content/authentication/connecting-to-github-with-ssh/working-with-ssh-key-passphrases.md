@@ -40,7 +40,7 @@ If your key already has a passphrase, you will be prompted to enter it before yo
 
 ## Auto-launching `ssh-agent` on Git for Windows
 
-You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
+You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into the `~/.profile` or `~/.bashrc` file found in your `~/git/etc` folder:
 
 ``` bash
 env=~/.ssh/agent.env
