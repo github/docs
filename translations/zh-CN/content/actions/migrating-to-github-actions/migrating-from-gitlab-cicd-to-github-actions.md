@@ -107,8 +107,10 @@ windows_job:
   script:
     - echo Hello, %USERNAME%!
 
-linux_job: tags:
-    - linux script:
+linux_job: 
+  tags:
+    - linux 
+  script:
     - echo "Hello, $USER!"
 ```
 {% endraw %}
