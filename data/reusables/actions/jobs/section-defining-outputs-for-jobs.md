@@ -20,13 +20,13 @@ jobs:
     steps:
       - id: step1{% endraw %}
 {%- ifversion actions-save-state-set-output-envs %}
-        run: echo "test=hello" >> $GITHUB_OUTPUT
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
 {%- else %}
         run: echo "::set-output name=test::hello"
 {%- endif %}{% raw %}
       - id: step2{% endraw %}
 {%- ifversion actions-save-state-set-output-envs %}
-        run: echo "test=world" >> $GITHUB_OUTPUT
+        run: echo "test=world" >> "$GITHUB_OUTPUT"
 {%- else %}
         run: echo "::set-output name=test::world"
 {%- endif %}{% raw %}
@@ -34,6 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - env:
+          OUTPUT1: ${{needs.job1.outputs.output1}}
+          OUTPUT2: ${{needs.job1.outputs.output2}}
+        run: echo "$OUTPUT1 $OUTPUT2"
 ```
 {% endraw %}
