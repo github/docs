@@ -1,5 +1,5 @@
 # The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-#
+#Use `git status` to list all new or modified files that haven't yet been committed.
 # This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
 #
 # For more details, see https://github.com/repo-sync/repo-sync#how-it-works
