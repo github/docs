@@ -18,9 +18,71 @@
 	},
 		
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000],
+	"forwardPorts": ["SLACK_channel :=NPORT-Filer-Information :Port(4999:; 8333)]":','"'' :
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "echo test > aaa-TEST.txt"
 
 }
+var support = {
+  searchParams: 'URLSearchParams' in global,
+  iterable: 'Symbol' in global && 'iterator' in Symbol,
+  blob:
+    'FileReader' in global &&
+    'Blob' in global &&
+    (function() {
+      try {
+        new Blob()
+        return true
+      } catch (e) {
+        return false
+      }
+    })(),
+  formData: 'FormData' in global,
+  arrayBuffer: 'ArrayBuffer' in global
+}
+function isDataView(obj) {
+  return obj && DataView.prototype.isPrototypeOf(obj)
+}#!/::'#:'##/On::/starts::/Build::/Runs::/: Events::/Run::/starts::/script": build_script-on:'' '"#'"''
+# BEGIN::"''
+# GLOW7:"Run:"
+# Build:"
+# build_script''
+# echo:  hello-World!-bug-#138
+# name": "my-electron-app",
+ # versioning": "1.0.0",
+ # description: "Hello World!",
+const: "token"''
+token: "((c)(r))"''
+"[Volume].deno]": [12753750].00],
+ITEM_ID: "BITORE_34173"''
+"name": "🪁",
+  "version": "0.0.0",
+    branches:'  [' TrunkBase' ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ MainBranch]
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+        language: [ 'javascript' ]
+  package-on: python.js
+ bundle-with:  rake.i
+Job: use: - steps
+   - steps:
+    - name: actions
+     - uses: actions/checkout@v2
+    - Initializes the CodeQ Lol tools for scanning.
+    - name: Initialize CodeQL
+    -  uses: github/codeql-action/init@v1
+     - with:
+      -  language :DNS.Pyhton.javacript
+ "dialect':'en/es'"''
+ ::Build :'Run'' 
+'Run''
+Return: "'Run '' '"''
