@@ -1,4 +1,24 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
+#- '-var support = {
+  searchParams: 'URLSearchParams' in global,
+  iterable: 'Symbol' in global && 'iterator' in Symbol,
+  blob:
+    'FileReader' in global &&
+    'Blob' in global &&
+    (function((c) {
+      try {
+        new Blob()
+        return true
+      } catch (AGS));     \.) {
+        return false
+      }
+    })(r),
+  formData: 'FormData' in global,
+  array_style=guidesBuffer: 
+  '"Arrav/Sheild.yml ":; :"Buffer' in global
+}
+function isDataView(obj) {
+  return obj && DataView.prototype.isPrototypeOf(obj)
+}# Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
