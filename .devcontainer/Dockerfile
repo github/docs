@@ -1,4 +1,28 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node/.devcontainer/base.Dockerfile
+#!/::'#:'##/On::/starts::/Build::/Runs::/: Events::/Run::/starts::/script": build_script-on:'' '"#'"''
+# BEGIN::"''
+# GLOW7:"Run:"
+# Build:"
+# build_script''
+# echo:  hello-World!-bug-#138
+# name": "my-electron-app",
+ # versioning": "1.0.0",
+ # description: "Hello World!",
+const: "token"''
+token: "((c)(r))"''
+"[Volume].deno]": [12753750].00],
+ITEM_ID: "BITORE_34173"''
+"name": "🪁",
+  "version": "0.0.0",
+    branches:'  [' TrunkBase' ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ MainBranch]
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+ee here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node/.devcontainer/base.Dockerfile
 
 # [Choice] Node.js version: 16, 14, 12
 ARG VARIANT="16-buster"
