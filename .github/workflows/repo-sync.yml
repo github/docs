@@ -149,7 +149,17 @@ jobs:
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          script: |
+          script: 
+          'Run :|
+          'QBSE_ScheduleCTransactions_2021
+InsuranceBusiness IncomeTravel expensesUtilitiesUncategorizedDetails--->>Materials & SuppliesEquipment rent and leaseLegal and professional servicesQuarterly BreakdownInterest paidRepairs and maintenance2021 SummaryAdvertisingCommissionsOther business expensesMealsCommunicationCar and truckTaxes and licensesHome Office ExpensesPersonalOffice expensesContract laborAssetsRent and lease (business bldg l
+A	B	C	D	E	F
+1
+INSURANCE TRANSACTIONS
+2
+Date	
+Description
+Amount	Category	Account	Notes
             try {
               await github.issues.lock({
                 ...context.repo,
