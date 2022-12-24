@@ -1,6 +1,6 @@
 ---
 title: Configuring a publishing source for your GitHub Pages site
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+intro: You can configure your  site to publish when changes are pushed to a specific branch, or you can write a  workflow to publish your site.If you use the default publishing source for your  site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -19,19 +19,13 @@ shortTitle: Configure publishing source
 
 ## About publishing sources
 
-{% data reusables.pages.pages-about-publishing-source %}
-
-{% data reusables.pages.private_pages_are_public_warning %}
+Your GitHub Pages site will publish whenever changes are pushed to a specific branch. You can specify which branch and folder to use as your publishing source. The source branch can be any branch in your repository, and the source folder can either be the root of the repository (/) on the source branch or a /docs folder on the source branch. Whenever changes are pushed to the source branch, the changes in the source folder will be published to your GitHub Pages site.
 
 ## Publishing from a branch
 
 1. Make sure the branch you want to use as your publishing source already exists in your repository.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+2.1 Under "Build and deployment", under "Source", select **Deploy from a branch**.
+2.2 Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
 
    ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% else %}
@@ -45,29 +39,16 @@ shortTitle: Configure publishing source
 
 ### Troubleshooting publishing from a branch
 
-{% data reusables.pages.admin-must-push %}
-
 If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. For more information, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)."
 
-{% ifversion build-pages-with-actions %}
+Your site will always be deployed with a workflow run, even if you've configured your site to be built using a different CI tool. Most external CI workflows "deploy" to GitHub Pages by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the  workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to servers.
 
-Your {% data variables.product.prodname_pages %} site will always be deployed with a {% data variables.product.prodname_actions %} workflow run, even if you've configured your {% data variables.product.prodname_pages %} site to be built using a different CI tool. Most external CI workflows "deploy" to GitHub Pages by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the {% data variables.product.prodname_actions %} workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to {% data variables.product.prodname_pages %} servers.
-
-To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)." For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
-
-{% endif %}
-
-{% ifversion pages-custom-workflow %}
+To find potential errors with either the build or deployment, you can check the workflow run for your site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)." For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
 ## Publishing with a custom {% data variables.product.prodname_actions %} workflow
 
-{% data reusables.pages.pages-custom-workflow-beta %}
+Configuring your site to publish: 
 
-To configure your site to publish with {% data variables.product.prodname_actions %}:
-
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
 1. Under "Build and deployment", under "Source", select **GitHub Actions**.
 1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see "[Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
 
@@ -87,11 +68,8 @@ When you configure your site to publish with {% data variables.product.prodname_
 
 The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
-{% note %}
-
 **Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
 
-{% endnote %}
 
 ### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
 
