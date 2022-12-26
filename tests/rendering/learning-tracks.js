@@ -65,7 +65,7 @@ describe('navigation banner', () => {
     // This is a `code-security` product learning track and it includes a guide
     // path that belongs to the `repositories` product.
     const $ = await getDOM(
-      '/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository?learn=dependabot_alerts&learnProduct=code-security'
+      '/en/repositories/managing-your-repositories-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository?learn=dependabot_alerts&learnProduct=code-security'
     )
     expect($('[data-testid=learning-track-nav]')).toHaveLength(1)
     const $navLinks = $('[data-testid=learning-track-nav] a')
@@ -97,7 +97,7 @@ describe('navigation banner', () => {
     // This is a `code-security` product learning track and it includes a guide
     // path that belongs to the `repositories` product.
     const $ = await getDOM(
-      '/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository?learn=dependabot_alerts&learnProduct=not_real'
+      '/en/repositories/managing-your-repositories-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository?learn=dependabot_alerts&learnProduct=not_real'
     )
     expect($('[data-testid=learning-track-nav]')).toHaveLength(0)
   })

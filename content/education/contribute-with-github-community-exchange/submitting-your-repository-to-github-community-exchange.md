@@ -18,7 +18,7 @@ There are three types of repository submissions:
 
 Consider what the main purpose of your repository is when choosing the type of submission for your repository.
 
-To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. For more information, see "[Classifying your repository with topics](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. For more information, see "[Classifying your repository with topics](/repositories/managing-your-repositories-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
 
 Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published immediately with the purpose, topics, and offers you've chosen. The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
 

@@ -20,7 +20,7 @@ Typically, when you configure prebuilds for a branch, prebuilds will be availabl
 
 ## Prerequisites 
 
-Prebuilds are created using {% data variables.product.prodname_actions %}. As a result, {% data variables.product.prodname_actions %} must be enabled for the repository for which you are configuring prebuilds. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
+Prebuilds are created using {% data variables.product.prodname_actions %}. As a result, {% data variables.product.prodname_actions %} must be enabled for the repository for which you are configuring prebuilds. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositories-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
 ## Configuring prebuilds
 

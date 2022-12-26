@@ -15,7 +15,7 @@ topics:
 
 To make it easier for people to understand and navigate your work, we recommend that you create a README file for every repository. 
 
-{% data reusables.repositories.about-READMEs %} For more information, see "[About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+{% data reusables.repositories.about-READMEs %} For more information, see "[About READMEs](/repositories/managing-your-repositories-settings-and-features/customizing-your-repository/about-readmes)."
 
 ## Favor branching over forking
 

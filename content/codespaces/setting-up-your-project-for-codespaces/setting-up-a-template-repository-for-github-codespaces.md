@@ -27,7 +27,7 @@ When someone creates a codespace from your template, the contents of your templa
 
 ## Describe your template
 
-If you don't have one, create a README for your template repository to describe the purpose of your template and how to get started with it. For more information, see "[About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+If you don't have one, create a README for your template repository to describe the purpose of your template and how to get started with it. For more information, see "[About READMEs](/repositories/managing-your-repositories-settings-and-features/customizing-your-repository/about-readmes)."
 
 A short description of your template is displayed on the "Create a new codespace" page that users land on when they follow the `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` link. This description is taken from the **Description** field that you can set when you create a repository. You can edit this description at any time by navigating to the repository's page and clicking **{% octicon "gear" aria-label="The Settings gear" %}** next to the **About** section on the right of the page.
 

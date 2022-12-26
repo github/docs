@@ -27,7 +27,7 @@ When you remove a collaborator from a repository in your organization, the colla
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 ## Managing an individual's access to an organization repository
-You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositories-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
 {% else %}
 ## Giving a person access to a repository
 
