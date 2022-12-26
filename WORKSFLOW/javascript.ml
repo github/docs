@@ -1,18 +1,14 @@
-# :##::/:Run::/:scripts::/Script::/:"Runs::/:Run::/:On ::starts-on :-On :"'' '
-:Build::':'"''":,''
-'"-on::
-Runs :":, 
-"BEGIN":,
-"'Run::/:":,
-"Script::/:Build::/:Run::?:scripts::/:Start::/:starts-on :-on ::":,
-GLOW7 ::
-
-1
-
-of 1
-
-Fill & EditForm 1040 (2021) 76033000000 20642000000 18936000000 - Reported Normalized and Operating Income/Expense Supplemental Section - Total Revenue as Reported, Supplemental 2.58E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000 - Total Operating Profit/Loss as Reported, Supplemental 78714000000 21885000000 21031000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000 - Reported Effective Tax Rate 0.16 0.179 0.157 0.158 0.158 0.159 0 - Reported Normalized Income 6836000000 - Reported Normalized Operating Profit 7977000000 - Other Adjustments to Net Income Available to Common Stockholders - Discontinued Operations - Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49 - Basic EPS from Continuing Operations 113.88 31.12 28.44 27.69 26.63 22.46 16.55 10.21 9.96 15.47 - Basic EPS from Discontinued Operations - Diluted EPS 112.2 30.69 27.99 27.26 26.29 22.3 16.4 10.13 9.87 15.35 - Diluted EPS from Continuing Operations 112.2 30.67 27.99 27.26 26.29 22.23 16.4 10.13 9.87 15.33 - Diluted EPS from Discontinued Operations - Basic Weighted Average Shares Outstanding 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 - Diluted Weighted Average Shares Outstanding 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 - Reported Normalized Diluted EPS 9.87 - Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49 - Diluted EPS 112.2 31 28 27 26 22 16 10 10 15 - Basic WASO 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 - Diluted WASO 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 - - - - - - - - - 2017 2018 2019 2020 2021 - - - Best Time to 911 - - - - - - - - INTERNAL REVENUE SERVICE - PO BOX 1214 - CHARLOTTE NC 28201-1214 9999999999 - - 633-44-1725 - ZACHRYTWOOD - AMPITHEATRE PARKWAY - MOUNTAIN VIEW, Califomia 94043 - - - - EIN 61-1767919 - - Earnings FEIN 88-1303491 - End Date - - 44669 - Department of the Treasury Calendar Year Check Date - Internal Revenue Service Due. (04/18/2022) - - -  _______________________________________________________________________________________ 
-'"'$"Obj=:new":, 
+[![Azure - Deploy Preview Environment](https://github.com/zakwarlord7/GitHub-doc/actions/workflows/azure-preview-env-deploy.yml/badge.svg)](https://github.com/zakwarlord7/GitHub-doc/actions/workflows/azure-preview-env-deploy.yml)-'' '# ':'#''#'':'':''/'':''Run''::/:''scripts''::/''Script::/"''Run''
+'-'' 'Runs::/:Run::/:On ::starts-on :-On :"'' '
+'-'' ':Build::':'"''":,''
+'-'' '"-on::
+'-'' 'Runs :":, 
+'-'' '"BEGIN":,
+'-' 'Run::/:":,
+'- '"Script::/:Build::/:Run::?:scripts::/:Start::/:starts-on :-on ::":,
+'-'' ':GLOW7 ::1 of 1 #Fill-&-Edit ::#'Form:: '1040 '(2021) '76033000000 20642000000 18936000000 
+'-'' 'Reported Normalized and Operating Income/Expense Supplemental Section - Total Revenue as Reported, Supplemental 2.58E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000 - Total Operating Profit/Loss as Reported, Supplemental 78714000000 21885000000 21031000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000 - Reported Effective Tax Rate 0.16 0.179 0.157 0.158 0.158 0.159 0 - Reported Normalized Income 6836000000 - Reported Normalized Operating Profit 7977000000 - Other Adjustments to Net Income Available to Common Stockholders - Discontinued Operations - Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49 - Basic EPS from Continuing Operations 113.88 31.12 28.44 27.69 26.63 22.46 16.55 10.21 9.96 15.47 - Basic EPS from Discontinued Operations - Diluted EPS 112.2 30.69 27.99 27.26 26.29 22.3 16.4 10.13 9.87 15.35 - Diluted EPS from Continuing Operations 112.2 30.67 27.99 27.26 26.29 22.23 16.4 10.13 9.87 15.33 - Diluted EPS from Discontinued Operations - Basic Weighted Average Shares Outstanding 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 - Diluted Weighted Average Shares Outstanding 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 - Reported Normalized Diluted EPS 9.87 - Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.96 15.49 - Diluted EPS 112.2 31 28 27 26 22 16 10 10 15 - Basic WASO 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 - Diluted WASO 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 - - - - - - - - - 2017 2018 2019 2020 2021 - - - Best Time to 911 - - - - - - - - INTERNAL REVENUE SERVICE - PO BOX 1214 - CHARLOTTE NC 28201-1214 9999999999 - - 633-44-1725 - ZACHRYTWOOD - AMPITHEATRE PARKWAY - MOUNTAIN VIEW, Califomia 94043 - - - - EIN 61-1767919 - - Earnings FEIN 88-1303491 - End Date - - 44669 - Department of the Treasury Calendar Year Check Date - Internal Revenue Service Due. (04/18/2022) - - -  _______________________________________________________________________________________ 
+'-'' '"'$"Obj=:new":, 
 Search Central
 
 DocumentationSupportBlogWhat's newMore
