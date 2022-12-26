@@ -149,5 +149,5 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
----
+d  DETACH HERE  dForm 4868Department of the Treasury  Internal Revenue Service (99) Application for Automatic Extension of Time  To File U.S. Individual Income Tax Return  , 20  . Part I  Identification1   Your name(s) (see instructions)2   Your social security number3   Spouse's social security numberPart II  Individual Income Tax4 $ 5 6 Balance due. Subtract line 5 from line 4 (see instructions) .......a8 citizen or resident (see instructions) ......a9 Check here if you file Form 1040NR or 1040NR-EZ and income tax withholding ..........a7  Amount you're paying (see instructions)   Check here if you're “out of the country” and a U.S.  For calendar year 2021, or other tax year beginning  , 2021, ending Estimate of total tax liability for 2021 . .Total 2021 payments ......didn't receive wages as an employee subject to U.S. 2021Where To File a Paper Form 4868 :ZACHRY T WOOD5323 BRADFORD DRIVE, 5222DALLAS, TX 633-44-1725 --12119999999999099999999999999999999With Payment                    : Internal Revenue ServiceP.O. Box 1302 Charlotte, NC 28201-1302XX633441725 BH WOOD 30 0 202112 670
 
