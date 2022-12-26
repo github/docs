@@ -324,7 +324,6 @@ For example, a repository could have many new pull requests opened, each with th
 
 This example workflow uses `gh-actions-cache` to delete all the caches created by a branch once a pull request is closed.
 
-{% raw %}
 ```yaml
 name: cleanup caches by a branch
 on:
@@ -344,8 +343,8 @@ jobs:
         run: |
           gh extension install actions/gh-actions-cache
           
-          REPO=${{ github.repository }}
-          BRANCH=${{ github.ref }}
+          REPO={% raw %}${{ github.repository }}{% endraw %}
+          BRANCH={% raw %}${{ github.ref }}{% endraw %}
 
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
@@ -359,9 +358,8 @@ jobs:
           done
           echo "Done"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[Delete GitHub Actions caches for a repository](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
 
