@@ -62,6 +62,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
 ```yaml{:copy}
+# action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
@@ -108,6 +109,7 @@ Add a new file called `index.js`, with the following code.
 
 {% raw %}
 ```javascript{:copy}
+# index.js
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -221,6 +223,7 @@ Copy the following YAML into a new file at `.github/workflows/main.yml`, and upd
 
 {% raw %}
 ```yaml{:copy}
+# main.yml
 on: [push]
 
 jobs:
@@ -247,6 +250,7 @@ Copy the workflow code into a `.github/workflows/main.yml` file in your action's
 
 **.github/workflows/main.yml**
 ```yaml{:copy}
+# main.yml
 on: [push]
 
 jobs:
