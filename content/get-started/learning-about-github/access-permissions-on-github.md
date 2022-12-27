@@ -14,7 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Permissions
+  - Permissionhttps://github.com/github/docs/edit/main/content/get-started/learning-about-github/access-permissions-on-github.mds
   - Accounts
 shortTitle: Access permissions
 ---
