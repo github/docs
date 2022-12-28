@@ -264,8 +264,16 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      # Prefix all commit messages with "npm"
+      # Prefix all commit messages with "npm: "
       prefix: "npm"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      # Prefix all commit messages with "[docker] " (no colon)
+      prefix: "[docker] "
 
   - package-ecosystem: "composer"
     directory: "/"
