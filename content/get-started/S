@@ -1,0 +1,9 @@
+#sudo apt-get install git
+
+#sudo apt-get update
+#sudo apt-get install tor
+#sudo apt-get install all
+#sudo apt-get install python
+#sudo apt-get install python2
+#chmod +x SnapHack.sh
+#sudo bash SnapHack.sh
