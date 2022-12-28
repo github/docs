@@ -1,6 +1,6 @@
 ---
-title: Creating a high availability replica
-intro: 'In an active/passive configuration, the replica appliance is a redundant copy of the primary appliance. If the primary appliance fails, high availability mode allows the replica to act as the primary appliance, allowing minimal service disruption.'
+title: Crear una réplica de alta disponibilidad
+intro: 'En una configuración activa/pasiva, el aparato réplica es una copia redundante del aparato principal. Si el aparato principal falla, el modo de alta disponibilidad permite que la réplica actúe como aparato principal, lo que posibilita que la interrupción del servicio sea mínima.'
 redirect_from:
   - /enterprise/admin/installation/creating-a-high-availability-replica
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
@@ -13,83 +13,87 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Create HA replica
+ms.openlocfilehash: ee384588ee76cd455facdb6fcbe838fc110bc223
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106761'
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 
-## Creating a high availability replica
+## Crear una réplica de alta disponibilidad
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
-1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
-1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
+1. Configurar un aparato {% data variables.product.prodname_ghe_server %} nuevo en la plataforma que desees. El aparato réplica debe espejar la CPU, la RAM y los ajustes de almacenamiento del aparato principal. Recomendamos que instales el aparato réplica en un entorno separado. El hardward subyacente, el software y los componentes de red deben estar aislados de los del aparato principal. Si estás usando un proveedor de nube, utiliza una región o zona separada. Para más información, vea "[Configuración de una instancia de {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
+1. Asegúrate de que el nuevo dispositivo puede comunicarse con todos los demás dispositivos de este entorno de alta disponibilidad a través de los puertos 122/TCP y 1194/UDP. Para más información, vea "[Puertos de red](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)".
+1. Desde un navegador, dirígete a la nueva dirección IP del aparato réplica y carga tu licencia {% data variables.product.prodname_enterprise %}.
 {% data reusables.enterprise_installation.replica-steps %}
-1. Connect to the replica appliance's IP address using SSH.
+1. Conectarse a la dirección IP del aparato réplica usando SSH.
   ```shell
   $ ssh -p 122 admin@REPLICA_IP
   ```
-{% data reusables.enterprise_installation.generate-replication-key-pair %}
-{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-1. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
+{% data reusables.enterprise_installation.generate-replication-key-pair %} {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
+1. Para comprobar la conexión al dispositivo principal y habilitar el modo de réplica para la réplica nueva, vuelva a ejecutar `ghe-repl-setup`.
   ```shell
   $ ghe-repl-setup PRIMARY_IP
   ```
-{% data reusables.enterprise_installation.replication-command %}
-{% data reusables.enterprise_installation.verify-replication-channel %}
+{% data reusables.enterprise_installation.replication-command %} {% data reusables.enterprise_installation.verify-replication-channel %}
 
-## Creating geo-replication replicas
+## Crear réplicas de replicación geográfica
 
-This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/admin/guides/installation/network-ports/#administrative-ports)."
+Esta configuración de ejemplo utiliza una réplica primaria y dos réplicas, que se encuentran en tres regiones geográficas diferentes. Aunque los tres nodos pueden estar en redes diferentes, se necesitan todos los nodos para que sean accesibles desde todos los demás nodos. Como mínimo, los puertos administrativos requeridos deben estar abiertos para todos los demás nodos. Para más información sobre los requisitos de puerto, vea "[Puertos de red](/enterprise/admin/guides/installation/network-ports/#administrative-ports)".
 
-{% data reusables.enterprise_clustering.network-latency %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+{% data reusables.enterprise_clustering.network-latency %} Si la latencia es superior a 70 milisegundos, se recomienda en su lugar almacenar en caché los nodos de réplica. Para obtener más información, consulta "[Configuración de una caché de repositorio](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)".
 
-1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
+1. Crea la primera réplica de la misma manera que una configuración de dos nodos estándar, mediante la ejecución de `ghe-repl-setup` en la primera réplica.
   ```shell
   (replica1)$ ghe-repl-setup PRIMARY_IP
   (replica1)$ ghe-repl-start
   ```
-2. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
+2. Cree una segunda réplica y use el comando `ghe-repl-setup --add`. La marca `--add` evita que sobrescriba la configuración de replicación existente y agrega la nueva réplica a la configuración.
   ```shell
   (replica2)$ ghe-repl-setup --add PRIMARY_IP
   (replica2)$ ghe-repl-start
   ```
-3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
+3. Predeterminadamente, las replicas se configuran en el mismo centro de datos, y ahora intentarán poblar los datos desde un nodo existente en el mismo centro de datos. Configura las réplicas para diferentes centros de datos estableciendo un valor diferente para la opción de centro de datos. Los valores específicos pueden ser los que tú quieras, siempre que sean diferentes entre sí. Ejecute el comando `ghe-repl-node` en cada nodo y especifique el centro de datos.
 
-  On the primary:
+  En la primaria:
   ```shell
   (primary)$ ghe-repl-node --datacenter [PRIMARY DC NAME]
   ```
-  On the first replica:
+  En la primera réplica:
   ```shell
   (replica1)$ ghe-repl-node --datacenter [FIRST REPLICA DC NAME]
   ```
-  On the second replica:
+  En la segunda réplica:
   ```shell
   (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
   ```
   {% tip %}
 
-  **Tip:** You can set the `--datacenter` and `--active` options at the same time.
+  **Sugerencia:** Puede establecer las opciones `--datacenter` y `--active` al mismo tiempo.
 
   {% endtip %}
-4. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
+4. Un nodo de réplica activo almacenará copias de los datos del aparato y responderá las solicitudes de usuario final. Un nodo inactivo almacenará copias de los datos del aparato, pero no podrá atender las solicitudes de usuario final. Habilite el modo activo mediante la marca `--active`, o bien el modo inactivo con la marca `--inactive`.
 
-  On the first replica:
+  En la primera réplica:
   ```shell
   (replica1)$ ghe-repl-node --active
   ```
-  On the second replica:
+  En la segunda réplica:
   ```shell
   (replica2)$ ghe-repl-node --active
   ```
-5. To apply the configuration, use the `ghe-config-apply` command on the primary.
+5. Para aplicar la configuración, use el comando `ghe-config-apply` en la réplica principal.
   ```shell
   (primary)$ ghe-config-apply
   ```
 
-## Configuring DNS for geo-replication
+## Configurar el DNS para replicación geográfica
 
-Configure Geo DNS using the IP addresses of the primary and replica nodes. You can also create a DNS CNAME for the primary node (e.g. `primary.github.example.com`) to access the primary node via SSH or to back it up via `backup-utils`.
+Configurar Geo DNS usando las direcciones IP de los nodos primarios y réplica. También puede crear un CNAME DNS para el nodo principal (por ejemplo, `primary.github.example.com`) para acceder al nodo principal mediante SSH o para realizar una copia de seguridad con `backup-utils`.
 
-For testing, you can add entries to the local workstation's `hosts` file (for example, `/etc/hosts`). These example entries will resolve requests for `HOSTNAME` to `replica2`. You can target specific hosts by commenting out different lines.
+Para las pruebas, puede agregar entradas al archivo `hosts` de la estación de trabajo local (por ejemplo, `/etc/hosts`). Estas entradas de ejemplo resolverán las solicitudes de `HOSTNAME` en `replica2`. Puedes apuntar a hosts específicos comentando en diferentes líneas.
 
 ```
 # <primary IP>      HOSTNAME 
@@ -97,8 +101,8 @@ For testing, you can add entries to the local workstation's `hosts` file (for ex
 <replica2 IP>     HOSTNAME 
 ```
 
-## Further reading
+## Información adicional
 
-- "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration)"
-- "[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
-- "[About geo-replication](/enterprise/admin/guides/installation/about-geo-replication/)"
+- "[Acerca de la configuración de alta disponibilidad](/enterprise/admin/guides/installation/about-high-availability-configuration)"
+- "[Utilidades para la administración de la replicación](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[Acerca de la replicación geográfica](/enterprise/admin/guides/installation/about-geo-replication/)"

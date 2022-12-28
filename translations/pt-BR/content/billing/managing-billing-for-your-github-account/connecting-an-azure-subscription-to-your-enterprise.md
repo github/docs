@@ -1,6 +1,6 @@
 ---
-title: Connecting an Azure subscription to your enterprise
-intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} usage.'
+title: Conectar uma assinatura do Azure à sua empresa
+intro: 'Você pode usar o Contrato Enterprise da Microsoft para habilitar e pagar pelo uso do {% data variables.product.prodname_actions %}, do {% data variables.product.prodname_registry %} e dos {% data variables.product.prodname_github_codespaces %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -8,50 +8,50 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Connect an Azure subscription
+ms.openlocfilehash: a5473ff19e403eb21242982e005663d1c8ac5962
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147110879'
 ---
-## About Azure subscriptions and {% data variables.product.product_name %}
+## Sobre as assinaturas do Azure e {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) e "[Sobre a cobrança do {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)".
 
 {% note %}
 
-**Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond the included amounts, or to use {% data variables.product.prodname_github_codespaces %} at all.
+**Observação:** se sua conta corporativa estiver em um Contrato Enterprise da Microsoft, conectar uma assinatura do Azure é a única maneira de usar {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %} além dos valores incluídos ou usar {% data variables.product.prodname_codespaces %} de alguma forma.
 
 {% endnote %}
 
-After you connect an Azure subscription, you can also manage your spending limits.
+Após conectar a uma assinatura do Azure, você também poderá gerenciar seus limites de gastos.
 
-- "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
-- "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
-- "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
+- "[Gerenciando seu limite de gastos do {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
+- "[Gerenciando seu limite de gastos do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
+- "[Como gerenciar o limite de gastos dos {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
 
-## Connecting your Azure subscription to your enterprise account
+## Conectar a sua assinatura do Azure à sua conta corporativa
 
-To connect your Azure subscription, you must have owner permissions to the subscription.
+Para conectar sua assinatura do Azure, você deve ter permissões de proprietário na assinatura.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Payment Information", click **Add Azure Subscription**.
-1. To sign in to your Microsoft account, follow the prompts.
-1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
-1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %} {% data reusables.enterprise-accounts.payment-information-tab %}
+1. Em "Informações de Pagamento", clique em **Adicionar Assinatura do Azure**.
+1. Para entrar na sua conta da Microsoft, siga as instruções.
+1. Revise a instrução de "Permissões solicitadas". Se você concordar com os termos, clique em **Aceitar**.
+1. Em "Selecione uma assinatura", selecione o ID de Assinatura do Azure que você deseja conectar à sua empresa.
 
    {% note %}
 
-   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
+   **Observação:** a Validação de Permissão de Assinatura do {% data variables.product.company_short %} solicita o acesso somente leitura para exibir a lista de assinaturas disponíveis. Para selecionar uma assinatura do Azure, você deve ter permissões de proprietário na assinatura. Se o inquilino padrão não tiver as permissões corretas, você deverá especificar o ID de um inquilino diferente. Para obter mais informações, confira [Plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) no Microsoft Docs.
 
    {% endnote %}
-1. Click **Connect**.
+1. Clique em **Conectar**.
 
-## Disconnecting your Azure subscription from your enterprise account
+## Desconectar a sua assinatura do Azure da sua conta corporativa
 
-After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
+Após desconectar a sua assinatura Azure da conta corporativa, seu uso não poderá mais exceder os valores incluídos no seu plano.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
-1. Review the prompt, then click **Remove**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %} {% data reusables.enterprise-accounts.payment-information-tab %}
+1. Em "Assinatura do Azure", à direita da ID da assinatura que deseja desconectar, clique em **{% octicon "trash" aria-label="The trash icon" %}** .
+1. Leia o prompt e clique em **Remover**.

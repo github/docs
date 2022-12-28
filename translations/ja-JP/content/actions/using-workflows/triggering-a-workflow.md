@@ -1,7 +1,7 @@
 ---
-title: Triggering a workflow
+title: ワークフローのトリガー
 shortTitle: Trigger a workflow
-intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
+intro: '{% data variables.product.prodname_actions %} ワークフローを自動的にトリガーする方法'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,32 +13,36 @@ topics:
   - CI
   - CD
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cd91670d3d06d4d8f954afa114f6c4f189825d86
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191904'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About workflow triggers
+## ワークフロー トリガーについて
 
 {% data reusables.actions.about-triggers %}
 
-Workflow triggers are defined with the `on` key. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
+ワークフロー トリガーは、`on` キーを使って定義されます。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#on)に関するページを参照してください。
 
-The following steps occur to trigger a workflow run:
+ワークフローの実行がトリガーされるには、以下のステップが生じます。
 
-1. An event occurs on your repository. The event has an associated commit SHA and Git ref.
-1. {% data variables.product.product_name %} searches the `.github/workflows` directory in your repository for workflow files that are present in the associated commit SHA or Git ref of the event.
-1. A workflow run is triggered for any workflows that have `on:` values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.
+1. リポジトリでイベントが発生します。 イベントには、コミット SHA と Git ref が関連付けられています。
+1. {% data variables.product.product_name %} により、リポジトリ内の `.github/workflows` ディレクトリで、イベントに関連付けらたコミット SHA または Git ref に存在するワークフロー ファイルが検索されます。
+1. トリガーするイベントと一致する `on:` 値を持つすべてのワークフローに対して、ワークフロー実行がトリガーされます。 一部のイベントでは、実行のために、リポジトリの既定のブランチにワークフロー ファイルが存在している必要もあります。
 
-  Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+  各ワークフロー実行では、そのイベントに関連付けられたコミット SHA または Git ref に存在するワークフローのバージョンが使用されます。 ワークフローが実行されると、{% data variables.product.product_name %} によってランナー環境の `GITHUB_SHA` (コミット SHA) と `GITHUB_REF` (Git ref) の環境変数が設定されます。 詳細については、[環境変数の使用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)に関する記事を参照してください。
 
-### Triggering a workflow from a workflow
+### ワークフローからワークフローをトリガーする
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% data reusables.actions.actions-do-not-trigger-workflows %} 詳細については、[GITHUB_TOKEN を使用した認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)に関する記事を参照してください。
 
-If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token. You'll need to create a {% data variables.product.pat_generic %} and store it as a secret. To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a {% data variables.product.pat_generic %} as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+ワークフロー実行内からワークフローをトリガーする必要がある場合は、`GITHUB_TOKEN` の代わりに {% data variables.product.pat_generic %} を使用して、トークンを必要とするイベントをトリガーできます。 {% data variables.product.pat_generic %} を作成し、シークレットとして格納する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 {% data variables.product.pat_generic %}の作成について詳しくは、「[{% data variables.product.pat_generic %}の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」をご覧ください。 {% data variables.product.pat_generic %} をシークレットとして格納する方法について詳しくは、[暗号化されたシークレットの作成と格納](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)に関する記事を参照してください。
 
-For example, the following workflow uses a {% data variables.product.pat_generic %} (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
+たとえば、次のワークフローでは、(`MY_TOKEN` というシークレットとして格納された) {% data variables.product.pat_generic %} を使い、{% data variables.product.prodname_cli %} を介してイシューにラベルを追加します。 ラベルの追加時に実行されるすべてのワークフローは、このステップが実行されると実行されます。
 
 ```yaml
 on:
@@ -57,7 +61,7 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
+逆に、次のワークフローでは、イシューにラベルを追加するために `GITHUB_TOKEN` が使用されます。 ラベルの追加時に実行されるワークフローはトリガーされません。
 
 ```yaml
 on:
@@ -76,68 +80,68 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-## Using events to trigger workflows
+## イベントを使ってワークフローをトリガーする
 
-Use the `on` key to specify what events trigger your workflow. For more information about events you can use, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+`on` キーを使って、ワークフローをトリガーするイベントを指定します。 使用できるイベントについて詳しくは、「[ワークフローをトリガーするイベント](/actions/using-workflows/events-that-trigger-workflows)」を参照してください。
 
-### Using a single event
+### 単一のイベントを使用する
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### 複数のイベントを使用する
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types and filters with multiple events
+### アクティビティの種類とフィルターを複数のイベントと共に使用する
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
+アクティビティの種類とフィルターを使って、ワークフローを実行するタイミングをさらに細かく制御できます。 詳細については、「[イベント アクティビティの種類を使用する](#using-event-activity-types)」と「[フィルターを使用する](#using-filters)」を参照してください。 {% data reusables.actions.actions-multiple-types %}
 
-## Using event activity types
+## イベント アクティビティの種類を使用する
 
 {% data reusables.actions.actions-activity-types %}
 
-## Using filters
+## フィルターを使用する
 
 {% data reusables.actions.actions-filters %}
 
-### Using filters to target specific branches for pull request events
+### フィルターを使用して pull request イベントに対して特定のブランチをターゲットにする
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-### Using filters to target specific branches or tags for push events
+### フィルターを使用してプッシュ イベントに対して特定のブランチまたはタグをターゲットにする
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-### Using filters to target specific paths for pull request or push events
+### フィルターを使用して pull request またはプッシュ イベントに対して特定のパスをターゲットにする
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-### Using filters to target specific branches for workflow run events
+### フィルターを使用してワークフロー実行イベントに対して特定のブランチをターゲットにする
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## Defining inputs for manually triggered workflows
+## 手動でトリガーされるワークフローの入力を定義する
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Defining inputs, outputs, and secrets for reusable workflows
+## 再利用可能なワークフローの入力、出力、シークレットを定義する
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+再利用可能なワークフローが呼び出し元のワークフローから受け取る入力とシークレットを定義できます。 また、再利用可能なワークフローが呼び出し元のワークフローで使用できるようにする出力を指定することもできます。 詳細については、「[ワークフローの再利用](/actions/using-workflows/reusing-workflows)」を参照してください。
 
 {% endif %}
 
-## Using event information
+## イベント情報を使用する
 
-Information about the event that triggered a workflow run is available in the `github.event` context. The properties in the `github.event` context depend on the type of event that triggered the workflow. For example, a workflow triggered when an issue is labeled would have information about the issue and label.
+ワークフロー実行をトリガーしたイベントに関する情報は、`github.event` コンテキストで使用できます。 `github.event` コンテキストのプロパティは、ワークフローをトリガーしたイベントの種類によって異なります。 たとえば、イシューがラベル付けされたときにトリガーされるワークフローでは、そのイシューとラベルに関する情報が含まれます。
 
-### Viewing all properties of an event
+### イベントのすべてのプロパティを表示する
 
-Reference the webhook event documentation for common properties and example payloads. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+一般的なプロパティとペイロードの例については、webhook イベントのドキュメントを参照してください。 詳細については、「[webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)」を参照してください。
 
-You can also print the entire `github.event` context to see what properties are available for the event that triggered your workflow:
+また、`github.event` コンテキスト全体を出力して、ワークフローをトリガーしたイベントで使用できるプロパティを確認することもできます。
 
 ```yaml
 jobs:
@@ -150,9 +154,9 @@ jobs:
           echo $EVENT_CONTEXT
 ```
 
-### Accessing and using event properties
+### イベント プロパティへのアクセスと使用
 
-You can use the `github.event` context in your workflow. For example, the following workflow runs when a pull request that changes `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**` is opened. If the pull request author (`github.event.pull_request.user.login`) is not `octobot` or `dependabot[bot]`, then the workflow uses the {% data variables.product.prodname_cli %} to label and comment on the pull request (`github.event.pull_request.number`).
+ワークフローで `github.event` コンテキストを使用できます。 たとえば、次のワークフローは、`package*.json`、`.github/CODEOWNERS`、または `.github/workflows/**` を変更する pull request が開かれると実行されます。 pull request の作成者 (`github.event.pull_request.user.login`) が `octobot` でも `dependabot[bot]` でもない場合、ワークフローでは {% data variables.product.prodname_cli %} を使用して pull request へのラベル付けとコメントを行います (`github.event.pull_request.number`)。
 
 ```yaml
 on:
@@ -180,19 +184,19 @@ jobs:
           gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. We do not allow contributions to these files. Please review our [contributing guidelines](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) for what contributions are accepted.'
 ```
 
-For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)." For more information about event payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+コンテキストの詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。 イベント ペイロードについて詳しくは、「[webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)」を参照してください。
 
-## Further controlling how your workflow will run
+## ワークフローの実行方法をさらに細かく制御する
 
-If you want more granular control than events, event activity types, or event filters provide, you can use conditionals and environments to control whether individual jobs or steps in your workflow will run.
+イベント、イベント アクティビティの種類、またはイベント フィルターによる制御よりもさらに細かい制御が必要な場合は、条件と環境を使って、ワークフロー内の個々のジョブまたはステップを実行するかどうかを制御できます。
 
-### Using conditionals
+### 条件の使用
 
-You can use conditionals to further control whether jobs or steps in your workflow will run.
+条件を使って、ワークフロー内のジョブまたはステップを実行するかどうかをさらに細かく制御できます。
 
-#### Example using a value in the event payload
+#### イベント ペイロードの値を使用する例
 
-For example, if you want the workflow to run when a specific label is added to an issue, you can trigger on the `issues labeled` event activity type and use a conditional to check what label triggered the workflow. The following workflow will run when any label is added to an issue in the workflow's repository, but the `run_if_label_matches` job will only execute if the label is named `bug`.
+たとえば、イシューに特定のラベルが追加されたときにワークフローを実行したい場合は、`issues labeled` イベント アクティビティの種類に対してトリガーし、条件を使ってワークフローをトリガーしたラベルをチェックすることができます。 次のワークフローは、ワークフローのリポジトリ内のイシューに任意のラベルが追加されたときに実行されますが、`run_if_label_matches` ジョブが実行されるのはラベルの名前が `bug` である場合のみです。
 
 ```yaml
 on:
@@ -208,9 +212,9 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-#### Example using event type
+#### イベントの種類を使用する例
 
-For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+たとえば、ワークフローをトリガーしたイベントに応じて異なるジョブまたはステップを実行したい場合は、条件を使って、イベント コンテキストに特定のイベントの種類が存在するかどうかをチェックできます。 次のワークフローは、イシューまたは pull request がクローズされるたびに実行されます。 イシューがクローズされたためにワークフローが実行された場合、`github.event` コンテキストには `issue` の値が含まれますが、`pull_request` の値は含まれません。 したがって、`if_issue` ステップは実行されますが、`if_pr` ステップは実行されません。 逆に、pull request がクローズされたためにワークフローが実行された場合、`if_pr` ステップは実行されますが、`if_issue` ステップは実行されません。
 
 ```yaml
 on:
@@ -235,13 +239,13 @@ jobs:
         echo A pull request was closed
 ```
 
-For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
+イベント コンテキストで使用できる情報について詳しくは、「[イベント情報を使用する](#using-event-information)」を参照してください。 条件を使用する方法について詳しくは、「[式](/actions/learn-github-actions/expressions)」を参照してください。
 
-### Using environments to manually trigger workflow jobs
+### 環境を使用してワークフロー ジョブを手動でトリガーする
 
-If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
+ワークフロー内の特定のジョブを手動でトリガーしたい場合は、特定のチームまたはユーザーからの承認を必要とする環境を使用できます。 まず、必要なレビュー担当者を使用して環境を構成します。 詳細については、「[デプロイに環境を使用する](/actions/deployment/targeting-different-environments/using-environments-for-deployment)」を参照してください。 次に、`environment:` キーを使って、ワークフロー内のジョブで環境名を参照します。 環境を参照するジョブは、少なくとも 1 人のレビュー担当者がそのジョブを承認するまで実行されません。
 
-For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
+たとえば、次のワークフローは、main へのプッシュが発生するたびに実行されます。 `build` ジョブは常に実行されます。 `publish` ジョブは、`build` ジョブが正常に完了し (`needs: [build]` による)、`production` という環境のすべてのルール (必要なレビュー担当者を含む) に合格した (`environment: production` による) ときに初めて実行されます。
 
 ```yaml
 on:
@@ -271,6 +275,6 @@ jobs:
 
 {% endnote %}
 
-## Available events
+## 使用できるイベント
 
-For a full list of available events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+使用可能なイベントの完全な一覧については、「[ワークフローをトリガーするイベント](/actions/using-workflows/events-that-trigger-workflows)」を参照してください。

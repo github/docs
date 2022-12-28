@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting required status checks
-intro: You can check for common errors and resolve issues with required status checks.
+title: 必須ステータスチェックのトラブルシューティング
+intro: ステータスチェック必須を使用して、一般的なエラーを調べ、問題を解決できます。
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
@@ -13,18 +13,24 @@ redirect_from:
   - /github/administering-a-repository/troubleshooting-required-status-checks
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
 shortTitle: Required status checks
+ms.openlocfilehash: 6e99f8ebf0275d065c640bb7b4c7b60462f51ec0
+ms.sourcegitcommit: 84a9475bf99a37021746349a51ce814516928516
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135807'
 ---
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
+同じ名前のチェックとステータスがあり、その名前をステータスチェック必須とするようにした場合、チェックとステータスはどちらも必須になります。 詳細については、「[チェック](/rest/reference/checks)」を参照してください。
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+ステータスチェック必須を有効にした後、マージする前にブランチをベースブランチに対して最新にする必要がある場合があります。 これによって、ブランチがベースブランチからの最新のコードでテストされたことが保証されます。 ブランチが古い場合、ベースブランチをブランチにマージする必要があります。 詳細については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)」を参照してください。
 
 {% note %}
 
-**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)."
+**注:** Git リベースを使用してブランチをベース ブランチと同じ最新状態にすることもできます。 詳細については、「[Git リベースについて](/github/getting-started-with-github/about-git-rebase)」を参照してください。
 
 {% endnote %}
 
-You won't be able to push local changes to a protected branch until all required status checks pass. Instead, you'll receive an error message similar to the following.
+必須ステータスチェックにすべてパスするまでは、ローカルでの変更を保護されたブランチにプッシュすることはできません。 その代わりに、以下のようなエラー メッセージが返されます。
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
@@ -32,29 +38,29 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
+**注:** 必須状態チェックに合格した最新の pull request は、ローカルでマージされた後で、保護されたブランチにプッシュできます。 これはマージコミット自体でステータスチェックを実行せずに行えます。
 
 {% endnote %}
 
-## Conflicts between head commit and test merge commit
+## head コミットとテスト マージ コミットの間の競合
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、そのテストマージコミットは必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テスト マージ コミットの詳細については、「[プル](/rest/reference/pulls#get-a-pull-request)」を参照してください。
 
-![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
+![マージコミットが競合しているブランチ](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 
-## Handling skipped but required checks
+## スキップされた必須チェックの処理
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**注:** [パスのフィルター処理](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)、[ブランチのフィルター処理](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore)、または [コミット メッセージ](/actions/managing-workflow-runs/skipping-workflow-runs)のためにワークフローがスキップされた場合、そのワークフローに関連付けられているチェックは "保留中" 状態のままになります。 これらのチェックを成功させる必要がある pull request は、マージが禁止されます。
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+ワークフロー内のジョブが条件付きでスキップされた場合、状態は "成功" として報告されます。 詳細については、「[ワークフロー実行をスキップする](/actions/managing-workflow-runs/skipping-workflow-runs)」および「[条件を使用してジョブの実行を制御する](/actions/using-jobs/using-conditions-to-control-job-execution)」を参照してください。
 
 {% endnote %}
 
-### Example
+### 例
 
-The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
+次の例で示すのは、`build` ジョブの完了状態が "成功" であることが必要なワークフローです。ただし、pull request が `scripts` ディレクトリのどのファイルも変更しないと、このワークフローはスキップされます。
 
 ```yaml
 name: ci
@@ -80,11 +86,11 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. You would see the following status on the pull request:
+[パスのフィルター処理](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)のために、リポジトリのルートのファイルのみを変更する pull request は、このワークフローをトリガーせず、マージがブロックされます。 この pull request では次の状態が表示されます。
 
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+![必須チェックがスキップされたが保留中として表示](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
+これを修正するには、同じ名前の汎用ワークフローを作成して、次のワークフローのようにどのケースでも true を返すようにします。
 
 ```yaml
 name: ci
@@ -99,19 +105,22 @@ jobs:
     steps:
       - run: 'echo "No build required"'
 ```
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
+これで、誰かが送った pull request が最初のワークフローの `paths` 内のファイルを変更しないときも常にチェックに合格します。
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
+![チェックがスキップされたが汎用ワークフローによって合格](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
-**Notes:**
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+**注:**
+* 両方のワークフロー ファイルの `name` キーと必須ジョブ名を同じにしてください。 詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions)」を参照してください。
+* 上記の例では {% data variables.product.prodname_actions %} が使用されていますが、この対処方法は、{% data variables.product.company_short %} と統合されている他の CI/CD プロバイダーにも適用できます。
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+## 予期しないソースからの必要な状態チェック
+
+保護されたブランチで、特定の {% data variables.product.prodname_github_app %} の状態チェックを必須にすることもできます。 次のようなメッセージが表示された場合は、マージ ボックスに一覧表示されているチェックが、想定されるアプリによって設定されたことを確認する必要があります。
 
 ```
 Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.

@@ -14,12 +14,12 @@ topics:
   - Security
   - SSO
   - Troubleshooting
-ms.openlocfilehash: 806db249c8ad083965136005843d30fd1a3f5015
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7b8c42a1012e91268f4315d99934a4f38c52a529
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147093161'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107531'
 ---
 ## 用户名冲突
 
@@ -32,6 +32,7 @@ ms.locfileid: '147093161'
 
 - [将 SAML 配置从组织切换到企业帐户](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)
 - [从 SAML 迁移到 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)
+- “[将企业迁移到新的标识提供者或租户](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant)”
 
 ## 当 SSO 不可用时访问企业
 

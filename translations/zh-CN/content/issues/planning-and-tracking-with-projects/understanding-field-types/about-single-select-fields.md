@@ -7,13 +7,13 @@ versions:
   feature: projects-v2
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 1dfb11e43de04bd55f544a9fb97a0a9346a22d96
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108165'
+ms.locfileid: "148108165"
 ---
 可以通过指定选项按单选字段进行筛选，例如：`fieldname:option`。 可以通过提供以逗号分隔的选项列表来筛选多个值，例如：`fieldname:option,option`。 有关详细信息，请参阅“[筛选项目](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)”。
 

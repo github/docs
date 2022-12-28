@@ -1,5 +1,4 @@
 import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
-import { liquid } from '../../lib/render-content/index.js'
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, categorie, and map topic TOCs that don't have other layouts specified.
@@ -60,7 +59,6 @@ export default async function genericToc(req, res, next) {
   if (currentTocType === 'flat' && !isOneOffProductToc) {
     isRecursive = false
     renderIntros = true
-    req.context.genericTocFlat = []
     req.context.genericTocFlat = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
       renderIntros,
@@ -93,16 +91,14 @@ async function getTocItems(node, context, opts) {
   return await Promise.all(
     node.childPages.filter(filterHidden).map(async (child) => {
       const { page } = child
-      const title = page.rawTitle.includes('{')
-        ? await liquid.parseAndRender(page.rawTitle, context)
-        : page.rawTitle
+      const title = await page.renderProp('rawTitle', context, { textOnly: true })
       let intro = null
       if (opts.renderIntros) {
         intro = ''
         if (page.rawIntro) {
-          intro = page.rawIntro.includes('{')
-            ? await liquid.parseAndRender(page.rawIntro, context)
-            : page.rawIntro
+          // The intro can contain Markdown even though it might not
+          // contain any Liquid.
+          intro = await page.renderProp('rawIntro', context)
         }
       }
 

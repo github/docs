@@ -1,9 +1,10 @@
 ---
 title: コンパイル済み言語の CodeQL ワークフローを構成する
 shortTitle: Configure compiled languages
-intro: '{% data variables.product.prodname_dotcom %} が {% data variables.product.prodname_codeql_workflow %} を使用してコンパイル型言語で記述されたコードの脆弱性やエラーをスキャンする方法を設定できます。'
+intro: '{% data variables.product.prodname_dotcom %} による {% data variables.code-scanning.codeql_workflow %}の使用方法を構成すると、コンパイル型言語で脆弱性とエラーが記述されているコードをスキャンできます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,25 +26,26 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 3be843fdc441e925569208defdd8412851609cef
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111538'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182267'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## {% data variables.product.prodname_codeql_workflow %} とコンパイル型言語について
+## {% data variables.code-scanning.codeql_workflow %}とコンパイル型言語について
 
-{% data variables.product.prodname_dotcom %} がリポジトリに対して {% data variables.product.prodname_code_scanning %} を実行できるようにするには、{% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} の場合、{% data variables.product.prodname_codeql_workflow %}. を追加します。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
+{% data variables.product.prodname_dotcom %} がリポジトリに対して {% data variables.product.prodname_code_scanning %} を実行できるようにするには、{% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} では、{% data variables.code-scanning.codeql_workflow %}を追加できます。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
 
 {% data reusables.code-scanning.edit-workflow %} {% data variables.product.prodname_code_scanning %} の構成とワークフロー ファイルの編集に関する一般的な情報については、「[{% data variables.product.prodname_code_scanning %} を構成する](/code-security/secure-coding/configuring-code-scanning)」および「[{% data variables.product.prodname_actions %} について学ぶ](/actions/learn-github-actions)」をご覧ください。
 
 ##  {% data variables.product.prodname_codeql %} の autobuild について
 
 {% data variables.product.prodname_code_scanning_capc %} は、1 つ以上のデータベースに対してクエリを実行することにより機能します。 各データベースには、リポジトリにあるすべてのコードを 1 つの言語で表わしたものが含まれています。   
-コンパイル型言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
+コンパイル型言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}{% ifversion codeql-kotlin-beta %}Kotlin、{% endif %}Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -89,6 +91,8 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 `autobuild` が最上位ディレクトリから同じ (最短) 深度で複数のソリューションまたはプロジェクト ファイルを検出した場合、それらすべてのビルドが試みられます。
 3. ビルド スクリプトのように見えるスクリプト、つまり _build_ と _build.sh_ (Linux の場合、この順序で) または _build.bat_、_build.cmd_、_and build.exe_ (Windows の場合、この順序で) を呼び出します。
 
+{% ifversion codeql-go-autobuild %}
+
 ### Go
 
 | サポートされているシステムの種類 | システム名 |
@@ -103,7 +107,9 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 3. 最後に、これらの依存関係マネージャーの構成ファイルが見つからない場合は、`GOPATH` に追加するのに適したリポジトリ ディレクトリ構造に調整し直し、`go get` を使って依存関係をインストールします。 抽出が完了すると、ディレクトリ構造は通常に戻ります。
 4. `go build ./...` を実行するのと同じようにして、リポジトリ内のすべての Go コードを抽出します。
 
-### Java
+{% endif %}
+
+### Java {% ifversion codeql-kotlin-beta %}と Kotlin{% endif %}
 
 | サポートされているシステムの種類 | システム名 |
 |----|----|

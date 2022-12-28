@@ -13,12 +13,12 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
-ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: aee951e6f57492240b5baf8870578409945aefdc
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147432020'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185198'
 ---
 ## Acerca de las notas de lanzamiento generadas automáticamente
 
@@ -67,7 +67,9 @@ También puedes personalizar tus notas de lanzamiento automatizadas, utilizando 
 | `changelog.categories[*].exclude.labels` | Una lista de etiquetas que excluye una solicitud de cambio para que no aparezca en esta categoría. |
 | `changelog.categories[*].exclude.authors` | Una lista de manejos de inicio de sesión de usuarios o bots cuyas solicitudes de cambio deben excluirse de esta categoría. |
 
-### Ejemplo de configuración
+### Configuraciones de ejemplo
+
+Configuración de un repositorio que etiqueta las versiones de semver
 
 {% raw %}
 ```yaml{:copy}
@@ -91,6 +93,26 @@ changelog:
     - title: Other Changes
       labels:
         - "*"
+```
+{% endraw %}
+
+Configuración de un repositorio que no etiqueta las solicitudes de incorporación de cambios, pero donde queremos separar solicitudes de incorporación de cambios automatizadas de {% data variables.product.prodname_dependabot %} en las notas la versión (`labels: '*'` es necesario para mostrar una categoría catchall)
+
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
 ```
 {% endraw %}
 

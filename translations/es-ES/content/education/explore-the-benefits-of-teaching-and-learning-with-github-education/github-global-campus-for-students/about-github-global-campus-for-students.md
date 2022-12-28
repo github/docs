@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 9012b473399905e60b04a8876a3d4e6afd10a6ba
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110011'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193141'
 ---
 Usar {% data variables.product.prodname_dotcom %} para tus proyectos escolares es un modo práctico de colaborar con otros y crear un portfolio que exhiba experiencia práctica.
 
@@ -38,6 +38,16 @@ Una vez que se seas un alumno verificado del {% data variables.product.prodname_
 - Consultar las asignaciones del [Aula de GitHub](https://classroom.github.com/) con las próximas fechas de vencimiento.
 - Mantenerte al corriente de lo que interesa a la comunidad con los episodios recientes de [Campus TV](https://www.twitch.tv/githubeducation). Campus TV está creado por {% data variables.product.prodname_dotcom %} y por los líderes de la comunidad de alumnos y se puede ver en vivo o a petición.
 - Descubrir los repositorios creados por alumnos desde GitHub Community Exchange. Para obtener más información, consulta «[Acerca de GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)».
+
+Los alumnos de {% data variables.product.prodname_global_campus %} también reciben las siguientes ventajas de {% data variables.product.prodname_dotcom %}.
+- **{% data variables.product.prodname_copilot %}** : Los alumnos verificados reciben una suscripción gratuita de {% data variables.product.prodname_copilot %}. Recibirás una notificación automática sobre la suscripción gratuita cuando visites la página de suscripción de {% data variables.product.prodname_copilot %} en la configuración de la cuenta. Para obtener más información sobre la suscripción a {% data variables.product.prodname_copilot %} y su uso, consulta "[Administración de la suscripción de {% data variables.product.prodname_copilot_for_individuals %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)" y "[Acerca de {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)".
+- **{% data variables.product.prodname_github_codespaces %}** : {% data reusables.education.student-codespaces-benefit %} Para obtener más información sobre cómo empezar a trabajar con {% data variables.product.prodname_github_codespaces %}, consulta "[Introducción a {% data variables.product.prodname_github_codespaces %}](/codespaces/overview)".
+
+{% note %}
+
+**Nota:** {% data reusables.education.note-on-student-codespaces-usage %} Para obtener más información, consulta "[Uso de {% data variables.product.prodname_github_codespaces %} con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)".
+
+{% endnote %}
 
 ## Información adicional
 

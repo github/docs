@@ -15,9 +15,9 @@ topics:
   - Repositories
   - CVEs
 children:
-  - /about-coordinated-disclosure-of-security-vulnerabilities
   - /about-repository-security-advisories
   - /permission-levels-for-repository-security-advisories
+  - /configuring-private-vulnerability-reporting-for-a-repository
   - /creating-a-repository-security-advisory
   - /editing-a-repository-security-advisory
   - /collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability

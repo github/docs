@@ -1,7 +1,7 @@
 ---
-title: Managing team memberships with identity provider groups
+title: Administrar membrecías de equipo con grupos de proveedor de identidad
 shortTitle: Manage teams with your IdP
-intro: 'You can manage team membership on {% data variables.product.product_name %} through your identity provider (IdP) by connecting IdP groups with your {% data variables.enterprise.prodname_emu_enterprise %}.'
+intro: 'Puedes administrar la pertenencia de equipos y organización en {% data variables.product.product_name %} mediante tu proveedor de identidad (IdP) si conectas grupos de IdP con equipos en tu {% data variables.enterprise.prodname_emu_enterprise %}.'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
@@ -16,67 +16,74 @@ topics:
   - Enterprise
   - SSO
   - Teams
+ms.openlocfilehash: 179835d6642cd5718a565869337b5420b29407a5
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160828'
 ---
+## Acerca de la administración de equipos con {% data variables.product.prodname_emus %}
 
-## About team management with {% data variables.product.prodname_emus %}
+Con {% data variables.product.prodname_emus %}, puede administrar la pertenencia a equipos y organizaciones dentro de su empresa a través de su IdP mediante la conexión de los equipos de {% data variables.product.prodname_dotcom %} con grupos de IdP. Cuando conectas un equipo en una de las organizaciones de tu empresa a un grupo de IdP, los cambios a la membrecía desde el grupo de IdP se reflejan automáticamente en tu empresa, lo cual reduce la necesidad de hacer actualizaciones manuales y scripts personalizados. 
 
-With {% data variables.product.prodname_emus %}, you can manage team membership within your enterprise through your IdP. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts. 
-
-When a change to an IdP group or a new team connection results in a {% data variables.enterprise.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.enterprise.prodname_managed_user %} will automatically be added to the organization. Organization owners can also manage organization membership manually. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
-
-You can connect a team in your enterprise to one IdP group. You can assign the same IdP group to multiple teams in your enterprise.
-
-If you are connecting an existing team to an IdP group, you must first remove any members that were added manually. After you connect a team in your enterprise to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.prodname_dotcom_the_website %}.
-
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.prodname_dotcom_the_website %} according to the schedule determined by your IdP, so change may not be immediate. Any requests that change team or organization membership will register in the audit log as changes made by the account used to configure user provisioning.
-
-Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
-
-To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
-
-## Creating a new team connected to an IdP group
-
-Any member of an organization can create a new team and connect the team to an IdP group. 
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.new_team %}
-{% data reusables.organizations.team_name %}
-{% data reusables.organizations.team_description %}
-1. To connect a team, select the "Identity Provider Groups" drop-down menu and click the team you want to connect.
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png)
-{% data reusables.organizations.team_visibility %}
-{% data reusables.organizations.create_team %}
-
-## Managing the connection between an existing team and an IdP group
-
-Organization owners and team maintainers can manage the existing connection between an IdP group and a team.
+Cuando un cambio a un grupo de IdP o una conexión de equipo nueva da como resultado que un {% data variables.enterprise.prodname_managed_user %} se una a un equipo en una organización de la cual no fueran ya miembros, el {% data variables.enterprise.prodname_managed_user %} se agregará automáticamente a dicha organización. Cuando desconectas un grupo de un equipo, los usuarios que se convirtieron en miembros de la organización a través de la membrecía de equipo se eliminan de esta si no se les asignó una membrecía en dicha organización por cualquier otro medio.
 
 {% note %}
 
-**Note**: Before you connect an existing team on {% data variables.product.prodname_dotcom_the_website %} to an IdP group for the first time, all members of the team on {% data variables.product.prodname_dotcom_the_website %} must first be removed. For more information, see "[Removing organization members from a team](/github/setting-up-and-managing-organizations-and-teams/removing-organization-members-from-a-team)."
+**Nota:** Los propietarios de la organización también pueden agregar datos {% data variables.enterprise.prodname_managed_users %} a las organizaciones manualmente, siempre y cuando las cuentas ya se hayan aprovisionado a través de SCIM.
+
+{% endnote %}
+
+Cuando cambia la membrecía de grupo en tu IdP, este envía una solicitud de SCIM con los cambios a {% data variables.product.prodname_dotcom_the_website %} de acuerdo con la programación que determinó tu IdP, así que el cambio podría no reflejarse de inmediato. Cualquier solicitud que cambie la membrecía de organización o equipo de se registrará en la bitácora de auditoría como cambios que realizó la cuenta que se utilizó para configurar el aprovisionamiento de usuarios.
+
+Los equipos que se conectan con los grupos de IdP no pueden ser equipos padres ni hijos de otro equipo. Si el equipo que quieres conectar a un grupo de IdP es un equipo padre o hijo, te recomendamos crear un equipo nuevo o eliminar las relaciones anidadas que hacen de tu equipo un equipo padre.
+
+Para administrar el acceso a los repositorios de cualquier equipo en tu empresa, incluyendo los equipos conectados a un grupo de IdP, debes hacer cambios en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulte "[Administración del acceso de equipo a un repositorio de la organización](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
+
+## Requisitos para conectar grupos de IdP con equipos
+
+Para poder conectar un grupo de IdP con un equipo en {% data variables.product.prodname_dotcom %}, debe asignar el grupo a la aplicación {% data variables.product.prodname_emu_idp_application %} en el IdP. Para obtener más información, consulta "[Acerca del aprovisionamiento de SCIM para {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)".
+
+Puedes conectar a un equipo de tu empresa a un grupo de IdP. Puedes asignar el mismo grupo de IdP a varios equipos de tu empresa.
+
+Si estás conectando un equipo a un grupo de IdP, primero debes eliminar a cualquier miembro que se haya agregado manualmente. Después de que conectas a un equipo de tu empresa a un grupo de IdP, tu administrador de IdP debe hacer cambios de membrecía de equipo a través de tu proveedor de identidad. No puedes administrar la membrecía de los equipos en {% data variables.product.prodname_dotcom_the_website %}.
+
+## Crear un equipo nuevo conectado a un grupo de IdP
+
+Cualquier miembro de una organización puede crear un equipo nuevo y conectarlo a un grupo de IdP. 
+
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.new_team %} {% data reusables.organizations.team_name %} {% data reusables.organizations.team_description %}
+1. Para conectar a un equipo, selecciona el menú desplegable de "Grupos de Proveedor de Identidad" y haz clic en aquél que quieras conectar.
+    ![Menú desplegable para elegir grupos de proveedores de identidades](/assets/images/help/teams/choose-an-idp-group.png) {% data reusables.organizations.team_visibility %} {% data reusables.organizations.create_team %}
+
+## Administrar la conexión entre un equipo existente y un grupo de IdP
+
+Los propietarios organizacionales y mantenedores de equipos pueden administrar la conexión existente entre un grupo de IdP y un equipo.
+
+{% note %}
+
+**Nota**: Antes de conectar un equipo existente en {% data variables.product.prodname_dotcom_the_website %} a un grupo de IdP por primera vez, primero se deben quitar todos los miembros del equipo en {% data variables.product.prodname_dotcom_the_website %}. Para más información, vea "[Eliminación de miembros de la organización de un equipo](/github/setting-up-and-managing-organizations-and-teams/removing-organization-members-from-a-team)".
 
 {% endnote %}
 
 {% data reusables.profile.access_profile %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-1. Optionally, under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. 
-    ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
-1. To connect an IdP group, under "Identity Provider Group", select the drop-down menu, and click an identity provider group from the list.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
-1. Click **Save changes**.
+{% data reusables.profile.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %}
+1. Opcionalmente, debajo de "Grupo de Proveedor de Identidad", a la derecha del grupo de IdP que quieres desconectar, haz clic en {% octicon "x" aria-label="X symbol" %}. 
+    ![Anulación de la selección de un grupo de IdP conectado desde el equipo de GitHub](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
+1. Para conectar un grupo de IdP, debajo de "Grupo de Proveedor de Identidad"; selecciona el menú desplegable y haz clic en un grupo de proveedor de identidad de la lista.
+    ![Menú desplegable para elegir un grupo de proveedor de identidades](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+1. Haga clic en **Guardar cambios**.
 
-## Viewing IdP groups, group membership, and connected teams
+## Ver los grupos de IdP, la membrecía de grupos y los equipos conectados
 
-You can review a list of IdP groups, see any teams connected to an IdP group, and see the membership of each IdP group on {% data variables.product.product_name %}. You must edit the membership for a group on your IdP.
+Puedes revisar una lista de grupos de IdP, ver cualquier equipo que esté conectado en un grupo de IdP y ver la membrecía de cada grupo de IdP en {% data variables.product.product_name %}. Debes editar la membrecía de un grupo en tu IdP.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-label="The key icon" %} **Identity provider**.
-    ![Screenshot showing "Identity provider" tab in enterprise sidebar](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
-2. To see the members and teams connected to an IdP group, click the group's name.
-    ![Screenshot showing list of IdP groups, the group name is highlighted](/assets/images/help/enterprises/select-idp-group.png)
-4. To view the teams connected to the IdP group, click **Teams**. 
-    ![Screenshot showing the "Teams" button](/assets/images/help/enterprises/idp-groups-team-switcher.png)
+1. Para ver una lista de grupos de IdP, en la barra lateral izquierda, haga clic en {% octicon "key" aria-label="The key icon" %} **Identity provider** (Proveedor de identidades).
+    ![Captura de pantalla que muestra la pestaña "Identity provider" (Proveedor de identidades) en la barra lateral de la empresa](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
+2. Para ver a los miembros y equipos conectados a un grupo de IdP, haz clic en el nombre del grupo.
+    ![Captura de pantalla que muestra una lista de grupos de IdP en la que el nombre del grupo está resaltado](/assets/images/help/enterprises/select-idp-group.png)
+4. Para ver los equipos conectados al grupo de IdP, haga clic en **Teams** (Equipos). 
+    ![Captura de pantalla que muestra el botón "Teams" (Equipos)](/assets/images/help/enterprises/idp-groups-team-switcher.png)

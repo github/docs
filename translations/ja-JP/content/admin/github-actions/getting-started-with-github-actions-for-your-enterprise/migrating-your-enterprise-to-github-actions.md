@@ -10,12 +10,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: db41434eae8bd3cf9036510705ee996f365f3fa1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145116686'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160300'
 ---
 ## {% data variables.product.prodname_actions %} への Enterprise の移行について
 
@@ -53,7 +53,7 @@ Enterprise 内で使用されているツールを変更すると、チームの
 
 ### 移行ツールの特定と検証
 
-自動移行ツールを使用すると、Enterprise のワークフローを既存のシステムの構文から、{% data variables.product.prodname_actions %} で必要な構文に変換できます。 サードパーティ製のツールを特定するか、専任の担当者または {% data variables.contact.contact_enterprise_sales %} に問い合わせて、{% data variables.product.company_short %} が提供できるツールについて確認します。
+自動移行ツールを使用すると、Enterprise のワークフローを既存のシステムの構文から、{% data variables.product.prodname_actions %} で必要な構文に変換できます。 サードパーティ製のツールを特定するか、専任の担当者または {% data variables.contact.contact_enterprise_sales %} に問い合わせて、{% data variables.product.company_short %} が提供できるツールについて確認します。 たとえば、{% data variables.product.prodname_actions_importer %} を使用して、サポートされているさまざまなサービスから CI パイプラインの計画、スコープ設定を行い、{% data variables.product.prodname_actions %} に移行することができます。 詳しくは、「[{% data variables.product.prodname_actions_importer %} を使用した移行の自動化](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)」をご覧ください。
 
 移行を自動化するツールを特定した後、一部のテスト ワークフローでツールを実行し、結果が期待どおりであることを確認することで、ツールを検証します。
 

@@ -1,89 +1,99 @@
 ---
-title: Troubleshooting prebuilds
+title: プレビルドに関するトラブルシューティング
 shortTitle: Codespaces prebuilds
-intro: You can use prebuilds to speed up the creation of codespaces. This article provides troubleshooting steps for common issues with prebuilds.
+intro: プレビルドを使用して、codespace の作成を高速化できます。 この記事では、プレビルドを使った一般的な問題のトラブルシューティング手順を示します。
 versions:
   fpt: '*'
   ghec: '*'
 type: reference
 topics:
   - Codespaces
-product: '{% data reusables.gated-features.codespaces %}'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: b8c45f9eae6094b78026d055ebea27c3748a8681
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158886'
 ---
+{% data variables.product.prodname_github_codespaces %} のプレビルドの詳細については、「[codespace のプレビルド](/codespaces/prebuilding-your-codespaces)」を参照してください。
 
-For more information about {% data variables.product.prodname_github_codespaces %} prebuilds, see "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)."
+## codespace がプレビルドから作成されたかどうかの確認
 
-## Checking whether a codespace was created from a prebuild?
+codespace を作成する際には、使用する仮想マシンの種類を選択できます。 仮想マシンの種類に対してプレビルドが使用可能な場合は、その横に "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready \(プレビルド対応\)" が表示されます。
 
-When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" is shown next to it.
+![使用可能なマシンの種類のリスト](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-![A list of available machine types](/assets/images/help/codespaces/choose-custom-machine-type.png)
+{% data variables.product.prodname_github_codespaces %} エディターの基本設定を [{% data variables.product.prodname_vscode %} for Web] に設定しており、プレビルドが使用されている場合は、[codespace の設定] ページに "プレビルド codespace が見つかりました" というメッセージが表示されます。 
 
-If you have your {% data variables.product.prodname_github_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. 
+!["プレビルド codespace が見つかりました" というメッセージ](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
-![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+同様に、エディターの基本設定が [{% data variables.product.prodname_vscode_shortname %}] の場合、統合ターミナルには、新しい codespace を作成するときに、"リポジトリのプレビルド構成で定義されたプレビルド codespace を使用しています" というメッセージが含まれます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の既定のエディターを設定する](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)」をご覧ください。
 
-Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-
-After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
+codespace を作成した後、ターミナルで次の {% data variables.product.prodname_cli %} コマンドを実行して、プレビルドから作成されたかどうかを確認できます。
 
 ```shell{:copy}
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
-This returns `true` if the codespace was created using a prebuild.
+codespace がプレビルドを使用して作成された場合は、`true` が返されます。
 
-Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild: 
+{% data variables.product.prodname_cli %} (`gh`) がインストールされていない場合は、次のコマンドを使用できます。codespace がプレビルドから作成された場合は、`createFromPrebuild` が返されます。 
 
 ```shell{:copy}
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
-## The "Prebuild Ready" label is sometimes missing
+## "Prebuild Ready" ラベルが欠落している場合がある
 
-You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
+プレビルドが有効なブランチから新しい codespace を作成する場合、コンピューターの種類を選択するためのダイアログ ボックスに "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" ラベルが表示されないことがあります。 これは、プレビルドが現在使用できないことを意味します。
 
-By default, each time you push to a prebuild-enabled branch, the prebuild is updated. If the push involves a change to the dev container configuration then, while the update is in progress, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is removed from the list of machine types. During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
+既定では、プレビルドが有効なブランチにプッシュするたびに、プレビルドが更新されます。 プッシュ操作に開発コンテナー構成への変更が含まれている場合は、更新中に、"{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready \(プレビルド対応\)" ラベルがマシンの種類のリストから削除されます。 この期間も、プレビルドを使用せずに codespace を作成できます。 必要であれば、開発コンテナー構成ファイルを変更したときのみ、またはカスタム スケジュールで指定したときにのみプレビルドが更新されるように設定することで、リポジトリにプレビルドを使用できない場合を減らすことができます。 詳細については、「[プレビルドの構成](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)」を参照してください。
 
-If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container configuration is changed on your branch, so that it's not the same as the configuration on the base branch, prebuilds will no longer be available on your branch.
+ブランチがプレビルドに対して特に有効になっていない場合でも、プレビルドが有効なブランチから分岐された場合はプレビルドの利点が得られる可能性があります。 しかし、開発コンテナー構成がご利用のブランチで変更されたために、ベース ブランチの構成とは異なる場合、プレビルドはご利用のブランチで使用できなくなります。
 
-Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed for a particular branch:
+特定のブランチに対して "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" ラベルが表示されない場合の確認事項を以下に示します。
 
-* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this. 
-* Confirm that the prebuild configuration includes your region.
-* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch. 
+* このブランチのプレビルド構成が存在することを確認する。 リポジトリ管理者でない場合は、管理者に連絡して確認する必要があります。 
+* プレビルド構成に自分のリージョンが含まれることを確認する。
+* 開発コンテナー構成への変更が、最近、プレビルドが有効になったブランチにプッシュされたかどうかを確認する。 そうである場合は、通常、このプッシュに対してプレビルド ワークフローが実行されるまで待たないと、プレビルドを再び使用することはできません。
+* 構成の変更が最近行われなかった場合は、リポジトリの **[アクション]** タブに移動し、ワークフロー リストの **{% octicon "codespaces" aria-label="The Codespaces icon" %} [{% data variables.product.prodname_codespaces %} プレビルド]** をクリックし、ブランチに対してプレビルド ワークフローが正常に実行されたことを確認します。 ワークフローの最新の実行が失敗し、これらの失敗した実行の 1 つ以上に開発コンテナー構成への変更が含まれていた場合、関連するブランチに対して使用可能なプレビルドはありません。 
 
-## Some resources cannot be accessed in codespaces created using a prebuild
+## プレビルドを使って作った codespace で一部のリソースにアクセスできない
 
-If the `devcontainer.json` configuration file for a prebuild configuration specifies that permissions for access to other repositories are required, then the repository administrator is prompted to authorize these permissions when they create or update the prebuild configuration. If the administrator does not grant all of the requested permissions there's a chance that problems may occur in the prebuild, and in codespaces created from this prebuild. This is true even if the user who creates a codespace based on this prebuild _does_ grant all of the permissions when they are prompted to do so.
+プレビルド構成の `devcontainer.json` 構成ファイルで、他のリポジトリへのアクセス許可が必要であることが指定されている場合、リポジトリ管理者は、プレビルド構成を作成または更新するときに、これらのアクセス許可を認可するように求められます。 管理者が要求されたすべてのアクセス許可を付与していない場合、プレビルドと、このプレビルドから作った codespace で問題が発生する可能性があります。 これは、このプレビルドに基づいて codespace を作るユーザーが、すべてのアクセス許可を付与するように求められ、"付与した" 場合でも起こります。
 
-## Troubleshooting failed workflow runs for prebuilds
+## プレビルドに対するワークフロー実行が失敗した場合のトラブルシューティング
 
-If the `devcontainer.json` configuration file for a prebuild configuration is updated to specify that permissions for access to other repositories are required, and a repository administrator has not been prompted to authorize these permissions for the prebuild configuration, then the prebuild workflow may fail. Try updating the prebuild configuration, without making any changes. If, when you click **Update**, the authorization page is displayed, check that the requested permissions are appropriate and, if so, authorize the request. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)" and "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)."
+### {% data variables.product.prodname_actions %} の使用制限を増やす 
 
-If the workflow runs for a prebuild configuration are failing, you can temporarily disable the prebuild configuration while you investigate. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)."
+プレビルドは、{% data variables.product.prodname_actions %} を使用して作成および更新されます。 {% data variables.product.prodname_actions %} の分数をすべて使用し、使用制限に達した場合、プレビルド ワークフローは失敗します。 このような場合は、{% data variables.product.prodname_actions %} の使用制限を増やして、ワークフローが実行できるようにします。 詳しい情報については、「[{% data variables.product.prodname_actions %} の使用制限の管理](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)」を参照してください。
 
-### Preventing out-of-date prebuilds being used
+### アクセス許可の承認
 
-By default, if the latest prebuild workflow has failed, then a previous prebuild for the same combination of repository, branch, and `devcontainer.json` configuration file will be used to create new codespaces. This behavior is called prebuild optimization.
+プレビルド構成の `devcontainer.json` 構成ファイルが、他のリポジトリへのアクセス許可が必要であることを指定するように更新され、リポジトリ管理者がプレビルド構成にこれらのアクセス許可を認可するように求められなかった場合、プレビルド ワークフローが失敗する可能性があります。 何も変更せずに、プレビルド構成を更新してみてください。 **[更新]** をクリックして、認可ページが表示される場合は、要求されたアクセス許可が適切であることを確認し、適切であれば、要求を認可します。 詳しくは、「[プレビルドを管理する](/codespaces/prebuilding-your-codespaces/managing-prebuilds#editing-a-prebuild-configuration)」と「[codespace 内の他のリポジトリへのアクセスを管理する](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#setting-additional-repository-permissions)」をご覧ください。
 
-We recommend keeping prebuild optimization enabled, because it helps ensure that codespaces can still be created quickly if an up-to-date prebuild is not available. However, as a repository administrator, you can disable prebuild optimization if you run into problems with prebuilt codespaces being behind the current state of the branch. If you disable prebuild optimization, codespaces for the relevant combination of repository, branch, and `devcontainer.json` file will be created without a prebuild if the latest prebuild workflow has failed or is currently running.
+プレビルド構成に対するワークフロー実行が失敗する場合は、調査の間、一時的にプレビルド構成を無効にすることができます。 詳細については、「[プレビルドの管理](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)」を参照してください。
+
+### 古いプレビルドが使用されないようにする
+
+既定では、最新のプレビルド ワークフローが失敗した場合、リポジトリ、ブランチ、および `devcontainer.json` 構成ファイルの同じ組み合わせに対して以前のプレビルドが使用され、新しい codespace が作成されます。 この動作は、プレビルド最適化と呼ばれます。
+
+プレビルドの最適化を有効にしておくことをお勧めします。これは、最新のプレビルドが使用できない場合でも codespace を迅速に作成できるようにするためです。 ただし、リポジトリ管理者は、プレビルドの codespace が現在のブランチの状態の背後にあるという問題が発生した場合に、プレビルドの最適化を無効にすることができます。 プレビルドの最適化を無効にすると、最新のプレビルド ワークフローが失敗した場合、または現在実行中の場合、リポジトリ、ブランチ、`devcontainer.json` ファイルの関連する組み合わせの codespace がプレビルドなしで作成されます。
 
 {% data reusables.codespaces.accessing-prebuild-configuration %}
-1. To the right of the affected prebuild configuration, select the ellipsis (**...**), then click **Edit**.
+1. 影響を受けるプレビルド構成の右側にある省略記号 ( **...** ) を選び、 **[編集]** をクリックします。
 
-   ![Screenshot of a list of prebuilds, with "Edit" highlighted](/assets/images/help/codespaces/edit-prebuild-configuration.png)
-1. Scroll to the bottom of the "Edit configuration" page and click **Show advanced options**.
+   ![[編集] が強調表示されているプレビルドの一覧のスクリーンショット](/assets/images/help/codespaces/edit-prebuild-configuration.png)
+1. [構成の編集] ページの下部までスクロールし、 **[詳細オプションの表示]** をクリックします。
 
-   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
-1. If you're sure you want to disable the default setting, select **Disable prebuild optimization**.
+   ![[詳細オプションの表示] が強調表示されているプレビルド構成ページのスクリーンショット](/assets/images/help/codespaces/show-advanced-options.png)
+1. 既定の設定を無効にする必要がある場合は、 **[プレビルドの最適化を無効にする]** を選びます。
 
-   ![Screenshot of the advanced option section and the "disable prebuild optmization" setting](/assets/images/help/codespaces/disable-prebuild-optimization.png)
-1. To save your change, click **Update**.
+   ![詳細オプション セクションと [プレビルドの最適化を無効にする] 設定のスクリーンショット](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+1. 変更を保存するには、 **[更新]** をクリックします。
 
-## Further reading
+## 参考資料
 
-- "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"
+- [プレビルドの構成](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)
+- [プレビルドの管理](/codespaces/prebuilding-your-codespaces/managing-prebuilds)

@@ -1,6 +1,6 @@
 ---
-title: Sudo mode
-intro: 'To confirm access to your account before you perform a potentially sensitive action, {% data variables.location.product_location %} prompts for authentication.'
+title: Sudo モード
+intro: '機密性の高い可能性があるアクションを実行する前にアカウントへのアクセスを確認するために、{% data variables.product.product_location %} は認証を求めます。'
 redirect_from:
   - /articles/sudo-mode
   - /github/authenticating-to-github/sudo-mode
@@ -13,81 +13,83 @@ miniTocMaxHeadingLevel: 3
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 909552ff2252e14430050541da5f6bae582f66b3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147540827'
 ---
+## sudo モードについて
 
-## About sudo mode
+{% data variables.product.product_location %} に対して機密性の高いアクションを実行するときにアカウントのセキュリティを維持するには、既にサインインしている場合でも認証する必要があります。 たとえば、{% data variables.product.company_short %} では、各アクションで新しいユーザーまたはシステムがアカウントにアクセスできるようになるため、次のアクションは機密性が高いと見なされます。
 
-To maintain the security of your account when you perform a potentially sensitive action on {% data variables.location.product_location %}, you must authenticate even though you're already signed in. For example, {% data variables.product.company_short %} considers the following actions sensitive because each action could allow a new person or system to access your account.
+- 関連付けられているメール アドレスの変更
+- サード パーティ製アプリケーションの認可
+- 新しい SSH キーの追加
 
-- Modification of an associated email address
-- Authorization of a third-party application
-- Addition of a new SSH key
-
-After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+機密性の高いアクションを実行するために認証すると、そのセッションは一時的に "sudo モード" になります。 sudo モードでは、認証なしで機密性の高いアクションを実行できます。 {% data variables.product.product_name %} は、数時間待機してから、再び認証を求めるメッセージを表示します。 この間に、機密性の高いアクションを実行するとタイマーがリセットされます。
 
 {% ifversion ghes %}
 
 {% note %}
 
-**Note**: If {% data variables.location.product_location %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
+**注**: {% data variables.product.product_location %} が CAS や SAML SSO などの外部認証方法を使用している場合、sudo モードに入るプロンプトは表示されません。 詳しい情報については、サイト管理者にお問い合わせください。
 
 {% endnote %}
 
 {% endif %}
 
-"sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
+"sudo" は Unix システム上のプログラムへの参照であり、名前は "**su** peruser **do**" の短縮形です。 詳しくは、Wikipedia の「[sudo](https://wikipedia.org/wiki/Sudo)」を参照してください。
 
-## Confirming access for sudo mode
+## sudo モードのアクセスの確認
 
-To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
+sudo モードのアクセスを確認するには、パスワードで認証{% ifversion totp-and-mobile-sudo-challenge %}することができます{% else %}する必要があります{% endif %}。{% ifversion totp-and-mobile-sudo-challenge %} 必要に応じて、{% ifversion fpt or ghec %}セキュリティ キー、{% data variables.product.prodname_mobile %}、または 2 要素認証コードなどの異なる認証方法を使用できます{% elsif ghes %}セキュリティ キーや 2 要素認証コードなどの異なる認証方法を使用できます{% endif %}。{% endif %}
 
 {%- ifversion totp-and-mobile-sudo-challenge %}
-- [Confirming access using a security key](#confirming-access-using-a-security-key)
-{%- ifversion fpt or ghec %}
-- [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
-{%- endif %}
-- [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
-- [Confirming access using your password](#confirming-access-using-your-password)
-{%- endif %}
+- [セキュリティ キーを使用したアクセスの確認](#confirming-access-using-a-security-key) {%- ifversion fpt or ghec %}
+- [GitHub Mobile を使用したアクセスの確認](#confirming-access-using-github-mobile) {%- endif %}
+- [2 要素認証コードを使用したアクセスの確認](#confirming-access-using-a-2fa-code)
+- [パスワードを使用したアクセスの確認](#confirming-access-using-your-password) {%- endif %}
 
 {% ifversion totp-and-mobile-sudo-challenge %}
 
-### Confirming access using a security key
+### セキュリティ キーを使用したアクセスの確認
 
-You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+セキュリティ キーを使用して sudo モードのアカウントへのアクセスを確認するには、セキュリティ キーを使用してアカウントに 2 要素認証 (2FA) を設定する必要があります。 詳細については、「[2 要素認証の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。
 
-When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
+sudo モードの認証を求めるダイアログが表示されたら、 **[セキュリティ キーの使用]** をクリックし、プロンプトに従います。
 
-![Screenshot of security key option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
+![sudo モードのセキュリティ キー オプションのスクリーンショット](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
 
 {% ifversion fpt or ghec %}
 
-### Confirming access using {% data variables.product.prodname_mobile %}
+### {% data variables.product.prodname_mobile %} を使用したアクセスの確認
 
-You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
+アプリを使用して sudo モードのアカウントへのアクセスを確認するには、{% data variables.product.prodname_mobile %} をインストールしてサインインする必要があります。 詳しくは、「[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)」を参照してください。
 
-1. When prompted to authenticate for sudo mode, click **Use GitHub Mobile**.
+1. sudo モードの認証を求められたら **[GitHub Mobile の使用]** をクリックします。
 
-   ![Screenshot of {% data variables.product.prodname_mobile %} option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
-1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_mobile %} will display numbers that you must enter on {% data variables.location.product_location %} to approve the request.
+   ![sudo モードの {% data variables.product.prodname_mobile %} オプションのスクリーンショット](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
+1. {% data variables.product.prodname_mobile %} を開きます。 {% data variables.product.prodname_mobile %} には、要求を承認するために {% data variables.product.product_location %} に入力する必要がある数値が表示されます。
 
-   ![Screenshot of numbers from {% data variables.product.prodname_mobile %} to enter on {% data variables.product.product_name %} to approve sudo mode access](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
-1. On {% data variables.product.product_name %}, type the numbers displayed in {% data variables.product.prodname_mobile %}.
-
-{% endif %}
-
-### Confirming access using a 2FA code
-
-You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
-
-When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
-
-![Screenshot of 2FA code prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_2fa_code.png)
-
-### Confirming access using your password
+   ![sudo モードへのアクセスを承認するために {% data variables.product.product_name %} に入力する {% data variables.product.prodname_mobile %} からの数値のスクリーンショット](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
+1. {% data variables.product.product_name %} に、{% data variables.product.prodname_mobile %} で表示されている数値を入力します。
 
 {% endif %}
 
-When prompted to authenticate for sudo mode, type your password, then click **Confirm**.
+### 2 要素認証コードを使用したアクセスの確認
 
-![Screenshot of password prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_password.png)
+TOTP モバイル アプリ、{% ifversion fpt or ghec %} またはテキスト メッセージ{% endif %}を使用して、2 要素認証コードを使用して sudo モードのアカウントへのアクセスを確認するには、2 要素認証を構成する必要があります。 詳細については、「[2 要素認証の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)」を参照してください。
+
+sudo モードの認証を求めるダイアログが表示されたら、TOTP モバイル アプリ、{% ifversion fpt or ghec %}またはテキスト メッセージ {% endif %} から認証コードを入力し、 **[確認]** をクリックします。
+
+![sudo モードの 2 要素認証コード プロンプトのスクリーンショット](/assets/images/help/settings/sudo_mode_prompt_2fa_code.png)
+
+### パスワードを使用したアクセスの確認
+
+{% endif %}
+
+sudo モードの認証を求めるダイアログが表示されたら、パスワードを入力し、 **[確認]** をクリックします。
+
+![sudo モードのパスワード プロンプトのスクリーンショット](/assets/images/help/settings/sudo_mode_prompt_password.png)

@@ -1,6 +1,6 @@
 ---
-title: About authentication to GitHub
-intro: 'You can securely access your account''s resources by authenticating to {% data variables.product.product_name %}, using different credentials depending on where you authenticate.'
+title: GitHub への認証方法について
+intro: '認証先に応じて異なる認証情報を使用し、{% data variables.product.product_name %} への認証を行うことで、アカウントのリソースに安全にアクセスできます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,102 +13,107 @@ redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github
 shortTitle: Authentication to GitHub
+ms.openlocfilehash: d40d3e18c75c2e5d8f16ebbb4fd9b6fdf03e2a73
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147718094'
 ---
-## About authentication to {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %} の認証について
 
-To keep your account secure, you must authenticate before you can access{% ifversion not ghae %} certain{% endif %} resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be.
+アカウントを安全に保つには、{% data variables.product.product_name %} の{% ifversion not ghae %}特定の{% endif %}リソースにアクセスする前に認証する必要があります。 {% data variables.product.product_name %} への認証を行うときは、自分が確かに本人であることを証明するために、固有の認証情報を提供または確認します。
 
-You can access your resources in {% data variables.product.product_name %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
+{% data variables.product.product_name %} のリソースには、ブラウザ内、{% data variables.product.prodname_desktop %} または別のデスクトップアプリケーション経由、API 経由、またはコマンドライン経由など、さまざまな方法でアクセスできます。 {% data variables.product.product_name %} へのアクセス方法は、それぞれ異なる認証モードをサポートしています。
 {%- ifversion not fpt %}
-- Your identity provider (IdP){% endif %}{% ifversion not ghae %}
-- Username and password with two-factor authentication{% endif %}
-- {% data variables.product.pat_generic_caps %}
-- SSH key
+- ID プロバイダー (IdP){% endif %}{% ifversion not ghae %}
+- 2 要素認証のユーザー名とパスワード{% endif %}
+- 個人用アクセス トークン
+- SSH キー
 
-## Authenticating in your browser
+## ブラウザで認証する
 
 {% ifversion ghae %}
 
-You can authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
+{% data variables.product.product_name %} への認証は、IdP を使ってブラウザー内で行うことができます。 詳細については、「[SAML のシングル サインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」を参照してください。
 
 {% else %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} 
+{% data variables.product.prodname_emu_enterprise %} のメンバーである場合は、IdP を使ってブラウザーで {% data variables.product.product_name %} に対して認証します。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの[マネージド ユーザーとして認証](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}に関するトピックを参照してください{% else %}。{% endif %} 
 
-If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom_the_website %} username and password. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
+{% data variables.product.prodname_emu_enterprise %} のメンバーでない場合は、{% data variables.product.prodname_dotcom_the_website %} のユーザー名とパスワードを使って認証します。 また、2 要素認証と SAML シングル サインオンを使うこともできます。これは、組織と企業の所有者が必要とする場合があります。
 
 {% else %}
 
-You can authenticate to {% data variables.product.product_name %} in your browser in a number of ways.
+{% data variables.product.product_name %} への認証は、ブラウザー内で多数の方法を使って行うことができます。
 
 {% endif %}
 
-- **Username and password only**
-    - You'll create a password when you create your account on {% data variables.product.product_name %}. We recommend that you use a password manager to generate a random and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/creating-a-strong-password)."{% ifversion fpt or ghec %}
-  - If you have not enabled 2FA, {% data variables.product.product_name %} will ask for additional verification when you first sign in from an unrecognized device, such as a new browser profile, a browser where the cookies have been deleted, or a new computer.
+- **ユーザー名とパスワードのみ**
+    - {% data variables.product.product_name %} でアカウントを作成するときにパスワードを作成します。 パスワードマネージャを使用して、ランダムで一意のパスワードを生成することをお勧めします。 詳細については、「[強力なパスワードの作成](/github/authenticating-to-github/creating-a-strong-password)」を参照してください。{% ifversion fpt or ghec %}
+  - 2FA を有効にしていない場合、{% data variables.product.product_name %} では、認識できないデバイス (新しいブラウザー プロファイル、Cookie が削除されたブラウザー、新しいコンピューターなど) から初めてサインインしたときに、追加の検証を求められます。
 
-   After providing your username and password, you will be asked to provide a verification code that we will send to you via email. If you have the {% data variables.product.prodname_mobile %} application installed, you'll receive a notification there instead. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."{% endif %}
-- **Two-factor authentication (2FA)** (recommended)
-    - If you enable 2FA, after you successfully enter your username and password, we'll also prompt you to provide a code that's generated by a time-based one time password (TOTP) application on your mobile device{% ifversion fpt or ghec %} or sent as a text message (SMS){% endif %}. For more information, see "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)."
-    - In addition to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}, you can optionally add an alternative method of authentication with {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} or{% endif %} a security key using WebAuthn. For more information, see {% ifversion fpt or ghec %}"[Configuring two-factor authentication with {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and {% endif %}"[Configuring two-factor authentication using a security key](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."{% ifversion ghes %}
-- **External authentication**
-  - Your site administrator may configure {% data variables.location.product_location %} to use external authentication instead of a username and password. For more information, see "[External authentication methods](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
-- **SAML single sign-on**
-  - Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+   ユーザー名とパスワードを指定すると、メールで送信される確認コードの入力を求められます。 {% data variables.product.prodname_mobile %} アプリケーションがインストールされている場合は、代わりにここで通知を受け取ります。 詳細については、「[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)」を参照してください。{% endif %}
+- **2 要素認証 (2FA)** (推奨)
+    - 2FA を有効にした場合は、ユーザー名とパスワードを正常に入力した後、モバイル デバイスで時間ベースのワンタイム パスワード (TOTP) アプリケーションによって生成されるか{% ifversion fpt or ghec %}、テキスト メッセージ (SMS)として送信される{% endif %}コードも指定するように求められます。 詳細については、「[2 要素認証を使用した {% data variables.product.prodname_dotcom %} へのアクセス](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)」を参照してください。
+    - TOTP アプリケーション{% ifversion fpt or ghec %}またはテキスト メッセージ{% endif %}を使った認証に加えて、必要に応じて代替の方法として、{% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} での認証か、{% endif %}WebAuthn を使ったセキュリティ キーを追加できます。 詳細については、{% ifversion fpt or ghec %}[{% data variables.product.prodname_mobile %} を使って 2 要素認証を構成する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)に関するページと{% endif %}「[セキュリティ キーを使って 2 要素認証を設定する](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。{% ifversion ghes %}
+- **外部認証**
+  - サイト管理者は、ユーザー名とパスワードの代わりに外部認証を使うように {% data variables.product.product_location %} を構成することがあります。 詳細については、[外部認証方法](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)に関するトピックを参照してください。{% endif %}{% ifversion fpt or ghec %}
+- **SAML シングル サインオン**
+  - SAML シングル サインオンを使う組織またはエンタープライズ アカウントが所有するリソースにアクセスするには、その前に IdP による認証も必要になる場合があります。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの「[SAML シングル サインオンによる認証について](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}」を参照してください{% else %}。{% endif %}{% endif %}
 
 {% endif %}
 
-## Authenticating with {% data variables.product.prodname_desktop %}
-You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
+## {% data variables.product.prodname_desktop %} で認証する
+お使いのブラウザを使用して {% data variables.product.prodname_desktop %} で認証できます。 詳細については、「[{% data variables.product.prodname_dotcom %} への認証](/desktop/getting-started-with-github-desktop/authenticating-to-github)」を参照してください。
 
-## Authenticating with the API
+## API で認証する
 
-You can authenticate with the API in different ways.
+さまざまな方法で API を使用して認証できます。
 
-- **{% data variables.product.pat_generic_caps %}s**
-    - In limited situations, such as testing, you can use a {% data variables.product.pat_generic %} to access the API. Using a {% data variables.product.pat_generic %} enables you to revoke access at any time. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-- **Web application flow**
-    - For OAuth Apps in production, you should authenticate using the web application flow. For more information, see "[Authorizing OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)."
-- **GitHub Apps**
-    - For GitHub Apps in production, you should authenticate on behalf of the app installation. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/)."
+- **個人用アクセス トークン**
+    - テストなどの限られた状況では、個人アクセストークンを使用して API にアクセスできます。 個人アクセストークンを使用すると、いつでもアクセスを取り消すことができます。 詳細については、[個人アクセス トークンの作成](/github/authenticating-to-github/creating-a-personal-access-token)に関する記事を参照してください。
+- **Web アプリケーション フロー**
+    - 製品としての OAuth App の場合、Web アプリケーションフローを使用して認証する必要があります。 詳細については、「[Authorizing OAuth Apps (OAuth アプリの認可)](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)」を参照してください。
+- **GitHub アプリ**
+    - 製品としての GitHub App の場合、アプリケーションのインストールに代わって認証する必要があります。 詳細については、「[{% data variables.product.prodname_github_apps %} による認証](/apps/building-github-apps/authenticating-with-github-apps/)」を参照してください。
 
-## Authenticating with the command line
+## コマンドラインで認証する
 
-You can access repositories on {% data variables.product.product_name %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+コマンドラインから {% data variables.product.product_name %} のリポジトリにアクセスするには、HTTPS と SSH の 2 つの方法がありますが、それぞれ認証方法が異なります。 認証方法は、リポジトリのクローンを作成するときに HTTPS または SSH リモート URL を選択したかどうかに基づいて決まります。 アクセス方法の詳細については、「[リモート リポジトリについて](/github/getting-started-with-github/about-remote-repositories)」を参照してください。
 
 ### HTTPS
 
-You can work with all repositories on {% data variables.product.product_name %} over HTTPS, even if you are behind a firewall or proxy.
+ファイアウォールまたはプロキシの内側からでも、HTTPS を介して {% data variables.product.product_name %} 上のすべてのリポジトリを操作できます。
 
-If you authenticate with {% data variables.product.prodname_cli %}, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+{% data variables.product.prodname_cli %} で認証する場合は、個人用アクセス トークンまたは Web ブラウザーを使って認証できます。 {% data variables.product.prodname_cli %} を使用した認証の詳細については、「[`gh auth login`](https://cli.github.com/manual/gh_auth_login)」を参照してください。
 
-If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them with a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+{% data variables.product.prodname_cli %} なしで認証する場合は、個人用アクセス トークンで認証する必要があります。 {% data reusables.user-settings.password-authentication-deprecation %} Git を使って {% data variables.product.product_name %} で認証するたびに、[資格情報ヘルパー](/github/getting-started-with-github/caching-your-github-credentials-in-git)でキャッシュしない限り、{% data variables.product.product_name %} で認証するための資格情報を入力するように求められます。
 
 ### SSH
 
-You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxies might refuse to allow SSH connections.
+SSH 接続はファイアウォールとプロキシから許可されない場合がありますが、SSH 経由で {% data variables.product.product_name %} 上のすべてのリポジトリを操作できます。
 
-If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Then, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+{% data variables.product.prodname_cli %} で認証すると、CLI によってマシン上で SSH 公開キーが検索され、アップロード用のものを選ぶようにダイアログが表示されます。 {% data variables.product.prodname_cli %} でアップロード用の SSH 公開キーが見つからない場合は、新しい SSH 公開/秘密キーペアを生成し、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上のアカウントに公開キーをアップロードできます。 その後、個人用アクセス トークンまたは Web ブラウザーを使って認証することができます。 {% data variables.product.prodname_cli %} を使用した認証の詳細については、「[`gh auth login`](https://cli.github.com/manual/gh_auth_login)」を参照してください。
 
-If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
+{% data variables.product.prodname_cli %} なしで認証する場合は、ローカル コンピューターで SSH 公開/秘密キーペアを生成し、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} のアカウントに公開キーを追加する必要があります。 詳細については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。 Git を使って {% data variables.product.product_name %} で認証するたびに、[キーを保存](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)していない限り、SSH キー パスフレーズを入力するように求められます。
 
 {% ifversion fpt or ghec %}
-### Authorizing for SAML single sign-on
+### SAML シングル サインオンの認可
 
-To use a {% data variables.product.pat_generic %} or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[Authorizing a {% data variables.product.pat_generic %} for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+個人用アクセス トークンまたは SSH キーを使って、SAML シングル サインオンを使う組織が所有するリソースにアクセスするには、個人用トークンまたは SSH キーも認可する必要があります。 詳細については、{% data variables.product.prodname_ghe_cloud %} のドキュメントの「[SAML シングル サインオンで利用するために個人用アクセス トークンを認可する](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングル サインオンで利用するために SSH キーを認可する](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}」を参照してください{% else %}。{% endif %}{% endif %}
 
-## {% data variables.product.company_short %}'s token formats
+## {% data variables.product.company_short %} のトークンフォーマット
 
-{% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
+{% data variables.product.company_short %} は、トークンの種別を示すプレフィックスで始まるトークンを発行します。
 
-| Token type | Prefix | More information |
+| トークンの種類 | Prefix | 詳細情報 |
 | :- | :- | :- |
-| {% data variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"{% endif %}  |{% ifversion pat-v2 %}
-| {% data variables.product.pat_v2_caps %} | `github_pat_` | "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |{% endif %}
-| OAuth access token | `gho_` | "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)" |
-| User-to-server token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
-| Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)" |
-| Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)" |
+| 個人用アクセス トークン | `ghp_` | 「[個人用アクセス トークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」 |
+| OAuth アクセス トークン | `gho_` | 「[{% data variables.product.prodname_oauth_apps %} の承認](/developers/apps/authorizing-oauth-apps)」 |
+| {% data variables.product.prodname_github_app %} のユーザからサーバーへのトークン | `ghu_` | 「[{% data variables.product.prodname_github_apps %} のユーザーの識別と認可](/developers/apps/identifying-and-authorizing-users-for-github-apps)」 |
+| {% data variables.product.prodname_github_app %} のサーバーからサーバーへのトークン | `ghs_` | 「[{% data variables.product.prodname_github_apps %} による認証](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)」 |
+| {% data variables.product.prodname_github_app %} のトークンのリフレッシュ | `ghr_` | 「[ユーザーからサーバーへのアクセス トークンの更新](/developers/apps/refreshing-user-to-server-access-tokens)」 |
 

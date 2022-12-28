@@ -1,7 +1,6 @@
 ---
-title: Managing GPG verification for GitHub Codespaces
-intro: 'You can allow {% data variables.product.company_short %} to automatically use GPG to sign commits you make in your codespaces, so other people can be confident that the changes come from a trusted source.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: Como gerenciar a verificação GPG para o GitHub Codespaces
+intro: 'Você pode permitir que {% data variables.product.company_short %} use o GPG automaticamente para assinar os commits que você faz nos seus codespaces para que outras pessoas possam confiar que as alterações vêm de uma fonte de confiança.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,24 +14,28 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces
   - /codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces
 shortTitle: GPG verification
+ms.openlocfilehash: ff83eba1720a2841747536ec04bfc0b3db055669
+ms.sourcegitcommit: 47e03737d09bed84dfedb7be5924d893d34ea1a8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167098'
 ---
+Depois que você habilitar a verificação do GPG, {% data variables.product.company_short %} assinará automaticamente os commits que você fizer em {% data variables.product.prodname_github_codespaces %}, e os commits terão um status de verificado em {% data variables.product.product_name %}. Por padrão, a verificação do GPG está desabilitada para os codespaces que você criar. Você pode optar por permitir a verificação do GPG para todos os repositórios ou repositórios específicos. Habilite apenas a verificação do GPG para repositórios nos quais você confia. Para obter mais informações sobre os commits assinados do {% data variables.product.product_name %}, confira "[Sobre a verificação de assinatura de commit](/github/authenticating-to-github/about-commit-signature-verification)".
 
- 
-
-After you enable GPG verification, {% data variables.product.company_short %} will automatically sign commits you make in {% data variables.product.prodname_github_codespaces %}, and the commits will have a verified status on {% data variables.product.product_name %}. By default, GPG verification is disabled for codespaces you create. You can choose to allow GPG verification for all repositories or specific repositories. Only enable GPG verification for repositories that you trust. For more information about {% data variables.product.product_name %}-signed commits, see "[About commit signature verification](/github/authenticating-to-github/about-commit-signature-verification)."
-
-Once you enable GPG verification, it will immediately take effect for all your codespaces.
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "GPG verification", select the setting you want for GPG verification.
-  ![Radio buttons to manage GPG verification](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png) 
-1. If you chose "Selected repositories", select the drop-down menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
-  !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
-
+{% data reusables.codespaces.gpg-in-active-codespaces %}
 
 {% note %}
 
-**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_github_codespaces %}, you also must append `-S` to each commit in order for it to be signed. To do this in {% data variables.product.prodname_vscode %}, ensure the "Git: Enable Commit Signing" option is enabled from the Settings.
+**Observação:** se você tiver vinculado um repositório dotfiles ao {% data variables.product.prodname_github_codespaces %}, a configuração do Git em seus dotfiles poderá entrar em conflito com a configuração que {% data variables.product.prodname_github_codespaces %} requer para assinar commits. Para obter mais informações, confira "[Como solucionar problemas da verificação GPG do {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/troubleshooting-gpg-verification-for-github-codespaces)".
 
 {% endnote %}
+
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Em "Verificação do GPG, selecione a configuração que deseja para verificação do GPG.
+  ![Botões de opção usados para gerenciar a verificação de GPG](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png) 
+1. Se você escolheu "Repositórios selecionados", selecione o menu suspenso e clique em um repositório para o qual deseja habilitar a verificação do GPG. Repita esse procedimento para todos os repositórios para os quais você deseja habilitar a verificação do GPG.
+  ![Menu suspenso "Repositórios selecionados"](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
+
+
+Depois de habilitar a verificação GPG para {% data variables.product.prodname_github_codespaces %}, todos os commits são assinados por padrão em seus codespaces.

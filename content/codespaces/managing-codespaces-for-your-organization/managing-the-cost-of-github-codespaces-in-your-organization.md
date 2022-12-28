@@ -2,7 +2,6 @@
 title: Managing the cost of GitHub Codespaces in your organization
 shortTitle: Manage Codespaces costs
 intro: 'You can check your {% data variables.product.prodname_github_codespaces %} usage and set usage limits.'
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
@@ -24,7 +23,7 @@ To learn about pricing for {% data variables.product.prodname_github_codespaces 
 
 ## Spending limits
 
-You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your organization. This limit is applied to the total compute and storage cost for {% data variables.product.prodname_github_codespaces %}. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your organization. This limit is applied to the total compute and storage cost for {% data variables.product.prodname_github_codespaces %}. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
  
 - **Compute usage:** This is the total time during which all {% data variables.product.prodname_github_codespaces %} instances ("codespaces") were active in a billing month. 
 
@@ -34,7 +33,7 @@ You can check the compute and storage usage for {% data variables.product.prodna
 
 {% note %}
 
-**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)" and "[Managing your spending limit for GitHub Actions](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
+**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)" and "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
 
 {% endnote %}
 
@@ -52,7 +51,7 @@ You can set a maximum idle timeout constraint to limit the maximum timeout that 
 
 You can also restrict how long stopped codespaces can remain unused before they are automatically deleted. This can help to reduce storage costs for {% data variables.product.prodname_codespaces %}. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
-Repository owners who set up prebuilds for their repository can reduce the storage costs of prebuilds by configuring these to be created only in selected regions. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
+Repository owners who set up prebuilds for their repository can reduce the storage costs of prebuilds by configuring these to be created only in selected regions. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 ## Deleting unused codespaces
 

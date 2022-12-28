@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ca36d1cc452ae102d0e4183b6d72ce854de57963
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 06ccb7d54079b9cd73a4ce66b02ae3cc9a7b3cf1
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423200"
+ms.lasthandoff: 11/12/2022
+ms.locfileid: "148163233"
 ---
 1. Junto al proyecto que quieres migrar, haz clic en {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir el menú.
 1. En el menú, haz clic en **Migrar**.

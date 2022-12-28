@@ -58,7 +58,7 @@
       "href": "/graphql/overview/schema-previews#update-refs-preview"
     },
     {
-      "title": "Access to a repositories dependency graph preview",
+      "title": "Access to a repository s dependency graph preview",
       "description": "This preview adds support for reading a dependency graph for a repository.",
       "toggled_by": "hawkgirl-preview",
       "toggled_on": [
@@ -75,7 +75,7 @@
         "@github/dependency-graph"
       ],
       "accept_header": "application/vnd.github.hawkgirl-preview+json",
-      "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+      "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
     },
     {
       "title": "Project event details preview",
@@ -207,7 +207,7 @@
       "href": "/graphql/overview/schema-previews#update-refs-preview"
     },
     {
-      "title": "Access to a repositories dependency graph preview",
+      "title": "Access to a repository s dependency graph preview",
       "description": "This preview adds support for reading a dependency graph for a repository.",
       "toggled_by": "hawkgirl-preview",
       "toggled_on": [
@@ -224,7 +224,7 @@
         "@github/dependency-graph"
       ],
       "accept_header": "application/vnd.github.hawkgirl-preview+json",
-      "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+      "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
     },
     {
       "title": "Project event details preview",
@@ -1012,6 +1012,26 @@
       ],
       "accept_header": "application/vnd.github.update-refs-preview+json",
       "href": "/graphql/overview/schema-previews#update-refs-preview"
+    },
+    {
+      "title": "Access to a repository s dependency graph preview",
+      "description": "This preview adds support for reading a dependency graph for a repository.",
+      "toggled_by": "hawkgirl-preview",
+      "toggled_on": [
+        "DependencyGraphManifest",
+        "Repository.dependencyGraphManifests",
+        "DependencyGraphManifestEdge",
+        "DependencyGraphManifestConnection",
+        "DependencyGraphDependency",
+        "DependencyGraphDependencyEdge",
+        "DependencyGraphDependencyConnection",
+        "DependencyGraphPackageRelease.dependencies"
+      ],
+      "owning_teams": [
+        "@github/dependency-graph"
+      ],
+      "accept_header": "application/vnd.github.hawkgirl-preview+json",
+      "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
     },
     {
       "title": "Project event details preview",

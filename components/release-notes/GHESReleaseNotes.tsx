@@ -30,7 +30,7 @@ export function GHESReleaseNotes({ context }: Props) {
             {currentVersion.planTitle} {currentVersion.currentRelease} release notes
           </h1>
         </div>
-        <MarkdownContent data-search="article-content">
+        <MarkdownContent data-search="article-body">
           {releaseNotes.map((patch) => {
             return (
               <GHESReleaseNotePatch
@@ -56,7 +56,7 @@ export function GHESReleaseNotes({ context }: Props) {
         )}
       >
         <nav className="height-full overflow-auto">
-          <MarkdownContent data-search="article-content">
+          <MarkdownContent>
             <ul className="list-style-none pl-0 text-bold">
               {releases.map((release) => {
                 const releaseLink = `/${router.locale}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`

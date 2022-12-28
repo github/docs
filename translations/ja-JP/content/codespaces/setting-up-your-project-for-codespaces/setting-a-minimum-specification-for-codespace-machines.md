@@ -10,19 +10,20 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 623b50a9423d855f807e2b480882f1e5eb2c479f
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: b7eeaac84721ff1d9ceab663957b1615952b0623
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113858'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159166'
 ---
 ## 概要
 
-作成する各 codespace は個別の仮想マシンでホストされ、通常はさまざまな種類の仮想マシンから選択できます。 マシンの種類ごとにリソース (プロセッサ コア、メモリ、ストレージ) が異なり、既定では、リソースが最も少ないコンピューターの種類が使用されます。 詳細については、「[codespace に合わせたコンピューターの種類の変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
+作成した codespace は、それぞれ別の仮想マシンにホストされます。 リポジトリから codespace を作成すると、通常はさまざまな種類の仮想マシンから選べます。 マシンの種類ごとにリソース (プロセッサ コア、メモリ、ストレージ) が異なり、既定では、リソースが最も少ないコンピューターの種類が使用されます。 詳細については、「[codespace に合わせたコンピューターの種類の変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)」を参照してください。
 
 プロジェクトで特定のレベルのコンピューティング能力が必要な場合は、それらの要件を満たすコンピューターの種類のみを、既定で使用、またはユーザーが選択できるように、{% data variables.product.prodname_github_codespaces %} を構成することができます。 `devcontainer.json` ファイル内でこれを構成します。
+
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %}
 
 {% note %}
 
@@ -45,7 +46,7 @@ ms.locfileid: '148113858'
 
    次のいずれかの、またはすべてのオプションを指定できます: `cpus`、`memory`、`storage`。
    
-   リポジトリで現在使用可能な、{% data variables.product.prodname_github_codespaces %} のコンピューターの種類の仕様を確認するには、コンピューターの種類の選択肢が表示されるまで、codespace の作成プロセスをステップ実行します。 詳細については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+   リポジトリで現在使用可能な、{% data variables.product.prodname_github_codespaces %} のコンピューターの種類の仕様を確認するには、コンピューターの種類の選択肢が表示されるまで、codespace の作成プロセスをステップ実行します。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
    
 1. ファイルを保存し、リポジトリの必要なブランチに加えた変更をコミットします。
 

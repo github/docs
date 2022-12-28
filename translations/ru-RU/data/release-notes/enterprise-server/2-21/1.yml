@@ -1,0 +1,21 @@
+date: '23.06.2020'
+sections:
+  security_fixes:
+    - 'Пакеты обновлены до последних версий системы безопасности. {% comment %} https://github.com/github/enterprise2/pull/20747, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
+  bugs:
+    - 'События журнала очень большого размера могут стать причиной нестабильной переадресации журнала, если в качестве транспортного протокола используется UDP. {% comment %} https://github.com/github/enterprise2/pull/20458, https://github.com/github/enterprise2/pull/20445 {% endcomment %}'
+    - 'Служба внутренних коммуникаций, используемая для доступа к MySQL, перезапускается чаще, чем требуется, в том числе в процессе обновления, из-за чего может произойти частичный сбой обновления. Мы сократили частоту операций перезапуска и повысили надежность кода. {% comment %} https://github.com/github/enterprise2/pull/20957, https://github.com/github/enterprise2/pull/20972, https://github.com/github/github/pull/146974 {% endcomment %}'
+    - "Автоматическая отмена приостановки прав пользователя с помощью единого входа не завершается, если атрибут ключей SSH содержал ключи, которые уже связаны с учетной записью пользователя. {% comment %} https://github.com/github/github/pull/143475, https://github.com/github/github/pull/142927 {% endcomment %}"
+    - 'Хэш разрешений репозитория из REST API не указывает доступ для участников бизнес-подразделения, у которых есть права доступа к внутренним репозиториям для вытягивания. {% comment %} https://github.com/github/github/pull/144756, https://github.com/github/github/pull/144292 {% endcomment %}'
+    - 'Политика корпоративных учетных записей "Удаление проблем из репозитория" не отражает текущий сохраненный параметр. {% comment %} https://github.com/github/github/pull/145218, https://github.com/github/github/pull/145067 {% endcomment %}'
+    - 'Журнал аудита не содержит событий изменения средств защиты ветви. {% comment %} https://github.com/github/github/pull/145998, https://github.com/github/github/pull/145014 {% endcomment %}'
+  known_issues:
+    - 'После первой настройки версии GitHub Enterprise Server, в которой еще нет пользователей, злоумышленник мог создать первого пользователя с правами администратора. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Пользовательские правила брандмауэра не сохраняются в процессе обновления. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Когда в GitHub Connect включен параметр "Пользователи могут выполнять поиск на GitHub.com", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Оповещения безопасности не включаются в отчет при передаче в репозитории посредством командной строки. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Журналы аудита можно отнести к адресу 127.0.0.1 вместо фактического IP-адреса источника. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "Настройка разрешения репозитория со статусом `Рассмотрение` или `Обслуживание` завершилась ошибкой."
+    - 'Если узел реплики находится в автономном режиме в конфигурации высокой доступности, {% data variables.product.product_name %} по-прежнему может маршрутизировать запросы {% data variables.product.prodname_pages %} на узел в автономном режиме, снижая доступность {% data variables.product.prodname_pages %} для пользователей.'

@@ -13,16 +13,24 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
-ms.openlocfilehash: 405a728eddcc751de8acd49af82783502f70b396
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: dd0f4c7135def456212de3355d6f6af17076c40c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109547'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192986'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## 前提条件
 
-{% data reusables.actions.enterprise-s3-support-warning %}
+{% note %}
+
+**注:** {% data variables.product.prodname_dotcom %} でサポートされている S3 ストレージ プロバイダーは、Amazon S3 と MinIO Gateway for NAS のみです。
+
+{% data reusables.actions.enterprise-s3-tech-partners %}
+
+{% endnote %}
 
 {% data variables.product.prodname_actions %} を有効化する前に、次のステップを完了していることを確認してください。
 

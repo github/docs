@@ -2,23 +2,23 @@
 title: 关于安全漏洞的协调披露
 intro: 漏洞披露是安全报告者与仓库维护者之间的协调工作。
 redirect_from:
-  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-  - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
 type: overview
 topics:
-  - Security advisories
-  - Vulnerabilities
+- Security advisories
+- Vulnerabilities
 shortTitle: Coordinated disclosure
 ms.openlocfilehash: c451554e08b4193ca20f9af8a5e694750808bf19
 ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113999'
+ms.locfileid: "148113999"
 ---
 ## 关于披露行业漏洞
 

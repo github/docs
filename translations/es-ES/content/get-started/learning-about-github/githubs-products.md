@@ -17,12 +17,12 @@ topics:
   - Mobile
   - Desktop
   - Security
-ms.openlocfilehash: e8e78b3c2cf86369b53b063cdbcded6f7a048834
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e2965befe319637296361e270646cd331478ae44
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389958'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160043'
 ---
 ## Acerca de los productos de {% data variables.product.prodname_dotcom %}
 
@@ -40,15 +40,19 @@ Con {% data variables.product.prodname_free_user %}, tu cuenta personal incluye 
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - Aplicación de la autenticación en dos fases
-- 2,000 minutos de {% data variables.product.prodname_actions %}
-- 500MB de almacenamiento de {% data variables.product.prodname_registry %}
+- 2000 minutos de {% data variables.product.prodname_actions %} al mes 
+- 500 MB de almacenamiento de {% data variables.product.prodname_registry %} {% ifversion fpt or ghec%}
+- 120 horas por núcleos de {% data variables.product.prodname_github_codespaces %} al mes
+- 15 GB de almacenamiento de {% data variables.product.prodname_github_codespaces %} al mes {% endif %}
 
 ## {% data variables.product.prodname_pro %}
 
 Además de las características disponibles con {% data variables.product.prodname_free_user %} para cuentas personales, {% data variables.product.prodname_pro %} incluye lo siguiente:
 - {% data variables.contact.github_support %} por correo electrónico
-- 3,000 minutos de {% data variables.product.prodname_actions %}
-- 2GB de almacenamiento de {% data variables.product.prodname_registry %}
+- 3000 minutos de {% data variables.product.prodname_actions %} al mes 
+- 2 GB de almacenamiento de {% data variables.product.prodname_registry %} {% ifversion fpt or ghec%}
+- 180 horas por núcleos de {% data variables.product.prodname_github_codespaces %} al mes
+- 20 GB de almacenamiento de {% data variables.product.prodname_github_codespaces %} al mes {% endif %}
 - Herramientas y perspectivas avanzadas en repositorios privados:
   - Necesidad de revisores de solicitudes de incorporación de cambios
   - Varios revisores de solicitudes de incorporación de cambios
@@ -67,15 +71,15 @@ Además de las características disponibles con {% data variables.product.prodna
 - {% data variables.product.prodname_gcf %}
 - Discusiones de equipo
 - Controles de acceso al equipo para administrar los grupos
-- 2,000 minutos de {% data variables.product.prodname_actions %}
-- 500MB de almacenamiento de {% data variables.product.prodname_registry %}
+- 2000 minutos de {% data variables.product.prodname_actions %} al mes 
+- 500 MB de almacenamiento de {% data variables.product.prodname_registry %} 
 
 ## {% data variables.product.prodname_team %}
 
 Adicionalmente a las características disponibles con {% data variables.product.prodname_free_team %} para organizaciones, {% data variables.product.prodname_team %} incluye:
 - {% data variables.contact.github_support %} por correo electrónico
-- 3,000 minutos de {% data variables.product.prodname_actions %}
-- 2GB de almacenamiento de {% data variables.product.prodname_registry %}
+- 3000 minutos de {% data variables.product.prodname_actions %} al mes 
+- 2 GB de almacenamiento de {% data variables.product.prodname_registry %} 
 - Herramientas y perspectivas avanzadas en repositorios privados:
   - Necesidad de revisores de solicitudes de incorporación de cambios
   - Varios revisores de solicitudes de incorporación de cambios
@@ -109,8 +113,8 @@ Adicionalmente a las características disponibles con {% data variables.product.
 
 {% data variables.product.prodname_ghe_cloud %} también incluye lo siguiente:
 - {% data variables.contact.enterprise_support %}. Para obtener más información, vea "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">Soporte técnico de {% data variables.product.prodname_ghe_cloud %}</a>" y "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">Anexo de {% data variables.product.prodname_ghe_cloud %}</a>".
-- 50,000 minutos de {% data variables.product.prodname_actions %}
-- 50GB de almacenamiento de {% data variables.product.prodname_registry %}
+- 50 000 minutos de {% data variables.product.prodname_actions %} al mes 
+- 50 GB de almacenamiento de {% data variables.product.prodname_registry %} 
 - Control de acceso para los sitios de {% data variables.product.prodname_pages %}. Para más información, vea "[Cambio de la visibilidad del sitio de {% data variables.product.prodname_pages %}](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)".
 - Un contrato de nivel de servicio para un tiempo de actividad mensual del 99,9 %
 - La opción de configurar tu empresa para los {% data variables.product.prodname_emus %}, para que puedas aprovisionar y administrar a los miembros con tu proveedor de identidad y restringir sus contribuciones para que solo se hagan en tu empresa. Para más información, vea "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".

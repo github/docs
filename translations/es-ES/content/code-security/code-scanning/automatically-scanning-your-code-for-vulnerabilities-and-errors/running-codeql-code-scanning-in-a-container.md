@@ -21,12 +21,12 @@ topics:
   - Repositories
   - Containers
   - Java
-ms.openlocfilehash: 9f4fb3cd54dda2f31ec6086419078345dad51e8d
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 60dac8a7f71af067c5cfaba5f48d123a3068f704
+ms.sourcegitcommit: aa488e9e641139f9056885b1479c8801e9906131
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147682680'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162811'
 ---
 {% data reusables.code-scanning.beta %}
 
@@ -34,7 +34,7 @@ ms.locfileid: '147682680'
 
 Si estás configurando el {% data variables.product.prodname_code_scanning %} para un lenguaje compilado, y estás compilando el código en un ambiente contenido, el análisis podría fallar con el mensaje de error "No source code was seen during the build". Esto indica que {% data variables.product.prodname_codeql %} no fue capaz de monitorear tu código mientras se compilaba.
 
-Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto se aplica ya sea si usas la {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %} el {% data variables.product.prodname_codeql_runner %}{% endif %} o {% data variables.product.prodname_actions %}. Para la {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}o el {% data variables.product.prodname_codeql_runner %}{% endif %}, consulta "[Instalación de la {% data variables.product.prodname_codeql_cli %} en el sistema de CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% ifversion codeql-runner-supported %} o "[Ejecución del {% data variables.product.prodname_codeql_runner %} en el sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} para obtener más información. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, vea "[Flujo de trabajo de ejemplo](#example-workflow)".
+Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto se aplica ya sea si usas {% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}, {% data variables.code-scanning.codeql_runner %},{% endif %} o {% data variables.product.prodname_actions %}. Para {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}o {% data variables.code-scanning.codeql_runner %}{% endif %}, consulta "[Instalación de {% data variables.product.prodname_codeql_cli %} en el sistema de CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% ifversion codeql-runner-supported %} o "[Ejecución de {% data variables.code-scanning.codeql_runner %} en el sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} para obtener más información. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, vea "[Flujo de trabajo de ejemplo](#example-workflow)".
 
 {% note %}
 

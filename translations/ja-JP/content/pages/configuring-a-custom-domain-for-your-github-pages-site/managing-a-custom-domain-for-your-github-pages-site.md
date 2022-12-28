@@ -1,6 +1,6 @@
 ---
-title: Managing a custom domain for your GitHub Pages site
-intro: 'You can set up or update certain DNS records and your repository settings to point the default domain for your {% data variables.product.prodname_pages %} site to a custom domain.'
+title: GitHub Pages サイトのカスタムドメインを管理する
+intro: '特定の DNS レコードとリポジトリ設定を設定または更新し、{% data variables.product.prodname_pages %} サイトのデフォルトドメインをカスタムドメインに指定することができます。'
 redirect_from:
   - /articles/quick-start-setting-up-a-custom-domain
   - /articles/setting-up-an-apex-domain
@@ -18,49 +18,51 @@ versions:
 topics:
   - Pages
 shortTitle: Manage a custom domain
+ms.openlocfilehash: d8c11f50369d27a1bf99b10ba843e1525b3d4014
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181258'
 ---
+リポジトリの管理者権限があるユーザは、{% data variables.product.prodname_pages %} サイトのカスタムドメインを設定できます。
 
-People with admin permissions for a repository can configure a custom domain for a {% data variables.product.prodname_pages %} site.
+## カスタムドメインの設定について
 
-## About custom domain configuration
-
-Make sure you add your custom domain to your {% data variables.product.prodname_pages %} site before configuring your custom domain with your DNS provider. Configuring your custom domain with your DNS provider without adding your custom domain to {% data variables.product.product_name %} could result in someone else being able to host a site on one of your subdomains.
+DNS プロバイダでカスタムドメインを設定する前に、必ず {% data variables.product.prodname_pages %} サイトをカスタムドメインに追加してください。 カスタムドメインを {% data variables.product.product_name %} に追加せずに DNS プロバイダに設定すると、別のユーザがあなたのサブドメインにサイトをホストできることになります。
 
 {% windows %}
 
-The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Before you can verify that your DNS records are configured correctly, you must install [BIND](https://www.isc.org/bind/).
+DNS レコードの構成が正しいかどうかを確認するために利用できる `dig` コマンドは、Windows には含まれていません。 DNS レコードが正しく構成されていることを確認する前に、[BIND](https://www.isc.org/bind/) をインストールする必要があります。
 
 {% endwindows %}
 
 {% note %}
 
-**Note:** DNS changes can take up to 24 hours to propagate.
+**注:** DNS の変更内容が反映されるまで最大で 24 時間かかることがあります。
 
 {% endnote %}
 
-## Configuring a subdomain
+## サブドメインを設定する
 
-To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must add your domain in the repository settings. After that, configure a CNAME record with your DNS provider.
+`www` またはカスタム サブドメイン (`www.example.com` や `blog.example.com` など) を設定するには、リポジトリ設定にドメインを追加する必要があります。 その後、DNS プロバイダで CNAME レコードを設定します。
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
-![Save custom domain button](/assets/images/help/pages/save-custom-subdomain.png)
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+4. [カスタム ドメイン] で、カスタム ドメイン名を入力してから、 **[保存]** をクリックします。 ブランチからサイトを公開している場合は、ソース ブランチのルートに `CNAME` ファイルを追加するコミットが作成されます。 カスタムの {% data variables.product.prodname_actions %} ワークフローを使用してサイトを公開している場合、`CNAME` ファイルは作成されません。 公開元の詳細については、「[GitHub Pages サイトの公開元を設定する](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください。
+  ![カスタム ドメインの [保存] ボタン](/assets/images/help/pages/save-custom-subdomain.png)
 
-{% note %}
+  {% note %}
+  
+  **メモ:** カスタム ドメインが国際化ドメイン名の場合、Punycode でエンコードされたバージョンを入力する必要があります。
+  
+  Punycodes について詳しくは、「[国際化ドメイン名](https://en.wikipedia.org/wiki/Internationalized_domain_name)」をご覧ください。
+  
+  {% endnote %}
 
-**Note:** If your custom domain is an internationalized domain name, you must enter the Punycode encoded version.
+5. ご利用の DNS プロバイダーに移動し、サブドメインがサイトの既定のドメインを指す `CNAME`CNAME レコードを作成します。 たとえば、ユーザー サイトのサブドメイン `www.example.com` を使用する場合は、`www.example.com` が `<user>.github.io` を指す `CNAME` レコードを作成します。 組織サイトのサブドメイン `another.example.com` を使用する場合は、`another.example.com` が `<organization>.github.io` を指す `CNAME` レコードを作成します。 `CNAME` レコードは常に、`<user>.github.io` または `<organization>.github.io` (リポジトリ名を除く) を指す必要があります。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
-For more information on Punycodes, see [Internationalized domain name](https://en.wikipedia.org/wiki/Internationalized_domain_name).
-
-{% endnote %}
-
-5. Navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `www.example.com` for your user site, create a `CNAME` record that points `www.example.com` to `<user>.github.io`. If you want to use the subdomain `another.example.com` for your organization site, create a `CNAME` record that points `another.example.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
-
-{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your subdomain.
+{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %} {% data reusables.command_line.open_the_multi_os_terminal %}
+6. DNS レコードが正しく構成されたことを確認するには、`dig` コマンドを使用します。_WWW.EXAMPLE.COM_ はご利用のサブドメインに置き換えてください。
 ```shell
     $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
     > ;WWW.EXAMPLE.COM.                    IN      A
@@ -68,30 +70,27 @@ For more information on Punycodes, see [Internationalized domain name](https://e
     > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER .
     > GITHUB-PAGES-SERVER .         22      IN      A       192.0.2.1
 ```
-{% data reusables.pages.build-locally-download-cname %}
-{% data reusables.pages.enforce-https-custom-domain %}
+{% data reusables.pages.build-locally-download-cname %} {% data reusables.pages.enforce-https-custom-domain %}
 
-## Configuring an apex domain
+## Apexドメインを設定する
 
-To set up an apex domain, such as `example.com`, you must configure a custom domain in your repository settings and at least one `ALIAS`, `ANAME`, or `A` record with your DNS provider.
+`example.com` などの apex ドメインを設定するには、リポジトリ設定でカスタムドメインを構成し、ご利用の DNS プロバイダーで少なくとも 1 つの `ALIAS`、`ANAME`、または `A` レコードを構成する必要があります。
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Configuring a subdomain](#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} 詳細については、「[サブドメインの構成](#configuring-a-subdomain)」を参照してください。
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
-  ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
-    - To create an `ALIAS` or `ANAME` record, point your apex domain to the default domain for your site. {% data reusables.pages.default-domain-information %}
-    - To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+4. [カスタム ドメイン] で、カスタム ドメイン名を入力してから、 **[保存]** をクリックします。 ブランチからサイトを公開している場合は、ソース ブランチのルートに `CNAME` ファイルを追加するコミットが作成されます。 カスタムの {% data variables.product.prodname_actions %} ワークフローを使用してサイトを公開している場合、`CNAME` ファイルは作成されません。 公開元の詳細については、「[GitHub Pages サイトの公開元を設定する](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください。
+  ![カスタム ドメインの [保存] ボタン](/assets/images/help/pages/save-custom-apex-domain.png)
+5. DNS プロバイダーに移動し、`ALIAS`、`ANAME`、または `A` レコードを作成します。 IPv6 サポートのために `AAAA` レコードを作成することもできます。 {% data reusables.pages.contact-dns-provider %}
+    - `ALIAS` または `ANAME` レコードを作成するには、apex ドメインがサイトの既定のドメインを指すようにします。 {% data reusables.pages.default-domain-information %}
+    - `A` レコードを作成するには、apex ドメインが {% data variables.product.prodname_pages %} の IP アドレスを指すようにします。
       ```shell
       185.199.108.153
       185.199.109.153
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+    - `AAAA` レコードを作成するには、apex ドメインが {% data variables.product.prodname_pages %} の IP アドレスを指すようにします。
       ```shell
       2606:50c0:8000::153
       2606:50c0:8001::153
@@ -99,10 +98,9 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
       2606:50c0:8003::153
       ```
 
-{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _EXAMPLE.COM_ with your apex domain. Confirm that the results match the IP addresses for {% data variables.product.prodname_pages %} above.
-   - For `A` records.
+{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %} {% data reusables.command_line.open_the_multi_os_terminal %}
+6. DNS レコードが正しく構成されていることを確認するには、`dig` コマンドを使用します。_EXAMPLE.COM_ はご利用の apex ドメインに置き換えてください。 結果が、上記の {% data variables.product.prodname_pages %} の IP アドレスに一致することを確認します。
+   - `A` レコードの場合。
     ```shell
     $ dig EXAMPLE.COM +noall +answer -t A
     > EXAMPLE.COM    3600    IN A     185.199.108.153
@@ -110,7 +108,7 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
     > EXAMPLE.COM    3600    IN A     185.199.110.153
     > EXAMPLE.COM    3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - `AAAA` レコードの場合。
     ```shell
     $ dig EXAMPLE.COM +noall +answer -t AAAA
     > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8000::153
@@ -118,19 +116,18 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
     > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8002::153
     > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8003::153
     ```
-{% data reusables.pages.build-locally-download-cname %}
-{% data reusables.pages.enforce-https-custom-domain %}
+{% data reusables.pages.build-locally-download-cname %} {% data reusables.pages.enforce-https-custom-domain %}
 
-## Configuring an apex domain and the `www` subdomain variant
+## apex ドメインと `www` サブドメイン バリアントの構成
 
-When using an apex domain, we recommend configuring your {% data variables.product.prodname_pages %} site to host content at both the apex domain and that domain's `www` subdomain variant.
+apex ドメインを使用する場合は、コンテンツを apex ドメインとそのドメインの `www` サブドメイン バリアントの両方でホストするように {% data variables.product.prodname_pages %} サイトを構成することをお勧めします。
 
-To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain by creating an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
+apex ドメインと共に `www` サブドメインを設定するには、まず、DNS プロバイダーで `ALIAS`、`ANAME`、または `A` レコードを作成して、apex ドメインを構成する必要があります。 詳細については、「[Apex ドメインを設定する](#configuring-an-apex-domain)」を参照してください。
 
-After you configure the apex domain, you must configure a CNAME record with your DNS provider.
+Apexドメインを設定したら、DNSプロバイダでCNAMEレコードを設定しなければなりません。
 
-1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
-2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
+1. DNS プロバイダーに移動し、`www.example.com` がサイトの既定のドメイン (`<user>.github.io` または `<organization>.github.io`) を指す `CNAME` レコードを作成します。 リポジトリ名は含めないでください。 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+2. DNS レコードが正しく構成されたことを確認するには、`dig` コマンドを使用します。_WWW.EXAMPLE.COM_ は、ご利用の `www` サブドメイン バリアントに置き換えてください。
 ```shell
     $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
     > ;WWW.EXAMPLE.COM                     IN      A
@@ -138,18 +135,16 @@ After you configure the apex domain, you must configure a CNAME record with your
     > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER.
     > GITHUB-PAGES-SERVER.         22      IN      A       192.0.2.1
 ```
-## Removing a custom domain
+## カスタムドメインの削除
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain," click **Remove**.
-  ![Save custom domain button](/assets/images/help/pages/remove-custom-domain.png)
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+4. [カスタム ドメイン] で、 **[削除]** をクリックします。
+  ![カスタム ドメインの [保存] ボタン](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## カスタムドメインの保護
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} 詳細については、「[{% data variables.product.prodname_pages %} のカスタム ドメインの検証](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)」を参照してください。
 
-## Further reading
+## 参考資料
 
-- "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"
+- "[カスタム ドメインと {% data variables.product.prodname_pages %} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages)"

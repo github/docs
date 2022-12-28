@@ -1,9 +1,8 @@
 ---
-title: Setting up your C# (.NET) project for GitHub Codespaces
+title: Configuración de un proyecto de C# (.NET) para GitHub Codespaces
 shortTitle: Setting up your C# (.NET) project
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.codespaces %}'
-intro: 'Get started with your C# (.NET) project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
+intro: 'Crea un contenedor de desarrollo personalizado para empezar a trabajar con tu proyecto de C# (.NET) en {% data variables.product.prodname_github_codespaces %}.'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
@@ -13,124 +12,126 @@ topics:
   - Codespaces
 hasExperimentalAlternative: true
 hidden: true
+ms.openlocfilehash: 10282aedf3bdb239fa238e546c2fc6280787a6a0
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158617'
 ---
+## Introducción
 
-## Introduction
+En esta guía se muestra cómo configurar un proyecto de C# (.NET) en {% data reusables.codespaces.setting-up-project-intro %}.
 
-This guide shows you how to set up your C# (.NET) project in {% data variables.product.prodname_github_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+### Requisitos previos
 
-### Prerequisites
+- Debes tener un proyecto existente de C# (.NET) en un repositorio de {% data variables.product.prodname_dotcom_the_website %}. Si no tiene un proyecto, puede probar este tutorial con el ejemplo siguiente: https://github.com/2percentsilk/dotnet-quickstart.
+- Debes tener {% data variables.product.prodname_github_codespaces %} habilitado en tu organización.
 
-- You should have an existing C# (.NET) project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/dotnet-quickstart.
-- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
+## Paso 1: Abre tu proyecto en un codespace
 
-## Step 1: Open your project in a codespace
+1. Debajo del nombre del repositorio, usa el menú desplegable **{% octicon "code" aria-label="The code icon" %} Código** y, en la pestaña **Codespaces**, haz clic en el signo más ({% octicon "plus" aria-label="The plus icon" %}).
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+  ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-  If you don’t see this option, {% data variables.product.prodname_github_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces) for more information.
-
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
+Cuando creas un codespace, tu proyecto se crea en una MV remota dedicada a ti. Predeterminadamente, el contenedor de tu codespace tiene muchos lenguajes de programación y tiempos de ejecución, incluyendo a .NET. También incluye un conjunto de herramientas comunes como git, wget, rsync, openssh y nano.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## Step 2: Add a dev container configuration to your repository from a template
+## Paso 2: agregar una configuración de contenedor de desarrollo al repositorio desde una plantilla
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest .NET version and common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
+El contenedor de desarrollo predeterminado, o «contenedor de desarrollo», para {% data variables.product.prodname_github_codespaces %} viene con la versión más reciente de Java, los administradores de paquetes (Maven, Gradle) y otras herramientas comunes preinstaladas. Sin embargo, recomendamos que configures tu propio contenedor de desarrollo para incluir todas las herramientas y scripts que necesita el proyecto. Esto garantizará un entorno totalmente reproducible para todos los usuarios de {% data variables.product.prodname_github_codespaces %} en el repositorio.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. For this example, click **C# (.NET)**. If you need additional features you can select any container that’s specific to C# (.NET) or a combination of tools such as C# (.NET) and MS SQL.
-  ![Select C# (.NET) option from the list](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
-1. Click the recommended version of .NET.
-  ![.NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
-1. Accept the default option to add Node.js to your customization.
-  ![Add Node.js selection](/assets/images/help/codespaces/dotnet-options.png)
-{% data reusables.codespaces.rebuild-command %}
+1. Para este ejemplo, haga clic en **C# (.NET)** . Si necesitas características adicionales puedes seleccionar cualquier contenedor que sea específico para C# (.NET) o una combinación de herramientas tales como C# (.NET) y MS SQL.
+  ![Selección de la opción C# (.NET) en la lista](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
+1. Haz clic en la versión recomendada de .NET.
+  ![Selección de la versión de .NET](/assets/images/help/codespaces/add-dotnet-version.png)
+1. Acepta la opción predeterminada para agregar a Node.js a tu personalización.
+  ![Selección de agregar Node.js](/assets/images/help/codespaces/dotnet-options.png) {% data reusables.codespaces.rebuild-command %}
 
-### Anatomy of your dev container
+### Anatomía de tu contenedor dev
 
-Adding the C# (.NET) dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
+Al agregar la plantilla de contenedor de desarrollo de C# (.NET), se agrega una carpeta `.devcontainer` a la raíz del repositorio del proyecto con los siguientes archivos:
 
 - `devcontainer.json`
 - Dockerfile
 
-The newly added `devcontainer.json` file defines a few properties that are described after the sample.
+En el archivo `devcontainer.json` recién agregado se definen varias propiedades que se describen después del ejemplo.
 
 #### devcontainer.json
 
 ```json
 {
-	"name": "C# (.NET)",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			// Update 'VARIANT' to pick a .NET Core version: 2.1, 3.1, 5.0
-			"VARIANT": "5.0",
-			// Options
-			"INSTALL_NODE": "true",
-			"NODE_VERSION": "lts/*",
-			"INSTALL_AZURE_CLI": "false"
-		}
-	},
+    "name": "C# (.NET)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Update 'VARIANT' to pick a .NET Core version: 2.1, 3.1, 5.0
+            "VARIANT": "5.0",
+            // Options
+            "INSTALL_NODE": "true",
+            "NODE_VERSION": "lts/*",
+            "INSTALL_AZURE_CLI": "false"
+        }
+    },
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-dotnettools.csharp"
-	],
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "ms-dotnettools.csharp"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5000, 5001],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [5000, 5001],
 
-	// [Optional] To reuse of your local HTTPS dev cert:
-	//
-	// 1. Export it locally using this command:
-	//    * Windows PowerShell:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	//    * macOS/Linux terminal:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	//
-	// 2. Uncomment these 'remoteEnv' lines:
-	//    "remoteEnv": {
-	// 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
-	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
-	//    },
-	//
-	// 3. Start the container.
-	//
-	// 4. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer.
-	//
-	// 5. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https".
-	//
+    // [Optional] To reuse of your local HTTPS dev cert:
+    //
+    // 1. Export it locally using this command:
+    //    * Windows PowerShell:
+    //        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+    //    * macOS/Linux terminal:
+    //        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+    //
+    // 2. Uncomment these 'remoteEnv' lines:
+    //    "remoteEnv": {
+    //        "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
+    //        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
+    //    },
+    //
+    // 3. Start the container.
+    //
+    // 4. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer.
+    //
+    // 5. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https".
+    //
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "dotnet restore",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "dotnet restore",
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
 ```
 
-- **name** - You can name our dev container anything, this is just the default.
-- **build** - The build properties.
-  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+- **name**: puedes asignar el nombre que quieras al contenedor de desarrollo, este es solo el nombre predeterminado.
+- **build**: las propiedades de compilación.
+  - **dockerfile**: en el objeto `build`, `dockerfile` contiene la ruta de acceso al Dockerfile que también se ha agregado desde la plantilla.
   - **args**
-    - **variant**: This file only contains one build argument, which is the .NET Core version that we want to use.
-- **settings** - These are {% data variables.product.prodname_vscode %} settings.
-  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
-- **extensions** - These are extensions included by default.
-  - **ms-dotnettools.csharp** - The Microsoft C# extension provides rich support for developing in C#, including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
-- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
-- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
-- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
+    - **variant**: este archivo solo contiene un argumento de compilación, la versión de .NET Core que queremos usar.
+- **settings**: la configuración de {% data variables.product.prodname_vscode %}.
+  - **terminal.integrated.shell.linux**: aunque aquí bash sea el shell de terminal predeterminado, puedes modificarlo y usar otros.
+- **extensions**: las extensiones incluidas de forma predeterminada.
+  - **ms-dotnettools.csharp**: la extensión C# de Microsoft proporciona soporte enriquecido para desarrollar en C#, incluidas características como IntelliSense, linting, depuración, navegación y formato de código, refactorización, explorador de variables, explorador de pruebas y mucho más.
+- **forwardPorts**: cualquier puerto que se incluya aquí se reenviará de forma automática. Para más información, vea "[Reenvío de puertos en el codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+- **postCreateCommand**: después de crear el codespace, usa esta opción para ejecutar comandos que no están definidos en el Dockerfile.
+- **remoteUser**: de manera predeterminada, la ejecución se realiza como el usuario vscode, pero opcionalmente se puede establecer en root.
 
 #### Dockerfile
 
@@ -158,26 +159,26 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-d
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
+Puedes utilizar este Dockerfile para agregar capas de contenedor adicionales y especificar paquetes de SO, versiones de nodo o paquetes globales que queremos incluir en nuestro contenedor.
 
-## Step 3: Modify your devcontainer.json file
+## Paso 3: Modifica tu archivo devcontainer.json
 
-With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
+Con la configuración del contenedor de desarrollo agregada y un conocimiento básico de lo que hace cada elemento, ya puedes realizar cambios para personalizar aún más el entorno. En este ejemplo, agregarás porpiedades para instalar extensiones y tus dependencias de pryecto cuando se lance tu codespace.
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to expand the `.devcontainer` folder to see it.
+1. En el Explorador, seleccione el archivo `devcontainer.json` del árbol para abrirlo. Es posible que tenga que expandir la carpeta `.devcontainer` para verlo.
 
-   ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+   ![Archivo de devcontainer.json en el explorador](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. Update your the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
+2. Actualice la lista `extensions` del archivo `devcontainer.json` para agregar algunas extensiones que son útiles al trabajar con el proyecto.
 
    ```json{:copy}
    "extensions": [
- 		  "ms-dotnettools.csharp",
- 		  "streetsidesoftware.code-spell-checker",
- 	  ],
+          "ms-dotnettools.csharp",
+          "streetsidesoftware.code-spell-checker",
+      ],
    ```
 
-3. Uncomment the `postCreateCommand` to restore dependencies as part of the codespace setup process.
+3. Quite la marca de comentario de `postCreateCommand` para restaurar las dependencias como parte del proceso de configuración del codespace.
 
    ```json{:copy}
    // Use 'postCreateCommand' to run commands after the container is created.
@@ -190,26 +191,26 @@ With your dev container configuration added and a basic understanding of what ev
 
    {% data reusables.codespaces.rebuild-reason %}
 
-5. Check your changes were successfully applied by verifying the "Code Spell Checker" extension was installed.
+5. Verifica que tus cambios se hayan aplicado con éxito verificando que se haya instalado la extensión "Code Spell Checker".
 
-    ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png)
+    ![Lista de extensiones](/assets/images/help/codespaces/dotnet-extensions.png)
 
-## Step 4: Run your application
+## Paso 4: Ejecución de la aplicación
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via the `dotnet restore` command. With our dependencies now installed, we can run our application.
+En la sección anterior, ha usado `postCreateCommand` para instalar un conjunto de paquetes mediante el comando `dotnet restore`. Ahora que instalamos nuestras dependencias, podemos ejecutar nuestra aplicación.
 
-1. Run your application by pressing `F5` or entering `dotnet watch run` in your terminal.
+1. Para ejecutar la aplicación, presione `F5` o escriba `dotnet watch run` en el terminal.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. Cuando se inicie el proyecto, deberías ver un mensaje de notificación del sistema en la esquina inferior derecha de {% data variables.product.prodname_vscode_shortname %}, que contiene un mensaje para conectarse al puerto que usa el proyecto.
 
-   ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
+   ![Notificación del sistema sobre el reenvío de puertos](/assets/images/help/codespaces/python-port-forwarding.png)
 
-## Step 5: Commit your changes
+## Paso 5: Confirma tus cambios
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-## Next steps
+## Pasos siguientes
 
-You should now be ready start developing your C# (.NET) project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
+Ahora deberías estar a punto para empezar a desarrollar tu proyecto de C# (.NET) en {% data variables.product.prodname_github_codespaces %}. Aquí tienes algunos recursos adicionales para situaciones más avanzadas.
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

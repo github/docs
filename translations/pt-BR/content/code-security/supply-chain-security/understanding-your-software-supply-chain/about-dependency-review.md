@@ -1,6 +1,6 @@
 ---
-title: About dependency review
-intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+title: Sobre a análise de dependência
+intro: 'A análise de dependências permite que você capture dependências não seguras antes que elas sejam introduzidas no ambiente e fornece informações sobre licença, dependências e idade das dependências.'
 product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
@@ -17,52 +17,53 @@ topics:
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
+ms.openlocfilehash: 36a80324e75f6ffbe96a2b46016d56561da931f0
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164111'
 ---
-
-## About dependency review
+## Sobre a análise de dependência
 
 {% data reusables.dependency-review.feature-overview %}  
 
-If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
+Se um pull request for direcionado ao branch padrão do seu repositório e contiver alterações em manifestos de pacote ou arquivos de bloqueio, você poderá exibir um comentário de dependência para ver o que foi alterado. A revisão de dependências inclui detalhes de alterações nas dependências indiretas nos arquivos de bloqueio, e informa a você se alguma das dependências adicionadas ou atualizadas contém vulnerabilidades conhecidas.
 
-Sometimes you might just want to update the version of one dependency in a manifest and generate a pull request. However, if the updated version of this direct dependency also has updated dependencies, your pull request may have more changes than you expected. The dependency review for each manifest and lock file provides an easy way to see what has changed, and whether any of the new dependency versions contain known vulnerabilities.
+Às vezes, você pode apenas querer atualizar a versão de uma dependência em um manifesto e gerar um pull request. No entanto, se a versão atualizada desta dependência direta também atualizou as dependências, seu pull request pode ter mais alterações do que o esperado. A revisão de dependência para cada manifesto e arquivo de bloqueio fornece uma maneira fácil de ver o que foi alterado e se alguma das novas versões de dependências contém vulnerabilidades conhecidas.
 
-By checking the dependency reviews in a pull request, and changing any dependencies that are flagged as vulnerable, you can avoid vulnerabilities being added to your project. For more information about how dependency review works, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+Ao verificar as revisões de dependências em um pull request e alterar todas as dependências sinalizadas como vulneráveis, você pode evitar que vulnerabilidades sejam adicionadas ao seu projeto. Para obter mais informações sobre como funciona a revisão de dependência, confira "[Como revisar alterações de dependência em uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)".
 
-For more information about configuring dependency review, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)."
+Para obter mais informações sobre como configurar a revisão de dependência, confira "[Configurando a revisão de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)".
 
-{% data variables.product.prodname_dependabot_alerts %} will find vulnerabilities that are already in your dependencies, but it's much better to avoid introducing potential problems than to fix problems at a later date. For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
+{% data variables.product.prodname_dependabot_alerts %} encontrará vulnerabilidades que já estão nas suas dependências, mas é muito melhor evitar a introdução de possíveis problemas do que corrigir problemas em uma data posterior. Para obter mais informações sobre os {% data variables.product.prodname_dependabot_alerts %}, confira "[Sobre os {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
 
-Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-For more information on supply chain features available on {% data variables.product.product_name %}, see "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
+Para obter mais informações sobre os recursos da cadeia de fornecedores disponíveis no {% data variables.product.product_name %}, confira "[Sobre a segurança da cadeia de fornecedores](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)".
 
 {% ifversion ghec or ghes %}
-## Enabling dependency review
+## Habilitar revisão de dependências
 
-The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
+O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. Para obter mais informações, confira "{% ifversion ghec %}[Como habilitar o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Como habilitar o grafo de dependência para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}".
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-## Dependency review enforcement
+## Imposição da revisão de dependência
 
-{% data reusables.dependency-review.dependency-review-action-beta-note %}
-
-The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+A ação está disponível para todos os {% ifversion fpt or ghec %}repositórios públicos, bem como para repositórios privados{% endif %} que têm o {% data variables.product.prodname_GH_advanced_security %} habilitado.
 
 {% data reusables.dependency-review.action-enterprise %}
 
-You can use the {% data variables.product.prodname_dependency_review_action %} in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+Você pode usar o {% data variables.product.prodname_dependency_review_action %} para impor revisões de dependência em solicitações de pull no repositório. A ação examina versões vulneráveis de dependências introduzidas por alterações de versão do pacote em solicitações de pull e avisa você sobre as vulnerabilidades de segurança associadas. Isso oferece uma melhor visibilidade do que está mudando em uma solicitação de pull e ajuda a evitar que vulnerabilidades sejam adicionadas ao repositório. Para obter mais informações, confira [`dependency-review-action`](https://github.com/actions/dependency-review-action).
 
-![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
+![Exemplo de ação de revisão de dependência](/assets/images/help/graphs/dependency-review-action.png)
 
-By default, the {% data variables.product.prodname_dependency_review_action %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+Por padrão, a verificação do {% data variables.product.prodname_dependency_review_action %} falhará se descobrir pacotes vulneráveis. Uma verificação com falha impede que uma solicitação de pull seja mesclada quando o proprietário do repositório exigir que a verificação de análise de dependência seja aprovada. Para obter mais informações, confira "[Sobre os branches protegidos](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)".
 
-The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[Dependency review](/rest/reference/dependency-graph#dependency-review)."
+A ação usa a API REST de Revisão de Dependência para obter a comparação das alterações de dependência entre o commit base e o commit principal. Use a API de Revisão de Dependência para obter a comparação das alterações de dependência, incluindo dados de vulnerabilidade, entre os dois commits em um repositório. Para obter mais informações, confira "[Revisão de dependência](/rest/reference/dependency-graph#dependency-review)".
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-{% endif %}
+{% ifversion dependency-review-action-configuration %} Você pode configurar o {% data variables.product.prodname_dependency_review_action %} de acordo com suas necessidades. Por exemplo, você pode especificar o nível de severidade que fará a ação falhar{% ifversion dependency-review-action-licenses %} ou definir uma lista de permissões e negações para que as licenças sejam verificadas{% endif %}. Para obter mais informações, confira "[Como configurar a análise de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)". {% endif %}
 
 {% endif %}
 

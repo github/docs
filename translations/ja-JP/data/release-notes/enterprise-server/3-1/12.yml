@@ -1,0 +1,24 @@
+date: '2021-11-23'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "GitHub Actions が有効になっているとき、\"ghe-repl-start\" または \"ghe-repl-status\" を実行すると、データベースへの接続に関するエラーが返されることがありました。"
+    - "\"PATH\" が定義されていないため、pre-receive フックが失敗しました。"
+    - 'インスタンスが以前にレプリカとして構成されていた場合、"ghe-repl-setup" を実行すると、"ディレクトリ /data/user/elasticsearch を作成できません: ファイルが存在します" というエラーが返されました。'
+    - '高可用性レプリカを設定した後は、"ghe-repl-status" の出力に "コマンドで予期せずクローズされなかったアクション" というエラーが含まれました。'
+    - 大規模なクラスター環境では、フロントエンド ノードのサブセットで、認証バックエンドを利用できませんでした。
+    - 一部の重要なサービスが、GHES クラスターのバックエンド ノードで利用できない可能性があります。
+  changes:
+    - "\"ghe-cluster-suport-bundle\" でクラスター サポート バンドルを作成するときの、\"gzip\" 圧縮の追加外部レイヤーが、既定でオフにされるようになりました。この外側の圧縮は、必要に応じて、\"ghe-cluster-suport-bundle -c\" コマンド ライン オプションで適用できます。"
+    - エクスペリエンス向上のためのモバイル アプリのデータ収集についてユーザーに注意を促す追加のテキストを、管理者コンソールに追加しました。
+    - "{% data variables.product.prodname_github_connect %} のデータ接続レコードに、有効になっている {% data variables.product.prodname_github_connect %} 機能のリストが含まれるようになりました。[2021-12-09 に更新]"
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリで、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、\"ghe-repl-teardown\" でのレプリカ ノードの破棄は成功しますが、\"エラー: 移行の実行\" が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

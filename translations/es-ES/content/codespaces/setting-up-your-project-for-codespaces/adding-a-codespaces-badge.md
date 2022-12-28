@@ -10,13 +10,12 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c69a815501f5943a56d32af3e58cd7850a69588b
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109863'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158785'
 ---
 ## Información general
 
@@ -26,20 +25,14 @@ Agregar un distintivo "Abrir en {% data variables.product.prodname_github_codesp
 
 Al crear un distintivo, puedes elegir opciones de configuración específicas para el codespace que creará el distintivo.
 
-Cuando la gente haga clic en el distintivo, se les dirigirá a la página de opciones avanzadas para la creación del codespace, con las opciones que elegiste preseleccionadas. Para obtener más información sobre la página de opciones avanzadas, consulta "[Creación de un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+Cuando la gente haga clic en el distintivo, se les dirigirá a la página de opciones avanzadas para la creación del codespace, con las opciones que elegiste preseleccionadas. Para obtener más información sobre la página de opciones avanzadas, consulta "[Creación de un codespace para un repositorio](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)".
 
 En la página opciones avanzadas, los usuarios pueden cambiar la configuración preseleccionada si es necesario y, a continuación, hacer clic en **Crear codespace**.
-
-{% note %}
-
-**Nota**: Ten en cuenta que las personas que aún no tienen acceso a {% data variables.product.prodname_github_codespaces %} verán un mensaje 404 si hacen clic en este distintivo.
-
-{% endnote %}
 
 ## Creación de un distintivo "Abrir en {% data variables.product.prodname_github_codespaces %}"
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Debajo del nombre de repositorio, utiliza el menú desplegable de "Rama" y selecciona aquella en la que quieras crear el distintivo.
+1. Debajo del nombre del repositorio, usa el menú desplegable "Rama" y selecciona aquella en la que quieras crear el distintivo.
 
    ![Captura de pantalla del menú desplegable Rama](/assets/images/help/codespaces/branch-drop-down.png)
 
@@ -47,9 +40,9 @@ En la página opciones avanzadas, los usuarios pueden cambiar la configuración 
 
    ![Captura de pantalla del botón Nuevo codespace](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Haz clic en la flecha abajo situada al lado del botón **Crear codespace en RAMA**, haz clic en **Configurar y crear codespace** y, a continuación, haz clic en el botón **Configurar y crear codespace**.
+1. Haz clic en los puntos suspensivos ( **…** ) en la parte superior derecha de la pestaña **Codespaces** y, luego, haz clic en **Nuevo con opciones**.
 
-   ![Captura de pantalla de la opción "Configurar y crear codespace"](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![Captura de pantalla de la opción "Configurar y crear codespace"](/assets/images/help/codespaces/default-machine-type.png)
 
 1. En la página opciones avanzadas para la creación del codespace, selecciona los valores que deseas que se preseleccionen en cada campo.
 

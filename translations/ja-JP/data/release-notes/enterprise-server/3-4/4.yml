@@ -1,31 +1,32 @@
 date: '2022-06-09'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions. 
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
   bugs:
-    - An internal script to validate hostnames in the {% data variables.product.prodname_ghe_server %} configuration file would return an error if the hostname string started with a "." (period character).
-    - In HA configurations where the primary node's hostname was longer than 60 characters, MySQL would fail to be configured.
-    - When {% data variables.product.prodname_actions %} was enabled but TLS was disabled on {% data variables.product.prodname_ghe_server %} 3.4.1 and later, applying a configuration update would fail.
-    - The `--gateway` argument was added to the `ghe-setup-network` command, to allow passing the gateway address when configuring network settings using the command line.
-    - The [{% data variables.product.prodname_GH_advanced_security %} billing API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) endpoints were not enabled and accessible.
-    - Image attachments that were deleted would return a `500 Internal Server Error` instead of a `404 Not Found` error.
-    - In environments configured with a repository cache server, the `ghe-repl-status` command incorrectly showed gists as being under-replicated. 
-    - The "Get a commit" and "Compare two commits" endpoints in the [Commit API](/rest/commits/commits) would return a `500` error if a file path in the diff contained an encoded and escaped unicode character.
-    - The calculation of "maximum committers across entire instance" reported in the site admin dashboard was incorrect.
-    - An incorrect database entry for repository replicas caused database corruption when performing a restore using {% data variables.product.prodname_enterprise_backup_utilities %}.
-    - The activity timeline for secret scanning alerts wasn't displayed.
+    - "{% data variables.product.prodname_ghe_server %} 構成ファイル内のホスト名を検証するための内部スクリプトは、ホスト名の文字列が \".\" (ピリオド文字) で始まっている場合、エラーを返しました。"
+    - プライマリ ノードのホスト名が 60 文字より長い HA 構成では、MySQL の構成が失敗しました。
+    - "{% data variables.product.prodname_ghe_server %} 3.4.1 以降で {% data variables.product.prodname_actions %} が有効であり、TLS が無効な場合、構成の更新の適用に失敗しました。"
+    - "`--gateway` 引数が `ghe-setup-network` コマンドに追加され、コマンド ラインを使ってネットワーク設定を構成するときに、ゲートウェイ アドレスを渡せるようになりました。"
+    - "[{% data variables.product.prodname_GH_advanced_security %} 課金 API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) エンドポイントは有効になっておらず、アクセスできませんでした。"
+    - 画像添付ファイルが削除された場合、`404 Not Found` (404 見つかりません) エラーではなく `500 Internal Server Error` (500 内部サーバー エラー) が返されました。
+    - リポジトリ キャッシュ サーバーで構成された環境で `ghe-repl-status` コマンドを実行すると、gist がレプリケート不足であると誤って表示されました。 
+    - "[Commit API](/rest/commits/commits) の [Get a commit]\\(コミットの取得\\) と [Compare two commits]\\(2 つのコミットの比較\\) エンドポイントを使い、エンコードされ、エスケープされた unicode 文字が差分のファイル パスに含まれている場合、`500` エラーが返されました。"
+    - "サイト管理者ダッシュボードで報告される \"インスタンス全体の最大コミッター数\" の計算が、正しくありませんでした。"
+    - "{% data variables.product.prodname_enterprise_backup_utilities %} を使って復元を実行するとき、リポジトリ レプリカのデータベース エントリが正しくないと、データベースが破損しました。"
+    - Secret Scanning アラートのアクティビティ タイムラインが表示されませんでした。
   changes:
-    - Optimised the inclusion of metrics when generating a cluster support bundle. 
-    - In HA configurations where Elasticsearch reported a valid yellow status, changes introduced in a previous fix would block the `ghe-repl-stop` command and not allow replication to be stopped. Using `ghe-repo-stop --force` will now force Elasticsearch to stop when the service is in a normal or valid yellow status.
+    - クラスター サポート バンドルを生成するときのメトリックの包含を最適化しました。 
+    - Elasticsearch が有効な黄色状態を報告する HA 構成では、前の修正で行われた変更により、`ghe-repl-stop` コマンドがブロックされ、レプリケーションを停止できません。サービスが通常状態または有効な黄色状態のときに、`ghe-repo-stop --force` を使うと、Elasticsearch が強制的に停止されるようになります。
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - |`--ephemeral` パラメーターを指定し、複数のレベル (たとえば、Enterprise と Organization の両方) でセルフホステッド ランナーを登録した後、ランナーがアイドル状態で停止し、再登録が必要になる場合があります。 [更新日: 2022-06-17]
+
+|
+    - "{% data variables.product.prodname_ghe_server %} 3.4 にアップグレードした後、リリースがリポジトリに表示されない場合があります。これは、必要な Elasticsearch インデックスの移行が正常に完了していない場合に発生する可能性があります。"
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

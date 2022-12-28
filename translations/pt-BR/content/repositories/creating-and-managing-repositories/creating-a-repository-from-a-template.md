@@ -13,12 +13,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Create from a template
-ms.openlocfilehash: 8f2ba1bcda417f3202e0c43c693afe50434130ec
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 16d124431426e19cf95c768e8a4cdaa5f4da2e17
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145127096'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159402'
 ---
 ## Sobre modelos de repositório
 
@@ -42,8 +42,17 @@ Para obter mais informações sobre forks, confira "[Sobre os forks](/pull-reque
 ## Criar um repositório a partir de um modelo
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Acima da lista de arquivos, selecione **Usar este modelo**.
-  ![Botão Usar este modelo](/assets/images/help/repository/use-this-template-button.png) {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
-6. Opcionalmente, para incluir a estrutura de diretório e os arquivos de todos os branches no modelo e não apenas o branch padrão, selecione **Incluir todos os branches**.
+1. Acima da lista de arquivos, selecione **Usar este modelo**.
+{% ifversion fpt or ghec %}
+1. Selecione **Criar um repositório**.
+
+   ![Usar este botão de modelo](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   **Nota:** como alternativa, é possível abrir o modelo em um codespace e publicar seu trabalho posteriormente em um novo repositório. Para saber mais, confira "[Como criar um codespace com base em um modelo](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)".
+
+   {% endnote %} {% endif %} {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
+1. Opcionalmente, para incluir a estrutura de diretório e os arquivos de todos os branches no modelo e não apenas o branch padrão, selecione **Incluir todos os branches**.
   ![Caixas de seleção Incluir todos os branches](/assets/images/help/repository/include-all-branches.png) {% data reusables.repositories.select-marketplace-apps %}
 8. Clique em **Criar repositório do modelo**.

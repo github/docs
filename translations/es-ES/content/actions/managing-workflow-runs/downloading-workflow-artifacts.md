@@ -1,18 +1,19 @@
 ---
 title: Descargar los artefactos del flujo de trabajo
 intro: Puedes descargar artefactos archivados antes de que venzan automáticamente.
+permissions: 'People who are signed into {% data variables.product.product_name %} and have read access to a repository can download workflow artifacts.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Download workflow artifacts
-ms.openlocfilehash: 71e00a13769b696b47864d53d702770fb4f2b47a
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: dcb2d97095f6cdd704207084b776db05a4d1bd44
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145117186'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160636'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -39,25 +40,25 @@ El {% data variables.product.prodname_cli %} descargará cada artefacto en direc
 Para descargar todos los artefactos generados por una ejecución de flujo de trabajo, use el subcomando `run download`. Reemplace `run-id` por el identificador de la ejecución desde la que quiera descargar los artefactos. Si no especifica un valor `run-id`, {% data variables.product.prodname_cli %} devuelve un menú interactivo para que elija una ejecución reciente.
 
 ```shell
-gh run download <em>run-id</em>
+gh run download RUN_ID
 ```
 
 Para descargar un artefacto específico de una ejecución, use el subcomando `run download`. Reemplace `run-id` por el identificador de la ejecución desde la que quiera descargar los artefactos. Reemplace `artifact-name` por el nombre del artefacto que quiera descargar.
 
 ```shell
-gh run download <em>run-id</em> -n <em>artifact-name</em>
+gh run download RUN_ID -n ARTIFACT_NAME
 ```
 
 Puedes especificar más de un artefacto.
 
 ```shell
-gh run download <em>run-id</em> -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
+gh run download RUN_ID> -n ARTIFACT_NAME-1 -n ARTIFACT_NAME-2
 ```
 
 Para descargar artefactos específicos en todas las ejecuciones de un repositorio, use el subcomando `run download`.
 
 ```shell
-gh run download -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
+gh run download -n ARTIFACT_NAME-1 ARTIFACT_NAME-2
 ```
 
 {% endcli %}

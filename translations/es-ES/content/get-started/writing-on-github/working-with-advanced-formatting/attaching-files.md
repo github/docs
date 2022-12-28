@@ -1,6 +1,6 @@
 ---
-title: Attaching files
-intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+title: Adjuntar archivos
+intro: Puedes transmitir información si adjuntas varios tipos de archivo a tus propuestas y solicitudes de incorporación de cambios.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -14,48 +14,51 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 28ce895a23c83f410d4755ad4036673e5c816155
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160780'
 ---
-
 {% data reusables.repositories.anyone-can-view-anonymized-url %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+Para adjuntar un archivo a una propuesta o una conversación de una solicitud de extracción, arrástralo y suéltalo en el cuadro de comentarios. Como alternativa, puedes dar clic en la barra al final del recuadro de comentarios para buscar, seleccionar y agregar un archivo desde tu ordenador.
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![Seleccionar adjuntos desde el ordenador](/assets/images/help/pull_requests/select-bar.png)
 
-When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+Al adjuntar un archivo, se carga inmediatamente en {% data variables.product.product_name %} y el campo de texto se actualiza para mostrar la dirección URL anonimizada del archivo. {% ifversion fpt or ghec %}Para más información sobre las direcciones URL anonimizadas,vea "[Acerca de las direcciones URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% tip %}
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+**Sugerencia:** En muchos exploradores, puede copiar y pegar las imágenes directamente en el cuadro.
 
 {% endtip %}
 
-The maximum file size is:
-- 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif ghes %}
-- 100MB for videos{% endif %}
-- 25MB for all other files
+El tamaño máximo de archivo es:
+- 10 MB para imágenes y gifs{% ifversion fpt or ghec %}
+- 10MB para videos que se suban a un repositorio que pertenezca a un usuario u organización en un plan gratuito de GitHub
+- 100 MB para vídeos subidos a un repositorio propiedad de un usuario u organización con un plan de pago de GitHub{% elsif ghes %}
+- 100MB para videos{% endif %}
+- 25MB para el resto de los archivos
 
-We support these files:
+Archivos compatibles:
 
-* PNG (*.png*)
-* GIF (*.gif*)
-* JPEG (*.jpg*)
-{%- ifversion svg-support %}
-* SVG (*.svg*)
-{%- endif %}
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghec or ghes %}
-* Video (*.mp4*, *.mov*){% endif %}
+* PNG ( *.png*)
+* GIF ( *.gif*)
+* JPEG ( *.jpg*) {%- ifversion svg-support %}
+* SVG ( *.svg*) {%- endif %}
+* Archivos de registro ( *.log*)
+* Documentos de Microsoft Word ( *.docx*), Powerpoint ( *.pptx*) y Excel ( *.xlsx*)
+* Archivos de texto ( *.txt*)
+* PDF ( *.pdf*)
+* ZIP ( *.zip*, *.gz*, *.tgz*){% ifversion fpt or ghec or ghes %}
+* Video ( *.mp4*, *.mov*, *.webm*){% endif %}
 
 {% ifversion fpt or ghec or ghes %}{% note %}
 
-**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+**Nota:** La compatibilidad con los códecs de vídeo es específica del explorador y es posible que un vídeo que cargue en un explorador no se pueda ver en otro. Por el momento, recomendamos utilizar h.264 para una mejor compatibilidad.
 
 {% endnote %}{% endif %}
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)

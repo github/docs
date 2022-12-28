@@ -18,7 +18,6 @@ import dotenv from 'dotenv'
 import { retryOnErrorTest } from '../helpers/retry-on-error-test.js'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { decompress } from '../../lib/search/compress.js'
 import statsd from '../../lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
@@ -237,8 +236,8 @@ async function indexVersion(
   verbose = false
 ) {
   // Note, it's a bit "weird" that numbered releases versions are
-  // called the number but that's how the lib/search/indexes
-  // files are named at the moment.
+  // called the number but that's the convention the previous
+  // search backend used
   const indexVersion = shortNames[version].hasNumberedReleases
     ? shortNames[version].currentRelease
     : shortNames[version].miscBaseName
@@ -414,21 +413,9 @@ function escapeHTML(content) {
 }
 
 async function loadRecords(indexName, sourceDirectory) {
-  // First try looking for the `$indexName-records.json.br` file.
-  // If that doens't work, look for the `$indexName-records.json` one.
-  try {
-    const filePath = path.join(sourceDirectory, `${indexName}-records.json.br`)
-    // Do not set to 'utf8' on file reads
-    const payload = await fs.readFile(filePath).then(decompress)
-    return JSON.parse(payload)
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
-      const payload = await fs.readFile(filePath)
-      return JSON.parse(payload)
-    }
-    throw error
-  }
+  const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
+  const payload = await fs.readFile(filePath)
+  return JSON.parse(payload)
 }
 
 function getSnowballLanguage(language) {

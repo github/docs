@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 4de4e96b6e445a29377c63188f6529c5b2023a5e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107845'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180758'
 ---
 ## Sobre {% data variables.product.prodname_projects_v2 %}
 
@@ -25,15 +25,27 @@ Um projeto é uma planilha adaptável que se integra aos seus problemas e solici
 
 Seus projetos são criados com base nos problemas e nas solicitações de pull que você adiciona, criando referências diretas entre seu projeto e seu trabalho. As informações são sincronizadas de maneira com seu projeto conforme você faz alterações, atualizando suas exibições e gráficos. Essa integração também funciona nos dois sentidos, para que, quando você alterar as informações sobre um problema ou solicitação de pull do seu projeto, o problema ou a solicitação de pull reflita essa informação. Por exemplo, altere um destinatário em seu projeto para que essa alteração seja mostrada em seu problema. Você pode levar essa integração ainda mais longe, agrupar seu projeto por destinatário e fazer alterações na atribuição de problemas arrastando problemas para os diferentes grupos.
 
-### Adicionando metadados às suas tarefas
+### Adicionando metadados aos seus itens
 
-Você pode usar campos personalizados para adicionar metadados às suas tarefas e criar uma exibição mais avançada dos atributos de item. Você não está limitado aos metadados internos (destinatários, marcos, etiquetas etc.) que existem atualmente para problemas e solicitações de pull. Por exemplo, você pode adicionar os seguintes metadados como campos personalizados:
+Você pode usar campos personalizados para adicionar metadados aos seus problemas, solicitações de pull e rascunhos de problemas, além de criar uma exibição mais avançada dos atributos de item. Você não está limitado aos metadados internos (destinatários, marcos, etiquetas etc.) que existem atualmente para problemas e solicitações de pull. Por exemplo, você pode adicionar os seguintes metadados como campos personalizados:
 
 - O campo de data para acompanhar as datas de envio de destino.
 - O campo numérico para monitorar a complexidade de uma tarefa.
 - O único campo de seleção para rastrear se uma tarefa tem prioridade Baixa, Média ou Alta.
 - O campo de texto para adicionar uma observação rápida.
 - O campo de iteração para planejar o trabalho semanalmente, incluindo suporte para pausas.
+
+{% ifversion projects-v2-tasklists %}
+
+### Explorando as relações entre problemas
+
+{% data reusables.projects.tasklists-release-stage %}
+
+Você pode usar listas de tarefas para criar hierarquias de problemas, dividir seus problemas em subtarefas menores e criar relações entre seus problemas. Para obter mais informações, confira "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/about-tasklists)".
+
+Essas relações são exibidas no problema, bem como os campos Acompanhado por e Acompanhamentos em seus projetos. Você pode filtrar por problemas que são acompanhados por outro problema e também pode agrupar as exibições da sua tabela pelo campo Acompanhado por para mostrar todos os problemas pai com uma lista das respectivas subtarefas.
+
+{% endif %}
 
 ### Visualizando seu projeto de diferentes perspectivas
 

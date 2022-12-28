@@ -13,16 +13,24 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
-ms.openlocfilehash: 405a728eddcc751de8acd49af82783502f70b396
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: dd0f4c7135def456212de3355d6f6af17076c40c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107984'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192982'
 ---
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Pré-requisitos
 
-{% data reusables.actions.enterprise-s3-support-warning %}
+{% note %}
+
+**Observação:** os únicos provedores de armazenamento S3 com suporte {% data variables.product.prodname_dotcom %} são o Amazon S3 e o Gateway do MinIO para NAS.
+
+{% data reusables.actions.enterprise-s3-tech-partners %}
+
+{% endnote %}
 
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:
 

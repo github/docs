@@ -1,0 +1,97 @@
+date: '09.10.2020'
+sections:
+  security_fixes:
+    - '**MITTEL**: ImageMagick wurde aktualisiert, um [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715) anzugehen. {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'Anforderungen einer GitHub-App-Integration zum Aktualisieren eines OAuth-Zugriffstokens wurden akzeptiert, wenn sie mit einer anderen, gültigen OAuth-Client-ID und einem anderen, gültigen OAuth-Clientgeheimnis als die gesendet wurden, mit denen das Token aktualisiert wurde. {% comment %} https://github.com/github/github/pull/154921, https://github.com/github/github/pull/154423, https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
+    - 'Benutzer*innen, deren LDAP-Verzeichnisbenutzername standardmäßig einer bereits bestehenden GHES-Kontoanmeldung entspricht, konnten sich bei dem bereits bestehenden Konto authentifizieren. {% comment %} https://github.com/github/github/pull/156513, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+
+  bugs:
+    - |Das Dropdownmenü „Format der Namens-ID“ in der Verwaltungskonsole wird auf „Nicht angegeben“ zurückgesetzt, nachdem es auf „Persistent“ festgelegt wurde. {% comment %} https://github.com/github/enterprise2/pull/22376, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}
+
+|
+    - |Upgrades mithilfe eines Hotpatch konnten mit folgenden Fehler fehlschlagen: `''libdbi1'' was not found` {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
+
+|
+    - |Beim Speichern von Einstellungen über die [Verwaltungskonsole](/admin/configuration/accessing-the-management-console) wurde eine neue Zeile in die Dateien von [TLS/SSL-Zertifikat und -Schlüssel](/admin/configuration/configuring-tls) eingefügt. Dies löste das unnötige Neuladen bestimmter Dienste aus. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+
+|
+    - |Systemprotokolle für das Abhängigkeitsdiagramm wurden nicht rotiert, wodurch der Speicher uneingeschränkt wuchs. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
+
+|
+    - |Das Abhängigkeitsdiagramm von MS SQL Server zeigte auch dann Statistiken aus der primären Instanz, wenn ein Replikat ausgewählt war. {% comment %} https://github.com/github/enterprise2/pull/22778, https://github.com/github/enterprise2/pull/22750 {% endcomment %}
+
+|
+    - |`ghe-actions-precheck` wurde automatisch beendet, ohne dass der Speicher überprüft wurde, wenn Actions nicht aktiviert war. {% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+
+|
+    - |Upgrades konnten fehlschlagen, wenn die Überschreibeinstellung für Resque-Worker verwendet wurde. {% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+
+|
+    - |Bestimmte in Containern ausgeführte Dienste sendeten keine Protokolle an das Journal. {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+
+|
+    - |Links zu GitHub Security Advisories verwendeten eine URL, die den Hostnamen der GitHub Enterprise Server-Instanz statt GitHub.com enthielt. So wurden Benutzer*innen zu einer nicht existierenden URL weitergeleitet. {% comment %} https://github.com/github/github/pull/153316, https://github.com/github/github/pull/151301 {% endcomment %}
+
+|
+    - |Beim Importieren eines Repository mit `ghe-migrator` konnte eine unerwartete Ausnahme auftreten, wenn inkonsistente Daten enthalten waren. {% comment %} https://github.com/github/github/pull/153850, https://github.com/github/github/pull/151552 {% endcomment %}
+
+|
+    - |Auf der Seite mit den Sicherheitseinstellungen von Unternehmenskonten wurde für die Einstellung „Zweistufige Authentifizierung“ ein Link „Aktuelle Konfigurationen Ihrer Organisation anzeigen“ angezeigt, wenn der verwendete Authentifizierungsmodus die integrierte zweistufige Authentifizierung nicht unterstützte. {% comment %} https://github.com/github/github/pull/153860 {% endcomment %}
+
+|
+    - |OAuth-Aktualisierungstokens wurden vorzeitig entfernt. {% comment %} https://github.com/github/github/pull/154271, https://github.com/github/github/pull/153694 {% endcomment %}
+
+|
+    - |Suchereparaturtasks erzeugten Ausnahmen während der Migration der Konfiguration. {% comment %} https://github.com/github/github/pull/154573, https://github.com/github/github/pull/153392 {% endcomment %}
+
+|
+    - |Aus der Einstellungsseite von GitHub Apps wurde die Registerkarte „Betafeatures“ in bestimmten Fällen nicht angezeigt. {% comment %} https://github.com/github/github/pull/154612, https://github.com/github/github/pull/154417 {% endcomment %}
+
+|
+    - |Beim Importieren von PR-Reviewanforderungen mit `ghe-migrator` führten Datensätze, die zu gelöschten Benutzer*innen gehörten, zu irrelevanten Datenbankeinträgen. {% comment %} https://github.com/github/github/pull/154960, https://github.com/github/github/pull/153169 {% endcomment %}
+
+|
+    - |Beim Importieren von Benutzer*innen mit `ghe-migrator` wurde der Fehler „Die E-Mail-Adresse ist ungültig“ zurückgegeben, wenn die vom System generierte E-Mail-Adresse mehr als 100 Zeichen umfasste. {% comment %} https://github.com/github/github/pull/155109, https://github.com/github/github/pull/152418 {% endcomment %}
+
+|
+    - |Beim Protokollieren von Webhookaktivitäten konnte sehr viel Speicherplatz eingenommen und der Stammdatenträger vollständig belegt werden. {% comment %} https://github.com/github/github/pull/155657, https://github.com/github/github/pull/154100 {% endcomment %}
+
+|
+    - |Aufgrund von Lesevorgängen, die zu einem anderen Knoten weitergeleitet wurden, kam es auf Benutzerseite zu einer verlangsamten Leistung des Git-Klons sowie einer langsameren Abrufleistung auf Instanzen mit Hochverfügbarkeitsreplikaten. {% comment %} https://github.com/github/github/pull/156195, https://github.com/github/github/pull/156016, https://github.com/github/spokesd/issues/746 {% endcomment %}
+
+|
+    - |Die Einstellungsseite eines Repositorys für Benutzer*innen oder eine Organisation auf GitHub Pages-Websites schlug mit einem Fehler des Typs „500: Interner Serverfehler“ fehl. {% comment %} https://github.com/github/github/pull/156439, https://github.com/github/github/issues/156183 {% endcomment %}
+
+|
+    - |Wartungsvorgänge für das Repositorynetzwerk konnten im Status `running` hängen bleiben. {% comment %} https://github.com/github/github/pull/156669, https://github.com/github/github/pull/156036 {% endcomment %}
+
+|
+    - |Ein Repository, das direkt nach dem Hochladen eines Ergebnisses der Codeüberprüfung gelöscht wurde, konnte bei der Verarbeitung der Codeüberprüfungsergebnisse für alle Repositorys Verzögerungen hervorrufen. {% comment %} https://github.com/github/github/pull/157063, https://github.com/github/github/pull/156437 {% endcomment %}
+
+|
+    - |Wenn sehr viele Codeüberprüfungsergebnisse gleichzeitig eingereicht wurden, konnte es bei der Batchverarbeitung zu einem Timeout kommen. Dies rief Verzögerungen bei der Verarbeitung der Codeüberprüfungsergebnisse hervor. {% comment %} https://github.com/github/github/pull/157065, https://github.com/github/github/pull/156462 {% endcomment %}
+
+|
+    - |Das [Erstellen einer GitHub Apps-App aus einem Manifest](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) schlug fehl. {% comment %} https://github.com/github/github/pull/157133, https://github.com/github/github/pull/156904, https://github.com/github/enterprise2/issues/22849 {% endcomment %}
+
+|
+    - |GitHub-Benutzernamen wurden bei Verwendung der SAML-Authentifizierung unabsichtlich geändert, wenn der GitHub-Benutzername nicht mit dem Wert des Attributs übereinstimmte, dass dem `username`-Feld in der Verwaltungskonsole zugeordnet war. {% comment %} https://github.com/github/github/pull/158131, https://github.com/github/github/pull/157936, https://github.com/github/external-identities/issues/335 {% endcomment %}
+
+|
+  changes:
+    - "Es wurde Unterstützung für den AWS EC2-Instanztypen `m5.16xlarge` hinzugefügt. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}"
+    - "Die Anforderung für SSH-Fingerabdrücke in `ghe-migrator`-Archiven wurde entfernt, das diese immer berechnet werden können. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}"
+    - "GitHub Apps-App-Manifeste enthalten nun das Feld `request_oauth_on_install`. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}"
+
+  known_issues:
+    - "Angreifer*innen könnten auf einem neu eingerichteten GitHub Enterprise-Server den ersten Administratorbenutzer erstellen. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, in dem der Dateipfad länger als 255 Zeichen ist. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ mit GitHub Connect aktiviert ist, werden Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen angezeigt. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "Konfigurationsupdates schlagen fehl, wenn Daten auf einer GitHub Actions-fähigen Instanz wiederhergestellt werden und das Feature nicht für die ursprüngliche Sicherungsquelle aktiviert war. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}"
+    - "GitHub Actions kann unter Umständen nicht erfolgreich starten, wenn es zuvor auf einer Instanz unter Version 2.22.0 ausgeführt wurde und auf Version 2.22.1 upgegradet wird. (aktualisiert am 23.10.2020) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "Auf einer neu eingerichteten 2.22.1-Instanz oder nach einem Upgrade auf 2.22.1 wird der Aktivitätsfeed auf dem Dashboard einer Organisation nicht mehr aktualisiert. (aktualisiert am 27.10.2020) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "Überwachungsprotokolle können 127.0.0.1 anstatt der tatsächlichen Quell-IP-Adresse zugeordnet werden. (aktualisiert am 02.11.2020) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für Benutzer*innen verringert."

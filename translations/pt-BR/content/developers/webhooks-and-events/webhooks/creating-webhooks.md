@@ -11,28 +11,38 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-ms.openlocfilehash: f07c5de7acd3c5be5236765236d24a6938e3b91f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: ced763e71ecc9f99d8dd5037dcdb6d87cfdba91d
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145093890'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132968'
 ---
 Agora que entendemos os [conceitos básicos dos webhooks][webhooks-overview], vamos ver o processo de criação da nossa integração habilitada para webhook. Neste tutorial, vamos criar um webhook de repositório que será responsável por listar quão popular é o nosso repositório, com base no número de problemas que recebe por dia.
 
-Criar um webhook é um processo de duas etapas. Primeiro, você deverá configurar como deseja que seu webhook se comporte através do {% data variables.product.product_name %}: quais eventos devem ser ouvidos. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
+Criar um webhook é um processo de duas etapas. Primeiro, configure quais eventos o webhook deve ouvir. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## Expor o host local na internet
 
-Para fins deste tutorial, vamos usar um servidor local para receber mensagens de {% data variables.product.prodname_dotcom %}. Portanto, em primeiro lugar, temos de expor o nosso ambiente de desenvolvimento local à internet. Nós usaremos ngrok para fazer isso. Ngrok está disponível, gratuitamente, para todos os principais sistemas operacionais. Para obter mais informações, confira a [página de download do `ngrok`](https://ngrok.com/download).
+Para os propósitos deste tutorial, você usará um servidor local para receber eventos de webhook de {% data variables.product.prodname_dotcom %}. 
 
-Depois de instalar `ngrok`, você poderá expor o localhost executando `./ngrok http 4567` na linha de comando. 4567 é o número da porta em que o nosso servidor ouvirá mensagens. Você deve ver uma linha parecida mais ou menos com isso:
+Em primeiro lugar, é preciso expor o ambiente de desenvolvimento local à Internet para que o {% data variables.product.prodname_dotcom %} possa entregar eventos. Use o [`ngrok`](https://ngrok.com) para isso.
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+**Observação:** como alternativa, é possível usar o encaminhamento de webhook a fim de configurar o ambiente local para receber webhooks. Para saber mais, confira "[Receber webhooks com a CLI do GitHub](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)".
+
+{% endnote %} {% endif %}
+
+O `ngrok` está disponível gratuitamente para todos os principais sistemas operacionais. Para obter mais informações, confira a [página de download do `ngrok`](https://ngrok.com/download).
+
+Depois de instalar `ngrok`, você poderá expor o localhost executando `./ngrok http 4567` na linha de comando. `4567` é o número da porta em que o servidor escutará as mensagens. Você deve ver uma linha parecida mais ou menos com isso:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 Anote a URL do `*.ngrok.io`. Vamos usá-lo para configurar nosso webhook.

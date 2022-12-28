@@ -1,7 +1,6 @@
 ---
 title: Variables de ambiente predeterminadas para tu codespace
 shortTitle: Default environment variables
-product: '{% data reusables.gated-features.codespaces %}'
 intro: '{% data variables.product.prodname_dotcom %} configura variables de ambiente predeterminadas para cada codespace.'
 versions:
   fpt: '*'
@@ -11,12 +10,12 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-ms.openlocfilehash: bcff0f06aad7eb930b47f4b9cb32e42c067d07cf
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 1a57445bbffb3e1112299414e29796b716f2d801
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147614347'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158929'
 ---
 ## Acerca de las variables de ambiente predeterminadas
 
@@ -32,10 +31,11 @@ ms.locfileid: '147614347'
 
 | Variable de entorno | Descripción |
 | ---------------------|------------ |
-| `CODESPACE_NAME` | Nombre del codespace, por ejemplo, `monalisa-github-hello-world-2f2fsdf2e` |
+| `CODESPACE_NAME` | Nombre del codespace, por ejemplo, `octocat-literate-space-parakeet-mld5` |
 | `CODESPACES` | Siempre `true` en un codespace |
 | `GIT_COMMITTER_EMAIL` | Correo electrónico del campo de "creador" de las confirmaciones de `git` futuras. |
 | `GIT_COMMITTER_NAME` | Nombre del campo de "responsable de la confirmación" de las confirmaciones de `git` futuras. |
+| `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN`| Devuelve el dominio del puerto reenviado de {% data variables.product.prodname_github_codespaces %}. Por ejemplo: `preview.app.github.dev`. |
 | `GITHUB_API_URL` | Devuelve la URL de la API. Por ejemplo, `{% data variables.product.api_url_code %}`. |
 | `GITHUB_GRAPHQL_URL` | Devuelve la URL de la API de GraphQL. Por ejemplo, `{% data variables.product.graphql_url_code %}`. |
 | `GITHUB_REPOSITORY` | El nombre del repositorio y del propietario. Por ejemplo, `octocat/Hello-World`. |

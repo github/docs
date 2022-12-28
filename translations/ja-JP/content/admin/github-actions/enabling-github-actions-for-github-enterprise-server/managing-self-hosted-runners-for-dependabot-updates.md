@@ -1,6 +1,6 @@
 ---
-title: Managing self-hosted runners for Dependabot updates on your enterprise
-intro: 'You can create dedicated runners for {% data variables.location.product_location %} that {% data variables.product.prodname_dependabot %} uses to create pull requests to help secure and maintain the dependencies used in repositories on your enterprise.'
+title: エンタープライズでの Dependabot 更新プログラムのセルフホステッド ランナーの管理
+intro: 'Enterprise 上のリポジトリで使用される依存関係をセキュリティで保護して維持するための pull request を作成する目的で {% data variables.product.prodname_dependabot %} によって使用される {% data variables.location.product_location %} の専用ランナーを作成できます。'
 redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates
 allowTitleToDifferFromFilename: true
@@ -13,44 +13,48 @@ topics:
   - Dependabot
   - Dependencies
 shortTitle: Dependabot updates
+ms.openlocfilehash: 0f21d4bc91e519f7af89ff04bd65a6ace742f430
+ms.sourcegitcommit: d411e8278b73efd0051816625c0b235ab7c263e9
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181334'
 ---
-
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
+## {% data variables.product.prodname_dependabot_updates %} のセルフホステッド ランナーについて
 
-You can help users of {% data variables.location.product_location %} to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+{% data variables.product.prodname_dependabot %} のセキュリティとバージョン更新プログラムを設定することで、{% data variables.location.product_location %} のユーザーが、安全なコードを作成して管理できるようにします。 {% data variables.product.prodname_dependabot_updates %}を使用すると、開発者は、依存関係が自動的に更新されてセキュアな状態が維持されるようにリポジトリを構成できます。 詳細については、「[エンタープライズでの {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 
-To use {% data variables.product.prodname_dependabot_updates %} on {% data variables.location.product_location %}, you must configure self-hosted runners to create the pull requests that will update dependencies.
+{% data variables.location.product_location %} 上で {% data variables.product.prodname_dependabot_updates %} を使うには、依存関係を更新する pull request を作成するようにセルフホステッド ランナーを構成する必要があります。
 
-## Prerequisites
+## 前提条件
 
-{% ifversion dependabot-updates-github-connect %}
-Configuring self-hosted runners is only one step in the middle of the process for enabling {% data variables.product.prodname_dependabot_updates %}. There are several steps you must follow before these steps, including configuring {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-{% else %}
-Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
+{% ifversion dependabot-updates-github-connect %} セルフホステッド ランナーの構成は、{% data variables.product.prodname_dependabot_updates %} を有効化するプロセス内の 1 つの手順にすぎません。 これらの手順の前には、セルフホステッド ランナーで {% data variables.product.prodname_actions %} を使うように {% data variables.location.product_location %} を構成することを含め、従うべきいくつかの手順があります。 詳細については、「[エンタープライズでの {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
+{% else %} {% data variables.product.prodname_dependabot_updates %} のセルフホステッド ランナーを構成する前に、次を行う必要があります。
 
-- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-- Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+- セルフホステッド ランナーで {% data variables.product.prodname_actions %} を使うように {% data variables.location.product_location %} を構成します。 詳細については、「[GitHub Enterprise Server の {% data variables.product.prodname_actions %} の概要](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)」を参照してください。
+- エンタープライズでの {% data variables.product.prodname_dependabot_alerts %} を有効化します。 詳細については、「[エンタープライズでの {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 {% endif %}
 
-## Configuring self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
+## {% data variables.product.prodname_dependabot_updates %}用のセルフホステッド ランナーの構成
 
-After you configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}, you need to add self-hosted runners for {% data variables.product.prodname_dependabot_updates %}.
+{% data variables.product.prodname_actions %} を使うように {% data variables.location.product_location %} を構成した後で、{% data variables.product.prodname_dependabot_updates %} 用のセルフホステッド ランナーを追加する必要があります。
 
-### System requirements for {% data variables.product.prodname_dependabot %} runners
+### {% data variables.product.prodname_dependabot %} ランナーのシステム要件
 
-Any VM that you use for {% data variables.product.prodname_dependabot %} runners must meet the requirements for self-hosted runners. In addition, they must meet the following requirements.
+{% data variables.product.prodname_dependabot %} ランナーのために使用する VM は、セルフホステッド ランナーの要件を満たす必要があります。 さらに、次の要件も満たしている必要があります。
 
-- Linux operating system{% ifversion ghes < 3.5 %}
-- Git installed{% endif %}
-- Docker installed with access for the runner users:
-  - We recommend installing Docker in rootless mode and configuring the runners to access Docker without `root` privileges.
-  - Alternatively, install Docker and give the runner users raised privileges to run Docker.
+- Linux オペレーティング システム
+- x64 アーキテクチャ {%- ifversion ghes < 3.5 %}
+- Git がインストールされていること {%- endif %}
+- Docker がランナー ユーザーのアクセス権を使用してインストールされていること:
+  - Docker をルートレス モードでインストールし、`root` 権限なしで Docker にアクセスするようにランナーを構成することをお勧めします。
+  - または、Docker をインストールしてから、Docker を実行するための昇格権限をランナー ユーザーに付与します。
 
-The CPU and memory requirements will depend on the number of concurrent runners you deploy on a given VM. As guidance, we have successfully set up 20 runners on a single 2 CPU 8GB machine, but ultimately, your CPU and memory requirements will heavily depend on the repositories being updated. Some ecosystems will require more resources than others.
+CPU とメモリの要件は、特定の VM にデプロイする同時実行ランナーの数によって異なります。 ガイダンスとしては、1 台の 2 CPU 8 GB マシンに 20 台のランナーを正常に設定できました。ただし、最終的に CPU とメモリの要件は更新対象のリポジトリによって大きく異なります。 エコシステムによっては、他のエコシステムよりも多くのリソースが必要になります。
 
-If you specify more than 14 concurrent runners on a VM, you must also update the Docker `/etc/docker/daemon.json` configuration to increase the default number of networks Docker can create.
+14 を超える同時実行ランナーを 1 つの VM に指定する場合は、Docker が作成できるネットワークの既定数を増やすように Docker の `/etc/docker/daemon.json` 構成も更新する必要があります。
 
 ```
 {
@@ -60,23 +64,23 @@ If you specify more than 14 concurrent runners on a VM, you must also update the
 }
 ```
 
-### Network requirements for {% data variables.product.prodname_dependabot %} runners
+### {% data variables.product.prodname_dependabot %} ランナーのネットワーク要件
 
-{% data variables.product.prodname_dependabot %} runners require access to the public internet, {% data variables.product.prodname_dotcom_the_website %}, and any internal registries that will be used in {% data variables.product.prodname_dependabot %} updates. To minimize the risk to your internal network, you should limit access from the Virtual Machine (VM) to your internal network. This reduces the potential for damage to internal systems if a runner were to download a hijacked dependency.
+{% data variables.product.prodname_dependabot %} ランナーは、パブリック インターネット、{% data variables.product.prodname_dotcom_the_website %}、および {% data variables.product.prodname_dependabot %} 更新プログラムで使用されるすべての内部レジストリへのアクセスが必要です。 内部ネットワークに対するリスクを最小限に抑えるには、仮想マシン (VM) から内部ネットワークへのアクセスを制限する必要があります。 これにより、ハイジャックされた依存関係をランナーがダウンロードした場合に、内部システムが損害を受ける可能性が減少します。
 
-### Adding self-hosted runners for {% data variables.product.prodname_dependabot %} updates
+### {% data variables.product.prodname_dependabot %} 更新プログラム用のセルフホステッド ランナーの追加
 
-1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+1. セルフホステッド ランナーを、リポジトリ、組織、またはエンタープライズ アカウント レベルでプロビジョニングします。 詳細については、「[セルフホスト ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」および「[セルフホスト ランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
 
-2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:{% ifversion ghes < 3.5 %}
+2. 上記の要件を使用して、セルフホステッド ランナーを設定します。 たとえば、Ubuntu 20.04 を実行している VM では、次のようになります。{% ifversion ghes < 3.5 %}
 
-   - Verify that Git is installed: `command -v git`{% endif %}
-   - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
-     - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-     - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
-     - Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
-   - Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
+   - Git がインストールされていることを確認します。`command -v git`{% endif %}
+   - Docker をインストールし、ランナー ユーザーが Docker にアクセスできることを確認します。 詳細については、Docker のドキュメントをご覧ください。
+     - [Ubuntu に Docker エンジンをインストールする](https://docs.docker.com/engine/install/ubuntu/)
+     - 推奨される方法: [非ルート ユーザーとして Docker デーモンを実行する (ルートレス モード)](https://docs.docker.com/engine/security/rootless/)
+     - 別の方法: [非ルート ユーザーとして Docker を管理する](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
+   - ランナーがパブリック インターネットにアクセスできることと、{% data variables.product.prodname_dependabot %} が必要とする内部ネットワークのみにアクセスできることを確認します。
 
-3. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
+3. `dependabot` ラベルを、{% data variables.product.prodname_dependabot %} で使用する各ランナーに割り当てます。 詳細については、「[セルフホステッド ランナーでのラベルの使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)」を参照してください。
 
-4. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#enabling-workflows-triggered-by-dependabot-access-to-dependabot-secrets-and-increased-permissions)."
+4. 必要に応じて、{% data variables.product.prodname_dependabot %} によってトリガーされるワークフローで、読み取り専用を上回るアクセス許可を使用し、通常提供されているシークレットにアクセスできるようにします。 詳細については、「[エンタープライズでの {% data variables.product.prodname_actions %} のトラブルシューティング](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#enabling-workflows-triggered-by-dependabot-access-to-dependabot-secrets-and-increased-permissions)」を参照してください。

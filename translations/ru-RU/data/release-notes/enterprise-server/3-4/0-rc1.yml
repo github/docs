@@ -1,0 +1,304 @@
+date: '2022-02-15'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **Примечание.** Если на {% data variables.product.product_location %} выполняется сборка релиз-кандидата, обновление с помощью горячего исправления невозможно. Мы рекомендуем запускать релиз-кандидаты только в тестовых средах.
+  
+  {% endnote %}
+  
+  Инструкции по обновлениям см. в статье "[Обновление {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)".
+  
+  > Этот выпуск посвящен нашему коллеге Джону, который всегда был готов прийти на помощь. Мы будем скучать по тебе.
+  >
+  > **Джон "Ральф" Уиболк 1986–2021**
+sections:
+  features:
+    - heading: Теперь секретное сканирование REST API возвращает расположения
+      notes:
+        # https://github.com/github/releases/issues/1642
+        - |Клиенты {% data variables.product.prodname_GH_advanced_security %} теперь могут использовать REST API для извлечения сведений о фиксации секретов, обнаруженных во время сканирования частных репозиториев. Новая конечная точка возвращает сведения о первом обнаружении секрета в файле, включая расположение секрета и SHA фиксации. Дополнительные сведения см. в статье "[Сканирование секретов](/rest/reference/secret-scanning)" в документации по REST API.
+
+|
+    - heading: Экспорт данных лицензии выставления счетов на основе фиксатора для GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/1757
+        - |Владельцы предприятий и организаций теперь могут выполнять экспорт своих данных об использовании лицензии {% data variables.product.prodname_GH_advanced_security %} в файл CSV. Данные выставления счетов {% data variables.product.prodname_advanced_security %} также можно получить через конечные точки выставления счетов в REST API. Дополнительные сведения см. в статье "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)".
+
+|
+    - heading: Повторно используемые рабочие процессы GitHub Actions в общедоступной бета-версии
+      notes:
+        # https://github.com/github/releases/issues/1541
+        - |Теперь вы можете повторно использовать рабочие процессы так, если бы они были действиями. Эта функция предоставляется в общедоступной бета-версии. Вместо того, чтобы копировать и вставлять определения рабочих процессов по всем репозиториям, вы можете ссылаться на уже существующий рабочий процесс с помощью всего одной строки конфигурации. Дополнительные сведения см. в статье "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)".
+
+|
+    - heading: Безопасность Dependabot и обновления версий в общедоступной бета-версии
+      notes:
+        # https://github.com/github/releases/issues/2004
+        - |{% data variables.product.prodname_dependabot %} теперь доступно в {% data variables.product.prodname_ghe_server %} 3.4 в качестве общедоступной бета-версии, которая предлагает как обновление версий, так и обновления безопасности для нескольких популярных экосистем. Для {% data variables.product.prodname_dependabot %} в {% data variables.product.prodname_ghe_server %} требуется {% data variables.product.prodname_actions %} и пул локальных средств выполнения, настроенных для использования {% data variables.product.prodname_dependabot %}. Для {% data variables.product.prodname_dependabot %} в {% data variables.product.prodname_ghe_server %} также требуется, чтобы администратор включил {% data variables.product.prodname_github_connect %} и {% data variables.product.prodname_dependabot %}. Отзывами и предложениями по бета-версии можно поделится в [обсуждении отзывов на GitHub {% data variables.product.prodname_dependabot %}](https://github.com/community/community/discussions/categories/dependabot). Чтобы ознакомиться с бета-версией в действии и получить дополнительные сведения см. статью "[Настройка обновлений безопасности и версий {% data variables.product.prodname_dependabot %} в предприятии](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
+
+|
+  changes:
+    - heading: Изменения администрирования
+      notes:
+        # https://github.com/github/releases/issues/1657
+        - "С этого момента пользователи могут выбирать пространство, которое занимает вкладка. Для этого нужно настроить предпочтительный размер вкладки в параметрах \"Внешний вид\" учетной записи пользователя. Весь код вместе с отступом вкладки будет преобразован для просмотра с помощью предпочтительного размера вкладки."
+
+        # https://github.com/github/releases/issues/2062
+        - "Запись подключения к данным {% data variables.product.prodname_github_connect %} теперь содержит количество активных и неактивных пользователей и настроенный период неактивности."
+
+    - heading: Изменения производительности
+      notes:
+      # https://github.com/github/releases/issues/2031
+      - "WireGuard, используемый для защиты коммуникации между экземплярами {% data variables.product.prodname_ghe_server %} в конфигурации высокого уровня доступности, был перенесен в реализацию ядра."
+
+    - heading: Изменения уведомлений
+      notes:
+      # https://github.com/github/releases/issues/1801
+      - "Владельцы организаций теперь могут отменить подписку на уведомления по электронной почте во время добавления новых ключей развертывания в репозитории, принадлежащие их организациям. Дополнительные сведения см. в статье \"[Настройка уведомлений](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)\"."
+
+      # https://github.com/github/releases/issues/1714
+      - 'В тему уведомлений по электронной почте о проблемах и запросах на вытягивание теперь включается текст "(Проблема #xx)" или "(PR #xx)", поэтому вы сможете определить и отфильтровать сообщения почты, касающиеся этих типов проблем.'
+
+    - heading: Изменения организации
+      notes:
+        # https://github.com/github/releases/issues/1509
+        - "Теперь организации могут отображать файл \"README.md\" в разделе \"Обзор\" своих профилей. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)\"."
+
+        # https://github.com/github/releases/issues/1883
+        - "Члены организаций теперь могут просматривать списки владельцев предприятий на вкладке \"Люди\". Список владельцев организации также доступен с помощью API GraphQL. Дополнительные сведения см. в поле \"[\"enterpriseOwners\"](/graphql/reference/objects#organization)\" в разделе \"Объект организации\" в документации по API GraphQL."
+
+    - heading: Изменения репозиториев
+      notes:
+        # https://github.com/github/releases/issues/1944
+        - |Раздел "Управление доступом" теперь находится в настройках репозитория на странице "Участники совместной работы и команды". Новый раздел облегчает для администраторов репозитория управление доступом и уровнем доступа, предоставляемым каждому пользователю. Теперь администраторы могут:
+
+
+
+* Выполнять поиск всех членов, команд и участников совместной работы, имеющих доступ к репозиторию.
+
+* Просматривать, назначены ли членам смешанные роли, предоставленные им непосредственно как отдельным пользователям или косвенно через команду. Это визуализируется посредством нового предупреждения о "смешанных ролях", которое отображает роль самого высокого уровня, предоставленную пользователю, если уровень его разрешения выше назначенной роли.
+
+* Надежно управлять доступом к популярным репозиториям с использованием разбиения на страницы и меньшего количества периодов времени ожидания, если у больших групп или пользователей есть доступ.
+
+|
+        # https://github.com/github/releases/issues/1748
+        - '{% data variables.product.prodname_ghe_server %} 3.4 включает такие улучшения связанные с приглашениями в репозиторий, как оповещения о приглашениях в частные репозитории, подсказка пользовательского интерфейса при посещении частного репозитория, для которого у вас есть ожидающее приглашение, а также баннер на странице обзора частного репозитория при наличии ожидающего приглашения.'
+
+        # https://github.com/github/releases/issues/1739
+        - "Теперь вы можете использовать префиксы, состоящие из одного символа, для пользовательских автоматических ссылок. В префиксах автоматических ссылок теперь разрешены такие символы, как \".\", \"-\", \"_\", \"+\", \"=\", \":\", \"/\"и \"#\", а также буквенно-цифровые символы. Дополнительные сведения о пользовательских автоматических ссылок см. в статье \"[Настройка автоматических ссылок для отсылки на внешние ресурсы](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)\"."
+
+        # https://github.com/github/releases/issues/1776
+        - "Файл \"CODE_OF_CONDUCT.md\" в корне репозитория теперь выделенный на боковой панели \"Сведения\" на странице обзора репозитория."
+
+    - heading: 'Изменения выпуска'
+      notes:
+        # https://github.com/github/releases/issues/1723
+        - '{% data variables.product.prodname_ghe_server %} 3.4 включает такие улучшения пользовательского интерфейса выпусков, как автоматически создаваемые заметки о выпуске, в которых содержится сводка всех запросов на вытягивание для конкретного выпуска. Дополнительные сведения см. в статье "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)".'
+
+        # https://github.com/github/releases/issues/1606
+        - "После публикации выпуска список аватаров находится в его нижней части. Там находятся аватары для всех учетных записей пользователей, упомянутых в заметках о выпуске. Дополнительные сведения см. в статье \"[Управление выпусками в репозитории](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)\"."
+
+    - heading: 'Изменения Markdown'
+      notes:
+        # https://github.com/github/releases/issues/1779
+        - "Теперь вы можете использовать новую страницу параметров \"Специальные возможности\", чтобы управлять сочетаниями клавиш. Вы можете выключить сочетания клавиш только с одним символом, например <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd> и <kbd>.</kbd> (клавиша \"ТОЧКА\"). Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)\"."
+
+        # https://github.com/github/releases/issues/1727
+        - "Теперь вы можете выбрать шрифт с фиксированной шириной в полях, где включена разметка Markdown, например в комментариях к выпуску и описаниях запросов на вытягивание. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)\"."
+
+        # https://github.com/github/releases/issues/1761
+        - "Теперь вы можете вставить URL-адрес в выбранный текст, чтобы быстро создать ссылку Markdown. Это можно сделать в полях, где включена разметка Markdown, например в комментариях к выпуску и описаниях запросов на вытягивание. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)\"."
+
+        # https://github.com/github/releases/issues/1758
+        - "URL-адрес образа теперь можно добавить вместе с контекстом темы, например \"#gh-dark-mode-only\", чтобы определить способ отображения образа Markdown для зрителя. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)\"."
+
+        # https://github.com/github/releases/issues/1686
+        - "При создании или редактировании файла gist с расширением файла Markdown (\".md\") теперь можно воспользоваться вкладкой \"Предварительная версия\" или \"Изменения предварительной версии\", чтобы отобразить отрисовку Markdown для содержимого файла. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)\"."
+
+        # https://github.com/github/releases/issues/1754
+        - "Во время ввода имени пользователя {% data variables.product.prodname_dotcom %} в выпусках, запросах на вытягивание и обсуждениях средство подбора @упоминание теперь ранжирует существующих участников выше, чем других пользователей {% data variables.product.prodname_dotcom %}, таким образом пользователь, которого вы ищите, с большей вероятностью появится в списке."
+
+        # https://github.com/github/releases/issues/1636
+        - "Теперь в файлах Markdown, выпусках, запросах на вытягивание, обсуждениях и комментариях есть встроенная поддержка языков с написанием слева направо."
+
+    - heading: 'Изменения выпусков и запросов на вытягивание'
+      notes:
+        # https://github.com/github/releases/issues/1731
+        - "Параметр сравнения для скрытия изменений пробелов на вкладке \"Измененные файлы\" запроса на вытягивание теперь сохраняются для вашей учетной записи пользователя для этого запроса на вытягивание. Выбранные настройки будут автоматически применены повторно, если выйти со страницы и снова открыть вкладку \"Измененные файлы\" того самого запроса на вытягивание."
+
+        # https://github.com/github/releases/issues/1663
+        - "Теперь при использовании автоматического назначения для проверки кода запроса на вытягивание можно выбрать только отправлять оповещения запрошенным членам команды, независимо от ваших параметров автоматического назначения. Этот параметр полезен в сценариях, где для множества пользователей включено автоматическое назначение, но не для каждого из них требуется уведомление. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)\"."
+
+    - heading: 'Изменения ветвей'
+      notes:
+        # https://github.com/github/releases/issues/1526
+        - "Администраторы организации и репозитория теперь могут активировать веб-перехватчики, чтобы прослушивать изменения правил защиты ветви в своих репозиториях. Дополнительные сведения см. в событии \"[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)\" в документации по событиям веб-перехватчика и полезным данным."
+
+        # https://github.com/github/releases/issues/1759
+        - "Теперь во время настройки защищенных ветвей можно применить требование о том, что обязательную проверку состояния будет предоставлять {% data variables.product.prodname_github_app %}. Если состояние предоставлено другим приложением или пользователем через состояние фиксации, объединение будет запрещено. Это гарантирует, что все изменения проверены предполагаемым приложением. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)\"."
+
+        # https://github.com/github/releases/issues/1911
+        - "Теперь только пользователям с разрешениями администратора разрешено переименовывать защищенные ветви и изменять правила защиты ветвей. Ранее участнику совместной работы разрешалось изменять имя ветви (за исключением ветви по умолчанию) и, как следствие, имена правил защиты ветвей без подстановочных знаков, которые применялись к этой ветви, также были изменены. Дополнительные сведения см. в статьях \"[Переименование ветви](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)\" и \"[Управление правилами защиты ветви](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).\""
+
+        # https://github.com/github/releases/issues/1845
+        - "Администраторы теперь могут разрешать обходить требования запроса на вытягивание только конкретным пользователям   командам. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)\"."
+
+        # https://github.com/github/releases/issues/1850
+        - "Администраторы теперь могут разрешать выполнять принудительную отправку в репозиторий только конкретным пользователям и командам. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)\"."
+
+        # https://github.com/github/releases/issues/1796
+        - "При затребовании запросов на вытягивание для всех изменений защищенной ветви администраторы могут выбирать, являются ли обязательными утвержденные проверки. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)\"."
+
+    - heading: 'Изменения GitHub Actions'
+      notes:
+        # https://github.com/github/releases/issues/1906
+        - 'Рабочие процессы {% data variables.product.prodname_actions %}, активированные {% data variables.product.prodname_dependabot %} для событий "create", "deployment", и "deployment_status" теперь всегда получают токен только для чтения и не получают секреты. Аналогично, рабочие процессы, активированные {% data variables.product.prodname_dependabot %} для события "pull_request_target" в запросе на вытягивание, где базовая ссылка была создана {% data variables.product.prodname_dependabot %}, теперь всегда получают токен только для чтения и не получают секреты. Эти изменения призваны предотвратить выполнение потенциально вредоносного кода в привилегированном рабочем процессе. Дополнительные сведения см. в статье "[Автоматизация {% data variables.product.prodname_dependabot %} с помощью {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)".'
+
+        # https://github.com/github/releases/issues/1667
+        - "Теперь запуски рабочих процессов в событиях \"push\" и \"pull_request\", активированных {% data variables.product.prodname_dependabot %}, будут соблюдать разрешения, указанные в ваших рабочих процессах, позволяя вам самим контролировать то, как выполняется управление автоматическими обновлениями зависимостей. Разрешения для токенов по умолчанию будут по прежнему доступны только для чтения. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)\"."
+
+        # https://github.com/github/releases/issues/1668
+        - 'Рабочие процессы {% data variables.product.prodname_actions %}, активированные {% data variables.product.prodname_dependabot %}, теперь будут отправлены в секреты {% data variables.product.prodname_dependabot %}. Теперь вы можете выполнять извлечение из частных реестров пакетов в CI с помощью тех же секретов, которые настроены для использования в {% data variables.product.prodname_dependabot %}, улучшая качество совместной работы {% data variables.product.prodname_actions %} и {% data variables.product.prodname_dependabot %}. Дополнительные сведения см. в статье "[Автоматизация {% data variables.product.prodname_dependabot %} с помощью {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)".'
+
+        # https://github.com/github/releases/issues/1615
+        - "Теперь вы можете управлять группами средств выполнения тестов и просматривать состояние локальных средств выполнения тестов с помощью новых страниц \"Средства выполнения тестов\" и \"Группы средств выполнения тестов\" в пользовательском интерфейсе. На странице \"Параметры действий\" для репозитория или организации теперь показано представление сводки ваших средств выполнения тестов, а также разрешено выполнять подробный обзор конкретного средства, чтобы его отредактировать или посмотреть, какое задание оно выполняет в данный момент. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)\"."
+
+        # https://github.com/github/releases/issues/1785
+        - 'Авторы действий теперь могут выполнять свои действия в Node.js 16, указав ["runs.using" как "node16" в "action.yml" действия](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). Это дополнение к уже существующей поддержке Node.js 12. Действия могут продолжать указывать "runs.using: node12" для использования среды выполнения Node.js 12.'
+
+        # https://github.com/github/releases/issues/1799
+        - 'Для рабочих процессов, активированных вручную, {% data variables.product.prodname_actions %}, помимо типа входных данных "string" по умолчанию, теперь поддерживает типы "choice", "boolean" и "environment". Дополнительные сведения см. в статье "[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)".'
+
+        # https://github.com/github/releases/issues/1782
+        - "Действия, записанные в YAML (также известные как составные действия), теперь поддерживают условные выражения \"if\". Это позволяет предотвратить выполнение конкретных шагов, если не условие не было выполнено. Как и в случае с шагами, определенными в рабочих процессах, для создания условного выражения можно использовать любой поддерживаемый контекст и любое выражение."
+
+        # https://github.com/github/releases/issues/1919
+        - "Порядок поиска для локальных средств выполнения тестов теперь изменен, поэтому первое доступное средство любого уровня будет в любом случае выполнять задание. Это позволяет отправлять задания в локальные средства выполнения тестов намного быстрее, особенно в организациях и предприятиях с множеством локальных средств выполнения тестов. Ранее при выполнении задания, для которого требовалось локальное средство выполнения тестов, {% data variables.product.prodname_actions %} выполнял поиск этих средств в репозитории, организации и предприятии (именно в таком порядке)."
+
+        # https://github.com/github/releases/issues/1753
+        - "Метки для локальных средств выполнения тестов {% data variables.product.prodname_actions %} теперь можно объединить в список, добавить и удалить с помощью REST API. Дополнительные сведения об использовании новых API на уровне репозитория, организации или предприятия см. в следующих статьях документации REST API: \"[Репозитории](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)\", \"[Организации](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)\" и \"[Предприятия](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)\"."
+
+    - heading: 'Изменения Dependabot и графа зависимостей'
+      notes:
+        # https://github.com/github/releases/issues/1520
+        - "Теперь граф зависимостей поддерживает определение зависимостей Python в репозиториях, которые используют диспетчер пакетов Poetry. Зависимости будут обнаружены в файлах манифеста \"pyproject.toml\" и \"poetry.lock\"."
+
+        # https://github.com/github/releases/issues/1921
+        - "Во время настройки безопасности и обновлений версии {% data variables.product.prodname_dependabot %} на GitHub Enterprise Server рекомендуется также включить {% data variables.product.prodname_dependabot %} в {% data variables.product.prodname_github_connect %}. Это позволит {% data variables.product.prodname_dependabot %} извлечь обновленный список зависимостей и уязвимостей из {% data variables.product.prodname_dotcom_the_website %} путем запрашивания таких сведений, как журналы изменений общедоступных выпусков открытого кода, на которые вы полагаетесь. Дополнительные сведения см. в статье \"[Включение предупреждений Dependabot для предприятия](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)\"."
+
+        # https://github.com/github/releases/issues/1717
+        - 'Теперь предупреждения {% data variables.product.prodname_dependabot_alerts %} можно закрыть с помощью API GraphQL. Дополнительные сведения см. в статье "[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" в документации по API GraphQL.'
+
+    - heading: 'Изменения сканирования кода и сканирования секрета'
+      notes:
+        # https://github.com/github/releases/issues/1802
+        - "CLI {% data variables.product.prodname_codeql %} теперь поддерживает включение справки по запросам, преобразованным по разметке Markdown в файлах SARIF, чтобы текст можно было просматривать в пользовательском интерфейсе {% data variables.product.prodname_code_scanning %}, когда запрос создает предупреждение. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)\"."
+
+        # https://github.com/github/releases/issues/1790
+        - "CLI {% data variables.product.prodname_codeql %} и расширение {% data variables.product.prodname_vscode %} теперь поддерживают создание баз данных и анализ кода на компьютерах на платформах Apple Silicon, например Apple M1. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)\"."
+
+        # https://github.com/github/releases/issues/1732
+        - |Глубина анализа {% data variables.product.prodname_codeql %} была улучшена посредством добавления поддержки большего количества [библиотек и платформ](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) из экосистемы Python. В результате {% data variables.product.prodname_codeql %} теперь может обнаруживать еще больше потенциальных источников данных ненадежных пользователей, шагов, через которые двигается поток данных, и потенциально опасные приемники, в которых могут оказаться данные. Вследствие этого повысилось общее качество предупреждений {% data variables.product.prodname_code_scanning %}. Дополнительные сведения см. в статье "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)".
+
+|
+        # https://github.com/github/releases/issues/1567
+        - "Сканирование кода с помощью {% data variables.product.prodname_codeql %} теперь включает поддержку бета-версии для анализа кода во всех распространенных версиях аннотаций до (и включая) 3.02. Дополнительные сведения см. в статье \"[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)\"."
+
+        # https://github.com/github/releases/issues/1764
+        - |В API {% data variables.product.prodname_code_scanning %} было внесено несколько улучшений:
+
+
+
+* В предупреждения добавлена метка времени "fixed_at". Эта метка времени обозначает, что это предупреждение впервые не было обнаружено во время анализа.
+
+* Результаты предупреждения теперь можно отсортировать с помощью "sort" и "direction" либо же "created", "updated" или "number". Дополнительные сведения см. в статье "[Список предупреждений о сканировании кода для репозитория](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)".
+
+* В предупреждения и ответ конечной точки предупреждения добавлен заголовок "Last-Modified". Дополнительные сведения см. в статье ["Last-Modified"](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) документации по Mozilla.
+
+* В ответ SARIF, когда вы отправляете запрос на анализ сканирования кода, добавлено поле "relatedLocations". Это поле может содержать расположения, которые не являются основными для предупреждения. Пример см. в статье [Спецификация SARIF](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616). Дополнительные сведения см. в статье "[Получение анализа сканирования кода для репозитория](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)".
+
+* В объект правила генерации оповещений об ответе веб-перехватчика добавлены данные "help" и "tags". Дополнительные сведения см. в статье "[События и полезные данные веб-перехватчиков предупреждений о сканировании кода](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)".
+
+* У личных маркеров доступа с областью "public_repo" теперь есть доступ на запись для конечных точек сканирования кода в общедоступных репозиториях, при условии наличия у пользователя разрешения.
+
+
+
+Дополнительные сведения см. в статье "[Сканирование кода](/rest/reference/code-scanning)" в документации по REST API.
+
+|
+        # https://github.com/github/releases/issues/1943
+        - 'Клиенты {% data variables.product.prodname_GH_advanced_security %} теперь могут использовать REST API для извлечения результатов сканирования секрета частного репозитория на уровне предприятия. Новая конечная точка дополняет существующие конечные точки уровня репозитория и организации. Дополнительные сведения см. в статье "[Сканирование секретов](/rest/reference/secret-scanning)" в документации по REST API.'
+
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "На новом настроенном экземпляре {% data variable.product.prodname_ghe_server %} без пользователей злоумышленник может создать первого администратора."
+    - Настраиваемые правила брандмауэра удаляются в процессе обновления.
+    - "Отслеживаемые файлы Git LFS, [отправленные через веб-интерфейс](https://github.com/blog/2105-upload-files-to-your-repositories), ошибочно добавлялись напрямую в репозиторий."
+    - "Невозможно закрывать проблемы, если они содержат постоянную ссылку на BLOB-объект в том же репозитории с путем, длина которого превышает 255 символов."
+    - "Когда в GitHub Connect включен параметр \"Пользователи могут выполнять поиск на GitHub.com\", результаты поиска на GitHub.com не включают проблемы в частных и внутренних репозиториях."
+    - "Реестр npm {% data variables.product.prodname_registry %} больше не возвращает значение времени в ответах метаданных. Это сделано, чтобы реализовать существенные улучшения производительности. Мы продолжим хранить все данные, необходимые для возврата значения времени в качестве части ответа метаданных и возобновим возврат этого значения в будущем, как только решим существующие проблемы с производительностью."
+    - "Ограничения ресурсов, относящиеся к обработке перехватчиков перед получением, могут приводить к сбою некоторых из них."
+    - "Службу действий необходимо перезапустить после восстановления устройства из резервной копии, созданной в другом расположении."
+
+  deprecations:
+    - heading: Прекращение поддержки GitHub Enterprise Server 3.0
+      notes:
+        - '**Поддержка {% data variables.product.prodname_ghe_server %} 3.0 прекращена 16 февраля 2022 г.**. Это значит, что после этой даты исправления не будут выпускаться даже для устранения критических проблем безопасности. Чтобы улучшить производительность, безопасность и получить новые возможности, как можно быстрее [выполните обновлении до самой последней версии {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server).'
+    - heading: Прекращение поддержки GitHub Enterprise Server 3.1
+      notes:
+        - '**Поддержка {% data variables.product.prodname_ghe_server %} 3.1 прекращена 3 июня 2022 г.**. Это значит, что после этой даты исправления не будут выпускаться даже для устранения критических проблем безопасности. Чтобы улучшить производительность, безопасность и получить новые возможности, как можно быстрее [выполните обновлении до самой последней версии {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server).'
+
+    - heading: Прекращение поддержки гипервизора XenServer
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "Начиная с {% data variables.product.prodname_ghe_server %} 3.3, прекращена поддержка {% data variables.product.prodname_ghe_server %} в XenServer. Обратитесь в [службу поддержки GitHub](https://support.github.com), если у вас есть вопросы или замечания."
+
+    - heading: Прекращение поддержки предварительной версии API вложений содержимого
+      notes:
+        #
+        - "Ввиду низкого уровня использования прекращена поддержка предварительной версии API вложений содержимого в {% data variables.product.prodname_ghe_server %} 3.4. Ранее этот API был доступен по заголовку \"corsair-preview\". Пользователи могут и далее переходить по внешним URL-адресам и без этого API. Зарегистрированные использования API вложений содержимого больше не будут получать оповещение от веб-перехватчика для URL-адресов из зарегистрированных доменов, а мы больше не будем возвращать допустимые коды откликов для попыток выполнить обновления существующих вложений содержимого."
+
+    - heading: Прекращение поддержки предварительной версии API правил поведения
+      notes:
+        # https://github.com/github/releases/issues/1708
+        - 'Поддержка предварительной версии API правил поведения, которая была доступна по заголовку "scarlet-witch-preview", прекращена и она больше не доступна в {% data variables.product.prodname_ghe_server %} 3.4. Вместо этого мы рекомендуем использовать конечную точку "[Получение метрик профиля сообщества](/rest/reference/repos#get-community-profile-metrics)" для извлечения сведений о коде правилах поведения репозитория. Дополнительные сведения см. в статье "[Уведомление о прекращении поддержки: предварительная версия API правил поведения](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" в журнале изменений {% data variables.product.prodname_dotcom %}.'
+
+    - heading: Прекращение поддержки конечных точек API приложения OAuth и проверки подлинности API с использованием параметров запроса
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |Начиная с {% data variables.product.prodname_ghe_server %} 3.4, [нерекомендуемая версия конечных точек API приложения OAuth Application API](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) удалена. В случае возникновения в этих частных точках сообщений об ошибке 404 преобразуйте ваш код в версии API приложения OAuth, в URL-адресе которой нет "access_tokens". Мы также отключили использование проверки подлинности API с помощью параметров запроса. Вместо этого рекомендуем использовать [проверку подлинности API в заголовке запроса](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
+
+|
+    - heading: Прекращение поддержки средства выполнения тестов CodeQL
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "Средство выполнения тестов {% data variables.product.prodname_codeql %} больше не поддерживается в {% data variables.product.prodname_ghe_server %} 3.4. Прекращение поддержки касается только тех пользователей, которые используют сканирование кода {% data variables.product.prodname_codeql %} в сторонних системах непрерывной поставки и непрерывной интеграции. Это не относится к пользователям {% data variables.product.prodname_actions %}. Мы настоятельно рекомендуем клиентам перейти на CLI {% data variables.product.prodname_codeql %}, возможности которого полностью заменяют средство выполнения тестов {% data variables.product.prodname_codeql %}. Дополнительные сведения см. в статье [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)."
+
+    - heading: Прекращение поддержки пользовательских расширений кэша битов
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |Начиная с {% data variables.product.prodname_ghe_server %} 3.1, постепенно прекращается поддержка защищаемых расширений кэша битов {% data variables.product.company_short %}. Эти расширения являются устаревшими в {% data variables.product.prodname_ghe_server %} 3.3 и более поздних версий.
+
+
+
+Все репозитории, которые уже существовали и были активны в {% data variables.product.product_location %} версии 3.1 или  3.2 будут автоматически обновлены.
+
+
+
+Репозитории, которые еще не существовали и не были активны до обновления до {% data variables.product.prodname_ghe_server %} 3.3 могут не демонстрировать оптимальную производительность, пока задача обслуживания репозитория не будет запущено и успешно выполнено.
+
+
+
+Чтобы запустить задачу обслуживания репозитория вручную, перейдите по адресу "https://<имя узла>/stafftools/repositories/<владелец>/<репозиторий>/network" для каждого затронутого репозитория и нажмите кнопку "Запланировать".
+
+|
+  backups:
+    - 'Для {% data variables.product.prodname_ghe_server %} 3.4 требуется по крайней мере [техническое оборудование для резервного копирования GitHub Enterprise версии 3.4.0](https://github.com/github/backup-utils) для [резервного копирования и аварийного восстановления](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

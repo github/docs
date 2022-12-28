@@ -11,7 +11,7 @@ children:
   - /learning-about-projects
   - /creating-projects
   - /managing-items-in-your-project
-  - /understanding-field-types
+  - /understanding-fields
   - /customizing-views-in-your-project
   - /automating-your-project
   - /viewing-insights-from-your-project
@@ -19,11 +19,11 @@ children:
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /issues/trying-out-the-new-projects-experience
-ms.openlocfilehash: 80a894cdca5dda3afff3476a8209cb54589c89b5
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 89e7ed2a98f1b29f26d268622b639a893ab0c552
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108634'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159235'
 ---
 

@@ -3,23 +3,23 @@ title: codespace を作成する
 intro: リポジトリのブランチの codespace を作成して、オンラインで開発できます。
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
-  - /github/developing-online-with-github-codespaces/creating-a-codespace
-  - /github/developing-online-with-codespaces/creating-a-codespace
+- /github/developing-online-with-github-codespaces/creating-a-codespace
+- /github/developing-online-with-codespaces/creating-a-codespace
 versions:
   fpt: '*'
   ghec: '*'
 type: how_to
 topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
+- Codespaces
+- Fundamentals
+- Developer
 shortTitle: Create a codespace
 ms.openlocfilehash: ae14b01f409f9c6bfb43c579aaa9c76bb2421cfe
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106734'
+ms.locfileid: "148106734"
 ---
 ## codespace の作成について
 

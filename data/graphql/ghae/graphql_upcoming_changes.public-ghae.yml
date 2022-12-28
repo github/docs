@@ -54,12 +54,6 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: breaking
     owner: synthead
-  - location: Repository.defaultMergeQueue
-    description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
-    reason: '`defaultMergeQueue` will be removed.'
-    date: '2022-04-01'
-    criticality: breaking
-    owner: colinshum
   - location: AddPullRequestToMergeQueueInput.branch
     description: '`branch` will be removed.'
     reason:
@@ -76,14 +70,22 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: RepositoryVulnerabilityAlert.fixReason
-    description: '`fixReason` will be removed.'
+  - location: PackageType.NPM
+    description: '`NPM` will be removed.'
     reason:
-      The `fixReason` field is being removed. You can still use `fixedAt` and
-      `dismissReason`.
-    date: '2022-10-01T00:00:00+00:00'
+      NPM will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
     criticality: breaking
-    owner: jamestran201
+    owner: s-anupam
+  - location: PackageType.NUGET
+    description: '`NUGET` will be removed.'
+    reason:
+      NUGET will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
   - location: Commit.changedFiles
     description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
     reason: '`changedFiles` will be removed.'
@@ -271,3 +273,19 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: traumverloren
+  - location: Repository.squashPrTitleUsedAsDefault
+    description:
+      '`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle`
+      instead.'
+    reason: '`squashPrTitleUsedAsDefault` will be removed.'
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/pull_requests
+  - location: RepositoryVulnerabilityAlert.fixReason
+    description: '`fixReason` will be removed.'
+    reason:
+      The `fixReason` field is being removed. You can still use `fixedAt` and
+      `dismissReason`.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jamestran201

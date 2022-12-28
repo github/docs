@@ -1,0 +1,37 @@
+# Images and descriptions are pulled directly from the repo
+
+- repo: vercel/next.js
+  description: Платформа React
+
+- repo: gatsbyjs/gatsby
+  description: Создавайте современные быстрые приложения и веб-сайты с помощью React
+
+- repo: nodejs/node
+  description: Среда выполнения JavaScript Node.js ✨🐢🚀✨
+
+- repo: tailwindlabs/tailwindcss
+  description: Платформа CSS для ускоренной разработки пользовательского интерфейса служебных программ.
+
+- repo: laravel/framework
+  description: Laravel — это платформа веб-приложений с выразительным и емким синтаксисом.
+
+- repo: prisma/prisma
+  description: "Доступ к современным базам данных (замена ORM) для Node.js и TypeScript | PostgreSQL, MySQL, MariaDB и SQLite"
+
+- repo: dotnet/csharplang
+  description: "Официальный репозиторий разработки языка C#"
+
+- repo: home-assistant/frontend
+  description: 🍭 Внешний интерфейс для Home Assistant
+
+- repo: jspsych/jsPsych
+  description: Библиотека JavaScript для создания и запуска поведенческих экспериментов в веб-браузере
+
+- repo: adonisjs/core
+  description: "🚀 Платформа Node.js, предназначенная для поддержания эргономики, стабильности и уверенности разработчиков"
+
+- repo: ImageMagick/ImageMagick
+  description: 🧙‍♂️ ImageMagick 7
+
+- repo: react-hook-form/react-hook-form
+  description: 📋 Перехватчики React для проверки форм (веб-форм и собственных форм React)

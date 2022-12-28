@@ -1,6 +1,6 @@
 ---
-title: Configuring Dependabot version updates
-intro: 'You can configure your repository so that {% data variables.product.prodname_dependabot %} automatically updates the packages you use.'
+title: Configurando a versão das atualizações do Dependabot
+intro: 'Você pode configurar seu repositório para que o {% data variables.product.prodname_dependabot %} atualize automaticamente os pacotes que você usa.'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
@@ -19,47 +19,48 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Configure version updates
+ms.openlocfilehash: 8513bd41ec86d353241297d2a5bd6111a49fec3d
+ms.sourcegitcommit: 84a9475bf99a37021746349a51ce814516928516
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135811'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About version updates for dependencies
+## Sobre atualizações de versão para dependências
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a *dependabot.yml* configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. For each package manager's dependencies that you want to update, you must specify the location of the package manifest files and how often to check for updates to the dependencies listed in those files. For information about enabling security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+Habilite as {% data variables.product.prodname_dependabot_version_updates %} fazendo o check-in de um arquivo de configuração *dependabot.yml* no diretório `.github` do seu repositório. Em seguida, o {% data variables.product.prodname_dependabot %} cria um pull request para manter as dependências que você configura atualizadas. Para cada dependência do gerenciador de pacotes que você deseja atualizar, você deve especificar a localização dos arquivos de manifesto do pacote e a frequência de busca por atualizações nas dependências listadas nesses arquivos. Para obter informações sobre como habilitar as atualizações de segurança, confira "[Como configurar as {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 
-{% data reusables.dependabot.initial-updates %} For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
+{% data reusables.dependabot.initial-updates %} Para obter mais informações, confira "[Como personalizar as atualizações de dependência](/github/administering-a-repository/customizing-dependency-updates)".
 
-By default only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see "[Configuration options for the dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#allow)."
+Por padrão, somente as dependências diretas definidas explicitamente em um manifesto são mantidas atualizadas por {% data variables.product.prodname_dependabot_version_updates %}. Você pode optar por receber atualizações de dependências indiretas definidas em arquivos de bloqueio. Para obter mais informações, confira "[Opções de configuração para o arquivo dependabot.yml](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#allow)".
 
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Para obter mais informações, confira "[Sobre as atualizações de versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" e "[Suporte à linguagem do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-language-support)".
 
-## Enabling {% data variables.product.prodname_dependabot_version_updates %}
+## Habilitar {% data variables.product.prodname_dependabot_version_updates %}
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by commiting a *dependabot.yml* configuration file to your repository. 
-{% ifversion dependabot-settings-update-37 %}If you enable the feature in your settings page, GitHub creates a basic file which you can edit, otherwise you can create the file using any file editor.
+Habilite as {% data variables.product.prodname_dependabot_version_updates %} fazendo commit de um arquivo de configuração *dependabot.yml* no repositório. {% ifversion dependabot-settings-update-37 %}Se você habilitar o recurso na página de configurações, o GitHub criará um arquivo básico que você poderá editar, caso contrário, crie o arquivo usando qualquer editor de arquivos.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic *dependabot.yml* configuration file in the `.github` directory of your repository.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Em "Segurança e análise de código", à direita de "{% data variables.product.prodname_dependabot_version_updates %}", clique em **Habilitar** para abrir um arquivo de configuração *dependabot.yml* básico no diretório `.github` do repositório.
 {% else %}
-1. Create a *dependabot.yml* configuration file in the `.github` directory of your repository. 
-{% endif %}
-1. Add a `version`. 
-1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. 
-1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor.
-1. For each package manager, use:
-    - `package-ecosystem` to specify the package manager.
-    - `directory` to specify the location of the manifest or other definition files.
-    - `schedule.interval` to specify how often to check for new versions.
+1. Crie um arquivo de configuração *dependabot.yml* no diretório `.github` do repositório. {% endif %}
+1. Adicione uma `version`. 
+1. Opcionalmente, se você tiver dependências em um registro privado, adicione uma seção `registries` contendo detalhes de autenticação. 
+1. Adicione uma seção `updates`, com uma entrada para cada gerenciador de pacotes que você deseja que o {% data variables.product.prodname_dependabot %} monitore.
+1. Para cada gerenciador de pacotes, use:
+    - `package-ecosystem` para especificar o gerenciador de pacotes.
+    - `directory` para especificar o local do manifesto ou de outros arquivos de definição.
+    - `schedule.interval`: especifica a frequência com a qual novas versões são verificadas.
 {% data reusables.dependabot.check-in-dependabot-yml %}
 
-For information about all the configuration options, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+Para obter informações sobre todas as opções de configuração, confira "[Opções de configuração do arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates)".
 
-### Example *dependabot.yml* file
+### Exemplo de arquivo *dependabot.yml*
 
-The example *dependabot.yml* file below configures version updates for two package managers: npm and Docker. When this file is checked in, {% data variables.product.prodname_dependabot %} checks the manifest files on the default branch for outdated dependencies. If it finds outdated dependencies, it will raise pull requests against the default branch to update the dependencies.
+O exemplo de arquivo *dependabot.yml* abaixo configura atualizações de versão para dois gerenciadores de pacotes: npm e Docker. Quando este arquivo é marcado, o {% data variables.product.prodname_dependabot %} verifica os arquivos de manifesto no branch padrão buscando dependências desatualizadas. Se encontrar dependências desatualizadas, irá gerar pull requests em relação ao branch padrão para atualizar as dependências.
 
 ```yaml
 # Basic dependabot.yml file with
@@ -84,40 +85,47 @@ updates:
       interval: "weekly"
 ```
 
-In the example above, if the Docker dependencies were very outdated, you might want to start with a `daily` schedule until the dependencies are up-to-date, and then drop back to a weekly schedule.
+No exemplo acima, se as dependências do Docker estavam muito desatualizadas, o ideal é começar com um agendamento `daily` até que as dependências estejam atualizadas e retornar a um agendamento semanal.
 
-### Enabling version updates on forks
+### Habilitando atualizações da versão em bifurcações
 
-If you want to enable version updates on forks, there's an extra step. Version updates are not automatically enabled on forks when a *dependabot.yml* configuration file is present. This ensures that fork owners don't unintentionally enable version updates when they pull changes including a *dependabot.yml* configuration file from the original repository. 
+Se você quiser habilitar atualizações de versão nas bifurcações, há um passo extra. As atualizações de versão não são habilitadas automaticamente em forks quando um arquivo de configuração *dependabot.yml* está presente. Isso garante que os proprietários do fork não habilitem acidentalmente as atualizações de versão quando efetuarem pull de alterações, incluindo um arquivo de configuração *dependabot.yml* do repositório original. 
 
-On a fork, you also need to explicitly enable {% data variables.product.prodname_dependabot %}.
+Em uma bifurcação, você também precisa habilitar explicitamente {% data variables.product.prodname_dependabot %}.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.click-dependency-graph %}
-{% data reusables.dependabot.click-dependabot-tab %}
-5. Under "Enable Dependabot", click **Enable Dependabot**.
+{% ifversion dependabot-version-updates-for-forks %}
 
-## Checking the status of version updates
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Em "Segurança e análise de código", à direita de "{% data variables.product.prodname_dependabot_version_updates %}", clique em **Habilitar** para permitir que {% data variables.product.prodname_dependabot %} inicie atualizações de versão.
+![Captura de tela da configuração de um repositório bifurcado de {% data variables.product.prodname_dependabot_version_updates %}](/assets/images/help/dependabot/dependabot-version-update-forks.png)
 
-After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. This tab shows which package managers {% data variables.product.prodname_dependabot %} is configured to monitor and when {% data variables.product.prodname_dependabot %} last checked for new versions.
+{% else %}
 
-![Repository Insights tab, Dependency graph, Dependabot tab](/assets/images/help/dependabot/dependabot-tab-view.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %} {% data reusables.repositories.click-dependency-graph %} {% data reusables.dependabot.click-dependabot-tab %}
+5. Em "Habilitar o Dependabot", clique em **Habilitar o Dependabot**.
 
-For information, see "[Listing dependencies configured for version updates](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)."
+{% endif %}
 
-## Disabling {% data variables.product.prodname_dependabot_version_updates %}
+## Verificando o status das atualizações da versão
 
-You can disable version updates entirely by deleting the *dependabot.yml* file from your repository. More usually, you want to disable updates temporarily for one or more dependencies, or package managers.
+Depois de habilitar as atualizações de versão, a guia **Dependabot** no grafo de dependência do repositório será preenchida. Esta aba mostra quais gerentes de pacote de {% data variables.product.prodname_dependabot %} estão configurados para monitorar e quando {% data variables.product.prodname_dependabot %} fez a última verificação com relação a novas versões.
 
-- Package managers: disable by setting `open-pull-requests-limit: 0` or by commenting out the relevant `package-ecosystem` in the configuration file.
-- Specific dependencies: disable by adding `ignore` attributes for packages or applications that you want to exclude from updates.
+![Aba de Insights do Repositório, gráfico de dependências, aba Dependabot](/assets/images/help/dependabot/dependabot-tab-view.png)
 
-When you disable dependencies, you can use wild cards to match a set of related libraries. You can also specify which versions to exclude. This is particularly useful if you need to block updates to a library, pending work to support a breaking change to its API, but want to get any security fixes to the version you use.
+Para obter informações, confira "[Como listar as dependências configuradas para atualizações de versão](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
 
-### Example disabling version updates for some dependencies
+## Desabilitar {% data variables.product.prodname_dependabot_version_updates %}
 
-The example *dependabot.yml* file below includes examples of the different ways to disable updates to some dependencies, while allowing other updates to continue.
+Você pode desabilitar por completo as atualizações de versão excluindo o arquivo *dependabot.yml* do repositório. Mais usualmente, você deseja desabilitar as atualizações temporariamente para uma ou mais dependências, ou gerenciadores de pacotes.
+
+- Gerenciadores de pacotes: desabilite-os definindo `open-pull-requests-limit: 0` ou removendo a linha de comentário de `package-ecosystem` relevante no arquivo de configuração.
+- Dependências específicas: desabilite-as adicionando atributos `ignore` a pacotes ou a aplicativos que você deseja excluir das atualizações.
+
+Quando você desabilita dependências, você pode usar cartões curingas para corresponder a um conjunto de bibliotecas relacionadas. Você também pode especificar quais versões excluir. Isso é particularmente útil se você precisa bloquear atualizações de uma biblioteca, deixando pendente trabalho para suportar uma alteração quebrada na sua API, mas quer obter qualquer correção de segurança para a versão que você usa.
+
+### Exemplo de desabilitação de atualizações de versão para algumas dependências
+
+O exemplo de arquivo *dependabot.yml* abaixo inclui exemplos das diferentes maneiras de desabilitar as atualizações em algumas dependências, permitindo que outras atualizações continuem.
 
 ```yaml
 # dependabot.yml file with updates
@@ -151,4 +159,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+Para obter mais informações sobre como verificar as preferências de ignorar existentes, confira "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)".

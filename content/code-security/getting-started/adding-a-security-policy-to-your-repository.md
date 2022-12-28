@@ -35,7 +35,7 @@ You can create a default security policy for your organization or personal accou
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)." For more information about repository security advisories, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)." For more information about repository security advisories, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}

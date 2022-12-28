@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - CI
 shortTitle: Build & test Go
-ms.openlocfilehash: 64e0c8acfa23436903b510a47cd1b43f55274f5f
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: 590edc2af0b7f370e52b449f320bdc2a758450bc
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147080065'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160860'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -122,8 +122,8 @@ jobs:
       - name: Install dependencies
         run: |
           go get .
-          go get example.lab/octo-examplemodule
-          go get example.lab/octo-examplemodule@v1.3.4
+          go get example.com/octo-examplemodule
+          go get example.com/octo-examplemodule@v1.3.4
 ```
 
 {% ifversion actions-caching %}

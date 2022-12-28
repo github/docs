@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: d60dd79917cf0042e15039601fc85dfbdf8ad200
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 216ce76b3c1a475e5861fbd948d65783699985bd
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145096379"
+ms.lasthandoff: 11/12/2022
+ms.locfileid: "148163152"
 ---
-1. Como alternativa, use a barra lateral à esquerda para filtrar informações por recurso de segurança. Em cada página, é possível usar filtros específicos para o recurso e ajustar sua pesquisa.
+1. Como alternativa, use a barra lateral à esquerda para filtrar informações por recurso de segurança. Em cada página, é possível usar filtros específicos para o recurso e ajustar sua pesquisa. Para obter mais informações sobre os qualificadores disponíveis, confira "[Como filtrar alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)".

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145114753"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184095"
 ---
 Cuando un trabajo o flujo de trabajo concurrente se pone en cola, si otro trabajo o flujo de trabajo que utilicen el mismo grupo de simultaneidad en el repositorio se encuentra en curso, el trabajo o flujo de trabajo en cola se mostrará como `pending`. Cualquier job o flujo de trabajo pendientes anteriores en el grupo de concurrencia se cancelarán. Para cancelar también cualquier trabajo o flujo de trabajo actualmente en ejecución en el mismo grupo de simultaneidad, especifica `cancel-in-progress: true`.
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ Si compilas el nombre de grupo con una propiedad que solo se defina para eventos
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ Para cancelar solo las ejecuciones en curso del mismo flujo de trabajo, puedes u
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```

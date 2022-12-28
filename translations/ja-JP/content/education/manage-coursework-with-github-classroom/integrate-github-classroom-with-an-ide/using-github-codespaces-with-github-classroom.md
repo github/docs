@@ -1,92 +1,106 @@
 ---
-title: Using GitHub Codespaces with GitHub Classroom
+title: GitHub Classroom で GitHub codespace を使用する
 shortTitle: Using Codespaces with GitHub Classroom
 product: '{% data reusables.gated-features.codespaces-classroom-articles %}'
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} as the preferred editor in your assignments to give students access to a browser-based Visual Studio Code environment with one-click setup.'
+intro: '{% data variables.product.prodname_github_codespaces %} を割り当てで優先エディターとして使用し、ワン クリックで設定できるブラウザーベースの Visual Studio Code 環境に学生がアクセスできるようにできます。'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189914'
 ---
-## About {% data variables.product.prodname_github_codespaces %}
+## {% data variables.product.prodname_github_codespaces %} について
 
-{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment that is the same for all users of your project. For more information, see "[{% data variables.product.prodname_github_codespaces %} overview](/codespaces/overview)."
+{% data variables.product.prodname_github_codespaces %} は、クラウドベースのインスタント開発環境であり、コンテナーを使用して開発用の共通言語、ツール、ユーティリティを提供します。 また、{% data variables.product.prodname_github_codespaces %} も構成可能で、プロジェクトのすべてのユーザーに共通のカスタマイズされた開発環境を作成できます。 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} の概要](/codespaces/overview)」を参照してください。
 
-Once {% data variables.product.prodname_github_codespaces %} is enabled in an organization or enterprise, users can create a codespace from any branch or commit in an organization or enterprise repository and begin developing using cloud-based compute resources. You can connect to a codespace from the browser or locally using Visual Studio Code. {% data reusables.codespaces.links-to-get-started %}
+Organization または Enterprise で {% data variables.product.prodname_github_codespaces %} を有効にすると、ユーザーは、任意のブランチから codespace を作成するか、Organization または Enterprise リポジトリでコミットし、クラウドベースのコンピューティング リソースを使用して開発を始めることができます。 codespace には、ブラウザーから接続することも、Visual Studio Code を使用してローカルで接続することもできます。 
 
-Setting {% data variables.product.prodname_github_codespaces %} as the preferred editor for an assignment in GitHub Classroom assignments, is beneficial for both students and teachers. {% data variables.product.prodname_github_codespaces %} is a good option for students using loaned devices or without access to a local IDE setup, since each codespace is cloud-based and requires no local setup. Students can launch a codespace for an assignment repository in Visual Studio Code directly in their browser, and begin developing right away without needing any further configuration.  
+{% data reusables.codespaces.links-to-get-started %}
 
-For assignments with complex setup environments, teachers can customize the dev container configuration for a repository's codespaces. This ensures that when a student creates a codespace, it automatically opens with the development environment configured by the teacher. For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+{% data variables.product.prodname_github_codespaces %} を、GitHub Classroom の課題で課題用の優先エディターとして設定すると、学生と教師の両方にとって役立ちます。 {% data variables.product.prodname_github_codespaces %} は、各 codespace がクラウドベースであり、ローカルでの設定が必要ないため、貸し出されているデバイスを使っている学生、またはローカル IDE 設定にアクセスできない学生に適したオプションです。 学生は、ブラウザーで直接 Visual Studio Code 内の課題リポジトリの codespace を起動し、すぐに開発を開始できます。追加の構成は必要ありません。  
+
+複雑な設定環境を使用する課題の場合、教師はリポジトリの codespace 向け開発コンテナーの構成をカスタマイズできます。 これにより、学生が codespace を作成する際、教師が構成した開発環境で codespace が自動的に開くようになります。 開発コンテナーの詳細については、「[開発コンテナーの概要」を](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)参照してください。
 
 {% note %}
 
-**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+**注**: 個々の codespace が停止し、長期間未使用のままになっている場合、個々の codespace は自動的に削除されます。 詳しい情報については、「[codespace の自動削除を構成する](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)」をご覧ください。
 
 {% endnote %}
 
-## About the {% data variables.product.prodname_codespaces %} Education benefit for verified teachers
+{% data reusables.education.student-codespaces-benefit %}
 
-The {% data variables.product.prodname_codespaces %} Education benefit gives verified teachers a free monthly allowance of {% data variables.product.prodname_github_codespaces %} hours to use in {% data variables.product.prodname_classroom %}. The free allowance is estimated to be enough for a class of 50 with 5 assignments per month, on a 2 core machine with 1 codespace stored per student.
+{% note %}
+
+**注:** {% data reusables.education.note-on-student-codespaces-usage %} 
+
+{% endnote %}
+
+## 認証済み教師に対する {% data variables.product.prodname_codespaces %} Education 特典について
+
+{% data variables.product.prodname_codespaces %} Education 特典を利用すると、認証済みの教師には、{% data variables.product.prodname_classroom %} での {% data variables.product.prodname_github_codespaces %} の利用時間について、毎月無料の使用枠が与えられます。 この無料利用枠は、学生ごとに 1 つの codespace が保存されている 2 コアのマシンで、毎月 5 つの課題がある 50 人のクラスを目安としています。
 
 {% data reusables.classroom.free-limited-codespaces-for-verified-teachers-beta-note %}
 
-To become a verified teacher, you need to be approved for an educator or teacher benefit. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)." 
+認証済み教師になるには、教育者特典または教師特典の承認を受ける必要があります。 詳しくは、「[教師として {% data variables.product.prodname_global_campus %} に応募する](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)」を参照してください。 
 
-After you have confirmation that you are a verified teacher, visit [{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher) to upgrade the organization to GitHub Team. For more information, see [GitHub's products](/get-started/learning-about-github/githubs-products#github-team). 
+認証済み教師であるという確認を受け取ったら、[{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher) にアクセスして、Organization を GitHub Team にアップグレードします。 詳しい情報については、「[GitHub の製品](/get-started/learning-about-github/githubs-products#github-team)」を参照してください。 
 
-If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, when you enable {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_classroom %} for your organization, GitHub automatically adds a Codespace policy to restrict machine types for all codespaces in the organization to 2 core machines. This helps you make the most of the free {% data variables.product.prodname_github_codespaces %} usage. However, you can change or remove these policies in your organization settings. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+{% data variables.product.prodname_codespaces %} Education 特典の対象者の場合、Organization の {% data variables.product.prodname_classroom %} で {% data variables.product.prodname_github_codespaces %} を有効にすると、GitHub では、Codespace ポリシーが自動的に追加され、Organization 内のすべての codespace のマシンの種類が 2 コア マシンに制限されます。 これは、{% data variables.product.prodname_github_codespaces %} の無料使用量を最大限に活用するのに役立ちます。 ただし、これらのポリシーは、Organization の設定で変更または削除できます。 詳細については、「[コンピューターの種類へのアクセスの制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
 
-When the {% data variables.product.prodname_codespaces %} Education benefit moves out of beta, if your organization exceeds their free allowance for {% data variables.product.prodname_github_codespaces %} usage, your organization will be billed for additional usage. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)."
+{% data variables.product.prodname_codespaces %} Education 特典がベータ版から移行されると、Organization での {% data variables.product.prodname_github_codespaces %} の使用量が無料利用枠を超えると、追加の使用量に対して請求が行われます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
-## Enabling {% data variables.product.prodname_codespaces %} for your organization
+## Organization での {% data variables.product.prodname_codespaces %} の有効化
 
-{% data variables.product.prodname_github_codespaces %} is available to use with {% data variables.product.prodname_classroom %} for organizations that use {% data variables.product.prodname_team %}. If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, you must enable {% data variables.product.prodname_github_codespaces %} through {% data variables.product.prodname_classroom %}, instead of enabling it directly in your organization settings. Otherwise, your organization will be billed directly for all usage of {% data variables.product.prodname_github_codespaces %}.
+{% data variables.product.prodname_github_codespaces %} は、{% data variables.product.prodname_team %} を使用する Organization の {% data variables.product.prodname_classroom %} で使用できます。 {% data variables.product.prodname_codespaces %} Education 特典の対象である場合、{% data variables.product.prodname_github_codespaces %} は、Organization の設定で直接有効にするのではなく、{% data variables.product.prodname_classroom %} を介して有効にする必要があります。 そうしないと、Organization での {% data variables.product.prodname_github_codespaces %} のすべての使用量に対して直接請求されることになります。
 
-### Enabling Codespaces for an organization when creating a new classroom
+### 新しいクラスルームの作成時に Organization の codespace を有効にする
 {% data reusables.classroom.sign-into-github-classroom %}
-1. Click **New classroom**.
+1. **[新しいクラスルーム]** をクリックします。
    
-  !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
+  ![[新しいクラスルーム] ボタン](/assets/images/help/classroom/click-new-classroom-button.png)
 
-1. In the list of organizations, click the organization you'd like to use for your classroom. Organizations that are eligible for {% data variables.product.prodname_github_codespaces %} will have a note showing that they are eligible. Optionally, you can create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+1. Organizationのリスト中で、クラスルームに使いたいOrganizationをクリックしてください。 {% data variables.product.prodname_github_codespaces %} の対象となる Organization には、対象であることを示すメモが表示されます。 あるいは、新しいOrganizationを作成することもできます。 詳細については、「[新しい Organization をゼロから作成](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
 
-  ![Choose organization for classroom with codespaces eligibility](/assets/images/help/classroom/org-view-codespaces-eligibility.png)
+  ![codespace の対象となるクラスルームの Organization を選択する](/assets/images/help/classroom/org-view-codespaces-eligibility.png)
 
-1. In the "Name your classroom" page, under "{% data variables.product.prodname_codespaces %} in your Classroom", click **Enable**. Note that this will enable {% data variables.product.prodname_github_codespaces %} for all repositories and users in the organization.
+1. [クラスルームに名前を付ける] ページの [Classroom の {% data variables.product.prodname_codespaces %}] で、 **[有効]** をクリックします。 これにより、Organization 内のすべてのリポジトリとユーザーに対して {% data variables.product.prodname_github_codespaces %} が有効になることにご注意ください。
 
-  ![Enable Codespaces for org in "Setup classroom basics" page](/assets/images/help/classroom/setup-classroom-enable-codespaces-button.png)
+  ![[クラスルームの基本設定] ページで Organization の codespace を有効にする](/assets/images/help/classroom/setup-classroom-enable-codespaces-button.png)
 
-1. When you are ready to create the new classroom, click **Create classroom**.
+1. 新しいクラスルームを作成する準備ができたら、 **[クラスルームの作成]** をクリックします。
 
-### Enabling Codespaces for an organization via an existing classroom
+### 既存のクラスルームを使用して Organization の codespace を有効にする
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-settings %}
-1. Under "{% data variables.product.prodname_github_codespaces %}", click **Enable**. This will enable {% data variables.product.prodname_github_codespaces %} for all repositories and users in the organization. A new Codespace policy is also added to restrict machine types for all codespaces in the organization to 2 core machines. 
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-settings %}
+1. {% data variables.product.prodname_github_codespaces %} で、**有効** をクリックします。 これにより、Organization 内のすべてのリポジトリとユーザーに対して {% data variables.product.prodname_github_codespaces %} が有効になります。 新しい Codespace ポリシーも追加され、Organization 内のすべて codespace のマシンの種類が 2 コア マシンに制限されます。 
   
-  ![Enable Codespaces for org in existing classroom settings](/assets/images/help/classroom/classroom-settings-enable-codespaces-button.png)
+  ![既存のクラスルームの設定で Organization の codespace を有効にする](/assets/images/help/classroom/classroom-settings-enable-codespaces-button.png)
 
-You can use the same methods as above to disable {% data variables.product.prodname_github_codespaces %} for your organization as well. Note that this will disable {% data variables.product.prodname_github_codespaces %} for all users and repositories in the organization. 
+上記と同じ方法を使用して、Organization の {% data variables.product.prodname_github_codespaces %} を無効にすることもできます。 これにより、Organization 内のすべてのユーザーとリポジトリに対して {% data variables.product.prodname_github_codespaces %} が無効になることにご注意ください。 
 
-## Configuring an assignment to use {% data variables.product.prodname_codespaces %}
-To make {% data variables.product.prodname_github_codespaces %} available to students for an assignment, you can choose {% data variables.product.prodname_github_codespaces %} as the supported editor for the assignment. When creating a new assignment, in the "Add your starter code and choose your optional online IDE" page, under "Add a supported editor", select **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu. 
+## {% data variables.product.prodname_codespaces %} を使用するように課題を構成する
+学生が {% data variables.product.prodname_github_codespaces %} を課題に使用できるようにするには、課題向けのサポートされるエディターとして {% data variables.product.prodname_github_codespaces %} を選ぶことができます。 新しい課題を作成するときに、[スタート コードを追加してオプションのオンライン IDE を選択する] ページの [サポートされるエディターの追加] で、ドロップダウン メニューから **[{% data variables.product.prodname_github_codespaces %}]** を選択します。 
 
-![Select Codespaces as supported editor for assignment](/assets/images/help/classroom/select-supported-editor-including-codespaces.png)
+![課題向けのサポートされるエディターとして codespace を選択する](/assets/images/help/classroom/select-supported-editor-including-codespaces.png)
 
-If you use a template repository for an assignment, you can define a dev container in the repository to customize the tools and runtimes available to students when they launch a codespace to work on the assignment. If you do not define a dev container, {% data variables.product.prodname_github_codespaces %} will use a default configuration, which contains many of the common tools that your students might need for development. For more information on defining a dev container, see "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+課題のテンプレート リポジトリを使用する場合、リポジトリ内の開発コンテナーを定義して、学生が codespace を起動して課題に取り組むときに使用できるツールとランタイムをカスタマイズできます。 開発コンテナーを定義しない場合、{% data variables.product.prodname_github_codespaces %} では、既定の構成が使用されます。これには、学生が開発に必要とする可能性のある一般的なツールが多く含まれています。 開発コンテナーの定義に関する詳しい情報については、「[開発コンテナーの構成をリポジトリに追加する](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)」を参照してください。
 
-## Launching an assignment using {% data variables.product.prodname_github_codespaces %}
+## {% data variables.product.prodname_github_codespaces %} を使用して課題を起動する
 
-When a student opens an assignment, the repository's README file includes their teacher's recommendation of the IDE they should use for the work.
+学生が課題を開くと、リポジトリの README ファイルに、学生が作業に使用する必要がある IDE に関する教師の推奨事項が含まれます。
 
-![Screenshot of the Codespaces note in the README for a student assignment repository](/assets/images/help/classroom/student-codespaces-readme-link.png)
+![学生の課題リポジトリの README 内にある codespace に関する注意のスクリーンショット](/assets/images/help/classroom/student-codespaces-readme-link.png)
 
-Students can launch a new or existing codespace by clicking the **Open in GitHub Codespace** button in the README, or by clicking the **{% octicon "code" aria-label="The code icon" %} Code** button on the main page of the assignment repository, then selecting the **Codespaces** tab. From the **Codespaces** tab you can select an existing codespace or create a new one. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+学生は、README の **[GitHub Codespace で開く]** ボタンをクリックするか、課題リポジトリのメイン ページにある **{% octicon "code" aria-label="The code icon" %} [コード]** ボタンをクリックして、 **[Codespaces]** タブを選ぶと、新規または既存の codespace を起動できます。 **[Codespaces]** タブでは、既存の codespace を選ぶか、新しい codespace を作成できます。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
 
-![Launch new codespace in assignment repository](/assets/images/help/classroom/student-launch-new-codespace.png)
+![課題リポジトリで新しい codespace を起動する](/assets/images/help/classroom/student-launch-new-codespace.png)
 
-Teachers can view each student's codespace for an assignment in the assignment overview page. You can click on the Codespaces icon on the right side of each student row to launch the codespace. 
+教師は、[課題の概要] ページで各学生の課題の codespace を表示できます。 各学生行の右側にある [codespace] アイコンをクリックして codespace を起動できます。 
 
-![Teacher assignment overview with student's codespaces](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
+![学生の codespace を表示した教師の [課題の概要]](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-When you connect to a codespace through a browser, auto-save is enabled automatically. If you want to save changes to the repository, you will need to commit the changes and push them to a remote branch. If you leave your codespace running without interaction for 30 minutes by default, the codespace will timeout and stop running. Your data will be preserved from the last time you made a change. For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
+ブラウザーを使用して codespace に接続する場合は、自動保存が自動的に有効になります。 リポジトリに対する変更を保存する場合、変更をコミットしてリモート ブランチにプッシュする必要があります。 既定では、30 分間操作することなく codespace を実行したままにした場合、codespace はタイムアウトになり、実行が停止されます。 データは、最後に変更した時点の状態で保持されます。 codespace のライフサイクルの詳細については、「[Codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」を参照してください。

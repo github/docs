@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting required status checks
-intro: You can check for common errors and resolve issues with required status checks.
+title: Solução de problemas de verificações de status necessárias
+intro: Você pode verificar erros comuns e resolver problemas com as verificações de status necessárias.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
@@ -13,18 +13,24 @@ redirect_from:
   - /github/administering-a-repository/troubleshooting-required-status-checks
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
 shortTitle: Required status checks
+ms.openlocfilehash: 6e99f8ebf0275d065c640bb7b4c7b60462f51ec0
+ms.sourcegitcommit: 84a9475bf99a37021746349a51ce814516928516
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135803'
 ---
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
+Se você tiver uma verificação e um status com o mesmo nome e selecionar esse nome como uma verificação de status obrigatória, a verificação e o status serão obrigatórios. Para obter mais informações, confira "[Verificações](/rest/reference/checks)".
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+Depois que você habilitar as verificações de status solicitadas, seu branch pode precisar estar atualizado com o branch de base antes da ação de merge. Isso garante que o branch foi testado com o código mais recente do branch base. Se o branch estiver desatualizado, você precisará fazer merge do branch base no seu branch. Para obter mais informações, confira "[Sobre os branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 {% note %}
 
-**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)."
+**Observação:** você também pode atualizar o branch com o branch base usando a troca de base do Git. Para obter mais informações, confira "[Sobre a troca de base do Git](/github/getting-started-with-github/about-git-rebase)".
 
 {% endnote %}
 
-You won't be able to push local changes to a protected branch until all required status checks pass. Instead, you'll receive an error message similar to the following.
+Não será possível fazer push de alterações locais em um branch protegido enquanto todas as verificações de status obrigatórias não forem aprovadas. Sendo assim, você receberá uma mensagem de erro semelhante à mostrada a seguir.
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
@@ -32,29 +38,29 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
+**Observação:** as solicitações de pull que estão atualizadas e são aprovadas nas verificações de status obrigatórias podem ser mescladas localmente e enviadas por push para o branch protegido. Isso pode ser feito sem verificações de status em execução no próprio commit de merge.
 
 {% endnote %}
 
-## Conflicts between head commit and test merge commit
+## Conflitos entre o título do commit e o commit de merge do teste
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. Se o commit de merge de testes tem status, o commit de merge de testes deve passar. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. Para obter mais informações sobre os commits de mesclagem de teste, confira "[Pulls](/rest/reference/pulls#get-a-pull-request)".
 
-![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
+![Branch com commits de mescla conflitantes](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 
-## Handling skipped but required checks
+## Manipulação ignorada, mas verificações necessárias
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**Observação:** se um fluxo de trabalho for ignorado devido à [filtragem de caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [à filtragem de branch](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) ou a uma [mensagem de commit](/actions/managing-workflow-runs/skipping-workflow-runs), as verificações associadas a esse fluxo de trabalho permanecerão em um estado "Pendente". Uma solicitação de pull que exija que essas verificações sejam bem-sucedidas não poderá ser mesclada.
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+Se um trabalho em um fluxo de trabalho for ignorado devido a um condicional, ele relatará seu status como "Êxito". Para obter mais informações, consulte [Como ignorar execuções de fluxo de trabalho](/actions/managing-workflow-runs/skipping-workflow-runs) e [Como usar condições para controlar a execução do trabalho](/actions/using-jobs/using-conditions-to-control-job-execution).
 
 {% endnote %}
 
-### Example
+### Exemplo
 
-The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
+O exemplo a seguir mostra um fluxo de trabalho que requer um status de conclusão "Êxito" para o trabalho `build`, mas o fluxo de trabalho será ignorado se a solicitação de pull não alterar nenhum arquivo no diretório `scripts`.
 
 ```yaml
 name: ci
@@ -80,11 +86,11 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. You would see the following status on the pull request:
+Devido à [filtragem de caminho](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), uma solicitação de pull que altera apenas um arquivo na raiz do repositório não disparará esse fluxo de trabalho e não poderá ser mesclada. Você verá o seguinte status no pull request:
 
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+![Verificação obrigatória ignorada mas mostrada como pendente](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
+Você pode corrigir isso criando um fluxo de trabalho genérico, com o mesmo nome, que retornará verdadeiro em qualquer caso semelhante ao fluxo de trabalho abaixo:
 
 ```yaml
 name: ci
@@ -99,19 +105,22 @@ jobs:
     steps:
       - run: 'echo "No build required"'
 ```
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
+Agora, as verificações sempre serão aprovadas sempre que alguém enviar uma solicitação de pull que não altere os arquivos listados em `paths` no primeiro fluxo de trabalho.
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
+![Verificação ignorada mas passa graças a um fluxo de trabalho genérico](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
-**Notes:**
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+**Observações:**
+* Garanta que a chave `name` e o nome do trabalho obrigatório sejam os mesmos nos dois arquivos de fluxo de trabalho. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
+* O exemplo acima usa {% data variables.product.prodname_actions %}, mas esta solução alternativa também se aplica a outros provedores de CI/CD que se integram a {% data variables.product.company_short %}.
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+## Verificações de status de fontes inesperadas obrigatório
+
+Também é possível que um branch protegido exija uma verificação de status de um {% data variables.product.prodname_github_app %} específico. Se você vir uma mensagem parecida com a seguinte, você deverá verificar se a verificação listada na caixa de merge foi definida pelo aplicativo esperado.
 
 ```
 Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.

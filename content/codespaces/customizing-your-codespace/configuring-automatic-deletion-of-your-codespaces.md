@@ -2,7 +2,6 @@
 title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
 intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -97,7 +96,7 @@ You can set your default retention period in your web browser, on {% data variab
 You can check, in the {% data variables.product.prodname_vscode %} desktop application, whether a codespace is due to be automatically deleted soon.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Choose **{% data variables.product.prodname_github_codespaces %}** from the drop-down menu at the top right of the Remote Explorer, if it is not already selected.
+1. Choose **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu at the top right of the Remote Explorer, if it is not already selected.
 1. Under "GITHUB CODESPACES," position the mouse pointer over the codespace that you're interested in. A pop-up box is displayed showing you information about the codespace.
 
    If the codespace is nearing the end of its retention period, a line is included telling you when the codespace will be deleted.

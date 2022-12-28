@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b20ef3a51f3bf2b4bfbb89ad078bf221ce838904
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: e6d7a33506174bf50d70ae9b5d4ac9857cd880ae
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145115573"
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161243"
 ---
 1. {% data variables.product.prodname_codeql %}データベースを展開し、分析し、その結果を{% data variables.product.product_name %}にアップロードしてください。 結果は、リポジトリの **[セキュリティ]** タブに表示されます。
 
@@ -17,7 +17,7 @@ ms.locfileid: "145115573"
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. {% data variables.product.prodname_code_scanning %} の結果をプルリクエストのチェックとしてアップロードするには、<nobr>`--ref`</nobr> フラグを使用してプルリクエストを指定します。 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook イベントで実行されるように、{% data variables.product.prodname_codeql_runner %} を設定することをお勧めします。
+2. {% data variables.product.prodname_code_scanning %} の結果をプルリクエストのチェックとしてアップロードするには、<nobr>`--ref`</nobr> フラグを使用してプルリクエストを指定します。 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook イベントで実行されるように {% data variables.code-scanning.codeql_runner %}を設定することをお勧めします。
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo

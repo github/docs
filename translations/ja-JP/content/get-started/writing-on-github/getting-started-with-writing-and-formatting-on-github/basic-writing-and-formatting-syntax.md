@@ -1,6 +1,6 @@
 ---
-title: Basic writing and formatting syntax
-intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
+title: 基本的な書き方とフォーマットの構文
+intro: シンプルな構文を使い、GitHub 上で文章やコードに洗練されたフォーマットを作り出してください。
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
@@ -11,10 +11,16 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
+ms.openlocfilehash: e8df0930f675834c120bbe187924f9696142e09f
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169249'
 ---
-## Headings
+## 見出し
 
-To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the size of the heading.
+見出しを作成するには、1 つから 6 つの <kbd>#</kbd> シンボルを見出しのテキストの前に追加します。 使用する <kbd>#</kbd> の個数によって見出しのサイズが決まります。
 
 ```markdown
 # The largest heading
@@ -22,29 +28,29 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 ###### The smallest heading
 ```
 
-![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+![表示された H1、H2、H6 のヘッディング](/assets/images/help/writing/headings-rendered.png)
 
-When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section. 
+2 つ以上の見出しを使用すると、GitHub では自動的に目次が生成されます。この目次には、ファイル ヘッダー内の {% octicon "list-unordered" aria-label="The unordered list icon" %} をクリックするとアクセスできます。 各見出しのタイトルが目次に一覧表示され、タイトルをクリックして選択したセクションに移動できます。 
 
-![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+![目次アイコンが強調表示されているスクリーンショット](/assets/images/help/repository/headings_toc.png)
 
-## Styling text
+## テキストのスタイル設定
 
-You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and `.md` files.  
+コメント フィールドと `.md` ファイルでは、太字、斜体、取り消し線、下付き、上付きのテキストで強調を示すことができます。  
 
-| Style | Syntax | Keyboard shortcut | Example | Output |
+| スタイル | 構文 | キーボード ショートカット | 例 | 出力 |
 | --- | --- | --- | --- | --- |
-| Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *This text is italicized* |
-| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
-| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| 太字 | `** **` または `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) または <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **これは太字のテキストです** |
+| [斜体] | `* *` または `_ _`    | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) または <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *このテキストは斜体です* |
+| 取り消し線 | `~~ ~~` | | `~~This was mistaken text~~` | ~~これは間違ったテキストでした~~ |
+| 太字および太字中にある斜体 | `** **` および `_ _` | | `**This text is _extremely_ important**` | **このテキストは _きわめて_ 重要です** |
+| 全体が太字かつ斜体 | `*** **_` | | `_*_All this text is important_*_` | _ *_すべてのテキストが重要です_** |
+| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>これは下付きテキストです</sub> |
+| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>これは上付きテキストです</sup> |
 
-## Quoting text
+## テキストの引用
 
-You can quote text with a <kbd>></kbd>.
+<kbd>></kbd> を使用してテキストを引用符で囲みます。
 
 ```markdown
 Text that is not a quote
@@ -52,25 +58,25 @@ Text that is not a quote
 > Text that is a quote
 ```
 
-![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
+![表示された引用テキスト](/assets/images/help/writing/quoted-text-rendered.png)
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/)."
+**ヒント**: 会話を表示するときに、テキストを強調表示して「<kbd>R</kbd>」と入力することで、コメント内のテキストを自動的に引用符で囲むことができます。{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてコメント全体を引用し、続いて **返信を引用** します。 キーボード ショートカットの詳細については、「[キーボード ショートカット](/articles/keyboard-shortcuts/)」を参照してください。
 
 {% endtip %}
 
-## Quoting code
+## コードの引用
 
-You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
+単一のバッククォートで文章内のコードやコマンドを引用できます。 バッククォート内のテキストはフォーマットされません。 また、<kbd>Command</kbd> + <kbd>E</kbd> キー (Mac) または <kbd>Ctrl</kbd> + <kbd>E</kbd> キー (Windows/Linux) のキーボード ショートカットを押して、Markdown 行内にコード ブロックのバッククォートを挿入することもできます。
 
 ```markdown
 Use `git status` to list all new or modified files that haven't yet been committed.
 ```
 
-![Rendered inline code block](/assets/images/help/writing/inline-code-rendered.png)
+![表示されたインラインのコードブロック](/assets/images/help/writing/inline-code-rendered.png)
 
-To format code or text into its own distinct block, use triple backticks.
+独立したブロック内にコードあるいはテキストをフォーマットするには、3 重のバッククォートを使用します。
 
 <pre>
 Some basic Git commands are:
@@ -81,122 +87,122 @@ git commit
 ```
 </pre>
 
-![Rendered code block](/assets/images/help/writing/code-block-rendered.png)
+![表示されたコードブロック](/assets/images/help/writing/code-block-rendered.png)
 
-For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+詳細については、「[コード ブロックの作成と強調表示](/articles/creating-and-highlighting-code-blocks)」を参照してください。
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
-## Supported color models
+## サポートされているカラー モデル
 
-In issues, pull requests, and discussions, you can call out colors within a sentence by using backticks. A supported color model within backticks will display a visualization of the color.
+issue、pull request、ディスカッションでは、バックティックを使って文内の色を呼び出すことができます。 バックティック内でサポートされているカラー モデルでは、色の視覚化が表示されます。
 
 ```markdown
 The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 ```
 
-![Rendered supported color model.](/assets/images/help/writing/supported-color-models-rendered.png)
+![レンダリングでサポートされているカラー モデル。](/assets/images/help/writing/supported-color-models-rendered.png)
 
-Here are the currently supported color models.
+現在サポートされているカラー モデルを次に示します。
 
-| Color | Syntax | Example | Output |
+| Color | 構文 | 例 | 出力 |
 | --- | --- | --- | --- |
-| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![Rendered supported color model in HEX format.](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
-| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Rendered supported color model in RGB format.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
-| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Rendered supported color model in HSL format.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
+| HEX | <code>\`#RRGGBB\`</code> | <code>\`#0969DA\`</code> | ![HEX 形式でレンダリングされたサポートされているカラー モデル。](/assets/images/help/writing/supported-color-models-hex-rendered.png) |
+| RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![RGB 形式でレンダリングされたサポートされているカラー モデル。](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
+| HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![HSL 形式でレンダリングされたサポートされているカラー モデル。](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 {% note %}
 
-**Notes:**
+**注:**
 
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
+- サポートされているカラー モデルでは、バックティック内の先頭または末尾にスペースを含めることはできません。
+- 色の視覚化は、issue、pull request、ディスカッションでのみサポートされます。
 
 {% endnote %}
 
-## Links
+## リンク
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+インライン リンクを作成するには、リンク テキストを角かっこ `[ ]` で囲み、URL をかっこ `( )` で囲みます。 また、キーボード ショートカット <kbd>Command</kbd> + <kbd>K</kbd> を使ってリンクを作成することもできます。{% ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %}テキストが選ばれている場合は、クリップボードから URL を貼り付けて、選択項目からリンクを自動的に作成できます。{% endif %}
 
-{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}テキストを強調表示にして、キーボード ショートカット <kbd>Command</kbd> + <kbd>V</kbd> を使うことで、Markdown ハイパーリンクを作ることもできます。 テキストをリンクに置き換える場合は、キーボード ショートカット <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> を使います。{% endif %}
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
-![Rendered link](/assets/images/help/writing/link-rendered.png)
+![表示されたリンク](/assets/images/help/writing/link-rendered.png)
 
 {% tip %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+**ヒント**: {% data variables.product.product_name %} では、コメント中に適正な URL が記述されていれば自動的にリンクが生成されます。 詳細については、「[自動リンクされた参照と URL](/articles/autolinked-references-and-urls)」を参照してください。
 
 {% endtip %}
 
-## Section links
+## セクションリンク
 
 {% data reusables.repositories.section-links %}
 
-## Relative links
+## Relative links (相対リンク)
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## 画像
 
-You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Then wrap the link for the image in parentheses `()`.
+<kbd>!</kbd> を追加して、代替テキストを `[ ]` 内にラップすると、画像を表示できます。 次に、イメージのリンクをかっこ `()` で囲みます。
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![レンダリングされたイメージ](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} では、問題へのイメージの埋め込み、プル要求{% ifversion fpt or ghec %}、ディスカッション{% endif %}、コメントと `.md` ファイルがサポートされます。 リポジトリからイメージを表示したり、オンライン イメージにリンクを追加したり、イメージをアップロードしたりできます。 詳細については、「[アセットをアップロードする](#uploading-assets)」を参照してください。
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+**ヒント**: リポジトリ内のイメージを表示する場合は、絶対リンクではなく相対リンクを使用する必要があります。
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+相対リンクを使用して画像を表示する例を次に示します。
 
-| Context | Relative Link |
+| Context | 相対リンク |
 | ------ | -------- |
-| In a `.md` file on the same branch | `/assets/images/electrocat.png` |
-| In a `.md` file on another branch | `/../main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of the repository | `../blob/main/assets/images/electrocat.png?raw=true` |
-| In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| 同じブランチ上の `.md` ファイル内 | `/assets/images/electrocat.png` |
+| 別のブランチ上の `.md` ファイル内 | `/../main/assets/images/electrocat.png` |
+| リポジトリの問題、プル要求、コメント内 | `../blob/main/assets/images/electrocat.png?raw=true` |
+| 別のリポジトリ内の `.md` ファイル内 | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
+| 別のリポジトリの問題、プル要求、コメント内 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**注**: 上記の表の最後の 2 つの相対リンクは、ビューアーがこれらのイメージを含むプライベート リポジトリに対して、少なくとも読み取りアクセス権を持っている場合にのみ、プライベート リポジトリ内のイメージについて機能します。
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+詳細については、「[相対リンク](#relative-links)」を参照してください。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-### Specifying the theme an image is shown to
+### イメージが表示されるテーマの指定
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
+HTML の `<picture>` 要素と `prefers-color-scheme` メディア機能を組み合わせて使って、Markdown で画像が表示されるテーマを指定できます。 淡色モードと濃色モードを区別するため、2 つのオプションを使用できます。 これらのオプションを使用して、暗い背景または明るい背景用に最適化された画像を表示できます。 これは、透明な PNG イメージの場合に特に有用です。
 
-For example, the following code displays a sun image for light themes and a moon for dark themes:
+たとえば、次のコードでは、明るいテーマの太陽の画像と暗いテーマの月が表示されます。
 
 {% data reusables.getting-started.picture-element-example %}
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+URL に追加されたフラグメント (`#gh-dark-mode-only` または `#gh-light-mode-only`) を使うことでテーマに基づいて画像を指定する古い方法は非推奨となり、上記の新しい方法に置き換えられて削除されます。
 {% endif %}
 
-## Lists
+## リスト
 
-You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd> or <kbd>*</kbd>.
+1 つまたは複数の行の前に <kbd>-</kbd>、<kbd>*</kbd>、または <kbd>+</kbd> を置くことで、順序なしリストを作成できます。
 
 ```markdown
 - George Washington
-- John Adams
-- Thomas Jefferson
+* John Adams
++ Thomas Jefferson
 ```
 
-![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
+![表示された順序なしリスト](/assets/images/help/writing/unordered-list-rendered.png)
 
-To order your list, precede each line with a number.
+リストを順序付けするには、各行の前に数字を置きます。
 
 ```markdown
 1. James Madison
@@ -204,13 +210,13 @@ To order your list, precede each line with a number.
 3. John Quincy Adams
 ```
 
-![Rendered ordered list](/assets/images/help/writing/ordered-list-rendered.png)
+![表示された順序付きリスト](/assets/images/help/writing/ordered-list-rendered.png)
 
-### Nested Lists
+### 入れ子になったリスト
 
-You can create a nested list by indenting one or more list items below another item.
+1 つ以上のリストアイテムを他のアイテムの下にインデントすることで、入れ子になったリストを作成できます。
 
-To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
+{% data variables.product.product_name %} 上の Web エディター、または [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) のようなモノスペース フォントを使用するテキスト エディターを使って、入れ子になったリストを作成するには、リストが揃って見えるように編集できます。 入れ子になったリスト アイテムの前に空白を、リスト マーカー文字 (<kbd>-</kbd> または <kbd>*</kbd>) が直接上位のアイテム内のテキストの一文字目の下に来るように入力してください。
 
 ```markdown
 1. First list item
@@ -220,26 +226,26 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 {% tip %}
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+**注**: Web ベースのエディターでは、最初に目的の行を強調表示し、次に <kbd>Tab</kbd> または <kbd>Shift</kbd>+<kbd>Tab</kbd> を使用して、1 行以上のテキストをインデントまたはデデントできます。
 
 {% endtip %}
 
-![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
+![並びがハイライトされた入れ子になったリスト](/assets/images/help/writing/nested-list-alignment.png)
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
+![2 レベルの入れ子になったアイテムを持つリスト](/assets/images/help/writing/nested-list-example-1.png)
 
-To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
+モノスペースフォントを使っていない {% data variables.product.product_name %}のコメントエディタで入れ子になったリストを作成するには、入れ子になったリストのすぐ上にあるリストアイテムを見て、そのアイテムの内容の前にある文字数を数えます。 そして、その数だけ空白を入れ子になったリストアイテムの前に入力します。
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+この例では、入れ子になったリスト アイテムを少なくとも 5 つのスペースでインデントすることで、リスト項目 `100. First list item` の下に入れ子になったリスト アイテムを追加できます。`First list item` の前に 5 文字 (`100. `) があるためです。
 
 ```markdown
 100. First list item
      - First nested list item
 ```
 
-![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
+![入れ子になったリストアイテムを持つリスト](/assets/images/help/writing/nested-list-example-3.png)   
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+同じ方法で、複数レベルの入れ子になったリストを作成できます。 たとえば、最初の入れ子になったリスト アイテムは入れ子になったリストコンテンツ `First nested list item` の前に 7 文字 (`␣␣␣␣␣-␣`)があるため、2 番目の入れ子になったリスト アイテムを 7 つのスペースでインデントする必要があります。
 
 ```markdown
 100. First list item
@@ -247,86 +253,86 @@ You can create multiple levels of nested lists using the same method. For exampl
        - Second nested list item
 ```
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+![2 レベルの入れ子になったアイテムを持つリスト](/assets/images/help/writing/nested-list-example-2.png)    
 
-For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+その他の例については、「[GitHub 用の Markdown 仕様](https://github.github.com/gfm/#example-265)」を参照してください。
 
-## Task lists
+## タスク リスト
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
+タスク リスト アイテムの説明がかっこで始まる場合、そのかっこを <kbd>\\</kbd> でエスケープする必要があります。
 
 `- [ ] \(Optional) Open a followup issue`
 
-For more information, see "[About task lists](/articles/about-task-lists)."
+詳細については、「[タスク リストについて](/articles/about-task-lists)」を参照してください。
 
-## Mentioning people and teams
+## 人や Team のメンション
 
-You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)."
+<kbd>@</kbd> とユーザー名またはチーム名を入力することで、人または[チーム](/articles/setting-up-teams/)を {% data variables.product.product_name %} でメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。
 
 {% note %}
 
-**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+**注**: ある人について、その人がリポジトリへの読み取りアクセス権をもっており、リポジトリが組織によって所有されている場合に、その人が組織のメンバーである場合にのみ、メンションに関する通知が送信されます。
 
 {% endnote %}
 
 `@github/support What do you think about these updates?`
 
-![Rendered @mention](/assets/images/help/writing/mention-rendered.png)
+![レンダリングされた @mention](/assets/images/help/writing/mention-rendered.png)
 
-When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[About teams](/articles/about-teams)."
+親チームにメンションすると、その子チームのメンバーも通知を受けることになり、複数のグループの人々とのコミュニケーションがシンプルになります。 詳細については、「[Team について](/articles/about-teams)」を参照してください。
 
-Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
+<kbd>@</kbd> シンボルを入力すると、プロジェクト上の人々あるいはチームのリストが現れます。 このリストは入力していくにつれて絞り込まれていくので、探している人あるいは Team の名前が見つかり次第、矢印キーを使ってその名前を選択し、Tab キーまたは Enter キーを押して名前の入力を完了できます。 チームについては、@organization/team-name と入力すればそのチームの全メンバーにその会話をサブスクライブしてもらえます。
 
-The autocomplete results are restricted to repository collaborators and any other participants on the thread.
+オートコンプリートの結果は、リポジトリのコラボレータとそのスレッドのその他の参加者に限定されます。
 
-## Referencing issues and pull requests
+## Issue およびプルリクエストの参照
 
-You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
+<kbd>#</kbd> と入力して、リポジトリ内のサジェストされた Issue とプル要求のリストを表示させることができます。 Issue あるいはプルリクエストの番号あるいはタイトルを入力してリストをフィルタリングし、Tab キーまたは Enter キーを押して、ハイライトされた結果の入力を完了してください。
 
-For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
+詳細については、「[自動リンクされた参照と URL](/articles/autolinked-references-and-urls)」を参照してください。
 
-## Referencing external resources
+## 外部リソースの参照
 
 {% data reusables.repositories.autolink-references %}
 
 {% ifversion ghes < 3.4 %}
-## Content attachments
+## コンテンツの添付
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+{% data variables.product.prodname_github_apps %} には、登録されたドメインにリンクする URL に対する情報を {% data variables.product.product_name %} 内で提供するものがあります。 {% data variables.product.product_name %} は、アプリケーションが提供した情報を Issue あるいはプルリクエストのボディもしくはコメント中の URL の下に表示します。
 
-![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
+![コンテンツの添付](/assets/images/github-apps/content_reference_attachment.png)
 
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+コンテンツ添付ファイルを表示するには、リポジトリにインストールされている Content Attachments API を使用する {% data variables.product.prodname_github_app %} が必要です。{% ifversion fpt or ghec %}詳細については、「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
 
-Content attachments will not be displayed for URLs that are part of a markdown link.
+コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 
-For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."{% endif %}
+コンテンツの添付を利用する {% data variables.product.prodname_github_app %} の構築に関する詳細については、「[添付コンテンツを使用する](/apps/using-content-attachments)」を参照してください。{% endif %}
 
-## Uploading assets
+## アセットをアップロードする
 
-You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
+ドラッグアンドドロップ、ファイルブラウザから選択、または貼り付けることにより、画像などのアセットをアップロードできます。 アセットをリポジトリ内の Issue、プル要求、コメント、`.md` ファイルにアップロードできます。
 
-## Using emoji
+## 絵文字の利用
 
-You can add emoji to your writing by typing `:EMOJICODE:`.
+`:EMOJICODE:` と入力 すると、絵文字を書き込みに追加できます。
 
 `@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
 
-![Rendered emoji](/assets/images/help/writing/emoji-rendered.png)
+![表示された絵文字](/assets/images/help/writing/emoji-rendered.png)
 
-Typing <kbd>:</kbd> will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
+<kbd>:</kbd> と入力すると、絵文字のサジェストリストが表示されます。 このリストは、入力を進めるにつれて絞り込まれていくので、探している絵文字が見つかり次第、**Tab** または **Enter** を押して、ハイライトされているものを入力してください。
 
-For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+使用可能な絵文字とコードの完全な一覧については、「[絵文字チート シート](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)」を参照してください。
 
-## Paragraphs
+## 段落
 
-You can create a new paragraph by leaving a blank line between lines of text.
+テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-## Footnotes
+## 脚注
 
-You can add footnotes to your content by using this bracket syntax:
+次の角かっこ構文を使用して、コンテンツに脚注を追加できます。
 
 ```
 Here is a simple footnote[^1].
@@ -343,43 +349,43 @@ You can also use words, to fit your writing style more closely[^note].
     This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
-The footnote will render like this:
+脚注は次のようにレンダリングされます。
 
-![Rendered footnote](/assets/images/site/rendered-footnote.png)
+![レンダリングされた脚注](/assets/images/site/rendered-footnote.png)
 
 {% tip %}
 
-**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+**注**: Markdown 内の脚注の位置は、脚注がレンダリングされる場所には影響しません。 脚注を参照した直後に脚注を書き込むことができます。脚注は Markdown の下部に引き続きレンダリングされます。
 
-Footnotes are not supported in wikis.
+脚注は Wiki ではサポートされていません。
 
 {% endtip %}
 
-## Hiding content with comments
+## コメントを使用してコンテンツを非表示にする
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+{% data variables.product.product_name %} に対し、コンテンツを HTML コメント内に配置することで、レンダリングされた Markdown からコンテンツを非表示にすることができます。
 
 <pre>
 &lt;!-- This content will not appear in the rendered Markdown --&gt;
 </pre>
 
-## Ignoring Markdown formatting
+## Markdown のフォーマットの無視
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+{% data variables.product.product_name %} に対し、Markdown のキャラクタの前に <kbd>\\</kbd> を使用することで、Markdown のフォーマットを無視 (エスケープ) させることができます。
 
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
 
-![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
+![表示されたエスケープキャラクタ](/assets/images/help/writing/escaped-character-rendered.png)
 
-For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+詳細については、Daring Fireball の「[Markdown 構文](https://daringfireball.net/projects/markdown/syntax#backslash)」を参照してください。
 
-## Disabling Markdown rendering
+## Markdown レンダリングの無効化
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
-## Further reading
+## 参考資料
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
+- [GitHub 上での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github)
+- [Working with advanced formatting (高度な書式設定を使った作業)](/articles/working-with-advanced-formatting)
+- [{% data variables.product.prodname_dotcom %} での記述に関するクイックスタート](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)

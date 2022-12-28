@@ -7,7 +7,7 @@ name: Add docs-reviewers request to the docs-content review board
 on:
   workflow_dispatch:
   schedule:
-    - cron: '50 */6 * * *'
+    - cron: '20 */6 * * *' # Run every 6 hours at 20 minutes after
 
 permissions:
   contents: read
@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - name: Check out repo content
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm

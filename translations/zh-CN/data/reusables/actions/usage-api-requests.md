@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 8ba596d45d317ee21f724d5e7bfa91c343798fa6
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: d2012308af9ed99ce7273d6dfc2dc1ab0da83927
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147884427"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108734"
 ---
-- API 请求 - 一个存储库中所有操作在一小时内最多可以执行 1000 条 API 请求。 如果超出，额外的 API 调用将失败，这可能导致作业失败。
+- API 请求 - 一个存储库中所有操作在一小时内最多可以执行 1000 条对 GitHub API 的请求。 如果超出请求数，其他 API 调用将失败，这可能导致作业失败。

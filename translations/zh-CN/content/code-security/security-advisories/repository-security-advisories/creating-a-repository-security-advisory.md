@@ -15,12 +15,12 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
-ms.openlocfilehash: de22432173f6bf909d001a3f780b0f9943769ec0
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113988'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186153'
 ---
 任何对仓库有管理员权限的人都可以创建安全通告。
 
@@ -29,11 +29,11 @@ ms.locfileid: '148113988'
 ## 创建安全通知
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
-4. 单击“新建安全公告草稿”，打开草稿公告表单。
+1. 单击“新建安全公告草稿”，打开草稿公告表单。 带有星号的所有字段为必填项。
   ![“打开公告草稿”按钮](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-5. 键入安全通告的标题。
+1. 键入安全通告的标题。
 {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
-11. 单击“创建安全公告草稿”。
+1. 单击“创建安全公告草稿”。
   ![“创建安全公告”按钮](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ## 后续步骤

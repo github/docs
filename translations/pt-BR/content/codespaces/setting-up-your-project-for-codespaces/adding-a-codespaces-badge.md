@@ -10,13 +10,12 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c69a815501f5943a56d32af3e58cd7850a69588b
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107817'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158778'
 ---
 ## Visão geral
 
@@ -26,15 +25,9 @@ Adicionar uma notificação "Abrir em {% data variables.product.prodname_github_
 
 Ao criar uma notificação, você poderá escolher opções de configuração específicas para o codespace que a notificação criará.
 
-Ao clicarem na notificação, as pessoas serão direcionadas à página de opções avançadas para criar o codespace, com as opções escolhidas pré-selecionadas. Para obter mais informações sobre a página de opções avançadas, confira "[Como criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+Ao clicarem na notificação, as pessoas serão direcionadas à página de opções avançadas para criar o codespace, com as opções escolhidas pré-selecionadas. Para obter mais informações sobre a página de opções avançadas, confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)".
 
 Na página de opções avançadas, os usuários podem alterar as configurações pré-selecionadas, se necessário, depois clicar em **Criar codespace**.
-
-{% note %}
-
-**Observação**: lembre-se de que as pessoas que ainda não têm acesso a {% data variables.product.prodname_github_codespaces %} verão uma mensagem 404 se clicarem nesta notificação.
-
-{% endnote %}
 
 ## Como criar uma notificação "Abrir em {% data variables.product.prodname_github_codespaces %}"
 
@@ -47,9 +40,9 @@ Na página de opções avançadas, os usuários podem alterar as configurações
 
    ![Captura de tela do botão Novo codespace](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Clique na seta para baixo ao lado do botão **Criar codespace no BRANCH**, selecione **Configurar e criar codespace** e clique no botão **Configurar e criar codespace**.
+1. Clique nas reticências ( **...** ) no canto superior direito da guia **Codespaces** e clique em **Novo com opções**.
 
-   ![Captura de tela da opção "Configurar e criar codespace"](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![Captura de tela da opção "Configurar e criar codespace"](/assets/images/help/codespaces/default-machine-type.png)
 
 1. Na página de opções avançadas para criação do codespace, selecione os valores que deseja pré-selecionar em cada campo.
 

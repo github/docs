@@ -1,6 +1,6 @@
 ---
-title: Adding self-hosted runners
-intro: 'You can add a self-hosted runner to a repository, an organization, or an enterprise.'
+title: 添加自托管的运行器
+intro: 可以将自承载运行程序添加到存储库、组织或企业。
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
@@ -11,91 +11,71 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Add self-hosted runners
+ms.openlocfilehash: c58fbc6ac67fe1466458888eb0c55f58483dac6c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108176'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+可以将自承载运行程序添加到存储库、组织或企业。
 
-You can add a self-hosted runner to a repository, an organization, or an enterprise.
+如果您是组织或企业管理员，您可能希望在组织或企业级别添加自托管的运行器。 此方法使运行器可用于组织或企业中的多个仓库，还允许您在一个位置管理运行器。
 
-If you are an organization or enterprise administrator, you might want to add your self-hosted runners at the organization or enterprise level. This approach makes the runner available to multiple repositories in your organization or enterprise, and also lets you to manage your runners in one place.
+有关自托管运行器支持的操作系统或将自托管运行器与代理服务器结合使用的信息，请参阅“[关于自托管运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)。”
 
-For information on supported operating systems for self-hosted runners, or using self-hosted runners with a proxy server, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+{% ifversion not ghae %} {% warning %}
 
-{% ifversion not ghae %}
-{% warning %}
+警告：{% data reusables.actions.self-hosted-runner-security %}
 
-**Warning:** {% data reusables.actions.self-hosted-runner-security %}
+有关详细信息，请参阅[关于自承载运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)。
 
-For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-{% endwarning %}
-{% endif %}
+{% endwarning %} {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 
-You can set up automation to scale the number of self-hosted runners. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+您可以设置自动化以扩展自托管运行器的数量。 有关详细信息，请参阅“[使用自托管运行器进行自动缩放](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)。”
 
 {% endif %}
 
-## Prerequisites
+## 先决条件
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-## Adding a self-hosted runner to a repository
+## 添加自托管的运行器到仓库
 
-You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+您可以将自托管的运行器添加到单个仓库中。 要将自托管的运行器添加到用户仓库，您必须是仓库所有者。 对于组织仓库，您必须是组织所有者或拥有该仓库管理员的权限。 有关如何使用 REST API 添加自托管运行器的信息，请参阅“[自托管运行器](/rest/reference/actions#self-hosted-runners)。”
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
-1. Click **New self-hosted runner**.
-{% data reusables.actions.self-hosted-runner-configure %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
-{% data reusables.actions.self-hosted-runner-configure %}
-{% endif %}
-{% data reusables.actions.self-hosted-runner-check-installation-success %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.settings-sidebar-actions-runners %}
+1. 点击“新自托管运行器”。
+{% data reusables.actions.self-hosted-runner-configure %} {% elsif ghae or ghes < 3.4 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.settings-sidebar-actions-runners %}
+1. 在{% ifversion ghes or ghae or ghec %}“运行器”{% else %}“自托管运行器”{% endif %}下，单击“添加运行器”。
+{% data reusables.actions.self-hosted-runner-configure %} {% endif %} {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+有关详细信息，请参阅“[监视和排查自托管运行器问题](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)。”
 
-## Adding a self-hosted runner to an organization
+## 添加自托管的运行器到组织
 
-You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+您可以在组织级别添加自托管的运行器，其中它们可被用于处理组织中的多个仓库的作业。 要将自托管的运行器添加到组织，您必须是组织所有者。 有关如何使用 REST API 添加自托管运行器的信息，请参阅“[自托管运行器](/rest/reference/actions#self-hosted-runners)。”
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% ifversion actions-hosted-runners %}1. Click **New runner**, then click **New self-hosted runner**.{% else %}1. Click **New runner**.{% endif %}
-{% data reusables.actions.self-hosted-runner-configure %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes or ghae %}"Runners", click **Add new**, then click **New runner**.{% endif %}
-{% data reusables.actions.self-hosted-runner-configure %}
-{% endif %}
-{% data reusables.actions.self-hosted-runner-check-installation-success %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% ifversion actions-hosted-runners %}1. 单击“新建运行器”，然后单击“新自托管运行器” 。{% else %}1. 单击“新建运行器”。{% endif %} {% data reusables.actions.self-hosted-runner-configure %} {% elsif ghae or ghes < 3.4 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %}
+1. 在{% ifversion ghes or ghae %}“运行器”下，单击“新建”，然后单击“新建运行器”。 {% endif %} {% data reusables.actions.self-hosted-runner-configure %} {% endif %} {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+有关详细信息，请参阅“[监视和排查自托管运行器问题](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)。”
 
 {% data reusables.actions.self-hosted-runner-public-repo-access %}
 
-## Adding a self-hosted runner to an enterprise
+## 添加自托管运行器到企业
 
-{% ifversion fpt %}If you use {% data variables.product.prodname_ghe_cloud %}, you{% elsif ghec or ghes or ghae %}You{% endif %} can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. The organization admins are then able to control which repositories can use it. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise).{% endif %}
+{% ifversion fpt %}如果您使用 {% data variables.product.prodname_ghe_cloud %}，则{% elsif ghec or ghes or ghae %}您{% endif %} 可以将自托管运行器添加到企业，在那里可以将它们分配给多个组织。 然后，组织管理员能够控制哪些仓库可以使用它。 {% ifversion fpt %} 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)。{% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Managing access to self-hosted runners](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
+{% ifversion ghec or ghes or ghae %} 新运行器将分配到默认组。 您可以在注册运行器后修改运行器组。 有关详细信息，请参阅“[管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)。”
 
 {% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 
-To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+要将自托管的运行器添加到企业，您必须是组织所有者。 有关如何使用 REST API 添加自托管运行器的信息，请参阅 [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners) 中的企业终结点。
 
 {% endif %}
 
@@ -103,23 +83,23 @@ To add a self-hosted runner to an enterprise, you must be an enterprise owner. F
 
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+有关详细信息，请参阅“[监视和排查自托管运行器问题](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)。”
 
 {% data reusables.actions.self-hosted-runner-public-repo-access %}
 
-### Making enterprise runners available to repositories
+### 让企业运行器可用于仓库
 
-By default, runners in an enterprise's "Default" self-hosted runner group are available to all organizations in the enterprise, but are not available to all repositories in each organization.
+在默认情况下，企业的“默认”自托管运行器组的运行器可用于企业中的所有组织，但不可用于每个组织中的所有仓库。
 
-To make an enterprise-level self-hosted runner group available to an organization repository, you might need to change the organization's inherited settings for the runner group to make the runner available to repositories in the organization.
+要让企业级自托管运行器组可用于组织仓库，您可能需要更改组织对运行器组的继承设置，使运行器可用于组织中的仓库。
 
-For more information on changing runner group access settings, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+有关更改运行器组访问设置的详细信息，请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)。”
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-## Further reading
+## 延伸阅读
 
-- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+- [开始为企业使用自托管运行器](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
 
 {% endif %}

@@ -13,12 +13,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Create from a template
-ms.openlocfilehash: 8f2ba1bcda417f3202e0c43c693afe50434130ec
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 16d124431426e19cf95c768e8a4cdaa5f4da2e17
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145132342'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160244'
 ---
 ## リポジトリテンプレートついて
 
@@ -42,8 +42,17 @@ ms.locfileid: '145132342'
 ## テンプレートからリポジトリを作成する
 
 {% data reusables.repositories.navigate-to-repo %}
-2. ファイルの一覧の上にある **[Use this template]\(このテンプレートを使用する\)** をクリックします。
-  ![[Use this template]\(このテンプレートを使用する\) ボタン](/assets/images/help/repository/use-this-template-button.png) {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
-6. 必要に応じて、既定のブランチだけでなく、テンプレートのすべてのブランチからディレクトリ構造とファイルを含めるには、 **[すべてのブランチを含める]** を選びます。
+1. ファイルの一覧の上にある **[Use this template]\(このテンプレートを使用する\)** をクリックします。
+{% ifversion fpt or ghec %}
+1. **[新しいリポジトリの作成]** を選びます。
+
+   ![[このテンプレートを使用する] ボタン](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   **注:** または、codespace でテンプレートを開き、後で作業内容を新しいリポジトリに発行することもできます。 詳しくは、「[テンプレートから codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)」をご覧ください。
+
+   {% endnote %} {% endif %} {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
+1. 必要に応じて、既定のブランチだけでなく、テンプレートのすべてのブランチからディレクトリ構造とファイルを含めるには、 **[すべてのブランチを含める]** を選びます。
   ![[すべてのブランチを含める] チェック ボックス](/assets/images/help/repository/include-all-branches.png) {% data reusables.repositories.select-marketplace-apps %}
 8. **[Create repository from template]\(テンプレートからリポジトリを作成する\)** をクリックします。

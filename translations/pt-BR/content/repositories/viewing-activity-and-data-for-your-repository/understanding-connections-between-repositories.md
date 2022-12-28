@@ -1,6 +1,6 @@
 ---
 title: Entender conexões entre repositórios
-intro: É possível entender melhor as conexões que existem entre repositórios visualizando a rede e as bifurcações de um repositório e os projetos que dependem do repositório.
+intro: Use o grafo de rede e a lista de forks para entender as redes de fork.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060063'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191351'
 ---
 ## Exibir a rede do repositório
 
-O gráfico de rede exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
+O grafo de rede exibe o histórico de branch de toda a rede do repositório, incluindo branches de fork. Esse grafo é uma linha do tempo de commits mais recentes e mostra até 100 dos branches enviados por push mais recentemente. A primeira linha faz referência à data e a primeira coluna faz referência ao proprietário do branch. Use teclas de direção ou outros atalhos de teclado para navegar mais facilmente pelo grafo. Eles são fornecidos no pop-up "Atalhos de teclado disponíveis" no grafo.
+
 
 ![Gráfico de rede do repositório](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ O gráfico de rede exibe o histórico de branches de toda a rede do repositório
 
 O gráfico de integrantes exibe todas as bifurcações de um repositório.
 
-As bifurcações são listadas em ordem alfabética pelo nome de usuário da pessoa que bifurcou o repositório. É possível clicar no nome de usuário para ser redirecionado à página de perfil {% data variables.product.product_name %} do usuário ou clicar no nome da bifurcação para ser redirecionado à bifurcação específica do repositório.
+Os forks são listados em ordem alfabética por organização ou nome de usuário da pessoa que bifurcou o repositório. É possível clicar na organização ou no nome de usuário para ser redirecionado à página de perfil {% data variables.product.product_name %} da organização ou do usuário ou clicar no nome do fork para ser redirecionado ao fork específico do repositório.
 
 {% ifversion fpt or ghec %}
 

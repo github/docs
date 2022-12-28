@@ -81,7 +81,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # precedence. When someone opens a pull request that only
 # modifies JS files, only @js-owner and not the global
 # owner(s) will be requested for a review.
-*.js    @js-owner
+*.js    @js-owner #This is an inline comment.
 
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author

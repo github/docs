@@ -1,7 +1,7 @@
 ---
-title: About GitHub Actions for enterprises
+title: エンタープライズの GitHub Actions について
 shortTitle: About GitHub Actions
-intro: '{% data variables.product.prodname_actions %} can improve developer productivity by automating your enterprise''s software development cycle.'
+intro: '{% data variables.product.prodname_actions %} を使うと、Enterprise のソフトウェア開発サイクルを自動化することで、開発者の生産性を向上させることができます。'
 versions:
   ghec: '*'
   ghes: '*'
@@ -10,46 +10,47 @@ type: overview
 topics:
   - Actions
   - Enterprise
+ms.openlocfilehash: 682e5c4bc4b17105df59c4e5474bf46ec11fe211
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160745'
 ---
-
-
-## About {% data variables.product.prodname_actions %} for enterprises
+## エンタープライズ {% data variables.product.prodname_actions %} について
 
 {% data reusables.actions.about-actions-for-enterprises %}
 
-| Task | More information |
+| タスク | 詳細情報 |
 | ---- | ---------------- |
-| Automatically test and build your application | "[About continuous integration](/actions/automating-builds-and-tests/about-continuous-integration)" | 
-| Deploy your application | "[About continuous deployment](/actions/deployment/about-deployments/about-continuous-deployment)" |
-| Automatically and securely package code into artifacts and containers | "[About packaging with {% data variables.product.prodname_actions %}](/actions/publishing-packages/about-packaging-with-github-actions)" |
-| Automate your project management tasks | "[Using {% data variables.product.prodname_actions %} for project management](/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management)" |
+| アプリケーションを自動的にテストしてビルドする | 「[継続的インテグレーションについて](/actions/automating-builds-and-tests/about-continuous-integration)」 | 
+| アプリケーションをデプロイする | 「[継続的デプロイについて](/actions/deployment/about-deployments/about-continuous-deployment)」 |
+| コードを自動的かつ安全に成果物とコンテナーにパッケージ化する | 「[{% data variables.product.prodname_actions %} を使用したパッケージ化について](/actions/publishing-packages/about-packaging-with-github-actions)」 |
+| プロジェクト管理タスクを自動化する | 「[プロジェクト管理での {% data variables.product.prodname_actions %} の使用](/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management)」 |
 
-{% data variables.product.prodname_actions %} helps your team work faster at scale. When large repositories start using {% data variables.product.prodname_actions %}, teams merge significantly more pull requests per day, and the pull requests are merged significantly faster. For more information, see "[Writing and shipping code faster](https://octoverse.github.com/writing-code-faster/#scale-through-automation)" in the State of the Octoverse.
+{% data variables.product.prodname_actions %} は、チームが大規模な作業を迅速に行うために役立ちます。 大規模なリポジトリが {% data variables.product.prodname_actions %} の使用を開始すると、チームが 1 日にマージする pull request が大幅に増加し、pull request のマージ速度も大幅に上がります。 詳細については、「The State of the Octoverse」の「[コードの記述と出荷の高速化](https://octoverse.github.com/2021/writing-code-faster/#scale-through-automation)」を参照してください。
 
-You can create your own unique automations, or you can use and adapt workflows from our ecosystem of over 10,000 actions built by industry leaders and the open source community. {% ifversion ghec %}For more information, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."{% else %}You can restrict your developers to using actions that exist on {% data variables.location.product_location %}, or you can allow your developers to access actions on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."{% endif %}
+独自の自動化を作成することができます。あるいは、業界のリーダーやオープンソース コミュニティによって構築された 10,000 を超えるアクションで構成されているエコシステムのワークフローを使用して調整することもできます。 {% ifversion ghec %}詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。{% else %}開発者が {% data variables.location.product_location %}に存在するアクションを使用するように制限することも、開発者が {% data variables.product.prodname_dotcom_the_website %} 上のアクションにアクセスできるように許可することもできます。 詳細については、「[エンタープライズでのアクションの使用について](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)」を参照してください。{% endif %}
 
-{% data variables.product.prodname_actions %} is developer friendly, because it's integrated directly into the familiar {% data variables.product.product_name %} experience.
+{% data variables.product.prodname_actions %} は、よく使用される {% data variables.product.product_name %} エクスペリエンスに直接統合されているため、開発者にとってわかりやすい機能です。
 
-{% ifversion ghec %}You can enjoy the convenience of {% data variables.product.company_short %}-hosted runners, which are maintained and upgraded by {% data variables.product.company_short %}, or you{% else %}You{% endif %} can control your own private CI/CD infrastructure by using self-hosted runners. Self-hosted runners allow you to determine the exact environment and resources that complete your builds, testing, and deployments, without exposing your software development cycle to the internet. For more information, see {% ifversion ghec %}"[About {% data variables.product.company_short %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and{% endif %} "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+{% ifversion ghec %}{% data variables.product.company_short %} によって管理およびアップグレードされる、{% data variables.product.company_short %} ホステッド ランナーの利便性を活用できます。あるいは、{% else %}{% endif %}セルフホステッド ランナーを使用して、独自の非公開 CI/CD インフラストラクチャを管理できます。 セルフホステッド ランナーを使用すると、ソフトウェア開発サイクルをインターネットに公開することなく、ビルド、テスト、デプロイを完了するための正確な環境とリソースを決定できます。 詳細については、{% ifversion ghec %}「[{% data variables.product.company_short %} ホステッド ランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners)」および{% endif %} 「[セルフホステッド ランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
 
-{% data variables.product.prodname_actions %} provides greater control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets.{% ifversion ghec or ghes > 3.4 %} If your workflows need to access resources from a cloud provider that supports OpenID Connect (OIDC), you can configure your workflows to authenticate directly to the cloud provider. OIDC provides security benefits such as eliminating the need to store credentials as long-lived secrets. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."{% endif %}
+{% data variables.product.prodname_actions %} では、デプロイを細かく制御することができます。 たとえば、環境を使用して、ジョブを続行するために承認を要求したり、ワークフローをトリガーできるブランチを制限したり、シークレットへのアクセスを制限したりすることができます。{% ifversion ghec or ghes > 3.4 %} ワークフローが OpenID Connect (OIDC) をサポートするクラウド プロバイダーのリソースにアクセスする必要がある場合、そのクラウド プロバイダーで直接認証されるようにワークフローを構成できます。 OIDC には、有効期間が長いシークレットとして資格情報を格納する必要性を解消するなど、セキュリティ上の利点があります。 詳細については、「[OpenID Connect を使用したセキュリティ強化について](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)」を参照してください。{% endif %}
 
-{% data variables.product.prodname_actions %} also includes tools to govern your enterprise's software development cycle and meet compliance obligations. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+{% data variables.product.prodname_actions %} には、エンタープライズのソフトウェア開発サイクルを管理し、コンプライアンスの義務を満たすためのツールも含まれています。 詳細については、「[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise (エンタープライズでフォーク pull request のポリシーを適用する)](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)」を参照してください。
 
-## About getting started with {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %} の使用開始について
 
 {% data reusables.actions.introducing-enterprise %}
 
 {% data reusables.actions.migrating-enterprise %}
 
-{% ifversion ghes %}
-{% data reusables.actions.ghes-actions-not-enabled-by-default %} After you finish planning, you can follow the instructions for enabling {% data variables.product.prodname_actions %}. For example, you may need to upgrade the CPU and memory resources for {% data variables.location.product_location %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+{% ifversion ghes %} {% data reusables.actions.ghes-actions-not-enabled-by-default %} 計画が完了したら、{% data variables.product.prodname_actions %} を有効化する手順に従うことができます。 たとえば、場合によっては、{% data variables.location.product_location %}のために CPU とメモリをアップグレードする必要があります。 詳細については、「[{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_actions %} の概要](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)」を参照してください。
 
-{% else %}
-After you finish planning, you can follow the instructions for getting started with {% data variables.product.prodname_actions %}. For more information, see {% ifversion ghec %}"[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_cloud %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)."{% elsif ghae %}"[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."{% endif %}
-{% endif %}
+{% else %} 計画が完了したら、{% data variables.product.prodname_actions %} の使用を開始する手順に従うことができます。 詳細については、{% ifversion ghec %}「[{% data variables.product.prodname_ghe_cloud %} の {% data variables.product.prodname_actions %} の概要](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)」{% elsif ghae %}「[{% data variables.product.prodname_ghe_managed %} の {% data variables.product.prodname_actions %} の概要](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)」{% endif %}を参照してください。 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)"{% ifversion ghec %}
-- "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"{% endif %}
+- 「[{% data variables.product.prodname_actions %} の理解](/actions/learn-github-actions/understanding-github-actions)」{% ifversion ghec %}
+- 「[{% data variables.product.prodname_actions %} の課金について](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」{% endif %}

@@ -1,5 +1,5 @@
 ---
-title: About Git rebase
+title: 关于 Git 变基
 redirect_from:
   - /rebase
   - /articles/interactive-rebase
@@ -7,68 +7,74 @@ redirect_from:
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase
   - /github/getting-started-with-github/using-git/about-git-rebase
-intro: 'The `git rebase` command allows you to easily change a series of commits, modifying the history of your repository. You can reorder, edit, or squash commits together.'
+intro: '`git rebase` 命令用于轻松更改一系列提交，修改存储库的历史记录。 您可以重新排序、编辑提交或将提交压缩到一起。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 5ffa3cbb1fcb6c8c37e56e434b08018582a0ff2b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145098889'
 ---
-Typically, you would use `git rebase` to:
+通常，你会使用 `git rebase` 来：
 
-* Edit previous commit messages
-* Combine multiple commits into one
-* Delete or revert commits that are no longer necessary
+* 编辑之前的提交消息
+* 将多个提交合并为一个
+* 删除或还原不再必要的提交
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.location.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+警告：由于更改提交历史记录可能会给其他人使用存储库造成困难，因此如果提交已经推送到存储库，建议不要执行提交变基。 若要了解如何在 {% data variables.product.product_location %} 上安全地变基，请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
 {% endwarning %}
 
-## Rebasing commits against a branch
+## 对分支变基提交
 
-To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
+要对另一个分支与当前分支状态之间的所有提交变基，可以在 shell（Windows 的命令提示符或者 Mac 和 Linux 的终端）中输入以下命令：
 
 ```shell
-$ git rebase --interactive OTHER-BRANCH-NAME
+$ git rebase --interactive <em>other_branch_name</em>
 ```
 
-## Rebasing commits against a point in time
+## 对某一时间点变基提交
 
-To rebase the last few commits in your current branch, you can enter the following command in your shell:
+要变基当前分支中最近的几个提交，可以在 shell 中输入以下命令：
 
 ```shell
 $ git rebase --interactive HEAD~7
 ```
 
-## Commands available while rebasing
+## 变基时可用的命令
 
-There are six commands available while rebasing:
+变基时有六个命令可用：
 
 <dl>
 <dt><code>pick</code></dt>
-<dd><code>pick</code> simply means that the commit is included. Rearranging the order of the <code>pick</code> commands changes the order of the commits when the rebase is underway. If you choose not to include a commit, you should delete the entire line. </dd>
+<dd><code>pick</code> 只表示包含提交。 在变基进行时重新排列 <code>pick</code> 命令的顺序会更改提交的顺序。 如果选择不包含提交，应删除整行。 </dd>
 
 <dt><code>reword</code></dt>
-<dd>The <code>reword</code> command is similar to <code>pick</code>, but after you use it, the rebase process will pause and give you a chance to alter the commit message. Any changes made by the commit are not affected. </dd>
+<dd><code>reword</code> 命令类似于 <code>pick</code>，但在使用后，变基过程就会暂停，让你有机会改变提交消息。 提交所做的任何更改都不受影响。 </dd>
 
 <dt><code>edit</code></dt>
-<dd>If you choose to <code>edit</code> a commit, you'll be given the chance to amend the commit, meaning that you can add or change the commit entirely. You can also make more commits before you continue the rebase. This allows you to split a large commit into smaller ones, or, remove erroneous changes made in a commit. </dd>
+<dd>如果选择 <code>edit</code> 提交，你将有机会修订提交，也就是说，可以完全添加或更改提交。 您也可以创建更多提交后再继续变基。 这样您可以将大提交拆分为小提交，或者删除在提交中执行错误更改。 </dd>
 
 <dt><code>squash</code></dt>
-<dd>This command lets you combine two or more commits into a single commit. A commit is squashed into the commit above it. Git gives you the chance to write a new commit message describing both changes.</dd>
+<dd>此命令可用于将两个或以上的提交合并为一个。 下面的提交压缩到其上面的提交。 Git 让您有机会编写描述两次更改的新提交消息。</dd>
 
 <dt><code>fixup</code></dt>
-<dd>This is similar to <code>squash</code>, but the commit to be merged has its message discarded. The commit is simply merged into the commit above it, and the earlier commit's message is used to describe both changes.</dd>
+<dd>这类似于 <code>squash</code>，但要合并的提交丢弃了其消息。 提交只是合并到其上面的提交，之前提交的消息用于描述两次更改。</dd>
 
 <dt><code>exec</code></dt>
-<dd>This lets you run arbitrary shell commands against a commit.</dd>
+<dd>这可让您对提交运行任意 shell 命令。</dd>
 </dl>
 
-## An example of using `git rebase`
+## 使用 `git rebase` 的示例
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+无论使用哪个命令，Git 都将启动[默认文本编辑器](/github/getting-started-with-github/associating-text-editors-with-git)，并且打开一个文件，其中详细说明了所选范围的提交信息。 该文件类似于：
 
 ```
 pick 1fc6c95 Patch A
@@ -94,18 +100,18 @@ pick 7b36971 something to move before patch B
 #
 ```
 
-Breaking this information, from top to bottom, we see that:
+从上到下分解此信息，我们可以看出：
 
-- Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
-- The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
-- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are *rebased* onto your repository.
-- After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
-- Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
+- 列出了七个命令，表示从起点到当前分支状态之间有七处更改。
+- 您选择要变基的提交按最早更改（顶部）到最新更改（底部）的顺序存储。
+- 每行列出一个命令（默认为 `pick`）、提交 SHA 和提交消息。 整个 `git rebase` 过程以这三列的操作为中心。 做出的更改将变基到存储库。
+- 提交后，Git 会告知正在处理的提交范围 (`41a72e6..7b36971`)。
+- 最后，Git 会提供一些帮助，告知在变基提交时可用的命令。
 
-## Further reading
+## 延伸阅读
 
-- "[Using Git rebase](/articles/using-git-rebase)"
-- [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- [使用 Git 变基](/articles/using-git-rebase)
+- [Pro Git 书籍中的“Git 分支”一章](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [Pro Git 书籍中的“交互式变基”一章](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- [使用变基压缩提交](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+- {% data variables.product.prodname_desktop %} 文档中的“[同步分支](/desktop/contributing-to-projects/syncing-your-branch)”

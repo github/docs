@@ -1,6 +1,6 @@
 ---
-title: Increasing storage capacity
-intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
+title: ストレージ容量の増加
+intro: Gitリポジトリ、データベース、検索インデックス、その他の恒久的なアプリケーションデータに利用できるストレージの量は、追加あるいは変更できます。
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -14,80 +14,86 @@ topics:
   - Performance
   - Storage
 shortTitle: Increase storage capacity
+ms.openlocfilehash: b6542e1f43ce4111358de3940c8e46dea2afd5d5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147881123'
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.location.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+{% data variables.product.product_location %}に参加するユーザーが増えるにつれて、ストレージ ボリュームのサイズを変更する必要があるかもしれません。 ストレージのリサイズに関する情報については、使用している仮想化プラットフォームのドキュメンテーションを参照してください。
 
-## Requirements and recommendations
+## 要件と推奨事項
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**注:** ストレージ ボリュームのサイズを変更する前に、インスタンスをメンテナンス モードにします。{% ifversion ip-exception-list %}指定した IP アドレスからのアクセスを許可するように IP 例外リストを構成することで、変更を検証できます。 {% endif %} 詳しい情報については、「[メンテナンス モードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)」を参照してください。
 
 {% endnote %}
 
-### Minimum requirements
+### 最小要件
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-## Increasing the data partition size
+## データパーティションサイズの増加
 
-1. Resize the existing user volume disk using your virtualization platform's tools.
+1. 仮想化プラットフォームのツールを使用して、既存のユーザーボリュームのディスクのサイズを変更します。
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
-4. Reboot the appliance to detect the new storage allocation:
+3. アプライアンスをメンテナンスモードにしてください。 詳細については、「[メンテナンスモードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)」を参照してください。
+4. アプライアンスを再起動して、新しいストレージ割り当てを検出します。
   ```shell
   $ sudo reboot
   ```
-5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
+5. `ghe-storage-extend` コマンドを実行して、`/data/user` ファイル システムを拡張します。
   ```shell
   $ ghe-storage-extend
   ```
 
-## Increasing the root partition size using a new appliance
+## 新しいアプライアンスを使用したルートパーティションサイズの増加
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Shut down the current appliance:
+1. 現在のアプライアンスと同じバージョンを使用して、より大きなルートディスクで新たな {% data variables.product.prodname_ghe_server %} をセットアップします。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+2. 現在のアプライアンスをシャットダウンします。
   ```shell
   $ sudo poweroff
   ```
-3. Detach the data disk from the current appliance using your virtualization platform's tools.
-4. Attach the data disk to the new appliance with the larger root disk.
+3. 使用している仮想化プラットフォームのツールを使い、現在のアプライアンスからデータディスクをデタッチします。
+4. 大きなルートディスクを持つ新しいアプライアンスにデータディスクをアタッチします。
 
-## Increasing the root partition size using an existing appliance
+## 既存のアプライアンスを使用したルートパーティションサイズの増加
 
 {% warning %}
 
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**警告:** ルート パーティション サイズを拡張するには、インスタンスをメンテナンス モードにする必要があります。 詳細については、「[メンテナンスモードの有効化とスケジューリング](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)」を参照してください。
 
 {% endwarning %}
 
-1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `lsblk` command to identify the new disk's device name.
-1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
+1. {% data variables.product.prodname_ghe_server %} アプライアンスに新しいディスクを取り付けます。
+1. 新しいディスクのデバイス名を確認するには、`lsblk` コマンドを実行します。
+1. ディスクをフォーマットするには、`parted` コマンドを実行します。`/dev/xvdg` を自分のデバイス名に置き換えます。
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. レプリケーションを停止するには、`ghe-repl-stop` コマンドを実行します。
 
    ```shell
    $ ghe-repl-stop
    ```
    
-1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+1. `ghe-upgrade` コマンドを実行して、プラットフォーム固有の完全なパッケージを新しくパーティション分割されたディスクにインストールします。 `github-enterprise-2.11.9.hpkg` などのユニバーサル ホットパッチ アップグレード パッケージは想定どおりに動作しません。 `ghe-upgrade` コマンドが完了すると、アプリケーション サービスは自動的に終了します。
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-1. Shut down the appliance:
+1. アプライアンスをシャットダウンします。
   ```shell
   $ sudo poweroff
   ```
-1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-1. Start the appliance.
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. ハイパーバイザーで、古いルートディスクを取り外し、古いルートディスクと同じ場所に新しいルートディスクを取り付けます。
+1. アプライアンスを起動します。
+1. システム サービスが正しく機能していることを確認してから、メンテナンス モードを終了します。 詳細については、「[メンテナンスモードの有効化とスケジューリング](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)」を参照してください。
 
-If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
+アプライアンスが高可用性または geo レプリケーション用に構成されている場合は、すべてのノードのストレージがアップグレードされた後で、`ghe-repl-start` を使用して各レプリカ ノードでレプリケーションを開始してください。

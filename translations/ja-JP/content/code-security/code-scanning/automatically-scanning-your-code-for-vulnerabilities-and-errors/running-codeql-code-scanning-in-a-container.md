@@ -21,12 +21,12 @@ topics:
   - Repositories
   - Containers
   - Java
-ms.openlocfilehash: 9f4fb3cd54dda2f31ec6086419078345dad51e8d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 60dac8a7f71af067c5cfaba5f48d123a3068f704
+ms.sourcegitcommit: aa488e9e641139f9056885b1479c8801e9906131
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147682677'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162808'
 ---
 {% data reusables.code-scanning.beta %}
 
@@ -34,7 +34,7 @@ ms.locfileid: '147682677'
 
 コンパイル言語用に {% data variables.product.prodname_code_scanning %} をセットアップし、コンテナ化された環境でコードをビルドしようとすると、解析が失敗し、"No source code was seen during the build." というエラーメッセージが出る場合があります。 これは、コードがコンパイルされているので {% data variables.product.prodname_codeql %} がコードをモニターできなかったことを示しています。
 
-{% data variables.product.prodname_codeql %}は、コードをビルドするコンテナ内で実行しなければなりません。 これは、{% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}、{% data variables.product.prodname_codeql_runner %}、{% endif %}または {% data variables.product.prodname_actions %} のいずれを使っていても当てはまります。 {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}または {% data variables.product.prodname_codeql_runner %} {% endif %}の場合、詳しくは、「[CI システムに {% data variables.product.prodname_codeql_cli %} をインストールする](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)」{% ifversion codeql-runner-supported %}または「[CI システムで {% data variables.product.prodname_codeql_runner %} を実行する](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」{% endif %}をご覧ください。 {% data variables.product.prodname_actions %} を使用している場合は、同じコンテナですべてのアクションを実行するようワークフローを設定します。 詳しくは、「[ワークフローの例](#example-workflow)」をご覧ください。
+{% data variables.product.prodname_codeql %}は、コードをビルドするコンテナ内で実行しなければなりません。 これは、{% data variables.product.prodname_codeql_cli %}{% ifversion codeql-runner-supported %}、{% data variables.code-scanning.codeql_runner %}、{% endif %}または {% data variables.product.prodname_actions %} のいずれを使っていても当てはまります。 {% data variables.product.prodname_codeql_cli %} {% ifversion codeql-runner-supported %}または {% data variables.code-scanning.codeql_runner %}{% endif %}の場合、詳しくは、「[CI システムに {% data variables.product.prodname_codeql_cli %} をインストールする](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)」{% ifversion codeql-runner-supported %}または「[CI システムで {% data variables.code-scanning.codeql_runner %} を実行する](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」{% endif %}をご覧ください。 {% data variables.product.prodname_actions %} を使用している場合は、同じコンテナですべてのアクションを実行するようワークフローを設定します。 詳しくは、「[ワークフローの例](#example-workflow)」をご覧ください。
 
 {% note %}
 

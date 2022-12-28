@@ -1,0 +1,42 @@
+---
+title: Повышение уровня хранилища больших файлов GIT
+intro: 'Вы можете приобрести дополнительные пакеты данных, чтобы увеличить квоту на ежемесячную пропускную способность и общую емкость хранилища для {% data variables.large_files.product_name_short %}.'
+redirect_from:
+  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
+  - /articles/upgrading-git-large-file-storage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
+versions:
+  fpt: '*'
+  ghec: '*'
+type: how_to
+topics:
+  - LFS
+  - Organizations
+  - Upgrades
+  - User account
+shortTitle: Upgrade Git LFS storage
+ms.openlocfilehash: 261ef75ee139cf8c1bcec01c09d95444d64ecc89
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145088131'
+---
+## Приобретение дополнительного объема хранилища и пропускной способности для личной учетной записи
+
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %} {% data reusables.dotcom_billing.lfs-add-data %} {% data reusables.large_files.pack_selection %} {% data reusables.large_files.pack_confirm %}
+
+## Приобретение дополнительного объема хранилища и пропускной способности для организации
+
+{% data reusables.dotcom_billing.org-billing-perms %}
+
+{% data reusables.organizations.billing-settings %} {% data reusables.dotcom_billing.lfs-add-data %} {% data reusables.large_files.pack_selection %} {% data reusables.large_files.pack_confirm %}
+
+## Дополнительные материалы
+
+- [Сведения о выставлении счетов для {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)
+- [Сведения об использовании хранилища и пропускной способности](/articles/about-storage-and-bandwidth-usage)
+- [Просмотр сведений об использовании {% data variables.large_files.product_name_long %}](/articles/viewing-your-git-large-file-storage-usage)
+- [Управление версиями больших файлов](/articles/versioning-large-files)

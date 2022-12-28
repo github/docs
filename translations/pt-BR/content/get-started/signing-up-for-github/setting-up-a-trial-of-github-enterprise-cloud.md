@@ -12,12 +12,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Enterprise Cloud trial
-ms.openlocfilehash: 13cb43b5dfd4a9e207a9a1cca090b223c56f4678
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a50aebc43ba5d674af132786ffb75e5fb3029aeb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389951'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183985'
 ---
 {% data reusables.enterprise.ghec-cta-button %}
 
@@ -67,15 +67,17 @@ Depois de configurar sua avaliação, você poderá explorar {% data variables.p
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
+{% data reusables.enterprise.best-practices %}
+
 {% data reusables.products.product-roadmap %}
 
 ## Finalizar a versão de avaliação
 
 Você pode comprar {% data variables.product.prodname_enterprise %} a qualquer momento durante o seu período de teste. A compra de {% data variables.product.prodname_enterprise %} irá finalizar o seu período de teste, removendo o máximo de 50 estações e dando início ao pagamento.
 
-Se você não comprar {% data variables.product.prodname_enterprise %}, quando a avaliação terminar, sua organização será rebaixada. Se você usou uma organização existente para o teste, a organização será rebaixada para o produto que você estava usando antes do teste. Se você criou uma nova organização para o teste, a organização será rebaixada para {% data variables.product.prodname_free_team %}. 
+Se você não comprar {% data variables.product.prodname_enterprise %}, a avaliação continuará até o final do período de 30 dias. Não é possível encerrar a avaliação mais cedo. Quando a avaliação terminar, será feito o downgrade da organização. Se você usou uma organização existente para o teste, a organização será rebaixada para o produto que você estava usando antes do teste. Se você criou uma nova organização para o teste, a organização será rebaixada para {% data variables.product.prodname_free_team %}. 
 
-A sua organização perderá acesso a qualquer funcionalidade que não esteja incluída no novo produto, como recursos avançados, como o {% data variables.product.prodname_pages %} para repositórios privados. Se você não planeja atualizar, para evitar perder o acesso a funcionalidades avançadas, considere tornar públicos os repositórios afetados antes da sua avaliação terminar. Para obter mais informações, confira "[Como configurar a visibilidade do repositório](/articles/setting-repository-visibility)".
+A organização perderá o acesso a qualquer funcionalidade que não esteja incluída no novo plano, como recursos avançados, como o {% data variables.product.prodname_pages %} para repositórios privados. Se você não planeja atualizar, para evitar perder o acesso a funcionalidades avançadas, considere tornar públicos os repositórios afetados antes da sua avaliação terminar. Para obter mais informações, confira "[Como configurar a visibilidade do repositório](/articles/setting-repository-visibility)".
 
 A desclassificação também desabilita todas as configurações de SAML configuradas durante o período de avaliação. Se você comprar {% data variables.product.prodname_enterprise %} posteriormente, as suas configurações do SAML serão novamente habilitadas para que os usuários da sua organização possam efetuar a autenticação.
 

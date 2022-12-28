@@ -1,6 +1,6 @@
 ---
-title: About the GitHub Advisory database
-intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, {% endif %}grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.'
+title: GitHub Advisory Database について
+intro: '{% data variables.product.prodname_advisory_database %} には、既知のセキュリティの脆弱性 {% ifversion GH-advisory-db-supports-malware %}とマルウェアの一覧が含まれており、{% endif %}これらは、{% data variables.product.company_short %} でレビューされたアドバイザリとレビューされていないアドバイザリの 2 つのカテゴリにグループ化されます。'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -13,70 +13,76 @@ topics:
   - Alerts
   - Vulnerabilities
   - CVEs
+ms.openlocfilehash: 601fdd42050f112162898a255811c76aa23c6970
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159078'
 ---
-
-## About the {% data variables.product.prodname_advisory_database %}
+## {% data variables.product.prodname_advisory_database %} について
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-## About types of security advisories
+セキュリティ アドバイザリは、オープン ソース脆弱性 (OSV) 形式の JSON ファイルとして公開されます。 OSV 形式について詳しくは、[オープン ソース脆弱性の形式](https://ossf.github.io/osv-schema/)に関する説明を参照してください。
+
+## セキュリティ アドバイザリの種類について
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}. 
+{% data variables.product.prodname_advisory_database %} の各アドバイザリは、オープンソース プロジェクト{% ifversion GH-advisory-db-supports-malware %}の脆弱性または悪意のあるオープンソース ソフトウェア{% endif %}を対象としています。 
 
-{% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
+{% data reusables.repositories.a-vulnerability-is %} コードの脆弱性は通常、誤って導入され、検出されるとすぐに修正されます。 依存関係が使用可能になったらすぐに、修正された依存関係を使用するようにコードを更新する必要があります。
 
 {% ifversion GH-advisory-db-supports-malware %}
 
-In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
+これに対し、悪意のあるソフトウェア (マルウェア) は、望ましくない、または有害な機能を実行するように意図的に設計されたコードです。 マルウェアは、ハードウェア、ソフトウェア、機密データ、またはマルウェアを使用するアプリケーションのユーザーを対象とすることがあります。 プロジェクトからマルウェアを削除し、依存関係に対するより安全な代替手段を見つける必要があります。
 
 {% endif %}
 
-### {% data variables.product.company_short %}-reviewed advisories
+### {% data variables.product.company_short %} でレビューされたアドバイザリについて
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+{% data variables.product.company_short %} でレビューされたアドバイザリは、Microsoft がサポートするエコシステム内のパッケージにマップされたセキュリティの脆弱性{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}です。 各アドバイザリの有効性を慎重にレビューし、詳しい説明があり、エコシステム情報とパッケージ情報の両方が含まれていることを確認します。
 
-Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
+一般に、サポートされているエコシステムは、ソフトウェア プログラミング言語の関連するパッケージ レジストリにちなんで名前が付けられます。 サポートされているレジストリから取得されたパッケージの脆弱性を対象としている場合は、アドバイザリをレビューします。
 
-- Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-- Erlang (registry: https://hex.pm/){% endif %}
-- Go (registry: https://pkg.go.dev/)
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+- Composer (レジストリ: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
+- Erlang (レジストリ: https://hex.pm/){% endif %}
+- Go (レジストリ: https://pkg.go.dev/) {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 - GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
-- Maven (registry: https://repo.maven.apache.org/maven2)
-- npm (registry: https://www.npmjs.com/)
-- NuGet (registry: https://www.nuget.org/)
-- pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-- pub (registry: https://pub.dev/packages/registry){% endif %}
-- RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- Maven (レジストリ: https://repo.maven.apache.org/maven2)
+- npm (レジストリ: https://www.npmjs.com/)
+- NuGet (レジストリ: https://www.nuget.org/)
+- pip (レジストリ: https://pypi.org/){% ifversion dependency-graph-dart-support %}
+- pub (レジストリ: https://pub.dev/packages/registry){% endif %}
+- RubyGems (レジストリ: https://rubygems.org/)
+- Rust (レジストリ: https://crates.io/)
 
-If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
+サポートする必要がある新しいエコシステムの提案がある場合は、ディスカッションのために [issue](https://github.com/github/advisory-database/issues) を開いてください。
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} for a package you depend on. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+レポジトリに対して {% data variables.product.prodname_dependabot_alerts %} を有効にすると、{% data variables.product.company_short %} でレビューされた新しいアドバイザリによって、依存するパッケージの脆弱性{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}が報告された場合、自動的に通知されます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-### Unreviewed advisories
+### レビューされていないアドバイザリについて
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+レビューされていないアドバイザリは、National Vulnerability Database フィードから直接 {% data variables.product.prodname_advisory_database %} に自動的に公開されるセキュリティの脆弱性です。 
 
-{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+この種類のアドバイザリは、有効性または完成度について確認されないため、{% data variables.product.prodname_dependabot %} では、レビューされていないアドバイザリの {% data variables.product.prodname_dependabot_alerts %} は作成されません。
 
-## About information in security advisories
+## セキュリティ アドバイザリの情報について
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+各セキュリティ アドバイザリには、脆弱性{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}に関する情報が含まれています。このような情報としては、説明、重要度、影響を受けるパッケージ、パッケージ エコシステム、影響を受けるバージョンとパッチを適用したバージョン、影響、オプションの情報 (リファレンス、回避策、クレジットなど) などがあります。 さらに、National Vulnerability Database リストのアドバイザリには、CVE レコードへのリンクが含まれており、脆弱性、その CVSS スコア、その定性的な重要度レベルの詳細を確認できます。 詳細については、アメリカ国立標準技術研究所の [National Vulnerability Database](https://nvd.nist.gov/)を参照してください。
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
-- Low
+重要度レベルは、"[共通脆弱性評価システム (CVSS) セクション 5](https://www.first.org/cvss/specification-document)" で定義されている 4 つの可能なレベルのいずれかです。
+- 低
 - Medium/Moderate
-- High
+- 高
 - Critical
 
-The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
+{% data variables.product.prodname_advisory_database %} は、上記の CVSS レベルを使用します。 {% data variables.product.company_short %} が CVE を取得した場合、{% data variables.product.prodname_advisory_database %} は CVSS バージョン 3.1 を使用します。 CVE がインポートされた場合、{% data variables.product.prodname_advisory_database %} は CVSS バージョン 3.0 と 3.1 の両方をサポートします。
 
 {% data reusables.repositories.github-security-lab %}
 
-## Further reading
+## 参考資料
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- 「[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」
+- MITRE の ["脆弱性" の定義](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

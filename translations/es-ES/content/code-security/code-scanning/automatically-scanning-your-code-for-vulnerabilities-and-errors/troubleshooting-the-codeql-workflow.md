@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting the CodeQL workflow
+title: Solucionar problemas en el flujo de trabajo de CodeQL
 shortTitle: Troubleshoot CodeQL workflow
-intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
+intro: 'Si tienes problemas con el {% data variables.product.prodname_code_scanning %}, puedes solucionarlos si utilizas estos tips para resolver estos asuntos.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -26,50 +26,51 @@ topics:
   - C/C++
   - C#
   - Java
+ms.openlocfilehash: 1efc550663ddeff381acf929e184d26232d22723
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160812'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.not-available %}
 
+{% ifversion ghes or ghae %} {% note %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.not-available %}
+**Nota:** En este artículo se describen las características disponibles con la versión de la acción CodeQL y el paquete CodeQL CLI asociado que se incluye en la versión inicial de esta versión de {% data variables.product.product_name %}. Si en la empresa se usa una versión más reciente de la acción CodeQL, consulte el [artículo {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) para obtener información sobre las características más recientes. {% ifversion not ghae %} Para obtener información sobre el uso de la versión más reciente, consulte "[Configuración del análisis de código para el dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% endnote %} {% endif %}
 
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+## Producir bitácoras detalladas para la depuración
 
-{% endnote %}
-{% endif %}
-
-## Producing detailed logs for debugging
-
-To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
+Para producir una salida más detallada de bitácoras, puedes habilitar el registro de depuración de pasos. Para más información, vea ["Habilitación del registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 
-## Creating {% data variables.product.prodname_codeql %} debugging artifacts
+## Crear artefactos de depuración de {% data variables.product.prodname_codeql %}
 
-You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
-The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow.
+Puedes obtener artefactos para que te ayuden a depurar {% data variables.product.prodname_codeql %}.
+Los artefactos de depuración se cargarán en la ejecución de flujo de trabajo como un artefacto denominado `debug-artifacts`. Los datos contienen las bitácoras de {% data variables.product.prodname_codeql %}. la(s) base(s) de datos de {% data variables.product.prodname_codeql %} y cualquier archivo SARIF que produzca el flujo de trabajo.
 
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
+Estos artefactos te ayudarán a depurar los problemas con {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. Si contactas al soporte de GitHub, podrían pedirte estos datos.
 
 {% endif %}
 
 {% ifversion codeql-action-debug-logging %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
+### Creación de artefactos de depuración de {% data variables.product.prodname_codeql %} mediante la reejecución de trabajos con el registro de depuración habilitado
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Puedes habilitar el registro de depuración y volver a ejecutar los trabajos para crear artefactos de depuración de {% data variables.product.prodname_codeql %}. Para obtener más información sobre cómo volver a ejecutar los flujos de trabajo y los trabajos de {% data variables.product.prodname_actions %}, consulta "[Volver a ejecutar flujos de trabajo y jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
 
-You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+Asegúrate de seleccionar **Habilitación del registro de depuración**. Esta opción habilita el registro de diagnóstico del ejecutor y el registro de depuración de pasos para la ejecución. A continuación, podrás descargar `debug-artifacts` para investigar más a fondo. No necesitas volver a ejecutar trabajos para modificar el archivo de flujo de trabajo al crear artefactos de depuración de {% data variables.product.prodname_codeql %}.
 
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 
-### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
+### Creación de artefactos de depuración de {% data variables.product.prodname_codeql %} mediante una marca de flujo de trabajo
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
+Puedes crear artefactos de depuración de {% data variables.product.prodname_codeql %} mediante el uso de una marca en el flujo de trabajo. Para ello, tienes que modificar el paso `init` del archivo de {% data variables.product.prodname_codeql_workflow %} y establecer `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -80,15 +81,15 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
 
 {% endif %}
 
-## Automatic build for a compiled language fails
+## Compilación automática para los fallos de un lenguaje compilado
 
-If an automatic build of code for a compiled language within your project fails, try the following troubleshooting steps.
+Si una compilación automática de código para un lenguaje compilado dentro de tu proyecto falla, intenta los siguientes pasos de solución de problemas.
 
-- Remove the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and add specific build steps. For information about editing the workflow, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)." For more information about replacing the `autobuild` step, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+- Elimine el paso `autobuild` del flujo de trabajo de {% data variables.product.prodname_code_scanning %} y agregue los pasos de compilación específicos. Para obtener información sobre cómo editar el flujo de trabajo, vea "[Configuración de {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)". Para más información sobre cómo reemplazar el paso `autobuild`, vea "[Configuración del flujo de trabajo de {% data variables.product.prodname_codeql %} para lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-- If your workflow doesn't explicitly specify the languages to analyze, {% data variables.product.prodname_codeql %} implicitly detects the supported languages in your code base. In this configuration, out of the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} only analyzes the language with the most source files. Edit the workflow and add a matrix specifying the languages you want to analyze. The default CodeQL analysis workflow uses such a matrix.
+- Si tu flujo de trabajo no especifica explícitamente los lenguajes a analizar, {% data variables.product.prodname_codeql %} detectará implícitamente los lenguajes compatibles en tu código base. En esta configuración, fuera de los lenguajes compilados C/C++, C#, {% ifversion codeql-go-autobuild %} Go{% endif %} y Java, {% data variables.product.prodname_codeql %} solo analizará el lenguaje presente en la mayoría de los archivos de origen. Edita el flujo de trabajo y agrega una matriz que especifique los lenguajes que quieres analizar. El flujo de análisis predeterminado de CodeQL utiliza dicha matriz.
 
-  The following extracts from a workflow show how you can use a matrix within the job strategy to specify languages, and then reference each language within the "Initialize {% data variables.product.prodname_codeql %}" step:
+  Los siguientes extractos de un flujo de trabajo te muestran cómo puedes utilizar una matriz dentro de la estrategia del job para especificar lenguajes, y luego hace referencia a cada uno de ellos con el paso de "Inicializar {% data variables.product.prodname_codeql %}":
 
   ```yaml
   jobs:
@@ -110,15 +111,15 @@ If an automatic build of code for a compiled language within your project fails,
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
 
-  For more information about editing the workflow, see "[Configuring code scanning](/code-security/secure-coding/configuring-code-scanning)."
+  Para más información sobre cómo editar el flujo de trabajo, vea "[Configuración del análisis de código](/code-security/secure-coding/configuring-code-scanning)".
 
-## No code found during the build
+## No se encontró código durante la compilación
 
-If your workflow fails with an error `No source code was seen during the build` or `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure:
+Si se produce un error `No source code was seen during the build` o `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32` en el flujo de trabajo, esto indica que {% data variables.product.prodname_codeql %} no ha podido supervisar el código. Hay muchas razones que podrían explicar esta falla:
 
-1. The repository may not contain source code that is written in languages supported by {% data variables.product.prodname_codeql %}. Check the list of supported languages and, if this is the case, remove the {% data variables.product.prodname_codeql %} workflow. For more information, see "[About code scanning with CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)
+1. Es posible que el repositorio no contenga código fuente escrito en lenguajes admitidos por {% data variables.product.prodname_codeql %}. Comprueba la lista de lenguajes admitidos y, si este es el caso, quita el flujo de trabajo de {% data variables.product.prodname_codeql %}. Para más información, consulta "[Acerca del examen de código con CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)".
 
-1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by updating the list of languages in the `language` matrix. For example, the following configuration will analyze only Go, and JavaScript.
+1. La detección automática del lenguaje identificó un lenguaje compatible, pero no hay código analizable en dicho lenguaje dentro del repositorio. Un ejemplo típico es cuando nuestro servicio de detección de lenguaje encuentra un archivo asociado a un lenguaje de programación específico, como un archivo `.h` o `.gyp`, pero en el repositorio no existe el código ejecutable correspondiente. Para resolver el problema, puede definir manualmente los lenguajes que quiere analizar si actualiza la lista de lenguajes en la matriz `language`. Por ejemplo, la siguiente configuración analizará únicamente a Go y a Javascript.
 
   ```yaml
   strategy:
@@ -129,49 +130,49 @@ If your workflow fails with an error `No source code was seen during the build` 
       language: ['go', 'javascript']
   ```
 
-   For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
+   Para más información, vea el extracto de flujo de trabajo en "[Error de compilación automático para un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" más arriba.
 
-1. Your {% data variables.product.prodname_code_scanning %} workflow is analyzing a compiled language (C, C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} or Java), but the code was not compiled. By default, the {% data variables.product.prodname_codeql %} analysis workflow contains an `autobuild` step, however, this step represents a best effort process, and may not succeed in building your code, depending on your specific build environment. Compilation may also fail if you have removed the `autobuild` step and did not include build steps manually.  For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
-1. Your workflow is analyzing a compiled language (C, C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} or Java), but portions of your build are cached to improve performance (most likely to occur with build systems like Gradle or Bazel). Since {% data variables.product.prodname_codeql %} observes the activity of the compiler to understand the data flows in a repository, {% data variables.product.prodname_codeql %} requires a complete build to take place in order to perform analysis.
-1. Your workflow is analyzing a compiled language (C, C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} or Java), but compilation does not occur between the `init` and `analyze` steps in the workflow. {% data variables.product.prodname_codeql %} requires that your build happens in between these two steps in order to observe the activity of the compiler and perform analysis.
-1. Your compiled code (in C, C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} or Java) was compiled successfully, but {% data variables.product.prodname_codeql %} was unable to detect the compiler invocations. The most common causes are:
+1. Tu flujo de trabajo de {% data variables.product.prodname_code_scanning %} está analizando un lenguaje compilado (C, C++, C#,{% ifversion codeql-go-autobuild %} Go {% endif %} o Java), pero el código no se compiló. De manera predeterminada, el flujo de trabajo de análisis de {% data variables.product.prodname_codeql %} contiene un paso `autobuild`, pero este paso representa un proceso de mejor esfuerzo y podría no compilar el código de forma correcta, en función del entorno de compilación específico. También se podría producir un error en la compilación si ha eliminado el paso `autobuild` y no ha incluido manualmente los pasos de compilación.  Para más información sobre cómo especificar los pasos de compilación, vea "[Configuración del flujo de trabajo de {% data variables.product.prodname_codeql %} para lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
+1. Tu flujo de trabajo está analizando un lenguaje compilado (C, C++, C#,{% ifversion codeql-go-autobuild %} Go {% endif %} o Java), pero algunas partes de tu compilación se almacenan en caché para mejorar el rendimiento (esto muy probablemente ocurra con los sistemas de compilación como Gradle o Bazel). Ya que {% data variables.product.prodname_codeql %} observa la actividad del compilador para entender los flujos de datos en un repositorio, {% data variables.product.prodname_codeql %} requiere que suceda una compilación completa para poder llevar a cabo este análisis.
+1. El flujo de trabajo analiza un lenguaje compilado (C, C++, C#,{% ifversion codeql-go-autobuild %} Go{% endif %} o Java),pero no se produce ninguna compilación entre los pasos `init` y `analyze` del flujo de trabajo. {% data variables.product.prodname_codeql %} requiere que tu compilación tome lugar entre estos dos pasos para poder observar la actividad del compilador y llevar a cabo el análisis.
+1. Tu código compilado (en C, C++, C#,{% ifversion codeql-go-autobuild %} Go{% endif %} o Java) se compiló con éxito, pero {% data variables.product.prodname_codeql %} no pudo detectar las invocaciones del compilador. Las causas más comunes son:
 
-   - Running your build process in a separate container to {% data variables.product.prodname_codeql %}. For more information, see "[Running CodeQL code scanning in a container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)."
-   - Building using a distributed build system external to GitHub Actions, using a daemon process.
-   - {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
+   - Ejecutar tu proceso de compilación en un contenedor separado a {% data variables.product.prodname_codeql %}. Para más información, vea "[Ejecución del análisis de código de CodeQL en un contenedor](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)".
+   - Compilar utilizando un sistema de compilación distribuida externo a GitHub Actions, utilizando un proceso de daemon.
+   - {% data variables.product.prodname_codeql %} no está consciente del compilador específico que estás utilizando.
 
-  For .NET Framework projects, and for C# projects using either `dotnet build` or `msbuild`, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code.
+  Para proyectos de .NET Framework y para los proyectos de C# que usen `dotnet build` o `msbuild`, tendrá que especificar `/p:UseSharedCompilation=false` en el paso `run` del flujo de trabajo, al compilar el código.
   
-  For example, the following configuration for C# will pass the flag during the first build step.
+  Por ejemplo, la siguiente configuración para C# pasará el marcador durante el primer paso de compilación.
 
    ``` yaml
    - run: |
        dotnet build /p:UseSharedCompilation=false
    ```
 
-  If you encounter another problem with your specific compiler or configuration, contact {% data variables.contact.contact_support %}.
+  Si encuentras otro problema con tu compilador específico o con tu configuración, contacta a {% data variables.contact.contact_support %}.
 
-For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+Para más información sobre cómo especificar los pasos de compilación, vea "[Configuración del flujo de trabajo de {% data variables.product.prodname_codeql %} para lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 {% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 
-## Lines of code scanned are lower than expected
+## Las líneas de código escaneado son menores de lo esperado
 
-For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
+Para los lenguajes compilados como C/C++, C#, Go y Java, {% data variables.product.prodname_codeql %} solo escanea los archivos que se compilen durante el análisis. Por lo tanto, la cantidad de líneas de código escaneado será menor de lo esperado si parte del código fuente no se compila correctamente. Esto puede ocurrir por varios motivos:
 
-1. The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository. However, sometimes this approach results in an incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not be complete since the `autobuild` step will only execute one of the commands, and therefore some source files may not be compiled.
-1. Some compilers do not work with {% data variables.product.prodname_codeql %} and can cause issues while analyzing the code. For example, Project Lombok uses non-public compiler APIs to modify compiler behavior. The assumptions used in these compiler modifications are not valid for {% data variables.product.prodname_codeql %}'s Java extractor, so the code cannot be analyzed.
+1. La característica `autobuild` de {% data variables.product.prodname_codeql %} utiliza la heurística para compilar el código de un repositorio. Sin embargo, algunas veces, este enfoque da como resultado un análisis incompleto del repositorio. Por ejemplo, cuando existen varios comandos `build.sh` en un mismo repositorio, es posible que no se complete el análisis, ya que el paso `autobuild` solo ejecutará uno de los comandos y, por tanto, algunos archivos de código fuente podrían no compilarse.
+1. Algunos compiladores no funcionan con {% data variables.product.prodname_codeql %} y pueden causar problemas cuando analizan el código. Por ejemplo, Project Lombok utiliza unas API de compilación no públicas para modificar el comportamiento del compilador. Las asunciones que se utilizan en las modificaciones de este compilador no son válidas para el extractor de Java de {% data variables.product.prodname_codeql %}, así que el código no se puede analizar.
 
-If your {% data variables.product.prodname_codeql %} analysis scans fewer lines of code than expected, there are several approaches you can try to make sure all the necessary source files are compiled.
+Si tu análisis de {% data variables.product.prodname_codeql %} escanea menos líneas de código de lo esperado, hay varios enfoques que puedes intentar para asegurarte de que todos los archivos de código fuente necesarios se compilen.
 
-### Replace the `autobuild` step
+### Reemplazo del paso `autobuild`
 
-Replace the `autobuild` step with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan.
-For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+Reemplace el paso `autobuild` con los mismos comandos de compilación que usaría en producción. Esto garantiza que {% data variables.product.prodname_codeql %} sepa exactamente cómo compilar todos los archivos de código fuente que quieras escanear.
+Para más información, vea "[Configuración del flujo de trabajo de {% data variables.product.prodname_codeql %} para lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
+### Inspecciona la copia de los archivos de código fuente en la base de datos de {% data variables.product.prodname_codeql %}
 
-You may be able to understand why some source files haven't been analyzed by inspecting the copy of the source code included with the {% data variables.product.prodname_codeql %} database. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. Para obtener la base de datos del flujo de trabajo de Acciones, modifique el paso `init` del archivo de flujo de trabajo de {% data variables.product.prodname_codeql %} y establezca `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -180,92 +181,90 @@ You may be able to understand why some source files haven't been analyzed by ins
     debug: true
 ```
 
-This uploads the database as an actions artifact that you can download to your local machine. For more information, see "[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
+Esto carga la base de datos como un artefacto de acciones que puedes descargar en tu máquina local. Para más información, vea "[Almacenamiento de artefactos de flujo de trabajo](/actions/guides/storing-workflow-data-as-artifacts)".
 
-The artifact will contain an archived copy of the source files scanned by {% data variables.product.prodname_codeql %} called _src.zip_. If you compare the source code files in the repository and the files in _src.zip_, you can see which types of file are missing. Once you know what types of file are not being analyzed, it is easier to understand how you may need to change the workflow for {% data variables.product.prodname_codeql %} analysis.
+El artefacto contendrá una copia archivada de los archivos de código fuente examinados por {% data variables.product.prodname_codeql %} denominada _src.zip_. Si compara los archivos de código fuente del repositorio con los de _src.zip_, verá qué tipos de archivo faltan. Una vez que sepas qué tipos de archivo son los que no se analizan es más fácil entender cómo podrías cambiar el flujo de trabajo para el análisis de {% data variables.product.prodname_codeql %}.
 
-## Alerts found in generated code
+## Alertas encontradas en el código generado
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-## Extraction errors in the database
+## Extracción de errores en la base de datos
 
-The {% data variables.product.prodname_codeql %} team constantly works on critical extraction errors to make sure that all source files can be scanned. However, the {% data variables.product.prodname_codeql %} extractors do occasionally generate errors during database creation. {% data variables.product.prodname_codeql %} provides information about extraction errors and warnings generated during database creation in a log file.
-The extraction diagnostics information gives an indication of overall database health. Most extractor errors do not significantly impact the analysis. A small number of extractor errors is healthy and typically indicates a good state of analysis.
+El equipo de {% data variables.product.prodname_codeql %} trabaja constantemente en los errores de extracción críticos para asegurarse de que todos los archivos de código fuente pueden escanearse. Sin embargo, los extractores de {% data variables.product.prodname_codeql %} sí generan errores durante la creación de bases de datos ocasionalmente. {% data variables.product.prodname_codeql %} proporciona información acerca de los errores de extracción y las advertencias que se generan durante la creación de bases de datos en un archivo de bitácora.
+La información de diagnóstico de extracción proporciona una indicación de la salud general de la base de datos. La mayoría de los errores del extractor no impactan el análisis significativamente. Una pequeña parte de los errores del extractor es saludable y, a menudo, indica un buen estado del análisis.
 
-However, if you see extractor errors in the overwhelming majority of files that were compiled during database creation, you should look into the errors in more detail to try to understand why some source files weren't extracted properly.
+Sin embargo, si ves errores del extractor en la vasta mayoría de archivos que se compilan durante la creación de la base de datos, deberías revisarlos a detalle para intentar entender por qué algunos archivos de código fuente no se extrajeron adecuadamente.
 
 {% else %}
 
-## Portions of my repository were not analyzed using `autobuild`
+## Algunas partes del repositorio no se han analizado con `autobuild`
 
-The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+La característica `autobuild` de {% data variables.product.prodname_codeql %} usa la heurística para compilar el código en un repositorio, pero en ocasiones este enfoque da como resultado un análisis incompleto de un repositorio. Por ejemplo, cuando existen varios comandos `build.sh` en un mismo repositorio, es posible que no se complete el análisis, ya que el paso `autobuild` solo ejecutará uno de los comandos. La solución consiste en reemplazar el paso `autobuild` con los pasos de compilación que compilarán todo el código fuente que se quiere analizar. Para más información, vea "[Configuración del flujo de trabajo de {% data variables.product.prodname_codeql %} para lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 {% endif %}
 
-## The build takes too long
+## La compilación tarda demasiado
 
-If your build with {% data variables.product.prodname_codeql %} analysis takes too long to run, there are several approaches you can try to reduce the build time.
+Si tu compilación con análisis de {% data variables.product.prodname_codeql %} toma demasiado para ejecutarse, hay varios acercamientos que puedes intentar para reducir el tiempo de compilación.
 
-### Increase the memory or cores
+### Incrementar la memoria o los núcleos
 
-If you use self-hosted runners to run {% data variables.product.prodname_codeql %} analysis, you can increase the memory or the number of cores on those runners.
+Si utilizas ejecutores auto-hospedados para ejecutar el análisis de {% data variables.product.prodname_codeql %}, puedes incrementar la memoria o la cantidad de núcleos en estos ejecutores.
 
-### Use matrix builds to parallelize the analysis
+### Utilizar matrices de compilación para paralelizar el análisis
 
-The default {% data variables.product.prodname_codeql_workflow %} uses a matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
+El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza una matriz de lenguajes, que hace que el análisis de cada uno de ellos se ejecute en paralelo. Si especificaste los lenguajes que quieres analizar directamente en el paso de "Inicializar CodeQL", el análisis de cada lenguaje ocurrirá de forma secuencial. Para agilizar el análisis de lenguajes múltiples, modifica tu flujo de trabajo para utilizar una matriz. Para más información, vea el extracto de flujo de trabajo en "[Error de compilación automático para un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" más arriba.
 
-### Reduce the amount of code being analyzed in a single workflow
+### Reducir la cantidad de código que se está analizando en un solo flujo de trabajo
 
-Analysis time is typically proportional to the amount of code being analyzed. You can reduce the analysis time by reducing the amount of code being analyzed at once, for example, by excluding test code, or breaking analysis into multiple workflows that analyze only a subset of your code at a time.
+El tiempo de análisis suele ser proporcional a la cantidad de código que se analiza. Puedes reducir el tiempo de análisis si reduces la cantidad de código que se analice en cada vez, por ejemplo, si excluyes el código de prueba o si divides el análisis en varios flujos de trabajo que analizan únicamente un subconjunto de tu código a la vez.
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 
-If you split your analysis into multiple workflows as described above, we still recommend that you have at least one workflow which runs on a `schedule` which analyzes all of the code in your repository. Because {% data variables.product.prodname_codeql %} analyzes data flows between components, some complex security behaviors may only be detected on a complete build.
+Si divide el análisis en varios flujos de trabajo como se ha descrito antes, le recomendamos que al menos tenga uno que se ejecute en una `schedule` que analice todo el código del repositorio. Ya que {% data variables.product.prodname_codeql %} analiza los flujos de datos entre componentes, algunos comportamientos de seguridad complejos podrían detectarse únicamente en una compilación completa.
 
-### Run only during a `schedule` event
+### Ejecución durante un evento `schedule`
 
-If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
+Si el análisis es demasiado lento para ejecutarse durante los eventos `push` o `pull_request`, es posible que solo quiera desencadenarlo cuando se produzca el evento `schedule`. Para más información, vea "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".
 
-### Check which query suites the workflow runs
+### Verificar qué suites de consultas ejecuta el flujo de trabajo
 
-By default, there are three main query suites available for each language. If you have optimized the CodeQL database build and the process is still too long, you could reduce the number of queries you run. The default query suite is run automatically; it contains the fastest security queries with the lowest rates of false positive results.
+Predeterminadamente, existen tres suites de consultas principales disponibles para cada lenguaje. Si optimizaste la compilación de la base de datos de CodeQL y el proceso aún es demasiado largo, podrías reducir la cantidad de consultas que ejecutas. La suite de consultas predeterminada se ejecuta automáticamente; esta contiene las consultas de seguridad más rápidas con las tasas más bajas de resultados falsos positivos.
 
-You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+Podrías estar ejecutando consultas o suites de consultas adicionales además de aquellas predeterminadas. Compruebe si el flujo de trabajo define una consulta adicional o un conjunto de consultas para ejecutarse con el elemento `queries`. Puedes probar el inhabilitar la consulta o suite de consultas adicionales. Para más información, vea "[Configuración de {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
 
-{% ifversion codeql-ml-queries %}
-{% note %}
+{% ifversion codeql-ml-queries %} {% note %}
 
-**Note:** If you run the `security-extended` or `security-and-quality` query suite for JavaScript, then some queries use experimental technology. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."
-{% endnote %}
-{% endif %}
+**Nota:** Si ejecuta el conjunto de consultas `security-extended` o `security-and-quality` para JavaScript, algunas consultas usan tecnología experimental. Para más información, vea "[Acerca de las alertas de análisis de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
+{% endnote %} {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Results differ between analysis platforms
+## Los resultados difieren de acuerdo con la plataforma de análisis
 
-If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
+Si estás analizando código escrito en Python, podrías ver resultados diferentes dependiendo de si ejecutas el {% data variables.product.prodname_codeql_workflow %} en Linux, macOS o Windows.
 
-On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)."
+En los ejecutores hospedados en GitHub que utilizan Linux, el {% data variables.product.prodname_codeql_workflow %} intenta instalar y analizar las dependencias de Python, lo cual podría llevar a más resultados. Para deshabilitar la instalación automática, agregue `setup-python-dependencies: false` al paso "Inicializar CodeQL" del flujo de trabajo. Para más información sobre cómo configurar el análisis de dependencias de Python, vea "[Análisis de dependencias de Python](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)".
 
 {% endif %}
 
-## Error: "Server error"
+## Error: "Error del servidor"
 
-If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
+Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_code_scanning %} falla debido a un error de servidor, trata de ejecutar el flujo de trabajo nuevamente. Si el problema persiste, contaca a {% data variables.contact.contact_support %}.
 
-## Error: "Out of disk" or "Out of memory"
+## Error: "Espacio en disco insuficiente" o "Memoria insuficiente"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% ifversion fpt or ghec %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
-{% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
+En proyectos muy grandes, {% data variables.product.prodname_codeql %} podría quedarse sin memoria o espacio de disco en el ejecutor.
+{% ifversion fpt or ghec %}Si se produce esta incidencia en un ejecutor hospedado en {% data variables.product.prodname_actions %}, póngase en contacto con {% data variables.contact.contact_support %} para que podamos investigar el problema.
+{% else %}Si llegas a tener este problema, intenta incrementar la memoria en el ejecutor.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Error: 403 "Resource not accessible by integration" when using {% data variables.product.prodname_dependabot %}
+## Error:403 "No se puede acceder al recurso por integración" al utilizar {% data variables.product.prodname_dependabot %}
 
-{% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, and the workflow will run with read-only scopes. Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+El {% data variables.product.prodname_dependabot %} se considera no confiable cuando activa una ejecución de flujo de trabajo y este se ejecutará con un alcance de solo lectura. Para cargar resultados de {% data variables.product.prodname_code_scanning %} en una rama normalmente se necesita el ámbito `security_events: write`. Pero {% data variables.product.prodname_code_scanning %} siempre permite que se carguen los resultados cuando el evento `pull_request` desencadena la ejecución de la acción. Por este motivo, para las ramas de {% data variables.product.prodname_dependabot %}, se recomienda usar el evento `pull_request` en lugar del evento `push`.
 
-A simple approach is to run on pushes to the default branch and any other important long-running branches, as well as pull requests opened against this set of branches:
+Un enfoque simple es ejecutar las subidas a la rama predeterminada y cualquier otra rama que se ejecute a la larga, así como las solicitudes de cambio que se abren contra este conjunto de ramas:
 
 ```yaml
 on:
@@ -277,7 +276,7 @@ on:
       - main
 ```
 
-An alternative approach is to run on all pushes except for {% data variables.product.prodname_dependabot %} branches:
+Un enfoque alternativo es ejecutar todas las subidas con excepción de las ramas del {% data variables.product.prodname_dependabot %}:
 
 ```yaml
 on:
@@ -287,28 +286,28 @@ on:
   pull_request:
 ```
 
-### Analysis still failing on the default branch
+### Error persistente de análisis en la rama predeterminada
 
-If the {% data variables.product.prodname_codeql_workflow %} still fails on a commit made on the default branch, you need to check:
+Si el {% data variables.product.prodname_codeql_workflow %} aún falla en una confirmación que se hizo en una rama predeterminada, debes verificar:
 
-- whether {% data variables.product.prodname_dependabot %} authored the commit
-- whether the pull request that includes the commit has been merged using `@dependabot squash and merge`
+- si el {% data variables.product.prodname_dependabot %} fue el autor de la confirmación
+- si la solicitud de incorporación de cambios que incluye la confirmación se ha combinado mediante `@dependabot squash and merge`
 
-This type of merge commit is authored by {% data variables.product.prodname_dependabot %} and therefore, any workflows running on the commit will have read-only permissions. If you enabled {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} security updates or version updates on your repository, we recommend you avoid using the {% data variables.product.prodname_dependabot %} `@dependabot squash and merge` command. Instead, you can enable auto-merge for your repository. This means that pull requests will be automatically merged when all required reviews are met and status checks have passed. For more information about enabling auto-merge, see "[Automatically merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)."
+Este tipo de confirmación por fusión tiene como autor al {% data variables.product.prodname_dependabot %} y, por lo tanto, cualquier flujo de trabajo que se ejecute en la confirmación tendrá permisos de solo lectura. Si ha habilitado las actualizaciones de seguridad o de versión de {% data variables.product.prodname_code_scanning %} y {% data variables.product.prodname_dependabot %} en el repositorio, se recomienda evitar el uso del comando `@dependabot squash and merge` de {% data variables.product.prodname_dependabot %}. En su lugar, puede habilitar la combinación automática para el repositorio. Esto significa que las solicitudes de incorporación de cambios se combinarán automáticamente cuando se cumplan todas las revisiones necesarias y se hayan superado las comprobaciones de estado. Para más información sobre cómo habilitar la combinación automática, vea "[Combinación automática de una solicitud de incorporación de cambios](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)".
 {% endif %}
 
-## Error: "is not a .ql file, .qls file, a directory, or a query pack specification"
+## Error: "no es un archivo .ql, un archivo .qls, un directorio o una especificación del paquete de consultas"
 
-You will see this error if CodeQL is unable to find the named query, query suite, or query pack at the location requested in the workflow. There are two common reasons for this error.
+Verás este error si CodeQL no encuentra la consulta con nombre, el conjunto de consultas o el paquete de consultas en la ubicación solicitada en el flujo de trabajo. Hay dos motivos habituales por los que se puede producir este error.
 
-- There is a typo in the workflow.
-- A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
+- Hay un error tipográfico en el flujo de trabajo.
+- Un recurso al que hace referencia el flujo de trabajo por la ruta de acceso se cambió de nombre, eliminó o movió a una nueva ubicación.
 
-After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+Después de comprobar la ubicación del recurso, puedes actualizar el flujo de trabajo para especificar la ubicación correcta.
 
-## Warning: "git checkout HEAD^2 is no longer necessary"
+## Advertencia: "git checkout HEAD^2 ya no es necesario"
 
-If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
+Si estás utilizando un flujo de trabajo de {% data variables.product.prodname_codeql %} antiguo, podrías obtener el siguiente mensaje de advertencia en la salida "inicializar {% data variables.product.prodname_codeql %}" de la acción:
 
 ```
 Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
@@ -316,7 +315,7 @@ necessary. Please remove this step as Code Scanning recommends analyzing the mer
 commit for best results.
 ```
 
-Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+Puedes arreglar esto si eliminas las siguientes líneas del flujo de trabajo de {% data variables.product.prodname_codeql %}. Estas líneas se han incluido en la sección `steps` del trabajo `Analyze` en las versiones iniciales del flujo de trabajo de {% data variables.product.prodname_codeql %}.
 
 ```yaml
         with:
@@ -330,7 +329,7 @@ Fix this by removing the following lines from the {% data variables.product.prod
         if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
-The revised `steps` section of the workflow will look like this:
+La sección revisada `steps` del flujo de trabajo tendrá el siguiente aspecto:
 
 ```yaml
     steps:
@@ -344,4 +343,4 @@ The revised `steps` section of the workflow will look like this:
       ...
 ```
 
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+Para más información sobre cómo editar el archivo de flujo de trabajo de {% data variables.product.prodname_codeql %}, vea "[Configuración de {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)".

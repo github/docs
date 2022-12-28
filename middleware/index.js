@@ -11,7 +11,10 @@ import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
+import {
+  setDefaultFastlySurrogateKey,
+  setLanguageFastlySurrogateKey,
+} from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -38,11 +41,11 @@ import triggerError from './trigger-error.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
+import glossaries from './contextualizers/glossaries.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import productGroups from './contextualizers/product-groups.js'
@@ -56,7 +59,6 @@ import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
-import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
@@ -189,7 +191,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
@@ -236,6 +237,10 @@ export default function (app) {
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
 
+  // Things like `/api` sets their own Fastly surrogate keys.
+  // Now that the `req.language` is known, set it for the remaining endpoints
+  app.use(setLanguageFastlySurrogateKey)
+
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
@@ -260,7 +265,6 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
-  app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
   app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
@@ -269,6 +273,7 @@ export default function (app) {
   app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
+  app.use(instrument(glossaries, './contextualizers/glossaries'))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))

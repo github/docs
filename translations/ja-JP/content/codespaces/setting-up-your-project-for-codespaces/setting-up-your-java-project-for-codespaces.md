@@ -1,9 +1,8 @@
 ---
-title: Setting up your Java project for GitHub Codespaces
+title: GitHub Codespaces 用に Java プロジェクトを設定する
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up with your Java project
-intro: 'Get started with your Java project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'カスタム開発コンテナを作成して、{% data variables.product.prodname_github_codespaces %} で Java プロジェクトを始めます。'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
 versions:
@@ -13,50 +12,52 @@ topics:
   - Codespaces
 hasExperimentalAlternative: true
 hidden: true
+ms.openlocfilehash: b861744483f61bc01e8069188c1ce6298411d57e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158766'
 ---
+## はじめに
 
-## Introduction
+このガイドでは、Java プロジェクトの設定方法を紹介します {% data reusables.codespaces.setting-up-project-intro %}
 
-This guide shows you how to set up your Java project in {% data variables.product.prodname_github_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+### 前提条件
 
-### Prerequisites
+- {% data variables.product.prodname_dotcom_the_website %} のリポジトリに既存の Java プロジェクトがあります。 プロジェクトがない場合は、次の例を使用してこのチュートリアルを試すことができます: https://github.com/microsoft/vscode-remote-try-java
+- Organization で {% data variables.product.prodname_github_codespaces %} を有効にする必要があります。
 
-- You should have an existing Java project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-java
-- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
+## ステップ 1: codespace でプロジェクトを開く
 
-## Step 1: Open your project in a codespace
+1. リポジトリ名の下で、 **{% octicon "code" aria-label="The code icon" %} コード** のドロップダウン メニューを使用し、 **[Codespaces]** タブでプラス記号 {% octicon "plus" aria-label="The plus icon" %} をクリックします。
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+  ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-  If you don’t see this option, {% data variables.product.prodname_github_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces) for more information.
-
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and Yarn. It also includes a set of commonly used tools such as git, wget, rsync, openssh, and nano.
+codespace を作成すると、プロジェクトは専用のリモート VM 上に作成されます。 既定では、codespace のコンテナーには、Java、nvm、npm、Yarn を含む多くの言語とランタイムがあります。 また、git、wget、rsync、openssh、nano など、一般的に使用されているツールが含まれています。
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## Step 2: Add a dev container configuration to your repository from a template
+## ステップ 2: テンプレートからリポジトリに開発コンテナーの構成を追加する
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest Java version, package managers (Maven, Gradle), and other common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
+{% data variables.product.prodname_github_codespaces %} の既定の開発コンテナー ("dev コンテナー") には、Java の最新バージョン、パッケージ マネージャー (Maven、Gradle)、その他の一般的なツールがプレインストールされています。 ただし、独自の開発コンテナーを構成して、プロジェクトに必要なすべてのツールとスクリプトを含めることをお勧めします。 これにより、リポジトリのすべての {% data variables.product.prodname_github_codespaces %} ユーザーに対して、完全に再現可能な環境が保証されます。
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. For this example, click **Java**. In practice, you could select any container that’s specific to Java or a combination of tools such as Java and Azure Functions.
-  ![Select Java option from the list](/assets/images/help/codespaces/add-java-prebuilt-container.png)
-1. Click the recommended version of Java.
-  ![Java version selection](/assets/images/help/codespaces/add-java-version.png)
-{% data reusables.codespaces.rebuild-command %}
+1. この例では、 **[Java]** をクリックします。 実際には、Java に固有の任意のコンテナ、または Java と Azure Functions などのツールの組み合わせを選択できます。
+  ![一覧から [Java] オプションを選びます](/assets/images/help/codespaces/add-java-prebuilt-container.png)
+1. Java の推奨バージョンをクリックします。
+  ![Java のバージョンの選択](/assets/images/help/codespaces/add-java-version.png) {% data reusables.codespaces.rebuild-command %}
 
-### Anatomy of your dev container
+### 開発コンテナの構造
 
-Adding the Java dev container template adds a `.devcontainer` directory to the root of your project's repository with the following files:
+Java 開発コンテナー テンプレートを追加すると、次のファイルを含む `.devcontainer` ディレクトリが、プロジェクトのリポジトリのルートに追加されます。
 
 - `devcontainer.json`
 - Dockerfile
 
-The newly added `devcontainer.json` file defines a few properties that are described after the sample.
+新しく追加された `devcontainer.json` ファイルでは、サンプルの後に説明されるいくつかのプロパティを定義します。
 
 #### devcontainer.json
 
@@ -64,55 +65,55 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.159.0/containers/java
 {
-	"name": "Java",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			// Update the VARIANT arg to pick a Java version: 11, 14
-			"VARIANT": "11",
-			// Options
-			"INSTALL_MAVEN": "true",
-			"INSTALL_GRADLE": "false",
-			"INSTALL_NODE": "false",
-			"NODE_VERSION": "lts/*"
-		}
-	},
+    "name": "Java",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Update the VARIANT arg to pick a Java version: 11, 14
+            "VARIANT": "11",
+            // Options
+            "INSTALL_MAVEN": "true",
+            "INSTALL_GRADLE": "false",
+            "INSTALL_NODE": "false",
+            "NODE_VERSION": "lts/*"
+        }
+    },
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"java.home": "/docker-java-home",
-		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "java.home": "/docker-java-home",
+        "maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
+    },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"vscjava.vscode-java-pack"
-	],
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "vscjava.vscode-java-pack"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "java -version",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
 ```
 
-- **name** - You can name your dev container anything, this is just the default.
-- **build** - The build properties.
-  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+- **name** - 開発コンテナーには任意の名前を付けることができます。これは既定値です。
+- **build** - ビルドのプロパティ。
+  - **dockerfile** - `build` オブジェクトの `dockerfile` には、やはりテンプレートから追加された Dockerfile へのパスが含まれます。
   - **args**
-    - **variant**: This file only contains one build argument, which is the Java version that is passed into the Dockerfile.
-- **settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
-  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
-- **extensions** - These are extensions included by default.
-  - **vscjava.vscode-java-pack** - The Java Extension Pack provides popular extensions for Java development to get you started.
-- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
-- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
-- **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
+    - **variant**: このファイルには、Dockerfile に渡される Java のバージョンであるビルド引数が 1 つだけ含まれています。
+- **settings** - これらは、ユーザーが設定できる {% data variables.product.prodname_vscode %} の設定です。
+  - **terminal.integrated.shell.linux** - ここでは bash が既定値ですが、これを変更すると他のターミナル シェルを使用できます。
+- **extensions** - これらは既定で含まれる拡張機能です。
+  - **vscjava.vscode-java-pack** - Java Extension Pack は、Java 開発を始めるための一般的な機能拡張を提供します。
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。
+- **postCreateCommand** - codespace が作成された後に、Dockerfile で定義されていないコマンドを実行するには、これを使います。
+- **remoteUser** - 既定では、`vscode` ユーザーとして実行されていますが、必要に応じてこれを `root` に設定することができます。
 
 #### Dockerfile
 
@@ -142,17 +143,17 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, Java versions, or global packages we want included in our container.
+Dockerfile を使って、新しいコンテナー レイヤーを追加し、コンテナーに含める OS パッケージ、Java のバージョン、またはグローバル パッケージを指定できます。
 
-## Step 3: Modify your devcontainer.json file
+## ステップ 3: devcontainer.json ファイルを変更する
 
-With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
+開発コンテナーの構成を追加し、すべての機能を基本的に理解したので、変更を行って環境をさらにカスタマイズできます。 この例では、コードスペースの起動時に拡張機能とプロジェクトの依存関係をインストールするためのプロパティを追加します。
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to expand the `.devcontainer` folder to see it.
+1. エクスプローラーで、ツリーから `devcontainer.json` ファイルを選択してそれを開きます。 表示するには、`.devcontainer` フォルダーを展開する必要がある場合があります。
 
-   ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+   ![エクスプローラーの devcontainer.json ファイル](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. Add the following lines to your `devcontainer.json` file after `extensions`.
+2. `devcontainer.json` ファイルの `extensions` の後に、次の行を追加します。
 
    ```json{:copy}
    "postCreateCommand": "npm install",
@@ -165,22 +166,22 @@ With your dev container configuration added and a basic understanding of what ev
 
    {% data reusables.codespaces.rebuild-reason %}
 
-## Step 4: Run your application
+## 手順 4:アプリケーションを実行する
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via npm. You can now use this to run our application with npm.
+前のセクションでは、`postCreateCommand` 使って、一連のパッケージを npm でインストールしました。 これを使用して、npm でアプリケーションを実行できます。
 
-1. Run your application by pressing `F5`.
+1. `F5` キーを押してアプリケーションを実行します。
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. プロジェクトが開始されると、{% data variables.product.prodname_vscode_shortname %} の右下隅に "トースト" 通知メッセージが表示されるはずです。プロジェクトで使用されるポートに接続するように促されます。
 
-   ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+   ![ポート転送の "トースト" 通知](/assets/images/help/codespaces/codespaces-port-toast.png)
 
-## Step 5: Commit your changes
+## ステップ 5: 変更をコミットする
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-## Next steps
+## 次のステップ
 
-You should now be ready start developing your Java project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
+これで、Java で {% data variables.product.prodname_github_codespaces %} プロジェクトの開発を始める準備ができました。 より高度なシナリオ向けの追加のリソースは次のとおりです。
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

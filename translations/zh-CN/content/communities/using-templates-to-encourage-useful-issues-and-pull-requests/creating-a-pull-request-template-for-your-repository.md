@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Create a PR template
-ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fa4d3cf78b63af147c85b8f6d77d7cca74e3853a
+ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145086515'
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190406'
 ---
 有关详细信息，请参阅“[关于问题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
 
@@ -39,7 +39,7 @@ ms.locfileid: '145086515'
   ![文档目录中的新拉取请求模板](/assets/images/help/repository/pr-template-file-name-docs.png)
     - 若要将文件存储在隐藏目录中，请将拉取请求模板命名为 `.github/pull_request_template.md`。
   ![隐藏目录中的新拉取请求模板](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - 若要创建多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板，请键入“.github/PULL_REQUEST_TEMPLATE/”，后跟拉取请求模板的名称。 例如，`.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`。 也可以在根目录或 `docs/` 目录的 `PULL_REQUEST_TEMPLATE` 子目录中存储多个拉取请求模板。 有关详细信息，请参阅“[关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
+    - 若要创建多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板，请键入“.github/PULL_REQUEST_TEMPLATE/”，后跟拉取请求模板的名称。 例如，`.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`。 也可以在根目录或 `docs/` 目录的 `PULL_REQUEST_TEMPLATE` 子目录中存储多个拉取请求模板。 有关详细信息，请参阅“[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)”。
   ![隐藏目录中新的多拉取请求模板](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
 4. 在新文件的正文中，添加您的拉取请求模板。 这可能包括：
     - 存储库中[对相关问题的引用](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。

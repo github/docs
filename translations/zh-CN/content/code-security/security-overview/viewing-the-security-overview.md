@@ -1,8 +1,9 @@
 ---
-title: Viewing the security overview
-intro: Navigate to the different views available in the security overview
+title: 查看安全概述
+intro: 导航到安全概述中提供的不同视图
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
+allowTitleToDifferFromFilename: true
 versions:
   ghae: '>= 3.4'
   ghes: '*'
@@ -15,60 +16,45 @@ topics:
   - Organizations
   - Teams
 shortTitle: View the security overview
+ms.openlocfilehash: bc802d290406bb4e480050ee21bb7a4687475d97
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163217'
 ---
-
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
 {% data reusables.security-overview.information-varies-GHAS %}
 
-## Viewing the security overview for an organization
+## 查看组织的安全概述
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. To view aggregate information about alert types, click **Show more**.
-  ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
-{% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-views %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% data reusables.security-overview.beta-org-risk-coverage %}
 
-## Viewing alerts across your organization
+{% ifversion security-overview-org-risk-coverage %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. 从边栏中的选项中选择要显示的概述。
+1. 使用下拉筛选器和搜索框专注于最感兴趣的信息。 “安全风险”和“安全覆盖范围”视图还具有可用于筛选结果的交互式标头。
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. In the security sidebar, select the subset of alerts you want to view.
-![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
-2. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-  ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+  ![“安全风险”视图的屏幕截图，其中突出显示了交互式标头](/assets/images/help/security-overview/security-risk-interactive-header.png)
+
+{% else %}
+
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. 要查看有关警报类型的汇总信息，请单击“显示更多”。
+  ![显示更多按钮](/assets/images/help/security-overview/security-overview-show-more-button.png) {% data reusables.organizations.filter-security-overview %} {% ifversion security-overview-alert-views %} {% data reusables.organizations.security-overview-feature-specific-page %} ![代码扫描特定页面的屏幕截图](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png) {% endif %}
+
+{% endif %}
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-## Viewing the security overview for an enterprise
+## 查看企业的安全概述
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
-{% ifversion security-overview-feature-specific-alert-page %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-{% endif %}
-{% endif %}
-
-## Viewing alerts for a repository
-
-{% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Security**.
-  ![Repository security tab](/assets/images/help/repository/security-tab.png)
-2. In the security sidebar, select the view you want to open.
-  ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
-3. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-  ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+1. 在左侧边栏中，单击 {% octicon "shield" aria-label="The shield icon" %}“代码安全”。
+{% ifversion security-overview-feature-specific-alert-page %} {% data reusables.organizations.security-overview-feature-specific-page %} {% endif %}
 
 {% endif %}
 
-## Viewing the security overview for a team
+{% ifversion ghes < 3.7 or ghae < 3.7 %}
+## 查看团队的安全概述
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-security-overview %} {% data reusables.organizations.filter-security-overview %} {% endif %}

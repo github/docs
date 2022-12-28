@@ -7,13 +7,13 @@ versions:
   feature: projects-v2
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 1dfb11e43de04bd55f544a9fb97a0a9346a22d96
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109957'
+ms.locfileid: "148109957"
 ---
 Puedes filtrar por los campos de selección única si especificas la opción, por ejemplo: `fieldname:option`. Puedes filtrar por varios valores si proporcionas una lista de opciones separadas por comas, por ejemplo: `fieldname:option,option`. Para obtener más información, consulta "[Filtrar proyectos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)".
 

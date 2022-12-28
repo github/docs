@@ -19,12 +19,12 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 6289b83d40aecf5208ae377be953ca65baba4a7d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 12bc44b7d81df55366f8b839261cf8899a53729d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147877169'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183994'
 ---
 ## 关于搜索企业审核日志
 
@@ -85,6 +85,7 @@ ms.locfileid: '147877169'
 `org_id`       | 受操作影响的组织的 ID（若适用）
 `business` | 受操作影响的企业名（若适用）
 `business_id` | 受操作影响的企业 ID（若适用）
+{%- ifversion token-audit-log %} `hashed_token` | 用于对操作进行身份验证的令牌（如果适用，请参阅“[标识由访问令牌执行的审核日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)”）{%- endif %}
 
 要查看按类别分组的操作，还可以将操作限定符用作 `key:value` 对。 有关详细信息，请参阅“[基于执行的操作进行搜索](#search-based-on-the-action-performed)”。
 
@@ -113,6 +114,7 @@ ms.locfileid: '147877169'
 可在企业审核日志中找到的操作按以下类别分组：
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### 基于操作时间搜索
 
 使用 `created` 限定符可以根据事件发生的时间筛选审核日志中的事件。
@@ -135,3 +137,9 @@ ms.locfileid: '147877169'
   * `country:de` 查找在德国发生的所有事件。
   * `country:Mexico` 查找在墨西哥发生的所有事件。
   * `country:"United States"` 查找在美国发生的所有事件。
+
+{% ifversion token-audit-log %}
+### 根据执行操作的令牌进行搜索
+
+使用 `hashed_token` 限定符根据执行操作的令牌进行搜索。 必须先生成 SHA-256 哈希，然后才能搜索令牌。 有关详细信息，请参阅“[标识由访问令牌执行的审核日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)”。
+{% endif %}

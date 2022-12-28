@@ -1,0 +1,97 @@
+date: '2020-10-09'
+sections:
+  security_fixes:
+    - '**中**: "DSA-4715-1" (https://www.debian.org/security/2020/dsa-4715) に対処するために ImageMagick がアップデートされました。 {% comment %} https://github.com/github/enterprise2/pull/22623、https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'OAuth アクセス トークンをリフレッシュするための GitHub App 統合からの要求は、リフレッシュ トークンの作成に使用されたものとは異なる有効な OAuth クライアント ID とクライアント シークレットで送信された場合に受け付けられます。 {% comment %} https://github.com/github/github/pull/154921、https://github.com/github/github/pull/154423、https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
+    - 'LDAP ディレクトリのユーザー名が既存の GHES アカウントのログインに標準化されたユーザーが、既存のアカウントとして認証されることがありました。 {% comment %} https://github.com/github/github/pull/156513、https://github.com/github/github/pull/155512 {% endcomment %}'
+    - 'パッケージが最新のセキュリティ バージョンに更新されました。 {% comment %} https://github.com/github/enterprise2/pull/22912、https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+
+  bugs:
+    - |管理コンソールの [NameID 形式] ドロップダウンが "persistent" に設定された後に、"unspecified" にリセットされます。 {% comment %} https://github.com/github/enterprise2/pull/22376、https://github.com/github/enterprise2/pull/22331、https://github.com/github/enterprise2/issues/13446 {% endcomment %}
+
+|
+    - |ホットパッチを使用したアップグレードは、"''libdbi1'' が見つかりませんでした" というエラーで失敗する場合がありました。 {% comment %} https://github.com/github/enterprise2/pull/22557、https://github.com/github/enterprise2/pull/22552 {% endcomment %}
+
+|
+    - |"管理コンソール" (/admin/configuration/accessing-the-management-console) で設定を保存すると、TLS/SSL 証明書およびキー (/admin/configuration/configuring-tls) ファイルに改行が追加され、一部のサービスの不要な再ロードがトリガーされます。 {% comment %} https://github.com/github/enterprise2/pull/22570、https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+
+|
+    - |依存関係グラフのシステム ログがローテーションされないため、ストレージが無制限に増大していました。 {% comment %} https://github.com/github/enterprise2/pull/22767、https://github.com/github/enterprise2/pull/22733 {% endcomment %}
+
+|
+    - |レプリカが選択された場合でも、MS SQL Server のパフォーマンス グラフには、プライマリ インスタンスからの統計が表示されていました。 {% comment %} https://github.com/github/enterprise2/pull/22778、https://github.com/github/enterprise2/pull/22750 {% endcomment %}
+
+|
+    - |''ghe-actions-precheck'' は、Actions が有効ではない場合、ストレージ チェックを実行することなく、何も返さずに終了します。 {% comment %} https://github.com/github/enterprise2/pull/22787、https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+
+|
+    - |Resque のワーカーのオーバーライド設定が使用されている場合、アップグレードに失敗することがありました。 {% comment %} https://github.com/github/enterprise2/pull/22836、https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+
+|
+    - |コンテナー内で実行されている一部のサービスでは、ジャーナルにログが送信されていませんでした。 {% comment %} https://github.com/github/enterprise2/pull/22994、https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+
+|
+    - |GitHub セキュリティ アドバイザリへのリンクで、GitHub.com ではなく GitHub Enterprise Server インスタンスのホスト名を含む URL が使用され、ユーザーが存在しない URL にダイレクトされます。 {% comment %} https://github.com/github/github/pull/153316、https://github.com/github/github/pull/151301 {% endcomment %}
+
+|
+    - |''ghe-migrator'' でリポジトリをインポートする場合、整合しないデータが存在していると予期しない例外が発生することがありました。 {% comment %} https://github.com/github/github/pull/153850、https://github.com/github/github/pull/151552 {% endcomment %}
+
+|
+    - |使用中の認証モードで組み込みの 2 要素認証がサポートされていない場合、Enterprise アカウントのセキュリティ設定ページに、[2 要素認証] 設定の [Organization の現在の構成を表示する] リンクが表示されていました。 {% comment %} https://github.com/github/github/pull/153860 {% endcomment %}
+
+|
+    - |OAuth 更新トークンは予定より早く削除されることになりました。 {% comment %} https://github.com/github/github/pull/154271、https://github.com/github/github/pull/153694 {% endcomment %}
+
+|
+    - |検索修復タスクでは、構成の移行フェーズで例外が生成されます。 {% comment %} https://github.com/github/github/pull/154573、https://github.com/github/github/pull/153392 {% endcomment %}
+
+|
+    - |一部の環境では、GitHub Apps の設定ページで [ベータ機能] が表示されていませんでした。 {% comment %} https://github.com/github/github/pull/154612、https://github.com/github/github/pull/154417 {% endcomment %}
+
+|
+    - |''ghe-migrator'' を使用して PR レビュー リクエストをインポートする場合、削除されたユーザーに関連付けられたレコードによって、関係性を持たないデータベース レコードが生成されます。 {% comment %} https://github.com/github/github/pull/154960、https://github.com/github/github/pull/153169 {% endcomment %}
+
+|
+    - |''ghe-migrator'' を使用してユーザーをインポートする際、システムによって生成されたメール アドレスが 100 文字を超える場合、"メールが無効" エラーが発生します。 {% comment %} https://github.com/github/github/pull/155109、https://github.com/github/github/pull/152418 {% endcomment %}
+
+|
+    - |Webhook アクティビティのログで大量のディスク領域が使用されると、ルート ディスクがいっぱいになってしまいます。 {% comment %} https://github.com/github/github/pull/155657、https://github.com/github/github/pull/154100 {% endcomment %}
+
+|
+    - |読み取りが他のノードに転送されるため、高可用性レプリカのインスタンスで、Git のクローンおよびフェッチの速度が低下します。 {% comment %} https://github.com/github/github/pull/156195、https://github.com/github/github/pull/156016、https://github.com/github/spokesd/issues/746 {% endcomment %}
+
+|
+    - |ユーザーまたは Organization の GitHub Pages サイトのためのリポジトリの [設定] ページが "500 内部サーバー エラー" で失敗します。 {% comment %} https://github.com/github/github/pull/156439、https://github.com/github/github/issues/156183 {% endcomment %}
+
+|
+    - |リポジトリ ネットワークのメンテナンス操作が、''running'' の状態で停止することがありました。 {% comment %} https://github.com/github/github/pull/156669、https://github.com/github/github/pull/156036 {% endcomment %}
+
+|
+    - |コード スキャン結果をアップロードした直後にリポジトリを削除すると、すべてのリポジトリのコード スキャン結果の処理が停止することがありました。 {% comment %} https://github.com/github/github/pull/157063、https://github.com/github/github/pull/156437 {% endcomment %}
+
+|
+    - |大量のコード スキャン結果が同時に送信されると、バッチ処理がタイムアウトし、コード スキャン結果の処理が停止することがありました。 {% comment %} https://github.com/github/github/pull/157065、https://github.com/github/github/pull/156462 {% endcomment %}
+
+|
+    - |"マニフェストからの GitHub Apps の作成" (https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) が失敗します。 {% comment %} https://github.com/github/github/pull/157133、https://github.com/github/github/pull/156904、https://github.com/github/enterprise2/issues/22849 {% endcomment %}
+
+|
+    - |SAML 認証を使用しており、GitHub のユーザー名が管理コンソールの ''username'' フィールドにマップされた属性の値と一致しない場合に、GitHub のユーザー名が誤って変更されていました。 {% comment %} https://github.com/github/github/pull/158131、https://github.com/github/github/pull/157936、https://github.com/github/external-identities/issues/335 {% endcomment %}
+
+|
+  changes:
+    - "AWS EC2 のインスタンスの種類 'm5.16xlarge' のサポートが追加されました。 {% comment %} https://github.com/github/enterprise2/pull/22502、https://github.com/github/enterprise2/pull/22473 {% endcomment %}"
+    - "'ghe-migrator' アーカイブの SSH フィンガープリントはいつでも計算できるため、要件が削除されます。 {% comment %} https://github.com/github/github/pull/156946、https://github.com/github/github/pull/155387 {% endcomment %}"
+    - "GitHub App マニフェストに 'request_oauth_on_install' フィールドが含まれるようになりました。 {% comment %} https://github.com/github/github/pull/156991、https://github.com/github/github/pull/155010、https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}"
+
+  known_issues:
+    - "新たにセットアップされ、ユーザーがいない GitHub Enterprise Server では、攻撃者が最初の管理者ユーザーを作成することができました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Git LFS 追跡ファイル (\"Web インターフェイスからアップロードされたファイル\" (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "元のバックアップ ソースで GitHub Actions が有効化されていない場合、GitHub Actions が有効化されているインスタンスにデータを復元すると、構成の更新に失敗します。{% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}"
+    - "2.22.0 を実行しているインスタンスで以前に GitHub Actions が有効化されており、2.22.1 にアップグレードすると、GitHub Actions の起動に失敗することがあります (2020-10-23 更新) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}"
+    - "新たに設定した 2.22.1 インスタンスで、または 2.22.1 にアップグレードした後、Organization のダッシュボード上のアクティビティ フィードは更新されなくなります。(2020-10-27 更新) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "監査ログが、実際のソース IP アドレスではなく、127.0.0.1 に起因する場合があります。(2020-11-02 更新) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "高可用性構成でレプリカ ノードがオフラインの場合でも、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求がオフライン ノードにルーティングされ、ユーザーの {% data variables.product.prodname_pages %} の可用性が低減される可能性があります。"

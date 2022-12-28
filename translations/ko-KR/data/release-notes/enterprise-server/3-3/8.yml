@@ -1,0 +1,34 @@
+date: '2022-05-17'
+sections:
+  security_fixes:
+    - '**보통:** nginx 해결 프로그램에서 보안 이슈가 확인되었습니다. 여기에서 DNS 서버의 UDP 패킷을 위조할 수 있는 공격자가 1바이트 메모리 덮어쓰기를 유발하여 작업자 프로세스 충돌 또는 기타 잠재적인 손상을 일으킬 수 있습니다. 이 취약성에는 [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017)이 할당되었습니다.'
+    - "[Git 보안 적용 블로그 게시물](https://github.blog/2022-04-12-git-security-vulnerability-announced/)에 발표된 새로운 취약성을 해결하기 위해 `actions/checkout@v2` 및 `actions/checkout@v3` 작업이 업데이트되었습니다."
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - 일부 클러스터 토폴로지에서 `ghe-cluster-status` 명령이 `/tmp`에 빈 디렉터리를 남겼습니다.
+    - "SNMP가 많은 수의 'Cannot statfs' 오류 메시지를 syslog에 잘못 로깅했습니다."
+    - "SAML 인증 및 기본 제공 대체가 사용 설정된 인스턴스의 경우 기본 제공 사용자는 로그아웃한 후 생성된 페이지에서 로그인을 시도할 때 \"로그인\" 루프에 갇히게 됩니다."
+    - "`/stafftools/repositories/:owner/:repo/disk` 페이지에서 `git fsck` 출력을 보려고 하면 `500 내부 서버 오류`로 실패합니다."
+    - SAML 암호화된 어설션을 사용할 때 일부 어설션이 SSH 키를 확인된 것으로 올바르게 표시하지 않았습니다.
+    - 문제 주석을 위해 업로드된 비디오는 제대로 렌더링되지 않습니다.
+    - 리포지토리 페이지에서 파일 찾기를 사용할 때 검색 필드 내에 백스페이스 키를 입력하면 검색 결과가 여러 번 나열되고 렌더링 문제가 발생합니다.
+    - GitHub Enterprise Importer를 사용하여 리포지토리를 가져올 때 일부 이슈는 잘못 구성된 프로젝트 타임라인 이벤트로 인해 가져오지 못할 수 있습니다.
+    - "`ghe-migrator`를 사용하면 마이그레이션이 문제 및 끌어오기 요청에서 비디오 파일 첨부 파일을 가져오지 못합니다."
+    - '리포지토리에 ASCII가 아닌 문자가 포함된 태그가 있는 경우 릴리스 페이지에서 500 오류를 반환합니다. [업데이트 날짜: 2022-06-10]'
+  changes:
+    - 고가용성 구성에서 관리 콘솔의 복제 개요 페이지는 현재 복제 상태가 아닌 현재 복제 구성만 표시한다는 점을 명시합니다.
+    - "{% data variables.product.prodname_registry %}를 사용 설정한 경우 연결 문자열로 SAS(공유 액세스 서명) 사용은 현재 지원되지 않음을 명시합니다."
+    - 이제 지원 번들에 MySQL에 저장된 테이블의 행 수가 포함됩니다.
+    - 유지 보수를 예약할 리포지토리 네트워크를 결정할 때 연결할 수 없는 개체의 크기를 더 이상 계산하지 않습니다.
+    - "이제 `run_started_at` 응답 필드가 [워크플로 실행 API](/rest/actions/workflow-runs) 및 `workflow_run` 이벤트 웹후크 페이로드에 포함됩니다."
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3으로 업그레이드한 후 {% data variables.product.prodname_actions %}가 자동으로 시작되지 않을 수도 있습니다. 이 이슈를 해결하려면 SSH를 통해 어플라이언스에 연결하고 `ghe-actions-start` 명령을 실행하세요."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - "{% data variables.product.prodname_github_connect %}에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 {% data variables.product.prodname_dotcom_the_website %} 검색 결과에 포함되지 않습니다."
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '"경로 스타일 강제 적용"이 선택되는 경우 {% data variables.product.prodname_actions %} 스토리지 설정은 {% data variables.enterprise.management_console %}에서 유효성 검사 및 저장될 수 없으며 대신 `ghe-actions-precheck` 명령줄 유틸리티로 구성되어야 합니다.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -12,12 +12,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Enterprise Cloud trial
-ms.openlocfilehash: 13cb43b5dfd4a9e207a9a1cca090b223c56f4678
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a50aebc43ba5d674af132786ffb75e5fb3029aeb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389955'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183989'
 ---
 {% data reusables.enterprise.ghec-cta-button %}
 
@@ -67,15 +67,17 @@ ms.locfileid: '147389955'
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
+{% data reusables.enterprise.best-practices %}
+
 {% data reusables.products.product-roadmap %}
 
 ## トライアルを終了する
 
 {% data variables.product.prodname_enterprise %} は、試用期間中いつでも購入できます。 {% data variables.product.prodname_enterprise %} を購入すると試用期間が終了し、50 シートの上限が削除され、支払いが開始されます。
 
-{% data variables.product.prodname_enterprise %} を購入しない場合、試用期間が終了すると、組織はダウングレードされます。 試用版に既存の組織を使用した場合、試用版の前に使用していた製品に組織がダウングレードされます。 試用版用に新しい組織を作成した場合、組織は {% data variables.product.prodname_free_team %} にダウングレードされます。 
+{% data variables.product.prodname_enterprise %} を購入しない場合、試用版は 30 日間の期間が終了するまで継続します。 試用版を早期に終了することはできません。 試用版が終了すると、組織はダウングレードされます。 試用版に既存の組織を使用した場合、試用版の前に使用していた製品に組織がダウングレードされます。 試用版用に新しい組織を作成した場合、組織は {% data variables.product.prodname_free_team %} にダウングレードされます。 
 
-組織は、プライベート リポジトリの {% data variables.product.prodname_pages %} などの高度な機能など、新しい製品に含まれていない機能にアクセスできなくなります。 アップグレードする予定がない場合は、高度な機能へのアクセスを失わないように、試用期間の終了前にリポジトリを公開してください。 詳細については、「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
+組織は、プライベート リポジトリに対する {% data variables.product.prodname_pages %} といった高度な機能など、新しいプランに含まれていない機能にアクセスできなくなります。 アップグレードする予定がない場合は、高度な機能へのアクセスを失わないように、試用期間の終了前にリポジトリを公開してください。 詳細については、「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
 
 ダウングレードすると、試用期間中に構成された SAML 設定も無効になります。 その後 {% data variables.product.prodname_enterprise %} を購入すると、組織内のユーザーが認証できるように SAML 設定が再度有効になります。
 

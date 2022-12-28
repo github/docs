@@ -1,8 +1,7 @@
 ---
-title: Restricting the visibility of forwarded ports
+title: 転送されるポートの可視性の制限
 shortTitle: Restrict port visibility
-intro: You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.
-product: '{% data reusables.gated-features.codespaces %}'
+intro: ユーザーが Organization 内の codespace からポートを転送するときに選択できる可視性オプションに制約を設定できます。
 permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -10,73 +9,76 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: ad670b43e0ac2a80e43048ffa61e0c83a8d12130
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158974'
 ---
+## 概要
 
-## Overview
+通常、codespace 内では、ポートをプライベートに (自分にのみ)、Organaization のメンバーに、またはパブリックに (URL を持つすべてのユーザーに) 転送することができます。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。
 
-Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Organaization の所有者は、ユーザーがポートを転送するときに設定できる可視性オプションに対する制約を構成できます。 たとえば、セキュリティのため、パブリック ポートの転送を禁止したい場合があります。 これを行うには、Organaization の {% data variables.product.prodname_github_codespaces %} 設定でポリシーを 1 つ以上定義します。
 
-As an organization owner, you may want to configure constraints on the visibility options users can set when forwarding ports. For example, for security reasons, you may want to disallow public port forwarding. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
+### ポートの可視性の制約を設定するときの動作
 
-### Behavior when you set a port visibility constraint
-
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user resumes the codespace, it will be subject to the policy constraints.
+定義されているポリシーに準拠しなくなった既存の codespace がある場合、これらの codespace は停止またはタイムアウトするまで動作し続けます。ユーザーが codespace を再開すると、ポリシーの制約の対象になります。
 
 {% note %}
 
-**Note**: You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_github_codespaces %} to continue working as designed, for example to forward SSH on port 22.
+**注**: プライベート ポート転送は、たとえばポート 22 での SSH の転送など、{% data variables.product.prodname_github_codespaces %} が設計どおりに動作し続けるために必要であるため、プライベート ポート転送を無効にすることはできません。
 
 {% endnote %}
 
-### Setting organization-wide and repository-specific policies
+### Organaization 全体およびリポジトリ固有のポリシーの設定
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of visibility options more, not less, restrictive.
+ポリシーを作成するときに、ポリシーを Organaization 内のすべてのリポジトリに適用するか、指定されたリポジトリにのみ適用するかを選択します。 Organaization 全体のポリシーを設定する場合は、個々のリポジトリに対して設定するポリシーはすべて、Organaization レベルに設定した制限に収まるようにする必要があります。 ポリシーを追加すると、可視性オプションの選択に対する制限は、緩くなるのではなく、いっそう厳しくなります。
 
-For example, you could create an organization-wide policy that restricts the visibility options to organization only. You can then set a policy for Repository A that disallows both public and organization visibility, which would result in only private port forwarding being available for this repository. Setting a policy for Repository A that allowed both public and organization would result in only organization visibility, because the organization-wide policy does not allow public visibility.
+たとえば、可視性オプションを Organaization のみに制限する Organaization 全体のポリシーを作成できます。 その後、パブリックと Organaization 両方の可視性を禁止するポリシーを、リポジトリ A に設定できます。これにより、このリポジトリではプライベート ポート転送のみが使用できるようになります。 パブリックと Organaization 両方を許可するポリシーをリポジトリ A に設定すると、Organaization 全体のポリシーではパブリックの可視性が許可されないため、組織の可視性のみになります。
 
-If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+Organaization 全体のポリシーを追加する場合は、Organaization 内のどのリポジトリにも使用できる最も寛大な可視性オプションに設定する必要があります。 その後、リポジトリ固有のポリシーを追加することで、選択肢をさらに制限できます。
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to limit the port visibility options
+## ポート可視性オプションを制限するポリシーの追加
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Port visibility**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. **[制約の追加]** をクリックし、 **[ポートの可視性]** を選択します。
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
+   ![[制約の追加] ドロップダウンメニューのスクリーンショット。](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. 制約を編集するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
+   ![制約を編集するための鉛筆アイコンのスクリーンショット](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
-1. Clear the selection of the port visibility options (**Org** or **Public**) that you don't want to be available.
+1. 使用しないポート可視性オプション ( **[Organaization]** または **[パブリック]** ) の選択を解除します。
 
-   ![Screenshot of clearing a port visibility option](/assets/images/help/codespaces/choose-port-visibility-options.png)
+   ![ポート可視性オプションを解除するスクリーンショット](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. ポリシーに別の制約を追加する場合は、 **[制約の追加]** をクリックして、別の制約を選びます。 その他の制約については、次を参照してください。
+   * 「[コンピューターの種類へのアクセスを制限する](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」
+   * [codespace の基本イメージを制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [アイドル タイムアウトの期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)
+   * [codespace の保持期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)
+1. ポリシーへの制約の追加が終わったら、 **[保存]** をクリックします。
 
-The policy will be applied to all new codespaces that are billable to your organization. The port visibility constraint is also applied to existing codespaces the next time they are started.
+このポリシーは、課金先が自分の Organization の新しいすべての codespace に適用されます。 このポート可視性の制約は、次回の起動時に既存の codespace にも適用されます。
 
-## Editing a policy
+## ポリシーを編集する
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+既存のポリシーを編集できます。 たとえば、ポリシーの制約を追加または削除できます。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Port visibility" constraint.
-1. Make the required changes then click **Save**.
+1. [codespace ポリシー] ページを表示します。 詳細については、「[ポート可視性オプションを制限するポリシーの追加](#adding-a-policy-to-limit-the-port-visibility-options)」を参照してください。
+1. 編集するポリシーの名前をクリックします。
+1. "ポート可視性" 制約の横にある鉛筆アイコン ({% octicon "pencil" aria-label="The edit icon" %}) をクリックします。
+1. 必要な変更を行い、 **[保存]** をクリックします。
 
-## Deleting a policy 
+## ポリシーを削除する 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
-1. Click the delete button to the right of the policy you want to delete.
+1. [codespace ポリシー] ページを表示します。 詳細については、「[ポート可視性オプションを制限するポリシーの追加](#adding-a-policy-to-limit-the-port-visibility-options)」を参照してください。
+1. 削除するポリシーの右側にある削除ボタンをクリックします。
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![ポリシーの [削除] ボタンのスクリーンショット](/assets/images/help/codespaces/policy-delete.png)

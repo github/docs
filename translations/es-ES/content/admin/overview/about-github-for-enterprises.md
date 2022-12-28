@@ -1,6 +1,6 @@
 ---
 title: Acerca de GitHub para empresas
-intro: 'Las empresas pueden usar los productos empresariales de {% data variables.product.prodname_dotcom %} para mejorar toda su vida útil de desarrollo de software.'
+intro: 'Las empresas pueden usar los productos empresariales de {% data variables.product.prodname_dotcom %} para mejorar todo su ciclo de vida de desarrollo de software.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -9,12 +9,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 38e64d503ca576cf663b77698b05a23924eb271e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dbba8a55fd0ac20c97039de05aa629dea7048626
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147390428'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192653'
 ---
 ## Acerca de {% data variables.product.prodname_dotcom %} para empresas
 
@@ -22,7 +22,7 @@ ms.locfileid: '147390428'
 
 Los desarrolladores pueden almacenar y controlar las versiones del código fuente en repositorios, mediante problemas y proyectos para planear y realizar un seguimiento de su trabajo. Pueden codificar en un entorno de desarrollo hospedado en la nube, {% data variables.product.prodname_github_codespaces %} y, después, revisar los cambios de código entre sí con solicitudes de incorporación de cambios, mediante características de seguridad de código para mantener los secretos y vulnerabilidades fuera del código base. Por último, puedes automatizar la canalización de compilación, prueba e implementación con {% data variables.product.prodname_actions %} y hospedar paquetes de software con {% data variables.product.prodname_registry %}.
 
-Cuando las empresas adoptan {% data variables.product.prodname_enterprise %}, su rentabilidad de la inversión (ROI) es alta. Por ejemplo, sus desarrolladores ahorran 45 minutos al día, y el tiempo de incorporación y entrenamiento se reduce en un 40 %. Para obtener más información, consulta [Impacto económico total de {% data variables.product.prodname_enterprise %}](https://resources.github.com/downloads/TEI-of-GitHub-Enterprise.pdf).
+Cuando las empresas adoptan {% data variables.product.prodname_enterprise %}, su rentabilidad de la inversión (ROI) es alta. Por ejemplo, sus desarrolladores ahorran 45 minutos al día, y el tiempo de incorporación y entrenamiento se reduce en un 40 %. Para obtener más información, consulta [Impacto económico total de {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
 
 Para simplificar la administración de todas las fases del ciclo de vida de desarrollo de software, proporcionamos un único punto de visibilidad y administración denominado cuenta empresarial. Las cuentas empresariales permiten administrar la facturación y la configuración, aplicar la directiva y auditar a las personas con acceso a los recursos de la empresa. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 

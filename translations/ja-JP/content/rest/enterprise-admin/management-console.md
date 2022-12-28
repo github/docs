@@ -1,37 +1,40 @@
 ---
-title: Management Console
-intro: 'The Management Console API helps you manage your {% data variables.product.product_name %} installation.'
+title: '[Management Console]'
+intro: '管理コンソール API は、{% data variables.product.product_name %} インストールの管理に役立ちます。'
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: da38513a04525b858e041188eec6f691db9be1d9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065539'
 ---
-
 {% tip %}
 
-You must explicitly set the port number when making API calls to the Management Console. If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
+Management Console への API 呼び出しを行うときは、ポート番号を明示的に設定する必要があります。 自社で TLS が有効になっている場合、ポート番号は `8443` です。それ以外の場合、ポート番号は `8080` です。
 
-If you don't want to provide a port number, you'll need to configure your tool to automatically follow redirects.
+ポート番号を提供しない場合は、自動的にリダイレクトに従うようにツールを設定する必要があります。
 
-You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
+また、{% data variables.product.product_name %} では、[独自の TLS 証明書を追加](/enterprise/admin/guides/installation/configuring-tls/)する前は自己署名証明書が使われるため、`curl` を使うとき、場合によっては [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k) を追加する必要があります。
 
 {% endtip %}
 
-### Authentication
+### 認証
 
-You need to pass your [Management Console password](/enterprise/admin/articles/accessing-the-management-console/) as an authentication token to every Management Console API endpoint except [`/setup/api/start`](#create-a-github-enterprise-server-license).
+[`/setup/api/start`](#create-a-github-enterprise-server-license) を除くすべての管理コンソール API エンドポイントに、認証トークンとして[管理コンソールのパスワード](/enterprise/admin/articles/accessing-the-management-console/)を渡す必要があります。
 
-Use the `api_key` parameter to send this token with each request. For example:
-
-```shell
-$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
-```
-
-You can also use standard HTTP authentication to send this token. For example:
+各要求でこのトークンを送るには、`api_key` パラメーターを使います。 たとえば次のような点です。
 
 ```shell
-$ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+$ curl -L 'https://<em>hostname</em>:<em>admin_port</em>/setup/api?api_key=<em>your-amazing-password</em>'
 ```
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+標準の HTTP 認証を使用してこのトークンを送信することもできます。 次に例を示します。
+
+```shell
+$ curl -L -u "api_key:<em>your-amazing-password</em>" 'https://<em>hostname</em>:<em>admin_port</em>/setup/api'
+```

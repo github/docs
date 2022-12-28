@@ -10,16 +10,16 @@ versions:
 topics:
   - Community
 shortTitle: Block from your org
-ms.openlocfilehash: 3264bb71f157c2ec34f42b859857eed4253379f3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 527ce4fcf92946836f7a3d93e5caf07193561d4b
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145086591'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164353'
 ---
 可以从组织的设置中或从用户发表的特定评论中阻止非成员用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
 
-阻止用户时，您可以选择无限期或在特定时间段内阻止他们。 如果在特定时间段内阻止某人，则所选时间结束后会自动解除对他们的阻止。 如果无限期阻止某人，您可以随时手动解除阻止。 有关详细信息，请参阅“[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。
+{% data reusables.organizations.blocking-a-user %}
 
 {% tip %}
 

@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 
 import { useLanguages } from 'components/context/LanguagesContext'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 export function useUserLanguage() {
   const { locale } = useRouter()
@@ -12,7 +12,7 @@ export function useUserLanguage() {
 
   useEffect(() => {
     const languagePreferred = [
-      Cookies.get(PREFERRED_LOCALE_COOKIE_NAME),
+      Cookies.get(USER_LANGUAGE_COOKIE_NAME),
       navigator.language,
       ...navigator.languages,
     ]

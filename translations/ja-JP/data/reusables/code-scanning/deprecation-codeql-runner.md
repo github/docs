@@ -1,28 +1,28 @@
 ---
-ms.openlocfilehash: c5fc9473755ce291aba79c71c850b18f4bcd1b00
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 62262d7dceb6318775493dfe5431199d57d3b756
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145115566"
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161229"
 ---
 {% note %}
 
 {% ifversion fpt or ghec %}
 
-**注:** {% data variables.product.prodname_codeql_runner %} は非推奨になりました。 {% data variables.product.product_name %} では、{% data variables.product.prodname_codeql_runner %} は 2022 年 3 月までサポートされていました。 最新バージョンの [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) にアップグレードする必要があります。
+**メモ:** {% data variables.code-scanning.codeql_runner %}は非推奨です。 {% data variables.product.product_name %} では、2022 年 3 月まで、{% data variables.code-scanning.codeql_runner %}がサポートされていました。 最新バージョンの [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) にアップグレードする必要があります。
 
 {% elsif ghes > 3.3 %}
 
-**注:** {% data variables.product.prodname_codeql_runner %} は非推奨となり、{% data variables.product.prodname_ghe_server %} 3.4 には含まれていません。 [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) バージョン 2.7.6 に移行する必要があります。 
+**メモ:** {% data variables.code-scanning.codeql_runner %}は非推奨となり、{% data variables.product.prodname_ghe_server %} 3.4 には含まれていません。 [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) バージョン 2.7.6 に移行する必要があります。 
 
 {% elsif ghes < 3.4 %}
 
-**注:** {% data variables.product.prodname_codeql_runner %} は非推奨になりました。 {% data variables.product.prodname_ghe_server %} 3.0 以降では、[{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) バージョン 2.6.3 をインストールして、{% data variables.product.prodname_codeql_runner %} を置き換えることができます。 
+**メモ:** {% data variables.code-scanning.codeql_runner %}は非推奨になっています。 {% data variables.product.prodname_ghe_server %} 3.0 以降では、[{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) バージョン 2.6.3 をインストールして、{% data variables.code-scanning.codeql_runner %}を置き換えることができます。 
 
 {% elsif ghae %}
 
-**注:** {% data variables.product.prodname_codeql_runner %} は非推奨となりました。 [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) に移行する必要があります。 
+**メモ:** {% data variables.code-scanning.codeql_runner %}は非推奨となりました。 [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) に移行する必要があります。 
 
 {% endif %}
 

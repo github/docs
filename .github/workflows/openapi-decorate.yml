@@ -31,7 +31,7 @@ jobs:
           add-labels: 'github-openapi-bot'
 
       - name: Checkout repository code
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           # actions/checkout by default will leave you in a detached head state
           # so we need to specify the PR head ref explicitly since we're making
@@ -42,7 +42,7 @@ jobs:
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm
@@ -53,14 +53,46 @@ jobs:
       - name: Decorate the dereferenced OpenAPI schemas
         run: script/rest/update-files.js --decorate-only
 
+      - name: Check if pull request should be closed
+        id: close-pr
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          echo "If there are no changes, exit"
+          NUM_FILES_CHANGED=$(git diff --name-only -- lib/rest/static/decorated | wc -l)
+          if [[ $NUM_FILES_CHANGED -eq 0 ]]
+            then
+              echo "No decorated file changes found"
+              gh pr comment "$PR_URL" --body "🤖 This pull request has no changes to lib/rest/static/decorated, so it is being closed automatically."
+              gh pr close "$PR_URL" --delete-branch
+              echo "NO_DECORATED=true" >> $GITHUB_OUTPUT
+              exit 0
+          fi
+
       - name: Check in the decorated files
+        if: ${{ steps.close-pr.outputs.NO_DECORATED != 'true' }}
         uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
-          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
+          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/webhooks/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'
+
+        env:
+          # Disable pre-commit hooks; they don't play nicely with add-and-commit
+          HUSKY: '0'
+
+      - name: Remove the dereferenced files
+        if: ${{ steps.close-pr.outputs.NO_DECORATED != 'true' }}
+        uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
+        with:
+          # The arguments for the `git add` command
+          remove: '["lib/rest/static/dereferenced/*"]'
+
+          # The message for the commit
+          message: 'Removed dereferenced OpenAPI schema files'
 
         env:
           # Disable pre-commit hooks; they don't play nicely with add-and-commit

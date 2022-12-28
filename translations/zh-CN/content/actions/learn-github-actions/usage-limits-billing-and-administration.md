@@ -11,12 +11,12 @@ versions:
 topics:
   - Billing
 shortTitle: Workflow billing & limits
-ms.openlocfilehash: f457af5e458f54c699578a8a288dd1d64b674c36
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5abd041d41ab2227aa87c383f39c94876544718c
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146681003'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191852'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -49,7 +49,9 @@ ms.locfileid: '146681003'
 
 - 作业执行时间 - 工作流中每个作业的最长执行时间为 6 小时。 如果作业达到此限制，该作业将会终止而无法完成。
 {% data reusables.actions.usage-workflow-run-time %} {% data reusables.actions.usage-api-requests %}
-- 并发作业 - 帐户中可以运行的并发作业数量，具体视 GitHub 计划而定，如下表所示。 如果超出，任何额外的作业都会排队。
+- 并发作业 - 帐户中可以运行的并发作业数量，具体取决于 GitHub 计划和使用的运行器类型。 如果超出，任何额外的作业都会排队。
+
+  {% data variables.product.prodname_dotcom %} 托管的标准运行器
 
   | GitHub 计划 | 同时运行的作业总数 | MacOS 作业同时运行的最大数量 |
   |---|---|---|
@@ -58,11 +60,18 @@ ms.locfileid: '146681003'
   | 组 | 60 | 5 |
   | Enterprise | 180 | 50 |
 
+  {% data variables.product.prodname_dotcom %} 托管的 {% data variables.actions.hosted_runner %}
+
+  | GitHub 计划 | 同时运行的作业总数 | MacOS 作业同时运行的最大数量 |
+  |---|---|---|
+  | 全部 | 500 | 不适用 |
+
   {% note %}
 
   注意：如果需要，使用企业计划的客户可请求更高的并发作业限制。 有关详细信息，请联系 {% data variables.contact.contact_ent_support %} 或销售代表。
 
   {% endnote %}
+  
 - 作业矩阵 - {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %} 使用限制适用于自托管运行器。 有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)。
@@ -77,7 +86,7 @@ ms.locfileid: '146681003'
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## 可重复使用的工作流程的计费
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 如果重复使用工作流，则计费始终与调用方工作流程相关联。 始终仅使用调用方的上下文来评估 {% data variables.product.prodname_dotcom %} 托管的运行器的分配。 调用方不能使用被调用存储库中 {% data variables.product.prodname_dotcom %} 托管的运行器。 
 

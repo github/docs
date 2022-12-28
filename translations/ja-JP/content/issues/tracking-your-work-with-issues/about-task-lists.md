@@ -2,24 +2,24 @@
 title: タスクリストについて
 intro: タスクリストを使って、IssueやPull Requestの作業を小さなタスクに分割し、作業全体が完了するまで追跡してください。
 redirect_from:
-  - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
-  - /articles/about-task-lists
-  - /github/managing-your-work-on-github/about-task-lists
-  - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+- /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
+- /articles/about-task-lists
+- /github/managing-your-work-on-github/about-task-lists
+- /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - Pull requests
-  - Issues
+- Pull requests
+- Issues
 ms.openlocfilehash: 0d6973dfe6fbd59d945602423621918a600b15d7
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/05/2022
-ms.locfileid: '146179512'
+ms.locfileid: "146179512"
 ---
 {% ifversion fpt or ghec %} {% note %}
 

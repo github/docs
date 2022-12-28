@@ -5,12 +5,12 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
-ms.openlocfilehash: e1c1abed5ce4ebf82c19b29fef9a005fbe4c7a02
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 408126833cbf7fa8cd4a71d172f6550e82f795a2
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106854'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185170'
 ---
 ## クラスルームへの LMS の登録について
 
@@ -63,8 +63,8 @@ Canvas のインストールを {% data variables.product.prodname_classroom %} 
    - [発行者識別子]: `https://canvas.instructure.com`
    - [ドメイン]: Canvas インスタンスのベース URL
    - [クライアント ID]: 作成した開発者キーの [詳細] にある [クライアント ID]
-   - [OIDC 認可エンドポイント]: Canvas インスタンスのベース URL の末尾に `/login/oauth2/token` が追加されたもの。
-   - [OAuth 2.0 トークン取得 URL]: Canvas インスタンスのベース URL の末尾に `/api/lti/authorize_redirect` が追加されたもの。
+   - [OIDC 認可エンドポイント]: Canvas インスタンスのベース URL の末尾に `/api/lti/authorize_redirect` が追加されたもの。
+   - [OAuth 2.0 トークン取得 URL]: Canvas インスタンスのベース URL の末尾に `/login/oauth2/token` が追加されたもの。
    - [キー セット URL]: Canvas インスタンスのベース URL の末尾に `/api/lti/security/jwks` が追加されたもの。
 
   ![GitHub Classroom に Canvas インスタンスを登録する](/assets/images/help/classroom/register-canvas-with-github-classroom.png)

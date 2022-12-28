@@ -5,9 +5,14 @@ import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import statsd from '../../lib/statsd.js'
-import { defaultCacheControl } from '../cache-control.js'
+import { searchCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { getSearchResults } from './es-search.js'
+import { setFastlySurrogateKey } from '../set-fastly-surrogate-key.js'
+import {
+  getSearchResults,
+  POSSIBLE_HIGHLIGHT_FIELDS,
+  DEFAULT_HIGHLIGHT_FIELDS,
+} from './es-search.js'
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
@@ -145,7 +150,8 @@ router.get(
       }
     })
     if (process.env.NODE_ENV !== 'development') {
-      defaultCacheControl(res)
+      searchCacheControl(res)
+      setFastlySurrogateKey(res, `api-search:${language}`, true)
     }
 
     res.setHeader('x-search-legacy', 'yes')
@@ -182,7 +188,21 @@ const validationMiddleware = (req, res, next) => {
       validate: (v) => v >= 1 && v <= 10,
     },
     { key: 'sort', default_: DEFAULT_SORT, validate: (v) => POSSIBLE_SORTS.includes(v) },
-    { key: 'debug', default_: Boolean(process.env.NODE_ENV === 'development' || req.query.debug) },
+    {
+      key: 'highlights',
+      default_: DEFAULT_HIGHLIGHT_FIELDS,
+      cast: (v) => (Array.isArray(v) ? v : [v]),
+      validate: (v) => {
+        for (const highlight of v) {
+          if (!POSSIBLE_HIGHLIGHT_FIELDS.includes(highlight)) {
+            throw new ValidationError(`highlight value '${highlight}' is not valid`)
+          }
+        }
+        return true
+      },
+    },
+    { key: 'autocomplete', default_: false, cast: toBoolean },
+    { key: 'debug', default_: process.env.NODE_ENV === 'development', cast: toBoolean },
   ]
 
   const search = {}
@@ -221,11 +241,17 @@ const validationMiddleware = (req, res, next) => {
   return next()
 }
 
+function toBoolean(value) {
+  if (value === 'true' || value === '1') return true
+  return false
+}
+
 router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, query, page, size, debug, sort } = req.search
+    const { indexName, language, query, autocomplete, page, size, debug, sort, highlights } =
+      req.search
 
     // The getSearchResults() function is a mix of preparing the search,
     // sending & receiving it, and post-processing the response from the
@@ -236,7 +262,16 @@ router.get(
     const tags = ['version:v1', `indexName:${indexName}`]
     const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
 
-    const options = { indexName, query, page, size, debug, sort }
+    const options = {
+      indexName,
+      query,
+      page,
+      size,
+      debug,
+      sort,
+      highlights,
+      usePrefixSearch: autocomplete,
+    }
     try {
       const { meta, hits } = await timed(options)
 
@@ -244,12 +279,8 @@ router.get(
       statsd.timing('api.search.query', meta.took.query_msec, tags)
 
       if (process.env.NODE_ENV !== 'development') {
-        // The assumption, at the moment is that searches are never distinguished
-        // differently depending on a cookie or a request header.
-        // So the only distinguishing key is the request URL.
-        // Because of that, it's safe to allow the reverse proxy (a.k.a the CDN)
-        // cache and hold on to this.
-        defaultCacheControl(res)
+        searchCacheControl(res)
+        setFastlySurrogateKey(res, `api-search:${language}`, true)
       }
 
       // The v1 version of the output matches perfectly what comes out

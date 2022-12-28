@@ -7,7 +7,7 @@ name: 'Link Checker: Daily'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '40 19 * * *' # once a day at 19:40 UTC / 11:40 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -23,11 +23,11 @@ jobs:
         run: gh --version
 
       - name: Check out repo's default branch
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -43,7 +43,7 @@ jobs:
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -54,21 +54,35 @@ jobs:
         if: ${{ github.repository == 'github/docs-internal' }}
         run: .github/actions-scripts/merge-early-access.sh
 
+      - name: Restore disk-cache file for external link checking
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: external-link-checker-db.json
+          key: external-link-checker-${{ hashFiles('.github/actions/rendered-content-link-checker.js') }}
+
       - name: Run link checker
         env:
+          DISABLE_REWRITE_ASSET_URLS: true
           LEVEL: 'critical'
           # Set this to true in repo scope to enable debug logs
           # ACTIONS_RUNNER_DEBUG = true
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-          REPORT_AUTHOR: docubot
+          REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken link report
           REPORT_REPOSITORY: github/docs-content
           CREATE_REPORT: true
           CHECK_EXTERNAL_LINKS: true
           PATIENT: true
+          # This means that we'll *re-check* external URLs once a week.
+          # But mind you that the number has a 10% chance of "jitter"
+          # to avoid a stampeding herd when they all expire some day.
+          EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS: 7
+          # If we're unable to connect or the server returns a 50x error,
+          # treat it as a warning and not as a broken link.
+          EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
         timeout-minutes: 30
-        run: node .github/actions/rendered-content-link-checker.js
+        run: node .github/actions-scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8

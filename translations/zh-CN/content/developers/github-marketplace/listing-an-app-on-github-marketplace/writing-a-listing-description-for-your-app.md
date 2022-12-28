@@ -1,6 +1,6 @@
 ---
-title: Writing a listing description for your app
-intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
+title: 编写应用程序的上架说明
+intro: '要在 {% data variables.product.prodname_marketplace %} 中[上架应用](/marketplace/listing-on-github-marketplace/)，你需要根据 GitHub 的指南编写应用说明并提供图像。'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
@@ -17,180 +17,186 @@ versions:
 topics:
   - Marketplace
 shortTitle: Write listing descriptions
+ms.openlocfilehash: f29e049529801011d25d2723c5851b56d7a8bb92
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146139254'
 ---
-Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
+下面是关于需要在商品草稿的“商品说明”部分填写的字段的指南。
 
-## Naming and links
+## 命名和链接
 
-### Listing name
+### 上架产品名称
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name. 
+你的商品名称将显示在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上。 名称仅限于 255 个字符，可能与应用名称不同。 您的列表不能与 {% data variables.product.product_location %} 上现有的帐户同名，除非该名称是您自己的用户或组织名称。 
 
-### Very short description
+### 简短说明
 
-The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
+社区将在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上看到应用名称下的“非常简短的”说明。
 
-![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
+![{% data variables.product.prodname_marketplace %} 应用程序简短说明](/assets/images/marketplace/marketplace_short_description.png)
 
-#### Length
+#### 长度
 
-We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
+我们建议将简短说明控制在 40-80 个字符。 尽管可以使用更多字符，但简洁的描述使客户更容易快速阅读和理解。
 
-#### Content
+#### 内容
 
-- Describe the app’s functionality. Don't use this space for a call to action. For example:
+- 介绍应用程序的功能。 不要在此空间使用呼吁用语。 例如：
 
-  **DO:** Lightweight project management for GitHub issues
+  可以：针对 GitHub 问题的轻型项目管理
 
-  **DON'T:** Manage your projects and issues on GitHub
+  不可：管理 GitHub 上的项目和问题
 
-  **Tip:** Add an "s" to the end of the verb in a call to action to turn it into an acceptable description: _Manages your projects and issues on GitHub_
+  提示：在呼吁用语中的谓词末尾加上“s”，将其转变为可接受的说明：Manages your projects and issues on GitHub（管理 GitHub 上的项目和问题）
 
-- Don’t repeat the app’s name in the description.
+- 不要在说明中重复应用程序的名称。
 
-  **DO:** A container-native continuous integration tool
+  可以：容器原生持续集成工具
 
-  **DON'T:** Skycap is a container-native continuous integration tool
+  不可：Skycap 是一种容器原生持续集成工具
 
-#### Formatting
+#### 格式化
 
-- Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
+- 始终使用句子大小写规则。 只大写第一个字母和专有名词。
 
-- Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
+- 在简短说明的末尾不要使用标点符号。 简短说明不应包含完整的句子，并且绝对不能包含一个以上的句子。
 
-- Only capitalize proper nouns. For example:
+- 仅大写专有名词。 例如：
 
-  **DO:** One-click delivery automation for web developers
+  可以：One-click delivery automation for web developers
 
-  **DON'T:** One-click delivery automation for Web Developers
+  不可：One-click delivery automation for Web Developers
 
-- Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+- 始终在列表中使用[连续逗号](https://en.wikipedia.org/wiki/Serial_comma)。
 
-- Avoid referring to the GitHub community as "users."
+- 避免将 GitHub 社区称为“用户”。
 
-  **DO:** Create issues automatically for people in your organization
+  可以：为组织中的人员自动创建问题
 
-  **DON'T:** Create issues automatically for an organization's users
+  不可：为组织的用户自动创建问题
 
-- Avoid acronyms unless they’re well established (such as API). For example:
+- 避免使用首字母缩写词，除非是约定俗成的缩写（如 API）。 例如：
 
-  **DO:** Agile task boards, estimates, and reports without leaving GitHub
+  可以：Agile task boards, estimates, and reports without leaving GitHub
 
-  **DON'T:** Agile task boards, estimates, and reports without leaving GitHub’s UI
+  不可：Agile task boards, estimates, and reports without leaving GitHub’s UI
 
-### Categories
+### 类别
 
-Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
+{% data variables.product.prodname_marketplace %} 中的应用程序可以按类别显示。 在“主要类别”下拉列表中选择最能描述应用的主要功能的类别，并（可选）选择适合应用的“辅助类别” 。
 
-### Supported languages
+### 支持的语言
 
-If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
+如果您的应用程序仅适用于特定语言，请选择它支持的最多 10 种编程语言。 这些语言显示在应用程序的 {% data variables.product.prodname_marketplace %} 上架信息页面上。 此字段可选。
 
-### Listing URLs
+### 上架信息中的 URL
 
-**Required URLs**
-* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
-* **Privacy policy URL:** The web page that displays your app's privacy policy.
-* **Installation URL:** This field is shown for OAuth Apps only. (GitHub Apps don't use this URL because they use the optional Setup URL from the GitHub App's settings page instead.) When a customer purchases your OAuth App, GitHub will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[New purchases for OAuth Apps](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)" for more details. Skip this field if you're listing a GitHub App.
+**所需 URL**
+* 客户支持 URL：当客户进行技术支持、产品或帐户查询时，他们将访问的网页的 URL。
+* 隐私策略 URL：显示应用的隐私策略的网页。
+* 安装 URL：仅针对 OAuth 应用显示此字段。 （GitHub 应用不使用此 URL，因为它们使用 GitHub 应用的设置页面中的可选设置 URL。）当客户购买 OAuth 应用时，GitHub 会在客户安装该应用后将其重定向到安装 URL。 需要将客户重定向到 `https://github.com/login/oauth/authorize` 以开始 OAuth 授权流。 有关更多详细信息，请参阅“[OAuth 应用的新购买](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)”。 如果您要上架 GitHub 应用程序，请跳过此字段。
 
-**Optional URLs**
-* **Company URL:** A link to your company's website.
-* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
-* **Documentation URL:** A link to documentation that teaches customers how to use your app.
+**可选 URL**
+* 公司 URL：指向公司网站的链接。
+* 状态 URL：指向显示应用状态的网页的链接。 状态页面可以包括当前和历史事件报告、Web 应用程序正常运行时间状态以及预定维护。
+* 文档 URL：指向指导客户如何使用应用的文档的链接。
 
-## Logo and feature card
+## 徽标和特征卡
 
-{% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
+{% data variables.product.prodname_marketplace %} 使用圆形徽章内的方形徽标图像显示所有上架产品，以便从视觉上区分应用程序。
 
-![GitHub Marketplace logo and badge images](/assets/images/marketplace/marketplace-logo-and-badge.png)
+![GitHub Marketplace 徽标和徽章图像](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
+特征卡由应用程序的徽标、名称和自定义背景图像组成，可体现您的品牌个性。 如果你的应用是[主页](https://github.com/marketplace)顶部的四个随机特色应用之一，{% data variables.product.prodname_marketplace %} 将显示此卡片。 每个应用程序的简短说明显示在其特征卡的下方。
 
-![Feature card](/assets/images/marketplace/marketplace_feature_card.png)
+![特征卡](/assets/images/marketplace/marketplace_feature_card.png)
 
-As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
+当您上传图像和选择颜色时，{% data variables.product.prodname_marketplace %} 上架草稿将显示徽标和特征卡的预览。
 
-#### Guidelines for logos
+#### 徽标指南
 
-You must upload a custom image for the logo. For the badge, choose a background color.
+您必须上传徽标的自定义图像。 对于徽章，请选择背景颜色。
 
-- Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
-- Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
-- For best results, upload a logo image with a transparent background.
-- To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
-- Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
+- 上传至少为 200 像素 x 200 像素的徽标图像，这样在发布上架信息时就不必放大徽标。
+- 徽标将被裁剪为正方形。 建议上传徽标居中的正方形图像文件。
+- 为获得最佳效果，请上传透明背景的徽标图像。
+- 要显示无缝徽章的外观，请选择与徽标图像的背景颜色（或透明度）匹配的徽章背景颜色。
+- 避免使用带有文字的徽标图像。 带有文字的徽标在小屏幕上缩放效果不佳。
 
-#### Guidelines for feature cards
+#### 特征卡指南
 
-You must upload a custom background image for the feature card. For the app's name, choose a text color.
+您必须上传特征卡的自定义背景图像。 对于应用程序的名称，请选择文本颜色。
 
-- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
-- Background image measures 965 pixels x 482 pixels (width x height).
-- Choose a text color for your app's name that shows up clearly over the background image.
+- 在背景图像中使用图案或纹理赋予卡片视觉特征，使其在 {% data variables.product.prodname_marketplace %} 主页的深色背景下引人注目。 特征卡应体现应用程序的品牌个性。
+- 背景图像尺寸为 965 像素 x 482 像素（宽 x 高）。
+- 为应用程序的名称选择文本颜色，使其清晰地显示在背景图像上。
 
-## Listing details
+## 商品详细信息
 
-To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
+要获取应用程序的登录页面，请在 {% data variables.product.prodname_marketplace %} 主页或类别页面上单击应用程序的名称。 登录页面显示应用程序的较长说明，包括两个部分：“Introductory description（简介）”和“Detailed description（详细说明）”。
 
-Your "Introductory description" is displayed at the top of your app's {% data variables.product.prodname_marketplace %} landing page.
+“Introductory description（简介）”显示在应用程序 {% data variables.product.prodname_marketplace %} 登录页面的顶部。
 
-![{% data variables.product.prodname_marketplace %} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
+![{% data variables.product.prodname_marketplace %} 简介](/assets/images/marketplace/marketplace_intro_description.png)
 
-Clicking **Read more...**, displays the "Detailed description."
+单击“阅读更多......”显示“详细说明”。
 
-![{% data variables.product.prodname_marketplace %} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
+![{% data variables.product.prodname_marketplace %} 详细说明](/assets/images/marketplace/marketplace_detailed_description.png)
 
-Follow these guidelines for writing these descriptions.
+请遵循以下指南编写这些说明。
 
-### Length
+### 长度
 
-We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
+建议在[列出应用](/marketplace/listing-on-github-marketplace/)时，在所需的“介绍性说明”字段中编写 1-2 句简要摘要（介于 150-250 个字符之间）。 尽管可以使用更多字符，但简洁的概述使客户更容易快速阅读和理解。
 
-You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
+您可以在可选的“Detailed description（详细说明）”字段中添加更多信息。 在单击应用登陆页上的介绍性说明下方的“阅读更多......”时，将看到此说明。 详细说明包含 3-5 个[价值主张](https://en.wikipedia.org/wiki/Value_proposition)，每个主张用 1-2 个句子描述。 此说明最多可以使用 1,000 个字符。
 
-### Content
+### 内容
 
-- Always begin introductory descriptions with your app's name.
+- 始终用应用程序的名称开始简介。
 
-- Always write descriptions and value propositions using the active voice.
+- 始终用主动语态编写说明和价值主张。
 
-### Formatting
+### 格式化
 
-- Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
+- 始终在价值主张标题中使用句子大小写规则。 只大写第一个字母和专有名词。
 
-- Use periods in your descriptions. Avoid exclamation marks.
+- 在说明中使用句点。 避免使用感叹号。
 
-- Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
+- 在价值主张标题的末尾不要使用标点符号。 价值主张标题不应包含完整的句子，并且不能包含一个以上的句子。
 
-- For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/articles/basic-writing-and-formatting-syntax/#headings) using Markdown. For example:
+- 对于每个价值主张，请在其标题后加上一段说明。 使用 Markdown 将标题的格式设置为[三级标头](/articles/basic-writing-and-formatting-syntax/#headings)。 例如：
 
-  ### Learn the skills you need
+  ### 学习所需的技能
 
-  GitHub Skills can help you learn how to use GitHub, communicate more effectively with Markdown, handle merge conflicts, and more.
+  GitHub Skills 可以帮助你可学习如何使用 GitHub、如何使用 Markdown 更有效地沟通以及如何处理合并冲突等。
 
-- Only capitalize proper nouns.
+- 仅大写专有名词。
 
-- Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+- 始终在列表中使用[连续逗号](https://en.wikipedia.org/wiki/Serial_comma)。
 
-- Avoid referring to the GitHub community as "users."
+- 避免将 GitHub 社区称为“用户”。
 
-  **DO:** Create issues automatically for people in your organization
+  可以：为组织中的人员自动创建问题
 
-  **DON'T:** Create issues automatically for an organization's users
+  不可：为组织的用户自动创建问题
 
-- Avoid acronyms unless they’re well established (such as API).
+- 避免使用首字母缩写词，除非是约定俗成的缩写（如 API）。
 
-## Product screenshots
+## 产品屏幕截图
 
-You can upload up to five screenshot images of your app to display on your app's landing page. Add an optional caption to each screenshot to provide context. After you upload your screenshots, you can drag them into the order you want them to be displayed on the landing page.
+您可以上传应用程序的最多五张屏幕截图，以显示在应用程序的登录页面上。 向每个屏幕截图添加可选标题以提供上下文。 上传屏幕截图后，您将其拖动到希望它们在登录页面上显示的位置。
 
-### Guidelines for screenshots
+### 屏幕截图指南
 
-- Images must be of high resolution (at least 1200px wide).
-- All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
-- Show as much of the user interface as possible so people can see what your app does.
-- When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
-- GitHub displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
-- Captions are most effective when they are short and snappy.
+- 图像必须具有高分辨率(至少 1200 像素宽)。
+- 所有图像必须具有相同的高度和宽度（宽高比），以避免用户切换图像时出现页面跳跃。
+- 显示尽可能多的用户界面，以便用户看到应用程序执行的操作。
+- 在浏览器中截取应用程序的屏幕时，仅包括显示窗口中的内容。 避免包括地址栏、标题栏或工具栏图标，它们不能很好地适应较小的屏幕尺寸。
+- GitHub 在应用程序登录页面的图框中显示您上传的屏幕截图，因此您无需在屏幕截图周围添加图框或边框。
+- 简短明快的字幕效果最好。
 
-![GitHub Marketplace screenshot image](/assets/images/marketplace/marketplace-screenshots.png)
+![GitHub Marketplace 屏幕截图](/assets/images/marketplace/marketplace-screenshots.png)

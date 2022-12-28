@@ -1,29 +1,25 @@
 # Feature available only on dotcom
 security_advisories:
-  title: 'Fix and disclose a security vulnerability'
-  description: 'Using repository security advisories to privately fix a reported vulnerability and get a CVE.'
+  title: 'Corrigir e divulgar uma vulnerabilidade de segurança'
+  description: 'Uso de consultorias de segurança do repositório para corrigir de forma privada uma vulnerabilidade relatada e obter um CVE.'
   featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
-    - /code-security/security-advisories/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-    - /code-security/security-advisories/global-security-advisories/about-the-github-advisory-database
-    - /code-security/security-advisories/global-security-advisories/about-global-security-advisories
-    - /code-security/security-advisories/repository-security-advisories/about-repository-security-advisories
-    - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
-    - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
-    - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
-    - /code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
-    - /code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory
-    - /code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory
-    - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
-    - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
+    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/repository-security-advisories/creating-a-repository-security-advisory
+    - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+    - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+    - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/editing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 
 # Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_alerts:
-  title: 'Get notifications for insecure dependencies'
-  description: 'Set up Dependabot to alert you to new vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} in your dependencies.'
+  title: 'Obter notificações para dependências inseguras'
+  description: 'Configure o Dependabot para alertar sobre novas vulnerabilidades{% ifversion GH-advisory-db-supports-malware %} ou malware{% endif %} em suas dependências.'
   guides:
     - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
-    - '{% ifversion fpt or ghec or ghes %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
     - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
     - /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
     - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
@@ -32,20 +28,20 @@ dependabot_alerts:
 
 # Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_security_updates:
-  title: 'Get pull requests to update your vulnerable dependencies'
-  description: 'Set up Dependabot to create pull requests when new vulnerabilities are reported.'
+  title: 'Obtenha solicitações de pull para atualizar suas dependências vulneráveis'
+  description: 'Configure o Dependabot para criar solicitações de pull quando novas vulnerabilidades forem relatadas.'
   guides:
     - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
     - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
-    - '{% ifversion fpt or ghec or ghes %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
-    - '{% ifversion fpt or ghec or ghes %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
     - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
-    - '{% ifversion fpt or ghec or ghes %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
 
 # Feature available only on dotcom and GHES 3.3+
 dependency_version_updates:
-  title: 'Keep your dependencies up-to-date'
-  description: 'Use Dependabot to check for new releases and create pull requests to update your dependencies.'
+  title: 'Mantenha suas dependências atualizadas'
+  description: 'Use o Dependabot para verificar novas versões e criar solicitações de pull para atualizar suas dependências.'
   guides:
     - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
     - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
@@ -60,8 +56,8 @@ dependency_version_updates:
 
 # Feature available in GHEC, GHES 3.0 up, and GHAE. Feature limited on FPT so hidden there.
 secret_scanning:
-  title: 'Scan for secrets'
-  description: 'Set up secret scanning to guard against accidental check-ins of tokens, passwords, and other secrets to your repository.'
+  title: 'Examinar em busca de segredos'
+  description: 'Configure o exame de segredos para evitar verificações acidentais de tokens, senhas e outros segredos do seu repositório.'
   guides:
     - '{% ifversion not fpt %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
     - '{% ifversion not fpt %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
@@ -73,20 +69,20 @@ secret_scanning:
 
 # Security overview feature available in GHEC and GHES 3.2+, so other articles hidden to hide the learning path in other versions
 security_alerts:
-  title: 'Explore and manage security alerts'
-  description: 'Learn where to find and resolve security alerts.'
+  title: 'Explore e gerencie alertas de segurança'
+  description: 'Saiba onde encontrar e como resolver alertas de segurança.'
   guides:
-    - '{% ifversion ghec or ghes %}/code-security/security-overview/about-the-security-overview {% endif %}'
-    - '{% ifversion ghec or ghes %}/code-security/security-overview/viewing-the-security-overview {% endif %}'
-    - '{% ifversion ghec or ghes %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {% endif %}'
-    - '{% ifversion ghec or ghes %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
-    - '{% ifversion ghec or ghes %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
-    - '{% ifversion ghec or ghes %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/security-overview/about-the-security-overview {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/security-overview/viewing-the-security-overview {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
 
 # Feature available in all versions from GHES 2.22 up
 code_security_actions:
-  title: 'Run code scanning with GitHub Actions'
-  description: 'Check your default branch and every pull request to keep vulnerabilities and errors out of your repository.'
+  title: 'Execute o exame de código com o GitHub Actions'
+  description: 'Verifique seu branch padrão e cada solicitação de pull para manter seu repositório sem vulnerabilidades e erros.'
   featured_track: '{% ifversion ghae or ghes %}true{% else %}false{% endif %}'
   guides:
     - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
@@ -98,8 +94,8 @@ code_security_actions:
 
 # Feature available in all versions from GHES 2.22 up
 code_security_integration:
-  title: 'Integrate with code scanning'
-  description: 'Upload code analysis results from third-party systems to GitHub using SARIF.'
+  title: 'Integrar com o exame de código'
+  description: 'Faça o upload de resultados da análises de código de sistemas de terceiros para o GitHub usando o SARIF.'
   guides:
     - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
     - /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
@@ -108,8 +104,8 @@ code_security_integration:
 
 # Feature available in all versions from GHES 2.22 up
 code_security_ci:
-  title: 'Run CodeQL code scanning in your CI'
-  description: 'Set up CodeQL within your existing CI and upload results to GitHub code scanning.'
+  title: 'Execute o exame de código CodeQL na sua CI'
+  description: 'Configure o CodeQL dentro da sua CI existente e faça o upload dos resultados para o exame de código do GitHub.'
   guides:
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
@@ -119,8 +115,8 @@ code_security_ci:
 
 # Feature available in all versions
 end_to_end_supply_chain:
-  title: 'End-to-end supply chain'
-  description: 'How to think about securing your user accounts, your code, and your build process.'
+  title: 'Cadeia de suprimentos de ponta a ponta'
+  description: 'Como considerar a proteção de suas contas de usuário, códigos e processos de criação.'
   guides:
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
     - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts

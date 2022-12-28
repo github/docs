@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b20ef3a51f3bf2b4bfbb89ad078bf221ce838904
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: e6d7a33506174bf50d70ae9b5d4ac9857cd880ae
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145098785"
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161224"
 ---
 1. 填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 {% data variables.product.product_name %}。 结果将显示在存储库的“安全”选项卡中。
 
@@ -17,7 +17,7 @@ ms.locfileid: "145098785"
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. 要将 {% data variables.product.prodname_code_scanning %} 结果作为拉取请求检查上传，请使用 <nobr>`--ref`</nobr> 标志指定拉取请求。 我们建议设置 {% data variables.product.prodname_codeql_runner %} 以便它在 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook 事件上运行。
+2. 要将 {% data variables.product.prodname_code_scanning %} 结果作为拉取请求检查上传，请使用 <nobr>`--ref`</nobr> 标志指定拉取请求。 我们建议设置 {% data variables.code-scanning.codeql_runner %}，以便它在 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook 事件上运行。
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo

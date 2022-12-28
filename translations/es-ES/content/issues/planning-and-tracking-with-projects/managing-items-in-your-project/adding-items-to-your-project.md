@@ -1,7 +1,7 @@
 ---
-title: 'Adding items to your {% data variables.projects.project_v2 %}'
+title: 'Adición de elementos a {% data variables.projects.project_v2 %}'
 shortTitle: Adding items
-intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
+intro: 'Aprende a agregar solicitudes de incorporación de cambios, incidencias y borradores de incidencias a los proyectos de forma individual o masiva.'
 miniTocMaxHeadingLevel: 4
 versions:
   feature: projects-v2
@@ -9,78 +9,82 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: cba8a20d0ec17ec8fceb0cb30671eb3d608ae715
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107617'
 ---
-
-Your project can track draft issues, issues, and pull requests. 
+Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes de cambios. 
 
 {% note %}
 
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
+**Nota**: Un proyecto puede contener un máximo de {% data variables.projects.item_limit %} elementos y {% data variables.projects.archived_item_limit %} elementos archivados. {% ifversion projects-v2-auto-archive %}Para obtener más información sobre el archivado automático de los elementos cuando cumplen criterios específicos, consulta "[Archivado automático de elementos](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% endnote %}
 
-### Adding issues and pull requests to a project
+### Adición de incidencias y solicitudes de incorporación de cambios a un proyecto
 
-#### Pasting the URL of an issue or pull request
+#### Pegado de la URL de una incidencia o solicitud de incorporación de cambios
 
 {% data reusables.projects.add-item-via-paste %}
 
-#### Searching for an issue or pull request
+#### Buscar una propuesta o solicitud de cambios
 
 {% data reusables.projects.add-item-bottom-row %}
-2. Enter <kbd>#</kbd>.
-3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
-  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-repo.png)
-4. Select the issue or pull request. You can type part of the title to narrow down your options.
-  ![Screenshot showing pasting an issue URL to add it to the project](/assets/images/help/projects-v2/add-item-select-issue.png)
+2. Escriba <kbd>#</kbd> .
+3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
+  ![Captura de pantalla en la que se muestra cómo pegar una dirección URL de incidencia para agregarla al proyecto](/assets/images/help/projects-v2/add-item-select-repo.png)
+4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
+  ![Captura de pantalla en la que se muestra cómo pegar una dirección URL de incidencia para agregarla al proyecto](/assets/images/help/projects-v2/add-item-select-issue.png)
 
-#### Bulk adding issues and pull requests
+#### Adición masiva de incidencias y solicitudes de incorporación de cambios
 
-1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}.
-  ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
-1. Click **Add item from repository**.
-  ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
-{% data reusables.projects.bulk-add %}
+1. En la fila inferior del proyecto, haz clic en {% octicon "plus" aria-label="plus icon" %}.
+  ![Captura de pantalla en la que se muestra el botón + en la parte inferior del proyecto](/assets/images/help/projects-v2/omnibar-add.png)
+1. Haz clic en **Agregar elemento desde el repositorio**.
+  ![Captura de pantalla en la que se muestra el elemento de menú "Agregar elemento desde el repositorio"](/assets/images/help/projects-v2/add-bulk-menu-item.png) {% data reusables.projects.bulk-add %}
 
-#### Adding multiple issues or pull requests from a repository
+#### Adición de varias incidencias o solicitudes de incorporación de cambios de un repositorio
 
-1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. En {% data variables.location.product_location %}, ve al repositorio que contiene las incidencias o solicitudes de incorporación de cambios que quieres agregar al proyecto.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. To the left of each issue title, select the issues that you want to add to your project.
-  ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
-1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. 
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
-1. Above the list of issues or pull requests, click **Projects**. 
-  ![Screenshot showing projects option](/assets/images/help/projects-v2/issue-index-project-menu.png)
-1. Click the projects you want to add the selected issues or pull requests to.
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/projects-v2/issue-index-select-project.png)
+1. A la izquierda de cada uno de los títulos de las incidencias, selecciona aquellas que quieres agregar al proyecto.
+  ![Captura de pantalla que muestra la casilla para seleccionar la incidencia o solicitud de incorporación de cambios](/assets/images/help/issues/select-issue-checkbox.png)
+1. Opcionalmente, para seleccionar todas las incidencias o solicitudes de incorporación de cambios de la página, en la parte superior de la lista de incidencias o solicitudes de incorporación de cambios, selecciona todas. 
+  ![Captura de pantalla que muestra la casilla para seleccionar todo en pantalla](/assets/images/help/issues/select-all-checkbox.png)
+1. Encima de la lista de incidencias o solicitudes de incorporación de cambios, haz clic en **Proyectos**. 
+  ![Captura de pantalla en la que se muestra la opción Proyectos](/assets/images/help/projects-v2/issue-index-project-menu.png)
+1. Haz clic en los proyectos a los que quieres agregar las incidencias o solicitudes de incorporación de cambios seleccionadas.
+  ![Captura de pantalla que muestra la casilla para seleccionar todo en pantalla](/assets/images/help/projects-v2/issue-index-select-project.png)
 
-#### Assigning a project from within an issue or pull request
+#### Asignar un rpoyecto desde dentro de una propuesta o solicitud de cambios
 
-1. Navigate to the issue or pull request that you want to add to a project.
-2. In the side bar, click **Projects**.
-  ![Screenshot showing "Projects" in the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-projects.png)
-3. Select the project that you want to add the issue or pull request to.
-  ![Screenshot showing selecting a project from the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
-4. Optionally, populate the custom fields.
-  ![Project sidebar](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
+1. Navega a la propuesta o solicitud de cambios que quieras agregar a un proyecto.
+2. En la barra lateral, haga clic en **Projects** (Proyectos).
+  ![Captura de pantalla en la que se muestra "Proyectos" en la barra lateral de incidencias](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+3. Selecciona el proyecto al cual quieras agregar la propuesta o solicitud de cambios.
+  ![Captura de pantalla en la que se muestra la selección de un proyecto en la barra lateral de incidencias](/assets/images/help/projects-v2/issue-sidebar-select-project.png)
+4. Opcionalmente, llena los campos personalizados.
+  ![Barra lateral del proyecto](/assets/images/help/projects-v2/issue-edit-project-sidebar.png)
 
-#### Using the command palette to add an issue or pull request
+#### Uso de la paleta de comandos para agregar una incidencia o una solicitud de incorporación de cambios
 
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Add items" and press <kbd>Return</kbd>.
+1. Comienza a escribir "Agregar elementos" y presiona <kbd>Intro</kbd>.
 {% data reusables.projects.bulk-add %}
 
-### Creating draft issues
+### Crear borradores de propuestas
 
-Draft issues are useful to quickly capture ideas. Unlike issues and pull requests that are referenced from your repositories, draft issues exist only in your project.
+Los borradores de propuestas son útiles si quieres capturar ideas rápidamente. A diferencia de las incidencias y las solicitudes de incorporación de cambios a las que se hace referencia desde los repositorios, los borradores de incidencias solo existen en el proyecto.
 
 {% data reusables.projects.add-draft-issue %}
 
-Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
+Los borradores de propuesta pueden tener un título, cuerpo de texto, asignados y cualquier campo personalizado desde tu proyecto. Para poder poblar el repositorio, las etiquetas o hitos de un borrador de propuesta, primero debes convertirla en una propuesta formal. Para obtener más información, vea "[Conversión de borradores de incidencias a incidencias](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)".
 
 {% note %}
 
-**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+**Nota**: Los usuarios no recibirán notificaciones cuando se les asigne o se les mencione en un borrador de incidencia, a menos de que este se convierta en una incidencia.
 
 {% endnote %}

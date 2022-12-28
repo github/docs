@@ -30,7 +30,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    $ cd REPOSITORY-NAME
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
+5. To filter out the subfolder from the rest of the files in the repository, install [`git-filter-repo`](https://github.com/newren/git-filter-repo), then run `git filter-repo` with the following arguments.
    - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
 
    {% windows %}

@@ -1,8 +1,7 @@
 ---
-title: GitHub Codespaces overview
+title: Resumen de GitHub Codespaces
 shortTitle: Overview
-product: '{% data reusables.gated-features.codespaces %}'
-intro: 'This guide introduces {% data variables.product.prodname_github_codespaces %} and provides details on how it works and how to use it.'
+intro: 'En esta guía se presenta {% data variables.product.prodname_github_codespaces %} y se proporcionan detalles de cómo funciona y cómo usarlo.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/about-codespaces
@@ -16,32 +15,57 @@ versions:
 type: overview
 topics:
   - Codespaces
+ms.openlocfilehash: 9d01df3f8dae7ceb788e2dd57b02fb3cc977400d
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164327'
 ---
+## ¿Qué es un codespace?
 
-## What is a codespace?
+Un codespace es un ambiente de desarrollo que se hospeda en la nube. Puedes personalizar tu proyecto para {% data variables.product.prodname_github_codespaces %} confirmando los [archivos de configuración](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) en el repositorio (lo que se conoce a menudo como configuración como código). Esta acción crea una configuración de codespace repetible para todos los usuarios del proyecto.
 
-A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_github_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
+Cada codespace se ejecuta en una máquina virtual hospedada por {% data variables.product.prodname_dotcom %}. Puedes elegir el tipo de máquina que deseas usar, en función de los recursos que necesites. Hay disponibles varios tipos de máquina, empezando por un procesador de 2 núcleos, 4 GB de RAM y 32 GB de almacenamiento. 
 
-{% data variables.product.prodname_github_codespaces %} run on a variety of VM-based compute options hosted by {% data variables.location.product_location %}, which you can configure from 2 core machines up to 32 core machines. You can connect to your codespaces from the browser or locally using {% data variables.product.prodname_vscode %}.
+Puedes conectarte a tus codespaces desde el explorador, desde {% data variables.product.prodname_vscode %}, desde la aplicación de puerta de enlace de JetBrains o mediante {% data variables.product.prodname_cli %}.
 
-![A diagram showing how {% data variables.product.prodname_github_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
+![Un diagrama que muestra cómo funciona {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-diagram.png)
 
-## Using {% data variables.product.prodname_github_codespaces %}
+## Uso de {% data variables.product.prodname_github_codespaces %}
 
-You can create a codespace from any branch or commit in your repository and begin developing using cloud-based compute resources. {% data reusables.codespaces.links-to-get-started %}
+Para comenzar a desarrollar utilizando recursos de cómputo basados en la nube, puedes crear un codespace desde una plantilla o cualquier rama o confirmación en un repositorio. Al crear un codespace a partir de una plantilla, puedes empezar desde una plantilla en blanco o elegir una plantilla adecuada para el trabajo que estás haciendo.
 
-To customize the runtimes and tools in your codespace, you can create one or more dev container configurations for your repository. Adding dev container configurations to your repository allows you to define a choice of different development environments that are appropriate for the work people will do in your repository. 
+{% data reusables.codespaces.links-to-get-started %}
 
-If you don't add a dev container configuration, {% data variables.product.prodname_github_codespaces %} will clone your repository into an environment with the default codespace image that includes many tools, languages, and runtime environments. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+### Uso de codespaces propiedad de tu cuenta personal
 
-You can also personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and {% data variables.product.prodname_vscode_shortname %} extensions. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
+Todas las cuentas de {% data variables.product.prodname_dotcom_the_website %} tienen una cuota mensual de uso gratuito de {% data variables.product.prodname_github_codespaces %} incluida en el plan Gratis o Pro. Puedes empezar a usar {% data variables.product.prodname_github_codespaces %} en tu cuenta personal sin cambiar ninguna configuración ni proporcionar detalles de pago.
 
-## About billing for {% data variables.product.prodname_codespaces %}
+Puedes crear y usar un codespace para cualquier repositorio que puedas clonar. También puedes usar una plantilla para crear codespaces que no estén asociados inicialmente a un repositorio. Si creas un codespace desde un repositorio propiedad de la organización, el uso del codespace se cobrará a la organización (si la organización está configurada para ello) o a tu cuenta personal. Los codespaces creados a partir de plantillas siempre se cobran a tu cuenta personal. 
 
-For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+{% data reusables.codespaces.codespaces-continue-by-paying %} 
+
+### Uso de codespaces propiedad de la organización
+
+Los propietarios de la organización pueden habilitar el uso de {% data variables.product.prodname_github_codespaces %}, facturables a la organización o a la cuenta de empresa. Esto se aplica a codespaces creados a partir de repositorios propiedad de la organización. Para más información, consulta ["Habilitación de {% data variables.product.prodname_github_codespaces %} para la organización](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)". Puedes establecer un límite de gasto para el uso de {% data variables.product.prodname_github_codespaces %} en tu organización o cuenta empresarial. Para más información, consulta "[Administración de los límites de gasto para {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)".
+
+Si el uso de un codespace va a facturarse a una organización o empresa, se muestra cuando se crea el codespace. Para obtener más información, consulta "[Creación de un codespace para un repositorio](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)". Los codespaces que se facturan a una organización, o a su empresa matriz, son propiedad de la organización y pueden ser eliminados por un propietario de esta. Para más información, vea "[Eliminación de un codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)". 
+
+### Personalización de {% data variables.product.prodname_github_codespaces %}
+
+Para personalizar los runtimes y las herramientas del codespace, puedes crear una o varias configuraciones de contenedor de desarrollo para el repositorio. Agregar configuraciones de contenedor de desarrollo al repositorio permite definir una elección de diferentes entornos de desarrollo que sean adecuados para el trabajo que harán las personas en el repositorio. 
+
+Si creas un codespace desde un repositorio sin configuraciones de contenedor de desarrollo, {% data variables.product.prodname_github_codespaces %} clonará tu repositorio en un entorno con la imagen de codespace predeterminada que incluye muchas herramientas, lenguajes y entornos en tiempo de ejecución. Si creas un codespace a partir de una plantilla, puedes empezar con alguna configuración inicial sobre la imagen predeterminada. Para obtener más información, consulte "[Introducción a los contenedores de desarrollo](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+
+Puedes personalizar aspectos del entorno de codespace mediante un repositorio de [dotfiles](https://dotfiles.github.io/tutorials/) público. Puedes usar dotfiles para establecer alias y preferencias de shell, o para instalar tus preferencias personales de las herramientas que quieras usar. Si usas {% data variables.product.prodname_github_codespaces %} en el explorador o en {% data variables.product.prodname_vscode %}, puedes usar [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) para proporcionar al editor de codespace la misma configuración, métodos abreviados de teclado, fragmentos de código y extensiones que has configurado en la instalación local de {% data variables.product.prodname_vscode %}. 
+
+Para más información, vea "[Personalización del codespace](/codespaces/customizing-your-codespace)".
+
+## Facturación para {% data variables.product.prodname_codespaces %}
+
+Para obtener más información sobre los precios, el almacenamiento y el uso de {% data variables.product.prodname_github_codespaces %}, consulta "[Acerca de la facturación de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-{% data reusables.codespaces.codespaces-monthly-billing %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
-
-You can see who will pay for a codespace before you create it. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+{% data reusables.codespaces.codespaces-monthly-billing %} Para obtener información sobre cómo los propietarios de las organizaciones y los administradores de facturación pueden controlar el límite de gasto de {% data variables.product.prodname_github_codespaces %} en una organización, consulta "[Administración de los límites de gasto de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)".

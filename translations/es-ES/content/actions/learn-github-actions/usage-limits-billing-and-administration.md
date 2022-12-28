@@ -11,12 +11,12 @@ versions:
 topics:
   - Billing
 shortTitle: Workflow billing & limits
-ms.openlocfilehash: f457af5e458f54c699578a8a288dd1d64b674c36
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5abd041d41ab2227aa87c383f39c94876544718c
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146681015'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191858'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -49,7 +49,9 @@ ms.locfileid: '146681015'
 
 - **Tiempo de ejecución del trabajo**: cada trabajo de un flujo de trabajo se puede ejecutar durante un tiempo de ejecución máximo de 6 horas. Si un job llega a este límite, éste se terminará y fallará en completarse.
 {% data reusables.actions.usage-workflow-run-time %} {% data reusables.actions.usage-api-requests %}
-- **Trabajos simultáneos**: la cantidad de trabajos que puedes ejecutar simultáneamente en tu cuenta depende de tu plan de GitHub, como se indica en la tabla siguiente. Si eso se excede, cualquier job adicional se pondrá en cola de espera.
+- **Trabajos simultáneos**: la cantidad de trabajos que puedes ejecutar simultáneamente en tu cuenta depende de tu plan de GitHub, y también del tipo de ejecutor utilizado. Si eso se excede, cualquier job adicional se pondrá en cola de espera.
+
+  **Ejecutores hospedados en {% data variables.product.prodname_dotcom %} estándar**
 
   | Plan de GitHub | Jobs simultáneos totales | Jobs simultáneos de macOS máximos |
   |---|---|---|
@@ -58,11 +60,18 @@ ms.locfileid: '146681015'
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
 
+  **{% data variables.actions.hosted_runner %}s hospedados en {% data variables.product.prodname_dotcom %}**
+
+  | Plan de GitHub | Jobs simultáneos totales | Jobs simultáneos de macOS máximos |
+  |---|---|---|
+  | All | 500 | N/D |
+
   {% note %}
 
   **Nota:** Si es necesario, los clientes de planes empresariales pueden solicitar un límite mayor para trabajos simultáneos. Para más información, póngase en contacto con {% data variables.contact.contact_ent_support %} o su representante de ventas.
 
   {% endnote %}
+  
 - **Matriz de trabajos**: {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %} Los límites de utilización se aplican a los ejecutores autohospedados. Para más información, consulte [Seguridad del ejecutor autohospedado con repositorios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits).
@@ -77,7 +86,7 @@ Además de los límites de utilización, debes asegurarte de usar {% data variab
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Facturación para los flujos de trabajo reutilizables
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 Si reutilizas un flujo de trabajo, la facturación siempre se asociará con el flujo de trabajo llamante. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado. 
 

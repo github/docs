@@ -4,12 +4,12 @@ intro: '了解如何使用 {% data variables.product.prodname_discussions %} Gra
 versions:
   feature: discussions
 shortTitle: Use GraphQL for Discussions
-ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fd296c4e9390cac3500ba7319cb602366a37e262
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408841'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185615'
 ---
 {% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。 有关 {% data variables.product.prodname_discussions %} 的详细信息，请参阅“[‎关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
@@ -72,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-返回此仓库中定义的可用讨论类别。 每个仓库最多可以有 10 个类别。 有关讨论类别的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
+返回此仓库中定义的可用讨论类别。 每个存储库最多可以有 25 个类别。 有关讨论类别的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
 _签名：_
 

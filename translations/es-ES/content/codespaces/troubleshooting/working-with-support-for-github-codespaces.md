@@ -1,7 +1,6 @@
 ---
 title: Trabajar con el soporte técnico de GitHub Codespaces
 intro: 'Sugerencias para obtener la mejor ayuda del soporte técnico de {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,28 +10,28 @@ topics:
 shortTitle: Working with support
 redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
-ms.openlocfilehash: e352142404db5a351054756e4ef627a25fc84a05
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: a4db589cb5d8de71e6e8c7d109e0156885c33848
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147682523'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159899'
 ---
-Antes de que soporte pueda ayudarte con los problemas de los codespaces, necesitas saber el nombre del codespace y su ID de codespaces (identificador). Adicionalmente, soporte podría pedirte que le compartas algunas bitácoras. Para más información, consulta "[Registros de {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)" y "[Acerca del soporte técnico de GitHub](/github/working-with-github-support/about-github-support)".
+Antes de que soporte pueda ayudarte con los problemas de los codespaces, necesitas saber el nombre permanente del codespace y su ID de codespaces (identificador). Adicionalmente, soporte podría pedirte que le compartas algunas bitácoras. Para más información, consulta "[Registros de {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)" y "[Acerca del soporte técnico de GitHub](/github/working-with-github-support/about-github-support)".
 
-### Nombres de los codespaces
+## Nombres de los codespaces
 
-Cada codespace tiene un nombre único que es una combinación de tu manejo de {% data variables.product.company_short %}, el nombre del repositorio, y algunos caracteres aleatorios. Los caracteres adicionales te permiten tener codespaces para ramas diferentes en el mismo repositorio. Por ejemplo: `octocat-myrepo-gmc7`.
+Cada codespace tiene un nombre único que es una combinación de tu manejo de {% data variables.product.company_short %}, dos o tres palabras generadas automáticamente y algunos caracteres aleatorios. Por ejemplo: `octocat-literate-space-parakeet-mld5`. Las dos o tres palabras generadas automáticamente también forman el nombre para mostrar inicial del codespace, en este caso, `literate-space-parakeet`. Puedes cambiar el nombre para mostrar de un codespace, pero esto no afectará al nombre permanente. Para obtener más información, consulta "[Cambio del nombre de un codespace](/codespaces/customizing-your-codespace/renaming-a-codespace)".
 
 Para encontrar el nombre de un codespace:
 
-- Abre el codespace en el buscador. El subdominio de la URL es el nombre del codespace. Por ejemplo: `https://octocat-myrepo-gmc7.github.dev` es la dirección URL del URL `octocat-myrepo-gmc7`.
-- Si no puede abrir un codespace, puedes acceder al nombre en {% data variables.product.product_name %} en https://github.com/codespaces. El nombre se muestra en un elemento emergente al mantener el puntero sobre la opción **Abrir en el explorador** en https://github.com/codespaces. 
+- Abre el codespace en el buscador. El subdominio de la URL es el nombre del codespace. Por ejemplo: `https://octocat-literate-space-parakeet-mld5.github.dev` es la dirección URL del URL `octocat-literate-space-parakeet-mld5`.
+- Si no puede abrir un codespace, puedes acceder al nombre en {% data variables.product.product_name %} en https://github.com/codespaces. El nombre se muestra en un elemento emergente al mantener el puntero sobre el nombre para mostrar de un codespace en https://github.com/codespaces. 
   ![Nombre del codespace que se muestra al pasar el puntero del mouse](/assets/images/help/codespaces/find-codespace-name-github.png)
 
 El nombre del codespace también se incluye en muchos otros archivos de bitácora. Por ejemplo, en el codespace se registra como el valor de `friendlyName`, en el registro de extensión {% data variables.product.prodname_github_codespaces %} después de `making GET request for` y en el registro de consola del explorador después de `clientUrl`. Para más información, consulta "[Registros de {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)".
 
-### ID de los codespaces
+## ID de los codespaces
 
 Cada codespace también tiene un ID (identificador). Este no se muestra predeterminadamente en {% data variables.product.prodname_vscode %}, así que podrías tener que actualizar los ajustes para la extensión de {% data variables.product.prodname_github_codespaces %} antes de que puedas acceder a la ID.
 

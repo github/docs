@@ -55,7 +55,22 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
-{% data reusables.codespaces.review-pr %}
+1. Open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
+1. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
+
+   ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
+
+1. To review a specific file, click the **Open File** icon in the Side Bar.
+
+   ![Option to open PR in a codespace](/assets/images/help/codespaces/changes-in-files.png)
+
+1. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
+
+   ![Option to open PR in a codespace](/assets/images/help/codespaces/start-review.png)
+
+1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
+
+   ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
 
 For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 

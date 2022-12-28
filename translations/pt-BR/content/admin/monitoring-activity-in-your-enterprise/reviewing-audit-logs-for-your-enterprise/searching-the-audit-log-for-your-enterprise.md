@@ -19,12 +19,12 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 6289b83d40aecf5208ae377be953ca65baba4a7d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 12bc44b7d81df55366f8b839261cf8899a53729d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147875692'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183993'
 ---
 ## Sobre a pesquisa no log de auditoria da empresa
 
@@ -85,6 +85,7 @@ Chave            | Valor
 `org_id`       | ID da organização afetada pela ação (se aplicável).
 `business` | Nome da empresa afetada pela ação (se aplicável)
 `business_id` | ID da empresa afetada pela ação (se aplicável)
+{%- ifversion token-audit-log %} `hashed_token` | O token usado para autenticação na ação (se aplicável, confira "[Como identificar eventos de log de auditoria executados por um token de acesso](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)") {%- endif %}
 
 Para ver as ações agrupadas por categoria, use também o qualificador de ação como um par `key:value`. Para obter mais informações, confira "[Pesquisa com base na ação executada](#search-based-on-the-action-performed)".
 
@@ -113,6 +114,7 @@ Cada categoria tem um conjunto de ações associadas que você pode filtrar. Por
 As ações que podem ser encontradas no log de auditoria da sua empresa são agrupadas nas seguintes categorias:
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### Pesquisar com base na hora da ação
 
 Use o qualificador `created` para filtrar eventos no log de auditoria com base na data em que eles ocorreram.
@@ -135,3 +137,9 @@ Usando o qualificador `country`, você pode filtrar eventos no log de auditoria 
   * `country:de` localiza todos os eventos ocorridos na Alemanha.
   * `country:Mexico` localiza todos os eventos ocorridos no México.
   * `country:"United States"` localiza todos os eventos ocorridos nos Estados Unidos.
+
+{% ifversion token-audit-log %}
+### Pesquisar com base no token que executou a ação
+
+Use o qualificador `hashed_token` para pesquisar com base no token que executou a ação. Antes de procurar um token, gere um hash SHA-256. Para obter mais informações, confira "[Como identificar eventos de log de auditoria executados por um token de acesso](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)".
+{% endif %}

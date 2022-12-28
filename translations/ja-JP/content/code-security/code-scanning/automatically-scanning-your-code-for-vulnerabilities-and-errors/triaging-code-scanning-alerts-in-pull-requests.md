@@ -1,7 +1,7 @@
 ---
-title: Triaging code scanning alerts in pull requests
+title: Pull RequestでCode scanningアラートをトリアージする
 shortTitle: Triage alerts in pull requests
-intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
+intro: 'Pull Requestで {% data variables.product.prodname_code_scanning %} が問題を特定した場合、強調表示されたコードを確認してアラートを解決できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
@@ -20,105 +20,95 @@ topics:
   - Pull requests
   - Alerts
   - Repositories
+ms.openlocfilehash: f73b0ef30b4512bc951fdbae4ae2f3c300e4c534
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162743'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About {% data variables.product.prodname_code_scanning %} results on pull requests
+## Pull Requestの {% data variables.product.prodname_code_scanning %} 結果について
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in multiple places.
+プルリクエストのチェック用に {% data variables.product.prodname_code_scanning %} が設定されているリポジトリでは、{% data variables.product.prodname_code_scanning %}がプルリクエストのコードをチェックします。 デフォルトでは、このチェックはデフォルトブランチを対象とするプルリクエストに限定されていますが、この設定は {% data variables.product.prodname_actions %} またはサードパーティの CI/CD システム内で変更できます。 変更をマージすることで、対象となるブランチに新たな {% data variables.product.prodname_code_scanning %} アラートが発生する場合には、そのアラートは複数の場所で報告されます。
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %} 
-- The **Files changed** tab of the pull request
+- pull request のチェック結果 {% ifversion code-scanning-pr-conversations-tab %}
+- pull request の **[会話]** タブ (pull request レビューの一部として) {% endif %} 
+- pull request の **[変更されたファイル]** タブ
 
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+リポジトリへの書き込み権限がある場合は、 **[セキュリティ]** タブに既存の {% data variables.product.prodname_code_scanning %} アラートが表示されます。リポジトリ アラートの詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートの管理](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)」を参照してください。
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+タイム コードがプッシュされるたびにスキャンされるように {% data variables.product.prodname_code_scanning %} が設定されているリポジトリでは、{% data variables.product.prodname_code_scanning %} の結果がすべてのオープンな pull request にマップされ、アラートは他の pull request でチェックされるのと同じ場所にアノテーションとして追加されます。 詳細については、「[プッシュ時のスキャン](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)」を参照してください。
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_capc %} results" check must pass before you can merge the pull request. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+pull request が {% data variables.product.prodname_code_scanning %} を使用する保護されたブランチをターゲットとし、リポジトリの所有者が必要なステータス チェックを設定している場合、pull request をマージするには "{% data variables.product.prodname_code_scanning_capc %} の結果" チェックに合格する必要があります。 詳細については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)」を参照してください。
 
-## About {% data variables.product.prodname_code_scanning %} as a pull request check
+## Pull Requestのチェックとしての {% data variables.product.prodname_code_scanning %} について
 
-There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact setup of each repository will vary and some will have more than one check. 
+{% data variables.product.prodname_code_scanning %} をプルリクエストのチェックとして設定するためのオプションは多いので、正確なセットアップはそれぞれのリポジトリで異なり、複数のチェックを行う場合もあります。 
 
-### {% data variables.product.prodname_code_scanning_capc %} results check
+### {% data variables.product.prodname_code_scanning_capc %} の結果チェック
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_capc %} results**. The results for each analysis tool used are shown separately. Any new alerts caused by changes in the pull request are shown as annotations. 
+{% data variables.product.prodname_code_scanning %} のすべての設定で、{% data variables.product.prodname_code_scanning %} の結果を含むチェックが、 **{% data variables.product.prodname_code_scanning_capc %} の結果** です。 使用される分析ツールの結果はそれぞれ個別に表示されます。 pull request の変更によって発生した新しいアラートは、すべてアノテーションとして表示されます。 
 
-To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
+分析されたブランチのアラートの完全なセットを表示するには、 **[すべてのブランチ アラートを表示する]** をクリックします。 これにより、ブランチのすべてのアラートを種類、重大度、タグなどでフィルター処理できる完全なアラート ビューが開きます。詳細については、「[リポジトリの code scanning アラートの管理](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)」を参照してください。
 
-![{% data variables.product.prodname_code_scanning_capc %} results check on a pull request](/assets/images/help/repository/code-scanning-results-check.png)
+![pull request の {% data variables.product.prodname_code_scanning_capc %} の結果チェック](/assets/images/help/repository/code-scanning-results-check.png)
 
-### {% data variables.product.prodname_code_scanning_capc %} results check failures
+### {% data variables.product.prodname_code_scanning_capc %} の結果チェックのエラー
 
-If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`, `critical`, or `high`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
+{% data variables.product.prodname_code_scanning %} の結果チェックで、重大度が `error`、`critical`、または `high` の問題が検出された場合、チェックは失敗し、チェック結果にエラーが報告されます。 {% data variables.product.prodname_code_scanning %} で検出されたすべての結果の重大度が低い場合、アラートは警告または通知として扱われ、チェックは成功となります。
 
-![Failed {% data variables.product.prodname_code_scanning %} check on a pull request](/assets/images/help/repository/code-scanning-check-failure.png)
+![プルリクエストの失敗した {% data variables.product.prodname_code_scanning %} チェック](/assets/images/help/repository/code-scanning-check-failure.png)
 
-You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+リポジトリ設定で既定の動作をオーバーライドできます。そのためには、重大度のレベルと、pull request のチェック エラーが発生するセキュリティ重大度を指定します。 詳細については、「[pull request チェック エラーの原因となっている重大度の定義](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)」を参照してください。
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+### その他の{% data variables.product.prodname_code_scanning %} チェック
 
-Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis. 
+設定によっては、{% data variables.product.prodname_code_scanning %} が設定された pull request で実行される追加のチェックが表示される場合があります。 これらは通常、コードを分析する、または{% data variables.product.prodname_code_scanning %} の結果をアップロードするワークフローです。 これらのチェックは、分析に問題がある場合のトラブルシューティングに役立ちます。 
 
-For example, if the repository uses the {% data variables.product.prodname_codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. The analysis check may fail if there are configuration problems, or if the pull request breaks the build for a language that the analysis needs to compile (for example, C/C++, C#, or Java). 
+たとえば、リポジトリが {% data variables.code-scanning.codeql_workflow %} を使用している場合、 **{% data variables.product.prodname_codeql %} / 分析 (言語)** チェックを各言語で実行してから、結果チェックを実行します。 設定に問題がある場合、解析がコンパイルする必要がある言語 (C/C++、C#、Java など) でプルリクエストがビルドを中断している場合、解析は失敗することがあります。 
 
-As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" or "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+他の pull request のチェックと同様に、 **[チェック]** タブでチェック エラーの詳細を確認できます。設定とトラブルシューティングの詳細については、「[{% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/configuring-code-scanning)」または「[{% data variables.product.prodname_codeql %} ワークフローのトラブルシューティング](/code-security/secure-coding/troubleshooting-the-codeql-workflow)」を参照してください。
 
-## Viewing an alert on your pull request
+## pull request でのアラートの表示
 
-{% ifversion code-scanning-pr-conversations-tab %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_capc %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+{% ifversion code-scanning-pr-conversations-tab %} **[会話]** タブを表示すると、pull request で発生した {% data variables.product.prodname_code_scanning %} アラートを確認できます。{% data variables.product.prodname_code_scanning_capc %} は、アラートのトリガーとなったコード行に注釈として各アラートを表示する pull request レビューを提示します。 注釈から直接、アラートにコメントを付け、アラートを無視し、アラートのパスを表示できます。 アラートの詳細を表示するには、[詳細の表示] リンクをクリックします。すると、アラートの詳細ページに移動します。
 
-![Alert annotation within a pull request Conversations tab](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
+![pull request の [会話] タブでのアラートの注釈](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
-You can also view all {% data variables.product.prodname_code_scanning %} alerts in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab.
+pull request の **[変更されたファイル]** タブで、すべての {% data variables.product.prodname_code_scanning %} アラートを表示することもできます。 pull request によって加えられた変更の差分に含まれない、ファイルに対する既存の {% data variables.product.prodname_code_scanning %} アラートは、 **[変更されたファイル]** タブにのみ表示されます。
 
-{% else %} 
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation. 
+{% else %}pull request によって加えられた {% data variables.product.prodname_code_scanning %} アラートは、 **[変更されたファイル]** タブを表示することで確認できます。各アラートは、アラートのトリガーとなったコード行に注釈として表示されます。 アノテーションにはアラートの重大度が表示されます。 
 
-![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
+![pull request の差分にあるアラートの注釈](/assets/images/help/repository/code-scanning-pr-annotation.png) {% endif %}
 
-If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
+リポジトリへの書き込み権限がある場合、一部のアノテーションにはアラートの追加的な背景を説明するリンクが含まれています。 上の例では、{% data variables.product.prodname_codeql %} 分析から **[ユーザー指定の値]** をクリックすると、データ フローに信頼されていないデータが入っている場所 (ソース) が表示されます。 この場合、 **[パスの表示]** をクリックすることで、ソースからデータ (シンク) を使用するコードまでのフル パスを表示することもできます。 これにより、データが信頼されていないかや、ソースとシンクの間のデータサニタイズのステップを解析が認識できなかったかを簡単に確認できます。 {% data variables.product.prodname_codeql %} を使用したデータ フローの分析については、「[データ フロー分析について](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)」を参照してください。
 
-To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
+アラートの詳細情報を表示するには、書き込み権限を持つユーザが、アノテーションに表示されている **[詳細を表示]** のリンクをクリックします。 これにより、ツールが提供するコンテキストとメタデータのすべてをアラートビューで確認できます。 下の例では、問題の重要度、タイプ、および関連する共通脆弱性タイプ一覧 (CWE) を示すタグが表示されています。 また、どのコミットが問題を引き起したかも表示されています。
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.code-scanning.alert-default-branch %} {% endif %}
 
-In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
+アラートの詳細画面において、{% data variables.product.prodname_codeql %} 分析のような一部の{% data variables.product.prodname_code_scanning %} ツールでは、問題の説明や、コードを修正する方法を説明するための **[詳細を表示]** リンクも含まれています。
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
-{% else %}
-![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} ![アラートの説明と詳しい情報へのリンク](/assets/images/help/repository/code-scanning-pr-alert.png) {% else %} ![アラートの説明と詳しい情報へのリンク](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png) {% endif %}
 
 {% ifversion code-scanning-pr-conversations-tab %}
-## Commenting on an alert in a pull request
+## pull request のアラートに対するコメント
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on.
+pull request での変更によって発生した {% data variables.product.prodname_code_scanning %} アラートにコメントを付けることができます。 アラートは、pull request レビューの一環として pull request の **[会話]** タブに注釈として表示され、 **[変更されたファイル]** タブにも表示されます。pull request での変更によって発生したアラートに対してのみコメントできます。 pull request で加えられた変更に含まれない、ファイルに対する既存の {% data variables.product.prodname_code_scanning %} アラートは、 **[変更されたファイル]** タブに表示されますが、コメントすることはできません。
 
-You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
+pull request をマージする前に pull request でのすべての会話 ({% data variables.product.prodname_code_scanning %} アラートに関するものを含む) を解決するように要求することを選べます。 詳細については、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)」を参照してください。
 {% endif %}
-## Fixing an alert on your pull request
+## Pull Requestのアラートの修正
 
-Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
+プルリクエストへのプッシュアクセスがあるユーザなら誰でも、プルリクエストで特定された {% data variables.product.prodname_code_scanning %} アラートを解決できます。 プルリクエストに変更をコミットすると、プルリクエストのチェック実行が新しくトリガーされます。 問題を修正すると、アラートは閉じられ、アノテーションは削除されます。
 
-## Dismissing an alert on your pull request
+## Pull Requestのアラートの却下
 
-An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
-![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
+アラートを閉じる別の方法として、却下する方法があります。 修正する必要がないと考えられる場合は、アラートを却下できます。 {% data reusables.code-scanning.close-alert-examples %} リポジトリに書き込み権限を持っているなら、コードのアノテーションとアラートのサマリで **[却下]** ボタンが利用できます。 **[却下]** をクリックすると、アラートをクローズする理由の選択が求められます。
+{% ifversion comment-dismissed-code-scanning-alert %} ![Code Scanning アラートのスクリーンショット。無視する理由を選ぶドロップダウンが強調されています](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png) {% else %} ![アラートを無視する理由を選ぶ](/assets/images/help/repository/code-scanning-alert-close-drop-down.png) {% endif %} {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-For more information about dismissing alerts, see {% ifversion delete-code-scanning-alerts %}"[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)."{% else %} "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)."{% endif %}
+アラートの無視に関する詳しい情報については、{% ifversion delete-code-scanning-alerts %}「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートの管理](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)」を参照してください。{% else %}「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートの管理](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)」を参照してください。{% endif %}

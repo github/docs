@@ -1,7 +1,6 @@
 ---
 title: codespace の名前を変更する
-intro: '{% data variables.product.prodname_cli %} を使用して、codespace の表示名を任意の名前に変更できます。'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'codespace の表示名は {% data variables.product.prodname_dotcom_the_website %} または {% data variables.product.prodname_cli %} から変更できます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Rename a codespace
-ms.openlocfilehash: 58e5e9584df07e8e6abba3f1cfac5d0b3234c01a
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: dcb4558cce7ca0768524917a46cde2a49bacd1ce
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107086'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158718'
 ---
 ## codespace の名前変更について
 
@@ -28,7 +27,7 @@ codespace の表示名を見つけるには:
 
   ![GitHub の codespace の一覧のスクリーンショット](/assets/images/help/codespaces/codespaces-list-display-name.png)
 
-- {% data variables.product.prodname_vscode %} デスクトップ アプリケーションまたは {% data variables.product.prodname_vscode_shortname %} Web クライアントで、[リモート エクスプローラー] をクリックします。 表示名は、リポジトリ名の下に表示されます。 たとえば、次のスクリーンショットの `symmetrical space telegram`。
+- {% data variables.product.prodname_vscode %} デスクトップ アプリケーションまたは {% data variables.product.prodname_vscode_shortname %} Web クライアントで、[リモート エクスプローラー] をクリックします。 表示名はリストの 2 番目の項目です。 たとえば、次のスクリーンショットの `symmetrical space telegram`。
 
   ![VS Code のリモート エクスプローラーのスクリーンショット](/assets/images/help/codespaces/codespaces-remote-explorer.png)
 
@@ -37,11 +36,11 @@ codespace の表示名を見つけるには:
 
 ### 永続的な codespace 名
 
-表示名に加えて、codespace を作成するときに、永続的な名前も codespace に割り当てられます。 名前は、{% data variables.product.company_short %} ハンドル、リポジトリ名、およびいくつかのランダムな文字の組み合わせです。 (例: `octocat-myrepo-gmc7`)。 この名前は変更できません。
+表示名に加えて、codespace を作成するときに、永続的な名前も codespace に割り当てられます。 名前は {% data variables.product.company_short %} ハンドルと自動生成された表示名の組み合わせです。 (例: `octocat-literate-space-parakeet-mld5`)。 永続的な名前は変更できません。
 
 codespace の永続的な名前を見つけるには:
 
-* {% data variables.product.product_name %} では、 https://github.com/codespaces で **[ブラウザーで開く]** オプションにカーソルを合わせると、永続的な名前がポップアップに表示されます。 
+* {% data variables.product.product_name %} で、 https://github.com/codespaces の codespace の表示名にカーソルを合わせると、永続的な名前がポップアップに表示されます。 
 
    ![カーソルを合わせると表示される codespace 名のスクリーンショット](/assets/images/help/codespaces/find-codespace-name-github.png)
    
@@ -50,7 +49,11 @@ codespace の永続的な名前を見つけるには:
 
 ## codespace の名前を変更する
 
-codespace の表示名を変更すると、長期間使用する複数の codespace がある場合に便利です。 適切な名前は、特定の目的に使用する codespace を識別するのに役立ちます。 {% data variables.product.prodname_cli %} を使用して、codespace の表示名を変更できます。
+codespace の表示名を変更すると、長期間使用する複数の codespace がある場合に便利です。 適切な名前は、特定の目的に使用する codespace を識別するのに役立ちます。 
+
+{% cli %}
+
+{% data variables.product.prodname_cli %} を使用して、codespace の表示名を変更できます。
 
 codespace の名前を変更するには、`gh codespace edit` サブコマンドを使用します。
 
@@ -61,3 +64,20 @@ gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
 この例では、`PERMANENT-CODESPACE-NAME` を、表示名を変更する codespace の永続的な名前に置き換えます。 `NEW-DISPLAY-NAME` を、この codespace に使用する表示名に置き換えます。
 
 詳細については、「[{% data variables.product.prodname_github_codespaces %} と {% data variables.product.prodname_cli %} の使用](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)」を参照してください。
+
+{% endcli %}
+
+{% webui %}
+
+codespace の表示名は {% data variables.product.prodname_dotcom_the_website %} で変更できます。
+
+{% data reusables.codespaces.your-codespaces-procedure-step %}
+
+    The current display name for each of your codespaces is displayed.
+
+{% data reusables.codespaces.ellipsis-settings %}
+1. **[名前変更]** をクリックします。
+
+1. プロンプトの "Change display name to..." に希望の表示名を入力し、 **[OK]** をクリックします。
+
+{% endwebui %}

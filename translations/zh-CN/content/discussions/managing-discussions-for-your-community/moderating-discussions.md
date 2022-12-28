@@ -4,12 +4,12 @@ intro: '可以通过将评论标记为答案、锁定或解锁讨论、将问题
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   feature: discussions
-ms.openlocfilehash: 7d128c9beadb190f9c22c345cf0c3124b1dfcfcb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4d09537a3c38d2eb9ac2650c48f2c44c1b0cbd95
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410113'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164471'
 ---
 ## 关于主持讨论
 
@@ -39,3 +39,10 @@ ms.locfileid: '147410113'
 1. 单击问题右侧的“转换为讨论”。
 1. 选择“选择类别”下拉菜单，然后单击某个类别进行讨论。
 1. 单击“我明白，将此问题转化为讨论”。
+
+{% ifversion discussions-hide-comments-on-block %}
+## 阻止用户访问组织
+
+如果用户评论不符合社区的行为准则，组织所有者和审查者可以阻止用户访问组织。 阻止用户时，他们将无法再对讨论发表评论。 还可以隐藏用户在组织中所做的所有评论。 有关详细信息，请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
+
+{% data reusables.organizations.blocking-a-user %} {% endif %}

@@ -36,6 +36,16 @@ async function main() {
   const res = {}
   const req = { language: 'en', cookies: {} }
 
+  async function recurse(tree) {
+    const { page } = tree
+    tree.renderedFullTitle = page.rawTitle.includes('{')
+      ? await await liquid.parseAndRender(page.rawTitle, req.context)
+      : page.rawTitle
+    for (const node of tree.childPages || []) {
+      await recurse(node)
+    }
+  }
+
   for (const version of allVersionKeys) {
     req.pagePath = version === fpt ? '/' : `/${version}`
 
@@ -51,6 +61,8 @@ async function main() {
 
     // Add the tree to the req.context.
     req.context.currentEnglishTree = req.context.siteTree.en[req.context.currentVersion]
+
+    await recurse(req.context.currentEnglishTree)
 
     // Add any defaultOpenSections to the context.
     req.context.defaultOpenSections = defaultOpenSections

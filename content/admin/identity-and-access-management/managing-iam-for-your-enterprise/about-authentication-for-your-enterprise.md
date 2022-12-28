@@ -19,9 +19,9 @@ topics:
 
 {% ifversion ghec %}
 
-Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. 
+Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources.
 
-You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses.
+{% data reusables.enterprise.ghec-authentication-options %}
 
 After learning more about these options, to determine which method is best for your enterprise, see "[Identifying the best authentication method for your enterprise](#identifying-the-best-authentication-method-for-your-enterprise)."
 
@@ -41,7 +41,15 @@ By default, each member must create a personal account on {% data variables.loca
 
 If you configure additional SAML access restriction, each member must create and manage a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after both signing into the account on {% data variables.location.product_location %} and successfully authenticating with your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
-If you use a standalone organization with {% data variables.product.product_name %}, or if you don't want to use SAML authentication for every organization in your enterprise, you can configure SAML for an individual organization. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+#### Considerations for enabling SAML for an enterprise or organization
+
+You can configure SAML authentication for every organization in your enterprise, or for individual organizations. If you use a standalone organization with {% data variables.product.product_name %}, or if you don't want to use SAML authentication for every organization in your enterprise, you may want to configure SAML for an individual organization instead of your enterprise. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+
+If some groups within your enterprise must use different SAML authentication providers to grant access to your resources on {% data variables.location.product_location %}, you can configure SAML for individual organizations. You can implement SAML for your organizations over time by allowing users to gradually authenticate using SAML. Alternatively, you can require SAML authentication by a certain date. Organization members who do not authenticate using SAML by this date will be removed.
+
+If you need to enforce a consistent authentication experience for every organization in your enterprise, you can configure SAML authentication for your enterprise account. The SAML configuration for your enterprise overrides any SAML configuration for individual organizations, and organizations cannot override the enterprise configuration. After you configure SAML for your enterprise, organization members must authenticate with SAML before accessing organization resources. SCIM is not available for enterprise accounts. Team synchronization is only available for SAML at the enterprise level if you use Azure AD as an IdP. For more information, see "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+
+Regardless of the SAML implementation you choose, you cannot add external collaborators to organizations or teams. You can only add external collaborators to individual repositories.
 
 ### Authentication with {% data variables.product.prodname_emus %} and federation
 
@@ -62,15 +70,15 @@ To determine whether your enterprise would benefit more from SAML SSO or {% data
 
 ### Do you want to control the user accounts for your users?
 
-{% data variables.product.prodname_emus %} may be right for your enterprise if you don't want enterprise members to use their own personal accounts on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources. 
+{% data variables.product.prodname_emus %} may be right for your enterprise if you don't want enterprise members to use their own personal accounts on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources.
 
-With SAML SSO, developers create and manage their own personal accounts, and each account is linked to a SAML identity in your IdP. {% data variables.product.prodname_emus %} functions more like other familiar SSO solutions, as you will provision the accounts for your users. You can also ensure user accounts conform with your company identity, by controlling usernames and the email addresses associated with the accounts. 
+With SAML SSO, developers create and manage their own personal accounts, and each account is linked to a SAML identity in your IdP. {% data variables.product.prodname_emus %} functions more like other familiar SSO solutions, as you will provision the accounts for your users. You can also ensure user accounts conform with your company identity, by controlling usernames and the email addresses associated with the accounts.
 
 If you currently require your users to create a new account on {% data variables.product.prodname_dotcom_the_website %} to use with your enterprise only, {% data variables.product.prodname_emus %} might be right for you. However, SAML SSO may be a better option if using your IdP as the source of truth for your user and access management would add too much complexity. For example, perhaps your enterprise does not have an established process for onboarding new users in your IdP.
 
 ### Which identity provider does your enterprise use?
 
-{% data variables.product.prodname_emus %} is supported for a limited number of IdPs, while SAML SSO offers full support for a larger number of IdPs, plus limited support for all IdPs that implement the SAML 2.0 standard. For the list of supported IdPs for each option, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#identity-provider-support)" and "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam#supported-idps)."
+{% data variables.product.prodname_emus %} is supported for a limited number of IdPs and requires SCIM, while SAML SSO offers full support for a larger number of IdPs, plus limited support for all IdPs that implement the SAML 2.0 standard, and does not require SCIM. For the list of supported IdPs for each option, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#identity-provider-support)" and "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam#supported-idps)."
 
 You can use {% data variables.product.prodname_emus %} with an unsupported IdP only if you federate the unsupported IdP to a supported IdP to use as an integration point. If you wish to avoid this extra complexity, SAML SSO may be a better solution for you.
 
@@ -145,4 +153,5 @@ If you use SAML SSO for authentication, you can also provision users and map IdP
 - "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
 {%- ifversion ghec %}
 - "[Can I create accounts for people in my organization?](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)"
-{% endif %}
+- "[Switching your SAML configuration from an organization to an enterprise account](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
+{%- endif %}

@@ -13,12 +13,12 @@ topics:
   - Enterprise
   - Identity
   - SSO
-ms.openlocfilehash: 9931a13150ff98d7ab113d37df9622b43367fa1b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 16b5bdd98e37db2eef6fe7e4e02da1a4ce8fd406
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107022'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164373'
 ---
 ## Enterprise の認証について
 
@@ -26,7 +26,7 @@ ms.locfileid: '148107022'
 
 {% data variables.product.product_name %} の Enterprise 所有者は、Enterprise のリソースに対する認証とアクセスに関する要件を制御できます。 
 
-メンバーがユーザー アカウントを作成して管理できるようにするか、Enterprise で {% data variables.product.prodname_emus %} を使用してメンバーのアカウントを作成、管理できるようにするかを選ぶことができます。 メンバーが自分のアカウントを管理できるようにする場合は、SAML 認証を構成して、チームで使用される Web アプリケーションのセキュリティを強化し、ID とアクセスを一元化することもできます。
+{% data reusables.enterprise.ghec-authentication-options %}
 
 これらのオプションの詳しい情報を学習した後、Enterprise に最適な方法を決定するには、「[Enterprise に最適な認証方法を特定する](#identifying-the-best-authentication-method-for-your-enterprise)」を参照してください。
 

@@ -6,16 +6,16 @@ miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
-  - /issues/trying-out-the-new-projects-experience/managing-iterations
+- /issues/trying-out-the-new-projects-experience/managing-iterations
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 93039327ab7075e0f79c9d5ae5d6652aa635a500
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108766'
+ms.locfileid: "148108766"
 ---
 可以创建一个迭代字段，将项与特定的重复时间块相关联。 迭代可以设置为任何时间长度，可以包括中断，并且可以进行单独编辑以修改名称和日期范围。 对于项目，可以按迭代分组，以可视化即将开始的工作的平衡度，使用筛选器专注于单个迭代，并按迭代进行排序。
 

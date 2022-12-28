@@ -1,24 +1,24 @@
 ---
 title: NAS ストレージ用の MinIO ゲートウェイで GitHub Actions を有効化する
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効化し、NAS ストレージに MinIO Gateway を使用して、ワークフローの実行によって生成されたデータを保存できます。'
-permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
+permissions: Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.
 versions:
   ghes: '*'
 type: how_to
 topics:
-  - Actions
-  - Enterprise
-  - Infrastructure
-  - Storage
+- Actions
+- Enterprise
+- Infrastructure
+- Storage
 redirect_from:
-  - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
+- /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO Gateway for NAS storage
 ms.openlocfilehash: bb738d04d54234704f3278422c1f1ef075956640
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106870'
+ms.locfileid: "148106870"
 ---
 {% data reusables.actions.minio-gateways-removal %}
 

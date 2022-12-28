@@ -11,12 +11,12 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 89f93ace53547fccd69ffb7e6d7b666a6cb48991
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 809d8492bb1ec7c8cd4eb051b1eaefb00d29097e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108120'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158571'
 ---
 {% ifversion fpt %}
 
@@ -29,6 +29,8 @@ ms.locfileid: '148108120'
 {% endif %}
 
  可以使用 {% data variables.product.prodname_projects_v2 %} 的见解来查看、创建和自定义使用添加到项目中的项作为其源数据的图表。 可以向该默认图表应用筛选器，也可以创建自己的图表。 创建图表时，可以设置筛选器、图表类型和显示的信息，并且任何可以查看项目的人都可以使用该图表。 可以生成两种类型的图表：当前图表和历史图表。
+
+ 见解会跟踪已存档或删除的项。
 
  ### 关于当前图表
 

@@ -14,18 +14,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage display of member names
-ms.openlocfilehash: 0a394b40689d95ea37906fef2ddc9b203e2041c3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a990098874393e17f992ffac7b04bcef1b1bcfc4
+ms.sourcegitcommit: 9e0d21122ddfcf3f0dbba9b365ba902a2f779493
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409425'
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163141'
 ---
 组织所有者可管理组织中成员名称的显示。
 
 ![评论中显示的评论者个人资料名称](/assets/images/help/issues/commenter-full-name.png)
 
-每个组织成员在自己的设置中选择自己的个人资料名称。 有关详细信息，请参阅“[个性化配置文件](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)”。
+更改组织内用户名的显示将影响其他人（而非你自己的）的用户名的显示。 每个组织成员在自己的设置中选择自己的个人资料名称。 有关详细信息，请参阅“[个性化配置文件](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)”。
 
 {% ifversion profile-name-enterprise-setting %} 如果企业所有者设置了企业级策略，你可能无法为组织配置此设置。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)”。{% endif %}
 

@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 1b37f350d1a16509df7b661fcde678b6599b3f09
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 1da05f80c01813e53ccdb66c877587e3b2268d34
+ms.sourcegitcommit: 8d9e10685cfb2556fba0ce07484a3b9579808703
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147876215"
+ms.lasthandoff: 11/18/2022
+ms.locfileid: "148172151"
 ---
 Para obter mais informações, confira "[Como impor políticas à {% data variables.product.prodname_advanced_security %} na sua empresa]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".

@@ -14,16 +14,16 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 7a18ed7051b0babdb5408821ce44a728968869d5
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 146f1a33eb4de224625b9603b27d2f383e55c54d
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109776'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163337'
 ---
 ## READMEについて
 
-README ファイルをリポジトリに追加して、プロジェクトに関する重要な情報を伝えることができます。 README は、リポジトリ ライセンス、引用ファイル{% ifversion fpt or ghec %}、コントリビューション ガイドライン、倫理規定{% elsif ghes %}、コントリビューション ガイドライン{% endif %}と並んで、プロジェクトに期待されるものを伝え、コントリビューションを管理しやすくします。
+{% data reusables.repositories.about-READMEs %}
 
 プロジェクトのガイドラインを提供する方法について詳しくは、{% ifversion fpt or ghec %}「[プロジェクトへの行動規範の追加](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および{% endif %}「[健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
 

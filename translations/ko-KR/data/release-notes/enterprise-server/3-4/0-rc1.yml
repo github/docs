@@ -1,0 +1,304 @@
+date: '2022-02-15'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **참고:** {% data variables.product.product_location %}이(가) 릴리스 후보 빌드를 실행하는 경우 핫패치를 사용하여 업그레이드할 수 없습니다. 테스트 환경에서는 릴리스 후보만 실행하는 것이 좋습니다.
+  
+  {% endnote %}
+  
+  업그레이드 지침은 “[{% data variables.product.prodname_ghe_server %} 업그레이드](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”를 참조하세요.
+  
+  > 이 릴리스는 항상 도움을 주었던 우리의 동료이자 친구인 John에게 바칩니다. 너무 그리울 겁니다.
+  >
+  > **John "Ralph" Wiebalk 1986–2021**
+sections:
+  features:
+    - heading: 비밀 스캐닝 REST API가 이제 위치를 반환합니다.
+      notes:
+        # https://github.com/github/releases/issues/1642
+        - |{% data variables.product.prodname_GH_advanced_security %} 고객은 이제 REST API를 사용하여 프라이빗 리포지토리 검사에서 검색된 비밀의 커밋 상제 정보를 검색할 수 있습니다. 새로운 엔드포인트는 파일 내의 비밀의 첫 검색 상세 정보(비밀의 위치 및 커밋 SHA 포함)를 반환합니다. 자세한 내용은 REST API 설명서의 “[비밀 스캐닝](/rest/reference/secret-scanning)”을 참조하세요.
+
+|
+    - heading: GitHub 고급 보안에 대한 커밋한 사람 기반 청구의 라이선스 데이터 내보내기
+      notes:
+        # https://github.com/github/releases/issues/1757
+        - |기업 및 조직 소유자는 이제 {% data variables.product.prodname_GH_advanced_security %} 라이선스 사용량 데이터를 CSV 파일로 내보낼 수 있습니다. {% data variables.product.prodname_advanced_security %} 청구 데이터는 REST API의 청구 엔드포인트를 통해 검색할 수도 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-11-export-github-advanced-security-license-usage-data/)”를 참조하세요.
+
+|
+    - heading: 공개 베타 버전에서 GitHub Actions 재사용 가능 워크플로
+      notes:
+        # https://github.com/github/releases/issues/1541
+        - |이제 전체 워크플로를 하나의 작업인 것처럼 재사용할 수 있습니다. 이 기능은 공개 베타에서 사용할 수 있습니다. 워크플로 정의를 리포지토리 전체에서 복사하여 붙여넣는 대신, 이제 단 한 줄의 구성으로 기존 워크플로를 참조할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-10-05-github-actions-dry-your-github-actions-configuration-by-reusing-workflows/)”를 참조하세요.
+
+|
+    - heading: 공개 베타 버전의 Dependabot 보안 및 버전 업데이트
+      notes:
+        # https://github.com/github/releases/issues/2004
+        - |{% data variables.product.prodname_dependabot %}은 이제 {% data variables.product.prodname_ghe_server %} 3.4에서 공개 베타 버전으로 제공되며, 여러 인기 에코시스템에 대한 버전 업데이트와 보안 업데이트를 모두 제공합니다. {% data variables.product.prodname_ghe_server %}의 {% data variables.product.prodname_dependabot %}은 {% data variables.product.prodname_actions %} 및 {% data variables.product.prodname_dependabot %} 사용에 대해 구성된 셀프 호스팅 실행기 풀이 필요합니다. {% data variables.product.prodname_ghe_server %}의 {% data variables.product.prodname_dependabot %}도 관리자가 {% data variables.product.prodname_github_connect %} 및 {% data variables.product.prodname_dependabot %}을 활성화해야 합니다. 베타 피드백 및 제안 사항은 [{% data variables.product.prodname_dependabot %} 피드백 GitHub 토론](https://github.com/community/community/discussions/categories/dependabot)에서 공유할 수 있습니다. 자세한 내용과 베타 버전 사용은 “[엔터프라이즈에서 {% data variables.product.prodname_dependabot %} 보안 및 버전 업데이트 설정](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)”을 참조하세요.
+
+|
+  changes:
+    - heading: 관리 변경 내용
+      notes:
+        # https://github.com/github/releases/issues/1657
+        - 사용자는 이제 사용자 계정의 “모양” 설정에서 기본 탭 크기를 설정하여 탭과 같은 공간 수를 선택할 수 있습니다. 탭 들여쓰기의 모든 코드는 기본 탭 사이즈를 사용하여 렌더링됩니다.
+
+        # https://github.com/github/releases/issues/2062
+        - "{% data variables.product.prodname_github_connect %} 데이터 연결 레코드에 이제 활성 및 유휴 사용자 수와 구성된 휴면 기간이 포함됩니다."
+
+    - heading: 성능 변경 사항
+      notes:
+      # https://github.com/github/releases/issues/2031
+      - "고가용성 구성에서 {% data variables.product.prodname_ghe_server %} 인스턴스 간의 보안 커뮤니케이션에 사용되는 WireGuard는 Kernel 구현으로 마이그레이션되었습니다."
+
+    - heading: 알림 변경 사항
+      notes:
+      # https://github.com/github/releases/issues/1801
+      - "조직 소유자는 이제 자신의 조직에 속한 리포지토리에 새 배포 키가 추가될 때의 메일 알림에서 구독 취소를 할 수 있습니다. 자세한 내용은 “[알림 구성](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)”을 참조하세요."
+
+      # https://github.com/github/releases/issues/1714
+      - '새로 생성된 문제 및 끌어오기 요청에서 보내는 알림 메일은 이제 메일 제목에 ‘(Issue #xx)’ 또는 ‘(PR #xx)’가 포함되어 이러한 문제 유형을 참조하는 메일을 인식하고 필터링할 수 있습니다.'
+
+    - heading: 조직 변경 사항
+      notes:
+        # https://github.com/github/releases/issues/1509
+        - "조직에서는 이제 프로필 개요에서 ‘README.md’ 파일을 표시할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-09-14-readmes-for-organization-profiles/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1883
+        - "조직 멤버는 이제 조직의 “사람” 탭에서 엔터프라이즈 소유자의 목록을 볼 수 있습니다. 엔터프라이즈 소유자 목록은 이제 GraphQL API 사용하여 액세스할 수도 있습니다. 자세한 내용은 GraphQL API 설명서의 조직 개체에서 “[`enterpriseOwners`](/graphql/reference/objects#organization)” 필드를 참조하세요."
+
+    - heading: 리포지토리 변경 사항
+      notes:
+        # https://github.com/github/releases/issues/1944
+        - |“액세스 관리” 섹션이 이제 리포지토리 설정의 “협력자 및 팀” 페이지에 표시됩니다. 새로운 섹션을 통해 리포지토리 관리자가 리포지토리에 액세스한 사용자 및 각 사용자에게 부여된 액세스 수준을 쉽게 보고 관리할 수 있습니다. 관리자는 이제 다음을 수행할 수 있습니다.
+
+
+
+* 리포지토리에 액세스 권한이 있는 모든 멤버, 팀 및 협력자를 검색합니다.
+
+* 멤버가 개인으로서 직접 자신에게 부여되거나 팀을 통해 간접적으로 부여된 혼합된 역할 할당을 가진 경우를 표시합니다. 이는 새로운 “혼합 역할” 경고를 통해 시각화되며, 이 경고는 할당된 역할보다 권한 수준이 더 높을 경우 사용자에게 부여된 최고 수준 역할을 표시합니다.
+
+* 인기 리포지토리에 대한 액세스를 페이지 매김 및 대규모 사용자 액세스 시 시간 초과 감소 등을 통해 안정적으로 관리합니다.
+
+|
+        # https://github.com/github/releases/issues/1748
+        - '{% data variables.product.prodname_ghe_server %} 3.4에는 리포지토리 초대 환경에 개선 사항이 포함되었습니다. 즉 프라이빗 리포지토리 초대에 대한 알림, 보류 중 초대가 있는 프라이빗 리포지토리 방문 시 UI 메시지 표시, 보류 중 초대가 있을 경우 퍼블릭 리포지토리 개요 페이지에 배너 표시 등입니다.'
+
+        # https://github.com/github/releases/issues/1739
+        - "이제 사용자 지정 자동 링크에 대해 단일 문자 접두사를 사용할 수 있습니다. 자동 링크 접두사에는 영숫자뿐 아니라 이제 `.`, `-`, `_`, `+`, `=`, `:`, `/`, 및 `#` 문자도 허용됩니다. 자세한 내용은 “[외부 리소스를 참조하는 자동 링크 구성](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)”을 참조하세요."
+
+        # https://github.com/github/releases/issues/1776
+        - 리포지토리 루트의 `CODE_OF_CONDUCT.md` 파일은 이제 리포지토리 개요 페이지의 “정보” 사이드바에서 강조 표시됩니다.
+
+    - heading: '릴리스 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1723
+        - '{% data variables.product.prodname_ghe_server %} 3.4에는 릴리스 UI에 대한 개선 사항(예: 해당 릴리스에 대한 모든 끌어오기 요청 요약을 표시하는 자동 생성 릴리스 정보)이 포함됩니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-10-20-improvements-to-github-releases-generally-available/)”를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1606
+        - "릴리스가 발표되면 이제 아바타 목록이 릴리스 맨 밑에 표시됩니다. 릴리스 정보에 언급된 모든 사용자 계정의 아바타가 표시됩니다. 자세한 내용은 “[리포지토리에서 릴리스 관리](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)”를 참조하세요."
+
+    - heading: 'Markdown 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1779
+        - "새로운 “접근성” 설정 페이지를 사용하여 바로 가기 키를 관리할 수 있습니다. <kbd>S</kbd>, <kbd>G</kbd> <kbd>C</kbd> 및 <kbd>.</kbd>(마침표 키) 등의 단일 문자만을 사용하여 바로 가기 키를 사용하지 않도록 선택할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-16-managing-keyboard-shortcuts-using-accessibility-settings/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1727
+        - "이제 문제 주석 및 끌어오기 요청 설명 등의 Markdown 지원 필드에서 고정 너비 글꼴을 사용하도록 선택할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-10-12-fixed-width-font-support-in-markdown-enabled-fields/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1761
+        - "이제 URL을 선택한 텍스트에 붙여 넣어 빠르게 Markdown 링크를 생성할 수 있습니다. 이 동작은 모든 Markdown 지원 필드(예: 문제 주석 및 끌어오기 요청 설명)에서 잘 작동합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-10-linkify-selected-text-on-url-paste/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1758
+        - "이미지 URL을 이제 테마 컨텍스트(예: `#gh-dark-mode-only`)에 추가하여 Markdown 이미지가 뷰어에 표시되는 방식을 정의할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-24-specify-theme-context-for-images-in-markdown/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1686
+        - "Markdown(`.md`) 파일 확장자가 있는 gist 파일을 만들거나 편집할 때, 이제 “미리 보기” 또는 “변경 사항 미리 보기” 탭을 사용하여 파일 콘텐츠의 Markdown 렌더링을 표시할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-17-preview-the-markdown-rendering-of-gists/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1754
+        - "{% data variables.product.prodname_dotcom %} 사용자의 이름을 끌어오기 요청 및 토론에서 입력할 때,@멘션 제안기가 이제 다른 {% data variables.product.prodname_dotcom %} 사용자보다 더 높은 기존 참자가의 순위를 매겨서 찾고 있는 사용자일 가능성이 더 높은 사용자를 나열합니다."
+
+        # https://github.com/github/releases/issues/1636
+        - "오른쪽에서 왼쪽 언어가 이제 Markdown, 파일, 이슈, 끌어오기 요청, 토론 및 주석에서 네이티브로 지원됩니다."
+
+    - heading: '이슈 및 끌어오기 요청 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1731
+        - 끌어오기 요청 “파일 변경됨” 탭에서 공백 변경을 숨기는 diff 설정이 이제 해당 끌어오기 요청의 사용자 계정에 유지됩니다. 선택한 이 설정은 페이지에서 나갔다가 같은 끌어오기 요청에서 “파일 변경됨” 탭으로 다시 방문할 경우 자동으로 다시 적용됩니다.
+
+        # https://github.com/github/releases/issues/1663
+        - "끌어오기 요청 코드 검토에 대한 자동 할당을 사용할 경우, 요청된 팀원에게만 독립적으로 자동 할당 설정을 알리도록 선택할 수 있습니다. 이 설정은 많은 사용자가 자동 할당되지만 모든 사용자에게 알림이 요구되지는 않는 시나리오에서 유용합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-10-team-member-pull-request-review-notifications-can-be-configured-independently-of-auto-assignment/)”를 참조하세요."
+
+    - heading: '분기 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1526
+        - "조직 및 리포지토리 관리자는 이제 웹후크를 트리거하여 리포지토리의 분기 보호 규칙에 대한 변경 내용을 수신 대기할 수 있습니다. 자세한 내용은 웹호크 이벤트 및 페이로드 설명서의 “[branch_protection_rule](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)” 이벤트를 참조하세요."
+
+        # https://github.com/github/releases/issues/1759
+        - "보호된 분기를 구성할 때 이제 필수 상태 검사가 특정 {% data variables.product.prodname_github_app %}에 의해 제공되도록 강제 적용할 수 있습니다. 그래서 상태가 다른 애플리케이션 또는 사용자에 의해 커밋 상태를 통해 제공되는 경우 병합이 방지됩니다. 이렇게 하면 의도된 애플리케이션에 의해 모든 변경 사항의 유효성이 검사되도록 할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1911
+        - "이제 관리자 권한을 가진 사용자만 보호된 분기의 이름을 바꾸고 분기 보호 규칙을 수정할 수 있습니다. 과거에는 기본 분기만 예외로 하고, 협력자가 분기의 이름을 바꾸면 그 결과로 해당 분기에 적용된 비-와일드카드 분기 보호 규칙도 모두 바뀌었습니다. 자세한 내용은 “[분기 이름 변경](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)” 및 “[분기 보호 규칙 관리](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1845
+        - "관리자는 이제 오직 지정된 사용자와 팀만 끌어오기 요청 요구 사항을 우회하도록 허용할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1850
+        - "관리자는 이제 지정된 사용자 및 팀만 리포지토리에 푸시를 강제 적용하도록 허용할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-12-21-specify-who-can-force-push-to-a-repository/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1796
+        - "끌어오기 요청을 보호된 분기에 대한 모든 변경 내용에 요구할 경우, 관리자는 이제 승인된 검토도 요구 사항인지를 선택할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-10-require-pull-requests-without-requiring-reviews/)”를 참조하세요."
+
+    - heading: 'GitHub Actions 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1906
+        - '`create`, `deployment` 및 `deployment_status` 이벤트에 대해 {% data variables.product.prodname_dependabot %}에 의해 트리거되는 {% data variables.product.prodname_actions %} 워크플로는 이제 항상 읽기 전용 토큰을 수신하며 비밀을 수신하지 않습니다. 이와 유사하게 {% data variables.product.prodname_dependabot %}에 의해 기본 참조가 생성된 끌어오기 요청에서 {% data variables.product.prodname_dependabot %} 이벤트에 대해 {% data variables.product.prodname_dependabot %}가 트리거한 워크플로는 이제 항상 읽기 전용 토큰을 수신하며 비밀을 수신하지 않습니다. 이러한 변경 사항은 권한 있는 워크플로에서 실행되는 잠재적인 악성 코드를 방지하기 위한 설계입니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}를 사용한 {% data variables.product.prodname_dependabot %} 자동화](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)”를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1667
+        - "{% data variables.product.prodname_dependabot %}에서 트리거된 `push` 및 `pull_request` 워크플로 실행은 이제 워크플로에서 지정된 권한을 존중하여 자동 종속성 업데이트를 관리하는 방식을 사용자가 제어하도록 허용합니다. 기본 토큰 권한은 읽기 전용으로 유지됩니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-10-06-github-actions-workflows-triggered-by-dependabot-prs-will-respect-permissions-key-in-workflows/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1668
+        - '{% data variables.product.prodname_dependabot %}에서 트리거된 {% data variables.product.prodname_actions %} 워크플로에는 {% data variables.product.prodname_dependabot %} 비밀이 전송됩니다. 이제 CI의 프라이빗 패키지 레지스트리에서 {% data variables.product.prodname_dependabot %}이 사용하도록 구성한 동일한 비밀을 사용해 끌어오기를 하여, {% data variables.product.prodname_actions %} 및 {% data variables.product.prodname_dependabot %}이 함께 작동하는 방식을 개선할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}를 사용한 {% data variables.product.prodname_dependabot %} 자동화](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions)”를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1615
+        - "이제 UI의 새로운 실행기 및 실행기 그룹 페이지를 사용해 실행기 그룹을 관리하고 셀프 호스팅 실행기의 상태를 확인할 수 있습니다. 리포지토리 또는 조직의 Actions 설정 페이지는 이제 실행기의 요약 보기를 표시하고, 특정 실행기를 자세히 살펴보고 편집하거나 현재 실행 중인 작업을 확인하도록 해줍니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-09-20-github-actions-experience-refresh-for-the-management-of-self-hosted-runners/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1785
+        - 'Actions 작성자는 이제 [작업의 `action.yml`에서 `runs.using`을 `node16`으로] 지정하여 Node.js 16에서 작업이 실행되도록 할 수 있습니다(/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions). 이는 기존 Node.js 12 지원에 추가된 내용입니다. Actions는 계속 Node.js 12 런타임을 사용하도록 `runs.using: node12`를 지정할 수 있습니다.'
+
+        # https://github.com/github/releases/issues/1799
+        - '수동으로 트리거된 워크플로의 경우, {% data variables.product.prodname_actions %}는 이제 기본값 `string` 유형 이외에도 `choice`, `boolean` 및 `environment` 입력 유형을 지원합니다. 자세한 내용은 “[`on.workflow_dispatch.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)”를 참조하세요.'
+
+        # https://github.com/github/releases/issues/1782
+        - "복합 작업이라고도 하는 YAML로 작성된 작업은 이제 `if` 조건을 지원합니다. 따라서 조건이 충족하지 않을 경우 특정 단계에서 실행되는 것을 방지할 수 있습니다. 워크플로에 정의된 단계처럼, 지원되는 컨텍스트와 식을 사용하여 조건을 만들 수 있습니다."
+
+        # https://github.com/github/releases/issues/1919
+        - "셀프 호스팅 실행기에 대한 검색 순서 동작은 이제 변경되어 모든 수준에서 첫 번째 사용 가능한 일치하는 실행기가 모든 경우에 작업을 실행합니다. 이렇게 하면 작업이 셀프 호스팅 실행기에 훨씬 더 빨리 전송되며, 특히 셀프 호스팅 실행기가 많은 조직과 엔터프라이즈에 유리합니다. 과거에는 셀프 호스팅 실행기가 필요한 작업을 실행할 때 {% data variables.product.prodname_actions %}가 리포지토리, 조직 및 엔터프라이즈 순서로 검색했습니다."
+
+        # https://github.com/github/releases/issues/1753
+        - "{% data variables.product.prodname_actions %} 셀프 호스팅 실행기에 대한 실행기 레이블은 이제 REST API르르 사용하여 나열, 추가 및 제거될 수 있습니다. 리포지토리, 조직 또는 엔터프라이즈 수준에서 새로운 API를 사용하는 것에 대한 자세한 내용은 REST API 설명서에서 “[리포지토리](/rest/reference/actions#list-labels-for-a-self-hosted-runner-for-a-repository)”, “[조직](/rest/reference/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization)” 및 “[엔터프라이즈](/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise)”를 참조하세요."
+
+    - heading: 'Dependabot 및 종속성 그래프 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1520
+        - 종속성 그래프는 이제 Poetry 패키지 관리자를 사용하는 리포지토리의 Python 종속성 검색을 지원합니다. 종속성은 `pyproject.toml` 및 `poetry.lock` 매니페스트 파일에서 모두 검색됩니다.
+
+        # https://github.com/github/releases/issues/1921
+        - "GitHub Enterprise Server에서 {% data variables.product.prodname_dependabot %} 보안 및 버전 업데이트를 모두 구성하는 경우, {% data variables.product.prodname_github_connect %}에서 {% data variables.product.prodname_dependabot %}도 사용하도록 설정하는 것이 좋습니다. 이렇게 하면 {% data variables.product.prodname_dependabot %}이 종속된 오픈소스 코드의 공개 릴리스의 변경 로그 등의 정보를 쿼리하여 변경 로그 {% data variables.product.prodname_dotcom_the_website %}에서 종속성 및 취약성의 업데이트된 목록을 검색할 수 있습니다. 자세한 내용은 “[엔터프라이즈에 대한 종속성 그래프 및 Dependabot 알림 사용 설정](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)”을 참조하세요."
+
+        # https://github.com/github/releases/issues/1717
+        - '{% data variables.product.prodname_dependabot_alerts %} 경고는 이제 GraphQL API를 사용하여 해제될 수 있습니다. 자세한 내용은 GraphQL API 설명서의 “[dismissRepositoryVulnerabilityAlert](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)” 변형을 참조하세요.'
+
+    - heading: '코드 검사 및 비밀 검사 변경 사항'
+      notes:
+        # https://github.com/github/releases/issues/1802
+        - "{% data variables.product.prodname_codeql %} CLI는 이제 SARIF 파일에서 Markdown 포함 렌더링 쿼리 도움말을 지원하여 쿼리가 경고를 생성할 때 {% data variables.product.prodname_code_scanning %} UI에서 도움말 텍스트를 볼 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-23-display-help-text-for-your-custom-codeql-queries-in-code-scanning/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1790
+        - "{% data variables.product.prodname_codeql %} CLI 및 {% data variables.product.prodname_vscode %} 확장은 이제 데이터베이스 구축 및 Apple Silicon으로 구동되는 머신(예: Apple M1)에서의 코드 분석을 지원합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1732
+        - |{% data variables.product.prodname_codeql %}의 분석 깊이가 Python 에코시스템의 더 많은 [라이브러리 및 프레임워크](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)에 대한 지원을 추가하여 개선되었습니다. 그 결과 {% data variables.product.prodname_codeql %}은(는) 이제 신뢰할 수 없는 사용자 데이터의 잠재적인 출처, 해당 데이터가 흐르는 단계, 데이터가 끝날 수 있는 잠재적으로 위험한 싱크를 감지할 수 있습니다. 따라서 {% data variables.product.prodname_code_scanning %} 경고의 품질이 전반적으로 향상됩니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-11-24-codeql-code-scanning-now-recognizes-more-python-libraries-and-frameworks/)”를 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1567
+        - "{% data variables.product.prodname_codeql %}을 사용한 코드 검색에 이제 모든 공통 Ruby 버전(최대 3.02 포함)의 코드 분석에 대한 베타 지원이 포함됩니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-10-27-codeql-code-scanning-adds-beta-support-for-ruby/)”를 참조하세요."
+
+        # https://github.com/github/releases/issues/1764
+        - |{% data variables.product.prodname_code_scanning %} API에 대해 다음과 같은 여러 개선 사항이 이루어졌습니다.
+
+
+
+* `fixed_at` 타임스탬프가 경고에 추가되었습니다. 이 타임스탬프는 경고가 분석에서 감지되지 않은 최초 사례였습니다.
+
+* 경고 결과가 이제 `created`, `updated` 또는 `number` 중 하나에서 `sort` 및 `direction`을 사용하여 분류될 수 있습니다. 자세한 내용은 “[리포지토리에 대한 코드 스캐닝 경고 나열](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)”을 참조하세요.
+
+* `Last-Modified` 헤더가 이제 경고 및 경고 엔드포인트 응답에 추가되었습니다. 자세한 내용은 Mozilla 설명서의 [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified)를 참조하세요.
+
+* `relatedLocations` 필드가 코드 스캐닝 분석을 요청하는 경우 SARIF 응답에 추가되었습니다. 필드에는 경고의 주요 위치가 아닌 위치가 포함될 수 있습니다. [SARIF 사양](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616)의 예제를 참조하고, 자세한 내용은 “[리포지토리에 대한 코드 스캐닝 분석 받기](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository)”를 참조하세요.
+
+* `help` 및 `tags` 데이터 모두가 웹후크 응답 경고 규칙 개체에 추가되었습니다. 자세한 내용은 “[코드 스캐닝 경고 웹후크 이벤트 및 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)”를 참조하세요.
+
+* `public_repo` 범위가 포함된 개인 액세스 토큰은 이제 사용자에게 권한이 있을 경우 퍼블릭 리포지토리에서 코드 스캐닝 엔드포인트에 대한 쓰기 액세스 권한이 있습니다.
+
+
+
+자세한 내용은 REST API 설명서의 “[코드 스캐닝](/rest/reference/code-scanning)”을 참조하세요.
+
+|
+        # https://github.com/github/releases/issues/1943
+        - '{% data variables.product.prodname_GH_advanced_security %} 고객은 이제 REST API를 사용하여 엔터프라이즈 수준에서 프라이빗 리포지토리 비밀 스캐닝 결과를 검색할 수 있습니다. 새로운 엔드포인트는 기존 리포지토리 수준 및 조직 수준 엔드포인트를 보완합니다. 자세한 내용은 REST API 설명서의 “[비밀 스캐닝](/rest/reference/secret-scanning)”을 참조하세요.'
+
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가됩니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”을 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답으로 시간 값을 반환하지 않습니다. 이는 대대적인 성능 개선을 위해 구현되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 제공하고 있으며 기존 성능 이슈를 해결하면 향후에 이 값의 반환을 재개할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - 다른 호스트에서 가져온 백업에서 어플라이언스를 복원한 후에는 Actions 서비스를 다시 시작해야 합니다.
+
+  deprecations:
+    - heading: GitHub Enterprise Server 3.0 지원 중단
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0은 2022년 2월 16일에 중단되었습니다**. 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상 및 새로운 기능을 위해 최대한 빨리 [최신 버전의 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)로 업그레이드합니다.'
+    - heading: GitHub Enterprise Server 3.1 지원 중단
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1은 2022년 6월 3일에 중단됩니다**. 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상 및 새로운 기능을 위해 최대한 빨리 [최신 버전의 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server)로 업그레이드합니다.'
+
+    - heading: XenServer Hypervisor 지원 중단
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "{% data variables.product.prodname_ghe_server %} 3.3부터 XenServer의 {% data variables.product.prodname_ghe_server %}의 지원이 중단되었고 더 이상 지원되지 않습니다. 질문이나 우려가 있으면 [GitHub 지원](https://support.github.com)에 문의하세요."
+
+    - heading: 콘텐츠 첨부 API 미리 보기 지원 중단
+      notes:
+        #
+        - "낮은 사용량으로 인해 {% data variables.product.prodname_ghe_server %} 3.4에서 Content References API 미리 보기를 사용 중단했습니다. API는 과거에 `corsair-preview` 헤더로 접근 가능했습니다. 사용자는 이 API 없이 외부 URL로 계속 이동할 수 있습니다. Content References API의 등록된 사용량은 더 이상 등록 도메인에서 URL에 대한 웹후크 알림을 수신하지 않으며, 기존 콘텐츠 첨부에 업데이트를 시도해도 유효한 응답 코드를 더 이상 반환하지 않습니다."
+
+    - heading: 행동 강령 API 미리 보기 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1708
+        - '`scarlet-witch-preview` 헤더로 접근 가능한 Codes of Conduct API 미리 보기는 지원 중단되며 {% data variables.product.prodname_ghe_server %} 3.4에서 더 이상 접근할 수 없습니다. 대신 “[커뮤니티 프로필 메트릭 가져오기](/rest/reference/repos#get-community-profile-metrics)” 엔드포인트를 사용하여 리포지토리의 사용 규정에 관한 정보를 검색하는 것이 좋습니다. 자세한 내용은 {% data variables.product.prodname_dotcom %} 변경 로그의 “[사용 중지 고지: 행동 강령 API 미리 보기](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)”를 참조하세요.'
+
+    - heading: 쿼리 매개 변수를 사용한 OAuth 애플리케이션 API 엔드포인트 및 API 인증 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |{% data variables.product.prodname_ghe_server %} 3.4부터 [OAuth Application API 엔드포인트의 지원 중단 버전](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected)이 제거되었습니다. 이러한 엔드포인트에서 404 오류 메시지가 표시되는 경우, URL에 `access_tokens`가 없는 OAuth Application API 버전으로 코드를 전환하세요. 또한 쿼리 매개 변수를 사용하여 API 인증도 사용하지 않도록 설정했습니다. 그 대신 [요청 헤더에 API 인증](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)을 사용할 것을 권장합니다.
+
+|
+    - heading: CodeQL 실행기 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "{% data variables.product.prodname_codeql %}은 {% data variables.product.prodname_ghe_server %} 3.4에서 사용 중지되며 더 이상 지원되지 않습니다. 지원 중단은 타사 CI/CD 시스템에서 {% data variables.product.prodname_codeql %} 코드 검색을 사용하는 사용자에게만 영향을 미치며 {% data variables.product.prodname_actions %} 사용자는 영향을 받지 않습니다. {% data variables.product.prodname_codeql %} 실행기의 기능적으로 완전한 교체인 {% data variables.product.prodname_codeql %} CLI로 마이그레이션할 것을 강력히 권장합니다. 자세한 내용은 [{% data variables.product.prodname_dotcom %} 변경 로그](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)를 참조하세요."
+
+    - heading: 사용자 지정 비트-캐시 확장 지원 중단
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |{% data variables.product.prodname_ghe_server %} 3.1부터 {% data variables.product.company_short %}의 독점적인 비트-캐시 확장에 대한 지원이 단계적으로 폐지되기 시작합니다. 이러한 확장은 {% data variables.product.prodname_ghe_server %} 3.3 이상에서 지원이 중단됩니다.
+
+
+
+3.1 또는 3.2 버전을 실행하는 {% data variables.product.product_location %}에 이미 존재하거나 활성인 모든 리포지토리는 자동으로 업데이트되었습니다.
+
+
+
+{% data variables.product.prodname_ghe_server %} 3.3으로 업데이트되기 전에 존재하지 않았거나 활성이 아니었던 리포지토리는 리포지토리 유지 관리 태스크가 실행되어 성공적으로 완료될 때까지 최적 성능이 아닐 수 있습니다.
+
+
+
+수동으로 리포지토리 유지 관리 태스크를 시작하려면 각 영향 받는 리포지토리에 대해 `https://<hostname>/stafftools/repositories/<owner>/<repository>/network`를 찾아보고 일정 단추를 클릭하세요.
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.4에는 [백업 및 재해 복구](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)에 대한 [GitHub Enterprise 백업 유틸리티 3.4.0](https://github.com/github/backup-utils) 이상이 필요합니다.'

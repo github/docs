@@ -800,6 +800,40 @@
       ]
     },
     {
+      "name": "addEnterpriseOrganizationMember",
+      "kind": "mutations",
+      "id": "addenterpriseorganizationmember",
+      "href": "/graphql/reference/mutations#addenterpriseorganizationmember",
+      "description": "<p>Adds enterprise members to an organization within the enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseOrganizationMemberInput!",
+          "id": "addenterpriseorganizationmemberinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "users",
+          "type": "[User!]",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The users who were added to the organization.</p>"
+        }
+      ]
+    },
+    {
       "name": "addLabelsToLabelable",
       "kind": "mutations",
       "id": "addlabelstolabelable",
@@ -1494,6 +1528,56 @@
       ]
     },
     {
+      "name": "createAttributionInvitation",
+      "kind": "mutations",
+      "id": "createattributioninvitation",
+      "href": "/graphql/reference/mutations#createattributioninvitation",
+      "description": "<p>Invites a user to claim reattributable data.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateAttributionInvitationInput!",
+          "id": "createattributioninvitationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createattributioninvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The owner scoping the reattributable data.</p>"
+        },
+        {
+          "name": "source",
+          "type": "Claimable",
+          "id": "claimable",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#claimable",
+          "description": "<p>The account owning the data to reattribute.</p>"
+        },
+        {
+          "name": "target",
+          "type": "Claimable",
+          "id": "claimable",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#claimable",
+          "description": "<p>The account which may claim the data.</p>"
+        }
+      ]
+    },
+    {
       "name": "createBranchProtectionRule",
       "kind": "mutations",
       "id": "createbranchprotectionrule",
@@ -2012,7 +2096,7 @@
       "kind": "mutations",
       "id": "createmigrationsource",
       "href": "/graphql/reference/mutations#createmigrationsource",
-      "description": "<p>Creates an Octoshift migration source.</p>",
+      "description": "<p>Creates a GitHub Enterprise Importer (GEI) migration source.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -2037,7 +2121,7 @@
           "id": "migrationsource",
           "kind": "objects",
           "href": "/graphql/reference/objects#migrationsource",
-          "description": "<p>The created Octoshift migration source.</p>"
+          "description": "<p>The created migration source.</p>"
         }
       ]
     },
@@ -4130,7 +4214,7 @@
       "kind": "mutations",
       "id": "startrepositorymigration",
       "href": "/graphql/reference/mutations#startrepositorymigration",
-      "description": "<p>Start a repository migration.</p>",
+      "description": "<p>Starts a GitHub Enterprise Importer (GEI) repository migration.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4155,7 +4239,7 @@
           "id": "repositorymigration",
           "kind": "objects",
           "href": "/graphql/reference/objects#repositorymigration",
-          "description": "<p>The new Octoshift repository migration.</p>"
+          "description": "<p>The new repository migration.</p>"
         }
       ]
     },
@@ -8004,7 +8088,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -24757,6 +24841,72 @@
       ]
     },
     {
+      "name": "MannequinConnection",
+      "kind": "objects",
+      "id": "mannequinconnection",
+      "href": "/graphql/reference/objects#mannequinconnection",
+      "description": "<p>The connection type for Mannequin.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[MannequinEdge]",
+          "id": "mannequinedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequinedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Mannequin]",
+          "id": "mannequin",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequin"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MannequinEdge",
+      "kind": "objects",
+      "id": "mannequinedge",
+      "href": "/graphql/reference/objects#mannequinedge",
+      "description": "<p>Represents a mannequin.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Mannequin",
+          "id": "mannequin",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequin"
+        }
+      ]
+    },
+    {
       "name": "MarkedAsDuplicateEvent",
       "kind": "objects",
       "id": "markedasduplicateevent",
@@ -25515,7 +25665,7 @@
       "kind": "objects",
       "id": "migrationsource",
       "href": "/graphql/reference/objects#migrationsource",
-      "description": "<p>An Octoshift migration source.</p>",
+      "description": "<p>A GitHub Enterprise Importer (GEI) migration source.</p>",
       "implements": [
         {
           "name": "Node",
@@ -25526,7 +25676,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>The Octoshift migration source name.</p>",
+          "description": "<p>The migration source name.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -25534,7 +25684,7 @@
         },
         {
           "name": "type",
-          "description": "<p>The Octoshift migration source type.</p>",
+          "description": "<p>The migration source type.</p>",
           "type": "MigrationSourceType!",
           "id": "migrationsourcetype",
           "kind": "enums",
@@ -25542,7 +25692,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -31564,6 +31714,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "mannequins",
+          "description": "<p>A list of all mannequins for this organization.</p>",
+          "type": "MannequinConnection!",
+          "id": "mannequinconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequinconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for mannequins returned from the connection.</p>",
+              "type": {
+                "name": "MannequinOrder",
+                "id": "mannequinorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#mannequinorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "memberStatuses",
           "description": "<p>Get the status messages members of this entity have set that are either public or visible only to the organization.</p>",
           "type": "UserStatusConnection!",
@@ -36820,6 +37030,14 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "totalCommentsCount",
+          "description": "<p>Returns a count of how many comments this pull request has received.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "updatedAt",
@@ -46055,7 +46273,7 @@
         },
         {
           "name": "hasDiscussionsEnabled",
-          "description": "<p>Are discussions available on this repository?.</p>",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -47438,7 +47656,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
@@ -48222,7 +48442,7 @@
       "kind": "objects",
       "id": "repositorymigration",
       "href": "/graphql/reference/objects#repositorymigration",
-      "description": "<p>An Octoshift repository migration.</p>",
+      "description": "<p>A GitHub Enterprise Importer (GEI) repository migration.</p>",
       "implements": [
         {
           "name": "Migration",
@@ -48238,7 +48458,7 @@
       "fields": [
         {
           "name": "continueOnError",
-          "description": "<p>The Octoshift migration flag to continue on error.</p>",
+          "description": "<p>The migration flag to continue on error.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -48278,7 +48498,7 @@
         },
         {
           "name": "migrationSource",
-          "description": "<p>The Octoshift migration source.</p>",
+          "description": "<p>The migration source.</p>",
           "type": "MigrationSource!",
           "id": "migrationsource",
           "kind": "objects",
@@ -48294,7 +48514,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -48302,7 +48522,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The Octoshift migration state.</p>",
+          "description": "<p>The migration state.</p>",
           "type": "MigrationState!",
           "id": "migrationstate",
           "kind": "enums",
@@ -48952,7 +49172,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "fixedAt",
@@ -51184,12 +51404,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "path",
           "description": "<p>The path in the superproject that this submodule is located in.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "subprojectCommitOid",
@@ -55135,6 +55371,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "object",
           "description": "<p>Entry file object.</p>",
           "type": "GitObject",
@@ -55157,6 +55401,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "repository",
@@ -58179,6 +58431,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
         }
       ],
       "fields": [
@@ -59235,11 +59492,11 @@
       "kind": "interfaces",
       "id": "migration",
       "href": "/graphql/reference/interfaces#migration",
-      "description": "<p>Represents an Octoshift migration.</p>",
+      "description": "<p>Represents a GitHub Enterprise Importer (GEI) migration.</p>",
       "fields": [
         {
           "name": "continueOnError",
-          "description": "<p>The Octoshift migration flag to continue on error.</p>",
+          "description": "<p>The migration flag to continue on error.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -59279,7 +59536,7 @@
         },
         {
           "name": "migrationSource",
-          "description": "<p>The Octoshift migration source.</p>",
+          "description": "<p>The migration source.</p>",
           "type": "MigrationSource!",
           "id": "migrationsource",
           "kind": "objects",
@@ -59295,7 +59552,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -59303,7 +59560,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The Octoshift migration state.</p>",
+          "description": "<p>The migration state.</p>",
           "type": "MigrationState!",
           "id": "migrationstate",
           "kind": "enums",
@@ -60136,6 +60393,14 @@
         {
           "name": "hasAnonymousAccessEnabled",
           "description": "<p>Indicates if the repository has anonymous Git read access feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -62263,6 +62528,23 @@
       ]
     },
     {
+      "name": "MannequinOrderField",
+      "kind": "enums",
+      "id": "mannequinorderfield",
+      "href": "/graphql/reference/enums#mannequinorderfield",
+      "description": "<p>Properties by which mannequins can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order mannequins why when they were created.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order mannequins alphabetically by their source login.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeCommitMessage",
       "kind": "enums",
       "id": "mergecommitmessage",
@@ -62367,7 +62649,7 @@
       "kind": "enums",
       "id": "migrationsourcetype",
       "href": "/graphql/reference/enums#migrationsourcetype",
-      "description": "<p>Represents the different Octoshift migration sources.</p>",
+      "description": "<p>Represents the different GitHub Enterprise Importer (GEI) migration sources.</p>",
       "values": [
         {
           "name": "AZURE_DEVOPS",
@@ -62388,35 +62670,35 @@
       "kind": "enums",
       "id": "migrationstate",
       "href": "/graphql/reference/enums#migrationstate",
-      "description": "<p>The Octoshift migration state.</p>",
+      "description": "<p>The GitHub Enterprise Importer (GEI) migration state.</p>",
       "values": [
         {
           "name": "FAILED",
-          "description": "<p>The Octoshift migration has failed.</p>"
+          "description": "<p>The migration has failed.</p>"
         },
         {
           "name": "FAILED_VALIDATION",
-          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+          "description": "<p>The migration has invalid credentials.</p>"
         },
         {
           "name": "IN_PROGRESS",
-          "description": "<p>The Octoshift migration is in progress.</p>"
+          "description": "<p>The migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
-          "description": "<p>The Octoshift migration has not started.</p>"
+          "description": "<p>The migration has not started.</p>"
         },
         {
           "name": "PENDING_VALIDATION",
-          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
+          "description": "<p>The migration needs to have its credentials validated.</p>"
         },
         {
           "name": "QUEUED",
-          "description": "<p>The Octoshift migration has been queued.</p>"
+          "description": "<p>The migration has been queued.</p>"
         },
         {
           "name": "SUCCEEDED",
-          "description": "<p>The Octoshift migration has succeeded.</p>"
+          "description": "<p>The migration has succeeded.</p>"
         }
       ]
     },
@@ -63913,6 +64195,10 @@
         {
           "name": "RENAME",
           "description": "<p>The repository is locked due to a rename.</p>"
+        },
+        {
+          "name": "TRADE_RESTRICTION",
+          "description": "<p>The repository is locked due to a trade controls related reason.</p>"
         }
       ]
     },
@@ -64737,6 +65023,25 @@
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "Claimable",
+      "kind": "unions",
+      "id": "claimable",
+      "href": "/graphql/reference/unions#claimable",
+      "description": "<p>An object which can have its data claimed or claim data from another.</p>",
+      "possibleTypes": [
+        {
+          "name": "Mannequin",
+          "id": "mannequin",
+          "href": "/graphql/reference/objects#mannequin"
         },
         {
           "name": "User",
@@ -66414,6 +66719,57 @@
       ]
     },
     {
+      "name": "AddEnterpriseOrganizationMemberInput",
+      "kind": "inputObjects",
+      "id": "addenterpriseorganizationmemberinput",
+      "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput",
+      "description": "<p>Autogenerated input type of AddEnterpriseOrganizationMember.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise which owns the organization.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization the users will be added to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "role",
+          "description": "<p>The role to assign the users in the organization.</p>",
+          "type": "OrganizationMemberRole",
+          "id": "organizationmemberrole",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#organizationmemberrole"
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The IDs of the enterprise members to add.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "AddLabelsToLabelableInput",
       "kind": "inputObjects",
       "id": "addlabelstolabelableinput",
@@ -67730,6 +68086,50 @@
       ]
     },
     {
+      "name": "CreateAttributionInvitationInput",
+      "kind": "inputObjects",
+      "id": "createattributioninvitationinput",
+      "href": "/graphql/reference/input-objects#createattributioninvitationinput",
+      "description": "<p>Autogenerated input type of CreateAttributionInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The Node ID of the owner scoping the reattributable data.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sourceId",
+          "description": "<p>The Node ID of the account owning the data to reattribute.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetId",
+          "description": "<p>The Node ID of the account which may claim the data.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateBranchProtectionRuleInput",
       "kind": "inputObjects",
       "id": "createbranchprotectionruleinput",
@@ -67843,7 +68243,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -68738,7 +69138,7 @@
       "inputFields": [
         {
           "name": "accessToken",
-          "description": "<p>The Octoshift migration source access token.</p>",
+          "description": "<p>The migration source access token.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -68762,7 +69162,7 @@
         },
         {
           "name": "name",
-          "description": "<p>The Octoshift migration source name.</p>",
+          "description": "<p>The migration source name.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -68770,7 +69170,7 @@
         },
         {
           "name": "ownerId",
-          "description": "<p>The ID of the organization that will own the Octoshift migration source.</p>",
+          "description": "<p>The ID of the organization that will own the migration source.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -68779,7 +69179,7 @@
         },
         {
           "name": "type",
-          "description": "<p>The Octoshift migration source type.</p>",
+          "description": "<p>The migration source type.</p>",
           "type": "MigrationSourceType!",
           "id": "migrationsourcetype",
           "kind": "enums",
@@ -68787,7 +69187,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -70599,6 +70999,31 @@
       ]
     },
     {
+      "name": "MannequinOrder",
+      "kind": "inputObjects",
+      "id": "mannequinorder",
+      "href": "/graphql/reference/input-objects#mannequinorder",
+      "description": "<p>Ordering options for mannequins.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order mannequins by.</p>",
+          "type": "MannequinOrderField!",
+          "id": "mannequinorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mannequinorderfield"
+        }
+      ]
+    },
+    {
       "name": "MarkDiscussionCommentAsAnswerInput",
       "kind": "inputObjects",
       "id": "markdiscussioncommentasanswerinput",
@@ -71921,7 +72346,7 @@
       "inputFields": [
         {
           "name": "accessToken",
-          "description": "<p>The Octoshift migration source access token.</p>",
+          "description": "<p>The migration source access token.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -71937,7 +72362,7 @@
         },
         {
           "name": "continueOnError",
-          "description": "<p>Whether to continue the migration on error.</p>",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -72002,7 +72427,7 @@
         },
         {
           "name": "sourceId",
-          "description": "<p>The ID of the Octoshift migration source.</p>",
+          "description": "<p>The ID of the migration source.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72011,7 +72436,7 @@
         },
         {
           "name": "sourceRepositoryUrl",
-          "description": "<p>The Octoshift migration source repository URL.</p>",
+          "description": "<p>The URL of the source repository.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -72672,7 +73097,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

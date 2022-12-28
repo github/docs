@@ -1,6 +1,7 @@
 ---
 title: 依存関係レビューの構成
 intro: 依存関係レビューを使用して、脆弱性がプロジェクトに追加される前に捕捉できます。
+miniTocMaxHeadingLevel: 3
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
@@ -14,12 +15,12 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: e7fae5d42e4f7c14098414c28e5b5eb857c39687
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: b5e5ccb5107cd96d1a88f896fd46d5b948a365cd
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107502'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163353'
 ---
 ## 依存関係の確認について
 
@@ -50,16 +51,16 @@ ms.locfileid: '148107502'
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## {% data variables.product.prodname_dependency_review_action %} の構成
+## {% data variables.product.prodname_dependency_review_action %} の構成について
 
-{% data reusables.dependency-review.dependency-review-action-beta-note %} {% data reusables.dependency-review.dependency-review-action-overview %}
+{% data reusables.dependency-review.dependency-review-action-overview %}
 
 次の構成オプションを使用できます。
 
 | オプション | 必須 | 使用法 |
 |------------------|-------------------------------|--------|
 | `fail-on-severity` | オプション | 重大度レベル (`low`、`moderate`、`high`、`critical`) のしきい値を定義します。</br>アクションは、指定した重大度レベル以上の脆弱性を引き起こす pull request で失敗します。 |
-{%- ifversion dependency-review-action-licenses %} | `allow-licenses` | 省略可能 | 許可されているライセンスの一覧が含まれています。 このパラメーターに使用できる値は、API ドキュメントの「[ライセンス](/rest/licenses)」のページで確認できます。</br>このアクションは、list.| と一致しないライセンスを持つ依存関係を導入するプル要求で失敗します。{% endif %} {%- ifversion dependency-review-action-licenses %} | `deny-licenses` |省略可能な|禁止されているライセンスの一覧が含まれています。 このパラメーターに使用できる値は、API ドキュメントの「[ライセンス](/rest/licenses)」のページで確認できます。</br>アクションは、リストに一致するライセンスを持つ依存関係を導入する pull request で失敗します。|{% endif %}
+{%- ifversion dependency-review-action-licenses %} | `allow-licenses` | 省略可能 | 許可されているライセンスの一覧が含まれています。 このパラメーターに使用できる値は、API ドキュメントの「[ライセンス](/rest/licenses)」のページで確認できます。</br>このアクションは、list.| と一致しないライセンスを持つ依存関係を導入するプル要求で失敗します。{% endif %} {%- ifversion dependency-review-action-licenses %} | `deny-licenses` |省略可能な|禁止されているライセンスの一覧が含まれています。 このパラメーターに使用できる値は、API ドキュメントの「[ライセンス](/rest/licenses)」のページで確認できます。</br>アクションは、リストに一致するライセンスを持つ依存関係を導入する pull request で失敗します。|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %} | `fail-on-scopes` | 省略可能 | サポートしたいビルド環境を表す文字列のリストを含めます (`development`、`runtime`、`unknown`)。 </br>アクションは、リストに一致するスコープに脆弱性をもたらす pull request で失敗します。|{% endif %} | `allow-ghsas` | 省略可能 | 検出中にスキップできる {% data variables.product.prodname_advisory_database %} ID のリストを含めます。 このパラメーターに指定できる値は、[{% data variables.product.prodname_advisory_database %}](https://github.com/advisories) で見つけることができます。 | | `config-file` | 省略可能 | 構成ファイルのパスを指定します。 構成ファイルは、リポジトリに対してローカルにすることも、外部リポジトリにあるファイルにすることもできます| | `external-repo-token` | 省略可能 | ファイルがプライベート外部リポジトリに存在する場合に、構成ファイルをフェッチするためのトークンを指定します。 トークンには、リポジトリへの読み取りアクセス権が必要です。|
 
 {% ifversion dependency-review-action-licenses %} {% tip %}
 
@@ -67,37 +68,139 @@ ms.locfileid: '148107502'
 
 {% endtip %} {% endif %}
 
-この {% data variables.product.prodname_dependency_review_action %} サンプル ファイルは、これらの構成オプションを使用する方法を示しています。 この例では、アクションに対して、semver リリース番号 (`v2.0.8` など) ではなく、短いバージョン番号 (`v2`) が使われています。 これにより、アクションの最新のマイナー バージョンを使うことができます。
+## {% data variables.product.prodname_dependency_review_action %} の構成
 
-```yaml{:copy}
-name: 'Dependency Review'
-on: [pull_request]
+{% data variables.product.prodname_dependency_review_action %} を構成する方法は 2 つあります。 
+- ワークフロー ファイル内に構成オプションをインライン化する。 
+- ワークフロー ファイル内で構成オプションを参照する。
 
-permissions:
-  contents: read
+すべての例で、アクションに対して、semver リリース番号 (`v3.0.8` など) ではなく、短いバージョン番号 (`v3`) が使われています。 これにより、アクションの最新のマイナー バージョンを使うことができます。
+### インライン構成を使って {% data variables.product.prodname_dependency_review_action %} を設定する
 
-jobs:
-  dependency-review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout Repository'
-        uses: {% data reusables.actions.action-checkout %}
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v2
-        with:
-          # Possible values: "critical", "high", "moderate", "low" 
-          fail-on-severity: critical
-{% ifversion dependency-review-action-licenses %}
-          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
-          # ([String]). Only allow these licenses (optional)
-          # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+1. `.github/workflows` フォルダーに新しい YAML ワークフローを追加します。   
+   
+   {% ifversion ghes %}`runs-on` の場合、既定のラベルは `self-hosted` です。 既定のラベルは、任意のランナーのラベルに置き換えることができます。{% endif %}
+  ```yaml{:copy}
+  name: 'Dependency Review'
+  on: [pull_request]
 
-          # ([String]). Block the pull request on these licenses (optional)
-          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # deny-licenses: LGPL-2.0, BSD-2-Clause
-{% endif %}
-```
+  permissions:
+    contents: read
 
+  jobs:
+    dependency-review:
+     {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+   ```
+1. 必要に応じて設定を変更します。   
+
+   この {% data variables.product.prodname_dependency_review_action %} サンプル ファイルは、利用可能な構成オプションの使用方法を示しています。
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
+
+   permissions:
+     contents: read
+
+   jobs:
+     dependency-review:
+     {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+           with:
+           # Possible values: "critical", "high", "moderate", "low" 
+           fail-on-severity: critical
+  {% ifversion dependency-review-action-licenses %}
+           # You can only include one of these two options: `allow-licenses` and `deny-licences`
+           # ([String]). Only allow these licenses (optional)
+           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+           allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+           # ([String]). Block the pull request on these licenses (optional)
+           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+           deny-licenses: LGPL-2.0, BSD-2-Clause
+  {% endif %}
+           # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
+           # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories  
+           allow-ghsas: GHSA-abcd-1234-5679, GHSA-efgh-1234-5679
+  {% ifversion dependency-review-action-fail-on-scopes %}
+           # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
+           # Possible values: "development", "runtime", "unknown"
+           fail-on-scopes: development, runtime
+  {% endif %}
+   ```
+### 構成ファイルを使って {% data variables.product.prodname_dependency_review_action %} を設定する
+
+1. `.github/workflows` フォルダーに新しい YAML ワークフローを追加し、`config-file` を使って構成ファイルを使用していることを指定します。
+
+   {% ifversion ghes %}`runs-on` の場合、既定のラベルは `self-hosted` です。 既定のラベルは、任意のランナーのラベルに置き換えることができます。{% endif %}
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
+
+   permissions:
+    contents: read
+
+   jobs:
+     dependency-review:
+       {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+           with:
+            # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
+            # Possible values: An absolute path to a local file or an external file.
+            config-file: './.github/dependency-review-config.yml'   
+            # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
+            config-file: 'github/octorepo/dependency-review-config.yml@main'
+
+            # ([Token]) Use if your configuration file resides in a private external repository.
+            # Possible values: Any GitHub token with read access to the private external repository.  
+            external-repo-token: 'ghp_123456789abcde'
+   ```
+1. 指定したパスに構成ファイルを作成します。   
+
+   この YAML ファイルの例は、利用可能な構成オプションの使用方法を示しています。 
+   ```yaml{:copy}
+     # Possible values: "critical", "high", "moderate", "low" 
+     fail-on-severity: critical
+   {% ifversion dependency-review-action-licenses %}
+     # You can only include one of these two options: `allow-licenses` and `deny-licences`
+     # ([String]). Only allow these licenses (optional)
+     # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+     allow-licenses: 
+       - GPL-3.0
+       - BSD-3-Clause
+       - MIT
+      # ([String]). Block the pull request on these licenses (optional)
+      # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+     deny-licenses: 
+       - LGPL-2.0
+       - BSD-2-Clause
+   {% endif %}
+      # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
+      # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories  
+     allow-ghsas: 
+       - GHSA-abcd-1234-5679 
+       - GHSA-efgh-1234-5679
+   {% ifversion dependency-review-action-fail-on-scopes %}
+      # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
+      # Possible values: "development", "runtime", "unknown"
+     fail-on-scopes: 
+       - development 
+       - runtime
+  {% endif %}
+  ```
 構成オプションの詳細については、「[`dependency-review-action`](https://github.com/actions/dependency-review-action#readme)」を参照してください。
 {% endif %}

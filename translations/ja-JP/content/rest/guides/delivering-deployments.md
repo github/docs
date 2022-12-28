@@ -12,12 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 7ac423a27fe8b1c145efa3c135d88f08487f153a
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145131377'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132988'
 ---
 [Deployments API][deploy API] によって、所有しているサーバーでプロジェクトを起動するための機能が、{% data variables.product.product_name %} でホストされるプロジェクトに提供されます。 [Status API][status API] と組み合わせると、コードがデフォルト ブランチに到達した瞬間にデプロイを調整できます。
 
@@ -30,7 +30,13 @@ ms.locfileid: '145131377'
 
 このCIシステムとホストサーバーは、想像上のものです。 Heroku でも、Amazon でも、何でも構いません。 このガイドのポイントは、通信を管理するサーバーを設定し、構成することにあります。
 
-まだ行ってない場合は必ず [ngrok をダウンロード][ngrok]し、その[使い方][using ngrok]を確認してください。 これはローカル接続を公開するために非常に役立つツールです。
+まだ行っていない場合は必ず `ngrok` を[ダウンロードし][ngrok]、その[使い方][using ngrok]をご確認ください。 これは、ローカル アプリケーションをインターネットに公開するために非常に便利なツールであることがわかりました。
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+**メモ:** または、Webhook 転送を使って、Webhook を受信するようにローカル環境を設定することもできます。 詳しくは、「[GitHub CLI を使った Webhook の受信](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)」を参照してください。
+
+{% endnote %} {% endif %}
 
 注: このプロジェクトの完全なソース コードは、[platform-samples リポジトリから][platform samples]ダウンロードできます。
 
@@ -51,12 +57,12 @@ end
 
 (Sinatra のしくみに詳しくない場合は、[Sinatra ガイド][Sinatra]を読むことをお勧めします。)
 
-このサーバーを起動してください。 既定では、Sinatra はポート `4567` で起動するため、これのリッスンも開始するよう ngrok を構成するとよいでしょう。
+このサーバーを起動してください。 既定では、Sinatra はポート `4567` で起動するため、これのリッスンも開始するよう `ngrok` を構成します。
 
 このサーバーが機能するには、webhookでリポジトリを設定する必要があります。
 プルリクエストが作成やマージされるたびに、webhookが起動するよう設定すべきです。
 なんでも好きにして構わないようなリポジトリを作成しましょう。 [@octocat の Spoon/Knife リポジトリ](https://github.com/octocat/Spoon-Knife)などはどうでしょうか。
-その後、リポジトリ内に新しい Webhook を作成し、ngrok で提供された URL を指定し、コンテンツ タイプとして `application/x-www-form-urlencoded` を選びます。
+その後、お使いのリポジトリ内に新しい Webhook を作成し、`ngrok` で提供された URL を指定し、コンテンツ タイプとして `application/x-www-form-urlencoded` を選びます。
 
 ![新しいngrok URL](/assets/images/webhook_sample_url.png)
 

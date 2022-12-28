@@ -42,6 +42,8 @@ You can use repositories to manage your work and collaborate with others.
 
 {% data reusables.repositories.repo-size-limit %}
 
+To learn how to use repositories most effectively, see "[Best practices for repositories](/repositories/creating-and-managing-repositories/best-practices-for-repositories)."
+
 ## About repository visibility
 
 You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
@@ -138,7 +140,6 @@ The compare view and pull requests pages display a list of commits between the `
 
 ## Further reading
 
-- "[Creating a new repository](/articles/creating-a-new-repository)"
 - "[About forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"
 - "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"

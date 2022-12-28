@@ -1,5 +1,5 @@
 ---
-title: Interfaces
+title: インターフェイス
 redirect_from:
   - /v4/interface
   - /v4/reference/interface
@@ -10,15 +10,20 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: a6fed36ccd70557b8d88904f83840a7afacdfacb
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109150'
 ---
+## インターフェースについて
 
-## About interfaces
+[インターフェイス](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces)は、他のオブジェクトが継承できる親オブジェクトとして機能します。
 
-[Interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) serve as parent objects from which other objects can inherit.
+たとえば、[`Lockable`](/graphql/reference/interfaces#lockable) は [`Issue`](/graphql/reference/objects#issue) および [`PullRequest`](/graphql/reference/objects#pullrequest) オブジェクトの両方をロックできるため、インターフェイスです。 インターフェースは、実装オブジェクトが共有する名前付きフィールドのリストを独自に持ちます。
 
-For example, [`Lockable`](/graphql/reference/interfaces#lockable) is an interface because both [`Issue`](/graphql/reference/objects#issue) and [`PullRequest`](/graphql/reference/objects#pullrequest) objects can be locked. An interface has its own list of named fields that are shared by implementing objects.
-
-For more information, see "[Implementation](/graphql/guides/introduction-to-graphql#implementation)."
+詳細については、「[実装](/graphql/guides/introduction-to-graphql#implementation)」を参照してください。
 
 {% data reusables.projects.graphql-ghes %}
 

@@ -1,24 +1,24 @@
 ---
 title: Habilitar o GitHub Actions com MinIO Gateway para armazenamento NAS
-intro: 'Você pode habilitar {% data variables.product.prodname_actions %} no {% data variables.product.prodname_ghe_server %} e usar o Gateway MinIO para armazenamento NAS para armazenar dados gerados por execuções de fluxo de trabalho.'
-permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
+intro: Você pode habilitar {% data variables.product.prodname_actions %} no {% data variables.product.prodname_ghe_server %} e usar o Gateway MinIO para armazenamento NAS para armazenar dados gerados por execuções de fluxo de trabalho.
+permissions: Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.
 versions:
   ghes: '*'
 type: how_to
 topics:
-  - Actions
-  - Enterprise
-  - Infrastructure
-  - Storage
+- Actions
+- Enterprise
+- Infrastructure
+- Storage
 redirect_from:
-  - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
+- /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO Gateway for NAS storage
 ms.openlocfilehash: bb738d04d54234704f3278422c1f1ef075956640
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106866'
+ms.locfileid: "148106866"
 ---
 {% data reusables.actions.minio-gateways-removal %}
 

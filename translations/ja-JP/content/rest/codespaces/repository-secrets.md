@@ -2,20 +2,21 @@
 title: Codespaces リポジトリ シークレット
 allowTitleToDifferFromFilename: true
 shortTitle: Repository secrets
-intro: Codespaces Repository Secrets API を使うと、codespace でユーザーがアクセスできるリポジトリのシークレット (クラウド サービスのアクセス トークンなど) を作成、一覧表示、削除することができます。
+intro: REST API を使用し、ユーザーが codespace でアクセスできるリポジトリのシークレットを管理します。
+permissions: 'Users with write access to a repository can manage {% data variables.product.prodname_codespaces %} repository secrets.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: d80d75934cc41db2ae12db2df47a41e74627dfef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f38e196db7ab0601a28612cf13c363f18181342a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147063979'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192730'
 ---
-## Codespaces リポジトリ シークレット API について
+## {% data variables.product.prodname_codespaces %} リポジトリ シークレットについて
 
-Codespaces リポジトリ シークレット API を使用すると、ユーザーがアクセスできるリポジトリのシークレット (クラウド サービスのアクセス トークンなど) を作成、一覧表示、削除することができます。 これらのシークレットは、実行時に codespace で使用できます。 詳細については、「[Codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。
+ユーザーがアクセスできるリポジトリのシークレット (クラウド サービスのアクセス トークンなど) を作成、一覧表示、削除できます。 これらのシークレットは、実行時に codespace で使用できます。 詳細については、「[Codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。

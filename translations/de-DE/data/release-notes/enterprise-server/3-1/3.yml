@@ -1,0 +1,27 @@
+date: '14.07.2021'
+sections:
+  security_fixes:
+    - '**HOCH:** In GitHub Enterprise Server wurde ein Path Traversal-Sicherheitsrisiko identifiziert, das beim Erstellen einer GitHub Pages-Site ausgenutzt werden könnte. Die benutzergesteuerte Konfigurationsoptionen, die von GitHub Pages verwendet werden, waren nicht ausreichend eingeschränkt und ermöglichten, Dateien auf der GitHub Enterprise Server-Instanz zu lesen. Um dieses Sicherheitsrisiko auszunutzen, benötigt ein*e Angreifer*in die Berechtigung, eine GitHub Pages-Site auf der GitHub Enterprise Server-Instanz zu erstellen. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.1.3 auf, und es wurde CVE-2021-22867 zugewiesen. Dieses Sicherheitsrisiko wurde über das GitHub Bug Bounty Program gemeldet.'
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Die Variable des SAML-Ablaufdatums konnte nicht konfiguriert werden.
+    - "Anwendungsdienste bestehen ihre Integritätsprüfungen während „config-apply“ nicht, bevor sie den Integritätszustand erreichen."
+    - '`ghe-cluster-config-node-init` generiert während der Clustereinrichtung einen Fehler, wenn der HTTP-Proxy aktiviert ist.'
+    - "Für Pre-Receive-Hooks tritt möglicherweise der Fehler `Failed to resolve full path of the current executable` (Vollständiger Pfad der aktuellen ausführbaren Datei konnte nicht aufgelöst werden) auf, da `/proc` nicht im Container eingebunden wurde."
+    - Collectd löst den Hostnamen des Weiterleitungsziels nach dem ersten Start nicht auf.
+    - "Der Auftrag, der veraltete gelöschte Repositorys endgültig gelöscht hat, konnte keinen Fortschritt erzielen, wenn für einige dieser Repositorys ein Löschschutz aufgrund gesetzlicher Aufbewahrungspflichten eingerichtet war."
+    - "Hintergrundvorgänge, die nicht verarbeitet wurden, wurden in die `spam`-Warteschlange eingereiht."
+    - "Die bevorzugte Mergemethode wird zurückgesetzt, wenn ein erneuter Versuch nach einem fehlerhaften PR-Merge durchgeführt wird."
+    - "Git-Pushvorgänge führen während des Benutzerabgleichvorgangs auf Instanzen unter Verwendung der LDAP-Authentifizierungsmethode möglicherweise zum Fehler 500: „Interner Serverfehler“."
+    - 'Nach dem Upgrade von 3.0.x auf 3.1.x wird in einigen Fällen für GitHub Actions der Fehler `An unexpected error occurred when executing this workflow.` (Ein unerwarteter Fehler ist beim Ausführen dieses Workflows aufgetreten.) generiert.'
+  changes:
+    - "Die Effizienz von „config apply“ wurde durch Überspringen der IP verbessert, die Firewallregeln zulässt, die nicht geändert wurden, wodurch bei großen Clustern deutlich Zeit gespart werden konnte."
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

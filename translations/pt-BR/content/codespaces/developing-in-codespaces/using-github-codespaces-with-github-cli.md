@@ -1,8 +1,7 @@
 ---
-title: Using GitHub Codespaces with GitHub CLI
+title: Como usar o GitHub Codespaces com a CLI do GitHub
 shortTitle: GitHub CLI
-intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Você pode trabalhar com o {% data variables.product.prodname_github_codespaces %} diretamente de sua linha de comando usando `gh`, a interface de linha de comando {% data variables.product.product_name %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -14,217 +13,232 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
+ms.openlocfilehash: e9a268273e0a6d85a17a795f593e7bd3a7885718
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163494'
 ---
+## Sobre a {% data variables.product.prodname_cli %} 
 
-## About {% data variables.product.prodname_cli %} 
+{% data reusables.cli.about-cli %} Para obter mais informações, confira "[Sobre a {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
-{% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+É possível trabalhar com o {% data variables.product.prodname_github_codespaces %} na {% data variables.product.prodname_cli %} para fazer o seguinte:
+  - [Listar todos os seus codespaces](#list-all-of-your-codespaces)
+  - [Criar um novo codespace](#create-a-new-codespace)
+  - [Parar um codespace](#stop-a-codespace)
+  - [Excluir um codespace](#delete-a-codespace)
+  - [Renomear um codespace](#rename-a-codespace)
+  - [Usar o SSH em um codespace](#ssh-into-a-codespace)
+  - [Abrir um codespace no {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+  - [Abrir um codespace no JupyterLab](#open-a-codespace-in-jupyterlab)
+  - [Copiar um arquivo de/para um codespace](#copy-a-file-tofrom-a-codespace)
+  - [Modificar as portas em um codespace](#modify-ports-in-a-codespace)
+  - [Acessar os logs do codespace](#access-codespace-logs)
+  - [Acessar recursos remotos](#access-remote-resources)
+  - [Alterar o tipo de computador de um codespace](#change-the-machine-type-of-a-codespace)
 
-You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
-  - [List all of your codespaces](#list-all-of-your-codespaces)
-  - [Create a new codespace](#create-a-new-codespace)
-  - [Stop a codespace](#stop-a-codespace)
-  - [Delete a codespace](#delete-a-codespace)
-  - [Rename a codespace](#rename-a-codespace)
-  - [SSH into a codespace](#ssh-into-a-codespace)
-  - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
-  - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
-  - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
-  - [Modify ports in a codespace](#modify-ports-in-a-codespace)
-  - [Access codespace logs](#access-codespace-logs)
-  - [Access remote resources](#access-remote-resources)
-  - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
-
-## Installing {% data variables.product.prodname_cli %}
+## Como instalar a {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
  
-## Using {% data variables.product.prodname_cli %}
+## Como usar a {% data variables.product.prodname_cli %}
 
-If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
+Se você ainda não fez isso, execute `gh auth login` para se autenticar com sua conta do {% data variables.product.prodname_dotcom %}. 
 
-To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
+Para usar `gh` a fim de trabalhar com o {% data variables.product.prodname_github_codespaces %}, digite `gh codespace SUBCOMMAND` ou o alias `gh cs SUBCOMMAND` dele.
 
-As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
+Como exemplo de uma série de comandos que você pode usar para trabalhar com {% data variables.product.prodname_github_codespaces %}, você pode: 
 
-* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
+* Liste seus codespaces atuais para verificar se você tem um codespace para um repositório específico:<br>
   `gh codespace list`
-* Create a new codespace for the required repository branch:<br>
+* Crie um codespace para o branch do repositório necessário:<br>
   `gh codespace create -r github/docs -b main`
-* SSH into the new codespace:<br>
-  `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
-* Forward a port to your local machine:<br>
-  `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
+* Use o SSH no novo codespace:<br>
+  `gh codespace ssh -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
+* Encaminhe uma porta para o computador local:<br>
+  `gh codespace ports forward 8000:8000 -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 
-## `gh` commands for {% data variables.product.prodname_github_codespaces %}
+## Comandos `gh` do {% data variables.product.prodname_github_codespaces %}
 
-The sections below give example commands for each of the available operations.
+As seções abaixo fornecem exemplos de comandos para cada uma das operações disponíveis.
 
-For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, use `gh codespace [<SUBCOMMAND>...] --help` on the command line.
+Para ver uma referência completa de comandos `gh` do {% data variables.product.prodname_github_codespaces %}, incluindo detalhes de todas as opções disponíveis para cada comando, confira a ajuda online da {% data variables.product.prodname_cli %} para "[gh codespace](https://cli.github.com/manual/gh_codespace)". Como alternativa, na linha de comando, use `gh codespace --help` para ajuda geral ou `gh codespace SUBCOMMAND --help` para ajuda com um subcomando específico.
 
 {% note %}
 
-**Note**: The `-c CODESPACE_NAME` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
+**Observação**: o sinalizador `-c CODESPACE_NAME`, usado com muitos comandos, é opcional. Se você omitir, será exibida uma uma lista de codespaces para você escolher.
 
 {% endnote %}
 
-### List all of your codespaces
+### Listar todos os seus codespaces
 
 ```shell
 gh codespace list
 ```
 
-The list includes the unique name of each codespace, which you can use in other `gh codespace` commands.
+A lista inclui o nome exclusivo de cada codespace, que você pode usar em outros comandos `gh codespace`.
 
-An asterisk at the end of the branch name for a codespace indicates that there are uncommitted or unpushed changes in that codespace.
+Um asterisco no final do nome do branch de um codespace indica que há nele alterações não confirmadas ou não enviadas por push.
 
-### Create a new codespace
+### Criar um novo codespace
 
 ```shell
 gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
-For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+Para obter mais informações, confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)".
 
-### Stop a codespace
+### Parar um codespace
 
 ```shell
 gh codespace stop -c CODESPACE-NAME
 ```
 
-For more information, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
+Para ver mais informações, confira "[Aprofundamento nos {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)".
 
-### Delete a codespace
+### Excluir um codespace
 
 ```shell
 gh codespace delete -c CODESPACE-NAME
 ```
 
-For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+Para obter mais informações, confira "[Como excluir um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)".
 
-### Rename a codespace
+### Renomear um codespace
 
 ```shell
 gh codespace edit -c CODESPACE-NAME -d DISPLAY-NAME
 ```
 
-For more information, see "[Renaming a codespace](/codespaces/customizing-your-codespace/renaming-a-codespace)."
+Para saber mais, confira "[Renomear um codespace](/codespaces/customizing-your-codespace/renaming-a-codespace)".
 
-### SSH into a codespace
+### SSH em um codespace
 
-To run commands on the remote codespace machine, from your terminal, you can SSH into the codespace.
+Para executar comandos na máquina de codespace remoto, a partir do seu terminal, você pode fazer SSH no codespace.
 
 ```shell
 gh codespace ssh -c CODESPACE-NAME
 ```
 
-{% data variables.product.prodname_github_codespaces %} copies your GitHub SSH keys into the codespace on creation for a seamless authentication experience. You may be asked to enter the passphrase for your SSH key, after which you will get a command prompt from the remote codespace machine.
+{% note %}
 
-If you don't have any SSH keys, follow the instructions in "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+**Nota**: {% data reusables.codespaces.ssh-server-installed %}
 
-### Open a codespace in {% data variables.product.prodname_vscode %}
+<br>Para saber mais sobre o arquivo `devcontainer.json` e a imagem de contêiner padrão, confira "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
+
+{% endnote %}
+
+{% data variables.product.prodname_github_codespaces %} copia suas chaves SSH no codespace ao criar para uma experiência de autenticação perfeita. É possível que se solicite a senha da sua chave SSH e, após isso, você obterá uma instrução de comando da máquina de codespace remoto.
+
+Se você não tiver nenhuma chave SSH, siga as instruções descritas em "[Como gerar uma nova chave SSH e adicioná-la ao ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
+
+### Abrir um codespace em {% data variables.product.prodname_vscode %}
 
 ```shell
 gh codespace code -c CODESPACE-NAME
 ```
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code)."
+É necessário ter o {% data variables.product.prodname_vscode_shortname %} instalado no computador local. Para saber mais, confira "[Usar o {% data variables.product.prodname_github_codespaces %} no {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)".
 
-### Open a codespace in JupyterLab
+### Abrir um codespace no JupyterLab
 
 ```shell
 gh codespace jupyter -c CODESPACE-NAME
 ```
 
-### Copy a file to/from a codespace
+{% data reusables.codespaces.jupyterlab-installed-in-codespace %}
+
+### Copiar um arquivo de/para um codespace
 
 ```shell
 gh codespace cp [-r] SOURCE(S) DESTINATION
 ```
 
-Use the prefix `remote:` on a file or directory name to indicate that it's on the codespace. As with the UNIX `cp` command, the first argument specifies the source and the last specifies the destination. If the destination is a directory, you can specify multiple sources. Use the `-r` (recursive) flag if any of the sources is a directory.
+Use o prefixo `remote:` em um nome de arquivo ou de diretório para indicar que ele está no codespace. Assim como no comando UNIX `cp`, o primeiro argumento especifica a origem e o último especifica o destino. Se o destino for um diretório, você poderá especificar várias fontes. Use o sinalizador `-r` (recursivo) se uma das fontes for um diretório.
 
-The location of files and directories on the codespace is relative to the home directory of the remote user.
+O local dos arquivos e diretórios no codespace é relativo ao diretório principal do usuário remoto.
 
-#### Examples
+#### Exemplos
 
-* Copy a file from the local machine to the `$HOME` directory of a codespace:
+* Copie um arquivo do computador local para o diretório `$HOME` de um codespace:
 
    `gh codespace cp myfile.txt remote:`
 
-* Copy a file to the directory in which a repository is checked out in a codespace:
+* Copiar um arquivo para o diretório no qual se faz o check-out de um repositório em um codespace:
 
-   `gh codespace cp myfile.txt remote:/workspaces/<REPOSITORY-NAME>`
+   `gh codespace cp myfile.txt remote:/workspaces/REPOSITORY-NAME`
 
-* Copy a file from a codespace to the current directory on the local machine:
+* Copiarum arquivo de um código para o diretório atual na máquina local:
 
    `gh codespace cp remote:myfile.txt .`
 
-* Copy three local files to the `$HOME/temp` directory of a codespace:
+* Copie três arquivos locais para o diretório `$HOME/temp` de um codespace:
 
    `gh codespace cp a1.txt a2.txt a3.txt remote:temp`
 
-* Copy three files from a codespace to the current working directory on the local machine:
+* Copie três arquivos de um codespace para o diretório de trabalho atual na máquina local:
 
    `gh codespace cp remote:a1.txt remote:a2.txt remote:a3.txt .`
 
-* Copy a local directory into the `$HOME` directory of a codespace:
+* Copie um diretório local para o diretório `$HOME` de um codespace:
 
    `gh codespace cp -r mydir remote:`
 
-* Copy a directory from a codespace to the local machine, changing the directory name:
+* Copiar o diretório de um codespace para a máquina local, alterando o nome do diretório:
 
    `gh codespace cp -r remote:mydir mydir-localcopy`
 
-For more information about the `gh codespace cp` command, including additional flags you can use, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_cp).
+Para obter mais informações sobre o comando `gh codespace cp`, incluindo sinalizadores adicionais que você pode usar, confira [o manual da {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_cp).
 
-### Modify ports in a codespace
+### Modificar portas em um codespace
 
-You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>Control</kbd>+<kbd>C</kbd>.
+Você pode encaminhar uma porta em um codespace para uma porta local. A porta será encaminhada enquanto o processo estiver em execução. Para interromper o encaminhamento da porta, pressione <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward CODESPACE-PORT_NAME:LOCAL-PORT-NAME -c CODESPACE-NAME
 ```
 
-To see details of forwarded ports enter `gh codespace ports` and then choose a codespace.
+Para ver os detalhes das portas encaminhadas, insira `gh codespace ports` e escolha um codespace.
 
-You can set the visibility of a forwarded port. {% data reusables.codespaces.port-visibility-settings %}
+Você pode definir a visibilidade de uma porta encaminhada. {% data reusables.codespaces.port-visibility-settings %}
 
 ```shell
 gh codespace ports visibility CODESPACE-PORT:private|org|public -c CODESPACE-NAME
 ```
 
-You can set the visibility for multiple ports with one command. For example:
+Você pode definir a visibilidade de várias portas com um comando. Por exemplo:
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org -c CODESPACE-NAME
 ```
 
-For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Para obter mais informações, confira "[Como encaminhar portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-### Access codespace logs
+### Acessar registros de codespaces
 
-You can see the creation log for a codespace. After entering this command you will be asked to enter the passphrase for your SSH key.
+Você pode ver o registro de criação de um codespace. Depois de entrar neste comando será solicitado que você digite a senha da sua chave SSH.
 
 ```shell
 gh codespace logs -c CODESPACE-NAME
 ```
 
-For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
+Para ver mais informações sobre o log de criação, confira "[logs do {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)".
 
-### Access remote resources 
-You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+### Acessar recursos remotos 
+Você pode usar a extensão {% data variables.product.prodname_cli %} para criar uma ponte entre um codespace e seu computador local, e o codespace possa acessar qualquer recurso remoto que esteja acessível em seu computador. Para obter mais informações sobre como usar a extensão, confira "[Como usar dados {% data variables.product.prodname_cli %} para acessar recursos remotos](https://github.com/github/gh-net#codespaces-network-bridge)".
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+**Observação**: a extensão {% data variables.product.prodname_cli %} está atualmente na versão beta e sujeita a alterações. 
 
 {% endnote %}
 
-### Change the machine type of a codespace
+### Alterar o tipo de computador de um codespace
 
 ```shell
-gh codespace edit -m <em>machine-type-name</em>
+gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
-For more information, see the "{% data variables.product.prodname_cli %}" tab of "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+Para saber mais, confira a guia "{% data variables.product.prodname_cli %}" de "[Alterar o tipo de computador de um codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)".

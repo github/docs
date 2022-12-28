@@ -12,12 +12,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Enterprise Cloud trial
-ms.openlocfilehash: 13cb43b5dfd4a9e207a9a1cca090b223c56f4678
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a50aebc43ba5d674af132786ffb75e5fb3029aeb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389952'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183986'
 ---
 {% data reusables.enterprise.ghec-cta-button %}
 
@@ -67,15 +67,17 @@ ms.locfileid: '147389952'
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
+{% data reusables.enterprise.best-practices %}
+
 {% data reusables.products.product-roadmap %}
 
 ## 结束试用
 
 在试用期间，您可以随时购买 {% data variables.product.prodname_enterprise %}。 购买 {% data variables.product.prodname_enterprise %} 将结束试用期，取消最多 50 个席位并开始付款。
 
-如果您不购买 {% data variables.product.prodname_enterprise %}，则在试用期结束时，您的组织将被降级。 如果您使用现有组织进行试用，则该组织将降级为您在试用之前使用的产品。 如果您为试用版创建了新组织，则该组织将降级至 {% data variables.product.prodname_free_team %}。 
+如果不购买 {% data variables.product.prodname_enterprise %}，试用期将持续到 30 天期限结束。 不能提前结束试用。 试用期结束后，你的组织将被降级。 如果您使用现有组织进行试用，则该组织将降级为您在试用之前使用的产品。 如果您为试用版创建了新组织，则该组织将降级至 {% data variables.product.prodname_free_team %}。 
 
-您的组织将无法访问新产品中未包含的任何功能，例如高级功能，如私有仓库的 {% data variables.product.prodname_pages %} 。 如果您不打算升级，为避免无法访问高级功能，请考虑在试用期结束前公开受影响的存储库。 有关详细信息，请参阅“[设置存储库可见性](/articles/setting-repository-visibility)”。
+贵组织将无法访问新计划中未包含的任何功能，例如私有存储库的 {% data variables.product.prodname_pages %} 等高级功能。 如果您不打算升级，为避免无法访问高级功能，请考虑在试用期结束前公开受影响的存储库。 有关详细信息，请参阅“[设置存储库可见性](/articles/setting-repository-visibility)”。
 
 降级还会禁用在试用期内配置的任何 SAML 设置。 如果您以后购买了 {% data variables.product.prodname_enterprise %}，则将再次启用 SAML 设置，以便组织中的用户进行身份验证。
 

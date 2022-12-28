@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Integrator best practices
-ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: bdfc2449946e40b017dc028869deb7991d5a344a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882268'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193175'
 ---
 Interessado em integrar-se à plataforma do GitHub? [Você está em boa companhia](https://github.com/integrations). Este guia ajudará você a criar um aplicativo que fornece a melhor experiência para seus usuários *e* garantir que ele interaja, de modo confiável, com a API. 
 
@@ -65,7 +65,7 @@ Muitas vezes, as respostas da API contêm dados na forma de URLs. Por exemplo, q
 
 Para a estabilidade do seu aplicativo, você não deve tentar analisar esses dados ou tentar adivinhar e construir o formato de URLs futuras. Seu app será poderá falhar se decidirmos alterar a URL.
 
-Por exemplo, quando você trabalha com resultados paginados, muitas vezes, é uma tentação construir URLs que acrescentam `?page=<number>` ao final. Evite essa tentação. [Nosso guia sobre paginação](/guides/traversing-with-pagination) oferece algumas dicas seguras sobre como seguir os resultados paginados de maneira confiável.
+Por exemplo, quando você trabalha com resultados paginados, muitas vezes, é uma tentação construir URLs que acrescentam `?page=<number>` ao final. Evite essa tentação. Para obter mais informações sobre como seguir resultados paginados de maneira confiável, confira "[Como usar paginação na API REST](/rest/guides/using-pagination-in-the-rest-api)".
 
 ## Verifique o tipo de evento e a ação antes de processar o evento
 

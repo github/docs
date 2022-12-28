@@ -1,5 +1,5 @@
 ---
-title: About remote repositories
+title: 关于远程仓库
 redirect_from:
   - /articles/working-when-github-goes-down
   - /articles/sharing-repositories-without-github
@@ -10,85 +10,91 @@ redirect_from:
   - /github/using-git/about-remote-repositories
   - /github/getting-started-with-github/about-remote-repositories
   - /github/getting-started-with-github/getting-started-with-git/about-remote-repositories
-intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update.'
+intro: 'GitHub 的协作开发方法取决于从您的本地仓库发布提交到 {% data variables.product.product_name %}，以供其他人查看、提取和更新。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: fded875778bd0c573d82db5043e3ce8f195a0d2f
+ms.sourcegitcommit: a9ede282ae525dfe101b3e80ac85763d242a744a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148130888'
 ---
-## About remote repositories
+## 关于远程仓库
 
-A remote URL is Git's fancy way of saying "the place where your code is stored." That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.
+远程 URL 是 Git 一种指示“您的代码存储位置”的绝佳方式。 该 URL 可能是您在 GitHub 上的仓库，也可以是另一个用户的复刻，甚至在完全不同的服务器上。
 
-You can only push to two types of URL addresses:
+您只能推送到两类 URL 地址：
 
-* An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
-* An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
+* HTTPS URL（例如 `https://{% data variables.command_line.backticks %}/user/repo.git`）
+* SSH URL（例如 `git@{% data variables.command_line.backticks %}:user/repo.git`）
 
-Git associates a remote URL with a name, and your default remote is usually called `origin`.
+Git 将远程 URL 与名称相关联，你的默认远程通常名为 `origin`。
 
-## Creating remote repositories
+## 创建远程仓库
 
-You can use the `git remote add` command to match a remote URL with a name.
-For example, you'd type the following in the command line:
+可以使用 `git remote add` 命令将远程 URL 与名称匹配。
+例如，在命令行中输入以下命令：
 
 ```shell
 git remote add origin &lt;REMOTE_URL>
 ```
 
-This associates the name `origin` with the `REMOTE_URL`.
+这会将名称 `origin` 与 `REMOTE_URL` 相关联。
 
-You can use the command `git remote set-url` to [change a remote's URL](/get-started/getting-started-with-git/managing-remote-repositories).
+可以使用命令 `git remote set-url` [更改远程 URL](/get-started/getting-started-with-git/managing-remote-repositories)。
 
-## Choosing a URL for your remote repository
+## 选择远程仓库的 URL
 
-There are several ways to clone repositories available on {% data variables.location.product_location %}.
+克隆 {% data variables.location.product_location %} 上可用的存储库有几种方法。
 
-When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details.
+当您登录到帐户查看仓库时，可以用于将项目克隆到计算机上的 URL 在仓库详细信息下方提供。
 
-For information on setting or changing your remote URL, see "[Managing remote repositories](/get-started/getting-started-with-git/managing-remote-repositories)."
+有关设置或更改远程 URL 的信息，请参阅“[管理远程存储库](/get-started/getting-started-with-git/managing-remote-repositories)”。
 
-## Cloning with HTTPS URLs
+## 使用 HTTPS URL 克隆
 
-The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
+`https://` 克隆 URL 在所有存储库上都可用，无论可见性如何。 即使你在防火墙或代理后面，`https://` 克隆 URL 也有效。
 
-When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using HTTPS URLs on the command line, Git will ask for your {% data variables.product.product_name %} username and password. {% data reusables.user-settings.password-authentication-deprecation %}
+在命令行上使用 HTTPS URL 将 `git clone`、`git fetch`、`git pull` 或 `git push` 执行到远程存储库时，Git 将要求你提供 {% data variables.product.product_name %} 用户名和密码。 {% data reusables.user-settings.password-authentication-deprecation %}
 
 {% data reusables.command_line.provide-an-access-token %}
 
 {% tip %}
 
-**Tips**:
-- You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
-- To clone a repository without authenticating to {% data variables.product.product_name %} on the command line, you can use {% data variables.product.prodname_desktop %} to clone instead. For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_dotcom %} Desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
+**提示**：
+- 您可以使用凭据小助手，让 Git 在每次与 {% data variables.product.prodname_dotcom %} 通信时记住您的 {% data variables.product.prodname_dotcom %} 凭据。 有关详细信息，请参阅“[在 Git 中缓存 {% data variables.product.prodname_dotcom %} 凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)”。
+- 要克隆仓库而不在命令行中对 {% data variables.product.product_name %} 进行身份验证，您可以使用 {% data variables.product.prodname_desktop %} 进行克隆。 有关详细信息，请参阅“[将存储库从 {% data variables.product.prodname_dotcom %} 克隆到 {% data variables.product.prodname_dotcom %} 桌面](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)”。
 
 {% endtip %}
 
- {% ifversion fpt or ghec %}If you'd rather use SSH but cannot connect over port 22, you might be able to use SSH over the HTTPS port. For more information, see "[Using SSH over the HTTPS port](/github/authenticating-to-github/using-ssh-over-the-https-port)."{% endif %}
+ {% ifversion fpt or ghec %}如果希望使用 SSH，但不能通过端口 22 进行连接，则可通过 HTTPS 端口使用 SSH。 有关详细信息，请参阅“[在 HTTPS 端口使用 SSH](/github/authenticating-to-github/using-ssh-over-the-https-port)”。{% endif %}
 
-## Cloning with SSH URLs
+## 使用 SSH URL 克隆
 
-SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Connecting to {% data variables.product.prodname_dotcom %} with SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)."
+SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 若要使用这些 URL，必须在计算机上生成 SSH 密钥对，并将“公共”密钥添加到你在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}上的帐户。 有关详细信息，请参阅“[通过 SSH 连接到 {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/connecting-to-github-with-ssh)”。
 
-When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using SSH URLs, you'll be prompted for a password and must provide your SSH key passphrase. For more information, see "[Working with SSH key passphrases](/github/authenticating-to-github/working-with-ssh-key-passphrases)."
+使用 SSH URL 将 `git clone`、`git fetch`、`git pull` 或 `git push` 执行到远程存储库时，系统将提示你输入密码，并且必须提供 SSH 密钥密码。 有关详细信息，请参阅“[使用 SSH 密钥密码](/github/authenticating-to-github/working-with-ssh-key-passphrases)”。
 
-{% ifversion fpt or ghec %}If you are accessing an organization that uses SAML single sign-on (SSO), you must authorize your SSH key to access the organization before you authenticate. For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+{% ifversion fpt or ghec %}如果要访问使用 SAML 单一登录 (SSO) 的组织，在进行身份验证之前，还必须授权 SSH 密钥以访问组织。 有关详细信息，请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[关于使用 SAML 单一登录进行身份验证](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)”和“[授权 SSH 密钥以用于 SAML 单一登录](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}”。{% else %}."{% endif %}{% endif %}
 
 {% tip %}
 
-**Tip**: You can use an SSH URL to clone a repository to your computer, or as a secure way of deploying your code to production servers. You can also use SSH agent forwarding with your deploy script to avoid managing keys on the server. For more information, see "[Using SSH Agent Forwarding](/developers/overview/using-ssh-agent-forwarding)."
+提示：可以使用 SSH URL 将存储库克隆到计算机，或作为将代码部署到生产服务器的安全方法。 您还可以将 SSH 代理转发与部署脚本一起使用，以避免管理服务器上的密钥。 有关详细信息，请参阅“[使用 SSH 代理转发](/developers/overview/using-ssh-agent-forwarding)”。
 
 {% endtip %}
 
-## Cloning with {% data variables.product.prodname_cli %}
+## 使用 {% data variables.product.prodname_cli %} 克隆
 
-You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+您还可以安装 {% data variables.product.prodname_cli %} 以在终端中使用 {% data variables.product.product_name %} 工作流程。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
 {% ifversion not ghae %}
-## Cloning with Subversion
+## 使用 Subversion 克隆
 
-You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[What are the differences between Subversion and Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
+还可以使用 [Subversion](https://subversion.apache.org/) 客户端访问 {% data variables.product.prodname_dotcom %} 上的任何存储库。 Subversion 提供不同于 Git 的功能集。 有关详细信息，请参阅“[Subversion 和 Git 有哪些区别？](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)”
 
-You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients)."
+您也可以从 Subversion 客户端访问 {% data variables.product.prodname_dotcom %} 上的仓库。 有关详细信息，请参阅“[对 Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
 {% endif %}

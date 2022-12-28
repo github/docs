@@ -1,7 +1,7 @@
 ---
-title: Using SAML for enterprise IAM
+title: Uso de SAML para IAM empresarial
 shortTitle: SAML for enterprise IAM
-intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% endif %}access to {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise{% elsif ghec %}your enterprise''s resources{% endif %} with SAML single sign-on (SSO){% ifversion ghec or ghae %} and System for Cross-domain Identity Management (SCIM){% endif %}.'
+intro: 'Puedes administrar de forma centralizada {% ifversion ghes or ghae %}las cuentas y {% endif %}el acceso a {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}tu empresa{% elsif ghec %} y los recursos de tu empresa{% endif %} con el inicio de sesión único de SAML (SSO){% ifversion ghec or ghae %} y System for Cross-domain Identity Management (SCIM){% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -32,6 +32,11 @@ children:
   - /updating-a-users-saml-nameid
   - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /troubleshooting-saml-authentication
+ms.openlocfilehash: 2a843afa6f5447b9048ef2efbd03dee9e9b856d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107017'
 ---
-
 {% data reusables.enterprise-accounts.emu-saml-note %}

@@ -1,7 +1,6 @@
 ---
 title: Excluir um codespace
 intro: Você pode excluir um codespace de que você não precisa mais.
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
@@ -14,14 +13,22 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: c3f9577642c0b3016f8145da9f65cf9ccb457d5e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107831'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188253'
 ---
-Há custos associados ao armazenamento de codespaces. Portanto, você deve excluir os codespaces de que não precisa mais. Para obter mais informações, confira "[Sobre a cobrança de GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Você pode excluir um codespace de várias maneiras: no terminal usando a {% data variables.product.prodname_cli %}, no {% data variables.product.prodname_vscode %} ou no navegador da Web. Use as guias deste artigo para ver instruções de cada uma dessas maneiras de excluir um codespace.
+
+{% note %}
+
+**Observação**: você não pode excluir um codespace de dentro do JetBrains Gateway ou do aplicativo cliente do JetBrains nem de dentro do JupyterLab.
+
+{% endnote %}
+
+Há custos associados ao armazenamento de codespaces. Portanto, você deve excluir os codespaces de que não precisa mais. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)".
 
 {% data reusables.codespaces.max-number-codespaces %}
 
@@ -63,13 +70,13 @@ Para obter mais informações sobre esse comando, confira [o manual da {% data v
 
 {% webui %}
 
-Você pode usar {% data variables.product.prodname_cli %} para excluir vários dos seus codespaces, ou todos, usando um único comando. Para obter mais informações, clique na guia **{% data variables.product.prodname_cli %}** próxima à parte superior desta página.
+Você pode usar {% data variables.product.prodname_cli %} para excluir vários dos seus codespaces, ou todos, usando um único comando. Para obter mais informações, clique na guia "{% data variables.product.prodname_cli %}" próxima à parte superior desta página.
 
 {% endwebui %}
 
 {% vscode %}
 
-Você pode usar {% data variables.product.prodname_cli %} para excluir vários dos seus codespaces, ou todos, usando um único comando. Para obter mais informações, clique na guia **{% data variables.product.prodname_cli %}** próxima à parte superior desta página.
+Você pode usar {% data variables.product.prodname_cli %} para excluir vários dos seus codespaces, ou todos, usando um único comando. Para obter mais informações, clique na guia "{% data variables.product.prodname_cli %}" próxima à parte superior desta página.
 
 {% endvscode %}
 
@@ -91,7 +98,7 @@ Por padrão, você será solicitado a confirmar a exclusão de todos os codespac
 Exclua todos os codespaces do repositório `octo-org/octo-repo` criados há mais de 7 dias.
 
 ```
-gh cs delete --repo octo-org/octo-repo --days 7
+gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 
 {% endcli %}
@@ -128,5 +135,5 @@ Para obter mais informações, clique na guia "{% data variables.product.prodnam
 Você também pode usar a API REST para excluir codespaces de sua organização. Para obter mais informações, confira "[Organizações de codespaces](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)".
 
 ## Leitura adicional
-- "[Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)"
+- "[O ciclo de vida do codespace](/codespaces/getting-started/the-codespace-lifecycle)"
 - "[Como configurar a exclusão automática dos codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"

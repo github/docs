@@ -1,5 +1,5 @@
 ---
-title: Scopes for OAuth Apps
+title: Alcances para las Apps de OAuth
 intro: '{% data reusables.shortdesc.understanding_scopes_for_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps
@@ -13,18 +13,24 @@ versions:
   ghec: '*'
 topics:
   - OAuth Apps
+ms.openlocfilehash: 8398a7162b3ab77677651d5404c0738c6d0877b1
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164368'
 ---
-When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.
+Cuando estás configurando una App de OAuth en GitHub, los alcances solicitados se muestran al usuario en el formato de autorización.
 
 {% note %}
 
-**Note:** If you're building a GitHub App, you don’t need to provide scopes in your authorization request. For more on this, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+**Nota:** Si va a compilar una aplicación de GitHub, no es necesario proporcionar alcances en la solicitud de autorización. Para obtener más información sobre el tema, consulte "[Identificación y autorización de usuarios para aplicaciones de GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
 {% endnote %}
 
-If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see "[Authorizing OAuth apps](/developers/apps/authorizing-oauth-apps#device-flow)."
+Si tu {% data variables.product.prodname_oauth_app %} no tiene acceso a un buscador, tal como una herramienta de CLI, entonces no necesitarás especificar un alcance para que los usuarios se autentiquen dicha app. Para obtener más información, consulte "[Autorización de aplicaciones de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
 
-Check headers to see what OAuth scopes you have, and what the API action accepts:
+Verifica los encabezados para ver qué alcances de OAuth tienes, y cuáles acepta la acción de la API:
 
 ```shell
 $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
@@ -33,58 +39,40 @@ X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```
 
-* `X-OAuth-Scopes` lists the scopes your token has authorized.
-* `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
+* `X-OAuth-Scopes` enumera los alcances que el token ha autorizado.
+* `X-Accepted-OAuth-Scopes` enumera los alcances que comprueba la acción.
 
-## Available scopes
+## Ámbitos disponibles
 
-Name | Description
------|-----------|{% ifversion not ghae %}
-**`(no scope)`** | Grants read-only access to public information (including user profile info, repository info, and gists){% endif %}{% ifversion ghes or ghae %}
-**`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/rest/reference/enterprise-admin).{% endif %}
-**`repo`** | Grants full access to public{% ifversion ghec or ghes or ghae %}, internal,{% endif %} and private repositories including read and write access to code, commit statuses, repository invitations, collaborators, deployment statuses, and repository webhooks. **Note**: In addition to repository related resources, the `repo` scope also grants access to manage organization-owned resources including projects, invitations, team memberships and webhooks. This scope also grants the ability to manage projects owned by users.
-&emsp;`repo:status`| Grants read/write access to commit statuses in {% ifversion fpt %}public and private{% elsif ghec or ghes %}public, private, and internal{% elsif ghae %}private and internal{% endif %} repositories. This scope is only necessary to grant other users or services access to private repository commit statuses *without* granting access to the code.
-&emsp;`repo_deployment`| Grants access to [deployment statuses](/rest/reference/repos#deployments) for {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, *without* granting access to the code.{% ifversion not ghae %}
-&emsp;`public_repo`| Limits access to public repositories. That includes read/write access to code, commit statuses, repository projects, collaborators, and deployment statuses for public repositories and organizations. Also required for starring public repositories.{% endif %}
-&emsp;`repo:invite` | Grants accept/decline abilities for invitations to collaborate on a repository. This scope is only necessary to grant other users or services access to invites *without* granting access to the code.{% ifversion fpt or ghes or ghec %}
-&emsp;`security_events` | Grants: <br/> read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) {%- ifversion ghec %}<br/> read and write access to security events in the [{% data variables.product.prodname_secret_scanning %} API](/rest/reference/secret-scanning){%- endif %} <br/> This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}
-**`admin:repo_hook`** | Grants read, write, ping, and delete access to repository hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories. The `repo` {% ifversion fpt or ghec or ghes %}and `public_repo` scopes grant{% else %}scope grants{% endif %} full access to repositories, including repository hooks. Use the `admin:repo_hook` scope to limit access to only repository hooks.
-&emsp;`write:repo_hook` | Grants read, write, and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories.
-&emsp;`read:repo_hook`| Grants read and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories.
-**`admin:org`** | Fully manage the organization and its teams, projects, and memberships.
-&emsp;`write:org`| Read and write access to organization membership, organization projects, and team membership.
-&emsp;`read:org`| Read-only access to organization membership, organization projects, and team membership.
-**`admin:public_key`** | Fully manage public keys.
-&emsp;`write:public_key`| Create, list, and view details for public keys.
-&emsp;`read:public_key`| List and view details for public keys.
-**`admin:org_hook`** | Grants read, write, ping, and delete access to organization hooks. **Note:** OAuth tokens will only be able to perform these actions on organization hooks which were created by the OAuth App. {% data variables.product.pat_generic_caps %}s will only be able to perform these actions on organization hooks created by a user.
-**`gist`** | Grants write access to gists.
-**`notifications`** | Grants: <br/>* read access to a user's notifications <br/>* mark as read access to threads <br/>* watch and unwatch access to a repository, and <br/>* read, write, and delete access to thread subscriptions.
-**`user`** | Grants read/write access to profile info only.  Note that this scope includes `user:email` and `user:follow`.
-&emsp;`read:user`| Grants access to read a user's profile data.
-&emsp;`user:email`| Grants read access to a user's email addresses.
-&emsp;`user:follow`| Grants access to follow or unfollow other users.{% ifversion projects-oauth-scope %}
-**`project`** | Grants read/write access to user and organization {% data variables.projects.projects_v2 %}.
-&emsp;`read:project`| Grants read only access to user and organization {% data variables.projects.projects_v2 %}.{% endif %}
-**`delete_repo`** | Grants access to delete adminable repositories.
-**`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.
-**`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see "[Publishing a package](/github/managing-packages-with-github-packages/publishing-a-package)".
-**`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[Installing a package](/github/managing-packages-with-github-packages/installing-a-package)".
-**`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-**`admin:gpg_key`** | Fully manage GPG keys.
-&emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
-&emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
-**`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)."{% endif %}
-**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% ifversion not fpt %}
-**`admin:enterprise`** | Gives full control of enterprise functionality. For more information, see "[Managing enterprise accounts](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation.<br><br>Includes `manage_runners:enterprise`{% ifversion ghec or ghes > 3.3 %}, `manage_billing:enterprise`,{% endif %} and `read:enterprise`. 
-&emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)." {% ifversion ghec or ghes > 3.3 %}
-&emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see "[Billing](/rest/billing)" in the REST API documentation. {% endif %}
-&emsp;`read:enterprise` | Read all data on an enterprise profile. Does not include profile data of enterprise members or organizations.{% endif %}
-{% note %}
+Nombre | Descripción -----|-----------|{% ifversion not ghae %} **`(no scope)`** | Concede acceso de solo lectura a la información pública (incluida la información del perfil de usuario, la información del repositorio y los gists){% endif %}{% ifversion ghes or ghae %} **`site_admin`** | Concede a los administradores del sitio acceso a los [puntos de conexión de la API de administración de {% data variables.product.prodname_ghe_server %}](/rest/reference/enterprise-admin).{% endif %} **`repo`** | Concede acceso total a los repositorios públicos{% ifversion ghec or ghes or ghae %}, internos{% endif %} y privados, incluido acceso de lectura y escritura al código, estados de confirmación, invitaciones del repositorio, colaboradores, estados de implementación y webhooks de repositorio. **Nota**: Además de los recursos relacionados con el repositorio, el ámbito `repo` también concede acceso para administrar recursos propiedad de la organización, incluidos proyectos, invitaciones, pertenencias a equipos y webhooks. Este ámbito también concede la capacidad de administrar proyectos propiedad de los usuarios.
+&emsp;`repo:status`| Otorga acceso de lectura/escritura a los estados de confirmación en los repositorios {% ifversion fpt %}públicos y privados{% elsif ghec or ghes %}públicos, privados e internos{% elsif ghae %}privados e internos{% endif %}. Este alcance solo se necesita para otorgar acceso a otros usuarios o servicios a los estados de las confirmaciones en repositorios privados *sin* otorgarles acceso al código.
+&emsp;`repo_deployment`| Concede acceso a los [estados de implementación](/rest/reference/repos#deployments) de repositorios {% ifversion not ghae %}públicos{% else %}internos{% endif %} y privados. Este alcance solo es necesario para conceder acceso a otros usuarios o servicios a los estados de implementación *sin* conceder acceso al código.{% ifversion not ghae %} &emsp;`public_repo`| Limita el acceso a los repositorios públicos. Esto incluye el acceso de lectura/escritura al código, estados de las confirmaciones, proyectos de repositorio, colaboradores y estados de despliegue para los repositorios públicos y para las organizaciones. También es necesario para marcar con asterisco los repositorios públicos.{% endif %} &emsp;`repo:invite` | Concede capacidades para aceptar o rechazar las invitaciones de colaboración en un repositorio. Este alcance solo es necesario para otorgar acceso a otros usuarios o servicios a las invitaciones *sin* otorgar acceso al código.{% ifversion fpt or ghes or ghec %} &emsp;`security_events` | Concesiones: <br/> acceso de lectura y escritura a eventos de seguridad en la [API de {% data variables.product.prodname_code_scanning %}](/rest/reference/code-scanning) {%- ifversion ghec %}<br/> acceso de lectura y escritura a eventos de seguridad en la [API de {% data variables.product.prodname_secret_scanning %}](/rest/reference/secret-scanning){%- endif %} <br/> Este alcance solo es necesario para conceder acceso a otros usuarios o servicios a eventos de seguridad *sin* conceder acceso al código.{% endif %} **`admin:repo_hook`** | Concede acceso de lectura, escritura, ping y eliminación a los enlaces de repositorios {% ifversion fpt %}públicos o privados{% elsif ghec or ghes %}públicos, privados o internos{% elsif ghae %}privados o internos{% endif %}. {% ifversion fpt or ghec or ghes %}Los alcances `repo` y `public_repo` conceden{% else %}El alcance concede{% endif %} acceso total a los repositorios, incluidos los enlaces de repositorio. Use el alcance `admin:repo_hook` para limitar el acceso solo a los enlaces de repositorio.
+&emsp;`write:repo_hook` | Otorga acceso de lectura, escritura y ping a los enlaces en repositorios {% ifversion fpt %}públicos o privados{% elsif ghec or ghes %}públicos, privados o internos{% elsif ghae %}privados o internos{% endif %}.
+&emsp;`read:repo_hook`| Otorga acceso de lectura y ping a los enlaces en repositorios {% ifversion fpt %}públicos o privados{% elsif ghec or ghes %}públicos, privados o internos{% elsif ghae %}privados o internos{% endif %}.
+**`admin:org`** | Para administrar totalmente la organización y los equipos, proyectos y pertenencias.
+&emsp;`write:org`| Acceso de lectura y escritura a la pertenencia de la organización, los proyectos de la organización y la pertenencia a equipos.
+&emsp;`read:org`| Acceso de solo lectura a la pertenencia de la organización, los proyectos de la organización y la pertenencia a equipos.
+**`admin:public_key`** | Administre totalmente las claves públicas.
+&emsp;`write:public_key`| Cree, enumere y vea los detalles de claves públicas.
+&emsp;`read:public_key`| Enumere y vea los detalles de claves públicas.
+**`admin:org_hook`** | Otorga acceso de lectura, escritura, ping y borrado a los enlaces de la organización. **Nota:** Los tokens de OAuth solo podrán realizar estas acciones en los enlaces de la organización que se hayan creado con la aplicación de OAuth. Un {% data variables.product.pat_generic_caps %} solo podrá llevar a cabo estas acciones en los ganchos de la organización que cree un usuario.
+**`gist`** | Otorga acceso de escritura a los gists.
+**`notifications`** | Concesiones: <br/>* acceso de lectura a las notificaciones de un usuario <br/>* acceso de marcación y lectura a subprocesos <br/>* acceso de inspección y anulación de inspección de un repositorio <br/>* acceso de lectura, escritura y eliminación a suscripciones de subprocesos
+**`user`** | Otorga acceso de lectura/escritura únicamente a la información de perfiles.  Tenga en cuenta que este alcance incluye `user:email` y `user:follow`.
+&emsp;`read:user`| Otorga acceso para leer los datos del perfil de un usuario.
+&emsp;`user:email`| Otorga acceso de lectura a las direcciones de correo electrónico de un usuario.
+&emsp;`user:follow`| Concede acceso para seguir o dejar de seguir a otros usuarios.{% ifversion projects-oauth-scope %} **`project`** | Concede acceso de lectura y escritura a instancias de {% data variables.projects.projects_v2 %} de usuario y organización.
+&emsp;`read:project`| Concede acceso de solo lectura a instancias de {% data variables.projects.projects_v2 %} de usuario y organización (beta).{% endif %} **`delete_repo`** | Concede acceso para eliminar repositorios administrables.
+**`write:discussion`** | Permite el acceso de lectura y escritura a debates de equipo.
+&emsp;`read:discussion` | Permite el acceso de lectura a debates de equipo.
+**`write:packages`** | Otorga acceso para cargar o publicar un paquete en {% data variables.product.prodname_registry %}. Para obtener más información, consulte "[Publicación de un paquete](/github/managing-packages-with-github-packages/publishing-a-package)".
+**`read:packages`** | Otorga acceso para descargar o instalar paquetes desde {% data variables.product.prodname_registry %}. Para obtener más información, consulte "[Instalación de un paquete](/github/managing-packages-with-github-packages/installing-a-package)".
+**`delete:packages`** | Otorga acceso para eliminar paquetes de {% data variables.product.prodname_registry %}. Para más información, consulta "[Eliminación y restauración de un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".
+**`admin:gpg_key`** | Administración completa de claves de GPG.
+&emsp;`write:gpg_key`| Cree, enumere y visualice los detalles de claves GPG.
+&emsp;`read:gpg_key`| Enumere y vea los detalles de claves GPG.{% ifversion fpt or ghec %} **`codespace`** | Concede la capacidad de crear y administrar Codespaces. Los codespaces pueden exponer un GITHUB_TOKEN que puede tener un conjunto de alcances diferente. Para más información, consulta "[Seguridad en {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)".{% endif %} **`workflow`** | Concede la capacidad de agregar y actualizar archivos de flujo de trabajo de {% data variables.product.prodname_actions %}. Los archivos de flujo de trabajo pueden confirmarse sin este alcance en caso de que el mismo archivo (con la misma ruta y el mismo contenido) exista en otra rama en el mismo repositorio. Los archivos de flujo de trabajo pueden exponer `GITHUB_TOKEN`, que pueden tener un conjunto diferente de alcances. Para obtener más información, consulta "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)". {% ifversion not fpt %} **`admin:enterprise`** | Proporciona control total de la funcionalidad empresarial. Para obtener más información, consulta "[Administración de cuentas empresariales](/graphql/guides/managing-enterprise-accounts)" en la documentación de la API de GraphQL.<br><br>Incluye `manage_runners:enterprise`{% ifversion ghec or ghes > 3.3 %}, `manage_billing:enterprise`,{% endif %} y `read:enterprise`. &emsp;`manage_runners:enterprise` | Proporciona control total sobre los ejecutores autohospedados dentro de la empresa. Para más información, consulte [Seguridad del ejecutor autohospedado con repositorios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners). {% ifversion ghec or ghes > 3.3 %} &emsp;`manage_billing:enterprise` | Lectura y escritura de datos de facturación de la empresa. Para obtener más información, consulta "[Facturación](/rest/billing)" en la documentación de la API de REST. {% endif %} &emsp;`read:enterprise` | Lectura de todos los datos de un perfil de empresa. No incluye los datos de perfil de los miembros de la empresa ni de las organizaciones.{% endif %}{% ifversion read-audit-scope %} **`read:audit_log`** | Lee los datos del registro de auditoría.{% endif %} {% note %}
 
-**Note:** Your OAuth App can request the scopes in the initial redirection. You
-can specify multiple scopes by separating them with a space using `%20`:
+**Nota:** La aplicación de OAuth puede solicitar los alcances en el redireccionamiento inicial. Puede especificar varios alcances si los separa con un espacio utilizando `%20`:
 
     https://github.com/login/oauth/authorize?
       client_id=...&
@@ -92,31 +80,19 @@ can specify multiple scopes by separating them with a space using `%20`:
 
 {% endnote %}
 
-## Requested scopes and granted scopes
+## Alcances solicitados y otorgados
 
-The `scope` attribute lists scopes attached to the token that were granted by
-the user. Normally, these scopes will be identical to what you requested.
-However, users can edit their scopes, effectively
-granting your application less access than you originally requested. Also, users
-can edit token scopes after the OAuth flow is completed.
-You should be aware of this possibility and adjust your application's behavior
-accordingly.
+El atributo `scope` enumera los alcances vinculados al token que otorgó el usuario. Normalmente, estos alcances serán idénticos a lo que solicitaste.
+Sin embargo, los usuarios pueden editar sus alcances, lo cual
+es efectivo para otorgar a la organización menos accesos de los que se solicitó en un principio. Además, los usuarios pueden editar los alcances de los tokens después de completar un flujo de OAuth.
+Debe conocer esta posibilidad y ajustar el comportamiento de la aplicación en consecuencia.
 
-It's important to handle error cases where a user chooses to grant you
-less access than you originally requested. For example, applications can warn
-or otherwise communicate with their users that they will see reduced
-functionality or be unable to perform some actions.
+Es importante gestionar los casos de error en donde un usuario elige otorgarle menos acceso del que solicitó en un principio. Por ejemplo, las aplicaciones pueden advertir o comunicar de cualquier otra forma a sus usuarios que se ha reducido el rendimiento o que no son capaces de realizar alguna acción.
 
-Also, applications can always send users back through the flow again to get
-additional permission, but don’t forget that users can always say no.
+Además, las aplicaciones siempre pueden redirigir a los usuarios a través del flujo para obtener permisos adicionales, pero no olvide que dichos usuarios siempre pueden negarse a hacerlo.
 
-Check out the [Basics of Authentication guide](/guides/basics-of-authentication/), which
-provides tips on handling modifiable token scopes.
+Consulte la [Guía de aspectos básicos de la autenticación](/guides/basics-of-authentication/), que proporciona sugerencias sobre cómo controlar alcances de tokens modificables.
 
-## Normalized scopes
+## Alcances normalizados
 
-When requesting multiple scopes, the token is saved with a normalized list
-of scopes, discarding those that are implicitly included by another requested
-scope. For example, requesting `user,gist,user:email` will result in a
-token with `user` and `gist` scopes only since the access granted with
-`user:email` scope is included in the `user` scope.
+Cuando se solicitan varios alcances, el token se guarda con una lista de alcances normalizada y se descartan aquellos que se incluyen de manera implícita en otro alcance solicitado. Por ejemplo, la solicitud `user,gist,user:email` dará como resultado un token con únicamente los alcances `user` y `gist`, porque el acceso concedido con el alcance `user:email` se incluye en el alcance `user`.

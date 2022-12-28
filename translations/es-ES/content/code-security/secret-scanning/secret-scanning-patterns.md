@@ -13,12 +13,12 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
-ms.openlocfilehash: 68dd1338fc1812cd2fc40ba38949434a04986f86
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5684239d27daef532adf9aec79309d7430525a9e
+ms.sourcegitcommit: fc8b57e068b6922b45318029e22ceb3d6c1c3087
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147578646'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184508'
 ---
 {% data reusables.secret-scanning.beta %} {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
@@ -36,7 +36,7 @@ ms.locfileid: '147578646'
 
 ## Secretos compatibles con patrones de asociados
 
-Actualmente, {% data variables.product.product_name %} escanea los repositorios públicos en busca de secretos emitidos por los siguientes proveedores de servicios. Para obtener más información sobre {% data variables.product.prodname_secret_scanning_partner %}, consulte "[Acerca de {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
+{% data variables.product.product_name %} examina actualmente los repositorios públicos de los secretos emitidos por los siguientes proveedores de servicios y alerta al proveedor de servicios pertinente cada vez que se detecta un secreto en una confirmación. Para obtener más información sobre {% data variables.product.prodname_secret_scanning_partner %}, consulte "[Acerca de {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 

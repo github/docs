@@ -1,25 +1,25 @@
 ---
 title: Sobre listas de tarefas
-intro: 'Você pode usar listas de tarefas para dividir o trabalho de um problema ou pull request em tarefas menores e, em seguida, rastrear o conjunto completo de trabalho a ser concluído.'
+intro: Você pode usar listas de tarefas para dividir o trabalho de um problema ou pull request em tarefas menores e, em seguida, rastrear o conjunto completo de trabalho a ser concluído.
 redirect_from:
-  - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
-  - /articles/about-task-lists
-  - /github/managing-your-work-on-github/about-task-lists
-  - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+- /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-task-lists
+- /articles/about-task-lists
+- /github/managing-your-work-on-github/about-task-lists
+- /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - Pull requests
-  - Issues
+- Pull requests
+- Issues
 ms.openlocfilehash: 0d6973dfe6fbd59d945602423621918a600b15d7
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/05/2022
-ms.locfileid: '146179508'
+ms.locfileid: "146179508"
 ---
 {% ifversion fpt or ghec %} {% note %}
 

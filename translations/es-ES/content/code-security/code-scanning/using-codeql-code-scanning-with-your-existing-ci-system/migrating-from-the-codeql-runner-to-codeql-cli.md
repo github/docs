@@ -1,7 +1,7 @@
 ---
 title: Migrarse del ejecutor de CodeQL al CLI de CodeQL
 shortTitle: Migrating from the CodeQL runner
-intro: 'Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para completar las mismas tareas que hacías con el {% data variables.product.prodname_codeql_runner %}.'
+intro: 'Puedes utilizar {% data variables.product.prodname_codeql_cli %} para completar las mismas tareas que hacías con {% data variables.code-scanning.codeql_runner %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,17 +12,17 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
-ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 10711111e3fa5c7226574ac9b70eb4bd4d5bff21
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145116065'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161268'
 ---
-# Migrarse del {% data variables.product.prodname_codeql_runner %} al {% data variables.product.prodname_codeql_cli %}
+# Migración de {% data variables.code-scanning.codeql_runner %} a {% data variables.product.prodname_codeql_cli %}
 
-El {% data variables.product.prodname_codeql_runner %} se va a obsoletizar. Puedes utilizar la versión 2.6.2 del {% data variables.product.prodname_codeql_cli %} y superiores.
-Este documento describe cómo migrar flujos de trabajo comunes desde el {% data variables.product.prodname_codeql_runner %} hacia el {% data variables.product.prodname_codeql_cli %}.
+{% data variables.code-scanning.codeql_runner %} se está dejando de usar. Puedes utilizar la versión 2.6.2 del {% data variables.product.prodname_codeql_cli %} y superiores.
+Este documento describe cómo migrar flujos de trabajo comunes desde {% data variables.code-scanning.codeql_runner %} hasta {% data variables.product.prodname_codeql_cli %}.
 
 ## Instalación
 
@@ -32,7 +32,7 @@ Para más información sobre cómo configurar {% data variables.product.prodname
 
 ## Resumen de los cambios en los flujos de trabajo
 
-Un flujo de trabajo habitual utiliza el {% data variables.product.prodname_codeql_runner %} para analizar una base de código tiene los siguientes pasos.
+Un flujo de trabajo habitual que utiliza {% data variables.code-scanning.codeql_runner %} para analizar una base de código tiene los siguientes pasos.
 - `codeql-runner-<platform> init` para empezar a crear bases de datos de {% data variables.product.prodname_codeql %} y leer la configuración.
 - Para lenguajes compilados: establece las variables de entorno generadas por el paso `init`.
 - Para los lenguajes compilados: ejecuta la autocompilación o los pasos de compilación manual.
@@ -44,7 +44,7 @@ Un flujo de trabajo habitual utiliza el {% data variables.product.prodname_codeq
 - `codeql database analyze` para ejecutar consultas para analizar cada base de datos de {% data variables.product.prodname_codeql %} y resumir los resultados en un archivo SARIF. Este comando debe ejecutarse una vez para cada lenguaje o base de datos.
 - `codeql github upload-results` para cargar los archivos SARIF resultantes en {% data variables.product.prodname_dotcom %}, que se mostrarán como alertas de examen de código. Este comando debe ejecutarse una vez para cada archivo SARIF o lenguaje.
 
-El {% data variables.product.prodname_codeql_runner %} tiene capacidades de subprocesamiento múltiple predeterminadamente. El {% data variables.product.prodname_codeql_cli %} solo utiliza un subproceso predeterminadamente, pero te permite especificar la cantidad de subprocesos que quieres utilizar. Si quieres replicar el comportamiento de {% data variables.product.prodname_codeql_runner %} para usar todos los subprocesos disponibles en la máquina al utilizar {% data variables.product.prodname_codeql_cli %}, puedes pasar `--threads 0` a `codeql database analyze`.
+{% data variables.code-scanning.codeql_runner %} tiene capacidades de multiproceso de forma predeterminada. El {% data variables.product.prodname_codeql_cli %} solo utiliza un subproceso predeterminadamente, pero te permite especificar la cantidad de subprocesos que quieres utilizar. Si quieres replicar el comportamiento de {% data variables.code-scanning.codeql_runner %} para usar todos los subprocesos disponibles en la máquina al utilizar {% data variables.product.prodname_codeql_cli %}, puedes pasar `--threads 0` a `codeql database analyze`.
 
 Para más información, consulta "[Configuración de {% data variables.product.prodname_codeql_cli %} en el sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
 
@@ -339,7 +339,7 @@ CLI:
 
 ### Lenguajes múltiples utilizando compilación automática (C++, Python)
 
-Este ejemplo no es estrictamente posible dentro del {% data variables.product.prodname_codeql_runner %}.
+Este ejemplo no es estrictamente posible con {% data variables.code-scanning.codeql_runner %}.
 Solo se analizará un lenguaje (el lenguaje compilado que tenga la mayoría de los archivos).
 
 Ejecutor:

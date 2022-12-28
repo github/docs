@@ -16,13 +16,14 @@ children:
   - /about-enterprise-accounts
   - /system-overview
   - /about-the-github-enterprise-api
+  - /best-practices-for-enterprises
   - /creating-an-enterprise-account
   - /accessing-compliance-reports-for-your-enterprise
-ms.openlocfilehash: d936542993310333e314efcc9d5bb5689be00701
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: f0322eef087f09b029051fc08ac61bc4e529d6dc
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389847'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163572'
 ---
 Para obtener más información, o bien para comprar {% data variables.product.prodname_enterprise %}, consulta [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

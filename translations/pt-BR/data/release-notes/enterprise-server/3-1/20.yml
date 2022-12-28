@@ -1,0 +1,22 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança. 
+  bugs:
+    - Atualizar os nós em um par de alta disponibilidade com um pacote de atualização poderia fazer com que Elasticsearch entre em um estado inconsistente em alguns casos. 
+    - "Em algumas topologias de grupo, os utilitários de linha de comando `ghe-spokesctl` e `ghe-btop` falharam em serem executados."
+    - Os índices de Elasticsearch podem ser duplicados durante a atualização de um pacote devido à um serviço `elasticsearch-upgrade` executando diversas vezes paralelamente. 
+    - "As filas de trabalhos `maint_host_low` não foram processadas, resultado na falha da execução de algumas tarefas de manutenção."
+    - "Ao fazer a conversão de uma conta de usuário para uma organização, se a conta de usuário fosse um proprietário da conta da empresa {% data variables.product.prodname_ghe_server %}, a organização convertida apareceria incorretamente na lista de proprietário da empresa." 
+    - Criar um token OAuth de representação usando a API REST da Enterprise Administration resultou em um erro quando já existiu uma integração correspondendo a ID do OAuth Application. 
+  changes:
+    - "Ao tentar armazenar em cache um valor maior do que o máximo permitido em Memcached, foi gerado um erro, mas a chave não foi relatada." 
+  known_issues:
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo blob's é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar GitHub.com\" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_Website %}."
+    - "Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`."
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

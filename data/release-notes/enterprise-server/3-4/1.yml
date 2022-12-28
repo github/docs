@@ -29,6 +29,7 @@ sections:
     - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail. 
     - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available. 
     - The "Site admin mode" link in the site footer did not change state when clicked. 
+    - Using `ghe-migrator` or exporting from GitHub.com, an export would not include pull request attachments. 
   changes:
     - Memcached connection limits were increased to better accommodate large cluster topologies. 
     - The Dependency Graph API previously ran with a statically defined port. 
@@ -36,7 +37,6 @@ sections:
     - The [Migrations API](/rest/reference/migrations) now generates exports of repositories. 
     - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved. 
     - The “Triage” and “Maintain” team roles are preserved during repository migrations. 
-    - Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments. 
     - Performance has been improved for web requests made by enterprise owners. 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -55,6 +55,8 @@ sections:
       - Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.
       - Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 3.0
       notes:

@@ -23,7 +23,6 @@ prodname_ghe_cloud: 'GitHub Enterprise Cloud'
 prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
-
 prodname_free_user: 'GitHub Free'
 prodname_pro: 'GitHub Pro'
 prodname_team: 'GitHub Team'
@@ -151,7 +150,6 @@ prodname_advanced_security: 'Advanced Security'
 # Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
-prodname_serverless: 'web-based editor'
 
 # GitHub resources: blog, jobs, skills
 prodname_gcf: 'GitHub Community Support'
@@ -176,28 +174,21 @@ support_ticket_priority_low: 'Low'
 prodname_professional_services: 'GitHub Professional Services'
 prodname_professional_services_team: 'Professional Services'
 
-# Security features / code scanning platform / Security Lab
+# GitHub Security Lab
 prodname_security: 'GitHub Security Lab'
 prodname_security_link: 'https://securitylab.github.com/'
-prodname_security_advisories: 'GitHub Security Advisories'
 
-# Security features and code scanning platform
+# GitHub Security Advisories
+prodname_security_advisories: 'GitHub Security Advisories'
+prodname_advisory_database: 'GitHub Advisory Database'
+
+# Secret scanning
 prodname_secret_scanning: 'secret scanning' # Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: 'Secret scanning'
-prodname_secret_scanning_partner: 'secret scanning for partner patterns' # GitHub.com feature for public repos only
-prodname_secret_scanning_partner_caps: 'Secret scanning for partner patterns'
-prodname_secret_scanning_GHAS:
-  >- # Includes GitHub.com name for GHAS licenced feature
-  {% ifversion fpt or ghec %}secret scanning for advanced security{% else %}secret scanning{% endif %}
-prodname_secret_scanning_GHAS_caps: >-
-  {% ifversion fpt or ghec %}Secret scanning for advanced security{% else %}Secret scanning{% endif %}
 
+# Code scanning
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'
-prodname_codeql_runner: 'CodeQL runner'
-prodname_advisory_database: 'GitHub Advisory Database'
-prodname_codeql_workflow: 'CodeQL analysis workflow'
-prodname_dependency_review_action: 'dependency review action'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
@@ -222,12 +213,19 @@ prodname_arctic_vault: 'Arctic Code Vault'
 # GitHub Copilot
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
+prodname_copilot_for_business: 'GitHub Copilot for Business'
+prodname_copilot_for_individuals: 'GitHub Copilot for Individuals'
+prodname_copilot_business_short: 'Copilot for Business'
+prodname_copilot_individuals_short: 'Copilot for Individuals'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'
 
 # Server Statistics
 prodname_server_statistics: 'Server Statistics'
+
+# GitHub Actions Importer
+prodname_actions_importer: 'GitHub Actions Importer'
 
 # Links
 product_url: >-

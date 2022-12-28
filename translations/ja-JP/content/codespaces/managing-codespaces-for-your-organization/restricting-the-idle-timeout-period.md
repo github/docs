@@ -1,8 +1,7 @@
 ---
-title: Restricting the idle timeout period
+title: アイドル タイムアウトの期間を制限する
 shortTitle: Restrict timeout periods
-intro: You can set a maximum timeout period for any codespaces owned by your organization.
-product: '{% data reusables.gated-features.codespaces %}'
+intro: Organaization が所有する codespace の最大タイムアウト期間を設定できます。
 permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -10,77 +9,80 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: b07d1834078b065eee89acdb84e0e80a2db1e8a6
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158990'
 ---
+## 概要
 
-## Overview
+既定では、codespace は 30 分間アクティビティがないとタイムアウトします。 codespace はタイムアウトすると停止し、コンピューティング使用量に対する料金は発生しなくなります。 
 
-By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage. 
+{% data variables.product.prodname_dotcom %} ユーザーの個人設定では、ユーザーが作成する codespace に対して独自のタイムアウト期間を定義できます。 これは、既定の 30 分より長くてもかまいません。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} のタイムアウト期間を設定する](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)」をご覧ください。
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories. 
+Organaization のオーナーとして、Organaization が所有するリポジトリ用に作成された codespace の最大アイドル タイムアウト期間に対する制約を構成する必要がある場合があります。 これは、codespace がタイムアウトするまでに長い非アクティブ期間が設定されてコストがかかるのを制限するのに役立ちます。 Organization によって所有されるすべてのリポジトリの codespace、または特定のリポジトリの codespace に対して、最大タイムアウトを設定できます。 
 
 {% note %}
 
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
+**注**: 最大アイドル タイムアウトの制約は、Organization が所有する codespace にのみ適用されます。
 
 {% endnote %}
 
-For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+{% data variables.product.prodname_github_codespaces %} のコンピューティング使用量に対する価格について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)」をご覧ください。
 
-### Behavior when you set a maximum idle timeout constraint
+### 最大アイドル タイムアウトの制約を設定したときの動作
 
-If someone sets the default idle timeout to 90 minutes in their personal settings and they then start a codespace for a repository with a maximum idle timeout constraint of 60 minutes, the codespace will time out after 60 minutes of inactivity. When codespace creation completes, a message explaining this will be displayed:
+ユーザーが個人設定で既定のアイドル タイムアウトを 90 分に設定した後、最大アイドル タイムアウトの制約が 60 分に設定されたリポジトリの codespace を開始した場合、その codespace は 60 分間アクティビティがないとタイムアウトします。 codespace の作成が完了すると、これを説明するメッセージが表示されます。
 
-> Idle timeout for this codespace is set to 60 minutes in compliance with your organization’s policy.
+> この codespace のアイドル タイムアウトは、Organization のポリシーに従って 60 分に設定されます。
 
-### Setting organization-wide and repository-specific policies
+### Organaization 全体およびリポジトリ固有のポリシーの設定
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
+ポリシーを作成するときに、ポリシーを Organaization 内のすべてのリポジトリに適用するか、指定したリポジトリにのみ適用するかを選びます。 タイムアウトの制約を含む Organization 全体のポリシーを作成する場合、特定のリポジトリを対象とするポリシーでのタイムアウトの制約は、Organization 全体に対して構成された制限内に収まる必要があります。 Organization 全体のポリシー、特定のリポジトリを対象とするポリシー、またはユーザーの個人設定の中で最短のタイムアウト期間が適用されます。
 
-If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
+タイムアウトの制約を含む Organization 全体のポリシーを追加する場合は、タイムアウトを許容できる最も長い期間に設定する必要があります。 その後、Organization 内の特定のリポジトリに対して、それより短い最大タイムアウト期間を設定する個別のポリシーを追加できます。
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to set a maximum idle timeout period
+## 最大アイドル タイムアウト期間を設定するポリシーを追加する
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Maximum idle timeout**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. **[制約の追加]** をクリックして、 **[最大アイドル タイムアウト]** を選びます。
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
+   ![[制約の追加] ドロップダウンメニューのスクリーンショット。](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. 制約を編集するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![制約を編集するための鉛筆アイコンのスクリーンショット](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
+1. タイムアウトする前に codespace を非アクティブにできる最大時間 (分) を入力して、 **[保存]** をクリックします。
 
-   ![Screenshot of setting the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![最大タイムアウト (分単位) の設定のスクリーンショット](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. ポリシーに別の制約を追加する場合は、 **[制約の追加]** をクリックして、別の制約を選びます。 その他の制約については、次を参照してください。
+   * 「[コンピューターの種類へのアクセスを制限する](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」
+   * [codespace の基本イメージを制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [転送されるポートの可視性を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [codespace の保持期間を制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)
+1. ポリシーへの制約の追加が終わったら、 **[保存]** をクリックします。
 
-The policy will be applied to all new codespaces that are billable to your organization. The timeout constraint is also applied to existing codespaces the next time they are started.
+このポリシーは、課金先が自分の Organization の新しいすべての codespace に適用されます。 タイムアウトの制約は、次回の起動時に既存の codespace にも適用されます。
 
-## Editing a policy
+## ポリシーを編集する
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+既存のポリシーを編集できます。 たとえば、ポリシーの制約を追加または削除できます。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Maximum idle timeout" constraint.
-1. Make the required changes then click **Save**.
+1. [codespace ポリシー] ページを表示します。 詳しくは、「[最大アイドル タイムアウト期間を設定するポリシーを追加する](#adding-a-policy-to-set-a-maximum-idle-timeout-period)」をご覧ください。
+1. 編集するポリシーの名前をクリックします。
+1. "最大アイドル タイムアウト" 制約の横にある鉛筆アイコン ({% octicon "pencil" aria-label="The edit icon" %}) をクリックします。
+1. 必要な変更を行い、 **[保存]** をクリックします。
 
-## Deleting a policy 
+## ポリシーを削除する 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the delete button to the right of the policy you want to delete.
+1. [codespace ポリシー] ページを表示します。 詳しくは、「[最大アイドル タイムアウト期間を設定するポリシーを追加する](#adding-a-policy-to-set-a-maximum-idle-timeout-period)」をご覧ください。
+1. 削除するポリシーの右側にある削除ボタンをクリックします。
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![ポリシーの [削除] ボタンのスクリーンショット](/assets/images/help/codespaces/policy-delete.png)

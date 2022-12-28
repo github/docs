@@ -11,31 +11,30 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 4fa9e97ca9fa3803cfbd0cf0e21d3d2253a7aa60
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.openlocfilehash: 5f633132edddb17ae129a3feba791ab8ec780366
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146769158'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191879'
 ---
-<div class="jumbotron libraries-jumbotron">
-  <img src="/assets/images/gundamcat.png" class="gundamcat" alt="The Gundamcat" />
-  <h1>Octokit にはいくつかの種類があります</h1>
-  <p class="lead">公式の Octokit ライブラリを使用するか、利用可能なサードパーティライブラリのいずれかを選択します。</p>
-  <div class="octokit-links"><br/>
-     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
-     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
-  </div>
-</div>
+![Gundamcat](/assets/images/gundamcat.png)
 
-# サードパーティ製ライブラリ
+## Octokit にはいくつかの種類があります
+
+公式の Octokit ライブラリを使用するか、利用可能なサードパーティライブラリのいずれかを選択します。
+
+- **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
+- **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
+- **JavaScript** → [octokit.js](https://github.com/octokit/octokit.js)
+
+## サードパーティ製ライブラリ
 
 ### Clojure
 
 | ライブラリ名 | リポジトリ |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
@@ -130,6 +129,8 @@ ms.locfileid: '146769158'
 |**octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)|
 |**github-flask**|[github-flask (公式 Web サイト)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
+|**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

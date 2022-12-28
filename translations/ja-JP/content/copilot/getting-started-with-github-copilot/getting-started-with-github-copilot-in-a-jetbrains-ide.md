@@ -1,121 +1,127 @@
 ---
-title: Getting started with GitHub Copilot in a JetBrains IDE
+title: JetBrains IDE で GitHub Copilot の使用を開始する
 shortTitle: JetBrains IDE
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in a JetBrains IDE, and start seeing suggestions as you write comments and code.'
+intro: '{% data variables.product.prodname_copilot %} を JetBrains IDE にインストールし、コメントやコードを記述するときに候補が表示されるようにする方法について説明します。'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 topics:
   - Copilot
+ms.openlocfilehash: f5b90fb18645b69f86e9e45e08ba47e534678ae4
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192784'
 ---
+{% data reusables.copilot.copilot-cta-button %}
 
-## About {% data variables.product.prodname_copilot %} and JetBrains IDEs
+## {% data variables.product.prodname_copilot %} と JetBrains IDE について
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use a JetBrains IDE, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within a JetBrains IDE for macOS, Windows, or Linux.
+JetBrains IDE を使用すると、{% data variables.product.prodname_copilot %} からの候補をエディター内で直接表示し、取り入れることができます。 このガイドでは、macOS、Windows、or Linux 用の JetBrains IDE 内で {% data variables.product.prodname_copilot %} を使用する方法を示します。
 
-## Prerequisites
+## 前提条件
+
+{% data reusables.copilot.subscription-prerequisite %}
 
 {% data reusables.copilot.jetbrains-ides %}
 
-## Installing the JetBrains extension
+## JetBrains IDE での {% data variables.product.prodname_copilot %} 拡張機能のインストール
 
-To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
+JetBrains IDE で {% data variables.product.prodname_copilot %} を使用するには、{% data variables.product.prodname_copilot %} 拡張機能をインストールする必要があります。 次の手順では、{% data variables.product.prodname_copilot %} プラグインを IntelliJ IDEA にインストールする手順について説明します。 サポートされている別の IDE にインストールする場合、手順が異なる可能性があります。
 
-1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
-2. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
-3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**.
-   ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
-1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
-1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
-    ![Screenshot of JetBrains tools menu](/assets/images/help/copilot/jetbrains-tools-menu.png)
-1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
-    ![Screenshot of device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+1. JetBrains IDE の **[ファイル]** メニュー (Windows の場合) または IDE for Mac の名前 (たとえば、**PyCharm**、**IntelliJ** など) で、 **[設定]** (Windows の場合) または **[環境設定]** (Mac の場合) をクリックします。
+2. **[設定] または [環境設定]** ダイアログ ボックスの左側のメニューで、 **[プラグイン]** をクリックします。
+3. **[設定] または [環境設定]** ダイアログ ボックスの上部にある **[Marketplace]** をクリックします。 検索バーで、「 **{% data variables.product.prodname_copilot %}** 」を検索し、 **[インストール]** をクリックします。
+   ![Marketplace の検索のスクリーンショット](/assets/images/help/copilot/jetbrains-marketplace.png)
+1. {% data variables.product.prodname_copilot %} がインストールされたら、 **[IDE を再起動する]** をクリックします。
+1. JetBrains IDE が再起動したら、 **[ツール]** メニューをクリックします。 **[{% data variables.product.prodname_copilot %}]** 、 **[{% data variables.product.prodname_dotcom %} にログイン]** の順にクリックします。 
+    ![JetBrains の [ツール] メニューのスクリーンショット](/assets/images/help/copilot/jetbrains-tools-menu.png)
+1. デバイス コードをコピーしてデバイスの有効化ウィンドウを開くには、[{% data variables.product.prodname_dotcom %} にサインイン] ダイアログ ボックスで、 **[コピーして開く]** をクリックします。
+    ![デバイス コードの [コピーして開く] のスクリーンショット](/assets/images/help/copilot/device-code-copy-and-open.png)
+1. ブラウザーでデバイスの有効化ウィンドウが開きます。 デバイス コードを貼り付け、 **[続行]** をクリックします。
 
-   - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
-   - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
-   ![Screenshot of JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
+   - Windows または Linux でコードを貼り付けるには、<kbd>Ctrl</kbd> + <kbd>v</kbd> キーを押します。
+   - macOS でコードを貼り付けるには、<kbd>command</kbd> + <kbd>v</kbd> キーを押します。
+1. {% data variables.product.prodname_dotcom %} から、{% data variables.product.prodname_copilot %} に必要なアクセス許可が要求されます。 これらのアクセス許可を承認するには、 **[{% data variables.product.prodname_copilot %} プラグインの承認]** をクリックします。
+1. アクセス許可が承認されたら、JetBrains IDE によって確認が表示されます。 {% data variables.product.prodname_copilot %} の使用を開始するには、 **[OK]** をクリックします。
+   ![JetBrains IDE によるアクセス許可の確認のスクリーンショット](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
    
 
-## Seeing your first suggestion
+## 最初の候補を表示する
 
 {% data reusables.copilot.code-examples-limitations %}
 
-{% data reusables.copilot.supported-languages %} The following samples are in Java, but other languages will work similarly.
+{% data reusables.copilot.supported-languages %} 次のサンプルは Java で記述されていますが、他の言語も同様に動作します。
 
 {% data reusables.copilot.create-java-file %}
-1. In the Java file, create a class by typing `class Test`.
-   {% data variables.product.prodname_copilot %} will automatically suggest a class body in grayed text, as shown below. The exact suggestion may vary.
-   ![Screenshot of the Java class body suggestion](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png)
-{% data reusables.copilot.accept-suggestion %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. The exact suggestion may vary.
+1. Java ファイルで、「`class Test`」と入力してクラスを作成します。
+   {% data variables.product.prodname_copilot %} によって、次に示すように、クラス本文の候補が灰色のテキストで自動的に表示されます。 実際に表示される候補はこのとおりではない場合があります。
+   ![Java クラス本文の候補のスクリーンショット](/assets/images/help/copilot/java-class-body-suggestion-jetbrains.png) {% data reusables.copilot.accept-suggestion %}
+1. 関数本文の候補を表示するように {% data variables.product.prodname_copilot %} に要求するには、`main` 関数の角かっこの下に次の行を入力します。 実際に表示される候補はこのとおりではない場合があります。
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 
-   ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png)
-{% data reusables.copilot.accept-suggestion %}
+   ![Java 関数本文の候補のスクリーンショット](/assets/images/help/copilot/java-function-body-suggestion-jetbrains.png) {% data reusables.copilot.accept-suggestion %}
 
-{% data variables.product.prodname_copilot %} will attempt to match the context and style of your code. You can always edit the suggested code.
+{% data variables.product.prodname_copilot %} は、コードのコンテキストとスタイルの一致を試みます。 提案されたコードはいつでも編集できます。
 
-## Seeing alternative suggestions
+## 代替候補の表示
 
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
-{% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
-{% data reusables.copilot.see-alternative-suggestions %}
+1. 候補を表示するように {% data variables.product.prodname_copilot %} に要求するには、Java ファイルに次の行を入力します。
+{% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %} {% data reusables.copilot.see-alternative-suggestions %}
 
-   | OS | See next suggestion | See previous suggestion |
+   | OS | 次の候補を表示 | 前の候補を表示 |
    | :- | :- | :- |
    | macOS | <kbd>Option</kbd>+<kbd>]</kbd> | <kbd>Option</kbd>+<kbd>[</kbd> |
    | Windows | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
    | Linux | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
-## Seeing multiple suggestions in a new tab
+## 新しいタブに複数の候補を表示する
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
+1. 候補を表示するように {% data variables.product.prodname_copilot %} に要求するには、Java ファイルに次の行を入力します。
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
-1. Open a new tab with multiple additional suggestions.
-    - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
-    - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
-  ![Screenshot of dialogue to open Copilot](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
-1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
+1. 複数の追加候補を表示した新しいタブが開きます。
+    - macOS では、<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>キーを押して **[GitHub Copilot を開く]** をクリックするか、<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> キーを押して新しいタブをすぐに開きます。
+    - Windows または Linux では、<kbd>Ctrl</kbd>+<kbd>Enter</kbd> キーを押して、 **[GitHub Copilot を開く]** をクリックします。
+  ![Copilot を開くためのダイアログのスクリーンショット](/assets/images/help/copilot/open-copilot-tab-jetbrains.png)
+1. 候補を受け入れるには、候補の上にある **[ソリューションの受入]** をクリックします。 すべての候補を拒否するには、タブを閉じます。
 
-## Generating code suggestions from comments
+## コメントからコード候補を生成する
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
+1. Java ファイル内の関数の実装を提案するように {% data variables.product.prodname_copilot %} に要求するには、次の行を入力します。
     ```java{:copy}
     // find all images without alternate text
     // and give them a red border
     void process () {
     ```
-  ![Screenshot of the Java function body suggestion](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
+  ![Java 関数本文の候補のスクリーンショット](/assets/images/help/copilot/comment-suggestion-jetbrains.png)
 
-## Enabling and disabling {% data variables.product.prodname_copilot %}
+## {% data variables.product.prodname_copilot %} の有効化と無効化
 
-You can enable or disable {% data variables.product.prodname_copilot %} for all languages, or for individual languages. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of your JetBrains IDE window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
+すべての言語、または個々の言語の {% data variables.product.prodname_copilot %} を有効または無効にすることができます。 JetBrains IDE ウィンドウの下部パネルにある {% data variables.product.prodname_copilot %} 状態アイコンは、{% data variables.product.prodname_copilot %} が有効であるか、または無効であるかを示します。 有効の場合、アイコンが強調表示されます。 無効の場合、アイコンは淡色表示されます。
 
-1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
-   ![Screenshot of the status icon in IntelliJ IDEA](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
+1. {% data variables.product.prodname_copilot %} を有効または無効にするには、JetBrains ウィンドウの下部パネルにある状態アイコンをクリックします。
+   ![IntelliJ IDEA の状態アイコンのスクリーンショット](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. {% data variables.product.prodname_copilot %} を無効にする場合、グローバルに無効にするか、または現在編集しているファイルの言語に対して無効にするかを確認されます。
 
-   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for _LANGUAGE_**.
-   ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+   - {% data variables.product.prodname_copilot %} からの候補をグローバルに無効にするには、 **[入力候補を無効にする]** をクリックします。
+   - 指定した言語に対して {% data variables.product.prodname_copilot %} からの候補を無効にするには、 **["_言語_" の入力候補を無効にする]** をクリックします。
+   ![{% data variables.product.prodname_copilot %} をグローバルに、または現在の言語に対して無効にするためのオプションのスクリーンショット](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 
-## Further reading
+## 参考資料
 
-- [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)
+- [{% data variables.product.prodname_copilot %} Web サイト](https://copilot.github.com/)
+- [{% data variables.product.prodname_copilot %} について](/copilot/overview-of-github-copilot/about-github-copilot#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

@@ -1,7 +1,6 @@
 ---
 title: codespace を削除する
 intro: 不要になった codespace を削除することができます。
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
@@ -14,14 +13,22 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: c3f9577642c0b3016f8145da9f65cf9ccb457d5e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108989'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188257'
 ---
-codespace の格納にはコストがかかります。 そのため、不要になった codespace は削除する必要があります。 詳細については、「[GitHub Codespaces の請求について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」を参照してください。
+codespace はさまざまな方法で削除できます。たとえば、ターミナルで {% data variables.product.prodname_cli %} を使用して、{% data variables.product.prodname_vscode %} で、または、お使いの Web ブラウザーで削除できます。 この記事のタブを使用し、codespace を削除する各種方法の手順を表示してください。
+
+{% note %}
+
+**注**: codespace は JetBrains Gateway、JetBrains クライアント アプリケーション、JupyterLab 内から削除できません。
+
+{% endnote %}
+
+codespace の格納にはコストがかかります。 そのため、不要になった codespace は削除する必要があります。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
 {% data reusables.codespaces.max-number-codespaces %}
 
@@ -63,13 +70,13 @@ gh codespace delete
 
 {% webui %}
 
-{% data variables.product.prodname_cli %} を使用すると、1 つのコマンドで複数またはすべての codespace を削除できます。 詳細については、このページの上部にある **{% data variables.product.prodname_cli %}** タブをクリックしてください。
+{% data variables.product.prodname_cli %} を使用すると、1 つのコマンドで複数またはすべての codespace を削除できます。 詳細については、このページの上部にある [{% data variables.product.prodname_cli %}] タブをクリックしてください。
 
 {% endwebui %}
 
 {% vscode %}
 
-{% data variables.product.prodname_cli %} を使用すると、1 つのコマンドで複数またはすべての codespace を削除できます。 詳細については、このページの上部にある **{% data variables.product.prodname_cli %}** タブをクリックしてください。
+{% data variables.product.prodname_cli %} を使用すると、1 つのコマンドで複数またはすべての codespace を削除できます。 詳細については、このページの上部にある [{% data variables.product.prodname_cli %}] タブをクリックしてください。
 
 {% endvscode %}
 
@@ -91,7 +98,7 @@ gh codespace delete
 7 日以上前に作成した `octo-org/octo-repo` リポジトリのすべての codespace を削除します。
 
 ```
-gh cs delete --repo octo-org/octo-repo --days 7
+gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 
 {% endcli %}
@@ -128,5 +135,5 @@ gh cs delete --repo octo-org/octo-repo --days 7
 REST API を使用して組織の codespace を削除することもできます。 詳細については、[codespace 組織](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)に関する記事を参照してください。
 
 ## 参考資料
-- 「[Codespaces のライフサイクル](/codespaces/developing-in-codespaces/codespaces-lifecycle)」
+- 「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」
 - [codespace の自動削除の構成](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)

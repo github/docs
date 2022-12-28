@@ -12,12 +12,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Enterprise Cloud trial
-ms.openlocfilehash: 13cb43b5dfd4a9e207a9a1cca090b223c56f4678
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a50aebc43ba5d674af132786ffb75e5fb3029aeb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389959'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183992'
 ---
 {% data reusables.enterprise.ghec-cta-button %}
 
@@ -67,15 +67,17 @@ Después de configurar la versión de prueba, puedes explorar {% data variables.
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
+{% data reusables.enterprise.best-practices %}
+
 {% data reusables.products.product-roadmap %}
 
 ## Terminar tu prueba
 
 Puedes comprar {% data variables.product.prodname_enterprise %} en cualquier momento durante tu periodo de prueba. El comprar {% data variables.product.prodname_enterprise %} terminará tu periodo de prueba, eliminando el máximo de 50 plazas e iniciando el periodo de pagos.
 
-Si no compras {% data variables.product.prodname_enterprise %}, cuando termine el periodo de prueba, tu organización bajará de nivel. Si utilzaste una organización existente para la prueba, esta bajará de nivel al producto que estabas utilizando antes de dicho periodo. Si creaste una organización nueva para la prueba, esta bajará de nivel a {% data variables.product.prodname_free_team %}. 
+Si no compras {% data variables.product.prodname_enterprise %}, la prueba continuará hasta el final del período de 30 días. No puedes finalizar la prueba antes. Cuando finalices la prueba, la organización bajará a un nivel inferior. Si utilzaste una organización existente para la prueba, esta bajará de nivel al producto que estabas utilizando antes de dicho periodo. Si creaste una organización nueva para la prueba, esta bajará de nivel a {% data variables.product.prodname_free_team %}. 
 
-Tu organización perderá el acceso a cualquier funcionalidad que no se incluya en el producto nuevo, tal como las características avanzadas como {% data variables.product.prodname_pages %} para los repositorios privados. Si no planeas mejorar tu plan, evita perder el acceso a las características avanzadas y considera convertir a los repositorios afectados en públicos antes de que termine tu periodo de prueba. Para más información, vea "[Configuración de la visibilidad de un repositorio](/articles/setting-repository-visibility)".
+Tu organización perderá el acceso a cualquier funcionalidad que no se incluya en el plan nuevo, tal como las características avanzadas como {% data variables.product.prodname_pages %} para los repositorios privados. Si no planeas mejorar tu plan, evita perder el acceso a las características avanzadas y considera convertir a los repositorios afectados en públicos antes de que termine tu periodo de prueba. Para más información, vea "[Configuración de la visibilidad de un repositorio](/articles/setting-repository-visibility)".
 
 El bajar de categoría también inhabilita los ajustes de SAML que se configuraron durante el periodo de prueba. Si posteriormente compras {% data variables.product.prodname_enterprise %}, tus ajustes de SAML se habilitarán nuevamente para que se autentiquen los usuarios de tu organización.
 

@@ -111,7 +111,10 @@ Now the checks will always pass whenever someone sends a pull request that doesn
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+## Required status checks from unexpected sources
+
+It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
 
 ```
 Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.

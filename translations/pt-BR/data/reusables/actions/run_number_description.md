@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 4e92d27887f94b524e0e5d9c2d007b29e2dbb28b
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.openlocfilehash: d3a31b63ff15fefd904ffeb91bb195e24cbafe19
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147875579"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179564"
 ---
 Um número exclusivo para cada execução de um fluxo de trabalho específico em um repositório. Esse número começa em 1 para a primeira execução do fluxo de trabalho e é incrementado a cada nova operação. Este número não muda se você executar novamente o fluxo de trabalho.

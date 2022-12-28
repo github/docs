@@ -1,6 +1,6 @@
 ---
-title: Configuring code scanning
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans the code in your project for vulnerabilities and errors.'
+title: Configurar a varredura do código
+intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} faz a varredura do código no seu projeto com relação a vulnerabilidades e erros.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
 miniTocMaxHeadingLevel: 3
@@ -23,81 +23,80 @@ topics:
   - JavaScript
   - Python
 shortTitle: Configure code scanning
+ms.openlocfilehash: cad147292c113d749004f2fe303b27a4dada1456
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182311'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
+{% ifversion ghes or ghae %} {% note %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
+**Observação:** este artigo descreve os recursos disponíveis na versão da ação do CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão do {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação do CodeQL, confira o [artigo sobre o {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning) para obter informações sobre os últimos recursos. {% ifversion not ghae %} Para obter informações sobre como usar a última versão, confira "[Como configurar a verificação de código para seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% endnote %} {% endif %}
 
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+## Sobre a configuração do {% data variables.product.prodname_code_scanning %}
 
-{% endnote %}
-{% endif %}
+Você pode executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %}, usando {% data variables.product.prodname_actions %} ou a partir do seu sistema de integração contínua (CI). Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" ou "[Sobre a {% data variables.product.prodname_code_scanning %} do {% data variables.product.prodname_codeql %} no seu sistema de CI](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)".
 
-## About {% data variables.product.prodname_code_scanning %} configuration
+Este artigo é sobre a execução de {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %} usando ações.
 
-You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" or "[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
-
-This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.
-
-Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must set up {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+Antes de poder configurar o {% data variables.product.prodname_code_scanning %} para um repositório, você deve configurar {% data variables.product.prodname_code_scanning %} adicionando um fluxo de trabalho do {% data variables.product.prodname_actions %} ao repositório. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %}
 
-{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-label="The shield symbol" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.product.prodname_codeql_workflow %} file.
+A análise de {% data variables.product.prodname_codeql %} é apenas um tipo de {% data variables.product.prodname_code_scanning %} que você pode fazer em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} em {% data variables.product.prodname_dotcom_the_website %}{% endif %} contém outros fluxos de trabalho de {% data variables.product.prodname_code_scanning %} que você pode usar. {% ifversion fpt or ghec %}Encontre uma seleção deles na página "Introdução à {% data variables.product.prodname_code_scanning %}", que você pode acessar na guia **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.{% endif %} Os exemplos específicos fornecidos neste artigo estão relacionados ao arquivo sobre o {% data variables.code-scanning.codeql_workflow %}.
 
-## Editing a {% data variables.product.prodname_code_scanning %} workflow
+## Edição de um fluxo de trabalho de {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
+O {% data variables.product.prodname_dotcom %} salva os arquivos de fluxo de trabalho no diretório _.github/workflows_ do seu repositório. Você pode encontrar um fluxo de trabalho que adicionou ao pesquisar seu nome de arquivo. Por exemplo, por padrão, o arquivo de fluxo de trabalho da {% data variables.product.prodname_code_scanning %} do {% data variables.product.prodname_codeql %} é chamado _codeql-analysis.yml_.
 
-1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-![Edit workflow file button](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
-1. After you have edited the file, click **Start commit** and complete the "Commit changes" form. You can choose to commit directly to the current branch, or create a new branch and start a pull request.
-![Commit update to codeql.yml workflow](/assets/images/help/repository/code-scanning-workflow-update.png)
+1. No seu repositório, pesquise o arquivo do fluxo de trabalho que você deseja editar.
+1. No canto superior direito da exibição de arquivo, para abrir o editor de fluxo de trabalho, clique em {% octicon "pencil" aria-label="The edit icon" %}.
+![Botão Editar arquivo de fluxo de trabalho](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
+1. Depois de editar o arquivo, clique em **Iniciar confirmação** e preencha o formulário "Confirmar alterações". Você pode optar por confirmar diretamente a ramificação atual ou criar uma nova ramificação e iniciar uma solicitação de pull.
+![Commit da atualização no fluxo de trabalho de codeql.yml](/assets/images/help/repository/code-scanning-workflow-update.png)
 
-For more information about editing workflow files, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Para obter mais informações sobre como editar arquivos de fluxo de trabalho, confira "[Saiba mais sobre o {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-## Configuring frequency
+## Configurar a frequência
 
-You can configure the {% data variables.product.prodname_codeql_workflow %} to scan code on a schedule or when specific events occur in a repository.
+Configure o {% data variables.code-scanning.codeql_workflow %} para examinar o código conforme um agendamento ou quando eventos específicos ocorrerem em um repositório.
 
-Scanning code when someone pushes a change, and whenever a pull request is created, prevents developers from introducing new vulnerabilities and errors into the code. Scanning code on a schedule informs you about the latest vulnerabilities and errors that {% data variables.product.company_short %}, security researchers, and the community discover, even when developers aren't actively maintaining the repository.
+A varredura do código a cada push para o repositório, e toda vez que um pull request é criado, isso impede que os desenvolvedores introduzam novas vulnerabilidades e erros no código. A varredura do código de forma pré-programada informa as últimas vulnerabilidades e erros de {% data variables.product.company_short %}, que os pesquisadores de segurança e da comunidade, mesmo quando desenvolvedores não estão mantendo o repositório de forma ativa.
 
-### Scanning on push
+### Fazer a varredura no push
 
-By default, the {% data variables.product.prodname_codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)."
+Por padrão, o {% data variables.code-scanning.codeql_workflow %} usa o evento `on.push` para disparar uma verificação de código em cada push para o branch padrão do repositório e todos os branches protegidos. Para {% data variables.product.prodname_code_scanning %} ser acionado em um branch especificado, o fluxo de trabalho deverá existir nesse branch. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)".
 
-If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+Se você fizer a verificação durante o push, os resultados serão exibidos na guia **Segurança** do repositório. Para obter mais informações, confira "[Como gerenciar alertas de verificação de código do seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
-Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Além disso, quando uma verificação de `on:push` retorna resultados que podem ser mapeados para uma solicitação de pull aberta, esses alertas aparecem automaticamente na solicitação de pull no mesmo local que os outros alertas da solicitação de pull. Os alertas são identificados por meio da comparação da análise existente do início da ramificação com a análise da ramificação de destino. Para obter mais informações sobre os alertas da {% data variables.product.prodname_code_scanning %} em solicitações de pull, confira "[Como fazer a triagem de alertas da {% data variables.product.prodname_code_scanning %} em solicitações de pull](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
-### Scanning pull requests
+### Fazer a varredura de pull requests
 
-The default {% data variables.product.prodname_codeql_workflow %} uses the `pull_request` event to trigger a code scan on pull requests targeted against the default branch. {% ifversion ghes %}The `pull_request` event is not triggered if the pull request was opened from a private fork.{% else %}If a pull request is from a private fork, the `pull_request` event will only be triggered if you've selected the "Run workflows from fork pull requests" option in the repository settings. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+O {% data variables.code-scanning.codeql_workflow %} padrão usa o evento `pull_request` para disparar uma verificação de código nas solicitações de pull direcionadas ao branch padrão. {% ifversion ghes %}O evento `pull_request` não é disparado se a solicitação de pull foi aberta por meio de um fork privado.{% else %}Se uma solicitação de pull for proveniente de um fork privado, o evento `pull_request` só será disparado se você tiver selecionado a opção "Executar fluxos de trabalho por meio de solicitações de pull" nas configurações do repositório. Para obter mais informações, confira "[Como gerenciar as configurações do {% data variables.product.prodname_actions %} de um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)".{% endif %}
 
-For more information about the `pull_request` event, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#pull_request)."
+Para obter mais informações sobre o evento `pull_request`, confira "[Eventos que disparam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows#pull_request)".
 
-If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Se você examinar as solicitações de pull, os resultados serão exibidos como alertas em uma verificação de solicitação de pull. Para obter mais informações, confira "[Como fazer a triagem de alertas de verificação de código em solicitações de pull](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
-Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+Se você usar o gatilho `pull_request`, configurado para verificar o commit de mesclagem da solicitação de pull em vez do commit de cabeçalho, ele produzirá resultados mais eficientes e precisos do que a verificação do cabeçalho do branch em cada push. No entanto, se você usar um sistema de CI/CD que não possa ser configurado para disparo em solicitações de pull, ainda poderá usar o gatilho `on:push` e a {% data variables.product.prodname_code_scanning %} mapeará os resultados para as solicitações de pull em aberto no branch e adicionará os alertas como anotações na solicitação de pull. Para obter mais informações, confira "[Verificação durante o push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)".
 
-### Defining the severities causing pull request check failure
+### Definição das severidades que causam falha na verificação de solicitação de pull
 
-By default, only alerts with the severity level of `Error` or security severity level of `Critical` or `High` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities and of security severities that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+Por padrão, apenas alertas com o nível de severidade `Error` ou nível de severidade de segurança `Critical` ou `High` causarão falha na verificação de solicitação de pull. As verificações com alertas de menor severidade serão bem-sucedidas. Você pode alterar os níveis de severidades de alerta e de severidades de segurança que causarão uma falha de verificação de solicitação de pull nas configurações do repositório. Para obter mais informações sobre os níveis de severidade, confira "[Sobre os alertas da verificação de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)".
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Em "Varredura de código", à direita de "Verificar falha", use o menu suspenso para selecionar o nível de gravidade que você gostaria de fazer com que um pull request falhasse.
+![Configuração de verificação de falha](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 
-### Avoiding unnecessary scans of pull requests
+### Evitar varreduras desnecessárias de pull requests
 
-You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
+Talvez você queira evitar que uma varredura de código seja disparada em solicitações de pull específicas direcionadas à ramificação padrão, independentemente dos arquivos que foram alterados. Configure isso especificando `on:pull_request:paths-ignore` ou `on:pull_request:paths` no fluxo de trabalho da {% data variables.product.prodname_code_scanning %}. Por exemplo, se as únicas alterações em uma solicitação de pull forem para arquivos com as extensões de arquivo `.md` ou `.txt`, você poderá usar a matriz `paths-ignore` a seguir.
 
 ``` yaml
 on:
@@ -112,28 +111,28 @@ on:
 
 {% note %}
 
-**Notes**
+**Observações**
 
-* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."
-* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
+* `on:pull_request:paths-ignore` e `on:pull_request:paths` definem condições que determinam se as ações no fluxo de trabalho serão executadas em uma solicitação de pull. Eles não determinam quais arquivos serão analisados quando as ações _forem_ executadas. Quando uma solicitação de pull contém arquivos sem correspondência com `on:pull_request:paths-ignore` ou `on:pull_request:paths`, o fluxo de trabalho executa as ações e verifica todos os arquivos alterados na solicitação de pull, incluindo aqueles correspondentes a `on:pull_request:paths-ignore` ou `on:pull_request:paths`, a menos que eles tenham sido excluídos. Para obter informações sobre como excluir arquivos da análise, confira "[Como especificar os diretórios para verificação](#specifying-directories-to-scan)".
+* Nos arquivos de fluxo de trabalho da {% data variables.product.prodname_code_scanning %} do {% data variables.product.prodname_codeql %}, não use as palavras-chave `paths-ignore` ou `paths` com o evento `on:push`, pois é provável que isso gere análises ausentes. Para resultados precisos, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} precisam conseguir comparar novas alterações com a análise do commit anterior.
 
 {% endnote %}
 
-For more information about using `on:pull_request:paths-ignore` and `on:pull_request:paths` to determine when a workflow will run for a pull request, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+Para obter mais informações sobre como usar `on:pull_request:paths-ignore` e `on:pull_request:paths` para determinar quando um fluxo de trabalho será executado para uma solicitação de pull, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
 
-### Scanning on a schedule
+### Fazer a varredura de forma pré-programada
 
-If you use the default {% data variables.product.prodname_codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)."
+Se você usar o {% data variables.code-scanning.codeql_workflow %} padrão, o fluxo de trabalho examinará o código no repositório uma vez por semana, além das verificações disparadas pelos eventos. Para ajustar essa agenda, edite o valor `cron` no fluxo de trabalho. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)".
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} only runs scheduled jobs that are in workflows on the default branch. Changing the schedule in a workflow on any other branch has no effect until you merge the branch into the default branch.
+**Observação**: o {% data variables.product.prodname_dotcom %} só executa os trabalhos agendados que estão em fluxos de trabalho no branch padrão. Alterar a programação de um fluxo de trabalho em qualquer outro branch não terá efeito até que você mescle o branch com o branch-padrão.
 
 {% endnote %}
 
-### Example
+### Exemplo
 
-The following example shows a {% data variables.product.prodname_codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
+O exemplo a seguir mostra um {% data variables.code-scanning.codeql_workflow %} para um repositório em particular que tem um branch padrão chamado `main` e um branch protegido chamado `protected`.
 
 ``` yaml
 on:
@@ -145,14 +144,14 @@ on:
     - cron: '20 14 * * 1'
 ```
 
-This workflow scans:
-* Every push to the default branch and the protected branch
-* Every pull request to the default branch
-* The default branch every Monday at 14:20 UTC
+Este fluxo de trabalho varre:
+* Cada push para a ramificação padrão e a ramificação protegida
+* Cada solicitação de pull para a ramificação padrão
+* A ramificação padrão a cada segunda-feira às 14h20 UTC
 
-## Specifying an operating system
+## Especificar um sistema operacional
 
-If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.product.prodname_codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
+Se o código exigir um sistema operacional específico para ser compilado, configure o sistema operacional no seu {% data variables.code-scanning.codeql_workflow %}. Edite o valor de `jobs.analyze.runs-on` para especificar o sistema operacional do computador que executa as ações da {% data variables.product.prodname_code_scanning %}. {% ifversion ghes %}Você especifica o sistema operacional usando um rótulo apropriado como o segundo elemento em uma matriz de dois elementos, após `self-hosted`.{% else %}
 
 ``` yaml
 jobs:
@@ -161,7 +160,7 @@ jobs:
     runs-on: [ubuntu-latest]
 ```
 
-If you choose to use a self-hosted runner for code scanning, you can specify an operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% endif %}
+Se optar por usar um executor auto-hospedado para a verificação de código, especifique um sistema operacional usando um rótulo apropriado como o segundo elemento em uma matriz de dois elementos, após `self-hosted`.{% endif %}
 
 ``` yaml
 jobs:
@@ -170,15 +169,15 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} supports the latest versions of Ubuntu, Windows, and macOS. Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. For more information, see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} é compatível com as versões mais recentes do Ubunto, Windows e macOS. Os valores típicos dessa configuração são: `ubuntu-latest`, `windows-latest` e `macos-latest`. Para obter mais informações, confira "[Escolhendo o executor de um trabalho](/actions/using-jobs/choosing-the-runner-for-a-job)" e "[Usando rótulos com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
-{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %} For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+{% ifversion ghes %}Você deve garantir que o Git esteja na variável PATH em seus executores auto-hospedados.{% else %}Se você usa um executor auto-hospedado, você deve garantir que o Git esteja na variável PATH.{% endif %} Para obter mais informações, confira "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis{% ifversion not ghes %} on self-hosted machines{% endif %}, see  "[Recommended hardware resources for running {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)."
+Para obter especificações recomendadas (RAM, núcleos de CPU e disco) para executar a análise do {% data variables.product.prodname_codeql %} {% ifversion not ghes %} em computadores auto-hospedados{% endif %}, confira "[Recursos de hardware recomendados para execução do {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)".
 
-## Specifying the location for {% data variables.product.prodname_codeql %} databases
+## Especificar o local para bancos de dados de {% data variables.product.prodname_codeql %}
 
-In general, you do not need to worry about where the {% data variables.product.prodname_codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
+Em geral, você não precisa se preocupar com o lugar em que o {% data variables.code-scanning.codeql_workflow %} coloca os bancos de dados do {% data variables.product.prodname_codeql %}, pois as etapas posteriores encontrarão automaticamente os bancos de dados criados nas etapas anteriores. No entanto, se estiver escrevendo uma etapa de fluxo de trabalho personalizado que exija que o banco de dados {% data variables.product.prodname_codeql %} esteja em um local específico do disco, por exemplo, para carregar o banco de dados como um artefato de fluxo de trabalho, especifique esse local usando o parâmetro `db-location` na ação `init`.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -186,21 +185,21 @@ In general, you do not need to worry about where the {% data variables.product.p
     db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
 ```
 
-The {% data variables.product.prodname_codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+O {% data variables.code-scanning.codeql_workflow %} vai esperar que o caminho fornecido em `db-location` seja gravável, não exista ou seja um diretório vazio. Ao usar este parâmetro em um trabalho em execução em um executor auto-hospedado ou usando um contêiner Docker, é responsabilidade do usuário garantir que o diretório escolhido seja limpo entre execuções, ou que os bancos de dados sejam removidos depois de deixarem de ser necessários. {% ifversion fpt or ghec or ghes %}Isto não é necessário para trabalhos em execução em executores auto-hospedados {% data variables.product.prodname_dotcom %}, que obtêm uma instância nova e um sistema de arquivos limpo toda vez que forem executados. Para obter mais informações, confira "[Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".{% endif %}
 
-If this parameter is not used, the {% data variables.product.prodname_codeql_workflow %} will create databases in a temporary location of its own choice.
+Se esse parâmetro não for usado, o {% data variables.code-scanning.codeql_workflow %} criará os bancos de dados em uma localização temporária escolhida por ele.
 
-## Changing the languages that are analyzed
+## Alterar as linguagens que são analisadas
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
+O {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} detecta automaticamente código escrito nas linguagens compatíveis.
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-The default {% data variables.product.prodname_codeql_workflow %} file contains a matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+O arquivo do {% data variables.code-scanning.codeql_workflow %} padrão contém uma matriz chamada `language` que lista as linguagens no repositório que são analisadas. O {% data variables.product.prodname_codeql %} preenche automaticamente esta matriz quando você adiciona o {% data variables.product.prodname_code_scanning %} a um repositório. O uso da matriz `language` otimiza o {% data variables.product.prodname_codeql %} a executar cada análise em paralelo. Recomendamos que todos os fluxos de trabalho adotem essa configuração devido aos benefícios de desempenho da paralelização de compilações. Para obter mais informações sobre matrizes, confira "[Usando uma matriz para seus trabalhos](/actions/using-jobs/using-a-matrix-for-your-jobs)".
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was set up. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was set up, and you later added Python code, you will need to add `python` to the matrix.
+Se o seu fluxo de trabalho usar a matriz `language`, o {% data variables.product.prodname_codeql %} será embutido em código para analisar apenas as linguagens da matriz. Para alterar as linguagens que você deseja analisar, edite o valor da variável de matriz. Você pode remover uma linguagem para evitar que ele seja analisado ou adicionar uma linguagem que não estava presente no repositório quando o {% data variables.product.prodname_code_scanning %} estava configurado. Por exemplo, se o repositório inicialmente só continha o JavaScript quando a {% data variables.product.prodname_code_scanning %} foi configurada e, posteriormente, você adicionou o código Python, você precisa adicionar o `python` à matriz.
 
 ```yaml
 jobs:
@@ -213,7 +212,7 @@ jobs:
         language: ['javascript', 'python']
 ```
 
-If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
+Se o fluxo de trabalho não contiver uma matriz chamada `language`, o {% data variables.product.prodname_codeql %} será configurado para executar a análise sequencialmente. Se você não especificar as linguagens no fluxo de trabalho, o {% data variables.product.prodname_codeql %} irá detectar automaticamente e tentará analisar quaisquer linguagens compatíveis no repositório. Caso deseje escolher as linguagens que serão analisadas sem usar uma matriz, use o parâmetro `languages` na ação `init`.
 
 ```yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -221,15 +220,15 @@ If your workflow does not contain a matrix called `language`, then {% data varia
     languages: cpp, csharp, python
 ```
 {% ifversion fpt or ghec %}
-## Analyzing Python dependencies
+## Analisar as dependências do Python
 
-For GitHub-hosted runners that use Linux only, the {% data variables.product.prodname_codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
+Para os executores hospedados no GitHub que usam apenas o Linux, o {% data variables.code-scanning.codeql_workflow %} tentará instalar automaticamente as dependências do Python para fornecer mais resultados para a análise do CodeQL. Controle esse comportamento especificando o parâmetro `setup-python-dependencies` para a ação chamada pela etapa "Inicializar o CodeQL". Por padrão, esse parâmetro é definido como `true`:
 
--  If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
+-  Se o repositório contiver código escrito em Python, a etapa "Initialize CodeQL" instalará as dependências necessárias no executor hospedado pelo GitHub. Se a instalação automática for bem-sucedida, a ação também definirá a variável de ambiente `CODEQL_PYTHON` para o arquivo executável Python que inclui as dependências.
 
-- If the repository doesn't have any Python dependencies, or the dependencies are specified in an unexpected way, you'll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.
+- Se o repositório não tiver dependências do Python ou se as dependências forem especificadas de forma inesperada, você receberá um aviso e a ação continuará com os trabalhos restantes. A ação pode ser executada com sucesso, mesmo quando houver problemas de interpretação de dependências, mas os resultados podem estar incompletos.
 
-Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
+Alternativamente, você pode instalar as dependências do Python manualmente em qualquer sistema operacional. Você precisará adicionar `setup-python-dependencies` e defini-lo como `false`, bem como definir `CODEQL_PYTHON` como o executável Python que inclui as dependências, conforme mostrado neste extrato de fluxo de trabalho:
 
 ```yaml
 jobs:
@@ -265,11 +264,11 @@ jobs:
 ```
 {% endif %}
 
-## Configuring a category for the analysis
+## Configurar uma categoria para a análise
 
-Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
+Use `category` para distinguir entre várias análises da mesma ferramenta e do mesmo commit, mas executadas em diferentes linguagens ou em diferentes partes do código. A categoria especificada no seu fluxo de trabalho será incluída no arquivo de resultados SARIF.
 
-This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
+Esse parâmetro é particularmente útil se você trabalhar com monorepos e tiver vários arquivos SARIF para diferentes componentes do monorepo.
 
 ``` yaml
     - name: Perform CodeQL Analysis
@@ -281,36 +280,36 @@ This parameter is particularly useful if you work with monorepos and have multip
         category: "my_category"
 ```
 
-If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
-- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
+Se você não especificar um parâmetro `category` no fluxo de trabalho, o {% data variables.product.product_name %} vai gerar um nome de categoria para você, com base no nome do arquivo de fluxo de trabalho que dispara a ação, o nome da ação e todas as variáveis da matriz. Por exemplo:
+- O fluxo de trabalho `.github/workflows/codeql-analysis.yml` e a ação `analyze` produzirão a categoria `.github/workflows/codeql.yml:analyze`.
+- O fluxo de trabalho `.github/workflows/codeql-analysis.yml`, a ação `analyze` e as variáveis da matriz `{language: javascript, os: linux}` produzirão a categoria `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
 
-The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)."
+O valor `category` será exibido como a propriedade `<run>.automationDetails.id` no SARIF v2.1.0. Para obter mais informações, confira "[Suporte do SARIF à {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)".
 
-Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
+A categoria especificada não substituirá os detalhes do objeto `runAutomationDetails` no arquivo SARIF, se incluído.
 
-## Running additional queries
+## Executar consultas adicionais
 
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% ifversion codeql-packs %}
-### Using {% data variables.product.prodname_codeql %} query packs
+### Usando pacotes de consulta de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+Para adicionar um ou mais pacotes de consulta do {% data variables.product.prodname_codeql %} (beta), adicione uma entrada `with: packs:` à seção `uses: {% data reusables.actions.action-codeql-action-init %}` do fluxo de trabalho. Em `packs`, você especifica um ou mais pacotes a serem usados e, opcionalmente, a versão que será baixada. Quando você não especificar uma versão, a versão mais recente será baixada. Se você quiser usar pacotes que não estão publicamente disponíveis, precisará definir a variável de ambiente `GITHUB_TOKEN` para um segredo que tenha acesso aos pacotes. Para obter mais informações, confira "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
 {% note %}
 
-**Note:** For workflows that generate {% data variables.product.prodname_codeql %} databases for multiple languages, you must instead specify the {% data variables.product.prodname_codeql %} query packs in a configuration file. For more information, see "[Specifying {% data variables.product.prodname_codeql %} query packs](#specifying-codeql-query-packs)" below.
+**Observação:** para fluxos de trabalho que geram bancos de dados do {% data variables.product.prodname_codeql %} para várias linguagens, você precisará especificar pacotes de consulta do {% data variables.product.prodname_codeql %} em um arquivo de configuração. Para obter mais informações, confira "[Como especificar pacotes de consulta do {% data variables.product.prodname_codeql %}](#specifying-codeql-query-packs)" abaixo.
 
 {% endnote %}
 
-In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the four {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run:
-- The latest version of `pack1` is downloaded and all default queries are run.
-- Version 1.2.3 of `pack2` is downloaded and all default queries are run.
-- The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
-- Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
+No exemplo abaixo, `scope` é a organização ou a conta pessoal que publicou o pacote. Quando o fluxo de trabalho é executado, os três pacotes de consulta do {% data variables.product.prodname_codeql %} são baixados do {% data variables.product.product_name %} e das consultas ou conjunto de consultas padrão de cada execução de pacote:
+- A última versão do `pack1` é baixada e todas as consultas padrão são executadas.
+- A versão 1.2.3 do `pack2` é baixada e todas as consultas padrão são executadas.
+- A última versão do `pack3` que é compatível com a versão 3.2.1 é baixada e todas as consultas são executadas.
+- A versão 4.5.6 é `pack4` baixada e somente as consultas encontradas em `path/to/queries` são executadas.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -319,9 +318,9 @@ In the example below, `scope` is the organization or personal account that publi
     packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~3.2.1,scope/pack4@4.5.6:path/to/queries
 ```
 
-### Downloading {% data variables.product.prodname_codeql %} packs from {% data variables.product.prodname_ghe_server %}
+### Como baixar pacotes do {% data variables.product.prodname_codeql %} do {% data variables.product.prodname_ghe_server %}
 
-If your workflow uses packs that are published on a {% data variables.product.prodname_ghe_server %} installation, you need to tell your workflow where to find them. You can do this by using the `registries` input of the {% data reusables.actions.action-codeql-action-init %} action. This input accepts a list of `url`, `packages`, and `token` properties as shown below.
+Se o fluxo de trabalho usa pacotes publicados em uma instalação do {% data variables.product.prodname_ghe_server %}, você precisa informar ao fluxo de trabalho onde encontrá-los. Você pode fazer isso usando a entrada `registries` da ação {% data reusables.actions.action-codeql-action-init %}. Essa entrada aceita uma lista de propriedades `url`, `packages` e `token`, como é mostrado abaixo.
 
 ```
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -347,13 +346,12 @@ If your workflow uses packs that are published on a {% data variables.product.pr
     {% endraw %}
 ```
 
-The package patterns in the registries list are examined in order, so you should generally place the most specific package patterns first. The values for `token` must be a {% data variables.product.pat_v1 %} generated by the GitHub instance you are downloading from with the `read:packages` permission.
+Os padrões de pacote na lista de registros são examinados em ordem, portanto, coloque os padrões de pacote mais específicos em primeiro lugar. Os valores de `token` precisam ser um {% data variables.product.pat_v1 %} gerado pela instância do GitHub da qual você está baixando com a permissão `read:packages`.
 
-Notice the `|` after the `registries` property name. This is important since  {% data variables.product.prodname_actions %} inputs can only accept strings. Using the `|` converts the subsequent text to a string, which is parsed later by the {% data reusables.actions.action-codeql-action-init %} action.
+Observe o `|` após o nome da propriedade `registries`. Isso é importante, pois as entradas do {% data variables.product.prodname_actions %} só podem aceitar cadeias de caracteres. O uso de `|` converte o texto subsequente em uma cadeia de caracteres, que é analisada depois pela ação {% data reusables.actions.action-codeql-action-init %}.
 
-### Using queries in QL packs
-{% endif %}
-To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+### Usando consultas em pacotes QL
+{% endif %} Para adicionar uma ou mais consultas, adicione uma entrada `with: queries:` à seção `uses: {% data reusables.actions.action-codeql-action-init %}` do fluxo de trabalho. Se as consultas estiverem em um repositório privado, use o parâmetro `external-repository-token` para especificar um token que tenha acesso para fazer check-out do repositório privado.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -363,17 +361,17 @@ To add one or more queries, add a `with: queries:` entry within the `uses: {% da
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
 
-You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
+Você também pode especificar conjuntos de consulta no valor de `queries`. Os conjuntos de consulta são coleções de consultas, geralmente agrupadas por finalidade ou linguagem.
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 {% ifversion codeql-packs %}
-### Working with custom configuration files
+### Trabalhando com arquivos de configuração personalizados
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% ifversion codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% ifversion codeql-packs %}packs or {% endif %}queries, prefix the value of {% ifversion codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+Se você também usar um arquivo de configuração para configurações personalizadas, todos os {% ifversion codeql-packs %}pacotes ou {% endif %}as consultas especificados no fluxo de trabalho serão usados em vez dos especificados no arquivo de configuração. Se você quiser executar o conjunto combinado de {% ifversion codeql-packs %}pacotes ou {% endif %}consultas adicionais, anteceda o valor de {% ifversion codeql-packs %}`packs` ou de {% endif %}`queries` no fluxo de trabalho com o símbolo `+`. Para obter mais informações, confira "[Como usar um arquivo de configuração personalizado](#using-a-custom-configuration-file)".
 
-In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+No exemplo a seguir, o símbolo `+` garante que {% ifversion codeql-packs %}os pacotes e {% endif %}as consultas adicionais especificados sejam usados em conjunto com qualquer um especificado no arquivo de configuração referenciado.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -385,11 +383,11 @@ In the following example, the `+` symbol ensures that the specified additional {
     {%- endif %}
 ```
 
-## Using a custom configuration file
+## Usando um arquivo de configuração personalizado
 
-A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries{% ifversion code-scanning-exclude-queries-from-analysis %}, exclude or include specific queries,{% endif %} and to specify which directories to scan during analysis.
+Um arquivo de configuração personalizado é uma forma alternativa de especificar {% ifversion codeql-packs %}os pacotes e {% endif %}as consultas adicionais serem executados. Você também pode usar o arquivo para desabilitar as consultas padrão{% ifversion code-scanning-exclude-queries-from-analysis %}, excluir ou incluir consultas específicas,{% endif %} e especificar quais diretórios examinar durante a análise.
 
-In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
+No arquivo de fluxo de trabalho, use o parâmetro `config-file` da ação `init` para especificar o caminho para o arquivo de configuração que você deseja usar. Este exemplo carrega o arquivo de configuração _./.github/codeql/codeql-config.yml_.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -399,7 +397,7 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
+Se o arquivo de configuração estiver localizado em um repositório privado externo, use o parâmetro `external-repository-token` da ação `init` para especificar um token que tenha acesso ao repositório privado.
 
 ```yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -407,14 +405,14 @@ If the configuration file is located in an external private repository, use the 
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
 
-The settings in the configuration file are written in YAML format.
+As configurações no arquivo de configuração são gravadas no formato YAML.
 
 {% ifversion codeql-packs %}
-### Specifying {% data variables.product.prodname_codeql %} query packs
+### Especificando pacotes de consulta de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
+Você especificou pacotes de consulta de {% data variables.product.prodname_codeql %} em uma matriz. Observe que o formato é diferente do formato usado pelo arquivo de fluxo de trabalho.
 
 {% raw %}
 ``` yaml
@@ -434,28 +432,27 @@ packs:
 ```
 {% endraw %}
 
-The full format for specifying a query pack is `scope/name[@version][:path]`. Both `version` and `path` are optional. `version` is semver version range. If it is missing, the latest version is used. For more information about semver ranges, see the [semver docs on npm](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
+O formato completo para especificar um pacote de consultas é `scope/name[@version][:path]`. `version` e `path` são opcionais. `version` é o intervalo de versão semver. Se ele estiver ausente, a última versão será usada. Para obter mais informações sobre intervalos semver, confira a [documentação do semver no npm](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
 
-If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
+Se tiver um fluxo de trabalho que gera mais de um banco de dados de {% data variables.product.prodname_codeql %}, você poderá especificar todos os pacotes de consulta de {% data variables.product.prodname_codeql %} para executar em um arquivo de configuração personalizado usando um mapa aninhado de pacotes.
 
 {% raw %}
 ``` yaml
 packs:
-  # Use these packs for JavaScript analysis
+  # Use these packs for JavaScript and TypeScript analysis
   javascript:
     - scope/js-pack1
     - scope/js-pack2
-  # Use these packs for Java analysis
+  # Use these packs for Java and Kotlin analysis
   java:
     - scope/java-pack1
     - scope/java-pack2@v1.0.0
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
-### Specifying additional queries
+### Especificar consultas adicionais
 
-You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
+As consultas adicionais são especificadas em uma matriz `queries`. Cada elemento da matriz contém um parâmetro `uses` com um valor que identifica um arquivo de consulta individual, um diretório contendo arquivos de consulta ou um arquivo de definição de conjunto de consultas.
 
 ``` yaml
 queries:
@@ -464,23 +461,23 @@ queries:
   - uses: ./query-suites/my-security-queries.qls
 ```
 
-Optionally, you can give each array element a name, as shown in the example configuration files below. For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
+Opcionalmente, você pode dar um nome a cada elemento do array, conforme mostrado nos exemplos de arquivos de configuração abaixo. Para obter mais informações sobre consultas adicionais, confira "[Como executar consultas adicionais](#running-additional-queries)" acima.
 
-### Disabling the default queries
+### Desativar as consultas-padrão
 
-If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
+Se você quiser apenas executar consultas personalizadas, poderá desabilitar as consultas de segurança padrão usando `disable-default-queries: true`.
 
 {% ifversion code-scanning-exclude-queries-from-analysis %}
-### Excluding specific queries from analysis
+### Como excluir consultas específicas da análise
 
-You can add `exclude` and `include` filters to your custom configuration file, to specify the queries you want to exclude or include in the analysis.
+Você pode adicionar os filtros `exclude` e `include` ao seu arquivo de configuração personalizado para especificar as consultas que deseja excluir ou incluir na análise.
 
-This is useful if you want to exclude, for example:
-- Specific queries from the default suites (`security`, `security-extended` and `security-and-quality`).
-- Specific queries whose results do not interest you.
-- All the queries that generate warnings and recommendations.
+Isso será útil se você quiser excluir, por exemplo:
+- Consultas específicas dos pacotes padrão (`security`, `security-extended` e `security-and-quality`).
+- Consultas específicas cujos resultados não interessam a você.
+- Todas as consultas que geram avisos e recomendações.
 
-You can use `exclude` filters similar to those in the configuration file below to exclude queries that you want to remove from the default analysis. In the example of configuration file below, both the `js/redundant-assignment` and the `js/useless-assignment-to-local` queries are excluded from analysis.
+Você pode usar filtros `exclude` semelhantes aos do arquivo de configuração abaixo para excluir as consultas que deseja remover da análise padrão. No exemplo do arquivo de configuração abaixo, as consultas `js/redundant-assignment` as `js/useless-assignment-to-local` são excluídas da análise.
 
 ```yaml
 query-filters:
@@ -489,25 +486,25 @@ query-filters:
   - exclude:
       id: js/useless-assignment-to-local
 ```
-To find the id of a query, you can click the alert in the list of alerts in the Security tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+Para localizar a ID de uma consulta, você pode clicar no alerta da lista de alertas na guia Segurança. Isso abre a página de detalhes do alerta. O campo `Rule ID` contém a ID da consulta. Para obter mais informações sobre a página de detalhes do alerta, confira "[Sobre alertas de {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)".
 
 {% tip %}
 
-**Tips:**
-- The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
-- Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
+**Dicas:**
+- A ordem dos filtros faz diferença. A primeira instrução de filtro exibida após as instruções sobre as consultas e os pacotes de consulta determina se as consultas são incluídas ou excluídas por padrão.
+- As instruções subsequentes são executadas em ordem e as instruções que aparecem posteriormente no arquivo têm precedência sobre as instruções anteriores.
 
 {% endtip %}
 
-You can find another example illustrating the use of these filters in the "[Example configuration files](#example-configuration-files)" section.
+Você pode encontrar outro exemplo ilustrando o uso desses filtros na seção "[Arquivos de configuração de exemplo](#example-configuration-files)".
 
-For more information about using `exclude` and `include` filters in your custom configuration file, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
+Para obter mais informações sobre como usar os filtros `exclude` e `include` em seu arquivo de configuração personalizado, confira "[Como criar conjuntos de consultas de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/#filtering-the-queries-in-a-query-suite)". Para obter informações sobre os metadados de consulta nos quais você pode filtrar, confira "[Metadados para consultas CodeQL](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)".
 
 {% endif %}
 
-### Specifying directories to scan
+### Especificar diretórios para serem varridos
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae > 3.3 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
+Nas linguagens interpretadas compatíveis com o {% data variables.product.prodname_codeql %} (Python{% ifversion fpt or ghes > 3.3 or ghae > 3.3 %}, Ruby{% endif %} e JavaScript/TypeScript), você pode restringir a {% data variables.product.prodname_code_scanning %} a arquivos em diretórios específicos adicionando uma matriz `paths` ao arquivo de configuração. Você pode excluir os arquivos de diretórios específicos da análise ao adicionar uma matriz `paths-ignore`.
 
 ``` yaml
 paths:
@@ -519,28 +516,28 @@ paths-ignore:
 
 {% note %}
 
-**Note**:
+**Observação**:
 
-* The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
-* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
-* `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
+* As palavras-chave `paths` e `paths-ignore`, usadas no contexto do arquivo de configuração da {% data variables.product.prodname_code_scanning %}, não devem ser confundidas com as mesmas palavras-chave quando usadas para `on.<push|pull_request>.paths` em um fluxo de trabalho. Quando são usadas para modificar `on.<push|pull_request>` em um fluxo de trabalho, elas determinam se as ações serão executadas quando alguém modificar o código nos diretórios especificados. Para obter mais informações, confira "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
+* Os caracteres de padrão de filtro `?`, `+`, `[`, `]` e `!` não têm suporte e serão correspondidos literalmente.
+* `**` os caracteres só podem estar no início ou no final de uma linha, ou circundados por barras, e você não pode misturar `**` e outros caracteres. Por exemplo, `foo/**`, `**/foo` e `foo/**/bar` são todas as sintaxes permitidas, mas `**foo` não é. No entanto, você pode usar estrelas únicas junto com outros caracteres, conforme mostrado no exemplo. Você precisará citar qualquer coisa que contenha um caractere `*`.
 
 {% endnote %}
 
-For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+Para linguagens compiladas, se você deseja limitar {% data variables.product.prodname_code_scanning %} a diretórios específicos no seu projeto, você deverá especificar os passos de compilação adequados no fluxo de trabalho. Os comandos que você precisará usar para excluir um diretório da compilação dependerão do seu sistema de compilação. Para obter mais informações, confira "[Como configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para as linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) in your workflow.
+Você pode analisar rapidamente pequenas partes de um repositório único quando modifica o código em diretórios específicos. Você precisará excluir os diretórios das etapas de build e usar as palavras-chave `paths-ignore` e `paths` para [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) no fluxo de trabalho.
 
-### Example configuration files
+### Exemplo de arquivos de configuração
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## Configurar o {% data variables.product.prodname_code_scanning %} para linguagens compiladas
 
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages)."
+{% data reusables.code-scanning.autobuild-add-build-steps %} Para obter mais informações sobre como configurar a {% data variables.product.prodname_code_scanning %} do {% data variables.product.prodname_codeql %} para as linguagens compiladas, confira "[Como configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para as linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages)".
 
-## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## Carregar dados do {% data variables.product.prodname_code_scanning %} no {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} can display code analysis data generated externally by a third-party tool. You can upload code analysis data with the `upload-sarif` action. For more information, see "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
+{% data variables.product.prodname_dotcom %} pode exibir dados de análise de código gerados externamente por uma ferramenta de terceiros. Carregue os dados da análise de código com a ação `upload-sarif`. Para obter mais informações, confira "[Como carregar um arquivo SARIF no GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)".

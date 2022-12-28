@@ -8,12 +8,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
-ms.openlocfilehash: 207b91e821037a6eb61ae7bc9b18c98d8b14fdd2
-ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.openlocfilehash: 887c4ee6c5e6b3e2c391c2d5754cfcb2787e4b86
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147878952'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181257'
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -26,8 +26,8 @@ ms.locfileid: '147878952'
 1. {% data variables.product.prodname_dotcom %} に新しいリポジトリを作成し、ノードに `.gitignore` を追加します。 詳細については、「[新しいリポジトリの作成](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)」を参照してください。
 2. ローカル コンピューターにリポジトリを複製します。
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-    $ cd <em>YOUR-REPOSITORY</em>
+    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    $ cd YOUR-REPOSITORY
     ```
 3. `index.js` ファイルを作成し、「Hello world!」を表示する基本的なアラートを作成します。
     {% raw %}
@@ -40,9 +40,9 @@ ms.locfileid: '147878952'
     ```shell
     $ npm init
       ...
-      package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
+      package name: @YOUR-USERNAME/YOUR-REPOSITORY
       ...
-      test command: <em>exit 0</em>
+      test command: exit 0
       ...    
     ```
     {% endraw %}
@@ -69,7 +69,7 @@ ms.locfileid: '147878952'
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
           - run: npm ci
           - run: npm test
 
@@ -83,7 +83,7 @@ ms.locfileid: '147878952'
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
               registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
@@ -93,7 +93,7 @@ ms.locfileid: '147878952'
 8. NPMに、以下のいずれかの方法を使ってどのスコープ及びリポジトリにパッケージを公開するかを伝えます。
    - `.npmrc` ファイルを作成することによって、リポジトリのための NPM 設定ファイルを以下の内容でルート ディレクトリに追加する:  {% raw %}
       ```shell
-      <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
+      @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
    - `package.json` ファイルを編集し、`publishConfig` キーを次のように指定する:  {% raw %}
@@ -107,7 +107,7 @@ ms.locfileid: '147878952'
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
-    $ git add <em>.npmrc or package.json</em>
+    $ git add .npmrc or package.json
     $ git commit -m "workflow to publish package"
     $ git push
     ```

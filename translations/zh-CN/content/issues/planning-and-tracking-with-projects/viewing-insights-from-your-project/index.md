@@ -1,7 +1,7 @@
 ---
 title: '从 {% data variables.projects.project_v2 %} 查看见解'
 shortTitle: Viewing insights
-intro: ...
+intro: 可使用见解通过创建和共享基于项目数据生成的图表来直观呈现项目。
 versions:
   feature: projects-v2
 topics:
@@ -13,11 +13,11 @@ children:
   - /creating-charts
   - /configuring-charts
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: d2d47258f2ade797660ce54c493fb6c621c72dc5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 648ad452662e3be907a85bf87cfe6e359594aa3e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423791'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108092'
 ---
 

@@ -6,13 +6,14 @@ intro: 'La API de OIDC {% data variables.product.prodname_actions %} permite per
 topics:
   - API
 versions:
+  fpt: '*'
   ghec: '*'
   ghes: '>=3.7'
-ms.openlocfilehash: 6857081d29bd89e59c4f6c7ff458fd0afc2cf6ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9e81241d7eb80fec3631301cea4dd4c421cad132
+ms.sourcegitcommit: 80edcdbff4726de4d196584fcb603bca2efffd1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080651'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181808'
 ---
 

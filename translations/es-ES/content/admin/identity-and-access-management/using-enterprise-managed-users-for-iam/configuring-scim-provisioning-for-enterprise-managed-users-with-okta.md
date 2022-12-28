@@ -1,7 +1,7 @@
 ---
-title: Configuring SCIM provisioning for Enterprise Managed Users with Okta
+title: Configurar el aprovisionamiento de SCIM para los Usuarios Administrados Empresariales con Okta
 shortTitle: Set up provisioning with Okta
-intro: You can provision new users and manage their membership of your enterprise and teams using Okta as your identity provider.
+intro: Puedes aprovisionar usuarios nuevos y administrar la membrecía de tu empresa y equipos utilizando Okta como tu proveedor de identidad.
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
@@ -17,81 +17,86 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: b8c086d1d91c1248fa5a0349bb6f8ef32c3bbdf0
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160716'
 ---
+## Acerca del aprovisionamiento con Okta
 
-## About provisioning with Okta
+Puedes utilizar los {% data variables.product.prodname_emus %} con Okta como tu proveedor de identidad para aprovisionar cuentas nuevas, administrar la membrecía empresarial y administrar las membrecías de equipo para las organizaciones de tu empresa. Para obtener más información sobre el aprovisionamiento de {% data variables.product.prodname_emus %}, vea "[Configurar el aprovisionamiento de SCIM para usuarios administrados de la empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
 
-You can use {% data variables.product.prodname_emus %} with Okta as your identity provider to provision new accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. For more information about provisioning for {% data variables.product.prodname_emus %}, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+Antes de que puedas configurar el aprovisionamiento con Okta, debes configurar el inicio de sesión único de SAML. Para obtener más información, vea "[Configurar el inicio de sesión único de SAML para usuarios administrados de la empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)".
 
-Before you can configure provisioning with Okta, you must configure SAML single-sign on. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Para configurar el aprovisionamiento con Okta, debes configurar el nombre de tu empresa en la aplicación de {% data variables.product.prodname_emu_idp_application %} e ingresar {% data variables.product.pat_generic %}. Entonces podrás aprovisionar usuarios en Okta.
 
-To configure provisioning with Okta, you must set your enterprise's name in the {% data variables.product.prodname_emu_idp_application %} application and enter your setup user's {% data variables.product.pat_generic %}. You can then start provisioning users in Okta.
+## Características admitidas
 
-## Supported features
+{% data variables.product.prodname_emus %} es compatible con muchas características de aprovisionamiento en Okta.
 
-{% data variables.product.prodname_emus %} supports many provisioning features in Okta.
-
-| Feature | Description |
+| Característica | Descripción |
 | --- | --- |
-| Push New Users | Users that are assigned to the {% data variables.product.prodname_emu_idp_application %} application in Okta are automatically created in the enterprise on {% data variables.product.product_name %}. |
-| Push Profile Update | Updates made to the user's profile in Okta will be pushed to {% data variables.product.product_name %}. |
-| Push Groups | Groups in Okta that are assigned to the {% data variables.product.prodname_emu_idp_application %} application as Push Groups are automatically created in the enterprise on {% data variables.product.product_name %}. |
-| Push User Deactivation | Unassigning the user from the {% data variables.product.prodname_emu_idp_application %} application in Okta will disable the user on {% data variables.product.product_name %}. The user will not be able to sign in, but the user's information is maintained. |
-| Reactivate Users | Users in Okta whose Okta accounts are reactivated and who are assigned back to the {% data variables.product.prodname_emu_idp_application %} application will be enabled. |
+| Subir Usuarios Nuevos | Los usuarios que se asignan a la aplicación de {% data variables.product.prodname_emu_idp_application %} en Okta se crean automáticamente en la empresa en {% data variables.product.product_name %}. |
+| Subir la Actualización de Perfil | Las actualizaciones que se hacen al perfil del usuario en Oktan se subirán a {% data variables.product.product_name %}. |
+| Grupos de Subida | Los Grupos en Okta que se hayan asignado a la aplicación de {% data variables.product.prodname_emu_idp_application %} como Grupos de Subida se crearán automáticamente en la empresa en {% data variables.product.product_name %}. |
+| Subir Desactivaciones de Usuarios | El desasignar al usuario de la aplicación de {% data variables.product.prodname_emu_idp_application %} en Okta lo inhabilitará en {% data variables.product.product_name %}. El usuario no podrá iniciar sesión, pero la información del usuario se mantendrá. |
+| Reactivar Usuarios | Se habilitarán los usuarios en Okta cuyas cuentas de Okta se reactiven y quienes se asignen de vuelta a la aplicación de {% data variables.product.prodname_emu_idp_application %}. |
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_emus %} does not support modifications to usernames.
+**Nota**: {% data variables.product.prodname_emus %} no admite modificaciones en los nombres de usuario.
 
 {% endnote %}
 
-## Setting your enterprise name
+## Configurar el nombre de tu empresa
 
-After your {% data variables.enterprise.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
+Después de que se haya creado tu {% data variables.enterprise.prodname_emu_enterprise %}, puedes comenzar a configurar el aprovisionamiento configurando el nombre de tu empresa en Okta.
 
-1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
-1. Click the **Sign On** tab.
-1. To make changes, click **Edit**.
-1. Under "Advanced Sign-on Settings", in the "Enterprise Name" text box, type your enterprise name. For example, if you access your enterprise at `https://github.com/enterprises/octoinc`, your enterprise name would be "octoinc".
-![Screenshot of the Enterprise Name field on Okta](/assets/images/help/enterprises/okta-emu-enterprise-name.png)
-1. To save your enterprise name, click **Save**.
+1. Navega a tu aplicación de {% data variables.product.prodname_emu_idp_application %} en Okta.
+1. Haga clic en la pestaña **Sign On** (Iniciar sesión).
+1. Haga clic en **Edit** (Editar) para realizar cambios.
+1. Debajo de "Ajustes avanzados de inicio de sesión", en la caja de texto de "Nombre de empresa", teclea el nombre de tu empresa. Por ejemplo, si accede a la empresa en `https://github.com/enterprises/octoinc`, el nombre de la empresa sería "octoinc".
+![Captura de pantalla del campo de Nombre de Empresa en Okta](/assets/images/help/enterprises/okta-emu-enterprise-name.png)
+1. Para guardar el nombre de la empresa, haga clic en **Save** (Guardar).
 
-## Configuring provisioning
+## Configurar el aprovisionamiento
 
-After setting your enterprise name, you can proceed to configure provisioning settings.
+Después de que configures el nombre de tu empresa, puedes proceder a configurar los ajustes de aprovisionamiento.
 
-To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin** username will need to provide a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope. For more information on creating a new token, see "[Creating a {% data variables.product.pat_generic %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+Para configurar el aprovisionamiento, el usuario de configuración con el nombre de usuario **@<em>SHORT-CODE</em>_admin** deberá proporcionar un {% data variables.product.pat_v1 %} con el ámbito **admin:enterprise**. Para obtener más información sobre cómo crear un nuevo token, consulta "[Creación de un {% data variables.product.pat_generic %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)".
 
-1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
-1. Click the **Provisioning** tab.
-1. In the settings menu, click **Integration**.
-1. To make changes, click **Edit**.
-1. Select **Enable API integration**.
-1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope belonging to the setup user.
-![Screenshot showing the API Token field on Okta](/assets/images/help/enterprises/okta-emu-token.png)
-1. Click **Test API Credentials**. If the test is successful, a verification message will appear at the top of the screen.
-1. To save the token, click **Save**.
-1. In the settings menu, click **To App**.
-![Screenshot showing the To App menu item on Okta](/assets/images/help/enterprises/okta-emu-to-app-menu.png)
-1. To the right of "Provisioning to App", to allow changes to be made, click **Edit**.
-1. Select **Enable** for **Create Users**, **Update User Attributes**, and **Deactivate Users**.
-![Screenshot showing provisioning options on Okta](/assets/images/help/enterprises/okta-emu-provisioning-to-app.png)
-1. To finish configuring provisioning, click **Save**.
+1. Navega a tu aplicación de {% data variables.product.prodname_emu_idp_application %} en Okta.
+1. Haga clic en el **Provisioning** ficha.
+1. En el menú de configuración, haga clic en **Integration** (Integración).
+1. Haga clic en **Edit** (Editar) para realizar cambios.
+1. Seleccione **Enable API integration** (Habilitar la integración de la API).
+1. En el campo "API Token" (Token de la API), escriba el {% data variables.product.pat_v1 %} con el ámbito **admin:enterprise** que pertenece al usuario de configuración.
+![Captura de pantalla en la que se muestra el campo de Token de la API en Okta](/assets/images/help/enterprises/okta-emu-token.png)
+1. Haga clic en **Test API Credentials** (Probar credenciales de API). Si la prueba tiene éxito, se mostrará un mensaje de verificación en la parte superior de la pantalla.
+1. Para guardar el token, haga clic en **Save** (Guardar).
+1. En el menú de configuración, haga clic en **To App** (En la aplicación).
+![Captura de pantalla en la que se muestra el elemento de menú "En la aplicación" en Okta](/assets/images/help/enterprises/okta-emu-to-app-menu.png)
+1. A la derecha de "Provisioning to App" (Aprovisionar en la aplicación), para permitir que se realicen cambios, haga clic en **Edit** (Editar).
+1. Seleccione **Enable** (Habilitar) para **Create Users** (Crear usuarios), **Update User Attributes** (Actualizar atributos de usuario) y **Deactivate Users** (Desactivar usuarios).
+![Captura de pantalla en la que se muestran las opciones de aprovisionamiento en Okta](/assets/images/help/enterprises/okta-emu-provisioning-to-app.png)
+1. Para finalizar la configuración del aprovisionamiento, haga clic en **Save** (Guardar).
 
-## Assigning users and groups
+## Asignación de usuarios y grupos
 
-After you have configured SAML SSO and provisioning, you will be able provision new users on {% data variables.product.prodname_dotcom_the_website %} by assigning users to the {% data variables.product.prodname_emu_idp_application %} application. 
+Después de haber configurado el SSO de SAML y el aprovisionamiento, podrás aprovisionar usuarios nuevos en {% data variables.product.prodname_dotcom_the_website %} asignando usuarios o grupos a la aplicación de {% data variables.product.prodname_emu_idp_application %}. 
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-You can also automatically manage organization membership by assigning groups to the application and adding them to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see "[Managing team memberships with identity provider groups](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
+También puedes administrar automáticamente la pertenencia a organizaciones agregando grupos a la pestaña de "Push Groups" en Okta. Cuando el grupo se aprovisione con éxito, este estará disponible para conectarse a los equipos en las organizaciones de la empresa. Para obtener más información sobre cómo administrar equipos, vea "[Administrar pertenencias a equipos con grupos de proveedores de identidades](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)".
 
-When assigning users, you can use the "Roles" attribute in the {% data variables.product.prodname_emu_idp_application %} application to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information on roles, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+Cuando asignas usuarios, puedes utilizar el atributo de "Roles" en la aplicación de {% data variables.product.prodname_emu_idp_application %} para configurar el rol de un usuario en tu empresa en {% data variables.product.product_name %}. Para obtener más información sobre los roles, vea "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 
-![Screenshot showing the role options for provisioned user on Okta](/assets/images/help/enterprises/okta-emu-user-role.png)
+![Captura de pantalla que muestra las opciones de roles para el usuario aprovisionado en Okta](/assets/images/help/enterprises/okta-emu-user-role.png)
 
-## Deprovisioning users and groups
+## Desaprovisionamiento de usuarios y grupos
 
-To remove a user or group from {% data variables.product.product_name %}, remove the user or group from both the "Assignments" tab and the "Push groups" tab in Okta. For users, make sure the user is removed from all groups in the "Push Groups" tab.
+Para quitar un usuario o un grupo de {% data variables.product.product_name %}, quítalo tanto de la pestaña "Asignaciones" como de la pestaña "Grupos de inserción" en Okta. En el caso de los usuarios, asegúrate de se quiten de todos los grupos en la pestaña "Grupos de inserción".
 
 

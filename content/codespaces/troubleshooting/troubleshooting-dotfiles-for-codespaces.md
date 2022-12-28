@@ -2,7 +2,6 @@
 title: Troubleshooting dotfiles for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 intro: Troubleshooting steps for common dotfiles issues.
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'

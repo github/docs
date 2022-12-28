@@ -23,7 +23,7 @@ When you make changes to your integration code, running the code in a local envi
 
 {% endnote %}
 
-## Recieving webhooks with {% data variables.product.prodname_cli %}
+## Receiving webhooks with {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-learn-more %}
 

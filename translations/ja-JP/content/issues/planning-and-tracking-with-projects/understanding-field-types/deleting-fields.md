@@ -6,13 +6,13 @@ versions:
   feature: projects-v2
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 2998d4d39a3ec5f59a649fe62fd15c974e1e7ff7
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109259'
+ms.locfileid: "148109259"
 ---
 {% data reusables.projects.project-settings %}
 1. 削除するフィールドの名前をクリックします。

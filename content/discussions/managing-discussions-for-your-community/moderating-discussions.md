@@ -37,3 +37,11 @@ When you convert an issue to a discussion, the discussion is automatically creat
 1. In the right margin of an issue, click **Convert to discussion**.
 1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
 1. Click **I understand, convert this issue to a discussion**.
+
+{% ifversion discussions-hide-comments-on-block %}
+## Blocking a user from your organization
+
+Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+
+{% data reusables.organizations.blocking-a-user %} 
+{% endif %}

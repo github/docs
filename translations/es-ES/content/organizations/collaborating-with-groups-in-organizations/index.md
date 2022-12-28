@@ -16,17 +16,18 @@ topics:
 children:
   - /about-organizations
   - /about-your-organization-dashboard
+  - /best-practices-for-organizations
   - /creating-a-new-organization-from-scratch
   - /accessing-your-organizations-settings
   - /customizing-your-organizations-profile
   - /about-your-organizations-news-feed
   - /viewing-insights-for-your-organization
 shortTitle: Collaborate with groups
-ms.openlocfilehash: 84851a7282452c4a8d31c420a4f82991cf1b6bd3
-ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.openlocfilehash: dd6c9950c29328c2170f58045f3a0dfeafe03637
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147879294'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163470'
 ---
 

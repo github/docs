@@ -1,7 +1,7 @@
 ---
 title: Alterar o branch-padrão
 intro: 'Se você tiver mais de um branch no seu repositório, você poderá configurar qualquer branch como o branch-padrão.'
-permissions: People with admin access for a repository can change the default branch for the repository.
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'

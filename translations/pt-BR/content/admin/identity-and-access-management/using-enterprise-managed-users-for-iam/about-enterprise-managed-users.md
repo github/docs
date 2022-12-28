@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 371a6998976fdb8ff87017866319912b28dc8ce6
-ms.sourcegitcommit: ec712c0fd32e7fe2f74c2b6d5da95f700dfd8111
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110366'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192694'
 ---
 ## Sobre os {% data variables.product.prodname_emus %}
 
@@ -65,7 +65,7 @@ Para descobrir como um membro foi adicionado a uma organização, você pode fil
 
 O {% data variables.product.prodname_emus %} dá suporte aos seguintes métodos de autenticação e IdPs{% ifversion oidc-for-emu %}:
 
-|                                  | SAML                                          | OIDC (beta)                                   |
+|                                  | SAML                                          | OIDC                                          |
 |----------------------------------|-----------------------------------------------|-----------------------------------------------|
 | Azure Active Directory           | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %} |
 | Okta                             | {% octicon "check" aria-label="Check icon" %} |                                               |
@@ -113,7 +113,7 @@ Para que os desenvolvedores possam usar o {% data variables.product.prodname_ghe
   
 3. Depois que você entrar como o usuário de configuração, recomendamos que habilite a autenticação de dois fatores. Para obter mais informações, confira "[Como configurar a autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
 
-1. Para começar, configure {% ifversion oidc-for-emu %}como os membros serão autenticados. Se você estiver usando o Azure Active Directory como provedor de identidade, poderá escolher entre o OIDC (OpenID Connect) e o SAML (Security Assertion Markup Language). As duas opções oferecem uma experiência de entrada perfeita aos membros, mas apenas o OIDC inclui suporte para CAP (políticas de acesso condicional). Se você estiver usando o Okta como provedor de identidade, poderá usar o SAML para autenticar os membros.{% else %} SSO do SAML para sua empresa. Para obter mais informações, confira "[Como configurar o logon único do SAML para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+1. Para começar, configure {% ifversion oidc-for-emu %}como os membros serão autenticados. Se você estiver usando o Azure Active Directory como provedor de identidade, poderá escolher entre o OIDC (OpenID Connect) e o SAML (Security Assertion Markup Language). Recomendamos o OIDC, que inclui suporte para CAP (Políticas de Acesso Condicional). Se você precisar de várias empresas com {% data variables.enterprise.prodname_managed_users %} provisionados por meio de um locatário, será necessário usar SAML para cada empresa após a primeira. Se você estiver usando o Okta como provedor de identidade, poderá usar o SAML para autenticar os membros.{% else %} SSO do SAML para sua empresa. Para obter mais informações, confira "[Como configurar o logon único do SAML para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
   
   {% ifversion oidc-for-emu %}
   
@@ -124,11 +124,11 @@ Para que os desenvolvedores possam usar o {% data variables.product.prodname_ghe
   
   {% endif %}
   
-4. Depois de configurar o SSO, você poderá configurar o provisionamento do SCIM. O SCIM é usado pelo provedor de identidade para provisionar e gerenciar contas e equipes de membros no {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações de como configurar o provisionamento do SCIM, confira "[Como configurar o provisionamento do SCIM para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
+4. Depois de configurar o SSO, você poderá configurar o provisionamento do SCIM. O SCIM é a forma como o seu provedor de identidade criará {% data variables.enterprise.prodname_managed_users %} no {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações de como configurar o provisionamento do SCIM, confira "[Como configurar o provisionamento do SCIM para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
   
-5. Depois que a autenticação e o provisionamento forem configurados, você poderá começar a provisionar membros e gerenciar equipes. Para obter mais informações, confira "[Como gerenciar associações à equipe com grupos de provedores de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
+5. Depois que a autenticação e o provisionamento forem configurados, você poderá começar a gerenciar a associação à organização para os {% data variables.enterprise.prodname_managed_users %} sincronizando os grupos de IdP com as equipes. Para obter mais informações, confira "[Como gerenciar associações à equipe com grupos de provedores de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
 
-Se os membros da empresa precisarem usar uma estação de trabalho para contribuir em repositórios em {% data variables.location.product_location %} por meio de um {% data variables.enterprise.prodname_managed_user %} e de uma conta pessoal, você poderá dar suporte. Para obter mais informações, confira "[Suporte a desenvolvedores com várias contas de usuário em {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)".
+Se os membros da sua empresa precisarem usar uma estação de trabalho para contribuir com os repositórios no {% data variables.location.product_location %} por meio de um {% data variables.enterprise.prodname_managed_user %} e de uma conta pessoal, você poderá fornecer suporte. Para obter mais informações, confira "[Suporte a desenvolvedores com várias contas de usuário em {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)".
 
 ## Fazer a autenticação como um {% data variables.enterprise.prodname_managed_user %}
 

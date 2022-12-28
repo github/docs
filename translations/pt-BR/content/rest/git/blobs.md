@@ -2,7 +2,7 @@
 title: Blobs do Git
 shortTitle: Blobs
 allowTitleToDifferFromFilename: true
-intro: 'A API Blob do Git permite criar e obter um blob (objeto binário grande) do Git, o tipo de objeto usado para armazenar o conteúdo de cada arquivo em um repositório.'
+intro: 'Use a API REST para interagir com um Git blob (objeto binário grande), o tipo de objeto usado para armazenar o conteúdo de cada arquivo em um repositório.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,22 +11,22 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: e815b7d7ea3d63ced4c486605891a10dcb870176
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b29c69d2635e20720d23aad62c7aa88984cff984
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060615'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192718'
 ---
-## Sobre a API de blobs do Git
+## Sobre blobs do Git
 
-Um blob (objeto binário grande) do Git é o tipo de objeto usado para armazenar o conteúdo de cada arquivo em um repositório. O hash SHA-1 do arquivo é calculado e armazenado no objeto do blob. Esses pontos de extremidade permitem que você leia e grave [objetos de blob](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects) no banco de dados do Git no {% data variables.product.product_name %}. Os blobs aproveitam [estes tipos de mídia personalizados](#custom-media-types-for-blobs). Leia mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
+Um blob (objeto binário grande) do Git é o tipo de objeto usado para armazenar o conteúdo de cada arquivo em um repositório. O hash SHA-1 do arquivo é calculado e armazenado no objeto do blob. Esses pontos de extremidade permitem que você leia e grave [objetos de blob](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) no banco de dados do Git no {% data variables.product.product_name %}. Os blobs aproveitam [estes tipos de mídia personalizados](#custom-media-types-for-blobs). Leia mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
 ### Tipos de mídia personalizados para os blobs
 
 Estes são os tipos de mídia compatíveis com blobs.
 
     application/json
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Para obter mais informações, confira "[Tipos de mídia](/rest/overview/media-types)".

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 42464c33b7846422a3a8bd4f1102b8111f7000a7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107470"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183981"
 ---
 | カテゴリ名 | 説明
 |------------------|-------------------
@@ -23,7 +23,7 @@ ms.locfileid: "148107470"
 {%- ifversion fpt or ghec %} | `codespaces` | Organization の codespace に関連するアクティビティが含まれます。
 {%- endif %} | `commit_comment` | コミット コメントの更新または削除に関連するアクティビティが含まれます。
 {%- ifversion ghes %} | `config_entry` | 構成設定に関連するアクティビティが含まれます。 これらのイベントは、サイト管理者の監査ログにのみ表示されます。
-{%- endif %} | | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %}に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
+{%- endif %} | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %} に対する組織レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
 | `dependabot_alerts_new_repos`   | Organization 内に作成された新しいリポジトリ内の {% data variables.product.prodname_dependabot_alerts %} に対する Organization レベルの構成アクティビティが含まれます。
 | `dependabot_repository_access` | Organization {% data variables.product.prodname_dependabot %} 内のどのプライベート リポジトリへのアクセスが許可されているかに関連するアクティビティが含まれます。
 {%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | 既存のリポジトリの {% data variables.product.prodname_dependabot_security_updates %} に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %} の構成](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
@@ -106,7 +106,7 @@ ms.locfileid: "148107470"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | スポンサー ボタンに関連するイベントが含まれます (「[リポジトリにスポンサー ボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)。
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Organaization または Enterprise の SSH 証明機関に関連するアクティビティが含まれます。
 | `ssh_certificate_requirement` | メンバーが SSH 証明書を使用して Organaization リソースにアクセスすることを要求することに関連するアクティビティが含まれます。
-{%- endif %} | `staff` | アクションを実行しているサイト管理者に関連するアクティビティが含まれます。
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | サインインへのユーザーの自動リダイレクトに関連するアクティビティが含まれます (「[エンタープライズでセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)」を参照)。{% endif %} | `staff` | アクションを実行するサイト管理者に関連するアクティビティが含まれます。
 | `team` | Organization 内のチームに関連するアクティビティが含まれます。
 | `team_discussions` | Organization のチーム ディスカッション管理に関連するアクティビティが含まれます。
 {%- ifversion ghec %} | `team_sync_tenant` | Enterprise または Organaization の IdP とのチーム同期に関連するアクティビティが含まれます。

@@ -6,7 +6,7 @@ name: Stale check for issues or PRs with "needs SME" label
 
 on:
   schedule:
-    - cron: '40 20 * * *' # Run each day at 20:40 UTC / 12:40 PST
+    - cron: '20 16 * * *' # Run each day at 16:20 UTC / 8:20 PST
 
 permissions:
   issues: write
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@9c1b1c6e115ca2af09755448e0dbba24e5061cc8
+      - uses: actions/stale@5ebf00ea0e4c1561e9b43a292ed34424fb1d4578
         with:
           only-labels: needs SME
           remove-stale-when-updated: true

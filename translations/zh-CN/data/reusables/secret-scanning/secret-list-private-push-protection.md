@@ -1,104 +1,19 @@
-Provider | Supported secret | Secret type
+---
+ms.openlocfilehash: 3ebbac63feea9d1abfffa4684a03160ab3c80c51
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181753"
+---
+提供程序 | 支持的密钥 | 机密类型
 --- | --- | ---
-Adafruit IO | Adafruit IO Key | adafruit_io_key
-Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
-Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret
-Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
-Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
-Asana | Asana {% data variables.product.pat_generic %} | asana_personal_access_token
-Atlassian | Bitbucket Server {% data variables.product.pat_generic %} | bitbucket_server_personal_access_token
-Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret
-{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure Batch Key Identifiable | azure_batch_key_identifiable{% endif %}
-Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key
-{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
-Azure | Azure DevOps {% data variables.product.pat_generic %} | azure_devops_personal_access_token
-{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
-Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
-Clojars | Clojars Deploy Token | clojars_deploy_token
-Databricks | Databricks Access Token | databricks_access_token
-{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-DevCycle | DevCycle Client API Key | devcycle_client_api_key
-DevCycle | DevCycle Server API Key | devcycle_server_api_key
-DevCycle | DevCycle Mobile API Key | devcycle_mobile_api_key{% endif %}
-DigitalOcean | DigitalOcean {% data variables.product.pat_generic %} | digitalocean_personal_access_token
-DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
-DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
-DigitalOcean | DigitalOcean System Token | digitalocean_system_token
-Discord | Discord Bot Token | discord_bot_token
-Doppler | Doppler Personal Token | doppler_personal_token
-Doppler | Doppler Service Token | doppler_service_token
-Doppler | Doppler CLI Token | doppler_cli_token
-Doppler | Doppler SCIM Token | doppler_scim_token
-Doppler | Doppler Audit Token | doppler_audit_token
-Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
-Duffel | Duffel Live Access Token | duffel_live_access_token
-EasyPost | EasyPost Production API Key | easypost_production_api_key
-Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
-Fullstory | FullStory API Key | fullstory_api_key
-GitHub | GitHub {% data variables.product.pat_generic %} | github_personal_access_token
-GitHub | GitHub OAuth Access Token | github_oauth_access_token
-GitHub | GitHub Refresh Token | github_refresh_token
-GitHub | GitHub App Installation Access Token | github_app_installation_access_token
-GitHub | GitHub SSH Private Key | github_ssh_private_key
-Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
-Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
-Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret
-Grafana | Grafana API Key | grafana_api_key
-{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-HashiCorp | HashiCorp Vault Batch Token (v1.10.0+) | hashicorp_vault_batch_token
-HashiCorp | HashiCorp Vault Root Service Token (v1.10.0+) | hashicorp_vault_root_service_token
-HashiCorp | HashiCorp Vault Service Token (v1.10.0+) | hashicorp_vault_service_token{% endif %}
-Hubspot | Hubspot API Key | hubspot_api_key
-Intercom | Intercom Access Token | intercom_access_token
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-JFrog | JFrog Platform Access Token | jfrog_platform_access_token
-JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
-Ionic | Ionic {% data variables.product.pat_generic %} | ionic_personal_access_token
-Ionic | Ionic Refresh Token | ionic_refresh_token
-Linear | Linear API Key | linear_api_key
-Linear | Linear OAuth Access Token | linear_oauth_access_token
-{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-LogicMonitor | LogicMonitor Bearer Token | logicmonitor_bearer_token
-LogicMonitor | LogicMonitor LMV1 Access Key | logicmonitor_lmv1_access_key{% endif %}
-Midtrans | Midtrans Production Server Key | midtrans_production_server_key
-New Relic | New Relic Personal API Key | new_relic_personal_api_key
-New Relic | New Relic REST API Key | new_relic_rest_api_key
-New Relic | New Relic Insights Query Key | new_relic_insights_query_key
-npm | npm Access Token | npm_access_token
-NuGet | NuGet API Key | nuget_api_key
-Onfido | Onfido Live API Token | onfido_live_api_token
-OpenAI | OpenAI API Key | openai_api_key
-PlanetScale | PlanetScale Database Password | planetscale_database_password
-PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
-PlanetScale | PlanetScale Service Token | planetscale_service_token
-Postman | Postman API Key | postman_api_key
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Prefect | Prefect Server API Key | prefect_server_api_key
-Prefect | Prefect User API Key | prefect_user_api_key{% endif %}
-Proctorio | Proctorio Secret Key | proctorio_secret_key
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
-Samsara | Samsara API Token | samsara_api_token
-Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
-SendGrid | SendGrid API Key | sendgrid_api_key
-Sendinblue | Sendinblue API Key | sendinblue_api_key
-Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key
-Shippo | Shippo Live API Token | shippo_live_api_token
-Shopify | Shopify App Shared Secret | shopify_app_shared_secret
-Shopify | Shopify Access Token | shopify_access_token
-Slack | Slack API Token | slack_api_token
-Stripe | Stripe Live API Secret Key | stripe_api_key
-Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
-Typeform | Typeform {% data variables.product.pat_generic %} | typeform_personal_access_token
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
-WorkOS | WorkOS Production API Key | workos_production_api_key
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}
+Adafruit IO | Adafruit IO 密钥 | adafruit_io_key
+Alibaba Cloud | Alibaba 云访问密钥 ID 与 Alibaba 云访问密钥机密| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
+Amazon | Amazon OAuth 客户端 ID 与 Amazon OAuth 客户端密码 | amazon_oauth_client_id </br>amazon_oauth_client_secret
+Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID 与 Amazon AWS 机密访问密钥 | aws_access_key_id </br>aws_secret_access_key
+Amazon Web Services (AWS) | Amazon AWS 会话令牌与 Amazon AWS 临时访问密钥 ID 和 Amazon AWS 机密访问密钥 | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
+Asana | Asana {% data variables.product.pat_generic_title_case %} | asana_personal_access_token
+Atlassian | Bitbucket Server {% data variables.product.pat_generic_title_case %} | bitbucket_server_personal_access_token
+Azure | Azure Active Directory 应用程序密钥 | azure_active_directory_application_secret
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} Azure | Azure Batch 可识别密钥 | azure_batch_key_identifiable{% endif %} Azure | Azure Cache for Redis 访问密钥 | azure_cache_for_redis_access_key {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} Azure | Azure CosmosDB 可识别密钥 | azure_cosmosdb_key_identifiable{% endif %} Azure | Azure DevOps {% data variables.product.pat_generic_title_case %} | azure_devops_personal_access_token {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} Azure | Azure ML 工作室（经典）Web 服务密钥 | azure_ml_web_service_classic_identifiable_key{% endif %} {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} Azure | Azure 搜索管理密钥 | azure_search_admin_key Azure | Azure 搜索查询密钥 | azure_search_query_key{% endif %} {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %} Azure | Azure 存储帐户密钥 | azure_storage_account_key{% endif %} Checkout.com | Checkout.com 生产密钥 | checkout_production_secret_key Clojars | Clojars 部署密钥 | clojars_deploy_token Databricks | Databricks 访问令牌 | databricks_access_token {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} DevCycle | DevCycle 客户端 API 密钥 | devcycle_client_api_key DevCycle | DevCycle 服务器 API 密钥 | devcycle_server_api_key DevCycle | DevCycle 移动 API 密钥 | devcycle_mobile_api_key{% endif %} DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %} | digitalocean_personal_access_token DigitalOcean | DigitalOcean OAuth 令牌 | digitalocean_oauth_token DigitalOcean | DigitalOcean 刷新令牌 | digitalocean_refresh_token DigitalOcean | DigitalOcean 系统令牌 | digitalocean_system_token Discord | Discord 自动程序令牌 | discord_bot_token Doppler | Doppler 个人令牌 | doppler_personal_token Doppler | Doppler 服务令牌 | doppler_service_token Doppler | Doppler CLI 令牌 | doppler_cli_token Doppler | Doppler SCIM 令牌 | doppler_scim_token Doppler | Doppler 审核令牌 | doppler_audit_token Dropbox | Dropbox 短暂访问令牌 | dropbox_short_lived_access_token Duffel | Duffel 实时访问令牌 | duffel_live_access_token EasyPost | EasyPost 生产 API 密钥 | easypost_production_api_key {%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %} Figma | Figma {% data variables.product.pat_generic_title_case %} | figma_pat{% endif %} Flutterwave | Flutterwave 实时 API 密钥 | flutterwave_live_api_secret_key Fullstory | FullStory API Key | fullstory_api_key GitHub | GitHub {% data variables.product.pat_generic_title_case %} | github_personal_access_token GitHub | GitHub OAuth 访问令牌 | github_oauth_access_token GitHub | GitHub 刷新令牌 | github_refresh_token GitHub | GitHub App 安装访问令牌 | github_app_installation_access_token GitHub | GitHub SSH 私钥 | github_ssh_private_key Google | Google Cloud Storage 服务帐户访问密钥 ID 与 Google Cloud Storage 访问密钥机密 | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret Google | Google Cloud 存储用户访问密钥 ID 与 Google Cloud 存储访问密钥机密 | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret Google | Google OAuth 客户端 ID 与 Google OAuth 客户端密码 | google_oauth_client_id </br>google_oauth_client_secret Grafana | Grafana API 密钥 | grafana_api_key {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} HashiCorp | HashiCorp Vault 批处理令牌 (v1.10.0+) | hashicorp_vault_batch_token HashiCorp | HashiCorp Vault 根服务令牌 (v1.10.0+) | hashicorp_vault_root_service_token HashiCorp | HashiCorp Vault 服务令牌 (v1.10.0+) | hashicorp_vault_service_token{% endif %} Hubspot | Hubspot API 密钥 | hubspot_api_key Intercom | Intercom 访问令牌 | intercom_access_token {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %} JFrog | JFrog Platform 访问令牌 | jfrog_platform_access_token JFrog | JFrog Platform API 密钥 | jfrog_platform_api_key{% endif %} Ionic | Ionic {% data variables.product.pat_generic_title_case %} | ionic_personal_access_token Ionic | Ionic 刷新令牌 | ionic_refresh_token Linear | Linear API 密钥 | linear_api_key Linear | Linear OAuth 访问令牌 | linear_oauth_access_token {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %} LogicMonitor | LogicMonitor 持有者令牌 | logicmonitor_bearer_token LogicMonitor | LogicMonitor LMV1 访问密钥 | logicmonitor_lmv1_access_key{% endif %} Midtrans | Midtrans 生产服务器密钥 | midtrans_production_server_key New Relic | New Relic 个人 API 密钥 | new_relic_personal_api_key New Relic | New Relic REST API 密钥 | new_relic_rest_api_key New Relic | New Relic 见解查询密钥 | new_relic_insights_query_key npm | npm 访问令牌 | npm_access_token NuGet | NuGet API 密钥 | nuget_api_key Onfido | Onfido 实时 API 令牌 | onfido_live_api_token OpenAI | OpenAI API Key | openai_api_key PlanetScale | PlanetScale 数据库密码 | planetscale_database_password PlanetScale | PlanetScale OAuth 令牌 | planetscale_oauth_token PlanetScale | PlanetScale 服务令牌 | planetscale_service_token Postman | Postman API 密钥 | postman_api_key {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %} Prefect | Prefect 服务器 API 密钥 | prefect_server_api_key Prefect | Prefect 用户 API 密钥 | prefect_user_api_key{% endif %} Proctorio | Proctorio 密钥 | proctorio_secret_key {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %} ReadMe | ReadMe API 访问密钥 | readmeio_api_access_token{% endif %} {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %} redirect.pizza | redirect.pizza API 令牌 | redirect_pizza_api_token{% endif %} Samsara | Samsara API 令牌 | samsara_api_token Samsara | Samsara OAuth 访问令牌 | samsara_oauth_access_token SendGrid | SendGrid API 密钥 | sendgrid_api_key Sendinblue | Sendinblue API 密钥 | sendinblue_api_key Sendinblue | Sendinblue SMTP 密钥 | sendinblue_smtp_key Shippo | Shippo 实时 API 令牌 | shippo_live_api_token Shopify | Shopify 应用共享机密 | shopify_app_shared_secret Shopify | Shopify 访问令牌 | shopify_access_token Slack | Slack API 令牌 | slack_api_token Stripe | Stripe 实时 API 密钥 | stripe_api_key 腾讯云 | 腾讯云机密 ID | tencent_cloud_secret_id Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %} Uniwise | WISEflow API 密钥 | wiseflow_api_key{% endif %} WorkOS | WorkOS 生产 API 密钥 | workos_production_api_key {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %} Zuplo | Zuplo 使用者 API 密钥 | zuplo_consumer_api_key{% endif %}

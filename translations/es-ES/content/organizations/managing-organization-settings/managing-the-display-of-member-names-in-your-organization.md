@@ -14,18 +14,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage display of member names
-ms.openlocfilehash: 0a394b40689d95ea37906fef2ddc9b203e2041c3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a990098874393e17f992ffac7b04bcef1b1bcfc4
+ms.sourcegitcommit: 9e0d21122ddfcf3f0dbba9b365ba902a2f779493
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409431'
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163147'
 ---
 Los propietarios de la organización pueden administrar la visualización de los nombres de los miembros en una organización.
 
 ![Nombre del perfil del autor del comentario que se muestra en un comentario](/assets/images/help/issues/commenter-full-name.png)
 
-Cada miembro de la organización elige su propio nombre de perfil en sus configuraciones. Para obtener más información, consulte "[Personalización del perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)".
+Los cambios en la presentación de nombres de usuario dentro de una organización afectarán a la visualización de los nombres de usuario de otras personas, no los suyos propios. Cada miembro de la organización elige su propio nombre de perfil en sus configuraciones. Para obtener más información, consulte "[Personalización del perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)".
 
 {% ifversion profile-name-enterprise-setting %} Si el propietario de la cuenta de empresa ha establecido una directiva en el nivel de empresa, es posible que no puedas configurar este valor para tu organización. Para obtener más información, consulta "[Aplicación de directivas de administración de repositorios en la empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)".{% endif %}
 

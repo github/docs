@@ -1,6 +1,6 @@
 ---
-title: About forks
-intro: A fork is a copy of a repository that you manage. Forks let you make changes to a project without affecting the original repository. You can fetch updates from or submit changes to the original repository with pull requests.
+title: Acerca de las bifurcaciones
+intro: Una bifurcación es una copia de un repositorio que administras. Las bifurcaciones te permiten realizar cambios a un proyecto sin afectar el repositorio original. Puedes recuperar actualizaciones o enviar cambios al repositorio original con solicitudes de extracción.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
@@ -13,33 +13,39 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 83372d27f052ee8c22730f5ce5d22e9efbf04fbb
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158753'
 ---
-Forking a repository is similar to copying a repository, with two major differences:
+Bifurcar un repositorio es similar a copiar un repositorio, con dos diferencias principales:
 
-* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
-* You can bring changes from the upstream repository to your local fork by synchronizing your fork with the upstream repository.
+* Puede usar una solicitud de incorporación de cambios para sugerir cambios desde la bifurcación propiedad del usuario hacia el repositorio original en su instancia de GitHub, que también se conoce como repositorio *ascendente*.
+* Puedes llevar cambios desde tu repositorio ascendente a tu bifurcación local sincronizando tu bifurcación con el repositorio ascendente.
 
 {% data reusables.repositories.you-can-fork %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of a {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Si eres un miembro de una {% data variables.enterprise.prodname_emu_enterprise %}, hay más restricciones sobre los repositorios que puedes bifurcar. {% data reusables.enterprise-accounts.emu-forks %} Para más información, vea "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork—add collaborators, rename files, generate {% data variables.product.prodname_pages %}—with no effect on the original.{% ifversion fpt or ghec %} You cannot restore a deleted forked repository. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Eliminar una bifurcación no eliminará el repositorio ascendente original. Puede realizar todos los cambios que quiera en la bifurcación, como añadir colaboradores, cambiar archivos de nombre, generar {% data variables.product.prodname_pages %}, sin que esto afecte el repositorio original.{% ifversion fpt or ghec %} No puede restaurar un repositorio bifurcado eliminado. Para más información, vea "[Restauración de un repositorio eliminado](/articles/restoring-a-deleted-repository)".{% endif %}
 
-In open source projects, forks are often used to iterate on ideas or changes before they are offered back to the upstream repository. When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch (including deleting the branch). This speeds up collaboration by allowing repository maintainers the ability to make commits or run tests locally to your pull request branch from a user-owned fork before merging. You cannot give push permissions to a fork owned by an organization. 
+En proyectos de código abierto, las bifurcaciones suelen iterar en ideas o cambios antes de que se presenten al repositorio ascendente. Cuando haces cambios en la bifurcación que pertenece a tu usuario y abres una solicitud de cambios que compara tu trabajo con el repositorio ascendente, puedes otorgar permisos para subir cambios a tu rama de solicitud de cambios a cualquiera que tenga acceso de subida (incluyendo el borrar la rama). Esto agiliza la colaboración permitiendo que los mantenedores del repositorio puedan hacer confirmaciones de cambios o ejecutar pruebas locales a tu rama de solicitud de extracción desde una bifurcación propiedad de un usuario antes de fusionarlas. No puedes otorgar permisos de escritura a una bifurcación que sea propiedad de una organización. 
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
+Si quieres crear un repositorio nuevo desde el contenido de uno existente pero no quieres fusionar tus cambios ascendentemente en ocasiones futuras, puedes duplicar el repositorio o, si éste es una plantilla, utilizarlo como tal. Para más información, vea "[Duplicación de un repositorio](/articles/duplicating-a-repository)" y "[Creación de un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
 
-## Further reading
+## Información adicional
 
-- "[About collaborative development models](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+- "[Acerca de los modelos de desarrollo colaborativo](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
+- "[Creación de una solicitud de incorporación de cambios desde una bifurcación](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- [Guías de código abierto](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

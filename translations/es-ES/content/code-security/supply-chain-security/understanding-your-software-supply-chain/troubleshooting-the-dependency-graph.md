@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting the dependency graph
-intro: 'If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.'
+title: Solución de problemas del gráfico de dependencias
+intro: 'Si la información de la dependencia que se notifica en el gráfico de dependencias no es lo que esperabas, debes tener en cuenta varias cuestiones y comprobar diversos elementos.'
 shortTitle: Troubleshoot dependency graph
 versions:
   fpt: '*'
@@ -16,51 +16,56 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128908'
 ---
-
 {% data reusables.dependabot.result-discrepancy %}
 
-## Does the dependency graph only find dependencies in manifests and lockfiles?
+## ¿Acaso la gráfica de dependencias solo encuentra depedencias en los manifiestos y lockfiles?
 
-The dependency graph {% ifversion dependency-submission-api %}automatically{% endif %} includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
+El gráfico de dependencias incluye{% ifversion dependency-submission-api %} de forma automática{% endif %} información sobre las dependencias que se declaran explícitamente en el entorno. Esto es, dependencias que se especifican en un manifiesto o en un lockfile. La gráfica de dependencias también incluye dependencias transitivas generalmente, aún cuando no se especifican en un lockfile, mediante la revisión de las dependencias de las dependencias en un archivo de manifiesto.
 
-The dependency graph doesn't {% ifversion dependency-submission-api %}automatically{% endif %} include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile. 
+El gráfico de dependencias no incluye{% ifversion dependency-submission-api %} de forma automática{% endif %} dependencias "sueltas". Las dependencias "sueltas" son archivos individuales que se copian de otra fuernte y se revisan directamente en el repositorio o dentro de un archivo (tal como un archivo ZIP o JAR) en ves de que se referencien en un manifiesto de paquete de administrador o en un lockfile. 
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}Aun así, puedes usar la API de envío de dependencias (beta) para agregar dependencias al gráfico de dependencias de un proyecto, incluso si las dependencias no se declaran en un archivo de manifiesto o de bloqueo, como las dependencias que se resuelven cuando se compila un proyecto. El gráfico de dependencias mostrará las dependencias enviadas agrupadas por ecosistema, pero por separado de las dependencias analizadas de los archivos de manifiesto o de bloqueo. Para obtener más información sobre la API de envío de dependencias, consulta "[Uso de la API de envío de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)".{% endif %}
 
-**Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
+**Comprobación**: ¿La dependencia que falta es para un componente sin especificar en el manifiesto o archivo de bloqueo del repositorio?
 
-## Does the dependency graph detect dependencies specified using variables?
+## ¿Acaso la gráfica de dependencias detecta dependencias que se especifican utilizando variables?
 
-The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not {% ifversion dependency-submission-api %}automatically{% endif %} be included in the dependency graph.
+La gráfica de dependencias analiza los manifiestos mientras se suben a {% data variables.product.prodname_dotcom %}. Por lo tanto, la gráfica de dependencias no tiene acceso al ambiente de compilación del proyecto, así que no puede resolver variables que se utilizan dentro de los manifiestos. Si usas variables dentro de un manifiesto para especificar el nombre, o más comúnmente la versión de una dependencia, dicha dependencia no se incluirá{% ifversion dependency-submission-api %} de forma automática{% endif %} en el gráfico de dependencias.
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}Aun así, puedes usar la API de envío de dependencias (beta) para agregar dependencias al gráfico de dependencias de un proyecto, incluso si las dependencias solo se resuelven cuando se compila un proyecto. Para obtener más información sobre la API de envío de dependencias, consulta "[Uso de la API de envío de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)".{% endif %}
 
-**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
+**Comprobación**: ¿Falta la dependencia declarada en el manifiesto mediante una variable para su nombre o versión?
 
-## Are there limits which affect the dependency graph data?
+## ¿Existen límites que afecten los datos de la gráfica de dependencias?
 
-Yes, the dependency graph has two categories of limits:
+Sí, la gráfica de dependencias tiene dos categorías de límites:
 
-1. **Processing limits**
+1. **Límites de procesamiento**
 
-    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
+    Estos afectan la gráfica de dependencias que se muestra dentro de {% data variables.product.prodname_dotcom %} y también previenen la creación de {% data variables.product.prodname_dependabot_alerts %}.
 
-    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
+    Los manifiestos mayores a 0.5 MB solo se procesan para las cuentas empresariales. En el caso de otras cuentas, los manifiestos mayores a 0.5 MB se ingoran y no crearán {% data variables.product.prodname_dependabot_alerts %}.
 
-    By default, {% data variables.product.prodname_dotcom %} will not process more than {% ifversion fpt %}150{% else %}600{% endif %} manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
+    De manera predeterminada, {% data variables.product.prodname_dotcom %} no procesará más de {% ifversion fpt %}150{% else %}600{% endif %} manifiestos por repositorio. Las {% data variables.product.prodname_dependabot_alerts %} no se crean para los manifiestos más allá de este límite. Si necesitas incrementar el límite, contacta a {% data variables.contact.contact_support %}. 
 
-2. **Visualization limits**
+2. **Límites de visualización**
 
-    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
+    Estos afectan a lo que se muestra en la gráfica de dependencias dentro de {% data variables.product.prodname_dotcom %}. Sin embargo, estos no afectan las {% data variables.product.prodname_dependabot_alerts %} que se crean.
 
-    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
+    La vista de dependencias de la gráfica de dependencias para un repositorio solo muestra 1000 manifiestos. Habitualmente, esto es tan adecuado como es significativamente más alto que el límite de procesamiento descrito anteriormente. En situaciones en donde le límite de procesamiento es mayor a 100, las {% data variables.product.prodname_dependabot_alerts %} se crearán aún para cualquier manifiesto que no se muestre dentro de {% data variables.product.prodname_dotcom %}.
 
-**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
+**Comprobación**: ¿La dependencia que falta está en un archivo de manifiesto de más de 0,5 MB, o en un repositorio con una gran cantidad de manifiestos?
 
-## Further reading
+## Información adicional
 
-- "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Troubleshooting the detection of vulnerable dependencies](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
-- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+- "[Acerca del gráfico de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+- "[Administración de la configuración de seguridad y análisis para el repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[Solución de problemas de detección de dependencias vulnerables](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
+- "[Solución de errores de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

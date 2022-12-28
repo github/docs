@@ -7,7 +7,7 @@ name: Check Broken Docs Links in github/github
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -39,13 +39,13 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
 
       - name: Clone docs-early-access
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -53,7 +53,7 @@ jobs:
           ref: main
 
       - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm
@@ -92,7 +92,7 @@ jobs:
       - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Get title for issue
         id: check
-        run: echo "::set-output name=title::$(head -1 broken_github_github_links.md)"
+        run: echo "title=$(head -1 broken_github_github_links.md)" >> $GITHUB_OUTPUT
       - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Create issue from file
         id: github-github-broken-link-report

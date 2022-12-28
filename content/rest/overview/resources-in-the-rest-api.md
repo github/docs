@@ -13,8 +13,12 @@ topics:
   - API
 ---
 
+{% ifversion api-date-versioning %}
+## API version
 
-This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
+Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[API Versions](/rest/overview/api-versions)."
+
+{% endif %}
 
 ## Schema
 
@@ -288,10 +292,10 @@ gem:
     >> tmpl.expand
     => "/notifications"
 
-    >> tmpl.expand :all => 1
+    >> tmpl.expand all: 1
     => "/notifications?all=1"
 
-    >> tmpl.expand :all => 1, :participating => 1
+    >> tmpl.expand all: 1, participating: 1
     => "/notifications?all=1&participating=1"
 
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
@@ -299,54 +303,7 @@ gem:
 
 ## Pagination
 
-Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `per_page` parameter.
-Note that for technical reasons not all endpoints respect the `per_page` parameter,
-see [events](/rest/reference/activity#events) for example.
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-Note that page numbering is 1-based and that omitting the `page`
-parameter will return the first page.
-
-Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
-With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
-Instead, you can traverse the results by using the `before` or `after` parameters.
-
-For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
-
-### Link header
-
-{% note %}
-
-**Note:** It's important to form calls with Link header values instead of constructing your own URLs.
-
-{% endnote %}
-
-The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. For example:
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_The example includes a line break for readability._
-
-Or, if the endpoint uses cursor-based pagination:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
-
-The possible `rel` values are:
-
-Name | Description
------------|-----------|
-`next` |The link relation for the immediate next page of results.
-`last` |The link relation for the last page of results.
-`first` |The link relation for the first page of results.
-`prev` |The link relation for the immediate previous page of results.
+When a response from the REST API would include many results, {% data variables.product.company_short %} will paginate the results and return a subset of the results. You can use the link header from the response to request additional pages of data. If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Timeouts
 
@@ -364,7 +321,7 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 
 Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+Additionally, the Search endpoints have dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
@@ -402,15 +359,15 @@ When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per reposit
 
 ### Checking your rate limit status
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+You can use the REST API to find the current number of API calls available to you or your app at any given time.
 
-#### Rate Limit API
+#### API to manage rate limits
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+You can use the REST API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
 
 #### Rate limit HTTP headers
 
-The returned HTTP headers of any API request show your current rate limit status:
+You can view the returned headers of any API request to see your current rate limit status:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
@@ -698,7 +655,7 @@ Note that these rules apply only to data passed to the API, not to data returned
 
 ### Explicitly providing an ISO 8601 timestamp with timezone information
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the API to manage commits. For more information, see "[Commits](/rest/reference/git#commits)."
 
 These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
@@ -710,7 +667,7 @@ It is possible to supply a `Time-Zone` header which defines a timezone according
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[Contents](/rest/reference/repos#contents)." This header will determine the timezone used for generating that current timestamp.
 
 ### Using the last known timezone for the user
 
@@ -719,5 +676,3 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 ### Defaulting to UTC without other timezone information
 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
-
-[pagination-guide]: /guides/traversing-with-pagination

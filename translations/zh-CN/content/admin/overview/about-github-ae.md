@@ -7,12 +7,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 9e7769fca5b36252fad5566450ba156120491649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389849'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180117'
 ---
 ## 关于 {% data variables.product.prodname_ghe_managed %}
 
@@ -38,7 +38,7 @@ ms.locfileid: '147389849'
 
 ## 受限制的网络访问
 
-以受限的网络访问权限保护对您在 {% data variables.product.prodname_ghe_managed %} 上的企业的访问，以便只能从您的网络内访问您的数据。 有关详细信息，请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”。
+以受限的网络访问权限保护对您在 {% data variables.product.prodname_ghe_managed %} 上的企业的访问，以便只能从您的网络内访问您的数据。 有关详细信息，请参阅“[使用 IP 允许列表限制到企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)”。
 
 ## 商业和政府环境
 

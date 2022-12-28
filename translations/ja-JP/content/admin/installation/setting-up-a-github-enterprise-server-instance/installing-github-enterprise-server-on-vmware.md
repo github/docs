@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on VMware
-intro: 'To install {% data variables.product.prodname_ghe_server %} on VMware, you must download the VMware vSphere client, and then download and deploy the {% data variables.product.prodname_ghe_server %} software.'
+title: VMware への GitHub Enterprise Server のインストール
+intro: '{% data variables.product.prodname_ghe_server %} を VMware にインストールするには、VMware vSphere クライアントをダウンロードしてから、{% data variables.product.prodname_ghe_server %} ソフトウェアをダウンロードしてデプロイする必要があります。'
 redirect_from:
   - /enterprise/admin/articles/getting-started-with-vmware
   - /enterprise/admin/articles/installing-vmware-tools
@@ -17,42 +17,44 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on VMware
+ms.openlocfilehash: f9e81c624f93c7478eed04b65b3ef43a69ef9291
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147859411'
 ---
-## Prerequisites
+## 前提条件
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.location.product_location %}s. We support versions 5.5 through 6.7 for {% data variables.product.prodname_ghe_server %} 3.4 and earlier. ESX version 7.0 is supported for {% data variables.product.prodname_ghe_server %} 3.5 and later. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
-- You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide "[Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)."
+- {% data variables.product.product_location %} を動作させるベアメタル マシンに適用された VMware vSphere ESXi Hypervisor が必要です。 {% data variables.product.prodname_ghe_server %} 3.4 以前のバージョン 5.5 から 6.7 がサポートされています。 ESX バージョン 7.0 は {% data variables.product.prodname_ghe_server %} 3.5 以降でサポートされています。 ESXi Hypervisor は無料で、オプションの vCenter Server は含まれていません。 詳細については、[VMware ESXi のドキュメント](https://www.vmware.com/products/esxi-and-esx.html)を参照してください。
+- vSphere Clientへのアクセスが必要です。 vCenter Serverがあるなら、vSphere Web Clientが利用できます。 詳細については、VMware ガイド「[vSphere Web クライアントを使用して vCenter Server にログインする](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)」を参照してください。
 
-## Hardware considerations
+## ハードウェアに関する考慮事項
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## {% data variables.product.prodname_ghe_server %} イメージをダウンロードする
 
-{% data reusables.enterprise_installation.download-license %}
-{% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
-5. Click **Download for VMware ESXi/vSphere (OVA)**.
+{% data reusables.enterprise_installation.download-license %} {% data reusables.enterprise_installation.download-appliance %}
+4. [{% data variables.product.prodname_dotcom %} On-premises]\(GitHub オンプレミス\) の下にある [Select your hypervisor]\(ハイパーバイザーの選択\) ドロップダウン メニューを選び、 **[VMware ESXi/vSphere (OVA)]** をクリックします。
+5. **[VMware ESXi/vSphere (OVA) のダウンロード]** をクリックします。
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %} インスタンスを作成する
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Using the vSphere Windows Client or the vCenter Web Client, import the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the VMware guide "[Deploy an OVF or OVA Template](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)."
-    - When selecting a datastore, choose one with sufficient space to host the VM's disks. For the minimum hardware specifications recommended for your instance size, see "[Hardware considerations](#hardware-considerations)." We recommend thick provisioning with lazy zeroing.
-    - Leave the **Power on after deployment** box unchecked, as you will need to add an attached storage volume for your repository data after provisioning the VM.
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the VMware guide "[Add a New Hard Disk to a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)."
+1. vSphere Windows Client または vCenter Web Client を使用して、ダウンロードした {% data variables.product.prodname_ghe_server %} イメージをインポートします。 手順については、VMware ガイド「[OVF または OVA テンプレートをデプロイする](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html)」を参照してください。
+    - データストアを選択する際には、VMのディスクをホストするのに十分な領域があるものを選択してください。 インスタンス サイズに推奨される最小ハードウェア仕様については、「[ハードウェアに関する考慮事項](#hardware-considerations)」を参照してください。 lazy zeroing のシックプロビジョニングをお勧めします。
+    - **[デプロイ後に電源をオンにする]** のチェックは外したままにしておいてください。これは、VM をプロビジョニングした後にリポジトリ データのためのアタッチされたストレージ ボリュームを追加する必要があるためです。
+{% data reusables.enterprise_installation.create-attached-storage-volume %} 手順については、VMware ガイド「[仮想マシンに新しいハード ディスクを追加する](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-F4917C61-3D24-4DB9-B347-B5722A84368C.html)」を参照してください。
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## {% data variables.product.prodname_ghe_server %} インスタンスを設定する
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
-{% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} 詳細については、[{% data variables.product.prodname_ghe_server %} アプライアンスの構成](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)に関するページを参照してください。
+{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## 参考資料
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- [システムの概要](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
+- [新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases){% endif %}

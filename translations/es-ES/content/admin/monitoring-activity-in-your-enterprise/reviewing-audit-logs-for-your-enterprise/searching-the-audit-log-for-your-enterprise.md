@@ -19,12 +19,12 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 6289b83d40aecf5208ae377be953ca65baba4a7d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 12bc44b7d81df55366f8b839261cf8899a53729d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147879430'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184000'
 ---
 ## Acerca de la búsqueda en el registro de auditoría de empresa
 
@@ -85,6 +85,7 @@ Clave            | Value
 `org_id`       | ID de la organización afectada por la acción (si corresponde)
 `business` | Nombre de la empresa afectada por la acción (si procede)
 `business_id` | Id. de la empresa afectada por la acción (si procede)
+{%- ifversion token-audit-log %} `hashed_token` | El token usado para autenticarse para la acción (si procede, consulta "[Identificación de eventos de registro de auditoría realizados por un token de acceso](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)") {%- endif %}
 
 Para ver las acciones agrupadas por categoría, también puede usar el calificador de acción como un par `key:value`. Para más información, vea "[Búsqueda en función de la acción realizada](#search-based-on-the-action-performed)".
 
@@ -113,6 +114,7 @@ Cada categoría tiene un conjunto de acciones asociadas que puedes filtrar. Por 
 Las acciones que se pueden encontrar en el registro de auditoría de la empresa se agrupan en las categorías siguientes:
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### Búsqueda basada en el momento de la acción
 
 Use el calificador `created` para filtrar los eventos del registro de auditoría en función de cuándo se hayan producido.
@@ -134,4 +136,10 @@ Con el calificador `country`, puede filtrar los eventos del registro de auditor�
 
   * `country:de` busca todos los eventos que se han producido en Alemania.
   * `country:Mexico` busca todos los eventos que se han producido en México.
-  * `country:"United States"` todos buscan eventos que se han producido en Estados Unidos.
+  * `country:"United States"` busca todos los eventos que se han producido en Estados Unidos.
+
+{% ifversion token-audit-log %}
+### Búsqueda basada en el token que realizó la acción
+
+Usa el calificador `hashed_token` para buscar en función del token que realizó la acción. Para poder buscar un token, debes generar un hash SHA-256. Para obtener más información, consulta "[Identificación de eventos de registro de auditoría realizados por un token de acceso](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)".
+{% endif %}

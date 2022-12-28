@@ -2,23 +2,23 @@
 title: Sobre a divulgação coordenada de vulnerabilidades de segurança
 intro: A divulgação das vulnerabilidades é um esforço coordenado entre os relatores de segurança e os mantenedores de repositório.
 redirect_from:
-  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-  - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
 type: overview
 topics:
-  - Security advisories
-  - Vulnerabilities
+- Security advisories
+- Vulnerabilities
 shortTitle: Coordinated disclosure
 ms.openlocfilehash: c451554e08b4193ca20f9af8a5e694750808bf19
 ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113967'
+ms.locfileid: "148113967"
 ---
 ## Sobre a divulgação de vulnerabilidades no setor
 

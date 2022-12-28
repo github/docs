@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting SAML authentication
+title: Autenticación SAML
 shortTitle: Troubleshoot SAML SSO
-intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.location.product_location %}, you can troubleshoot the problem.'
+intro: 'Si usas el inicio de sesión único (SSO) de SAML y los usuarios no pueden autenticarse para acceder a {% data variables.location.product_location %}, puedes solucionar el problema.'
 versions:
   ghes: '*'
   ghec: '*'
@@ -14,46 +14,49 @@ topics:
   - Security
   - SSO
   - Troubleshooting
+ms.openlocfilehash: d15a3686045a4d570feb60cade2320f939cc0d86
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107257'
 ---
-
 {% ifversion ghes %}
-## About problems with SAML authentication
+## Acerca de los problemas con la autenticación SAML
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
+{% data variables.product.product_name %} registra mensajes de error para la autenticación de SAML con errores en el registro de autenticación en _/var/log/github/auth.log_. Puedes revisar las respuestas en este archivo de registro, así como configurar un registro más detallado.
 
-For more information about SAML response requirements, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
+Para obtener más información sobre los requisitos de respuesta de SAML, consulta "[Referencia de configuración de SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)".
 
-## Configuring SAML debugging
+## Configurar la depuración de SAML
 
-You can configure {% data variables.product.product_name %} to write verbose debug logs to _/var/log/github/auth.log_ for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
+Puede configurar {% data variables.product.product_name %} a fin de escribir registros detallados de depuración en _/var/log/github/auth.log_ para cada intento de autenticación de SAML. Es posible que puedas solucionar los problemas de los intentos de autenticación fallidos con esta salida adicional.
 
 {% warning %}
 
-**Warnings**:
+**Advertencias**:
 
-- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of your log may increase much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
-- Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+- Habilita la depuración de SAML solo temporalmente e inhabilita la depuración inmediatamente después de que termines de solucionar los problemas. Si dejas habilitada la depuración, el tamaño de tu bitácora podría incrementarse mucho más rápido de lo habitual, lo cual podría impactar negativamente el rendimiento de {% data variables.product.product_name %}.
+- Prueba la configuración de autenticación nueva de {% data variables.location.product_location %} en un entorno de ensayo antes de aplicarla en el entorno de producción. Para más información, vea "[Configuración de una instancia de ensayo](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)".
 
 {% endwarning %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.options-tab %}
-1. Under "SAML debugging", select the drop-down and click **Enabled**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.options-tab %}
+1. En "SAML debugging" (Depuración de SAML), seleccione la lista desplegable y haga clic en **Enabled** (Habilitado).
 
-   ![Screenshot of drop-down to enable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
+   ![Captura de pantalla del menú desplegable para habilitar la depuración de SAML](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
 
-1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
+1. Intenta iniciar sesión en {% data variables.location.product_location %} mediante tu IdP de SAML.
 
-1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.location.product_location %}.
+1. Revisa la salida de depuración en _/var/log/github/auth.log_ en {% data variables.location.product_location %}.
 
-1. When you're done troubleshooting, select the drop-down and click **Disabled**.
+1. Cuando haya terminado de solucionar problemas, seleccione la lista desplegable y haga clic en **Disabled** (Deshabilitado).
 
-   ![Screenshot of drop-down to disable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
+   ![Captura de pantalla del menú desplegable para inhabilitar la depuración de SAML](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
 
-## Decoding responses in _auth.log_
+## Descodificación de respuestas en _auth.log_
 
-Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Algunos resultados de _auth.log_ pueden estar codificados en Base64. Puedes acceder al shell administrativo y utilizar la utilidad de `base64` en {% data variables.location.product_location %} para descodificar estas respuestas. Para obtener más información, consulte "[Acceso al shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 
 ```shell
 $ base64 --decode ENCODED_OUTPUT
@@ -61,17 +64,17 @@ $ base64 --decode ENCODED_OUTPUT
 
 ## Error: "Another user already owns the account"
 
-When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` to the account.
+Cuando un usuario inicia sesión en {% data variables.location.product_location %} por primera vez con la autenticación de SAML, {% data variables.product.product_name %} crea una cuenta de usuario en la instancia y asigna el elemento `NameID` de SAML a la cuenta.
 
-When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
+Cuando el usuario vuelve a iniciar sesión, {% data variables.product.prodname_ghe_server %} compara la asignación de `NameID` de la cuenta con la respuesta del IdP. Si elemento `NameID` de la respuesta del IdP ya no coincide con el elemento `NameID` que {% data variables.product.product_name %} espera para el usuario, se producirá un error en el inicio de sesión. El usuario verá el siguiente mensaje.
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+Este mensaje habitualmente indica que el nombre de usuario o dirección de correo electrónico cambió en el IdP. Asegúrese de que la asignación `NameID` de la cuenta de usuario en {% data variables.product.prodname_ghe_server %} coincide con el elemento `NameID` del usuario en el IdP. Para más información, vea "[Actualizar el `NameID` del SAML de un usuario](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)".
 
-## Error: Recipient in SAML response was blank or not valid
+## Si la respuesta SAML no está firmada o la firma no coincide con los contenidos, se presentará el siguiente mensaje de error en el registro de autenticación:
 
-If the `Recipient` does not match the ACS URL for {% data variables.location.product_location %}, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
+Si `Recipient` no coincide con la URL de ACS para {% data variables.location.product_location %}, cuando un usuario intente autenticarse aparecerá uno de los dos mensajes de error siguientes.
 
 ```
 Recipient in the SAML response must not be blank.
@@ -81,31 +84,29 @@ Recipient in the SAML response must not be blank.
 Recipient in the SAML response was not valid.
 ```
 
-Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for {% data variables.location.product_location %}. For example, `https://ghe.corp.example.com/saml/consume`.
+Asegúrate de establecer el valor de `Recipient` en el IdP en la URL completa de ACS para {% data variables.location.product_location %}. Por ejemplo, `https://ghe.corp.example.com/saml/consume`.
 
 ## Error: "SAML Response is not signed or has been modified"
 
-If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
+Si tu IdP no firma la respuesta de SAML, o si la firma no empata con el contenido, se mostrará el siguiente mensaje de error en la bitácora de autenticación.
 
 ```
 SAML Response is not signed or has been modified.
 ```
 
-Ensure that you configure signed assertions for the {% data variables.product.product_name %} application on your IdP.
+Asegúrate de configurar aserciones firmadas para la aplicación de {% data variables.product.product_name %} en tu IdP.
 
 ## Error: "Audience is invalid" or "No assertion found"
 
-If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
+Si la respuesta del IdP tiene un valor que falta o que es incorrecto `Audience`, se mostrará el mensaje de error siguiente en el registro de autenticación.
 
 ```
 Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.location.product_location %}, which is the full URL to your instance. For example, `https://ghe.corp.example.com`.
+Asegúrate de establecer el valor de `Audience` del IdP en `EntityId` para {% data variables.location.product_location %}, que es la dirección URL completa de la instancia. Por ejemplo, `https://ghe.corp.example.com`.
 {% endif %}
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}
 
-{% ifversion ghec %}
-{% data reusables.saml.authentication-loop %}
-{% endif %}
+{% ifversion ghec %} {% data reusables.saml.authentication-loop %} {% endif %}

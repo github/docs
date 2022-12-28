@@ -14,16 +14,16 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 7a18ed7051b0babdb5408821ce44a728968869d5
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 146f1a33eb4de224625b9603b27d2f383e55c54d
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108262'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163333'
 ---
 ## Sobre LEIAMEs
 
-É possível adicionar um arquivo README a um repositório para comunicar informações importantes sobre o seu projeto. Um LEIAME, junto com uma licença de repositório, um arquivo de citação{% ifversion fpt or ghec %}, diretrizes de contribuição e um código de conduta{% elsif ghes %} e diretrizes de contribuição{% endif %}, comunica as expectativas do projeto e ajuda você a gerenciar contribuições.
+{% data reusables.repositories.about-READMEs %}
 
 Para obter mais informações sobre como fornecer diretrizes para seu projeto, confira {% ifversion fpt or ghec %}"[Como adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e {% endif %}"[Como configurar seu projeto para contribuições benéficas](/communities/setting-up-your-project-for-healthy-contributions)".
 

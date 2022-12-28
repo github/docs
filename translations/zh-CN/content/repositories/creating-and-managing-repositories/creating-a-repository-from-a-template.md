@@ -13,12 +13,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Create from a template
-ms.openlocfilehash: 8f2ba1bcda417f3202e0c43c693afe50434130ec
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 16d124431426e19cf95c768e8a4cdaa5f4da2e17
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129384'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159762'
 ---
 ## 关于仓库模板
 
@@ -42,8 +42,17 @@ ms.locfileid: '145129384'
 ## 从模板创建仓库
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在文件列表上方，单击“使用此模板”。
-  ![“使用此模板”按钮](/assets/images/help/repository/use-this-template-button.png) {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
-6. （可选）要在模板中包含来自所有分支的目录结构和文件，而不仅仅是默认分支，请选择“包含所有分支”。
+1. 在文件列表上方，单击“使用此模板”。
+{% ifversion fpt or ghec %}
+1. 选择“创建新存储库”。
+
+   ![使用此模板按钮](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   注意：此外，你也可以在 codespace 中打开模板，稍后将工作发布到新存储库。 有关详细信息，请参阅“[通过模板创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)”。
+
+   {% endnote %} {% endif %} {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
+1. （可选）要在模板中包含来自所有分支的目录结构和文件，而不仅仅是默认分支，请选择“包含所有分支”。
   ![“包含所有分支”复选框](/assets/images/help/repository/include-all-branches.png) {% data reusables.repositories.select-marketplace-apps %}
 8. 单击“从模板创建存储库”。

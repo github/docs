@@ -1,7 +1,7 @@
 ---
-title: Configuring OpenID Connect in cloud providers
+title: クラウド プロバイダーでの OpenID Connect の構成
 shortTitle: OpenID Connect in cloud providers
-intro: Use OpenID Connect within your workflows to authenticate with cloud providers.
+intro: ワークフロー内で OpenID Connect を使用して、クラウド プロバイダーでの認証を行います。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -10,54 +10,58 @@ versions:
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 90dfa54e71fc602243ddb0d51b190fb8530727e4
+ms.sourcegitcommit: 938ec7898dddd5da5481ad32809d68e4127e1948
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135495'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 概要
 
-## Overview
+OpenID Connect (OIDC) を使用すると、{% data variables.product.prodname_actions %} ワークフローでは、有効期間の長い {% data variables.product.prodname_dotcom %} シークレットとして資格情報を格納しなくても、クラウド プロバイダー内のリソースにアクセスできます。
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in your cloud provider, without having to store any credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
+OIDC を使用するには、まず、{% data variables.product.prodname_dotcom %} の OIDC をフェデレーション ID として信頼するようにクラウド プロバイダーを構成してから、トークンを使用して認証するようにワークフローを更新する必要があります。
 
-To use OIDC, you will first need to configure your cloud provider to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and must then update your workflows to authenticate using tokens.
-
-## Prerequisites
+## 前提条件
 
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
 
-## Updating your {% data variables.product.prodname_actions %} workflow
+## {% data variables.product.prodname_actions %} ワークフローを更新する
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
-2. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
+OIDC のワークフローを更新するには、YAML に 2 つの変更を行う必要があります。
+1. トークンのアクセス許可設定を追加します。
+2. クラウド プロバイダーの公式アクションを使用して、OIDC トークン (JWT) をクラウド アクセス トークンと交換します。
 
-If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
+クラウド プロバイダーでまだ公式アクションを提供していない場合は、ワークフローを更新して手動でこれらの手順を実行できます。
 
-### Adding permissions settings
+### アクセス許可設定の追加
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
-### Using official actions
+### 公式アクションの使用
 
-If your cloud provider has created an official action for using OIDC with {% data variables.product.prodname_actions %}, it will allow you to easily exchange the OIDC token for an access token. You can then update your workflows to use this token when accessing cloud resources.
+クラウド プロバイダーが、{% data variables.product.prodname_actions %} で OIDC を使用するための公式アクションを作成している場合は、OIDC トークンをアクセス トークンと簡単に交換できます。 その後、クラウド リソースにアクセスするときにこのトークンを使用するようにワークフローを更新できます。
 
-## Using custom actions
+## カスタム アクションの使用
 
-If your cloud provider doesn't have an official action, or if you prefer to create custom scripts, you can manually request the JSON Web Token (JWT) from {% data variables.product.prodname_dotcom %}'s OIDC provider.
+クラウド プロバイダーに公式アクションがない場合、またはカスタム スクリプトを作成する場合は、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーから JSON Web トークン (JWT) を手動で要求できます。
 
-If you're not using an official action, then {% data variables.product.prodname_dotcom %} recommends that you use the Actions core toolkit. Alternatively, you can use the following environment variables to retrieve the token: `ACTIONS_RUNTIME_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
+公式アクションを使用していない場合、{% data variables.product.prodname_dotcom %} では Actions コア ツールキットを使用することをお勧めします。 または、次の環境変数を使用して、`ACTIONS_RUNTIME_TOKEN`、`ACTIONS_ID_TOKEN_REQUEST_URL` トークンを取得できます。
 
-To update your workflows using this approach, you will need to make three changes to your YAML:
+このアプローチを使用してワークフローを更新するには、YAML に 3 つの変更を加える必要があります。
 
-1. Add permissions settings for the token.
-2. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
-3. Add code that exchanges the OIDC token with your cloud provider for an access token.
+1. トークンのアクセス許可設定を追加します。
+2. OIDC トークンを要求するコードを、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーに追加します。
+3. OIDC トークンをクラウド プロバイダーで交換してアクセス トークンを取得するコードを追加します。
 
-### Requesting the JWT using the Actions core toolkit
+### Actions コア ツールキットを使用した JWT の要求
 
-The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see "[Adding actions toolkit packages](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
+次の例では、`core` ツールキットで `actions/github-script` を使用して、{% data variables.product.prodname_dotcom %} の OIDC プロバイダーから JWT を要求する方法を示します。 詳しくは、「[アクション ツールキットのパッケージの追加](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)」をご覧ください。
 
 ```yaml
 jobs:
@@ -77,13 +81,13 @@ jobs:
           coredemo.setOutput('id_token', id_token)
 ```
 
-### Requesting the JWT using environment variables
+### 環境変数を使用した JWT の要求
 
-The following example demonstrates how to use enviroment variables to request a JSON Web Token.
+次の例では、環境変数を使用して JSON Web トークンを要求する方法を示します。
 
-For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[Adding actions toolkit packages](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
+デプロイ ジョブでは、`core` ツールキットで `actions/github-script` を使用して、トークン設定を定義する必要があります。 詳しくは、「[アクション ツールキットのパッケージの追加](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)」をご覧ください。
 
-For example:
+次に例を示します。
 
 ```yaml
 jobs:
@@ -102,11 +106,11 @@ jobs:
           core.setOutput('IDTOKENURL', runtimeUrl.trim())
 ```
 
-You can then use `curl` to retrieve a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider. For example:
+その後、{% data variables.product.prodname_dotcom %} OIDC プロバイダーから JWT を取得するために `curl` を使用できます。 次に例を示します。
 
 ```yaml
     - run: |
-        IDTOKEN=$(curl -H "Authorization: bearer ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
+        IDTOKEN=$(curl -H "Authorization: bearer {% raw %} ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} {% endraw %} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
         echo $IDTOKEN
         jwtd() {
             if [[ -x $(command -v jq) ]]; then
@@ -123,15 +127,15 @@ You can then use `curl` to retrieve a JWT from the {% data variables.product.pro
       id: tokenid
 ```
 
-### Getting the access token from the cloud provider
+### クラウド プロバイダーからのアクセス トークンの取得
 
-You will need to present the OIDC JSON web token to your cloud provider in order to obtain an access token.
+アクセス トークンを取得するには、OIDC JSON Web トークンをクラウド プロバイダーに提示する必要があります。
 
-For each deployment, your workflows must use cloud login actions (or custom scripts) that fetch the OIDC token and present it to your cloud provider. The cloud provider then validates the claims in the token; if successful, it provides a cloud access token that is available only to that job run. The provided access token can then be used by subsequent actions in the job to connect to the cloud and deploy to its resources.
+デプロイごとに、ワークフローでは、OIDC トークンをフェッチしてクラウド プロバイダーに提示するクラウド ログイン アクション (またはカスタム スクリプト) を使用する必要があります。 その後、クラウド プロバイダーではトークン内の要求を検証します。成功した場合は、そのジョブ実行でのみ使用できるクラウド アクセス トークンが提供されます。 提供されたアクセス トークンは、ジョブ内の後続のアクションでクラウドに接続し、そのリソースにデプロイするために使用できます。
 
-The steps for exchanging the OIDC token for an access token will vary for each cloud provider.
+OIDC トークンをアクセス トークンと交換する手順は、クラウド プロバイダーごとに異なります。
 
-### Accessing resources in your cloud provider
+### クラウド プロバイダー内のリソースへのアクセス
 
-Once you've obtained the access token, you can use specific cloud actions or scripts to authenticate to the cloud provider and deploy to its resources. These steps could differ for each cloud provider.
-In addition, the default expiration time of this access token could vary between each cloud and can be configurable at the cloud provider's side.
+アクセス トークンを取得したら、特定のクラウド アクションまたはスクリプトを使用して、クラウド プロバイダーに対する認証を行い、そのリソースにデプロイできます。 これらの手順は、クラウド プロバイダーごとに異なる場合があります。
+さらに、このアクセス トークンの既定の有効期限は、クラウドごとに異なる場合があり、クラウド プロバイダー側で構成できます。

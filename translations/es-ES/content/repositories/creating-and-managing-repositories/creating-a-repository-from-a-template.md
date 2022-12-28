@@ -13,12 +13,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Create from a template
-ms.openlocfilehash: 8f2ba1bcda417f3202e0c43c693afe50434130ec
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 16d124431426e19cf95c768e8a4cdaa5f4da2e17
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145136920'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160347'
 ---
 ## Acerca de las plantillas de repositorio
 
@@ -42,8 +42,17 @@ Para obtener más información sobre las bifurcaciones, vea "[Acerca de las bifu
 ## Crear un repositorio desde una plantilla
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Encima de la lista de archivos, haga clic en **Use this template** (Usar esta plantilla).
-  ![Botón Usar esta plantilla](/assets/images/help/repository/use-this-template-button.png) {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
-6. De manera opcional, para incluir la estructura de directorios y los archivos de todas las ramas en la plantilla, y no únicamente aquellos de la rama predeterminada, seleccione **Include all branches** (Incluir todas las ramas).
+1. Encima de la lista de archivos, haga clic en **Use this template** (Usar esta plantilla).
+{% ifversion fpt or ghec %}
+1. Selecciona **Crear un repositorio nuevo**.
+
+   ![Botón Usar esta plantilla](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   **Nota:** Como alternativa, puedes abrir la plantilla en un codespace y publicar el trabajo en un nuevo repositorio más adelante. Para obtener más información, consulta "[Creación de un codespace a partir de una plantilla](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)".
+
+   {% endnote %} {% endif %} {% data reusables.repositories.owner-drop-down %} {% data reusables.repositories.repo-name %} {% data reusables.repositories.choose-repo-visibility %}
+1. De manera opcional, para incluir la estructura de directorios y los archivos de todas las ramas en la plantilla, y no únicamente aquellos de la rama predeterminada, seleccione **Include all branches** (Incluir todas las ramas).
   ![Casilla para incluir todas las ramas](/assets/images/help/repository/include-all-branches.png) {% data reusables.repositories.select-marketplace-apps %}
 8. Haga clic en **Create repository from template** (Crear repositorio a partir de plantilla).

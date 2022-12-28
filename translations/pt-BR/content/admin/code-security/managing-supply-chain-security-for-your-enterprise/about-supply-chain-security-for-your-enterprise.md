@@ -11,14 +11,16 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: 7f1c658285e88065ad1a232fc13c9186be143119
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: edfa8c2abecfa4eb7dc797d1dac3a06827fff5d7
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107194'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135692'
 ---
 Você pode permitir que os usuários identifiquem as dependências dos projetos {% ifversion ghes %}habilitando{% elsif ghae %}usando{% endif %} o grafo de dependência de {% data variables.location.product_location %}. Para obter mais informações, confira "{% ifversion ghes %}[Como habilitar o grafo de dependência para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[Sobre o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}".
+
+{% data reusables.dependency-review.dependency-review-enabled-ghes %}
 
 Você também pode permitir que os usuários de {% data variables.location.product_location %} encontrem e corrijam vulnerabilidades nas dependências do código habilitando os {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} e as {% data variables.product.prodname_dependabot_updates %}{% endif %}. Para obter mais informações, confira "[Como habilitar o {% data variables.product.prodname_dependabot %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 

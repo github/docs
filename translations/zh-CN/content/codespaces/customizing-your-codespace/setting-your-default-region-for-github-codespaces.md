@@ -2,7 +2,6 @@
 title: 设置 GitHub Codespaces 的默认区域
 shortTitle: Set the default region
 intro: '您可以在 {% data variables.product.prodname_github_codespaces %} 配置文件设置页面中设置默认地区，以个性化您的数据保存位置。'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,12 +11,12 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
-ms.openlocfilehash: bf658cadc1237ce0266f3b44f506446054fc3082
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4450c284d9012060267c2207c2a774a342669caa
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111451'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159461'
 ---
 您可以手动选择将在其中创建代码空间的区域，从而满足严格的安全性和合规性要求。 默认情况下，系统会根据您的位置自动设置您的区域。
 

@@ -1,0 +1,43 @@
+---
+title: Installation d’une application dans votre organisation
+intro: 'Vous pouvez installer des applications depuis {% data variables.product.prodname_marketplace %} pour les utiliser dans votre organisation.'
+redirect_from:
+  - /articles/installing-an-app-in-your-organization
+  - /github/customizing-your-github-workflow/installing-an-app-in-your-organization
+  - /github/customizing-your-github-workflow/purchasing-and-installing-apps-in-github-marketplace/installing-an-app-in-your-organization
+versions:
+  fpt: '*'
+  ghec: '*'
+shortTitle: Install app organization
+ms.openlocfilehash: bf64ee38839197262852d07c024c72a0742d0e6e
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145106337'
+---
+{% data reusables.marketplace.marketplace-apps-only %}
+
+{% data reusables.marketplace.marketplace-org-perms %}
+
+Si vous choisissez un plan payant, vous payez l’abonnement de votre application à la date de facturation actuelle de votre organisation en utilisant le mode de paiement existant de votre organisation.
+
+{% data reusables.marketplace.free-trials %}
+
+## Installation d’une {% data variables.product.prodname_github_app %} dans votre organisation
+
+{% data reusables.marketplace.visit-marketplace %} {% data reusables.marketplace.browse-to-app %} {% data reusables.marketplace.choose-plan %} {% data reusables.marketplace.install-buy %} {% data reusables.marketplace.confirm-install-account-org %} {% data reusables.marketplace.add-payment-method-org %} {% data reusables.marketplace.complete-order-begin-installation %}
+8. Si l’application demande l’accès aux dépôts, déterminez s’il faut accorder à l’application un accès à tous vos dépôts ou à certains dépôts, puis sélectionnez **Tous les dépôts** ou **Seulement sélectionner des dépôts**.
+  ![Cases d’option pour installer une application sur tous vos dépôts ou certains dépôts](/assets/images/help/marketplace/marketplace-choose-repo-install-option.png) {% data reusables.marketplace.select-installation-repos %} {% data reusables.marketplace.review-app-perms-install %}
+
+## Installation d’une {% data variables.product.prodname_oauth_app %} dans votre organisation
+
+{% data reusables.saml.saml-session-oauth %}
+
+{% data reusables.marketplace.visit-marketplace %} {% data reusables.marketplace.browse-to-app %} {% data reusables.marketplace.choose-plan %} {% data reusables.marketplace.install-buy %} {% data reusables.marketplace.confirm-install-account-org %} {% data reusables.marketplace.add-payment-method-org %} {% data reusables.marketplace.complete-order-begin-installation %}
+8. Passez en revue les informations d’accès de l’application à votre compte personnel, à vos organisations et à vos données, puis cliquez sur **Autoriser l’application**.
+
+## Pour aller plus loin
+
+- « [Mise à jour du mode de paiement de votre organisation](/articles/updating-your-organization-s-payment-method) »
+- « [Installation d’une application dans votre compte personnel](/articles/installing-an-app-in-your-personal-account) »

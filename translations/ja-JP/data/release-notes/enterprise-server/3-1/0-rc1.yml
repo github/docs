@@ -1,0 +1,20 @@
+date: '2021-05-06'
+release_candidate: true
+deprecated: true
+intro: "{% data variables.product.product_location %} がリリース候補ビルドを実行している場合、ホットパッチでアップグレードすることはできません。リリース候補は、テスト環境でのみ実行することをお勧めします。"
+sections:
+  security_fixes:
+    - '**中** 特定の環境では、チームまたは Organization から削除されたユーザーが、既存の pull request を開いたブランチへの書き込みアクセス権を持ったままになることがありました。'
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - '非常に大きな "check_annotations" テーブルを持つインスタンスで、スケジュールされたクリーンアップ ジョブがパフォーマンス低下を引き起こすことがあります。'
+  changes:
+    - 4 か月以上経過したチェック注釈がアーカイブされます。
+    - 'GraphQL API の "SecurityVulnerability" オブジェクトで、"firstPatchedVersion" フィールドを利用できるようになりました。'
+  known_issues:
+    - GitHub Packages npm レジストリでは、メタデータ応答で時刻値が返されなくなりました。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。
+    - 新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。
+    - カスタム ファイアウォール規則は、アップグレードの間に維持されません。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、そのファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"

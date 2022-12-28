@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting the dependency graph
-intro: 'If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.'
+title: 依存関係グラフのトラブルシューティング
+intro: 依存関係グラフによって報告された依存関係の情報が期待したものと異なる場合、いくつかの考慮するポイントと、さまざまな確認項目があります。
 shortTitle: Troubleshoot dependency graph
 versions:
   fpt: '*'
@@ -16,51 +16,56 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128905'
 ---
-
 {% data reusables.dependabot.result-discrepancy %}
 
-## Does the dependency graph only find dependencies in manifests and lockfiles?
+## 依存関係グラフは、マニフェストとロックファイルの依存関係のみを検索しますか？
 
-The dependency graph {% ifversion dependency-submission-api %}automatically{% endif %} includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
+依存関係グラフには、環境で明示的に宣言されている依存関係に関する情報が{% ifversion dependency-submission-api %}自動的に{% endif %}含まれます。 つまり、マニフェストまたはロックファイルで指定されている依存関係です。 依存関係グラフには、通常、マニフェストファイル内の依存関係の依存関係を調べることにより、ロックファイルで指定されていない場合でも、推移的な依存関係も含まれます。
 
-The dependency graph doesn't {% ifversion dependency-submission-api %}automatically{% endif %} include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile. 
+"ゆるい" 依存関係が依存関係グラフに{% ifversion dependency-submission-api %}自動的に{% endif %}含まれることはありません。 「ゆるい」依存関係は、パッケージマネージャーのマニフェストまたはロックファイルで参照されるのではなく、あるソースからコピーされ、リポジトリに直接またはアーカイブ (ZIP ファイルや JAR ファイルなど) に含まれてチェックインされる個々のファイルです。 
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}ただし、プロジェクトのビルド時に解決される依存関係など、依存関係がマニフェストまたはロック ファイルで宣言されていない場合でも、Dependency submission API (ベータ) を使用して、依存関係をプロジェクトの依存関係グラフに追加できます。 依存関係グラフには、送信された依存関係がエコシステム別にグループ化されて表示されますが、マニフェストまたはロック ファイルから解析された依存関係とは別になっています。 Dependency submission API について詳しくは、「[Dependency submission API の利用](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)」を参照してください。{% endif %}
 
-**Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
+**チェック**: リポジトリのマニフェストまたはロックファイル内で指定されていない、コンポーネントに対する見落とされている依存関係はありますか?
 
-## Does the dependency graph detect dependencies specified using variables?
+## 依存関係グラフは、変数を使用して指定された依存関係を検出しますか？
 
-The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not {% ifversion dependency-submission-api %}automatically{% endif %} be included in the dependency graph.
+依存関係グラフは、マニフェストが {% data variables.product.prodname_dotcom %} にプッシュされるときにマニフェストを分析します。 したがって、依存関係グラフはプロジェクトのビルド環境にアクセスできないため、マニフェスト内で使用される変数を解決できません。 マニフェスト内で変数を使用して名前、またはより一般的には依存関係のバージョンを指定する場合、その依存関係は依存関係グラフに{% ifversion dependency-submission-api %}自動的には{% endif %}含まれません。
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the Dependency submission API, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}ただし、依存関係がプロジェクトのビルド時にのみ解決される場合でも、Dependency submission API (ベータ) を使用して、依存関係をプロジェクトの依存関係グラフに追加できます。 Dependency submission API について詳しくは、「[Dependency submission API の利用](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)」を参照してください。{% endif %}
 
-**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
+**チェック**: マニフェストで、名前またはバージョンに変数を使用して、見落とされている依存関係が宣言されていますか?
 
-## Are there limits which affect the dependency graph data?
+## 依存関係グラフのデータに影響する制限はありますか？
 
-Yes, the dependency graph has two categories of limits:
+はい、依存関係グラフの制限には 2 つのカテゴリがあります。
 
-1. **Processing limits**
+1. **処理制限**
 
-    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
+    これらは {% data variables.product.prodname_dotcom %} 内に表示される依存関係グラフに影響を与え、{% data variables.product.prodname_dependabot_alerts %} が作成されないようにします。
 
-    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
+    サイズが 0.5 MB を超えるマニフェストは、Enterprise アカウントに対してのみ処理されます。 他のアカウントの場合、0.5 MB を超えるマニフェストは無視され、{% data variables.product.prodname_dependabot_alerts %} は作成されません。
 
-    By default, {% data variables.product.prodname_dotcom %} will not process more than {% ifversion fpt %}150{% else %}600{% endif %} manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
+    規定では、{% data variables.product.prodname_dotcom %} はリポジトリごとに {% ifversion fpt %}150{% else %}600{% endif %} 個を超えるマニフェストを処理しません。 {% data variables.product.prodname_dependabot_alerts %} は、この制限を超えるマニフェストに対しては作成されません。 制限を増やす必要がある場合は、{% data variables.contact.contact_support %} にお問い合わせください。 
 
-2. **Visualization limits**
+2. **視覚化の制限**
 
-    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
+    これらは、{% data variables.product.prodname_dotcom %} 内の依存関係グラフに表示される内容に影響します。 ただし、作成された {% data variables.product.prodname_dependabot_alerts %} には影響しません。
 
-    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
+    リポジトリの依存関係グラフの依存関係ビューには、100 個のマニフェストのみが表示されます。 通常、これは上記の処理制限よりも大幅に高いので十分です。 処理制限が100 個を超える状況でも、{% data variables.product.prodname_dotcom %} 内に表示されていないマニフェストに対して {% data variables.product.prodname_dependabot_alerts %} が作成されます。
 
-**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
+**チェック**: 0.5 MB を超えるマニフェスト ファイル、または多数のマニフェストがあるリポジトリに見落とされている依存関係はありませんか?
 
-## Further reading
+## 参考資料
 
-- "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Troubleshooting the detection of vulnerable dependencies](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
-- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+- "[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+- 「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」
+- [脆弱な依存関係の検出に関するトラブルシューティング](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies){% ifversion fpt or ghec or ghes %}
+- 「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」{% endif %}

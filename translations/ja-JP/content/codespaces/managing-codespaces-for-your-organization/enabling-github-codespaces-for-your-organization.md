@@ -2,7 +2,6 @@
 title: Organization での GitHub Codespaces の有効化
 shortTitle: 'Enable {% data variables.product.prodname_codespaces %}'
 intro: '組織内のどのユーザーが組織の負担で {% data variables.product.prodname_github_codespaces %} を使用できるかを制御できます。'
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To alter an organization''s billing settings, you must be an organization owner.'
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
@@ -15,18 +14,18 @@ topics:
   - Codespaces
   - Billing
   - Administrator
-ms.openlocfilehash: 97d8b3fce0499ea945c9a2dcfe469759a097d77e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 992d744e04ae00db4d760b59a9d08d1700846998
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106486'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158902'
 ---
 ## Organization での {% data variables.product.prodname_github_codespaces %} の有効化について
 
-組織の所有者は、組織内のどのユーザーが組織の負担で codespace を作成および使用できるかを制御できます。 価格については、「[GitHub Codespaces の請求について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
+組織の所有者は、組織内のどのユーザーが組織の負担で codespace を作成および使用できるかを制御できます。 価格について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
-リポジトリをクローンできるユーザーのみが、そのリポジトリの codespace を作成できます。 組織によって所有されるリポジトリの codespace をユーザーが作成できるようにするには、次の手順を実行する必要があります。
+リポジトリに変更をプッシュできるか、リポジトリをフォークできる人だけがそのリポジトリの codespace を作成できます。 組織によって所有されるリポジトリの codespace をユーザーが作成できるようにするには、次の手順を実行する必要があります。
 
 - ユーザーが少なくとも、codespace を使用するリポジトリへの書き込みアクセス権を持っていることを確認します。 詳細については、「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
 - 組織で IP アドレスの許可リストが有効になっていないことを確認します。 詳細については、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% else %}{% endif %}「[Organization に対する許可 IP アドレスを管理する](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
@@ -38,7 +37,7 @@ ms.locfileid: '148106486'
 
 {% ifversion fpt %} {% note %}
 
-**注:** 証明済みの教育者または教師の場合、{% data variables.product.prodname_codespaces %} Education 特典を利用するには、{% data variables.product.prodname_classroom %} から {% data variables.product.prodname_codespaces %} を有効にする必要があります。 詳細については、「[GitHub Classroom で GitHub Codespaces を使用する](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)」を参照してください。
+**注:** 証明済みの教育者または教師の場合、{% data variables.product.prodname_github_codespaces %} Education 特典を利用するには、{% data variables.product.prodname_classroom %} から {% data variables.product.prodname_codespaces %} を有効にする必要があります。 詳細については、「[{% data variables.product.prodname_github_codespaces %} を {% data variables.product.prodname_classroom %} で使う](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)」を参照してください。
 
 {% endnote %} {% endif %}
 

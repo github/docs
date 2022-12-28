@@ -30,12 +30,12 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
           username: ${{ env.NONPROD_REGISTRY_USERNAME }}
@@ -45,7 +45,7 @@ jobs:
         uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -56,7 +56,7 @@ jobs:
 
       - if: ${{ env.ENABLE_EARLY_ACCESS }}
         name: Clone docs-early-access
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}

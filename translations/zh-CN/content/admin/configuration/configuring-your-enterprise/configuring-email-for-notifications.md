@@ -1,6 +1,6 @@
 ---
-title: Configuring email for notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.'
+title: 配置电子邮件通知
+intro: '为了让用户轻松地快速响应 {% data variables.product.product_name %} 上的活动，您可以配置 {% data variables.product.product_location %} 对议题、拉取请求和提交注释发送电子邮件通知。'
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration
   - /enterprise/admin/articles/configuring-email
@@ -18,109 +18,97 @@ topics:
   - Infrastructure
   - Notifications
 shortTitle: Configure email notifications
+ms.openlocfilehash: d50e5dce6c5bdb6acd28f36172b9e8f9c5c09993
+ms.sourcegitcommit: 6a266bff4d8c9ee928560c3af45eddd7fb4f3a0c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2022
+ms.locfileid: '147410153'
 ---
-{% ifversion ghae %}
-Enterprise owners can configure email for notifications.
+{% ifversion ghae %} 企业所有者可以配置以电子邮件发送通知。
 {% endif %}
-## Configuring SMTP for your enterprise
+## <a name="configuring-smtp-for-your-enterprise"></a>为企业配置 SMTP
+
+{% ifversion ghes %} {% data reusables.enterprise_site_admin_settings.email-settings %}
+4. 选择“启用电子邮件”。 这将同时启用出站和入站电子邮件，不过，要想入站电子邮件正常运行，还需要按照下文“[配置 DNS 和防火墙设置以允许传入的电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”所述配置 DNS 设置。
+![启用出站电子邮件](/assets/images/enterprise/management-console/enable-outbound-email.png)
+5. 键入 SMTP 服务器的设置。
+      - 在“服务器地址”字段中，输入 SMTP 服务器的地址。
+      - 在“端口”字段中，输入 SMTP 服务器用于发送电子邮件的端口。
+      - 在“域”字段中，输入 SMTP 服务器将随 HELO 响应（如有）发送的域名。
+      - 在“身份验证”下拉菜单中选择 SMTP 服务器使用的加密类型。
+      - 在“无回复电子邮件地址”字段中，输入要在所有通知电子邮件的“发件人”和“收件人”字段中使用的电子邮件地址。      
+6. 如果想放弃发送到无回复电子邮件地址的所有传入电子邮件，请选中“放弃发送到无回复电子邮件地址的电子邮件”。
+![用于丢弃发送到无回复电子邮件地址的电子邮件的复选框](/assets/images/enterprise/management-console/discard-noreply-emails.png)
+7. 在“支持”下，选择用于向用户提供附加支持的链接类型。
+    - **电子邮件**：内部电子邮件地址。
+    - **URL**：内部支持站点的链接。 必须包含 `http://` 或 `https://`。
+  ![支持电子邮件或 URL](/assets/images/enterprise/management-console/support-email-url.png)
+8. [测试电子邮件传递](#testing-email-delivery)。
+{% elsif ghae %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.email-tab %}
+2. 选择“启用电子邮件”。
+  ![用于电子邮件设置配置的“启用”复选框](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
+3. 键入电子邮件服务器的设置。
+    - 在“服务器地址”字段中，输入 SMTP 服务器的地址。
+    - 在“端口”字段中，输入 SMTP 服务器用于发送电子邮件的端口。
+    - 在“域”字段中，输入 SMTP 服务器将随 HELO 响应（如有）发送的域名。
+    - 在“身份验证”下拉菜单中选择 SMTP 服务器使用的加密类型。
+    - 在“无回复电子邮件地址”字段中，输入要在所有通知电子邮件的“发件人”和“收件人”字段中使用的电子邮件地址。
+4. 如果想放弃发送到无回复电子邮件地址的所有传入电子邮件，请选中“放弃发送到无回复电子邮件地址的电子邮件”。
+  ![用于电子邮件设置配置的“放弃”复选框](/assets/images/enterprise/configuration/ae-discard-email.png)
+5. 单击“测试电子邮件设置”。
+  ![用于邮件设置配置的“测试邮件设置”按钮](/assets/images/enterprise/configuration/ae-test-email.png)
+6. 在“发送测试电子邮件到”下，请输入测试电子邮件要发送到的电子邮件地址，然后单击“发送测试电子邮件”。
+  ![用于邮件设置配置的“发送测试电子邮件”按钮](/assets/images/enterprise/configuration/ae-send-test-email.png)
+7. 单击“ **保存**”。
+  ![用于企业支持联系人配置的“保存”按钮](/assets/images/enterprise/configuration/ae-save.png) {% endif %}
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.email-settings %}
-4. Select **Enable email**. This will enable both outbound and inbound email, however for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
-settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
-![Enable outbound email](/assets/images/enterprise/management-console/enable-outbound-email.png)
-5. Type the settings for your SMTP server.
-      - In the **Server address** field, type the address of your SMTP server.
-      - In the **Port** field, type the port that your SMTP server uses to send email.
-      - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-      - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
-      - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.      
-6. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-![Checkbox to discard emails addressed to the no-reply email address](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Under **Support**, choose a type of link to offer additional support to your users.
-    - **Email:** An internal email address.
-    - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
-  ![Support email or URL](/assets/images/enterprise/management-console/support-email-url.png)
-8. [Test email delivery](#testing-email-delivery).
-{% elsif ghae %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.email-tab %}
-2. Select **Enable email**.
-  !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
-3. Type the settings for your email server.
-    - In the **Server address** field, type the address of your SMTP server.
-    - In the **Port** field, type the port that your SMTP server uses to send email.
-    - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-    - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
-    - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
-4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-  !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
-5. Click **Test email settings**.
-  !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)
-6. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
-  !["Send test email" button for email settings configuration](/assets/images/enterprise/configuration/ae-send-test-email.png)
-7. Click **Save**.
-  !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
-{% endif %}
+## <a name="testing-email-delivery"></a>测试电子邮件递送
 
-{% ifversion ghes %}
-## Testing email delivery
-
-1. At the top of the **Email** section, click **Test email settings**.
-![Test email settings](/assets/images/enterprise/management-console/test-email.png)
-2. In the **Send test email to** field, type an address to send the test email to.
-![Test email address](/assets/images/enterprise/management-console/test-email-address.png)
-3. Click **Send test email**.
-![Send test email](/assets/images/enterprise/management-console/test-email-address-send.png)
+1. 在“电子邮件”部分的顶部，单击“测试电子邮件设置” 。
+![测试电子邮件设置](/assets/images/enterprise/management-console/test-email.png)
+2. 在“发送电子邮件到”字段中，输入用于接收测试电子邮件的地址。
+![测试电子邮件地址](/assets/images/enterprise/management-console/test-email-address.png)
+3. 单击“发送测试电子邮件”。
+![发送测试电子邮件](/assets/images/enterprise/management-console/test-email-address-send.png)
 
   {% tip %}
 
-  **Tip:** If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
+  提示：如果在发送测试电子邮件时发生 SMTP 错误（例如即时递送失败或传出邮件配置错误），将在“测试电子邮件设置”对话框中看到这些错误。
 
   {% endtip %}
 
-4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
-5. When the test email succeeds, at the bottom of the page, click **Save settings**.
-![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
-{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+4. 如果测试电子邮件失败，请[排查电子邮件设置问题](#troubleshooting-email-delivery)。
+5. 当测试电子邮件成功后，在页面的底部单击“保存设置”。
+![“保存设置”按钮](/assets/images/enterprise/management-console/save-settings.png) {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 {% ifversion require-tls-for-smtp %}
-## Enforcing TLS for SMTP connections
+## <a name="enforcing-tls-for-smtp-connections"></a>对 SMTP 连接强制实施 TLS
 
-You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
-
-{%- ifversion ghes = 3.6 %}
-{% note %}
-
-**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0 and 3.6.1. The feature is available in 3.6.2 and later.
-
-{% endnote %}
-{%- endif %}
+可以对所有传入的 SMTP 连接强制实施 TLS 加密，这有助于满足 ISO-27017 认证要求。
 
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+1. 在“身份验证”下，选择“强制实施 TLS 身份验证(建议)”。
 
-   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-{% endif %}
+   ![“强制实施 TLS 身份验证(建议)”复选框的屏幕截图](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png){% data reusables.enterprise_management_console.save-settings %} {% endif %}
 
-## Configuring DNS and firewall settings to allow incoming emails
+## <a name="configuring-dns-and-firewall-settings-to-allow-incoming-emails"></a>配置 DNS 和防火墙设置以允许传入的电子邮件
 
-If you want to allow email replies to notifications, you must configure your DNS settings.
+如果您希望允许通知的电子邮件回复，则必须配置 DNS 设置。
 
-1. Ensure that port 25 on the instance is accessible to your SMTP server.
-2. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
-3. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
+1. 确保您的 SMTP 服务器可以访问实例上的端口 25。
+2. 创建指向 `reply.[hostname]` 的 A 记录。 根据 DNS 提供商和实例主机配置，可以创建指向 `*.[hostname]` 的单个 A 记录。
+3. 创建一个指向 `reply.[hostname]` 的 MX 记录，以便发送到该域的电子邮件可以路由到实例。
+4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 有关详细信息，请参阅 {% ifversion ghes %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}”[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}。”
 
-## Troubleshooting email delivery
+## <a name="troubleshooting-email-delivery"></a>排查电子邮件递送问题
 
-### Create a Support Bundle
+### <a name="create-a-support-bundle"></a>创建支持包
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
+如果无法根据显示的错误消息确定什么地方出错，可以下载包含邮件服务器与 {% data variables.product.prodname_ghe_server %} 之间的整个 SMTP 对话的[支持包](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持捆绑包后，请检查 enterprise-manage-logs/unicorn.log 中的条目，查看整个 SMTP 对话日志和任何相关错误。
 
-The unicorn log should show a transaction similar to the following:
+该独角兽日志应以类似于下面所示的方式显示事务：
 
 ```shell
 This is a test email generated from https://10.0.0.68/setup/settings
@@ -152,18 +140,18 @@ TLS connection started
 -> "535 5.7.1 http://support.yourdomain.com/smtp/auth-not-accepted nt3sm2942435pbc.14\r\n"
 ```
 
-This log shows that the appliance:
+此日志显示该设备：
 
-* Opened a connection with the SMTP server (`Connection opened: smtp.yourdomain.com:587`).
-* Successfully made a connection and chose to use TLS (`TLS connection started`).
-* The `login` authentication type was performed (`<- "AUTH LOGIN\r\n"`).
-* The SMTP Server rejected the authentication as invalid (`-> "535-5.7.1 Username and Password not accepted.`).
+* 打开与 SMTP 服务器的连接 (`Connection opened: smtp.yourdomain.com:587`)。
+* 成功连接并选择使用 TLS (`TLS connection started`)。
+* 执行 `login` 身份验证类型 (`<- "AUTH LOGIN\r\n"`)。
+* SMTP 服务器拒绝无效身份验证 (`-> "535-5.7.1 Username and Password not accepted.`)。
 
-### Check {% data variables.location.product_location %} logs
+### <a name="check--data-variablesproductproduct_location--logs"></a>检查 {% data variables.product.product_location %} 日志
 
-If you need to verify that your inbound email is functioning, there are two log files that you can examine on your instance: To verify that */var/log/mail.log* and */var/log/mail-replies/metroplex.log*.
+如果需要验证入站电子邮件是否正常运行，可以在实例上检查两个日志文件：验证 /var/log/mail.log 和 /var/log/mail-replies/metroplex.log 。
 
-*/var/log/mail.log* verifies that messages are reaching your server. Here's an example of a successful email reply:
+/var/log/mail.log 可以验证消息是否送达服务器。 下面是一个成功电子邮件回复的示例：
 
 ```
 Oct 30 00:47:18 54-171-144-1 postfix/smtpd[13210]: connect from st11p06mm-asmtp002.mac.com[17.172.124.250]
@@ -175,9 +163,9 @@ Oct 30 00:47:19 54-171-144-1 postfix/qmgr[17250]: 51DC9163323: removed
 Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asmtp002.mac.com[17.172.124.250]
 ```
 
-Note that the client first connects; then, the queue becomes active. Then, the message is delivered, the client is removed from the queue, and the session disconnects.
+请注意，客户端先连接，然后队列变成活动状态。 接着，消息递送，客户端从队列中移除，会话断开连接。
 
-*/var/log/mail-replies/metroplex.log* shows whether inbound emails are being processed to add to issues and pull requests as replies. Here's an example of a successful message:
+/var/log/mail-replies/metroplex.log 可以显示入站电子邮件是否正在处理，以便作为回复添加到问题和拉取请求中。 下面是一个成功消息的示例：
 
 ```
 [2014-10-30T00:47:23.306 INFO (5284) #] metroplex: processing <b2b9c260-4aaa-4a93-acbb-0b2ddda68579@me.com>
@@ -185,19 +173,17 @@ Note that the client first connects; then, the queue becomes active. Then, the m
 [2014-10-30T00:47:23.334 DEBUG (5284) #] Moving /data/user/mail/reply/new/1414630039.Vfc00I12000eM445784.ghe-tjl2-co-ie => /data/user/incoming-mail/success
 ```
 
-You'll notice that `metroplex` catches the inbound message, processes it, then moves the file over to `/data/user/incoming-mail/success`.{% endif %}
+你将注意到，`metroplex` 会捕获并处理入站消息，然后将文件移动到 `/data/user/incoming-mail/success`。{% endif %}
 
-### Verify your DNS settings
+### <a name="verify-your-dns-settings"></a>验证 DNS 设置
 
-In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+为了正确处理入站电子邮件，您必须配置有效的 A 记录（或 CNAME）和 MX 记录。 有关详细信息，请参阅“[配置 DNS 和防火墙设置，以允许传入电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。
 
-### Check firewall or AWS Security Group settings
+### <a name="check-firewall-or-aws-security-group-settings"></a>检查防火墙或 AWS 安全组设置
 
-If {% data variables.location.product_location %} is behind a firewall or is being served through an AWS Security Group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
+如果 {% data variables.product.product_location %} 位于防火墙后或者正在通过 AWS 安全组提供，请确保端口 25 对将电子邮件发送到 `reply@reply.[hostname]` 的所有邮件服务器开放。
 
-### Contact support
-{% ifversion ghes %}
-If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
-{% elsif ghae %}
-You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+### <a name="contact-support"></a>联系支持人员
+{% ifversion ghes %}如果仍然无法解决问题，请联系 {% data variables.contact.contact_ent_support %}。 请在电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，便于我们助你排查问题。
+{% elsif ghae %} 可以联系 {% data variables.contact.github_support %} 寻求帮助，以配置通过 SMTP 服务器发送通知的电子邮件。 有关详细信息，请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 {% endif %}

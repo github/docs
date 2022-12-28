@@ -10,16 +10,16 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: e7c6be7286d1221970c9e4e50b477fb82b4d3652
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b8a436ed4e20133f1a2c4def572a60b73c48cf4d
+ms.sourcegitcommit: c95a5c9bdf3ae54ad77b074739b262e7d0e8a077
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145126257'
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169586'
 ---
-{% for term in site.data.glossaries.external %}
-  ### {% data glossaries.external[forloop.index0].term %}
-  {% data glossaries.external[forloop.index0].description %}
+{% for glossary in glossaries %}
+  ### {{ glossary.term }}
+  {{ glossary.description }}
   ---
 {% endfor %}
 

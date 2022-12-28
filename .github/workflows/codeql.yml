@@ -30,9 +30,9 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       - uses: github/codeql-action/init@1ed1437484560351c5be56cf73a48a279d116b78
         with:
-          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
+          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
       - uses: github/codeql-action/analyze@1ed1437484560351c5be56cf73a48a279d116b78
         continue-on-error: true

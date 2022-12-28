@@ -1,6 +1,6 @@
 ---
-title: Working with non-code files
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+title: 使用非代码文件
+intro: '{% data variables.product.product_name %} 支持以多种非代码文件格式呈现和比较。'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -33,323 +33,319 @@ versions:
 topics:
   - Repositories
 shortTitle: Working with non-code files
+ms.openlocfilehash: c770235d94d6191d60505ba60b0f4f81ae49b6bd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107603'
 ---
+## 呈现图像和比较差异
 
-## Rendering and diffing images
-
-{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
+{% data variables.product.product_name %} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 除了简单地显示这些图像以外，还有几种方法可以比较这些图像格式版本之间的差异。
 
 {% note %}
 
-**Note:** 
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
-- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+**注意：** 
+- {% data variables.product.prodname_dotcom %} 不支持比较 PSD 文件之间的差异。 
+- 如果你使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
 
 {% endnote %}
 
-### Viewing images
+### 查看图像
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
+可以直接浏览和查看 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}上的存储库中的图像：
 
-![inline image](/assets/images/help/images/view.png)
+![内联图像](/assets/images/help/images/view.png)
 
-SVGs don't currently support inline scripting or animation.
+SVG 目前不支持内联脚本或动画。
 
-### Viewing differences
+### 查看差异
 
-You can visually compare images in three different modes: [2-up](#2-up), [swipe](#swipe), and [onion skin](#onion-skin).
+你可以通过三种不同的模式直观地比较图像：[两张图](#2-up)、[轻扫](#swipe)和[多层皮肤](#onion-skin)。
 
-#### 2-up
+#### 两张图
 
-**2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
+两张图是默认模式，可让你快速浏览这两个图像。 此外，如果图像在不同版本之间更改了大小，则会显示实际的尺寸更改。 这应在内容调整大小时变得非常明显，例如前端资源升级到更高分辨率时。
 
-![2-up](/assets/images/help/repository/images-2up-view.png)
+![两张图](/assets/images/help/repository/images-2up-view.png)
 
-#### Swipe
+#### 轻扫
 
-**Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
+轻扫模式可让你并排查看图像的各个部分。 不确定不同版本之间颜色是否发生变化？ 将滑动滑块拖动到相关区域上并自行比较像素。
 
-![Swipe](/assets/images/help/repository/images-swipe-view.png)
+![轻扫](/assets/images/help/repository/images-swipe-view.png)
 
-#### Onion skin
+#### 多层皮肤
 
-**Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
+当元素以很小而难以察觉的量移动时，多层皮肤模式真的很方便。 图标是否向左移动了两个像素？ 稍微向后拖动不透明度滑块，注意内容是否移动。
 
-![Onion skin](/assets/images/help/repository/images-onion-view.gif)
+![多层皮肤](/assets/images/help/repository/images-onion-view.gif)
 
-## 3D File Viewer
+## 3D 文件查看器
 
-{% data variables.product.product_name %} can host and render 3D files with the *.stl* extension.
+{% data variables.product.product_name %} 可托管和呈现扩展名为 .stl 的 3D 文件。
 
-When looking directly at an STL file on {% data variables.product.product_name %} you can:
+直接在 {% data variables.product.product_name %} 上查看 STL 文件时，可以：
 
-* Click and drag to spin the model.
-* Right click and drag to translate the view.
-* Scroll to zoom in and out.
-* Click the different view modes to change the view.
+* 单击并拖动以旋转模型。
+* 右键单击并拖动便可转换视图。
+* 滚动可放大和缩小。
+* 单击不同的视图模式可切换视图。
 
-### Diffs
+### 差异
 
-When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
+查看包含 STL 文件的提交或更改集时，可以看到文件前后的差异。
 
-By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
+默认情况下，您会在线框图中获取一切尚未更改时的视图。 添加的内容为绿色，删除的部分为红色。
 
-![wireframe](/assets/images/help/repository/stl_wireframe.png)
+![线框图](/assets/images/help/repository/stl_wireframe.png)
 
-You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
+也可选择“修订滑块”选项，通过它可使用文件顶部的滑块在当前修订与之前修订之间进行切换。
 
-### Fixing slow performance
+### 修复性能慢的问题
 
-If you see this icon in the corner of the viewer, then the WebGL technology is not available on your browser:
+如果在查看器的角上看到此图标，则表示您的浏览器无法使用 WebGL 技术：
 
-![WebGL pop error](/assets/images/help/repository/render_webgl_error.png)
+![WebGL 弹出错误](/assets/images/help/repository/render_webgl_error.png)
 
-WebGL is necessary to take advantage of your computer's hardware to its fullest. We recommend you try browsers like [Chrome](https://www.google.com/intl/en/chrome/browser/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/), which ship with WebGL enabled.
+为最大程度利用计算机的硬件，必须具有 WebGL。 建议尝试使用 [Chrome](https://www.google.com/intl/en/chrome/browser/) 或 [Firefox](https://www.mozilla.org/en-US/firefox/new/) 等启用了 WebGL 的浏览器。
 
-### Error: "Unable to display"
+### 错误：“无法显示”
 
-If your model is invalid, GitHub may not be able to display the file. In addition, files that are larger than 10 MB are too big for GitHub to display.
+如果您的型号无效，GitHub 可能无法显示文件。 此外，超过 10 MB 的文件对 GitHub 过大，无法显示。
 
-### Embedding your model elsewhere
+### 在其他位置嵌入您的型号
 
-To display your 3D file elsewhere on the internet, modify this template and place it on any HTML page that supports JavaScript:
+要在互联网上其他位置显示您的 3D 文件，请修改此模板并将其放入支持 JavaScript 的 HTML 页面：
 
 ```html
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
+例如，如果模型 URL 为 [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)，则嵌入代码为：
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
 ```
 
-By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
+默认情况下，嵌入呈现器是 420 像素（宽）× 620 像素（高），但你可以在 URL 结尾将高度和宽度变量作为参数传递，以自定义输出，如 `?height=300&width=500`。
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+注意：`ref` 可以是单个提交（如 `2391ae`）的分支或哈希。
 
 {% endtip %}
 
 {% ifversion mermaid %}
-### Rendering in Markdown
+### 在 Markdown 中渲染
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+您可以直接在 Markdown 中嵌入 ASCII STL 语法。 有关详细信息，请参阅“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”。
 {% endif %}
 
-## Rendering CSV and TSV data
+## 呈现 CSV 和 TSV 数据
 
-GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
+GitHub 支持以 .csv（逗号分隔）和 .tsv（制表符分隔）形式的文件呈现表格数据。
 
-![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
+![呈现的 CSV 示例](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+查看时，任何提交到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}上存储库的 _.csv_ 或 _.tsv_ 文件都会自动呈现为交互式表格，并带有标题和行号。 默认情况下，我们始终假设第一行是标题行。
 
-You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
+您可以通过单击行号链接到特定行，或通过按住 Shift 键选择多行。 只需复制 URL 并将其发送给好友即可。
 
-### Searching data
+### 搜索数据
 
-If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
+如果想要在数据集中查找特定值，可以在文件正上方的搜索栏中开始输入内容。 行将自动过滤：
 
-![Searching for values](/assets/images/help/repository/searching_csvs.gif)
+![搜索值](/assets/images/help/repository/searching_csvs.gif)
 
-### Handling errors
+### 处理错误
 
-Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, an error box appears at the bottom of your raw text, suggesting what the error may be.
+有时，您可能会发现您的 CSV 或 TSV 文件未呈现。 在这些情况下，原始文本底部会出现一个错误框，提示错误可能是什么。
 
-![CSV render error message](/assets/images/help/repository/csv_render_error.png)
+![CSV 呈现错误消息](/assets/images/help/repository/csv_render_error.png)
 
-Common errors include:
+常见错误包括：
 
-* Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
-* Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
+* 列数不匹配。 即使单元格为空，也必须在每行中具有相同数量的分隔符
+* 超出文件大小。 我们的呈现仅适用于最大 512KB 的文件。 大于此限制的任何内容都会降低浏览器的速度。
 
-## Rendering PDF documents
+## 呈现 PDF 文档
 
-GitHub supports rendering of PDF documents.
+GitHub 支持呈现 PDF 文档。
 
-![Rendered PDF Document](/assets/images/help/repository/rendered-pdf.png)
+![呈现的 PDF 文档](/assets/images/help/repository/rendered-pdf.png)
 
-Currently, links within PDFs are ignored.
+目前，PDF 中的链接将被忽略。
 
-## Rendering differences in prose documents
+## 散文文档中的呈现差异
 
-Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
+包含散文文档的提交和拉取请求具有用源视图和呈现视图来表示这些文档的功能。
 
-The source view shows the raw text that has been typed, while the rendered
-view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
-this might be the difference between showing `**bold**` in Markdown, and **bold** in the rendered view.
+源视图显示已键入的原始文本，而呈现视图显示该文本在 {% data variables.product.product_name %} 上呈现后的外观。 例如，这可能是在 Markdown 中显示 `**bold**` 和在呈现视图中 bold 之间的区别。
 
-Prose rendering is supported for rendered documents supported by [github/markup](https://github.com/github/markup):
+散文呈现由 [github/markup](https://github.com/github/markup) 支持的呈现文档支持：
 
 * Markdown
 * AsciiDoc
 * Textile
 * ReStructuredText
 * Rdoc
-* Org
+* 组织
 * Creole
 * MediaWiki
 * Pod
 
-![Paper icon to view rendered prose document](/assets/images/help/repository/rendered_prose_diff.png)
+![用于查看渲染的散文文档的纸张图标](/assets/images/help/repository/rendered_prose_diff.png)
 
-You can click {% octicon "file" aria-label="The paper icon" %} to see the changes made to the document as part of a commit.
+可单击 {% octicon "file" aria-label="The paper icon" %} 查看在提交过程中对文档的更改。
 
-![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
+![呈现的散文更改](/assets/images/help/repository/rendered_prose_changes.png)
 
-### Disabling Markdown rendering
+### 禁用 Markdown 渲染
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
-### Visualizing attribute changes
+### 可视化属性更改
 
-We provide a tooltip
-describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
-another, we'd show a tooltip like this:
+我们提供了一个工具提示来描述对属性的更改，与字词不同，这些更改在呈现文档中不可见。 例如，如果链接 URL 从一个网站更改为另一个，会显示如下工具提示：
 
-![Rendered Prose attribute changes](/assets/images/help/repository/prose_diff_attributes.png)
+![呈现的散文属性更改](/assets/images/help/repository/prose_diff_attributes.png)
 
-### Commenting on changes
+### 对更改的评论
 
-[Commit comments](/articles/commenting-on-differences-between-files) can only
-be added to files within the *source* view, on a line-by-line basis.
+[提交注释](/articles/commenting-on-differences-between-files)只能逐行添加到源视图中的文件。
 
-### Linking to headers
+### 链接到标题
 
-As with [other rendered prose documents](/articles/about-readmes),
-hovering over a header in your document creates a link icon. You can link readers
-of your rendered prose diff to specific sections.
+与[其他呈现的散文文档](/articles/about-readmes)一样，将鼠标悬停在文档的标题上会创建一个链接图标。 你可以将呈现散文差异的读取器链接到特定部分。
 
-### Viewing complex diffs
+### 查看复杂的差异
 
-Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+一些拉取请求涉及大型复杂文档的大量更改。 当更改需要太长时间来分析时，{% data variables.product.product_name %} 不能总是生成更改的渲染视图。 如果发生这种情况，当您单击渲染按钮时，将会看到错误消息。
 
-![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
+![无法渲染视图时的消息](/assets/images/help/repository/prose_diff_rendering.png)
 
-You can still use the source view to analyze and comment on changes.
+您仍可使用源视图来分析和评论更改。
 
-### Viewing HTML elements
+### 查看 HTML 元素
 
-We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.product_name %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
+我们不直接支持 HTML 文档提交的呈现视图。 某些格式（例如 Markdown）可让您在文档中嵌入任意 HTML。 这些文档在 {% data variables.product.product_name %} 上显示时，某些嵌入式 HTML 可以在预览中显示，而某些（例如嵌入式 YouTube 视频）则不可以。
 
-In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {% data variables.product.product_name %}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.
+一般来说，包含嵌入式 HTML 的文档更改的呈现视图将显示对 {% data variables.product.product_name %} 文档视图中支持元素的更改。 必须始终在呈现视图和源视图中检查对包含嵌入式 HTML 的文档的更改以确保完整性。
 
-## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
+## 映射 {% data variables.product.prodname_dotcom %} 上的 GeoJSON/TopoJSON 文件
 
-{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on GitHub.com.
+{% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 GeoJSON 和 TopoJSON 地图文件。 只需像平常一样使用 `.geojson` 或 `.topojson` 扩展名提交文件即可。 还支持扩展名为 `.json` 的文件，但前提是 `type` 设置为 `FeatureCollection``GeometryCollection` 或 `topology`。 然后导航到 GitHub.com 上 GeoJSON/TopoJSON 文件的路径。
 
-When you click the paper icon on the right, you'll also see the changes made to that file as part of a commit.
+单击右侧的纸张图标时，您还会看到在提交时对该文件的更改。
 
-![Source Render toggle screenshot](/assets/images/help/repository/source-render-toggle-geojson.png)
+![源渲染切换屏幕截图](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Geometry types
+### 几何类型
 
-Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
+{% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com) 并支持所有 [geoJSON 规范](http://www.geojson.org/geojson-spec.html)（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）中概述的几何类型。 TopoJSON 文件的类型应为“拓扑”，并遵循 [TopoJSON 规范](https://github.com/mbostock/topojson/wiki/Specification)。
 
 {% ifversion geoJSON-with-MapBox %}
-### Styling features
+### 样式功能
 
-You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
+可以传递 GeoJSON 对象属性中的其他元数据，自定义功能显示的方式，例如指定特定的颜色或添加描述性图标。 选项包括：
 
-* `marker-size` - `small`, `medium`, or `large`
-* `marker-color` - valid RGB hex color
-* `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
-* `stroke` - color of a polygon edge or line (RGB)
-* `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
-* `stroke-width` - width of a polygon edge or line
-* `fill` - the color of the interior of a polygon (GRB)
-* `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
+* `marker-size` - `small`、`medium` 或 `large`
+* `marker-color` - 有效的 RGB 十六进制颜色
+* `marker-symbol` - [Maki 项目](http://mapbox.com/maki/)中的图标 ID 或单个字母数字字符（a-z 或 0-9）。
+* `stroke` - 多边形边缘或线条的颜色 (RGB)
+* `stroke-opacity` - 多边形边缘或线条的不透明度 (0.0 - 1.0)
+* `stroke-width` - 多边形边缘或线条的宽度
+* `fill` - 多边形内部的颜色 (GRB)
+* `fill-opacity` - 多边形内部的不透明度 (0.0-1.0)
 
-See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) for more information.
+有关详细信息，请参阅“[开放简单式规范的 1.1.0 版本](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0)”。
 {% endif %}
 
-### Embedding your map elsewhere
+### 在其他位置嵌入您的地图
 
-Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+是否希望 GeoJSON 地图用在 {% data variables.product.product_name %} 以外的地方？ 只需修改此模板，并将其放置在支持 javascript 的任何 HTML 页面（例如 [{% data variables.product.prodname_pages %}](http://pages.github.com)）中：
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/master/bars.geojson](https://github.com/benbalter/dc-wifi-social/blob/master/bars.geojson), your embed code would be:
+例如，如果地图的 URL 为[github.com/benbalter/dc-wifi-social/blob/master/bars.geojson](https://github.com/benbalter/dc-wifi-social/blob/master/bars.geojson)，则嵌入代码为：
 
 ```html
 <script src="https://embed.github.com/view/geojson/benbalter/dc-wifi-social/master/bars.geojson"></script>
 ```
 
-By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
+默认情况下，嵌入的地图是 420 像素 × 620 像素，但可以在末尾将高度和宽度变量作为参数传递，以自定义输出，如 `?height=300&width=500`。
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+注意：`ref` 可以是单个提交（如 `2391ae`）的分支或哈希。
 
 {% endtip %}
 
 {% ifversion mermaid %}
-### Mapping in Markdown
+### 在 Markdown 嵌入地图
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+可以直接在 Markdown 中嵌入 GeoJSON 和 TopoJSON。 有关详细信息，请参阅“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
 {% endif %}
 
-### Clustering
+### 群集
 
-If your map contains a large number of markers (roughly over 750), GitHub will automatically cluster nearby markers at higher zoom levels. Simply click the cluster or zoom in to see individual markers.
+如果地图包含大量标记（大约超过 750 个），GitHub 将自动以较高的缩放比例集群附近的标记。 只需单击群集或放大便可查看个别标记。
 
-### Something's up with the underlying map
+### 关于底层地图
 
-The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap](http://www.openstreetmap.org/), a collaborative project to create a free editable map of the world. If you notice something's not quite right, since it's open source, simply [sign up](https://www.openstreetmap.org/user/new) and submit a fix.
+基础地图数据（街道名称、道路等）由 [OpenStreetMap](http://www.openstreetmap.org/)（这是一个协作项目，用于创建免费可编辑的世界地图）驱动。 因为该项目开放源代码，某些内容会不太正确，如果你注意到，只需[注册](https://www.openstreetmap.org/user/new)并提交修补程序。
 
-### Troubleshooting
+### 故障排除
 
-If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
+如果在呈现 GeoJSON 文件时遇到问题，请确保通过 [GeoJSON linter](http://geojsonlint.com/) 运行它以获得有效 GeoJSON 文件。 如果你的点没有出现在预期位置（例如在海洋中间），则数据可能处于当前不受支持的投影中。 目前，{% data variables.product.product_name %} 仅支持 `urn:ogc:def:crs:OGC:1.3:CRS84` 投影。
 
-Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that looks something like this:
+此外，如果 `.geojson` 文件过大（超过 10 MB），则无法在浏览器中呈现。 在这种情况下，您一般会看到一条类似以下的消息：
 
-![Large file](/assets/images/help/repository/view_raw.png)
+![大文件](/assets/images/help/repository/view_raw.png)
 
-It may still be possible to render the data by converting the `.geojson` file to [TopoJSON](https://github.com/mbostock/topojson), a compression format that, in some cases, can reduce filesize by up to 80%. Of course, you can always break the file into smaller chunks (such as by state or by year), and store the data as multiple files within the repository.
+仍可以通过将 `.geojson` 文件转换为 [TopoJSON](https://github.com/mbostock/topojson)（这种压缩格式在某些情况下可减少高达 80% 的文件大小）来呈现数据。 当然，您始终可以将文件分解为更小的数据块（例如按州或年分解），并将数据在仓库中存储为多个文件。
 
-### Further reading
+### 延伸阅读
 
 {% ifversion geoJSON-with-MapBox %}
-* [Leaflet.js documentation](https://leafletjs.com/)
-* [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
-{%- else %}
-* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
-{%- endif %}
+* [Leaflet.js 文档](https://leafletjs.com/)
+* [MapBox 标记样式文档](http://www.mapbox.com/developers/simplestyle/) {%- else %}
+* [Azure Maps 文档](https://docs.microsoft.com/en-us/azure/azure-maps/) {%- endif %}
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上使用 Jupyter Notebook 文件
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
+当在 {% data variables.location.product_location %}上添加扩展名为 .ipynb 的 Jupyter Notebook 或 IPython Notebook 文件时，它们将在你的存储库中呈现为静态 HTML 文件。
 
-The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+笔记本的交互式功能（例如自定义的 JavaScript 图）在 {% data variables.location.product_location %}上的存储库中不起作用。 有关示例，请参阅“[*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)”。
 
-To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
+要用呈现的 JavaScript 内容查看 Jupyter Notebook，或与他人共享笔记本文件，可以使用 [nbviewer](https://nbviewer.jupyter.org/)。 有关示例，请参阅 nbviewer 上呈现的“[Linking and Interactions.ipynb](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)”。
 
-To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
+要查看 Jupyter Notebook 的完全交互式版本，您可以在本地设置笔记本服务器。 有关详细信息，请参阅“[Jupyter 官方文档](http://jupyter.readthedocs.io/en/latest/index.html)”。
 
-### Troubleshooting
+### 故障排除
 
-If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
+如果在静态 HTML 中呈现 Jupyter Notebook 文件时遇到问题，可以使用 [`nbconvert` 命令](https://github.com/jupyter/nbconvert)，在命令行上本地转换文件：
 
 ```shell
 $ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
-### Further reading
+### 延伸阅读
 
-- [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
-- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
+- [Jupyter Notebook 的 GitHub 存储库](https://github.com/jupyter/jupyter_notebook)
+- [Jupyter Notebook 库](https://github.com/jupyter/jupyter/wiki)
 
 {% ifversion mermaid %}
-## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件
 
-{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.product_name %} 支持在存储库中呈现 Mermaid 文件。 像平常一样使用 `.mermaid` 或 `.mmd` 扩展名提交文件。 然后，导航到 {% data variables.product.prodname_dotcom %}上的 Mermaid 文件的路径。
 
-For example, if you add a `.mmd` file with the following content to your repository:
+例如，如果将包含以下内容的 `.mmd` 文件添加到存储库中：
 
 ```
 graph TD
@@ -360,28 +356,27 @@ graph TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-When you view the file in the repository, it is rendered as a flow chart.
-![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+当您在存储库中查看文件时，它将呈现为流程图。
+![呈现的 mermaid 文件图](/assets/images/help/repository/mermaid-file-diagram.png)
 
-### Troubleshooting
+### 故障排除
 
-If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+如果图表根本没有呈现，请使用 [Mermaid 实时编辑器](https://mermaid.live/edit)检查图表，验证它是否包含有效的 Mermaid Markdown 语法。
 
-If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label. 
+如果显示了图表，但没有按预期显示，你可以创建新的 [{% data variables.product.prodname_github_community %} 讨论](https://github.com/orgs/community/discussions/categories/general)，并添加 `Mermaid` 标签。 
 
-#### Known issues
+#### 已知问题
 
-* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
-* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
-* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+* 序列图图表经常在图表下方使用额外的填充进行呈现，随着图表大小的增加，还会添加更多的填充。 这是 Mermaid 库的已知问题。
+* 具有弹出菜单的执行组件节点在序列图图表中无法按预期工作。 这是由于当 Mermaid 库的 API 用于呈现图表时，JavaScript 事件添加到图表的方式存在差异。
+* 并非所有图表都符合 a11y 标准。 这可能会影响依赖屏幕阅读器的用户。
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+您可以直接在 Markdown 中嵌入 Mermaid 语法。 有关详细信息，请参阅“[创建关系图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)”。
 
-### Further reading
+### 延伸阅读
 
-* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
-* [Mermaid.js live editor](https://mermaid.live/edit)
-{% endif %}
+* [Mermaid.js 文档](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js 实时编辑器](https://mermaid.live/edit){% endif %}
 

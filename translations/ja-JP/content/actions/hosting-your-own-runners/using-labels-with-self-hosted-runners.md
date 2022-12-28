@@ -1,6 +1,6 @@
 ---
-title: Using labels with self-hosted runners
-intro: You can use labels to organize your self-hosted runners based on their characteristics.
+title: セルフホストランナーとのラベルの利用
+intro: ラベルを使い、セルフホストランナーを特徴を基に整理できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,82 +8,71 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Label runners
+ms.openlocfilehash: 3b26db5c8b6494ebb63cc3ce9cc9a0109bac4545
+ms.sourcegitcommit: 929818065a8545476e4cf8e2cab6517f40345ef0
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163253'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)." {% ifversion target-runner-groups %}You can also route jobs to runners in a specific group. For more information, see "[Targeting runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)."{% endif %}
+ラベルを使用して、特定の種類のセルフホステッド ランナーにジョブをルーティングする方法について詳しくは、「[ワークフローでのセルフホステッド ランナーの利用](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)」を参照してください。 {% ifversion target-runner-groups %}特定のグループのランナーにジョブをルーティングすることもできます。 詳しくは、[グループ内のランナーのターゲット設定](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)に関するページを参照してください。{% endif %}
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-## Creating a custom label
+## カスタムラベルの作成
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
- {% data reusables.actions.settings-sidebar-actions-runner-selection %}
- 1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
- 1. In the "Find or create a label" field, type the name of your new label and click **Create new label**.
- The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.self-hosted-runner-list %}
-{% data reusables.actions.self-hosted-runner-list-group %}
-{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. In the "Filter labels" field, type the name of your new label, and click **Create new label**.
-    ![Add runner label](/assets/images/help/settings/actions-add-runner-label.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %}
+ 1. [ラベル] セクションで、{% octicon "gear" aria-label="The Gear icon" %} をクリックします。
+ 1. [ラベルの検索または作成] フィールドに新しいラベルの名前を入力し、 **[新しいラベルの作成]** をクリックします。
+ カスタムラベルが作成され、セルフホストランナーに割り当てられます。 カスタムラベルをセルフホストランナーから取り除くことはできますが、現在はラベルを手動で削除することはできません。 {% data reusables.actions.actions-unused-labels %} {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. [ラベルのフィルター] フィールドに新しいラベルの名前を入力し、 **[新しいラベルの作成]** をクリックします。
+    ![ランナーにラベルを追加する](/assets/images/help/settings/actions-add-runner-label.png)
     
-The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
-{% endif %}
+カスタムラベルが作成され、セルフホストランナーに割り当てられます。 カスタムラベルをセルフホストランナーから取り除くことはできますが、現在はラベルを手動で削除することはできません。 {% data reusables.actions.actions-unused-labels %} {% endif %}
 
-## Assigning a label to a self-hosted runner
+## セルフホストランナーへのラベルの割り当て
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.runner-label-settings %}
-  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label. 
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.self-hosted-runner-list %}
-{% data reusables.actions.self-hosted-runner-list-group %}
-{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Click on a label to assign it to your self-hosted runner. 
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
+  1. セルフホステッド ランナーにラベルを割り当てるには、[ラベルの検索または作成] フィールドでラベルをクリックします。 {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. ラベルをクリックして、セルフホストランナーに割り当ててください。 {% endif %}
 
-## Removing a custom label from a self-hosted runner
+## カスタムラベルのセルフホストランナーからの削除
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.runner-label-settings %}
-  1. In the "Find or create a label" field, assigned labels are marked with the {% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner. 
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.self-hosted-runner-list %}
-{% data reusables.actions.self-hosted-runner-list-group %}
-{% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Click on the assigned label to remove it from your self-hosted runner. {% data reusables.actions.actions-unused-labels %}
-{% endif %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
+  1. [ラベルの検索または作成] フィールドでは、割り当てられたラベルに {% octicon "check" aria-label="The Check icon" %} アイコンが付きます。 マークされたラベルをクリックして、セルフホステッド ランナーから割り当てを解除します。 {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. 割り当てられているラベルをクリックして、セルフホストランナーから削除してください。 {% data reusables.actions.actions-unused-labels %} {% endif %}
 
-## Using the configuration script to create and assign labels
+## プログラムによってラベルを割り当てる
 
-You can use the configuration script on the self-hosted runner to create and assign custom labels. For example, this command assigns a label named `gpu` to the self-hosted runner. 
+ランナーの作成後、またはその初期構成時に、プログラムによってセルフホステッド ランナーにラベルを割り当てることができます。
 
-```shell
-./config.sh --labels gpu
-```
+* プログラムによって既存のセルフホステッド ランナーにラベルを割り当てるには、REST API を使用する必要があります。 詳しくは、「[セルフホステッド ランナー](/rest/actions/self-hosted-runners)」REST API を参照してください。
+* ランナーの初期構成時にプログラムによってセルフホステッド ランナーにラベルを割り当てるには、ラベル名を `labels` パラメーターを使って `config` スクリプトに渡します。
 
-The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
+  {% note %}
+  
+  **注:** `config` スクリプトを使って、既存のセルフホステッド ランナーにラベルを割り当てることはできません。
+  
+  {% endnote %}
 
-You can use comma separation to assign multiple labels. For example:
+  たとえば、次のコマンドを実行すると、新しいセルフホステッド ランナーの構成時に `gpu` という名前のラベルを割り当てることができます。
 
-```shell
-./config.sh --labels gpu,x64,linux
-```
+  ```
+  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
+  ```
 
-{% note %}
+  このラベルがまだ存在しなければ、作成されます。 この方法を使用して、`x64` または `linux` といったデフォルトのラベルをランナーに割り当てることもできます。 デフォルトラベルが設定スクリプトで割り当てられた場合、{% data variables.product.prodname_actions %}はそれらを指定されたとおりに受け付け、ランナーが実際にそのオペレーティングシステムやアーキテクチャを使っているかは検証しません。
 
-** Note:** If you replace an existing runner, then you must reassign any custom labels.
+  複数のラベルを割り当てるには、カンマ区切りが使えます。 たとえば次のような点です。
 
-{% endnote %}
+  ```
+  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
+  ```
+
+  {% note %}
+
+  ** ノート:** 既存のランナーを置き換えた場合は、カスタムラベルがあるなら割り当てをしなおさなければなりません。
+
+  {% endnote %}

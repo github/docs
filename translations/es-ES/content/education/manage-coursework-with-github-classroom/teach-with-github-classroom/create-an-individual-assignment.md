@@ -8,12 +8,12 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: 4f5fab2f63ff686762a4fb6ccd5964b7f4d9cb3c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1ffa725be4e42695b297545f65c998b14ed8e000
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573872'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179756'
 ---
 ## Acerca de las tareas individuales
 
@@ -59,6 +59,8 @@ Para una tarea individual, {% data variables.product.prodname_classroom %} nombr
 En "Individual or group assignment", seleccione el menú desplegable y haga clic en **Individual assignment**. No puedes cambiar el tipo de tarea después de crearla. Si prefiere crear una asignación de grupo, vea "[Creación de una asignación de grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
 
 ### Elegir un tipo de visibilidad para los repositorios de la tarea
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
@@ -136,4 +138,4 @@ La página de vista general de la tarea te proporciona una vista general de las 
 ## Información adicional
 
 - «[{% data variables.product.prodname_global_campus %} para profesores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)»
-- "[Conexión de un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- "[Conexión de un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"

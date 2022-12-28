@@ -1,12 +1,11 @@
 ---
-ms.openlocfilehash: 8f78a77c83ea498d8d41a0deff20903062542479
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: a6a2388e469c6283bbe0f9f7855044f45829584e
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107810"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180066"
 ---
 Você pode editar uma entrada na lista de permissões de IP. Se você editar uma entrada habilitada, as alterações serão impostas imediatamente. 
 
-{% ifversion ip-allow-list-address-check %} Antes de habilitar endereços IP permitidos, você pode verificar se um endereço IP específico seria permitido por qualquer uma das entradas habilitadas na sua lista.
-{% endif %}
+Ao concluir a edição de entradas, você poderá verificar se, após ser habilitada, sua lista de permissões autorizará a conexão de um endereço IP específico.

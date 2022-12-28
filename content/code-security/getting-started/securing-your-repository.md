@@ -116,18 +116,25 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
-You can set up {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.product.prodname_codeql_workflow %} or third-party tool. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+You can set up {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
 {% data variables.product.prodname_code_scanning_capc %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}.
 
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} is {% ifversion fpt or ghec %}enabled for all public repositories and is available for private repositories owned by organizations that are part of an enterprise with a license for {% else %}available for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#configuring-secret-scanning).{% else %}{% data variables.product.prodname_secret_scanning_caps %} may already be enabled for your repository, depending upon your organization's settings.
+{% ifversion fpt %}
+{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories in all products on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.secret-scanning.user_alerts_caps %} are available for public repositories, as well as repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+{% data variables.product.prodname_secret_scanning_caps %} is {% ifversion ghec %}enabled for all public repositories and is available for private repositories owned by organizations that are part of an enterprise with a license for {% else %}available for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#configuring-secret-scanning).{% else %}{% data variables.product.prodname_secret_scanning_caps %} may already be enabled for your repository, depending upon your organization's settings.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
 2. Click **Security & analysis**.
 3. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
 4. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**. 
+{% endif %}
+
 {% endif %}
 
 ## Next steps

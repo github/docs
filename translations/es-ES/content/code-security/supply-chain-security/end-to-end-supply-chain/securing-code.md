@@ -1,8 +1,8 @@
 ---
-title: Best practices for securing code in your supply chain
+title: Procedimientos recomendados para proteger el código en la cadena de suministro
 shortTitle: Securing code
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect the center of your supply chain—the code you write and the code you depend on.
+intro: 'Instrucciones sobre cómo proteger el centro de la cadena de suministro, es decir, el código que escribes y el código del que dependes.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,104 +15,108 @@ topics:
   - Vulnerabilities
   - Advanced Security
   - Secret scanning
+ms.openlocfilehash: 9fa10b05cfeadb4e2cde37829e703fc527571c67
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184008'
 ---
+## Acerca de esta guía
 
-## About this guide
+En esta guía se describen los cambios de mayor impacto que puede realizar para mejorar la seguridad del código. Cada sección detalla un cambio que puedes hacer a tus procesos para mejorar la seguridad. Los cambios de mayor impacto se enumeran primero.
 
-This guide describes the highest impact changes you can make to improve the security of your code. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
+## ¿Cuál es el riesgo?
 
-## What's the risk?
+Entre los principales riesgos del proceso de desarrollo se incluyen los siguientes:
 
-Key risks in the development process include:
+- Uso de dependencias con vulnerabilidades de seguridad que un atacante podría aprovechar.
+- Filtrado de credenciales de autenticación o un token que un atacante podría usar para acceder a los recursos.
+- Introducción de una vulnerabilidad en el código propio que un atacante podría aprovechar.
 
-- Using dependencies with security vulnerabilities that an attacker could exploit.
-- Leaking authentication credentials or a token that an attacker could use to access your resources.
-- Introducing a vulnerability to your own code that an attacker could exploit.
+Estos riesgos abren los recursos y proyectos a los ataque y esos riesgos pasan directamente a cualquiera que use un paquete que cree. En las secciones siguientes se explica cómo puede protegerse a sí mismo y a los usuarios de estos riesgos.
 
-These risks open your resources and projects to attack and those risks are passed directly on to anyone who uses a package that you create. The following sections explain how you can protect yourself and your users from these risks.
+## Creación de un programa de administración de vulnerabilidades para dependencias
 
-## Create a vulnerability management program for dependencies
+Puede proteger el código del que depende mediante la creación de un programa de administración de vulnerabilidades para las dependencias. De forma general, debe incluir procesos para asegurarse de que:
 
-You can secure the code you depend on by creating a vulnerability management program for dependencies. At a high level this should include processes to ensure that you:
+1. Crea un inventario de las dependencias.
 
-1. Create an inventory of your dependencies.
+1. Sabe cuándo hay una vulnerabilidad de seguridad en una dependencia.
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+1. Aplica revisiones de dependencia en las solicitudes de incorporación de cambios. {% endif %}
 
-2. Know when there is a security vulnerability in a dependency.
+1. Evalúa el impacto de esa vulnerabilidad en el código y decide qué acción realizar.
 
-3. Assess the impact of that vulnerability on your code and decide what action to take.
+### Generación automática de inventario
 
-### Automatic inventory generation
+Como primer paso, le interesa realizar un inventario completo de las dependencias. En el gráfico de dependencias de un repositorio se muestran las dependencias de los ecosistemas admitidos. Si sincroniza las dependencias o usa otros ecosistemas, tendrá que complementarlo con datos de herramientas de terceros, o bien enumerar las dependencias manualmente. Para más información, vea "[Acerca del gráfico de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
 
-As a first step, you want to make a complete inventory of your dependencies. The dependency graph for a repository shows you dependencies for supported ecosystems. If you check in your dependencies, or use other ecosystems, you will need to supplement this with data from 3rd party tools or by listing dependencies manually. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+### Detección automática de vulnerabilidades en dependencias
 
-### Automatic detection of vulnerabilities in dependencies
+{% data variables.product.prodname_dependabot %} puede ayudarle mediante la supervisión de las dependencias y la notificación cuando contienen una vulnerabilidad conocida. {% ifversion fpt or ghec or ghes %}Incluso puedes habilitar {% data variables.product.prodname_dependabot %} para generar automáticamente solicitudes de incorporación de cambios que actualicen la dependencia a una versión segura.{% endif %} Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes %} y "[Acerca de las actualizaciones de seguridad de Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+### Detección automática de vulnerabilidades en solicitudes de incorporación de cambios
 
-{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes %} and "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
+{% data variables.product.prodname_dependency_review_action %} aplica una revisión de dependencia en las solicitudes de incorporación de cambios, lo que facilita la visualización de si una solicitud de incorporación de cambios presentará una versión vulnerable de una dependencia en el repositorio. Cuando se detecta una vulnerabilidad, {% data variables.product.prodname_dependency_review_action %} puede bloquear la combinación de la solicitud de incorporación de cambios. Para obtener más información, consulta "[Cumplimiento de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."{% endif %} 
+    
 
-### Assessment of exposure to risk from a vulnerable dependency
+### Evaluación de la exposición al riesgo de una dependencia vulnerable
 
-When you discover you are using a vulnerable dependency, for example, a library or a framework, you must assess your project's level of exposure and determine what action to take. Vulnerabilities are usually reported with a severity score to show how severe their impact could be. The severity score is a useful guide but cannot tell you the full impact of the vulnerability on your code.
+Cuando descubra que usa una dependencia vulnerable, por ejemplo, una biblioteca o un marco, debe evaluar el nivel de exposición del proyecto y determinar qué acción realizar. Normalmente, las vulnerabilidades se notifican con una puntuación de gravedad para mostrar la gravedad de su impacto. La puntuación de gravedad es una guía útil, pero no puede indicarle el impacto completo de la vulnerabilidad en el código.
 
-To assess the impact of a vulnerability on your code, you also need to consider how you use the library and determine how much risk that actually poses to your system. Maybe the vulnerability is part of a feature that you don't use, and you can update the affected library and continue with your normal release cycle. Or maybe your code is badly exposed to risk, and you need to update the affected library and ship an updated build right away. This decision depends on how you're using the library in your system, and is a decision that only you have the knowledge to make.
+Para evaluar el impacto de una vulnerabilidad en el código, también debe tener en cuenta cómo usa la biblioteca y determinar cuánto riesgo supone realmente para el sistema. Es posible que la vulnerabilidad forme parte de una característica que no usa, y puede actualizar la biblioteca afectada y continuar con el ciclo de versión normal. O bien, es posible que el código esté muy expuesto al riesgo y tenga actualizar la biblioteca afectada y enviar una compilación actualizada inmediatamente. Esta decisión depende de cómo use la biblioteca en el sistema y es una decisión que solo usted debe tomar.
 
-## Secure your communication tokens
+## Protección de los tokens de comunicación
 
-Code often needs to communicate with other systems over a network, and requires secrets (like a password, or an API key) to authenticate. Your system needs access to those secrets to run, but it's best practice to not include them in your source code. This is especially important for repositories to which many people might have access{% ifversion not ghae %} and critical for public repositories{% endif %}.
+A menudo, el código necesita comunicarse con otros sistemas por una red y necesita secretos (como una contraseña o una clave de API) para autenticarse. El sistema necesita acceso a esos secretos para ejecutarse, pero se recomienda no incluirlos en el código fuente. Esto es especialmente importante para los repositorios a los que muchas personas pueden tener acceso{% ifversion not ghae %} y crítico para los repositorios públicos{% endif %}.
 
-### Automatic detection of secrets committed to a repository
+### Detección automática de secretos confirmados en un repositorio
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.secret-scanning-partner %}
+**Nota:** {% data reusables.gated-features.secret-scanning-partner %}
 
 {% endnote %}
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% ifversion fpt or ghec %}
-{% data variables.product.prodname_dotcom %} partners with many providers to automatically detect when secrets are committed to or stored in your public repositories, and will notify the provider so they can take appropriate actions to ensure your account remains secure. For more information, see "[About {% data variables.product.prodname_secret_scanning %} for partner patterns](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
+{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} se asocia con muchos proveedores para detectar automáticamente cuándo se confirman o almacenan secretos en los repositorios públicos, y notificará al proveedor para que pueda tomar las medidas adecuadas a fin de asegurarse de que su cuenta sigue siendo segura. Para más información, vea "[Acerca de {% data variables.product.prodname_secret_scanning %} para patrones de asociados](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)".
 {% endif %}
 
-{% ifversion fpt %}
-{% data reusables.secret-scanning.fpt-GHAS-scans %}
-{% elsif ghec %}
-If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository owned by the organization. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)."
-{% else %}
-You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+{% ifversion fpt %} {% data reusables.secret-scanning.fpt-GHAS-scans %} {% elsif ghec %} Si en la organización usan {% data variables.product.prodname_GH_advanced_security %}, puede habilitar {% data variables.product.prodname_secret_scanning_GHAS %} en cualquier repositorio propiedad de la organización. También puede definir patrones personalizados para detectar secretos adicionales en el nivel del repositorio, la organización o la empresa. Para más información, vea "[Acerca de {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)".
+{% else %} Puede configurar {% data variables.product.prodname_secret_scanning %} para comprobar si hay secretos emitidos por muchos proveedores de servicios y notificarle cuándo se detecta alguno. También puede definir patrones personalizados para detectar secretos adicionales en el nivel del repositorio, la organización o la empresa. Para más información, vea "[Acerca del examen de secretos](/code-security/secret-scanning/about-secret-scanning)" y "[Patrones de examen de secretos](/code-security/secret-scanning/secret-scanning-patterns)".
 {% endif %}
 
-### Secure storage of secrets you use in {% data variables.product.product_name %}
+### Almacenamiento seguro de secretos que se usan en {% data variables.product.product_name %}
 
-{% ifversion fpt or ghec %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets)," "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)," and "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+{% ifversion fpt or ghec %} Además del código, es probable que tenga que usar secretos en otros lugares. Por ejemplo, para permitir que los flujos de trabajo de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} o el entorno de desarrollo de {% data variables.product.prodname_github_codespaces %} se comuniquen con otros sistemas. Para más información sobre cómo almacenar y usar secretos de forma segura, vea "[Secretos cifrados en acciones](/actions/security-guides/encrypted-secrets)", "[Administración de secretos cifrados para Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)" y "[Administración de secretos cifrados para codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".
 {% endif %}
 
-{% ifversion ghes or ghae %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."{% else %}."{% endif %}
-{% endif %}
+{% ifversion ghes or ghae %} Además de en el código, es probable que tengas que usar secretos en otros lugares. Por ejemplo, para permitir que los flujos de trabajo de {% data variables.product.prodname_actions %}{% ifversion ghes %} o {% data variables.product.prodname_dependabot %}{% endif %} se comuniquen con otros sistemas. Para obtener más información sobre cómo almacenar y usar secretos de forma segura, consulta "[Secretos cifrados en acciones](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" y "[Administración de secretos cifrados para Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".{% else %}."{% endif %} {% endif %}
 
-## Keep vulnerable coding patterns out of your repository
+## Mantener los patrones de programación vulnerables fuera del repositorio
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.code-scanning %}
+**Nota:** {% data reusables.gated-features.code-scanning %}
 
 {% endnote %}
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Create a pull request review process
+### Creación de un proceso de revisión de solicitudes de incorporación de cambios
 
-You can improve the quality and security of your code by ensuring that all pull requests are reviewed and tested before they are merged. {% data variables.product.prodname_dotcom %} has many features you can use to control the review and merge process. To get started, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+Para mejorar la calidad y la seguridad del código, asegúrese de que todas las solicitudes de incorporación de cambios se revisen y prueben antes de combinarlas. {% data variables.product.prodname_dotcom %} tiene muchas características que puede usar para controlar el proceso de revisión y combinación. Para empezar, vea "[Acerca de las ramas protegidas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
 
-### Scan your code for vulnerable patterns
+### Examen del código en busca de patrones vulnerables
 
-Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+A menudo, es difícil que los revisores detecten patrones de código no seguros sin ayuda. Además de examinar el código en busca de secretos, puede comprobar si hay patrones asociados a vulnerabilidades de seguridad. Por ejemplo, una función que no es segura para memoria o no puede aplicar escape a la entrada de usuario que podría dar lugar a una vulnerabilidad de inyección. {% data variables.product.prodname_dotcom %} ofrece varias maneras diferentes de abordar cómo y cuándo se examina el código. Para empezar, vea "[Acerca del análisis de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-## Next steps
+## Pasos siguientes
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- "[Protección de la cadena de suministro de un extremo a otro](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- "[Procedimientos recomendados para proteger las cuentas](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- "[Procedimientos recomendados para proteger el sistema de compilación](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"

@@ -1,7 +1,7 @@
 ---
-title: Migrating from SAML to OIDC
+title: SAML から OIDC への移行
 shortTitle: Migrating from SAML to OIDC
-intro: 'If you''re using SAML to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
+intro: 'SAML を使用して {% data variables.enterprise.prodname_emu_enterprise %} のメンバーを認証している場合は、OpenID Connect (OIDC) に移行すると、IdP の条件付きアクセス ポリシーのサポートからメリットを得ることができます。'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -10,50 +10,53 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: 36c93c94bfda1d0ebc951b0a8325691afa0199bb
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180046'
 ---
+{% data reusables.enterprise-accounts.azure-emu-support-oidc %}
 
-{% data reusables.enterprise-accounts.oidc-beta-notice %}
+## {% data variables.enterprise.prodname_emu_enterprise %} の SAML から OIDC への移行について
 
-## About migrating your {% data variables.enterprise.prodname_emu_enterprise %} from SAML to OIDC
+{% data variables.enterprise.prodname_emu_enterprise %} が SAML SSO を使用して Azure Active Directory (Azure AD) で認証を行う場合は、OIDC に移行できます。 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-If your {% data variables.enterprise.prodname_emu_enterprise %} uses SAML SSO to authenticate with Azure Active Directory (Azure AD), you can migrate to OIDC. {% data reusables.enterprise-accounts.emu-cap-validates %}
+SAML から OIDC に移行する場合、以前に SAML 用にプロビジョニングされたが、{% data variables.product.prodname_emu_idp_oidc_application %} アプリケーションによってプロビジョニングされていない{% data variables.enterprise.prodname_managed_users %}とグループには、表示名に "(SAML)" が付加されます。
 
-When you migrate from SAML to OIDC, {% data variables.enterprise.prodname_managed_users %} and groups that were previously provisioned for SAML but are not provisioned by the {% data variables.product.prodname_emu_idp_oidc_application %} application will have "(SAML)" appended to their display names.
+{% data variables.product.prodname_emus %} を使用するのが初めてで、Enterprise の認証をまだ構成していない場合は、移行する必要はなく、OIDC シングル サインオンをすぐに設定できます。 詳細については、「[Enterprise マネージド ユーザー用の OIDC の構成](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)」を参照してください。
 
-If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up OIDC single sign-on immediately. For more information, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-
-## Migrating your enterprise
+## Enterprise を移行する
 
 {% note %}
 
-**Note:** To sign in as the setup user, you will need a recovery code. If you do not already have your recovery codes, you can access the codes while signed in as an enterprise owner. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
+**注:** セットアップ ユーザーとしてサインインするには、回復用コードが必要です。 回復用コードがまだない場合、Enterprise 所有者としてサインインしている間はコードにアクセスできます。 詳細については、「[Enterprise アカウントのシングル サインオン回復用コードをダウンロードする](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)」を参照してください。
 
 {% endnote %}
 
-1. Before you begin the migration, sign in to Azure and disable provisioning in the existing {% data variables.product.prodname_emu_idp_application %} application.
-1. If you use [Conditional Access (CA) network location policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Azure AD, and you're currently using an IP allow list with your enterprise account or any of the organizations owned by the enterprise account on {% data variables.product.prodname_dotcom_the_website %}, disable the IP allow lists. For more information, see "[Enforcing security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
-1.  Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your enterprise with the username **@<em>SHORT-CODE</em>_admin**. 
-1. When prompted to continue to your identity provider, click **Use a recovery code** and sign in using one of your enterprise's recovery codes.
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. At the bottom of the page, next to "Migrate to OpenID Connect single sign-on", click **Configure with Azure**.  
+1. 移行を開始する前に、Azure にサインインし、既存の {% data variables.product.prodname_emu_idp_application %} アプリケーションでのプロビジョニングを無効にします。
+1. Azure AD で[条件付きアクセス (CA) ネットワークの場所ポリシー](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition)を使っており、現時点、{% data variables.product.prodname_dotcom_the_website %} 上で、Enterprise アカウントまたは Enterprise アカウントで所有しているいずれかの Organization で IP 許可リストを使っている場合、その IP 許可リストを無効にしてください。 詳しくは、「[Enterprise でセキュリティ設定を適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)」と「[Organization に許可された IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
+1.  ユーザー名 **@<em>SHORT-CODE</em>_admin** を使用して、Enterprise のセットアップ ユーザーとして {% data variables.product.prodname_dotcom_the_website %} にサインインします。 
+1. ID プロバイダーに進むように続行を求められたら、 **[回復用コードを使用する]** をクリックし、Enterprise のいずれかの回復用コードを使用してサインインします。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. ページ下部にある [OpenID Connect シングル サインオンへの移行] の横の **[Azure で構成]** をクリックします。  
    {% warning %} 
 
-   **Warning:** The migration can take up to an hour, and it is important that no users are provisioned during the migration. You can confirm if the migration is still in progress by returning to your enterprise's security settings page; if "Require SAML authentication" is still checked, the migration is still in progress.
+   **警告:** 移行には 1 時間ほどかかる場合があるため、移行中にユーザーがプロビジョニングされないようにすることが重要です。 Enterprise のセキュリティ設定ページに戻ると、移行がまだ進行中かどうかを確認できます。[SAML 認証を要求する] がまだオンになっている場合は、移行がまだ進行中です。
 
    {% endwarning %}
 
-   ![Screenshot showing the "Configure with Azure" button](/assets/images/help/enterprises/saml-to-oidc-button.png)
-1. Read both warnings and click to continue.
+   ![[Azure で構成] ボタンを示すスクリーンショット](/assets/images/help/enterprises/saml-to-oidc-button.png)
+1. 両方の警告を読み、クリックして続行します。
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
-1. In a new tab or window, while signed in as the setup user on {% data variables.product.prodname_dotcom_the_website %}, create a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[Creating a {% data variables.product.pat_generic %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
-1. In the settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in Azure Portal, under "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.  
+1. 新しいタブまたはウィンドウで、{% data variables.product.prodname_dotcom_the_website %} のセットアップ ユーザーとしてサインインしたまま、**admin:enterprise** スコープを持つ **有効期限のない**{% data variables.product.pat_v1 %}を作成し、クリップボードにコピーします。 新しいトークンの作成について詳しくは、「[{% data variables.product.pat_generic %}の作成](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)」をご覧ください。
+1. Azure Portal の {% data variables.product.prodname_emu_idp_oidc_application %} アプリケーションの設定で、[テナント URL] に「`https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`」と入力します。YOUR_ENTERPRISE は、お使いの Enterprise アカウントの名前に置き換えてください。  
    
-   For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, the name of the enterprise account is `octo-corp`.
-1. Under "Secret token", paste the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that you created earlier.
-1. To test the configuration, click **Test Connection**.
-1. To save your changes, at the top of the form, click **Save**.
-1. In Azure Portal, copy the users and groups from the old {% data variables.product.prodname_emu_idp_application %} application to the new {% data variables.product.prodname_emu_idp_oidc_application %} application.
-1. Test your configuration by provisioning a single new user.
-1. If your test is successful, start provisioning for all users by clicking **Start provisioning**.
+   たとえば、Enterprise アカウントの URL が `https://github.com/enterprises/octo-corp` の場合、Enterprise アカウントの名前は `octo-corp` です。
+1. [シークレット トークン] に、先ほど作成した **admin:enterprise** スコープの{% data variables.product.pat_v1 %}を貼り付けます。
+1. 構成をテストするには、 **[接続のテスト]** をクリックします。
+1. 変更を保存するには、フォームの上部にある **[保存]** をクリックします。
+1. Azure Portal で、旧 {% data variables.product.prodname_emu_idp_application %} アプリケーションから新しい {% data variables.product.prodname_emu_idp_oidc_application %} アプリケーションにユーザーとグループをコピーします。
+1. 1 人の新しいユーザーをプロビジョニングして、構成をテストします。
+1. テストが成功した場合は、 **[プロビジョニングの開始]** をクリックして、すべてのユーザーのプロビジョニングを開始します。

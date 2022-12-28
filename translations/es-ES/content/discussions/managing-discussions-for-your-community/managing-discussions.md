@@ -1,118 +1,201 @@
 ---
-title: Managing discussions
-intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
+title: Administrar los debates
+intro: 'Puedes categorizar, resaltar, transferir o borrar los debates.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
   feature: discussions
 shortTitle: Manage discussions
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
+ms.openlocfilehash: e5e1474648973c90d16e8998db18518331233aa3
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164343'
 ---
+## Acerca de la administración de los debates
 
+{% data reusables.discussions.about-discussions %} Para obtener más información, consulte "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-## About management of discussions
+Los propietarios de la organización pueden elegir los permisos que se requieren para crear un debate en los repositorios que pertenezcan a la organización. Del mismo modo, para elegir los permisos necesarios para crear un debate de la organización, los propietarios de la organización pueden cambiar los permisos necesarios en el repositorio de origen. Para más información, vea "[Administración de la creación de debates para repositorios de la organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-{% data reusables.discussions.about-discussions %} For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. La creación de{% ifversion fpt or ghec %} un código de conducta o{% endif %} directrices de colaboración para que los colaboradores los sigan te ayudará a proporcionar un foro colaborativo y productivo. Para obtener más información sobre la creación de recursos de la comunidad, consulta{% ifversion fpt or ghec %} "[Adición de un código de conducta al proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y{% endif %} "[Establecimiento de instrucciones para los colaboradores del repositorio](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
-Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. For more information, see "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
+Cuando un debate produce una idea o error que está listo para solucionarse, puedes crear una propuesta nueva desde un debate. Para más información, vea "[Creación de una incidencia](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
 
-As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+Puedes anclar un debate a la parte superior de la lista de debates para el repositorio o la organización. {% ifversion discussions-category-specific-pins %}También puedes anclar un debate a una categoría específica.{% endif %} Para obtener más información, consulta "[Anclaje de un debate](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)".
 
-When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
-
-For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
+Para obtener más información sobre cómo facilitar un debate correcto, vea "[Moderación de comentarios y conversaciones](/communities/moderating-comments-and-conversations)".
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-## Prerequisites
+## Prerrequisitos
 
-To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+Para administrar los debates en un repositorio, debes habilitar los {% data variables.product.prodname_discussions %} en este. Para más información, vea "[Habilitación o deshabilitación de {% data variables.product.prodname_discussions %} en un repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
-To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+Para administrar debates en una organización, los datos {% data variables.product.prodname_discussions %} debe estar habilitados para la organización. Para más información, consulta "[Habilitación o deshabilitación de {% data variables.product.prodname_discussions %} para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
-## Changing the category for a discussion
+## Cambiar la categoría de un debate
 
-You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Puedes categorizar los debates para ayudar a que los miembros de la comunidad encuentren aquellos que tengan alguna relación. Para más información, consulta "[Administración de categorías para debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
-You can also move a discussion to a different category. It's not possible to move a discussion to or from the polls category.
+También puedes migrar un debate a una categoría diferente. No es posible mover un debate a o desde la categoría de sondeos.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, to the right of "Category", click {% octicon "gear" aria-label="The gear icon" %}.
-  !["Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
-1. Click a category.
-  !["Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, a la derecha de "Categoría", haz clic en {% octicon "gear" aria-label="The gear icon" %}.
 
-## Pinning a discussion
+   ![Captura de pantalla de la "Categoría" con el icono de engranaje](/assets/images/help/discussions/category-in-sidebar.png)
 
-You can pin up to four important discussions above the list of discussions for the repository or organization.
+1. Haz clic en una categoría.
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion**.
-  !["Pin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion.png)
-1. Optionally, customize the look of the pinned discussion.
-  ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
-1. Click **Pin discussion**.
-  !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+   ![Captura de pantalla del menú desplegable "Cambiar categoría"](/assets/images/help/discussions/change-category-drop-down.png)
 
-## Editing a pinned discussion
+## Fijar un debate
 
-Editing a pinned discussion will not change the discussion's category. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+{% ifversion discussions-category-specific-pins %} Puedes anclar un debate encima de la lista de debates para el repositorio o la organización. También puedes anclar un debate a una categoría específica. Los debates anclados globalmente se mostrarán además de los debates anclados a una categoría específica.
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**.
-  !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
-1. Customize the look of the pinned discussion.
-  ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
-1. Click **Pin discussion**.
-  !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+Así es como se ve cuando tienes un debate anclado globalmente y un debate anclado a la categoría Ideas.
 
-## Unpinning a discussion
+![Captura de pantalla de un debate anclado globalmente y un debate anclado a la categoría Ideas](/assets/images/help/discussions/overview-pinned-discussions.png)
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion**.
-  !["Unpin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
-1. Read the warning, then click **Unpin discussion**.
-  !["Unpin discussion" button beneath warning in modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
+### Anclaje de un debate globalmente
+{% endif %}
 
-## Transferring a discussion
+Puedes fijar hasta cuatro debates importantes sobre la lista de debates del repositorio u organización. 
 
-To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "arrow-right" aria-label="The right arrow icon" %} **Transfer discussion**.
-  !["Transfer discussion" in right sidebar for discussion](/assets/images/help/discussions/click-transfer-discussion.png)
-1. Select the **Choose a repository** drop-down, and click the repository you want to transfer the discussion to. If you want to transfer a discussion to an organization, choose the source repository for the organization's discussions.
-  !["Choose a repository" drop-down, "Find a repository" search field, and repository in list](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
-1. Click **Transfer discussion**.
-  !["Transfer discussion" button](/assets/images/help/discussions/click-transfer-discussion-button.png)
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haga clic en {% octicon "pin" aria-label="The pin icon" %} **Pin discussion** (Anclar debate).
+{% ifversion discussions-category-specific-pins %}
 
-## Deleting a discussion
+   ![Captura de pantalla de la opción "Anclar debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/click-pin-discussion-with-category-pins.png){% else %}
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "trash" aria-label="The trash arrow icon" %} **Delete discussion**.
-  !["Delete discussion" in right sidebar for discussion](/assets/images/help/discussions/click-delete-discussion.png)
-1. Read the warning, then click **Delete this discussion**.
-  !["Delete this discussion" button beneath warning in modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
+   ![Captura de pantalla de la opción "Anclar debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/click-pin-discussion.png){% endif %}
 
-## Converting issues based on labels
+1. Opcionalmente, personaliza la apariencia del debate que fijaste.
 
-You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
+   ![Captura de pantalla de opciones de personalización para un debate anclado](/assets/images/help/discussions/customize-pinned-discussion.png)
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or, for organization discussions, the source repository.
-{% data reusables.repositories.sidebar-issues %}
-{% data reusables.project-management.labels %}
-1. Next to the label you want to convert to issues, click **Convert issues**.
-1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
-1. Click **I understand, convert this issue to a discussion**.
+1. Haga clic en **Pin discussion** (Anclar debate).
+
+   ![Captura de pantalla "Anclar debate" en las opciones de personalización del debate anclado](/assets/images/help/discussions/click-pin-discussion-button.png)
+
+{% ifversion discussions-category-specific-pins %}
+### Anclaje de un debate a una categoría
+
+Puedes anclar hasta cuatro debates importantes sobre la lista de debates en una categoría específica. 
+
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haz clic en {% octicon "pin" aria-label="The pin icon" %} **Anclar debate a CATEGORÍA**.
+   
+   ![Captura de pantalla de la opción "Anclar debate a CATEGORÍA" en la barra lateral derecha para el debate](/assets/images/help/discussions/pin-discussion-to-category.png)
+
+2. Para confirmarlo, haz clic en **Anclar a CATEGORÍA**.
+
+   ![Captura de pantalla del cuadro de diálogo modal "Anclar debate a CATEGORÍA"](/assets/images/help/discussions/pin-discussion-to-category-modal.png)
+
+{% endif %}
+
+## Editar un debate que se fijó
+
+Editar un debate que se ha fijado no cambiará la categoría del mismo. Para más información, consulta "[Administración de categorías para debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
+
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haga clic en {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion** (Editar debate anclado).
+  {% ifversion discussions-category-specific-pins %}
+
+   ![Captura de pantalla de la opción "Editar debate anclado" en la barra lateral derecha para el debate](/assets/images/help/discussions/edit-pinned-discussion-with-category-pins.png) {% else %}
+
+
+   ![Captura de pantalla de la opción "Editar debate anclado" en la barra lateral derecha para el debate](/assets/images/help/discussions/click-edit-pinned-discussion.png){% endif %}
+
+1. Personaliza la apariencia del debate que fijaste.
+
+  ![Captura de pantalla de opciones de personalización para un debate anclado](/assets/images/help/discussions/customize-pinned-discussion.png)
+
+1. Haga clic en **Pin discussion** (Anclar debate).
+
+  ![Captura de pantalla "Anclar debate" en las opciones de personalización del debate anclado](/assets/images/help/discussions/click-pin-discussion-button.png)
+
+## Dejar de fijar un debate
+
+{% ifversion discussions-category-specific-pins %}
+
+Puedes desanclar un debate de la lista de debates para el repositorio o la organización, o bien de la lista de debates de una categoría específica.
+
+### Desanclaje de un debate anclado globalmente
+
+Puedes desanclar un debate anclado globalmente. Esto no eliminará el debate, pero este ya no se mostrará encima de la lista de debates.
+{% endif %}
+
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haga clic en {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion** (Desanclar debate).
+
+  ![Captura de pantalla de la opción "Desanclar debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/click-unpin-discussion.png)
+
+1. Lea la advertencia y haga clic en **Unpin discussion** (Desanclar debate).
+
+  ![Captura de pantalla del botón "Desanclar debate " debajo de la advertencia en el cuadro de diálogo modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
+
+{% ifversion discussions-category-specific-pins %}
+### Desanclaje de un debate de una categoría
+
+Puedes desanclar un debate anclado a una categoría específica. Esto no eliminará el debate, pero este ya no se mostrará encima de la categoría.
+
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haz clic en {% octicon "pin" aria-label="The pin icon" %} **Desanclar debate de esta categoría**.
+
+   ![Captura de pantalla de la opción "Desanclar debate de esta categoría" en la barra lateral derecha para el debate](/assets/images/help/discussions/unpin-discussion-from-category.png)
+
+1. Lee la advertencia y, a continuación, haz clic en **Desanclar de esta categoría**.
+
+   ![Captura de pantalla del botón "Desanclar de esta categoría" en el cuadro de diálogo modal "Desanclar este debate de esta categoría"](/assets/images/help/discussions/unpin-discussion-from-category-modal.png)
+
+{% endif %}
+
+## Transferir un debate
+
+Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo. Si quieres transferir un debate a una organización, debes tener permisos para crear debates en el repositorio de origen para los debates de la organización. Solo puedes transferir debates entre los repositorios que pertenezcan a la misma cuenta de organización o de usuario. No se puede transferir un debate de un repositorio privado{% ifversion ghec or ghes %} o interno{% endif %} a un repositorio público.
+
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haz clic en {% octicon "arrow-right" aria-label="The right arrow icon" %} {% ifversion discussions-category-specific-pins %}**Transferir este debate**{% else %}**Transferir debate**{% endif %}.
+{% ifversion discussions-category-specific-pins %}
+
+   ![Captura de pantalla de la opción "Transferir debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/transfer-discussion-with-category-pin.png) {% else %}
+
+  
+   ![Captura de pantalla de la opción "Transferir debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/click-transfer-discussion.png){% endif %}
+
+1. Seleccione el menú desplegable **Choose a repository** (Elegir un repositorio) y haga clic en el repositorio al que quiera transferir el debate. Si deseas transferir un debate a una organización, elige el repositorio de origen para los debates de la organización.
+
+   ![Captura de pantalla del menú desplegable "Elegir un repositorio", del campo de búsqueda "Buscar un repositorio" y del repositorio en la lista](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+
+1. Haga clic en **Transfer discussion** (Transferir debate).
+
+   ![Captura de pantalla del botón "Transferir debate"](/assets/images/help/discussions/click-transfer-discussion-button.png)
+
+## Borrar un debate
+
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. En la barra lateral derecha, haga clic en {% octicon "trash" aria-label="The trash arrow icon" %} **Delete discussion** (Eliminar debate).
+{% ifversion discussions-category-specific-pins %}
+
+   ![Captura de pantalla de la opción "Eliminar debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/delete-discussion-with-category-pins.png){% else %}
+
+
+   ![Captura de pantalla de la opción "Eliminar debate" en la barra lateral derecha para el debate](/assets/images/help/discussions/click-delete-discussion.png){% endif %}
+
+1. Lea la advertencia y haga clic en **Delete this discussion** (Eliminar este debate).
+
+   ![Captura de pantalla del botón "Eliminar este debate" debajo de la advertencia en el cuadro de diálogo modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
+
+## Convertir propuestas con base en las etiquetas
+
+Puedes convertir todas las propuestas con la misma etiqueta en debates, por lote. Las propuestas subsecuentes que tengan esta etiqueta también se convertirán automáticamente en el debate y categoría que configures.
+
+1. En {% data variables.location.product_location %}, ve hasta la página principal del repositorio o, para los debates de organizaciones, el repositorio de origen.
+{% data reusables.repositories.sidebar-issues %} {% data reusables.project-management.labels %}
+1. Junto a la etiqueta que quiere convertir en incidencias, haga clic en **Convert issues** (Convertir incidencias).
+1. Seleccione el menú desplegable **Choose a category** (Seleccionar una categoría) y haga clic en una categoría para el debate.
+1. Haga clic en **I understand, convert this issue to a discussion** (Lo entiendo, convertir esta incidencia en un debate).

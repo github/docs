@@ -1,6 +1,6 @@
 ---
-title: Keeping your account and data secure
-intro: 'To protect your personal information, you should keep both your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and any associated data secure.'
+title: Mantener tu cuenta y tus datos seguros
+intro: 'Para proteger tu información personal, deberías mantener seguros tanto tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} como cualquier tipo de datos asociados.'
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
   - /github/authenticating-to-github/keeping-your-account-and-data-secure
@@ -32,6 +32,13 @@ children:
   - /githubs-ssh-key-fingerprints
   - /sudo-mode
   - /preventing-unauthorized-access
+  - /viewing-and-managing-your-sessions
 shortTitle: Account security
+ms.openlocfilehash: ba88c5fcde2e1dcdcf7186c4e5d83bf854f9ff00
+ms.sourcegitcommit: b2e5d14036a700b781e91158a552f8c0b1f04839
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165550'
 ---
 

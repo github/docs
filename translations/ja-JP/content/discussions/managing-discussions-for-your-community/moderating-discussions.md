@@ -4,12 +4,12 @@ intro: 'コメントを回答としてマークする、ディスカッション
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   feature: discussions
-ms.openlocfilehash: 7d128c9beadb190f9c22c345cf0c3124b1dfcfcb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4d09537a3c38d2eb9ac2650c48f2c44c1b0cbd95
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410116'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164474'
 ---
 ## ディスカッションのモデレートについて
 
@@ -39,3 +39,10 @@ Issue をディスカッションに変換すると、その Issue のコンテ�
 1. Issue の右余白にある **[ディスカッションに変換]** をクリックします。
 1. **[カテゴリの選択]** ドロップダウン メニューを選択し、ディスカッションのカテゴリをクリックします。
 1. **[わかりました、この Issue をディスカッションに変換します]** をクリックします。
+
+{% ifversion discussions-hide-comments-on-block %}
+## Organization からのユーザのブロック
+
+組織の所有者とモデレーターは、ユーザーのコメントがコミュニティの行動規範に従っていない場合、そのユーザーを組織からブロックできます。 ブロックしたユーザーは、ディスカッションにコメントできなくなります。 また、組織内であるユーザーが行ったすべてのコメントを非表示にすることもできます。 詳細については、「[Organization からのユーザーのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)」を参照してください。
+
+{% data reusables.organizations.blocking-a-user %} {% endif %}

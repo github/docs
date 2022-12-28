@@ -1,126 +1,132 @@
 ---
-title: Getting started with GitHub Enterprise Server
-intro: 'Get started with setting up and managing {% data variables.location.product_location %}.'
+title: GitHub Enterprise Serverを使い始める
+intro: '{% data variables.location.product_location %} の設定と管理を開始します。'
 versions:
   ghes: '*'
+ms.openlocfilehash: 68cd462c42ef63863750d9edc5e122dc3c325115
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163417'
 ---
+このガイドでは、エンタープライズ管理者として {% data variables.location.product_location %} の設定、構成、管理を行う方法について説明します。
 
-This guide will walk you through setting up, configuring and managing {% data variables.location.product_location %} as an enterprise administrator.
-
-{% data variables.product.company_short %} provides two ways to deploy {% data variables.product.prodname_enterprise %}.
+{% data variables.product.company_short %} には、{% data variables.product.prodname_enterprise %} をデプロイするための方法として、次の 2 つが用意されています。
 
 - **{% data variables.product.prodname_ghe_cloud %}**
 - **{% data variables.product.prodname_ghe_server %}**
 
-{% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
+{% data variables.product.prodname_ghe_cloud %} は、{% data variables.product.company_short %} でホストされます。 {% data variables.product.prodname_ghe_server %} は、自身のデータセンターまたはサポートされているクラウド プロバイダーにデプロイしてホストすることができます。
 
-For more information about {% data variables.product.product_name %}, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
+{% data variables.product.product_name %} の詳細については、「[{% data variables.product.prodname_ghe_server %} について](/admin/overview/about-github-enterprise-server)」を参照してください。
 
-## Part 1: Installing {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 
-### 1. Creating your enterprise account
-Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
-### 2. Installing {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you will need to install the appliance on a virtualization platform of your choice. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+## パート 1: {% data variables.product.product_name %} のインストール方法
+{% data variables.product.product_name %} を使い始めるには、Enterprise アカウントの作成とインスタンスのインストールを行い、初期設定に管理コンソールを使用し、インスタンスを構成し、支払いを管理する必要があります。 
+### 1. Enterprise アカウントの作成
+{% data variables.product.product_name %} をインストールする前に、[{% data variables.product.prodname_dotcom %} の営業チーム](https://enterprise.github.com/contact) に連絡して、{% data variables.product.prodname_dotcom_the_website %} に Enterprise アカウントを作成できます。 {% data variables.product.prodname_dotcom_the_website %} の Enterprise アカウントは、支払いや、{% data variables.product.prodname_github_connect %} を介した {% data variables.product.prodname_dotcom_the_website %} での共有機能に役立ちます。  詳細については、「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+### 2. {% data variables.product.product_name %} のインストール
+{% data variables.product.product_name %} を使い始めるには、選択した仮想化プラットフォームにアプライアンスをインストールする必要があります。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 
-### 3. Using the Management Console
-You will use the Management Console to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the  Management Console to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+### 3. 管理コンソールの使用
+{% data variables.location.product_location %} を初めて起動する場合、管理コンソールを使用して、初期設定プロセスを実行します。 また、管理コンソールを使用して、ライセンス、ドメイン、認証、TLS などのインスタンス設定を管理することもできます。 詳細については、「[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)」 (管理コンソールへのアクセス) を参照してください。
 
-### 4. Configuring {% data variables.location.product_location %}
-In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.location.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+### 4. {% data variables.location.product_location %} の構成
+管理コンソールに加えて、サイト管理ダッシュボードと管理シェル (SSH) を使用して {% data variables.location.product_location %} を管理することもできます。 たとえば、アプリケーションやレート制限を構成したり、レポートを表示したり、コマンドライン ユーティリティを使用したりすることができます。 詳細については、「[Enterprise を設定する](/admin/configuration/configuring-your-enterprise)」を参照してください。
 
-You can use the default network settings used by {% data variables.product.product_name %} via the dynamic host configuration protocol (DHCP), or you can also configure the network settings using the virtual machine console. You can also configure a proxy server or firewall rules. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
+動的ホスト構成プロトコル (DHCP) を介して {% data variables.product.product_name %} で使用される既定のネットワーク設定を使用することも、仮想マシン コンソールを使用してネットワーク設定を構成することもできます。 プロキシサーバあるいはファイアウォールルールを設定することもできます。 詳細については、「[ネットワークを設定する](/admin/configuration/configuring-network-settings)」を参照してください。
 
-### 5. Configuring high availability
-You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[Configuring high availability](/admin/enterprise-management/configuring-high-availability)."
+### 5. 高可用性の構成
+{% data variables.location.product_location %} を高可用性向けに構成して、ハードウェア障害やネットワークの停止による影響を最小限に抑えることができます。 詳細については、「[High Availability の設定](/admin/enterprise-management/configuring-high-availability)」を参照してください。
 
-### 6. Setting up a staging instance
-You can set up a staging instance to test modifications, plan for disaster recovery, and try out updates before applying them to {% data variables.location.product_location %}.  For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+### 6. ステージング インスタンスのセットアップ
+ステージング インスタンスを設定して、{% data variables.location.product_location %} に適用される前に変更をテストし、ディザスター リカバリーを計画し、更新プログラムを試すことができます。  詳細については、「[ステージング インスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)」を参照してください。
 
-### 7. Designating backups and disaster recovery
-To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+### 7. バックアップとディザスター リカバリーの指定
+運用データを保護するには、{% data variables.product.prodname_enterprise_backup_utilities %} による {% data variables.location.product_location %} の自動バックアップを構成できます。 詳細については、「[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)」 (アプライアンスでのバックアップの構成) を参照してください。
 
-### 8. Managing billing for your enterprise
-Billing for all the organizations and {% data variables.product.product_name %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom %}.com services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+### 8. Enterprise の支払いの管理
+Enterprise アカウントに接続されているすべての Organization および {% data variables.product.product_name %} インスタンスの支払いは、有料のすべての {% data variables.product.prodname_dotcom %}.com サービスに対する単一の請求料金として集計されます。 Enterprise オーナーと支払いマネージャーは、Enterprise アカウントの支払い設定にアクセスして管理することができます。 詳細については、「[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)」 (Enterprise の支払いの管理) を参照してください。
 
-## Part 2: Organizing and managing your team
-As an enterprise owner or administrator, you can manage settings on user, repository, team and organization levels. You can manage members of your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
+## パート 2: Team の編成と管理
+Enterprise オーナーまたは管理者は、ユーザー、リポジトリ、Team、Organization のレベルの設定を管理できます。 Enterprise のメンバーの管理、Organization の作成と管理、リポジトリ管理に関するポリシーの設定、Team の作成と管理を行うことができます。
 
-### 1. Managing members of {% data variables.location.product_location %}
+### 1. {% data variables.location.product_location %} のメンバーの管理
 {% data reusables.getting-started.managing-enterprise-members %}
 
-### 2. Creating organizations
+### 2. Organization の作成
 {% data reusables.getting-started.creating-organizations %}
 
-### 3. Adding members to organizations
+### 3. Organization へのメンバーの追加
 {% data reusables.getting-started.adding-members-to-organizations %}
 
-### 4. Creating teams
+### 4. チームの作成
 {% data reusables.getting-started.creating-teams %}
 
-### 5. Setting organization and repository permission levels
+### 5. Organization とリポジトリのアクセス許可レベルの設定
 {% data reusables.getting-started.setting-org-and-repo-permissions %}
 
-### 6. Enforcing repository management policies
+### 6. リポジトリ管理ポリシーの適用
 {% data reusables.getting-started.enforcing-repo-management-policies %}
 
-## Part 3: Building securely
-To increase the security of {% data variables.location.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.
-### 1. Authenticating enterprise members
-You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.location.product_location %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+## パート 3: 安全なビルド
+{% data variables.location.product_location %} のセキュリティを強化するには、エンタープライズ メンバーの認証を構成し、ツールと監査ログを使用してコンプライアンスを維持し、組織のセキュリティおよび分析機能を構成し、必要に応じて {% data variables.product.prodname_GH_advanced_security %} を有効にすることができます。
+### 1. Enterprise メンバーの認証
+{% data variables.product.product_name %} の組み込み認証方法を使用するか、CAS、LDAP、SAML などの外部の認証プロバイダーを選び、既存のアカウントを統合して、{% data variables.location.product_location %} へのユーザー アクセスを一元的に管理することができます。 詳しくは、「[Enterprise の認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」をご覧ください。
 
-You can also require two-factor authentication for each of your organizations. For more information, see "[Requiring two factor authentication for an organization](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
+また、Organization ごとに 2 要素認証を要求することもできます。 詳細については、「[Organization に 2 要素認証を要求する](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)」を参照してください。
 
-### 2. Staying in compliance
-You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
-
-{% ifversion ghes %}
-### 3. Configuring security features for your organizations
-{% data reusables.getting-started.configuring-security-features %}
-{% endif %}
+### 2. コンプライアンスの維持
+必要な状態チェックとコミット検証を実装して、Organization のコンプライアンス標準を適用し、コンプライアンス ワークフローを自動化できます。 また、Organization の監査ログを使用して、Team によって実行されるアクションをレビューすることもできます。 詳細については、「[Pre-receive フックを使ってポリシーを適用する](/admin/policies/enforcing-policy-with-pre-receive-hooks)」および「[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)」 (Enterprise の監査ログについて) を参照してください。
 
 {% ifversion ghes %}
-### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
-You can upgrade your {% data variables.product.product_name %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see "[{% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+### 3. Organization のセキュリティ機能の構成
+{% data reusables.getting-started.configuring-security-features %} {% endif %}
+
+{% ifversion ghes %}
+### 4. {% data variables.product.prodname_GH_advanced_security %} 機能の有効化
+{% data variables.product.product_name %} ライセンスをアップグレードして、{% data variables.product.prodname_GH_advanced_security %} を含めることができます。 これにより、コードやシークレット スキャンなど、ユーザーがコード内のセキュリティ上の問題を検出して修正するのに役立つ追加機能が提供されます。 詳細については、「[Enterprise の {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)」を参照してください。
 {% endif %}
 
-## Part 4: Customizing and automating your enterprise's work on {% data variables.product.prodname_dotcom %}
-You can customize and automate work in organizations in your enterprise with {% data variables.product.prodname_dotcom %} and {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} , and {% data variables.product.prodname_pages %}.
+## パート 4: {% data variables.product.prodname_dotcom %} での Enterprise の作業のカスタマイズと自動化
+{% data variables.product.prodname_dotcom %} と {% data variables.product.prodname_oauth_apps %}、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_pages %} を使用して、Enterprise 内の Organization での作業をカスタマイズおよび自動化できます。
 
-### 1. Building {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
-You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)."
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 1. {% data variables.product.prodname_github_apps %} と {% data variables.product.prodname_oauth_apps %} のビルド
+{% data variables.product.prodname_github_apps %} や {% data variables.product.prodname_oauth_apps %} などの {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API との統合を構築し、ワークフローを補完および拡張するために Enterprise 内の Organization で使用することができます。 詳細については、「[About apps](/developers/apps/getting-started-with-apps/about-apps)」 (アプリについて) を参照してください。
+### 2. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API の使用
 {% data reusables.getting-started.api %}
 
 {% ifversion ghes %}
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. {% data variables.product.prodname_actions %} のビルド
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data variables.product.product_name %} で {% data variables.product.prodname_actions %} を有効にして構成する方法の詳細については、「[{% data variables.product.prodname_ghe_server %} の {% data variables.product.prodname_actions %} を使い始める](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)」を参照してください。
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. {% data variables.product.prodname_registry %} の公開と管理 
 {% data reusables.getting-started.packages %}
 
-For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+{% data variables.location.product_location %} の {% data variables.product.prodname_registry %} を有効にして構成する方法の詳細については、「[エンタープライズの {% data variables.product.prodname_registry %} を使い始める](/admin/packages/getting-started-with-github-packages-for-your-enterprise)」を参照してください。
 {% endif %}
 
-### 5. Using {% data variables.product.prodname_pages %}
+### 5. {% data variables.product.prodname_pages %} の使用
 {% data reusables.getting-started.github-pages-enterprise %}
 
-## Part 5: Connecting with other {% data variables.product.prodname_dotcom %} resources
-You can use {% data variables.product.prodname_github_connect %} to share resources.
+## パート 5: 他の {% data variables.product.prodname_dotcom %} リソースとの接続
+{% data variables.product.prodname_github_connect %} を使用してリソースを共有することができます。
 
-If you are the owner of both a {% data variables.product.product_name %} instance and a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account, you can enable {% data variables.product.prodname_github_connect %}. {% data variables.product.prodname_github_connect %} allows you to share specific workflows and features between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %}, such as unified search and contributions. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)."
+{% data variables.product.product_name %} インスタンスと、{% data variables.product.prodname_ghe_cloud %} の Organization または Enterprise アカウントの両方のオーナーである場合、{% data variables.product.prodname_github_connect %} を有効にすることができます。 {% data variables.product.prodname_github_connect %} を使用すると、{% data variables.location.product_location %} と {% data variables.product.prodname_ghe_cloud %} の間で、統合検索やコントリビューションなどの特定のワークフローや機能を共有できます。 詳細については、「[{% data variables.product.prodname_ghe_cloud %} への {% data variables.product.prodname_ghe_server %} の接続](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
 
-## Part 6: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing {% data variables.location.product_location %} with {% data variables.product.prodname_dotcom %} Enterprise Support.
+## パート 6: {% data variables.product.prodname_dotcom %} の学習およびサポート リソースの使用
+エンタープライズ メンバーは、学習リソースを使用して Git と {% data variables.product.prodname_dotcom %} の詳細を学ぶことができます。また、{% data variables.location.product_location %} の設定および管理を行う際に、{% data variables.product.prodname_dotcom %} エンタープライズ サポートを使用して必要なサポートを受けることができます。
 
-### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+### 1. {% data variables.product.prodname_docs %} で {% data variables.product.product_name %} に関するドキュメントを読む
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+{% data variables.product.prodname_ghe_server %} で使用できる機能が掲載されたドキュメントを読むことができます。 詳細については、「[{% data variables.product.prodname_docs %} のバージョンについて](/get-started/learning-about-github/about-versions-of-github-docs)」を参照してください。
 
-### 2. Learning with {% data variables.product.prodname_learning %}
+{% data reusables.enterprise.best-practices %}
+
+### 2. {% data variables.product.prodname_learning %} による学習
 {% data reusables.getting-started.learning-enterprise %}
 
-### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
+### 3. {% data variables.product.prodname_dotcom %} Enterprise サポートの使用
 {% data reusables.getting-started.contact-support-enterprise %}

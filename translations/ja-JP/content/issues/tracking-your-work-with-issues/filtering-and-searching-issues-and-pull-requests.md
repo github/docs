@@ -62,7 +62,7 @@ Issue およびPull Requestをフィルタリングして、以下を探すこ�
 - すべてのオープンな Issue およびPull Request
 - 自分で作成した Issue およびPull Request
 - 自分に割り当てられた Issue およびPull Request
-- [ **@mentioned** ](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) されていた現在の issue と pull request
+- [ **@mentioned**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) されていた現在の issue と pull request
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
@@ -163,7 +163,7 @@ gh pr list --search "team:octo-org/octo-team"
 Issue およびPull Requestの検索用語により、次のことができます:
 
 - 作成者ごとに issue と pull request をフィルター処理します: `state:open type:issue author:octocat`
-- 特定のユーザーを含むが必ずしも [ **@mention** ](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) していない issue と pull request をフィルター処理します: `state:open type:issue involves:octocat`
+- 特定のユーザーを含むが必ずしも [ **@mention**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) していない issue と pull request をフィルター処理します: `state:open type:issue involves:octocat`
 - 担当者ごとに issue と pull request をフィルター処理します: `state:open type:issue assignee:octocat`
 - ラベルごとに issue と pull request をフィルター処理します: `state:open type:issue label:"bug"`
 - 語句の前に `-` を使用して、検索語句を除外します: `state:open type:issue -author:octocat`

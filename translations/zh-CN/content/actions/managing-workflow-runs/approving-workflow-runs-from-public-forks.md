@@ -5,12 +5,12 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Approve public fork runs
-ms.openlocfilehash: b995362f67d97a3e2ee6d1029cbe24227867f58a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 74918a7d2e0081d6332ab267ef18ae148a2cff5e
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145084656'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164121'
 ---
 ## 关于公共复刻中的工作流程运行
 
@@ -22,10 +22,4 @@ ms.locfileid: '145084656'
 
 ## 批准公共复刻中拉取请求的工作流程运行
 
-能够写入仓库的维护者可按照以下步骤来审查和运行来自贡献者、需要审批的拉取请求上的工作流程。
-
-{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %}
-1. 检查拉取请求中的拟议更改，确保您在拉取请求分支上自由运行您的工作流程。 应特别注意 `.github/workflows/` 目录中影响工作流文件的任何拟议更改。
-1. 如果能自由在拉取请求分支上运行工作流，请返回到 {% octicon "comment-discussion" aria-label="The discussion icon" %}“转换”选项卡，在“等待审批的工作流”下，单击“批准并运行” 。
-
-   ![批准并运行工作流程](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+{% data reusables.actions.workflows.approve-workflow-runs %}

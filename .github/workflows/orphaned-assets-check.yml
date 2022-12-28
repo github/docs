@@ -7,7 +7,7 @@ name: 'Orphaned assets check'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 11 * * 1' # run every Monday at 11:20AM UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout English repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
@@ -29,36 +29,64 @@ jobs:
         run: |
           rm -rf translations
 
-      - name: Checkout the es-es repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-        with:
-          repository: github/docs-internal.es-es
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/es-ES
-
-      - name: Checkout the pt-br repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-        with:
-          repository: github/docs-internal.pt-br
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/pt-BR
-
       - name: Checkout the zh-cn repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-internal.zh-cn
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           path: translations/zh-CN
 
       - name: Checkout the ja-jp repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-internal.ja-jp
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           path: translations/ja-JP
 
+      - name: Checkout the es-es repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.es-es
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/es-ES
+
+      - name: Checkout the pt-br repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.pt-br
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/pt-BR
+
+      - name: Checkout the de-de repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.de-de
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/de-DE
+
+      - name: Checkout the fr-fr repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.fr-fr
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/fr-FR
+
+      - name: Checkout the ru-ru repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ru-ru
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/ru-RU
+
+      - name: Checkout the ko-kr repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ko-kr
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/ko-KR
+
       - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version: '16.17.0'
           cache: npm

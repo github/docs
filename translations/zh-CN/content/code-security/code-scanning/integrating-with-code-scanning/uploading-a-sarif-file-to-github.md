@@ -23,12 +23,12 @@ topics:
   - Repositories
   - CI
   - SARIF
-ms.openlocfilehash: 80f95a5c74a465a285d73f1af9719b2f7a4981d6
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 3def104e487f54e2c48d462d1dcfe8bab63c6fa3
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147705755'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161157'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -38,12 +38,12 @@ ms.locfileid: '147705755'
 
 您可以使用许多静态分析安全测试工具来生成 SARIF 文件，包括 {% data variables.product.prodname_codeql %}。 结果必须使用 SARIF 版本 2.1.0。 有关详细信息，请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/code-security/secure-coding/sarif-support-for-code-scanning)”。
 
-可以使用 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_code_scanning %} API、{% ifversion codeql-runner-supported %}{% data variables.product.prodname_codeql_runner %}、{% endif %}或 {% data variables.product.prodname_codeql_cli %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
+可以使用 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_code_scanning %} API{% ifversion codeql-runner-supported %} the {% data variables.code-scanning.codeql_runner %},{% endif %} 或 {% data variables.product.prodname_codeql_cli %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
 
 - {% data variables.product.prodname_actions %} 来运行 {% data variables.product.prodname_codeql %} 操作，则无需进一步操作。 {% data variables.product.prodname_codeql %} 操作在完成分析后自动上传 SARIF 文件。
 - {% data variables.product.prodname_actions %} 运行与 SARIF 兼容的分析工具，您可以更新工作流程以包括上传结果的最后一步（见下文）。
  - {% data variables.product.prodname_codeql_cli %} 在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}，你可以使用 CLI 将结果上传到 {% data variables.product.prodname_dotcom %}（有关详细信息，请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”）。{% ifversion codeql-runner-supported %}
-- {% data variables.product.prodname_codeql_runner %}，要在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}，默认情况下运行程序会在完成后自动将结果上传到 {% data variables.product.prodname_dotcom %}。 如果阻止自动上传，当准备好上传结果时，可以使用 `upload` 命令（有关详细信息，请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql_runner %}](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)”）。{% endif %}
+- {% data variables.code-scanning.codeql_runner %}，要在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}，默认情况下运行器会在完成后自动将结果上传到 {% data variables.product.prodname_dotcom %}。 如果阻止自动上传，当准备好上传结果时，可以使用 `upload` 命令（有关详细信息，请参阅“[在 CI 系统中运行 {% data variables.code-scanning.codeql_runner %}](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)”）。{% endif %}
 - 作为存储库外部工件生成结果的工具，你可以使用 {% data variables.product.prodname_code_scanning %} API 上传文件（有关详细信息，请参阅“[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”）。
 
 {% data reusables.code-scanning.not-available %}

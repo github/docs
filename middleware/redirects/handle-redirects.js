@@ -3,10 +3,7 @@ import { URL } from 'url'
 import { pathLanguagePrefixed } from '../../lib/languages.js'
 import { deprecatedWithFunctionalRedirects } from '../../lib/enterprise-server-releases.js'
 import getRedirect from '../../lib/get-redirect.js'
-import { cacheControlFactory } from '../cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24) // one day
-const noCacheControl = cacheControlFactory(0)
+import { defaultCacheControl, languageCacheControl } from '../cache-control.js'
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets
@@ -20,7 +17,7 @@ export default function handleRedirects(req, res, next) {
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-    noCacheControl(res)
+    languageCacheControl(res)
     return res.redirect(302, `/${language}`)
   }
 
@@ -154,9 +151,9 @@ export default function handleRedirects(req, res, next) {
 
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
-    cacheControl(res)
+    defaultCacheControl(res)
   } else {
-    noCacheControl(res)
+    languageCacheControl(res)
   }
 
   const permanent = redirect.includes('://') || usePermanentRedirect(req)

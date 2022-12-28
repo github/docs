@@ -18,7 +18,7 @@ featuredLinks:
     - /github-cli/github-cli/creating-github-cli-extensions
     - /github-cli/github-cli/using-github-cli-extensions
     - /actions/guides/using-github-cli-in-workflows
-    - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
+    - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
   popular:
     - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
     - /issues/tracking-your-work-with-issues/creating-an-issue
@@ -33,11 +33,11 @@ changelog:
   label: cli
 layout: product-landing
 beta_product: false
-ms.openlocfilehash: baa7f3b173c35a1629a57860f23eef57c88fc2f9
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 4f74b69ccb0a49c449e9da96229b6ee01580d696
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145065527'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159400'
 ---
 

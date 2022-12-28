@@ -2,7 +2,6 @@
 title: GitHub Codespaces のドットファイルのトラブルシューティング
 allowTitleToDifferFromFilename: true
 intro: 一般的なドットファイル issue のトラブルシューティング手順。
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,12 +9,12 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Dotfiles
-ms.openlocfilehash: c316909f66d88b0f4f1fe52d6740af9b1e0d4854
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 699f790e45c71e685ac6b301e8dea1eca2ee6f15
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109283'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158686'
 ---
 Codespace によるドットファイルからの構成設定の取得が失敗した場合は、次のデバッグ手順を実行する必要があります。
 

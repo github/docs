@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c32a9f6f6a799c3653cb17fe89721090fc01d155
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: bb81ad72418e81366595d963296493a7a3b55202
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108150"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148158675"
 ---
    如果存储库的开发容器配置指定了访问其他存储库的权限，你将看到一个授权页面。 有关如何在 `devcontainer.json` 文件中指定此权限的详细信息，请参阅“[管理对 codespace 中其他存储库的访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)”。   
 

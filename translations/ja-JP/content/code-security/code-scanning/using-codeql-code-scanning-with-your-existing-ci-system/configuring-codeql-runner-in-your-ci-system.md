@@ -1,7 +1,7 @@
 ---
-title: Configuring CodeQL runner in your CI system
+title: CIシステムでのCodeQLランナーの設定
 shortTitle: Configure CodeQL runner
-intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
+intro: '{% data variables.code-scanning.codeql_runner %}でプロジェクトのコードをスキャンし、その結果を {% data variables.product.prodname_dotcom %} にアップロードする方法を構成できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -24,33 +24,35 @@ topics:
   - C/C++
   - C#
   - Java
+ms.openlocfilehash: 64245dd9f320947510db3e108b30c886c95b89d1
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161071'
 ---
+{% data reusables.code-scanning.deprecation-codeql-runner %} {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
+## CI システムにおける {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} の設定について
 
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+{% data variables.product.prodname_code_scanning %} をお使いの CI システムに統合するために、{% data variables.code-scanning.codeql_runner %}を使用できます。 詳しくは、「[CI システムでの {% data variables.code-scanning.codeql_runner %}の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」を参照してください。
 
-## About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
-
-To integrate {% data variables.product.prodname_code_scanning %} into your CI system, you can use the {% data variables.product.prodname_codeql_runner %}. For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
-
-In general, you invoke the {% data variables.product.prodname_codeql_runner %} as follows.
+一般的に、{% data variables.code-scanning.codeql_runner %}は次のように呼び出します。
 
 ```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
-`/path/to-runner/` depends on where you've downloaded the {% data variables.product.prodname_codeql_runner %} on your CI system. `codeql-runner-OS` depends on the operating system you use.
-There are three versions of the {% data variables.product.prodname_codeql_runner %}, `codeql-runner-linux`, `codeql-runner-macos`, and `codeql-runner-win`, for Linux, macOS, and Windows systems respectively. 
+`/path/to-runner/` は、{% data variables.code-scanning.codeql_runner %}をお使いの CI システムのどこにダウンロードしたかによって異なります。 `codeql-runner-OS` は、お使いのオペレーティング システムによって異なります。
+{% data variables.code-scanning.codeql_runner %}には、Linux、macOS、Windows システム用に、それぞれ `codeql-runner-linux`、`codeql-runner-macos`、`codeql-runner-win` の 3 つのバージョンがあります。 
 
-To customize the way the {% data variables.product.prodname_codeql_runner %} scans your code, you can use flags, such as `--languages` and `--queries`, or you can specify custom settings in a separate configuration file.
+{% data variables.code-scanning.codeql_runner %}でコードをスキャンする方法をカスタマイズするには、フラグ (`--languages`、`--queries` など) を使用するか、別の構成ファイルでカスタム設定を指定できます。
 
-## Scanning pull requests
+## Pull Requestをスキャンする
 
-Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
+プルリクエストが作成されるたびにコードをスキャンすることで、開発者がコードに新しい脆弱性やエラーを持ち込むことを防げます。
 
-To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
+pull request をスキャンするには、`analyze` コマンドを実行し、`--ref` フラグを使用して pull request を指定します。 参照は、`refs/pull/<PR-number>/head` または `refs/pull/<PR-number>/merge` であり、pull request ブランチの HEAD コミットをチェックアウトしたかどうか、ベース ブランチとのマージ コミットをチェックアウトしたかどうかによって異なります。
 
 ```shell
 $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
@@ -58,50 +60,50 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% note %}
 
-**Note**: If you analyze code with a third-party tool and want the results to appear as pull request checks, you must run the `upload` command and use the `--ref` flag to specify the pull request instead of the branch. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`.
+**注**: サード パーティ製ツールを使用してコードを分析し、結果を pull request チェックとして表示する場合は、`upload` コマンドを実行し、`--ref` フラグを使用してブランチの代わりに pull request を指定する必要があります。 参照は、`refs/pull/<PR-number>/head` または `refs/pull/<PR-number>/merge` です。
 
 {% endnote %}
 
-## Overriding automatic language detection
+## 自動言語検出をオーバーライドする
 
-The {% data variables.product.prodname_codeql_runner %} automatically detects and scans code written in the supported languages.
+{% data variables.code-scanning.codeql_runner %}により、サポートされている言語で記述されたコードが自動的に検出されてスキャンされます。
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-To override automatic language detection, run the `init` command with the `--languages` flag, followed by a comma-separated list of language keywords. The keywords for the supported languages are {% data reusables.code-scanning.codeql-languages-keywords %}.
+言語の自動検出をオーバーライドするには、`--languages` フラグを指定して `init` コマンドを実行し、続けて言語キーワードのコンマ区切りのリストを実行します。 サポートされている言語に対するキーワードは{% data reusables.code-scanning.codeql-languages-keywords %}です。
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-## Running additional queries
+## 追加のクエリを実行する
 
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
-To add one or more queries, pass a comma-separated list of paths to the `--queries` flag of the `init` command. You can also specify additional queries in a configuration file.
+1 つ以上のクエリを追加するには、`init` コマンドの `--queries` フラグにパスのコンマ区切りのリストを渡します。 設定ファイルに、追加のクエリを指定することもできます。
 
-If you also are using a configuration file for custom settings, and you are also specifying additional queries with the `--queries` flag, the {% data variables.product.prodname_codeql_runner %} uses the additional queries specified with the <nobr>`--queries`</nobr> flag instead of any in the configuration file.
-If you want to run the combined set of additional queries specified with the flag and in the configuration file, prefix the value passed to <nobr>`--queries`</nobr> with the `+` symbol.
-For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+また、カスタム設定にも構成ファイルを使用し、`--queries` フラグで追加のクエリも指定している場合、{% data variables.code-scanning.codeql_runner %}では、構成ファイルで指定されたものではなく、<nobr>`--queries`</nobr> フラグで指定された追加のクエリが使用されます。
+フラグと構成ファイルで指定された追加クエリの組み合わせのセットを使用する場合、<nobr>`--queries`</nobr> に渡される値の前に `+` 記号を付けますます。
+詳細については、「[カスタム構成ファイルの使用](#using-a-custom-configuration-file)」を参照してください。
 
-In the following example, the `+` symbol ensures that the {% data variables.product.prodname_codeql_runner %} uses the additional queries together with any queries specified in the referenced configuration file.
+次の例では、`+` 記号があるため、{% data variables.code-scanning.codeql_runner %}で追加のクエリが、参照されている構成ファイルで指定されている任意のクエリと共に確実に使用されます。
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-## Using a custom configuration file
+## カスタム構成ファイルの使用
 
-Instead of passing additional information to the {% data variables.product.prodname_codeql_runner %} commands, you can specify custom settings in a separate configuration file.
+{% data variables.code-scanning.codeql_runner %} コマンドに追加情報を渡す代わりに、別の構成ファイルでカスタム設定を指定できます。
 
-The configuration file is a YAML file. It uses syntax similar to the workflow syntax for {% data variables.product.prodname_actions %}, as illustrated in the examples below. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)." 
+設定ファイルの形式は YAML ファイルです。 YAML ファイルは、以下の例で示すように、{% data variables.product.prodname_actions %} のワークフロー構文と似た構文を使用します。 詳細については、[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions)に関するページを参照してください。 
 
-Use the `--config-file` flag of the `init` command to specify the configuration file. The value of <nobr>`--config-file`</nobr> is the path to the configuration file that you want to use. This example loads the configuration file _.github/codeql/codeql-config.yml_.
+`init` コマンドの `--config-file` フラグを使用して、構成ファイルを指定します。 <nobr>`--config-file`</nobr> の値は、使用する構成ファイルへのパスです。 この例では、構成ファイル _.github/codeql/codeql-config.yml_ を読み込みます。
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
@@ -109,108 +111,108 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-### Example configuration files
+### サンプル構成ファイル
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## コンパイルされた言語の {% data variables.product.prodname_code_scanning %} を設定する
 
-For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
+コンパイル言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}Java では、{% data variables.product.prodname_codeql %} は解析前にコードをビルドします。 {% data reusables.code-scanning.analyze-go %}
 
-For many common build systems, the {% data variables.product.prodname_codeql_runner %} can build the code automatically. To attempt to build the code automatically, run `autobuild` between the `init` and `analyze` steps. Note that if your repository requires a specific version of a build tool, you may need to install the build tool manually first. 
+多くの一般的なビルド システムに対して、{% data variables.code-scanning.codeql_runner %}ではコードを自動的にビルドできます。 コードを自動的にビルドするには、`init` 手順と `analyze` 手順の間で `autobuild` を実行します。 リポジトリに特定のバージョンのビルドツールが必要な場合は、まずそのビルドツールを手動でインストールする必要があることにご注意ください。 
 
-The `autobuild` process only ever attempts to build _one_ compiled language for a repository. The language automatically selected for analysis is the language with the most files. If you want to choose a language explicitly, use the `--language` flag of the `autobuild` command.
+`autobuild` プロセスにより、リポジトリに対してコンパイルされた言語を " _1 つ_" だけビルドすることが試みられます。 解析のために自動的に選択される言語は、使用されているファイル数が最も多い言語です。 言語を明示的に選択する場合は、`autobuild` コマンドの `--language` フラグを使用します。
 
 ```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
-If the `autobuild` command can't build your code, you can run the build steps yourself, between the `init` and `analyze` steps. For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example)."
+`autobuild` コマンドでコードをビルドできない場合は、`init` ステップと `analyze` ステップの間でビルド ステップをご自分で実行できます。 詳しくは、「[CI システムでの {% data variables.code-scanning.codeql_runner %}の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example)」を参照してください。
 
-## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_code_scanning %} データを {% data variables.product.prodname_dotcom %} にアップロードする
 
-By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
+既定では、`analyze` コマンドを実行すると、{% data variables.code-scanning.codeql_runner %}により結果が {% data variables.product.prodname_code_scanning %} からアップロードされます。 また、`upload` コマンドを使用して、SARIF ファイルを個別にアップロードすることもできます。
 
-Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. 
-- If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
-- If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+データをアップロードすると、{% data variables.product.prodname_dotcom %} はリポジトリにアラートを表示します。 
+- pull request (たとえば `--ref refs/pull/42/merge` と `--ref refs/pull/42/head`) にアップロードした場合、結果は pull request チェックのアラートとして表示されます。 詳細については、「[pull request での Code Scanning アラートのトリアージ](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
+- ブランチ (たとえば `--ref refs/heads/my-branch`) にアップロードした場合、結果はリポジトリの **[セキュリティ]** タブに表示されます。 詳細については、「[リポジトリの Code Scanning アラートの管理](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
-## {% data variables.product.prodname_codeql_runner %} command reference
+## {% data variables.code-scanning.codeql_runner %} コマンドのリファレンス
 
-The {% data variables.product.prodname_codeql_runner %} supports the following commands and flags.
+{% data variables.code-scanning.codeql_runner %}では、次のコマンドとフラグがサポートされています。
 
 ### `init`
 
-Initializes the {% data variables.product.prodname_codeql_runner %} and creates a {% data variables.product.prodname_codeql %} database for each language to be analyzed.
+{% data variables.code-scanning.codeql_runner %}を初期化し、分析する各言語用の {% data variables.product.prodname_codeql %} データベースを作成します。
 
-| Flag | Required | Input value |
+| フラグ | 必須 | 入力値 |
 | ---- |:--------:| ----------- |
-| `--repository` | ✓ | Name of the repository to initialize. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| `--languages` | | Comma-separated list of languages to analyze. By default, the {% data variables.product.prodname_codeql_runner %} detects and analyzes all supported languages in the repository. |
-| `--queries` | | Comma-separated list of additional queries to run, in addition to the default suite of security queries. This overrides the `queries` setting in the custom configuration file. |
-| `--config-file` | | Path to custom configuration file. |
-| `--codeql-path` | | Path to a copy of the {% data variables.product.prodname_codeql %} CLI executable to use. By default, the {% data variables.product.prodname_codeql_runner %} downloads a copy. |
-| `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--tools-dir` | | Directory where {% data variables.product.prodname_codeql %} tools and other files are stored between runs. The default is a subdirectory of the home directory. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory. | 
-| `--debug` | | None. Prints more verbose output. |
-| <nobr>`--trace-process-name`</nobr> | | Advanced, Windows only. Name of the process where a Windows tracer of this process is injected. |
-| <nobr>`--trace-process-level`</nobr> | | Advanced, Windows only. Number of levels up of the parent process where a Windows tracer of this process is injected. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--repository` | ✓ | 初期化するリポジトリの名前。 |
+| `--github-url` | ✓ | リポジトリがホストされる {% data variables.product.prodname_dotcom %} のインスタンス。 |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | {% data variables.product.prodname_github_apps %} トークンまたは {% data variables.product.pat_generic %} を標準入力から読み取ります。 |
+| `--languages` | | 解析対象言語のカンマ区切りリスト。 既定では、{% data variables.code-scanning.codeql_runner %}により、リポジトリにあるサポートされている言語がすべて検出されて分析されます。 |
+| `--queries` | | デフォルトのセキュリティクエリに加えて実行する、追加クエリのカンマ区切りリスト。 これにより、カスタム構成ファイルの `queries` 設定がオーバーライドされます。 |
+| `--config-file` | | カスタム設定ファイルのパス。 |
+| `--codeql-path` | | 使用する {% data variables.product.prodname_codeql %} CLI 実行ファイルのコピーのパス。 既定では、{% data variables.code-scanning.codeql_runner %}によってコピーがダウンロードされます。 |
+| `--temp-dir` | | 一時ファイルが保存されるディレクトリ。 既定値は、`./codeql-runner` です。 |
+| `--tools-dir` | | 実行間で {% data variables.product.prodname_codeql %} ツールやその他のファイルが保存されるディレクトリ。 デフォルトはホームディレクトリのサブディレクトリです。 |
+| <nobr>`--checkout-path`</nobr> | | リポジトリをチェックアウトするパス。 デフォルトは現在のワーキングディレクトリです。 | 
+| `--debug` | | [なし] : より詳細な出力を表示します。 |
+| <nobr>`--trace-process-name`</nobr> | | 高度でWindowsのみ。 このプロセスのWindows tracerが注入されたプロセスの名前。 |
+| <nobr>`--trace-process-level`</nobr> | | 高度でWindowsのみ。 このプロセスのWindows tracerが注入された親プロセスまでのレベル数。 |
+| `-h`, `--help` | | [なし] : コマンドのヘルプを表示します。 |
 
 ### `autobuild`
 
-Attempts to build the code for the compiled languages C/C++, C#, and Java. For those languages, {% data variables.product.prodname_codeql %} builds the code before analyzing it. Run `autobuild` between the `init` and `analyze` steps.
+コンパイル型言語である C/C++、C#、および Java のコードのビルドを試行します。 これらの言語では、{% data variables.product.prodname_codeql %} は解析前にコードをビルドします。 `init` と `analyze` 手順の間で `autobuild` を実行します。
 
-| Flag | Required | Input value |
+| フラグ | 必須 | 入力値 |
 | ---- |:--------:| ----------- |
-| `--language` | | The language to build. By default, the {% data variables.product.prodname_codeql_runner %} builds the compiled language with the most files. |
-| <nobr>`--temp-dir`</nobr> | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--debug` | | None. Prints more verbose output. |
-| <nobr> `-h`, `--help`</nobr> | | None. Displays help for the command. |
+| `--language` | | ビルドする言語。 既定では、{% data variables.code-scanning.codeql_runner %}によって、ほとんどのファイルでコンパイル済み言語がビルドされます。 |
+| <nobr>`--temp-dir`</nobr> | | 一時ファイルが保存されるディレクトリ。 既定値は、`./codeql-runner` です。 |
+| `--debug` | | [なし] : より詳細な出力を表示します。 |
+| <nobr> `-h`, `--help`</nobr> | | [なし] : コマンドのヘルプを表示します。 |
 
 ### `analyze`
 
-Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
+{% data variables.product.prodname_codeql %} データベースにあるコードを解析し、結果を {% data variables.product.product_name %} にアップロードします。
 
-| Flag | Required | Input value |
+| フラグ | 必須 | 入力値 |
 | ---- |:--------:| ----------- |
-| `--repository` | ✓ | Name of the repository to analyze. |
-| `--commit` | ✓ | SHA of the commit to analyze. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
-| `--ref` | ✓ | Name of the reference to analyze, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
-| `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
-| `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
-| <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |
-| `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
-| `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--repository` | ✓ | 解析するリポジトリの名前。 |
+| `--commit` | ✓ | 解析するコミットの SHA。 Git と Azure DevOps では、これは `git rev-parse HEAD` の値に対応します。 Jenkins では、これは `$GIT_COMMIT` に対応します。 |
+| `--ref` | ✓ | 分析する参照の名前、たとえば、`refs/heads/main` または `refs/pull/42/merge` です。 Git または Jenkins では、これは `git symbolic-ref HEAD` に対応します。 Azure DevOps では、これは `$(Build.SourceBranch)` に対応します。 |
+| `--github-url` | ✓ | リポジトリがホストされる {% data variables.product.prodname_dotcom %} のインスタンス。 |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | {% data variables.product.prodname_github_apps %} トークンまたは {% data variables.product.pat_generic %} を標準入力から読み取ります。 |
+| <nobr>`--checkout-path`</nobr> | | リポジトリをチェックアウトするパス。 デフォルトは現在のワーキングディレクトリです。  |
+| `--no-upload` | | [なし] : {% data variables.code-scanning.codeql_runner %}によって結果が {% data variables.product.product_name %} にアップロードされないようにします。 |
+| `--output-dir` | | 出力される SARIF ファイルが保存されるディレクトリ。 デフォルトは一時ファイルのディレクトリです。 |
+| `--ram` | | クエリの実行時に使用するメモリの量。 デフォルトでは、使用できるすべてのメモリを使用します。 |
+| <nobr>`--no-add-snippets`</nobr> | | [なし] : SARIF 出力からコードスニペットを除外します。 |
+| <nobr>`--category`<nobr> | | この分析でSARIF結果ファイルに含めるカテゴリ。 カテゴリは、同じツールとコミットについて、ただし様々な言語やコードの様々な部分に対して行われる複数の分析を区別するために使うことができます。 この値は、SARIF v2.1.0 の `<run>.automationDetails.id` プロパティに表示されます。 |
+| `--threads` | | クエリの実行時に使用するスレッドの数。 デフォルトでは、使用できるすべてのコアを使用します。 |
+| `--temp-dir` | | 一時ファイルが保存されるディレクトリ。 既定値は、`./codeql-runner` です。 |
+| `--debug` | | [なし] : より詳細な出力を表示します。 |
+| `-h`, `--help` | | [なし] : コマンドのヘルプを表示します。 |
 
 ### `upload`
 
-Uploads SARIF files to {% data variables.product.product_name %}.
+SARIF ファイルを {% data variables.product.product_name %} にアップロードします。
 
 {% note %}
 
-**Note**: If you analyze code with the CodeQL runner, the `analyze` command uploads SARIF results by default. You can use the `upload` command to upload SARIF results that were generated by other tools.
+**注**: CodeQL ランナーを使用してコードを分析する場合、`analyze` コマンドは既定で SARIF の結果をアップロードします。 `upload` コマンドを使用して、他のツールで生成された SARIF の結果をアップロードできます。
 
 {% endnote %}
 
-| Flag | Required | Input value |
+| フラグ | 必須 | 入力値 |
 | ---- |:--------:| ----------- |
-| `--sarif-file` | ✓ | SARIF file to upload, or a directory containing multiple SARIF files. |
-| `--repository` | ✓ | Name of the repository that was analyzed. |
-| `--commit` | ✓ | SHA of the commit that was analyzed. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
-| `--ref` | ✓ | Name of the reference that was analyzed, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--sarif-file` | ✓ | アップロードする SARIF ファイル、または複数の SARIF ファイルを含むディレクトリ。 |
+| `--repository` | ✓ | 解析したリポジトリの名前。 |
+| `--commit` | ✓ | 解析したコミットの SHA。 Git と Azure DevOps では、これは `git rev-parse HEAD` の値に対応します。 Jenkins では、これは `$GIT_COMMIT` に対応します。 |
+| `--ref` | ✓ | 分析された参照の名前、たとえば `refs/heads/main` または `refs/pull/42/merge`です。 Git または Jenkins では、これは `git symbolic-ref HEAD` に対応します。 Azure DevOps では、これは `$(Build.SourceBranch)` に対応します。 |
+| `--github-url` | ✓ | リポジトリがホストされる {% data variables.product.prodname_dotcom %} のインスタンス。 |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | {% data variables.product.prodname_github_apps %} トークンまたは {% data variables.product.pat_generic %} を標準入力から読み取ります。 |
+| <nobr>`--checkout-path`</nobr> | | リポジトリをチェックアウトするパス。 デフォルトは現在のワーキングディレクトリです。  |
+| `--debug` | | [なし] : より詳細な出力を表示します。 |
+| `-h`, `--help` | | [なし] : コマンドのヘルプを表示します。 |

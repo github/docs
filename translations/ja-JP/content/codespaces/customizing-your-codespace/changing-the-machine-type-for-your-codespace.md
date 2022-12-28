@@ -2,7 +2,6 @@
 title: codespace のマシンの種類を変更する
 shortTitle: Change the machine type
 intro: codespace を実行しているマシンの種類を変更し、実行している作業に適したリソースを使用できます。
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,24 +10,20 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
-ms.openlocfilehash: 618b031ce0c23c2b4eba52157fca2a6625fe3dfd
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: b8614e9389aa617b3bfcfa3444f5a60aa7dd3c2e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108839'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159086'
 ---
 ## マシンの種類について
 
-{% note %}
-
-**注:** {% data variables.product.prodname_github_codespaces %} を使用する Organization のメンバーであり、その Organization が所有するリポジトリで codespace を作成している場合にのみ、マシンの種類を選んだり、変えたりできます。
-
-{% endnote %}
-
 {% data reusables.codespaces.codespaces-machine-types %} codespace を作るときは、あるいは codespace の作成後はいつでも、代替マシンの種類を選べます。 
 
-codespace の作成時にマシンの種類を選ぶ方法については、「[codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+codespace の作成時にマシンの種類を選ぶ方法については、[リポジトリ用の codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)に関する説明を参照してください。
+
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %}詳しくは、[テンプレートからの codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)に関する説明を参照してください。
 
 ## マシンの種類の変更
 
@@ -46,7 +41,7 @@ codespace の作成時にマシンの種類を選ぶ方法については、「[
 
    !["あなたの codespace" リスト](/assets/images/help/codespaces/your-codespaces-list.png)
 
-1. 変更する codespace の右側にある省略記号 ( **...** ) をクリックします。
+{% data reusables.codespaces.ellipsis-settings %}
 1. **[マシンの種類を変更する]** をクリックします。
 
    ![[マシンの種類の変更] メニュー オプション](/assets/images/help/codespaces/change-machine-type-menu-option.png)
@@ -78,7 +73,7 @@ codespace の作成時にマシンの種類を選ぶ方法については、「[
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
-   `CODESPACE-NAME` を codespace の永続的な名前に置き換えます (例: `octocat-myrepo-gmc7`)。 永続的な名前は、`gh codespace list` によって返される一覧の **NAME** 列の下に一覧表示されます。
+   `CODESPACE-NAME` を codespace の永続的な名前に置き換えます (例: `octocat-literate-space-parakeet-mld5`)。 永続的な名前は、`gh codespace list` によって返される一覧の **NAME** 列の下に一覧表示されます。
 
    `codespace` スコープを要求するように求められた場合は、ターミナルの指示に従います。
 
@@ -89,7 +84,7 @@ codespace の作成時にマシンの種類を選ぶ方法については、「[
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
-   `CODESPACE-NAME` を codespace の永続的な名前に置き換えます (例: `octocat-myrepo-gmc7`)。
+   `CODESPACE-NAME` を codespace の永続的な名前に置き換えます (例: `octocat-literate-space-parakeet-mld5`)。
 1. codespace 用のマシンの種類を変更するには、次のコマンドを入力します。
 
    ```

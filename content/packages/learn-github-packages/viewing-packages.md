@@ -23,18 +23,16 @@ versions:
 
 Your ability to view a package depends on several factors. By default, you can view all packages you have published.
 
-Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
-- Docker registry (`docker.pkg.github.com`){% endif %}
-{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-- RubyGems registry
-- Apache Maven registry
-- NuGet registry
+{% ifversion packages-registries-v2 %}
+Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. Some registries **only** support repository-scoped packages. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
-{% ifversion fpt or ghec %}
-The {% data variables.packages.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit it's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+Other registries offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit the repository's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+
+{% else %}
+
+Packages inherit their permissions and visibility from the repository on which they are hosted. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+
 {% endif %}
-
-For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
 
 {% data reusables.package_registry.package-page-info %}
 

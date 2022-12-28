@@ -1,7 +1,6 @@
 ---
-title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: プライベート ネットワークへの接続
+intro: '{% data variables.product.prodname_github_codespaces %} は、パッケージ レジストリ、ライセンス サーバー、オンプレミス データベースなど、プライベート ネットワーク上のリソースに接続できます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,51 +9,56 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+ms.openlocfilehash: 92b8f2b9ea438a4cc799aec1969ff6773f90c298
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159927'
 ---
+## codespace ネットワークについて
 
-## About codespace networking
+既定では、codespace から、パブリック インターネット上のすべてのリソース (パッケージ マネージャー、ライセンス サーバー、データベース、クラウド プラットフォーム API を含みます) にアクセスできますが、プライベート ネットワーク上のリソースにはアクセスできません。
 
-By default, your codespaces have access to all resources on the public internet, including package managers, license servers, databases, and cloud platform APIs, but they have no access to resources on private networks.
+## プライベート ネットワーク上のリソースへの接続
 
-## Connecting to resources on a private network
+現在、{% data variables.product.prodname_github_codespaces %} 内のプライベート ネットワーク上のリソースにアクセスする方法は 2 つあります。
+- {% data variables.product.prodname_cli %} 拡張機能を使用して、ローカル コンピューターをリモート リソースへのゲートウェイとして構成する。
+- VPN を使用する。 
 
-There are currently two methods of accessing resources on a private network within {% data variables.product.prodname_github_codespaces %}.
-- Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
-- Using a VPN. 
-
-### Using the GitHub CLI extension to access remote resources
+### GitHub CLI 拡張機能を使用してリモート リソースにアクセスする
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+**注:** {% data variables.product.prodname_cli %} 拡張機能は現在ベータ段階であり、変更されることがあります。 
 
 {% endnote %}
 
-The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+{% data variables.product.prodname_cli %} 拡張機能を使用すると、codespace とご自分のローカル コンピューターの間にブリッジを作成し、コンピューターからアクセスできるあらゆるリモート リソースに codespace がアクセスできるようにすることができます。 codespace は、ローカル コンピューターをネットワーク ゲートウェイとして使用して、それらのリソースに到達します。 詳しくは、[{% data variables.product.prodname_cli %} を使用してリモート リソースにアクセスする](https://github.com/github/gh-net#codespaces-network-bridge)方法に関するページを参照してください。
 
    
    
 
-### Using a VPN to access resources behind a private network
+### VPN を使ってプライベート ネットワークの背後にあるリソースにアクセスする
 
-As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
+{% data variables.product.prodname_cli %} 拡張機能の代わりに、VPN を使用して、codespace 内からプライベート ネットワークの背後にあるリソースにアクセスできます。
 
-We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)."
+プライベート ネットワーク上のリソースにアクセスするには、[OpenVPN](https://openvpn.net/) などの VPN ツールをお勧めします。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} からの OpenVPN クライアントを使う](https://github.com/codespaces-contrib/codespaces-openvpn)」をご覧ください。
 
-There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_github_codespaces %}.
+また、{% data variables.product.prodname_dotcom %} で積極的にお勧めしているわけではありませんが、{% data variables.product.prodname_github_codespaces %} と統合する方法の例を示すサード パーティ ソリューションもいくつかあります。
 
-These third party solutions include:
+これらのサード パーティ ソリューションには、次のものが含まれます。
 
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
 
-### Allowlisting private resources for codespaces
+### codespace のプライベート リソースを許可リストに載せる
 
-While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
+{% data variables.product.prodname_dotcom %} では、Meta API で、いくつかの製品の IP 範囲を発行していますが、codespace IP は動的に割り当てられます。つまり、codespace の IP アドレスが毎日同じとは限らないということです。 ユーザーが IP 範囲全体を許可リストに載せてしまうと、そのユーザーの codespace に関係のないユーザーも、すべての codespace にアクセスできるようになってしまうため、お勧めしません。
 
-For more information about the Meta API, see "[Meta](/rest/reference/meta)."
+Meta API の詳しい情報については、「[メタ情報](/rest/reference/meta)」を参照してください。
 
-## Restricting access to the public internet
+## パブリック インターネットへのアクセスを制限する
 
-At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
+現時点では、パブリック インターネットからの codespace へのアクセスを制限したり、認証されたユーザーが転送されたポートにアクセスできないように適切に制限したりする方法はありません。
 
-For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."
+codespace をセキュリティで保護する方法について詳しくは、「[{% data variables.product.prodname_github_codespaces %} のセキュリティ](/codespaces/codespaces-reference/security-in-github-codespaces)」をご覧ください。

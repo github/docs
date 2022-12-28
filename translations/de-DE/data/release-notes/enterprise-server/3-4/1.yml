@@ -1,0 +1,117 @@
+date: '04.04.2022'
+sections:
+  security_fixes:
+    - 'MITTEL: In der Verwaltungskonsole von {% data variables.product.prodname_ghe_server %} wurde ein Sicherheitsrisiko aufgrund von Pfadausnahmen identifiziert, wodurch CSRF-Schutzmaßnahmen umgangen werden konnten. Dieses Sicherheitsrisiko betraf alle Versionen von {% data variables.product.prodname_ghe_server %} vor Version 3.5 und wurde in den Versionen 3.1.19, 3.2.11, 3.3.6 und 3.4.1 behoben. Dieses Sicherheitsrisiko wurde über das {% data variables.product.prodname_dotcom %} Bug Bounty Program gemeldet und weist die Kennung CVE-2022-23732 auf.'
+    - 'MITTEL: In den Branches 1.x und 2.x von „yajil“ wurde ein Sicherheitsrisiko aufgrund eines Ganzzahlüberlaufs identifiziert, wodurch es bei größeren Eingaben (~2 GB) zu Beschädigungen des nachfolgenden Heapspeichers kommt. Dieses Sicherheitsrisiko wurde intern gemeldet und weist die Kennung CVE-2022-24795 auf. '
+    - "Wurde {% data variables.product.prodname_actions %} aktiviert, konnten Supportbundles vertrauliche Daten enthalten." 
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Eine Workflowausführung wird möglicherweise nicht abgeschlossen, wenn sie zusammengesetzte Aktionen verwendet."
+    - "Bei der Aktivierung von {% data variables.product.prodname_dependabot %} führte ein Fehler dazu, dass einige Sicherheitshinweise vorübergehend als nicht mehr zutreffend gelesen wurden."
+    - "Minio-Prozesse würden eine hohe CPU-Auslastung aufweisen, wenn eine alte Konfigurationsoption nach dem Upgrade von {% data variables.product.prodname_ghe_server %} vorhanden war."
+    - "In den Datenschutzeinstellungen der Verwaltungskonsole wurden die Optionen zur Aktivierung von „TLS 1.0“ und „TLS 1.1“ angezeigt, obwohl diese Protokollversionen bereits in einem früheren Release entfernt wurden."
+    - "In einer Umgebung mit Hochverfügbarkeit wurden für die Konfiguration der MSSQL-Replikation zusätzliche manuelle Schritte erforderlich, wenn {% data variables.product.prodname_actions %} zum ersten Mal aktiviert wurde."
+    - Eine Teilmenge interner Konfigurationsdateien wird nach einem Hotpatch zuverlässiger aktualisiert. 
+    - Mit dem Skript „ghe-run-migrations“ ließen sich in einigen Fällen keine korrekten temporären Zertifikatnamen erzeugen. 
+    - "Für Pre-Receive-Hooks, die „gpg --import“ verwendet haben, wurde das Zeitlimit aufgrund unzureichender syscall-Berechtigungen überschritten."
+    - In einigen Clustertopologien standen Informationen zur Webhookübermittlung nicht zur Verfügung. 
+    - "Das Bereitstellungsdiagramm {% data variables.product.prodname_actions %} würde beim Rendern eines ausstehenden Auftrags einen Fehler anzeigen." 
+    - Beim Ausführen von Migrationen war bei Elasticsearch-Integritätsprüfungen ein gelber Status nicht zulässig. 
+    - "Bei Verwendung der [Migrations-API](/rest/reference/migrations) wurden Exportaufträge in der Warteschlange nicht verarbeitet."
+    - Repositorys würden auf der Webbenutzeroberfläche eine nicht funktionierende Registerkarte „Diskussionen“ anzeigen. 
+    - "Organisationen, die als Folge der Umwandlung eines Benutzerkontos in ein Organisationskonto erstellt wurden, wurden dem globalen Unternehmenskonto nicht hinzugefügt." 
+    - "Bei Aufträgen zur Synchronisierung von LDAP-Benutzern würde ein Fehler auftreten, wenn sie versuchten, GPG-Schlüssel zu synchronisieren, die zuvor synchronisiert worden waren." 
+    - "Links zu Seiten, auf die der Zugriff nicht möglich ist, wurden entfernt." 
+    - "Bei einigen Instanzen kam es zu einer hohen CPU-Auslastung, da viele unnötige Hintergrundaufträge in die Warteschlange gestellt wurden." 
+    - Leere Repositorys wurden nicht ordnungsgemäß mit Cacheservern synchronisiert. 
+    - "Wurde einem Pull Request ein Team als Prüfer hinzugefügt, kam es gelegentlich zu einer falschen Angabe der Anzahl der Teammitglieder." 
+    - "Der API-Endpunkt zum Entfernen von Teammitgliedern würde mit einem Fehler reagieren, wenn versucht wurde, ein Mitglied zu entfernen, das extern über eine SCIM-Gruppe verwaltet wird." 
+    - "Bei der Konfiguration von {% data variables.product.prodname_github_connect %} konnte bei einer großen Anzahl inaktiver Benutzer ein Fehler auftreten." 
+    - Auf der Benutzeroberfläche des Websiteadministrators war die Seite „Feature- & Betaregistrierungen“ fälschlicherweise verfügbar. 
+    - In der Fußzeile der Website wurde der Status des Links „Websiteadministratormodus“ beim Klicken nicht geändert. 
+  changes:
+    - Die Verbindungsbeschränkungen im Arbeitsspeicher wurden für eine bessere Unterstützung großer Clustertopologien erhöht. 
+    - Die API für Abhängigkeitsdiagramme wurde bisher mit einem statisch definierten Port ausgeführt. 
+    - Die Standardanzahl von Shards für clusterbezogene Elasticsearch-Shardeinstellungen wurde aktualisiert. 
+    - "Die [Migrations-API](/rest/reference/migrations) generiert jetzt Exporte von Repositorys." 
+    - Bei der Filterung von Unternehmensmitgliedern nach Organisationsrolle auf der Seite „Personen“ wurde der Text für die Einträge im Dropdownmenü verbessert. 
+    - Die Teamrollen „Selektierung“ und „Verwalten“ werden während der Migration von Repositorys beibehalten. 
+    - Bei Verwendung von ghe-migrator oder dem Export von GitHub.com würde ein Export keine Pull Request-Anhänge enthalten. 
+    - Für Webanforderungen durch Unternehmensbesitzer wurde die Leistung erhöht. 
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnten Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wird für {% data variables.product.prodname_github_connect %} die Option zum Durchsuchen von GitHub.com aktiviert, werden Issues in privaten und internen Repositorys nicht in den Suchergebnissen von {% data variables.product.prodname_dotcom_the_website %} angezeigt."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - |Nach der Registrierung eines selbstgehosteten Runners mit dem Parameter „--ephemeral“ auf mehreren Ebenen (z. B. auf Unternehmens- und Organisationsebene) befindet sich der Runner möglicherweise im Leerlauf und muss erneut registriert werden. [Aktualisiert: 17.06.2022]
+
+|
+    - |Bei Verwendung von verschlüsselten SAML-Assertionen mit {% data variables.product.prodname_ghe_server %} 3.4.0 und 3.4.1 enthält ein neues XML-Attribut „WantAssertionsEncrypted“ in „SPSSODescriptor“ ein ungültiges Attribut für SAML-Metadaten. Bei Identitätsanbietern, die diesen SAML-Metadatenendpunkt nutzen, können bei der Überprüfung des XML-Schemas der SAML-Metadaten Fehler auftreten. Ein Fix wird im nächsten Patchrelease verfügbar sein. [Aktualisiert: 04.11.2022]
+
+
+
+Führe eine der folgenden Aktionen aus, um dieses Problem zu umgehen:
+
+– Konfiguriere den Identitätsanbieter neu, indem du eine statische Kopie der SAML-Metadaten ohne das Attribut „WantAssertionsEncrypted“ hochlädst.
+
+– Kopiere die SAML-Metadaten, entferne das Attribut „WantAssertionsEncrypted“, hoste die Daten auf einem Webserver, und konfiguriere den Identitätsanbieter so neu, dass er auf diese URL zeigt.
+
+|
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+  deprecations:
+    - heading: Einstellung von GitHub Enterprise Server 3.0
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 wurde am 16. Februar 2022 eingestellt**. Das bedeutet, dass nach diesem Datum selbst für kritische Sicherheitsprobleme keine Patches veröffentlicht werden. Für eine höhere Leistung, verbesserte Sicherheit und neue Features führst du sobald wie möglich ein [Upgrade auf die aktuelle Version von {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) durch.'
+    - heading: Einstellung von GitHub Enterprise Server 3.1
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 wurde am 3. Juni 2022 eingestellt**. Das bedeutet, dass nach diesem Datum selbst für kritische Sicherheitsprobleme keine Patches veröffentlicht werden. Für eine höhere Leistung, verbesserte Sicherheit und neue Features führst du sobald wie möglich ein [Upgrade auf die aktuelle Version von {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) durch.'
+
+    - heading: Eingestellte Unterstützung von XenServer Hypervisor
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "Ab {% data variables.product.prodname_ghe_server %} 3.3 wird {% data variables.product.prodname_ghe_server %} auf XenServer nicht mehr unterstützt. Wende dich an den [GitHub-Support](https://support.github.com), falls du Fragen hast."
+
+    - heading: Einstellung der Vorschauversion der Inhaltsanhänge-API
+      notes:
+        #
+        - "Aufgrund einer geringen Nutzung wurde die Vorschauversion der Inhaltsverweise-API in {% data variables.product.prodname_ghe_server %} 3.4 eingestellt. Zuvor konnte über den Header „corsair-preview“ auf die API zugegriffen werden. Benutzer können auch ohne diese API weiterhin zu externen URLs wechseln. Bei der registrierten Nutzung der Inhaltsverweise-API wird keine Webhookbenachrichtigung mehr für URLs in deinen registrierten Domänen gesendet. Außerdem werden keine gültigen Antwortcodes mehr für versuchte Updates an vorhandenen Inhaltsanhängen zurückgegeben."
+
+    - heading: Einstellung der Vorschauversion der Verhaltensregeln-API
+      notes:
+        # https://github.com/github/releases/issues/1708
+        - 'Die Vorschauversion der Verhaltensregeln-API, auf die über den „scarlet-witch-preview“-Header zugegriffen werden könnte, wird eingestellt. Folglich kann in {% data variables.product.prodname_ghe_server %} 3.4 nicht mehr darauf zugegriffen werden. Stattdessen solltest du den Endpunkt zum [Abrufen von Communityprofilmetriken](/rest/reference/repos#get-community-profile-metrics) verwenden, um Informationen zu den Verhaltensregeln eines Repositorys abzurufen. Weitere Informationen findest du im [Hinweis zur Einstellung: Vorschauversion der Verhaltensregeln-API](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/) im {% data variables.product.prodname_dotcom %}-Änderungsprotokoll.'
+
+    - heading: Einstellung von OAuth-Anwendungs-API-Endpunkten und der API-Authentifizierung unter Verwendung von Abfrageparametern
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |Ab {% data variables.product.prodname_ghe_server %} 3.4 wurde die [veraltete Version der OAuth-Anwendungs-API-Endpunkte](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected) entfernt. Wenn bei diesen Endpunkten der Fehler 404 gemeldet wird, konvertiere deinen Code in Versionen der OAuth-Anwendungs-API, die keine „access_tokens“ in der URL enthalten. Darüber hinaus wurde die Verwendung der API-Authentifizierung unter Verwendung von Abfrageparametern deaktiviert. Stattdessen sollte die [API-Authentifizierung im Anforderungsheader](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make) verwendet werden.
+
+|
+    - heading: Einstellung des CodeQL-Runners
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "Der {% data variables.product.prodname_codeql %}-Runner wurde in {% data variables.product.prodname_ghe_server %} 3.4 eingestellt und wird nicht mehr unterstützt. Diese Einstellung betrifft ausschließlich Benutzer, die die {% data variables.product.prodname_codeql %}-Codeüberprüfung in CI/CD-Systemen von Drittanbietern verwenden. {% data variables.product.prodname_actions %}-Benutzer sind nicht betroffen. Es wird dringend empfohlen, dass Kunden eine Migration zur {% data variables.product.prodname_codeql %}-CLI durchführen. Diese CLI ist ein vollumfänglicher Ersatz für den {% data variables.product.prodname_codeql %}-Runner. Weitere Informationen findest du im [{% data variables.product.prodname_dotcom %}-Änderungsprotokoll](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)."
+
+    - heading: Einstellung von benutzerdefinierten Bit-Cache-Erweiterungen
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |Ab {% data variables.product.prodname_ghe_server %} 3.1 wurde die Unterstützung für die proprietären Bit-Cache-Erweiterungen von {% data variables.product.company_short %} schrittweise eingestellt. Ab {% data variables.product.prodname_ghe_server %} 3.3 sind diese Erweiterungen vollständig eingestellt.
+
+
+
+Repositorys, die bereits in {% data variables.product.product_location %} mit Version 3.1 oder 3.2 vorhanden und aktiv waren, werden automatisch aktualisiert.
+
+
+
+Repositorys, die vor einem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.3 nicht vorhanden und aktiv waren, bieten möglicherweise keine optimale Leistung, bis eine Wartungsaufgabe für das Repository ausgeführt und erfolgreich abgeschlossen wurde.
+
+
+
+Zum manuellen Starten einer Wartungsaufgabe für ein Repository wechselst du für jedes betroffene Repository zu „https://<Hostname>/stafftools/repositories/<Besitzer>/<Repository>/Netzwerk“ und klickst auf die Schaltfläche „Planen“.
+
+|
+  backups:
+    - 'Bei {% data variables.product.prodname_ghe_server %} 3.4 wird mindestens [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) für [Sicherungen und Notfallwiederherstellung](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) benötigt.'

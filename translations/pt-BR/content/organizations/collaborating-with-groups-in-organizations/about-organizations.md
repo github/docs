@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: e18c95475e06db0623aee67515eeb6d8a1ee641f
-ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
+ms.openlocfilehash: 0269554568c8781706a8d79600f5b6191d0b9598
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2022
-ms.locfileid: '148127632'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164328'
 ---
 ## Sobre organizações
 
@@ -33,7 +33,7 @@ Para simplificar o gerenciamento de acesso e aprimorar a colaboração, é poss�
 
 Para fortalecer a segurança da organização, é possível impor requisitos de segurança e revisar o log de auditoria dela. Para obter mais informações, confira "[Como manter sua organização segura](/organizations/keeping-your-organization-secure)".
 
-{% data reusables.organizations.org-ownership-recommendation %} Para obter mais informações, confira "[Como manter a continuidade da propriedade para sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
+Para saber como usar organizações com mais eficiência, confira "[Melhores práticas para organizações](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)".
 
 {% ifversion fpt or ghec %}
 ## Sobre a disponibilidade do recurso

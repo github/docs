@@ -11,12 +11,15 @@ topics:
   - Repositories
   - CVEs
 children:
+  - /about-coordinated-disclosure-of-security-vulnerabilities
   - /best-practices-for-writing-repository-security-advisories
-ms.openlocfilehash: 71eb2be3bc1590536bdb43f9bb08953859924748
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+  - /privately-reporting-a-security-vulnerability
+  - /managing-privately-reported-security-vulnerabilities
+ms.openlocfilehash: 14efd02206d899ab62ad3b03a538f75088afaa18
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113978'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158835'
 ---
 

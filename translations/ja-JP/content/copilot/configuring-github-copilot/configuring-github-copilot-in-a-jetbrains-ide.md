@@ -7,16 +7,18 @@ topics:
 versions:
   feature: copilot
 shortTitle: JetBrains
-ms.openlocfilehash: 845f9306f519391f165dd00d3eefebed67bd409a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9f0f35bf5aebbf1899bd3991b0bca9e62f1da6ed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080287'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193575'
 ---
 ## JetBrains IDE の {% data variables.product.prodname_copilot %} について
 
-Jetbrains IDE を使う場合、{% data variables.product.prodname_copilot %} は、入力時にコードをオートコンプリートできます。 インストール後、{% data variables.product.prodname_copilot %} を有効または無効にしたり、IDE または {% data variables.product.prodname_dotcom_the_website %} で詳細設定を構成したりできます。
+Jetbrains IDE を使う場合、{% data variables.product.prodname_copilot %} は、入力時にコードをオートコンプリートできます。 インストール後、{% data variables.product.prodname_copilot %} を有効または無効にしたり、IDE または {% data variables.product.prodname_dotcom_the_website %} で詳細設定を構成したりできます。 この記事では、IntelliJ IDE で {% data variables.product.prodname_copilot %} を構成する方法について説明しますが、他の Jetbrains IDE のユーザー インターフェイスは異なる場合があります。
+
+{% data reusables.copilot.dotcom-settings %}
 
 ## 前提条件
 
@@ -83,6 +85,21 @@ JetBrains IDE では、コードの入力候補の表示方法や、{% data vari
 1. 自分の好みに合わせて設定を編集します。
    - コード候補の動作と外観、および更新を自動的に確認するかどうかを調整するには、対応するチェックボックスを選択または選択解除してください。
    - 自動更新を受信するように選んだ場合、安定版の更新プログラム (ただし頻度は低い) か、または夜間版の更新プログラム (安定性が低い場合がある) を受け取るかを選択できます。 **[Update channel]\(更新プログラム チャネル\)** ドロップダウンをクリックして、安定版の更新を受け取る場合は **[Stable]\(安定版\)** を、夜間版の更新を受け取る場合は **[Nightly]\(夜間版\)** を選びます。
-   - [Disabled languages]\(無効になっている言語\) にあるチェックボックスで、{% data variables.product.prodname_copilot %} を無効にする言語の選択と解除を行います。
+   - [無効になっている言語] にあるチェックボックスで、{% data variables.product.prodname_copilot %} を無効にする言語をオンまたはオフにします。
+
+## {% data variables.product.prodname_copilot %} のプロキシ設定を構成する
+
+Jetbrains IDE で HTTP プロキシ サーバー経由で接続するように {% data variables.product.prodname_copilot %} を構成できます。 {% data variables.product.prodname_copilot %} では、基本認証の有無にかかわらず、基本的な HTTP プロキシ設定がサポートされています。 
+
+1. JetBrains IDE で、 **[File]\(ファイル\)** メニューをクリックし、 **[Settings]\(設定\)** をクリックします。
+1. **[外観と動作]** で、 **[システム設定]** をクリックし、 **[HTTP プロキシ]** をクリックします。
+1. **[手動プロキシ構成]** チェック ボックスをオンにし、 **[HTTP]** チェック ボックスをオンにします。
+1. [ホスト名] フィールドにプロキシ サーバーのホスト名を入力し、[ポート番号] フィールドにプロキシ サーバーのポート番号を入力します。
+
+    ![JetBrains の HTTP プロキシ設定のスクリーンショット](/assets/images/help/copilot/proxy-configuration-jetbrains.png)
+
+1. 必要に応じて、左側のサイドバーで **[ツール]** をクリックし、 **[サーバー証明書]** をクリックします。 次に、信頼されていない証明書を自動的に受け入れるかどうかに応じて、[信頼されていない証明書を自動的に受け入れる] チェック ボックスをオンまたはオフにします。
+
+    ![JetBrains のサーバー証明書設定のスクリーンショット](/assets/images/help/copilot/server-certificates-jetbrains.png)
 
 {% data reusables.copilot.dotcom-settings %}

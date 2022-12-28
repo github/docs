@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ca36d1cc452ae102d0e4183b6d72ce854de57963
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 06ccb7d54079b9cd73a4ce66b02ae3cc9a7b3cf1
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423194"
+ms.lasthandoff: 11/12/2022
+ms.locfileid: "148163227"
 ---
 1. 在要迁移的项目旁边，单击 {% octicon "kebab-horizontal" aria-label="The menu icon" %} 以打开菜单。
 1. 在菜单中，单击“迁移”。

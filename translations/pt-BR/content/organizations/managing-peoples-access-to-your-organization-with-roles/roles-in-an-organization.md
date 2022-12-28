@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107769'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180074'
 ---
 ## Sobre as funções
 {% data reusables.organizations.about-roles %}
@@ -186,7 +186,7 @@ Para manter os dados da sua organização seguros e permitir acesso aos reposit�
 | [Exportar uma lista das pessoas com acesso a um repositório da organização](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Gerenciar rótulos padrão (confira "[Como gerenciar rótulos padrão para repositórios na sua organização](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Gerenciar revisões de solicitação de pull na organização (confira "[Como gerenciar revisões de solicitação de pull na sua organização](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Gerenciar listas de permissões de IP (confira "[Como restringir o tráfego de rede para sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
+{% ifversion ghae %}| Gerenciar listas de permissões de IP (confira "[Como restringir o tráfego de rede para sua empresa com uma lista de permissões de IP](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ Para manter os dados da sua organização seguros e permitir acesso aos reposit�
 | [Ver as pessoas com acesso a um repositório da organização](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Exportar uma lista das pessoas com acesso a um repositório da organização](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Gerenciar rótulos padrão (confira "[Como gerenciar rótulos padrão para repositórios na sua organização](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
-{% ifversion ghae %}| Gerenciar listas de permissões de IP (confira "[Como restringir o tráfego de rede para sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+{% ifversion ghae %}| Gerenciar listas de permissões de IP (confira "[Como restringir o tráfego de rede para sua empresa com uma lista de permissões de IP](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |{% endif %}
 
 {% endif %}
 

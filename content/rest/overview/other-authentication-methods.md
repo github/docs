@@ -50,20 +50,18 @@ $ curl -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 
 This approach is useful if your tools only support Basic Authentication but you want to take advantage of {% data variables.product.pat_generic %} security features.
 
+{% ifversion not ghae %}
 ### Via username and password
 
 {% ifversion fpt or ghec %}
-
 {% note %}
 
 **Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or {% data variables.product.pat_generic %}, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
  
 {% endnote %}
+{% else %}
 
-{% endif %}
-
-{% ifversion ghes %}
-To use Basic Authentication with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, simply send the username and
+To use Basic Authentication with the {% data variables.product.product_name %} API, simply send the username and
 password associated with the account.
 
 For example, if you're accessing the API via [cURL][curl], the following command
@@ -74,7 +72,7 @@ would authenticate you if you replace `<username>` with your {% data variables.p
 $ curl -u USERNAME {% data variables.product.api_url_pre %}/user
 ```
 If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
-
+{% endif %}
 {% endif %}
 
 {% ifversion fpt or ghec %}

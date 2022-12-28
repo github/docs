@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: becb68c2813f1e6914edb34b235ac59aba8ae00b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145136458'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164167'
 ---
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
@@ -38,6 +38,7 @@ La navegación por el código usa la biblioteca de código abierto [`tree-sitter
 | PHP        | ✅                           |                         |
 | Python     | ✅                           | ✅                      |
 | Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
 | TypeScript | ✅                           |                         |
 
 
@@ -72,6 +73,12 @@ Si no ves los resultados que esperas de una consulta de navegación de código p
 ![Enlace de navegación de código basada en búsqueda](/assets/images/help/repository/search-based-code-navigation-link.png)
 
 Si tus resultados precisos te parecen inexactos, puedes enviar una solicitud de soporte.
+
+## Navegación de código precisa entre repositorios
+
+La navegación de código entre repositorios está disponible para los idiomas admitidos por la navegación de código precisa y el gráfico de dependencias. Para más información, vea "[Acerca del gráfico de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)". Con la navegación de código entre repositorios, puedes saltar a la definición de funciones o variables definidas en dependencias importadas por el proyecto si esa dependencia es un repositorio hospedado por {% data variables.product.prodname_dotcom %}. La navegación por código entre repositorios no admite solicitudes de búsqueda de todas las referencias en este momento.
+
+![Captura de pantalla de la navegación de código entre repositorios](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## Solución de problemas en la navegación de código
 

@@ -10,6 +10,7 @@ featuredLinks:
     - /search-github/searching-on-github/searching-for-repositories
     - /search-github/searching-on-github/searching-commits
   popular:
+    - /search-github/github-code-search/about-github-code-search
     - /search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
     - /search-github/searching-on-github/searching-users
     - /search-github/searching-on-github/finding-files-on-github
@@ -36,12 +37,13 @@ topics:
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
+  - /github-code-search
 shortTitle: Search on GitHub
-ms.openlocfilehash: ca3fe13d3d3ae3c5016948bcd458d636a106a9da
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 3914612c6bfc1250b38d11a31123f0dca7ff42c6
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145099623'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159512'
 ---
 

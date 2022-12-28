@@ -10,13 +10,12 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c69a815501f5943a56d32af3e58cd7850a69588b
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108947'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158782'
 ---
 ## 概要
 
@@ -26,15 +25,9 @@ Markdown ファイルに [{% data variables.product.prodname_github_codespaces %
 
 バッジを作成するときに、そのバッジで作成される codespace に対して特定の構成オプションを選ぶことができます。
 
-ユーザーがバッジをクリックすると、codespace の作成用の [詳細オプション] ページに移動します。選んだオプションは事前に選択されています。 詳細オプション ページについて詳しくは、「[codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
+ユーザーがバッジをクリックすると、codespace の作成用の [詳細オプション] ページに移動します。選んだオプションは事前に選択されています。 詳細オプション ページについて詳しくは、「[リポジトリの codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
 
 [詳細オプション] ページから、ユーザーは必要に応じて事前に選択された設定を変更し、 **[codespace の作成]** をクリックできます。
-
-{% note %}
-
-**注**: {% data variables.product.prodname_github_codespaces %} にまだアクセスできないユーザーは、このバッジをクリックすると 404 メッセージが表示されることに注意してください。
-
-{% endnote %}
 
 ## [{% data variables.product.prodname_github_codespaces %} で開く] バッジの作成
 
@@ -47,9 +40,9 @@ Markdown ファイルに [{% data variables.product.prodname_github_codespaces %
 
    ![[新しい codespace] ボタンのスクリーンショット](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. **[ブランチで codespace を作成する]** ボタンの横にある下矢印をクリックし、 **[codespace の構成と作成]** をクリックしてから、 **[codespace の構成と作成]** ボタンをクリックします。
+1. **[Codespaces]** タブの右上にある省略記号 ( **...** ) をクリックし、 **[オプションを含む新規]** をクリックします。
 
-   ![[codespace の構成と作成] オプションのスクリーンショット](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![[codespace の構成と作成] オプションのスクリーンショット](/assets/images/help/codespaces/default-machine-type.png)
 
 1. codespace 作成の [詳細オプション] ページで、各フィールドで事前に選択される値を選びます。
 

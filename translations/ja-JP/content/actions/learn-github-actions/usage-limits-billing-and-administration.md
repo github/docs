@@ -11,12 +11,12 @@ versions:
 topics:
   - Billing
 shortTitle: Workflow billing & limits
-ms.openlocfilehash: f457af5e458f54c699578a8a288dd1d64b674c36
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 5abd041d41ab2227aa87c383f39c94876544718c
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146681006'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191855'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -49,7 +49,9 @@ ms.locfileid: '146681006'
 
 - **ジョブの実行時間** - ワークフロー内の各ジョブは、最大 6 時間の実行時間で実行できます。 ジョブがこの制限に達すると、ジョブは終了させられ、完了できずに失敗します。
 {% data reusables.actions.usage-workflow-run-time %} {% data reusables.actions.usage-api-requests %}
-- **並行ジョブ** - アカウント内で実行できる並行ジョブ数は、以下の表に示すように、GitHub プランによって異なります。 この制限を超えた場合、超過のジョブはキューイングされます。
+- **並行ジョブ** - アカウント内で実行できる並行ジョブ数は、使用するランナーの種類や GitHub プランによって異なります。 この制限を超えた場合、超過のジョブはキューイングされます。
+
+  **標準 {% data variables.product.prodname_dotcom %}-ホスト ランナー**
 
   | GitHubプラン | 最大同時ジョブ | 最大同時macOSジョブ |
   |---|---|---|
@@ -58,11 +60,18 @@ ms.locfileid: '146681006'
   | チーム | 60 | 5 |
   | Enterprise | 180 | 50 |
 
+  **{% data variables.product.prodname_dotcom %}-ホスト {% data variables.actions.hosted_runner %}**
+
+  | GitHubプラン | 最大同時ジョブ | 最大同時macOSジョブ |
+  |---|---|---|
+  | すべて | 500 | 該当なし |
+
   {% note %}
 
   **注:** Enterprise プランのお客様は、必要に応じて、同時実行ジョブの上限を上げることを要求できます。 詳細については、{% data variables.contact.contact_ent_support %} または営業担当者にお問い合わせください。
 
   {% endnote %}
+  
 - **ジョブ マトリックス** - {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %} 使用制限は、セルフホステッド ランナーに適用されます。 詳細については、[セルフホステッド ランナー](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)に関する記述をご覧ください。
@@ -77,7 +86,7 @@ ms.locfileid: '146681006'
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## 再利用可能なワークフローの課金
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 ワークフローを再利用する場合、課金は常に呼び出し元ワークフローに関連付けられます。 {% data variables.product.prodname_dotcom %} ホステッド ランナーの割り当ては、常に呼び出し元のコンテキストのみを使用して評価されます。 呼び出し元は、呼び出されたリポジトリから {% data variables.product.prodname_dotcom %} ホステッド ランナーを使用できません。 
 

@@ -21,7 +21,7 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/creating-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+    - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests

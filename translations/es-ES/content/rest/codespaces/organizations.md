@@ -2,22 +2,20 @@
 title: Organizaciones de Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
-intro: "La API de organizaciones de Codespaces permite administrar los codespaces de los miembros de la organización mediante la API\_REST."
+intro: Usa la API de REST para administrar los codespaces de los miembros de la organización.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 923e7aaf3b53ceb5203d061b23e99749f270ef71
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: e6c260456a4d34f2de83bf8f936c0789adabd225
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147080723'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193093'
 ---
-{% data reusables.codespaces.codespaces-api-beta-note %}
+## Acerca de las organizaciones de {% data variables.product.prodname_codespaces %}
 
-## Acerca de la API de organizaciones de Codespaces
-
-La API de organizaciones de {% data variables.product.prodname_codespaces %} te permite administrar los {% data variables.product.prodname_codespaces %} facturados a tu organización mediante la API REST. Esta API está disponible para los administradores autenticados de la organización y las aplicaciones de OAuth, pero no para las aplicaciones de GitHub Apps. Para más información, vea "[{% data variables.product.prodname_codespaces %}](/codespaces)".
+Puedes administrar los {% data variables.product.prodname_codespaces %} facturados a tu organización. Estos puntos de conexión están disponibles para los administradores autenticados de la organización y las aplicaciones de OAuth, pero no para las aplicaciones de GitHub Apps. Para más información, vea "[{% data variables.product.prodname_codespaces %}](/codespaces)".

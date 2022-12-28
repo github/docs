@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 9012b473399905e60b04a8876a3d4e6afd10a6ba
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109468'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193138'
 ---
 学校のプロジェクトで{% data variables.product.prodname_dotcom %}を利用することは、他者とコラボレーションして実世界の体験を見てもらうためのポートフォリオを構築するための実際的な方法です。
 
@@ -39,7 +39,17 @@ Global Campus に申請する前に、ご自分の学習コミュニティが既
 - [Campus TV](https://www.twitch.tv/githubeducation) の最近のエピソードをもう一度観て、学生コミュニティで関心が持たれている事柄を常に把握する。 Campus TV は、{% data variables.product.prodname_dotcom %} と学生コミュニティのリーダーによって作成されます。ライブまたはオンデマンドでご覧になれます。
 - GitHub Community Exchange から学生が作成したリポジトリを見つける。 詳しくは、「[GitHub Community Exchange について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)」を参照してください。
 
-## 関連項目
+{% data variables.product.prodname_global_campus %} の学生は、次の {% data variables.product.prodname_dotcom %} 特典も受け取ります。
+- **{% data variables.product.prodname_copilot %}** : 検証済みの学生は、{% data variables.product.prodname_copilot %} の無料サブスクリプションを受け取ります。 アカウント設定で {% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスすると、無料サブスクリプションに関して自動的に通知されます。 {% data variables.product.prodname_copilot %} のサブスクライブと使用について詳しくは、「[{% data variables.product.prodname_copilot_for_individuals %} サブスクリプションの管理](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)」と「[{% data variables.product.prodname_copilot %} について](/copilot/overview-of-github-copilot/about-github-copilot)」をご覧ください。
+- **{% data variables.product.prodname_github_codespaces %}** : {% data reusables.education.student-codespaces-benefit %} {% data variables.product.prodname_github_codespaces %} の使用を始める方法について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の概要](/codespaces/overview)」を参照してください。
+
+{% note %}
+
+**注:** {% data reusables.education.note-on-student-codespaces-usage %} 詳しくは、「[{% data variables.product.prodname_github_codespaces %} と {% data variables.product.prodname_classroom %} の使用](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)」を参照してください。
+
+{% endnote %}
+
+## 参考資料
 
 - [教師向け {% data variables.product.prodname_global_campus %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
 - 「[{% data variables.product.prodname_community_exchange %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)」

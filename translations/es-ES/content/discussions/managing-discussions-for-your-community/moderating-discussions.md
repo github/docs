@@ -4,12 +4,12 @@ intro: 'Puedes promover una colaboración sana si marcas los comentarios como re
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   feature: discussions
-ms.openlocfilehash: 7d128c9beadb190f9c22c345cf0c3124b1dfcfcb
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4d09537a3c38d2eb9ac2650c48f2c44c1b0cbd95
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410119'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164477'
 ---
 ## Acerca de moderar los debates
 
@@ -39,3 +39,10 @@ Cuando conviertes una propuesta en un debate, ésta se creará automáticamente 
 1. En el margen derecho de una incidencia, haga clic en **Convert to discussion** (Convertir en debate).
 1. Seleccione el menú desplegable **Choose a category** (Seleccionar una categoría) y haga clic en una categoría para el debate.
 1. Haga clic en **I understand, convert this issue to a discussion** (Lo entiendo, convertir esta incidencia en un debate).
+
+{% ifversion discussions-hide-comments-on-block %}
+## Bloquear a un usuario de tu organización
+
+Los propietarios y moderadores de la organización pueden bloquear a un usuario de esta si sus comentarios no cumplen el código de conducta de la comunidad. Al bloquear un usuario, ya no podrán comentar los debates. También puedes ocultar todos los comentarios que ha realizado un usuario en la organización. Para obtener más información, vea "[Bloquear a un usuario de su organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
+
+{% data reusables.organizations.blocking-a-user %} {% endif %}

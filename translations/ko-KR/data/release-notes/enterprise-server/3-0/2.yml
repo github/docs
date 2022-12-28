@@ -1,0 +1,78 @@
+date: '2021-03-16'
+intro: "{% data variables.product.prodname_ghe_server %} 3.0 이상에 대한 최소 인프라 요구 사항이 증가했습니다. 자세한 내용은 “[GitHub Enterprise Server 3.0 이상에 대한 최소 요구 사항 정보](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)”를 참조하세요."
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - "백업 중에 제거 가능한 스토리지 개체를 정리하려고 할 때 “경고&#58; 원본 어플라이언스에서 하나 이상의 스토리지 개체를 찾을 수 없었습니다.” 오류가 발생했습니다."
+    - 종속성 그래프가 `yarn.lock` JavaScript 매니페스트 파일을 구문 분석하지 못해 로그에 HTTP 500 오류가 발생했습니다.
+    - GitHub Actions를 사용하지 않도록 설정하지 못하는 경우가 있습니다.
+    - 사용자 지정 사전 수신 후크가 `/tmp`에 쓰도록 허용되지 않아 일부 스크립트가 제대로 실행되지 않았습니다.
+    - Systemd 저널 로그가 여러 위치에 복제되었습니다.
+    - 3.0으로 업그레이드한 후 GitHub Enterprise 11.10.x 이하에 설정된 표준 시간대가 UTC 시간으로 재설정되어 일부 인스턴스에서 타임스탬프가 이동되었습니다.
+    - 리포지토리의 패키지 사이드바에서 “첫 번째 패키지 게시”를 클릭하면 빈 페이지가 표시됩니다.
+    - 프라이빗 리포지토리에서 참조되는 이슈를 확인하는 동안 사이트 관리자에게 500 오류 페이지가 표시될 수 있습니다.
+    - GitHub Packages를 사용하지 않도록 설정한 후 일부 조직 페이지가 HTTP 500 오류 응답을 반환합니다.
+    - GitHub Enterprise Server에서 리포지토리 파일이 없는 리포지토리 보관을 가져오는 작업이 오류와 함께 실패합니다.
+    - "리포지토리 [배포 키](/developers/overview/managing-deploy-keys)는 LFS 개체가 포함된 리포지토리에서 사용할 수 없었습니다."
+    - 리포지토리의 패키지 사이드바에서 Docker 아이콘이 회색으로 표시되고 도구 설명에 “이 서비스는 더 이상 사용되지 않음”이 표시되었습니다.
+    - "`application/x-www-form-urlencoded` 콘텐츠 형식으로 구성된 웹후크가 POST 요청 본문에서 쿼리 매개 변수를 수신하지 않았습니다."
+    - 사용자는 모든 확인란을 선택하지 않고 필수 메시지를 해제할 수 있습니다.
+    - 일부 경우에 2.22.X 인스턴스에서 업그레이드한 후 웹 인터페이스 자산이 누락되었고 페이지가 제대로 렌더링되지 않습니다.
+    - "`ghe-config-apply`를 실행하면 `'job' stanza를 찾을 수 없음`으로 인해 `nomad 작업이 적용되기를 기다리지 못함`과 함께 시간이 초과될 수 있습니다."
+  known_issues:
+    - 사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다.
+    - 사용자 지정 방화벽 규칙은 업그레이드 중에 유지 관리되지 않습니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 이슈에 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "유지 관리 모드가 사용되는 경우 일부 서비스는 계속 “활성 프로세스”로 나열됩니다. 식별된 서비스는 유지 관리 모드 중에 실행되어야 합니다. 이 이슈가 발생하고 확실하지 않은 경우 [GitHub Enterprise 지원](https://support.github.com/contact)에 문의하세요."
+    - Notebook에 ASCII가 아닌 UTF-8 문자가 포함된 경우 웹 UI에서 Jupyter Notebook 렌더링에 실패할 수 있습니다.
+    - 웹 UI의 reStructuredText(RST) 렌더링이 실패하고 대신 원시 RST 태그 텍스트를 표시할 수 있습니다.
+    - Pages의 이전 빌드가 정리되지 않아 사용자 디스크(`/data/user/`)를 가득 채울 수 있습니다.
+    - 끌어오기 요청을 병합한 후 분기를 삭제하면 분기 삭제에 성공해도 오류 메시지가 표시됩니다.
+    - |사용자에게 로드되지 않는 아바타 또는 코드 푸시/끌어오기 실패 등의 자산이 발생할 수 있습니다. 그 원인은 `haproxy-cluster-proxy` 서비스에서 PID가 일치하지 않기 때문일 수 있습니다. 영향을 받는 인스턴스가 있는지 확인하려면:
+
+
+
+**단일 인스턴스**
+
+
+
+1. [관리 셸](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh)(SSH)에서 다음을 실행합니다.
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. 불일치가 있는 것으로 표시되면 인스턴스를 다시 부팅합니다.
+
+
+
+**클러스터 또는 고가용성 구성**
+
+
+
+1. [관리 셸](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh)(SSH)에서 다음을 실행합니다.
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. 하나 이상의 노드가 영향을 받는 것으로 표시되면 영향을 받는 노드를 다시 부팅합니다.
+
+|
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}는 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으므로 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

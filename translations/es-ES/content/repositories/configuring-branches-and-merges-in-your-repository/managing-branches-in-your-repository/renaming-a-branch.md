@@ -1,6 +1,6 @@
 ---
-title: Renaming a branch
-intro: You can change the name of a branch in a repository.
+title: Renombrar una rama
+intro: Puedes cambiar el nombre de una rama en un repositorio.
 permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch){% ifversion fpt or ghec or ghes > 3.3 %} or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% endif %}. People with admin permissions can rename the default branch{% ifversion fpt or ghec or ghes > 3.3 %} and protected branches{% endif %}.'
 versions:
   fpt: '*'
@@ -12,42 +12,47 @@ topics:
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
   - /github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch
+ms.openlocfilehash: 6e30c7c2615f8b3dc21075e24298796febbce314
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145136933'
 ---
-## About renaming branches
+## Acerca de renombrar las ramas
 
-You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
+Puedes renombrar una rama en un repositorio de {% data variables.product.product_location %}. Para más información sobre las ramas, vea "[Acerca de las ramas](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)".
 
-When you rename a branch on {% data variables.location.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
+Cuando renombras una rama en {% data variables.product.product_location %}, cualquier URL que contega el nombre de la rama antigua se redireccionará automáticamente a la URL equivalente para la rama que se renombró. También se actualizan las políticas de protección de rama, así como la rama base para las solicitudes de cambios abriertas (incluyendo aquellas para las bifurcaciones) y para los borradores de lanzamientos. Después de que se completa el renombramiento, {% data variables.product.prodname_dotcom %} proporciona instrucciones en la página principal del repositorio y dirige a los colaboradores a actualizar sus ambientes locales de Git.
 
-Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
+Aunque las URL de archivo se redirigen automáticamente, las URL de archivo sin procesar no se redirigirán. Además, {% data variables.product.prodname_dotcom %} no realiza ninguna redirección si los usuarios realizan ejecutan `git pull` para el nombre de rama anterior.
 
-{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the branch name is deprecated and suggesting that users migrate to the new branch name.
+Los flujos de trabajo de {% data variables.product.prodname_actions %} no siguen los cambios de nombre, de forma que si el repositorio publica una acción, cualquiera que la use con `@{old-branch-name}` sufrirá una interrupción. Debes considerar agregar una rama nueva con el contenido original más una confirmación adicional que reporte que el nombre de rama está obsoletizado y que sugiera que los usuarios se migren al nombre de la rama nueva.
 
-## Renaming a branch
+## Renombrar una rama
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-branches %}
-1. In the list of branches, to the right of the branch you want to rename, click {% octicon "pencil" aria-label="The edit icon" %}.
-    ![Pencil icon to the right of branch you want to rename](/assets/images/help/branch/branch-rename-edit.png)
-1. Type a new name for the branch.
-    ![Text field for typing new branch name](/assets/images/help/branch/branch-rename-type.png)
-1. Review the information about local environments, then click **Rename branch**.
-    ![Local environment information and "Rename branch" button](/assets/images/help/branch/branch-rename-rename.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.navigate-to-branches %}
+1. En la lista de ramas, a la derecha de la rama que quieras renombrar, da clic en {% octicon "pencil" aria-label="The edit icon" %}.
+    ![Icono de lápiz a la derecha de la rama que se quiere cambiar de nombre](/assets/images/help/branch/branch-rename-edit.png)
+1. Teclea un nombre nuevo para la rama.
+    ![Campo de texto para escribir un nombre de rama nuevo](/assets/images/help/branch/branch-rename-type.png)
+1. Revise la información sobre los entornos locales y luego haga clic en **Renombrar rama**.
+    ![Información del entorno local y botón "Renombrar rama"](/assets/images/help/branch/branch-rename-rename.png)
 
-## Updating a local clone after a branch name changes
+## Actualizar un clon local después de que cambie el nombre de una rama
 
-After you rename a branch in a repository on {% data variables.product.product_name %}, any collaborator with a local clone of the repository will need to update the clone.
+Después de que renombras una rama en un repositorio con {% data variables.product.product_name %}, cualquier colaborador con un clon local del repositorio necesitará actualizar dicho clon.
 
-From the local clone of the repository on a computer, run the following commands to update the name of the default branch.
+Desde el clon local del repositorio en una computadora, ejecuta los siguientes comandos para actualizar el nombre de la rama predeterminada.
 
 ```shell
-$ git branch -m OLD-BRANCH-NAME NEW-BRANCH-NAME
+$ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
-$ git branch -u origin/NEW-BRANCH-NAME NEW-BRANCH-NAME
+$ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git remote set-head origin -a
 ```
 
-Optionally, run the following command to remove tracking references to the old branch name.
+Opcionalmente, ejecuta el siguiente comando para eliminar las referencias de rastreo al nombre de la rama antigua.
 ```
 $ git remote prune origin
 ```

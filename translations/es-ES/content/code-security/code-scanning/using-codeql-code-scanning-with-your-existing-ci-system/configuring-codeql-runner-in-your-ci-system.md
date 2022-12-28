@@ -1,7 +1,7 @@
 ---
-title: Configuring CodeQL runner in your CI system
+title: Configurar el ejecutor de CodeQL en tu sistema de IC
 shortTitle: Configure CodeQL runner
-intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
+intro: 'Puedes configurar la forma en la que {% data variables.code-scanning.codeql_runner %} escanea el código en tu proyecto y en la que carga los resultados a {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -24,33 +24,35 @@ topics:
   - C/C++
   - C#
   - Java
+ms.openlocfilehash: 64245dd9f320947510db3e108b30c886c95b89d1
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161074'
 ---
+{% data reusables.code-scanning.deprecation-codeql-runner %} {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
+## Acerca de configurar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC
 
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+Para integrar el {% data variables.product.prodname_code_scanning %} en tu sistema de IC, puedes utilizar el {% data variables.code-scanning.codeql_runner %}. Para más información, vea "[Ejecución de {% data variables.code-scanning.codeql_runner %} en el sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)".
 
-## About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
-
-To integrate {% data variables.product.prodname_code_scanning %} into your CI system, you can use the {% data variables.product.prodname_codeql_runner %}. For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
-
-In general, you invoke the {% data variables.product.prodname_codeql_runner %} as follows.
+En general, se invoca el {% data variables.code-scanning.codeql_runner %} de la siguiente manera.
 
 ```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
-`/path/to-runner/` depends on where you've downloaded the {% data variables.product.prodname_codeql_runner %} on your CI system. `codeql-runner-OS` depends on the operating system you use.
-There are three versions of the {% data variables.product.prodname_codeql_runner %}, `codeql-runner-linux`, `codeql-runner-macos`, and `codeql-runner-win`, for Linux, macOS, and Windows systems respectively. 
+`/path/to-runner/` depende de si ha descargado el {% data variables.code-scanning.codeql_runner %} en el sistema de CI. `codeql-runner-OS` depende del sistema operativo que use.
+Hay tres versiones de {% data variables.code-scanning.codeql_runner %}, `codeql-runner-linux`, `codeql-runner-macos` y `codeql-runner-win`, para Linux, macOS y Windows, respectivamente. 
 
-To customize the way the {% data variables.product.prodname_codeql_runner %} scans your code, you can use flags, such as `--languages` and `--queries`, or you can specify custom settings in a separate configuration file.
+Para personalizar la forma en que {% data variables.code-scanning.codeql_runner %} examina el código, puede usar marcas, como `--languages` y `--queries`, o bien puede especificar valores personalizados en un archivo de configuración independiente.
 
-## Scanning pull requests
+## Escanear las solicitudes de extracción
 
-Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
+El escanear el código cada que se crea una solicitud de cambios previene que los desarrolladores introduzcan vulnerabilidades y errores nuevos a este.
 
-To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
+Para examinar una solicitud de incorporación de cambios, ejecute el comando `analyze` y use la marca `--ref` para especificar la solicitud de incorporación de cambios. La referencia es `refs/pull/<PR-number>/head` o `refs/pull/<PR-number>/merge`, en función de si ha extraído del repositorio la confirmación HEAD de la rama de solicitud de incorporación de cambios o una confirmación de combinación con la rama base.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
@@ -58,50 +60,50 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% note %}
 
-**Note**: If you analyze code with a third-party tool and want the results to appear as pull request checks, you must run the `upload` command and use the `--ref` flag to specify the pull request instead of the branch. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`.
+**Nota**: Si analiza código con una herramienta de terceros y quiere que los resultados aparezcan como comprobaciones de solicitudes de incorporación de cambios, debe ejecutar el comando `upload` y usar la marca `--ref` para especificar la solicitud de incorporación de cambios en lugar de la rama. La referencia es `refs/pull/<PR-number>/head` o `refs/pull/<PR-number>/merge`.
 
 {% endnote %}
 
-## Overriding automatic language detection
+## Invalidar la detección automática de lenguaje
 
-The {% data variables.product.prodname_codeql_runner %} automatically detects and scans code written in the supported languages.
+El {% data variables.code-scanning.codeql_runner %} detecta automáticamente y escanea el código que se ha escrito en los lenguajes compatibles.
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-To override automatic language detection, run the `init` command with the `--languages` flag, followed by a comma-separated list of language keywords. The keywords for the supported languages are {% data reusables.code-scanning.codeql-languages-keywords %}.
+Para invalidar la detección automática del lenguaje, ejecute el comando `init` con la marca `--languages`, seguido de una lista separada por comas de palabras clave del lenguaje. Las palabras clave para los lenguajes compatibles son {% data reusables.code-scanning.codeql-languages-keywords %}.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-## Running additional queries
+## Ejecutar consultas adicionales
 
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
-To add one or more queries, pass a comma-separated list of paths to the `--queries` flag of the `init` command. You can also specify additional queries in a configuration file.
+Para agregar una o varias consultas, pase una lista separada por comas de rutas a la marca `--queries` del comando `init`. También puedes especificar consultas adicionales en un archivo de configuración.
 
-If you also are using a configuration file for custom settings, and you are also specifying additional queries with the `--queries` flag, the {% data variables.product.prodname_codeql_runner %} uses the additional queries specified with the <nobr>`--queries`</nobr> flag instead of any in the configuration file.
-If you want to run the combined set of additional queries specified with the flag and in the configuration file, prefix the value passed to <nobr>`--queries`</nobr> with the `+` symbol.
-For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+Si también usa un archivo de configuración para los valores personalizados y además especifica consultas adicionales con la marca `--queries`, {% data variables.code-scanning.codeql_runner %} utilizará las consultas adicionales especificadas con la marca <nobr>`--queries`</nobr> en lugar de las del archivo de configuración.
+Si quiere ejecutar el conjunto combinado de consultas adicionales especificadas con la marca y en el archivo de configuración, use el símbolo`+` como prefijo del valor que se pasa a <nobr>`--queries`</nobr>.
+Para más información, vea "[Uso de un archivo de configuración personalizado](#using-a-custom-configuration-file)".
 
-In the following example, the `+` symbol ensures that the {% data variables.product.prodname_codeql_runner %} uses the additional queries together with any queries specified in the referenced configuration file.
+En el ejemplo siguiente, el símbolo `+` garantiza que el {% data variables.code-scanning.codeql_runner %} use las consultas adicionales junto con cualquier otra que se especifique en el archivo de configuración al que se hace referencia.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-## Using a custom configuration file
+## Uso de un archivo de configuración personalizado
 
-Instead of passing additional information to the {% data variables.product.prodname_codeql_runner %} commands, you can specify custom settings in a separate configuration file.
+En vez de pasar información adicional a los comandos de {% data variables.code-scanning.codeql_runner %}, puedes especificar ajustes personalizados en un archivo de configuración por separado.
 
-The configuration file is a YAML file. It uses syntax similar to the workflow syntax for {% data variables.product.prodname_actions %}, as illustrated in the examples below. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)." 
+El archivo de configuración es un archivo de YAML. Utiliza una sintaxis similar a aquella del flujo de trabajo para {% data variables.product.prodname_actions %}, de acuerdo como se ilustra en los siguientes ejemplos. Para más información, vea "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)". 
 
-Use the `--config-file` flag of the `init` command to specify the configuration file. The value of <nobr>`--config-file`</nobr> is the path to the configuration file that you want to use. This example loads the configuration file _.github/codeql/codeql-config.yml_.
+Use la marca `--config-file` del comando `init`para especificar el archivo de configuración. El valor <nobr>`--config-file`</nobr> es la ruta al archivo de configuración que quiere usar. En este ejemplo se carga el archivo de configuración _.github/codeql/codeql-config.yml_.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
@@ -109,108 +111,108 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-### Example configuration files
+### Archivos de configuración de ejemplo
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## Configurar {% data variables.product.prodname_code_scanning %} para los lenguajes compilados
 
-For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
+En los lenguajes compilados C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} y Java, {% data variables.product.prodname_codeql %} compila el código antes de analizarlo. {% data reusables.code-scanning.analyze-go %}
 
-For many common build systems, the {% data variables.product.prodname_codeql_runner %} can build the code automatically. To attempt to build the code automatically, run `autobuild` between the `init` and `analyze` steps. Note that if your repository requires a specific version of a build tool, you may need to install the build tool manually first. 
+Para varios sistemas de compilación comunes, el {% data variables.code-scanning.codeql_runner %} puede compilar el código automáticamente. Para intentar compilar el código automáticamente, ejecute `autobuild` entre los pasos `init` y `analyze`. Nota que, si tu repositorio necesita una versión específica de una herramienta de compilación, puede que necesites instalar dicha herramienta manualmente primero. 
 
-The `autobuild` process only ever attempts to build _one_ compiled language for a repository. The language automatically selected for analysis is the language with the most files. If you want to choose a language explicitly, use the `--language` flag of the `autobuild` command.
+El proceso `autobuild` solo intenta crear _un_ lenguaje compilado para un repositorio. El lenguaje que se selecciona automáticamente para su análisis es aquél presente en más archivos. Si quiere elegir un lenguaje de forma explícita, use la marca `--language` del comando `autobuild`.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
-If the `autobuild` command can't build your code, you can run the build steps yourself, between the `init` and `analyze` steps. For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example)."
+Si el comando `autobuild` no puede compilar el código, puede ejecutar los pasos de compilación personalmente, entre los pasos `init` y `analyze`. Para más información, vea "[Ejecución de {% data variables.code-scanning.codeql_runner %} en el sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example)".
 
-## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## Carga de datos de {% data variables.product.prodname_code_scanning %} en {% data variables.product.prodname_dotcom %}
 
-By default, the {% data variables.product.prodname_codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
+De manera predeterminada, {% data variables.code-scanning.codeql_runner %} carga los resultados de {% data variables.product.prodname_code_scanning %} al ejecutar el comando `analyze`. También puede cargar archivos SARIF por separado mediante el comando `upload`.
 
-Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. 
-- If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
-- If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+Una vez que hayas cargado los datos, {% data variables.product.prodname_dotcom %} mostrará las alertas en tu repositorio. 
+- Si ha realizado la carga en una solicitud de incorporación de cambios, por ejemplo `--ref refs/pull/42/merge` o `--ref refs/pull/42/head`, los resultados aparecen como alertas en una comprobación de solicitud de incorporación de cambios. Para más información, vea "[Evaluación de prioridades de alertas de análisis de código en solicitudes de incorporación de cambios](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
+- Si ha realizado la carga en una rama, por ejemplo `--ref refs/heads/my-branch`, los resultados aparecen en la pestaña **Seguridad** del repositorio. Para más información, vea "[Administración de alertas de análisis de código para el repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
-## {% data variables.product.prodname_codeql_runner %} command reference
+## Referencia de comando {% data variables.code-scanning.codeql_runner %}
 
-The {% data variables.product.prodname_codeql_runner %} supports the following commands and flags.
+El {% data variables.code-scanning.codeql_runner %} es compatible con los siguientes comandos y marcadores.
 
 ### `init`
 
-Initializes the {% data variables.product.prodname_codeql_runner %} and creates a {% data variables.product.prodname_codeql %} database for each language to be analyzed.
+Inicializa el {% data variables.code-scanning.codeql_runner %} y crea una base de datos de {% data variables.product.prodname_codeql %} para analizar cada lenguaje.
 
-| Flag | Required | Input value |
+| Marca | Obligatorio | Valor de entrada |
 | ---- |:--------:| ----------- |
-| `--repository` | ✓ | Name of the repository to initialize. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| `--languages` | | Comma-separated list of languages to analyze. By default, the {% data variables.product.prodname_codeql_runner %} detects and analyzes all supported languages in the repository. |
-| `--queries` | | Comma-separated list of additional queries to run, in addition to the default suite of security queries. This overrides the `queries` setting in the custom configuration file. |
-| `--config-file` | | Path to custom configuration file. |
-| `--codeql-path` | | Path to a copy of the {% data variables.product.prodname_codeql %} CLI executable to use. By default, the {% data variables.product.prodname_codeql_runner %} downloads a copy. |
-| `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--tools-dir` | | Directory where {% data variables.product.prodname_codeql %} tools and other files are stored between runs. The default is a subdirectory of the home directory. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory. | 
-| `--debug` | | None. Prints more verbose output. |
-| <nobr>`--trace-process-name`</nobr> | | Advanced, Windows only. Name of the process where a Windows tracer of this process is injected. |
-| <nobr>`--trace-process-level`</nobr> | | Advanced, Windows only. Number of levels up of the parent process where a Windows tracer of this process is injected. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--repository` | ✓ | Nombre del repositorio a inicializar. |
+| `--github-url` | ✓ | URL de la instancia de {% data variables.product.prodname_dotcom %} donde se hospeda tu repositorio. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Lee el token de las {% data variables.product.prodname_github_apps %} o el {% data variables.product.pat_generic %} desde la entrada estándar. |
+| `--languages` | | Lista separada por comas de los lenguajes a analizar. Predeterminadamente, el {% data variables.code-scanning.codeql_runner %} detecta y analiza todos los lenguajes compatibles en el repositorio. |
+| `--queries` | | Lista separada por comas de las consultas adicionales a ejecutar, adicionalmente a la suite predeterminada de consultas de seguridad. Esto invalida el valor `queries` en el archivo de configuración personalizado. |
+| `--config-file` | | Ruta al archivo de configuración personalizado. |
+| `--codeql-path` | | Ruta a una copia del CLI ejecutable de {% data variables.product.prodname_codeql %} a utilizar. Predeterminadamente, el {% data variables.code-scanning.codeql_runner %} descarga una copia. |
+| `--temp-dir` | | Directorio donde se almacenan los archivos temporales. El valor predeterminado es `./codeql-runner`. |
+| `--tools-dir` | | Directorio donde las herramientas de {% data variables.product.prodname_codeql %} y otros archivos se almacenan entre ejecuciones. El predeterminado es un subdirectorio del directorio principal. |
+| <nobr>`--checkout-path`</nobr> | | La ruta a la confirmación de salida de tu repositorio. El predeterminado es el directorio de trabajo. | 
+| `--debug` | | Ninguno. Imprime una salida más verbosa. |
+| <nobr>`--trace-process-name`</nobr> | | Avanzado y solo para Windows. Nombre del proceso en donde se inyecta un rastreador de Windows para este proceso. |
+| <nobr>`--trace-process-level`</nobr> | | Avanzado y solo para Windows. Cantidad de niveles ascendentes del proceso padre en donde se inyecta un rastreador de Windows para este proceso. |
+| `-h`, `--help` | | Ninguno. Muestra la ayuda para el comando. |
 
 ### `autobuild`
 
-Attempts to build the code for the compiled languages C/C++, C#, and Java. For those languages, {% data variables.product.prodname_codeql %} builds the code before analyzing it. Run `autobuild` between the `init` and `analyze` steps.
+Intenta compilar el código para los lenguajes compilados de C/C++, C#, y Java. Para estos lenguajes, {% data variables.product.prodname_codeql %} compila el código antes de analizarlo. Ejecute `autobuild` entre los pasos `init` y `analyze`.
 
-| Flag | Required | Input value |
+| Marca | Obligatorio | Valor de entrada |
 | ---- |:--------:| ----------- |
-| `--language` | | The language to build. By default, the {% data variables.product.prodname_codeql_runner %} builds the compiled language with the most files. |
-| <nobr>`--temp-dir`</nobr> | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--debug` | | None. Prints more verbose output. |
-| <nobr> `-h`, `--help`</nobr> | | None. Displays help for the command. |
+| `--language` | | El lenguaje a compilar. Predeterminadamente, el {% data variables.code-scanning.codeql_runner %} compila el lenguaje con más archivos. |
+| <nobr>`--temp-dir`</nobr> | | Directorio donde se almacenan los archivos temporales. El valor predeterminado es `./codeql-runner`. |
+| `--debug` | | Ninguno. Imprime una salida más verbosa. |
+| <nobr> `-h`, `--help`</nobr> | | Ninguno. Muestra la ayuda para el comando. |
 
 ### `analyze`
 
-Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
+Analiza el código en las bases de datos de {% data variables.product.prodname_codeql %} y carga los resultados a {% data variables.product.product_name %}.
 
-| Flag | Required | Input value |
+| Marca | Obligatorio | Valor de entrada |
 | ---- |:--------:| ----------- |
-| `--repository` | ✓ | Name of the repository to analyze. |
-| `--commit` | ✓ | SHA of the commit to analyze. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
-| `--ref` | ✓ | Name of the reference to analyze, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
-| `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
-| `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
-| <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |
-| `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
-| `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--repository` | ✓ | Nombre del repositorio que se analizará. |
+| `--commit` | ✓ | SHA de la confirmación que se analizará. En Git y en Azure DevOps, esto se corresponde al valor de `git rev-parse HEAD`. En Jenkins, esto se corresponde a `$GIT_COMMIT`. |
+| `--ref` | ✓ | Nombre de la referencia que se va a analizar, por ejemplo `refs/heads/main` o `refs/pull/42/merge`. En Git o en Jenkins, esto se corresponde al valor de `git symbolic-ref HEAD`. En Azure DevOps, esto se corresponde a `$(Build.SourceBranch)`. |
+| `--github-url` | ✓ | URL de la instancia de {% data variables.product.prodname_dotcom %} donde se hospeda tu repositorio. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Lee el token de las {% data variables.product.prodname_github_apps %} o el {% data variables.product.pat_generic %} desde la entrada estándar. |
+| <nobr>`--checkout-path`</nobr> | | La ruta a la confirmación de salida de tu repositorio. El predeterminado es el directorio de trabajo.  |
+| `--no-upload` | | Ninguno. Impide que {% data variables.code-scanning.codeql_runner %} cargue los resultados a {% data variables.product.product_name %}. |
+| `--output-dir` | | Directorio en donde se almacenan los archivos SARIF de salida. El predeterminado está en el directorio de archivos temporales. |
+| `--ram` | | Cantidad de memoria a utilizar cuando ejecutes consultas. El valor predeterminado es utilizar toda la memoria disponible. |
+| <nobr>`--no-add-snippets`</nobr> | | Ninguno. Excluye los fragmentos de código de la salida de SARIF. |
+| <nobr>`--category`<nobr> | | Categoría para incluir el archivo de resultados SARIF para este análisis. La categoría puede utilizarse pra distinguir análisis múltiples de la misma herramienta y confirmación, pero que se llevan a cabo en lenguajes diferentes o en partes diferentes del código. Este valor aparecerá en la propiedad `<run>.automationDetails.id` de SARIF v2.1.0. |
+| `--threads` | | Cantidad de hilos a utilizar cuando se ejecutan las consultas. El valor predeterminado es utilizar todos los núcleos disponibles. |
+| `--temp-dir` | | Directorio donde se almacenan los archivos temporales. El valor predeterminado es `./codeql-runner`. |
+| `--debug` | | Ninguno. Imprime una salida más verbosa. |
+| `-h`, `--help` | | Ninguno. Muestra la ayuda para el comando. |
 
 ### `upload`
 
-Uploads SARIF files to {% data variables.product.product_name %}.
+Carga los archivos SARIF a {% data variables.product.product_name %}.
 
 {% note %}
 
-**Note**: If you analyze code with the CodeQL runner, the `analyze` command uploads SARIF results by default. You can use the `upload` command to upload SARIF results that were generated by other tools.
+**Nota**: Si analiza código con el ejecutor de CodeQL, el comando `analyze` carga los resultados de SARIF de forma predeterminada. Puede usar el comando `upload` para cargar los resultados SARIF que han generado otras herramientas.
 
 {% endnote %}
 
-| Flag | Required | Input value |
+| Marca | Obligatorio | Valor de entrada |
 | ---- |:--------:| ----------- |
-| `--sarif-file` | ✓ | SARIF file to upload, or a directory containing multiple SARIF files. |
-| `--repository` | ✓ | Name of the repository that was analyzed. |
-| `--commit` | ✓ | SHA of the commit that was analyzed. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
-| `--ref` | ✓ | Name of the reference that was analyzed, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--sarif-file` | ✓ | El archivo SARIF a cargar, o un directorio que contiene varios archivos SARIF. |
+| `--repository` | ✓ | Nombre del repositorio que se analizó. |
+| `--commit` | ✓ | SHA de la confirmación que se analizó. En Git y en Azure DevOps, esto se corresponde al valor de `git rev-parse HEAD`. En Jenkins, esto se corresponde a `$GIT_COMMIT`. |
+| `--ref` | ✓ | Nombre de la referencia que se ha analizado, por ejemplo `refs/heads/main` o `refs/pull/42/merge`. En Git o en Jenkins, esto se corresponde al valor de `git symbolic-ref HEAD`. En Azure DevOps, esto se corresponde a `$(Build.SourceBranch)`. |
+| `--github-url` | ✓ | URL de la instancia de {% data variables.product.prodname_dotcom %} donde se hospeda tu repositorio. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Lee el token de las {% data variables.product.prodname_github_apps %} o el {% data variables.product.pat_generic %} desde la entrada estándar. |
+| <nobr>`--checkout-path`</nobr> | | La ruta a la confirmación de salida de tu repositorio. El predeterminado es el directorio de trabajo.  |
+| `--debug` | | Ninguno. Imprime una salida más verbosa. |
+| `-h`, `--help` | | Ninguno. Muestra la ayuda para el comando. |

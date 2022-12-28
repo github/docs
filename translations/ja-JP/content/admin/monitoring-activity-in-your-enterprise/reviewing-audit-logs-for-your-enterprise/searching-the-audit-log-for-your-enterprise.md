@@ -19,12 +19,12 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 6289b83d40aecf5208ae377be953ca65baba4a7d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 12bc44b7d81df55366f8b839261cf8899a53729d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147879144'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183997'
 ---
 ## エンタープライズの監査ログの検索について
 
@@ -85,6 +85,7 @@ AND/OR の論理演算子で区切られた 1 つ以上の `key:value` のペア
 `org_id`       | アクションによって影響を受けたOrganizationの ID（該当する場合）
 `business` | アクションによって影響を受けたリポジトリの名前 (該当する場合)
 `business_id` | アクションによって影響を受けたエンタープライズの ID (該当する場合)
+{%- ifversion token-audit-log %} `hashed_token` | アクションの認証に使用されるトークン (該当する場合は、「[アクセス トークンによって実行される監査ログ イベントの識別](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)」をご覧ください) {%- endif %}
 
 カテゴリ別にグループ化されたアクションを表示するには、アクション修飾子を `key:value` ペアとして使用することもできます。 詳細については、「[実行されたアクションに基づく検索](#search-based-on-the-action-performed)」を参照してください。
 
@@ -113,6 +114,7 @@ AND/OR の論理演算子で区切られた 1 つ以上の `key:value` のペア
 エンタープライズの監査ログで検出できるアクションは、次のカテゴリにグループ化されます。
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### アクション時間に基づく検索
 
 `created` 修飾子を使用して、発生した日時に基づいて監査ログ内のイベントをフィルター処理します。
@@ -135,3 +137,9 @@ AND/OR の論理演算子で区切られた 1 つ以上の `key:value` のペア
   * `country:de` は、ドイツで発生したすべてのイベントを検索します。
   * `country:Mexico` は、メキシコで発生したすべてのイベントを検索します。
   * `country:"United States"` は、米国で発生したすべてのイベントを検索します。
+
+{% ifversion token-audit-log %}
+### アクションを実行したトークンに基づいて検索する
+
+`hashed_token` 修飾子を使用して、アクションを実行したトークンに基づいて検索します。 トークンを検索する前に、SHA-256 ハッシュを生成する必要があります。 詳しくは、「[アクセス トークンによって実行された監査ログ イベントの特定](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)」をご覧ください。
+{% endif %}

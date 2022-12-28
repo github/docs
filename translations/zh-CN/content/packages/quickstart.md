@@ -8,12 +8,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
-ms.openlocfilehash: 207b91e821037a6eb61ae7bc9b18c98d8b14fdd2
-ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.openlocfilehash: 887c4ee6c5e6b3e2c391c2d5754cfcb2787e4b86
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147876154'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181251'
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -26,8 +26,8 @@ ms.locfileid: '147876154'
 1. 在 {% data variables.product.prodname_dotcom %} 上创建新存储库，为节点添加 `.gitignore`。 有关详细信息，请参阅“[创建新存储库](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)”。
 2. 将存储库克隆到本地计算机。
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-    $ cd <em>YOUR-REPOSITORY</em>
+    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    $ cd YOUR-REPOSITORY
     ```
 3. 创建 `index.js` 文件，并添加指示“Hello world!”的基本警报
     {% raw %}
@@ -40,9 +40,9 @@ ms.locfileid: '147876154'
     ```shell
     $ npm init
       ...
-      package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
+      package name: @YOUR-USERNAME/YOUR-REPOSITORY
       ...
-      test command: <em>exit 0</em>
+      test command: exit 0
       ...    
     ```
     {% endraw %}
@@ -69,7 +69,7 @@ ms.locfileid: '147876154'
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
           - run: npm ci
           - run: npm test
 
@@ -83,7 +83,7 @@ ms.locfileid: '147876154'
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
               registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
@@ -93,7 +93,7 @@ ms.locfileid: '147876154'
 8. 告诉 NPM 使用以下方法之一发布包的范围和注册表：
    - 在根目录中创建包含以下内容的 `.npmrc` 文件，为存储库添加 NPM 配置文件：{% raw %}
       ```shell
-      <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
+      @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
    - 编辑 `package.json` 文件并指定 `publishConfig` 密钥：{% raw %}
@@ -107,7 +107,7 @@ ms.locfileid: '147876154'
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
-    $ git add <em>.npmrc or package.json</em>
+    $ git add .npmrc or package.json
     $ git commit -m "workflow to publish package"
     $ git push
     ```

@@ -4,12 +4,12 @@ shortTitle: Submit your repository
 intro: 'Puedes enviar el repositorio a {% data variables.product.prodname_community_exchange %} para que otros usuarios puedan verlo o colaborar con él.'
 versions:
   fpt: '*'
-ms.openlocfilehash: 07198c74937470a591b30702bd027036d91d3ec7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 404a1a20f3474c4fa48d6fae9e7f6cc5ddf0e647
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110012'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111276'
 ---
 ## Acerca de los envíos de repositorio
 
@@ -35,11 +35,14 @@ Para un envío con una finalidad de `Learn`, el repositorio debe tener:
 - Una descripción.
 - Un archivo LEARN.md para proporcionar instrucciones paso a paso, con texto o elementos multimedia, sobre cómo se ha compilado el proyecto. Idealmente, el archivo de LEARN.md deconstruirá el proyecto en componentes pequeños y proporcionará detalles exhaustivos de cada paso para que otros alumnos puedan codificar su proyecto siguiendo las instrucciones.
 - Un archivo README.md para proporcionar una descripción detallada del proyecto.
+- Una licencia para que otros usuarios sepan lo que pueden y no pueden hacer con el código fuente.
 
 Para un envío con una finalidad de `Collaborate`, el repositorio debe tener:
 - Una descripción.
 - Un archivo README.md para proporcionar una descripción detallada del proyecto.
+- Una licencia para que otros usuarios sepan lo que pueden y no pueden hacer con el código fuente.
 - Una o varias incidencias en los que los colaboradores trabajarán.
+- Un archivo CONTRIBUTING.md para comunicar cómo se puede contribuir al proyecto.
 
 Un buen envío de repositorio para las finalidades de `Learn` y `Collaborate` es un repositorio que sigue los estándares de la comunidad. Para obtener más información, consulta "[Acerca de los perfiles de la comunidad para repositorios públicos](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)".
 

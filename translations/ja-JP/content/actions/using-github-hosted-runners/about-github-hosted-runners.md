@@ -1,5 +1,6 @@
 ---
 title: GitHub ホステッド ランナーの概要
+shortTitle: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} では、ワークフローを実行するためのホストされた仮想マシンを提供します。 仮想マシンには、{% data variables.product.prodname_actions %} で使用できるツール、パッケージ、および設定の環境が含まれています。'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
@@ -14,13 +15,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: GitHub-hosted runners
-ms.openlocfilehash: c1cf922cbd025daa307462d6b81b62f58db420b0
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: f44c5bcf8c6cc9c48a2910d2a0d371087debd158
+ms.sourcegitcommit: 1668466c58f50415e8c4d3ad932d697f79fc87c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147763674'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180686'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -94,7 +94,7 @@ jobs:
 
 {% note %}
 
-**メモ**: {% data variables.product.prodname_dotcom %} には、より大きな構成で使うことができる {% data variables.actions.hosted_runner %} も用意されています。 詳しくは、「[より大きな {% data variables.actions.hosted_runner %} を使う](/actions/using-github-hosted-runners/using-larger-runners)」をご覧ください。 
+**メモ**: {% data variables.product.prodname_dotcom %} には、より大きな構成で使うことができる {% data variables.actions.hosted_runner %} も用意されています。 詳しくは、「[{% data variables.actions.hosted_runner %} のマシン スペック](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)」をご覧ください。  
 
 {% endnote %} {% endif %}
 
@@ -114,7 +114,8 @@ macOS 仮想マシンのハードウェア仕様:
 
 ## サポートされているソフトウェア
 
-{% data variables.product.prodname_dotcom %} ホストランナーに含まれているソフトウェアツールは毎週更新されます。 更新プロセスには数日かかり、`main` ブランチのプレインストール済みソフトウェアのリストは、デプロイ全体が終了した後で更新されます。 
+{% data variables.product.prodname_dotcom %} ホストランナーに含まれているソフトウェアツールは毎週更新されます。 更新プロセスには数日かかり、`main` ブランチのプレインストール済みソフトウェアのリストは、デプロイ全体が終了した後で更新されます。
+
 ### プレインストール済みソフトウェア
 
 ワークフローログには、正確なランナーにプレインストールされているツールへのリンクが含まれています。 ワークフローのログでこの情報を見つけるには、`Set up job` セクションを展開します。 そのセクションの下で、`Runner Image` セクションを展開します。 `Included Software` の後のリンクで、ワークフローを実行したランナーにプレインストールされているツールが示されています。

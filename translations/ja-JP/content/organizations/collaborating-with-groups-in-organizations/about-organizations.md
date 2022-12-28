@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: e18c95475e06db0623aee67515eeb6d8a1ee641f
-ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
+ms.openlocfilehash: 0269554568c8781706a8d79600f5b6191d0b9598
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/01/2022
-ms.locfileid: '148127636'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164332'
 ---
 ## Organizationについて
 
@@ -33,7 +33,7 @@ Organization に参加するために招待するユーザーの数に制限は�
 
 Organization のセキュリティを強化するために、セキュリティ要件を適用し、Organization の監査ログを確認できます。 詳しくは、「[Organization を安全に保つ](/organizations/keeping-your-organization-secure)」をご覧ください。
 
-{% data reusables.organizations.org-ownership-recommendation %}詳しくは、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」をご覧ください。
+組織を最も効果的に使用する方法については、「[組織のベスト プラクティス](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)」を参照してください。
 
 {% ifversion fpt or ghec %}
 ## 使用できる機能について

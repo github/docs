@@ -12,12 +12,12 @@ versions:
 topics:
   - Webhooks
 shortTitle: Configure server for webhooks
-ms.openlocfilehash: 78004211eb135d025272788c83b258f461dd17ab
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: c306cadf4dd8d9cd573d694419a51179c8995797
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145093891'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132976'
 ---
 Agora que nosso webhook está pronto para entregar mensagens, vamos configurar um servidor do Sinatra básico para processar o conteúdo recebido.
 
@@ -29,7 +29,7 @@ Agora que nosso webhook está pronto para entregar mensagens, vamos configurar u
 
 ## Escrevendo o servidor
 
-Queremos que nosso servidor ouça as solicitações `POST`, em `/payload`, porque foi nele que informamos ao GitHub a URL de webhook. Como estamos usando o ngrok para expor o ambiente local, não precisamos configurar um servidor real online e podemos testar tranquilamente nosso código localmente.
+Queremos que nosso servidor ouça as solicitações `POST`, em `/payload`, porque foi nele que informamos ao GitHub a URL de webhook. Como você usou o `ngrok` para expor o ambiente local, não precisa configurar um servidor real em algum lugar online e pode testar o código localmente.
 
 Vamos configurar um pouco o aplicativo Sinatra para fazer algo com as informações. Nossa configuração inicial 
 pode ficar parecida com esta:

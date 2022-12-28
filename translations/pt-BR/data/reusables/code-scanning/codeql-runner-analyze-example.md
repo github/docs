@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b20ef3a51f3bf2b4bfbb89ad078bf221ce838904
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: e6d7a33506174bf50d70ae9b5d4ac9857cd880ae
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145094691"
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161225"
 ---
 1. Preencha os bancos de dados do {% data variables.product.prodname_codeql %}, analise-os e carregue os resultados no {% data variables.product.product_name %}. Os resultados serão exibidos na guia **Segurança** do repositório.
 
@@ -17,7 +17,7 @@ ms.locfileid: "145094691"
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. Para carregar os resultados da {% data variables.product.prodname_code_scanning %} como verificações de solicitação de pull, especifique a solicitação de pull usando o sinalizador <nobr>`--ref`</nobr>. Recomendamos configurar o {% data variables.product.prodname_codeql_runner %} para que ele seja executado no evento de webhook [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request).
+2. Para carregar os resultados da {% data variables.product.prodname_code_scanning %} como verificações de solicitação de pull, especifique a solicitação de pull usando o sinalizador <nobr>`--ref`</nobr>. Recomendamos configurar o {% data variables.code-scanning.codeql_runner %} para que ele seja executado no evento de webhook [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request).
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo

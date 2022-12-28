@@ -68,6 +68,15 @@ The security overview allows you to review security configurations and alerts, m
 The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
 {% endif %}
 
+
+{% ifversion fpt or ghec %}
+## Available for free public repositories
+
+### {% data variables.secret-scanning.partner_alerts_caps %}
+
+Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
+
+{% endif %}
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion fpt %}
@@ -87,21 +96,18 @@ Many {% data variables.product.prodname_GH_advanced_security %} features are ava
 
 Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
-{% ifversion fpt or ghec %}
-### {% data variables.product.prodname_secret_scanning_partner_caps %}
+### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+{% ifversion fpt %}
+{% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
+Limited to free public repositories.
 {% endif %}
-
-{% ifversion ghec or ghes or ghae %}
-### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
 
 {% ifversion ghec %}
 Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
 {% endif %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
-{% endif %}
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the "Security" tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[About {% data variables.secret-scanning.user_alerts %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)"{% elsif ghes %}"[About {% data variables.secret-scanning.user_alerts %} on {% data variables.product.product_name %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% elsif ghae %}"[About {% data variables.secret-scanning.user_alerts %} on {% data variables.product.product_name %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-ae){% endif %}."
 
 ### Dependency review
 

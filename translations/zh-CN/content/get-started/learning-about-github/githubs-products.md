@@ -17,12 +17,12 @@ topics:
   - Mobile
   - Desktop
   - Security
-ms.openlocfilehash: e8e78b3c2cf86369b53b063cdbcded6f7a048834
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e2965befe319637296361e270646cd331478ae44
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389945'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159470'
 ---
 ## 关于 {% data variables.product.prodname_dotcom %} 的产品
 
@@ -40,15 +40,19 @@ ms.locfileid: '147389945'
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - 双因素身份验证实施
-- 2,000 {% data variables.product.prodname_actions %} 分钟
-- 500MB {% data variables.product.prodname_registry %} 存储空间
+- 每月 2,000 {% data variables.product.prodname_actions %} 分钟 
+- 500 MB {% data variables.product.prodname_registry %} 存储空间 {% ifversion fpt or ghec%}
+- 每月 120 {% data variables.product.prodname_github_codespaces %} 个核心小时数
+- 每月 15 GB {% data variables.product.prodname_github_codespaces %} 存储空间 {% endif %}
 
 ## {% data variables.product.prodname_pro %}
 
 除了 {% data variables.product.prodname_free_user %} 为个人帐户提供的功能外，{% data variables.product.prodname_pro %} 还包括：
 - 通过电子邮件提供的 {% data variables.contact.github_support %}
-- 3,000 {% data variables.product.prodname_actions %} 分钟
-- 2GB {% data variables.product.prodname_registry %} 存储空间
+- 每月 3,000 {% data variables.product.prodname_actions %} 分钟 
+- 2 GB {% data variables.product.prodname_registry %} 存储空间 {% ifversion fpt or ghec%}
+- 180 {% data variables.product.prodname_github_codespaces %} 个核心小时数
+- 每月 20 GB {% data variables.product.prodname_github_codespaces %} 存储空间 {% endif %}
 - 私有仓库中的高级工具和洞察力：
   - 所需拉取请求审阅者数
   - 多个拉取请求审阅者
@@ -67,15 +71,15 @@ ms.locfileid: '147389945'
 - {% data variables.product.prodname_gcf %}
 - 团队讨论
 - 用于管理组的团队访问控制
-- 2,000 {% data variables.product.prodname_actions %} 分钟
-- 500MB {% data variables.product.prodname_registry %} 存储空间
+- 每月 2,000 {% data variables.product.prodname_actions %} 分钟 
+- 500 MB {% data variables.product.prodname_registry %} 存储空间 
 
 ## {% data variables.product.prodname_team %}
 
 除了可用于组织的 {% data variables.product.prodname_free_team %} 的功能之外，{% data variables.product.prodname_team %} 还包含：
 - 通过电子邮件提供的 {% data variables.contact.github_support %}
-- 3,000 {% data variables.product.prodname_actions %} 分钟
-- 2GB {% data variables.product.prodname_registry %} 存储空间
+- 每月 3,000 {% data variables.product.prodname_actions %} 分钟 
+- 2 GB {% data variables.product.prodname_registry %} 存储空间 
 - 私有仓库中的高级工具和洞察力：
   - 所需拉取请求审阅者数
   - 多个拉取请求审阅者
@@ -109,8 +113,8 @@ ms.locfileid: '147389945'
 
 {% data variables.product.prodname_ghe_cloud %} 还包括：
 - {% data variables.contact.enterprise_support %}. 有关详细信息，请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 附录</a>”。
-- 50,000 {% data variables.product.prodname_actions %} 分钟
-- 50GB {% data variables.product.prodname_registry %} 存储空间
+- 每月 50,000 {% data variables.product.prodname_actions %} 分钟 
+- 50 GB {% data variables.product.prodname_registry %} 存储空间 
 - {% data variables.product.prodname_pages %} 站点的访问控制。 有关详细信息，请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。
 - 每月 99.9% 运行时间的服务级别协议
 - 用于为 {% data variables.product.prodname_emus %} 配置企业的选项，以便您可以使用身份提供程序预配和管理成员，并限制成员只能参与企业。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。

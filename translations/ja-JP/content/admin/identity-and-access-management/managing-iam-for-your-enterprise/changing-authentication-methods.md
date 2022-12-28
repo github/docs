@@ -1,6 +1,6 @@
 ---
-title: Changing authentication methods
-intro: 'You can change the way {% data variables.product.prodname_ghe_server %} authenticates with your existing accounts at any time.'
+title: 認証方法の変更
+intro: '{% data variables.product.prodname_ghe_server %} が既存のアカウントを認証する方法は、いつでも変更できます。'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -16,27 +16,33 @@ topics:
   - Enterprise
   - Identity
 shortTitle: Change authentication methods
+ms.openlocfilehash: 074c4fe8784d3ea7b8ada6b532e680384571facf
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882692'
 ---
-User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
+{% data variables.product.product_location %} のユーザー アカウントは、認証方式を変更しても保存され、ユーザーはユーザー名が変更されない限り、同じアカウントにログインし続けることができます。
 
-If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
+新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 管理者は、サイト管理者設定か[ユーザー管理 API](/rest/reference/enterprise-admin#update-the-username-for-a-user) を利用することでユーザーの名前を変更できます。
 
-Other issues you should take into consideration include:
+他に考慮しなければならない問題には以下があります。
 
-* **Passwords:** If you switch to using built-in authentication for your instance, users must [set a password](/enterprise/user/articles/how-can-i-reset-my-password/) after the change is completed.
+* **パスワード:** インスタンスに組み込みの認証を使用するように切り替える場合、ユーザーは変更が完了した後に [パスワードを設定](/enterprise/user/articles/how-can-i-reset-my-password/)する必要があります。
 
-* **Site administrators:** Administrative privileges are [controlled by your identity provider when you use SAML](/enterprise/admin/guides/user-management/using-saml/#saml-attributes) and can be [controlled by group membership when you use LDAP](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance).
+* **サイト管理者:** 管理特権は、[SAML を使用する場合は ID プロバイダーによって制御](/enterprise/admin/guides/user-management/using-saml/#saml-attributes)されます。[LDAP を使用する場合はグループ メンバーシップによって制御](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)できます。
 
-* **Team membership:** Only LDAP lets you [control team membership](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance) from your directory server.
+* **チーム メンバーシップ:** LDAP でのみ、ディレクトリ サーバーから [チーム メンバーシップを制御](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)できます。
 
-* **User suspension:** When you use LDAP to authenticate, access to {% data variables.product.prodname_ghe_server %} can be controlled via _restricted groups_. After switching to LDAP, if restricted groups are configured, existing users who are not in one of those groups will be suspended. Suspension will occur either when they log in or during the next LDAP Sync.
+* **ユーザーの一時停止:** 認証に LDAP を使う場合、{% data variables.product.prodname_ghe_server %} へのアクセスは _制限グループ_ 経由で制御できます。 LDAPに切り替えた後、制限グループが設定されているなら、既存のユーザでこれらのグループのいずれかに属してないユーザは一時停止されます。 一時停止は、ユーザがログインするか、次のLDAP Syncの間に生じます。
 
-* **Group membership:** When you use LDAP to authenticate, users are automatically [suspended and unsuspended](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) based on restricted group membership and account status with Active Directory.
+* **グループ メンバーシップ:** LDAP を使用して認証を行うと、制限付きグループ メンバーシップ、アカウントの状態、Active Directory に基づいて、ユーザーが自動的に [中断され、中断解除されます](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)。
 
-* **Git authentication:** SAML and CAS only supports Git authentication over HTTP or HTTPS using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Password authentication over HTTP or HTTPS is not supported. LDAP supports password-based Git authentication by default, but we recommend that you [disable that method](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations) and force authentication via a {% data variables.product.pat_generic %} or SSH key.
+* **Git 認証:** SAML と CAS では、[個人用アクセス トークン](/articles/creating-an-access-token-for-command-line-use)を使用した HTTP または HTTPS 経由の Git 認証のみがサポートされます。 HTTPあるいはHTTPS経由でのパスワード認証はサポートされていません。 LDAP では既定でパスワードベースの Git 認証がサポートされていますが、[その方法を無効](/enterprise/admin/authentication/using-ldap#disabling-password-authentication-for-git-operations)にし、個人用アクセス トークンまたは SSH キーを使用する認証を強制することをお勧めします。
 
-* **API authentication:** SAML and CAS only supports API authentication using a [{% data variables.product.pat_generic %}](/articles/creating-an-access-token-for-command-line-use). Basic authentication is not supported.
+* **API 認証:** SAML と CAS では、[個人用アクセス トークン](/articles/creating-an-access-token-for-command-line-use)を使用した API 認証のみがサポートされます。 Basic認証はサポートされていません。
 
-* **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
+* **2 要素認証:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* **外部認証プロバイダーのアカウントがないユーザーに対するフォールバック認証:** 使用中の ID プロバイダーに追加することなく、ユーザーを {% data variables.product.product_location %} で認証するよう招待できます。 詳しくは、「[プロバイダー外のユーザーのためのビルトイン認証の許可](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)」を参照してください。

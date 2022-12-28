@@ -6,16 +6,16 @@ miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
-  - /issues/trying-out-the-new-projects-experience/managing-iterations
+- /issues/trying-out-the-new-projects-experience/managing-iterations
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 93039327ab7075e0f79c9d5ae5d6652aa635a500
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110136'
+ms.locfileid: "148110136"
 ---
 Puedes crear un campo de iteración para asociar elementos con bloques de tiempo de repetición específicos. Las iteraciones se pueden establecer en cualquier período de tiempo, pueden incluir saltos y se pueden editar individualmente para modificar el nombre y el intervalo de fechas. Con los proyectos, puedes agrupar por iteración para visualizar el equilibrio de los trabajos futuros, usar filtros para centrarte en una sola iteración y ordenar por iteración.
 

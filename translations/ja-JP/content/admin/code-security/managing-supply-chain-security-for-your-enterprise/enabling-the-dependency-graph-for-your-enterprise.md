@@ -10,16 +10,18 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: d0ef8c345039047a01b6b88a4b9d3f8300ef11c1
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 39fb5e8eb74518dc4614d5494ec04427b5e12399
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107190'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135680'
 ---
 ## 依存関係グラフについて
 
 {% data reusables.dependabot.about-the-dependency-graph %} 詳細については、「[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」 (依存関係グラフについて) を参照してください。
+
+{% data reusables.dependency-review.dependency-review-enabled-ghes %}
 
 Enterprise に対して依存関係グラフを有効にすると、{% data variables.product.prodname_dependabot %} を有効にして、リポジトリ内のセキュリティで保護されていない依存関係を検出{% ifversion ghes %}し、その脆弱性を自動的に修正{% endif %}することができます。 詳細については、「[企業に対する {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 

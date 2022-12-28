@@ -10,19 +10,20 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: 623b50a9423d855f807e2b480882f1e5eb2c479f
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: b7eeaac84721ff1d9ceab663957b1615952b0623
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113855'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159163'
 ---
 ## 概述
 
-创建的每个代码空间都托管在单独的虚拟机上，通常可以从不同类型的虚拟机中进行选择。 每个计算机类型都有不同的资源（处理器内核、内存、存储），默认情况下，使用资源最少的计算机类型。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
+创建的每个 codespace 都托管在单独的虚拟机上。 从存储库创建 codespace 时，通常可以从不同类型的虚拟机中进行选择。 每个计算机类型都有不同的资源（处理器内核、内存、存储），默认情况下，使用资源最少的计算机类型。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
 
 如果项目需要一定程度的计算能力，则可以配置 {% data variables.product.prodname_github_codespaces %} 以便默认情况下只能使用或由用户选择满足这些要求的计算机类型。 可以在 `devcontainer.json` 文件中进行此配置。
+
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %}
 
 {% note %}
 
@@ -45,7 +46,7 @@ ms.locfileid: '148113855'
 
    可以指定以下任何或所有选项：`cpus`、`memory` 和 `storage`。
    
-   要检查当前可用于存储库的 {% data variables.product.prodname_github_codespaces %} 计算机类型的规范，请逐步完成创建 codespace 的过程，直到看到选择的计算机类型。 有关详细信息，请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
+   要检查当前可用于存储库的 {% data variables.product.prodname_github_codespaces %} 计算机类型的规范，请逐步完成创建 codespace 的过程，直到看到选择的计算机类型。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。
    
 1. 保存文件并将更改提交到存储库的所需分支。
 

@@ -14,18 +14,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage display of member names
-ms.openlocfilehash: 0a394b40689d95ea37906fef2ddc9b203e2041c3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a990098874393e17f992ffac7b04bcef1b1bcfc4
+ms.sourcegitcommit: 9e0d21122ddfcf3f0dbba9b365ba902a2f779493
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409428'
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163144'
 ---
 Organization のオーナーは、Organization 内のメンバー名表示を管理できます。
 
 ![コメントに表示されたコメント作者の名前](/assets/images/help/issues/commenter-full-name.png)
 
-Organization の各メンバーは、自分のプロフィール名を設定で選択します。 詳細については、「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)」を参照してください。
+組織内のユーザー名の表示を変更すると、自分ではなく、他の人のユーザー名の表示に影響します。 Organization の各メンバーは、自分のプロフィール名を設定で選択します。 詳細については、「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)」を参照してください。
 
 {% ifversion profile-name-enterprise-setting %}Enterprise 所有者が Enterprise レベルでポリシーを設定している場合、Organization にこの設定を構成できないことがあります。 詳しくは、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)」を参照してください。{% endif %}
 

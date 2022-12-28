@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: 7412c38e647ddec33543bd04d38d813bf6a93c88
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 0269554568c8781706a8d79600f5b6191d0b9598
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109872'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164335'
 ---
 ## Acerca de las organizaciones
 
@@ -33,7 +33,7 @@ Puedes configurar la organización para satisfacer las necesidades únicas del g
 
 Para proteger la seguridad de la organización, puedes aplicar los requisitos de seguridad y revisar el registro de auditoría de esta. Para obtener más información, consulte "[Protección de la organización](/organizations/keeping-your-organization-secure)".
 
-{% data reusables.organizations.org-ownership-recommendation %} Para obtener más información, vea "[Mantener la continuidad de la propiedad para su organización](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
+Para obtener información sobre cómo usar organizaciones de forma más eficaz, consulta "[Procedimientos recomendados para organizaciones](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)".
 
 {% ifversion fpt or ghec %}
 ## Acerca de la disponibilidad de características
@@ -47,7 +47,9 @@ Para proteger la seguridad de la organización, puedes aplicar los requisitos de
 
 {% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %} Para obtener más información, vea "[Crear una cuenta de empresa](/admin/overview/creating-an-enterprise-account)".
 
-{% data reusables.enterprise-accounts.invite-organization %} {% endif %} {% endif %}
+{% data reusables.enterprise-accounts.invite-organization %}
+
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 ## Términos de servicio y protección de datos para organizaciones

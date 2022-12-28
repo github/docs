@@ -6,16 +6,16 @@ miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
-  - /issues/trying-out-the-new-projects-experience/managing-iterations
+- /issues/trying-out-the-new-projects-experience/managing-iterations
 type: tutorial
 topics:
-  - Projects
+- Projects
 ms.openlocfilehash: 93039327ab7075e0f79c9d5ae5d6652aa635a500
 ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109781'
+ms.locfileid: "148109781"
 ---
 繰り返しフィールドを作成して、アイテムを特定の繰り返し時間ブロックに関連づけることができます。 繰り返しは任意の長さに設定でき、休憩を含められ、名前と日付の範囲を変更するために個別に編集できます。 プロジェクトでは、繰り返しでグループ化を行い、今後の作業のバランスを視覚化し、フィルタを使って繰り返しの1つに焦点を当て、繰り返しで並べ替えできます。
 

@@ -5,12 +5,12 @@ versions:
   feature: pat-v2
 miniTocMaxHeadingLevel: 3
 shortTitle: '{% data variables.product.pat_v2_caps %} permissions'
-ms.openlocfilehash: 97154c54229f66f3a6b3bf852f7aabab89a0d2ee
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 46a82b0212d4cda2b6883c0b33ba2acb2e50b9d0
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107682'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184209'
 ---
 ## Sobre as permissões necessárias para o {% data variables.product.pat_v2 %}
 
@@ -65,11 +65,10 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#add-or-update-team-repository-permissions) (gravação)
 - [`DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#remove-a-repository-from-a-team) (gravação)
 - [`POST /orgs/{org}/repos`](/rest/reference/repos#create-an-organization-repository) (gravação)
-- [`PATCH /repos/{owner}/{repo}`](/rest/reference/repos/#update-a-repository) (gravação)
+- [`PATCH /repos/{owner}/{repo}`](/rest/repos/repos#update-a-repository) (gravação)
 - [`DELETE /repos/{owner}/{repo}`](/rest/reference/repos#delete-a-repository) (gravação)
 - [`POST /repos/{owner}/{repo}/forks`](/rest/reference/repos#create-a-fork) (gravação)
 - [`GET /repos/{owner}/{repo}/teams`](/rest/reference/repos#list-repository-teams) (leitura)
-- [`POST /repos/{owner}/{repo}/transfer`](/rest/reference/repos#transfer-a-repository) (gravação)
 - [`POST /user/repos`](/rest/reference/repos#create-a-repository-for-the-authenticated-user) (gravação)
 - [`GET /repos/{owner}/{repo}/actions/permissions`](/rest/reference/actions#get-github-actions-permissions-for-a-repository) (leitura)
 - [`PUT /repos/{owner}/{repo}/actions/permissions`](/rest/reference/actions#set-github-actions-permissions-for-a-repository) (gravação)
@@ -130,16 +129,6 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 
 ## Verificações
 
-- [`POST /repos/{owner}/{repo}/check-runs`](/rest/reference/checks#create-a-check-run) (gravação)
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#get-a-check-run) (leitura)
-- [`PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#update-a-check-run) (gravação)
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations`](/rest/reference/checks#list-check-run-annotations) (leitura)
-- [`POST /repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest`](/rest/reference/checks#rerequest-a-check-run) (gravação)
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite) (leitura)
-- [`POST /repos/{owner}/{repo}/check-suites`](/rest/reference/checks#create-a-check-suite) (gravação)
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}`](/rest/reference/checks#get-a-check-suite) (leitura)
-- [`POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest`](/rest/reference/checks#rerequest-a-check-suite) (gravação)
-- [`PATCH /repos/{owner}/{repo}/check-suites/preferences`](/rest/reference/checks#update-repository-preferences-for-check-suites) (gravação)
 - [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments`](/rest/reference/actions#review-pending-deployments-for-a-workflow-run) (leitura)
 
 ## Codespaces
@@ -196,20 +185,12 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`POST /repos/{owner}/{repo}/git/refs`](/rest/reference/git#create-a-reference) (gravação)
 - [`POST /repos/{owner}/{repo}/git/tags`](/rest/reference/git#create-a-tag-object) (gravação)
 - [`POST /repos/{owner}/{repo}/git/trees`](/rest/reference/git#create-a-tree) (gravação)
-- [`GET /repos/{owner}/{repo}/import`](/rest/reference/migrations#get-an-import-status) (leitura)
-- [`PUT /repos/{owner}/{repo}/import`](/rest/reference/migrations#start-an-import) (gravação)
-- [`PATCH /repos/{owner}/{repo}/import`](/rest/reference/migrations#update-an-import) (gravação)
-- [`DELETE /repos/{owner}/{repo}/import`](/rest/reference/migrations#cancel-an-import) (gravação)
-- [`GET /repos/{owner}/{repo}/import/authors`](/rest/reference/migrations#get-commit-authors) (leitura)
-- [`PATCH /repos/{owner}/{repo}/import/authors/{author_id}`](/rest/reference/migrations#map-a-commit-author) (gravação)
-- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/reference/migrations#get-large-files) (leitura)
-- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/reference/migrations#update-git-lfs-preference) (gravação)
 - [`PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge`](/rest/reference/pulls#merge-a-pull-request) (gravação)
 - [`POST /repos/{owner}/{repo}/comments/{comment_id}/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment) (gravação)
 - [`DELETE /repos/{owner}/{repo}/comments/{comment_id}/reactions/{reaction_id}`](/rest/reference/reactions#delete-a-commit-comment-reaction) (gravação)
-- [`GET /repos/{owner}/{repo}/branches`](/rest/reference/repos#list-branches) (leitura)
-- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository) (gravação)
-- [`POST /repos/{owner}/{repo}/merges`](/rest/reference/repos#merge-a-branch) (gravação)
+- [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches) (leitura)
+- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/branches/branches#sync-a-fork-branch-with-the-upstream-repository) (gravação)
+- [`POST /repos/{owner}/{repo}/merges`](/rest/branches/branches#merge-a-branch) (gravação)
 - [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases`](/rest/reference/code-scanning#list-codeql-databases) (leitura)
 - [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`](/rest/reference/code-scanning#get-codeql-database) (leitura)
 - [`PATCH /repos/{owner}/{repo}/comments/{comment_id}`](/rest/commits/comments#update-a-commit-comment) (gravação)
@@ -320,7 +301,7 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`GET /repos/{owner}/{repo}/issues`](/rest/reference/issues#list-repository-issues) (leitura)
 - [`POST /repos/{owner}/{repo}/issues`](/rest/reference/issues#create-an-issue) (gravação)
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#get-an-issue) (leitura)
-- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues/#update-an-issue) (gravação)
+- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#update-an-issue) (gravação)
 - [`PUT /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#lock-an-issue) (gravação)
 - [`DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#unlock-an-issue) (gravação)
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}/labels`](/rest/reference/issues#list-labels-for-an-issue) (leitura)
@@ -409,7 +390,6 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`POST /gists/{gist_id}/forks`](/rest/reference/gists#fork-a-gist) (leitura)
 - [`PUT /gists/{gist_id}/star`](/rest/reference/gists#star-a-gist) (leitura)
 - [`DELETE /gists/{gist_id}/star`](/rest/reference/gists#unstar-a-gist) (leitura)
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user) (leitura)
 - [`GET /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#check-team-permissions-for-a-repository) (leitura)
 - [`PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#add-or-update-team-repository-permissions) (leitura)
 - [`DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#remove-a-repository-from-a-team) (leitura)
@@ -439,10 +419,6 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`GET /search/labels`](/rest/reference/search#search-labels) (leitura)
 - [`GET /repos/{owner}/{repo}/topics`](/rest/reference/repos#get-all-repository-topics) (leitura)
 
-## Notificações
-
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user) (leitura)
-
 ## Administração da organização
 
 {% ifversion ghec %}– [`GET /orgs/{org}/audit-log`](/rest/reference/orgs#get-audit-log) (leitura){% endif %}
@@ -467,7 +443,7 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`GET /orgs/{org}/security-managers`](/rest/reference/orgs#list-security-manager-teams) (leitura)
 - [`PUT /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#add-a-security-manager-team) (gravação)
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#remove-a-security-manager-team) (gravação)
-- [`PATCH /orgs/{org}`](/rest/reference/orgs/#update-an-organization) (gravação)
+- [`PATCH /orgs/{org}`](/rest/reference/orgs#update-an-organization) (gravação)
 - [`GET /orgs/{org}/installations`](/rest/reference/orgs#list-app-installations-for-an-organization) (leitura)
 
 ## Codespaces da organização
@@ -491,6 +467,7 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 ## Funções personalizadas da organização
 
 - [`GET /organizations/{organization_id}/custom_roles`](/rest/reference/orgs#list-custom-repository-roles-in-an-organization) (leitura)
+- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs/#get-a-custom-role) (leitura)
 - [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#update-a-custom-role) (gravação)
 - [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#delete-a-custom-role) (gravação)
 - [`GET /orgs/{org}/fine_grained_permissions`](/rest/reference/orgs#list-fine-grained-permissions-for-an-organization) (leitura)
@@ -522,13 +499,6 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}`](/rest/reference/orgs#get-a-webhook-delivery-for-an-organization-webhook) (leitura)
 - [`POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts`](/rest/reference/orgs#redeliver-a-delivery-for-an-organization-webhook) (gravação)
 - [`POST /orgs/{org}/hooks/{hook_id}/pings`](/rest/reference/orgs#ping-an-organization-webhook) (gravação)
-
-## Projetos da organização
-
-- [`PUT /orgs/{org}/teams/{team_slug}/projects/{project_id}`](/rest/reference/teams#add-or-update-team-project-permissions) (admin)
-- [`DELETE /orgs/{org}/teams/{team_slug}/projects/{project_id}`](/rest/reference/teams#remove-a-project-from-a-team) (admin)
-- [`GET /orgs/{org}/projects`](/rest/reference/projects#list-organization-projects) (leitura)
-- [`POST /orgs/{org}/projects`](/rest/reference/projects#create-an-organization-project) (gravação)
 
 ## Segredos da organização
 
@@ -640,30 +610,6 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`POST /repos/{owner}/{repo}/hooks/{hook_id}/pings`](/rest/webhooks/repos#ping-a-repository-webhook) (leitura)
 - [`POST /repos/{owner}/{repo}/hooks/{hook_id}/tests`](/rest/webhooks/repos#test-the-push-repository-webhook) (leitura)
 
-## Projetos do repositório
-
-- [`GET /projects/{project_id}/collaborators`](/rest/reference/projects#list-project-collaborators) (gravação)
-- [`PUT /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#add-project-collaborator) (gravação)
-- [`DELETE /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#remove-project-collaborator) (gravação)
-- [`GET /projects/{project_id}/collaborators/{username}/permission`](/rest/reference/projects#get-project-permission-for-a-user) (gravação)
-- [`GET /projects/{project_id}`](/rest/reference/projects#get-a-project) (leitura)
-- [`PATCH /projects/{project_id}`](/rest/reference/projects#update-a-project) (gravação)
-- [`DELETE /projects/{project_id}`](/rest/reference/projects#delete-a-project) (gravação)
-- [`GET /projects/{project_id}/columns`](/rest/reference/projects#list-project-columns) (leitura)
-- [`POST /projects/{project_id}/columns`](/rest/reference/projects#create-a-project-column) (gravação)
-- [`GET /projects/columns/{column_id}`](/rest/reference/projects#get-a-project-column) (leitura)
-- [`PATCH /projects/columns/{column_id}`](/rest/reference/projects#update-a-project-column) (gravação)
-- [`DELETE /projects/columns/{column_id}`](/rest/reference/projects#delete-a-project-column) (gravação)
-- [`GET /projects/columns/{column_id}/cards`](/rest/reference/projects#list-project-cards) (leitura)
-- [`POST /projects/columns/{column_id}/cards`](/rest/reference/projects#create-a-project-card) (gravação)
-- [`POST /projects/columns/{column_id}/moves`](/rest/reference/projects#move-a-project-column) (gravação)
-- [`GET /projects/columns/cards/{card_id}`](/rest/reference/projects#get-a-project-card) (leitura)
-- [`PATCH /projects/columns/cards/{card_id}`](/rest/reference/projects#update-a-project-card) (gravação)
-- [`DELETE /projects/columns/cards/{card_id}`](/rest/reference/projects#delete-a-project-card) (gravação)
-- [`POST /projects/columns/cards/{card_id}/moves`](/rest/reference/projects#move-a-project-card) (gravação)
-- [`GET /repos/{owner}/{repo}/projects`](/rest/reference/projects#list-repository-projects) (leitura)
-- [`POST /repos/{owner}/{repo}/projects`](/rest/reference/projects#create-a-repository-project) (gravação)
-
 ## Alertas de verificação de segredo
 
 - [`GET /orgs/{org}/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-an-organization) (leitura)
@@ -726,6 +672,10 @@ Ao criar um {% data variables.product.pat_v2 %}, você concede a ele um conjunto
 - [`GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#get-a-discussion-comment) (leitura)
 - [`PATCH /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#update-a-discussion-comment) (gravação)
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#delete-a-discussion-comment) (gravação)
+
+## Alertas de vulnerabilidade
+
+- [`GET /orgs/{org}/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-an-organization) (leitura)
 
 ## Observando
 

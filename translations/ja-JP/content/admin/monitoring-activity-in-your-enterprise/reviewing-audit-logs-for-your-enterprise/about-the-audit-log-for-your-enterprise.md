@@ -1,6 +1,6 @@
 ---
-title: About the audit log for your enterprise
-intro: 'To support debugging and internal and external compliance, {% data variables.product.product_name %} provides logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events.'
+title: 企業の監査ログについて
+intro: 'デバッグと内部および外部のコンプライアンスをサポートするために、{% data variables.product.product_name %} には、監査済み{% ifversion ghes %}システム、{% endif %}ユーザー、Organization、リポジトリ イベントのログが用意されています。'
 shortTitle: About audit logs
 redirect_from:
   - /enterprise/admin/articles/audit-logging
@@ -21,37 +21,38 @@ topics:
   - Enterprise
   - Logging
   - Security
+ms.openlocfilehash: be8600e2037793a145fd2484742ddd3eb52e91a4
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159038'
 ---
-
-## About audit logs
+## 監査ログについて
 
 {% data reusables.audit_log.retention-periods %}
 
 {% data reusables.audit_log.audit-log-search-list-info-about-action %}
 
-In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes or ghae %}viewing push logs and {% endif %}managing global webhooks. For more information, see "[Exploring user activity in your enterprise](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)."
+監査ログを表示するだけでなく、{% ifversion ghes or ghae %}プッシュ ログの表示や{% endif %}グローバル Webhook の管理など、企業内のアクティビティを他の方法で監視できます。 詳細については、「[企業でのユーザー アクティビティの調査](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)」を参照してください。
 
-## Using your audit logs
+## 監査ログの使用
 
-As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you can interact with the audit log data for your enterprise in several ways:
-- You can view the audit log for your enterprise. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
-- You can search the audit log for specific events{% ifversion ghec %} and export audit log data{% endif %}. For more information, see "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)"{% ifversion ghec %} and "[Exporting the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)"{% endif %}.{% ifversion audit-data-retention-tab %}
-- You can configure settings, such as the retention period for audit log events{% ifversion enable-git-events %} and whether Git events are included{% endif %}. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise)."{% endif %}
-{%- ifversion enterprise-audit-log-ip-addresses %}
-- You can display the IP address associated with events in the audit log. For more information, see "[Displaying IP addresses in the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)."
+企業の所有者{% ifversion ghes %}またはサイトの管理者{% endif %}は、企業の監査ログ データをいくつかの方法で操作できます。
+- 企業の監査ログを表示できます。 詳細については、「[企業の監査ログへのアクセス](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」を参照してください。
+- 特定のイベントの監査ログを検索する{% ifversion ghec %}ことや、監査ログ データをエクスポートする{% endif %}ことができます。 詳しくは、[Enterprise の監査ログの検索](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise){% ifversion ghec %}と [Enterprise の監査ログのエクスポート](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)に関する説明を参照してください。{% endif %}{% ifversion token-audit-log %}
+- 特定のアクセス トークンによって実行されたすべてのイベントを特定できます。 詳しくは、[アクセス トークンによって実行される監査ログ イベントの識別](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)に関する説明を参照してください。{% endif %}{% ifversion audit-data-retention-tab %}
+- 監査ログ イベント{% ifversion enable-git-events %}の保持期間や、Git イベントが含まれるかどうか{% endif %}などの設定を構成できます。 詳しくは、「[企業の監査ログの構成](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise)」を参照してください。{% endif %} {%- ifversion enterprise-audit-log-ip-addresses %}
+- 監査ログにイベントに関連付けられている IP アドレスを表示できます。 詳細については、「[Enterprise の監査ログに IP アドレスを表示する](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)」を参照してください。
+{%- endif %} {%- ifversion audit-log-streaming %}
+- 監査イベントと Git イベントのデータを {% data variables.product.prodname_dotcom %} から外部のデータ管理システムにストリーミングできます。 詳細については、「[企業の監査ログのストリーミング](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)」を参照してください。
+{%- endif %} {%- ifversion ghes %}
+- 監査ログとシステム ログを、企業からサード パーティでホストされた監視システムに転送できます。 詳細については、「[ログの転送](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)」を参照してください。
 {%- endif %}
-{%- ifversion audit-log-streaming %}
-- You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
-{%- endif %}
-{%- ifversion ghes %}
-- You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
-{%- endif %}
-- You can use the Audit log API to view actions performed in your enterprise. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+- 監査ログ API を使用して、企業で実行されたアクションを表示できます。 詳細については、「[企業での監査ログ API の使用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)」を参照してください。
 
-For a full list of audit log actions that may appear in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+企業の監査ログに記録される可能性のある監査ログ アクションの完全な一覧については、「[企業の監査ログ アクション](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)」を参照してください。
 
-## Further reading
-- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
-{%- ifversion ghes %}
-- "[About system logs](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)"
-{%- endif %}
+## 参考資料
+- [組織の監査ログをレビューする](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization) {%- ifversion ghes %}
+- [システム ログについて](/admin/enterprise-management/monitoring-your-appliance/about-system-logs) {%- endif %}

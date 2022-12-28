@@ -1,0 +1,24 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - "Ein Upgrade der Knoten in einem Hochverfügbarkeitspaar mit einem Upgradepaket konnte in einigen Fällen dazu führen, dass Elasticsearch in einen inkonsistenten Zustand überging."
+    - In einigen Clustertopologien konnten die Befehlszeilenprogramme „ghe-spokesctl“ und „ghe-btop“ nicht ausgeführt werden.
+    - "Elasticsearch-Indizes wurden während eines Paketupgrades möglicherweise dupliziert, weil ein „elasticsearch-upgrade“-Dienst mehrfach parallel ausgeführt wurde." 
+    - "Beim Konvertieren eines Benutzerkontos in eine Organisation wurde die konvertierte Organisation fälschlicherweise in der Liste der Unternehmensbesitzer angezeigt, wenn das Benutzerkonto ein Besitzer des {% data variables.product.prodname_ghe_server %}-Unternehmenskontos war." 
+    - "Das Erstellen eines OAuth-Tokens für den Identitätswechsel mithilfe der REST-API zur Verwaltung von Enterprise funktionierte nicht ordnungsgemäß, wenn bereits eine Integration vorhanden war, die mit der OAuth-Anwendungs-ID übereinstimmte." 
+  changes:
+    - "Konfigurationsfehler, die zum Anhalten einer Konfigurationsanwendung führen, werden jetzt nicht nur im Konfigurationsprotokoll, sondern auch im Terminal ausgegeben." 
+    - "Wenn versucht wurde, einen Wert zwischenzuspeichern, der größer ist als der in Memcached erlaubte Maximalwert, wurde ein Fehler generiert, der Schlüssel wurde jedoch nicht gemeldet."
+    - "Der {% data variables.product.prodname_codeql %}-Startworkflow erzeugt keine Fehler mehr, auch wenn die Standardtokenberechtigungen für {% data variables.product.prodname_actions %} nicht verwendet werden." 
+    - "Wenn {% data variables.product.prodname_GH_advanced_security %}-Features für eine Instanz aktiviert sind, hat sich die Leistung von Hintergrundaufträgen bei der Verarbeitung von Batches für Repositorybeiträge verbessert."
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

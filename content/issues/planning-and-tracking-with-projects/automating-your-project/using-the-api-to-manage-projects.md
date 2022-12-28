@@ -660,7 +660,7 @@ The following example will update the value of an iteration field for an item.
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

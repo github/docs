@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: e9f2162fa5c65d4a59b2bd350aea2b131205f9a6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 60f5abc1af5d94ad0c6e7565cf2edca9f009719a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145098236"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106955"
 ---
-{% data variables.product.prodname_codeql %} 也运行 Go 项目的构建来设置项目。 但与其他编译的语言不同，存储库中的所有文件都将被提取，而不只是生成的文件。 可以使用自定义生成命令跳过提取生成时不会接触到的 Go 文件。
+对于这些语言，{% data variables.product.prodname_codeql %} 分析生成的存储库中的源文件。 对于上述任何语言，可以禁用 `autobuild` 并改用自定义生成命令，以仅分析这些自定义命令生成的文件。

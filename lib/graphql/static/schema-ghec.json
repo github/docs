@@ -1121,6 +1121,40 @@
       ]
     },
     {
+      "name": "addEnterpriseOrganizationMember",
+      "kind": "mutations",
+      "id": "addenterpriseorganizationmember",
+      "href": "/graphql/reference/mutations#addenterpriseorganizationmember",
+      "description": "<p>Adds enterprise members to an organization within the enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseOrganizationMemberInput!",
+          "id": "addenterpriseorganizationmemberinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "users",
+          "type": "[User!]",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The users who were added to the organization.</p>"
+        }
+      ]
+    },
+    {
       "name": "addEnterpriseSupportEntitlement",
       "kind": "mutations",
       "id": "addenterprisesupportentitlement",
@@ -2205,6 +2239,56 @@
       ]
     },
     {
+      "name": "createAttributionInvitation",
+      "kind": "mutations",
+      "id": "createattributioninvitation",
+      "href": "/graphql/reference/mutations#createattributioninvitation",
+      "description": "<p>Invites a user to claim reattributable data.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateAttributionInvitationInput!",
+          "id": "createattributioninvitationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createattributioninvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The owner scoping the reattributable data.</p>"
+        },
+        {
+          "name": "source",
+          "type": "Claimable",
+          "id": "claimable",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#claimable",
+          "description": "<p>The account owning the data to reattribute.</p>"
+        },
+        {
+          "name": "target",
+          "type": "Claimable",
+          "id": "claimable",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#claimable",
+          "description": "<p>The account which may claim the data.</p>"
+        }
+      ]
+    },
+    {
       "name": "createBranchProtectionRule",
       "kind": "mutations",
       "id": "createbranchprotectionrule",
@@ -2723,7 +2807,7 @@
       "kind": "mutations",
       "id": "createmigrationsource",
       "href": "/graphql/reference/mutations#createmigrationsource",
-      "description": "<p>Creates an Octoshift migration source.</p>",
+      "description": "<p>Creates a GitHub Enterprise Importer (GEI) migration source.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -2748,7 +2832,7 @@
           "id": "migrationsource",
           "kind": "objects",
           "href": "/graphql/reference/objects#migrationsource",
-          "description": "<p>The created Octoshift migration source.</p>"
+          "description": "<p>The created migration source.</p>"
         }
       ]
     },
@@ -2919,6 +3003,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The new repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createSponsorsListing",
+      "kind": "mutations",
+      "id": "createsponsorslisting",
+      "href": "/graphql/reference/mutations#createsponsorslisting",
+      "description": "<p>Create a GitHub Sponsors profile to allow others to sponsor you or your organization.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorsListingInput!",
+          "id": "createsponsorslistinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createsponsorslistinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsListing",
+          "type": "SponsorsListing",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting",
+          "description": "<p>The new GitHub Sponsors profile.</p>"
         }
       ]
     },
@@ -4239,6 +4357,40 @@
       ]
     },
     {
+      "name": "linkProjectV2ToTeam",
+      "kind": "mutations",
+      "id": "linkprojectv2toteam",
+      "href": "/graphql/reference/mutations#linkprojectv2toteam",
+      "description": "<p>Links a project to a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "LinkProjectV2ToTeamInput!",
+          "id": "linkprojectv2toteaminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#linkprojectv2toteaminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "team",
+          "type": "Team",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The team the project is linked to.</p>"
+        }
+      ]
+    },
+    {
       "name": "linkRepositoryToProject",
       "kind": "mutations",
       "id": "linkrepositorytoproject",
@@ -5521,7 +5673,7 @@
       "kind": "mutations",
       "id": "startrepositorymigration",
       "href": "/graphql/reference/mutations#startrepositorymigration",
-      "description": "<p>Start a repository migration.</p>",
+      "description": "<p>Starts a GitHub Enterprise Importer (GEI) repository migration.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5546,7 +5698,7 @@
           "id": "repositorymigration",
           "kind": "objects",
           "href": "/graphql/reference/objects#repositorymigration",
-          "description": "<p>The new Octoshift repository migration.</p>"
+          "description": "<p>The new repository migration.</p>"
         }
       ]
     },
@@ -5581,6 +5733,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The submitted pull request review.</p>"
+        }
+      ]
+    },
+    {
+      "name": "transferEnterpriseOrganization",
+      "kind": "mutations",
+      "id": "transferenterpriseorganization",
+      "href": "/graphql/reference/mutations#transferenterpriseorganization",
+      "description": "<p>Transfer an organization from one enterprise to another enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "TransferEnterpriseOrganizationInput!",
+          "id": "transferenterpriseorganizationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#transferenterpriseorganizationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization for which a transfer was initiated.</p>"
         }
       ]
     },
@@ -5785,6 +5971,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The repository the project is no longer linked to.</p>"
+        }
+      ]
+    },
+    {
+      "name": "unlinkProjectV2FromTeam",
+      "kind": "mutations",
+      "id": "unlinkprojectv2fromteam",
+      "href": "/graphql/reference/mutations#unlinkprojectv2fromteam",
+      "description": "<p>Unlinks a project to a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnlinkProjectV2FromTeamInput!",
+          "id": "unlinkprojectv2fromteaminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unlinkprojectv2fromteaminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "team",
+          "type": "Team",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The team the project is unlinked from.</p>"
         }
       ]
     },
@@ -9847,7 +10067,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -15638,7 +15858,7 @@
       "description": "<p>A dependency manifest entry.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15655,7 +15875,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15718,7 +15938,7 @@
       "description": "<p>The connection type for DependencyGraphDependency.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15735,7 +15955,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15780,7 +16000,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15797,7 +16017,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15826,7 +16046,7 @@
       "description": "<p>Dependency manifest for a repository.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15843,7 +16063,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "implements": [
         {
@@ -15961,7 +16181,7 @@
       "description": "<p>The connection type for DependencyGraphManifest.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15978,7 +16198,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -16023,7 +16243,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -16040,7 +16260,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -28294,6 +28514,72 @@
       ]
     },
     {
+      "name": "MannequinConnection",
+      "kind": "objects",
+      "id": "mannequinconnection",
+      "href": "/graphql/reference/objects#mannequinconnection",
+      "description": "<p>The connection type for Mannequin.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[MannequinEdge]",
+          "id": "mannequinedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequinedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Mannequin]",
+          "id": "mannequin",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequin"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MannequinEdge",
+      "kind": "objects",
+      "id": "mannequinedge",
+      "href": "/graphql/reference/objects#mannequinedge",
+      "description": "<p>Represents a mannequin.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Mannequin",
+          "id": "mannequin",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequin"
+        }
+      ]
+    },
+    {
       "name": "MarkedAsDuplicateEvent",
       "kind": "objects",
       "id": "markedasduplicateevent",
@@ -29667,7 +29953,7 @@
       "kind": "objects",
       "id": "migrationsource",
       "href": "/graphql/reference/objects#migrationsource",
-      "description": "<p>An Octoshift migration source.</p>",
+      "description": "<p>A GitHub Enterprise Importer (GEI) migration source.</p>",
       "implements": [
         {
           "name": "Node",
@@ -29678,7 +29964,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>The Octoshift migration source name.</p>",
+          "description": "<p>The migration source name.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -29686,7 +29972,7 @@
         },
         {
           "name": "type",
-          "description": "<p>The Octoshift migration source type.</p>",
+          "description": "<p>The migration source type.</p>",
           "type": "MigrationSourceType!",
           "id": "migrationsourcetype",
           "kind": "enums",
@@ -29694,7 +29980,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -36001,6 +36287,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "mannequins",
+          "description": "<p>A list of all mannequins for this organization.</p>",
+          "type": "MannequinConnection!",
+          "id": "mannequinconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mannequinconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for mannequins returned from the connection.</p>",
+              "type": {
+                "name": "MannequinOrder",
+                "id": "mannequinorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#mannequinorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "memberStatuses",
           "description": "<p>Get the status messages members of this entity have set that are either public or visible only to the organization.</p>",
           "type": "UserStatusConnection!",
@@ -37360,6 +37706,17 @@
               }
             },
             {
+              "name": "includeAsSponsor",
+              "defaultValue": false,
+              "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -37382,12 +37739,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -37593,6 +37970,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -47041,6 +47428,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "totalCommentsCount",
+          "description": "<p>Returns a count of how many comments this pull request has received.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -55854,7 +56249,7 @@
           ],
           "isDeprecated": false,
           "preview": {
-            "title": "Access to a repositories dependency graph preview",
+            "title": "Access to a repository s dependency graph preview",
             "description": "This preview adds support for reading a dependency graph for a repository.",
             "toggled_by": "hawkgirl-preview",
             "toggled_on": [
@@ -55871,7 +56266,7 @@
               "@github/dependency-graph"
             ],
             "accept_header": "application/vnd.github.hawkgirl-preview+json",
-            "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+            "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
           }
         },
         {
@@ -56385,7 +56780,7 @@
         },
         {
           "name": "hasDiscussionsEnabled",
-          "description": "<p>Are discussions available on this repository?.</p>",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -58101,7 +58496,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
@@ -58918,7 +59315,7 @@
       "kind": "objects",
       "id": "repositorymigration",
       "href": "/graphql/reference/objects#repositorymigration",
-      "description": "<p>An Octoshift repository migration.</p>",
+      "description": "<p>A GitHub Enterprise Importer (GEI) repository migration.</p>",
       "implements": [
         {
           "name": "Migration",
@@ -58934,7 +59331,7 @@
       "fields": [
         {
           "name": "continueOnError",
-          "description": "<p>The Octoshift migration flag to continue on error.</p>",
+          "description": "<p>The migration flag to continue on error.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -58974,7 +59371,7 @@
         },
         {
           "name": "migrationSource",
-          "description": "<p>The Octoshift migration source.</p>",
+          "description": "<p>The migration source.</p>",
           "type": "MigrationSource!",
           "id": "migrationsource",
           "kind": "objects",
@@ -58990,7 +59387,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -58998,7 +59395,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The Octoshift migration state.</p>",
+          "description": "<p>The migration state.</p>",
           "type": "MigrationState!",
           "id": "migrationstate",
           "kind": "enums",
@@ -59648,7 +60045,7 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
-          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2022-10-01 UTC.</p>"
+          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "fixedAt",
@@ -61620,6 +62017,22 @@
           "href": "/graphql/reference/objects#sponsorsgoal"
         },
         {
+          "name": "billingCountryOrRegion",
+          "description": "<p>The name of the country or region with the maintainer's bank account or fiscal\nhost. Will only return a value when queried by the maintainer themselves, or\nby an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "contactEmailAddress",
+          "description": "<p>The email address used by GitHub to contact the sponsorable about their GitHub\nSponsors profile. Will only return a value when queried by the maintainer\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -61642,6 +62055,34 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "featuredItems",
+          "description": "<p>The records featured on the GitHub Sponsors profile.</p>",
+          "type": "[SponsorsListingFeaturedItem!]!",
+          "id": "sponsorslistingfeatureditem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslistingfeatureditem",
+          "arguments": [
+            {
+              "name": "featureableTypes",
+              "description": "<p>The types of featured items to return.</p>",
+              "type": {
+                "name": "[SponsorsListingFeaturedItemFeatureableType!]",
+                "id": "sponsorslistingfeatureditemfeatureabletype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorslistingfeatureditemfeatureabletype"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fiscalHost",
+          "description": "<p>The fiscal host used for payments, if any. Will only return a value when\nqueried by the maintainer themselves, or by an admin of the sponsorable organization.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization"
         },
         {
           "name": "fullDescription",
@@ -61682,6 +62123,14 @@
           "id": "date",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "residenceCountryOrRegion",
+          "description": "<p>The name of the country or region where the maintainer resides. Will only\nreturn a value when queried by the maintainer themselves, or by an admin of\nthe sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "resourcePath",
@@ -61782,6 +62231,70 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeaturedItem",
+      "kind": "objects",
+      "id": "sponsorslistingfeatureditem",
+      "href": "/graphql/reference/objects#sponsorslistingfeatureditem",
+      "description": "<p>A record that is promoted on a GitHub Sponsors profile.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>Will either be a description from the sponsorable maintainer about why they\nfeatured this item, or the item's description itself, such as a user's bio\nfrom their GitHub profile page.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "featureable",
+          "description": "<p>The record that is featured on the GitHub Sponsors profile.</p>",
+          "type": "SponsorsListingFeatureableItem!",
+          "id": "sponsorslistingfeatureableitem",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsorslistingfeatureableitem"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of this featured item on the GitHub Sponsors profile with a lower\nposition indicating higher precedence. Starts at 1.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors profile that features this record.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -61905,8 +62418,32 @@
       "description": "<p>SponsorsTier information only visible to users that can administer the associated Sponsors listing.</p>",
       "fields": [
         {
+          "name": "isDraft",
+          "description": "<p>Indicates whether this tier is still a work in progress by the sponsorable and\nnot yet published to the associated GitHub Sponsors profile. Draft tiers\ncannot be used for new sponsorships and will not be in use on existing\nsponsorships. Draft tiers cannot be seen by anyone but the admins of the\nGitHub Sponsors profile.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isPublished",
+          "description": "<p>Indicates whether this tier is published to the associated GitHub Sponsors\nprofile. Published tiers are visible to anyone who can see the GitHub Sponsors\nprofile, and are available for use in sponsorships if the GitHub Sponsors\nprofile is publicly visible.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isRetired",
+          "description": "<p>Indicates whether this tier has been retired from the associated GitHub\nSponsors profile. Retired tiers are no longer shown on the GitHub Sponsors\nprofile and cannot be chosen for new sponsorships. Existing sponsorships may\nstill use retired tiers if the sponsor selected the tier before it was retired.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "sponsorships",
-          "description": "<p>The sponsorships associated with this tier.</p>",
+          "description": "<p>The sponsorships using this tier.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
@@ -61945,7 +62482,7 @@
             {
               "name": "includePrivate",
               "defaultValue": false,
-              "description": "<p>Whether or not to include private sponsorships in the result set.</p>",
+              "description": "<p>Whether or not to return private sponsorships using this tier. Defaults to\nonly returning public sponsorships on this tier.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -63050,12 +63587,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "path",
           "description": "<p>The path in the superproject that this submodule is located in.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "subprojectCommitOid",
@@ -63943,6 +64496,16 @@
               }
             },
             {
+              "name": "filterBy",
+              "description": "<p>Filtering options for projects returned from this connection.</p>",
+              "type": {
+                "name": "ProjectV2Filters",
+                "id": "projectv2filters",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2filters"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -63970,6 +64533,17 @@
                 "id": "projectv2order",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#projectv2order"
+              }
+            },
+            {
+              "name": "query",
+              "defaultValue": "",
+              "description": "<p>The query to search projects by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -67092,6 +67666,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "object",
           "description": "<p>Entry file object.</p>",
           "type": "GitObject",
@@ -67114,6 +67696,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "repository",
@@ -69805,6 +70395,17 @@
               }
             },
             {
+              "name": "includeAsSponsor",
+              "defaultValue": false,
+              "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -69827,12 +70428,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -70038,6 +70659,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -71174,6 +71805,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
         }
       ],
       "fields": [
@@ -72230,11 +72866,11 @@
       "kind": "interfaces",
       "id": "migration",
       "href": "/graphql/reference/interfaces#migration",
-      "description": "<p>Represents an Octoshift migration.</p>",
+      "description": "<p>Represents a GitHub Enterprise Importer (GEI) migration.</p>",
       "fields": [
         {
           "name": "continueOnError",
-          "description": "<p>The Octoshift migration flag to continue on error.</p>",
+          "description": "<p>The migration flag to continue on error.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -72274,7 +72910,7 @@
         },
         {
           "name": "migrationSource",
-          "description": "<p>The Octoshift migration source.</p>",
+          "description": "<p>The migration source.</p>",
           "type": "MigrationSource!",
           "id": "migrationsource",
           "kind": "objects",
@@ -72290,7 +72926,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -72298,7 +72934,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The Octoshift migration state.</p>",
+          "description": "<p>The migration state.</p>",
           "type": "MigrationState!",
           "id": "migrationstate",
           "kind": "enums",
@@ -73683,6 +74319,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -74152,7 +74796,7 @@
       "kind": "interfaces",
       "id": "sponsorable",
       "href": "/graphql/reference/interfaces#sponsorable",
-      "description": "<p>Entities that can be sponsored through GitHub Sponsors.</p>",
+      "description": "<p>Entities that can sponsor or be sponsored through GitHub Sponsors.</p>",
       "fields": [
         {
           "name": "estimatedNextSponsorsPayoutInCents",
@@ -74385,6 +75029,17 @@
               }
             },
             {
+              "name": "includeAsSponsor",
+              "defaultValue": false,
+              "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -74407,12 +75062,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -74618,6 +75293,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -76451,6 +77136,23 @@
       ]
     },
     {
+      "name": "MannequinOrderField",
+      "kind": "enums",
+      "id": "mannequinorderfield",
+      "href": "/graphql/reference/enums#mannequinorderfield",
+      "description": "<p>Properties by which mannequins can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order mannequins why when they were created.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order mannequins alphabetically by their source login.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeCommitMessage",
       "kind": "enums",
       "id": "mergecommitmessage",
@@ -76555,7 +77257,7 @@
       "kind": "enums",
       "id": "migrationsourcetype",
       "href": "/graphql/reference/enums#migrationsourcetype",
-      "description": "<p>Represents the different Octoshift migration sources.</p>",
+      "description": "<p>Represents the different GitHub Enterprise Importer (GEI) migration sources.</p>",
       "values": [
         {
           "name": "AZURE_DEVOPS",
@@ -76576,35 +77278,35 @@
       "kind": "enums",
       "id": "migrationstate",
       "href": "/graphql/reference/enums#migrationstate",
-      "description": "<p>The Octoshift migration state.</p>",
+      "description": "<p>The GitHub Enterprise Importer (GEI) migration state.</p>",
       "values": [
         {
           "name": "FAILED",
-          "description": "<p>The Octoshift migration has failed.</p>"
+          "description": "<p>The migration has failed.</p>"
         },
         {
           "name": "FAILED_VALIDATION",
-          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+          "description": "<p>The migration has invalid credentials.</p>"
         },
         {
           "name": "IN_PROGRESS",
-          "description": "<p>The Octoshift migration is in progress.</p>"
+          "description": "<p>The migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
-          "description": "<p>The Octoshift migration has not started.</p>"
+          "description": "<p>The migration has not started.</p>"
         },
         {
           "name": "PENDING_VALIDATION",
-          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
+          "description": "<p>The migration needs to have its credentials validated.</p>"
         },
         {
           "name": "QUEUED",
-          "description": "<p>The Octoshift migration has been queued.</p>"
+          "description": "<p>The migration has been queued.</p>"
         },
         {
           "name": "SUCCEEDED",
-          "description": "<p>The Octoshift migration has succeeded.</p>"
+          "description": "<p>The migration has succeeded.</p>"
         }
       ]
     },
@@ -77731,6 +78433,23 @@
       ]
     },
     {
+      "name": "ProjectV2State",
+      "kind": "enums",
+      "id": "projectv2state",
+      "href": "/graphql/reference/enums#projectv2state",
+      "description": "<p>The possible states of a project v2.</p>",
+      "values": [
+        {
+          "name": "CLOSED",
+          "description": "<p>A project v2 that has been closed.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>A project v2 that is still open.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2ViewLayout",
       "kind": "enums",
       "id": "projectv2viewlayout",
@@ -78622,6 +79341,10 @@
         {
           "name": "RENAME",
           "description": "<p>The repository is locked due to a rename.</p>"
+        },
+        {
+          "name": "TRADE_RESTRICTION",
+          "description": "<p>The repository is locked due to a trade controls related reason.</p>"
         }
       ]
     },
@@ -79171,6 +79894,999 @@
       ]
     },
     {
+      "name": "SponsorsCountryOrRegionCode",
+      "kind": "enums",
+      "id": "sponsorscountryorregioncode",
+      "href": "/graphql/reference/enums#sponsorscountryorregioncode",
+      "description": "<p>Represents countries or regions for billing and residence for a GitHub Sponsors profile.</p>",
+      "values": [
+        {
+          "name": "AD",
+          "description": "<p>Andorra.</p>"
+        },
+        {
+          "name": "AE",
+          "description": "<p>United Arab Emirates.</p>"
+        },
+        {
+          "name": "AF",
+          "description": "<p>Afghanistan.</p>"
+        },
+        {
+          "name": "AG",
+          "description": "<p>Antigua and Barbuda.</p>"
+        },
+        {
+          "name": "AI",
+          "description": "<p>Anguilla.</p>"
+        },
+        {
+          "name": "AL",
+          "description": "<p>Albania.</p>"
+        },
+        {
+          "name": "AM",
+          "description": "<p>Armenia.</p>"
+        },
+        {
+          "name": "AO",
+          "description": "<p>Angola.</p>"
+        },
+        {
+          "name": "AQ",
+          "description": "<p>Antarctica.</p>"
+        },
+        {
+          "name": "AR",
+          "description": "<p>Argentina.</p>"
+        },
+        {
+          "name": "AS",
+          "description": "<p>American Samoa.</p>"
+        },
+        {
+          "name": "AT",
+          "description": "<p>Austria.</p>"
+        },
+        {
+          "name": "AU",
+          "description": "<p>Australia.</p>"
+        },
+        {
+          "name": "AW",
+          "description": "<p>Aruba.</p>"
+        },
+        {
+          "name": "AX",
+          "description": "<p>Åland.</p>"
+        },
+        {
+          "name": "AZ",
+          "description": "<p>Azerbaijan.</p>"
+        },
+        {
+          "name": "BA",
+          "description": "<p>Bosnia and Herzegovina.</p>"
+        },
+        {
+          "name": "BB",
+          "description": "<p>Barbados.</p>"
+        },
+        {
+          "name": "BD",
+          "description": "<p>Bangladesh.</p>"
+        },
+        {
+          "name": "BE",
+          "description": "<p>Belgium.</p>"
+        },
+        {
+          "name": "BF",
+          "description": "<p>Burkina Faso.</p>"
+        },
+        {
+          "name": "BG",
+          "description": "<p>Bulgaria.</p>"
+        },
+        {
+          "name": "BH",
+          "description": "<p>Bahrain.</p>"
+        },
+        {
+          "name": "BI",
+          "description": "<p>Burundi.</p>"
+        },
+        {
+          "name": "BJ",
+          "description": "<p>Benin.</p>"
+        },
+        {
+          "name": "BL",
+          "description": "<p>Saint Barthélemy.</p>"
+        },
+        {
+          "name": "BM",
+          "description": "<p>Bermuda.</p>"
+        },
+        {
+          "name": "BN",
+          "description": "<p>Brunei Darussalam.</p>"
+        },
+        {
+          "name": "BO",
+          "description": "<p>Bolivia.</p>"
+        },
+        {
+          "name": "BQ",
+          "description": "<p>Bonaire, Sint Eustatius and Saba.</p>"
+        },
+        {
+          "name": "BR",
+          "description": "<p>Brazil.</p>"
+        },
+        {
+          "name": "BS",
+          "description": "<p>Bahamas.</p>"
+        },
+        {
+          "name": "BT",
+          "description": "<p>Bhutan.</p>"
+        },
+        {
+          "name": "BV",
+          "description": "<p>Bouvet Island.</p>"
+        },
+        {
+          "name": "BW",
+          "description": "<p>Botswana.</p>"
+        },
+        {
+          "name": "BY",
+          "description": "<p>Belarus.</p>"
+        },
+        {
+          "name": "BZ",
+          "description": "<p>Belize.</p>"
+        },
+        {
+          "name": "CA",
+          "description": "<p>Canada.</p>"
+        },
+        {
+          "name": "CC",
+          "description": "<p>Cocos (Keeling) Islands.</p>"
+        },
+        {
+          "name": "CD",
+          "description": "<p>Congo (Kinshasa).</p>"
+        },
+        {
+          "name": "CF",
+          "description": "<p>Central African Republic.</p>"
+        },
+        {
+          "name": "CG",
+          "description": "<p>Congo (Brazzaville).</p>"
+        },
+        {
+          "name": "CH",
+          "description": "<p>Switzerland.</p>"
+        },
+        {
+          "name": "CI",
+          "description": "<p>Côte d'Ivoire.</p>"
+        },
+        {
+          "name": "CK",
+          "description": "<p>Cook Islands.</p>"
+        },
+        {
+          "name": "CL",
+          "description": "<p>Chile.</p>"
+        },
+        {
+          "name": "CM",
+          "description": "<p>Cameroon.</p>"
+        },
+        {
+          "name": "CN",
+          "description": "<p>China.</p>"
+        },
+        {
+          "name": "CO",
+          "description": "<p>Colombia.</p>"
+        },
+        {
+          "name": "CR",
+          "description": "<p>Costa Rica.</p>"
+        },
+        {
+          "name": "CV",
+          "description": "<p>Cape Verde.</p>"
+        },
+        {
+          "name": "CW",
+          "description": "<p>Curaçao.</p>"
+        },
+        {
+          "name": "CX",
+          "description": "<p>Christmas Island.</p>"
+        },
+        {
+          "name": "CY",
+          "description": "<p>Cyprus.</p>"
+        },
+        {
+          "name": "CZ",
+          "description": "<p>Czech Republic.</p>"
+        },
+        {
+          "name": "DE",
+          "description": "<p>Germany.</p>"
+        },
+        {
+          "name": "DJ",
+          "description": "<p>Djibouti.</p>"
+        },
+        {
+          "name": "DK",
+          "description": "<p>Denmark.</p>"
+        },
+        {
+          "name": "DM",
+          "description": "<p>Dominica.</p>"
+        },
+        {
+          "name": "DO",
+          "description": "<p>Dominican Republic.</p>"
+        },
+        {
+          "name": "DZ",
+          "description": "<p>Algeria.</p>"
+        },
+        {
+          "name": "EC",
+          "description": "<p>Ecuador.</p>"
+        },
+        {
+          "name": "EE",
+          "description": "<p>Estonia.</p>"
+        },
+        {
+          "name": "EG",
+          "description": "<p>Egypt.</p>"
+        },
+        {
+          "name": "EH",
+          "description": "<p>Western Sahara.</p>"
+        },
+        {
+          "name": "ER",
+          "description": "<p>Eritrea.</p>"
+        },
+        {
+          "name": "ES",
+          "description": "<p>Spain.</p>"
+        },
+        {
+          "name": "ET",
+          "description": "<p>Ethiopia.</p>"
+        },
+        {
+          "name": "FI",
+          "description": "<p>Finland.</p>"
+        },
+        {
+          "name": "FJ",
+          "description": "<p>Fiji.</p>"
+        },
+        {
+          "name": "FK",
+          "description": "<p>Falkland Islands.</p>"
+        },
+        {
+          "name": "FM",
+          "description": "<p>Micronesia.</p>"
+        },
+        {
+          "name": "FO",
+          "description": "<p>Faroe Islands.</p>"
+        },
+        {
+          "name": "FR",
+          "description": "<p>France.</p>"
+        },
+        {
+          "name": "GA",
+          "description": "<p>Gabon.</p>"
+        },
+        {
+          "name": "GB",
+          "description": "<p>United Kingdom.</p>"
+        },
+        {
+          "name": "GD",
+          "description": "<p>Grenada.</p>"
+        },
+        {
+          "name": "GE",
+          "description": "<p>Georgia.</p>"
+        },
+        {
+          "name": "GF",
+          "description": "<p>French Guiana.</p>"
+        },
+        {
+          "name": "GG",
+          "description": "<p>Guernsey.</p>"
+        },
+        {
+          "name": "GH",
+          "description": "<p>Ghana.</p>"
+        },
+        {
+          "name": "GI",
+          "description": "<p>Gibraltar.</p>"
+        },
+        {
+          "name": "GL",
+          "description": "<p>Greenland.</p>"
+        },
+        {
+          "name": "GM",
+          "description": "<p>Gambia.</p>"
+        },
+        {
+          "name": "GN",
+          "description": "<p>Guinea.</p>"
+        },
+        {
+          "name": "GP",
+          "description": "<p>Guadeloupe.</p>"
+        },
+        {
+          "name": "GQ",
+          "description": "<p>Equatorial Guinea.</p>"
+        },
+        {
+          "name": "GR",
+          "description": "<p>Greece.</p>"
+        },
+        {
+          "name": "GS",
+          "description": "<p>South Georgia and South Sandwich Islands.</p>"
+        },
+        {
+          "name": "GT",
+          "description": "<p>Guatemala.</p>"
+        },
+        {
+          "name": "GU",
+          "description": "<p>Guam.</p>"
+        },
+        {
+          "name": "GW",
+          "description": "<p>Guinea-Bissau.</p>"
+        },
+        {
+          "name": "GY",
+          "description": "<p>Guyana.</p>"
+        },
+        {
+          "name": "HK",
+          "description": "<p>Hong Kong.</p>"
+        },
+        {
+          "name": "HM",
+          "description": "<p>Heard and McDonald Islands.</p>"
+        },
+        {
+          "name": "HN",
+          "description": "<p>Honduras.</p>"
+        },
+        {
+          "name": "HR",
+          "description": "<p>Croatia.</p>"
+        },
+        {
+          "name": "HT",
+          "description": "<p>Haiti.</p>"
+        },
+        {
+          "name": "HU",
+          "description": "<p>Hungary.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Indonesia.</p>"
+        },
+        {
+          "name": "IE",
+          "description": "<p>Ireland.</p>"
+        },
+        {
+          "name": "IL",
+          "description": "<p>Israel.</p>"
+        },
+        {
+          "name": "IM",
+          "description": "<p>Isle of Man.</p>"
+        },
+        {
+          "name": "IN",
+          "description": "<p>India.</p>"
+        },
+        {
+          "name": "IO",
+          "description": "<p>British Indian Ocean Territory.</p>"
+        },
+        {
+          "name": "IQ",
+          "description": "<p>Iraq.</p>"
+        },
+        {
+          "name": "IR",
+          "description": "<p>Iran.</p>"
+        },
+        {
+          "name": "IS",
+          "description": "<p>Iceland.</p>"
+        },
+        {
+          "name": "IT",
+          "description": "<p>Italy.</p>"
+        },
+        {
+          "name": "JE",
+          "description": "<p>Jersey.</p>"
+        },
+        {
+          "name": "JM",
+          "description": "<p>Jamaica.</p>"
+        },
+        {
+          "name": "JO",
+          "description": "<p>Jordan.</p>"
+        },
+        {
+          "name": "JP",
+          "description": "<p>Japan.</p>"
+        },
+        {
+          "name": "KE",
+          "description": "<p>Kenya.</p>"
+        },
+        {
+          "name": "KG",
+          "description": "<p>Kyrgyzstan.</p>"
+        },
+        {
+          "name": "KH",
+          "description": "<p>Cambodia.</p>"
+        },
+        {
+          "name": "KI",
+          "description": "<p>Kiribati.</p>"
+        },
+        {
+          "name": "KM",
+          "description": "<p>Comoros.</p>"
+        },
+        {
+          "name": "KN",
+          "description": "<p>Saint Kitts and Nevis.</p>"
+        },
+        {
+          "name": "KR",
+          "description": "<p>Korea, South.</p>"
+        },
+        {
+          "name": "KW",
+          "description": "<p>Kuwait.</p>"
+        },
+        {
+          "name": "KY",
+          "description": "<p>Cayman Islands.</p>"
+        },
+        {
+          "name": "KZ",
+          "description": "<p>Kazakhstan.</p>"
+        },
+        {
+          "name": "LA",
+          "description": "<p>Laos.</p>"
+        },
+        {
+          "name": "LB",
+          "description": "<p>Lebanon.</p>"
+        },
+        {
+          "name": "LC",
+          "description": "<p>Saint Lucia.</p>"
+        },
+        {
+          "name": "LI",
+          "description": "<p>Liechtenstein.</p>"
+        },
+        {
+          "name": "LK",
+          "description": "<p>Sri Lanka.</p>"
+        },
+        {
+          "name": "LR",
+          "description": "<p>Liberia.</p>"
+        },
+        {
+          "name": "LS",
+          "description": "<p>Lesotho.</p>"
+        },
+        {
+          "name": "LT",
+          "description": "<p>Lithuania.</p>"
+        },
+        {
+          "name": "LU",
+          "description": "<p>Luxembourg.</p>"
+        },
+        {
+          "name": "LV",
+          "description": "<p>Latvia.</p>"
+        },
+        {
+          "name": "LY",
+          "description": "<p>Libya.</p>"
+        },
+        {
+          "name": "MA",
+          "description": "<p>Morocco.</p>"
+        },
+        {
+          "name": "MC",
+          "description": "<p>Monaco.</p>"
+        },
+        {
+          "name": "MD",
+          "description": "<p>Moldova.</p>"
+        },
+        {
+          "name": "ME",
+          "description": "<p>Montenegro.</p>"
+        },
+        {
+          "name": "MF",
+          "description": "<p>Saint Martin (French part).</p>"
+        },
+        {
+          "name": "MG",
+          "description": "<p>Madagascar.</p>"
+        },
+        {
+          "name": "MH",
+          "description": "<p>Marshall Islands.</p>"
+        },
+        {
+          "name": "MK",
+          "description": "<p>Macedonia.</p>"
+        },
+        {
+          "name": "ML",
+          "description": "<p>Mali.</p>"
+        },
+        {
+          "name": "MM",
+          "description": "<p>Myanmar.</p>"
+        },
+        {
+          "name": "MN",
+          "description": "<p>Mongolia.</p>"
+        },
+        {
+          "name": "MO",
+          "description": "<p>Macau.</p>"
+        },
+        {
+          "name": "MP",
+          "description": "<p>Northern Mariana Islands.</p>"
+        },
+        {
+          "name": "MQ",
+          "description": "<p>Martinique.</p>"
+        },
+        {
+          "name": "MR",
+          "description": "<p>Mauritania.</p>"
+        },
+        {
+          "name": "MS",
+          "description": "<p>Montserrat.</p>"
+        },
+        {
+          "name": "MT",
+          "description": "<p>Malta.</p>"
+        },
+        {
+          "name": "MU",
+          "description": "<p>Mauritius.</p>"
+        },
+        {
+          "name": "MV",
+          "description": "<p>Maldives.</p>"
+        },
+        {
+          "name": "MW",
+          "description": "<p>Malawi.</p>"
+        },
+        {
+          "name": "MX",
+          "description": "<p>Mexico.</p>"
+        },
+        {
+          "name": "MY",
+          "description": "<p>Malaysia.</p>"
+        },
+        {
+          "name": "MZ",
+          "description": "<p>Mozambique.</p>"
+        },
+        {
+          "name": "NA",
+          "description": "<p>Namibia.</p>"
+        },
+        {
+          "name": "NC",
+          "description": "<p>New Caledonia.</p>"
+        },
+        {
+          "name": "NE",
+          "description": "<p>Niger.</p>"
+        },
+        {
+          "name": "NF",
+          "description": "<p>Norfolk Island.</p>"
+        },
+        {
+          "name": "NG",
+          "description": "<p>Nigeria.</p>"
+        },
+        {
+          "name": "NI",
+          "description": "<p>Nicaragua.</p>"
+        },
+        {
+          "name": "NL",
+          "description": "<p>Netherlands.</p>"
+        },
+        {
+          "name": "NO",
+          "description": "<p>Norway.</p>"
+        },
+        {
+          "name": "NP",
+          "description": "<p>Nepal.</p>"
+        },
+        {
+          "name": "NR",
+          "description": "<p>Nauru.</p>"
+        },
+        {
+          "name": "NU",
+          "description": "<p>Niue.</p>"
+        },
+        {
+          "name": "NZ",
+          "description": "<p>New Zealand.</p>"
+        },
+        {
+          "name": "OM",
+          "description": "<p>Oman.</p>"
+        },
+        {
+          "name": "PA",
+          "description": "<p>Panama.</p>"
+        },
+        {
+          "name": "PE",
+          "description": "<p>Peru.</p>"
+        },
+        {
+          "name": "PF",
+          "description": "<p>French Polynesia.</p>"
+        },
+        {
+          "name": "PG",
+          "description": "<p>Papua New Guinea.</p>"
+        },
+        {
+          "name": "PH",
+          "description": "<p>Philippines.</p>"
+        },
+        {
+          "name": "PK",
+          "description": "<p>Pakistan.</p>"
+        },
+        {
+          "name": "PL",
+          "description": "<p>Poland.</p>"
+        },
+        {
+          "name": "PM",
+          "description": "<p>Saint Pierre and Miquelon.</p>"
+        },
+        {
+          "name": "PN",
+          "description": "<p>Pitcairn.</p>"
+        },
+        {
+          "name": "PR",
+          "description": "<p>Puerto Rico.</p>"
+        },
+        {
+          "name": "PS",
+          "description": "<p>Palestine.</p>"
+        },
+        {
+          "name": "PT",
+          "description": "<p>Portugal.</p>"
+        },
+        {
+          "name": "PW",
+          "description": "<p>Palau.</p>"
+        },
+        {
+          "name": "PY",
+          "description": "<p>Paraguay.</p>"
+        },
+        {
+          "name": "QA",
+          "description": "<p>Qatar.</p>"
+        },
+        {
+          "name": "RE",
+          "description": "<p>Reunion.</p>"
+        },
+        {
+          "name": "RO",
+          "description": "<p>Romania.</p>"
+        },
+        {
+          "name": "RS",
+          "description": "<p>Serbia.</p>"
+        },
+        {
+          "name": "RU",
+          "description": "<p>Russian Federation.</p>"
+        },
+        {
+          "name": "RW",
+          "description": "<p>Rwanda.</p>"
+        },
+        {
+          "name": "SA",
+          "description": "<p>Saudi Arabia.</p>"
+        },
+        {
+          "name": "SB",
+          "description": "<p>Solomon Islands.</p>"
+        },
+        {
+          "name": "SC",
+          "description": "<p>Seychelles.</p>"
+        },
+        {
+          "name": "SD",
+          "description": "<p>Sudan.</p>"
+        },
+        {
+          "name": "SE",
+          "description": "<p>Sweden.</p>"
+        },
+        {
+          "name": "SG",
+          "description": "<p>Singapore.</p>"
+        },
+        {
+          "name": "SH",
+          "description": "<p>Saint Helena.</p>"
+        },
+        {
+          "name": "SI",
+          "description": "<p>Slovenia.</p>"
+        },
+        {
+          "name": "SJ",
+          "description": "<p>Svalbard and Jan Mayen Islands.</p>"
+        },
+        {
+          "name": "SK",
+          "description": "<p>Slovakia.</p>"
+        },
+        {
+          "name": "SL",
+          "description": "<p>Sierra Leone.</p>"
+        },
+        {
+          "name": "SM",
+          "description": "<p>San Marino.</p>"
+        },
+        {
+          "name": "SN",
+          "description": "<p>Senegal.</p>"
+        },
+        {
+          "name": "SO",
+          "description": "<p>Somalia.</p>"
+        },
+        {
+          "name": "SR",
+          "description": "<p>Suriname.</p>"
+        },
+        {
+          "name": "SS",
+          "description": "<p>South Sudan.</p>"
+        },
+        {
+          "name": "ST",
+          "description": "<p>Sao Tome and Principe.</p>"
+        },
+        {
+          "name": "SV",
+          "description": "<p>El Salvador.</p>"
+        },
+        {
+          "name": "SX",
+          "description": "<p>Sint Maarten (Dutch part).</p>"
+        },
+        {
+          "name": "SZ",
+          "description": "<p>Swaziland.</p>"
+        },
+        {
+          "name": "TC",
+          "description": "<p>Turks and Caicos Islands.</p>"
+        },
+        {
+          "name": "TD",
+          "description": "<p>Chad.</p>"
+        },
+        {
+          "name": "TF",
+          "description": "<p>French Southern Lands.</p>"
+        },
+        {
+          "name": "TG",
+          "description": "<p>Togo.</p>"
+        },
+        {
+          "name": "TH",
+          "description": "<p>Thailand.</p>"
+        },
+        {
+          "name": "TJ",
+          "description": "<p>Tajikistan.</p>"
+        },
+        {
+          "name": "TK",
+          "description": "<p>Tokelau.</p>"
+        },
+        {
+          "name": "TL",
+          "description": "<p>Timor-Leste.</p>"
+        },
+        {
+          "name": "TM",
+          "description": "<p>Turkmenistan.</p>"
+        },
+        {
+          "name": "TN",
+          "description": "<p>Tunisia.</p>"
+        },
+        {
+          "name": "TO",
+          "description": "<p>Tonga.</p>"
+        },
+        {
+          "name": "TR",
+          "description": "<p>Turkey.</p>"
+        },
+        {
+          "name": "TT",
+          "description": "<p>Trinidad and Tobago.</p>"
+        },
+        {
+          "name": "TV",
+          "description": "<p>Tuvalu.</p>"
+        },
+        {
+          "name": "TW",
+          "description": "<p>Taiwan.</p>"
+        },
+        {
+          "name": "TZ",
+          "description": "<p>Tanzania.</p>"
+        },
+        {
+          "name": "UA",
+          "description": "<p>Ukraine.</p>"
+        },
+        {
+          "name": "UG",
+          "description": "<p>Uganda.</p>"
+        },
+        {
+          "name": "UM",
+          "description": "<p>United States Minor Outlying Islands.</p>"
+        },
+        {
+          "name": "US",
+          "description": "<p>United States of America.</p>"
+        },
+        {
+          "name": "UY",
+          "description": "<p>Uruguay.</p>"
+        },
+        {
+          "name": "UZ",
+          "description": "<p>Uzbekistan.</p>"
+        },
+        {
+          "name": "VA",
+          "description": "<p>Vatican City.</p>"
+        },
+        {
+          "name": "VC",
+          "description": "<p>Saint Vincent and the Grenadines.</p>"
+        },
+        {
+          "name": "VE",
+          "description": "<p>Venezuela.</p>"
+        },
+        {
+          "name": "VG",
+          "description": "<p>Virgin Islands, British.</p>"
+        },
+        {
+          "name": "VI",
+          "description": "<p>Virgin Islands, U.S.</p>"
+        },
+        {
+          "name": "VN",
+          "description": "<p>Vietnam.</p>"
+        },
+        {
+          "name": "VU",
+          "description": "<p>Vanuatu.</p>"
+        },
+        {
+          "name": "WF",
+          "description": "<p>Wallis and Futuna Islands.</p>"
+        },
+        {
+          "name": "WS",
+          "description": "<p>Samoa.</p>"
+        },
+        {
+          "name": "YE",
+          "description": "<p>Yemen.</p>"
+        },
+        {
+          "name": "YT",
+          "description": "<p>Mayotte.</p>"
+        },
+        {
+          "name": "ZA",
+          "description": "<p>South Africa.</p>"
+        },
+        {
+          "name": "ZM",
+          "description": "<p>Zambia.</p>"
+        },
+        {
+          "name": "ZW",
+          "description": "<p>Zimbabwe.</p>"
+        }
+      ]
+    },
+    {
       "name": "SponsorsGoalKind",
       "kind": "enums",
       "id": "sponsorsgoalkind",
@@ -79184,6 +80900,23 @@
         {
           "name": "TOTAL_SPONSORS_COUNT",
           "description": "<p>The goal is about reaching a certain number of sponsors.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeaturedItemFeatureableType",
+      "kind": "enums",
+      "id": "sponsorslistingfeatureditemfeatureabletype",
+      "href": "/graphql/reference/enums#sponsorslistingfeatureditemfeatureabletype",
+      "description": "<p>The different kinds of records that can be featured on a GitHub Sponsors profile page.</p>",
+      "values": [
+        {
+          "name": "REPOSITORY",
+          "description": "<p>A repository owned by the user or organization with the GitHub Sponsors profile.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>A user who belongs to the organization with the GitHub Sponsors profile.</p>"
         }
       ]
     },
@@ -79730,6 +81463,25 @@
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "Claimable",
+      "kind": "unions",
+      "id": "claimable",
+      "href": "/graphql/reference/unions#claimable",
+      "description": "<p>An object which can have its data claimed or claim data from another.</p>",
+      "possibleTypes": [
+        {
+          "name": "Mannequin",
+          "id": "mannequin",
+          "href": "/graphql/reference/objects#mannequin"
         },
         {
           "name": "User",
@@ -81412,6 +83164,25 @@
       ]
     },
     {
+      "name": "SponsorsListingFeatureableItem",
+      "kind": "unions",
+      "id": "sponsorslistingfeatureableitem",
+      "href": "/graphql/reference/unions#sponsorslistingfeatureableitem",
+      "description": "<p>A record that can be featured on a GitHub Sponsors profile.</p>",
+      "possibleTypes": [
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
       "name": "StatusCheckRollupContext",
       "kind": "unions",
       "id": "statuscheckrollupcontext",
@@ -81672,6 +83443,57 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddEnterpriseOrganizationMemberInput",
+      "kind": "inputObjects",
+      "id": "addenterpriseorganizationmemberinput",
+      "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput",
+      "description": "<p>Autogenerated input type of AddEnterpriseOrganizationMember.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise which owns the organization.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization the users will be added to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "role",
+          "description": "<p>The role to assign the users in the organization.</p>",
+          "type": "OrganizationMemberRole",
+          "id": "organizationmemberrole",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#organizationmemberrole"
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The IDs of the enterprise members to add.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -83414,6 +85236,50 @@
       ]
     },
     {
+      "name": "CreateAttributionInvitationInput",
+      "kind": "inputObjects",
+      "id": "createattributioninvitationinput",
+      "href": "/graphql/reference/input-objects#createattributioninvitationinput",
+      "description": "<p>Autogenerated input type of CreateAttributionInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The Node ID of the owner scoping the reattributable data.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sourceId",
+          "description": "<p>The Node ID of the account owning the data to reattribute.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetId",
+          "description": "<p>The Node ID of the account which may claim the data.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateBranchProtectionRuleInput",
       "kind": "inputObjects",
       "id": "createbranchprotectionruleinput",
@@ -83527,7 +85393,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -84422,7 +86288,7 @@
       "inputFields": [
         {
           "name": "accessToken",
-          "description": "<p>The Octoshift migration source access token.</p>",
+          "description": "<p>The migration source access token.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -84446,7 +86312,7 @@
         },
         {
           "name": "name",
-          "description": "<p>The Octoshift migration source name.</p>",
+          "description": "<p>The migration source name.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -84454,7 +86320,7 @@
         },
         {
           "name": "ownerId",
-          "description": "<p>The ID of the organization that will own the Octoshift migration source.</p>",
+          "description": "<p>The ID of the organization that will own the migration source.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -84463,7 +86329,7 @@
         },
         {
           "name": "type",
-          "description": "<p>The Octoshift migration source type.</p>",
+          "description": "<p>The migration source type.</p>",
           "type": "MigrationSourceType!",
           "id": "migrationsourcetype",
           "kind": "enums",
@@ -84471,7 +86337,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The Octoshift migration source URL.</p>",
+          "description": "<p>The migration source URL.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -84557,6 +86423,24 @@
           "name": "ownerId",
           "description": "<p>The owner ID to create the project under.</p>",
           "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The repository to link the project to.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The team to link the project to. The team will be granted read permissions.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -84776,6 +86660,79 @@
           "id": "repositoryvisibility",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryvisibility"
+        }
+      ]
+    },
+    {
+      "name": "CreateSponsorsListingInput",
+      "kind": "inputObjects",
+      "id": "createsponsorslistinginput",
+      "href": "/graphql/reference/input-objects#createsponsorslistinginput",
+      "description": "<p>Autogenerated input type of CreateSponsorsListing.</p>",
+      "inputFields": [
+        {
+          "name": "billingCountryOrRegionCode",
+          "description": "<p>The country or region where the sponsorable's bank account is located.\nRequired if fiscalHostLogin is not specified, ignored when fiscalHostLogin is specified.</p>",
+          "type": "SponsorsCountryOrRegionCode",
+          "id": "sponsorscountryorregioncode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorscountryorregioncode"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "contactEmail",
+          "description": "<p>The email address we should use to contact you about the GitHub Sponsors\nprofile being created. This will not be shared publicly. Must be a verified\nemail address already on your GitHub account. Only relevant when the\nsponsorable is yourself. Defaults to your primary email address on file if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fiscalHostLogin",
+          "description": "<p>The username of the supported fiscal host's GitHub organization, if you want\nto receive sponsorship payouts through a fiscal host rather than directly to a\nbank account. For example,<code>Open-Source-Collective</code>for Open Source Collective\nor 'numfocus' for numFOCUS. Case insensitive. See <a href=\"https://docs.github.com/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts\">https://docs.github.com/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts</a>\nfor more information.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fiscallyHostedProjectProfileUrl",
+          "description": "<p>The URL for your profile page on the fiscal host's website, e.g.,\n<a href=\"https://opencollective.com/babel\">https://opencollective.com/babel</a> or <a href=\"https://numfocus.org/project/bokeh\">https://numfocus.org/project/bokeh</a>.\nRequired if fiscalHostLogin is specified.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fullDescription",
+          "description": "<p>Provide an introduction to serve as the main focus that appears on your GitHub\nSponsors profile. It's a great opportunity to help potential sponsors learn\nmore about you, your work, and why their sponsorship is important to you.\nGitHub-flavored Markdown is supported.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "residenceCountryOrRegionCode",
+          "description": "<p>The country or region where the sponsorable resides. This is for tax purposes.\nRequired if the sponsorable is yourself, ignored when sponsorableLogin\nspecifies an organization.</p>",
+          "type": "SponsorsCountryOrRegionCode",
+          "id": "sponsorscountryorregioncode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorscountryorregioncode"
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the organization to create a GitHub Sponsors profile for, if\ndesired. Defaults to creating a GitHub Sponsors profile for the authenticated\nuser if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -86738,6 +88695,41 @@
       ]
     },
     {
+      "name": "LinkProjectV2ToTeamInput",
+      "kind": "inputObjects",
+      "id": "linkprojectv2toteaminput",
+      "href": "/graphql/reference/input-objects#linkprojectv2toteaminput",
+      "description": "<p>Autogenerated input type of LinkProjectV2ToTeam.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to link to the team.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to link to the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "LinkRepositoryToProjectInput",
       "kind": "inputObjects",
       "id": "linkrepositorytoprojectinput",
@@ -86803,6 +88795,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "MannequinOrder",
+      "kind": "inputObjects",
+      "id": "mannequinorder",
+      "href": "/graphql/reference/input-objects#mannequinorder",
+      "description": "<p>Ordering options for mannequins.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order mannequins by.</p>",
+          "type": "MannequinOrderField!",
+          "id": "mannequinorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mannequinorderfield"
         }
       ]
     },
@@ -87459,6 +89476,23 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Filters",
+      "kind": "inputObjects",
+      "id": "projectv2filters",
+      "href": "/graphql/reference/input-objects#projectv2filters",
+      "description": "<p>Ways in which to filter lists of projects.</p>",
+      "inputFields": [
+        {
+          "name": "state",
+          "description": "<p>List project v2 filtered by the state given.</p>",
+          "type": "ProjectV2State",
+          "id": "projectv2state",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2state"
         }
       ]
     },
@@ -88950,7 +90984,7 @@
       "inputFields": [
         {
           "name": "accessToken",
-          "description": "<p>The Octoshift migration source access token.</p>",
+          "description": "<p>The migration source access token.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -88966,7 +91000,7 @@
         },
         {
           "name": "continueOnError",
-          "description": "<p>Whether to continue the migration on error.</p>",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -89031,7 +91065,7 @@
         },
         {
           "name": "sourceId",
-          "description": "<p>The ID of the Octoshift migration source.</p>",
+          "description": "<p>The ID of the migration source.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -89040,7 +91074,7 @@
         },
         {
           "name": "sourceRepositoryUrl",
-          "description": "<p>The Octoshift migration source repository URL.</p>",
+          "description": "<p>The URL of the source repository.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -89233,6 +91267,41 @@
       ]
     },
     {
+      "name": "TransferEnterpriseOrganizationInput",
+      "kind": "inputObjects",
+      "id": "transferenterpriseorganizationinput",
+      "href": "/graphql/reference/input-objects#transferenterpriseorganizationinput",
+      "description": "<p>Autogenerated input type of TransferEnterpriseOrganization.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "destinationEnterpriseId",
+          "description": "<p>The ID of the enterprise where the organization should be transferred.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization to transfer.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "TransferIssueInput",
       "kind": "inputObjects",
       "id": "transferissueinput",
@@ -89415,6 +91484,41 @@
         {
           "name": "repositoryId",
           "description": "<p>The ID of the repository to unlink from the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnlinkProjectV2FromTeamInput",
+      "kind": "inputObjects",
+      "id": "unlinkprojectv2fromteaminput",
+      "href": "/graphql/reference/input-objects#unlinkprojectv2fromteaminput",
+      "description": "<p>Autogenerated input type of UnlinkProjectV2FromTeam.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to unlink from the team.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to unlink from the project.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -89771,7 +91875,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

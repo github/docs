@@ -6,19 +6,19 @@ versions:
   ghae: '*'
 type: how_to
 topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Networking
-  - Security
+- Access management
+- Enterprise
+- Fundamentals
+- Networking
+- Security
 redirect_from:
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+- /admin/configuration/restricting-network-traffic-to-your-enterprise
 ms.openlocfilehash: 67c7067362ac94e5cbc64be4704ba0ec3f6606e0
 ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/09/2022
-ms.locfileid: '147682856'
+ms.locfileid: "147682856"
 ---
 ## Acerca de las listas de IP permitidas
 

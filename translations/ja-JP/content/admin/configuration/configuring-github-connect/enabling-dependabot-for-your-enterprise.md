@@ -22,16 +22,18 @@ topics:
   - Security
   - Dependency graph
   - Dependabot
-ms.openlocfilehash: 2a7df1dbbe0f8d905bbd1378592dedbec4f43a19
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 009b6199e0212c531caaf48b220342853d656248
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106726'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135672'
 ---
 ## {% data variables.product.product_name %} の {% data variables.product.prodname_dependabot %} について
 
 {% data variables.product.prodname_dependabot %} を使用すると、{% data variables.location.product_location %} のユーザーが依存関係の脆弱性を見つけて修正するのに役立ちます。{% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %} を有効にして、脆弱な依存関係についてユーザーに通知し、{% data variables.product.prodname_dependabot_updates %} を有効にして脆弱性を修正し、依存関係を最新バージョンに更新することができます。
+
+{% data variables.product.prodname_dependabot %} は、{% data variables.location.product_location %} のサプライ チェーンのセキュリティを強化するために使用できる多くの機能の 1 つに過ぎません。 他の機能の詳細については、「[エンタープライズ向けサプライ チェーン セキュリティについて](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise)」を参照してください。
 
 ### {% data variables.product.prodname_dependabot_alerts %} について
 {% endif %}

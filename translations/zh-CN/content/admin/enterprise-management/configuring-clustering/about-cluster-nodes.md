@@ -11,12 +11,12 @@ type: overview
 topics:
   - Clustering
   - Enterprise
-ms.openlocfilehash: c0f442f455bffea9fd6e7bd225d7c37c0820b4ab
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 6c009e5d5aa1c2f0b2d3effb3beab2d51f48b070
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145098088'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167068'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
@@ -56,7 +56,7 @@ ms.locfileid: '145098088'
 - 建立对您的组织有意义的节点层。 配置示例：
   - 具有两个节点和以下服务的前端层：
     - `web-server`
-    - `jobs-server`
+    - `job-server`
     - `memcache-server`
   - 具有三个节点和以下服务的数据库层：
     - `consul-server`

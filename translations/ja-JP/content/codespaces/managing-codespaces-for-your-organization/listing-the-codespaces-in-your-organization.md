@@ -2,7 +2,6 @@
 title: 組織内の codespace を一覧表示する
 shortTitle: List organization codespaces
 intro: 組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -11,16 +10,16 @@ type: how_to
 topics:
   - Codespaces
   - Administrator
-ms.openlocfilehash: 1353548a4520cb69eee85437a35804faf6724c68
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: e3d475560c76449ed20b70fbce29ef6273f788fc
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106478'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158630'
 ---
 ## 概要
 
-組織の所有者は、組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。 これを行って、ユーザーが作成している codespace の数を確認し、不要なコストが発生していないことを確認することをお勧めします。 価格については、「[GitHub Codespaces の請求について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
+組織の所有者は、組織に対して現在アクティブになっているまたは停止している codespace をすべて一覧表示できます。 これを行って、ユーザーが作成している codespace の数を確認し、不要なコストが発生していないことを確認することをお勧めします。 価格について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
 組織用の codespace を一覧表示する最も簡単な方法は、{% data variables.product.prodname_cli %} を使用することです。 REST API を使用することもできます。これにより、各 codespace に関する詳しい情報を確認できます。
 

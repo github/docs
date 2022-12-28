@@ -21,7 +21,9 @@ children:
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
+  - /sharing-actions-and-workflows-from-your-private-repository
   - /sharing-actions-and-workflows-with-your-enterprise
+  - /sharing-actions-and-workflows-with-your-organization
   - /releasing-and-maintaining-actions
   - /developing-a-third-party-cli-action
 ms.openlocfilehash: b60bd1031bc7e9958a146cbf9755a000679edff3

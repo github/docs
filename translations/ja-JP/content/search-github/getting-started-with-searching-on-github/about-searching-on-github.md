@@ -1,6 +1,6 @@
 ---
-title: About searching on GitHub
-intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
+title: GitHub での検索について
+intro: 'GitHub の統合検索機能は、{% data variables.product.product_name %}上の多くのリポジトリ、ユーザ、コードの行が対象です。'
 redirect_from:
   - /articles/using-the-command-bar
   - /articles/github-search-basics
@@ -17,70 +17,82 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 58ecec218d8f8f0ee3d11afbf65debf7df72e811
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159102'
 ---
+{% ifversion github-code-search %} {% note %}
+
+  **注:** {% data reusables.search.classic-search-code-search-note %}
+
+  {% endnote %} {% endif %}
+
 {% data reusables.search.you-can-search-globally %}
 
-- To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "All {% data variables.product.prodname_dotcom %}" in the search drop-down menu.
-- To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
+- {% data variables.product.product_name %} 全体にわたってグローバルに検索するには、探している内容を任意のページの上部にある検索フィールドに入力し、[All {% data variables.product.prodname_dotcom %}] を検索ドロップダウンメニューで選択します。
+- 特定のリポジトリや Organization 内で検索するには、そのリポジトリまたは Organization のページにアクセスし、検索する内容をページの上部にある検索フィールドに入力して、**Enter** キーを押します。
 
 {% note %}
 
-**Notes:**
+**注:**
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/search-github/searching-on-github/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
-- Currently our search doesn't support exact matching.
-- Whenever you are searching in code files, only the first two results in each file will be returned.
+- {% data variables.product.prodname_pages %}サイトは、{% data variables.product.product_name %}上では検索できません。 ただし、コンテンツのソースがリポジトリのデフォルトブランチにある場合は、コード検索を使って検索できます。 詳しい情報については、「[コードの検索](/search-github/searching-on-github/searching-code)」を参照してください。 {% data variables.product.prodname_pages %} の詳しい情報については、[GitHub Pages について](/articles/what-is-github-pages/)のページを参照してください
+- 現在、GitHub の検索は完全一致をサポートしていません。
+- コードファイルのどこを検索しても、返されるのは各ファイルで最初の 2 つの結果のみです。
 
 {% endnote %}
 
-After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results)."
+{% data variables.product.product_name %}上で検索を行った後、結果をソートしたり、サイドバー内の言語の 1 つをクリックしてさらに絞り込んだりすることができます。 詳しい情報については、「[検索結果をソートする](/search-github/getting-started-with-searching-on-github/sorting-search-results)」を参照してください。
 
-{% data variables.product.product_name %} search uses an ElasticSearch cluster to index projects every time a change is pushed to {% data variables.product.product_name %}. Issues and pull requests are indexed when they are created or modified.
+{% data variables.product.product_name %}の検索は、変更が {% data variables.product.product_name %}にプッシュされるたびにプロジェクトを Elasticsearch クラスタを使ってインデックス付けしています。 Issue やプルリクエストは、作成あるいは変更されると同時にインデックス付けされます。
 
-## Types of searches on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}での検索の種類
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+以下の情報は、{% data variables.location.product_location %} でアクセスできるすべてのリポジトリから検索できます。
 
-- [Repositories](/search-github/searching-on-github/searching-for-repositories)
-- [Topics](/search-github/searching-on-github/searching-topics)
-- [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
-- [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
-- [Code](/search-github/searching-on-github/searching-code)
-- [Commits](/search-github/searching-on-github/searching-commits)
-- [Users](/search-github/searching-on-github/searching-users)
-- [Packages](/search-github/searching-on-github/searching-for-packages)
-- [Wikis](/search-github/searching-on-github/searching-wikis)
+- [リポジトリ](/search-github/searching-on-github/searching-for-repositories)
+- [トピック](/search-github/searching-on-github/searching-topics)
+- [問題と pull request](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
+- [ディスカッション](/search-github/searching-on-github/searching-discussions){% endif %}
+- [コード](/search-github/searching-on-github/searching-code)
+- [コミット](/search-github/searching-on-github/searching-commits)
+- [ユーザー](/search-github/searching-on-github/searching-users)
+- [パッケージ](/search-github/searching-on-github/searching-for-packages)
+- [Wiki](/search-github/searching-on-github/searching-wikis)
 
-## Searching using a visual interface
+## ビジュアルインターフェースを使った検索
 
-You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% ifversion command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+{% data variables.search.search_page_url %} または {% data variables.search.advanced_url %} を使って、{% data variables.product.product_name %} を検索できます。 {% ifversion command-palette %}または、{% data variables.product.prodname_command_palette %} で対話型検索を行うと、キーボードを使ったままで、UI、特定のユーザー、リポジトリ、組織内だけではなく、{% data variables.product.product_name %} 全体でグローバルに、現在の場所を検索することもできます。 詳しい情報については、「[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)」を参照してください。{% endif %}
 
-The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
+{% data variables.search.advanced_url %}は、検索クエリを構築するビジュアルなインターフェースを提供します。 検索は、Star 数やリポジトリの持つフォーク数など、様々な要素でフィルタリングできます。 高度な検索フィールドに記入していくに従って、上部の検索バーでは自動的にクエリが構築されていきます。
 
-![Advanced Search](/assets/images/help/search/advanced_search_demo.gif)
+![高度な検索](/assets/images/help/search/advanced_search_demo.gif)
 
-## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
+## プライベート Enterprise 環境から {% data variables.product.prodname_dotcom_the_website %} でリポジトリを検索する
 
 {% ifversion fpt or ghec %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}. For more information, see [the {% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) or [the {% data variables.product.prodname_ghe_managed %} documentation](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
+{% data variables.product.prodname_dotcom_the_website %} と {% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_ghe_managed %} の両方を使う場合や Enterprise 所有者が {% data variables.enterprise.prodname_unified_search %} を有効にしている場合は、{% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_ghe_managed %} から両方の環境で同時に検索できます。 詳しい情報については、[{% data variables.product.prodname_ghe_server %} のドキュメント](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)、または [{% data variables.product.prodname_ghe_managed %} のドキュメント](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)を参照してください。
 
 {% else %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.product_name %}. For more information about how enterprise owners can enable {% data variables.enterprise.prodname_unified_search %}, see "[Enabling {% data variables.enterprise.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)."
+{% data variables.product.prodname_dotcom_the_website %} と {% data variables.product.product_name %} の両方を使う場合や Enterprise 所有者が {% data variables.enterprise.prodname_unified_search %} を有効にしている場合は、{% data variables.product.product_name %} から、両方の環境で同時に検索できます。 Enterprise 所有者が {% data variables.enterprise.prodname_unified_search %} を有効にする方法については、[Enterprise での {% data variables.enterprise.prodname_unified_search %} の有効化](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)に関するページを参照してください。
 
-Your enterprise owner on {% data variables.product.product_name %} can separately enable {% data variables.enterprise.prodname_unified_search %} for all public repositories on {% data variables.product.prodname_dotcom_the_website %} and for private repositories owned by the organization or enterprise on {% data variables.product.prodname_dotcom_the_website %} that is connected to {% data variables.product.product_name %} through {% data variables.product.prodname_github_connect %}.
+{% data variables.product.product_name %} の Enterprise 所有者は、{% data variables.product.prodname_dotcom_the_website %} のすべてのパブリック リポジトリや、{% data variables.product.prodname_github_connect %} 経由で {% data variables.product.product_name %} に接続されている {% data variables.product.prodname_dotcom_the_website %} の Organization または Enterprise が所有するプライベート リポジトリに対して、{% data variables.enterprise.prodname_unified_search %} を個別に有効にすることができます。
 
-Before you can use {% data variables.enterprise.prodname_unified_search %} for private repositories, you must connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+プライベート リポジトリに {% data variables.enterprise.prodname_unified_search %} を使うには、{% data variables.product.prodname_dotcom_the_website %} と {% data variables.product.product_name %} の個人用アカウントを接続する必要があります。 詳しい情報については、「[プライベート Enterprise 環境からの {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効にする](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)」を参照してください。
 
-When you search from {% data variables.product.product_name %}, only private repositories that you have access to and that are owned by the connected organization or enterprise account will be included in search results. Neither you nor anyone else will be able to search private repositories owned by your personal account on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.product_name %}.
+{% data variables.product.product_name %} から検索する場合の検索結果には、アクセス可能で、接続されている Organization アカウントまたは Enterprise アカウントが所有するプライベート リポジトリのみが含まれます。 すべてのユーザーは、{% data variables.product.product_name %} から {% data variables.product.prodname_dotcom_the_website %} の個人用アカウントが所有するプライベート リポジトリを検索することはできません。
 
-To limit your search to one environment, you can use a filter option on the {% data variables.search.advanced_url %} or you can use the `environment:` search prefix. To only search for content on {% data variables.product.product_name %}, use the search syntax `environment:local`. To only search for content on {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
+検索を 1 つの環境に制限するには、{% data variables.search.advanced_url %} に対してフィルター オプションを使うか、`environment:` 検索プレフィックスを使います。 {% data variables.product.product_name %} のコンテンツのみを検索するには、検索構文 `environment:local` を使います。 {% data variables.product.prodname_dotcom_the_website %} のコンテンツのみを検索するには、`environment:github` を使います。
 {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
-- "[Searching on GitHub](/articles/searching-on-github)"
+- 「[検索構文を理解する](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)」
+- 「[GitHub 上で検索する](/articles/searching-on-github)」

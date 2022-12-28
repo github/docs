@@ -1,6 +1,6 @@
 ---
-title: Authorizing OAuth Apps
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: OAuth アプリの承認
+intro: '{% data variables.product.product_name %}のアイデンティティを、OAuth を使うサードパーティのアプリケーションに接続できます。 {% data variables.product.prodname_oauth_app %}を認可する際には、そのアプリケーションを信頼することを確認し、誰が開発したのかをレビューし、そのアプリケーションがどういった種類の情報にアクセスしたいのかをレビューしなければなりません。'
 redirect_from:
   - /articles/authorizing-oauth-apps
   - /github/authenticating-to-github/authorizing-oauth-apps
@@ -13,89 +13,95 @@ versions:
 topics:
   - Identity
   - Access management
+ms.openlocfilehash: 7d116f8fc5117cdcbdbd5582e007351c47b2d55d
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184021'
 ---
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+{% data variables.product.prodname_oauth_app %} から {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} のアカウントによる識別を求められた場合、アプリの開発者の連絡先情報と要求されている特定のデータのリストが記載されたページが表示されます。
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/articles/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+**ヒント:** {% data variables.product.prodname_oauth_app %} を承認する前に、[メール アドレスを確認](/articles/verifying-your-email-address)する必要があります。
 
 {% endtip %}
 
 {% endif %}
 
-## {% data variables.product.prodname_oauth_app %} access
+## {% data variables.product.prodname_oauth_app %}のアクセス
 
-{% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %} は、ユーザーの {% data variables.product.product_name %} データへの "*読み取り*" アクセスまたは "*書き込み*" アクセスを行うことができます。
 
-- **Read access** only allows an app to *look at* your data.
-- **Write access** allows an app to *change* your data.
+- **読み取りアクセス** では、ユーザーのデータの "*閲覧*" のみ可能です。
+- **書き込みアクセス** では、ユーザーのデータの "*変更*" が可能です。
 
 {% tip %}
 
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
+**ヒント:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
-### About OAuth scopes
+### OAuth のスコープについて
 
-*Scopes* are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
+"*スコープ*" は、権限の名前付きグループです。これは、{% data variables.product.prodname_oauth_app %} がパブリック データと非パブリック データへのアクセスをリクエストできるという権限です。
 
-When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+{% data variables.product.product_name %}と統合される {% data variables.product.prodname_oauth_app %}を使用したい場合、そのアプリケーションはデータに対してどういった種類のアクセスが必要になるのかを知らせてきます。 アプリケーションにアクセスを許可すれば、アプリケーションはあなたの代わりにデータの読み取りや変更といったアクションを行えるようになります。 たとえば、`user:email` スコープを要求するアプリを使用する必要がある場合、アプリは個人用メール アドレスへの読み取り専用アクセス権を持つことになります。 詳しい情報については、「[{% data variables.product.prodname_oauth_apps %} のスコープについて](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)」を参照してください。
 
 {% tip %}
 
-**Note:** Currently, you can't scope source code access to read-only.
+**注:** 現在、ソース コード アクセスを読み取り専用にスコープすることはできません。
 
 {% endtip %}
 
 {% data reusables.apps.oauth-token-limit %}
 
-### Types of requested data
+### リクエストされるデータの種類
 
-{% data variables.product.prodname_oauth_apps %} can request several types of data.
+{% data variables.product.prodname_oauth_apps %} がリクエストできるデータは、数種類あります。
 
-| Type of data | Description |
+| データの種類 | 説明 |
 | --- | --- |
-| Commit status | You can grant access for an app to report your commit status. Commit status access allows apps to determine if a build is a successful against a specific commit. Apps won't have access to your code, but they can read and write status information against a specific commit. |
-| Deployments | Deployment status access allows apps to determine if a deployment is successful against a specific commit for public and private repositories. Apps won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows apps to read or write to both your public and secret Gists. |
-| Hooks | [Webhooks](/webhooks) access allows apps to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows apps to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
-| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
-| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
-| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |{% ifversion projects-oauth-scope %}
-| Projects | Access to user and organization {% data variables.projects.projects_v2 %}. Apps can request either read/write or read only access. |{% endif %}
+| コミットのステータス | アプリケーションにコミットのステータスをレポートするためのアクセスを許可できます。 コミットステータスのアクセスがあれば、アプリケーションはビルドが特定のコミットに対して成功したかどうかを判定できます。 アプリケーションはコードへのアクセスは持ちませんが、特定のコミットに対するステータス情報を読み書きできます。 |
+| デプロイメント | デプロイメントのステータスへアクセスできれば、アプリケーションはパブリック及びプライベートのリポジトリの特定のコミットに対してデプロイメントが成功したかを判断できます。 アプリケーションはコードにはアクセスできません。 |
+| Gists | [Gist](https://gist.github.com) アクセスでは、ユーザーのパブリック Gist とシークレット Gist の両方への、アプリによる読み取りや書き込みが可能です。 |
+| フック | [Webhook](/webhooks) アクセスでは、管理するリポジトリのフック構成への、アプリによる読み取りや書き込みが可能です。 |
+| 通知 | 通知アクセスがあれば、アプリケーションは Issue やプルリクエストへのコメントなど、あなたの {% data variables.product.product_name %}通知を読むことができます。 しかし、アプリケーションはリポジトリ内へはアクセスできないままです。 |
+| 組織とチーム | Organization および Team のアクセスがあれば、アプリケーションは Organization および Team のメンバー構成へのアクセスと管理ができます。 |
+| ユーザーの個人データ | ユーザデータには、名前、メールアドレス、所在地など、ユーザプロファイル内の情報が含まれます。 |
+| リポジトリ | リポジトリ情報には、コントリビュータの名前、あなたが作成したブランチ、リポジトリ内の実際のファイルなどが含まれます。 アプリケーションはユーザ単位のレベルでパブリックあるいはプライベートリポジトリへのアクセスをリクエストできます。 |
+| リポジトリの削除 | アプリケーションはあなたが管理するリポジトリの削除をリクエストできますが、コードにアクセスすることはできません。 |{% ifversion projects-oauth-scope %}
+| プロジェクト | ユーザーおよび Organization の {% data variables.projects.projects_v2 %} へのアクセス。 アプリでは、読み取りおよび書き込みアクセスか、読み取り専用アクセスのいずれかを要求できます。 |{% endif %}
 
-## Requesting updated permissions
+## 更新された権限のリクエスト
 
-When {% data variables.product.prodname_oauth_apps %} request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
+{% data variables.product.prodname_oauth_apps %} によって新しいアクセス権限がリクエストされると、現在の権限と新しい権限の違いが知らされます。
 
 {% ifversion fpt or ghec %}
 
-## {% data variables.product.prodname_oauth_apps %} and organizations
+## {% data variables.product.prodname_oauth_apps %} と Organization
 
-When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
+個人用のユーザー アカウントで {% data variables.product.prodname_oauth_app %} を承認する場合、自分がメンバーになっている各 Organization がどのように影響を受けるかについてもわかります。
 
-- **For organizations *with* {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/articles/approving-oauth-apps-for-your-organization) yourself.
+- **{% data variables.product.prodname_oauth_app %} のアクセス制限が "*ある*" Organization の場合、その Organization でのアプリケーションの使用の承認を Organization 管理者にリクエストできます。** Organization からアプリケーションの承認が受けられない場合、アプリケーションによるアクセスは、Organization のパブリック リソースに限られます。 Organization 管理者であれば、自分で[アプリケーションを承認](/articles/approving-oauth-apps-for-your-organization)できます。
 
-- **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
+- **{% data variables.product.prodname_oauth_app %} のアクセス制限が "*ない*" Organization の場合、このアプリケーションによるその Organization のリソースへのアクセスは自動的に承認されます。** このため、すべての Organization リソースはもとより、個人用アカウント リソースへのアクセスが承認されている {% data variables.product.prodname_oauth_apps %} については、注意を払う必要があります。
 
-If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
+SAML シングル サインオン (SSO) が有効になっている組織に属していて、過去に SAML 経由で認証することでその組織のリンクされた ID を作成した場合は、{% data variables.product.prodname_oauth_app %} を承認するたびに、各組織に対してアクティブな SAML セッションが必要です。
 
 {% note %}
 
-**Note:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize the app.
+**注:** SAML によって保護された組織にアクセスする承認された {% data variables.product.prodname_oauth_app %} または {% data variables.product.prodname_github_app %} で問題が発生した場合は、[承認された {% data variables.product.prodname_github_apps %}](https://github.com/settings/applications) または[承認された {% data variables.product.prodname_oauth_apps %}](https://github.com/settings/apps/authorizations) ページからアプリを取り消し、組織にアクセスしてアクティブな SAML セッションを認証して確立した後、それにアクセスしてアプリの再認証を試みることが必要になる場合があります。
 
 {% endnote %}
 
-## Further reading
+## 参考資料
 
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
-- "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
+- "[{% data variables.product.prodname_oauth_app %} アクセス制限について](/articles/about-oauth-app-access-restrictions)"
+- 「[GitHub App の承認](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)」
+- 「[{% data variables.product.prodname_marketplace %} のサポート](/articles/github-marketplace-support)」
 
 {% endif %}

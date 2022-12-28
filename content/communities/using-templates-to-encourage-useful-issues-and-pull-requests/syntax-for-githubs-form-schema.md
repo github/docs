@@ -244,6 +244,13 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 | `options` | An array of checkboxes that the user can select. For syntax, see below. | Required | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 {% data reusables.form-schema.options-syntax %}
+
+#### Validations
+
+{% data reusables.form-schema.validations-intro %}
+
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
 #### Example

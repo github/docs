@@ -2,7 +2,6 @@
 title: リポジトリの暗号化されたシークレットと GitHub Codespaces の Organization を管理する
 shortTitle: Encrypted secrets
 intro: '暗号化されたシークレットを使用すると、機密情報を Organization、リポジトリ、または {% data variables.product.prodname_github_codespaces %} に保存できます。'
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -13,12 +12,12 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-ms.openlocfilehash: b57b094fe18a76cb1a7cae3f69858af31d5a4037
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 817ed72e76ddd13846dd9db78f992a1c5dcda101
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148008681'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158622'
 ---
 ## シークレットについて
 

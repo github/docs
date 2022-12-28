@@ -5,7 +5,6 @@ intro: 'You can use Okta as an identity provider (IdP) to centrally manage authe
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
-  feature: scim-for-ghes
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
@@ -27,6 +26,11 @@ You can use Okta as an Identity Provider (IdP) for {% data variables.product.pro
 
 To use Okta as your IdP for {% data variables.product.product_name %}, you can add the {% data variables.product.product_name %} app to Okta, configure Okta as your IdP in {% data variables.product.product_name %}, and provision access for your Okta users and groups.
 
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- "[Mapping Okta groups to teams](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
+
+After you enable SCIM, the following provisioning features are available for any users that you assign your {% data variables.product.product_name %} application to in Okta.
+
 {% data reusables.scim.ghes-beta-note %}
 
 The following provisioning features are available for all Okta users that you assign to your {% data variables.product.product_name %} application.
@@ -37,6 +41,8 @@ The following provisioning features are available for all Okta users that you as
 | Push User Deactivation | When you deactivate a user in Okta, it will suspend the user from your enterprise on {% data variables.product.product_name %}. |
 | Push Profile Updates | When you update a user's profile in Okta, it will update the metadata for the user's membership in your enterprise on {% data variables.product.product_name %}. |
 | Reactivate Users | When you reactivate a user in Okta, it will unsuspend the user in your enterprise on {% data variables.product.product_name %}. |
+
+For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
 
 ## Prerequisites
 

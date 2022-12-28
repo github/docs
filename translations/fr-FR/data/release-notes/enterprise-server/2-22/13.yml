@@ -1,0 +1,20 @@
+date: '13-05-2021'
+sections:
+  security_fixes:
+    - "**ÉLEVÉE :** Une vulnérabilité liée à une mauvaise représentation de l’interface utilisateur a été identifiée dans GitHub Enterprise Server. Elle permettait d’accorder plus d’autorisations pendant le flux web d’autorisation de l’utilisateur d’une application GitHub que ce qui était affiché à l’utilisateur pendant l’approbation. Pour exploiter cette vulnérabilité, un attaquant devait créer une application GitHub sur l’instance et faire en sorte qu’un utilisateur autorise l’application par le biais du flux d’authentification web. Toutes les autorisations accordées s’affichaient correctement pendant la première autorisation, mais dans certains cas, si l’utilisateur revisitait le flux d’autorisation après la configuration d’autres autorisations de niveau utilisateur par l’application GitHub, ces autorisations pouvaient ne pas s’afficher, entraînant l’octroi de plus d’autorisations que celles éventuellement envisagées par l’utilisateur. Cette vulnérabilité affectait GitHub Enterprise Server 3.0.x avant la version 3.0.7, et 2.22.x avant la version 2.22.13. Elle a été corrigée dans les versions 3.0.7 et 2.22.13. Cette vulnérabilité s’est vu affecter le numéro CVE-2021-22866 et a été signalée via le [programme GitHub Bug Bounty](https://bounty.github.com)."
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Le basculement automatique de l’orchestrateur pouvait être activé pendant la phase d’application de la configuration.
+    - Les utilisateurs disposant d’autorisations de maintenance sur un dépôt voyaient un avertissement de vérification par e-mail au lieu d’une build de page de réussite dans la page Paramètres de pages du dépôt.
+    - Le propriétaire de code d’une règle générique était incorrectement ajouté à la liste des propriétaires pour le badge des propriétaires de code même si une règle ultérieure devenait prioritaire pour ce chemin.
+    - La documentation OpenAPI faisait référence à un en-tête non valide.
+  changes:
+    - Ajout de la journalisation du changement de configuration lors du rechargement de HAProxy.
+    - Ajout de la journalisation de la création d’un dépôt.
+  known_issues:
+    - "Sur un serveur GitHub Enterprise fraîchement configuré et sans utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un objet blob situé dans le dépôt où le chemin de fichier est supérieur à 255 caractères.
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Lorsqu’un nœud de réplica est hors ligne dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut toujours acheminer les demandes de {% data variables.product.prodname_pages %} vers le nœud hors ligne, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs."

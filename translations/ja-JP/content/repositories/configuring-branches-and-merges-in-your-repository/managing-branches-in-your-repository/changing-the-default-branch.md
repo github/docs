@@ -1,7 +1,7 @@
 ---
 title: デフォルトブランチを変更する
 intro: リポジトリに複数のブランチがある場合、任意のブランチをデフォルトブランチとして設定できます。
-permissions: People with admin access for a repository can change the default branch for the repository.
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'

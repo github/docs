@@ -13,12 +13,12 @@ topics:
   - Enterprise
   - Identity
   - SSO
-ms.openlocfilehash: 9931a13150ff98d7ab113d37df9622b43367fa1b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 16b5bdd98e37db2eef6fe7e4e02da1a4ce8fd406
+ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107018'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148164369'
 ---
 ## Sobre a autenticação para sua empresa
 
@@ -26,7 +26,7 @@ ms.locfileid: '148107018'
 
 Proprietários do Enterprise no {% data variables.product.product_name %} podem controlar os requisitos de autenticação e acesso aos recursos da empresa. 
 
-Você pode optar por permitir que os membros criem e gerenciem contas de usuário ou a empresa pode criar e gerenciar as contas dos membros com {% data variables.product.prodname_emus %}. Se você permitir que os membros gerenciem suas próprias contas, também poderá configurar a autenticação SAML para aumentar a segurança e centralizar a identidade e o acesso para os aplicativos Web que sua equipe usa.
+{% data reusables.enterprise.ghec-authentication-options %}
 
 Depois de conhecer melhor essas opções, para determinar qual método é melhor para sua empresa, confira "[Como identificar o melhor método de autenticação para sua empresa](#identifying-the-best-authentication-method-for-your-enterprise)".
 

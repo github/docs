@@ -1,0 +1,31 @@
+date: '28.06.2022'
+sections:
+  security_fixes:
+    - "**MITTEL**: Verhindert einen Angriff, bei dem ein Abfragezeichenfolgenparameter `org` für eine GitHub Enterprise Server-URL angegeben werden kann, der dann den Zugriff auf die aktiven Committer einer anderen Organisation ermöglicht."
+    - "**MITTEL**: Stellt sicher, dass `github.company.com` und `github-company.com` von internen Diensten nicht als identische Hostnamen ausgewertet werden, um einen potenziellen SSRF-Angriff (Server-Side Request Forgery, serverseitige Anforderungsfälschung) zu verhindern."
+    - "**NIEDRIG**: Ein Angreifer konnte mit einem Path Traversal-Angriff über HTTP selbst dann auf die Verwaltungskonsole zugreifen, wenn externe Firewallregeln den HTTP-Zugriff blockierten."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - Dateien innerhalb eines Artefaktarchivs konnten nach der Dekomprimierung aufgrund restriktiver Berechtigungen nicht geöffnet werden.
+    - "Redis-Timeouts stoppen Datenbankmigrationen nicht mehr, während `ghe-config-apply` ausgeführt wird."
+    - "Die Prozessoren für Hintergrundaufträge blieben in einem teilweise heruntergefahrenen Zustand stecken, was dazu führte, dass bestimmte Arten von Hintergrundaufträgen (z. B. Codeüberprüfung) nicht mehr ausgeführt werden konnten."
+    - In einigen Fällen wurden Websiteadministratoren nicht automatisch als Unternehmensbesitzer hinzugefügt.
+    - Ein Renderingproblem konnte die Dropdownliste zum Filtern von Geheimnisüberprüfungswarnungen in einem Repository beeinträchtigen.
+  changes:
+    - Die Leistung von Dependabot-Versionsupdates nach der ersten Aktivierung wurde verbessert.
+    - Die Erstellungs- und Synchronisierungstimeouts von GitHub Pages sind jetzt in der Verwaltungskonsole konfigurierbar.
+    - "Beim Erstellen oder Aktualisieren von Prüfläufen oder Prüfsuiten konnte `500 Interner Serverfehler` zurückgegeben werden, wenn der Wert für bestimmte Felder, z. B. den Namen, zu lang war."
+    - "Beim [Bereitstellen von Cacheserverknoten](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache#configuring-a-repository-cache) ist die Beschreibung der Topologie des Rechenzentrums (mit dem Argument `--datacenter`) für jeden Knoten im System nun obligatorisch. Diese Anforderung verhindert Situationen, in denen das Beibehalten der Standardeinstellung für die Rechenzentrumszugehörigkeit dazu führt, dass Workloads in unangemessener Weise auf mehrere Rechenzentren verteilt werden."
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - |Nach der Registrierung eines selbstgehosteten Runners mit dem Parameter `--ephemeral` auf mehreren Ebenen (z. B. auf Unternehmens- und Organisationsebene) befindet sich der Runner möglicherweise im Leerlauf und muss erneut registriert werden.
+
+|
+    - "Nach dem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.4 kann es vorkommen, dass Releases in den Repositorys fehlen. Dieses Problem kann auftreten, wenn die erforderlichen Elasticsearch-Indexmigrationen nicht erfolgreich abgeschlossen wurden."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 6a0e8b7ba27060b4f48438b515786256d93d6d0c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 3e7dea02ec468109fbfa865f2d84224f8381cc39
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109844'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192805'
 ---
 Como alumno o miembro del profesorado en una institución educativa acreditada, puedes solicitar acceso al {% data variables.product.prodname_global_campus %}, que incluye acceso a las ventajas y los recursos de {% data variables.product.prodname_education %}. Para obtener más información, consulta «[Solicitar acceso al {% data variables.product.prodname_global_campus %} como profesor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)».
 
@@ -33,6 +33,8 @@ Antes de solicitar un descuento individual, compruebe si la comunidad de aprendi
   - Consultar los eventos de los alumnos mantenidos por {% data variables.product.prodname_education %} y los líderes de los alumnos.
   - Mantenerte al corriente de lo que interesa a la comunidad de alumnos con los episodios recientes de [Campus TV](https://www.twitch.tv/githubeducation). Campus TV está creado por {% data variables.product.prodname_dotcom %} y por los líderes de la comunidad de alumnos y se puede ver en vivo o a petición.
   - Solicite una bolsa de productos de {% data variables.product.prodname_dotcom %} con materiales educativos y productos para los alumnos.
+
+Hay disponible una suscripción gratuita de {% data variables.product.prodname_copilot %} para profesores verificados con {% data variables.product.prodname_education %}. Recibirás una notificación automática sobre la suscripción gratuita cuando visites la página de suscripción de {% data variables.product.prodname_copilot %} en la configuración de la cuenta. Para obtener más información sobre la suscripción a {% data variables.product.prodname_copilot %} y su uso, consulta "[Administración de la suscripción de {% data variables.product.prodname_copilot_for_individuals %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)" y "[Acerca de {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)".
 
 ## Información adicional
 

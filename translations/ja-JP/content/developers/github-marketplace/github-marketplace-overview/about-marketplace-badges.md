@@ -7,12 +7,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145089727'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186164'
 ---
 ## GitHub App
 
@@ -39,7 +39,7 @@ ms.locfileid: '145089727'
 
 ## GitHub Actions 
 
-{% octicon "verified" aria-label="The verified badge" %} (検証済み作者バッジ) の付いたActionsは、{% data variables.product.prodname_dotcom %}がそのActionsの作者をパートナーOrganizationとして検証済みであることを示します。
+{% octicon "verified" aria-label="The verified badge" %} (検証済み作者バッジ) の付いたアクションは、{% data variables.product.prodname_dotcom %} がそのアクションの作者をパートナー Organization として検証済みであることを示します。 パートナーは、検証済み作者バッジを要求する電子メール <a href="mailto:partnerships@github.com">partnerships@github.com</a> を送信できます。
 
 ![GitHub Actionsの検証済み作者バッジ](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 

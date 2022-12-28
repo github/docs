@@ -49,8 +49,8 @@ We support these files:
 * Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
 * Text files (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghec or ghes %}
-* Video (*.mp4*, *.mov*){% endif %}
+* ZIP (*.zip*, *.gz*, *.tgz*){% ifversion fpt or ghec or ghes %}
+* Video (*.mp4*, *.mov*, *.webm*){% endif %}
 
 {% ifversion fpt or ghec or ghes %}{% note %}
 

@@ -186,12 +186,12 @@ The old method of specifying images based on the theme, by using a fragment appe
 
 ## Lists
 
-You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd> or <kbd>*</kbd>.
+You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd>, <kbd>*</kbd>, or <kbd>+</kbd>.
 
 ```markdown
 - George Washington
-- John Adams
-- Thomas Jefferson
+* John Adams
++ Thomas Jefferson
 ```
 
 ![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)

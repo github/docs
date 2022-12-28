@@ -3,7 +3,6 @@ title: 'Setting up your repository for {% data variables.product.prodname_github
 shortTitle: Setting up your repository
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to get started with {% data variables.product.prodname_github_codespaces %}, including set up and configuration for specific languages.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +16,9 @@ children:
   - /setting-up-your-java-project-for-codespaces
   - /setting-up-your-python-project-for-codespaces
   - /setting-a-minimum-specification-for-codespace-machines
+  - /adding-features-to-a-devcontainer-file
   - /automatically-opening-files-in-the-codespaces-for-a-repository
   - /adding-a-codespaces-badge
+  - /setting-up-a-template-repository-for-github-codespaces
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Working with support for GitHub Codespaces
 intro: 'Tips on getting the best help from support for {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,16 +12,16 @@ redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
-Before support can help you with problems with codespaces, you need to know the name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
+Before support can help you with problems with codespaces, you need to know the permanent name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
 ## Codespace names
 
-Each codespace has a unique name that is a combination of your {% data variables.product.company_short %} handle, the repository name, and some random characters. The additional characters allow you to have codespaces for different branches in the same repository. For example: `octocat-myrepo-gmc7`.
+Each codespace has a unique name that is a combination of your {% data variables.product.company_short %} handle, two or three automatically generated words, and some random characters. For example: `octocat-literate-space-parakeet-mld5`. The two or three automatically generated words also form the initial display name of your codespace, in this case, `literate-space-parakeet`. You can change the display name for a codespace, but this will not affect the permanent name. For more information, see "[Renaming a codespace](/codespaces/customizing-your-codespace/renaming-a-codespace)."
 
 To find the name of a codespace:
 
-- Open the codespace in the browser. The subdomain of the URL is the name of the codespace. For example: `https://octocat-myrepo-gmc7.github.dev` is the URL for the `octocat-myrepo-gmc7` codespace.
-- If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the **Open in browser** option on https://github.com/codespaces. 
+- Open the codespace in the browser. The subdomain of the URL is the name of the codespace. For example: `https://octocat-literate-space-parakeet-mld5.github.dev` is the URL for the `octocat-literate-space-parakeet-mld5` codespace.
+- If you cannot open a codespace, you can access the name in {% data variables.product.product_name %} on https://github.com/codespaces. The name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces. 
   ![Codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
 
 The name the codespace is also included in many of the log files. For example, in the codespace logs as the value of `friendlyName`, in the {% data variables.product.prodname_github_codespaces %} extension log after `making GET request for`, and in the browser console log after `clientUrl`. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."

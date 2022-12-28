@@ -1,0 +1,32 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |**KRITISCH**: Der Elasticsearch-Container von GitHub Enterprise Server verwendete eine Version von OpenJDK 8, die bei der Verarbeitung bösartiger XSLT-Stylesheets für das Abschneiden von Ganzzahlen anfällig war. Das Sicherheitsrisiko wird als [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf) verfolgt.
+
+|
+    - |**HOCH**: Zuvor auf Benutzerkonten installierte Apps erhielten automatisch die Berechtigung zum Zugriff auf eine Organisation über bereichsbezogene Zugriffstoken, nachdem das Benutzerkonto in ein Organisationskonto umgewandelt wurde. Dieses Sicherheitsrisiko wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet.
+
+|
+  bugs:
+    - "In einigen Fällen konnten GitHub Enterprise Server-Instanzen auf AWS, die den Instanztyp `r4.4xlarge` verwendeten, nicht gebootet werden."
+    - In einigen Fällen konnten sich Benutzeroberflächenelemente auf der Registerkarte **Geänderte Dateien** eines Pull Requests überschneiden. 
+    - "Wenn für die Instanz ein benutzerdefinierter Inaktivitätsschwellenwert festgelegt wurde, wurde dieser Schwellenwert bei der Sperrung aller inaktiven Benutzer nicht zuverlässig eingehalten. Weitere Informationen über Inaktivität findest du unter [Inaktive Benutzer verwalten](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+    - "Bei der Berechnung der Committer für GitHub Advanced Security war es nicht möglich, einzelne Repositorys anzugeben. Weitere Informationen findest du unter [Websiteadministrator-Dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
+    - "In einigen Fällen konnte der nach dem Upgrade ausgeführte `es:upgrade`-Prozess von Elasticsearch vor dem Abschluss abstürzen."
+    - "Das Skript für die Migration zu internen Repositorys konnte die Sichtbarkeit für öffentliche Repositorys nicht in intern oder privat umwandeln. Weitere Informationen zur Migration findest du unter [Zu internen Repositorys migrieren](/admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories)."
+    - "Die Erkennung von GitHub Actions-Workflowdateien für das Abhängigkeitsdiagramm war in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 und 3.5.3 nicht verfügbar, ist aber jetzt in 3.5.4 verfügbar. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)."
+    - "Die Möglichkeit, geschlossene Dependabot-Warnungen erneut zu öffnen, war in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 und 3.5.3 nicht verfügbar, ist aber jetzt in 3.5.4 verfügbar. Weitere Informationen findest du unter [Anzeigen und Aktualisieren von Dependabot-Warnungen](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)."
+    - "Die Möglichkeit, Updates immer vom Basisbranch zum KOPFTEIL eines Pull Requests vorzuschlagen, war in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 und 3.5.3 nicht verfügbar, ist aber jetzt in 3.5.4 verfügbar. Weitere Informationen findest du unter [Verwalten von Vorschlägen zum Aktualisieren von Pull Request-Branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
+    - "Das helle, kontrastreiche Design war in GitHub Enterprise Server 3.5.0, 3.5.1, 3.5.2 und 3.5.3 nicht verfügbar, ist aber jetzt in 3.5.4 verfügbar. Weitere Informationen findest du unter [Verwalten von Designeinstellungen](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+  changes:
+    - '`pre_receive_hook.rejected_push`-Ereignisse wurden nicht im Überwachungsprotokoll des Unternehmens angezeigt.'
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - "Actions-Dienste müssen nach der Wiederherstellung einer Appliance aus einer Sicherung, die auf einem anderen Host erstellt wurde, neu gestartet werden."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

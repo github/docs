@@ -12,12 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 7ac423a27fe8b1c145efa3c135d88f08487f153a
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145135955'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132991'
 ---
 La [API de implementaciones][deploy API] proporciona a sus proyectos hospedados en {% data variables.product.product_name %} la capacidad de iniciarse en un servidor del que sea propietario. En combinación con la [API de estados][status API], podrá coordinar sus implementaciones en el momento en que el código llegue a la rama predeterminada.
 
@@ -30,7 +30,13 @@ En nuestro escenario, nosotros:
 
 Nuestro sistema de IC y nuestro servidor host serán imaginarios. Podrían ser Heroku, Amazon, o algo completamente diferente. El meollo de esta guía será configurar y ajustar el servidor que administra la comunicación.
 
-Si todavía no lo ha hecho, asegúrese de [descargar ngrok][ngrok] y aprenda a [usarlo][using ngrok]. Consideramos que es una herramienta muy útil para exponer las conexiones locales.
+Si todavía no lo has hecho, asegúrate de [descargar `ngrok`][ngrok] y aprende a [usarlo][using ngrok]. Consideramos que es una herramienta muy útil para exponer las aplicaciones locales a Internet.
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+**Nota:** Como alternativa, puedes usar el reenvío de webhooks para configurar el entorno local para recibir webhooks. Para obtener más información, consulta "[Recepción de webhooks con la CLI de GitHub](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)".
+
+{% endnote %} {% endif %}
 
 Nota: Puede descargar el código fuente completo de este proyecto [desde el repositorio platform-samples][platform samples].
 
@@ -51,12 +57,12 @@ end
 
 (Si no está familiarizado con el funcionamiento de Sinatra, le recomendamos [leer la guía de Sinatra][Sinatra]).
 
-Inicia este servidor. De manera predeterminada, Sinatra comienza en el puerto `4567`, por lo que también tendrá que configurar ngrok para que empiece a escuchar en este puerto.
+Inicia este servidor. De manera predeterminada, Sinatra comienza en el puerto `4567`, por lo que también tendrás que configurar `ngrok` para que empiece a escuchar en este puerto.
 
 Para que este servidor funcione, necesitaremos configurar un repositorio con un webhook.
 El webhook debe configurarse para que se active cada que se crea o fusiona una solicitud de extracción.
 Sigue adelante y crea un repositorio en el que quieras hacer tus experimentos. ¿Podríamos sugerir [el repositorio de cucharas y cuchillos de @octocat](https://github.com/octocat/Spoon-Knife)?
-Después de esto, creará un webhook en el repositorio, le suministrará la URL que le ha proporcionado ngrok y seleccionará `application/x-www-form-urlencoded` como el tipo de contenido:
+Después de esto, crearás un webhook en el repositorio, le suministrarás la dirección URL que te ha proporcionado `ngrok` y seleccionarás `application/x-www-form-urlencoded` como el tipo de contenido:
 
 ![Una URL de ngrok nueva](/assets/images/webhook_sample_url.png)
 

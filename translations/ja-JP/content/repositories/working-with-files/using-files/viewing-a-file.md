@@ -16,12 +16,12 @@ versions:
 topics:
   - Repositories
 shortTitle: View files and track file changes
-ms.openlocfilehash: bc27fc67cfd18eb20f8c612b81f4d6dd5da20913
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.openlocfilehash: 7d34e776cb1747ee749531e49abf6f0e3d052b3b
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146680990'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179864'
 ---
 ## 生ファイルの内容を表示またはコピーする
 
@@ -92,3 +92,7 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}
+
+## [変更履歴] ビューで `.git-blame-ignore-revs` をバイパスする
+
+ファイルの [変更履歴] ビューに **[Ignoring revisions in .git-blame-ignore-revs]\(.git-blame-ignore-revs でリビジョンを無視する\)** と表示されている場合でも、`.git-blame-ignore-revs` をバイパスして通常の [変更履歴] ビューを表示できます。 URL で `~` を SHA に追加すると、 **[Ignoring revisions in .git-blame-ignore-revs]\(.git-blame-ignore-revs でリビジョンを無視する\)** が消えます。

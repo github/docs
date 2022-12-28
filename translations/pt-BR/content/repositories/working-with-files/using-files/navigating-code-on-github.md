@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: becb68c2813f1e6914edb34b235ac59aba8ae00b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145126942'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164160'
 ---
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
@@ -38,6 +38,7 @@ A navegação no código usa a biblioteca de código aberto [`tree-sitter`](http
 | PHP        | ✅                           |                         |
 | Python     | ✅                           | ✅                      |
 | Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
 | TypeScript | ✅                           |                         |
 
 
@@ -72,6 +73,12 @@ Se você não vir os resultados que você espera de uma consulta precisa de cód
 ![Link de navegação de código baseado em pesquisa](/assets/images/help/repository/search-based-code-navigation-link.png)
 
 Se seus resultados precisos estiverem incorretos, você poderá enviar uma solicitação de suporte.
+
+## Navegação de código precisa entre repositórios
+
+A navegação de código entre repositórios está disponível para linguagens compatíveis com a navegação de código precisa e o grafo de dependência. Para obter mais informações, confira "[Sobre o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)". Com a navegação de código entre repositórios, é possível avançar para a definição de funções ou variáveis definidas nas dependências importadas pelo projeto, caso essas dependências sejam repositórios hospedados pelo {% data variables.product.prodname_dotcom %}. No momento, a navegação de código entre repositórios não dá suporte a solicitações de localização de todas as referências.
+
+![Captura de tela da navegação de código entre repositórios](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## Solução de problemas na navegação de código
 

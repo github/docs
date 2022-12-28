@@ -12,12 +12,12 @@ versions:
 topics:
   - Webhooks
 shortTitle: Configure server for webhooks
-ms.openlocfilehash: 78004211eb135d025272788c83b258f461dd17ab
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: c306cadf4dd8d9cd573d694419a51179c8995797
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145112373'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132983'
 ---
 Webhook でメッセージを配信する準備ができたので、受信ペイロードを処理する基本的な Sinatra サーバーをセットアップします。
 
@@ -29,7 +29,7 @@ Webhook でメッセージを配信する準備ができたので、受信ペイ
 
 ## サーバーの作成
 
-サーバーが `/payload` で `POST` 要求をリッスンするようにします。これは、GitHub にそこが Webhook の URL だと伝えたからです。 ここでは ngrok を使用してローカル環境を公開しているため、オンラインでどこかに実際のサーバーをセットアップする必要はなく、ローカルでコードを問題なくテストできます。
+サーバーが `/payload` で `POST` 要求をリッスンするようにします。これは、GitHub にそこが Webhook の URL だと伝えたからです。 ここでは `ngrok` を使ってローカル環境を公開しているため、オンラインのどこかに実際のサーバーをセットアップする必要はなく、ローカルでコードを問題なくテストすることができます。
 
 小さなSinatraのアプリケーションをセットアップして、この情報で何かをさせてみましょう。 初期のセットアップは以下のようになります。
 

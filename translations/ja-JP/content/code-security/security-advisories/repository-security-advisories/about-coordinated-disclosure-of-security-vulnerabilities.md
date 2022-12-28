@@ -2,23 +2,23 @@
 title: セキュリティ脆弱性の調整された開示について
 intro: 脆弱性の開示は、セキュリティの報告者とリポジトリメンテナの調整された取り組みです。
 redirect_from:
-  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-  - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+- /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
 type: overview
 topics:
-  - Security advisories
-  - Vulnerabilities
+- Security advisories
+- Vulnerabilities
 shortTitle: Coordinated disclosure
 ms.openlocfilehash: c451554e08b4193ca20f9af8a5e694750808bf19
 ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/27/2022
-ms.locfileid: '148114155'
+ms.locfileid: "148114155"
 ---
 ## 業界における脆弱性の開示について
 

@@ -1,5 +1,6 @@
 ---
 title: Acerca de los ejecutores hospedados en GitHub
+shortTitle: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} ofrece máquinas virtuales hospedadas para ejecutar flujos de trabajo. La máquina virtual contiene un entorno de herramientas, paquetes y configuraciones disponibles para que {% data variables.product.prodname_actions %} los utilice.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
@@ -14,13 +15,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: GitHub-hosted runners
-ms.openlocfilehash: c1cf922cbd025daa307462d6b81b62f58db420b0
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: f44c5bcf8c6cc9c48a2910d2a0d371087debd158
+ms.sourcegitcommit: 1668466c58f50415e8c4d3ad932d697f79fc87c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147763679'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180689'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -94,7 +94,7 @@ Mientras se ejecuta el trabajo, los registros y la salida se pueden ver en la in
 
 {% note %}
 
-**Nota**: {% data variables.product.prodname_dotcom %} también ofrece {% data variables.actions.hosted_runner %}, que están disponibles en configuraciones más grandes. Para obtener más información, consulta "[Uso de {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners)". 
+**Nota**: {% data variables.product.prodname_dotcom %} también ofrece {% data variables.actions.hosted_runner %}, que están disponibles en configuraciones más grandes. Para obtener más información, consulta "[Especificaciones de equipo de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)".  
 
 {% endnote %} {% endif %}
 
@@ -114,7 +114,8 @@ Las bitácoras de flujos de trabajo listan los ejecutores que se usan para ejecu
 
 ## Software compatible
 
-Las herramientas de software que se incluyen en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se actualizan semanalmente. El proceso de actualización toma varios días y la lista de software preinstalado en la rama `main` se actualiza después de que termine toda la implementación. 
+Las herramientas de software que se incluyen en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se actualizan semanalmente. El proceso de actualización toma varios días y la lista de software preinstalado en la rama `main` se actualiza después de que termine toda la implementación.
+
 ### Software preinstalado
 
 Las bitácoras de flujo de trabajo incluyen un enlace a las herramientas preinstaladas en el ejecutor exacto. Para encontrar esta información en el registro del flujo de trabajo, expanda la sección `Set up job`. En esa sección, expanda la sección `Runner Image`. El enlace que sigue a `Included Software` describirá las herramientas preinstaladas en el ejecutor que ha ejecutado el flujo de trabajo.

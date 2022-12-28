@@ -2,7 +2,6 @@
 title: Como definir sua região padrão para o GitHub Codespaces
 shortTitle: Set the default region
 intro: 'Você pode definir sua região padrão na página de configurações do perfil de {% data variables.product.prodname_github_codespaces %} para personalizar o local onde seus dados são mantidos.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,12 +11,12 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
-ms.openlocfilehash: bf658cadc1237ce0266f3b44f506446054fc3082
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 4450c284d9012060267c2207c2a774a342669caa
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111388'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159335'
 ---
 Você pode selecionar manualmente a região em que os seus codespaces serão criados, permitindo que você atenda aos requisitos rigorosos de segurança e conformidade. Por padrão, a sua região é definida automaticamente com base na sua localização.
 

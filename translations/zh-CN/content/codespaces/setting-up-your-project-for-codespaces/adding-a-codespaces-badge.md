@@ -10,13 +10,12 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c69a815501f5943a56d32af3e58cd7850a69588b
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108071'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158779'
 ---
 ## 概述
 
@@ -26,20 +25,14 @@ ms.locfileid: '148108071'
 
 创建锁屏提醒时，可以为锁屏提醒将创建的 codespace 选择特定配置选项。
 
-当人们单击锁屏提醒时，他们会进入用于创建 codespace 的高级选项页，其中包含你预先选择的选项。 有关高级选项页的详细信息，请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
+当人们单击锁屏提醒时，他们会进入用于创建 codespace 的高级选项页，其中包含你预先选择的选项。 有关高级选项页的详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。
 
 在高级选项页中，用户可以根据需要更改预先选择的设置，然后单击“创建 codespace”。
-
-{% note %}
-
-注意：请注意，如果尚无法访问 {% data variables.product.prodname_github_codespaces %} 的人员单击此锁屏提醒，则会看到 404 消息。
-
-{% endnote %}
 
 ## 创建“在 {% data variables.product.prodname_github_codespaces %} 中打开”锁屏提醒
 
 {% data reusables.repositories.navigate-to-repo %}
-1. 在存储库名称下，使用“分支”下拉菜单选择要为其创建锁屏提醒的分支。
+1. 在存储库名称下，使用“分支”下拉菜单选择要为其创建徽章的分支。
 
    ![“分支”下拉菜单的屏幕截图](/assets/images/help/codespaces/branch-drop-down.png)
 
@@ -47,9 +40,9 @@ ms.locfileid: '148108071'
 
    ![“新建 codespace”按钮的屏幕截图](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. 单击“在分支上创建 codespace”按钮一侧的向下箭头，单击“配置并创建 codespace”，然后单击“配置并创建 codespace”按钮  。
+1. 单击“Codespace”选项卡右上角的省略号 (…)，然后单击“新建选项”  。
 
-   ![“配置并创建 codespace”选项的屏幕截图](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![“配置并创建 codespace”选项的屏幕截图](/assets/images/help/codespaces/default-machine-type.png)
 
 1. 在用于创建 codespace 的高级选项页上，选择要在每个字段中预先选择的值。
 

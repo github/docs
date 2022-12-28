@@ -13,12 +13,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Enterprise Server trial
-ms.openlocfilehash: eba705715818c03cb7fd1316ede6507111728806
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9beee350488bdf27beb7107deda3c44f560d29e9
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146454234'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163550'
 ---
 ## Sobre as versões de avaliação do {% data variables.product.prodname_ghe_server %}
 
@@ -59,6 +59,8 @@ Siga estas etapas para aproveitar ao máximo a versão de avaliação:
     **Observação:** as pessoas que você convidar para se tornarem administradores da conta receberão um email com um link para aceitar seu convite.
 
     {% endnote %}
+
+{% data reusables.enterprise.best-practices %}    
 
 {% data reusables.products.product-roadmap %}
 

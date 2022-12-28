@@ -1,14 +1,22 @@
-We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
+---
+ms.openlocfilehash: 281a3a039c8a557c209e756d107ac1856a181017
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145091986"
+---
+Registramos y mostramos dos números de confirmantes para la {% data variables.product.prodname_GH_advanced_security %} en {% data variables.product.product_location %}:
 
-- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
-- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+- Los **confirmantes** son el número de confirmantes que han contribuido al menos a un {% ifversion fpt or ghec %}repositorio {% endif %}privado de una organización y que usan un puesto en la licencia empresarial. Es decir, también son un miembro de la organización, un colaborador externo, o tienen una invitación pendiente para unirse a una organización en tu empresa.
+- **Únicos para este repositorio/organización** es la cantidad de confirmantes que contribuyen únicamente a este repositorio o a los repositorios en esta organización. Esta cantidad muestra cuántas plazas de la licencia puedes liberar si inhabilitas la {% data variables.product.prodname_GH_advanced_security %} para este repositorio u organización.
 
-If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
+Si no hay confirmantes únicos, todos los confirmantes activos también contribuirán con otros repositorios u organizaciones que utilicen la {% data variables.product.prodname_GH_advanced_security %}. Inhabilitar la característica para este repositorio u organización no liberará plazas en tu licencia.
 
-When you remove a user from your enterprise account, the user's license is freed within 24 hours.
+Cuando eliminas a un usuario de tu cuenta empresarial, la licencia de usuario se libera en las siguientes 24 horas.
 
 {% note %}
 
-**Note:** Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one seat regardless of how many repositories or organizations the user contributes to.
+**Nota:** Los usuarios pueden contribuir a varios repositorios u organizaciones. El uso se mide a través de toda la cuenta empresarial para asegurarse de que cada miembro utilice una plaza sin importar en cuántos repositorios u organizaciones contribuye.
 
 {% endnote %}

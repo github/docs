@@ -17,12 +17,12 @@ topics:
   - Mobile
   - Desktop
   - Security
-ms.openlocfilehash: e8e78b3c2cf86369b53b063cdbcded6f7a048834
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: e2965befe319637296361e270646cd331478ae44
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389948'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160040'
 ---
 ## {% data variables.product.prodname_dotcom %} の製品について
 
@@ -40,15 +40,19 @@ ms.locfileid: '147389948'
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - 2 要素認証の強制
-- 2,000 {% data variables.product.prodname_actions %} 分
-- 500MBの{% data variables.product.prodname_registry %}ストレージ
+- 1 か月あたり 2,000 {% data variables.product.prodname_actions %} 分 
+- 500 MB {% data variables.product.prodname_registry %} ストレージ {% ifversion fpt or ghec%}
+- 1 か月あたり 120 {% data variables.product.prodname_github_codespaces %} コア時間
+- 1 か月あたり 15 GB {% data variables.product.prodname_github_codespaces %} ストレージ {% endif %}
 
 ## {% data variables.product.prodname_pro %}
 
 個人アカウント用の {% data variables.product.prodname_free_user %} で利用できる機能に加え、{% data variables.product.prodname_pro %} には以下が含まれます。
 - メールでの{% data variables.contact.github_support %}
-- 3,000 {% data variables.product.prodname_actions %} 分
-- 2GBの{% data variables.product.prodname_registry %}ストレージ
+- 1 か月あたり 3,000 {% data variables.product.prodname_actions %} 分 
+- 2 GB {% data variables.product.prodname_registry %} ストレージ {% ifversion fpt or ghec%}
+- 1 か月あたり 180 {% data variables.product.prodname_github_codespaces %} コア時間
+- 1 か月あたり 20 GB {% data variables.product.prodname_github_codespaces %} ストレージ{% endif %}
 - プライベートリポジトリでの高度なツールとインサイト：
   - 必須のプル リクエスト レビュー担当者
   - 複数のプル リクエスト レビュー担当者
@@ -67,15 +71,15 @@ Organizationの{% data variables.product.prodname_free_team %}では、完全な
 - {% data variables.product.prodname_gcf %}
 - Team ディスカッション
 - グループを管理するための Team アクセス コントロール
-- 2,000 {% data variables.product.prodname_actions %} 分
-- 500MBの{% data variables.product.prodname_registry %}ストレージ
+- 1 か月あたり 2,000 {% data variables.product.prodname_actions %} 分 
+- 500 MB {% data variables.product.prodname_registry %} ストレージ 
 
 ## {% data variables.product.prodname_team %}
 
 Organizationの{% data variables.product.prodname_free_team %}で利用できる機能に加えて、{% data variables.product.prodname_team %}には以下が含まれます。
 - メールでの{% data variables.contact.github_support %}
-- 3,000 {% data variables.product.prodname_actions %} 分
-- 2GBの{% data variables.product.prodname_registry %}ストレージ
+- 1 か月あたり 3,000 {% data variables.product.prodname_actions %} 分 
+- 2 GB {% data variables.product.prodname_registry %} ストレージ 
 - プライベートリポジトリでの高度なツールとインサイト：
   - 必須のプル リクエスト レビュー担当者
   - 複数のプル リクエスト レビュー担当者
@@ -109,8 +113,8 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 
 {% data variables.product.prodname_ghe_cloud %} には次も含まれます:
 - {% data variables.contact.enterprise_support %}。 詳細については、「<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} サポート</a>」および「<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 補遺</a>」を参照してください。
-- 50,000 {% data variables.product.prodname_actions %} 分
-- 50GBの{% data variables.product.prodname_registry %}ストレージ
+- 1 か月あたり 50,000 {% data variables.product.prodname_actions %} 分 
+- 50 GB {% data variables.product.prodname_registry %} ストレージ 
 - {% data variables.product.prodname_pages %} サイトのアクセス制御。 詳細については、「[{% data variables.product.prodname_pages %} サイトの可視性の変更](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」を参照してください。
 - 99.9% の月間稼働率のサービス レベル アグリーメント
 - {% data variables.product.prodname_emus %} 用にエンタープライズを構成するオプションを使用すると、ID プロバイダーでメンバーをプロビジョニングおよび管理し、メンバーの投稿を自分のエンタープライズのみに制限できます。 詳細については、「[{% data variables.product.prodname_emus %} について](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。

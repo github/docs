@@ -3,7 +3,6 @@ title: Managing access to other repositories within your codespace
 allowTitleToDifferFromFilename: true
 shortTitle: Repository access
 intro: 'You can manage the repositories that {% data variables.product.prodname_github_codespaces %} can access.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,7 +15,7 @@ redirect_from:
 
 ## Overview
 
-By default, your codespace is assigned a token scoped to the repository from which it was created. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)." If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file and ensure other collaborators have the right set of permissions.
+By default, your codespace is assigned a token scoped to the repository from which it was created. When you publish a codespace that you created from a template to a new repository on {% data variables.product.product_name %}, the codespace is assigned a token scoped to the new repository. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)." If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file and ensure other collaborators have the right set of permissions.
 
 When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
 
@@ -129,6 +128,6 @@ When you enable access and security for a repository owned by your personal acco
 
   ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 
-1. If you chose "Selected repositories", select the drop-down menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
+1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
 
-  !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+  !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
