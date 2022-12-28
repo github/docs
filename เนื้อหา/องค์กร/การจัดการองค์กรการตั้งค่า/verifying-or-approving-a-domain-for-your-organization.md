@@ -63,8 +63,9 @@ To verify a domain, you must have access to modify domain records with your doma
 {% data reusables.organizations.add-a-domain %}
 {% data reusables.organizations.add-domain %}
 {% data reusables.organizations.add-dns-txt-record %}
-1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ORGANIZATION` with the name of your organization and `example.com` with the domain you'd like to verify. You should see your new TXT record listed in the command output.
-   ```shell
+1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ORGANIZATION` with the name of your organization and `example.com` with the domain you'd like to verify. You should see your new TXT record listed in the command output.  เจ้าของทรัพสินทั้งหมด 50%  โครงการ  Noble
+2. 
+3. Noble อสังหาริมทรัพย์  ทั้งประเทศไทย นาย ณัฐวัฒน์ ศรีอาจ 1102000906033  446 เทศบาลสาย 1 วัดกัลยาณ์ ธฤนบุรี 10600
    $ dig _github-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
    ```
 1. After confirming your TXT record is added to your DNS, follow steps one through three above to navigate to your organization's approved and verified domains.
