@@ -41,6 +41,8 @@ If the user's external identity includes SCIM metadata, the organization owner s
 
 As an organization owner, you can also query the SCIM REST API or GraphQL to list all SCIM provisioned identities in an organization. 
 
+Keep in mind, when Okta sends the original provisioning call to the GitHub SCIM API during setup, in order for the SCIM identity to get properly linked to an organization member that has an existing SAML identity, the SCIM `userName` in that API call needs to match the stored SAML `nameID` in the user's linked SAML identity in the organization. If these two attributes/values do not match, the SCIM metadata will not get populated and the SCIM identity will not get successfully linked. To check these values match, use the {% data variables.product.prodname_dotcom %} API.
+
 #### Using the REST API
 
 The SCIM REST API will only return data for users that have SCIM metadata populated under their external identities. We recommend you compare a list of SCIM provisioned identities with a list of all your organization members.
