@@ -2,6 +2,6 @@
   "files.exclude": {
     "translations/**": true
   },
-  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreview": true,
   "workbench.editor.enablePreviewFromQuickOpen": false
 }
