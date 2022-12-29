@@ -29,6 +29,8 @@ If you suspect or notice that any users are not provisioned or deprovisioned as 
 
 To check whether users have a SCIM identity (SCIM metadata) in their external identity, you can review SCIM metadata for one organization member at a time on {% data variables.product.prodname_dotcom %} or you can programatically check all organization members using the {% data variables.product.prodname_dotcom %} API.
 
+Keep in mind, when Okta sends the original provisioning call to the GitHub SCIM API during setup, in order for the SCIM identity to get properly linked to an organization member that has an existing SAML identity, the SCIM `userName` in that API call needs to match the stored SAML `nameID` in the user's linked SAML identity in the organization. If these two attributes/values do not match, the SCIM metadata will not get populated and the SCIM identity will not get successfully linked. To check whether these values match, use the {% data variables.product.prodname_dotcom %} API.
+
 #### Auditing organization members on {% data variables.product.prodname_dotcom %}
 
 As an organization owner, to confirm that SCIM metadata exists for a single organization member, visit this URL, replacing `<organization>` and `<username>`: 
@@ -40,8 +42,6 @@ If the user's external identity includes SCIM metadata, the organization owner s
 #### Auditing organization members through the {% data variables.product.prodname_dotcom %} API
 
 As an organization owner, you can also query the SCIM REST API or GraphQL to list all SCIM provisioned identities in an organization. 
-
-Keep in mind, when Okta sends the original provisioning call to the GitHub SCIM API during setup, in order for the SCIM identity to get properly linked to an organization member that has an existing SAML identity, the SCIM `userName` in that API call needs to match the stored SAML `nameID` in the user's linked SAML identity in the organization. If these two attributes/values do not match, the SCIM metadata will not get populated and the SCIM identity will not get successfully linked. To check whether these values match, use the {% data variables.product.prodname_dotcom %} API.
 
 #### Using the REST API
 
