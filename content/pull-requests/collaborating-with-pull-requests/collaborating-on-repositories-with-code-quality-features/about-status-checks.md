@@ -68,7 +68,7 @@ Workflows that would otherwise be triggered using `on: push` or `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-Alternatively, to skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
+Alternatively, to skip or request _all_ checks for your commit, add one of the following trailer lines to the end of your commit message:
 
 - To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
