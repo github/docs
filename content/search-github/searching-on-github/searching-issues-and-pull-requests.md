@@ -102,6 +102,7 @@ The `author` qualifier finds issues and pull requests created by a certain user 
 | <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) matches issues and pull requests with the word "cool" that were created by @gjtorikian.
 | | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body.
 | <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) matches issues created by the integration account named "robot."
+| <code>-author:<em>USERNAME</em></code> | [**-author:app/robot**](https://github.com/search?q=-author%3Aapp%2Frobot&type=Issues) matches issues created by any user other than the account named "robot." The minus sign, or dash character (<code>-</code>) before the qualifier signifies a logical NOT for the qualifier in the search query.
 
 ## Search by assignee
 
