@@ -1,37 +1,21 @@
 ---
-title: Interactions
+title: Interaktionen
+intro: With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.
 redirect_from:
-  - /v3/interactions
+- /v3/interactions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1d7264b51b8d3cd5fdda4fdbb512e02ad0819a97
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141517065"
 ---
-
-Users interact with repositories by commenting, opening issues, and creating pull requests. The Interactions APIs allow people with owner or admin access to temporarily restrict certain users from interacting with public repositories.
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Organisation
-
-The Organization Interactions API allows organization owners to temporarily restrict which users can comment, open issues, or create pull requests in the organization's public repositories. {% data reusables.interactions.interactions-detail %} Here's more about the groups of {% data variables.product.product_name %} users:
-
-* {% data reusables.interactions.existing-user-limit-definition %} in the organization.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the organization.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the organization.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Repository
-
-The Repository Interactions API allows people with owner or admin access to temporarily restrict which users can comment, open issues, or create pull requests in a public repository. {% data reusables.interactions.interactions-detail %} Here's more about the groups of {% data variables.product.product_name %} users:
-
-* {% data reusables.interactions.existing-user-limit-definition %} in the repository.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the repository.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the repository.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'repos' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/interactions
+-->

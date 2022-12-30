@@ -1,42 +1,50 @@
 ---
-title: Introduction to GraphQL
-intro: Learn useful terminology and concepts for using the GitHub GraphQL API.
+title: GraphQL 소개
+intro: GitHub GraphQL API를 사용하기 위한 유용한 용어 및 개념을 알아봅니다.
 redirect_from:
   - /v4/guides/intro-to-graphql
   - /graphql/guides/intro-to-graphql
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 459a9334f5c58d6181756117e18072f762a6e5b5
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094563'
 ---
+## GraphQL 용어
 
-### GraphQL terminology
+GitHub GraphQL API는 GitHub REST API의 아키텍처 변화 및 개념적 변화를 나타냅니다. GraphQL API [참조 문서](/graphql)에서 몇 가지 새로운 용어가 눈에 띌 수 있습니다.
 
-The GitHub GraphQL API represents an architectural and conceptual shift from the GitHub REST API. You will likely encounter some new terminology in the GraphQL API [reference docs](/v4/).
+## 스키마
 
-### Schema
+스키마는 GraphQL API의 형식 시스템을 정의합니다. 스키마는 클라이언트가 액세스할 수 있는 가능한 데이터(개체, 필드, 관계, 모든 것)의 전체 집합을 설명합니다. 클라이언트의 호출은 스키마에 대해 [유효성이 검사](https://graphql.github.io/learn/validation/)되고 [실행](https://graphql.github.io/learn/execution/)됩니다. 클라이언트는 [내적 검사](#discovering-the-graphql-api)를 통해 스키마에 대한 정보를 찾을 수 있습니다. 스키마는 GraphQL API 서버에 상주합니다. 자세한 내용은 “[GraphQL API 검색](#discovering-the-graphql-api)”을 참조하세요.
 
-A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.github.io/learn/validation/) and [executed](https://graphql.github.io/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
+## 필드
 
-### Field
+필드는 개체로부터 검색할 수 있는 데이터 단위입니다. [공식 GraphQL 문서](https://graphql.github.io/learn/schema/)에 따르면 “GraphQL 쿼리 언어는 기본적으로 개체의 필드를 선택하는 것입니다.”
 
-A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.github.io/learn/schema/) say: "The GraphQL query language is basically about selecting fields on objects."
+[공식 사양](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields)은 필드에 대해서도 언급합니다.
 
-The [official spec](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) also says about fields:
+> 모든 GraphQL 작업은 명확한 형태의 응답을 보장하기 위해 스칼라 값을 반환하는 필드까지 선택 항목을 지정해야 합니다.
 
-> All GraphQL operations must specify their selections down to fields which return scalar values to ensure an unambiguously shaped response.
+즉, 스칼라가 아닌 필드를 반환하려고 하면 스키마 유효성 검사에서 오류가 발생합니다. 모든 필드가 스칼라를 반환할 때까지 중첩된 하위 필드를 추가해야 합니다.
 
-This means that if you try to return a field that is not a scalar, schema validation will throw an error. You must add nested subfields until all fields return scalars.
+## 인수
 
-### Argument
+인수는 특정 필드에 연결된 키-값 쌍의 집합입니다. 일부 필드에는 인수가 필요합니다. [변형](/graphql/guides/forming-calls-with-graphql#about-mutations)에는 인수로서 입력 개체가 필요합니다.
 
-An argument is a set of key-value pairs attached to a specific field. Some fields require an argument. [Mutations](/v4/guides/forming-calls#about-mutations) require an input object as an argument.
+## 구현
 
-### Implementation
+GraphQL 스키마는 _implements_ 라는 용어를 사용하여 개체가 [인터페이스](/graphql/reference/interfaces)에서 상속되는 방식을 정의할 수 있습니다.
 
-A GraphQL schema may use the term _implements_ to define how an object inherits from an [interface](/v4/interface).
-
-Here's a contrived example of a schema that defines interface `X` and object `Y`:
+인터페이스 `X`와 개체 `Y`를 정의하는 스키마의 인위적인 예제는 다음과 같습니다.
 
 ```
 interface X {
@@ -51,38 +59,54 @@ type Y implements X {
 }
 ```
 
-This means object `Y` requires the same fields/arguments/return types that interface `X` does, while adding new fields specific to object `Y`. (The `!` means the field is required.)
+즉, 개체 `Y`에는 인터페이스 `X`와 동일한 필드/인수/반환 형식이 필요하지만, 개체 `Y`에 특정한 새 필드가 추가됩니다. `!`는 필드가 필요하다는 의미입니다.
 
-In the reference docs, you'll find that:
+참조 문서에서 다음을 찾을 수 있습니다.
 
-* Each [object](/v4/object) lists the interface(s) _from which it inherits_ under **Implements**.
+* 각 [개체](/graphql/reference/objects)는 **Implements** 아래에 자신이 상속되는 인터페이스를 나열합니다.
 
-* Each [interface](/v4/interface) lists the objects _that inherit from it_ under **Implementations**.
+* 각 [인터페이스](/graphql/reference/interfaces)는 **Implementations** 아래에 자신으로부터 상속되는 개체를 나열합니다.
 
-### Connection
+## 연결
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/v4/guides/migrating-from-rest)."
+연결을 사용하면 동일한 호출의 일부로 관련 개체를 쿼리할 수 있습니다. 연결을 사용하면 REST API에 대한 여러 호출을 사용해야 하는 단일 GraphQL 호출을 사용할 수 있습니다. 자세한 내용은 “[REST에서 GraphQL로 마이그레이션](/graphql/guides/migrating-from-rest-to-graphql)”을 참조하세요.
 
-It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
+점을 선으로 연결한 그래프를 그리면 도움이 됩니다. 점은 노드이고 선은 에지입니다. 연결은 노드 간의 관계를 정의합니다.
 
-### Edge
+## Microsoft Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for [pagination](https://graphql.github.io/learn/pagination/).
+에지는 노드 간의 연결을 나타냅니다. 연결을 쿼리할 때 에지를 트래버스하여 해당 노드에 도달합니다. 모든 `edges` 필드에는 `node` 필드와 `cursor` 필드가 있습니다. 커서는 [페이지 매김](https://graphql.github.io/learn/pagination/)에 사용됩니다.
 
-### Node
+## 노드
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/v4/scalar), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/v4/guides/using-global-node-ids)."
+_노드_ 는 개체에 대한 일반 용어입니다. 노드를 직접 조회하거나 연결을 통해 관련 노드에 액세스할 수 있습니다. [스칼라](/graphql/reference/scalars)를 반환하지 않는 `node`를 지정하는 경우 모든 필드가 스칼라를 반환할 때까지 하위 필드를 포함해야 합니다. REST API를 통해 노드 ID에 액세스하고 GraphQL 쿼리에서 노드 ID를 사용하는 방법에 대한 자세한 내용은 “[전역 노드 ID 사용](/graphql/guides/using-global-node-ids)”을 참조하세요.
 
-## Discovering the GraphQL API
+## GraphQL API 검색
 
-GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This means you can query a GraphQL schema for details about itself.
+GraphQL은 [내적](https://graphql.github.io/learn/introspection/)(introspective)입니다. 즉, 자체에 대한 세부 정보에 대해 GraphQL 스키마를 쿼리할 수 있습니다.
 
-* Query `__schema` to list all types defined in the schema and get details about each:
+* 스키마에 정의된 모든 형식을 나열하고 각각에 대한 세부 정보를 가져오려면 `__schema`를 쿼리합니다.
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* 특정 형식에 대한 세부 정보를 가져오려면 `__type`을 쿼리합니다.
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -91,43 +115,33 @@ query {
       }
     }
   }
-}
   ```
 
-* Query `__type` to get details about any type:
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
-  ```
-
-* You can also run an _introspection query_ of the schema via a `GET` request:
+* `GET` 요청을 통해 스키마의 _내적 검사 쿼리_ 를 실행할 수도 있습니다.
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
+  $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
   ```
+  
+  {% note %}
 
-  The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
+  **참고**: `"message": "Bad credentials"` 또는 `401 Unauthorized` 응답을 받는 경우 유효한 토큰을 사용하고 있는지 확인하세요. GraphQL API는 {% 데이터 variables.product.pat_v1 %}을(를) 사용하는 인증만 지원합니다. 자세한 내용은 "[%}variables.product.pat_generic {% 데이터 만들기](/github/authenticating-to-github/creating-a-personal-access-token)"를 참조하세요. 
 
-  Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
+  {% endnote %}
+  
+  결과는 JSON이므로 쉽게 읽고 검색할 수 있도록 출력하는 것이 좋습니다. [jq](https://stedolan.github.io/jq/)와 같은 명령줄 도구를 사용하거나 이 목적을 위해 결과를 `python -m json.tool`에 파이프할 수 있습니다.
+  
+  또는 `idl` 미디어 형식을 전달하여 스키마의 압축된 버전인 IDL 형식으로 결과를 반환할 수 있습니다.
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
+  $ curl -H "Authorization: bearer TOKEN" -H "Accept: application/vnd.github.v4.idl" \
   {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}
 
-  **Note**: The introspection query is probably the only `GET` request you'll run in GraphQL. If you're passing a body, the GraphQL request method is `POST`, whether it's a query or a mutation.
+  **참고**: 내적 검사 쿼리는 아마도 GraphQL에서 실행할 유일한 `GET` 요청일 것입니다. 본문을 전달하는 경우 GraphQL 요청 메서드는 쿼리든 변형이든 상관없이 `POST`입니다.
 
   {% endnote %}
 
-  For more information about performing queries, see "[Forming calls with GraphQL](/v4/guides/forming-calls)."
+  쿼리 수행에 대한 자세한 내용은 “[GraphQL을 사용하여 호출 형성](/graphql/guides/forming-calls-with-graphql)”을 참조하세요.

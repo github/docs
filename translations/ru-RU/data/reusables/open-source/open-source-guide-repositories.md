@@ -1,1 +1,9 @@
-For more information on open source, specifically how to create and grow an open source project, we've created [Open Source Guides](https://opensource.guide/) that will help you foster a healthy open source community by recommending best practices for creating and maintaining repositories for your open source project.
+---
+ms.openlocfilehash: 14d64e443095fbdf3930058f683d89a27ddaeb63
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879226"
+---
+Дополнительные сведения о продуктах с открытым кодом, особенно о создании и развитии проекта с открытым кодом, мы создали [руководства по продуктам с открытым кодом](https://opensource.guide/), которые помогут создать работоспособный открытый код сообщества, формируя практические рекомендации по созданию и обслуживанию репозиториев для проекта с открытым кодом.

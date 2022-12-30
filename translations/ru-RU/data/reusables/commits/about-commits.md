@@ -1,7 +1,15 @@
-Similar to saving a file that's been edited, a commit records changes to one or more files in your branch. Git assigns each commit a unique ID, called a SHA or hash, that identifies:
+---
+ms.openlocfilehash: 289b700ed1759f3db4820143e9ab01f20f0c5938
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145138974"
+---
+Как и при сохранении измененного файла, фиксация записывает изменения в один или несколько файлов в ветви. Git назначает каждой фиксации уникальный идентификатор, называемый SHA или хэш-кодом, который определяет:
 
-- The specific changes
-- When the changes were made
-- Who created the changes
+- конкретные изменения;
+- время внесения этих изменений;
+- автора этих изменений.
 
-When you make a commit, you must include a commit message that briefly describes the changes.
+При выполнении фиксации необходимо включить сообщение фиксации, кратко описывающее изменения.

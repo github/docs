@@ -1,3 +1,14 @@
-You can fork any public repository to your user account or any organization where you have repository creation permissions. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+---
+ms.openlocfilehash: 62cc59d41cc165e0767c5ef9a79b2ff9145d4e67
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098254"
+---
+{% ifversion ghae %} Если политики для вашего предприятия разрешают создавать вилки во внутренних и частных репозиториях, вы можете создать в любом репозитории вилку к своей личной учетной записи или к любой организации, где у вас есть разрешения на создание репозиториев. Дополнительные сведения см. в статье "[Роли в организации](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-You can fork any private repository you can access to your user account and any organization on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[GitHub's products](/articles/githubs-products)."{% endif %}
+{% elsif ghes или ghec %} Вы можете разветвить частный или внутренний репозиторий для личной учетной записи или организации на {% данных variables.location.product_location %}, где у вас есть разрешения на создание репозитория, если параметры репозитория и корпоративные политики разрешают разветвления.
+
+{% elsif fpt %} Если у вас есть доступ к частному репозиторию и владелец разрешает создавать вилки, вы можете создать в таком репозитории вилку к своей личной учетной записи или к любой организации в {% data variables.product.prodname_team %}, где у вас есть разрешения на создание репозиториев. Создать вилку из частного репозитория к организации с помощью {% data variables.product.prodname_free_team %} невозможно. Дополнительные сведения см. в разделе [Продукты GitHub](/articles/githubs-products).
+{% endif %}

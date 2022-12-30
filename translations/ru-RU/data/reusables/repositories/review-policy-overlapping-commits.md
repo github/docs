@@ -1,1 +1,9 @@
-After all required reviewers have approved a pull request, you won't be able to merge it if there are other open pull requests with pending or rejected reviews and those pull requests have a head branch pointing to the same commit. Someone with *write* or *admin* permissions will need to approve or dismiss the blocking review on the other pull requests before you can merge.
+---
+ms.openlocfilehash: b4b90e1487e5bf3e7b22d4b102d2a99ba16f0e3d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145092590"
+---
+Даже если все обязательные проверяющие одобрили запрос на вытягивание, участники совместной работы не могут выполнить слияние для запроса на вытягивание, если есть другие открытые запросы на вытягивание, имеющие главную ветвь, указывающую на ту же фиксацию с ожидающими или отклоненными проверками. Кто-то с разрешениями на запись сначала должен утвердить или закрыть блокировку проверки на другие запросы на вытягивание.

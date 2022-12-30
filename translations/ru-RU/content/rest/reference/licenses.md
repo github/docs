@@ -1,34 +1,23 @@
 ---
-title: Licenses
+title: Лицензии
+intro: The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file.
 redirect_from:
-  - /v3/licenses
+- /v3/licenses
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: c3cfee41eab4cc430d954baf1de70f0acfba98db
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141531982"
 ---
-
-The Licenses API returns metadata about popular open source licenses and information about a particular project's license file.
-
-The Licenses API uses [the open source Ruby Gem Licensee](https://github.com/benbalter/licensee) to attempt to identify the project's license. Licensee matches the contents of a project's `LICENSE` file (if it exists) against a short list of known licenses. As a result, the API does not take into account the licenses of project dependencies or other means of documenting a project's license such as references to the license name in the documentation.
-
-If a license is matched, the license key and name returned conforms to the [SPDX specification](https://spdx.org/).
-
-**Note:** These endpoints will also return a repository's license information:
-
-- [Get a repository](/v3/repos/#get-a-repository)
-- [List repositories for a user](/v3/repos/#list-repositories-for-a-user)
-- [List organization repositories](/v3/repos/#list-organization-repositories)
-- [List forks](/rest/reference/repos#list-forks)
-- [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [List team repositories](/v3/teams/#list-team-repositories)
-
-{% warning %}
-
-GitHub is a lot of things, but it’s not a law firm. As such, GitHub does not provide legal advice. Using the Licenses API or sending us an email about it does not constitute legal advice nor does it create an attorney-client relationship. If you have any questions about what you can and can't do with a particular license, you should consult with your own legal counsel before moving forward. In fact, you should always consult with your own lawyer before making any decisions that might have legal ramifications or that may impact your legal rights.
-
-GitHub created the License API to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers (at least not most of us aren't) and that we make mistakes like everyone else. For that reason, GitHub provides the API on an “as-is” basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
-
-{% endwarning %}
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/licenses
+-->

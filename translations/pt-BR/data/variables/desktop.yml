@@ -1,4 +1,5 @@
----
-#Supported platforms
-mac-osx-versions: macOS 10.10 ou mais recente
+# Supported platforms
+
+mac-osx-versions: MacOS 10.12 ou posterior
+
 windows-versions: Windows 7 64-bit ou versão posterior

@@ -1,11 +1,19 @@
-You can define relative links and image paths in your rendered files to help readers navigate to other files in your repository.
+---
+ms.openlocfilehash: 20b17f568debf8a418827882dd6d1cc9815445a0
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146171864"
+---
+Вы можете определить относительные ссылки и пути к изображениям в отображаемых файлах, чтобы читателям было проще переходить к другим файлам в репозитории.
 
-A relative link is a link that is relative to the current file. For example, if you have a  README file in root of your repository, and you have another file in _docs/CONTRIBUTING.md_, the relative link to _CONTRIBUTING.md_ in your README might look like this:
+Относительная ссылка — это ссылка, заданная относительно текущего файла. Например, если есть файл сведений в корне репозитория и еще один файл в _docs/CONTRIBUTING.md_, относительная ссылка на _CONTRIBUTING.md_ в файле сведений может выглядеть следующим образом:
 
 ```
 [Contribution guidelines for this project](docs/CONTRIBUTING.md)
 ```
 
-{% data variables.product.product_name %} will automatically transform your relative link or image path based on whatever branch you're currently on, so that the link or path always works. You can use all relative link operands, such as `./` and `../`.
+{% data variables.product.product_name %} автоматически преобразует относительную ссылку или путь к изображению с учетом текущей ветви, чтобы ссылка или путь всегда работали. Путь ссылки будет относительным к текущему файлу. Ссылки, начинающиеся с `/`, будут относительными к корневому каталогу репозитория. Можно использовать любые операнды относительных ссылок, например `./` и `../`.
 
-Relative links are easier for users who clone your repository. Absolute links may not work in clones of your repository - we recommend using relative links to refer to other files within your repository.
+Относительные ссылки удобнее для пользователей, которые клонируют репозиторий. Абсолютные ссылки могут не работать в клонах репозитория. Мы рекомендуем использовать относительные ссылки на другие файлы в репозитории.

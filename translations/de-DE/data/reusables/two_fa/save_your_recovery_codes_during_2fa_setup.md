@@ -1,5 +1,11 @@
-6. Speichere Deine Wiederherstellungscodes an einem sicheren Ort. Mit Deinen Wiederherstellungscodes kannst Du wieder auf Dein Konto zugreifen, wenn Du den Zugriff darauf verlierst.
-    - Um Ihre Wiederherstellungscodes auf Ihrem Gerät zu speichern, klicken Sie auf **Download** (Herunterladen).
-    - Um eine physische Kopie Ihrer Wiederherstellungscodes aufzubewahren, klicken Sie auf **Print** (Drucken).
-    - Um Ihre Wiederherstellungscodes zur Speicherung in einem Passwort-Manager zu kopieren, klicken Sie auf **Copy** (Kopieren). ![Liste der Wiederherstellungscodes mit Option zum Herunterladen, Drucken oder Kopieren der Codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
-7. Klicke nach dem Speichern Deiner Zwei-Faktor-Wiederherstellungscodes auf **Next** (Weiter).
+---
+ms.openlocfilehash: 6291fe3deac6f4b03b60b9b23ee03b168a4a3820
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145130569"
+---
+8. Klicke unter „Wiederherstellungscodes speichern“ auf **Herunterladen**, um deine Wiederherstellungscodes auf dein Gerät herunterzuladen. Deine Wiederherstellungscodes können dir dabei helfen, den Zugriff auf dein Konto wiederzuerlangen, falls du nicht mehr darauf zugreifen kannst. Speichere sie daher an einem sicheren Ort. 
+  ![Liste der herunterzuladenden Wiederherstellungscodes](/assets/images/help/2fa/2fa_wizard_download_recovery_codes.png)
+9. Klicke nach dem Speichern deiner Wiederherstellungscodes für die zweistufige Authentifizierung auf **Ich habe meine Wiederherstellungscodes gespeichert.** , um die zweistufige Authentifizierung für dein Konto zu aktivieren.

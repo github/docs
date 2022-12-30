@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 2d53a518c3fe06a8dfc5731ead3d77e0671a6092
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147428410"
+---
 {% tip %}
 
-**注**：如果网站{% if currentVersion ver_lt "enterprise-server@2.23" %} 的源文件位于默认发布源 - `master`（对于用户和组织站点）或 `gh-pages`（对于项目站点）- 但您的站点{% endif %} 未自动发布，请确保有一个拥有管理权限和经验证的电子邮件地址的人已推送到默认发布源。
+**注意**：{% ifversion pages-custom-workflow %}如果从分支进行发布且{% else %}If{% endif %}站点尚未自动发布，请确保具有管理员权限和经验证的电子邮件地址的人员已将站点推送到发布源。
 
 {% endtip %}

@@ -1,55 +1,57 @@
-- [Minimum requirements](#minimum-requirements)
-- [Storage](#storage)
-- [CPU and memory](#cpu-and-memory)
+---
+ms.openlocfilehash: a692ea55fd8c3d849c3058d9bab155341b701ef3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148097891"
+---
+- [Минимальные требования](#minimum-requirements)
+- [Память](#storage)
+- [ЦП и память](#cpu-and-memory)
 
-#### Minimum requirements
+### Минимальные требования
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+Рекомендуется использовать разные конфигурации оборудования в зависимости от количества пользовательских лицензий для {% данных variables.location.product_location %}. Если подготовить больше ресурсов, чем минимальные требования, экземпляр будет работать и масштабировать лучше.
 
-{% data reusables.enterprise_installation.hardware-rec-table %} For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
-{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% data reusables.actions.more-resources-for-ghes %}
 
-If you enable the beta for {% data variables.product.prodname_actions %} on your instance, we recommend planning for additional capacity.
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
-- You must configure at least one runner for {% data variables.product.prodname_actions %} workflows. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-- You must configure external blob storage. For more information, see "[Enabling {% data variables.product.prodname_actions %} and configuring storage](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)."
+### Память
 
-The additional CPU and memory resources you need to provision for your instance depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
+Рекомендуется использовать высокопроизводительный SSD с высокой скоростью операций ввода-вывода в секунду (IOPS) и низкой задержкой для {% data variables.product.prodname_ghe_server %}. Рабочие нагрузки интенсивно используют ввод-вывод. Если используется гипервизор без операционной системы, рекомендуется напрямую подключить диск или использовать диск из сети хранения данных (SAN).
 
-| Maximum jobs per minute | vCPUs |  Memory |
-|:----------------------- | -----:| -------:|
-| Light testing           |     4 | 30.5 GB |
-| 25                      |     8 |   61 GB |
-| 35                      |    16 |  122 GB |
-| 100                     |    32 |  244 GB |
+Для экземпляра требуется постоянный диск данных, отделенный от корневого диска. Подробнее см. в статье [Обзор системы](/enterprise/admin/guides/installation/system-overview).
 
-{% endif %}
+{% ifversion ghes %}
 
-#### Storage
-
-We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
-
-Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
-
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-
-If you enable the beta of {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 2.22, you'll need to configure external blob storage. For more information, see "[Enabling {% data variables.product.prodname_actions %} and configuring storage](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)."
+Чтобы настроить {% data variables.product.prodname_actions %}, необходимо предоставить внешнее хранилище BLOB-объектов. Дополнительные сведения см. в разделе [Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements).
 
 {% endif %}
 
-You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
+Доступное пространство в корневой файловой системе будет составлять 50 % от общего размера диска. Можно изменить размер корневого диска экземпляра, создав новый экземпляр или используя существующий. Дополнительные сведения см. в разделе [Обзор системы](/enterprise/admin/guides/installation/system-overview#storage-architecture) и [Увеличение емкости хранилища](/enterprise/admin/guides/installation/increasing-storage-capacity).
 
-#### CPU and memory
+### ЦП и память
 
-{% data variables.product.prodname_ghe_server %} requires more CPU and memory resources depending on levels of activity for users, automations, and integrations.
+Ресурсы ЦП и памяти, необходимые {% data variables.product.prodname_ghe_server %}, зависят от уровней действий пользователей, автоматизации и интеграции.
+
+{% ifversion ghes %}
+
+Если планируется включить {% data variables.product.prodname_actions %} для пользователей экземпляра {% data variables.product.prodname_ghe_server %}, может потребоваться подготовка дополнительных ресурсов ЦП и памяти для экземпляра. Дополнительные сведения см. в разделе [Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations).
+
+{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
 {% warning %}
 
-**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
+**Предупреждение.** Пользователям рекомендуется настраивать события веб-перехватчика для уведомления внешних систем о действиях на {% data variables.product.prodname_ghe_server %}. Автоматические проверки изменений или _опрос_ будут негативно влиять на производительность и масштабируемость экземпляра. Дополнительные сведения см. в статье [Сведения о веб-перехватчиках](/github/extending-github/about-webhooks).
 
 {% endwarning %}
 
-You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources).
+Дополнительные сведения о мониторинге емкости и производительности {% data variables.product.prodname_ghe_server %} см. в разделе [Мониторинг устройства](/admin/enterprise-management/monitoring-your-appliance).
+
+Ресурсы ЦП или памяти экземпляра можно увеличить. Дополнительные сведения см. в разделе [Увеличение объема ресурсов ЦП или памяти](/enterprise/admin/installation/increasing-cpu-or-memory-resources).

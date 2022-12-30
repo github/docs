@@ -1,33 +1,23 @@
 ---
-title: Projects
+title: Проекты
+intro: The Projects API lets you create, list, update, delete and customize projects in a repository.
 redirect_from:
-  - /v3/projects
+- /v3/projects
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: aa003f034ac52e08e51ae644ccc14f149f14d7d7
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141523142"
 ---
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Cards
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'cards' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Collaborators
-
-This API allows you to interact with an organization's projects.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Columns
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'columns' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/projects
+-->

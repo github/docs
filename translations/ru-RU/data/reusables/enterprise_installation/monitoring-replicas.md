@@ -1,8 +1,16 @@
-You can monitor the availability of {% data variables.product.prodname_ghe_server %} by checking the status code that is returned for the `https://HOSTNAME/status` URL. An appliance that can service user traffic will return status code `200` (OK). An appliance may return a `503` (Service Unavailable) for a few reasons:
- - The appliance is a passive replica, such as the replica in a two-node high availability configuration.
- - The appliance is in maintenance mode.
- - The appliance is part of a geo-replication configuration, but is an inactive replica.
+---
+ms.openlocfilehash: e3bbac236dce195487aada32132e9b78e27500ea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145111547"
+---
+Вы можете отслеживать доступность {% data variables.product.prodname_ghe_server %}, проверяя код статуса, возвращаемый для URL-адреса `https://HOSTNAME/status`. Устройство, которое может обслуживать трафик пользователя, возвращает код статуса `200` (ОК). Устройство может возвращать `503` (Служба недоступна) по нескольким причинам:
+ - Устройство является пассивной репликой, например репликой в конфигурации высокой доступности с двумя узлами.
+ - Устройство переведено в режим обслуживания.
+ - Устройство является частью конфигурации георепликации, но является неактивной репликой.
 
-You can also use the Replication overview dashboard available at:
+Вы также можете использовать панель мониторинга "Обзор репликации", доступную по адресу:
 
 `https://HOSTNAME/setup/replication`

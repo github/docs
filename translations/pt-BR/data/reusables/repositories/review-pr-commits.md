@@ -1,1 +1,10 @@
-1. No pull request, clique em {% octicon "git-commit" aria-label="The commit icon" %} **Commits**. ![Aba de Commits em um pull request](/assets/images/help/pull_requests/pull-request-tabs-commits.png)
+---
+ms.openlocfilehash: cf852ef4c15862ee59e03dbe72c662b96feebeab
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145095325"
+---
+1. Na solicitação de pull, clique em {% octicon "git-commit" aria-label="The commit icon" %} **Commits**.
+![Guia Commits em uma solicitação de pull](/assets/images/help/pull_requests/pull-request-tabs-commits.png)

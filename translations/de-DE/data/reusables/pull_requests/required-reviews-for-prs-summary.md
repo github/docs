@@ -1,3 +1,9 @@
-Repository-Administratoren können verlangen, dass alle Pull Requests eine bestimmte Anzahl von genehmigenden Reviews von Personen mit *write* oder *admin* Berechtigungen im Repository oder von einem benannten Codeinhaber erhalten, bevor sie in einen geschützten Branch zusammengeführt werden. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/articles/about-protected-branches).“
-
-Wenn erforderliche Reviews aktiviert sind, kann jeder mit Zugriff auf das Repository Änderungen in einem Pull Request genehmigen. Du kannst Deinen Pull Request jedoch nicht zusammenführen, bevor die erforderliche Anzahl von Bearbeitern mit *write-* oder *admin* Berechtigungen im Repository die Änderungen Deines Pull Request in ihrer Reviews genehmigt hat. Weitere Informationen zu Repository-Berechtigungsebenen findest Du unter „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization/)“. Wenn ein Review durch einen designierten Codeinhaber erforderlich ist und sich der Pull Request auf Code auswirkt, der einen designierten Inhaber aufweist, ist eine Genehmigung dieses Inhabers erforderlich.
+---
+ms.openlocfilehash: 0a4745a59266ba23a3ccc0ea892356a6cb503f17
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878971"
+---
+Repositoryadministratoren können erfordern, dass alle Pull Requests eine bestimmte Anzahl von Bewertungen erhalten, bevor jemand den Pull Request in einen geschützten Branch zusammenführt. Du kannst die Genehmigung von Bewertungen von Personen mit Schreibberechtigungen im Repository oder von einem bestimmten Codebesitzer anfordern.

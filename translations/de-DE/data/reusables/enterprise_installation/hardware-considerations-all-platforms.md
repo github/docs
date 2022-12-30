@@ -1,55 +1,57 @@
-- [Minimum requirements](#minimum-requirements)
-- [Speicher](#storage)
-- [CPU and memory](#cpu-and-memory)
+---
+ms.openlocfilehash: 7de065c9dec15e3b92cabf5d3fa711c7d88249ba
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882787"
+---
+- [Mindestanforderungen](#minimum-requirements)
+- [Storage](#storage)
+- [CPU und Arbeitsspeicher](#cpu-and-memory)
 
-#### Minimum requirements
+### Mindestanforderungen
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+Wir empfehlen verschiedene Hardwarekonfigurationen basierend auf der Anzahl der Benutzerlizenzen für {% data variables.product.product_location %}. Wenn du mehr Ressourcen als die Mindestanforderungen bereitstellst, werden dadurch die Leistung und die Skalierung deiner Instanz verbessert.
 
-{% data reusables.enterprise_installation.hardware-rec-table %} For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
-{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% data reusables.actions.more-resources-for-ghes %}
 
-If you enable the beta for {% data variables.product.prodname_actions %} on your instance, we recommend planning for additional capacity.
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
-- You must configure at least one runner for {% data variables.product.prodname_actions %} workflows. Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners)“.
-- You must configure external blob storage. For more information, see "[Enabling {% data variables.product.prodname_actions %} and configuring storage](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)."
+### Storage
 
-The additional CPU and memory resources you need to provision for your instance depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
+Wir empfehlen ein Hochleistungs-SSD mit hoher Eingabe-/Ausgaberate pro Sekunde (IOPS) und niedriger Latenz für {% data variables.product.prodname_ghe_server %}. Workloads sind E/A-intensiv. Wenn du einen Bare-Metal-Hypervisor verwendest, empfehlen wir, den Datenträger direkt anzufügen oder einen Datenträger aus einem Storage Area Network (SAN) zu verwenden.
 
-| Maximum jobs per minute | vCPUs | Arbeitsspeicher |
-|:----------------------- | -----:| ---------------:|
-| Light testing           |     4 |         30.5 GB |
-| 25                      |     8 |           61 GB |
-| 35                      |    16 |          122 GB |
-| 100                     |    32 |          244 GB |
+Deine Instanz erfordert einen beständigen Datenträger, der vom Stammdatenträger getrennt ist. Weitere Informationen findest du unter [Systemübersicht](/enterprise/admin/guides/installation/system-overview).
 
-{% endif %}
+{% ifversion ghes %}
 
-#### Speicher
-
-We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
-
-Your instance requires a persistent data disk separate from the root disk. Weitere Informationen findest Du unter „[Systemübersicht](/enterprise/admin/guides/installation/system-overview)“.
-
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-
-If you enable the beta of {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 2.22, you'll need to configure external blob storage. For more information, see "[Enabling {% data variables.product.prodname_actions %} and configuring storage](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)."
+Zum Konfigurieren von {% data variables.product.prodname_actions %} musst du externen Blobspeicher bereitstellen. Weitere Informationen findest du unter [Erste Schritte mit {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements).
 
 {% endif %}
 
-You can resize your instance's root disk by building a new instance or using an existing instance. Weitere Informationen findest Du unter „[Speicherkapazität erhöhen](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)“.
+Der verfügbare Speicherplatz im Stammdateisystem beträgt 50 % der Gesamtdatenträgergröße. Du kannst die Größe des Stammdatenträgers deiner Instanz ändern, indem du eine neue Instanz erstellst oder eine vorhandene Instanz verwendest. Weitere Informationen findest du unter [Systemübersicht](/enterprise/admin/guides/installation/system-overview#storage-architecture) und unter [Erhöhen der Speicherplatzkapazität](/enterprise/admin/guides/installation/increasing-storage-capacity).
 
-#### CPU and memory
+### CPU und Arbeitsspeicher
 
-{% data variables.product.prodname_ghe_server %} requires more CPU and memory resources depending on levels of activity for users, automations, and integrations.
+Die für {% data variables.product.prodname_ghe_server %} erforderlichen CPU- und Arbeitsspeicherressourcen hängen vom Aktivitätsgrad für Benutzer, Automatisierungen und Integrationen ab.
+
+{% ifversion ghes %}
+
+Wenn du beabsichtigst, {% data variables.product.prodname_actions %} für die Benutzer deiner {% data variables.product.prodname_ghe_server %}-Instanz zu aktivieren, musst du möglicherweise zusätzliche CPU- und Arbeitsspeicherressourcen für deine Instanz bereitstellen. Weitere Informationen findest du unter [Erste Schritte mit {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations).
+
+{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
 {% warning %}
 
-**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
+**Warnung**: Benutzern wird empfohlen, Webhookereignisse zu konfigurieren, um externe Systeme über Aktivität auf {% data variables.product.prodname_ghe_server %} zu benachrichtigen. Automatisierte Überprüfungen auf Änderungen, oder auch _Abrufe_, wirken sich negativ auf die Leistung und Skalierbarkeit deiner Instanz aus. Weitere Informationen findest du unter [Informationen zu Webhooks](/github/extending-github/about-webhooks).
 
 {% endwarning %}
 
-You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources).
+Weitere Informationen zur Überwachung der Kapazität und Leistung von {% data variables.product.prodname_ghe_server %} findest du unter [Überwachen deiner Appliance](/admin/enterprise-management/monitoring-your-appliance).
+
+Du kannst die CPU- oder Arbeitsspeicherressourcen deiner Instanz erhöhen. Weitere Informationen findest du unter [Erhöhen von CPU- oder Arbeitsspeicherressourcen](/enterprise/admin/installation/increasing-cpu-or-memory-resources).

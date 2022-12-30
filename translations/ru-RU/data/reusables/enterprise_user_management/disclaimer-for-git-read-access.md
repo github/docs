@@ -1,5 +1,17 @@
+---
+ms.openlocfilehash: 008ff08690d94ea9fc8841af53c15fb4717ffff6
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148097870"
+---
 {% warning %}
 
-**Note:** If you enable anonymous Git read access, you're responsible for all access and use of this feature. {% data variables.product.company_short %} will not be responsible for any unintended access or misuse of the feature. Also, you may not use this feature to violate your license from {% data variables.product.company_short %}, including the limit on the number of user licenses you've ordered from us.
+**Предупреждения.**
+
+- Протокол Git не прошел проверку подлинности и не зашифрован. Злоумышленник может перехватывать данные репозитория, передаваемые посредством подключений с помощью этого протокола.
+- Если вы включите анонимный доступ для чтения Git, то будете ответственны за весь доступ и использование этой функции. {% data variables.product.company_short %} не несет ответственности за какой-либо незапланированный доступ, риски для безопасности или неправильное использование функции.
+- Вы не можете использовать эту функцию для нарушения лицензии на {% данных variables.product.company_short %}, включая ограничение на количество пользовательских лицензий для {% данных variables.location.product_location %}.
 
 {% endwarning %}

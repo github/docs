@@ -1,1 +1,9 @@
-1. If you're upgrading from {% data variables.product.prodname_free_team %}, click **Upgrade options**. If you're upgrading from {% data variables.product.prodname_team %}, use the **Edit** drop-down and click **Upgrade**. ![Upgrade options button](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)
+---
+ms.openlocfilehash: 716f4b4dbe73fa1253b7b448905a3d6bf3fbf9df
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145124343"
+---
+1. “Current plan”(현재 계획) 옆에 있는 **Upgrade**(업그레이드)를 클릭합니다.

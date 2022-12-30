@@ -1,1 +1,9 @@
-Bandwidth and storage usage only count against the repository owner's quotas. In forks, bandwidth and storage usage count against the root of the repository network. Anyone with write access to a repository can push files to {% data variables.large_files.product_name_short %} without affecting their personal bandwidth and storage quotas or purchasing data packs. Forking and pulling a repository counts against the parent repository's bandwidth limit.
+---
+ms.openlocfilehash: 118f0893777d6e5710e25b1fa0d1e5f4c36dc4f0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145123448"
+---
+Пропускная способность и использование хранилища учитываются только в квотах для владельца репозитория. В вилках пропускная способность и использование хранилища учитываются в корне сети репозиториев. Любой пользователь с доступом на запись в репозиторий может отправлять файлы в {% data variables.large_files.product_name_short %} без вреда для личной пропускной способности и квот хранилища и без покупки пакетов данных. Ветвление и извлечение репозитория учитывается в ограничении пропускной способности родительского репозитория.

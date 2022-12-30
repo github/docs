@@ -1,33 +1,23 @@
 ---
 title: チェック
+intro: With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.
 redirect_from:
-  - /v3/checks
+- /v3/checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1f1c694c92ee4be21c73dd51645d420594cf1da9
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141522202"
 ---
-
-Checks API を使用すると、リポジトリ内のコード変更に対して強力なチェックを実行する GitHub App を構築できます。 継続的インテグレーション、コードの構文チェック、コードのスキャンサービスを実行し、コミットについて詳細なフィードバックを行うアプリを作成できます。 詳しい情報については、「[Checks API を使ってみる](/rest/guides/getting-started-with-the-checks-api)」および「[Checks API で CI テストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)」を参照してください。
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## チェックラン
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'runs' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## チェックスイート
-
-{% note %}
-
-  **注釈:** コミット SHA を複数のブランチにプッシュした場合でも、GitHub App はコミット SHA ごとに 1 つの [`check_suite`](/webhooks/event-payloads/#check_suite) イベントのみを受け取ります。 ブランチ [`create`](/webhooks/event-payloads/#create) イベントをサブスクライブして、コミット SHA がブランチにプッシュされたタイミングを確認することができます。
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'suites' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/checks
+-->

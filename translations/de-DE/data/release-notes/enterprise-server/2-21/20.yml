@@ -1,0 +1,19 @@
+date: '2021-04-28'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Das Setupskript, das auf der MySQL-Replikation ausgeführt wird, kann während des Datenbankfailovers unnötiges Datenbankreseeding ausgelöst haben."
+    - '`config-apply` könnte aufgrund des unnötigen Aufrufs von `rake db:migrate` länger als nötig dauern.'
+    - "Der Orchestrator könnte ein Failover zu einem MySQL-Replikat ausgeführt haben, das während der Seedingphase nicht von der primären Instanz repliziert hat, als keine Verbindung mit der primären Instanz hergestellt werden konnte."
+    - Organisationen oder Projekte mit Fehlern haben die Migration blockiert und konnten nicht ausgeschlossen werden.
+  changes:
+    - Preflightüberprüfungen erlauben standardmäßig alle AWS-Instanztypen.
+  known_issues:
+    - Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer könnten Angreifer den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - Sicherheitswarnungen werden beim Pushen an ein Repository in der Befehlszeile nicht gemeldet.
+    - 'Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anfragen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert.'

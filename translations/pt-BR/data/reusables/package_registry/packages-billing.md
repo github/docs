@@ -1,1 +1,9 @@
-O uso de {% data variables.product.prodname_registry %} é gratuito para pacotes públicos. Para pacotes privados, cada conta {% data variables.product.product_name %} recebe uma certa quantidade de armazenamento gratuito e transferência de dados, dependendo do produto usado com a conta. Por padrão, a sua conta terá um limite de gastos de $0, que impede o uso adicional de armazenamento ou transferência de dados após atingir o valor incluído. Se você aumentar seu limite de gastos acima do padrão de $0, você será cobrado por qualquer armazenamento adicional ou transferência de dados, também chamado de excedentes, até seu limite de gastos. Quaisquer cupons em sua conta não se aplicam a excedentes de {% data variables.product.prodname_registry %}.
+---
+ms.openlocfilehash: ac24f76da582d8aaa7f7a0cbba7d15ab80f95629
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883777"
+---
+O uso de {% data variables.product.prodname_registry %} é gratuito para pacotes públicos. Para pacotes privados, cada conta do {% data variables.product.product_location %} recebe determinada quantidade de armazenamento gratuito e transferência de dados, dependendo do produto usado com a conta. Qualquer uso além dos valores incluídos é controlado pelos limites de gastos.

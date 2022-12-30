@@ -1,37 +1,40 @@
 ---
-title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+title: GitHub開発者プログラム
+intro: '{% data variables.product.prodname_dotcom %}と統合されるツールを構築するなら、{% data variables.product.prodname_dotcom %}開発者プログラムに参加できます。'
 redirect_from:
-  - /プログラム
+  - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
+ms.openlocfilehash: 7e1333c491e275c171cce14060c04b01f14bf0a8
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770874'
 ---
+GitHubと統合されるアプリケーションを構築しますか？ 弊社の開発者プログラムに登録してください！ 可能性は無限であり、栄誉を楽しんでください。 [今すぐ登録](https://github.com/developer/register)
 
-Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
+## かゆいところに手を届ける
 
-## Stay in the know
+毎日コードをプッシュするところとシームレスに統合される独自のツールを構築してください。
 
-Be the first to know about API changes and try out new features before they launch in the [Developer blog](https://developer.github.com/changes/).
+## エンタープライズへの挑戦
 
-## Scratch an itch
+、{% data variables.product.prodname_ghe_server %} に対してアプリケーションをビルドおよびテストするための開発者ライセンスを要求するには、<a href="mailto:partnerships@github.com">partnerships@github.com</a> にメールを送信してください。
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+## GitHubと連携するインテグレーションがありますか？
 
-## Take on the enterprise
+すごいですね。 プログラムに参加していただければ嬉しく思います。 以下のようにすれば、情報を展開できます。</p>
+* [インテグレーションについてお知らせください](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)。
+* [Octocat または GitHub ロゴ](https://github.com/logos)を使って、ご自分の製品が GitHub で動作することを確認します。
+* インテグレーションについての動画やブログをご自分の Web サイトに投稿してください。
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}.
+## GitHub開発者プログラムに参加する準備はできましたか？
 
+メンバーシップは、以下をお持ちの個人開発者及び企業に対して開かれています。
 
-## Have an integration that works with GitHub?
-
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
-* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
-* Post a video or a blog on your website about your integration
-
-## Ready to join the GitHub Developer Program?</h3>
-
-Membership is open to individual developers and companies who have:
-
-* An integration in production or development using the GitHub API.
-* An email address where GitHub users can contact you for support.
+* GitHub APIを使用した、実働中あるいは開発中のインテグレーション。
+* GitHubユーザがサポートのために連絡できるメールアドレス。

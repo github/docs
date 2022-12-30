@@ -1,0 +1,25 @@
+date: '2022-02-17'
+sections:
+  security_fixes:
+    - 'Un usuario pudo registrar a un usuario o una organización con el nombre "saml".'
+    - 'Los paquetes se han actualizado a las últimas versiones de seguridad.'
+  bugs:
+    - "Al usar Azure Blob\_Storage, los ajustes de almacenamiento de GitHub Packages no se pudieron validar y guardar en la consola de administración."
+    - 'La opción de configuración mssql.backup.cadence generó un error en ghe-config-check con una advertencia de conjunto de caracteres inválida.'
+    - 'Corrige SystemStackError (se apilaron demasiado profundamente) al obtener más de 2<sup>^16</sup> llaves del memcached.'
+    - 'Un número de menús seleccionar a lo largo del sitio web se representaron de forma incorrecta y no fueron funcionales.'
+  changes:
+    - 'El gráfico de dependencias ahora se puede habilitar sin datos de vulnerabilidad, permitiendo que los clientes vieran las dependencias que se encuentran en uso y en qué versiones. Habilitar el gráfico de dependencias sin habilitar GitHub Connect *no* proporcionará información de vulnerabilidad.'
+    - 'EL análisis de secretos dejará de analizar los archivos ZIP y de otros tipos en búsqueda de secretos.'
+  known_issues:
+    - "Después de actualizar a {% data variables.product.prodname_ghe_server %}\_3.3, es posible que {% data variables.product.prodname_actions %} no se inicie automáticamente. Para resolver este problema, conéctate al dispositivo mediante SSH y ejecuta el comando \"ghe-actions-start\"."
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta directamente al repositorio.'
+    - "Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255\_caracteres."
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com.'
+    - 'El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes.'
+    - 'Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.'
+    - 'Los ajustes de almacenamiento de {% data variables.product.prodname_actions %} no pueden validarse y guardarse en {% data variables.enterprise.management_console %} cuando se selecciona "Forzar estilo de ruta" y, en su lugar, debe configurarse la utilidad de línea de comando `ghe-actions-precheck`.'
+    - 'Las instancias de {% data variables.product.prodname_ghe_server %} 3.3 instaladas en Azure y aprovisionadas con núcleos de CPU 32+ no podían iniciarse debido a un error presente en el kernel de Linux actual. [Actualizado: 08-04-2022]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

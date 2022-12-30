@@ -1,1 +1,9 @@
-If your repository contains code in more than one of the supported languages, you can choose which languages you want to analyze. There are several reasons you might want to prevent a language being analyzed. For example, the project might have dependencies in a different language to the main body of your code, and you might prefer not to see alerts for those dependencies.
+---
+ms.openlocfilehash: 9802ef046824c424dd2301bf483acff8794d90b8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145115499"
+---
+Если репозиторий содержит код на нескольких поддерживаемых языках, можно выбрать языки, для которых нужно выполнить анализ. В ряде случаев анализ для языка желательно запретить. Например, проект может иметь зависимости с основным телом кода в коде на другом языке, и вы, возможно, предпочтете получать оповещения для этих зависимостей.

@@ -1,1 +1,9 @@
-You can link a pull request to an issue to{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} show that a fix is in progress and to{% endif %} automatically close the issue when someone merges the pull request. Weitere Informationen findest Du unter "[Pull Request mit einem Issue verknüpfen](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)."
+---
+ms.openlocfilehash: f5494b0e82ff08be08cda19f3a96533586e428bb
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145090943"
+---
+Du kannst einen Pull Request mit einem Issue verknüpfen, um zu zeigen, dass ein Fix in Arbeit ist und das Issue automatisch zu schließen, wenn jemand den Pull Request mergt. Weitere Informationen findest du unter [Verknüpfen eines Pull Requests mit einem Issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue).

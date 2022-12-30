@@ -1,0 +1,86 @@
+# Code scanning configurations
+- title: Microsoft での CodeQL コード スキャン
+  description: Microsoft オープン ソース リポジトリからの CodeQL アクションのためのコード スキャン ワークフローの例。
+  href: /microsoft/opensource.microsoft.com/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - JavaScript
+  tags:
+    - CodeQL
+    - コード スキャン
+    - GitHub のアクション
+- title: Adversarial Robustness Toolbox (ART) CodeQL ード スキャン
+  description: 信頼された AI リポジトリからの CodeQL アクションのためのコード スキャン ワークフローの例。
+  href: /Trusted-AI/adversarial-robustness-toolbox/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - Python
+  tags:
+    - CodeQL
+    - コード スキャン
+    - GitHub のアクション
+
+# Security policies
+- title: Microsoft セキュリティ ポリシー テンプレート
+  description: セキュリティ ポリシーの例
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
+  tags:
+    - セキュリティ ポリシー
+- title: Electron セキュリティ ポリシー
+  description: セキュリティ ポリシーの例
+  href: /electron/electron/blob/master/SECURITY.md
+  tags:
+    - セキュリティ ポリシー
+
+# Example of security advisory in a major product
+- title: Rails のためのセキュリティ アドバイザリ
+  description: Rails によって公開された CVE-2020-15169 に関するセキュリティ アドバイザリ
+  href: /rails/rails/security/advisories/GHSA-cfjv-5498-mph5
+  tags:
+    - セキュリティ アドバイザリ
+
+# Sample scripts for enabling Dependabot alerts and security updates across a whole organization
+- title: Dependabot アラートとセキュリティ更新プログラムを自動的に有効にする
+  description: Organization 全体で Dependabot アラートとセキュリティ更新プログラムを有効にするためのサンプル スクリプト。
+  href: /github/enable-security-alerts-sample
+  tags:
+    - Dependabot
+    - 警告
+    - セキュリティ更新プログラム
+    - Organization
+    - スクリプト
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+# Dependabot configuration only relevant to GitHub.com and GHES 3.3+
+# Convert "languages" to "package-ecosystems" for Dependabot configurations
+- title: Super linter の構成
+  description: Super linter リポジトリからの Dependabot バージョン更新構成の例。
+  href: /github/super-linter/blob/master/.github/dependabot.yml
+  languages:
+    - github-actions
+    - npm
+    - bundler
+    - docker
+    - pip
+  tags:
+    - Dependabot
+    - バージョン アップデート
+    - 構成
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+- title: Dependabot バージョン更新 PR
+  description: Super linter リポジトリの Dependabot バージョン更新構成によって生成される pull request の例。
+  href: /github/super-linter/pull/1398
+  languages:
+  tags:
+    - Dependabot
+    - バージョン アップデート
+    - Pull Request
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'

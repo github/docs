@@ -1,33 +1,29 @@
-{% if currentVersion == "free-pro-team@latest" %}
-By default, you will receive notification of new
-{% data variables.product.prodname_dependabot_alerts %}:
-- by email, an email is sent every time a vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option)
-- in the user interface, a warning is shown in your repository's file and code views if there are any vulnerable dependencies (**UI alerts** option)
-- on the command line, warnings are displayed as callbacks when you push to repositories with any vulnerable dependencies (**Command Line** option)
-- in your inbox, as web notifications for new vulnerabilities with a critical or high severity (**Web** option)
-You can customize the way you are notified about
+---
+ms.openlocfilehash: 3cc118cb9748ada5efb83aad6c0fe3b86c76d9bb
+ms.sourcegitcommit: 738c16f6fc6d56d939a80c832497c8bfa28d10c7
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/05/2022
+ms.locfileid: "148134903"
+---
+{% ifversion fpt or ghec %}По умолчанию вы будете получать уведомления:{% endif %}{% ifversion ghes or ghae %}По умолчанию, если владелец вашего предприятия настроил адрес электронной почты для уведомлений в вашем экземпляре, вы будете получать {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
 
-{% data variables.product.prodname_dependabot_alerts %}. For example, you can receive a weekly digest email summarizing alerts for up to 10 of your repositories using the **Email a digest summary of vulnerabilities** and **Weekly security email digest** options.
-{% endif %}
+- в папке "Входящие" в виде веб-уведомлений. Веб-уведомление отправляется при включении {% data variables.product.prodname_dependabot %} для репозитория, при фиксации нового файла манифеста в репозитории и при обнаружении новой уязвимости с критическим или высоким уровнем серьезности (**параметр {% data variables.product.prodname_dotcom %}** ).
+- по электронной почте сообщение электронной почты отправляется при включении {% data variables.product.prodname_dependabot %} для репозитория, при фиксации нового файла манифеста в репозитории и при обнаружении новой уязвимости с критическим или высоким уровнем серьезности (**Email** параметр).{ % ifversion ghes < 3.8 or ghae < 3,8 %}
+- в пользовательском интерфейсе в представлениях файла и кода репозитория отображается предупреждение при наличии небезопасных зависимостей (параметр **оповещений пользовательского интерфейса** ). {% endif %}
+- В командной строке предупреждения отображаются как обратные вызовы при отправке в репозитории с любыми небезопасными зависимостями (параметр **CLI** ).
+{% ifversion not ghae %}
+- в {% data variables.product.prodname_mobile %} в виде веб-уведомлений. Дополнительные сведения см. в разделе [Включение push-уведомлений с помощью {% data variables.product.prodname_mobile %}](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile). {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-By default, if your site administrator has configured email for notifications on your instance, you will receive
-{% data variables.product.prodname_dependabot_alerts %}:
-- by email, an email is sent every time a vulnerability {% if currentVersion ver_gt "enterprise-server@2.23" %}with a critical or high severity {% endif %}is found (**Email each time a vulnerability is found** option)
-- in the user interface, a warning is shown in your repository's file and code views if there are any vulnerable dependencies (**UI alerts** option)
-- on the command line, warnings are displayed as callbacks when you push to repositories with any vulnerable dependencies (**Command Line** option)
-- in your inbox, as web notifications {% if currentVersion ver_gt "enterprise-server@2.23" %}for new vulnerabilities with a critical or high severity {% endif %}(**Web** option)
-You can customize the way you are notified about
+{% note %}
 
-{% data variables.product.prodname_dependabot_alerts %}. For example, you can receive a weekly digest email summarizing alerts for up to 10 of your repositories using the **Email a digest summary of vulnerabilities** and **Weekly security email digest** options.
-{% endif %}
+**Примечание.** Уведомления по электронной почте и веб-уведомления{% ifversion not ghae %}/{% data variables.product.prodname_mobile %}{% endif %} настраиваются:
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-By default, if your site administrator has configured email for notifications on your instance, you will receive security alerts:
-- by email, an email is sent every time a vulnerability is found (**Email each time a vulnerability is found** option)
-- in the user interface, as warnings in your repository's file and code views (**UI alerts** option)
-- on the command line, as warnings that are displayed as callbacks when you push to repositories with vulnerabilities (**Command Line** option)
-- in your inbox, as web notifications (**Web** option)
+- _для каждого репозитория_, если для репозитория включен параметр {% data variables.product.prodname_dependabot %} или при фиксации нового файла манифеста в репозитории.
 
-You can customize the way you are notified about security alerts. For example, you can receive a weekly digest email summarizing alerts for up to 10 of your repositories using the **Email a digest summary of vulnerabilities** and **Weekly security email digest** options.
-{% endif %}
+- _для каждой организации_ при обнаружении новой уязвимости.
+
+{% endnote %}
+
+{% ifversion update-notification-settings-22 %} Вы можете настроить способ получения уведомлений о {% data variables.product.prodname_dependabot_alerts %}. Например, вы можете получать ежедневное или еженедельное дайджест-письмо с сводкой оповещений для до 10 репозиториев с помощью **параметра Email еженедельного дайджеста**.
+{% else %} Вы можете настроить способ получения уведомлений о {% data variables.product.prodname_dependabot_alerts %}. Например, вы можете получать еженедельный дайджест по электронной почте с сводкой оповещений для до 10 репозиториев, используя **Email сводку по уязвимостям** и параметры **дайджеста еженедельной электронной почты безопасности**.{ % endif %}

@@ -1,1 +1,9 @@
-You can use internal repositories to practice "innersource" within your enterprise. Members of your enterprise can collaborate using open source methodologies without sharing proprietary information publicly{% if enterpriseServerVersions contains currentVersion %}, even with private mode disabled{% endif %}.
+---
+ms.openlocfilehash: 6322818f4e2fd7520fb3cbd30dd7d63781323133
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878978"
+---
+{% ifversion ghec %}Если ваш отдел принадлежит корпоративной учетной записи, вы{% else %}Вы{% endif %} можете использовать внутренние репозитории, чтобы опробовать innersource в организации. Сотрудники организации могут работать совместно с использованием методологий открытого кода, не раскрывая сведения, защищаемые законодательством об интеллектуальной собственности{% ifversion ghes %}, даже если закрытый режим отключен{% endif %}.

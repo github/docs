@@ -1,1 +1,10 @@
-1. Optionally, to enforce HTTPS encryption for your site, select **Enforce HTTPS**. It can take up to 24 hours before this option is available. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)." ![Enforce HTTPS for custom domains option](/assets/images/help/pages/enforce-https-custom-domains.png)
+---
+ms.openlocfilehash: f7a89b495d2bc3a4428cc9c02989680f227ee1c8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145121675"
+---
+1. При необходимости, чтобы применить шифрование HTTPS для сайта, выберите **Принудительно использовать HTTPS**. Этот параметр может стать доступным в течение 24 часов. Дополнительные сведения см. в разделе [Защита сайта {% data variables.product.prodname_pages %} с помощью HTTPS](/articles/securing-your-github-pages-site-with-https).
+  ![Функция принудительного применения протокола HTTPS для личных доменов](/assets/images/help/pages/enforce-https-custom-domains.png)

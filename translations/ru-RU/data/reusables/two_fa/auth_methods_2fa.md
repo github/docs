@@ -1,10 +1,18 @@
-{% if enterpriseServerVersions contains currentVersion %}
-### Authentication methods that support 2FA
+---
+ms.openlocfilehash: 005667bae249af732a73e5afc53e7dcd7ae436fe
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145088490"
+---
+{% ifversion ghes %}
+### Методы проверки подлинности, поддерживающие двухфакторную проверку подлинности
 
-| Authentication Method                             | Description                                                                                                                            | Two-factor authentication support                                                                                                                                                                                                                |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Built-in                                          | Authentication is performed against user accounts that are stored on the {% data variables.product.prodname_ghe_server %} appliance. | Supported and managed on the {% data variables.product.prodname_ghe_server %} appliance. Organization administrators can require 2FA to be enabled for members of the organization. |{% if enterpriseServerVersions contains currentVersion %}
-| Built-in authentication with an identity provider | Authentication is performed against user accounts that are stored on the identity provider.                                            | Dependant on the identity provider.{% endif %}
-| LDAP                                              | Allows integration with your company directory service for authentication.                                                             | Supported and managed on the {% data variables.product.prodname_ghe_server %} appliance. Organization administrators can require 2FA to be enabled for members of the organization.                                                            |
-| SAML                                              | Authentication is performed on an external identity provider.                                                                          | {% data reusables.two_fa.2fa_not_supported_with_saml_and_cas %}
-| CAS                                               | Single sign-on service is provided by an external server.                                                                              | {% data reusables.two_fa.2fa_not_supported_with_saml_and_cas %}{% endif %}
+| Метод проверки подлинности | Описание  | Поддержка двухфакторной проверки подлинности |
+|-----------------------|--------------|-----------------------------------|
+| Встроено | Проверка подлинности выполняется для личных учетных записей, которые хранятся на устройстве {% data variables.product.prodname_ghe_server %}. | Поддерживается и управляется на устройстве {% data variables.product.prodname_ghe_server %}. Администраторам организации может потребоваться включить двухфакторную проверку подлинности для членов организации. |{% ifversion ghes %}
+| Встроенная проверка подлинности с использованием поставщика удостоверений| Проверка подлинности выполняется для учетных записей, которые хранятся в поставщике удостоверений. | Зависит от поставщика удостоверений.{% endif %}
+| LDAP | Разрешает интеграцию со службой каталогов компании для проверки подлинности. | Поддерживается и управляется на устройстве {% data variables.product.prodname_ghe_server %}. Администраторам организации может потребоваться включить двухфакторную проверку подлинности для членов организации. |
+| SAML | Проверка подлинности выполняется с использованием внешнего поставщика удостоверений. | {% data reusables.two_fa.2fa_not_supported_with_saml_and_cas %} |
+| Сервер клиентского доступа | Служба единого входа предоставляется внешним сервером. | {% data reusables.two_fa.2fa_not_supported_with_saml_and_cas %}{% endif %}

@@ -1,20 +1,33 @@
 ---
-title: REST API overview
-shortTitle: Обзор
-intro: 'Learn about resources, libraries, previews and troubleshooting for {% data variables.product.prodname_dotcom %}''s REST API.'
+title: Обзор REST API
+shortTitle: Overview
+intro: 'Узнайте о ресурсах, библиотеках, предварительных версиях и устранении неполадок для REST API {% data variables.product.prodname_dotcom %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+children:
+  - /resources-in-the-rest-api
+  - /api-versions
+  - /media-types
+  - /other-authentication-methods
+  - /troubleshooting
+  - /api-previews
+  - /libraries
+  - /openapi-description
+  - /endpoints-available-for-github-apps
+  - /endpoints-available-for-fine-grained-personal-access-tokens
+  - /permissions-required-for-github-apps
+  - /breaking-changes
+  - /permissions-required-for-fine-grained-personal-access-tokens
+ms.openlocfilehash: 7e5671dcf94766dfcc8d1a39dd47191e20eb1513
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184240'
 ---
 
-### Table of Contents
-
-{% link_in_list /resources-in-the-rest-api %}
-{% link_in_list /media-types %}
-{% link_in_list /other-authentication-methods %}
-{% link_in_list /troubleshooting %}
-{% link_in_list /api-previews %}
-{% link_in_list /libraries %}
-{% link_in_list /openapi-description %}
-{% link_in_list /endpoints-available-for-github-apps %}

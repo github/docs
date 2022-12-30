@@ -1,44 +1,62 @@
 ---
 title: Referência
-shortTitle: Referência
-intro: Veja documentação de referência para aprender os recursos disponíveis na API REST do GitHub.
+shortTitle: Reference
+intro: View reference documentation to learn about the resources available in the GitHub REST API.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+children:
+- /actions
+- /activity
+- /apps
+- /billing
+- /branches
+- /checks
+- /codes-of-conduct
+- /code-scanning
+- /codespaces
+- /collaborators
+- /commits
+- /dependabot
+- /dependency-graph
+- /deploy_keys
+- /deployments
+- /emojis
+- /enterprise-admin
+- /gists
+- /git
+- /gitignore
+- /interactions
+- /issues
+- /licenses
+- /markdown
+- /meta
+- /metrics
+- /migrations
+- /oauth-authorizations
+- /orgs
+- /packages
+- /pages
+- /projects
+- /pulls
+- /rate-limit
+- /reactions
+- /releases
+- /repos
+- /scim
+- /search
+- /secret-scanning
+- /teams
+- /users
+- /webhooks
+ms.openlocfilehash: 1e82d0dba1eb7210bb5a9187f2790fa5a92828d1
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141504926"
 ---
-
-### Índice
-
-{% link_in_list /actions %}
-{% link_in_list /activity %}
-{% link_in_list /apps %}
-{% link_in_list /billing %}
-{% link_in_list /checks %}
-<!-- uncomment code-scanning when it's been added to openAPI -->
-<!-- {% link_in_list /code-scanning %} -->
-{% link_in_list /codes-of-conduct %}
-{% link_in_list /code-scanning %}
-{% link_in_list /emojis %}
-{% link_in_list /enterprise-admin %}
-{% link_in_list /gists %}
-{% link_in_list /git %}
-{% link_in_list /gitignore %}
-{% link_in_list /interactions %}
-{% link_in_list /issues %}
-{% link_in_list /licenses %}
-{% link_in_list /markdown %}
-{% link_in_list /meta %}
-{% link_in_list /migrations %}
-{% link_in_list /oauth-authorizations %}
-{% link_in_list /orgs %}
-{% link_in_list /projects %}
-{% link_in_list /pulls %}
-{% link_in_list /rate-limit %}
-{% link_in_list /reactions %}
-{% link_in_list /repos %}
-{% link_in_list /scim %}
-{% link_in_list /search %}
-{% link_in_list /teams %}
-{% link_in_list /users %}
-{% link_in_list /permissions-required-for-github-apps %}

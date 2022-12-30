@@ -1,1 +1,9 @@
-You can link a pull request to an issue to{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} show that a fix is in progress and to{% endif %} automatically close the issue when someone merges the pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)."
+---
+ms.openlocfilehash: f5494b0e82ff08be08cda19f3a96533586e428bb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145092846"
+---
+Можно связать запрос на вытягивание с проблемой, чтобы показать, что выполняется исправление, а также чтобы автоматически закрыть проблему при слиянии запроса на вытягивание. Дополнительные сведения см. в разделе [Связывание запроса на вытягивание с проблемой](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue).

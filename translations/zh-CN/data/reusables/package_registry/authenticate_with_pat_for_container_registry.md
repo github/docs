@@ -1,9 +1,19 @@
-{% if currentVersion == "free-pro-team@latest" %}
-如果要向
-{% data variables.product.prodname_actions %} 工作流程中的 {% data variables.product.prodname_github_container_registry %} 验证，则您必须使用个人访问令牌 (PAT)。 `GITHUB_TOKEN` 目前没有所需的权限。 在 {% data variables.product.prodname_github_container_registry %} 测试阶段，唯一支持的身份验证形式是 PAT 。
+---
+ms.openlocfilehash: 0957d7c909250bfccb51681eac05e3f3196bb6d5
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145100393"
+---
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
-PAT 可以授予对您的帐户的广泛访问权限。 在创建 PAT 以向 {% data variables.product.prodname_container_registry %} 验证时，我们建议只选择必要的读取、写入或删除 `package` 作用域。 避免在 GitHub Actions 工作流程使用的 PAT 中包括 `repo` 作用域，因为它会授予不必要的额外访问权限。
+若要对 {% data variables.product.prodname_actions %} 工作流程中的 {% data variables.product.prodname_container_registry %} 进行身份验证，请使用 `GITHUB_TOKEN` 以获得最佳安全性和体验。 如果你的工作流程使用个人访问令牌 (PAT) 向 `{% data reusables.package_registry.container-registry-hostname %}` 进行身份验证，那么我们强烈建议你更新工作流以使用 `GITHUB_TOKEN`。
 
-如果要在测试期间的操作中使用 {% data variables.product.prodname_container_registry %}，请遵循我们在“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”中的 PAT 使用安全最佳实践。
+{% ifversion fpt or ghec %}有关使用个人访问令牌更新对 `{% data reusables.package_registry.container-registry-hostname %}` 进行身份验证的工作流的指导，请参阅“[升级访问 `ghcr.io` 的工作流](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)”。{% endif %}
+
+有关 `GITHUB_TOKEN` 的详细信息，请参阅“[工作流中的身份验证](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)”。
+
+如果你在操作中使用 {% data variables.product.prodname_container_registry %}，请遵循“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”中的安全最佳实践。
 
 {% endif %}

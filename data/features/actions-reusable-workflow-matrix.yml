@@ -1,0 +1,7 @@
+# Reference: #7094
+# Documentation for allowing matrix jobs to call reusable workflows.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'
+  ghae: '>= 3.7'

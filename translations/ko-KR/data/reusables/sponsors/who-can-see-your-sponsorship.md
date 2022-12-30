@@ -1,1 +1,9 @@
-1. Choose who can see your sponsorship.
+---
+ms.openlocfilehash: 320529aeca740a085f062549fdd68cb782b30590
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145139831"
+---
+1. 스폰서쉽을 볼 수 있는 사용자를 선택합니다.

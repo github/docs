@@ -1,14 +1,27 @@
 ---
-title: Code scanning
+title: 코드 검사
+intro: The Code Scanning API enables you to retrieve and update the code scanning alerts and analyses from a repository.
 redirect_from:
-  - /v3/code-scanning
+- /v3/code-scanning
+product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: reference
+topics:
+- API
+- Code scanning
+- REST
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 979e6aac8aacf436cac20dacb53db105d2f2201f
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141522196"
 ---
-
-{% data reusables.code-scanning.beta %}
-
-The {% data variables.product.prodname_code_scanning %} API lets you retrieve and update code scanning alerts from a repository. You can use the endpoints to create automated reports for the code scanning alerts in an organization or upload analysis results generated using offline code scanning tools. For more information, see "[Finding security vulnerabilities and errors in your code](/github/finding-security-vulnerabilities-and-errors-in-your-code)."
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/code-scanning
+-->

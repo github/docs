@@ -1,1 +1,9 @@
-For information about the default commit messages for squash merges, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#merge-message-for-a-squash-merge)."
+---
+ms.openlocfilehash: de247df24383306870f399d04db5c308da37a6b7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145118608"
+---
+Сведения о сообщениях фиксации по умолчанию для слияний со сжатием см. в разделе [Сведения об объединении запросов на вытягивание](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#merge-message-for-a-squash-merge).

@@ -1,1 +1,11 @@
-1. 在“{% octicon "person" aria-label="The People icon" %} People（人员）”下，单击 **Administrators（管理员）**。 ![管理员选项卡](/assets/images/help/business-accounts/business-accounts-admin-tab.png)
+---
+ms.openlocfilehash: c2c8a1d5c689828c1f9efd2d0b64cc24766f7d0f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146180597"
+---
+1. 在“{% octicon "person" aria-label="The People icon" %} 人员”下，单击“管理员”。
+
+   ![“管理员”选项卡]{% ifversion ghec%}(/assets/images/help/business-accounts/business-accounts-admin-tab-dotcom.png){% else %}{% ifversion enterprise-membership-view-improvements %}(/assets/images/help/business-accounts/business-accounts-admin-tab-new.png){% else %}(/assets/images/help/business-accounts/business-accounts-admin-tab.png){% endif %}{% endif %}

@@ -1,5 +1,13 @@
-An outside collaborator is a person who has access to one or more organization repositories but is not explicitly a member of the organization, such as a consultant or temporary employee. Дополнительные сведения см. в:
+---
+ms.openlocfilehash: a5dd18f8480462a2692e6c254f630ebfa2acbca4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145122475"
+---
+Сторонний участник совместной работы — это лицо, которое имеет доступ к одному или нескольким репозиториям организации, но не является явным образом членом организации, например, консультант или временный сотрудник. Дополнительные сведения см. в разделе:
 
-- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- [Добавление сторонних участников совместной работы в репозитории в вашей организации](/articles/adding-outside-collaborators-to-repositories-in-your-organization)
+- [Преобразование участника организации во внешнего участника совместной работы](/articles/converting-an-organization-member-to-an-outside-collaborator)
+- "[Удаление внешнего участника совместной работы из репозитория организации](/articles/removing-an-outside-collaborator-from-an-organization-repository)"

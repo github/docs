@@ -1,10 +1,12 @@
 ---
 title: Canceling a workflow
+shortTitle: Cancel a workflow
 intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -12,16 +14,17 @@ versions:
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### Canceling a workflow run
+## Canceling a workflow run
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
+1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel.
+![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
 1. In the upper-right corner of the workflow, click **Cancel workflow**.
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
+![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
 
-### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
 
 When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
 

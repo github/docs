@@ -1,14 +1,27 @@
 ---
 title: Varredura de código
+intro: The Code Scanning API enables you to retrieve and update the code scanning alerts and analyses from a repository.
 redirect_from:
-  - /v3/code-scanning
+- /v3/code-scanning
+product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: reference
+topics:
+- API
+- Code scanning
+- REST
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 979e6aac8aacf436cac20dacb53db105d2f2201f
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141502334"
 ---
-
-{% data reusables.code-scanning.beta %}
-
-A API de {% data variables.product.prodname_code_scanning %} permite que você recupere e atualize alertas de código em um repositório. Você pode usar os pontos de extremidade para criar relatórios automatizados para os alertas de varredura de código em uma organização ou fazer upload dos resultados de análise gerados usando ferramentas de varredura de código off-line. Para obter mais informações, consulte "[Encontrar vulnerabilidades e erros de segurança no seu código](/github/finding-security-vulnerabilities-and-errors-in-your-code).
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/code-scanning
+-->

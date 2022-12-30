@@ -1,1 +1,0 @@
-Los proyectos mantenidos y admnistrados por un solo propietario de organización pueden llegar a ser inaccesibles con facilidad si no se puede contactar a dicho propietario. Te recomendamos que tu organización tenga por lo menos dos personas con permisos de *propietario* para garantizar que nadie tendrá acceso al proyecto.

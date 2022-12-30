@@ -1,21 +1,23 @@
 ---
 title: Gitignore
+intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
 redirect_from:
-  - /v3/gitignore
+- /v3/gitignore
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5bbf6f76efd56eaf6f5257db3b52278c503b6807
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141531994"
 ---
-
-API を介して新しい {% data variables.product.product_name %} リポジトリを作成する場合、作成時にリポジトリに適用する [.gitignore テンプレート](/github/using-git/ignoring-files)を指定できます。 .gitignore テンプレート API は、{% data variables.product.product_name %} の [.gitignore リポジトリ](https://github.com/github/gitignore)からテンプレートを一覧表示してフェッチします。
-
-### gitignore のカスタムメディアタイプ
-
-gitignore テンプレートを取得するときに、このカスタムメディアタイプを使用できます。
-
-    application/vnd.github.VERSION.raw
-
-詳しい情報については、「[メディアタイプ](/rest/overview/media-types)」を参照してください。
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/gitignore
+-->

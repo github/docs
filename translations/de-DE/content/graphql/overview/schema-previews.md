@@ -1,51 +1,30 @@
 ---
-title: Schema previews
-intro: 'You can preview upcoming features and changes to the {% data variables.product.prodname_dotcom %} GraphQL schema before they are added to the {% data variables.product.prodname_dotcom %} GraphQL API.'
+title: Schemavorschauversionen
+intro: 'Sie können eine Vorschau auf kommende Features und Änderungen am GraphQL-Schema für {% data variables.product.prodname_dotcom %} einsehen, ehe sie der GraphQL-API für {% data variables.product.prodname_dotcom %} hinzugefügt werden.'
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 038afd8cbdd60863213eae385ec9a26f707f62d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108451'
 ---
+## Informationen zur Schemavorschauversionen
 
-### About schema previews
+Während des Vorschauzeitraums werden möglicherweise einige Features basierend auf Entwicklerfeedback geändert. Solche Änderungen werden im [Entwicklerblog](https://developer.github.com/changes/) ohne vorherige Benachrichtigung veröffentlicht.
 
-During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
-
-To access a schema preview, you'll need to provide a custom [media type](/v3/media) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
+Um auf eine Schemavorschau zuzugreifen, musst du im `Accept`-Header einen benutzerdefinierten [Medientyp](/rest/overview/media-types) für deine Anforderungen angeben. In der Featuredokumentation für jede Vorschauversion ist angegeben, welcher benutzerdefinierte Medientyp bereitgestellt werden soll.
 
 {% note %}
 
-**Note:** The GraphQL schema members under preview cannot be accessed via the Explorer at this time.
+**Hinweis:** Auf die Elemente des GraphQL-Schemas in Vorschauversionen kann derzeit nicht über den Explorer zugegriffen werden.
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
-
-{{ preview.description }}
-
-To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:
-
-```
-{{ preview.accept_header }}
-```
-
-Previewed schema members:
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**Announced:** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**Updated:** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}

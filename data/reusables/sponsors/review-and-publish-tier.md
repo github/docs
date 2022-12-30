@@ -1,2 +1,2 @@
 1. Proofread your tier, then click **Publish tier**.
-  ![Publish tier button](/assets/images/help/sponsors/publish-tier-button.png)
+  ![Screenshot of new tier page with publish monthly tier button emphasized](/assets/images/help/sponsors/publish-tier-button.png)

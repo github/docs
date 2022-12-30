@@ -1,0 +1,564 @@
+- term: '@mention'
+  description:
+    Notifier une personne sur GitHub en plaçant `@` devant son nom d’utilisateur. Les utilisateurs dans une organisation sur GitHub peuvent également faire partie d’une équipe qui peut être mentionnée.
+- term: access token
+  description: >-
+    Jeton utilisé à la place d’un mot de passe lors de l’exécution d’opérations Git sur HTTPS avec Git sur la ligne de commande ou l’API. Également appelé jeton d’accès personnel.
+- term: préversion d’API
+  description: >-
+    Manière d’essayer de nouvelles API et les modifications apportées aux méthodes d’API existantes avant qu’elles ne soient intégrées à l’API officielle GitHub.
+- term: Appliance
+  description: >-
+    Application logicielle combinée avec un système d’exploitation JeOS (Just Enough Operating System) pour s’exécuter de manière optimale sur du matériel de norme industrielle (en général un serveur) ou dans une machine virtuelle.
+- term: assignee
+  description: Utilisateur affecté à un problème.
+- term: Code d’authentification
+  description: >-
+    Code que vous fournirez, en plus de votre mot de passe GitHub, lors de la signature avec 2FA via le navigateur. Ce code est généré par une application ou remis à votre téléphone via message texte. Également appelé « code d’authentification 2FA ».
+- term: branche de base
+  description:
+    "Branche dans laquelle les modifications sont combinées lorsque vous fusionnez une demande de tirage. Lorsque vous créez une demande de tirage, vous pouvez changer la branche de base (basculer de la branche par défaut du dépôt à une autre branche) si nécessaire."
+- term: authentification de base
+  description: >-
+    Méthode d’authentification dans laquelle les informations d’identification sont envoyées sous forme de texte non chiffré.
+- term: bio
+  description: >-
+    Description générée par l’utilisateur et affichée sur un profil : [Ajout d’une bio à votre profil](/articles/adding-a-bio-to-your-profile)
+- term: cycle de facturation
+  description: Intervalle de temps appliqué à votre plan de facturation spécifique.
+- term: e-mail de facturation
+  description: >-
+    Adresse e-mail d’organisation à laquelle GitHub envoie les reçus, les frais de carte bancaire ou PayPal, et autres communications en rapport avec la facturation.
+- term: responsable de la facturation
+  description: Membre de l’organisation qui gère les paramètres de facturation pour une organisation.
+- term: profil de facturation
+  description: >-
+    Plans de paiement pour les utilisateurs et les organisations qui comprennent des fonctionnalités fixes pour chaque type de plan.
+- term: blame
+  description: >-
+    La fonctionnalité « blame » dans Git décrit la dernière modification de chaque ligne d’un fichier, qui montre généralement la révision, l’auteur et l’heure. Ceci est utile par exemple pour le suivi de l’ajout d’une fonctionnalité ou pour savoir quel commit a engendré un bogue spécifique.
+- term: block
+  description: >-
+    Retirer à un utilisateur la capacité à collaborer aux dépôts d’une organisation.
+- term: branche
+  description: >-
+    Une branche est une version parallèle d’un dépôt. Elle est contenue dans le dépôt, mais n’affecte pas la branche principale, ce qui vous permet de travailler librement sans perturber la version « active ». Une fois que vous avez apporté les modifications souhaitées, vous pouvez refusionner votre branche dans la branche principale afin de publier vos modifications.
+- term: restriction de branche
+  description: >-
+    Restriction que des administrateurs de dépôt peuvent activer afin que seuls certains utilisateurs puissent pousser ou apporter certaines modifications à la branche.
+- term: Plan d’entreprise
+  description: >-
+    Plan de facturation d’organisation où vous pouvez collaborer sur des dépôts publics ou privés illimités, autoriser ou exiger les membres de l’organisation à s’authentifier auprès de GitHub à l’aide de l’authentification unique SAML, et provisionner et déprovisionner l’accès avec SAML ou SCIM.
+- term: certificat d’autorité de certification
+  description: >-
+    Certificat numérique délivré par une autorité de certification, qui garantit qu’il existe des connexions valides entre deux machines, par exemple entre l’ordinateur d’un utilisateur et GitHub.com, et qui vérifie la propriété d’un site.
+- term: carte
+  description: Carré déplaçable au sein d’un tableau de projet associé à un problème ou à une demande de tirage.
+- term: case activée
+  description: >-
+    Une vérification est un type de vérification d’état sur {% data variables.product.product_name %}. Voir « [Vérifications d’état](#status-checks). »
+- term: checkout
+  description: >-
+    Vous pouvez utiliser `git checkout` sur la ligne de commande pour créer une branche, changer votre branche de travail actuelle, ou même basculer vers une version différente d’un fichier d’une autre branche avec `git checkout [nom_branche] [chemin_fichier]`. L’action « checkout » met à jour tout ou une partie de l’arborescence de travail avec un objet d’arborescence ou un blob de la base de données d’objets, et met à jour l’index et HEAD si toute l’arborescence de travail pointe vers une nouvelle branche.
+- term: cherry-picking
+  description: >-
+    Choisir un sous-ensemble de modifications parmi une série de modifications (généralement des commits), et les enregistrer en tant que nouvelle série par-dessus un codebase différent. Dans Git, ceci s’effectue à l’aide de la commande `git cherry-pick`, qui extrait la modification introduite par un commit existant sur une autre branche et l’enregistre en fonction du sommet de la branche actuelle en tant que nouveau commit. Pour plus d’informations, consultez [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) dans la documentation de Git.
+- term: équipe enfant
+  description: >-
+    Dans des équipes imbriquées, il s’agit de la sous-équipe qui hérite des @mentions et des autorisations d’accès de l’équipe parente.
+- term: propre
+  description: >-
+    Une arborescence de travail est propre si elle correspond à la révision référencée par le HEAD actuel. Voir aussi « sale ».
+- term: clone
+  description: >-
+    Un clone est une copie d’un dépôt qui réside sur votre ordinateur plutôt que sur le serveur d’un site web. Le terme « cloner » signifie créer cette copie. Lorsque vous créez un clone, vous pouvez modifier les fichiers dans l’éditeur de votre choix et utiliser Git pour suivre vos modifications sans avoir à être en ligne. Le dépôt que vous avez cloné est encore connecté à la version distante ; vous pouvez donc pousser vos modifications locales vers le dépôt distant afin de garantir leur synchronisation lorsque vous êtes en ligne.
+- term: clustering
+  description: >-
+    Capacité à exécuter des services GitHub Enterprise parmi plusieurs nœuds et à équilibrer la charge des requêtes entre eux.
+- term: graphique de fréquence de code
+  description: >-
+    Graphique de dépôt qui montre les ajouts et suppressions de contenu pour chaque semaine dans l’historique d’un dépôt.
+- term: code de conduite
+  description: Document qui définit les standards d’engagement dans une communauté.
+- term: propriétaire de code
+  description: >-
+    Personne désignée comme propriétaire d’une portion du code d’un dépôt. Le propriétaire de code reçoit automatiquement une demande de révision lorsque quelqu’un ouvre une demande de tirage (pas en mode brouillon) qui apporte des modifications au code dont le propriétaire de code est propriétaire.
+- term: collaborateur
+  description: >-
+    Un collaborateur est une personne ayant un accès en lecture et en écriture à un dépôt, et ayant été invité à contribuer par le propriétaire du dépôt.
+- term: validation
+  description: >-
+    Un commit, ou « révision », est une modification individuelle d’un fichier (ou d’un ensemble de fichiers). Lorsque vous créez un commit pour enregistrer votre travail, Git crée un ID unique (également appelé « SHA » ou « hachage ») qui vous permet d’effectuer le suivi des modifications spécifiques commitées, de la personne qui les a créées, et à quel moment. Les commits contiennent généralement un message de commit qui est une brève description des modifications apportées.
+- term: auteur de commit
+  description: Utilisateur effectuant le commit.
+- term: graphe de commit
+  description: >-
+    Graphe de dépôt qui montre tous les commits effectués dans un dépôt durant l’année écoulée.
+- term: ID de commit
+  description: Également appelé SHA. Hachage de somme de contrôle de 40 caractères qui identifie le commit.
+- term: message de commit
+  description: >-
+    Texte bref et descriptif qui accompagne un commit et explique quelle est la modification introduite par le commit.
+- term: branche de comparaison
+  description: >-
+    Branche que vous avez utilisée pour créer une demande de tirage. Cette branche est comparée à la branche de base que vous choisissez pour la demande de tirage, et les modifications sont identifiées. Lorsque la demande de tirage est fusionnée, la branche de base est mise à jour avec les modifications par rapport à la branche de comparaison. Également appelée « branche de tête » de la demande de tirage.
+- term: intégration continue
+  description: >-
+    Également appelée CI. Processus qui exécute des builds et des tests automatisés une fois qu’une personne a commité une modification dans un dépôt configuré sur GitHub. CI est une bonne pratique courante du développement logiciel qui aide à détecter les erreurs.
+- term: graphe de contribution
+  description: >-
+    Partie du profil d’un utilisateur qui montre ses contributions sur une période maximale d’une année, jour par jour.
+- term: instructions de contribution
+  description: Document expliquant aux gens comment contribuer à votre projet.
+- term: contributions
+  description: >-
+    Activité spécifique sur GitHub qui : - Ajoutent un carré au graphe de contribution d’un utilisateur : « [Qu’est-ce qui compte comme une contribution ?](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution) » - Ajoutent des activités à la chronologie d’un utilisateur sur son profil : « [Activité de contribution](/articles/viewing-contributions-on-your-profile/#contribution-activity) »
+- term: contributeur
+  description: >-
+    Un contributeur est quelqu’un qui n’a pas d’accès de collaborateur à un dépôt, mais qui a contribué à un projet et qui a ouvert une demande de tirage ayant été par la suite fusionnée dans le dépôt.
+- term: graphe de contributeurs
+  description: Graphe de dépôt qui affiche les 100 principaux contributeurs à un dépôt.
+- term: coupon
+  description: >-
+    Code fourni par GitHub que les utilisateurs ou les organisations peuvent utiliser pour payer tout ou une partie de leur abonnement.
+- term: cron
+  description: Planificateur de travaux basé sur le temps dans les systèmes d’exploitation de type Unix.
+- term: cURL
+  description: Utilisé sur les lignes de commande ou dans les scripts pour transférer des données.
+- term: dashboard
+  description: >-
+    Votre tableau de bord personnel est le hub principal de votre activité sur GitHub. À partir de votre tableau de bord personnel, vous pouvez effectuer le suivi des problèmes et des demandes de tirage que vous suivez ou sur lesquelles vous travaillez, accéder à vos principaux dépôts et pages d’équipes, et découvrir l’activité récente dans les dépôts que vous surveillez ou auxquels vous participez. Vous pouvez aussi découvrir de nouveaux dépôts, qui sont recommandés en fonction des utilisateurs que vous suivez et des dépôts que vous avez mis en vedette. Pour voir uniquement l’activité d’une organisation spécifique, consultez le tableau de bord de votre organisation. Pour plus d’informations, consultez « [À propos de votre tableau de bord personnel](/articles/about-your-personal-dashboard) » ou « [À propos du tableau de bord de votre organisation](/articles/about-your-organization-dashboard). »
+- term: branche par défaut
+  description: >-
+    Branche de base pour les nouvelles demandes de tirage et les nouveaux commits de code dans un dépôt. Chaque dépôt a au moins une branche, créée par Git lorsque vous initialisez le dépôt. La première branche est généralement nommée {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, et elle est souvent la branche par défaut.
+- term: graphe des éléments dépendants
+  description: >-
+    Graphe de dépôt qui montre les packages, les projets et les dépôts qui dépendent d’un dépôt public.
+- term: graphe des dépendances
+  description: >-
+    Graphe de dépôt qui montre les packages et les projets dont dépend le dépôt.
+- term: clé de déploiement
+  description: >-
+    Une clé de déploiement est une clé SSH qui est stockée sur votre serveur et qui accorde l’accès à un dépôt GitHub unique. Cette clé est attachée directement au dépôt, plutôt qu’à un compte d’utilisateur personnel.
+- term: HEAD détaché
+  description: >-
+    Git vous avertira si vous travaillez sur un HEAD détaché, ce qui signifie que Git ne pointe pas vers une branche et que les commits que vous apporterez n’apparaîtront pas dans l’historique des commits.  Par exemple, lorsque vous extrayez un commit arbitraire qui n’est pas le plus récent commit d’une branche particulière, vous travaillez un « HEAD détaché ».
+- term: diagnostics
+  description: Vue d’ensemble des paramètres et de l’environnement d’une instance de GitHub Enterprise.
+- term: diff
+  description: >-
+    Une diff est la différence de modification entre deux commits, ou modifications enregistrées. La diff décrit visuellement ce qui a été ajouté ou supprimé d’un fichier depuis son dernier commit.
+- term: directory
+  description: >-
+    Dossier contenant un ou plusieurs fichiers ou dossiers. Vous pouvez créer des répertoires afin d’organiser le contenu d’un dépôt.
+- term: sale
+  description: >-
+    Une arborescence de travail est considérée comme « sale » si elle contient des modifications qui n’ont pas été commitées dans la branche actuelle.
+- term: Notifications par e-mail
+  description: Notifications envoyées à l’adresse e-mail d’un utilisateur.
+- term: compte d’entreprise
+  description: "Les comptes d’entreprise vous permettent de gérer de manière centralisée la stratégie et la facturation pour plusieurs organisations. {% data reusables.gated-features.enterprise-accounts %}"
+- term: Explorer
+  description: >-
+    Instance de GraphiQL, qui est un « IDE GraphQL interactif graphique dans le navigateur ».
+- term: fast-forward
+  description: >-
+    Un fast-forward est un type spécial de fusion où vous avez une révision et vous « fusionnez » les modifications d’une autre branche qui est un descendant de ce que vous avez. Dans ce cas-là, vous n’effectuez pas un nouveau commit de fusion, mais simplement une mise à jour de cette révision. Cela arrive fréquemment sur une branche à suivi distant d’un dépôt distant.
+- term: branche de fonctionnalité
+  description: >-
+    Branche utilisée pour expérimenter une nouvelle fonctionnalité ou corriger un problème qui n’est pas en production. Également appelée branche de rubrique.
+- term: bloc de code délimité
+  description: "Bloc de code mis en retrait que vous pouvez créer avec GitHub Flavored Markdown en plaçant des triples accents graves \\`\\`\\` avant et après le bloc de code. Consultez cet [exemple](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks)."
+- term: fetch
+  description: >-
+    Lorsque vous utilisez `git fetch`, vous ajoutez des modifications à partir du dépôt distant à votre branche de travail locale sans les commiter. Contrairement à `git pull`, la récupération (fetching) vous permet de passer en revue les modifications avant de les commiter dans votre branche locale.
+- term: suivre (utilisateurs)
+  description: Recevoir des notifications concernant les contributions et l’activité d’un autre utilisateur.
+- term: poussée forcée
+  description: >-
+    Poussée Git qui écrit les modifications locales sur le dépôt distant sans se soucier des conflits.
+- term: duplication (fork)
+  description: >-
+    Une duplication est une copie personnelle du dépôt d’un autre utilisateur qui réside sur votre compte. Les duplications vous permettent d’apporter librement des modifications à un projet sans affecter le dépôt d’origine en amont. Vous pouvez aussi ouvrir une demande de tirage dans le dépôt en amont et maintenir votre duplication synchronisée avec les dernières modifications, car les deux dépôts sont connectés.
+- term: Plan Gratuit
+  description: >-
+    Plan de facturation de compte d’utilisateur qui est gratuit. Les utilisateurs peuvent collaborer sur un nombre illimité de dépôts publics avec un nombre illimité de collaborateurs.
+- term: gist
+  description: >-
+    Un gist est un fichier partageable que vous pouvez modifier, cloner et dupliquer sur GitHub. Vous pouvez rendre un gist {% ifversion ghae %}interne{% else %}public{% endif %} ou secret, bien que les gists secrets soient accessibles à {% ifversion ghae %}tout membre de l’entreprise{% else %}toute personne{% endif %} disposant de l’URL.
+- term: Git
+  description: >-
+    Git est un programme open source pour le suivi des modifications dans des fichiers texte. Il a été écrit par l’auteur du système d’exploitation Linux, et constitue la technologie de base sur laquelle repose GitHub, l’interface utilisateur et sociale.
+- term: application GitHub
+  description: >-
+    Les applications GitHub fournissent un service à une organisation entière et utilisent leur propre identité dans le cadre de cette fonction. Elles peuvent être installées directement sur des comptes d’utilisateur et des organisations, et il est possible de leur accorder l’accès à des dépôts spécifiques. Elles offrent des autorisations précises et des webhooks intégrés.
+- term: GitHub Flavored Markdown
+  description: "Markdown propre à GitHub, utilisé pour mettre en forme la prose et le code dans GitHub. Voir [Spécification de GitHub Flavored Markdown](https://github.github.com/gfm/) ou [Bien démarrer avec l’écriture et la mise en forme sur GitHub](/articles/getting-started-with-writing-and-formatting-on-github)."
+- term: GitHub Importer
+  description: >-
+    Outil qui importe rapidement des dépôts de code source, y compris les commits et l’historique des révisions, sur GitHub pour les utilisateurs.
+- term: GitHub Jobs
+  description: >-
+    Site GitHub où les employeurs peuvent publier des offres d’emplois susceptibles d’intéresser les utilisateurs de GitHub.
+- term: Place de marché GitHub
+  description: >-
+    Sous-site à partir duquel les utilisateurs et les organisations GitHub peuvent acheter et installer des applications qui étendent et complètent leur workflow.
+- term: GitHub Pages
+  description: >-
+    Également dénommé Pages. Service d’hébergement de site statique conçu pour héberger vos pages personnelles, de projet ou d’organisation directement à partir d’un dépôt GitHub.
+- term: Wiki GitHub
+  description: Section destinée à l’hébergement de documentation de style wiki sur un dépôt GitHub.
+- term: gitfile
+  description: >-
+    Fichier .git brut qui est toujours à la racine d’une arborescence de travail et pointe vers le répertoire Git, qui contient le dépôt Git entier et ses métadonnées. Vous pouvez afficher ce fichier à partir de votre répertoire sur la ligne de commande avec `git rev-parse --git-dir`. Il s’agit du répertoire réel.
+- term: GraphQL
+  description: >-
+    Langage de requête pour les API et runtime pour répondre à ces requêtes avec vos données existantes.
+- term: HEAD
+  description: "Commit défini d’une branche, souvent le commit le plus récent au sommet de la branche."
+- term: branche de tête
+  description: Branche dont les modifications sont combinées dans la branche de base lorsque vous fusionnez une demande de tirage. Également appelée « branche de comparaison ».
+- term: 'Hello, World'
+  description: >-
+    Un programme « Hello, World! » est un programme informatique qui génère ou affiche le message « Hello, World! » à un utilisateur. Ce programme étant généralement très simple, il est souvent utilisé en guise d’exemple de la syntaxe de base d’un langage de programmation, et sert couramment d’exercice initial pour l’apprentissage d’un nouveau langage de programmation.
+- term: haute disponibilité
+  description: >-
+    Système ou composant qui est opérationnel en continu pendant une période suffisamment longue.
+- term: hook
+  description: >-
+    Lors de l’exécution normale de plusieurs commandes Git, des appels sont effectués à des scripts facultatifs qui permettent à un développeur d’ajouter une fonctionnalité ou une vérification. En général, les hooks permettent à une commande d’être prévérifiée et éventuellement abandonnée, et autorisent une post-notification une fois l’opération terminée.
+- term: hostname
+  description: >-
+    Surnoms lisibles par l’homme qui correspondent à l’adresse d’un appareil connecté à un réseau.
+- term: identicon
+  description: >-
+    Image générée automatiquement, utilisée comme photo de profil par défaut lorsque les utilisateurs s’inscrivent à GitHub. Les utilisateurs peuvent remplacer leur identicon par leur propre photo de profil.
+- term: fournisseur d’identité
+  description: >-
+    Également appelé IdP. Fournisseur approuvé qui vous permet d’utiliser l’authentification unique (SSO) SAML pour accéder à d’autres sites web.
+- term: instance
+  description: >-
+    Copie privée de GitHub contenue dans une machine virtuelle et appartenant à une organisation, qui la configure et la contrôle.
+- term: intégration
+  description: >-
+    Application tierce qui s’intègre à GitHub. Il peut s’agir d’applications GitHub, d’applications OAuth ou de webhooks.
+- term: problème
+  description: >-
+    Les problèmes sont des suggestions d’améliorations, des tâches ou des questions en rapport avec le dépôt. Les problèmes peuvent être créés par n’importe qui (pour les dépôts publics), et ils sont modérés par les collaborateurs du dépôt. Chaque problème contient son propre thread de discussion. Vous pouvez aussi catégoriser un problème avec des étiquettes, et l’affecter à quelqu’un.
+- term: Jekyll
+  description: "Générateur de site statique pour des sites personnels, de projet ou d’organisation."
+- term: Sélecteur de thème Jekyll
+  description: >-
+    Moyen automatisé de sélectionner un thème visuel pour votre site Jekyll sans modifier ou copier des fichiers CSS.
+- term: empreinte digitale de clé
+  description: Courte séquence d’octets permettant d’identifier une clé publique plus longue.
+- term: keychain
+  description: Système de gestion des mots de passe dans macOS.
+- term: mot clé
+  description: Mot spécifique qui ferme un problème en cas d’utilisation dans une demande de tirage.
+- term: label
+  description: >-
+    Étiquette sur un problème ou une demande de tirage. Les dépôts sont fournis avec quelques étiquettes par défaut, mais les utilisateurs peuvent créer des étiquettes personnalisées.
+- term: LFS
+  description: >-
+    Stockage de fichiers volumineux Git. Extension Git open source pour le versioning des grands fichiers.
+- term: license
+  description: >-
+    Document que vous pouvez inclure avec votre projet pour indiquer aux gens ce qu’ils peuvent faire et ne peuvent pas faire avec votre code source.
+- term: Linguist
+  description: >-
+    Bibliothèque utilisée sur GitHub pour détecter les langages blob, ignorer les fichiers binaires ou de fournisseurs, supprimer les fichiers générés dans les diffs, et générer des graphes de répartition de langage.
+- term: commentaire de ligne
+  description: Commentaire dans une demande de tirage sur une ligne de code spécifique.
+- term: fin de ligne
+  description: >-
+    Caractère(s) invisible(s) qui symbolise(nt) la fin d’une ligne dans un fichier texte.
+- term: compte personnel verrouillé
+  description: >-
+    Compte personnel inaccessible par l’utilisateur. Les comptes sont verrouillés lorsque des utilisateurs passent d’un compte payant à un compte gratuit, ou si leur plan payant a dépassé sa date d’échéance.
+- term: console de gestion
+  description: >-
+    Section de l’interface GitHub Enterprise qui contient des fonctionnalités d’administration.
+- term: Markdown
+  description: >-
+    Markdown est un format de fichier sémantique incroyablement simple, quelque peu similaire à .doc, .rtf et .txt. Grâce à Markdown, même les personnes n’ayant pas de connaissance en publication web peuvent écrire de la prose (y compris des liens, listes, puces, etc.) et l’afficher comme un site web. GitHub prend en charge Markdown, et utilise une forme particulière de Markdown appelée GitHub Flavored Markdown. Voir [Spécification de GitHub Flavored Markdown](https://github.github.com/gfm/) ou [Bien démarrer avec l’écriture et la mise en forme sur GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
+- term: markup
+  description: Système d’annotation et de mise en forme de document.
+- term: main
+  description: >-
+    {% ifversion fpt or ghes > 3.1 or ghae %} Branche de développement par défaut. Chaque fois que vous créez un dépôt Git, une branche nommée `main` est créée, et devient la branche active. Dans la plupart des cas, elle contient le développement local, bien que ceci soit purement par convention et non obligatoire.{% else %}Nom souvent choisi comme alternative à `master` pour la branche par défaut d’un dépôt.{% endif %}
+- term: master
+  description: >-
+    Branche par défaut dans de nombreux dépôts Git. Par défaut, lorsque vous créez un dépôt Git sur la ligne de commande, une branche nommée `master` est créée. De nombreux outils utilisent désormais un autre nom pour la branche par défaut.{% ifversion fpt or ghes > 3.1 or ghae %} Par exemple, lorsque vous créez un dépôt Git sur GitHub, la branche par défaut se nomme `main`.{% endif %}
+- term: graphe de membres
+  description: Graphe de dépôt qui montre toutes les duplications d’un dépôt.
+- term: mention
+  description: >-
+    Notification envoyée à un utilisateur en préfixant son nom d’utilisateur du symbole @. Les utilisateurs dans une organisation sur GitHub peuvent également faire partie d’une équipe qui peut être mentionnée.
+- term: fusion
+  description: >-
+    La fusion prend les modifications d’une branche (dans le même dépôt ou à partir d’une duplication), et les applique dans une autre. Cela se produit souvent en tant que « demande de tirage » (qui peut être considérée comme une demande de fusion), ou via la ligne de commande. Une fusion peut être faite par le biais d’une demande de tirage via l’interface web GitHub.com s’il n’y a aucune modification conflictuelle, ou peut toujours être faite via la ligne de commande.
+- term: conflit de fusion
+  description: >-
+    Différence qui se produit entre des branches fusionnées. Les conflits de fusion se produisent quand des personnes effectuent des changements différents sur la même ligne du même fichier, ou quand une personne modifie un fichier et qu’une autre supprime le même fichier. Pour que vous puissiez fusionner les branches, le conflit de fusion doit d’abord être résolu.
+- term: milestone
+  description: >-
+    Manière de suivre la progression des groupes de problèmes ou de demandes de tirage dans un dépôt.
+- term: miroir
+  description: Nouvelle copie d’un dépôt.
+- term: équipe imbriquée
+  description: >-
+    Équipe enfant d’une équipe parente. Vous pouvez avoir plusieurs équipes enfants (ou imbriquées).
+- term: graphe réseau
+  description: >-
+    Graphe de dépôt qui montre l’historique des branches de tout le réseau du dépôt, y compris les branches du dépôt racine et celles des duplications qui contiennent des commits uniques au réseau.
+- term: flux d’actualités
+  description: >-
+    Vue des actualités des dépôts ou personnes que vous suivez. Le flux d’actualités d’une organisation montre l’activité des dépôts appartenant à l’organisation.
+- term: non-fast-forward
+  description: >-
+    Lorsque votre copie locale d’un dépôt n’est plus synchronisée avec le dépôt en amont et que vous devez récupérer les modifications en amont avant de pousser vos modifications locales.
+- term: notification
+  description: >-
+    Mises à jour remises par le biais du web ou d’un e-mail, en fonction de vos paramètres, et qui vous fournissent des informations concernant les activités qui vous intéressent.
+- term: Application OAuth
+  description: >-
+    Application tierce qui utilise des jetons d’accès plutôt que des mots de passe pour accéder aux informations pour les utilisateurs.
+- term: jeton OAuth
+  description: Jeton d’accès utilisé dans les applications OAuth pour accéder aux informations pour les utilisateurs.
+- term: collaborateur externe
+  description: >-
+    Utilisateur à qui a été accordé l’accès à un ou plusieurs dépôts d’une organisation, mais qui n’a pas d’autre accès à l’organisation et n’en est pas membre.
+- term: open source
+  description: >-
+    Un logiciel open source est un logiciel qui peut être librement utilisé, modifié et partagé (sous forme modifié et non modifié) par n’importe qui. Aujourd’hui, le concept d’« open source » est souvent étendu au-delà des logiciels pour représenter une philosophie de collaboration dans laquelle les documents de travail sont mis à disposition en ligne afin que n’importe qui puisse les dupliquer, les modifier, en discuter et y contribuer.
+- term: organization
+  description: >-
+    Les organisations sont des groupes de plusieurs utilisateurs, qui correspondent en générale à des organisations dans le monde réel. Elles sont administrées par des utilisateurs, et peuvent contenir à la fois des dépôts et des équipes.
+- term: propriétaire d’organisation
+  description: Utilisateurs ayant un accès d’administration complet à l’organisation dont ils sont propriétaires.
+- term: origin
+  description: >-
+    Dépôt en amont par défaut. La plupart des projets ont au moins un projet en amont dont le suivi est effectué. Par défaut, l’origine est utilisée à cette fin.
+- term: propriétaire
+  description: >-
+    Membres d’une organisation ayant un accès d’administration complet à l’organisation.
+- term: équipe parente
+  description: >-
+    Au sein d’équipes imbriquées, il s’agit de l’équipe principale à partir de laquelle les équipes enfants héritent des autorisations d’accès et des @mentions.
+- term: notifications de participation
+  description: >-
+    Notification relative à une mise à jour dans une conversation, un problème ou une demande de tirage, où votre nom d’utilisateur ou votre équipe a été mentionné, où ou vous avez précédemment répondu à un commentaire.
+- term: lien permanent
+  description: Lien hypertexte statique permanent vers une page web particulière.
+- term: compte personnel
+  description: >-
+    Compte GitHub qui appartient à un utilisateur individuel.
+- term: adresse e-mail principale
+  description: >-
+    Adresse e-mail principale à laquelle GitHub envoie les reçus, les frais de carte bancaire ou PayPal, et autres communications en rapport avec la facturation.
+- term: dépôt épinglé
+  description: >-
+    Dépôt qu’un utilisateur a décidé d’afficher de manière proéminente sur son profil.
+- term: hooks de pré-réception
+  description: >-
+    Scripts qui s’exécutent sur le serveur GitHub Enterprise, que vous pouvez utiliser pour implémenter des contrôles de la qualité.
+- term: contributions privées
+  description: Contributions apportées à un dépôt privé (plutôt que public).
+- term: dépôt privé
+  description: >-
+    Les dépôts privés sont visibles uniquement par le propriétaire du dépôt et par les collaborateurs spécifiés par le propriétaire.
+- term: branche de production
+  description: >-
+    Branche contenant les modifications finales qui sont prêtes à être utilisées ou déployées sur une application ou un site.
+- term: profile
+  description: Page qui montre des informations concernant l’activité d’un utilisateur sur GitHub.
+- term: photo de profil
+  description: >-
+    Image personnalisée que les utilisateurs chargent sur GitHub pour identifier leur activité, généralement accompagnée de leur nom d’utilisateur. Également appelée « avatar ».
+- term: tableau d’un projet
+  description: >-
+    Tableaux dans GitHub qui sont constitués de problèmes, de demandes de tirage et de notes classés en catégories sous forme de cartes dans des colonnes.
+- term: branche protégée
+  description: >-
+    Les branches protégées bloquent plusieurs fonctionnalités de Git sur une branche qu’un administrateur de dépôt choisit de protéger. Elles ne peuvent pas subir de poussée forcée, de suppression, de fusion de modifications sans que des contrôles requis soient effectués ou que des révisions soient approuvées, et il est impossible d’y charger des fichiers à partir de l’interface web GitHub. Une branche protégée est généralement la branche par défaut.
+- term: contributions publiques
+  description: Contributions apportées à un dépôt public (plutôt que privé).
+- term: dépôt public
+  description: >-
+    Un dépôt public peut être affiché par n’importe qui, y compris des personnes qui ne sont pas des utilisateurs de GitHub.
+- term: pull
+  description: >-
+    Le terme « tirer » signifie récupérer des modifications et les fusionner. Par exemple, si quelqu’un a modifié un fichier distant sur lequel vous travaillez tous les deux, vous souhaiterez tirer ces modifications vers votre copie locale afin qu’elle soit à jour. Voir aussi « récupérer ».
+- term: accès de tirage
+  description: Synonyme d’accès en lecture.
+- term: demande de tirage
+  description: >-
+    Les demandes de tirage sont des propositions de modifications soumises par un utilisateur et acceptées ou rejetées par les collaborateurs d’un dépôt. Tout comme les problèmes, les demandes de tirage ont leur propre forum de discussion.
+- term: révision de demande de tirage
+  description: >-
+    Commentaires de la part des collaborateurs sur une demande de tirage qui approuvent les modifications ou demandent davantage de modifications avant que la demande soit fusionnée.
+- term: graphe de pulsation
+  description: Graphe de dépôt qui fournit une vue d’ensemble de l’activité d’un dépôt.
+- term: graphe punch
+  description: >-
+    Graphe de dépôt qui indique la fréquence des mises à jour d’un dépôt en fonction du jour de la semaine et de l’heure de la journée.
+- term: push
+  description: >-
+    Le terme « pousser » signifie envoyer vos modifications commitées vers un dépôt distant sur GitHub.com. Par exemple, si vous modifiez quelque chose localement, vous pouvez pousser ces modifications afin que d’autres personnes puissent y accéder.
+- term: pousser une branche
+  description: >-
+    Lorsque vous poussez une branche vers un dépôt distant, vous mettez à jour la branche distante avec les modifications de votre branche locale. Lorsque vous « poussez une branche », Git recherche la référence HEAD de la branche dans le dépôt distant et vérifie qu’il s’agit d’un ancêtre direct de la référence HEAD locale de la branche. Une fois cette vérification effectuée, Git tire tous les objets (accessibles à partir de la référence HEAD locale et manquants dans le dépôt distant) dans la base de données d’objets distante, puis il met à jour la référence HEAD distante. Si celle-ci n’est pas un ancêtre de la référence HEAD locale, la poussée échoue.
+- term: accès de poussée
+  description: Synonyme d’accès en écriture.
+- term: accès en lecture
+  description: >-
+    Niveau d’autorisation sur un dépôt qui permet à l’utilisateur de tirer, ou lire, des informations à partir du dépôt. Tous les dépôts publics donnent un accès en lecture à tous les utilisateurs GitHub. Synonyme d’accès de tirage.
+- term: Fichier Lisez-moi
+  description: "Fichier texte contenant des informations sur les fichiers d’un dépôt, qui est généralement le premier fichier visible par un visiteur de votre dépôt. Un fichier Lisez-moi, accompagné d’une licence de dépôt, des instructions relatives aux contributions et un code de conduite vous aident à partager les attentes et à gérer les contributions à votre projet."
+- term: rebaser
+  description: >-
+    Réappliquer une série de modifications à partir d’une branche vers une base différente, et réinitialiser le HEAD de cette branche sur le résultat.
+- term: code de récupération
+  description: Code qui vous aide à récupérer l’accès à votre compte GitHub.
+- term: release
+  description: Moyen par lequel GitHub empaquette et fournit des logiciels à vos utilisateurs.
+- term: remote
+  description: >-
+    Il s’agit de la version d’un dépôt ou d’une branche qui est hébergée sur un serveur, le plus souvent GitHub.com. Les versions distantes peuvent être connectées à des clones locaux afin que les modifications puissent être synchronisées.
+- term: dépôt distant
+  description: >-
+    Dépôt utilisé pour assurer le suivi du même projet, mais qui réside ailleurs.
+- term: URL distante
+  description: >-
+    Emplacement où votre code est stocké ; il s’agit d’un dépôt sur GitHub, de la duplication d’un autre utilisateur, ou même d’un autre serveur.
+- term: réplica
+  description: >-
+    Instance de GitHub Enterprise qui fournit une redondance pour l’instance principale de GitHub Enterprise.
+- term: repository
+  description: >-
+    Un dépôt est l’élément fondamental de GitHub. Il s’apparente un peu au dossier d’un projet. Un dépôt contient tous les fichiers du projet (y compris la documentation), et stocke l’historique des révisions de chaque fichier. Les dépôts peuvent avoir plusieurs collaborateurs, et peuvent être publics ou privés.
+- term: cache de dépôt
+  description: >-
+    Miroir en lecture seule de dépôts pour votre instance de serveur GitHub Enterprise; situé près des équipes distribuées et des clients CI.
+- term: graphe de dépôt
+  description: Représentation visuelle des données de votre dépôt.
+- term: mainteneur de dépôt
+  description: >-
+    Personne qui gère un dépôt. Cette personne peut aider à trier les problèmes, et utiliser des étiquettes et d’autres fonctionnalités pour gérer le travail du dépôt. Elle peut aussi être responsable de la mise à jour du fichier Lisez-moi et des fichiers de contribution.
+- term: révision de demande de tirage requise
+  description: >-
+    Les révisions requises garantissent que les demandes de tirage ont au moins une révision approuvée avant que les collaborateurs puissent apporter des modifications à une branche protégée.
+- term: vérification d’état requise
+  description: >-
+    Vérifications sur des demandes de tirage qui garantissent que tous les tests CI requis ont réussi avant que des collaborateurs puissent apporter des modifications à une branche protégée.
+- term: resolve
+  description: Action consistant à corriger manuellement ce qui a été laissé par une fusion automatique ayant échoué.
+- term: rétablir
+  description: >-
+    Lorsque vous rétablissez une demande de tirage sur GitHub, une nouvelle demande de tirage est générée automatiquement ; celle-ci contient un commit qui rétablit le commit de fusion à partir de la demande de tirage fusionnée d’origine. Dans Git, vous pouvez rétablir des commits avec `git revert`.ré
+- term: révision
+  description: >-
+    Les révisions permettent aux autres personnes ayant accès à votre dépôt de commenter les modifications proposées dans les demandes de tirage, d’approuver les modifications ou de demander d’autres modifications avant la fusion de la demande de tirage.
+- term: répertoire racine
+  description: Premier répertoire dans une hiérarchie.
+- term: système de fichiers racine
+  description: Système d’exploitation de base et environnement d’application GitHub Enterprise.
+- term: réponse enregistrée
+  description: >-
+    Commentaire que vous pouvez enregistrer et ajouter à votre compte d’utilisateur GitHub afin de pouvoir l’utiliser dans tout GitHub dans les problèmes et les demandes de tirage.
+- term: scope
+  description: >-
+    Groupes nommés d’autorisations qu’une application OAuth peut demander pour accéder aux données publiques et non publiques.
+- term: siège
+  description: >-
+    Utilisateur au sein d’une organisation GitHub Enterprise. Également parfois appelé « compte de siège ».
+- term: équipe secrète
+  description: >-
+    Équipe visible uniquement par les autres membres de l’équipe et les personnes disposant d’autorisations de propriétaire.
+- term: journal de sécurité
+  description: >-
+    Journal listant les 50 dernières actions ou celles effectuées au cours des 90 derniers jours.
+- term: requête serveur à serveur
+  description: >-
+    Requête d’API utilisée par une application qui agit en tant que bot, indépendamment de tout utilisateur particulier. Par exemple, une application qui s’exécute selon une planification et ferme les problèmes où il n’y a eu aucune activité depuis longtemps. Les applications qui utilisent ce type d’authentification n’utilisent pas de compte GitHub avec licence. Par conséquent, dans une entreprise avec un plan de facturation qui autorise l’utilisation d’un certain nombre de licences, un bot serveur à serveur ne consomme pas l’une de vos licences GitHub. Le jeton utilisé dans une requête serveur à serveur est acquis par programmation, via [l’API GitHub](/rest/reference/apps#create-an-installation-access-token-for-an-app). Voir aussi « [requête utilisateur à serveur](#user-to-server-request) ».
+- term: crochet de service
+  description: >-
+    Également appelé « webhook ». Les webhooks permettent de remettre des notifications à un serveur web externe chaque fois que certaines actions se produisent sur un dépôt ou une organisation.
+- term: Authentification unique
+  description: >-
+    Également appelé SSO. Permet aux utilisateurs de se connecter à un emplacement unique (un fournisseur d’identité, IdP) qui accorde ensuite à l’utilisateur l’accès à d’autres fournisseurs de service.
+- term: instantané
+  description: Point de contrôle d’une machine virtuelle à un moment donné.
+- term: squashing
+  description: Combinaison de plusieurs commits en un commit unique. « squash » est également une commande Git.
+- term: Clé SSH
+  description: >-
+    Les clés SSH sont un moyen de vous identifier auprès d’un serveur en ligne, à l’aide d’un message chiffré. C’est comme si un ordinateur avait son propre mot de passe unique pour accéder à un autre service. {% data variables.product.product_name %} utilise des clés SSH pour transférer des informations de manière sécurisée vers votre ordinateur.
+- term: instance intermédiaire
+  description: >-
+    Manière de tester des modifications avant qu’elles soient appliquées à votre instance GitHub Enterprise.
+- term: status
+  description: >-
+    Représentation visuelle dans une demande de tirage indiquant que vos commits remplissent les conditions définies pour le dépôt auquel vous contribuez.
+- term: vérifications d’état
+  description: >-
+    Les vérifications d’état sont des processus externes, tels que des builds d’intégration continue, qui s’exécutent pour chaque commit que vous effectuez dans un dépôt. Pour plus d’informations, consultez « [À propos des vérifications d’état](/articles/about-status-checks) ».
+- term: étoile
+  description: >-
+    Signet, ou signe d’appréciation pour un dépôt. Les étoiles permettent d’évaluer manuellement la popularité des projets.
+- term: subscription
+  description: Plan GitHub d’un utilisateur ou d’une organisation.
+- term: équipe
+  description: >-
+    Groupe de membres d’une organisation qui reflète la structure de votre entreprise ou de votre groupe avec des mentions et des autorisations d’accès en cascade.
+- term: responsable d’équipe
+  description: >-
+    Membre d’une organisation disposant d’un sous-ensemble d’autorisations permettant aux propriétaires d’organisation de gérer des équipes.
+- term: plan d’équipe
+  description: >-
+    Plan de facturation d’organisation qui vous procure une quantité illimitée de dépôts publics et privés.
+- term: chronologie
+  description: Série d’événements dans une demande de tirage ou sur un profil utilisateur.
+- term: branche de rubrique
+  description: >-
+    Branche Git ordinaire utilisée par un développeur pour identifier une ligne de développement conceptuelle. Les branches étant très simples et bon marché, il est souvent souhaitable d’avoir plusieurs petites branches contenant chacune des concepts très bien définis ou des modifications petites et incrémentielles mais liées. Peut également être appelée « branche de fonctionnalité ».
+- term: topics
+  description: >-
+    Manière d’explorer des dépôts dans un domaine particulier, de rechercher des projets auxquels contribuer, et de découvrir de nouvelles solutions à un problème spécifique sur GitHub.
+- term: graphe de trafic
+  description: >-
+    Graphe de dépôt qui montre le trafic d’un dépôt, y compris les clones complets (pas les récupérations), les visiteurs des 14 derniers jours, les sites de référence et le contenu populaire.
+- term: transférer
+  description: >-
+    Transférer un dépôt signifie en changer le propriétaire. Le nouveau propriétaire sera en mesure d’administrer le contenu, les problèmes, les demandes de tirage, les mises en production et les paramètres du dépôt.
+- term: amont
+  description: >-
+    Lorsque l’on parle d’une branche ou d’une duplication, la branche principale dans le dépôt d’origine est souvent appelée l’« amont », car il s’agit de l’emplacement de destination principal des autres modifications. La branche ou duplication sur laquelle vous travaillez est alors appelée l’« aval ». Également appelé origine.
+- term: branche en amont
+  description: >-
+    Branche par défaut qui est fusionnée dans la branche en question (ou sur laquelle la branche en question est rebasée). Elle est configurée via `branch.<nom>.remote` et `branch.<nom>.merge`. Si la branche en amont de A est l’origine/B, nous employons parfois l’expression « A effectue le suivi de l’origine/B ».
+- term: utilisateur
+  description: >-
+    Les utilisateurs sont des personnes ayant des comptes GitHub personnels. Chaque utilisateur a un profil personnel, et peut être propriétaire de plusieurs dépôts, publics ou privés. Les utilisateurs peuvent créer ou être invités à rejoindre des organisations ou à collaborer au dépôt d’un autre utilisateur.
+- term: username
+  description: Descripteur d’un utilisateur sur GitHub.
+- term: requête utilisateur à serveur
+  description: >-
+    Requête d’API utilisée par une application qui effectue une tâche pour le compte d’un utilisateur particulier. Là où une tâche est effectuée avec l’authentification utilisateur à serveur, elle est indiquée sur GitHub comme ayant été effectuée par un utilisateur via une application. Par exemple, vous pourriez choisir de créer un problème à partir d’une application tierce, et l’application effectuerait cette tâche pour votre compte sur GitHub. L’étendue des tâches qu’une application peut effectuer à l’aide d’une requête utilisateur à serveur est limitée par les autorisations et l’accès dont disposent l’application et l’utilisateur. Le jeton utilisé dans une requête utilisateur à serveur est acquis via OAuth. Pour plus d’informations, consultez « [Identification et autorisation des utilisateurs pour les applications GitHub](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps) ». Voir aussi « [requête serveur à serveur](#server-to-server-request) ».
+- term: équipe visible
+  description: Équipe pouvant être vue et @mentionnée par chaque membre de l’organisation.
+- term: watch
+  description: >-
+    Vous pouvez surveiller un dépôt ou un problème afin de recevoir des notifications lorsque des mises à jour sont apportées à un problème ou à une demande de tirage.
+- term: notifications de surveillance
+  description: Notification concernant une activité dans un dépôt auquel un abonné s’est inscrit.
+- term: notifications web
+  description: >-
+    Notifications affichées dans l’interface web sur GitHub : https://github.com/notifications
+- term: webhooks
+  description: >-
+    Les webhooks vous permettent de générer ou de configurer des applications GitHub qui s’abonnent à certains événements sur GitHub.com. Les webhooks permettent de remettre des notifications à un serveur web externe chaque fois que certaines actions se produisent sur un dépôt ou une organisation. Également appelé crochet de service.
+- term: accès en écriture
+  description: >-
+    Niveau d’autorisation sur un dépôt qui permet à l’utilisateur de pousser, ou écrire, des modifications dans le dépôt.

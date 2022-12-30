@@ -1,1 +1,9 @@
-{% data variables.product.prodname_registry %}の利用は、パブリックパッケージについては無料です。 プライベートパッケージについては、それぞれの{% data variables.product.product_name %}アカウントは一定量の無料のストレージとデータ転送を、そのアカウントで使っている製品に応じて受け取ります。 デフォルトではアカウントの料金の上限は$0になっており、含まれている量に達した後に追加でストレージやデータ転送が利用されないようになっています。 デフォルトの$0を超えて利用上限を増やしたなら、追加のストレージやデータ転送に対しては利用上限を最大として課金されます。これは過剰分とも呼ばれます。 アカウントのクーポンは、{% data variables.product.prodname_registry %}の過剰分には適用されません。
+---
+ms.openlocfilehash: ac24f76da582d8aaa7f7a0cbba7d15ab80f95629
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883781"
+---
+{% data variables.product.prodname_registry %}の利用は、パブリックパッケージについては無料です。 プライベート パッケージについては、{% data variables.product.product_location %} の各アカウントは、一定量の無料のストレージとデータ転送を、そのアカウントで使っている製品に応じて受け取ります。 含まれる量を超える使用は、使用制限によって制御されます。

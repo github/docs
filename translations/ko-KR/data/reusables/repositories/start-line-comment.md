@@ -1,1 +1,10 @@
-1. Hover over the line of code where you'd like to add a comment, and click the blue comment icon.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} To add a comment on multiple lines, click and drag to select the range of lines, then click the blue comment icon.{% endif %} ![Blue comment icon](/assets/images/help/commits/hover-comment-icon.gif)
+---
+ms.openlocfilehash: fe1a4a45da5ac9ee804205443e5d5eb403dcebc3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145117903"
+---
+1. 설명을 추가할 코드 줄을 마우스로 가리키고 파란색 설명 아이콘을 클릭합니다. 여러 줄에 설명을 추가하려면 클릭하여 끌어서 줄 범위를 선택한 다음, 파란색 설명 아이콘을 클릭합니다.
+![파란색 설명 아이콘](/assets/images/help/commits/hover-comment-icon.gif)

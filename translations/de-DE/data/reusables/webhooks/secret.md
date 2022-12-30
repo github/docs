@@ -1,1 +1,9 @@
-Setting a webhook secret allows you to ensure that `POST` requests sent to the payload URL are from {% data variables.product.product_name %}. When you set a secret, you'll receive the {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`X-Hub-Signature` and `X-Hub-Signature-256` headers{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` header{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` header{% endif %} in the webhook `POST` request. For more information on how to use a secret with a signature header to secure your webhook payloads, see "[Securing your webhooks](/webhooks/securing/)."
+---
+ms.openlocfilehash: 3dcfb143f7ac70db7c1a197304c83a5b75642749
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876861"
+---
+Durch das Festlegen eines Webhookgeheimnisses kannst du sicherstellen, dass an die Nutzlast-URL gesendete `POST`-Anforderungen von {% data variables.product.product_name %} kommen. Wenn du einen geheimen Schlüssel festlegst, erhältst du {% ifversion fpt or ghes or ghec %}die Header `X-Hub-Signature` und `X-Hub-Signature-256` {% elsif ghae %}den Header `X-Hub-Signature-256`{% endif %} in der Webhook-`POST`-Anforderung. Weitere Informationen dazu, wie du einen geheimen Schlüssel mit einem Signaturheader verwendest, um deine Webhooknutzlasten zu sichern, findest du unter [Sichern deiner Webhooks](/webhooks/securing/).

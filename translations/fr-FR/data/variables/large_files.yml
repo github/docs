@@ -1,0 +1,14 @@
+product_name_long: 'Stockage Fichiers volumineux Git'
+product_name_short: 'Git LFS'
+warning_size: '50 Mo'
+max_github_size: '100 Mo'
+max_github_browser_size: '25 Mo'
+initial_bandwidth_quota: '1 Go'
+initial_storage_quota: '1 Go'
+max_lfs_size: '2 Go'
+max_file_size: '2 Go'
+command_name: lfs
+version_name: "https://git-lfs.github.com/spec/v1"
+pack_monthly_price: 5 $ par mois
+pack_monthly_bandwidth: '50 Go'
+pack_monthly_storage: '50 Go'

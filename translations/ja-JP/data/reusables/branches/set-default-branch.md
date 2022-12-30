@@ -1,1 +1,9 @@
-You can set the name of the default branch for new repositories. For more information, see "[Managing the default branch for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)," "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)," and {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)."{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)."{% endif %}
+---
+ms.openlocfilehash: 284fb70fbbe78100d36cc2a047e411b6402ad61f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145113589"
+---
+新しいリポジトリのためのデフォルトブランチの名前を設定できます。 詳細については、「[リポジトリの既定のブランチを管理する](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)」、「[組織のリポジトリの既定のブランチ名を管理する](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)」、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)」を参照してください。

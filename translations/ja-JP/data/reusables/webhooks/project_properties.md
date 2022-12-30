@@ -1,7 +1,15 @@
-| キー                    | 種類       | 説明                                                                                                                   |
-| --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| `action`              | `string` | The action that was performed on the project. Can be one of `created`, `edited`, `closed`, `reopened`, or `deleted`. |
-| `変更`                  | `オブジェクト` | The changes to the project if the action was `edited`.                                                               |
-| `changes[name][from]` | `string` | The previous version of the name if the action was `edited`.                                                         |
-| `changes[body][from]` | `string` | The previous version of the body if the action was `edited`.                                                         |
-| `project`             | `オブジェクト` | The [project](/v3/projects/) itself.                                                                                 |
+---
+ms.openlocfilehash: f41668ecc39ec7b3efc30deaf59bdf406a60d0cb
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878575"
+---
+キー | Type | 説明
+----|------|-------------
+`action`|`string` | プロジェクトで実行されたアクション。 `created`、`edited`、`closed`、`reopened`、`deleted` のいずれかになります。
+`changes`|`object` | アクションが `edited` だった場合のプロジェクトへの変更。
+`changes[name][from]` |`string` | アクションが `edited` だった場合の以前のバージョンの名前。
+`changes[body][from]` |`string` | アクションが `edited` だった場合の以前のバージョンのタイトル。
+`project`|`object` | [プロジェクト](/rest/reference/projects)自体。

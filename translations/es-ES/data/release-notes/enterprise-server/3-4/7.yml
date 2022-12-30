@@ -1,0 +1,29 @@
+date: '11-08-2022'
+sections:
+  security_fixes:
+    - |**CRÍTICO**: El contenedor Elasticsearch del servidor de GitHub Enterprise usó una versión de OpenJDK 8 que era vulnerable a una incidencia de truncamiento de entero al procesar hojas de estilo XSLT malintencionadas. La vulnerabilidad se supervisa como [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf).
+
+|
+    - |**ALTO**: Se autorizó de forma automática a las aplicaciones instaladas con anterioridad en cuentas de usuario a acceder a una organización en tokens de acceso de ámbito después de que la cuenta de usuario se transformara en una cuenta de organización. Esta vulnerabilidad se informó mediante el programa [Programa de GitHub Bug Bounty] (https://bounty.github.com).
+
+|
+  bugs:
+    - "En algunos casos, las instancias del servidor de GitHub Enterprise en AWS que usaban el tipo de instancia `r4.4xlarge` no arrancaban."
+    - "Al calcular los confirmadores para la seguridad avanzada de GitHub, no fue posible especificar repositorios individuales. Para obtener más información, consulte \"[Panel de administrador del sitio](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)\"." 
+    - "Cuando se estableció un umbral de latencia personalizado para la instancia, la suspensión de todos los usuarios latentes no respetó el umbral de forma fiable. Para más información sobre latencia, consulte [Gestión de usuarios latentes](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+  changes:
+    - 'Los eventos `pre_receive_hook.rejected_push` no se mostraban en el registro de auditoría de la empresa.'
+    - Tanto los archivos de migración para repositorios como las exportaciones de archivo para cuentas de usuario incluyen reacciones de versión.
+  known_issues:
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.
+    - |Después de registrar un ejecutor autohospedado con el parámetro "--ephemeral" en más de un nivel (por ejemplo, de empresa y de organización), el ejecutor puede quedarse bloqueado en un estado de inactividad y requerir un nuevo registro. [Actualizado: 17-06-2022]
+
+|
+    - "Tras actualizar a {% data variables.product.prodname_ghe_server %} 3.4, puede parecer que faltan versiones en los repositorios. Esto puede ocurrir si las migraciones de índices de Elasticsearch necesarias no se han completado correctamente."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

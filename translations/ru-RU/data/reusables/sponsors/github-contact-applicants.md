@@ -1,1 +1,9 @@
-{% data variables.product.prodname_dotcom %} may contact {% data variables.product.prodname_sponsors %} applicants or participants for additional information regarding their sponsorship profile or activity to determine eligibility for sponsorship or matching, or as part of investigating potential terms violations.
+---
+ms.openlocfilehash: ec1e62688e78b50c979b7e64f009989a09660a56
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145137363"
+---
+{% data variables.product.prodname_dotcom %} может связываться с заявителями или участниками {% data variables.product.prodname_sponsors %} для получения дополнительной информации об их профилях спонсорства или деятельности и определения права на спонсорство или сопоставление либо в ходе расследования потенциальных нарушений условий.

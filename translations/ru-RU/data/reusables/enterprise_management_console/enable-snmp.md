@@ -1,1 +1,10 @@
-1. Under "Monitoring", select **Enable SNMP**. ![Button to enable SNMP](/assets/images/enterprise/management-console/enable-snmp.png)
+---
+ms.openlocfilehash: 5ea8a4178da32641edd99b1b7d14a7562faceb55
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145123635"
+---
+1. В разделе "Мониторинг" выберите **Включить SNMP**.
+![Кнопка для включения SNMP](/assets/images/enterprise/management-console/enable-snmp.png)

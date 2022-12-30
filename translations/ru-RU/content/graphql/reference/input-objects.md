@@ -1,21 +1,30 @@
 ---
-title: Input objects
+title: Входные объекты
 redirect_from:
   - /v4/input_object
+  - /v4/reference/input_object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 10a84ad425b0c8b871b1c64f09bef4d8cf33d007
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109153'
 ---
+## Сведения о входных объектах
 
-### About input objects
+[Входные объекты](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) можно описать как составные, так как они включают набор входных полей, определяющих объект.
 
-[Input objects](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) can be described as "composable objects" because they include a set of input fields that define the object.
+Например, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) принимает поле с именем `emails`. Предоставление значения для `emails` преобразует `CommitAuthor` в список объектов `User`, содержащих этот адрес электронной почты. Обратите внимание, что [объекты](/graphql/reference/objects) **могут** иметь входные объекты, тогда как [изменения](/graphql/reference/mutations) **требуют** их наличия.
 
-For example, [`CommitAuthor`](/v4/input_object/commitauthor/) takes a field called `emails`. Providing a value for `emails` transforms `CommitAuthor` into a list of `User` objects containing that email address. Note that [objects](/v4/object) **may** have input objects, whereas [mutations](/v4/mutation) **require** input objects.
+Дополнительные сведения см. в разделе [Сведения об изменениях](/graphql/guides/forming-calls-with-graphql#about-mutations).
 
-For more information, see "[About mutations](/v4/guides/forming-calls#about-mutations)."
+{% данных reusables.projects.graphql-ghes %}
 
-{% for item in graphql.schemaForCurrentVersion.inputObjects %}
-  {% include graphql-input-object %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

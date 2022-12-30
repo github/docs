@@ -1,27 +1,35 @@
 ---
-title: OpenAPI description
-intro: The {% data variables.product.product_name %} REST API is fully described in an OpenAPI 3.0 compliant document.
+title: OpenAPI-Beschreibung
+intro: "Eine vollständige Erläuterung der {% data variables.product.product_name %}-REST-API findest du in einem OpenAPI\_3.0-konformen Dokument."
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+topics:
+  - API
+ms.openlocfilehash: 84c81c856da1da67320463fba4b9b52bca88c844
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145109152'
 ---
+## Über OpenAPI-Beschreibungen
 
-### About OpenAPI descriptions
+Bei [OpenAPI](https://swagger.io/docs/specification/about/) handelt es sich um eine Spezifikation zum Beschreiben von REST-APIs. OpenAPI-Beschreibungen ermöglichen es Menschen und Computern, die Funktionen einer API zu ermitteln, ohne zuerst Dokumentation lesen oder die Implementierung verstehen zu müssen. {% data variables.product.company_short %} hat seine REST-API als OpenAPI 3.0-kompatibles Dokument öffentlich verfügbar gemacht.
 
-[OpenAPI](https://swagger.io/docs/specification/about/) is a standard specification for describing REST APIs. OpenAPI descriptions allow both humans and machines to discover the capabilities of an API without needing to first read documentation or understand the implementation. {% data variables.product.company_short %} has made its REST API publicly available as an OpenAPI 3.0 compliant document.
+## Abrufen der {% data variables.product.company_short %} OpenAPI-Beschreibung
 
-### Getting the {% data variables.product.company_short %} OpenAPI description
+Du findest die Beschreibung im Open Source-Repository [REST-API OpenAPI Description](https://github.com/github/rest-api-description) (REST-API OpenAPI-Beschreibung).
 
-You can find the description in the open source [REST API OpenAPI Description](https://github.com/github/rest-api-description) repository.
+Wir stellen die Beschreibung in zwei Formaten bereit. Die gebündelte Version funktioniert in den meisten Fällen, da sie OpenAPI-Komponenten zur Wiederverwendung und Lesbarkeit enthält. Wenn deine Tools keine Inlineverweise auf Komponenten unterstützen, stellen wir auch eine vollständig dereferenzierte Version bereit.
 
-We provide the description in two formats. The bundled version works for most cases, as it includes OpenAPI components for reuse and readability. If your tooling does not support inline references to components, we also provide a fully dereferenced version.
+## Verwenden der {% data variables.product.company_short %} OpenAPI-Beschreibung
 
-### Using the {% data variables.product.company_short %} OpenAPI description
+Es gibt viele Verwendungsmöglichkeiten für eine OpenAPI-Beschreibung. Beispielsweise ist Folgendes möglich:
 
-There are many uses for an OpenAPI description. For example, you could:
+* Generiere deinen eigenen API-Client.
+* Überprüfen und Testen einer {% data variables.product.company_short %} REST-API-Integration.
+* Erkunde und interagiere mit der {% data variables.product.product_name %} REST-API mithilfe von Tools von Drittanbietern, z. B. Insomnia oder Postman.
 
-* Generate your own API client.
-* Validate and test a {% data variables.product.company_short %} REST API integration.
-* Explore and interact with the {% data variables.product.product_name %} REST API using third-party tools, such as Insomnia or Postman.
-
-For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest/reference).
+{% data variables.product.company_short %} verwendet beispielsweise die REST OpenAPI-Beschreibung, um die {% data variables.product.product_name %} [REST-API-Referenzdokumentation](/rest) zu generieren.

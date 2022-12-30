@@ -1,9 +1,10 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-
-1. 在仓库名称下，单击 **Releases（发布）**。 ![发布选项卡](/assets/images/help/releases/release-link.png)
-
-{% else %}
-
-1. 对于文件列表的右侧，单击 **Releases（发行版）**或 **Latest release（最新发行版）**。 ![右侧边栏中的 Releases（发行版）部分](/assets/images/help/releases/release-link.png)
-
-{% endif %}
+---
+ms.openlocfilehash: 102dd661861273496f8139e93b4f3df1346468b6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145099427"
+---
+1. 在文件列表右侧，单击“发布”。
+  ![右侧边栏中的“发布”部分](/assets/images/help/releases/release-link.png)

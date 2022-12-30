@@ -1,1 +1,9 @@
-Scheduled reminders help teams focus on the most important review requests that require their attention. Scheduled reminders for pull requests will send a message to your team in Slack with all open pull requests that you or your team have been asked to review, at a specified time. For example, you can create a scheduled reminder to send a message to your team's main communication channel in Slack, including all open pull requests that the team is requested to review, every Wednesday at 9:00 a.m.
+---
+ms.openlocfilehash: 4d03029cacb202db6b95c5b6c30489b826b906d0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145118523"
+---
+Запланированные напоминания помогают командам сосредоточиться на наиболее важных запросах на проверку, которые требуют их внимания. Запланированные напоминания о запросах на вытягивание в заданное время отправят вашей команде в Slack сообщение, которое содержит все открытые запросы на вытягивание, которые вам или вашей команде было предложено просмотреть. Например, можно создать запланированное напоминание для отправки по средам в 9:00 сообщения в основной коммуникационный канал вашей команды в Slack, в котором будут перечислены все открытые запросы на вытягивание, которые команда запрашивает для проверки.

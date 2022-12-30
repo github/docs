@@ -1,1 +1,9 @@
-A new content reference is `created`. A new content reference is created when the body or comment of an issue or pull request includes a URL that matches a configured content reference domain. For more information, see "[Using content attachments](/apps/using-content-attachments/)" to learn more about content references and attachments.
+---
+ms.openlocfilehash: d1a09b2e8dda10045be7d37028096da448a3750c
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881991"
+---
+Новая ссылка на содержимое `created`. Новая ссылка на содержимое создается, когда текст или комментарий проблемы или запроса на включение внесенных изменений содержит URL-адрес, соответствующий настроенному домену ссылок на содержимое. Чтобы узнать больше о ссылках на содержимое и вложениях, см. раздел "[Использование вложенного содержимого](/apps/using-content-attachments/)".

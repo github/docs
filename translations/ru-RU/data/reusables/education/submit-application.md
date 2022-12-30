@@ -1,3 +1,18 @@
-8. Verify your application details, then click **Submit your information**. ![Submit your information button](/assets/images/help/education/submit-your-information-button.png)
+---
+ms.openlocfilehash: ddecd34836e2c6660808f586d4ba63debc83da51
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107464"
+---
+8. Проверьте сведения о приложении и нажмите кнопку **"Обработать приложение**".
+ ![Кнопка "Обработать приложение"](/assets/images/help/education/submit-your-information-button.png)
 
- If your application is approved, you'll receive a confirmation email. Applications are usually processed within a few days, but it may take longer during peak times, such as during the start of a new semester.
+    {% note %}
+
+    **Примечание:** Если после нажатия кнопки **"Обработка приложения** " появится баннер с предложением исправить что-то в приложении, необходимо исправить его, а затем нажать кнопку **"Повторно обработать приложение**".
+
+    {% endnote %}
+
+ Если приложение утверждено, вам будет отправлено соответствующее письмо с подтверждением. Обработка приложений обычно занимает несколько дней, однако может занять больше времени во время периодов пиковой нагрузки, таких как в начале нового семестра.

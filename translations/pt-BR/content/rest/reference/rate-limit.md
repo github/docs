@@ -1,30 +1,24 @@
 ---
 title: Limite de taxa
+intro: With the Rate Limit API, you can check the current rate limit status of various REST APIs.
 redirect_from:
-  - /v3/rate_limit
-  - /v3/rate-limit
+- /v3/rate_limit
+- /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: b36df3bea47b1f291aff9f355b67cbd2bdb26905
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141501993"
 ---
-
-A documentação geral da API REST descreve as [regras de limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting). Você pode verificar seu status de limite de taxa atual a qualquer momento usando a API de limite de taxa descrita abaixo.
-
-### Entender o seu status de limite de taxa
-
-A API de pesquisa tem um [limite de taxa personalizado](/v3/search/#rate-limit), separado do limite de taxa que rege o restante da API REST. A API do GraphQL também tem um [limite de taxa personalizado](/v4/guides/resource-limitations/#rate-limit), que é separado e calculado de forma diferente dos limites de taxa na API REST.
-
-Por esses motivos, a resposta da API do limite de taxa categoriza o seu limite de taxa. Em `recursos`, você verá quatro objetos:
-
-* O objeto `principal` fornece o status do limite de taxa para todos os recursos não relacionados à pesquisa na API REST.
-
-* O objeto `de pesquisa` fornece o status do limite de taxa para a [API de pesquisa](/v3/search/).
-
-* O objeto `graphql` fornece o status do limite de taxa para a [API do GraphQL](/v4/).
-
-* O objeto `integration_manifest` fornece o status do limite de taxa para o ponto de extremidade [Conversão do código de manifesto do aplicativo GitHub](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
-
-Para obter mais informações sobre os cabeçalhos e valores na resposta do limite de taxa, consulte "[Limitação de taxa](/v3/#rate-limiting)".
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/rate-limit
+-->

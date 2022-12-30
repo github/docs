@@ -1,31 +1,12 @@
-<table spaces-before="0" line-breaks-before="1">
-  <tr>
-    <th>
-      <nobr>Type of analysis</nobr>
-    </th>
-    
-    <th>
-      Options for generating alerts
-    </th>
-  </tr>
-  
-  <tr>
-    <td>
-      {% data variables.product.prodname_codeql %}
-    </td>
-    
-    <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Enabling {% data variables.product.prodname_code_scanning %} using actions</a>") or using the {% data variables.product.prodname_codeql_runner %} in a third-party continuous integration (CI) system (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Running code scanning in your CI system</a>").
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      Third&#8209;party
-    </td>
-    
-    <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Enabling {% data variables.product.prodname_code_scanning %} using actions</a>") or generated externally and uploaded to {% data variables.product.product_name %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Uploading a SARIF file to {% data variables.product.prodname_dotcom %}</a>").
-    </td>
-  </tr>
-</table>
+---
+ms.openlocfilehash: 3f8288f84d2b0b9aa24bf42d8e52b1348607390e
+ms.sourcegitcommit: 96bbb6b8f3c9172209d80cb1502017ace3019807
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879695"
+---
+| <nobr>Art der Analyse</nobr> | Optionen zum Generieren von Warnungen |
+|------------------|-------------------------------|
+| {% data variables.product.prodname_codeql %} | Verwenden von {% data variables.product.prodname_actions %} (siehe [Einrichten von {% data variables.product.prodname_code_scanning %} mithilfe von Aktionen](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)) oder Ausführen von {% data variables.product.prodname_codeql %}-Analyse in einem CI-System eines Drittanbieters (siehe [Informationen zu {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in Ihrem CI-System](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)).
+| Drittanbieter&#8209; | Verwenden von {% data variables.product.prodname_actions %} (siehe [Einrichten von {% data variables.product.prodname_code_scanning %} mithilfe von Aktionen](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)) oder extern generiert und in {% data variables.product.product_name %} hochgeladen (siehe [Hochladen einer SARIF-Datei in {% data variables.product.prodname_dotcom %}](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)).|

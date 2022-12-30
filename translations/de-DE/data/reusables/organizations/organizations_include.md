@@ -1,8 +1,17 @@
-Organisationen beinhalten:
-{% if currentVersion == "free-pro-team@latest" %}- A free option, {% data variables.product.prodname_free_team %}, with unlimited collaborators on unlimited public repositories with full features and unlimited private repositories with limited features.
-- Die Option zum Upgrade auf {% data variables.product.prodname_team %} oder {% data variables.product.prodname_ghe_cloud %} für zusätzliche Funktionen, einschließlich anspruchsvolle Benutzerauthentifizierung und -verwaltung und eskalierte Unterstützungsoptionen. {% data reusables.gated-features.more-info %}{% endif %}
-- Unbegrenzte Mitgliedschaft mit einer Vielzahl von Rollen, die [unterschiedliche Zugriffsebenen auf die Organisation und auf deren Daten](/articles/permission-levels-for-an-organization) gewähren
-- Die Möglichkeit, den Mitgliedern [eine Reihe von Zugriffsberechtigungen auf die Repositorys Ihrer Organisation](/articles/repository-permission-levels-for-an-organization) zu erteilen
-- [Nested teams that reflect your company or group's structure](/articles/about-teams) with cascading access permissions and mentions{% if currentVersion != "github-ae@latest" %}
-- Die Möglichkeit für Organisationsinhaber, den [Zwei-Faktor-Authentifizierungsstatus (2FA)](/articles/about-two-factor-authentication) der Mitglieder anzuzeigen
-- The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+---
+ms.openlocfilehash: 02e080d26aded3b22b6a9819208eb1908aae7cf0
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145107840"
+---
+Organisationen umfassen:
+- Unbegrenzte Mitgliedschaft mit einer Vielzahl von Rollen, die einen [unterschiedlichen Zugriffsumfang auf die Organisation und zugehörige Daten gewähren](/articles/permission-levels-for-an-organization)
+- Die Möglichkeit, Mitgliedern [eine Reihe von Zugriffsberechtigungen für die Repositorys deiner Organisation](/articles/repository-permission-levels-for-an-organization) zu gewähren
+- [Geschachtelte Teams, die die Struktur deines Unternehmens oder deiner Gruppe widerspiegeln](/articles/about-teams), mit kaskadierenden Zugriffsrechten und Erwähnungen{% ifversion not ghae %}
+- Die Möglichkeit für Organisationsbesitzer, den Status der [zweistufigen Authentifizierung (2FA) ihrer Mitglieder einzusehen](/articles/about-two-factor-authentication)
+- Die Option, für [alle Organisationsmitglieder die Verwendung der zweistufigen Authentifizierung als verbindlich festzulegen](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}{% ifversion fpt%}
+- Die Möglichkeit, [Kursräume mit GitHub Classroom zu erstellen und zu verwalten](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms){% endif %}
+
+{% data reusables.organizations.organization-plans %}

@@ -1,9 +1,17 @@
-Once you have a token, you can enter it instead of your password when performing Git operations over HTTPS.
+---
+ms.openlocfilehash: e76c3ece72a7952e679fd840edc6b5f2866bace9
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: "148008870"
+---
+Получив маркер, вы можете ввести его вместо пароля при выполнении операций Git по протоколу HTTPS.
 
-For example, on the command line you would enter the following:
+Например, в командной строке введите следующее:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repo</em>.git
-Username: <code>your_username</code>
-Password: <em>your_token</em>
+$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPO.git
+Username: YOUR_USERNAME
+Password: YOUR_TOKEN
 ```

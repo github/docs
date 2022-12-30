@@ -1,0 +1,27 @@
+date: '01.04.2021'
+intro: "Die Mindestanforderungen an die Infrastruktur haben sich für {% data variables.product.prodname_ghe_server %} 3.0 und später erhöht. Weitere Informationen findest du unter [Informationen zu den Mindestanforderungen für GitHub Enterprise Server 3.0 und höher](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+sections:
+  security_fixes:
+    - "**HOCH:** Ein Sicherheitsrisiko zur unzulässigen Zugriffssteuerung wurde in GitHub Enterprise Server erkannt, das es Zugriffstoken, die über den [Webauthentifizierungsablauf](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) der GitHub-App generiert wurden, ermöglicht hat, private Repositorymetadaten über die REST-API zu lesen, ohne dass dafür die geeigneten Berechtigungen gewährt wurden. Um dieses Sicherheitsrisiko auszunutzen, müssen Angreifer*innen auf der Instanz eine GitHub-App erstellen, und ein Benutzer oder eine Benutzerin muss die Anwendung über den Webauthentifizierungsflow autorisieren. Die zurückgegebenen Metadaten des privaten Repositorys wurden auf Repositorys eingeschränkt, die dem Benutzer oder der Benutzerin gehören, der oder die vom Token identifiziert wurde. Dieses Sicherheitsrisiko trat bei allen Versionen von GitHub Enterprise Server vor 3.0.4 auf und wurde in den Versionen 3.0.4, 2.22.10 und 2.21.18 behoben. Diesem Sicherheitsrisiko wurde der Name „CVE-2021-22865“ zugeordnet. Es wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet."
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Wenn der Wartungsmodus aktiviert wurde, wurden manche Dienste weiterhin als „aktive Prozesse“aufgeführt, obwohl diese zwar ausgeführt aber nicht aufgelistet werden sollten."
+    - "Nach dem Upgrade von 2.22.x auf 3.0.x mit aktivierter GitHub Actions-Instanz wurde die selbstgehostete Runnerversion nicht aktualisiert, und es wurden keine selbstgehosteten Updates ausgeführt."
+    - "Alte GitHub Pages-Builds wurden nicht bereinigt, was zu erhöhter Datenträgerauslastung geführt hat."
+    - '`memcached` wurde auf aktiven Replikaten nicht ausgeführt.'
+    - "Wenn GitHub Actions aktiviert war, war das Upgrade beim Aktualisieren von Dateiberechtigungen fehlerhaft."
+    - "Eine festgelegte Zeitzone auf GitHub Enterprise 11.10.x oder früher wurde von einigen Diensten nicht genutzt, die standardmäßig auf die UTC-Zeitzone festgelegt sind."
+    - "Dienste wurden nicht in neue Protokolldateien als Teil der Protokollrotation migriert, was zu einer höheren Datenträgerauslastung geführt hat."
+    - Das Befehlszeilenprogramm `ghe-saml-mapping-csv` hat eine Warnmeldung ausgegeben.
+    - Die Bezeichnung bei Suchergebnissen für interne Repositorys wurde als „Privat“ und nicht als „Intern“ angezeigt.
+  known_issues:
+    - Auf einer neu eingerichteten GitHub Enterprise Server-Instanz ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Das Jupyter Notebook-Rendering auf der Webbenutzeroberfläche ist möglicherweise nicht erfolgreich, wenn das Notebook ASCII-fremde UTF-8-Zeichen enthält."
+    - "Das RST-Rendering (reStructuredText) auf der Webbenutzeroberfläche schlug fehl, und es wurde stattdessen unformatierter RST-Markuptext angezeigt."
+    - "Beim Löschen eines Branchs nach dem Mergen eines Pull Requests wird eine Fehlermeldung angezeigt, obwohl der Branch erfolgreich gelöscht wird."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer*innen verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

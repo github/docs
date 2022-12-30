@@ -1,0 +1,369 @@
+date: '2021-09-28'
+intro: "アップグレードの手順については、「[{% data variables.product.prodname_ghe_server %} のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)」を参照してください。"
+sections:
+  features:
+    - heading: シークレット スキャンのカスタム パターン
+      notes:
+        # https://github.com/github/releases/issues/1426
+        - |{% data variables.product.prodname_GH_advanced_security %} をお使いのお客様は、シークレット スキャンのカスタム パターンを指定できるようになりました。新しいパターンを指定すると、リポジトリの Git 履歴全体で、シークレット スキャンによって、そのパターンと新しいコミットの検索が行われます。
+
+
+
+ユーザー定義パターンは、{% data variables.product.prodname_ghe_server %} 3.2 ではベータ版です。リポジトリ、組織、エンタープライズの各レベルで定義できます。詳しくは、「[シークレット スキャンのカスタム パターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
+
+|
+    - heading: Advanced Security (ベータ) のセキュリティの概要
+      notes:
+        # https://github.com/github/releases/issues/1381
+        - |{% data variables.product.prodname_GH_advanced_security %} をお使いのお客様は、{% data variables.product.prodname_code_scanning %}、{% data variables.product.prodname_dependabot %}、{% data variables.product.prodname_secret_scanning %} で検出されるアプリケーション セキュリティ リスクを組織レベル ビューで確認できるようになりました。セキュリティの概要には、各リポジトリでのセキュリティ機能の有効化状態と、検出されたアラートの数が表示されます。
+
+
+
+また、セキュリティの概要には、組織レベルの {% data variables.product.prodname_secret_scanning %} アラートがすべて一覧表示されます。{% data variables.product.prodname_dependabot %} と {% data variables.product.prodname_code_scanning %} のアラートと同様のビューは、今後のリリースで予定されています。詳しくは、「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照してください。
+
+
+
+![セキュリティの概要のスクリーンショット](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: 依存関係レビュー (ベータ)
+      notes:
+        # https://github.com/github/releases/issues/1364
+        - |{% data variables.product.prodname_GH_advanced_security %} をお使いのお客様に、pull request で変更された依存関係のリッチ diff が表示されるようになりました。依存関係レビューでは、依存関係の変更と、それによるセキュリティへの影響が、pull request の [Files changed]\(変更されたファイル\) タブにわかりやすく表示されます。ここを見ると、追加、削除、更新された依存関係と、この依存関係の脆弱性情報を確認できます。詳しくは、「[pull request 内の依存関係の変更をレビューする](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
+
+|
+    - heading: GitHub Actions 環境
+      notes:
+        # https://github.com/github/releases/issues/1308
+        - |環境、環境保護ルール、環境シークレットが、{% data variables.product.product_name %} の {% data variables.product.prodname_actions %} で一般提供されるようになりました。詳しくは、[環境](/actions/reference/environments)に関するページを参照してください。
+
+
+
+![環境保護ルール](/assets/images/enterprise/3.2/release-notes/actions-environments.png)
+
+|
+    - heading: セキュリティ キーを使った SSH 認証
+      notes:
+        # https://github.com/github/releases/issues/1276
+        - |`sk-ecdsa-sha2-nistp256@openssh.com` または `sk-ssh-ed25519@openssh.com` という SSH キーをアカウントに追加する場合に、FIDO2 セキュリティ キーを使った SSH 認証がサポートされるようになりました。SSH セキュリティ キーを使うと、操作のために検証が必要な個別のハードウェア デバイス (タップなど) にシークレット キー マテリアルが格納されます。詳しくは、[新しく生成した SSH キーの SSH エージェントへの追加](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)に関するページを参照してください。
+
+|
+    - heading: 'ダーク テーマとダーク淡色テーマ'
+      notes:
+        # https://github.com/github/releases/issues/1260
+        - |Web UI で、ダーク テーマとダーク淡色テーマを利用できるようになりました。{% data variables.product.product_name %} でテーマの環境設定を設定していない場合は、お使いのシステム環境設定が {% data variables.product.product_name %} に適用されます。また、昼間と夜間でアクティブにするテーマを選ぶことができます。詳しくは、「[テーマ設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
+
+
+
+![ダーク テーマとダーク淡色テーマ](https://user-images.githubusercontent.com/33528647/114629560-d2231f80-9c86-11eb-9bde-cc301a97040d.gif)
+
+|
+    - heading: 'メール通知用の未検証ドメインを承認する'
+      notes:
+        # https://github.com/github/releases/issues/1244
+        - "メール通知のルーティングを行うことができるように、検証不能なドメインを承認できるようになりました。エンタープライズと組織の所有者は、ドメインを承認して、メール通知の制限ポリシーをただちに強化できるようになります。これにより、コラボレーター、コンサルタント、買収先、またはその他のパートナーに通知を送信することができます。詳しくは、「[エンタープライズのドメインを検証または承認する](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#about-approval-of-domains)」と「[エンタープライズのメール通知を制限する](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise#restricting-email-notifications-for-your-enterprise-account)」を参照してください。"
+
+    - heading: 'Git Credential Manager (GCM) のセキュリティで保護された資格情報ストレージと多要素認証サポート'
+      notes:
+        # https://github.com/github/releases/issues/1406
+        - |Git Credential Manager (GCM) バージョン 2.0.452 以降では、{% data variables.product.product_name %} に対して、セキュリティが強化された資格情報ストレージと多要素認証サポートが提供されるようになりました。
+
+
+
+{% data variables.product.product_name %} のサポート付き GCM は、[Git for Windows](https://gitforwindows.org) バージョン 2.32 以降に含まれます。GCM は、Git for macOS または Git for Linux には含まれませんが、個別にインストールすることができます。詳しくは、`GitCredentialManager/git-credential-manager` リポジトリで、[最新リリース](https://github.com/GitCredentialManager/git-credential-manager/releases/)と[インストール手順](https://github.com/GitCredentialManager/git-credential-manager/releases/)を参照してください。
+
+|
+  changes:
+    - heading: 管理の変更
+      notes:
+        # https://github.com/github/releases/issues/1309
+        - "[User Agent Referrer Policy]\\(ユーザー エージェントの参照元ポリシー\\) 設定がエンタープライズ設定に追加されました。これにより、管理者は、より厳しい [Referrer-Policy]\\(参照元ポリシー\\) を設定することで、{% data variables.product.prodname_ghe_server %} のインストールのホスト名を外部サイトでは非表示にすることができます。この設定は既定で無効であり、有効や無効の操作を行うと、スタッフやエンタープライズ所有者の監査ログ イベントによって追跡されます。詳しくは、「[エンタープライズの参照元ポリシーの構成](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1515
+        - MySQL の正常性チェックは、TCP チェックの代わりに、`mysqladmin ping` を使うように変更されました。これにより、MySQL エラー ログの不要なノイズが一部除去されます。また、Orchestrator のフェールオーバー チェックが改善され、クラスター構成の変更を適用するときに、不要な MySQL フェールオーバーが発生しなくなりました。
+
+        # https://github.com/github/releases/issues/1287
+        - "バックグラウンド ジョブの処理をサポートする Resque サービスは、Aqueduct Lite に置き換えられました。この変更により、ジョブ システムが管理しやすくなり、ユーザー エクスペリエンスへの影響が抑えられます。Aqueduct の新しい管理コマンドとデバッグ コマンドについては、[コマンド ライン ユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-aqueduct)に関するページを参照してください。"
+
+    - heading: トークンの変更
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |{% data variables.product.product_name %} の認証トークンの形式が変更されました。この変更は、個人用アクセス トークンと {% data variables.product.prodname_oauth_apps %} のアクセス トークンの形式に加え、{% data variables.product.prodname_github_apps %} のユーザーからサーバーへのトークン、サーバーからサーバーへのトークン、更新トークンに影響を及ぼします。
+
+
+
+さまざまな種類のトークンに、識別可能な一意のプレフィックスが含まれるようになりました。これにより、シークレット スキャンを行ってトークンを検出することで、他のユーザーが誤ってトークンをリポジトリにコミットしてしまった場合の影響を軽減できるようになります。{% data variables.product.company_short %} では、できるだけ早く既存のトークンを更新することをお勧めしています。詳しくは、[{% data variables.product.prodname_dotcom %} の認証](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)に関するページと「[{% data variables.product.prodname_secret_scanning %} について](/code-security/secret-security/about-secret-scanning)」を参照してください。
+
+|
+    - heading: 'リポジトリの変更'
+      notes:
+        # https://github.com/github/releases/issues/1295
+        - ユーザー プロファイルと組織プロファイルのリポジトリが、星の数での並べ替えをサポートするようになりました。
+
+        # https://github.com/github/releases/issues/1327
+        - "1 つのファイルのコミット履歴を表示しているときに {% octicon \"file-code\" aria-label=\"The code icon\" %} をクリックして、履歴内の選択した時点のファイルを表示できるようになりました。"
+
+        # https://github.com/github/releases/issues/1254
+        - "サブモジュールが {% data variables.product.product_location %} 内の相対パスで定義される場合、そのサブモジュールを Web UI でクリックできるようになりました。Web UI でサブモジュールをクリックすると、リンク先のリポジトリに移動します。以前は、絶対 URL が設定されているサブモジュールのみがクリック可能でした。これは、<code>../<em>REPOSITORY</em></code> のパターンに従う同じ所有者のリポジトリの相対パス、または <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> のパターンに従う別の所有者のリポジトリの相対パスでサポートされています。サブモジュールを使った作業について詳しくは、{% data variables.product.prodname_blog %} の「[サブモジュールを使って作業する](https://github.blog/2016-02-01-working-with-submodules/)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1250
+        - "Web UI を使って、フォークの古くなったブランチをそのフォークの上流ブランチに同期させることができるようになりました。ブランチ間でマージの競合がなければ、そのブランチは、fast-forward か上流からのマージによって更新されます。競合がある場合は、pull request を作成して競合を解決するように求められます。詳しくは、「[フォークを同期する](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)」を参照してください。"
+
+    - heading: 'Markdown の変更'
+      notes:
+        # https://github.com/github/releases/issues/1477
+        - "リポジトリ内でのリリースの作成または編集に使うマークダウン エディターに、テキスト編集ツール バーが追加されました。詳しくは、「[リポジトリ内でリリースを管理する](/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1169
+        - "{% data variables.product.product_name %} で Markdown で記述したすべての場所への動画ファイルのアップロードがサポートされるようになりました。イシューや pull request のコメントに加え、リポジトリ内の README などの Markdown ファイルで、デモや再現ステップなどを共有してください。詳しくは、「[ファイルを添付する](/github/writing-on-github/working-with-advanced-formatting/attaching-files)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1269
+        - 見出しが 2 つ以上ある場合に、Markdown ファイルで見出し内に目次が自動的に生成されるようになりました。目次は対話型で、選んだセクションにリンクされます。Markdown の 6 つの見出しレベルはすべてサポートされています。
+
+        # https://github.com/github/releases/issues/1294
+        - 'Markdown ファイル、イシュー、pull request、コメントに codeblock を挿入するための新しいキーボード ショートカットがあります (macOS では `cmd + e` キー、Windows では `ctrl + e` キー)。'
+
+        # https://github.com/github/releases/issues/1474
+        - "`?plain=1` を Markdown ファイルの URL に追加すると、レンダリングと行番号の表示なしにファイルが表示されるようになります。プレーン ビューを使うと、他のユーザーを特定の行にリンクできます。たとえば、`?plain=1#L52` を追加すると、プレーンテキスト Markdown ファイルの 52 行目が強調表示されます。詳しくは、「[コード スニペットへの固定リンクを作成する](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)」を参照してください。"
+
+    - heading: 'イシューと pull request の変更'
+      notes:
+        # https://github.com/github/releases/issues/1413
+        - "[最新バージョンの Octicons](https://github.com/primer/octicons/releases) では、イシューと pull request の状態の表示がさらにわかりやすくなったため、状態をスキャンしやすくなりました。詳しくは、[{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/) を参照してください。"
+
+        # https://github.com/github/releases/issues/1419
+        - "新しい [Require conversation resolution before merging]\\(マージ前に会話の解決必須\\) ブランチ保護ルールと [Conversations]\\(会話\\) メニューを使用できるようになりました。[Files changed]\\(変更されたファイル\\) タブから pull request コメントを見つけやすくなり、pull request のすべての会話をマージ前に解決することが要求されます。詳しくは、「[pull request のレビューについて](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)」と「[保護されたブランチについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1279
+        - "pull request で自動マージを有効にした後に予期しない変更がマージされないようにするために、リポジトリへの書き込みアクセス権を持たないユーザーが新しい変更をプッシュすると、自動マージが自動的に無効化されるようになりました。自動マージが有効なときは、書き込みアクセス権を持たないユーザーも、ベース ブランチからの変更を使って pull request を更新できます。悪意のあるユーザーがマージの競合を利用して予期しない変更を pull request で発生させることができないように、更新するとマージが競合する場合は、pull request の自動マージが無効化されます。自動マージについて詳しくは、「[pull request を自動的にマージする](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1550
+        - "メンテナンス権限を持つユーザーが、リポジトリ レベルの [Allow auto-merge]\\(自動マージの許可\\) 設定を管理できるようになりました。この設定は既定ではオフですが、この設定を使うと、リポジトリ内の pull request に対して自動マージを使用できるようにするかどうかを制御できます。以前は、管理者権限を持つユーザーのみがこの設定を管理することができました。また、この設定は、\"[リポジトリの作成](/rest/reference/repos#create-an-organization-repository)\" REST API と \"[リポジトリの更新](/rest/reference/repos#update-a-repository)\" REST API を使って制御できるようになりました。詳しくは、「[リポジトリ内の pull request の自動マージを管理する](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1201
+        - イシューと pull request の担当者の選択で、入力候補を使った検索がサポートされるようになりました。これで、組織内のユーザーをすぐに見つけることができます。また、検索結果の順位が更新され、ユーザーのユーザー名またはプロファイル名の先頭部分の一致を優先するようになりました。
+
+        # https://github.com/github/releases/issues/1430
+        - 100 人以上のユーザーがいるチームからレビューが要求された場合に、大人数のチームに不要な通知が届かないように、開発者に確認ダイアログ ボックスが表示されるようになりました。
+
+        # https://github.com/github/releases/issues/1293
+        - "逆ティックの `code blocks` が、イシューのタイトルや pull request のタイトルでサポートされると同時に、イシューのタイトルや pull request のタイトルが {% data variables.product.prodname_ghe_server %} で参照されているどの場所でもサポートされるようになりました。"
+
+        # https://github.com/github/releases/issues/1300
+        - "pull request のイベントと pull request レビューが、[エンタープライズ](/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise)と[組織](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)の両方の監査ログに含まれるようになりました。これらのイベントを使うと、管理者は pull request アクティビティを監視しやすくなり、セキュリティとコンプライアンスの要件を確実に満たすことができるようになります。イベントは、Web UI から表示するか、CSV または JSON としてエクスポートするか、REST API 経由でアクセスすることができます。また、監査ログで特定の pull request イベントを検索することもできます。詳しくは、「[組織の監査ログをレビューする](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#pull_request-category-actions)」を参照してください。"
+
+    - heading: 'ブランチの変更'
+      notes:
+        # https://github.com/github/releases/issues/885
+        - |新しいリポジトリの既定のブランチ名が `main` になりました。既存のリポジトリは、この変更の影響を受けません。ユーザー、組織の所有者、またはエンタープライズの所有者が新しいリポジトリに既定のブランチを指定していた場合も、影響はありません。
+
+
+
+既定のブランチ名に別の名前を設定したい場合は、[ユーザー](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories)、[組織](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)、または[エンタープライズ](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)の設定で実行できます。
+
+|
+        # https://github.com/github/releases/issues/981
+        - |既定のブランチを含むブランチの名前を、{% data variables.product.product_name %} Web UI を使って変更できるようになりました。ブランチ名を変更すると、名前が変更されたブランチをターゲットにしているオープンな pull request とドラフト リリースのターゲットが自動的に変更され、名前が変更されたブランチを明示的に参照するブランチ保護ルールが更新されます。
+
+
+
+既定のブランチ名を変更するには管理者権限が必要ですが、他のブランチ名については、書き込み権限があれば変更できます。
+
+
+
+変更がユーザーにとってできるだけシームレスになるように、次のことが行われます。
+
+
+
+* リポジトリのホームページで、共同作成者、保守担当者、管理者に対して、ローカル リポジトリの更新手順を含む通知が表示されます。
+
+* 古いブランチへの Web 要求がリダイレクトされます。
+
+* "完全に移動されました" という HTTP 応答が REST API 呼び出しに返されます。
+
+* 古いブランチにプッシュする Git コマンド ライン ユーザーに情報メッセージが表示されます。
+
+
+
+詳しくは、「[ブランチの名前を変更する](/github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch)」を参照してください。
+
+|
+    - heading: 'GitHub Actions の変更'
+      notes:
+        # https://github.com/github/releases/issues/1227
+        - '`GITHUB_TOKEN` シークレットに付与された権限を、{% data variables.product.prodname_actions %} を使って制御できるようになりました。`GITHUB_TOKEN` は自動生成されるシークレットであり、これを使うと、ワークフロー実行内で {% data variables.product.product_name %} の API に対して認証済みの呼び出しを実行できます。{% data variables.product.prodname_actions %} によって、各ジョブに対して新しいトークンが生成され、ジョブが完了するとそのトークンは有効期限切れになります。トークンには通常、複数の [API エンドポイント](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)への `write` 権限が付与されますが、フォークからの pull request (常に `read`) の場合は例外です。このような新しい設定を使うと、ワークフロー内で最小限の特権の原則に従うことができます。詳しくは、[ワークフロー内の認証](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)に関するページを参照してください。'
+
+        # https://github.com/github/releases/issues/1280
+        - '{% data variables.product.prodname_cli %} 1.9 以降を使うと、ターミナル内で {% data variables.product.prodname_actions %} を使うことができます。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/)を参照してください。'
+
+        # https://github.com/github/releases/issues/1157
+        - "監査ログに、{% data variables.product.prodname_actions %} ワークフロー実行に関連づけられたイベントが含まれるようになりました。このデータを使うと、セキュリティ監査やコンプライアンス監査向けに大規模に展開されたデータ セットが管理者に提供されます。詳しくは、「[組織の監査ログをレビューする](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#workflows-category-actions)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1587
+        - |{% data variables.product.prodname_ghe_server %} 3.2 では、{% data variables.product.prodname_actions %} を使用したジョブのコンカレンシーに関するパフォーマンスが改善されています。CPU とメモリ構成の範囲に関する新しいパフォーマンス目標について詳しくは、「[{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_actions %} の概要](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)」を参照してください。
+
+* [最大コンカレンシー] の値は最新のパフォーマンス テストを反映するように変更されています。[更新日: 2021-12-07]
+
+|
+        - "{% data variables.product.prodname_ghe_server %} 3.2 の [{% data variables.product.prodname_actions %} Runner](https://github.com/actions/runner) アプリケーションは [v2.279.0](https://github.com/actions/runner/releases/tag/v2.279.0) に更新されています。"
+
+    - heading: 'GitHub Packages の変更'
+      notes:
+        # https://github.com/github/releases/issues/1088
+        - "{% data variables.product.prodname_registry %} のパッケージまたはパッケージ バージョンが、{% data variables.product.product_name %} の Web UI から削除できるようになりました。また、30 日以内であれば、パッケージまたはパッケージ バージョンの削除を元に戻すこともできます。詳しくは、「[パッケージの削除と復元](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。"
+
+    - heading: 'Dependabot と依存関係グラフの変更'
+      notes:
+        # https://github.com/github/releases/issues/1537
+        - "管理シェルでコマンドを実行することなく、Management Console を使って依存関係グラフを有効にできるようになりました。詳しくは、[{% data variables.product.prodname_ghe_server %} での脆弱性のある依存関係のアラートの有効化](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server#enabling-the-dependency-graph-and-dependabot-alerts-for-vulnerable-dependencies-on-github-enterprise-server)に関するページを参照してください。"
+
+        # https://github.com/github/releases/issues/1153
+        - "複数の {% data variables.product.prodname_dependabot_alerts %} が同時に検出された場合、通知がグループ化されるようになりました。これによって、ユーザーが受け取る {% data variables.product.prodname_dependabot %} アラート通知の数を大幅に減らすことができます。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-03-18-grouped-dependabot-alert-notifications/)を参照してください。"
+
+        # https://github.com/github/releases/issues/1371
+        - "依存関係グラフと {% data variables.product.prodname_dependabot_alerts %} で Go モジュールがサポートされるようになりました。{% data variables.product.prodname_ghe_server %} によってリポジトリの `go.mod` ファイルが分析されるため、リポジトリの依存関係を把握できます。セキュリティ アドバイザリとともに、依存関係グラフは、脆弱性のある依存関係について開発者に警告するために必要な情報を提供します。プライベート リポジトリでの依存関係グラフの有効化について詳しくは、[リポジトリの保護](/code-security/getting-started/securing-your-repository#managing-the-dependency-graph)に関するページを参照してください。"
+
+        # https://github.com/github/releases/issues/1538
+        - "セキュリティ アラートの既定の通知設定が変更されました。以前は、リポジトリ内でセキュリティ アラートを確認する権限を持っていた場合にセキュリティ アラート通知を許可するように設定していれば、そのリポジトリについての通知を受け取ることになっていました。現在は、リポジトリを watch して、セキュリティ アラート通知を選択する必要があります。`All Activity` を選択している場合や、`Security alerts` を含むように `Custom` を構成している場合に通知されます。既存のリポジトリはすべて、このような新しい設定に自動的に移行し、通知は引き続き届きます。ただし、新しいリポジトリでは、リポジトリを watch して選択する必要があります。詳しくは、「[{% data variables.product.prodname_dependabot_alerts %} の通知の構成](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)」と「[シークレット スキャンからのアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。"
+
+    - heading: 'コード スキャンとシークレット スキャンの変更'
+      notes:
+        # https://github.com/github/releases/issues/1352
+        - 'サポートされているすべての言語で、{% data variables.product.prodname_codeql %} の {% data variables.product.prodname_code_scanning_capc %} によって、診断情報が生成されるようになりました。これは、作成したデータベースの状態をチェックして、実施された分析の状態と品質を把握するのに役立ちます。診断情報は、[{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/) の[バージョン 2.5.6](https://github.com/github/codeql-cli-binaries/releases) 以降で利用できます。詳しい診断情報は、{% data variables.product.prodname_codeql %} の {% data variables.product.prodname_actions %} ログで確認できます。詳しくは、「[コード スキャン ログの表示](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs)」を参照してください。'
+
+        # https://github.com/github/releases/issues/1360
+        - '{% data variables.product.prodname_codeql_cli %} の {% data variables.product.prodname_code_scanning_capc %} で、単一ビルド中の複数言語の分析がサポートされるようになりました。これにより、{% data variables.product.prodname_actions %} 以外の CI/CD システムを使用したコード分析が簡単になります。`codeql database create` コマンドの新しいモードは、[{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/) の[バージョン 2.5.6](https://github.com/github/codeql-cli-binaries/releases) 以降で利用できます。この設定について詳しくは、「[CI システムへの {% data variables.product.prodname_codeql_cli %} のインストール](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system)」を参照してください。'
+
+        # https://github.com/github/releases/issues/1160
+        - '有効なすべてのツールからの {% data variables.product.prodname_code_scanning_capc %} アラートが 1 つの統合リストに表示されるようになったため、すべてのアラートから優先順位を付けるのが簡単になりました。[Tool]\(ツール\) フィルターを使って、特定のツールからのアラートを表示できます。また、[Tool]\(ツール\) で選んだものに応じて、[Rule]\(ルール\) フィルターや [Tag]\(タグ\) フィルターによって動的に更新が行われます。'
+
+        # https://github.com/github/releases/issues/1454
+        - '{% data variables.product.prodname_codeql %} の {% data variables.product.prodname_code_scanning_capc %} に、C++20 コード分析のベータ サポートが含まれるようになりました。これは、Linux で GCC を使ってコードベースをビルドする場合にのみ利用できます。C++20 モジュールは、まだサポートされていません。'
+
+        # https://github.com/github/releases/issues/1375
+        - "より多くの[ライブラリとフレームワーク](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)に対するサポートを追加し、複数の言語 ([C++](https://github.com/github/codeql/tree/main/cpp)、[JavaScript](https://github.com/github/codeql/tree/main/javascript)、[Python](https://github.com/github/codeql/tree/main/python)、[Java](https://github.com/github/codeql/tree/main/java)) で既存のライブラリとフレームワーク モデルのカバレッジを広げることで、{% data variables.product.prodname_codeql %} の分析の対象が拡大しました。その結果、{% data variables.product.prodname_codeql %} を使って、信頼できないユーザーのデータにある潜在的なソースをより多く検出し、そのデータが流れる行程を確認し、このデータに発生するかもしれない潜在的な危険なシンクを特定できるようになりました。これにより、{% data variables.product.prodname_code_scanning %} アラートの品質が全体的に向上しました。詳しくは、[{% data variables.product.prodname_dotcom %} 変更ログ](https://github.blog/changelog/2021-07-01-codeql-code-scanning-now-recognizes-more-sources-and-uses-of-untrusted-user-data/)を参照してください。"
+
+        # https://github.com/github/releases/issues/1335
+        # https://github.com/github/releases/issues/1314
+        - |{% data variables.product.prodname_code_scanning_capc %} に、CodeQL セキュリティ アラートの `security-severity` レベルが表示されるようになりました。どの `security-severity` レベルが pull request でチェック エラーを引き起こすかを構成できます。セキュリティ アラートの重大度レベルには、`critical`、`high`、`medium`、`low` があります。既定では、`security-severity` が `critical` か `high` の {% data variables.product.prodname_code_scanning %} アラートによって pull request のチェック エラーが発生します。
+
+
+
+また、セキュリティ以外のアラートについても、pull request チェックでエラーを引き起こす重大度レベルを構成できるようになりました。この動作をリポジトリ レベルで構成し、重大度が `error`、`warning`、または `note` のアラートが pull request チェックでエラーを引き起こすようにするかどうかを定義できます。既定では、重大度が `error` であるセキュリティ以外の {% data variables.product.prodname_code_scanning %} アラートによって pull request のチェック エラーが発生します。
+
+
+
+詳しくは、[pull request チェック エラーの原因となるアラートの重要度レベルの定義](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)に関するページを参照してください。
+
+
+
+![重大度レベルが付けられたコード スキャン アラートの一覧](/assets/images/enterprise/3.2/release-notes/code-scanning-alerts.png)
+
+|
+        # https://github.com/github/releases/issues/1324
+        - |{% data variables.product.prodname_code_scanning %} アラートのブランチ フィルターが改善され、アラート ページで表示中の {% data variables.product.prodname_code_scanning %} アラートを確認しやすくなりました。既定では、リポジトリの既定のブランチのアラートのみが表示されるように、{% data variables.product.prodname_code_scanning %} アラートがフィルター処理されています。ブランチ フィルターを使うと、既定以外のすべてのブランチでアラートを表示できます。適用されたブランチ フィルターは、検索バーに表示されます。
+
+
+
+また、検索構文も簡素化されて、branch:<branch name>` となりました。この構文を検索バーで複数回使って、複数のブランチのフィルター処理を行うことができます。前の構文 `ref:refs/heads/<branch name>` もまだサポートされているため、保存済みの URL は引き続き機能します。
+
+|
+        # https://github.com/github/releases/issues/1313
+        - |コード スキャン アラートでフリー テキスト検索を利用できるようになりました。正確な検索語句がわからなくても、コード スキャン結果を検索して特定のアラートをすばやく見つけることができます。この検索は、アラートの名前、説明、ヘルプ テキスト全体に適用されます。の構文は次のとおりです。
+
+
+
+- 1 つの単語の場合は、すべての一致が返されます。
+
+- 複数の単語で検索すると、いずれかの単語との一致が返されます。
+
+- 単語を二重引用符で囲むと、完全一致が返されます。
+
+- "AND" というキーワードを使うと、複数の単語との一致が返されます。
+
+|
+        - '{% data variables.product.prodname_secret_scanning_caps %} で、新しいサービス プロバイダー 23 社向けのパターンを追加しました。サポートされるシークレットの更新された一覧については、「[シークレット スキャンについて](/code-security/secret-scanning/about-secret-scanning)」を参照してください。'
+
+    - heading: API の変更
+      notes:
+        # https://github.com/github/releases/issues/1253
+        - "Repositories REST API の \"compare two commits\" エンドポイントに、改ページ位置の自動修正のサポートが追加されました。これにより、1 つのコミットまたはブランチから到達可能であるものの、別のものからは到達できないコミットの一覧が返されます。また、この API を使うと、250 個を超えるコミットを比較した結果が返されます。詳しくは、\"[Commits](/rest/reference/commits#compare-two-commits)\" REST API のドキュメントと「[改ページ位置の自動修正を使った走査](/rest/guides/traversing-with-pagination)」を参照してください。"
+
+        # https://github.com/github/releases/issues/969
+        - "REST API を使って、Webhool の状態をプログラムで再送信またはチェックできるようになりました。詳しくは、REST API ドキュメントの「[リポジトリ](/rest/reference/repos#webhooks)」、「[組織](/rest/reference/orgs#webhooks)」、「[アプリ](/rest/reference/apps#webhooks)」を参照してください。"
+
+        # https://github.com/github/releases/issues/1349
+        - |コード スキャンと {% data variables.product.prodname_GH_advanced_security %} の API が改善されました。
+
+
+
+- コード スキャン API が、分析に使った CodeQL クエリ バージョンを返すようになりました。これは、結果の再現や、分析で最新のクエリを使っていたことの確認に使うことができます。詳しくは、REST API ドキュメントの[コード スキャン](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository)に関する記事を参照してください。
+
+- 管理者ユーザーは、REST API を使って、リポジトリで {% data variables.product.prodname_GH_advanced_security %} を有効または無効にできるようになりました。ここでは、`repos/{org}/{repo}` で `security_and_analysis` オブジェクトを使います。さらに、管理者ユーザーは、{% data variables.product.prodname_advanced_security %} が現在リポジトリで有効になっているかどうかをチェックできます。ここでは、`GET /repos/{owner}/{repo}` 要求を使います。これらの変更は、大規模な {% data variables.product.prodname_advanced_security %} リポジトリのアクセスを管理するのに役立ちます。詳しくは、REST API ドキュメントで、「[リポジトリ](/rest/reference/repos#update-a-repository)」を参照してください。
+
+|
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "ユーザーが存在していない、設定したばかりの {% data variables.product.prodname_ghe_server %} では、攻撃者が最初の管理者ユーザーを作成することができました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - イシューに同じリポジトリ内の BLOB への固定リンクが含まれていて、その BLOB のファイル パスが 255 文字を超えている場合、そのイシューをクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリのイシューが GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+
+  deprecations:
+    - heading: GitHub Enterprise Server 2.21 の非推奨化
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.21 は 2021 年 6 月 6 日に廃止されました**。これは、この日以降、重大なセキュリティの問題があっても、パッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
+    - heading: GitHub Enterprise Server 2.22 の非推奨化
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 は 2021 年 9 月 23 日に廃止されました**。これは、この日以降、重大なセキュリティの問題があっても、パッチ リリースが作成されないことを意味します。より優れたパフォーマンス、改善されたセキュリティ、新機能のために、[{% data variables.product.prodname_ghe_server %} の最新バージョンへのアップグレード](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server)をできるだけ早く行ってください。'
+    - heading: XenServer Hypervisor サポートの非推奨化
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "{% data variables.product.prodname_ghe_server %} 3.1 以降、Xen Hypervisor のサポートを廃止します。{% data variables.product.prodname_ghe_server %} 3.3 の完全な非推奨化は、1 年間の標準非推奨期間の後に予定されています。ご質問やご不明な点がございましたら、[GitHub サポート](https://support.github.com/contact)にお問い合わせください。"
+    - heading: レガシ GitHub Services の削除
+      notes:
+        # https://github.com/github/releases/issues/1506
+        - '{% data variables.product.prodname_ghe_server %} 3.2 では、未使用の GitHub Service データベース レコードが削除されます。詳しくは、[非推奨化のお知らせの投稿](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)で確認できます。'
+    - heading: クエリ パラメーターを使った OAuth Application API エンドポイントと API 認証の非推奨化
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |`access_tokens` が誤ってログに記録されたり、露出されたりしないようにするため、OAuth Application API エンドポイントの使用やクエリ パラメーターを使った API 認証の使用はお勧めしません。次の投稿を参照して、代替案を確認してください。
+
+
+
+* [代替 OAuth Application API エンドポイント](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [クエリ パラメーターの代わりにヘッダーを使った代替の認証](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+これらのエンドポイントと認証ルートは、{% data variables.product.prodname_ghe_server %} 3.4 で {% data variables.product.prodname_ghe_server %} から削除される予定です。
+
+|
+    - heading: レガシ GitHub App Webhook イベントとエンドポイントの削除
+      notes:
+        # https://github.com/github/releases/issues/965
+        - |2 つのレガシ GitHub Apps 関連 Webhook イベント (`integration_installation` と `integration_installation_repositories`) が削除されました。代わりに、`installation` イベントと `installation_repositories` イベントをリッスンする必要があります。
+
+|
+        - |REST API エンドポイント `POST /installations/{installation_id}/access_tokens` が削除されました。代わりに、同等の名前空間が指定されている `POST /app/installations/{installation_id}/access_tokens` を使う必要があります。
+
+|
+    - heading: 認証トークンの形式を変更すると GitHub Connect に影響がある
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |GitHub 認証トークンの形式が変更されるため、6 月 3 日を過ぎると、GitHub Enterprise Server 3.1 以前を実行するインスタンスでは、GitHub Connect が動作しなくなります。引き続き GitHub Connect を使うには、GitHub Enterprise Server 3.2 以降にアップグレードしてください。詳細については、[GitHub のブログ](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/)を参照してください。[更新日: 2022-06-14]
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.2 で[バックアップとディザスター リカバリー](/enterprise-server@3.2/admin/configuration/configuring-backups-on-your-appliance)を行うには、[GitHub Enterprise Backup Utilities 3.2.0](https://github.com/github/backup-utils) 以降が必要です。'

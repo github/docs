@@ -1,18 +1,18 @@
 ---
 title: OAuth 認証
 redirect_from:
-  - /v3/oauth_authorizations
-  - /v3/oauth-authorizations
+- /v3/oauth_authorizations
+- /v3/oauth-authorizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  ghes: '*'
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 3b68c6a30994bec98da37816323fc6ed2865448a
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141523154"
 ---
-
-{% data reusables.apps.deprecating_token_oauth_authorizations %}
-{% data reusables.apps.deprecating_password_auth %}
-
-この API を使用すると、OAuth アプリケーションから自分のアカウントへのアクセスを管理することができます。 この API にアクセスするには、ユーザ名とパスワードを使用する [Basic 認証](/rest/overview/other-authentication-methods#basic-authentication) が必要であり、トークンは使用できません。
-
-自分または自分のユーザが 2 要素認証を有効にしている場合は、必ず [2 要素認証の使用方法](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)を理解していることを確認してください。
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/oauth-authorizations
+-->

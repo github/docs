@@ -1,0 +1,64 @@
+name: Lint code
+
+# **What it does**: Lints our code to ensure the code matches the specified code style.
+# **Why we have it**: We want some level of consistency to our code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      - '**.yaml'
+      - '**.yml'
+      - '**.scss'
+      - .eslintrc.cjs
+      # In case something like eslint or tsc or prettier upgrades
+      - 'package-lock.json'
+      # In case one of the script definitions changed
+      - 'package.json'
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/code-lint.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Cache node_modules
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}
+
+      - name: Setup node
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        with:
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --prefer-offline --no-audit --ignore-scripts
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier-check
+
+      - name: Run TypeScript
+        run: npm run tsc

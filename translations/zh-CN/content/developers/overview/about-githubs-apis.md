@@ -1,30 +1,22 @@
 ---
-title: About GitHub's APIs
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to extend and customize your {% data variables.product.prodname_dotcom %} experience.'
+title: 关于 GitHub 的 API
+intro: '了解 {% data variables.product.prodname_dotcom %} 的 API 以扩展和自定义您的 {% data variables.product.prodname_dotcom %} 体验。'
 redirect_from:
   - /v3/versions
+  - /articles/getting-started-with-the-api
+  - /github/extending-github/getting-started-with-the-api
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+ms.openlocfilehash: 6c4519222ce356e2b205b66f898a096ebacf8d9c
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147682642'
 ---
-
-There are two stable versions of the GitHub API: the [REST API](/v3/) and the [GraphQL API](/v4/).
-
-When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version).
-
-For information on using the GraphQL API, see the [v4 docs](/v4/).
-
-## Deprecated versions
-
-### 测试版
-
-We deprecated the beta API on April 22, 2014.
-
-### v2
-
-We removed support for API v2 on June 12, 2012.
-
-### v1
-
-We removed support for API v1 on June 12, 2012.
+GitHub API 有两个稳定版本：[REST API](/rest) 和 [GraphQL API](/graphql)。

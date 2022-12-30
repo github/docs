@@ -1,22 +1,24 @@
 ---
 title: Übersicht
-intro: 'Learn about the {% data variables.product.prodname_dotcom %} GraphQL API, previews for upcoming changes, breaking changes, and limitations. You can also use the GraphQL Explorer to interact with the API on real {% data variables.product.prodname_dotcom %} data.'
+intro: 'Erfahre mehr über die {% data variables.product.prodname_dotcom %}-GraphQL-API, Vorschauen für bevorstehende Änderungen, Breaking Changes und Einschränkungen. Du kannst auch den GraphQL-Explorer verwenden, um mit der API für echte {% data variables.product.prodname_dotcom %}-Daten zu interagieren.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /about-the-graphql-api
+  - /public-schema
+  - /schema-previews
+  - /breaking-changes
+  - /changelog
+  - /explorer
+  - /resource-limitations
+ms.openlocfilehash: 8476605072c24b3cd702bc62b34c6b29d062d340
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145068391'
 ---
 
-{% link_in_list /about-the-graphql-api %}
-
-{% link_in_list /public-schema %}
-
-{% link_in_list /schema-previews %}
-
-{% link_in_list /breaking-changes %}
-
-{% link_in_list /changelog %}
-
-{% link_in_list /explorer %}
-
-{% link_in_list /resource-limitations %}

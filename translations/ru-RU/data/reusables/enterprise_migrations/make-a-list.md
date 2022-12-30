@@ -1,1 +1,9 @@
-1. To minimize downtime, make a list of repositories you want to export from the source instance. You can add multiple repositories to an export at once using a text file that lists the URL of each repository on a separate line.
+---
+ms.openlocfilehash: 687916ec79cfe8fcb94582b389a32ee165828256
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882178"
+---
+1. Чтобы свести к минимуму время простоя, создайте список репозиториев, которые необходимо экспортировать из исходного экземпляра. Можно добавить сразу несколько репозиториев для экспорта с помощью текстового файла, в котором указаны URL-адреса каждого репозитория в отдельной строке.

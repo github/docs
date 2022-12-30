@@ -1,22 +1,31 @@
 ---
-title: Essential features of GitHub Actions
+title: GitHub Actions의 필수 기능
 shortTitle: Essential features
-intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
+intro: '{% data variables.product.prodname_actions %}는 강력하고 동적인 자동화를 빌드하는 데 도움이 되도록 설계되었습니다. 이 가이드에서는 환경 변수, 사용자 지정된 스크립트 등을 포함하는 {% data variables.product.prodname_actions %} 워크플로를 만드는 방법을 보여 줍니다.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: overview
+topics:
+  - Fundamentals
+ms.openlocfilehash: 46a6a33928d9ff4587707972fc26de86c59f9ac6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145069002'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 개요
 
-### 개요
+{% data variables.product.prodname_actions %}를 사용하면 애플리케이션 및 팀의 고유한 요구 사항에 맞게 워크플로를 사용자 지정할 수 있습니다. 이 가이드에서는 변수 사용, 스크립트 실행, 작업 간에 데이터 및 아티팩트 공유와 같은 몇 가지 필수 사용자 지정 기술에 대해 설명합니다.
 
-{% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
+##  워크플로에서 변수 사용
 
-### Using variables in your workflows
-
-{% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
+{% data variables.product.prodname_actions %}에는 각 워크플로 실행에 대한 기본 환경 변수가 포함됩니다. 사용자 지정 환경 변수를 사용해야 하는 경우 YAML 워크플로 파일에서 해당 변수를 설정할 수 있습니다. 이 예제에서는 `POSTGRES_HOST`와 `POSTGRES_PORT`로 명명된 사용자 지정 변수를 만드는 방법을 보여 줍니다. 그런 다음 해당 변수를 `node client.js` 스크립트에 사용할 수 있습니다.
 
 ```yaml
 jobs:
@@ -29,11 +38,11 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
+자세한 내용은 “[환경 변수 사용](/actions/configuring-and-managing-workflows/using-environment-variables)”을 참조하세요.
 
-### Adding scripts to your workflow
+## 워크플로에 스크립트 추가
 
-You can use actions to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how an action can use the `run` keyword to execute `npm install -g bats` on the runner.
+작업을 사용하여 스크립트 및 셸 명령을 실행할 수 있으며, 이후 할당된 실행기에서 실행됩니다. 이 예제에서는 작업에서 `run` 키워드를 사용하여 실행기에서 `npm install -g bats`를 실행하는 방법을 보여 줍니다.
 
 ```yaml
 jobs:
@@ -42,7 +51,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-For example, to run a script as an action, you can store the script in your repository and supply the path and shell type.
+예를 들어 스크립트를 작업으로 실행하려면 리포지토리에 스크립트를 저장하고 경로 및 셸 형식을 제공할 수 있습니다.
 
 ```yaml
 jobs:
@@ -53,13 +62,13 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”을 참조하세요.
 
-### Sharing data between jobs
+## 작업 간에 데이터 공유
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job.
+작업이 동일한 워크플로의 다른 작업과 공유하려는 파일을 생성하거나 나중에 참조할 수 있도록 파일을 저장하려는 경우 {% data variables.product.prodname_dotcom %}에 아티팩트로 저장할 수 있습니다. 아티팩트는 코드를 빌드하고 테스트할 때 생성되는 파일입니다. 예를 들어 아티팩트는 이진 파일 또는 패키지 파일, 테스트 결과, 스크린샷 또는 로그 파일을 포함할 수 있습니다. 아티팩트는 만들어진 워크플로 실행과 연결되며 다른 작업에서 사용할 수 있습니다. {% data reusables.actions.reusable-workflow-artifacts %}
 
-For example, you can create a file and then upload it as an artifact.
+예를 들어 파일을 만든 다음 아티팩트로 업로드할 수 있습니다.
 
 ```yaml
 jobs:
@@ -70,26 +79,28 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v1
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: output-log-file
           path: output.log
 ```
 
-To download an artifact from a separate workflow run, you can use the `actions/download-artifact` action. For example, you can download the artifact named `output-log-file`.
+별도의 워크플로 실행에서 아티팩트를 다운로드하려면 `actions/download-artifact` 작업을 사용할 수 있습니다. 예를 들어, `output-log-file`이라는 아티팩트를 다운로드할 수 있습니다.
 
 ```yaml
 jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
 ```
 
-For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+동일한 워크플로 실행에서 아티팩트를 다운로드하려면 업로드 작업이 완료될 때까지 시작되지 않도록 다운로드 작업이 `needs: upload-job-name`을 지정해야 합니다.
 
-### 다음 단계
+아티팩트에 대한 자세한 내용은 “[아티팩트를 사용하여 워크플로 데이터 유지](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)”를 참조하세요.
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+## 다음 단계
+
+{% data variables.product.prodname_actions %}에 대해 계속 알아보려면 “[복잡한 워크플로 관리](/actions/learn-github-actions/managing-complex-workflows)”를 참조하세요.

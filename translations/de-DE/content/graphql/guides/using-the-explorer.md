@@ -1,54 +1,57 @@
 ---
-title: Using the Explorer
-intro: 'You can run queries on real {% data variables.product.prodname_dotcom %} data using the GraphQL Explorer, an integrated development environment in your browser that includes docs, syntax highlighting, and validation errors.'
+title: Verwenden des Explorers
+intro: 'Du kannst Abfragen für echte {% data variables.product.prodname_dotcom %}-Daten mithilfe des GraphQL-Explorers ausführen, einer integrierten Entwicklungsumgebung in deinem Browser, die Dokumente, Syntaxhervorhebung und Überprüfungsfehler unterstützt.'
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 19c534dd0cdcacdfd0d96bb93d055ff3fca8690b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146749489'
 ---
+## Informationen zum GraphQL-Explorer
 
-## About the GraphQL Explorer
+{% ifversion fpt or ghec %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-
-[GraphQL Explorer](/v4/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
-
-{% note %}
-
-**Note**: {% data variables.product.prodname_dotcom %} has disabled [mutations](/v4/mutation/) in the Explorer, but you can use them in your own GraphiQL instance.
-
-{% endnote %}
+Der [GraphQL-Explorer](/graphql/overview/explorer) ist eine [GraphiQL](https://github.com/graphql/graphiql)-Instanz, bei der es sich um eine „grafische interaktive browserinterne GraphQL-IDE“ handelt.
 
 {% else %}
 
-[GraphiQL](https://github.com/graphql/graphiql), also referred to in this documentation as the GraphQL Explorer, is a "graphical interactive in-browser GraphQL IDE."
+[GraphiQL](https://github.com/graphql/graphiql) (in dieser Dokumentation auch als GraphQL-Explorer bezeichnet) ist eine „grafische interaktive browserinterne GraphQL-IDE“.
 
 {% endif %}
 
-### Using GraphiQL
+## Verwenden von GraphiQL
 
-To use the GraphiQL app, download and install it from https://github.com/skevy/graphiql-app.
+Um die GraphiQL-App zu verwenden, muss sie auf https://github.com/skevy/graphiql-app heruntergeladen und installiert werden.
 
-#### Configuring GraphiQL
+### Konfigurieren von GraphiQL
 
-1. Get an [OAuth token](/v4/guides/forming-calls#authenticating-with-graphql).
-1. Launch GraphiQL.
-1. In the upper-right corner of GraphiQL, click **Edit HTTP Headers**.
-1. In the **Key** field, enter `Authorization`. In the **Value** field, enter `Bearer <token>`, where `<token>` is your generated OAuth token. ![graphiql headers](/assets/images/developer/graphiql-headers.png)
-1. Click the checkmark to the right of the token to save it.
-1. To return to the editor, click outside of the **Edit HTTP Headers** modal.
-1. In the **GraphQL Endpoint** field, enter `{% data variables.product.graphql_url_pre %}`.
-1. In the **Method** dropdown menu, select **POST**.
+1. Rufe ein [OAuth-Token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql) ab.
+1. Starte GraphiQL.
+1. Klicke in der oberen rechten Ecke von GraphiQL auf **Edit HTTP Headers** (HTTP-Header bearbeiten).
+1. Geben Sie im Feld **Schlüssel**`Authorization` ein. Geben Sie im Feld **Value** (Wert) `Bearer <token>` ein, wobei `<token>` das von Ihnen generierte OAuth-Token ist.
+![graphiql-Header](/assets/images/developer/graphiql-headers.png)
+1. Aktiviere das Kontrollkästchen rechts neben dem Token, um es zu speichern.
+1. Klicke auf eine Stelle außerhalb des modalen Fensters **HTTP-Header bearbeiten**, um zum Editor zurückzukehren.
+1. Geben Sie im Feld **GraphQL Endpoint** (GraphQL-Endpunkt) `{% data variables.product.graphql_url_pre %}` ein.
+1. Wähle im Dropdownmenü **Methode** die Option **POST** aus.
 
 {% note %}
 
-**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/v4/guides/forming-calls#communicating-with-graphql)."
+**Hinweis**: Weitere Informationen dazu, weshalb die Methode `POST` verwendet wird, findest du unter [Kommunizieren mit GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql).
 
 {% endnote %}
 
-You can test your access by querying yourself:
+Zum Testen des Zugriffs kannst du dich selbst abfragen:
 
 ```graphql
 query {
@@ -58,21 +61,21 @@ query {
 }
 ```
 
-If everything worked correctly, this will display your login. You're all set to start making queries.
+Wenn alles richtig funktioniert hat, wird deine Anmeldung angezeigt. Du kannst nun Abfragen ausführen.
 
-### Accessing the sidebar docs
+## Zugreifen auf die Randleistendokumentation
 
-All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop deprecated fields.
+Alle Typen in einem GraphQL-Schema umfassen ein `description`-Feld, das in der Dokumentation kompiliert ist. Über den reduzierbaren Bereich **Dokumentation** rechts auf der Explorer-Seite kannst du die Dokumentation zum Typensystem durchsuchen. Die Dokumentation wird automatisch aktualisiert, und veraltete Felder werden entfernt.
 
 {% note %}
 
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/v4/)," though it is formatted differently in places.
+Die Inhalte, auf die über die Randleiste **Dokumentation** zugegriffen werden kann, sind mit den Inhalten identisch, die automatisch anhand des Schemas unter [Referenz](/graphql) generiert werden. Der einzige Unterschied ist eine abweichende Formatierung.
 
 {% endnote %}
 
-### Using the variable pane
+## Verwenden des Variablenbereichs
 
-Some example calls include [variables](/v4/guides/forming-calls#working-with-variables) written like this:
+Einige Beispielaufrufe umfassen [Variablen](/graphql/guides/forming-calls-with-graphql#working-with-variables), die wie folgt aussehen:
 
 ```graphql
 query($number_of_repos:Int!){
@@ -90,9 +93,9 @@ variables {
 }
 ```
 
-This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/v4/guides/forming-calls#communicating-with-graphql)).
+Dies ist das richtige Format, um den Aufruf per cURL `POST` zu übermitteln (solange [Zeilenvorschubzeichen in Escape-Zeichen gesetzt werden](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
-If you want to run the call in the Explorer, enter the `query` segment in the main pane and the variables in the **Query Variables** pane below it. Omit the word `variables` from the Explorer:
+Wenn der Aufruf im Explorer erfolgen soll, gib das `query`-Segment im Hauptbereich und die Variablen im Bereich **Abfragevariablen** darunter ein. Lasse das Wort `variables` im Explorer aus:
 
 ```graphql
 {
@@ -100,20 +103,20 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
 }
 ```
 
-### Requesting support
+## Anfordern von Unterstützung
 
 {% data reusables.support.help_resources %}
 
-### Troubleshooting errors
+## Problembehandlung
 
-Because GraphQL is [introspective](/v4/guides/intro-to-graphql#discovering-the-graphql-api), the Explorer supports:
+Da GraphQL [introspektiv](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) ist, unterstützt der Explorer Folgendes:
 
-* Intelligent typeaheads aware of the current schema
-* Validation error previews as you type
+* Intelligente Vorschlagssuche, bei der das aktuelle Schema berücksichtigt wird
+* Vorschau von Validierungsfehlern während der Eingabe
 
-If you enter a query that is not well-formed or does not pass [schema validation](/v4/guides/intro-to-graphql#schema), a popup warns you of an error. If you run the query, the error returns in the response pane.
+Bei der Eingabe einer Abfrage, die nicht wohlgeformt ist oder die die [Schemaüberprüfung](/graphql/guides/introduction-to-graphql#schema) nicht besteht, wirst du in einer Popupwarnung über diesen Fehler informiert. Wenn du die Abfrage ausführst, wird der Fehler im Antwortbereich zurückgegeben.
 
-A GraphQL response contains several keys: a `data` hash and an `errors` array.
+Eine GraphQL-Antwort enthält mehrere Schlüssel: einen `data`-Hash und ein `errors`-Array.
 
 ```json
 {
@@ -132,7 +135,7 @@ A GraphQL response contains several keys: a `data` hash and an `errors` array.
 }
 ```
 
-It's possible you might run into an unexpected error that is not related to the schema. If this happens, the message will include a reference code you can use when reporting the issue:
+Möglicherweise tritt ein unerwarteter Fehler auf, der nicht im Zusammenhang mit dem Schema steht. In diesem Fall enthält die Meldung einen Referenzcode, den du beim Melden des Problems verwenden kannst:
 
 ```json
 {
@@ -147,6 +150,6 @@ It's possible you might run into an unexpected error that is not related to the 
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.
+**Hinweis:** {% data variables.product.prodname_dotcom %} empfiehlt eine Überprüfung auf Fehler, bevor Daten in einer Produktionsumgebung verwendet werden. Bei GraphQL betreffen Fehler nicht zwangsläufig sämtliche Abfragen: einige GraphQL-Abfragen können erfolgreich sein, während bei anderen Fehler auftreten.
 
 {% endnote %}

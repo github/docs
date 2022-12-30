@@ -1,17 +1,23 @@
 ---
 title: リアクション
+intro: The Reactions API enables you to create, list and delete the reactions on comments.
 redirect_from:
-  - /v3/reactions
+- /v3/reactions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 558c977aa6de245a9828b07b428687335029f394
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141520829"
 ---
-
-### リアクションタイプ
-
-リアクションを作成する際、`content`パラメータで利用可能な値は以下の通りです (参考のため、対応する絵文字も掲載します)。
-
-{% data reusables.repositories.reaction_list %}
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/reactions
+-->

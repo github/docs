@@ -1,1 +1,0 @@
-Diese Anleitung zeigt, wie Du einen Workflow erstellst, der Java-Pakete in das {% data variables.product.prodname_registry %} und das Maven Central Repository veröffentlicht. Mit einem einzelnen Workflow kannst Du Pakete in ein einzelnes oder in mehrere Repositorys veröffentlichen.

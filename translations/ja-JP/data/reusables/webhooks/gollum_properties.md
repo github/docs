@@ -1,8 +1,16 @@
-| キー                   | 種類       | 説明                                                                       |
-| -------------------- | -------- | ------------------------------------------------------------------------ |
-| `pages`              | `array`  | The pages that were updated.                                             |
-| `pages[][page_name]` | `string` | The name of the page.                                                    |
-| `pages[][title]`     | `string` | The current page title.                                                  |
-| `pages[][action]`    | `string` | The action that was performed on the page. Can be `created` or `edited`. |
-| `pages[][sha]`       | `string` | The latest commit SHA of the page.                                       |
-| `pages[][html_url]`  | `string` | Points to the HTML wiki page.                                            |
+---
+ms.openlocfilehash: 55d2a154539d7cc6b73f248c5616bd0016a561aa
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145087438"
+---
+キー | Type | [説明]
+----|------|-------------
+`pages`|`array` | 更新されたページ。
+`pages[][page_name]`|`string` | ページの名前です。
+`pages[][title]`|`string` |  現在のページ タイトル。
+`pages[][action]`|`string` |  ページ上で実行されたアクション。 `created` または `edited` を指定できます。
+`pages[][sha]`|`string` | ページの最新のコミットSHA。
+`pages[][html_url]`|`string` | HTMLのwikiページを指す。

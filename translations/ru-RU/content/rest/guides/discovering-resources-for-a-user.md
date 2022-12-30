@@ -1,32 +1,39 @@
 ---
-title: Discovering resources for a user
-intro: Learn how to find the repositories and organizations that your app can access for a user in a reliable way for your authenticated requests to the REST API.
+title: Обнаружение ресурсов для пользователя
+intro: 'Узнайте, как найти репозитории и организации, к которым ваше приложение может безопасно и надежно получить доступ для запросов к REST API, прошедших проверку подлинности.'
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: Discover resources for a user
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193419'
 ---
+При выполнении запросов с проверкой подлинности к API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} приложениям часто требуется получить репозитории и организации текущего пользователя. В этом руководстве мы объясним, как уверенно находить эти ресурсы.
 
- 
+Для взаимодействия с API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} мы используем [Octokit.rb][octokit.rb]. Полный исходный код этого проекта можно найти в репозитории [platform-samples][platform samples].
 
-When making authenticated requests to the {% data variables.product.product_name %} API, applications often need to fetch the current user's repositories and organizations. In this guide, we'll explain how to reliably discover those resources.
+## Начало работы
 
-To interact with the {% data variables.product.product_name %} API, we'll be using [Octokit.rb][octokit.rb]. You can find the complete source code for this project in the [platform-samples][platform samples] repository.
+Перед тем как приступать к изучению приведенных ниже примеров, ознакомьтесь с [руководством по основам проверки подлинности][basics-of-authentication], если вы еще этого не сделали. В приведенных ниже примерах предполагается, что вы [зарегистрировали приложение OAuth][register-oauth-app] и что [приложение имеет токен OAuth для пользователя][make-authenticated-request-for-user].
 
-### Getting started
+## Обнаружение репозиториев, к которым приложение может получать доступ для пользователя
 
-If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication] guide before working through the examples below. The examples below assume that you have [registered an OAuth application][register-oauth-app] and that your [application has an OAuth token for a user][make-authenticated-request-for-user].
+Помимо наличия личных репозиториев, пользователь может участвовать в совместной работе над репозиториями, принадлежащими другим пользователям и организациям. В целом у пользователя есть привилегированный доступ к следующим репозиториям: частному репозиторию, к которому у пользователя есть доступ на чтение или запись, и {% ifversion fpt %}общедоступному{% elsif ghec or ghes %}общедоступному или внутреннему{% elsif ghae %}внутреннему{% endif %} репозиторию, к которому у пользователя есть доступ на запись.
 
-### Discover the repositories that your app can access for a user
+[Области OAuth][scopes] и [политики в отношении приложений организации][oap] определяют то, к каким из этих репозиториев приложение может получать доступ для пользователя. Для нахождения этих репозиториев используйте описанный ниже рабочий процесс.
 
-In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's a public repository where the user has write access.
-
-[OAuth scopes][scopes] and [organization application policies][oap] determine which of those repositories your app can access for a user. Use the workflow below to discover those repositories.
-
-As always, first we'll require [GitHub's Octokit.rb][octokit.rb] Ruby library. Then we'll configure Octokit.rb to automatically handle [pagination][pagination] for us.
+Как всегда, сначала нам понадобится библиотека Ruby [Octokit.rb для GitHub][octokit.rb]. Затем мы настроим Octokit.rb для автоматической обработки разбиения на страницы. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -34,7 +41,7 @@ require 'octokit'
 Octokit.auto_paginate = true
 ```
 
-Next, we'll pass in our application's [OAuth token for a given user][make-authenticated-request-for-user]:
+Далее мы передадим [токен OAuth приложения для данного пользователя][make-authenticated-request-for-user]:
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -42,7 +49,7 @@ Next, we'll pass in our application's [OAuth token for a given user][make-authen
 client = Octokit::Client.new :access_token => ENV["OAUTH_ACCESS_TOKEN"]
 ```
 
-Then, we're ready to fetch the [repositories that our application can access for the user][list-repositories-for-current-user]:
+После этого мы готовы получить [репозитории, к которым приложение может получать доступ для пользователя][list-repositories-for-current-user]:
 
 ``` ruby
 client.repositories.each do |repository|
@@ -59,11 +66,11 @@ client.repositories.each do |repository|
 end
 ```
 
-### Discover the organizations that your app can access for a user
+## Обнаружение организаций, к которым приложение может получать доступ для пользователя
 
-Applications can perform all sorts of organization-related tasks for a user. To perform these tasks, the app needs an [OAuth authorization][scopes] with sufficient permission. For example, the `read:org` scope allows you to [list teams][list-teams], and the `user` scope lets you [publicize the user’s organization membership][publicize-membership]. Once a user has granted one or more of these scopes to your app, you're ready to fetch the user’s organizations.
+Приложения могут выполнять для пользователя самые разные задачи, связанные с организациями. Для их выполнения приложению требуется [авторизация OAuth][scopes] с достаточными разрешениями. Например, область `read:org` позволяет [получать список команд][list-teams], а область `user` — [публиковать сведения о членстве пользователя в организациях][publicize-membership]. После того как пользователь предоставит приложению одну или несколько этих областей, вы можете получить сведения о его организациях.
 
-Just as we did when discovering repositories above, we'll start by requiring [GitHub's Octokit.rb][octokit.rb] Ruby library and configuring it to take care of [pagination][pagination] for us:
+Как и при обнаружении репозиториев выше, мы начнем с требования библиотеки [GitHub Octokit.rb][octokit.rb] Ruby и настроим ее, чтобы позаботиться о разбиении на страницы. Дополнительные сведения о разбиении на страницы см. [в разделе Использование разбиения на страницы в REST API](/rest/guides/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -71,7 +78,7 @@ require 'octokit'
 Octokit.auto_paginate = true
 ```
 
-Next, we'll pass in our application's [OAuth token for a given user][make-authenticated-request-for-user] to initialize our API client:
+Далее мы передадим [токен OAuth приложения для данного пользователя,][make-authenticated-request-for-user] чтобы инициализировать клиент API:
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -79,7 +86,7 @@ Next, we'll pass in our application's [OAuth token for a given user][make-authen
 client = Octokit::Client.new :access_token => ENV["OAUTH_ACCESS_TOKEN"]
 ```
 
-Then, we can [list the organizations that our application can access for the user][list-orgs-for-current-user]:
+Затем мы можем [получить список организаций, к которым приложение может получать доступ для пользователя][list-orgs-for-current-user]:
 
 ``` ruby
 client.organizations.each do |organization|
@@ -87,25 +94,21 @@ client.organizations.each do |organization|
 end
 ```
 
-#### Don’t rely on public organizations
+### Возврат сведений обо всех организациях, в которые входит пользователь
 
-If you've read the docs from cover to cover, you may have noticed an [API method for listing a user's public organization memberships][list-public-orgs]. Most applications should avoid this API method. This method only returns the user's public organization memberships, not their private organization memberships.
+Если вы прочитали документацию от корки до корки, возможно, вы обратили внимание на [метод API для перечисления общедоступных организаций, в которые входит пользователь][list-public-orgs]. В большинстве приложений следует избегать использования этого метода API. Он возвращает только общедоступные организации пользователя, но не частные.
 
-As an application, you typically want all of the user's organizations (public and private) that your app is authorized to access. The workflow above will give you exactly that.
+Приложению же, как правило, требуются сведения обо всех организациях пользователя, к которым приложению разрешен доступ. Описанный выше рабочий процесс дает именно такой результат.
 
-[basics-of-authentication]: /v3/guides/basics-of-authentication/
-[list-public-orgs]: /v3/orgs/#list-organizations-for-a-user
-[list-repositories-for-current-user]: /v3/repos/#list-repositories-for-the-authenticated-user
-[list-orgs-for-current-user]: /v3/orgs/#list-organizations-for-the-authenticated-user
-[list-teams]: /v3/teams/#list-teams
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
+[basics-of-authentication]: /rest/guides/basics-of-authentication
+[list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user
+[list-repositories-for-current-user]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[list-orgs-for-current-user]: /rest/reference/orgs#list-organizations-for-the-authenticated-user
+[list-teams]: /rest/reference/teams#list-teams
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /v3/#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
-[publicize-membership]: /v3/orgs/members/#set-public-organization-membership-for-the-authenticated-user
-[register-oauth-app]: /v3/guides/basics-of-authentication/#registering-your-app
-[scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
+[publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
+[register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

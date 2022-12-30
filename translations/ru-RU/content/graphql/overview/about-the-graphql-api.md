@@ -1,54 +1,62 @@
 ---
-title: About the GraphQL API
-intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API offers flexibility and the ability to define precisely the data you want to fetch.'
+title: "Сведения API\_GraphQL"
+intro: 'API GraphQL {% data variables.product.prodname_dotcom %} обеспечивает гибкость и возможность точно определить данные, которые необходимо получить.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 9b447925609425157d5d965370c09fdd12d30b56
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145069709'
 ---
+## Обзор
 
-### Обзор
+Ниже приведены быстрые ссылки, перейдя по которым, вы можете приступить к работе с API GraphQL:
 
-Here are some quick links to get you up and running with the GraphQL API v4:
+* [Аутентификация](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
+* [Корневая конечная точка](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
+* [Интроспекция схемы](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
+* [Пределы скорости](/graphql/overview/resource-limitations)
+* [Миграция из REST](/graphql/guides/migrating-from-rest-to-graphql)
 
-* [Authentication](/v4/guides/forming-calls/#authenticating-with-graphql)
-* [Root endpoint](/v4/guides/forming-calls/#the-graphql-endpoint)
-* [Schema introspection](/v4/guides/intro-to-graphql/#discovering-the-graphql-api)
-* [Rate limits](/v4/guides/resource-limitations/)
-* [Migrating from REST](/v4/guides/migrating-from-rest)
+## Сведения о GraphQL
 
-### About GraphQL
+Язык запросов данных [GraphQL](https://graphql.github.io/):
 
-The [GraphQL](https://graphql.github.io/) data query language is:
+* **[Спецификация](https://graphql.github.io/graphql-spec/June2018/).** Спецификация определяет допустимость [схемы](/graphql/guides/introduction-to-graphql#schema) на сервере API. Схема определяет допустимость вызовов клиентов.
 
-* **A [specification](https://graphql.github.io/graphql-spec/June2018/).** The spec determines the validity of the [schema](/v4/guides/intro-to-graphql#schema) on the API server. The schema determines the validity of client calls.
+* **[Строго типизированный](#about-the-graphql-schema-reference).** Схема определяет систему типов API и все отношения объектов.
 
-* **[Strongly typed](#about-the-graphql-schema-reference).** The schema defines an API's type system and all object relationships.
+* **[Интроспективный](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api).** Клиент может запросить схему для получения сведений о схеме.
 
-* **[Introspective](/v4/guides/intro-to-graphql#discovering-the-graphql-api).** A client can query the schema for details about the schema.
+* **[Иерархический](/graphql/guides/forming-calls-with-graphql).** Фигура вызова GraphQL отражает фигуру возвращаемых данных JSON. [Вложенные поля](/graphql/guides/migrating-from-rest-to-graphql#example-nesting) позволяют запрашивать и получать только данные, указанные в одном круговом пути.
 
-* **[Hierarchical](/v4/guides/forming-calls).** The shape of a GraphQL call mirrors the shape of the JSON data it returns. [Nested fields](/v4/guides/migrating-from-rest/#example-nesting) let you query for and receive only the data you specify in a single round trip.
+* **Слой приложения.** GraphQL не является моделью хранилища или языком запросов к базе данных. _Граф_ ссылается на структуры графов, определенные в схеме, где [узлы](/graphql/guides/introduction-to-graphql#node) определяют объекты, а [края](/graphql/guides/introduction-to-graphql#edge) определяют отношения между объектами. API обходит и возвращает данные приложения на основе определений схемы, независимо от способа хранения данных.
 
-* **An application layer.** GraphQL is not a storage model or a database query language. The _graph_ refers to graph structures defined in the schema, where [nodes](/v4/guides/intro-to-graphql#node) define objects and [edges](/v4/guides/intro-to-graphql#edge) define relationships between objects. The API traverses and returns application data based on the schema definitions, independent of how the data is stored.
+## Почему GitHub использует GraphQL
 
-### Why GitHub is using GraphQL
+GitHub использует GraphQL, так как он предлагает значительно большую гибкость для наших интеграторов. Возможность точно определить нужные данные&mdash;и _только_ данные, которые вам нужны&mdash;, является значительным преимуществом по сравнению с традиционными конечными точками REST API. GraphQL позволяет заменить несколько запросов REST с помощью _одного вызова_ для получения указанных данных.
 
-GitHub chose GraphQL for our API v4 because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over the REST API v3 endpoints. GraphQL lets you replace multiple REST requests with _a single call_ to fetch the data you specify.
+Дополнительные сведения о том, почему GitHub инвестирует в GraphQL, см. в исходной [записи блога с объявлением](https://github.blog/2016-09-14-the-github-graphql-api/).
 
-For more details about why GitHub has moved to GraphQL, see the original [announcement blog post](https://githubengineering.com/the-github-graphql-api/).
+## Сведения о ссылке на схему GraphQL
 
-### About the GraphQL schema reference
+Документы на боковой панели создаются на основе [схемы](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) GraphQL {% data variables.product.prodname_dotcom %}. Все вызовы проверяются и выполняются согласно схеме. Используйте эти документы, чтобы узнать, какие данные можно вызвать:
 
-The docs in the sidebar are generated from the {% data variables.product.prodname_dotcom %} GraphQL [schema](/v4/guides/intro-to-graphql/#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
+* Разрешенные операции: [запросы](/graphql/reference/queries) и [изменения](/graphql/reference/mutations).
 
-* Allowed operations: [queries](/v4/query) and [mutations](/v4/mutation).
+* Типы, определяемые схемой: [скаляры](/graphql/reference/scalars), [объекты](/graphql/reference/objects), [перечисления](/graphql/reference/enums), [интерфейсы](/graphql/reference/interfaces), [объединения](/graphql/reference/unions) и [входные объекты](/graphql/reference/input-objects).
 
-* Schema-defined types: [scalars](/v4/scalar), [objects](/v4/object), [enums](/v4/enum), [interfaces](/v4/interface), [unions](/v4/union), and [input objects](/v4/input_object).
+Доступ к этому содержимому можно получить на [боковой панели документации обозревателя](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs). Обратите внимание, что для успешного вызова API GraphQL может потребоваться использовать как документы, так и проверку схемы.
 
-You can access this same content via the [Explorer Docs sidebar](/v4/guides/using-the-explorer#accessing-the-sidebar-docs). Note that you may need to rely on both the docs and the schema validation to successfully call the GraphQL API.
+Другие сведения, например о проверке подлинности и ограничении скорости, см. в [руководствах](/graphql/guides).
 
-For other information, such as authentication and rate limit details, check out the [guides](/v4/guides).
-
-### Requesting support
+## Запрос поддержки
 
 {% data reusables.support.help_resources %}

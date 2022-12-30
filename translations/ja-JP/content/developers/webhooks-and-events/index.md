@@ -1,21 +1,22 @@
 ---
-title: Webhooks and events
-intro: 'You can set up, test, and secure webhooks so your integrations can subscribe and react to events on {% data variables.product.prodname_dotcom %}.'
+title: webhook とイベント
+intro: 'webhook をセットアップ、テスト、および保護して、統合が {% data variables.product.prodname_dotcom %} のイベントをサブスクライブして対応できるようにすることができます。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - Webhooks
+  - Events
+children:
+  - /webhooks
+  - /events
+ms.openlocfilehash: fad83525deaeaccda2a9949d9a634c19f857056b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119734'
 ---
 
-### 目次
-
-{% topic_link_in_list /webhooks %}
-    {% link_in_list /about-webhooks %}
-    {% link_in_list /creating-webhooks %}
-    {% link_in_list /configuring-your-server-to-receive-payloads %}
-    {% link_in_list /testing-webhooks %}
-    {% link_in_list /securing-your-webhooks %}
-    {% link_in_list /webhook-events-and-payloads %}
-{% topic_link_in_list /events %}
-    {% link_in_list /github-event-types %}
-    {% link_in_list /issue-event-types %}

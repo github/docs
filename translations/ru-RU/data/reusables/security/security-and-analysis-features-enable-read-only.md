@@ -1,4 +1,10 @@
-{% if currentVersion == "free-pro-team@latest" %}
-If you enable security and analysis features,
-{% data variables.product.company_short %} performs read-only analysis on your repository. For more information, see "[About {% data variables.product.company_short %}'s use of your data](/github/understanding-how-github-uses-and-protects-your-data/about-githubs-use-of-your-data)."
+---
+ms.openlocfilehash: 33669a3a662fab403ad665603dd19d40fe2a6030
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145139366"
+---
+{% ifversion fpt or ghec %} Если включены функции безопасности и анализа, {% data variables.product.company_short %} выполняет анализ только для чтения в репозитории. Дополнительные сведения см. в разделе [Сведения об использовании ваших данных в {% data variables.product.company_short %}](/github/understanding-how-github-uses-and-protects-your-data/about-githubs-use-of-your-data).
 {% endif %}

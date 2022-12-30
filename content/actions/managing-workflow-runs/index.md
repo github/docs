@@ -1,32 +1,30 @@
 ---
 title: Managing workflow runs
-shortTitle: Managing workflow runs
-intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
+shortTitle: Manage workflow runs
+intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
-  - /articles/viewing-your-repository-s-workflows
-  - /articles/viewing-your-repositorys-workflows
   - /articles/managing-a-workflow-run
   - /github/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /manually-running-a-workflow
+  - /re-running-workflows-and-jobs
+  - /canceling-a-workflow
+  - /approving-workflow-runs-from-public-forks
+  - /approving-workflow-runs-from-private-forks
+  - /reviewing-deployments
+  - /disabling-and-enabling-a-workflow
+  - /skipping-workflow-runs
+  - /deleting-a-workflow-run
+  - /downloading-workflow-artifacts
+  - /removing-workflow-artifacts
 ---
-
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-{% link_in_list /viewing-workflow-run-history %}
-{% link_in_list /using-workflow-run-logs %}
-{% link_in_list /manually-running-a-workflow %}
-{% link_in_list /re-running-a-workflow %}
-{% link_in_list /canceling-a-workflow %}
-{% link_in_list /disabling-and-enabling-a-workflow %}
-{% link_in_list /deleting-a-workflow-run %}
-{% link_in_list /viewing-job-execution-time %}
-{% link_in_list /downloading-workflow-artifacts %}
-{% link_in_list /removing-workflow-artifacts %}
-{% link_in_list /enabling-debug-logging %}
-{% link_in_list /adding-a-workflow-status-badge %}

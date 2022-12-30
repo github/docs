@@ -5,25 +5,34 @@ redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+shortTitle: Migrate from REST to GraphQL
+ms.openlocfilehash: dbafde83c8acac664b6a0f712927af82c646d397
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145066655'
 ---
-
-### API 逻辑差异
+## API 逻辑差异
 
 从 REST 迁移到 GraphQL 代表了 API 逻辑的一次重大转变。 作为样式的 REST 与作为规范的 GraphQL 之间的差异使得很难&mdash;且通常不可取&mdash;以一对一方式将 REST API 调用替换为 GraphQL API 查询。 我们在下面提供了具体的迁移示例。
 
-要将代码从 [REST API](/v3) 迁移到 GraphQL API：
+将代码从 [REST API](/rest) 迁移到 GraphQL API：
 
 - 查看 [GraphQL 规范](https://graphql.github.io/graphql-spec/June2018/)
-- 查看 GitHub 的 [GraphQL 架构](/v4/reference/)
+- 查看 GitHub 的 [GraphQL 架构](/graphql/reference)
 - 考虑您当前的现有代码如何与 GitHub REST API 交互
-- 使用[全局节点 ID](/v4/guides/using-global-node-ids) 引用 API 版本之间的对象
+- 使用[全局节点 ID](/graphql/guides/using-global-node-ids) 引用 API 版本之间的对象
 
 GraphQL 的重要优势包括：
 
-- [仅获取您所需的数据](#example-getting-the-data-you-need-and-nothing-more)
+- [仅获取你所需的数据](#example-getting-the-data-you-need-and-nothing-more)
 - [嵌套字段](#example-nesting)
 - [强类型化](#example-strong-typing)
 
@@ -53,17 +62,17 @@ query {
 }
 ```
 
-考虑另一个示例：检索拉取请求列表并检查每个请求是否可合并。 对 REST API 的调用可检索拉取请求列表及其[摘要陈述](/v3/#summary-representations)：
+考虑另一个示例：检索拉取请求列表并检查每个请求是否可合并。 对 REST API 的调用可检索拉取请求列表及其[摘要陈述](/rest#summary-representations)：
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-确定拉取请求是否可合并需要分别检索每个拉取请求，查看其[详细陈述](/v3/#detailed-representations)（大型有效负载），并检查它的 `mergeable` 属性是真还是假：
+确定拉取请求是否可合并需要分别检索每个拉取请求，查看其[详细陈述](/rest#detailed-representations)（大型有效负载），并检查它的 `mergeable` 属性是真还是假：
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
-使用 GraphQL，可以仅检索每个拉取请求的 `number` 和 `mergeable` 属性：
+使用 GraphQL，可以仅检索每个拉取请求的 `number` 和 `mergeable` 特性：
 
 ```graphql
 query {
@@ -82,7 +91,7 @@ query {
 
 ## 示例：嵌套
 
-通过嵌套字段查询，可将多个 REST 调用替换为更少的 GraphQL 查询。 例如，利用 **REST API** 检索拉取请求及其提交、非评论注释和评论需要四个单独的调用：
+通过嵌套字段查询，可将多个 REST 调用替换为更少的 GraphQL 查询。 例如，利用 REST AP 检索拉取请求及其提交、非评审注释和评审需要四个单独的调用：
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
@@ -90,7 +99,7 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:numb
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
-使用 **GraphQL API**，可以利用嵌套字段通过单个查询检索数据：
+使用 GraphQL API，可以利用嵌套字段通过单个查询检索数据：
 
 ```graphql
 {
@@ -128,18 +137,17 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:numbe
 }
 ```
 
-您也可以通过[用变量替换](/v4/guides/forming-calls/#working-with-variables)拉取请求编号扩大此查询的能力。
+也可以通过[用变量替换](/graphql/guides/forming-calls-with-graphql#working-with-variables)拉取请求编号来扩大此查询的能力。
 
 ## 示例：强类型化
 
 GraphQL 架构属于强类型化架构，可使数据处理更加安全。
 
-考虑一个利用 GraphQL [突变](/v4/mutation)向议题或拉取请求添加注释，并错误地将 [`clientMutationId`](/v4/mutation/addcomment/) 值指定为整数而非字符串的示例：
+考虑一个利用 GraphQL [突变](/graphql/reference/mutations)向问题或拉取请求添加注释，并错误地将 [`clientMutationId`](/graphql/reference/mutations#addcomment) 值指定为整数而非字符串的示例：
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) mutation {
-  addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
+  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {
       node {
@@ -190,23 +198,6 @@ mutation {
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
-    clientMutationId
-    commentEdge {
-      node {
-        body
-        repository {
-          id
-          name
-          nameWithOwner
-        }
-        issue {
-          number
-        }
-      }
-    }
-  }
-} mutation {
   addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {

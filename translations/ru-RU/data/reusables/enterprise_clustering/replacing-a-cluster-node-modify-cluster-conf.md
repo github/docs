@@ -1,4 +1,14 @@
-1. To add the newly provisioned replacement node, on any node, modify the `cluster.conf` file to remove the failed node and add the replacement node. For example, this modified `cluster.conf` file replaces `ghe-data-node-3` with the newly provisioned node, `ghe-replacement-data-node-3`: <pre>
+---
+ms.openlocfilehash: 66c4be7b876bad3641ec56200dd5c79e1d0433c5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123816"
+---
+1. Для добавления недавно подготовленного заменяющего узла на любом узле измените файл `cluster.conf`, чтобы удалить узел со сбоем и добавить заменяющий. Например, этот измененный файл `cluster.conf` заменяет `ghe-data-node-3` только что подготовленным узлом `ghe-replacement-data-node-3`:
+
+  <pre>
   [cluster "<em>ghe-replacement-data-node-3</em>"]
     hostname = <em>ghe-replacement-data-node-3</em>
     ipv4 = <em>192.168.0.7</em>

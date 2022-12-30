@@ -1,3 +1,0 @@
-Si habilitas las notificaciones web o por correo electrónico para {% data variables.product.prodname_actions %}, recibirás una notificación cuando alguna ejecución de flujo de trabajo que hayas activado se complete. La notificación incluirá el estado de la ejecución de flujo de trabajo (que incluye ejecuciones exitosas, fallidas, neutrales y canceladas). También puedes elegir recibir una notificación solo cuando falle una ejecución de flujo de trabajo.
-
-También puedes ver el estado de las ejecuciones de flujo de trabajo en la pestaña Actions (Acciones) de un repositorio. Para obtener más información, consulta la sección "[Administrar una ejecución de flujo de trabajo](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)".

@@ -1,21 +1,23 @@
 ---
 title: Gitignore
+intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
 redirect_from:
-  - /v3/gitignore
+- /v3/gitignore
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5bbf6f76efd56eaf6f5257db3b52278c503b6807
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141509023"
 ---
-
-通过 API 创建新的 {% data variables.product.product_name %} 仓库时，您可以指定一个要在创建后应用于仓库的 [.gitignore 模板](/github/using-git/ignoring-files)。 .gitignore 模板 API 可列出 {% data variables.product.product_name %} [.gitignore 仓库](https://github.com/github/gitignore)并从中获取模板。
-
-### gitignore 的自定义媒体类型
-
-获取 gitignore 模板时，您可以使用以下自定义媒体类型。
-
-    application/vnd.github.VERSION.raw
-
-更多信息请参阅“[媒体类型](/rest/overview/media-types)”。
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/gitignore
+-->

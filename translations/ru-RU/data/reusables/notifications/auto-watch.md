@@ -1,1 +1,9 @@
-You automatically watch all repositories that you create and are owned by your user account. You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository manually.
+---
+ms.openlocfilehash: d26400a007d53357405ef375834a876c1c53aa57
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145123035"
+---
+Вы автоматически отслеживаете все репозитории, созданные и принадлежащие вашей личной учетной записи. Вы также можете автоматически отслеживать все репозитории, к которым у вас есть доступ для передачи данных, за исключением вилок. Все остальные репозитории можно просмотреть вручную.

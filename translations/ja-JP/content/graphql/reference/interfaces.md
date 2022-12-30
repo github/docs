@@ -1,21 +1,30 @@
 ---
-title: インターフェース
+title: インターフェイス
 redirect_from:
   - /v4/interface
+  - /v4/reference/interface
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: a6fed36ccd70557b8d88904f83840a7afacdfacb
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109150'
 ---
+## インターフェースについて
 
-### インターフェースについて
+[インターフェイス](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces)は、他のオブジェクトが継承できる親オブジェクトとして機能します。
 
-[インターフェース](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces)は、他のオブジェクトが継承できる親オブジェクトとして働きます。
+たとえば、[`Lockable`](/graphql/reference/interfaces#lockable) は [`Issue`](/graphql/reference/objects#issue) および [`PullRequest`](/graphql/reference/objects#pullrequest) オブジェクトの両方をロックできるため、インターフェイスです。 インターフェースは、実装オブジェクトが共有する名前付きフィールドのリストを独自に持ちます。
 
-たとえば[`Lockable`](/v4/interface/lockable/)は、[`Issue`](/v4/object/issue/)及び[`PullRequest`](/v4/object/pullrequest/)オブジェクトがどちらもロックできるので、インターフェースです。 インターフェースは、実装オブジェクトが共有する名前付きフィールドのリストを独自に持ちます。
+詳細については、「[実装](/graphql/guides/introduction-to-graphql#implementation)」を参照してください。
 
-詳しい情報については「[実装](/v4/guides/intro-to-graphql#implementation)」を参照してください。
+{% data reusables.projects.graphql-ghes %}
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

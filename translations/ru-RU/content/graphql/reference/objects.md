@@ -1,20 +1,30 @@
 ---
-title: Objects
+title: Объекты
 redirect_from:
   - /v4/object
+  - /v4/reference/object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 55302c4bfeea14b1451fdb3391b9d5b954706be0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109046'
 ---
+## Сведения об объектах
 
-### About objects
+[Объекты](https://graphql.github.io/graphql-spec/June2018/#sec-Objects) в GraphQL представляют доступные ресурсы. Объект может содержать список полей, которые имеют определенные типы.
 
-[Objects](https://graphql.github.io/graphql-spec/June2018/#sec-Objects) in GraphQL represent the resources you can access. An object can contain a list of fields, which are specifically typed.
+Например, у объекта [`Repository`](/graphql/reference/objects#repository) есть поле `name` типа `String`.
 
-For example, the [`Repository`](/graphql/reference/objects#repository) object has a field called `name`, which is a `String`.
+Дополнительные сведения см. в разделе [Общие сведения о GraphQL](/graphql/guides/introduction-to-graphql).
 
-For more information, see "[Introduction to GraphQL](/v4/guides/intro-to-graphql)."
+{% data reusables.projects.graphql-ghes %}
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-objects.json -->
+<!-- Content after this section is automatically generated -->

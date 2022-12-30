@@ -1,8 +1,12 @@
-Os conjuntos de consulta a seguir foram criados em {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} e estão disponíveis para uso.
-
-  | Suite de consulta      | Descrição                                                                       |
-  |:---------------------- |:------------------------------------------------------------------------------- |
-  | `security-extended`    | Consultas de menor gravidade e precisão que as consultas-padrão                 |
-  | `security-and-quality` | Consultas de `security-extended`, mais consultas de manutenção e confiabilidade |
-
-Ao especificar um conjunto de pesquisas, o mecanismo de análise de {% data variables.product.prodname_codeql %} executará as consultas contidas no conjunto para você além do conjunto-padrão de consultas.
+---
+ms.openlocfilehash: a6a1c65e6cd8e475eda09d96a8e23873374f3216
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145094125"
+---
+  | Conjunto de consultas | Descrição |
+  | :- | :- |
+  | `security-extended` | Consultas de severidade e precisão menores do que as consultas padrão |
+  | `security-and-quality` | Consultas de `security-extended`, além de consultas de capacidade de manutenção e confiabilidade |

@@ -1,9 +1,18 @@
-2. At the top of the comment, click **edited** to open the edit history.
+---
+ms.openlocfilehash: eeed6c9c1e546745d9526c2dd5c253b7ac1d7a50
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145092665"
+---
+2. Чтобы открыть историю изменений, щелкните **изменен** в верхней части комментария.
 
       {% note %}
 
-      **Note:** If you don't see the **edited** option, then the comment doesn't have an edit history.
+      **Примечание**. Если элемент **изменен** отсутствует, значит у комментария нет истории изменений.
 
       {% endnote %}
 
-3. To view the details of a specific change, select it from the list of edits. ![View edit details for comment](/assets/images/help/repository/choose-comment-edit-to-expand.png)
+3. Чтобы просмотреть сведения о конкретном изменении, выберите его в списке изменений.
+  ![Просмотр сведений об изменении для комментария](/assets/images/help/repository/choose-comment-edit-to-expand.png)

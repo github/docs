@@ -1,1 +1,9 @@
-After you configure 2FA using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}, you can add a security key, like a fingerprint reader or Windows Hello. The technology that enables authentication with a security key is called WebAuthn. WebAuthn is the successor to U2F and works in all modern browsers. For more information, see "[WebAuthn](https://webauthn.guide/)" and "[Can I Use](https://caniuse.com/#search=webauthn)."
+---
+ms.openlocfilehash: c1da48d511a07b94da622dbb617ffe37cac10e34
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145088498"
+---
+После настройки двухфакторной проверки подлинности с использованием мобильного приложения одноразовых паролей с ограниченным сроком действия{% ifversion fpt or ghec %} или текстовых сообщений{% endif %} можно добавить ключ безопасности, например считыватель отпечатков пальцев или Windows Hello. Технология, которая обеспечивает проверку подлинности с использованием ключа безопасности, называется WebAuthn. Технология WebAuthn заменила U2F и работает во всех современных браузерах. Дополнительные сведения см. в разделах [WebAuthn](https://webauthn.guide/) и [Можно ли использовать](https://caniuse.com/#search=webauthn).

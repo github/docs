@@ -1,0 +1,25 @@
+date: '17/05/2022'
+sections:
+  security_fixes:
+    - '**MOYENNE :** Un problème de sécurité dans le résolveur nginx a été identifié. Un attaquant qui pouvait falsifier des paquets UDP provenant du serveur DNS pouvait provoquer l’écrasement d’un octet de mémoire, ce qui entraînait des plantages de processus de travail ou d’autres impacts potentiellement dommageables. La vulnérabilité a été affectée au numéro [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
+    - "Mise à jour des actions `actions/checkout@v2` et `actions/checkout@v3` pour corriger les nouvelles vulnérabilités annoncées dans le [billet de blog sur l’application de la sécurité de Git](https://github.blog/2022-04-12-git-security-vulnerability-announced/)."
+    - Les packages ont été mis à jour avec les dernières versions de sécurité. 
+  bugs:
+    - "Dans certaines topologies de clusters, la commande `ghe-cluster-status` laissait derrière elle des répertoires vides dans `/tmp`."
+    - SNMP enregistrait incorrectement un nombre élevé de messages d’erreur `Cannot statfs` dans syslog.
+    - "Pour les instances configurées avec l’authentification SAML et le repli intégré activé, les utilisateurs intégrés restaient bloqués dans une boucle de connexion lorsqu’ils tentaient de se connecter à partir de la page générée après la déconnexion."
+    - "Lors de l’utilisation d’assertions chiffrées SAML, certaines assertions ne marquaient pas correctement les clés SSH comme vérifiées."
+    - 'La page Releases renvoyait une erreur 500 lorsque le référentiel comporte des balises contenant des caractères non ASCII. [Mise à jour : 2022-06-10]'
+  changes:
+    - "Dans les configurations à haute disponibilité, précision du fait que la page de présentation de la réplication dans la console de gestion affiche uniquement la configuration actuelle de la réplication, et non l’état actuel de la réplication."
+    - "Lorsque vous activez {% data variables.product.prodname_registry %}, précision que l’utilisation d’un jeton de signature d’accès partagé (SAP) comme chaîne de connexion n’est pas prise en charge."
+    - Les packs de support incluent désormais le nombre de lignes des tables stockées dans MySQL.
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec `ghe-repl-teardown` réussit, mais peut retourner `ERROR:Running migrations`."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

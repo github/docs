@@ -1,1 +1,9 @@
-A load balancer design uses a network device to direct Git and HTTP traffic to individual {% data variables.product.prodname_ghe_server %} appliances. You can use a load balancer to restrict direct traffic to the appliance for security purposes or to redirect traffic if needed without DNS record changes. We strongly recommend using a TCP-based load balancer that supports the PROXY protocol.
+---
+ms.openlocfilehash: b9aa2cbac3e32319aac7d2b7ef53422f53125643
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878679"
+---
+Проект подсистемы балансировки нагрузки использует сетевое устройство для направления трафика Git и HTTP на отдельные устройства {% data variables.product.prodname_ghe_server %}. Подсистему балансировки нагрузки можно использовать для ограничения прямого трафика на устройство в целях безопасности или перенаправления трафика при необходимости оставить без изменений записи DNS. Настоятельно рекомендуется использовать подсистему балансировки нагрузки на основе TCP, поддерживающую протокол PROXY.

@@ -1,0 +1,42 @@
+name: Add docs-reviewers request to the docs-content review board
+
+# **What it does**: Adds PRs in github/github that requested a review from docs-reviewers to the docs-content review board
+# **Why we have it**: To catch docs-reviewers requests in github/github
+# **Who does it impact**: docs-content maintainers
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 */6 * * *' # Run every 6 hours at 20 minutes after
+
+permissions:
+  contents: read
+
+jobs:
+  add-requests-to-board:
+    name: Add requests to board
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo content
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Setup Node
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        with:
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install @octokit/graphql
+
+      - name: Run script
+        run: |
+          node .github/actions-scripts/fr-add-docs-reviewers-requests.js
+        env:
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          PROJECT_NUMBER: 2936
+          ORGANIZATION: 'github'
+          REPO: 'github'
+          REVIEWER: 'docs-reviewers'

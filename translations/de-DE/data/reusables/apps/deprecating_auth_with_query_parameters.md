@@ -1,9 +1,15 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+---
+ms.openlocfilehash: 1ba4f5242c21b752ac7e3bd9a424e0c8c4e96b2a
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147876902"
+---
 {% warning %}
 
-**Deprecation Notice:** {% data variables.product.prodname_dotcom %} will discontinue authentication to the API using query parameters. Authenticating to the API should be done with [HTTP basic authentication](/v3/auth/#via-oauth-and-personal-access-tokens).{% if currentVersion == "free-pro-team@latest" %} Using query parameters to authenticate to the API will no longer work on May 5, 2021. {% endif %}  For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/).
+**Veraltungshinweis**: {% data variables.product.prodname_dotcom %} führt die Authentifizierung mit der API mit Abfrageparametern nicht mehr aus. Die Authentifizierung mit der API sollte mit [HTTP-Standardauthentifizierung](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) erfolgen. {% ifversion fpt or ghec %} Die Verwendung von Abfrageparametern zur Authentifizierung bei der API funktioniert am 5. Mai 2021 nicht mehr. {% endif %} Weitere Informationen (einschließlich geplanter Änderungen) findest du im [Blogbeitrag](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/).
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Authentication to the API using query parameters while available is no longer supported due to security concerns. Instead we recommend integrators move their access token, `client_id`, or `client_secret` in the header. {% data variables.product.prodname_dotcom %} will announce the removal of authentication by query parameters with advanced notice. {% endif %}
+{% ifversion ghes or ghae %} Die Authentifizierung bei der API mithilfe von Abfrageparametern (wenn verfügbar) wird aufgrund von Sicherheitsbedenken nicht mehr unterstützt. Stattdessen wird empfohlen, dass Integratoren ihr Zugriffstoken (`client_id`) oder das `client_secret` in die Kopfzeile verschieben. {% data variables.product.prodname_dotcom %} wird die Abschaffung der Authentifizierung durch Abfrageparameter mit einer Vorankündigung ankündigen. {% endif %}
 
 {% endwarning %}
-{% endif %}

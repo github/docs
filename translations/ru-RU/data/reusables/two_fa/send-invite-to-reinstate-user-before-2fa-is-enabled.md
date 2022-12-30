@@ -1,3 +1,10 @@
-{% if currentVersion == "free-pro-team@latest" %}
-You can send an invitation to reinstate a user's privileges and access to the organization before they have enabled two-factor authentication and they must enable 2FA before they can accept your invitation to rejoin the organization.
+---
+ms.openlocfilehash: 6a2f70006097494a9f93b3230108c9a9b359cbe7
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878509"
+---
+{% ifversion fpt or ghec %} Если пользователь был удален из вашей организации из-за того, что вы потребовали от участников и внешних участников совместной работы включения двухфакторной проверки подлинности, вы можете отправить приглашение для восстановления привилегий пользователя и доступа к организации до того, как он включит двухфакторную проверку подлинности, однако, пользователь должен будет включить двухфакторную проверку подлинности, прежде чем сможет принять ваше приглашение для повторного входа в организацию.
 {% endif %}

@@ -1,62 +1,78 @@
 ---
-title: Using labels with self-hosted runners
-intro: You can use labels to organize your self-hosted runners based on their characteristics.
+title: Использование меток с самостоятельно размещенными средствами выполнения
+intro: Метки можно использовать для упорядочения локальных средств выполнения тестов с учетом их характеристик.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: tutorial
+shortTitle: Label runners
+ms.openlocfilehash: 3b26db5c8b6494ebb63cc3ce9cc9a0109bac4545
+ms.sourcegitcommit: 929818065a8545476e4cf8e2cab6517f40345ef0
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163255'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+Сведения об использовании меток для маршрутизации заданий в определенные типы локальных средств выполнения см. в разделе "[Использование локальных средств выполнения в рабочем процессе](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)". {% ifversion target-runner-groups %} Вы также можете маршрутизировать задания средствам выполнения в определенной группе. Дополнительные сведения см. в разделе [Нацеливание средств выполнения в группе](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group). {% endif %}
 
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+{% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
+## Создание пользовательской метки
 
-### Creating a custom label
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %}
+ 1. В разделе "Метки" щелкните {% octicon "gear" aria-label="The Gear icon" %}.
+ 1. В поле "Найти или создать метку" введите имя новой метки и нажмите кнопку **Создать метку**.
+ Пользовательская метка будет создана и назначена локальному средству выполнения. Пользовательские метки можно удалять из локальных средств выполнения, однако в настоящее время их нельзя удалять вручную. {% data reusables.actions.actions-unused-labels %} {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. В поле "Фильтр меток" введите имя новой метки и нажмите кнопку **Создать метку**.
+    ![Добавление метки средства выполнения](/assets/images/help/settings/actions-add-runner-label.png)
+    
+Пользовательская метка будет создана и назначена локальному средству выполнения. Пользовательские метки можно удалять из локальных средств выполнения, однако в настоящее время их нельзя удалять вручную. {% data reusables.actions.actions-unused-labels %} {% endif %}
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.self-hosted-runner-list %}
-{% data reusables.github-actions.self-hosted-runner-list-group %}
-{% data reusables.github-actions.self-hosted-runner-labels-view-assigned-labels %}
-1. In the "Filter labels" field, type the name of your new label, and click **Create new label**. ![Add runner label](/assets/images/help/settings/actions-add-runner-label.png)
+## Назначение метки локальному средству выполнения
 
-The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.github-actions.actions-unused-labels %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
+  1. Чтобы назначить метку локальному средству выполнения, щелкните метку в поле "Найти или создать метку". {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. Щелкните метку, чтобы назначить ее локальному средству выполнения. {% endif %}
 
-### Assigning a label to a self-hosted runner
+## Удаление пользовательской метки из локального средства выполнения
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.self-hosted-runner-list %}
-{% data reusables.github-actions.self-hosted-runner-list-group %}
-{% data reusables.github-actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Click on a label to assign it to your self-hosted runner.
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-selection %} {% data reusables.actions.runner-label-settings %}
+  1. В поле "Найти или создать метку" назначенные метки помечаются значком {% octicon "check" aria-label="The Check icon" %}. Щелкните отмеченную метку, чтобы отменить ее назначение локальному средству выполнения. {% elsif ghae or ghes < 3.4 %} {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %} {% data reusables.actions.self-hosted-runner-list %} {% data reusables.actions.self-hosted-runner-list-group %} {% data reusables.actions.self-hosted-runner-labels-view-assigned-labels %}
+1. Щелкните назначенную метку, чтобы удалить ее из локального средства выполнения. {% data reusables.actions.actions-unused-labels %} {% endif %}
 
-### Removing a custom label from a self-hosted runner
+## Назначение меток программными средствами
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.self-hosted-runner-list %}
-{% data reusables.github-actions.self-hosted-runner-list-group %}
-{% data reusables.github-actions.self-hosted-runner-labels-view-assigned-labels %}
-1. Click on the assigned label to remove it from your self-hosted runner. {% data reusables.github-actions.actions-unused-labels %}
+Вы можете программно назначить метки локальному средству выполнения после создания средства выполнения или во время его первоначальной настройки.
 
-### Using the configuration script to create and assign labels
+* Чтобы программно назначить метки существующему локальному средству выполнения тестов, необходимо использовать REST API. Дополнительные сведения см. в разделе REST API "[Локальные средства выполнения тестов](/rest/actions/self-hosted-runners)".
+* Чтобы программно назначить метки локальному средству выполнения во время начальной настройки средства выполнения, можно передать имена меток в `config` скрипт с помощью `labels` параметра .
 
-You can use the configuration script on the self-hosted runner to create and assign custom labels. For example, this command assigns a label named `gpu` to the self-hosted runner.
+  {% note %}
+  
+  **Примечание:** Скрипт нельзя использовать для `config` назначения меток существующему локальному средству выполнения тестов.
+  
+  {% endnote %}
 
-```shell
-./config.sh --labels gpu
-```
+  Например, эта команда назначает метку с именем `gpu` при настройке нового локального средства выполнения:
 
-The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
+  ```
+  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
+  ```
 
-You can use comma separation to assign multiple labels. Например:
+  Метка создается, если она еще не существует. Таким же образом можно назначать метки по умолчанию средствам выполнения, таким как `x64` или `linux`. Если метки по умолчанию назначаются с помощью скрипта конфигурации, {% data variables.product.prodname_actions %} принимает их как заданные и не проверяет, использует ли средство выполнения эту операционную систему или архитектуру.
 
-```shell
-./config.sh --labels gpu,x64,linux
-```
+  Чтобы назначить несколько меток, разделите их запятыми. Пример:
 
-{% note %}
+  ```
+  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
+  ```
 
-** Note:** If you replace an existing runner, then you must reassign any custom labels.
+  {% note %}
 
-{% endnote %}
+  ** Примечание.** При замене существующего средства выполнения необходимо переназначить все пользовательские метки.
+
+  {% endnote %}

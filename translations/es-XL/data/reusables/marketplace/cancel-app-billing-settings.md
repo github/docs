@@ -1,1 +1,0 @@
-1. Utiliza el menú desplegable de **Editar** y da clic en **Cancelar plan**. ![Enlace de cancelación en la sección de Compras de Marketplace de tu configuración de facturación para tu cuenta personal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

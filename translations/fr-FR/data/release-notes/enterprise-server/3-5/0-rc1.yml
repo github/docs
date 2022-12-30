@@ -1,0 +1,497 @@
+date: '10-05-2022'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **Remarque :** Si {% data variables.product.product_location %} exécute une build de version finale (RC), vous ne pouvez pas effectuer de mise à niveau avec un patch à chaud. Nous vous recommandons d’exécuter les versions Release Candidate uniquement sur des environnements de test.
+  
+  {% endnote %}
+  
+  Pour les instructions de mise à niveau, consultez « [Mise à niveau de {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) ».
+sections:
+  features:
+    - heading: Liste des exceptions pour le test de validation après maintenance
+      notes:
+        # https://github.com/github/releases/issues/2109
+        - |Vous pouvez configurer une liste verte d’adresses IP pouvant accéder aux services d’application sur votre instance GitHub Enterprise Server tandis que le mode maintenance est activé. Les administrateurs qui visitent l’interface web de l’instance à partir d’une adresse IP autorisée peuvent valider la fonctionnalité de l’instance post-maintenance et avant la désactivation du mode maintenance. Pour plus d’informations, consultez « [Activation et planification du mode de maintenance](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list). »
+
+|
+    - heading: Des rôles de référentiel personnalisés sont généralement disponibles
+      notes:
+        # https://github.com/github/releases/issues/1945
+        - |Grâce aux rôles de référentiel personnalisés, les organisations disposent désormais d’un contrôle granulaire plus élevé sur les autorisations d’accès du référentiel octroyables aux utilisateurs. Pour plus d’informations, consultez « [Gestion des rôles de référentiel personnalisés pour une organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization). »
+
+
+
+Un rôle de référentiel personnalisé est créé par le propriétaire d’une organisation et est disponible sur tous les référentiels de cette organisation. Chaque rôle peut se voir octroyer un nom et une description personnalisés. Vous pouvez le configurer à partir d’un ensemble de plus de 40 autorisations détaillées. Une fois la création terminée, les administrateurs de référentiel peuvent attribuer un rôle personnalisé à n’importe que utilisateur, équipe ou collaborateur extérieur à leur référentiel.
+
+
+
+Des rôles de référentiel peuvent être créés, affichés, modifiés et supprimer via l’onglet **Rôles de référentiel** dans les paramètres de l’organisation. Vous pouvez créer un maximum de 3 rôles personnalisés dans une organisation. 
+
+
+
+Les rôles de référentiel sont également complètement pris en charge dans les API REST GitHub Enterprise Server. Les API d’organisations peuvent être utilisés pour répertorier tous les rôles de référentiel personnalisés de l’organisation et les API existantes pour octroyer un accès aux référentiels aux individus et aux équipes ont été étendus pour la prise en charge des rôles de référentiel personnalisés. Pour plus d’informations, consultez « [Organisations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization) » dans la documentation API REST.
+
+|
+    - heading: Registre de conteneurs GitHub dans une version bêta publique 
+      notes: 
+        # https://github.com/github/releases/issues/2005
+         - |Le Registre de conteneurs GitHub (GHCR) est à présent disponible dans GitHub Enterprise Server 3.5 en tant que version bêta publique et offre aux développeurs la capacité de publier, télécharger et gérer des conteneurs. Le support de conteneurs des Packages GitHub implémente les normes OCI pour les images Docker d’hébergement. Pour plus d’informations, consultez « [Registre de conteneurs GitHub ](/packages/working-with-a-github-packages-registry/working-with-the-container-registry). »
+
+|
+    - heading: Les mises à jour Dependabot sont généralement disponibles
+      notes:
+       # https://github.com/github/releases/issues/2089
+        - |La version Dependabot et les correctifs de sécurité sont désormais généralement disponibles dans GitHub Enterprise Server 3.5. Tous les écosystèmes et fonctionnalités populaires utilisés sur les référentiels GitHub.com peuvent désormais être configurés sur votre instance GitHub Enterprise Server. Dependabot sur GitHub Enterprise Server exige GitHub Actions et un pool d’exécuteurs Dependabot auto-hébergés, GitHub Connect activé et Dependabot activé par un administrateur. Pour plus d’informations, consultez « [Configuration des mises à jour Dependabot](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates). »
+
+|
+    - heading: Statistiques du serveur dans une version bêta publique
+      notes:
+        # https://github.com/github/releases/issues/2183
+        - |Vous pouvez à présent analyser le fonctionnement de votre équipe, comprendre la valeur obtenue par GitHub Enterprise Server et nous aider à améliorer nos produits en évaluant vos données d’utilisation d’instance et en partageant ces données agrégées avec GitHub. Vous pouvez utiliser vos propres outils pour analyser votre utilisation dans la durée en téléchargeant vos données dans un fichier CSV ou JSON ou en y accédant à l’aide de l’API REST. Pour plus d’informations, consultez « [À propos des statistiques de serveur](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected). » Les données de statistiques du serveur n’incluent aucune donnée personnelle ni aucun contenu GitHub comme du code, des problèmes, des commentaires ou du contenu de demandes de tirage (pull request).  Pour mieux comprendre comment nous stockons et sécurisons les données de statistiques du serveur sécurisées, consultez « [Sécurité GitHub](https://github.com/security). »  Pour plus d’informations, sur les statistiques de serveur, consultez « [Analyse du fonctionnement de l’équipe avec des statistiques de serveur](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics). » Cette fonctionnalité est disponible dans une version bêta publique.
+
+|
+    - heading: La limitation du débit GitHub Actions est à présent configurable
+      notes:
+        # https://github.com/github/releases/issues/2123
+        - |Les administrateurs du site peuvent à présent activer et configurer une limite de débit de GitHub Actions. Par défaut, la limite de débit est désactivée. Lorsque des tâches de workflow ne peuvent pas être immédiatement attribuées à un exécuteur disponible, elles attendent dans une file d’attente que l’exécuteur soit disponible. Toutefois, si GitHub Actions connaît une charge élevée soutenue, la file d''attente peut sauvegarder plus rapidement qu’elle peut vider et le niveau de performance de l’instance GitHub Enterprise Server peut être dégradé. Pour éviter cela, un administrateur peut configurer une limite de débit. Une fois la limite de débit dépassée, les exécutions supplémentaires du workflow échouent immédiatement plutôt que d’être placées en file d’attente. Une fois le débit stabilisé en-dessous du seuil, de nouvelles exécutions peuvent être remises en file d’attente. Pour plus d’informations, consultez « [Configuration des limites de débit](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions). »
+
+|
+    - heading: OpenID Connect (OIDC) pour des déploiements sécurisés avec GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/2066
+        - |GitHub Actions sur GitHub Enterprise Server prend désormais en charge OIDC pour des déploiements sécurisés sur des fournisseurs de cloud. Il utilise des jetons à courte durée de vie qui alternent automatiquement lors de chaque déploiement. OIDC active les fonctionnalités suivantes.
+
+
+
+- Authentification transparente entre des fournisseurs de cloud et GitHub Enterprise Server sans nécessité de stockage de secrets à longue durée de vie sur votre instance
+
+- Les administrateurs de cloud peuvent compter sur des mécanisques de sécurité d’un fournisseur de cloud particulier pour garantir que les workflows GitHub Actions disposent d’un accès minimal aux ressources cloud. Il n’existe pas de duplication de la gestion des secrets entre GitHub Enterprise Server et le cloud.
+
+
+
+Pour plus d’informations, consultez « [Renforcement de vos déploiements par la sécurité](/actions/deployment/security-hardening-your-deployments). »
+
+|
+    - heading: Le partage de GitHub Actions au sein de votre entreprise est en disposition générale
+      notes:
+        # https://github.com/github/releases/issues/2085
+        - |Le support de GitHub Actions dans des référentiels internes est à présent généralement disponible pour des organisations sur votre instance GitHub Enterprise Server. Vous pouvez rétribuer l’automatisation en partageant des actions dans des référentiels internes. Vous pouvez gérer les paramètres d’un référentiel ou utiliser l’API REST pour autoriser l’accès aux workflows dans d’autres référentiels au sein de l’organisation ou dans toutes les organisations de l’instance. Pour plus d’informations, consultez « [Partage des actions et workflows avec votre entreprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise), » « [Gestion des paramètres de GitHub Actions pour un référentiel](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) » et « [Autorisations d’actions](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository) » dans la documentation API REST.
+
+|
+    - heading: Le support de cache pour GitHub Actions sur GitHub Enterprise Server est à présent généralement disponible
+      notes:
+        # https://github.com/github/releases/issues/2110
+        - |Vous pouvez désormais utiliser la mise en cache des dépendances pour accélérer vos workflows GitHub Actions. Pour mettre les dépendances d’une tâche en cache, vous pouvez inclure l’action [actions/cache](https://github.com/actions/cache) pour créer un cache avec une clé unique. Vous pouvez partager des caches sur tous les workflows dans le même référentiel. Ces workflows peuvent alors restaurer le cache et s’exécuter plus rapidement.
+
+
+
+Actions que les utilisateurs peuvent également utiliser pour les API de cache pour :
+
+
+
+- définir la stratégie d’entreprise pour la plage de tailles de cache autorisée par référentiel
+
+- interroger l’utilisation du cache au sein de chaque référentiel et vérifier que la taille totale de tous les caches a atteint la limite supérieure maximale
+
+- augmenter la taille maximale du cache pour un référentiel au sein des limites de l’entreprise autorisées, en fonction des exigences de mise en cache du référentiel
+
+- analyser l’utilisation agrégée du cache au niveau organisationnel et au niveau de l’entreprise.
+
+
+
+Le stockage de blob externe configuré au sein de votre compte d’entreprise sera désormais partagé entre des artefacts, des journaux et également des caches de workflows. Pour plus d’informations, consultez « [Mise en cache des dépendances pour accélérer des workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows). »
+
+|
+    - heading: Validations signées automatiquement effectuées dans l’interface utilisateur web
+      notes:
+        # https://github.com/github/releases/issues/1963
+        - |Vous pouvez désormais configurer GitHub Enterprise Server pour signer automatiquement des validations effectuées dans l’interface web, notamment à partir de la modification d’un fichier ou de la fusion d’une demande de tirage (pull request). Les validations signées augmentent la confiance quant à la provenance de sources approuvées des modifications. Cette fonctionnalité autorise le paramètre de protection de la branche [Exiger des validations signées](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) à bloquer l’entrée de validations non signées dans un référentiel, tout en autorisant l’entrée de validations signées, même celles effectuées dans l’interface web. Pour plus d’informations, consultez « [Configuration de la signature des validations web](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing). »
+
+|
+    - heading: Synchroniser l’utilisation de licences à tout moment
+      notes:
+        # https://github.com/github/releases/issues/2201
+        - |Pour les clients qui synchronisent l’utilisation de licences entre GitHub Enterprise Server et GitHub Enterprise Cloud en utilisant automatiquement GitHub Connect, il est désormais possible de synchroniser l’utilisation des licences indépendamment de la synchronisation automatique hebdomadaire. Cette fonctionnalité indique également l’état du travail de synchronisation. Pour plus d’informations, consultez « [Synchronisation de l’utilisation des licences entre GitHub Enterprise Server et GitHub Enterprise Cloud](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-syncing-license-usage). »
+
+|
+    - heading: Les workflows réutilisables pour GitHub Actions sont en disponibilité générale
+      notes:
+        # https://github.com/github/releases/issues/1767
+        # https://github.com/github/releases/issues/1950
+        # https://github.com/github/releases/issues/2114
+          - |Les workflows réutilisables sont désormais généralement disponibles. Les workflows réutilisables vous aident à réduire la duplication en vous permettant de réutiliser un workflow complet comme s’il s’agissait d’une action. Avec la mise en production de disponibilité générale, de nombreuses améliorations sont désormais disponibles pour GitHub Enterprise Server. Pour plus d’informations, consultez « [Réutilisation des workflows](/actions/using-workflows/reusing-workflows). »
+
+
+
+- Vous pouvez utiliser des sorties pour transmettre des données de workflows réutilisables vers d’autres travaux dans le workflow appelant.
+
+- Vous pouvez transmettre des secrets d’environnement à des workflows réutilisables.
+
+- Le journal d''audit inclut des informations sur les workflows réutilisables utilisés.
+
+- Les workflows réutilisables du même référentiel, comme le référentiel appelant, peuvent être référencés avec uniquement le chemin d''accès et le nom de fichier (« PATH/FILENAME »). Le workflow appelé est issu de la même validation que le workflow appelant.
+
+|
+    - heading: Les exécuteurs auto-hébergés de GitHub Actions peuvent à présent désactiver les mises à jour automatiques
+      notes:
+        # https://github.com/github/releases/issues/2014
+        - |Vous disposez maintenant d’un meilleur contrôle lorsque vos exécuteurs auto-hébergés effectuent des mises à jour de logiciel. Si vous spécifiez l’indicateur « --disableupdate » pour l’exécuteur , il ne tentera pas d’effectuer une mise à jour de logiciel automatique si une version plus récente de l’exécuteur est disponible. Ceci vous permet de mettre à jour l’exécuteur auto-hébergé de votre planification et est particulièrement utile lorsque votre exécuteur auto-hébergé est un conteneur.
+
+
+
+ Pour la compatibilité avec le service GitHub Actions, vous devrez mettre à jour manuellement votre exécuteur dans les 30 jours suivant la disponibilité de la version de l’exécuteur.  Pour obtenir des instructions sur la façon d’installer la dernière version de l’exécuteur, consultez les instructions d’installation de [la dernière version dans le référentiel de l’exécuteur](https://github.com/actions/runner/releases).
+
+|
+    - heading: Sécuriser les exécuteurs auto-hébergés pour GitHub Actions en limitant les workflows
+      notes:
+        # https://github.com/github/releases/issues/2013
+        - |Les propriétaires d’organisations peuvent désormais augmenter la sécurité des workflows CI/CD sur des exécuteurs auto-hébergés en choisissant les workflows pouvant avoir accès à un groupe d’exécuteurs. Précédemment, tous les workflows d’un référentiel, comme par exemple un étiqueteur de problèmes, pouvaient avoir accès aux exécuteurs auto-hébergés disponibles pour une organisation. Pour plus d’informations, consultez « [Gestion de l’accès aux exécuteurs auto-hébergés à l’aide de groupes](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group) » et [blog GitHub](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
+
+|
+    - heading: Éviter que GitHub Actions approuve des demandes de tirage (pull request)
+      notes:
+        # https://github.com/github/releases/issues/1959
+        - |Vous pouvez à présent contrôler l’approbation des demandes de tirage (pull request) par GitHub Actions. Cette fonctionnalité empêche un utilisateur utilisant GitHub Actions de répondre aux exigences de protection de branche « Approbations obligatoires » et de fusionner une modification non révisée par un autre utilisateur. Pour éviter l’arrêt de workflows existants, **Autoriser les évaluations de GitHub Actions de compter sur l’approbation requise** est activé par défaut. Les propriétaires des organisations peuvent désactiver la fonctionnalité dans les paramètres GitHub Actions de l’organisation. Pour plus d’informations, consultez « [Désactivation ou limitation de GitHub Actions pour votre organisation](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests). »
+
+|
+    - heading: Réexécuter des travaux GitHub Actions non réussis ou individuels
+      notes:
+        # https://github.com/github/releases/issues/1503
+        - |Vous pouvez à présent réexécuter les travaux non réussis uniquement ou un travail individuel dans une exécution de workflow GitHub Actions. Pour plus d’informations, consultez « [Réexécution des workflows et travaux](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+|
+    - heading: Le graphe des dépendances prend en charge GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/1913
+        - |Le graphe des dépendances détecte à présent des fichiers YAML pour des workflows GitHub Actions. GitHub Enterprise Server affiche les fichiers de workflow dans la section Graphe des dépendances de l’onglet **Insights**. Les référentiels qui publient des actions seront également en mesure de voir le nombre de référentiels qui dépendent de cette action à partir du contrôle « Utiliser par » sur la page d’accueil de référentiel. Pour plus d’informations, consultez « [À propos du graphe des dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph). »
+
+|
+    - heading: Vue d’ensemble de sécurité pour les entreprises en version bêta publique
+      notes:
+        # https://github.com/github/releases/issues/2040
+        - |Les clients GitHub Advanced Security peuvent à présent afficher une vue d’ensemble des alertes de sécurité au niveau de l’entreprise. Le nouvel onglet **Sécurité** au niveau de l’entreprise fournit un affichage centré sur le référentiel des risques de sécurité de l’application, ainsi qu’un affichage centré sur les alertes de toutes les alertes d’analyse des secrets. Pour plus d’informations, consultez « [À propos de la vue d’ensemble sécurité](/code-security/security-overview/about-the-security-overview)."
+
+|
+    - heading: Affichage de sécurité des organisations est en disponibilité générale
+      notes:
+        # https://github.com/github/releases/issues/2096
+        - |La vue d’ensemble des alertes de sécurité au niveau de l’organisation est maintenant en disponibilité générale. Les clients GitHub Advanced Security utilisent la vue d’ensemble sécurité pour un affichage centré sur le référentiel des risques de sécurité des applications ou un affichage centré sur les alertes de toutes les alertes d’analyse du code, Dependabot et d’analyse des secrets pour tous les référentiels dans une organisation. Pour plus d’informations, consultez « [À propos de la vue d’ensemble sécurité](/code-security/security-overview/about-the-security-overview)."
+
+|
+    - heading: "L’analyse du code détecte plus de problèmes de sécurité, de supports de nouvelles versions de langage"
+      notes:
+        # https://github.com/github/releases/issues/2097
+        - |L’analyse du code détecte à présent un nombre plus élevé de CWE et l’analyse du code CodeQL prend complètement en charge les fonctionnalités de langage standard dans les mises en production du langage suivantes.
+
+
+
+- C# 10 / .NET 6
+
+- Python 3.10
+
+- Java 17
+
+- TypeScript 4.5
+
+
+
+Pour plus d’informations, consultez [blog GitHub](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
+
+|
+    - heading: Afficher les alertes d’analyse du code dans une organisation
+      notes:
+        # https://github.com/github/releases/issues/1792
+        - |Les clients GitHub Advanced Security peuvent à présent afficher des alertes d’analyse du code dans l’onglet **Sécurité** d’une organisation. Cet affichage est disponible aux propriétaires de l’organisation et membres des équipes avec le [rôle de gestionnaire de la sécurité](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Pour plus d’informations, consultez « [À propos de la vue d’ensemble sécurité](/code-security/security-overview/about-the-security-overview)."
+
+|
+        # https://github.com/github/releases/issues/1763
+        - |Les utilisateurs peuvent à présent récupérer des alertes d’analyse de code pour une organisation de votre instance GitHub Enterprise Server via l’API REST. Ce nouveau point de terminaison de l’API complète le [point de terminaison pour les référentiels](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) existant. Pour plus d’informations, consultez « [Analyse du code](/rest/code-scanning) » dans la documentation de l’API REST.
+
+|
+    - heading: Analyse des secrets disponibles comme protection de l’envoi (push)
+      notes:
+        # 
+        - |GitHub Enterprise Server peut à présent bloquer tous les envois (push) lorsqu’un jeton est détecté avec un haut niveau de confiance. Les développeurs peuvent contourner le bloc en fournissant des détails sur la raison de la validation des besoins de secret via une interface utilisateur web. Pour plus d’informations, consultez [Protection des envois avec analyse des secrets](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+
+|
+    - heading: Tests des modèles personnalisés avec une analyse des secrets
+      notes:
+        # https://github.com/github/releases/issues/1703
+        # https://github.com/github/releases/issues/2084
+        - |Les clients GitHub Advanced Security peuvent tester des modèles d’analyse des secrets personnalisés au niveau d’une organisation ou référentiel. Les tests permettent aux personnes avec un accès propriétaire ou administrateur pour évaluer et explorer leurs modèles avant de les publier et de générer des alertes. Vous pouvez composer un modèle, puis utiliser **Enregistrer et tester** pour récupérer des résultats. Les analyses ne prennent généralement que quelques secondes, mais GitHub Enterprise Server informera les propriétaires de l’organisation ou les administrateurs de référentiels par e-mail une fois les résultats des tests prêts. Pour plus d’informations, consultez « [À propos de l’analyse des secrets](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories) » et « [Définition des modèles personnalisés pour l’analyse des secrets](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+|
+    - heading: "Événements de modèles personnalisés de l’analyse des secrets à présent dans le journal d'audit"
+      notes:
+        # https://github.com/github/releases/issues/2154
+        - |Le journal d''audit contient à présent des événements associés aux modèles personnalisés de l’analyse des secrets. Ces données permettent aux clients GitHub Advanced Security de comprendre des actions prises sur leur [référentiel](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_secret_scanning_custom_pattern-category-actions)-, [organisation](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#org_secret_scanning_custom_pattern-category-actions)- ou [entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_custom_pattern-category-actions)-level custom patterns for security and compliance audits. Pour plus d’informations, consultez [Évaluation du journal d''audit pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization) » ou « [Évaluation des journaux d’audit pour votre entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+
+|
+    - heading: Configurer des autorisations pour l’analyse des secrets avec des rôles de référentiel personnalisés
+      notes:
+        # https://github.com/github/releases/issues/1909
+        - |Vous pouvez à présent deux nouvelles autorisations pour l’analyse des secrets lors de la gestion des rôles de référentiel personnalisés.
+
+
+
+- Afficher des résultats d’analyse des secrets
+
+- Ignorer ou réouvrir des résultats d’analyse des secrets
+
+
+
+Pour plus d’informations, consultez « [Gestion des rôles de référentiel personnalisés pour une organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization). »
+
+|
+    - heading: L’analyse des secrets prend désormais en charge des référentiels archivés
+      notes:
+        # https://github.com/github/releases/issues/2076
+        - |Les clients GitHub Advanced Security peuvent maintenant activer une analyse des secrets pour des référentiels archivés via l’interface utilisateur et l’API. Pour plus d’informations, consultez « [À propos de l’analyse des secrets](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories), » « [À propos des référentiels archivés](/repositories/archiving-a-github-repository/archiving-repositories), » et « [Référentiels](/rest/repos/repos#update-a-repository) » dans la documentation de l’API REST.
+
+|
+    - heading: Webhooks sur l’analyse des secrets pour les emplacements d’alertes
+      notes:
+        # https://github.com/github/releases/issues/2149
+        - |Les clients GitHub Advanced Security qui utilisent l’analyse des secrets peuvent désormais choisir de recevoir un webhook à chaque fois qu’un secret est détecté dans un nouvel emplacement. L’événement webhook « secret_scanning_alert_location » inclut des détails sur les emplacements, tel que le SHA de validation et l’alerte associée pour la détection. Un emplacement est créé pour chaque nouveau chemin de fichier contenant le secret détecté. Pour plus d’informations, consultez « [Événements et charges utiles des webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert). »
+
+|
+    - heading: Afficher les alertes Dependabot dans une organisation
+      notes:
+        # https://github.com/github/releases/issues/1992
+        - |Les clients GitHub Advanced Security peuvent à présent afficher des alertes Dependabot dans l’onglet **Sécurité** d’une organisation. Cet affichage est disponible aux propriétaires de l’organisation et membres des équipes avec le [rôle de gestionnaire de la sécurité](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization). Pour plus d’informations, consultez « [À propos de la vue d’ensemble sécurité](/code-security/security-overview/about-the-security-overview)."
+
+|
+    - heading: Configurer des autorisations pour les alertes Dependabot avec des rôles de référentiel personnalisés
+      notes:
+        # https://github.com/github/releases/issues/1958
+        - |Vous pouvez à présent configurer deux nouvelles autorisations pour des alertes Dependabot lors de la gestion de rôles de référentiel personnalisés.
+
+
+
+- Afficher des alertes Dependabot
+
+- Ignorer et réouvrir des alertes Dependabot
+
+
+
+Pour plus d’informations, consultez « [Gestion des rôles de référentiel personnalisés pour une organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization). »
+
+|
+    - heading: Réouvrir des alertes Dependabot ignorées
+      notes:
+        # https://github.com/github/releases/issues/1923
+        - |Vous pouvez désormais réouvrir des alertes Dependabot ignorées via la page Interface utilisateur pour une alerte fermée. Ceci n’affecte pas les demandes de tirage (pull request) ni les API GraphQL. Pour plus d’informations, consultez « [À propos des alertes Dependabot](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts). »
+
+|
+    - heading: Le support Pub des mises à jour de versions Dependabot est en version bêta
+      notes:
+        # https://github.com/github/releases/issues/2086
+        - |Les utilisateurs des mises à jour de versions Dependabot peuvent à présent mettre à jour des dépendances de façon proactive pour des projets Flutter ou Dart qui utilisent le gestionnaire de packages Pub.  
+
+
+
+Pour tester de [mises à jour de versions](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) sur votre propre référentiel Dart ou Flutter, ajoutez le fichier config suivant au <code>[.github/dependabot.yaml](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)</code>. Notez les indicateurs « package-ecosystem : « pub » et « enable-beta-ecosystems : true ».
+
+```yaml
+
+version: 2
+
+enable-beta-ecosystems: true
+
+updates:
+
+  - package-ecosystem: "pub"
+
+    directory: "/"
+
+    schedule:
+
+      interval: "weekly"
+
+```
+
+|
+    - heading: Consultez la demande de tirage (pull request) associée à des alertes Dependabot du référentiel via l’API GraphQL
+      notes:
+        # https://github.com/github/releases/issues/2088
+        - |Le nouvel objet GraphQL « DependabotUpdate » vous permet d’afficher des informations sur ce qui se passe avec les correctifs de sécurité de votre référentiel. Lorsque GitHub Enterprise Server détecte une dépendance vulnérable dans votre référentiel, Dependabot tente d’ouvrir une demande de tirage (pull request) pour mettre à jour cette dépendance vers une version non vulnérable. Vous pouvez désormais afficher la demande de tirage (pull request) qui corrige la vulnérabilité. Dans certains cas, Dependabot échoue a ouvrir une demande de tirage (pull request). Précédemment, le message d’erreur généré par Dependabot n’était visible que dans la section « Alertes Dependabot » de l’onglet **Sécurité**. À présent, si Dependabot s’exécute sous une erreur au moment d’essayer d’ouvrir une demande de tirage (pull request), vous pouvez déterminer le motif à l’aide de l’API GraphQL. Pour plus d’informations, consultez « [Objets](/graphql/reference/objects#dependabotupdate) » dans la documentation de l’API GraphQL.
+
+|
+    - heading: Consultez davantage d’informations sur les alertes Dependabot via l’API GraphQL
+      notes:
+        # https://github.com/github/releases/issues/1922
+        - |Vous pouvez désormais afficher des alertes corrigées à partir de Dependabot avec l’API GraphQL. Vous pouvez également accéder et filtrer par état, ainsi que par identificateur numérique unique et vous pouvez filtrer par état sur l’objet de l’alerte de vulnérabilité. Les champs suivants existent à présent pour une « RepositoryVulnerabilityAlert ».
+
+
+
+- `number`
+
+- `fixed_at`
+
+- `fix_reason`
+
+- `state`
+
+
+
+Pour plus d’informations, consultez « [Objets](/graphql/reference/objects#repositoryvulnerabilityalert) » dans la documentation de l’API GraphQL.
+
+|
+    - heading: Événements Git dans le journal d’audit de l’entreprise
+      notes:
+        # https://github.com/github/releases/issues/2205
+        - |Les événements relatifs au Git suivants peuvent à présent s’afficher dans le journal d''audit de l’entreprise. Si vous activez la fonctionnalité et définissez une période de rétention du journal d''audit, les nouveaux événements seront disponibles pour la recherche via l’interface utilisateur et l’API ou l’exportation via JSON ou CSV.
+
+
+
+- `git.clone`
+
+- `git.fetch`
+
+- `git.push`
+
+
+
+Dû à un grand nombre d’événements GIt enregistrés, nous vous recommandons d’analyser votre stockage de fichiers d’instance et d’évaluer les configurations relatives à l’alerte. Pour plus d’informations, consultez « [Configuration du journal d’audit pour votre entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log). »
+
+|
+    - heading: Améliorations apportées aux CODEOWNERS
+      notes:
+        # https://github.com/github/releases/issues/1994
+        - |Cette mise en production inclut des améliorations apportées aux CODEOWNERS.
+
+
+
+- Des erreurs de syntaxe sont à présent exposées lors de l’affichage d’un fichier CODEOWNERS web. Précédemment, lorsqu’une ligne d’un fichier CODEOWNERS avait une erreur de syntaxe, l’erreur pouvait être ignorée ou, dans certains cas, empêcher le chargement du fichier CODEOWNERS entier. GitHub Apps et Actions peuvent accéder à la même liste d’erreurs à l’aide des nouvelles API REST et GraphQL. Pour plus d’informations, consultez « [Référentiels](/rest/repos/repos#list-codeowners-errors) » dans la documentation de l’API REST et « [Objets](/rest/repos/repos#list-codeowners-errors) » dans la documentation de l’API GraphQL.
+
+- Après la création d’une nouvelle demande de tirage (pull request) ou l’envoi de nouvelles modifications à une demande de tirage (pull request) brouillon, tous les propriétaires de code invités à une évaluation sont à présent répertoriés dans la demande de tirage (pull request) sous « Réviseurs ». Cette fonctionnalité vous offre une vue anticipée de la personne invitée à réviser, une fois la demande de tirage (pull request) marquée comme prête pour la révision.
+
+- Des commentaires dans des fichiers CODEOWNERS s’affichent à présent à la fin de la ligne et pas seulement sur des lignes dédiées.
+
+
+
+Pour plus d’informations, consultez « [À propos des propriétaires de code](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners). »
+
+|
+    - heading: Davantage de solutions pour garder à jour la branche de rubrique d’une demande de tirage (pull request)
+      notes:
+        # https://github.com/github/releases/issues/1566
+        - |Le bouton **Mettre à jour une branche** de la page Demande de tirage (pull request) vous permet de mettre à jour la branche de votre demande de tirage (pull request) avec les dernières modifications de la branche de base. Ceci est utile pour vérifier que vos modifications sont compatibles avec la version actuelle de la branche de base avant la fusion. Deux améliorations vous proposent désormais des solutions supplémentaires pour garder à jour votre branche.
+
+
+
+- Lorsque la branche de rubrique de votre demande de tirage (pull request) est obsolète par rapport à la branche de base, vous pouvez désormais la mettre à jour en vous rebasant sur la dernière version de la branche de base. Le rebasage s’applique aux modifications issues de votre branche de la dernière version de la branche de base, ce qui abouti à une branche avec un historique linéaire car aucune validation de fusion n’est créée. Pour mettre à jour par rebasage, cliquez sur le menu déroulant à côté du bouton **Mettre à jour la branche**, cliquez sur **Mettre à jour avec rebasage** puis, cliquez sur **Rebaser la branche**. Précédemment, **Mettre à jour une branche** effectuait une fusion traditionnelle qui aboutissait toujours à une validation de fusion dans votre branche de demande de tirage (pull request). Cette option est encore disponible, mais vous avez désormais le choix. Pour plus d’informations, consultez « [Conserver votre demande de tirage (pull request) en synchronisation avec la branche de base](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch). »
+
+
+
+- Un nouveau paramètre de référentiel permet une disponibilité permanente du bouton **Mettre à jour la branche** lorsqu’une branche de rubrique de la demande de tirage (pull request) n’est pas à jour avec la branche de base. Précédemment, ce bouton n’était disponible que lorsque le paramètre de protection de branches **Exiger que les branches soient à jour avant la fusion** soit activé. Les personnes disposant de l’accès administrateur ou gestionnaire peuvent gérer le paramètre **Toujours suggérer la mise à jour de branches de demandes de tirage (pull request)** de la section **Extraire des requêtes** dans les paramètres du référentiel. Pour plus d’informations, consultez « [Gestion des suggestions de mise à jour des branches de demande de tirage](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches). »
+
+|
+    - heading: Configurer des en-têtes HTTP personnalisés pour des sites GitHub Pages
+      notes: 
+        # https://github.com/github/releases/issues/2124
+        - |Vous pouvez désormais configurer des en-têtes HTTP personnalisés pour les appliquer à tous les sites GitHub Pages traités à partir de votre instance GitHub Enterprise Server. Pour plus d’informations, consultez « [Configuration de GitHub Pages pour votre entreprise](/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise#configuring-github-pages-response-headers-for-your-enterprise). »
+
+|
+    - heading: Ignorer des validations dans l’affichage des blâmes
+      notes:
+        # https://github.com/github/releases/issues/2090
+        - |Il est désormais possible d’ignorer des révisions de l’affichage des blames en créant un fichier _.git-blame-ignore-revs_ dans la racine de votre référentiel. Pour plus d’informations, consultez « [Affichage d’un fichier](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view). »
+
+|
+    - heading: Le thème clair à contraste clair élevé est en disponibilité générale
+      notes:
+        # https://github.com/github/releases/issues/2011
+        - |Un thème clair à contraste élevé, avec un contraste supérieur entre les éléments de premier plan et ceux d''arrière-plan, est à présent en disponibilité générale. Pour plus d’informations, consultez « [Gestion des paramètres de votre thème](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings). »
+
+|
+    - heading: Règles de protection des étiquettes
+      notes:
+        # https://github.com/github/releases/issues/1793
+        - |Les propriétaires de référentiels peuvent désormais configurer des règles de protection des étiquettes pour protéger les étiquettes d’un référentiel. Une fois protégé par une règle de protection des étiquettes, les étiquettes correspondant à un modèle de nom spécifié ne peuvent qu’être créées et supprimées par des utilisateurs avec le rôle Maintenir ou Administrateur dans le référentiel. Pour plus d’information, consultez « [Configuration des règles de protection des étiquettes](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules). »
+
+|
+  bugs:
+    # https://github.com/github/releases/issues/1934
+    - |Il est désormais possible pour GitHub Apps de charger des éléments de mise en production.
+
+|
+  changes:
+    # https://github.com/github/releases/issues/2063
+    - |Pour utiliser le flux d’autorisations des appareils pour OAuth et GitHub Apps, vous devez activer manuellement la fonctionnalité. Cette modification réduit l’utilisation éventuelle d’applications dans des attaques par hameçonnage contre des utilisateurs GitHub Enterprise Server en vérifiant que les intégrateurs sont informés des risques et font un choix conscient pour prendre en charge ce formulaire d’authentification. Si vous possédez ou gérez une application OAuth ou GitHub et que vous souhaitez utiliser le flux d’appareils, vous pouvez l’activer pour votre application via la page des paramètres de l’application. Les points de terminaison de l’API du flux d’appareils répond par le code « 400 » aux applications qui ont activé cette fonctionnalité. Pour plus d’informations, consultez « [Autorisation des applications OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow). »
+
+|
+    # https://github.com/github/releases/issues/2049
+    - |La page d’alerte de l’analyse du code affiche désormais toujours l’état de l’alerte et les informations de la branche par défaut. Il existe un nouveau panneau « Branches affectées » sur la barre latérale qui affiche l’état de l’alerte dans d’autres branches. Si l’alerte n’existe pas dans votre branche par défaut, la page d’alerte affiche l’état comme « Dans la branche » ou « dans le demande de tirage (pull request) » pour définir l’emplacement où l’alerte a été vue pour la dernière fois. Cette amélioration facilite la compréhension de l’état des alertes introduites dans votre base de code. Pour plus d’informations, consultez « [À propos des alertes de l’analyse du code](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details). »
+
+
+
+La page des listes d’alertes n’est pas modifiée et peut être filtrée par « branche ». Vous pouvez utiliser l’API d’analyse du code pour récupérer plus d’informations détaillées sur la branche en ce qui concerne les alertes. Pour plus d’informations, consultez « [Analyse du code](/rest/code-scanning) » dans la documentation de l’API REST.
+
+|
+    # https://github.com/github/releases/issues/2050
+    - |L’analyse du code affiche à présent les détails de l’origine d’analyse d’une alerte. Si une alerte a plus d’une origine d’analyse, elle est affichée dans la barre latérale « Branches affectées » et dans la chronologie des alertes. Vous pouvez passer la souris sur l’icône d’origine d’analyse dans la barre latérale « Branches affectées » pour consulter l’état de l’alerte dans chaque origine d’analyse. Si une alerte n’a qu’une seule origine d’analyse, aucune information sur les origines d’analyse n’est affichée dans la page d’alerte. Ces améliorations facilitent la compréhension de vos alertes. En particulier, elles vous aident à comprendre celles avec plusieurs origines d’analyse. Ceci est particulièrement utile pour les configurations avec plusieurs configurations d’analyse, tels que les monoréférentiels. Pour plus d’informations, consultez « [À propos des alertes de l’analyse du code](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+
+|
+    # https://github.com/github/releases/issues/2071
+    - |Les listes de référentiels possédées par un utilisateur ou une organisation ont à présent une option de filtre supplémentaire, « Modèles », facilitant la recherche des modèles de référentiels.
+
+|
+    # https://github.com/github/releases/issues/1947
+    - |GitHub Enterprise Server peut afficher plusieurs formats d’image communs, y compris PNG, JPG, GIF, PSD et SVG et offre plusieurs moyens pour comparer les différences entre des versions. Désormais, lorsque vous évaluez des images ajoutées ou modifiées dans une demande de tirage (pull request), les préversions de ces images sont affichées par défaut. Vous auriez vu, précédemment, un message indiquant que les fichiers binaires ne pouvaient pas être affichés et vous auriez dû basculer l’option « Afficher un Diff riche ». Pour plus d’informations, consultez « [Utilisation de fichiers non code](/repositories/working-with-files/using-files/working-with-non-code-files). »
+
+|
+    # https://github.com/github/releases/issues/2054
+    - |De nouveaux Gists sont à présent créés avec un nom de branche par défaut du nom de branche par défaut « principal » ou alternatif défini dans vos paramètres utilisateur. Cela correspond au mode de création d’autres référentiels sur GitHub Enterprise Server. Pour plus d’informations, consultez « [À propos des branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) » et « [Gestion du nom de branche par défaut pour vos référentiels](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-the-default-branch-name-for-your-repositories). »
+
+|
+    # https://github.com/github/releases/issues/2028
+    - |Les Gists n’affichent à présent que les 30 derniers commentaires lors du premier affichage. Vous pouvez cliquer sur **Charger des commentaires plus récents...** pour en afficher plus. Ainsi, les Gists avec plusieurs commentaires peuvent s’afficher plus rapidement. Pour plus d’informations, consultez « [Modification et partage du contenu avec des gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists). »
+
+|
+    # https://github.com/github/releases/issues/2036
+    - |Les pages de paramètres pour les utilisateurs, organisations, référentiels et équipes ont été re-conçues, regroupant les pages de paramètres similaires en sections pour une meilleure architecture et détectabilité des informations. Pour plus d’informations, consultez [Journal des modifications GitHub](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/). 
+
+|
+    # https://github.com/github/releases/issues/2129
+    - |Vous pouvez afficher la description d’une étiquette et une info-bulle en arrêtant ou en passant la souris dessus.
+
+|
+    # https://github.com/github/releases/issues/1983
+    - |La création et la suppression d’invitations de référentiel, qu’elles soient lancées depuis l’API ou l’interface web, sont maintenant soumises aux limites de débit qui peuvent être activées sur votre instance GitHub Enterprise Server. Pour plus d’informations sur les limites de débit, consultez « [Configuration des limites de débit](/admin/configuration/configuring-your-enterprise/configuring-rate-limits). »
+
+|
+    # https://github.com/github/releases/issues/2291
+    - |MinIO a annoncé le retrait des Passerelles MinIO à compter du 1 juin 2022. Tandis que la Passerelle MinIO pour NAS continue à être l’un des fournisseurs de stockage pris en charge pour Github Actions et Github Packages, nous vous recommandons de vous déplacer vers le support LTS MinIO pour utiliser le support et les correctifs de bogues à partir de MinIO. Pour plus d’informations sur les limites de débit, consultez « [Suppression planifiée de la passerelle MinIO pour GCS, Azure, HDFS dans le référentiel minio/minio](https://github.com/minio/minio/issues/14331). »
+
+|
+  deprecations:
+    - heading: Modification du format des jetons d’authentification
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |GitHub Connect ne fonctionnera plus après le 3 juin pour les instances exécutant GitHub Enterprise Server 3.1 ou versions antérieures, en raison de la modification du format des jetons d’authentification GitHub. Pour plus d’informations, consultez [Journal des modifications GitHub](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/).
+
+|
+    - heading: L’exécuteur CodeQL déconseillé en faveur de l’interface CLI CodeQL
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - |L’exécuteur CodeQL est déconseillé en faveur de l’interface CLI CodeQL. GitHub Enterprise Server 3.4 et versions ultérieures ne prend plus en charge l’exécuteur CodeQL. Cette interruption n’affecte que les utilisateurs qui utilisent l’analyse du code CodeQL dans des systèmes CI/CD tiers. Les utilisateurs GitHub Actions ne sont pas concernés. GitHub recommande fermement aux utilisateurs de migrer vers l’interface CLI CodeQL, qui remplace toutes les fonctionnalités de l’exécuteur CodeQL et propose plusieurs fonctionnalités supplémentaires. Pour plus d’informations, consultez « [Migration de l’exécuteur CodeQL vers l’interface CLI CodeQL](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli). »
+
+|
+    - heading: Le sélecteur de thème pour GitHub Pages a été supprimé
+      notes:
+        - |Le sélecteur de thème pour GitHub Pages a été supprimé des paramètres des pages. Pour plus d’informations sur la configuration des thèmes pour GitHub Pages, consultez « [Ajout d’un thème à votre site GitHub Pages en utilisant Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll). »
+
+|
+  known_issues:
+      - "Sur une instance récemment configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+      - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+      - "Les fichiers suivis par Git LFS [téléchargé via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au référentiel."
+      - "Les problèmes ne peuvent pas être fermés s’ils contiennent un permalien vers un blob dans le même référentiel, lorsque le chemin de fichier du blob est supérieur à 255 caractères."
+      - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+      - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles du niveau de performance. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+      - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+      - Les services Actions doivent être redémarrés après la restauration d’une appliance à partir d’une sauvegarde effectuée sur un hôte différent.

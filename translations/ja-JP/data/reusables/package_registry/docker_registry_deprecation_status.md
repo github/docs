@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 225a7dce2ad1fd3e5ad15c0c7324407e8376916d
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878730"
+---
 {% warning %}
 
-**Note:** The {% data variables.product.prodname_registry %} Docker registry will be superseded by {% data variables.product.prodname_github_container_registry %}{% if enterpriseServerVersions contains currentVersion %} in a future {% data variables.product.product_name %} release{% endif %}.{% if currentVersion == "free-pro-team@latest" %} To learn how to migrate your existing Docker images and any workflows using them, see "[Migrating to {% data variables.product.prodname_github_container_registry %} for Docker images](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images)" and "[Getting started with {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry)."{% endif %}
+**注記:** {% data variables.product.prodname_registry %} Docker レジストリ {% ifversion ghes or ghae %} は、今後の {% data variables.product.product_name %} リリースで {% data variables.product.prodname_container_registry %} に置き換えられ、コンテナーのサポートが向上します。{% elsif fpt %} は {% data variables.product.prodname_container_registry %} に置き換え<コンテナーのサポートが向上します。 {% endif %} {% ifversion fpt or ghec %} 詳細については、「[Docker レジストリから {% data variables.product.prodname_container_registry %} に移行する](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)」を参照してください。 {% endif %}
 
 {% endwarning %}

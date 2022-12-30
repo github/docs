@@ -1,8 +1,17 @@
+---
+ms.openlocfilehash: 02e080d26aded3b22b6a9819208eb1908aae7cf0
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145100515"
+---
 组织包括：
-{% if currentVersion == "free-pro-team@latest" %}- 免费选项，{% data variables.product.prodname_free_team %}，在具有完整功能的无限公共仓库和具有有限功能的无限私有仓库上支持无限协作者。
-- 用于升级到 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 以获取额外功能的选项，包括复杂的用户身份验证和管理，以及升级的支持选项。 {% data reusables.gated-features.more-info %}{% endif %}
-- 无限的成员资格，以各种不同的角色授予[对组织及其数据的不同访问权限](/articles/permission-levels-for-an-organization)
-- 能够向成员授予[对组织仓库的一系列访问权限](/articles/repository-permission-levels-for-an-organization)
-- [Nested teams that reflect your company or group's structure](/articles/about-teams) with cascading access permissions and mentions{% if currentVersion != "github-ae@latest" %}
-- 组织所有者能够查看成员的[双重身份验证 (2FA) 状态](/articles/about-two-factor-authentication)
-- The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+- 具有各种角色的不受限成员资格，这些角色授予[对组织及其数据不同级别的访问权限](/articles/permission-levels-for-an-organization)
+- 向成员授予[一系列访问组织存储库的权限](/articles/repository-permission-levels-for-an-organization)的能力
+- [反映公司或小组](/articles/about-teams)具有级联访问权限和提及功能的结构的嵌套团队{% ifversion not ghae %}
+- 组织所有者查看成员的[双因素身份验证 (2FA) 状态](/articles/about-two-factor-authentication)的能力。
+- [要求所有组织成员使用双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)的选项{% endif %}{% ifversion fpt%}
+- [使用 GitHub Classroom 创建和管理教室](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)的能力{% endif %}
+
+{% data reusables.organizations.organization-plans %}

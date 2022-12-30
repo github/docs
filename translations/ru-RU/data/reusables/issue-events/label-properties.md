@@ -1,1 +1,10 @@
-`label` | `object` | The label removed from the issue `label[name]` | `string` | The name of the label. `label[color]` | `string` | The hex color code. 
+---
+ms.openlocfilehash: 672ad2c3a79057959f7016858e734229b2450157
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881222"
+---
+`label` | `object` | Удалена метка для проблемы `label[name]` | `string` | Имя метки.
+`label[color]` | `string` | Шестнадцатеричный цветовой код. 

@@ -1,1 +1,10 @@
-1. Optionally, to turn off scheduled reminders for pull requests that have already been reviewed and approved, select **Ignore approved pull requests**. Then, click the **Ignore with 1 or more approvals** to choose how many approvals a pull request must have to be ignored. ![Ignore approved pull requests checkbox](/assets/images/help/settings/scheduled-reminders-ignore-approved-prs.png)
+---
+ms.openlocfilehash: 310988c2adb88f8af825a010c90244fd32238245
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145118520"
+---
+1. Чтобы отключить запланированные напоминания о запросах на вытягивание, которые уже проверены и утверждены, при необходимости выберите **Игнорировать утвержденные запросы на вытягивание**. Затем щелкните **Пропустить с 1 или несколькими утверждениями**, чтобы выбрать, сколько утверждений необходимо пропустить.
+![Флажок «Игнорировать утвержденные запросы на вытягивание»](/assets/images/help/settings/scheduled-reminders-ignore-approved-prs.png)

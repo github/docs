@@ -1,21 +1,30 @@
 ---
-title: Enums
+title: 열거형
 redirect_from:
   - /v4/enum
+  - /v4/reference/enum
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 3be1688849e7cfef4a0b81af1ee045a3ddccd625
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109050'
 ---
+## 열거형 정보
 
-### About enums
+[열거형](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)은 필드에 사용할 수 있는 값 집합을 나타냅니다.
 
-[Enums](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) represent possible sets of values for a field.
+예를 들어 [`Issue`](/graphql/reference/objects#issue) 개체에 `state`라는 필드가 있습니다. state는 OPEN 또는 CLOSED일 수 있으므로 열거형(특히, [`IssueState`](/graphql/reference/enums#issuestate) 형식)입니다.
 
-For example, the [`Issue`](/v4/object/issue) object has a field called `state`. The state is an enum (specifically, of type [`IssueState`](/v4/enum/issuestate/)) because it may be `OPEN` or `CLOSED`.
+자세한 내용은 “[GraphQL 소개](/graphql/guides/introduction-to-graphql)”를 참조하세요.
 
-For more information, see "[Introduction to GraphQL](/v4/guides/intro-to-graphql)."
+{% data reusables.projects.graphql-ghes %}
 
-{% for item in graphql.schemaForCurrentVersion.enums %}
-  {% include graphql-enum %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

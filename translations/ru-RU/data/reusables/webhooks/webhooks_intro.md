@@ -1,1 +1,9 @@
-When configuring a webhook, you can use the UI or API to choose which events will send you payloads. Only subscribing to the specific events you plan on handling limits the number of HTTP requests to your server. You can also subscribe to all current and future events. By default, webhooks are only subscribed to the push event. You can change the list of subscribed events anytime.
+---
+ms.openlocfilehash: 2a9bf94e5bb577180cb4abbc4c8ff2793702b837
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878482"
+---
+При настройке веб-перехватчика можно использовать пользовательский интерфейс или API, чтобы выбрать, какие события будут отправлять полезные данные. Если подписаться только на определенные события, которые вы планируете обрабатывать, вы ограничите количество HTTP-запросов к серверу. Вы также можете подписаться на все текущие и будущие события. По умолчанию веб-перехватчики подписываются только на событие отправки. Список событий, на которые вы подписаны, можно изменить в любое время.

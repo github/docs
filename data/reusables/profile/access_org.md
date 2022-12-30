@@ -1,2 +1,2 @@
-1. On the left side of your profile page, under "Organizations", click the icon for your organization.
- ![organization icons](/assets/images/help/profile/profile_orgs_box.png)
+1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**.
+  ![Your organizations in the profile menu](/assets/images/help/profile/your-organizations.png)

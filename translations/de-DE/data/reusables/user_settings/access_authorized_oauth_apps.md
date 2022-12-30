@@ -1,1 +1,0 @@
-1. Klicke auf die Registerkarte **Authorized OAuth Apps** (Autorisierte OAuth Apps). ![Registerkarte „Authorized OAuth Apps" (Autorisierte OAuth Apps)](/assets/images/help/settings/settings-authorized-oauth-apps-tab.png)

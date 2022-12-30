@@ -1,79 +1,158 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml' and './test-translations.yml'
-
 name: Node.js Tests
+
+# **What it does**: Runs our tests.
+# **Why we have it**: We want our tests to pass before merging code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  merge_group:
   pull_request:
-    branches-ignore:
-      - translations
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 env:
-  CI: true
+  # Setting this will activate the jest tests that depend on actually
+  # sending real search queries to Elasticsearch
+  ELASTICSEARCH_URL: http://localhost:9200/
+  # Hopefully the name is clear enough. By enabling this, we're testing
+  # the future code.
+  ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
-  see_if_should_skip:
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
-        with:
-          cancel_others: 'false'
-          github_token: ${{ github.token }}
-          paths: '[".github/workflows/test.yml",".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
-
   test:
-    needs: see_if_should_skip
-    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
+    # See pull # 17442 in the private repo for context
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, meta, rendering, routing, unit, links-and-images]
+        test-group: [content, graphql, meta, rendering, routing, unit, linting]
     steps:
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.test-group == 'content' }}
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
+      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
+      # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          # Not all test suites need the LFS files. So instead, we opt to
+          # NOT clone them initially and instead, include them manually
+          # only for the test groups that we know need the files.
+          lfs: ${{ matrix.test-group == 'content' }}
+          # Enables cloning the Early Access repo later with the relevant PAT
+          # persist-credentials: 'false'
+          # ->> Do we really need this? actions/checkout doesn't use it for the nested example:
+          # https://github.com/actions/checkout#checkout-multiple-repos-nested
 
       - name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: 14.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: '16.17.0'
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Figure out which docs-early-access branch to checkout, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: check-early-access
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: node .github/actions-scripts/what-docs-early-access-branch.js
+
+      - name: Check out docs-early-access too, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.branch }}
+
+      - name: Merge docs-early-access repo's folders
+        if: ${{ github.repository == 'github/docs-internal' }}
+        run: |
+          .github/actions-scripts/merge-early-access.sh
+          rm -fr docs-early-access
+
+      # This is necessary when LFS files where cloned but does nothing
+      # if actions/checkout was run with `lfs:false`.
+      - name: Checkout LFS objects
+        run: git lfs checkout
+
+      - name: Gather files changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+        run: |
+          # Find the file diff in the pull request or merge group
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -n "$PR" ]
+          then
+            echo __ running gh pr diff __
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$HEAD" ]
+          then
+            echo __ running git fetch main __
+            git fetch origin main --depth 1
+            echo __ running git diff __
+            DIFF=`git diff --name-only origin/main`
+          else
+            echo __ no head, empty diff __
+            DIFF=''
+          fi
+          # So we can inspect the output
+          echo __ DIFF found __
+          echo $DIFF
+
+          # So that becomes a string like `foo.js path/bar.md`
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo __ format, write to get_diff_files.txt __
+          echo $DIFF | tr '\n' ' ' > get_diff_files.txt
+
+      - name: Cache nextjs build
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
       - name: Run build script
         run: npm run build
 
-      - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+      - name: Index fixtures into the local Elasticsearch
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.test-group == 'content' }}
+        run: npm run index-test-fixtures
 
-      - name: Send Slack notification if workflow fails
-        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
-        if: failure() && github.ref == 'early-access'
+      - name: Run tests
         env:
-          SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: "Tests are failing on the `early-access` branch. https://github.com/github/docs-internal/tree/early-access"
+          DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
+        run: npm test -- tests/${{ matrix.test-group }}/

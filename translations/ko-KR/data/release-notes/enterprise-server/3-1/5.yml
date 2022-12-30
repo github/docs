@@ -1,0 +1,20 @@
+date: '2021-08-10'
+sections:
+  bugs:
+    - 'Bash 하위 셸을 사용한 사용자 지정 사전 수신 후크가 오류를 반환합니다. `No such file or directory`.'
+    - 정기적으로 예약된 백업을 실행하지 않고 GitHub Actions가 사용하도록 설정된 경우 MSSQL 트랜잭션 로그가 무제한 증가할 수 있고 어플라이언스의 데이터 디스크에서 사용 가능한 모든 공간을 사용할 수 있기 때문에 중단이 발생할 수 있습니다.
+    - 불필요한 데이터베이스 로깅은 LFS 사용량이 많은 인스턴스에서 많은 양의 디스크 공간을 사용했습니다.
+    - “리포지토리 만들기” 조직 설정의 변경 내용에 대한 감사 로그 항목이 부정확했습니다.
+    - "`ActionController::UnknownFormat` 예외의 지나친 로깅으로 인해 불필요한 디스크 사용이 발생했습니다."
+    - "LDAP `group_dn` 값이 255자보다 길어서 로그되는 오류가 발생합니다. `Data truncated for column 'group_dn' at row 1`."
+  changes:
+    - 이제 남용률 제한을 보조 비율 제한이라고 합니다. 제한하는 동작이 항상 남용인 것은 아니기 때문입니다.
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_ghe_server %}에 대해 {% data variables.product.prodname_actions %}가 사용하도록 설정되면 `ghe-repl-teardown` 복제본 노드 해제에 성공하지만 `ERROR:Running migrations`가 반환될 수 있습니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

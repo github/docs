@@ -1,4 +1,14 @@
-{% if currentVersion == "free-pro-team@latest" %}1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose a role for the user and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png){% else %}
-1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose a role for the user, and optionally add them to some teams, then click **Add member**. ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png){% else %}
-1. Choose a role for the user, and optionally add them to some teams, then click **Add member**. ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member-2.7-lower.png){% endif %}
+---
+ms.openlocfilehash: 39dca791bca396273c4e77a81a265fcf4a6c24ae
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878708"
+---
+{% ifversion fpt or ghec %}1. Если приглашенный пользователь никогда не был членом организации или если вы удалили его привилегии, выберите роль для пользователя и при необходимости добавьте его в команды, а затем нажмите кнопку **Отправить приглашение**.
+  ![Параметры роли и команды и кнопка отправки приглашения](/assets/images/help/organizations/add-role-send-invitation.png){% else %}
+1. Если приглашенный пользователь никогда не был членом организации или если вы удалили его привилегии, выберите роль для пользователя и при необходимости добавьте его в команды, а затем нажмите кнопку **Добавить участника**.
+  ![Параметры роли и команды и кнопка добавления участника](/assets/images/help/organizations/add-role-add-member.png){% else %}
+1. Выберите роль для пользователя и при необходимости добавьте пользователя в некоторые команды, а затем нажмите кнопку **Добавить участника**.
+  ![Параметры роли и команды и кнопка добавления участника](/assets/images/help/organizations/add-role-add-member-2.7-lower.png){% endif %}

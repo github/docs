@@ -1,0 +1,187 @@
+date: '2021-12-06'
+friendlyDate: '2021 年 12 月 6 日'
+title: '2021 年 12 月 6 日'
+currentWeek: false
+sections:
+  features:
+    - heading: '管理'
+      notes:
+        - |アクティブなまたは試用版サブスクリプションで {% data variables.product.product_name %} をご利用のお客様は、[Azure Portal](https://portal.azure.com/signin/index/) から {% data variables.product.product_name %} をプロビジョニングできるようになりました。portal で {% data variables.product.product_name %} のリソースにアクセスするには、ご利用の Azure サブスクリプションが機能フラグに対応している必要があります。ご利用の Azure サブスクリプションの適格性を確認するには、アカウント マネージャーまたは {% data variables.contact.contact_enterprise_sales %} に問い合わせてください。詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} の試用版を設定する](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)」を参照してください。
+
+|
+    - heading: 'GitHub のアクション'
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions) が {% data variables.product.product_name %} 用に一般提供になりました。GitHub Actions は、CI/CD とワークフロー自動化のための強力で柔軟性の高いソリューションです。詳しい情報については、「[GitHub Actions の概要](/actions/learn-github-actions/introduction-to-github-actions)」を参照してください。
+
+|
+        - |セルフホステッド ランナーは {% data variables.product.product_name %} での既定のランナー システムの種類であり、GitHub Actions 用に一般提供されるようになりました。セルフホステッド ランナーを使用すると、GitHub Actions ジョブの実行のために、独自のマシンまたはコンテナーを管理できます。詳しい情報については、「[セルフホステッド ランナーについて](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)」と「[セルフホステッド ランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
+
+|
+        - |環境、環境保護ルール、環境シークレットが {% data variables.product.product_name %} の GitHub Actions で一般提供されるようになりました。詳しくは、[環境](/actions/reference/environments)に関するページを参照してください。
+
+|
+        - |GitHub Actions で、実行のたびにワークフローの仮想グラフを生成できるようになりました。ワークフロー視覚化を使用すると、以下のことができます。
+
+
+
+- 複雑なワークフローを表示して理解する。
+
+- ワークフローの進行状況をリアルタイムで追跡する。
+
+- ログおよびジョブのメタデータに簡単にアクセスして実行のトラブルシューティングをすばやく行う。
+
+- デプロイ ジョブの進行状況を監視し、デプロイ ターゲットに簡単にアクセスする。
+
+
+
+詳しい情報については、「[視覚化グラフの利用](/actions/managing-workflow-runs/using-the-visualization-graph)」を参照してください。
+
+|
+        - |`GITHUB_TOKEN` シークレットに付与された権限を、GitHub Actions を使って制御できるようになりました。`GITHUB_TOKEN` は、自動生成されるシークレットであり、これを使うと、ワークフロー実行において {% data variables.product.product_name %} の API に対して認証済みの呼び出しを行うことができます。GitHub Actions によって、各ジョブに対して新しいトークンが生成され、そのトークンはジョブが完了すると有効期限切れになります。トークンには、複数の [API エンドポイント](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)への `write` 権限が付与されますが、フォークからの pull request は例外で、常に `read` です。このような新しい設定を使うと、ワークフロー内で最小限の特権の原則に従うことができます。詳しくは、[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)に関するページを参照してください。
+
+|
+        - |GitHub Actions で、コミット メッセージ中の一般的なキーワードを探すことによる `push` および `pull_request` ワークフローのスキップがサポートされるようになりました。
+
+|
+        - |GitHub CLI 1.9 以降を使うと、ターミナルで GitHub Actions を使用できます。詳しい情報については、[{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/) を参照してください。
+
+|
+    - heading: 'コード スキャン'
+      notes:
+        - |{% data variables.product.product_name %} のコード スキャンがベータになりました。詳しい情報については、「[コード スキャンについて](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)」を参照してください。
+
+|
+    - heading: 'シークレット スキャン'
+      notes:
+        - |{% data variables.product.product_nam %} で、カスタム パターンのベータ版を使ってシークレット スキャンの独自のパターンを指定できるようになりました。リポジトリ、Organization、または Enterprise 全体のパターンを定義できます。新しいパターンを指定すると、リポジトリの Git 履歴全体で、シークレット スキャンによって、そのパターンと新しいコミットの検索が行われます。詳しくは、「[シークレット スキャンのカスタム パターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」を参照してください。
+
+|
+    - heading: 'GitHub Connect'
+      notes:
+        - |{% data variables.product.product_name %} の GitHub Connect がベータになりました。GitHub Connect により、世界最大のオープンソース コミュニティのパワーが {% data variables.product.product_location %} にもたらされます。ユーザーは、{% data variables.product.product_name %} で {% data variables.product.prodname_dotcom_the_website %} からの検索結果を表示し、{% data variables.product.prodname_dotcom_the_website %} で {% data variables.product.product_name %} からコントリビューションのカウントを表示できます。また、{% data variables.product.prodname_dotcom_the_website %} から GitHub Actions を使用できます。詳しい情報については、「[Enterprise アカウント間の接続の管理](/admin/configuration/managing-connections-between-your-enterprise-accounts)」を参照してください。
+
+|
+    - heading: 'GitHub Packages'
+      notes:
+        - |GitHub Packages のパッケージまたはパッケージ バージョンが、{% data variables.product.product_name %} の Web UI から削除できるようになりました。また、30 日以内であれば、パッケージまたはパッケージ バージョンの削除を元に戻すこともできます。詳しくは、「[パッケージの削除と復元](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。
+
+|
+        - |GitHub Packages と {% data variables.product.prodname_dotcom_the_website %} の npm レジストリで、メタデータ応答で時間の値が返されなくなり、パフォーマンスが大幅に向上しました。{% data variables.product.company_short %} は、今後も継続して時間の値を返します。
+
+|
+    - heading: '監査ログ'
+      notes:
+        - |pull request と pull request レビューのイベントが、[Enterprise](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) と [Organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) の両方の監査ログに含まれるようになりました。これらのイベントを使うと、管理者は pull request アクティビティを監視しやすくなり、セキュリティとコンプライアンスの要件を確実に満たすことができるようになります。イベントは、Web UI から表示するか、CSV または JSON としてエクスポートするか、REST API 経由でアクセスすることができます。また、監査ログで特定の pull request イベントを検索することもできます。
+
+|
+        - |GitHub Actions についての追加のイベントが、[Enterprise](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions) と [Organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) の両方の監査ログに含まれるようになりました。
+
+
+
+- ワークフローが削除または再実行された。
+
+- セルフホステッド ランナーのバージョンが更新された。
+
+|
+    - heading: '認証'
+      notes:
+        - |GitHub AE で、SAML シングル サインオン (SSO) と SCIM でのユーザー プロビジョニング用に Okta が正式にサポートされました。Okta のグループを GitHub AE のチームにマップすることもできます。詳しい情報については、「[Okta を使用する Enterprise 用の認証とプロビジョニングの構成](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)」と「[チームへの Okta グループのマッピング](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)」を参照してください。
+
+|
+        - |{% data variables.product.product_name %} の認証トークンの形式が変更されました。この変更は、個人用アクセス トークンと OAuth アプリのアクセス トークンの形式に加え、GitHub Apps のユーザーからサーバー、サーバーからサーバー、更新の各トークンに影響を及ぼします。{% data variables.product.company_short %} は、セキュリティを強化し、シークレット スキャンでこれらのトークンを検出できるようにするために、できるだけ早く既存のトークンを更新することをお勧めします。詳しい情報については、「[{% data variables.product.prodname_dotcom %} への認証方法について](/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)」と「[シークレット スキャンについて](/code-security/secret-security/about-secret-scanning)」を参照してください。
+
+|
+        - |`sk-ecdsa-sha2-nistp256@openssh.com` SSH キーを追加することで、FIDO2 セキュリティ キーを使って {% data variables.product.product_name %} への SSH 接続を認証できるようになりました。SSH セキュリティ キーを使うと、利用に際してタップのような検証を必要とする別のハードウェア デバイスにシークレット キーの実体が保存されます。キーを別のハードウェアに保存し、SSH キーに関する物理的な操作を必要とすることで、セキュリティが強化されます。キーはハードウェア上に保存され、抽出できないため、コンピューター上で実行されるソフトウェアによってキーを読み取ったり、盗んだりすることはできません。物理的な操作によって、キーが許可なく使用されることが防止されます。セキュリティ キーは、物理的にそれを操作するまで機能しません。詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)」を参照してください。
+
+|
+        - |Git Credential Manager (GCM) Core バージョン 2.0.452 以降で、{% data variables.product.product_name %} に対して、セキュリティで保護された資格情報ストレージと多要素認証サポートが提供されるようになりました。{% data variables.product.product_name %} のサポート付き GCM Core は、[Git for Windows](https://gitforwindows.org) バージョン 2.32 以降に含まれます。GCM Core は、macOS または Linux には含まれませんが、個別にインストールすることができます。詳しい情報については、`microsoft/Git-Credential-Manager-Core` リポジトリで、[最新リリース](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)と[インストール手順](https://github.com/microsoft/Git-Credential-Manager-Core/releases/)を参照してください。
+
+|
+    - heading: '通知'
+      notes:
+        - |{% data variables.product.product_name %} で、どのイベントについて通知を受け取るかを構成できるようになりました。任意のリポジトリで、{% octicon "file-code" aria-label="The code icon" %} **[ウォッチ]** ドロップダウンを選び、**[カスタム]** をクリックします。詳しい情報については、「[通知の構成](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)」を参照してください。
+
+|
+    - heading: 'issue と pull request'
+      notes:
+        - |[最新バージョンの Octicons](https://github.com/primer/octicons/releases) では、issue と pull request の状態の表示がさらに見分けやすくなり、状態をスキャンしやすくなりました。詳しくは、[{% data variables.product.prodname_blog %}](https://github.blog/changelog/2021-06-08-new-issue-and-pull-request-state-icons/) を参照してください。
+
+|
+        - |**[会話]** ドロップダウンを選ぶことで、pull request の **[ファイル]** タブに pull request のすべてのレビュー コメントを表示できるようになりました。また、すべての pull request レビュー コメントが pull request のマージ前に解決されることを必須とすることもできます。詳しくは、「[pull request のレビューについて](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews#discovering-and-navigating-conversations)」と「[保護されたブランチについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)」を参照してください。 API を使ったブランチ保護設定の管理の詳しい情報については、REST API ドキュメントの「[ブランチ](/rest/reference/branches#get-branch-protection)」と、GraphQL API ドキュメントの「[ミューテーション](/graphql/reference/mutations#createbranchprotectionrule)」を参照してください。
+
+|
+        - |{% data variables.product.product_name %} で、Markdown を記述するあらゆる場所に動画ファイルをアップロードできるようになりました。issue や pull request のコメントに加え、リポジトリ内の README などの Markdown ファイルで、デモの共有や再現ステップの表示などができます。詳しくは、「[ファイルを添付する](/github/writing-on-github/working-with-advanced-formatting/attaching-files)」を参照してください。
+
+|
+        - |{% data variables.product.product_name %} で、100 人を超えるメンバーがいるチームにレビューを要求した場合、確認ダイアログが表示されるようになりました。これにより、大人数のチームに不要な通知が届かないようにすることができます。
+
+|
+        - |ある issue または pull request について、考えられる担当者が 30 人より少ない場合、担当者コントロールによって、限られた数の候補ではなく考えられるすべてのユーザーが表示されます。この動作は、小規模な Organization のユーザーが、適切なユーザーをすばやく見つけるのに役立ちます。issue と pull request へのユーザーの割り当てに関する詳しい情報については、「[{% data variables.product.company_short %} の他のユーザーに issue および pull request を割り当てる](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request)」を参照してください。
+
+|
+        - |issue や pull request についてのコメントで、`#` の後に複数の語を含めて、検索をさらに絞り込むことができるようになりました。候補を無視するには、<kbd>Esc</kbd> キーを押します。
+
+|
+        - |pull request について、自動マージを有効にした後に予期しない変更がマージされないようにするために、リポジトリへの書き込みアクセス権を持たないユーザーが新しい変更をプッシュすると、自動マージが自動的に無効化されるようになりました。自動マージが有効なときは、書き込みアクセス権を持たないユーザーも、ベース ブランチからの変更を使って pull request を更新できます。悪意のあるユーザーがマージの競合を利用して予期しない変更を pull request で発生させることができないように、更新するとマージが競合する場合は、{% data variables.product.product_name %} で pull request の自動マージが無効化されます。自動マージについて詳しくは、「[pull request を自動的にマージする](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)」を参照してください。
+
+|
+        - |メンテナンス アクセス権を持つユーザーが、リポジトリ レベルの [自動マージの許可] 設定を管理できるようになりました。この設定は既定ではオフですが、この設定を使うと、リポジトリ内の pull request に対して自動マージを使用できるようにするかどうかを制御できます。以前は、管理者アクセス権を持つユーザーのみがこの設定を管理できました。また、この設定は、"[リポジトリの作成](/rest/reference/repos#create-an-organization-repository)" と "[リポジトリの更新](/rest/reference/repos#update-a-repository)" の REST API を使って制御できるようになりました。詳しくは、「[リポジトリ内の pull request の自動マージを管理する](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。
+
+|
+        - |issue と pull request の担当者の選定で、入力候補を使った検索がサポートされるようになりました。これで、Organization 内のユーザーをすぐに見つけることができます。検索結果ランキングが更新され、個人のユーザー名またはプロファイル名の先頭部分の一致を優先するようになりました。
+
+|
+    - heading: 'リポジトリ'
+      notes:
+        - |ファイルのコミット履歴を表示するときに、{% octicon "file-code" aria-label="The code icon" %} をクリックして、リポジトリの履歴にある指定した時点のファイルを表示できるようになりました。
+
+|
+        - |Web UI を使って、フォークの古くなったブランチをそのフォークの上流ブランチに同期できるようになりました。ブランチ間でマージの競合がなければ、そのブランチは、{% data variables.product.product_name %} で fast-forward か上流からのマージによって更新されます。競合がある場合は、{% data variables.product.product_name %} で競合を解決するための pull request を作成するように求められます。詳しくは、「[フォークを同期する](/github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-from-the-web-ui)」を参照してください。
+
+|
+        - |ユーザーまたは Organization プロファイルのリポジトリをスター数で並べ替えできるようになりました。
+
+|
+        - |1 つのコミットまたはブランチから到達可能であるが別のものからは到達できないコミットの一覧を返す、リポジトリ REST API の "2 つのコミットの比較" エンドポイントで、改ページ位置の自動修正がサポートされました。また、この API を使うと、250 個を超えるコミットを比較した結果が返されます。詳しくは、"[コミット](/rest/reference/commits#compare-two-commits)" REST API ドキュメントと「[ページネーションの詳細](/rest/guides/traversing-with-pagination)」を参照してください。
+
+|
+        - |{% data variables.product.product_location %} 内の相対パスを使ってサブモジュールを定義した場合、そのサブモジュールを Web UI でクリックできるようになりました。Web UI でサブモジュールをクリックすると、リンク先のリポジトリに移動します。以前は、絶対 URL が設定されているサブモジュールのみがクリック可能でした。<code>../<em>REPOSITORY</em></code> のパターンに従う同じ所有者のリポジトリの相対パス、または <code>../<em>OWNER</em>/<em>REPOSITORY</em></code> のパターンに従う別の所有者のリポジトリの相対パスがサポートされています。サブモジュールを使った作業について詳しくは、{% data variables.product.prodname_blog %} の「[サブモジュールを使って作業する](https://github.blog/2016-02-01-working-with-submodules/)」を参照してください。
+
+|
+        - |チェックサムを事前に計算しておくことによって、リポジトリがロックされている時間が大幅に短くなり、より多くの書き込み操作が即座に成功するようになり、単一リポジトリのパフォーマンスが改善されました。
+
+|
+    - heading: 'リリース'
+      notes:
+        - |{% data variables.product.product_name %} のすべてのリリースで絵文字を使ったリアクションができるようになりました。詳しい情報については、「[リリースについて](/github/administering-a-repository/releasing-projects-on-github/about-releases)」を参照してください。
+
+|
+    - heading: 'テーマ'
+      notes:
+        - |Web UI で、ダーク テーマとダーク淡色テーマを利用できるようになりました。{% data variables.product.product_name %} でテーマの環境設定を設定していない場合は、お使いのシステム環境設定が {% data variables.product.product_name %} に適用されます。また、昼間と夜間にアクティブにするテーマをカスタマイズすることもできます。詳しくは、「[テーマ設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)」を参照してください。
+
+|
+    - heading: 'Markdown'
+      notes:
+        - |リポジトリ内の Markdown ファイルで、ファイルに見出しが 2 つ以上ある場合は、見出し内に目次が自動的に生成されるようになりました。目次は対話型で、対応するセクションにリンクしています。Markdown の 6 つの見出しレベルはすべてサポートされています。詳しい情報については、「[README について](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes#auto-generated-table-of-contents-for-readme-files)」を参照してください。
+
+|
+        - |issue と pull request のタイトルで `code` マークアップがサポートされました。{% data variables.product.product_name %} の Web UI で、issue または pull request のタイトルが表示される箇所では、バッククォート (`` ` ``) 内のテキストが固定幅フォントでレンダリングされて表示されます。
+
+|
+        - |ファイル、issue、pull request、またはコメントの Markdown を編集する際、キーボード ショートカットを使ってコード ブロックを挿入できるようになりました。キーボード ショートカットは、Mac の場合は <kbd>command</kbd> + <kbd>E</kbd> キー、その他のデバイスの場合は <kbd>Ctrl</kbd> + <kbd>E</kbd> キーです。詳しい情報については、「[記述と書式設定の基本構文](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)」を参照してください。
+
+|
+        - |`?plain=1` を Markdown ファイルの URL に追加すると、レンダリングせずに行番号付きでファイルを表示できます。プレーン ビューを使うと、他のユーザーを特定の行にリンクできます。たとえば、`?plain=1#L52` を追加すると、プレーンテキスト Markdown ファイルの 52 行目が強調表示されます。詳しくは、「[コード スニペットへのパーマリンクを作成する](/github/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet#linking-to-markdown)」を参照してください。
+
+|
+    - heading: 'GitHub アプリ'
+      notes:
+        - |インストール アクセス トークンを作成する API 要求で、Enterprise または Organizatio の IP 許可リストが優先されるようになりました。Organization にインストールされた GitHub アプリのインストール アクセス トークンを使って行われたすべての API 要求では、既に IP 許可リストが優先されています。現在、{% data variables.product.company_short %} サポートが {% data variables.product.product_location %} に対して構成した Azure ネットワーク セキュリティ グループ (NSG) ルールは、この機能で考慮されません。詳しい情報については、「[Enterprise へのネットワークトラフィックを制限する](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise#about-ip-allow-lists)」、「[Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」、REST API ドキュメントの「[アプリ](https://docs.github.com/en/rest/reference/apps#create-an-installation-access-token-for-an-app)」を参照してください。
+
+|
+    - heading: 'Webhooks'
+      notes:
+        - |REST API を使って、プログラムで Webhook の再送または状態チェックができるようになりました。詳しい情報については、REST API ドキュメントの「[リポジトリ](https://docs.github.com/en/rest/reference/repos#webhooks)」、「[Organization](https://docs.github.com/en/rest/reference/orgs#webhooks)」、「[アプリ](https://docs.github.com/en/rest/reference/apps#webhooks)」を参照してください。
+
+|

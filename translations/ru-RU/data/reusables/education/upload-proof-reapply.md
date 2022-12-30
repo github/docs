@@ -1,1 +1,9 @@
-When you reapply, upload an image of your school ID, academic transcript, or other document showing proof of your academic status that clearly shows at least one date.
+---
+ms.openlocfilehash: 4ba3c34c60afff0e365c619594520386e6257d0d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145124216"
+---
+При повторной подаче заявки отправьте снимок студенческого билета, выписки из академической ведомости или другого документа, подтверждающего ваш академический статус. В документе должна быть отчетливо видна по крайней мере одна дата.

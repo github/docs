@@ -1,1 +1,9 @@
-In the case where a customer upgrades their plan and the payment fails, GitHub reverts their {% data variables.product.prodname_marketplace %} subscription to its previous state. GitHub also send an email to the customer to inform them of the failure and allow them to re-attempt their purchase. You will receive a webhook with the `changed` action requesting you to revert to the previous plan.
+---
+ms.openlocfilehash: 744983c086ce7f67bb25cd9508e080ceb12ea517
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145123179"
+---
+В случае, если клиент обновляет свой план и платеж завершается ошибкой, GitHub отменяет подписку {% data variables.product.prodname_marketplace %} до предыдущего состояния. GitHub также отправит клиенту сообщение электронной почты, чтобы сообщить об ошибке и разрешить клиенту попытаться повторить попытку. Вы получите веб-перехватчик с действием `changed`, которое запрашивает возврат к предыдущему плану.

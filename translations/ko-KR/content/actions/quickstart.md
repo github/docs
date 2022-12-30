@@ -1,75 +1,91 @@
 ---
-title: Quickstart for GitHub Actions
-intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
+title: GitHub Actions 빠른 시작
+intro: '5분 이내에 {% data variables.product.prodname_actions %}의 기능을 사용해 보세요.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: quick_start
+topics:
+  - Fundamentals
+shortTitle: Quickstart
+ms.openlocfilehash: 3ae31c1f91a9c29176c97c516437aee92ba32724
+ms.sourcegitcommit: 576f4142b5375e2eec7c2f50d39b94207d915435
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148008755'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 소개
 
-### Introduction
+{% data variables.product.prodname_actions %} 워크플로를 만들고 실행하려면 {% data variables.product.prodname_dotcom %} 리포지토리만 있으면 됩니다. 이 가이드에서는 {% data variables.product.prodname_actions %}의 몇 가지 필수 기능을 보여 주는 워크플로를 추가합니다. 
 
-You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
+다음 예제에서는 {% data variables.product.prodname_actions %} 작업을 자동으로 트리거할 수 있는 방법, 작업 실행 위치 및 리포지토리에서 작업이 코드와 상호 작용하는 방법을 보여 줍니다.
 
-### Creating your first workflow
+## 첫 번째 워크플로 만들기
 
-1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
-    {% raw %}
-    ```yaml{:copy}
-    name: Super-Linter
+1. `.github/workflows` 디렉터리가 아직 없는 경우 {% data variables.product.prodname_dotcom %}의 리포지토리에 이 디렉터리를 만듭니다.
+1. `.github/workflows` 디렉터리에서 `github-actions-demo.yml`라는 파일을 만듭니다. 자세한 내용은 “[새 파일 만들기](/github/managing-files-in-a-repository/creating-new-files)”를 참조하세요.
+1. 다음 YAML 콘텐츠를 파일에 복사합니다 `github-actions-demo.yml` .
 
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
+   ```yaml{:copy}
+   name: GitHub Actions Demo
+   {%- ifversion actions-run-name %}
+   run-name: {% raw %}${{ github.actor }}{% endraw %} is testing out GitHub Actions 🚀
+   {%- endif %}
+   on: [push]
+   jobs:
+     Explore-GitHub-Actions:
+       runs-on: ubuntu-latest
+       steps:
+         - run: echo "🎉 The job was automatically triggered by a {% raw %}${{ github.event_name }}{% endraw %} event."
+         - run: echo "🐧 This job is now running on a {% raw %}${{ runner.os }}{% endraw %} server hosted by GitHub!"
+         - run: echo "🔎 The name of your branch is {% raw %}${{ github.ref }}{% endraw %} and your repository is {% raw %}${{ github.repository }}{% endraw %}."
+         - name: Check out repository code
+           uses: {% data reusables.actions.action-checkout %}
+         - run: echo "💡 The {% raw %}${{ github.repository }}{% endraw %} repository has been cloned to the runner."
+         - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+         - name: List files in the repository
+           run: |
+             ls {% raw %}${{ github.workspace }}{% endraw %}
+         - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
+   ```
+1. 페이지 아래쪽으로 스크롤하여 **이 커밋에 대한 새 분기 만들기를 선택하고 끌어오기 요청을 시작합니다** 를 선택합니다. 그런 다음 끌어오기 요청을 만들기 위해 **새 파일 제안** 을 클릭합니다.
 
-    jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
-        runs-on: ubuntu-latest
+   ![워크플로 파일 커밋](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-        steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
-            uses: actions/checkout@v2
+리포지토리의 분기로 워크플로 파일을 커밋하면 `push` 이벤트가 트리거되고 워크플로가 실행됩니다.
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    ```
-    {% endraw %}
-3. To run your workflow, scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**. ![Commit workflow file](/assets/images/commit-workflow-file.png)
+## 워크플로 결과 보기
 
-Committing the workflow file in your repository triggers the `push` event and runs your workflow.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %}
+1. 왼쪽 사이드바에서 확인할 워크플로를 클릭합니다.
 
-### Viewing your workflow results
+   ![왼쪽 사이드바의 워크플로 목록](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. 워크플로 실행 목록에서 보려는 실행의 이름을 클릭합니다.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-1. In the left sidebar, click the **Lint code base** job. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% data reusables.repositories.view-failed-job-results-superlinter %}
+   ![워크플로 실행의 이름](/assets/images/help/repository/actions-quickstart-run-name.png)
+1. **작업** 아래에서 **Explore-GitHub-Actions** 작업을 클릭합니다.
 
-### More starter workflows
+   ![작업 찾기](/assets/images/help/repository/actions-quickstart-job.png)
+1. 로그는 각 단계가 처리된 방법을 보여 줍니다. 단계를 확장하면 세부 정보를 볼 수 있습니다.
 
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+   ![예제 워크플로 결과](/assets/images/help/repository/actions-quickstart-logs.png)
+   
+   예를 들어 리포지토리에서 파일 목록을 볼 수 있습니다. ![예제 작업 세부 정보](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-### 다음 단계
+방금 추가한 예제 워크플로는 코드가 분기에 푸시될 때마다 트리거되며 {% 데이터 variables.product.prodname_actions %}이(가) 리포지토리의 콘텐츠로 작동하는 방법을 보여 줍니다. 자세한 자습서는 "[{% 데이터 variables.product.prodname_actions %} 이해](/actions/learn-github-actions/understanding-github-actions)"를 참조하세요.
 
-The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+## 추가 시작 워크플로
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
-- "[Guides](/actions/guides)" for specific uses cases and examples
-- [github/super-linter](https://github.com/github/super-linter) for more details about configuring the Super-Linter action
+{% data reusables.actions.workflow-template-overview %}
+
+## 다음 단계
+
+{% data reusables.actions.onboarding-next-steps %}

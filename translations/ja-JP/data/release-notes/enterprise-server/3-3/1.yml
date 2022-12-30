@@ -1,0 +1,17 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **重大:** Log4j ライブラリでのリモート コード実行の脆弱性 ([CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)) により、3.3.1 より前の {% data variables.product.prodname_ghe_server %} のすべてのバージョンが影響を受けました。Log4j ライブラリは、{% data variables.product.prodname_ghe_server %} インスタンスで実行されるオープンソース サービスで使われます。この脆弱性は、{% data variables.product.prodname_ghe_server %} バージョン 3.0.22、3.1.14、3.2.6、3.3.1 で修正されました。 詳細については、GitHub ブログの[こちらの投稿](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)を参照してください。'
+    - '**2021 年 12 月 17 の更新**: このリリースで行われた修正により、このリリースの後で公開された [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) も軽減されます。CVE-2021-44228 と CVE-2021-45046 の両方を軽減するため、{% data variables.product.prodname_ghe_server %} の追加のアップグレードは必要ありません。'
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3 にアップグレードした後、{% data variables.product.prodname_actions %} が自動的に開始しないことがあります。この問題を解決するには、SSH を使ってアプライアンスに接続し、`ghe-actions-start` コマンドを実行します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '[Force Path Style]\(パス スタイルの強制\) がオンになっていると、{% data variables.product.prodname_actions %} のストレージ設定を検証して {% data variables.enterprise.management_console %} に保存することができず、代わりに `ghe-actions-precheck` コマンド ライン ユーティリティで構成する必要があります。'    
+    - '{% data variables.product.prodname_ghe_server %} 3.3 のインスタンスを Azure にインストールし、32 個以上の CPU コアでプロビジョニングすると、現在の Linux カーネルに存在するバグのため、起動しませんでした。 [更新日: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

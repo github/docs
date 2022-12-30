@@ -1,34 +1,33 @@
 ---
-title: Queries
-miniTocMaxHeadingLevel: 2
+title: Abfragen
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
+  - /v4/reference/query
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: d5c31e8e00788d2e75f27b0bb161249f01fcfb1d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108446'
 ---
+## Informationen zu Abfragen
 
-### About queries
+Jedes GraphQL-Schema verfügt über einen Stammtyp für Abfragen und Mutationen. Der [Abfragetyp](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) definiert GraphQL-Vorgänge, die Daten vom Server abrufen.
 
-Every GraphQL schema has a root type for both queries and mutations. The [query type](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) defines GraphQL operations that retrieve data from the server.
-
-For more information, see "[About queries](/v4/guides/forming-calls#about-queries)."
+Weitere Informationen findest du unter „[Informationen zu Abfragen](/graphql/guides/forming-calls-with-graphql#about-queries)“.
 
 {% note %}
 
-**Note:** For [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} requests, you should use separate queries for issues and pull requests. For example, use the `is:issue` or `is:pull-request` filters and their equivalents. Using the `search` connection to return a combination of issues and pull requests in a single query will result in an empty set of nodes.
+**Hinweis:** Für [Benutzer-zu-Server-](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests)-{% data variables.product.prodname_github_app %}-Anforderungen solltest du separate Abfragen für Probleme und Pullanforderungen verwenden. Verwende z. B. die Filter `is:issue` oder`is:pull-request` und ihre Entsprechungen. Die Verwendung der `search`-Verbindung zum Zurückgeben einer Kombination von Problemen und Pullanforderungen in einer einzelnen Abfrage führt zu einer leeren Gruppe von Knoten.
 
 {% endnote %}
 
-## Connections
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## Fields
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

@@ -1,37 +1,90 @@
 name: Browser Tests
 
+# **What it does**: This runs our browser tests on pull requests.
+# **Why we have it**: This is the only way we currently test our browser JavaScript.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
 on:
   workflow_dispatch:
-  push:
+  pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      - jest.config.js
+      - package.json
+      # In case something like eslint or tsc or prettier upgrades
+      - package-lock.json
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/browser-test.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+env:
+  ELASTICSEARCH_URL: http://localhost:9200/
 
 jobs:
-  see_if_should_skip:
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
-        with:
-          cancel_others: 'false'
-          github_token: ${{ github.token }}
-          paths: '[".github/workflows/browser-test.yml","assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
   build:
-    needs: see_if_should_skip
-    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
       - name: Checkout
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-
-      - name: Install
-        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          args: npm ci
+          lfs: true
 
-      - name: Test
-        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+      - name: Checkout LFS objects
+        run: git lfs checkout
+
+      - name: Setup Node
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          args: npm run browser-test
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        env:
+          # This makes it so the puppeteer npm package doesn't bother
+          # to download a copy of chromium because it can use
+          # `$PUPPETEER_EXECUTABLE_PATH` from the ubuntu Action container.
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+        run: npm ci --include=optional
+
+      - name: Cache nextjs build
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Run build script
+        run: npm run build
+
+      - name: Index fixtures into the local Elasticsearch
+        run: npm run index-test-fixtures
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
+
+      - name: Run browser-test
+        run: npm run browser-test

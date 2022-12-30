@@ -1,24 +1,32 @@
 ---
-title: About the GitHub Enterprise API
-intro: '{% data variables.product.product_name %} supports REST and GraphQL APIs.'
+title: Сведения об API GitHub Enterprise
+intro: '{% data variables.product.product_name %} поддерживает API REST и GraphQL.'
 redirect_from:
   - /enterprise/admin/installation/about-the-github-enterprise-server-api
-  - /enterprise/admin/articles/about-the-enterprise-api/
-  - /enterprise/admin/articles/using-the-api/
-  - /enterprise/admin/categories/api/
+  - /enterprise/admin/articles/about-the-enterprise-api
+  - /enterprise/admin/articles/using-the-api
+  - /enterprise/admin/categories/api
   - /enterprise/admin/overview/about-the-github-enterprise-server-api
   - /admin/overview/about-the-github-enterprise-server-api
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - Enterprise
+shortTitle: GitHub Enterprise API
+ms.openlocfilehash: 707cf8ba143783a1c58725f560b793035cde2f8a
+ms.sourcegitcommit: be0ccdb85c412a3bf2f328b62157835f927948d6
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/07/2022
+ms.locfileid: '148012164'
 ---
+С помощью API можно автоматизировать многие административные задачи. Некоторые примеры:
 
-With the APIs, you can automate many administrative tasks. Some examples include:
+{% ifversion ghes %}
+- Внесение изменений в {% data variables.enterprise.management_console %}. Дополнительные сведения см. в разделе [{% data variables.enterprise.management_console %}](/enterprise/user/rest/reference/enterprise-admin#management-console).
+- Настройка синхронизации LDAP. Дополнительные сведения см. в разделе [LDAP](/enterprise/user/rest/reference/enterprise-admin#ldap).{% endif %}
+- Сбор статистики о вашем предприятии. Дополнительные сведения см. в разделе [Статистика для администраторов](/rest/reference/enterprise-admin#admin-stats).
+- Управление корпоративной учетной записью. Дополнительные сведения см. в разделе [Учетные записи предприятия](/graphql/guides/managing-enterprise-accounts).
 
-{% if enterpriseServerVersions contains currentVersion %}
-- Perform changes to the {% data variables.enterprise.management_console %}. For more information, see "[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)."
-- Configure LDAP sync. For more information, see "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)."{% endif %}
-- Collect statistics about your enterprise. For more information, see "[Admin stats](/rest/reference/enterprise-admin#admin-stats)."
-- Manage your enterprise account. For more information, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
-
-For the complete documentation for {% data variables.product.prodname_enterprise_api %}, see [{% data variables.product.prodname_dotcom %} REST API](/rest) and [{% data variables.product.prodname_dotcom%} GraphQL API](/graphql). 
+Полную документацию по {% данных variables.product.prodname_enterprise_api %}см. в разделе [{% данных variables.product.prodname_dotcom %} REST API](/rest) и [API GraphQL {% данных variables.product.prodname_dotcom%}](/graphql). 

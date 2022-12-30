@@ -1,7 +1,16 @@
-1. To see your published site, under "{% data variables.product.prodname_pages %}", click your site's URL. ![URL of your published site](/assets/images/help/pages/click-pages-url-to-preview.png)
+---
+ms.openlocfilehash: e089f0f8ca2a1058b5c168a1fc06a63c78d1333c
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147887137"
+---
+1. Чтобы просмотреть опубликованный сайт, в разделе {% data variables.product.prodname_pages %} щелкните URL-адрес своего сайта.
+![URL-адрес опубликованного сайта](/assets/images/help/pages/click-pages-url-to-preview.png)
 
   {% note %}
 
-  **Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}. If your don't see your changes reflected in your browser after an hour, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+  {% data reusables.pages.twenty-minutes-to-publish %}
 
   {% endnote %}

@@ -1,5 +1,11 @@
-6. 将恢复代码保存在安全的位置。 在失去访问权限时，恢复代码可帮助您恢复帐户登录。
-    - 要在设备上保存恢复代码，请单击 **Download（下载）**。
-    - 要保存恢复代码的硬拷贝，请单击 **Print（打印）**。
-    - 要复制恢复代码以存储在密码管理器中，请单击**复制**。 ![可选择下载、打印或复制代码的恢复代码列表](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
-7. 保存双重身份验证恢复代码后，单击 **Next（下一步）**。
+---
+ms.openlocfilehash: 6291fe3deac6f4b03b60b9b23ee03b168a4a3820
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145127399"
+---
+8. 在“保存恢复代码”下，单击“下载”将恢复代码下载到设备。 将它们保存到安全位置，因为如果您失去访问权限，恢复代码可以帮助您回到帐户。 
+  ![要下载的恢复代码列表](/assets/images/help/2fa/2fa_wizard_download_recovery_codes.png)
+9. 保存双因素恢复代码后，单击“我已保存恢复代码”，以便为帐户启用双因素身份验证。

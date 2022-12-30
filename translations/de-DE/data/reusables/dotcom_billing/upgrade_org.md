@@ -1,1 +1,9 @@
-1. Wenn Du ein Upgrade von {% data variables.product.prodname_free_team %} machst, klicke **Upgrade options** (Upgrade Optionen). Wenn Du ein Upgrade von {% data variables.product.prodname_team %} machst, verwende die **Edit** (Bearbeiten) Dropdownmenü und klicke auf **Upgrade** (Aktualisieren). ![Schaltfläche „Upgrade options" (Upgrade-Optionen)](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)
+---
+ms.openlocfilehash: 716f4b4dbe73fa1253b7b448905a3d6bf3fbf9df
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145108767"
+---
+1. Klicke auf **Upgrade** neben „Aktueller Plan“.

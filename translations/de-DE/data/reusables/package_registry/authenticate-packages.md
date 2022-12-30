@@ -1,11 +1,15 @@
-You need an access token to publish, install, and delete packages. Du kannst ein persönliches Zugriffstoken verwenden, um Dich mit Deinem Benutzernamen direkt bei {% data variables.product.prodname_registry %} oder beim {% data variables.product.prodname_dotcom %}-API zu authentifizieren. When you create a personal access token, you can assign the token different scopes depending on your needs.
+---
+ms.openlocfilehash: e93dcf175f55f64e30517e500843e450f68a2323
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147704922"
+---
+Du benötigst ein Zugriffstoken, um Pakete zu veröffentlichen, zu installieren und zu löschen.
 
-{% if currentVersion == "free-pro-team@latest" %}
-To authenticate using a
-{% data variables.product.prodname_actions %}-workflow:
-- For package registries (`PACKAGE-REGISTRY.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`), you can use a `GITHUB_TOKEN`.
-- For the container registry (`ghcr.io/OWNER/IMAGE-NAME`), you must use a personal access token.
-{% else %}
-To authenticate to
-{% data variables.product.prodname_registry %} using a {% data variables.product.prodname_actions %} workflow, you must use `GITHUB_TOKEN`.
-{% endif %}
+Du kannst ein persönliches Zugriffstoken (PAT) für die Authentifizierung bei {% data variables.product.prodname_registry %} oder bei der {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}-API verwenden. Wenn du ein persönliches Zugriffstoken erstellst, kannst du dem Token je nach Bedarf verschiedene Bereiche zuweisen. Weitere Informationen über paketbezogene Bereiche für ein persönliches Zugriffstoken findest du unter [Informationen zu Berechtigungen für GitHub-Pakete](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries).
+
+Um dich bei einer {% data variables.product.prodname_registry %}-Registrierung innerhalb eines {% data variables.product.prodname_actions %}-Workflows zu authentifizieren, kannst du Folgendes verwenden:
+- `GITHUB_TOKEN`, um Pakete zu veröffentlichen, die mit dem Workflowrepository verbunden sind.
+- Ein persönliches Zugriffstoken (diesem muss mindestens der Bereich `packages:read` zugeordnet sein), um Pakete zu installieren, die zu anderen privaten Repositorys gehören (auf die `GITHUB_TOKEN` nicht zugreifen kann).

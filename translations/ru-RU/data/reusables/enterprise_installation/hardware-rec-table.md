@@ -1,16 +1,15 @@
-{% if currentVersion == "enterprise-server@2.22" %}
-
-Minimum requirements for an instance with beta features enabled are **bold** in the following table. For more information, see "[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)." |{% endif %}
-| User licenses                  |                                                                                                                                  vCPUs |                                                                                                                                         Memory |                                                                                                                               Attached storage | Root storage |
-|:------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------:| ------------:|
-| Trial, demo, or 10 light users |   2{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**4**](#beta-features-in-github-enterprise-server-222){% endif %} |   16 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |       200 GB |
-| 10 to 3,000                    |   4{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**8**](#beta-features-in-github-enterprise-server-222){% endif %} |   32 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**48 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 250 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**300 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |       200 GB |
-| 3,000 to 5000                  |  8{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**12**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                          64 GB |                                                                                                                                         500 GB |       200 GB |
-| 5,000 to 8000                  | 12{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**16**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                          96 GB |                                                                                                                                         750 GB |       200 GB |
-| 8,000 to 10,000+               | 16{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**20**](#beta-features-in-github-enterprise-server-222){% endif %} | 128 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**160 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                        1000 GB |       200 GB |
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
-
-If you enable beta features in {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information about the beta features, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22) on the {% data variables.product.prodname_enterprise %} website.{% endif %}
+---
+ms.openlocfilehash: 1cb33ecd5b87ac110509c21934a0c8747f2087ae
+ms.sourcegitcommit: 4c72bcff385d7093cc42df79ad17f05cfd900b5f
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183934"
+---
+| Пользовательские лицензии | Число виртуальных ЦП | Память | Корневое хранилище | Подключенное хранилище (данные) |
+| :- | -: | -: | -: | -: |
+| Пробная версия, демонстрационная версия или 10 облегченных пользователей | 4 | 32 ГБ | 200 ГБ | 150 ГБ |
+| от 10 до 3000  | 8 | 48 ГБ | 200 Мб | 300 ГБ |
+| от 3000 до 5000 | 12 | 64 ГБ | 200 ГБ | 500 ГБ |
+| от 5000 до 8000 | 16 | 96 ГБ | 200 ГБ | 750 ГБ |
+| от 8000 до 10000 и выше | 20 | 160 ГБ | 200 ГБ | 1000 ГБ |

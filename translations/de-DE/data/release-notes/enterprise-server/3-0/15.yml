@@ -1,0 +1,17 @@
+date: '2021-09-07'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Beim Nachbereiten eines neu hinzugefügten Replikatknotens durch Angeben seiner UUID mit „ghe-repl-teardown“ tritt ein Fehler auf, ohne dass ein Fehler gemeldet wird, wenn die Replikation nicht gestartet wurde."
+    - "Builds von GitHub Pages haben einen externen Proxy durchlaufen, wenn einer konfiguriert war."
+    - "Benutzerdefinierte Pre-Receive-Hooks, die Unterprozesse erstellen, wiesen keine PATH-Variable in ihrer Umgebung auf, was zum Fehler „Datei oder Verzeichnis nicht vorhanden“ führte."
+    - "Bei MySQL konnte es während eines Upgrades zu einem Failover kommen, wenn „mysql-auto-failover“ aktiviert war."
+  known_issues:
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

@@ -1,75 +1,91 @@
 ---
-title: Quickstart for GitHub Actions
-intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
+title: Краткое руководство по GitHub Actions
+intro: 'Попробуйте функции {% data variables.product.prodname_actions %} за 5 минут или быстрее.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: quick_start
+topics:
+  - Fundamentals
+shortTitle: Quickstart
+ms.openlocfilehash: 3ae31c1f91a9c29176c97c516437aee92ba32724
+ms.sourcegitcommit: 576f4142b5375e2eec7c2f50d39b94207d915435
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148008756'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Введение
 
-### Introduction
+Для создания и запуска рабочего процесса {% data variables.product.prodname_actions %} требуется только репозиторий {% data variables.product.prodname_dotcom %}. В этом руководстве вы добавите рабочий процесс, демонстрирующий некоторые важные функции {% data variables.product.prodname_actions %}. 
 
-You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
+В следующем примере показано, как можно автоматически активировать задания {% data variables.product.prodname_actions %}, где они выполняются, и как они могут взаимодействовать с кодом в репозитории.
 
-### Creating your first workflow
+## Создание вашего первого рабочего процесса
 
-1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
-    {% raw %}
-    ```yaml{:copy}
-    name: Super-Linter
+1. Создайте каталог `.github/workflows` в своем репозитории в {% data variables.product.prodname_dotcom %}, если этот каталог еще не существует.
+1. В каталоге `.github/workflows` создайте файл с именем `github-actions-demo.yml`. Дополнительные сведения см. в статье "[Создание файлов](/github/managing-files-in-a-repository/creating-new-files)".
+1. Скопируйте в файл следующее `github-actions-demo.yml` содержимое YAML:
 
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
+   ```yaml{:copy}
+   name: GitHub Actions Demo
+   {%- ifversion actions-run-name %}
+   run-name: {% raw %}${{ github.actor }}{% endraw %} is testing out GitHub Actions 🚀
+   {%- endif %}
+   on: [push]
+   jobs:
+     Explore-GitHub-Actions:
+       runs-on: ubuntu-latest
+       steps:
+         - run: echo "🎉 The job was automatically triggered by a {% raw %}${{ github.event_name }}{% endraw %} event."
+         - run: echo "🐧 This job is now running on a {% raw %}${{ runner.os }}{% endraw %} server hosted by GitHub!"
+         - run: echo "🔎 The name of your branch is {% raw %}${{ github.ref }}{% endraw %} and your repository is {% raw %}${{ github.repository }}{% endraw %}."
+         - name: Check out repository code
+           uses: {% data reusables.actions.action-checkout %}
+         - run: echo "💡 The {% raw %}${{ github.repository }}{% endraw %} repository has been cloned to the runner."
+         - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+         - name: List files in the repository
+           run: |
+             ls {% raw %}${{ github.workspace }}{% endraw %}
+         - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
+   ```
+1. Прокрутите страницу вниз и выберите **Создать новую ветвь для этой фиксации и запустить запрос на вытягивание**. Затем нажмите **Предложить новый файл**, чтобы создать запрос на вытягивание.
 
-    jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
-        runs-on: ubuntu-latest
+   ![Фиксация файла рабочего процесса](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-        steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
-            uses: actions/checkout@v2
+Фиксация файла рабочего процесса в ветви в вашем репозитории активирует событие `push` и запускает рабочий процесс.
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    ```
-    {% endraw %}
-3. To run your workflow, scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**. ![Commit workflow file](/assets/images/commit-workflow-file.png)
+## Просмотр результатов рабочего процесса
 
-Committing the workflow file in your repository triggers the `push` event and runs your workflow.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %}
+1. На левой боковой панели щелкните нужный рабочий процесс.
 
-### Viewing your workflow results
+   ![Список рабочих процессов в боковой панели слева](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. В списке запусков рабочих процессов выберите имя запуска, который вы хотите просмотреть.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-1. In the left sidebar, click the **Lint code base** job. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% data reusables.repositories.view-failed-job-results-superlinter %}
+   ![Имя запуска рабочего процесса](/assets/images/help/repository/actions-quickstart-run-name.png)
+1. В разделе **Задания** щелкните задание **Explore-GitHub-Actions**.
 
-### More starter workflows
+   ![Поиск задания](/assets/images/help/repository/actions-quickstart-job.png)
+1. В журнале показано, как был обработан каждый из шагов. Чтобы просмотреть сведения о шаге, разверните его.
 
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+   ![Пример результатов рабочего процесса](/assets/images/help/repository/actions-quickstart-logs.png)
+   
+   Например, можно просмотреть список файлов в репозитории: ![Пример сведений о действии](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-### Дальнейшие шаги
+Пример рабочего процесса, который вы только что добавили, активируется каждый раз, когда код отправляется в ветвь, и показывает, как {% данных variables.product.prodname_actions %} может работать с содержимым репозитория. Подробное руководство см. в разделе "[Основные сведения о данных {% variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)".
 
-The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+## Дополнительные начальные рабочие процессы
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
-- "[Guides](/actions/guides)" for specific uses cases and examples
-- [github/super-linter](https://github.com/github/super-linter) for more details about configuring the Super-Linter action
+{% data reusables.actions.workflow-template-overview %}
+
+## Дальнейшие действия
+
+{% данных reusables.actions.onboarding-next-steps %}

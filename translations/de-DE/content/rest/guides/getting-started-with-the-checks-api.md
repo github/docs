@@ -1,64 +1,70 @@
 ---
-title: Getting started with the Checks API
-intro: 'The Check Runs API enables you to build GitHub Apps that run powerful checks against code changes in a repository. You can create apps that perform continuous integration, code linting, or code scanning services and provide detailed feedback on commits.'
+title: Erste Schritte mit der Überprüfungs-API
+intro: 'Mit der Überprüfungsausführungs-API kannst du GitHub-Apps erstellen, die leistungsstarke Überprüfungen auf Codeänderungen in einem Repository durchführen. Du kannst Apps erstellen, die Continuous Integration, Codelinting oder Codescandienste ausführen und detailliertes Feedback zu Commits bereitstellen.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: Get started - Checks API
+ms.openlocfilehash: 6d98940d9cf4f4fd534034e142aa3d86a0900406
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710243'
 ---
+## Übersicht
 
-### Übersicht
+Anstelle von binären Erfolgs- bzw. Fehler-Buildstatus können GitHub-Apps umfangreiche Status melden, Codezeilen mit detaillierten Informationen kommentieren und Tests erneut ausführen. Die Funktionen der Überprüfungs-API sind nur für deine GitHub-Apps verfügbar.
 
-Rather than binary pass/fail build statuses, GitHub Apps can report rich statuses, annotate lines of code with detailed information, and re-run tests. The Checks API functionality is available exclusively to your GitHub Apps.
+Unter [Erstellen von CI-Tests mit der Überprüfungs-API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/) findest du ein Beispiel für die Verwendung der Überprüfungs-API mit einer {% data variables.product.prodname_github_app %}.
 
-For an example of how to use the Checks API with a {% data variables.product.prodname_github_app %}, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
+## Informationen zu Überprüfungssammlungen
 
-### About check suites
+Wenn Code in ein Repository gepusht wird, erstellt GitHub eine Überprüfungssammlung für den letzten Commit. Eine Überprüfungssammlung ist eine Sammlung von [Überprüfungsausführungen](/rest/reference/checks#check-runs), die von einer einzelnen GitHub-App für einen bestimmten Commit erstellt wurde. Überprüfungssammlungen fassen den Status und das Ergebnis der Überprüfungsausführungen zusammen, die in einer Sammlung enthalten sind.
 
-When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/reference/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
+![Workflow der Überprüfungssammlungen](/assets/images/check_suites.png)
 
-![Check suites workflow](/assets/images/check_suites.png)
+Die Überprüfungssammlung meldet die `conclusion` der Überprüfungsausführung mit der höchsten Priorität in der `conclusion` der Überprüfungssammlung. Wenn beispielsweise drei Überprüfungen die Ergebnisse `timed_out`, `success` und `neutral` haben, ist das Ergebnis der Überprüfungssammlung `timed_out`.
 
-The check suite reports the highest priority check run `conclusion` in the check suite's `conclusion`. For example, if three check runs have conclusions of `timed_out`, `success`, and `neutral` the check suite conclusion will be `timed_out`.
+Wenn Code in das Repository gepusht wird, erstellt GitHub immer automatisch eine Überprüfungssammlung. Dieser Standardflow sendet das `check_suite`-Ereignis (mit der `requested`-Aktion) an alle GitHub-Apps, die über die Berechtigung `checks:write` verfügen. Wenn deine GitHub-App das Ereignis `check_suite` empfängt, kann sie neue Überprüfungsausführungen für den letzten Commit erstellen. GitHub fügt abhängig vom Repository und dem SHA-Wert der Überprüfungsausführung automatisch neue Überprüfungsausführungen zur richtigen [Überprüfungssammlung](/rest/reference/checks#check-suites) hinzu.
 
-By default, GitHub creates a check suite automatically when code is pushed to the repository. This default flow sends the `check_suite` event (with `requested` action) to all GitHub App's that have the `checks:write` permission. When your GitHub App receives the `check_suite` event, it can create new check runs for the latest commit. GitHub automatically adds new check runs to the correct [check suite](/rest/reference/checks#check-suites) based on the check run's repository and SHA.
-
-If you don't want to use the default automatic flow, you can control when you create check suites. To change the default settings for the creation of check suites, use the [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) endpoint. All changes to the automatic flow settings are recorded in the audit log for the repository. If you have disabled the automatic flow, you can create a check suite using the [Create a check suite](/rest/reference/checks#create-a-check-suite) endpoint. You should continue to use the [Create a check run](/rest/reference/checks#create-a-check-run) endpoint to provide feedback on a commit.
+Wenn du den automatischen Standardflow nicht verwenden möchtest, kannst du dies beim Erstellen der Überprüfungssammlungen festlegen. Verwende zum Ändern der Standardeinstellungen für die Erstellung von Überprüfungssammlungen den Endpunkt [Aktualisieren von Repositoryeinstellungen für Überprüfungssammlungen](/rest/reference/checks#update-repository-preferences-for-check-suites). Alle Änderungen an den Einstellungen von automatischen Flows werden im Überwachungsprotokoll des Repositorys aufgezeichnet. Wenn du den automatischen Flow deaktiviert hast, kannst du eine Überprüfungssammlung mithilfe des Endpunkts [Erstellen einer Überprüfungssammlung](/rest/reference/checks#create-a-check-suite) erstellen. Du solltest weiterhin den Endpunkt [Erstellen einer Überprüfungsausführung](/rest/reference/checks#create-a-check-run) verwenden, um Feedback zu einem Commit bereitzustellen.
 
 {% data reusables.apps.checks-availability %}
 
-To use the check suites API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_suite](/webhooks/event-payloads/#check_suite) webhook.
+Die GitHub-App muss über die Berechtigung `checks:write` verfügen und kann außerdem den Webhook [check_suite](/webhooks/event-payloads/#check_suite) abonnieren, um die Überprüfungssammlungs-API zu verwenden.
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-### About check runs
+## Informationen zu Überprüfungsausführungen
 
-A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
+Eine Überprüfungsausführung ist ein einzelner Test, der Teil einer Überprüfungssammlung ist. Jede Ausführung enthält einen Status und ein Ergebnis.
 
-![Check runs workflow](/assets/images/check_runs.png)
+![Workflow der Überprüfungsausführungen](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-If a check run is in a incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on
-{% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/reference/checks#create-a-check-run--parameters).
-{% endif %}
+Wenn eine Überprüfungsausführung sich mehr als 14 Tage in einem unvollständigen Zustand befindet, ändert sich `conclusion` für die Überprüfungsausführung in `stale` und wird in {% data variables.product.prodname_dotcom %} als veraltet mit {% octicon "issue-reopened" aria-label="The issue-reopened icon" %} angezeigt. Nur {% data variables.product.prodname_dotcom %} kann Überprüfungsausführungen als `stale` markieren. Weitere Informationen zu den möglichen Ergebnissen einer Überprüfungsausführung findest du unter [`conclusion`-Parameter](/rest/reference/checks#create-a-check-run--parameters).
 
-As soon as you receive the [`check_suite`](/webhooks/event-payloads/#check_suite) webhook, you can create the check run, even if the check is not complete. You can update the `status` of the check run as it completes with the values `queued`, `in_progress`, or `completed`, and you can update the `output` as more details become available. A check run can contain timestamps, a link to more details on your external site, detailed annotations for specific lines of code, and information about the analysis performed.
+Sobald du den [`check_suite`](/webhooks/event-payloads/#check_suite)-Webhook erhältst, kannst du die Überprüfungsausführung erstellen, auch wenn die Überprüfung nicht abgeschlossen ist. Du kannst den `status` der Überprüfungsausführung aktualisieren, sobald er mit den Werten `queued`, `in_progress` oder `completed` abgeschlossen ist, und du kannst den `output` aktualisieren, sobald weitere Details verfügbar sind. Eine Überprüfungsausführung kann Zeitstempel, einen Link zu weiteren Details auf deiner externen Website, detaillierte Anmerkungen zu bestimmten Codezeilen und Informationen zur durchgeführten Analyse enthalten.
 
-![Check run annotation](/assets/images/check_run_annotations.png)
+![Anmerkungen von Überprüfungsausführungen](/assets/images/check_run_annotations.png)
 
-A check can also be manually re-run in the GitHub UI. See "[About status checks](/articles/about-status-checks#checks)" for more details. When this occurs, the GitHub App that created the check run will receive the [`check_run`](/webhooks/event-payloads/#check_run) webhook requesting a new check run. If you create a check run without creating a check suite, GitHub creates the check suite for you automatically.
+Eine Überprüfung kann auch manuell mithilfe der GitHub-Benutzeroberfläche erneut ausgeführt werden. Weitere Details findest du unter [Informationen zu Statusüberprüfungen](/articles/about-status-checks#checks). Wenn dies geschieht, erhält die GitHub-App, die die Überprüfung erstellt hat, den [`check_run`](/webhooks/event-payloads/#check_run)-Webhook, der eine neue Überprüfungsausführung anfordert. Wenn du eine Überprüfungsausführung generierst, ohne eine Überprüfungssammlung zu erstellen, erstellt GitHub die Überprüfungssammlung automatisch.
 
 {% data reusables.apps.checks-availability %}
 
-To use the Check Runs API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_run](/webhooks/event-payloads#check_run) webhook.
+Die GitHub-App muss über die Berechtigung `checks:write` verfügen und kann außerdem den Webhook [check_run](/webhooks/event-payloads#check_run) abonnieren, um die Überprüfungsausführungs-API zu verwenden.
 
-### Check runs and requested actions
+## Überprüfungsausführungen und angeforderte Aktionen
 
-When you set up a check run with requested actions (not to be confused with {% data variables.product.prodname_actions %}), you can display a button in the pull request view on {% data variables.product.prodname_dotcom %} that allows people to request your {% data variables.product.prodname_github_app %} to perform additional tasks.
+Wenn du eine Überprüfungsausführung mit angeforderten Aktionen einrichtest (nicht zu verwechseln mit {% data variables.product.prodname_actions %}), kannst du eine Schaltfläche in der Pull Request-Anzeige auf {% data variables.product.prodname_dotcom %} anzeigen, mit der Benutzer*innen deine {% data variables.product.prodname_github_app %} anfordern können, um zusätzliche Aufgaben auszuführen.
 
-For example, a code linting app could use requested actions to display a button in a pull request to automatically fix detected syntax errors.
+Beispielsweise könnte eine Codelinting-App angeforderte Aktionen verwenden, um eine Schaltfläche in einem Pull Request anzuzeigen, wodurch erkannte Syntaxfehler automatisch behoben werden können.
 
-To create a button that can request additional actions from your app, use the [`actions` object](/rest/reference/checks#create-a-check-run--parameters) when you [Create a check run](/rest/reference/checks/#create-a-check-run). For example, the `actions` object below displays a button in a pull request with the label "Fix this." The button appears after the check run completes.
+Verwende das [`actions`-Objekt](/rest/reference/checks#create-a-check-run--parameters), wenn du [eine Überprüfungsausführung erstellst](/rest/reference/checks/#create-a-check-run), um eine Schaltfläche zu erstellen, die zusätzliche Aktionen von deiner App anfordern kann. Beispielsweise zeigt das folgende `actions`-Objekt eine Schaltfläche in einem Pull Request mit der Bezeichnung „Dies beheben“. Die Schaltfläche wird nach Abschluss der Überprüfungsausführung angezeigt.
 
    ```json
   "actions": [{
@@ -68,8 +74,13 @@ To create a button that can request additional actions from your app, use the [`
     }]
   ```
 
-  ![Check run requested action button](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
+  ![Schaltfläche mit angeforderter Aktion für die Überprüfungsausführung](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
 
-When a user clicks the button, {% data variables.product.prodname_dotcom %} sends the [`check_run.requested_action` webhook](/webhooks/event-payloads/#check_run) to your app. When your app receives a `check_run.requested_action` webhook event, it can look for the `requested_action.identifier` key in the webhook payload to determine which button was clicked and perform the requested task.
+Wenn ein*e Benutzer*in auf die Schaltfläche klickt, sendet {% data variables.product.prodname_dotcom %} den [`check_run.requested_action`-Webhook](/webhooks/event-payloads/#check_run) an deine App. Wenn deine App ein `check_run.requested_action`-Webhookereignis empfängt, kann sie in den Webhooknutzdaten nach dem `requested_action.identifier`-Schlüssel suchen, um zu ermitteln, welche Schaltfläche betätigt wurde, und die angeforderte Aufgabe ausführen.
 
-For a detailed example of how to set up requested actions with the Checks API, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)."
+Unter [Erstellen von CI-Tests mit der Überprüfungs-API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test) findest du ein detailliertes Beispiel für das Einrichten von angeforderten Aktionen mit der Überprüfungs-API.
+
+{% ifversion fpt or ghec %}
+## Aufbewahrung von Überprüfungsdaten
+
+{% data reusables.pull_requests.retention-checks-data %} {% endif %}

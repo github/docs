@@ -1,1 +1,9 @@
-每个仓库甚至每个分支可创建多个代码空间。 但是，在有限的公测期间，每个用户帐户限于两个代码空间。 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
+---
+ms.openlocfilehash: be3aecc1721567682224cc541ee7976b83e382c8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147614461"
+---
+每个仓库甚至每个分支可创建多个代码空间。

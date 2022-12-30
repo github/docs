@@ -1,11 +1,16 @@
-{% if currentVersion == "free-pro-team@latest" %}1. In the top-right corner of {% data variables.product.product_name %}, click your profile photo, then click **Your enterprises**.
-  !["Your enterprises" in drop-down menu for profile photo on {% data variables.product.product_name %}](/assets/images/help/enterprises/your-enterprises.png)
+---
+ms.openlocfilehash: 5ac98f9d0fc3a165ecbb02b82117e3496eb41325
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145108687"
+---
+{% ifversion ghec %}1. Klicke in der oberen rechten Ecke von {% data variables.product.prodname_dotcom_the_website %} auf dein Profilfoto und dann auf **Deine Unternehmen**.
+  ![„Deine Unternehmen“ im Dropdownmenü für das Profilfoto auf {% data variables.product.product_name %}](/assets/images/help/enterprises/your-enterprises.png)
 
-1. In the list of enterprises, click the enterprise you want to view. ![Name of an enterprise in list of your enterprises](/assets/images/help/enterprises/your-enterprises-list.png)
+1. Klicke in der Liste der Unternehmen auf das Unternehmen, das du anzeigen möchtest.
+    ![Name eines Unternehmens in der Liste deiner Unternehmen](/assets/images/help/enterprises/your-enterprises-list.png)
 
-{% elsif currentVersion ver_lt "enterprise-server@2.22" %}1. Navigate to your enterprise account by visiting {% raw %}<code>https://<em>HOSTNAME</em>/enterprises/<em>ENTERPRISE-NAME</em></code>{% endraw %}, replacing `HOSTNAME` with your instance's hostname and  `ENTERPRISE-NAME` with your enterprise account's name.
-
-{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}1. In the top-right corner of {% data variables.product.product_name %}, click your profile photo, then click **Enterprise settings**.
-    !["Enterprise settings" in drop-down menu for profile photo on {% data variables.product.product_name %}](/assets/images/enterprise/settings/enterprise-settings.png)
-
-{% endif %}
+{% elsif ghes or ghae %}1. Klicke oben rechts auf {% data variables.product.product_name %} auf dein Profilfoto und dann auf **Unternehmenseinstellungen**.
+    ![„Unternehmenseinstellungen“ im Dropdownmenü für das Profilfoto auf {% data variables.product.product_name %}](/assets/images/enterprise/settings/enterprise-settings.png) {% endif %}

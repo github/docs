@@ -1,1 +1,10 @@
-1. In the left sidebar, click **Projects**. ![Projects tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-projects-tab.png)
+---
+ms.openlocfilehash: 5bc4b4b552b342503ff90afcbf5df707904f9eeb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145112008"
+---
+1. На левой боковой панели нажмите **Проекты**.
+  ![Вкладка "Проекты" на боковой панели параметров корпоративной учетной записи](/assets/images/help/business-accounts/settings-projects-tab.png)

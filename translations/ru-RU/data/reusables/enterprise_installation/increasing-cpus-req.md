@@ -1,1 +1,9 @@
-When you increase CPU resources, we recommend adding at least 6.5 GB of memory for each vCPU (up to 16 vCPUs) that you provision for the instance. When you use more than 16 vCPUs, you don't need to add 6.5 GB of memory for each vCPU, but you should monitor your instance to ensure it has enough memory.
+---
+ms.openlocfilehash: f07997cc0e87da7f44fb1e62cd28c45a335e8e62
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145111576"
+---
+При увеличении объема ресурсов ЦП рекомендуется добавить не менее 6,5 ГБ памяти для каждого виртуального ЦП (до 16 виртуальных ЦП), подготовленных для экземпляра. Если используется более 16 виртуальных ЦП, вам не нужно добавлять 6,5 ГБ памяти для каждого виртуального ЦП, но необходимо отслеживать экземпляр, чтобы обеспечить достаточный объем памяти.

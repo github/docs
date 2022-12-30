@@ -1,1 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}If there is a protected branch rule in your repository that requires a linear commit history, you must allow squash merging, rebase merging, or both. 詳しい情報については「[直線状のコミット履歴を必須とする](/github/administering-a-repository/requiring-a-linear-commit-history)」を参照してください。{% endif %}
+---
+ms.openlocfilehash: a92ce8031a51b896af4fe254a2e9165779ea268b
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145117910"
+---
+コミットの線形履歴を必要とする保護されたブランチ ルールがリポジトリにある場合、スカッシュ マージ、リベース マージ、あるいはその両方を許可しなければなりません。 詳細については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。

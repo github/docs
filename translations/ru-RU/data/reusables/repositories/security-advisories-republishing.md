@@ -1,1 +1,9 @@
-You can also use {% data variables.product.prodname_security_advisories %} to republish the details of a security vulnerability that you have already disclosed elsewhere by copying and pasting the details of the vulnerability into a new security advisory.
+---
+ms.openlocfilehash: 7b189ead10534e3ac5330033621ce26f9185e729
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/27/2022
+ms.locfileid: "148114116"
+---
+Вы также можете использовать рекомендации по безопасности репозитория для повторной публикации сведений об уязвимости безопасности, которые вы уже раскрыли в другом месте, скопировав и вставив сведения об уязвимости в новые рекомендации по безопасности.

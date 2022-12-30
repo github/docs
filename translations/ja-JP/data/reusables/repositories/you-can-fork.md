@@ -1,3 +1,14 @@
-任意のパブリックなリポジトリを、自分のユーザアカウントあるいはリポジトリの作成権限を持っている任意のOrganization にフォークできます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
+---
+ms.openlocfilehash: 7ab0c705855f1bd271c17eacc9a2533184d1b5f1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145117806"
+---
+{% ifversion ghae %} 企業のポリシーでプライベートおよび内部リポジトリのフォークが許可されているなら、ご自分の個人アカウントや、リポジトリの作成権限を持っている組織にリポジトリをフォークできます。 詳細については、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
-アクセス権を持っている任意のプライベートリポジトリを、自分のユーザアカウント及びリポジトリの作成権限を持っている{% data variables.product.prodname_team %}もしくは{% data variables.product.prodname_enterprise %}上の任意のOrganizationにフォークできます。 You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[GitHub's products](/articles/githubs-products)."{% endif %}
+{% elsif ghes or ghec %} リポジトリの設定と組織のポリシーでフォークが許可されている場合は、プライベートまたは内部リポジトリを、ご自分の個人アカウントや、リポジトリの作成権限を持っている {% data variables.product.product_location %} 上の組織にフォークできます。
+
+{% elsif fpt %} プライベート リポジトリにアクセスでき、その所有者がフォークを許可している場合は、そのリポジトリを自分の個人アカウントか、リポジトリの作成権限を持っている {% data variables.product.prodname_team %} 上の組織にフォークできます。 プライベート リポジトリは、{% data variables.product.prodname_free_team %} を使っている組織にはフォークできません。 詳細については、「[GitHub の製品](/articles/githubs-products)」を参照してください。
+{% endif %}

@@ -1,19 +1,29 @@
 ---
-title: 概览
-intro: 'You can learn about {% data variables.product.product_name %} and manage{% if enterpriseServerVersions contains currentVersion %} accounts and access, licenses, and{% endif %} billing.'
+title: 概述
+intro: '你可以了解 {% data variables.product.product_name %} 并管理{% ifversion ghes %}帐户和访问、许可证和{% endif %}计费。'
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /about-github-for-enterprises
+  - /about-github-enterprise-server
+  - /about-github-ae
+  - /about-upgrades-to-new-releases
+  - /about-data-residency
+  - /about-enterprise-accounts
+  - /system-overview
+  - /about-the-github-enterprise-api
+  - /best-practices-for-enterprises
+  - /creating-an-enterprise-account
+  - /accessing-compliance-reports-for-your-enterprise
+ms.openlocfilehash: f0322eef087f09b029051fc08ac61bc4e529d6dc
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163554'
 ---
-
-如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
-
-### 目录
-
-{% link_in_list /about-enterprise-accounts %}
-{% link_in_list /managing-your-github-enterprise-license %}
-{% link_in_list /managing-billing-for-your-enterprise %}
-{% link_in_list /system-overview %}
-{% link_in_list /about-the-github-enterprise-api %}
+如需更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。

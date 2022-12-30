@@ -1,25 +1,32 @@
-1. Create a new personal access token (PAT) with the appropriate scopes for the tasks you want to accomplish. If your organization requires SSO, you must enable SSO for your new token.
+---
+ms.openlocfilehash: 50e7f623d6585c8697d0b1c6c827a855df26c571
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145107599"
+---
+1. Erstelle ein neues persönliches Zugriffstoken (PAT) mit den geeigneten Bereichen für die Aufgaben, die du erledigen möchtest. Wenn für deine Organisation SSO notwendig ist, musst du SSO für dein neues Token aktivieren.
   {% warning %}
 
-  **Note:** If you select the `write:packages` scope, deselect the `repo` scope when creating the PAT. Adding a PAT with the `repo` scope as a secret in your repository allows the credential to be accessible to all collaborators in the repository. This gives unnecessary additional access when a PAT with the `repo` scope is used within an action. For more information on security best practices for actions, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
+  **Hinweis:** Wenn du in der Benutzeroberfläche den Bereich `write:packages` für dein persönliches Zugangstoken (PAT) auswählst, wird standardmäßig auch der Bereich `repo` ausgewählt. Der Bereich `repo` bietet unnötigen und weitreichenden Zugriff, den du vor allem für GitHub Actions Workflows vermeiden solltest. Weitere Informationen findest du unter [Sicherheitshärtung für GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access). Als Problemumgehung kannst du mit dieser URL nur den Bereich `write:packages` für dein persönliches Zugriffstoken in der Benutzeroberfläche auswählen: `https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/settings/tokens/new?scopes=write:packages`. 
 
   {% endwarning %}
 
-    - Select the `read:packages` scope to download container images and read their metadata.
-    - Select the `write:packages` scope to download and upload container images and read and write their metadata.
-    - Select the `delete:packages` scope to delete container images.
+    - Wähle den Bereich `read:packages` aus, um Containerimages herunterzuladen und die zugehörigen Metadaten zu lesen.
+    - Wähle den Bereich `write:packages` aus, um Containerimages herunter- und hochzuladen und die zugehörigen Metadaten zu lesen und zu schreiben.
+    - Wähle den Bereich `delete:packages` aus, um Containerimages zu löschen.
 
-  Weitere Informationen findest Du unter „[Ein persönliches Zugriffstoken für die Befehlszeile erstellen](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).“
+  Weitere Informationen hierzu findest du unter [Erstellen eines persönlichen Zugriffstokens für die Befehlszeile](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
-2. Save your PAT. We recommend saving your PAT as an environment variable.
+2. Speichere dein persönliches Zugriffstoken. Wir empfehlen, dein persönliches Zugriffstoken als Umgebungsvariable zu speichern.
   ```shell
   $ export CR_PAT=YOUR_TOKEN
   ```
-3. Using the CLI for your container type, sign in to the
-{% data variables.product.prodname_github_container_registry %} service at `ghcr.io`.
+3. Melde dich mit der CLI für deinen Containertyp beim {% data variables.product.prodname_container_registry %}-Dienst unter `{% data reusables.package_registry.container-registry-hostname %}` an.
   {% raw %}
   ```shell
-  $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+  $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin
   > Login Succeeded
   ```
   {% endraw %}

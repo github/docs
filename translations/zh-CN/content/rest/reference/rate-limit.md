@@ -1,30 +1,24 @@
 ---
 title: 速率限制
+intro: With the Rate Limit API, you can check the current rate limit status of various REST APIs.
 redirect_from:
-  - /v3/rate_limit
-  - /v3/rate-limit
+- /v3/rate_limit
+- /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: b36df3bea47b1f291aff9f355b67cbd2bdb26905
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141506233"
 ---
-
-REST API 概述文档描述了[速率限制规则](/rest/overview/resources-in-the-rest-api#rate-limiting)。 您可以随时使用下面描述的速率限制 API 来检查您当前的速率限制状态。
-
-### 了解您的速率限制状态
-
-搜索 API 具有[自定义速率限制](/v3/search/#rate-limit)，与管理 REST API 其余部分的速率限制不同。 GraphQL API 也有[自定义速率限制](/v4/guides/resource-limitations/#rate-limit)，它与 REST API 中的速率限制不同且分开计算。
-
-出于这些原因，速率限制 API 响应对速率限制进行分类。 在`资源`下，您会看到四个 对象：
-
-* `核心`对象提供 REST API 中所有非搜索相关资源的速率限制状态。
-
-* `搜索`对象提供[搜索 API](/v3/search/) 的速率限制状态。
-
-* `graphql`对象提供 [GraphQL API](/v4/) 的速率限制状态。
-
-* `integration_manifest` 对象提供 [GitHub 应用程序清单代码转换](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)端点的速率限制状态。
-
-有关速率限制响应中标头和值的更多信息，请参阅“[速率限制](/v3/#rate-limiting)”。
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/rate-limit
+-->

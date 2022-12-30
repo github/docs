@@ -1,0 +1,16 @@
+date: '2020-08-12'
+sections:
+  bugs:
+    - 'システム構成テンプレートを生成する間に CPU 使用率が高くなる問題を解決しました。{% comment %} https://github.com/github/enterprise2/pull/21786, https://github.com/github/enterprise2/pull/21741 {% endcomment %}'
+    - 'メモリの割り当てに関する最近の変更により、システムのパフォーマンスが低下することがありました。{% comment %} https://github.com/github/enterprise2/pull/22066 {% endcomment %}'
+    - 'データベースの移行を実行中の一時的な接続の問題によって、データの損失が発生することがありました。{% comment %} https://github.com/github/enterprise2/pull/22128, https://github.com/github/enterprise2/pull/22100 {% endcomment %}'
+  known_issues:
+    - '新しくセットアップされたユーザーのいない GitHub Enterprise Server で、攻撃者が最初の管理者ユーザーを作成できました。 {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタム ファイアウォール規則は、アップグレード中維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 追跡ファイル ("Web インターフェイスからアップロードされたファイル" (https://github.com/blog/2105-upload-files-to-your-repositories)) が誤ってリポジトリに直接追加されます。 {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '同じリポジトリ内の BLOB へのパーマリンクが含まれ、ファイル パスが 255 文字を超える場合、issue をクローズできません。{% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。 {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンド ラインでリポジトリにプッシュするとき、セキュリティ アラートが報告されません。 {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '監査ログが、実際のソース IP アドレスではなく、127.0.0.1 に起因する場合があります。(2020-11-02 更新) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "リポジトリのアクセス許可を \"Triage\" または \"Maintain\" に構成すると、失敗してエラー メッセージが表示されます。"
+    - '高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。'

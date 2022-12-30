@@ -1,0 +1,50 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - '中：在 {% data variables.product.prodname_ghe_server %} 管理控制台中发现了一个允许绕过 CSRF 保护的路径遍历漏洞。此漏洞影响 3.5 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，并在 3.1.19、3.2.11、3.3.6 和 3.4.1 中修复。该漏洞通过 {% data variables.product.prodname_dotcom %} Bug 悬赏计划报告，编号为 CVE-2022-23732。'
+    - '中：在 `yajil` 的 1.x 分支和 2.x 分支中发现了一个整数溢出漏洞，该漏洞在处理大型 (~2GB) 输入时会导致随后的堆内存损坏。此漏洞是内部报告的，编号为 CVE-2022-24795。'
+    - "如果启用了 {% data variables.product.prodname_actions %}，支持包可能包含敏感文件。" 
+    - 包已更新到最新的安全版本。
+  bugs:
+    - "启用 {% data variables.product.prodname_dependabot %} 时，一个错误导致某些安全公告暂时读取为不再适用。" 
+    - "如果升级 {% data variables.product.prodname_ghe_server %} 后存在旧配置选项，Minio 进程的 CPU 使用率会很高。" 
+    - 显示了在管理控制台的“隐私”设置中启用 `TLS 1.0` 和 `TLS 1.1` 的选项，尽管在早期版本中删除了这些协议版本。
+    - "在 HA 环境中，在首次启用 {% data variables.product.prodname_actions %} 后，配置 MSSQL 复制可能需要额外的手动步骤。"
+    - 经过热补丁，内部配置文件的子集更新会更可靠。 
+    - "`ghe-run-migrations` 脚本有时无法正确生成临时证书名称。" 
+    - 在群集环境中，Git LFS 操作可能会因跨多个 Web 节点的内部 API 调用失败而失败。
+    - 由于 `syscall` 权限不足，使用 `gpg --import` 的预接收挂钩超时。
+    - 在某些群集拓扑中，Webhook 交付信息不可用。 
+    - 在运行迁移时，Elasticsearch 运行状况检查不允许出现黄色群集状态。 
+    - 存储库将在 Web UI 中显示非功能性讨论选项卡。 
+    - 由于用户将其用户帐户转换为组织帐户而创建的组织未添加到全局企业帐户中。 
+    - 指向无法访问页面的链接已被删除。 
+    - "{% data variables.product.prodname_actions %} 部署图在呈现待处理作业时会显示错误。" 
+    - 由于大量不必要的后台作业排队，一些实例遇到了高 CPU 使用率。 
+    - 尝试同步之前已同步的 GPG 密钥时，LDAP 用户同步作业会失败。 
+    - 跟踪用户的拉取请求仪表板中的拉取请求链接将导致存储库标头无法加载。 
+    - 将团队添加为拉取请求的审阅者时，有时会显示不正确的团队成员数量。 
+    - 尝试删除通过 SCIM 组外部管理的成员时，删除团队成员资格 API 终结点将响应错误。 
+    - "大量休眠用户可能会导致 {% data variables.product.prodname_github_connect %} 配置失败。" 
+    - 站点管理员 Web UI 中的“功能和 beta 版本注册”页面无法正确使用。 
+    - 站点页脚中的“站点管理员模式”链接在单击时未更改状态。 
+    - '`spokesctl cache-policy rm` 命名不再失败且显示消息 `error: failed to delete cache policy`。'
+  changes:
+    - 增加了 Memcached 连接上限，可更好地适应大型群集拓扑。 
+    - 依赖项关系图 API 以前使用静态定义的端口运行。 
+    - 与群集相关的 Elasticsearch 分片设置的默认分片计数已更新。 
+    - 在“人员”页面上按组织角色筛选企业成员时，改进了下拉菜单项的文本。 
+    - “会审”和“维护”团队角色在存储库迁移期间保留。 
+    - 企业所有者提出的 Web 请求的性能已得到改进。 
+  known_issues:
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '选择“强制路径样式”时，无法验证 {% data variables.product.prodname_actions %} 存储设置并将其保存在 {% data variables.enterprise.management_console %} 中，而必须使用 `ghe-actions-precheck` 命令行实用程序进行配置。'
+    - '由于当前 Linux 内核中存在 bug，安装在 Azure 上并预配了 32 个以上 CPU 内核的 {% data variables.product.prodname_ghe_server %} 3.3 实例将无法启动。[更新时间：2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

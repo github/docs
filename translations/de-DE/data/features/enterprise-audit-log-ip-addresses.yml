@@ -1,0 +1,4 @@
+# Reference: #6972
+# Documentation for IP addresses in the enterprise audit log (public beta)
+versions:
+  ghec: '*'

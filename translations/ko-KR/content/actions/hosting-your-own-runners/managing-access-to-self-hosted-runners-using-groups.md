@@ -1,91 +1,83 @@
 ---
-title: Managing access to self-hosted runners using groups
-intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
+title: 그룹을 사용하여 자체 호스팅 실행기에 대한 액세스 관리
+shortTitle: Manage access with runner groups
+intro: 정책을 사용하여 조직 또는 엔터프라이즈에 추가된 자체 호스팅 실행기에 대한 액세스를 제한할 수 있습니다.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: tutorial
+ms.openlocfilehash: c6f53c3698800de519fe34231a8faf37924eacaa
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148120891'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-### About self-hosted runner groups
-
-{% if currentVersion == "free-pro-team@latest" %}
-{% note %}
-
-**Note:** All organizations have a single default self-hosted runner group. Creating and managing additional self-hosted runner groups is only available to enterprise accounts, and for organizations owned by an enterprise account.
-
-{% endnote %}
+{% ifversion target-runner-groups %} 특정 그룹의 실행기로 작업을 라우팅하는 방법에 대한 자세한 내용은 "그룹에서 [실행기 선택"을 참조하세요](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group).
 {% endif %}
 
-Self-hosted runner groups are used to control access to self-hosted runners at the organization and enterprise level. Enterprise admins can configure access policies that control which organizations in an enterprise have access to the runner group. Organization admins can configure access policies that control which repositories in an organization have access to the runner group.
+## 실행기 그룹 정보
 
-When an enterprise admin grants an organization access to a runner group, organization admins can see the runner group listed in the organization's self-hosted runner settings. The organizations admins can then assign additional granular repository access policies to the enterprise runner group.
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}자세한 내용은 [{% data variables.product.prodname_ghe_cloud %} 설명서](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)를 참조하세요.{% endif %}
 
-When new runners are created, they are automatically assigned to the default group. Runners can only be in one group at a time. You can move runners from the default group to another group. For more information, see "[Moving a self-hosted runner to a group](#moving-a-self-hosted-runner-to-a-group)."
+{% ifversion ghec or ghes or ghae %}
 
-### Creating a self-hosted runner group for an organization
+## 조직에 대한 자체 호스트된 실행기 그룹 만들기
 
-All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group.
+{%- ifversion ghec or ghes %}
 
-Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
+{% data reusables.actions.self-hosted-runner-security-admonition %}
 
-When creating a group, you must choose a policy that defines which repositories have access to the runner group. You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.
+{%- endif %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. In the **Self-hosted runners** section, click **Add new**, and then **New group**.
+{% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-    ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. Enter a name for your runner group, and select an access policy from the **Repository access** dropdown list.
+## 엔터프라이즈용 자체 호스트된 실행기 그룹 만들기
 
-    ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1. Click **Save group** to create the group and apply the policy.
+ {%- ifversion ghec or ghes %}
 
-### Creating a self-hosted runner group for an enterprise
+{% data reusables.actions.self-hosted-runner-security-admonition %}
 
-Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups.
+{%- endif %}
 
-Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
+{% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
-When creating a group, you must choose a policy that grants access to all organizations in the enterprise or choose specific organizations.
+{% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-1. Click the **Self-hosted runners** tab.
-1. Click **Add new**, and then **New group**.
+## 자체 호스트된 실행기 그룹의 액세스 정책 변경
 
-    ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. Enter a name for your runner group, and select an access policy from the **Organization access** dropdown list.
+{%- ifversion fpt or ghec or ghes %}
 
-    ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
-1. Click **Save group** to create the group and apply the policy.
+{% data reusables.actions.self-hosted-runner-security-admonition %}
 
-### Changing the access policy of a self-hosted runner group
+{%- endif %}
 
-You can update the access policy of a runner group, or rename a runner group.
+{% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
-{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+## 실행기 그룹의 이름 변경
 
-### Moving a self-hosted runner to a group
+{% data reusables.actions.changing-the-name-of-a-runner-group %}
 
-New self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
+{% ifversion ghec or ghes or ghae %}
+## 그룹에 자체 호스트된 실행기 자동 추가
 
-1. In the **Self-hosted runners** section of the settings page, locate the current group of the runner you want to move group and expand the list of group members. ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
-1. Select the checkbox next to the self-hosted runner, and then click **Move to group** to see the available destinations. ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move.png)
-1. To move the runner, click on the destination group. ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
+{% data reusables.actions.automatically-adding-a-runner-to-a-group %}
 
-### Removing a self-hosted runner group
+## 자체 호스트된 실행기를 그룹으로 이동
 
-Self-hosted runners are automatically returned to the default group when their group is removed.
+{% data reusables.actions.moving-a-runner-to-a-group %}
 
-1. In the **Self-hosted runners** section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button. ![View runner group settings](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+## 자체 호스트된 실행기 그룹 제거
 
-1. To remove the group, click **Remove group**. ![View runner group settings](/assets/images/help/settings/actions-org-runner-group-remove.png)
+{% data reusables.actions.removing-a-runner-group %}
 
-1. Review the confirmation prompts, and click **Remove this runner group**.
+{% endif %}
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}

@@ -1,0 +1,42 @@
+.sidebarArticle::before {
+  content: "";
+  position: absolute;
+  left: calc(1.5rem + 2px);
+  height: 100%;
+  border-left: 1px solid var(--color-fg-default);
+  width: 1px;
+  top: 0;
+}
+
+.sidebarArticleActive::before {
+  border-left-width: 2px;
+}
+
+.apiFixedHeader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: var(--color-canvas-default);
+  z-index: 1;
+}
+
+.apiAllProductsLink {
+  top: 82px;
+}
+
+.apiTitle {
+  padding-top: 10px;
+  top: 100px;
+}
+
+.apiVersionPicker {
+  top: 128px;
+
+  svg {
+    float: right;
+  }
+}
+
+.noApiVersion {
+  margin: -5em;
+}

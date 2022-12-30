@@ -1,99 +1,127 @@
-const { get } = require('lodash')
-const env = require('lil-env-thing')
-const { liquid } = require('../lib/render-content')
-const patterns = require('../lib/patterns')
-const layouts = require('../lib/layouts')
-const getMiniTocItems = require('../lib/get-mini-toc-items')
-const Page = require('../lib/page')
+import { get } from 'lodash-es'
 
-// We've got lots of memory, let's use it
-// We can eventually throw this into redis
-const pageCache = {}
+import FailBot from '../lib/failbot.js'
+import patterns from '../lib/patterns.js'
+import getMiniTocItems from '../lib/get-mini-toc-items.js'
+import Page from '../lib/page.js'
+import statsd from '../lib/statsd.js'
+import { allVersions } from '../lib/all-versions.js'
+import { isConnectionDropped } from './halt-on-dropped-connection.js'
+import { nextApp, nextHandleRequest } from './next.js'
+import { defaultCacheControl } from './cache-control.js'
 
-module.exports = async function renderPage (req, res, next) {
-  const page = req.context.page
-  const originalUrl = req.originalUrl
+async function buildRenderedPage(req) {
+  const { context } = req
+  const { page } = context
+  const path = req.pagePath || req.path
 
-  // Serve from the cache if possible (skip during tests)
-  if (!process.env.CI && process.env.NODE_ENV !== 'test') {
-    if (req.method === 'GET' && pageCache[originalUrl]) {
-      console.log(`Serving from cached version of ${originalUrl}`)
-      return res.send(pageCache[originalUrl])
-    }
+  const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
+
+  return await pageRenderTimed(context)
+}
+
+async function buildMiniTocItems(req) {
+  const { context } = req
+  const { page } = context
+
+  // get mini TOC items on articles
+  if (!page.showMiniToc) {
+    return
   }
+
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
+}
+
+export default async function renderPage(req, res) {
+  const { context } = req
+
+  // This is a contextualizing the request so that when this `req` is
+  // ultimately passed into the `Error.getInitialProps` function,
+  // which NextJS executes at runtime on errors, so that we can
+  // from there send the error to Failbot.
+  req.FailBot = FailBot
+
+  const { page } = context
+  const path = req.pagePath || req.path
 
   // render a 404 page
   if (!page) {
-    if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
-      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
+    if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
+      console.error(
+        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
+      )
     }
-    return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
+    return nextApp.render404(req, res)
   }
 
+  // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
-    return res.status(200).end()
+    return res.status(200).send('')
   }
 
-  // add page context
-  const context = Object.assign({}, req.context, { page })
+  // Updating the Last-Modified header for substantive changes on a page for engineering
+  // Docs Engineering Issue #945
+  if (page.effectiveDate) {
+    // Note that if a page has an invalidate `effectiveDate` string value,
+    // it would be caught prior to this usage and ultimately lead to
+    // 500 error.
+    res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
+  }
 
   // collect URLs for variants of this page in all languages
-  context.page.languageVariants = Page.getLanguageVariants(req.path)
+  page.languageVariants = Page.getLanguageVariants(path)
 
-  // render page
-  context.renderedPage = await page.render(context)
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
 
-  // get mini TOC items on articles
-  if (page.showMiniToc) {
-    context.miniTocItems = getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
-  }
+  req.context.renderedPage = await buildRenderedPage(req)
+  req.context.miniTocItems = await buildMiniTocItems(req)
 
-  // handle special-case prerendered GraphQL objects page
-  if (req.path.endsWith('graphql/reference/objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
 
   // Create string for <title> tag
-  context.page.fullTitle = context.page.title
+  page.fullTitle = page.titlePlainText
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
-  if (!patterns.homepagePath.test(req.path)) {
-    context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
+  if (!patterns.homepagePath.test(path)) {
+    if (
+      req.context.currentVersion === 'free-pro-team@latest' ||
+      !allVersions[req.context.currentVersion]
+    ) {
+      page.fullTitle += ' - ' + context.site.data.ui.header.github_docs
+    } else {
+      const { versionTitle } = allVersions[req.context.currentVersion]
+      page.fullTitle += ' - '
+      // Some plans don't have the word "GitHub" in them.
+      // E.g. "Enterprise Server 3.5"
+      // In those cases manually prefix the word "GitHub" before it.
+      if (!versionTitle.includes('GitHub')) {
+        page.fullTitle += 'GitHub '
+      }
+      page.fullTitle += versionTitle + ' Docs'
+    }
   }
 
+  // Is the request for JSON debugging info?
+  const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
+
   // `?json` query param for debugging request context
-  if ('json' in req.query && !env.production) {
+  if (isRequestingJsonForDebugging) {
     if (req.query.json.length > 1) {
       // deep reference: ?json=page.permalinks
       return res.json(get(context, req.query.json))
     } else {
       // dump all the keys: ?json
       return res.json({
-        message: 'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
-        keys: Object.keys(context)
+        message:
+          'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
+        keys: Object.keys(context),
       })
     }
   }
 
-  // Layouts can be specified with a `layout` frontmatter value
-  // If unspecified, `layouts/default.html` is used.
-  // Any invalid layout values will be caught by frontmatter schema validation.
-  const layoutName = context.page.layout || 'default'
+  defaultCacheControl(res)
 
-  // Set `layout: false` to use no layout
-  const layout = context.page.layout === false ? '' : layouts[layoutName]
-
-  const output = await liquid.parseAndRender(layout, context)
-
-  // Save output to cache for the next time around
-  if (!process.env.CI) {
-    if (req.method === 'GET') {
-      pageCache[originalUrl] = output
-    }
-  }
-
-  // send response
-  return res.send(output)
+  return nextHandleRequest(req, res)
 }

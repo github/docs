@@ -1,31 +1,36 @@
 ---
-title: Canceling a workflow
-intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
-product: '{% data reusables.gated-features.actions %}'
+title: Abbrechen eines Workflows
+intro: 'Du kannst eine laufende Workflowausführung abbrechen. Wenn du eine Workflowausführung abbrichst, bricht {% data variables.product.prodname_dotcom %} alle Aufträge und Schritte ab, die Teil dieses Workflows sind.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+ms.openlocfilehash: f8bf0d06f5e0e37cb120b22a3bd6da39b51b78a9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145088563'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### Einen Workflow-Lauf abbrechen
+## Einen Workflow-Lauf abbrechen
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, click **Cancel workflow**. ![Schaltfläche zum Abbrechen der Prüfsuite](/assets/images/help/repository/cancel-check-suite.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %}
+1. Klicke in der Liste der Workflowausführungen auf den Namen der `queued`- oder `in progress`-Ausführung, die du abbrechen möchtest.
+![Name der Workflowausführung](/assets/images/help/repository/in-progress-run.png)
+1. Klicke in der oberen rechten Ecke des Workflows auf **Workflow abbrechen**.
+![Schaltfläche „Workflow abbrechen“](/assets/images/help/repository/cancel-check-suite-updated.png)
 
-### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## Schritte, die {% data variables.product.prodname_dotcom %} zum Abbrechen einer Workflowausführung ausführt
 
-Beim Abbrechen der Workflowausführung führen Sie möglicherweise andere Software aus, die Ressourcen verwendet, die mit der Workflowausführung zusammenhängen. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
+Beim Abbrechen der Workflowausführung führst du möglicherweise andere Software aus, die im Zusammenhang mit der Workflowausführung stehende Ressourcen verwendet. Du kannst möglicherweise leichter im Zusammenhang mit der Workflowausführung stehende Ressourcen freigeben, wenn du die Schritte kennst, die {% data variables.product.prodname_dotcom %} ausführt, um eine Workflowausführung abzubrechen.
 
-1. Um die Workflowausführung abzubrechen, wertet der Server `neu aus, wenn` Bedingungen für alle derzeit ausgeführten Aufträge. Wenn die Bedingung als true</code>`wird, wird der Auftrag nicht abgebrochen. Beispielsweise <code>die Bedingung, ob: always()` als true ausgewertet wird und der Auftrag weiterhin ausgeführt wird. Wenn keine Bedingung vorhanden ist, entspricht dies der Bedingung `wenn: success()`, die nur ausgeführt wird, wenn der vorherige Schritt erfolgreich abgeschlossen wurde.
-2. Bei Aufträgen, die abgebrochen werden müssen, sendet der Server eine Abbruchnachricht an alle Läufercomputer mit Aufträgen, die abgebrochen werden müssen.
-3. Bei Aufträgen, die weiterhin ausgeführt werden, wertet der Server `neu aus, ob` Bedingungen für die unvollendeten Schritte. Wenn die Bedingung als true</code>`wird, wird der Schritt weiterhin ausgeführt.</li>
-<li>Für Schritte, die abgebrochen werden müssen, sendet die Läufermaschine <code>SIGINT/Ctrl-C-` an den Schritteingabeprozess (`Knoten` für Javascript-Aktion, `docker` für Containeraktion und `bash/cmd/pwd` , wenn sie</code> in einem Schritt verwenden `ausführen). Wenn der Prozess nicht innerhalb von 7500 ms beendet wird, sendet der Läufer <code>SIGTERM/Ctrl-Break-` an den Prozess, und wartet dann 2500 ms, bis der Prozess beendet wird. Wenn der Prozess noch ausgeführt wird, tötet der Läufer den Prozessbaum.
-5. Nach ablaufen 5 Minuten Abbruchzeit zeitoutt der Server das Beenden aller Aufträge und Schritte, die die Ausführung nicht beenden oder den Abbruchvorgang nicht abschließen können.
+1. Um die Ausführung des Workflows abzubrechen, bewertet der Server die `if`-Bedingungen für alle derzeit ausgeführten Aufträge neu. Wenn die Bedingung als `true` ausgewertet wird, wird der Auftrag nicht abgebrochen. Wenn z. B. die Bedingung `if: always()` als „true“ ausgewertet wird, wird der Auftrag weiterhin ausgeführt. Wenn keine Bedingung vorhanden ist, entspricht dies der Bedingung `if: success()`, d. h. die Ausführung findet nur bei erfolgreichem Abschluss des vorherigen Schritts statt.
+2. Für Aufträge, die abgebrochen werden müssen, sendet der Server eine Abbruchnachricht an alle Runnercomputer mit Aufträgen, die abgebrochen werden müssen.
+3. Für Aufträge, die weiterhin ausgeführt werden, bewertet der Server die `if`-Bedingungen für die nicht abgeschlossenen Schritte neu. Wenn die Bedingung als `true` ausgewertet wird, wird der Schritt weiterhin ausgeführt.
+4. Für Schritte, die abgebrochen werden müssen, sendet der Runnercomputer `SIGINT/Ctrl-C` an den Einstiegsprozess des Schritts (`node` für Javascript-Aktion, `docker` für Containeraktion und `bash/cmd/pwd` bei Verwendung von `run` in einem Schritt). Wenn der Prozess innerhalb von 7.500 ms nicht beendet wird, sendet der Runner `SIGTERM/Ctrl-Break` an den Prozess. Warte dann 2.500 ms, bis der Prozess beendet wird. Wenn der Prozess noch ausgeführt wird, beendet der Runner die Prozessstruktur.
+5. Nach Ablauf des Abbruch-Timeoutzeitraums von 5 Minuten erzwingt der Server das Beenden aller Aufträge und Schritte, die die Ausführung nicht beenden oder den Abbruchprozess nicht abschließen.

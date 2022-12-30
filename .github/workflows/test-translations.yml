@@ -1,81 +1,63 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml' and './test.yml'
+name: Translations tests
 
-name: Node.js Tests - Translations
+# **What it does**: Runs our translation tests on cron.
+# **Why we have it**: We want to know if translations act up, but they are in separate repositories.
+# **Who does it impact**: Docs engineering.
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "10 20 * * *" # once a day at 20:10 UTC / 12:10 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 9:20 PST
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
-  lint:
-    if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-        with:
-          ref: translations # check out the 'translations' branch
-
-      - name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
-        with:
-          node-version: 14.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run linter
-        run: npx standard
-
-      - name: Check dependencies
-        run: npm run check-deps
-
   test:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        test-group: [content, meta, rendering, routing, unit, links-and-images]
+    runs-on: ubuntu-20.04-xl
+    timeout-minutes: 60
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: 14.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: '16.17.0'
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache nextjs build
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Run build script
+        run: npm run build
+
       - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: npm test -- tests/translations
+
+  send-slack-notification-on-failure:
+    needs: [test]
+    runs-on: ubuntu-20.04-xl
+    if: ${{ failure() }}
+    steps:
+      - name: Send Slack notification if workflow failed
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Translations test failure. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

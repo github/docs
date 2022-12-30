@@ -1,37 +1,40 @@
 ---
-title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+title: GitHub-Entwicklerprogramm
+intro: 'Wenn du Tools erstellst, die in {% data variables.product.prodname_dotcom %} integriert sind, kannst du dem {% data variables.product.prodname_dotcom %}-Entwicklerprogramm beitreten.'
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
+ms.openlocfilehash: 7e1333c491e275c171cce14060c04b01f14bf0a8
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147770873'
 ---
+Du erstellst eine Anwendung, die in GitHub integriert ist? Registriere dich für unser Entwicklerprogramm! Die Möglichkeiten sind endlos, und du freust dich über die Anerkennung, die du erhältst. [Jetzt registrieren](https://github.com/developer/register)
 
-Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
+## Erfülle Bedürfnisse
 
-## Stay in the know
+Erstelle deine eigenen Tools, die sich nahtlos in die Umgebung integrieren lassen, in der du jeden Tag deinen Code pushst.
 
-Be the first to know about API changes and try out new features before they launch in the [Developer blog](https://developer.github.com/changes/).
+## Übernimm die Kontrolle
 
-## Scratch an itch
+Sende eine E-Mail an <a href="mailto:partnerships@github.com">partnerships@github.com</a>, um Entwicklerlizenzen zum Erstellen und Testen deiner Anwendung mit {% data variables.product.prodname_ghe_server %} anzufordern.
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+## Hast du eine Integration, die mit GitHub funktioniert?
 
-## Take on the enterprise
+Prima. Wir würden uns freuen, wenn du an unserem Programm teilnimmst. Hier erfährst du, wie du die Nachricht verbreiten kannst:</p>
+* [Informiere uns über deine Integration](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration).
+* Verwende das [Octocat- oder GitHub-Logo](https://github.com/logos), um anzugeben, dass dein Produkt mit GitHub funktioniert.
+* Poste auf deiner Website ein Video oder einen Blogbeitrag über deine Integration.
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}.
+## Bist du bereit, am GitHub-Entwicklerprogramm teilzunehmen?
 
+Die Mitgliedschaft ist für einzelne Entwickler und Unternehmen möglich, die über Folgendes verfügen:
 
-## Have an integration that works with GitHub?
-
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
-* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
-* Post a video or a blog on your website about your integration
-
-## Ready to join the GitHub Developer Program?</h3>
-
-Membership is open to individual developers and companies who have:
-
-* An integration in production or development using the GitHub API.
-* An email address where GitHub users can contact you for support.
+* Eine Integration in der Produktion oder Entwicklung, für die die GitHub-API verwendet wird.
+* Eine E-Mail-Adresse, unter der GitHub-Benutzer dich kontaktieren können, um Support zu erhalten.

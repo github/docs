@@ -1,3 +1,12 @@
-1. To authenticate to {% data variables.product.prodname_dotcom %}, type your {% data variables.product.prodname_dotcom %}.com credentials and click **Sign in**. ![The Sign In button for {% data variables.product.prodname_dotcom %} in browser](/assets/images/help/desktop/sign-in-button-browser.png)
+---
+ms.openlocfilehash: 957ae8426750627cab3586db4e3ab401b109dd27
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145138638"
+---
+1. Чтобы пройти проверку подлинности в {% data variables.product.prodname_dotcom %}, введите учетные данные {% data variables.product.prodname_dotcom %}.com и нажмите кнопку **Войти**.
+  ![Кнопка входа в {% data variables.product.prodname_dotcom %} в браузере](/assets/images/help/desktop/sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.product.prodname_dotcom %}, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  Если же вы уже вошли в {% data variables.product.prodname_dotcom %}, следуйте инструкциям, чтобы вернуться в {% data variables.product.prodname_desktop %} для завершения проверки подлинности. 

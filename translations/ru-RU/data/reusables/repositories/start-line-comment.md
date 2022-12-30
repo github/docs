@@ -1,1 +1,10 @@
-1. Hover over the line of code where you'd like to add a comment, and click the blue comment icon.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} To add a comment on multiple lines, click and drag to select the range of lines, then click the blue comment icon.{% endif %} ![Blue comment icon](/assets/images/help/commits/hover-comment-icon.gif)
+---
+ms.openlocfilehash: fe1a4a45da5ac9ee804205443e5d5eb403dcebc3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145117904"
+---
+1. Наведите указатель мыши на строку кода, к которой вы хотите добавить комментарий, и щелкните синий значок комментария. Чтобы добавить комментарий к нескольким строкам, щелкните и перетащите курсор для выбора диапазона строк, а затем щелкните синий значок комментария.
+![Синий значок комментария](/assets/images/help/commits/hover-comment-icon.gif)

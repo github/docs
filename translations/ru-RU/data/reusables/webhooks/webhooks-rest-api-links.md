@@ -1,4 +1,13 @@
-You can use the repository, organization, and app webhook REST APIs to create, update, delete, and ping webhooks. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}You can also use the REST API to change the configuration of the webhook. For example, you can modify the payload URL, content type, SSL verification, and secret. {% endif %}For more information, see:
-- [Repository Webhooks REST API](/rest/reference/repos#webhooks)
-- [Organization Webhooks REST API](/rest/reference/orgs#webhooks){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- [GitHub App Webhooks REST API](/rest/reference/apps#webhooks){% endif %}
+---
+ms.openlocfilehash: 6f756137f84b0451079811530d035b11f9764446
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148192908"
+---
+REST API можно использовать для управления веб-перехватчиками репозитория, организации и приложения. Вы можете перечислить доставку веб-перехватчиков для веб-перехватчика или получить и повторно получить отдельную доставку для веб-перехватчика, которую можно интегрировать во внешнее приложение или службу. Вы также можете использовать REST API для изменения конфигурации веб-перехватчика. Например, можно изменить URL-адрес полезных данных, тип контента, проверку SSL и секрет. Дополнительные сведения см. в разделе:
+
+- [Веб-перехватчики репозитория](/rest/reference/webhooks#repository-webhooks)
+- [Веб-перехватчики организации](/rest/reference/orgs#webhooks)
+- [{% data variables.product.prodname_github_app %} Веб-перехватчики](/rest/reference/apps#webhooks)

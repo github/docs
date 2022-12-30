@@ -1,7 +1,10 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-1. 对于 Branch（分支）菜单右侧，单击 **New pull request（新拉取请求）**。 ![文件列表上方的"拉取请求"链接](/assets/images/help/pull_requests/pull-request-start-review-button.png)
-{% else %}
-1. 在文件列表上方，单击
-{% octicon "git-pull-request" aria-label="The pull request icon" %} **拉取请求**。
-  ![文件列表上方的"拉取请求"链接](/assets/images/help/pull_requests/pull-request-start-review-button.png)
-{% endif %}
+---
+ms.openlocfilehash: 6bb64c3e58eb1a5c59d7d7c2e80f9fdfa561b713
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145086803"
+---
+1. 在文件列表上方，单击 {% octicon "git-pull-request" aria-label="The pull request icon" %}“拉取请求”。
+  ![文件列表上方的“拉取请求”链接](/assets/images/help/pull_requests/pull-request-start-review-button.png)

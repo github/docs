@@ -1,7 +1,15 @@
-For questions, bug reports, and discussions about {% data variables.product.prodname_github_app %}s,  {% data variables.product.prodname_oauth_app %}s, and API development, explore the  {% data variables.product.prodname_support_forum_with_url %}. The forum is moderated and maintained by {% data variables.product.company_short %} staff, but questions posted to the forum are not guaranteed to receive a reply from {% data variables.product.company_short %} staff.
+---
+ms.openlocfilehash: c1f23445b3f6c0129c6dca13c8abe99c6e4b2384
+ms.sourcegitcommit: a14d1c2deb6f74b71e50da3c2037bf662fa09287
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/07/2022
+ms.locfileid: "148012656"
+---
+Для вопросов, отчетов об ошибках и обсуждениях о {% данных variables.product.prodname_github_apps %}, {% данных variables.product.prodname_oauth_apps %}и разработке API изучите {% данных reusables.support.prodname_support_forum_with_url %}. Обсуждения модерируются и обслуживаются сотрудниками {% data variables.product.company_short %}, но гарантий того, что сотрудники {% data variables.product.company_short %} ответят на вопросы, опубликованные на форуме, нет.
 
-Consider reaching out to [GitHub Support](https://github.com/contact) directly using the contact form for:
-  - guaranteed response from {% data variables.product.product_name %} staff
-  - support requests involving sensitive data or private concerns
-  - feature requests
-  - feedback about {% data variables.product.product_name %} products
+В [службу поддержки GitHub](https://support.github.com/) можно обратиться напрямую через форму связи, чтобы получить:
+  - гарантированный ответ от сотрудников {% data variables.product.product_name %};
+  - запросы на поддержку, связанные с конфиденциальными данными или частными проблемами;
+  - запросы функций;
+  - отзывы о продуктах {% data variables.product.product_name %}.

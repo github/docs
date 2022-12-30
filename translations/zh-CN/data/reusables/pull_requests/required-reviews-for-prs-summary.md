@@ -1,3 +1,9 @@
-仓库管理员可以要求所有合并请求在合并到受保护分支之前，获取必要数量的具有仓库*写入*或*管理*权限的人员或者指定代码所有者的批准。 更多信息请参阅“[关于受保护分支](/articles/about-protected-branches)”。
-
-启用所需的审查时，具有仓库访问权限的任何人都可以批准拉取请求中的更改。 但若没有必要数量的具有仓库*写入*或*管理*权限的审查者批准您的拉取请求，您将无法合并拉取请求。 有关仓库权限级别的更多信息，请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization/)”。 如果要求获得指定代码所有者的审查，并且拉取请求会影响具有指定所有者的代码， 则需要该所有者的批准。
+---
+ms.openlocfilehash: 0a4745a59266ba23a3ccc0ea892356a6cb503f17
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147876158"
+---
+仓库管理员可以要求所有拉取请求在有人将拉取请求合并到受保护分支之前获得特定数量的批准审查。 您可以要求仓库中具有写入权限的人或指定代码所有者批准审查。

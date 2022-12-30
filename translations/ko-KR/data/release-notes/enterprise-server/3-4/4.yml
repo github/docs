@@ -1,0 +1,32 @@
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다. 
+  bugs:
+    - "{% data variables.product.prodname_ghe_server %} 구성 파일의 호스트 이름을 검증하는 내부 스크립트는 호스트 이름 문자열이 \".\"(마침표 문자)로 시작하는 경우 오류를 반환합니다."
+    - 기본 노드의 호스트 이름이 60자를 초과하는 HA 구성에서 MySQL을 구성하지 못합니다.
+    - "{% data variables.product.prodname_actions %}가 사용하도록 설정되었지만 {% data variables.product.prodname_ghe_server %} 3.4.1 이상에서 TLS를 사용하지 않도록 설정한 경우 구성 업데이트를 적용하지 못합니다."
+    - 명령줄을 사용하여 네트워크 설정을 구성할 때 게이트웨이 주소를 전달할 수 있도록 `--gateway` 인수가 `ghe-setup-network` 명령에 추가되었습니다.
+    - "[{% data variables.product.prodname_GH_advanced_security %} 청구 API](/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise) 엔드포인트를 사용하도록 설정하지 않았으며 액세스할 수 없습니다."
+    - 삭제된 이미지 첨부 파일은 `404 찾을 수 없음` 오류 대신 `500 내부 서버 오류`를 반환합니다.
+    - 리포지토리 캐시 서버로 구성된 환경에서 `ghe-repl-status` 명령이 gist를 복제 부족으로 잘못 표시했습니다. 
+    - "[커밋 API](/rest/commits/commits)의 \"커밋 가져오기\" 및 \"두 커밋 비교\" 엔드포인트는 diff의 파일 경로에 인코딩되고 이스케이프된 유니코드 문자가 포함되어 있으면 \"500\" 오류를 반환합니다."
+    - "사이트 관리 대시보드에 보고된 \"전체 인스턴스의 최대 커밋 수\" 계산이 잘못되었습니다."
+    - "{%data variables.prodname_enterprise_backup_utilities %}를 사용하여 복원을 수행할 때 리포지토리 복제본에 대한 데이터베이스 항목이 잘못되어 데이터베이스가 손상되었습니다."
+    - 비밀 검사 경고에 대한 작업 타임라인이 표시되지 않았습니다.
+  changes:
+    - 클러스터 지원 번들을 생성할 때 메트릭의 포함을 최적화했습니다. 
+    - Elasticsearch가 유효한 노란색 상태를 보고한 HA 구성에서 이전 수정에서 도입된 변경 내용은 `ghe-repl-stop`명령을 차단하고 복제를 중지할 수 없습니다. `ghe-repo-stop --force`를 사용하면 서비스가 정상 또는 유효한 노란색 상태일 때 Elasticsearch가 강제로 중지됩니다.
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - "{% data variables.product.prodname_github_connect %}에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 {% data variables.product.prodname_dotcom_the_website %} 검색 결과에 포함되지 않습니다."
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - |둘 이상 수준(예: 기업과 조직 모두)에서 `--ephemeral` 매개 변수를 사용하여 자체 호스팅 실행기를 등록한 후 실행기가 유휴 상태가 되어 재등록이 필요할 수 있습니다. [업데이트 날짜: 2022-06-17]
+
+|
+    - "{% data variables.product.prodname_ghe_server %} 3.4로 업그레이드한 후 리포지토리에 릴리스가 없는 것으로 나타날 수 있습니다. 이 문제는 필요한 Elasticsearch 인덱스 마이그레이션이 성공적으로 완료되지 않은 경우에 발생할 수 있습니다."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

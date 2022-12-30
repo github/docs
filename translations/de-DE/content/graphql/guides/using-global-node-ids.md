@@ -1,41 +1,49 @@
 ---
-title: Using global node IDs
-intro: You can get global node IDs of objects via the REST API and use them in GraphQL operations.
+title: Verwenden globaler Knoten-IDs
+intro: Du kannst globale Knoten-IDs von Objekten über die REST-API abrufen und sie in GraphQL-Vorgängen verwenden.
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: c4e6dba85ea94fe3337828f795bb7325162b6452
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381472'
 ---
-
-You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.
+Du kannst auf die meisten Objekte in GitHub (Benutzer*innen, Issues, Pull Requests usw.) entweder über die REST-API oder die GraphQL-API zugreifen. Du kannst die **globale Knoten-ID** vieler Objekte in der REST-API finden und diese IDs in deinen GraphQL-Vorgängen verwenden. Weitere Informationen findest du unter [Vorschau der GraphQL-API-Knoten-IDs in REST-API-Ressourcen](https://developer.github.com/changes/2017-12-19-graphql-node-id/).
 
 {% note %}
 
-**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[Introduction to GraphQL](/v4/guides/intro-to-graphql/#node)."
+**Hinweis:** In REST heißt das Feld für die globale Knoten-ID `node_id`. In GraphQL ist es ein `id`-Feld der `node`-Schnittstelle. Informationen zur Bedeutung des Begriffs „Knoten“ in GraphQL findest du unter [Einführung in GraphQL](/graphql/guides/introduction-to-graphql#node).
 
 {% endnote %}
 
-### Putting global node IDs to use
+## Verwenden globaler Knoten-IDs
 
-You can follow three steps to use global node IDs effectively:
+Du kannst globale Knoten-IDs in drei Schritten verwenden:
 
-1. Call a REST endpoint that returns an object's `node_id`.
-2. Find the object's type in GraphQL.
-3. Use the ID and type to do a direct node lookup in GraphQL.
+1. Aufrufen eines REST-Endpunkts, der die `node_id` des Objekts zurückgibt
+2. Suchen des Objekttyps in GraphQL
+3. Verwenden der ID und des Typs für eine direkte Knotensuche in GraphQL
 
-Let's walk through an example.
+Sieh dir folgendes Beispiel an.
 
-### 1. Call a REST endpoint that returns an object's node ID
+## 1. Aufrufen eines REST-Endpunkts, der die Knoten-ID des Objekts zurückgibt
 
-If you [request the authenticated user](/v3/users/#get-the-authenticated-user):
+Wenn du den [authentifizierten Benutzer anforderst](/rest/reference/users#get-the-authenticated-user):
 
 ```shell
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
-you'll get a response that includes the `node_id` of the authenticated user:
+Erhältst du eine Antwort, die die `node_id` des authentifizierten Benutzers enthält:
 
 ```json
 {
@@ -85,11 +93,11 @@ you'll get a response that includes the `node_id` of the authenticated user:
 }
 ```
 
-### 2. Find the object type in GraphQL
+## 2. Suchen des Objekttyps in GraphQL
 
-In this example, the `node_id` value is `MDQ6VXNlcjU4MzIzMQ==`. You can use this value to query the same object in GraphQL.
+In diesem Beispiel hat `node_id` den Wert `MDQ6VXNlcjU4MzIzMQ==`. Du kannst diesen Wert verwenden, um dasselbe Objekt in GraphQL abzufragen.
 
-You'll need to know the object's _type_ first, though. You can check the type with a simple GraphQL query:
+Du musst jedoch dazu den _Typ_ des Objekts kennen. Du kannst den Typ mit einer einfachen GraphQL-Abfrage überprüfen:
 
 ```graphql
 query {
@@ -99,13 +107,13 @@ query {
 }
 ```
 
-This type of query&mdash;that is, finding the node by ID&mdash;is known as a "direct node lookup."
+Dieser Abfragetyp zum Suchen von Knoten nach der ID wird als „direkte Knotensuche“ bezeichnet.
 
-When you run this query, you'll see that the `__typename` is [`User`](/v4/object/user/).
+Wenn du diese Abfrage ausführst, kannst du sehen dass `__typename` den Wert [`User`](/graphql/reference/objects#user) hat.
 
-### 3. Do a direct node lookup in GraphQL
+## 3. Ausführen einer direkten Knotensuche in GraphQL
 
-Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
+Nachdem du den Typ bestätigt hast, kannst du ein [Inlinefragment](https://graphql.github.io/learn/queries/#inline-fragments) verwenden, um auf das Objekt über seine ID zuzugreifen und zusätzliche Daten zurückzugeben. In diesem Beispiel definierst du die Felder, die du abfragen möchtest, mit `User`:
 
 ```graphql
 query {
@@ -118,8 +126,8 @@ query {
 }
 ```
 
-This type of query is the standard approach for looking up an object by its global node ID.
+Dieser Abfragetyp ist der Standardansatz für das Suchen eines Objekts anhand seiner globalen Knoten-ID.
 
-### Using global node IDs in migrations
+## Verwenden globaler Knoten-IDs in Migrationsvorgängen
 
-When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[Migrating from REST to GraphQL](/v4/guides/migrating-from-rest/)."
+Beim Erstellen von Integrationen, die entweder die REST-API oder die GraphQL-API verwenden, empfiehlt es sich, die globale Knoten-ID beizubehalten, sodass du problemlos auf Objekte in API-Versionen verweisen kannst. Weitere Informationen zum Behandeln des Übergangs zwischen REST und GraphQL findest du unter [Migrieren von REST zu GraphQL](/graphql/guides/migrating-from-rest-to-graphql).

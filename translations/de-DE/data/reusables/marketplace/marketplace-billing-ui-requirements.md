@@ -1,9 +1,17 @@
-- Customers who cancel a paid plan purchased from {% data variables.product.prodname_marketplace %} must be automatically downgraded to the app's free plan if it exists. {% data reusables.marketplace.cancellation-clarification %} It's highly recommended to allow customers to re-enable their previous plan.
-- Customers must be able to upgrade from your app's UI if you provide an [upgrade URL](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/#about-upgrade-urls) in this format: `https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>`
-- Customers must be able to modify which users have access to your app from your app's website if they purchased seats (per-unit pricing plan) or the plan offers unlimited collaborators.
-- Customers must be able to see the following changes to their account immediately in the billing, profile, or account settings section of the app's website:
-  - Current plan and price.
-  - New plans purchased.
-  - Upgrades, downgrades, cancellations, and the number of remaining days in a free trial.
-  - Changes to billing cycles (monthly or yearly).
-  - Usage and remaining resources for flat-rate and per-unit plans. For example, if the pricing plan is per-unit, your app's site should show units used and units available.
+---
+ms.openlocfilehash: d7d401ed18395e4dd30f45df07e850338fa43da9
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145108188"
+---
+- Kunden, die einen kostenpflichtigen Plan kündigen, der über den {% data variables.product.prodname_marketplace %} erworben wurde, sollten automatisch auf den kostenlosen Plan der App zurückgestuft werden, sofern ein solcher vorhanden ist. {% data reusables.marketplace.cancellation-clarification %} Es wird dringend empfohlen, Kunden die Möglichkeit zu geben, ihren vorherigen Plan zu reaktivieren.
+- Kunden sollten in der Lage sein, von der Benutzeroberfläche deiner App aus ein Upgrade durchzuführen, wenn du eine [Upgrade-URL](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/#about-upgrade-urls) in diesem Format angibst: `https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>`
+- Kunden sollten in der Lage sein, auf der Website deiner App zu ändern, welche Benutzer Zugriff auf deine App haben, wenn sie Arbeitsplätze erworben haben (Preisplan pro Einheit) oder der Plan eine unbegrenzte Anzahl von Projektmitarbeitern zulässt.
+- Kunden sollten die folgenden Änderungen an ihrem Konto sofort in den Abrechnungs-, Profil- oder Kontoeinstellungen auf der Website der App sehen können:
+  - Aktueller Plan und Preis.
+  - Neue Pläne, die erworben wurden.
+  - Upgrades, Downgrades, Stornierungen und die Anzahl der verbleibenden für eine kostenlose Testversion.
+  - Änderungen an Abrechnungszyklen (monatlich oder jährlich).
+  - Nutzung und verbleibende Ressourcen für Pläne mit Pauschalgebühr und auf Einheiten basierende Pläne. Wenn der Preisplan zum Beispiel pro Einheit gilt, sollte die Website deiner App die verbrauchten und die verfügbaren Einheiten anzeigen.

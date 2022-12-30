@@ -1,0 +1,6 @@
+# Reference: #6732
+# Self-hosted runners with macOS ARM
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.7'

@@ -1,4 +1,12 @@
-There are three types of interaction limits.
-   - **Limit to existing users**: Limits activity for users with accounts that are less than 24 hours old who do not have prior contributions and are not collaborators.
-   - **Limit to prior contributors**: Limits activity for users who have not previously contributed to the default branch of the repository and are not collaborators.
-   - **Limit to repository collaborators**: Limits activity for users who do not have write access to the repository.
+---
+ms.openlocfilehash: 68607fbdf600b804f8ec79089306378b9d8e3026
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145138913"
+---
+Существует три типа ограничений взаимодействия.
+   - **Ограничение до существующих пользователей**. Ограничивает действия для пользователей с учетными записями, которым менее 24 часов, у которых нет предыдущих вкладов и которые не являются участниками совместной работы.
+   - **Ограничение до предыдущих участников**. Ограничивает действия для пользователей, которые ранее не внесли свой вклад в ветвь репозитория по умолчанию и не являются участниками совместной работы.
+   - **Ограничение до участников совместной работы репозитория**. Ограничивает действия для пользователей, у которых нет доступа для записи в репозиторий.

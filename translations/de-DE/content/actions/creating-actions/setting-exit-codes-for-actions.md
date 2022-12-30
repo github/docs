@@ -1,30 +1,36 @@
 ---
-title: Exitcodes für Aktionen setzen
-shortTitle: Exitcodes setzen
-intro: 'Du kannst mittels Exitcodes den Status einer Aktion setzen. {% data variables.product.prodname_dotcom %} zeigt Status, um erfolgreiche oder fehlgeschlagene Aktionen kenntlich zu machen.'
-product: '{% data reusables.gated-features.actions %}'
+title: Setting exit codes for actions (Festlegen von Exitcodes für Aktionen)
+shortTitle: Set exit codes
+intro: 'Du kannst mittels Exitcodes den Status einer Aktion festlegen. {% data variables.product.prodname_dotcom %} zeigt Status, um erfolgreiche oder fehlgeschlagene Aktionen kenntlich zu machen.'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: how_to
+ms.openlocfilehash: 394b17dc03c4998797df222fe7c81c3269003ec9
+ms.sourcegitcommit: d3929a033c42c99b153910685256d079d7d87467
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114277'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Informationen zu Exitcodes
 
-### Informationen zu Exitcodes
+{% data variables.product.prodname_dotcom %} verwendet den Exitcode, um den Status der Überprüfungsausführung der Aktion festzulegen. Dieser kann `success` oder `failure` lauten.
 
-{% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
+Beendigungsstatus | Prüflaufstatus | BESCHREIBUNG
+------------|------------------|------------
+`0` | `success` | Die Aktion wurde erfolgreich abgeschlossen, und andere Tasks, die von dieser abhängig sind, können nun starten.
+Wert ungleich Null (eine beliebige ganze Zahl außer 0)| `failure` | Alle anderen Exit-Codes weisen darauf hin, dass die Aktion fehlgeschlagen ist. Wenn eine Aktion fehlschlägt, werden alle derzeit laufenden Aktionen abgebrochen, und künftige Aktionen werden übersprungen. Sowohl Überprüfungsausführung als auch Überprüfungssuite erhalten den Status `failure`.
 
-| Exit-Status    | Prüflaufstatus         | Beschreibung                                                                                                                                                                                                                                                                          |
-| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0`            | `success (Erfolg)`     | Die Aktion wurde erfolgreich abgeschlossen, und andere Aufgaben, die von dieser Aktion abhängig sind, können nun starten.                                                                                                                                                             |
-| Nicht-Nullwert | `failure (Fehlschlag)` | Alle anderen Exit-Codes weisen darauf hin, dass die Aktion fehlgeschlagen ist. Wenn eine Aktion fehlschlägt, werden alle derzeit laufenden Aktionen abgebrochen, und künftige Aktionen werden übersprungen. Sowohl der Prüflauf als auch die Prüfsuite erhalten den Status `failure`. |
+## Fehler-Exit-Code in einer JavaScript-Aktion festlegen
 
-### Fehler-Exit-Code in einer JavaScript-Aktion festlegen
-
-Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
+Wenn du eine JavaScript-Aktion erstellst, kannst du das Aktionstoolkitpaket [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) verwenden, um eine Nachricht zu protokollieren und einen Fehlerexitcode festzulegen. Beispiel:
 
 ```javascript
 try {
@@ -34,11 +40,11 @@ try {
 }
 ```
 
-Weitere Informationen finden Sie unter „[Eine JavaScript-Aktion erstellen](/articles/creating-a-javascript-action)“.
+Weitere Informationen findest du unter [Erstellen einer JavaScript-Aktion](/articles/creating-a-javascript-action).
 
-### Fehler-Exit-Code in einer Docker-Container-Aktion festlegen
+## Fehler-Exit-Code in einer Docker-Container-Aktion festlegen
 
-Wenn Sie eine Docker-Container-Aktion erstellen, können Sie einen Fehler-Exit-Code im `entrypoint.sh`-Skript festlegen. Ein Beispiel:
+Wenn du eine Docker-Containeraktion erstellst, kannst du einen Fehlerexitcode in deinem `entrypoint.sh`-Skript festlegen. Beispiel:
 
 ```
 if <condition> ; then
@@ -47,4 +53,4 @@ if <condition> ; then
 fi
 ```
 
-Weitere Informationen finden Sie unter „[Eine Docker-Container-Aktion erstellen](/articles/creating-a-docker-container-action)“.
+Weitere Informationen findest du unter [Erstellen einer Docker-Containeraktion](/articles/creating-a-docker-container-action).

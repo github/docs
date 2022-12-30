@@ -1,16 +1,15 @@
-{% if currentVersion == "enterprise-server@2.22" %}
-
-Os requisitos mínimos para uma instância com recursos beta habilitados estão em **negrito** na tabela a seguir. Para obter mais informações, consulte "[Recursos Beta em {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)". |{% endif %}
-| Licenças de usuário                      |                                                                                                                                  vCPUs |                                                                                                                                        Memória |                                                                                                                          Armazenamento anexado | Armazenamento raiz |
-|:---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------:| ------------------:|
-| Teste, demonstração ou 10 usuários leves |   2{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**4**](#beta-features-in-github-enterprise-server-222){% endif %} |   16 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |             200 GB |
-| 10-3000                                  |   4{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**8**](#beta-features-in-github-enterprise-server-222){% endif %} |   32 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**48 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 250 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**300 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |             200 GB |
-| 3000-5000                                |  8{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**12**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                          64 GB |                                                                                                                                         500 GB |             200 GB |
-| 5000-8000                                | 12{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**16**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                          96 GB |                                                                                                                                         750 GB |             200 GB |
-| 8000-10000+                              | 16{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**20**](#beta-features-in-github-enterprise-server-222){% endif %} | 128 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>ou [**160 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                        1000 GB |             200 GB |
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-#### Recursos do beta em {% data variables.product.prodname_ghe_server %} 2.22
-
-Se você habilitar os recursos beta em {% data variables.product.prodname_ghe_server %} 2.22, a sua instância exigirá recursos adicionais de hardware. Para obter mais informações sobre os recursos beta, consulte as [notas de versão para as séries 2.22](https://enterprise.github.com/releases/series/2.22) no site de {% data variables.product.prodname_enterprise %} .{% endif %}
+---
+ms.openlocfilehash: 1cb33ecd5b87ac110509c21934a0c8747f2087ae
+ms.sourcegitcommit: 4c72bcff385d7093cc42df79ad17f05cfd900b5f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183928"
+---
+| Licenças de usuário | vCPUs | Memória | Armazenamento raiz | Armazenamento (de dados) anexado |
+| :- | -: | -: | -: | -: |
+| Teste, demonstração ou 10 usuários leves | 4 | 32 GB | 200 GB | 150 GB |
+| 10-3000  | 8 | 48 GB | 200 GB | 300 GB |
+| 3000-5000 | 12 | 64 GB | 200 GB | 500 GB |
+| 5000-8000 | 16 | 96 GB | 200 GB | 750 GB |
+| 8000-10000+ | 20 | 160 GB | 200 GB | 1000 GB |

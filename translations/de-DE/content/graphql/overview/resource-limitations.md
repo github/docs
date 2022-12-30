@@ -1,27 +1,37 @@
 ---
-title: Resource limitations
-intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}''s servers.'
+title: Ressourcenbeschränkungen
+intro: 'Die Graph-API von {% data variables.product.prodname_dotcom %} hat einige Einschränkungen zum Schutz vor übermäßigen oder missbräuchlichen Aufrufen von {% data variables.product.prodname_dotcom %}-Servern.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 7a0f040b86435573171c4022a72f8d558ad06c29
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381424'
 ---
+## Knotenlimit
 
-## Node limit
+Um die [Schemaüberprüfung](/graphql/guides/introduction-to-graphql#schema) zu bestehen, müssen alle GraphQL-API-[Aufrufe](/graphql/guides/forming-calls-with-graphql) folgende Standards erfüllen:
 
-To pass [schema](/v4/guides/intro-to-graphql#schema) validation, all GraphQL API v4 [calls](/v4/guides/forming-calls) must meet these standards:
+* Clients müssen ein Argument `first` oder `last` für eine beliebige [Verbindung](/graphql/guides/introduction-to-graphql#connection) angeben.
+* Werte von `first` und `last` müssen innerhalb von 1-100 liegen.
+* Einzelne Aufrufe können nicht mehr als 500.000 [Knoten](/graphql/guides/introduction-to-graphql#node) insgesamt anfordern.
 
-* Clients must supply a `first` or `last` argument on any [connection](/v4/guides/intro-to-graphql#connection).
-* Values of `first` and `last` must be within 1-100.
-* Individual calls cannot request more than 500,000 total [nodes](/v4/guides/intro-to-graphql#node).
+### Berechnen von Knoten in einem Aufruf
 
-#### Calculating nodes in a call
+In diesen beiden Beispielen wird gezeigt, wie die Knoten insgesamt in einem Aufruf berechnet werden.
 
-These two examples show how to calculate the total nodes in a call.
+1. Einfache Abfrage:
 
-1. Simple query: <pre>query {
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -43,13 +53,17 @@ These two examples show how to calculate the total nodes in a call.
     }
   }</pre>
 
-  Calculation: <pre><span class="redbox">50</span>         = 50 repositories
+  Berechnung:
+
+  <pre><span class="redbox">50</span>         = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
               = 550 total nodes</pre>
 
-2. Complex query: <pre>query {
+2. Komplexe Abfrage:
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -103,7 +117,9 @@ These two examples show how to calculate the total nodes in a call.
     }
   }</code></pre>
 
-  Calculation: <pre><span class="redbox">50</span>              = 50 repositories
+  Berechnung:
+
+  <pre><span class="redbox">50</span>              = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
    +
@@ -117,38 +133,32 @@ These two examples show how to calculate the total nodes in a call.
 
                    = 22,060 total nodes</pre>
 
-### Rate limit
+## Rate Limit
 
-The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
+Der GraphQL-API-Grenzwert unterscheidet sich von den REST-API-[Ratenbegrenzungen](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
-Why are the API rate limits different? With [GraphQL](/v4/), one GraphQL call can replace [multiple REST calls](/v4/guides/migrating-from-rest/). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
+Warum unterscheiden sich die API-Ratenbegrenzungen? Mit [GraphQL](/graphql) kann ein GraphQL-Aufruf [mehrere REST-Anrufe](/graphql/guides/migrating-from-rest-to-graphql) ersetzen. Ein einzelner komplexer GraphQL-Aufruf könnte das Äquivalent von Tausenden von REST-Anforderungen sein. Während ein einzelner GraphQL-Aufruf deutlich unter der REST-API-Ratenbegrenzung liegt, könnte die Abfrage für die GitHub-Server genauso teuer sein, um sie zu berechnen.
 
-To accurately represent the server cost of a query, the GraphQL API v4 calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
+Um die Serverkosten einer Abfrage genau darzustellen, berechnet die GraphQL-API basierend auf einer normalisierten Punkteskala eine **Bewertung der Ratenbegrenzung** des Aufrufs. Die Bewertungsfaktoren einer Abfrage in den ersten und letzten Argumenten für eine übergeordnete Verbindung und deren untergeordnete Elemente.
 
-* The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, ElasticSearch, and Git.
-* Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
+* Die Formel verwendet die Argumente `first` und `last` für eine übergeordnete Verbindung und ihre untergeordneten Elemente, um die potenzielle Last auf GitHub-Systemen, wie MySQL, ElasticSearch und Git, vorzurechnen.
+* Jede neue Verbindung verfügt über einen eigenen Punktwert. Punkte werden mit anderen Punkten aus dem Aufruf in eine Bewertung der Gesamtratenbegrenzung kombiniert.
 
-The GraphQL API v4 rate limit is **5,000 points per hour**.
+Die GraphQL-API-Ratenbegrenzung beträgt **5.000 Punkte pro Stunde**. 
 
-{% if currentVersion == "free-pro-team@latest" %}
-
-For {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 points per hour.
-
-{% endif %}
-
-Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API v4 and REST API v3 use different rate limits.
+Beachte, dass 5.000 Punkte pro Stunde nicht gleich 5.000 Aufrufe pro Stunde sind: Die GraphQL-API und die REST-API verwenden verschiedene Ratenbegrenzungen.
 
 {% note %}
 
-**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API v4.
+**Hinweis**: Änderungen an den aktuellen Formel- und Ratenbegrenzungen sind vorbehalten, da noch untersucht wird, wie Entwickler*innen die GraphQL-API verwenden.
 
 {% endnote %}
 
-#### Returning a call's rate limit status
+### Zurückgeben des Ratenbegrenzungsstatus eines Anrufs
 
-With the REST API v3, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
+Mit der REST-API kannst du den Ratenbegrenzungsstatus überprüfen, indem du die zurückgegebenen HTTP-Header [untersuchst](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
-With the GraphQL API v4, you can check the rate limit status by querying fields on the `rateLimit` object:
+Mit der GraphQL-API kannst du den Ratenbegrenzungsstatus überprüfen, indem du die Felder im Objekt `rateLimit` abfragst:
 
 ```graphql
 query {
@@ -164,28 +174,28 @@ query {
 }
 ```
 
-* The `limit` field returns the maximum number of points the client is permitted to consume in a 60-minute window.
+* Das Feld `limit` gibt die maximale Anzahl von Punkten zurück, die der Client in einem 60-Minuten-Fenster verwenden darf.
 
-* The `cost` field returns the point cost for the current call that counts against the rate limit.
+* Das Feld `cost` gibt die Punktkosten für den aktuellen Aufruf zurück, der gegen die Ratenbegrenzung zählt.
 
-* The `remaining` field returns the number of points remaining in the current rate limit window.)
+* Das Feld `remaining` gibt die Anzahl der Punkte zurück, die im aktuellen Ratenbegrenzungsfenster verbleiben.)
 
-* The `resetAt` field returns the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+* Das Feld `resetAt` gibt die Zeit in [UTC-Epochensekunden](http://en.wikipedia.org/wiki/Unix_time) zurück, zu der das aktuelle Ratenbegrenzungsfenster zurückgesetzt wird.
 
-#### Calculating a rate limit score before running the call
+### Berechnen einer Ratenbegrenzungsbewertung vor dem Ausführen des Aufrufs
 
-Querying the `rateLimit` object returns a call's score, but running the call counts against the limit. To avoid this dilemma, you can calculate the score of a call before you run it. The following calculation works out to roughly the same cost that `rateLimit { cost }` returns.
+Das Abfragen des Objekts `rateLimit` gibt die Bewertung eines Aufrufs zurück, aber das Ausführen des Aufrufs zählt gegen den Begrenzungswert. Um dieses Dilemma zu vermeiden, kannst du die Bewertung eines Aufrufs berechnen, bevor du ihn ausführst. Die folgende Berechnung funktioniert ungefähr mit den gleichen Kosten, die `rateLimit { cost }` zurückgibt.
 
-1. Add up the number of requests needed to fulfill each unique connection in the call. Assume every request will reach the `first` or `last` argument limits.
-2. Divide the number by **100** and round the result to get the final aggregate cost. This step normalizes large numbers.
+1. Füge die Anzahl der Anforderungen hinzu, die erforderlich sind, um jede eindeutige Verbindung im Aufruf zu erfüllen. Angenommen, jede Anforderung erreicht die Grenzwerte der Argumente `first` oder `last`.
+2. Teile die Zahl durch **100** und runde das Ergebnis ab, um die endgültigen Gesamtkosten zu erhalten. In diesem Schritt werden große Zahlen normalisiert.
 
 {% note %}
 
-**Note**: The minimum cost of a call to the GraphQL API v4 is **1**, representing a single request.
+**Hinweis**: Die Mindestkosten eines Aufrufs der GraphQL-API betragen **1**, was eine einzelne Anforderung darstellt.
 
 {% endnote %}
 
-Here's an example query and score calculation:
+Hier ist eine Beispielabfrage und Bewertungsberechnung:
 
 ```graphql
 query {
@@ -219,11 +229,11 @@ query {
 }
 ```
 
-This query requires 5,101 requests to fulfill:
+Für diese Abfrage sind 5.101 Anforderungen erforderlich:
 
-* Although we're returning 100 repositories, the API has to connect to the viewer's account **once** to get the list of repositories. So, requests for repositories = **1**
-* Although we're returning 50 issues, the API has to connect to each of the **100** repositories to get the list of issues. So, requests for issues = **100**
-* Although we're returning 60 labels, the API has to connect to each of the **5,000** potential total issues to get the list of labels. So, requests for labels = **5,000**
-* Total = **5,101**
+* Obwohl 100 Repositorys zurückgeben werden, muss die API **einmal** eine Verbindung mit dem Konto des Viewers herstellen, um die Liste der Repositorys abzurufen. Daher, Anforderungen für Repositorys = **1**
+* Obwohl 50 Issues zurückgegeben werden, muss die API eine Verbindung mit jedem der **100** Repositorys herstellen, um die Liste der Issues abzurufen. Daher, Anforderungen für Issues = **100**
+* Obwohl 60 Bezeichnungen zurückgegeben werden, muss die API eine Verbindung mit jedem der insgesamt möglichen **5.000** potenziellen Issues herstellen, um die Liste der Bezeichnungen abzurufen. Daher, Anforderungen für Bezeichnungen = **5.000**
+* Gesamt = **5.101**
 
-Dividing by 100 and rounding gives us the final score of the query: **51**
+Dividiert durch 100 und gerundet ergibt sich die endgültige Bewertung der Abfrage: **51**

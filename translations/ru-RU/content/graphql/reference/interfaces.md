@@ -1,21 +1,30 @@
 ---
-title: Interfaces
+title: Интерфейсы
 redirect_from:
   - /v4/interface
+  - /v4/reference/interface
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: a6fed36ccd70557b8d88904f83840a7afacdfacb
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109148'
 ---
+## Сведения об интерфейсах
 
-### About interfaces
+[Интерфейсы](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) служат родительскими объектами, от которых могут наследоваться другие объекты.
 
-[Interfaces](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces) serve as parent objects from which other objects can inherit.
+Например, [`Lockable`](/graphql/reference/interfaces#lockable) — это интерфейс, так как и объект [`Issue`](/graphql/reference/objects#issue), и объект [`PullRequest`](/graphql/reference/objects#pullrequest) могут быть заблокированы. Интерфейс имеет собственный список именованных полей, которые совместно используются реализациями объектов.
 
-For example, [`Lockable`](/v4/interface/lockable/) is an interface because both [`Issue`](/v4/object/issue/) and [`PullRequest`](/v4/object/pullrequest/) objects can be locked. An interface has its own list of named fields that are shared by implementing objects.
+Дополнительные сведения см. в разделе [Реализация](/graphql/guides/introduction-to-graphql#implementation).
 
-For more information, see "[Implementation](/v4/guides/intro-to-graphql#implementation)."
+{% data reusables.projects.graphql-ghes %}
 
-{% for item in graphql.schemaForCurrentVersion.interfaces %}
-  {% include graphql-interface %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

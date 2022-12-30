@@ -1,8 +1,17 @@
-Organizationには以下が含まれます。
-{% if currentVersion == "free-pro-team@latest" %}- A free option, {% data variables.product.prodname_free_team %}, with unlimited collaborators on unlimited public repositories with full features and unlimited private repositories with limited features.
-- 洗練されたユーザ認証と管理、拡張されたサポートオプションを含む{% data variables.product.prodname_team %}もしくは{% data variables.product.prodname_ghe_cloud %}へのアップグレードオプション。 {% data reusables.gated-features.more-info %}{% endif %}
-- [Organizationとそのデータへの様々なレベルでのアクセス](/articles/permission-levels-for-an-organization)を許可する様々なロールを持つ無制限のメンバーシップ。
-- [Organizationのリポジトリに対する様々なアクセス権限](/articles/repository-permission-levels-for-an-organization)をユーザに与える機能。
-- [Nested teams that reflect your company or group's structure](/articles/about-teams) with cascading access permissions and mentions{% if currentVersion != "github-ae@latest" %}
-- Organizationのオーナーがメンバーの[２要素認証（2FA）のステータス](/articles/about-two-factor-authentication)を見る機能。
-- The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
+---
+ms.openlocfilehash: 02e080d26aded3b22b6a9819208eb1908aae7cf0
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145122493"
+---
+Organization には、次のものが含まれます。
+- [Organization とそのデータへの異なるレベルのアクセス権](/articles/permission-levels-for-an-organization)を付与する、さまざまなロールを持つ無制限のメンバーシップ
+- [Organization のリポジトリへのアクセス権限の範囲](/articles/repository-permission-levels-for-an-organization)をメンバーに付与する機能
+- アクセス権限とメンションをカスケードして[会社またはグループの構造を反映するように入れ子にした Team](/articles/about-teams){% ifversion not ghae %}
+- Organization のオーナーが、メンバーの [2 要素認証 (2FA) の状態](/articles/about-two-factor-authentication)を表示する機能
+- [Organization のすべてのメンバーが 2 要素認証を使用することを必須にする](/articles/requiring-two-factor-authentication-in-your-organization)オプション{% endif %}{% ifversion fpt%}
+- [GitHub Classroom を使用してクラスルームを作成および管理](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)する機能{% endif %}
+
+{% data reusables.organizations.organization-plans %}

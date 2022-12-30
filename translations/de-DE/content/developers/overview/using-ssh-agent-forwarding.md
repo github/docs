@@ -1,56 +1,64 @@
 ---
-title: Using SSH agent forwarding
-intro: 'To simplify deploying to a server, you can set up SSH agent forwarding to securely use local SSH keys.'
+title: Konfigurieren der SSH-Agent-Weiterleitung
+intro: 'Um die Bereitstellung auf einem Server zu vereinfachen, kannst du die SSH-Agent-Weiterleitung weiterleiten, um lokale SSH-Schlüssel sicher zu verwenden.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
+  - /articles/using-ssh-agent-forwarding
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: SSH agent forwarding
+ms.openlocfilehash: ca827e1fc70288acc2da5c3a28ecfd71ece4a504
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145996257'
 ---
+Mithilfe der SSH-Agent-Weiterleitung kann die Bereitstellung auf einem Server vereinfacht werden.  Sie ermöglicht es dir, deine lokalen SSH-Schlüssel zu verwenden, anstatt Schlüssel (ohne Passphrasen!) auf deinem Server zu belassen.
 
+Wenn du bereits einen SSH-Schlüssel für die Interaktion mit {% data variables.product.product_name %} eingerichtet hast, kennst du dich wahrscheinlich mit `ssh-agent` aus. Dieses Programm wird im Hintergrund ausgeführt und sorgt dafür, dass dein Schlüssel im Arbeitsspeicher geladen bleibt. Auf diese Weise musst du deine Passphrase bei Verwendung des Schlüssels nicht jedes Mal erneut eingeben. Besonders nützlich an dem Programm ist, dass du Servern wahlweise Zugriff auf deine lokale `ssh-agent`-Instanz erteilen kannst, als würde die Instanz bereits auf dem Server ausgeführt wurden. Dies ist so, als würdest du jemanden bitten, seinen oder ihren Computer mit seinem oder ihrem Kennwort zu entsperren.
 
+Eine ausführlichere Erläuterung der SSH-Agent-Weiterleitung findest du in dem [Leitfaden mit IT-Tipps von Steve Friedl][tech-tips].
 
-SSH agent forwarding can be used to make deploying to a server simple.  It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
+## Einrichten der SSH-Agent-Weiterleitung
 
-If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
+Stelle sicher, dass dein eigener SSH-Schlüssel eingerichtet ist und funktioniert. Falls du noch keine SSH-Schlüssel generiert hast, kannst du dies mithilfe [unseres Leitfadens][generating-keys] nachholen.
 
-Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
-
-### Setting up SSH agent forwarding
-
-Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
-
-You can test that your local key works by entering `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` in the terminal:
+Du kannst die Funktionsfähigkeit deines lokalen Schlüssels testen, indem du `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` in das Terminal eingibst:
 
 ```shell
-$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide
 > shell access.
 ```
 
-We're off to a great start. Let's set up SSH to allow agent forwarding to your server.
+Das ist ein guter Ausgangspunkt. Nun werden wir SSH einrichten, um die Agent-Weiterleitung an deinen Server zu ermöglichen.
 
-1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
+1. Öffne die Datei in `~/.ssh/config` mithilfe deines bevorzugten Text-Editors. Wenn diese Datei nicht vorhanden ist, kannst du sie durch Eingabe von `touch ~/.ssh/config` im Terminal erstellen.
 
-2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
-   
+2. Gib den folgenden Text in die Datei ein, indem du `example.com` durch den Domänennamen oder die IP-Adresse deines Servers ersetzt:
+
         Host example.com
           ForwardAgent yes
 
 {% warning %}
 
-**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with *every* server you SSH into. They won't have direct access to the keys, but they will be able to use them *as you* while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
+**Warnung:** Möglicherweise planst du, einen Platzhalter wie `Host *` zu verwenden, um diese Einstellung auf alle SSH-Verbindungen anzuwenden. Das ist jedoch nicht empfehlenswert, da du deine lokalen SSH-Schlüssel an *jeden* Server weitergeben würdest, zu dem du eine SSH-Verbindung herstellst. Diese Server hätten zwar keinen direkten Zugriff auf die Schlüssel, könnten diese jedoch verwenden, um sich *als du* auszugeben, während die Verbindung besteht. **Du solltest nur Server hinzufügen, denen du vertraust und die du mit der Agent-Weiterleitung verwenden möchtest.**
 
 {% endwarning %}
 
-### Testing SSH agent forwarding
+## Testen der SSH-Agent-Weiterleitung
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
+Um die Funktionsfähigkeit der Agent-Weiterleitung mit deinem Server zu testen, kannst du eine SSH-Verbindung zu deinem Server herstellen und `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` erneut ausführen.  Wenn alles gut funktioniert, erhältst du die gleiche Aufforderung, die du auch lokal erhalten hast.
 
-If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
+Wenn du nicht sicher bist, ob dein lokaler Schlüssel verwendet wird, kannst du auch die Variable `SSH_AUTH_SOCK` auf deinem Server überprüfen:
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -58,38 +66,38 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/ssh-4hNGMk8AZX/agent.79453
 ```
 
-If the variable is not set, it means that agent forwarding is not working:
+Wenn die Variable nicht festgelegt ist, bedeutet dies, dass die Agent-Weiterleitung nicht funktioniert:
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > <em>[No output]</em>
-$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
 
-### Troubleshooting SSH agent forwarding
+## Problembehandlung der SSH-Agent-Weiterleitung
 
-Here are some things to look out for when troubleshooting SSH agent forwarding.
+Dieser Abschnitt erhält einige Hinweise, auf die du bei der Problembehandlung der SSH-Agent-Weiterleitung achten kannst.
 
-#### You must be using an SSH URL to check out code
+### Auschecken von Code musst du eine SSH-URL verwenden
 
-SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/config* file on your server and ensure the URL is an SSH-style URL like below:
+Die SSH-Weiterleitung funktioniert nur mit SSH-URLs, nicht HTTP(s)-URLs. Überprüfe die Datei `.git/config` auf deinem Server, und stelle sicher, dass die URL ein SSH-Format wie das folgende aufweist:
 
 ```shell
 [remote "origin"]
-  url = git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
+  url = git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-#### Your SSH keys must work locally
+### Deine SSH-Schlüssel müssen lokal funktionieren
 
-Before you can make your keys work through agent forwarding, they must work locally first. [Our guide on generating SSH keys][generating-keys] can help you set up your SSH keys locally.
+Bevor deine Schlüssel mit der Agent-Weiterleitung verwendet werden können, müssen sie zunächst lokal funktionieren. [Unser Leitfaden zum Generieren von SSH-Schlüsseln][generating-keys] kann dir helfen, deine SSH-Schlüssel lokal einzurichten.
 
-#### Your system must allow SSH agent forwarding
+### Dein System muss die SSH-Agent-Weiterleitung zulassen
 
-Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:
+In manchen Fällen lassen Systemkonfigurationen die SSH-Agent-Weiterleitung nicht zu. Indem du den folgenden Befehl im Terminal eingibst, kannst du überprüfen, ob eine Systemkonfigurationsdatei verwendet wird:
 
 ```shell
 $ ssh -v <em>example.com</em>
@@ -103,7 +111,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-In the example above, the file *~/.ssh/config* is loaded first, then */etc/ssh_config* is read.  We can inspect that file to see if it's overriding our options by running the following commands:
+Im obigen Beispiel wird die Datei `~/.ssh/config` zuerst geladen, und dann wird `/etc/ssh_config` gelesen.  Wir können der folgenden Befehle überprüfen, ob diese Datei unsere Optionen überschreibt:
 
 ```shell
 $ cat /etc/ssh_config
@@ -113,17 +121,17 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-In this example, our */etc/ssh_config* file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
+In diesem Beispiel enthält die Datei `/etc/ssh_config` explizit die Angabe `ForwardAgent no`. Hierbei handelt es sich um eine Möglichkeit ist, die Agent-Weiterleitung zu blockieren. Wenn du diese Zeile aus der Datei löschst, sollte die Agent-Weiterleitung wieder funktionieren.
 
-#### Your server must allow SSH agent forwarding on inbound connections
+### Dein Server muss die SSH-Agent-Weiterleitung für eingehende Verbindungen zulassen
 
-Agent forwarding may also be blocked on your server. You can check that agent forwarding is permitted by SSHing into the server and running `sshd_config`. The output from this command should indicate that `AllowAgentForwarding` is set.
+Die Agent-Weiterleitung kann auch auf deinem Server blockiert werden. Du kannst überprüfen, ob die Agent-Weiterleitung zulässig ist, indem du eine SSH-Verbindung zum Server herstellst und `sshd_config` ausführst. Die Ausgabe dieses Befehls sollte angeben, dass `AllowAgentForwarding` festgelegt ist.
 
-#### Your local `ssh-agent` must be running
+### Deine lokale `ssh-agent`-Instanz muss ausgeführt werden
 
-On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
+Unter den meisten Computern startet das Betriebssystem `ssh-agent` automatisch für dich.  Unter Windows musst du den Start jedoch manuell ausführen. Wir haben einen [Leitfaden zum Starten von `ssh-agent` beim Öffnen von Git Bash][autolaunch-ssh-agent] verfasst.
 
-To verify that `ssh-agent` is running on your computer, type the following command in the terminal:
+Um zu überprüfen, ob `ssh-agent` auf deinem Computer ausgeführt wird, gib den folgenden Befehl in das Terminal ein:
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -131,15 +139,15 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/launch-kNSlgU/Listeners
 ```
 
-#### Your key must be available to `ssh-agent`
+### Dein Schlüssel muss für `ssh-agent` verfügbar sein.
 
-You can check that your key is visible to `ssh-agent` by running the following command:
+Du kannst überprüfen, ob der Schlüssel für `ssh-agent` sichtbar ist, indem du den folgenden Befehl ausführst:
 
 ```shell
 ssh-add -L
 ```
 
-If the command says that no identity is available, you'll need to add your key:
+Wenn der Befehl angibt, dass keine Identität verfügbar ist, musst du deinen Schlüssel hinzufügen:
 
 ```shell
 $ ssh-add <em>yourkey</em>
@@ -147,7 +155,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-On Mac OS X, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+Unter macOS „vergisst“ `ssh-agent` diesen Schlüssel, sobald das Programm durch einen Neustart neu gestartet wird. Du kannst deine SSH-Schlüssel jedoch mithilfe des folgenden Befehls in Keychain importieren:
 
 ```shell
 $ ssh-add -K <em>yourkey</em>
@@ -157,5 +165,5 @@ $ ssh-add -K <em>yourkey</em>
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
 [generating-keys]: /articles/generating-ssh-keys
-[generating-keys]: /articles/generating-ssh-keys
+[ssh-passphrases]: /ssh-key-passphrases/
 [autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

@@ -1,43 +1,36 @@
 ---
-title: Learn GitHub Actions
+title: Informationen zu GitHub Actions
 shortTitle: Learn GitHub Actions
-intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
+intro: 'Unabhängig davon, ob {% data variables.product.prodname_actions %} für dich neu sind, oder du alle Möglichkeiten kennenlernen möchtest, die sie bieten, wird dir dieser Leitfaden dabei helfen, {% data variables.product.prodname_actions %} zur Beschleunigung deiner Anwendungsentwicklungsabläufe zu nutzen.'
 redirect_from:
   - /articles/about-github-actions
-  - /github/automating-your-workflow-with-github-actions/about-github-actions
-  - /actions/automating-your-workflow-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions
   - /actions/getting-started-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions/overview
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
-  - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/
-  - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /articles/creating-a-workflow-with-github-actions/
-  - /articles/configuring-a-workflow
-  - /github/automatisieren-ihren-workflow-mit-github-aktionen/configuring-a-workflow
-  - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
-  - /actions/creating-workflows/workflow-configuration-options
-  - /articles/configuring-workflows
-  - /github/automating-your-workflow-with-github-actions/configuring-workflows
-  - /actions/automating-your-workflow-with-github-actions/configuring-workflows
+  - /articles/getting-started-with-github-actions
+  - /github/automating-your-workflow-with-github-actions/about-github-actions
+  - /actions/automating-your-workflow-with-github-actions/about-github-actions
   - /github/automating-your-workflow-with-github-actions/getting-started-with-github-actions
   - /actions/automating-your-workflow-with-github-actions/getting-started-with-github-actions
-  - /actions/configuring-and-managing-workflows
-  - /articles/getting-started-with-github-actions
-  - /actions/migrating-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /understanding-github-actions
+  - /finding-and-customizing-actions
+  - /essential-features-of-github-actions
+  - /expressions
+  - /contexts
+  - /environment-variables
+  - /usage-limits-billing-and-administration
+ms.openlocfilehash: dcc50450ec26cbe5336d3eaca9c80df29a936ab9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145105060'
 ---
 
-{% link_with_intro /introduction-to-github-actions %}
-{% link_with_intro /finding-and-customizing-actions %}
-{% link_with_intro /essential-features-of-github-actions %}
-{% link_with_intro /managing-complex-workflows %}
-{% link_with_intro /sharing-workflows-with-your-organization %}
-{% link_with_intro /security-hardening-for-github-actions %}
-{% link_with_intro /migrating-from-azure-pipelines-to-github-actions %}
-{% link_with_intro /migrating-from-circleci-to-github-actions %}
-{% link_with_intro /migrating-from-gitlab-cicd-to-github-actions %}
-{% link_with_intro /migrating-from-jenkins-to-github-actions %}
-{% link_with_intro /migrating-from-travis-ci-to-github-actions %}

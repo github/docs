@@ -1,1 +1,9 @@
-You can launch projects from a {% data variables.product.product_name %} repository to your server by using a deploy key, which is an SSH key that grants access to a single repository. {% data variables.product.product_name %} attaches the public part of the key directly to your repository instead of a personal user account, and the private part of the key remains on your server. For more information, see "[Delivering deployments](/v3/guides/delivering-deployments/)."
+---
+ms.openlocfilehash: 82333b02778252fd675cc0bee3508229209d24bc
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098170"
+---
+Вы можете запускать проекты из репозитория на сервере {% ifversion ghae %}{% данных variables.product.product_name %}{%else %}{% данных variables.location.product_location %}{% endif %} на сервер с помощью ключа развертывания, который является ключом SSH, который предоставляет доступ к одному репозиторию. {% data variables.product.product_name %} присоединяет открытую часть ключа непосредственно к репозиторию, а не к личной учетной записи. Закрытая часть ключа при этом остается на сервере. Дополнительные сведения см. в разделе [Доставка развертываний](/rest/guides/delivering-deployments).

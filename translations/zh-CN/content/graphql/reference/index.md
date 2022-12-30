@@ -4,23 +4,24 @@ intro: '查看参考文档，了解 {% data variables.product.prodname_dotcom %}
 redirect_from:
   - /v4/reference
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /queries
+  - /mutations
+  - /objects
+  - /interfaces
+  - /enums
+  - /unions
+  - /input-objects
+  - /scalars
+ms.openlocfilehash: e321cf6116e083fab00707deaf7d86a5f13beefb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145065983'
 ---
 
-{% link_in_list /queries %}
-
-{% link_in_list /mutations %}
-
-{% link_in_list /objects %}
-
-{% link_in_list /interfaces %}
-
-{% link_in_list /enums %}
-
-{% link_in_list /unions %}
-
-{% link_in_list /input-objects %}
-
-{% link_in_list /scalars %}

@@ -1,0 +1,23 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 解锁存储库以进行临时访问后，站点管理员无法管理存储库中安全产品的设置。 
+    - 管理控制台和 `/home/admin/.ssh/authorized_keys` 文件中可能会出现重复的管理 SSH 密钥。
+    - 在某些情况下，运行 `ghe-cluster-config-apply` 可以将空配置复制到群集中的现有节点。 
+    - 在某些情况下，以 `ghe-config-apply` 开始的配置运行未完成，或返回了 `Container count mismatch` 错误。 
+    - 在 GitHub Enterprise Server 实例上更新自签名 TLS 证书后，Web 界面中某些页面上的 UI 元素没有显示。 
+    - 在某些情况下，尽管不是线程安全的，但由于同时使用的库，可能会导致后台任务停止。
+  changes:
+    - "由于并行日志清理，支持包的生成速度更快。有关支持包的详细信息，请参阅“[将数据提供给 GitHub 支持](/support/contacting-github-support/providing-data-to-github-support)”。"
+    - "企业审核日志现在包含更多用户生成的事件，例如 `project.create`。REST API 还返回其他用户生成的事件，例如 `repo.create`。有关详细信息，请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for -your-enterprise)”和“[使用企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit- log-api-for-your-enterprise#querying-the-audit-log-rest-api)”。"
+  known_issues:
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含文件路径长于 255 个字符的同一存储库中 blob 的永久链接，则问题无法关闭。
+    - "对 {% data variables.product.prodname_github_connect %} 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 {% data variables.product.prodname_dotcom_the_website %} 搜索结果中。"
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样可以大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在以后解决现有性能问题后恢复返回这个值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '选择“强制路径样式”时，无法验证 {% data variables.product.prodname_actions %} 存储设置并将其保存在 {% data variables.enterprise.management_console %} 中，而必须使用 `ghe-actions-precheck` 命令行实用程序进行配置。'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

@@ -1,0 +1,25 @@
+---
+title: Organisationsmigrationen
+allowTitleToDifferFromFilename: true
+shortTitle: Organizations
+intro: ''
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.3'
+  ghae: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 52b7ed6d516d1a042d6fbee2c388cc1953c1dc11
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883489'
+---
+## Informationen zur API für Organisationsmigrationen
+
+Die Migrations-API ist nur für authentifizierte Organisationsbesitzer verfügbar. Weitere Informationen findest du unter [Rollen in einer Organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization) und unter [Andere Authentifizierungsmethoden](/rest/overview/other-authentication-methods).
+
+{% data variables.migrations.organization_migrations_intro %}

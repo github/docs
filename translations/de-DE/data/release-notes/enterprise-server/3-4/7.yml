@@ -1,0 +1,29 @@
+date: '2022-08-11'
+sections:
+  security_fixes:
+    - |**KRITISCH**: Der Elasticsearch-Container von GitHub Enterprise Server verwendete eine Version von OpenJDK 8, die bei der Verarbeitung bösartiger XSLT-Stylesheets für das Abschneiden von Ganzzahlen anfällig war. Das Sicherheitsrisiko wird als [CVE-2022-34169](https://github.com/advisories/GHSA-9339-86wc-4qgf) verfolgt.
+
+|
+    - |**HOCH**: Zuvor auf Benutzerkonten installierte Apps erhielten automatisch die Berechtigung zum Zugriff auf eine Organisation über bereichsbezogene Zugriffstoken, nachdem das Benutzerkonto in ein Organisationskonto umgewandelt wurde. Dieses Sicherheitsrisiko wurde über das [GitHub Bug Bounty Program](https://bounty.github.com) gemeldet.
+
+|
+  bugs:
+    - "In einigen Fällen konnten GitHub Enterprise Server-Instanzen auf AWS, die den Instanztyp `r4.4xlarge` verwendeten, nicht gebootet werden."
+    - "Bei der Berechnung der Committer für GitHub Advanced Security war es nicht möglich, einzelne Repositorys anzugeben. Weitere Informationen findest du unter [Websiteadministrator-Dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)." 
+    - "Wenn für die Instanz ein benutzerdefinierter Inaktivitätsschwellenwert festgelegt wurde, wurde dieser Schwellenwert bei der Sperrung aller inaktiven Benutzer nicht zuverlässig eingehalten. Weitere Informationen über Inaktivität findest du unter [Inaktive Benutzer verwalten](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+  changes:
+    - '`pre_receive_hook.rejected_push`-Ereignisse wurden nicht im Überwachungsprotokoll des Unternehmens angezeigt.'
+    - Sowohl Migrationsarchive für Repositorys als auch Archivexporte für Benutzerkonten enthalten Freigabereaktionen.
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - |Nach der Registrierung eines selbstgehosteten Runners mit dem Parameter `--ephemeral` auf mehreren Ebenen (z. B. auf Unternehmens- und Organisationsebene) befindet sich der Runner möglicherweise im Leerlauf und muss erneut registriert werden. [Aktualisiert: 17.06.2022]
+
+|
+    - "Nach dem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.4 kann es vorkommen, dass Releases in den Repositorys fehlen. Dieses Problem kann auftreten, wenn die erforderlichen Elasticsearch-Indexmigrationen nicht erfolgreich abgeschlossen wurden."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

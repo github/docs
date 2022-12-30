@@ -1,41 +1,20 @@
 ---
-title: Changelog
-intro: 'The GraphQL schema changelog is a list of recent and upcoming changes to our GraphQL API schema. It includes backwards-compatible changes, schema previews, and upcoming breaking changes.'
+title: Änderungsprotokoll
+intro: 'Das Änderungsprotokoll des GraphQL-Schemas ist eine Liste der jüngsten und kommenden Änderungen an unserem GraphQL-API-Schema. Es enthält abwärtskompatible Änderungen, eine Vorschau auf das Schema und bevorstehende Breaking Changes.'
 redirect_from:
   - /v4/changelog
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 34f0baed8b75614c939281ed6a2393d7c809c82f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108454'
 ---
-
-Breaking changes include changes that will break existing queries or could affect the runtime behavior of clients. For a list of breaking changes and when they will occur, see our [breaking changes log](/v4/breaking_changes).
-
-{% for entry in graphql.changelog %}
-### Schema Changes for {{ entry.date }}
-
-{% for schemaChange in entry.schemaChanges %}
-{{ schemaChange.title }}
-
-{% for change in schemaChange.changes %}
-* {{ change }}
-{% endfor %}
-{% endfor %}
-
-{% for previewChange in entry.previewChanges %}
-{{ previewChange.title }}
-
-{% for change in previewChange.changes %}
-* {{ change }}
-{% endfor %}
-{% endfor %}
-
-{% for upcomingChange in entry.upcomingChanges %}
-{{ upcomingChange.title }}
-
-{% for change in upcomingChange.changes %}
-* {{ change }}
-{% endfor %}
-{% endfor %}
-
-{% endfor %}
+Zu den Breaking Changes gehören Änderungen, die vorhandene Abfragen unterbrechen oder das Laufzeitverhalten von Clients beeinflussen könnten. Eine Liste der Breaking Changes und wann sie auftreten, findest du in unserem [Breaking Changes-Protokoll](/graphql/overview/breaking-changes).

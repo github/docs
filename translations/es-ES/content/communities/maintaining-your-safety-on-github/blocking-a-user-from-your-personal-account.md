@@ -1,0 +1,92 @@
+---
+title: Bloquear a un usuario de tu cuenta personal
+intro: Puedes bloquear a un usuario para impedirle el acceso a tu actividad y repositorios y para evitar que te envíe notificaciones.
+redirect_from:
+  - /articles/blocking-a-user-from-your-personal-account
+  - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
+versions:
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Community
+shortTitle: Block from your account
+ms.openlocfilehash: bd657c221b007b6b574e97f54f2b330401b8fd9b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422880'
+---
+## Acerca de bloquear usuarios
+
+Puedes bloquear a un usuario en los parámetros de tu cuenta o desde el perfil del usuario. {% data variables.product.prodname_dotcom %} no notificará al usuario cuando lo bloquees. Si quieres evitar contribuir en el mismo proyecto que alguien que has bloqueado, puedes elegir que se muestre una advertencia en cualquier repositorio que tenga contribuciones previas de los usuarios que has bloqueado. Para obtener más información, consulte "[Bloqueo de un usuario en la configuración de la cuenta](#blocking-a-user-in-your-account-settings)". Puede que aún veas la actividad de los usuarios bloqueados en los espacios compartidos y los usuarios bloqueados pueden borrar su contenido existente.
+
+{% tip %}
+
+**Sugerencia**: Si bloquea a un usuario debido a una conversación acalorada, considere bloquear dicha conversación para que solo puedan comentar los colaboradores. Para obtener más información, consulte "[Bloqueo de conversaciones](/communities/moderating-comments-and-conversations/locking-conversations)".
+
+{% endtip %}
+
+Cuando bloqueas a un usuario:
+- El usuario deja de seguirte
+- El usuario deja de observar y deja de fijar tus repositorios
+- El usuario no puede unirse a ninguna organización que te pertenezca
+- Las asignaciones con estrella y las propuestas del usuario se eliminarán de tus repositorios
+- Se borran los votos del usuario en los comentarios o debates de tus repositorios
+- El usuario será eliminado como colaborador en los repositorios de tu organización
+- Las contribuciones del usuario ya no contarán como tales para ellos en tus repositorios
+- Tus contribuciones para los repositorios del usuario bloqueado ya no contarán como tales para ti
+- Se te elimina como colaborador en sus repositorios
+- Ya no contarás con su patrocinio
+- Cualquier invitación de sucesor de una cuenta o repositorio que se haga a o que provenga del usuario bloqueado se cancela
+- El usuario se quita como colaborador de todos los proyectos y {% data variables.projects.projects_v1_boards %} de tu propiedad.
+- Se te se quita como colaborador de todos los proyectos y {% data variables.projects.projects_v1_boards %} propiedad del usuario.
+
+Después de que hayas bloqueado a un usuario, no podrá:
+- Enviarle notificaciones, como, por ejemplo, [@mentioning](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) su nombre de usuario.
+- Los comentarios o ediciones a los informes de problemas o solicitudes de extracción que has creado
+- Reaccionar a tus comentarios en reportes de problemas, solicitudes de extracción y confirmaciones
+- Seguir o ver tu contenido en el feed de sus actividades
+- Se te asigna a los informes de problemas o solicitudes de extracción
+- Invitarte para que seas colaborador en sus repositorios
+- Invitarte como colaborador en una asesoría de seguridad
+- Realizar referencias cruzadas con tus repositorios en comentarios
+- Bifurcar, observar, fijar o marcar con estrella a tus repositorios
+- Patrocinarte
+- Agregarte como colaborador en sus proyectos y {% data variables.projects.projects_v1_boards %}
+- Realiza cambios en los proyectos públicos y {% data variables.projects.projects_v1_boards %}
+
+En los repositorios que te pertenecen, los usuarios bloqueados tampoco podrán:
+- Abrir propuestas
+- Envía, cierra, o fusiona las solicitudes de extracción
+- Comentar propuestas, solicitudes de extracción o confirmaciones
+- Agregar o editar páginas wiki
+
+## Bloquear a un usuario en tus parámetros de cuenta
+
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.blocked_users %}
+3. En "Block a user", escriba el nombre de usuario del usuario que desea bloquear y haga clic en **Block user**.
+  ![Campo Username y botón Block](/assets/images/help/settings/user-settings-block-user.png)
+4. Opcionalmente, para mostrar una advertencia al visitar un repositorio donde un usuario bloqueado es un colaborador, seleccione **Warn me when blocked user is a prior contributor to a repository**.
+  ![Opción para advertir sobre usuarios bloqueados](/assets/images/help/settings/warn-block-user.png)
+
+## Bloquear a un usuario desde su página de perfil
+
+{% data reusables.profile.user_profile_page_navigation %} {% data reusables.profile.user_profile_page_block_or_report %}
+3. Haga clic en **Block user**.
+   ![Cuadro modal con opciones para bloquear a un usuario o notificar un uso indebido](/assets/images/help/profile/profile-blockuser.png)
+
+{% note %}
+
+Utiliza {% data variables.contact.report_abuse %} para contactarnos si te están acosando. {% data reusables.policies.abuse %}
+
+{% endnote %}
+
+## Información adicional
+
+- "[Visualización de los usuarios bloqueados de la cuenta personal](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
+- "[Desbloquear a un usuario desde su cuenta personal](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+- "[Bloqueo de usuarios de la organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[Desbloqueo de usuarios de la organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+- "[Notificación de abusos o correos no deseados](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Limitación de las interacciones en el repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

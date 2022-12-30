@@ -1,1 +1,9 @@
-1. Na barra lateral Configurações da sua organização, clique **Blocked users** (Usuários bloqueados). ![Usuários bloqueados nas configurações da organização](/assets/images/help/organizations/org-settings-block-users.png)
+---
+ms.openlocfilehash: fdb7938e6fd3a8f9a1ccebffd1ca40cc76fb1073
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145096514"
+---
+1. Na barra lateral, selecione **{% octicon "report" aria-label="The report icon" %} Moderação** e clique em **Usuários bloqueados**.

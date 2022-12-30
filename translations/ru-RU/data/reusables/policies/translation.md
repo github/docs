@@ -1,3 +1,11 @@
-This document is translated from English. In the event of any conflict, uncertainty, or apparent inconsistency between this version and the English version(s) of this document, the English version is the controlling version.
+---
+ms.openlocfilehash: af055b3b51fb304529bc902576b6025b6018d4f2
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881783"
+---
+Этот документ переведен с английского языка. В случае конфликта, неопределенности или явного несоответствия между этой версией и английскими версиями этого документа, английская версия имеет преимущество.
 
-If you have suggestions to improve our translation, please <a href="https://github.com/github/site-policy/issues">open an issue in our site-policy repository</a>.
+Если у вас есть предложения по улучшению перевода, <a href="https://github.com/github/site-policy/issues">создайте обращение в нашем репозитории политик сайта</a>.

@@ -2,33 +2,25 @@
 title: GitHub Marketplace
 intro: 'Liste suas ferramentas no Markeplace do {% data variables.product.prodname_dotcom %} para os desenvolvedores usarem ou comprarem.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace/
-  - /apps/marketplace/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace
+  - /apps/marketplace
   - /marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Marketplace
+children:
+  - /github-marketplace-overview
+  - /creating-apps-for-github-marketplace
+  - /using-the-github-marketplace-api-in-your-app
+  - /listing-an-app-on-github-marketplace
+  - /selling-your-app-on-github-marketplace
+ms.openlocfilehash: ba73ba3da3bd965b1b89dccac368bc637014363b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145083950'
 ---
 
-{% topic_link_in_list /creating-apps-for-github-marketplace %}
-    {% link_in_list /about-github-marketplace %}
-    {% link_in_list /requirements-for-listing-an-app %}
-    {% link_in_list /security-review-process-for-submitted-apps %}
-    {% link_in_list /viewing-metrics-for-your-listing %}
-    {% link_in_list /viewing-transactions-for-your-listing %}
-{% topic_link_in_list /using-the-github-marketplace-api-in-your-app %}
-    {% link_in_list /rest-endpoints-for-the-github-marketplace-api %}
-    {% link_in_list /webhook-events-for-the-github-marketplace-api %}
-    {% link_in_list /testing-your-app %}
-    {% link_in_list /handling-new-purchases-and-free-trials %}
-    {% link_in_list /handling-plan-changes %}
-    {% link_in_list /handling-plan-cancellations %}
-{% topic_link_in_list /listing-an-app-on-github-marketplace %}
-    {% link_in_list /drafting-a-listing-for-your-app %}
-    {% link_in_list /writing-a-listing-description-for-your-app %}
-    {% link_in_list /setting-pricing-plans-for-your-listing %}
-    {% link_in_list /configuring-a-webhook-to-notify-you-of-plan-changes %}
-    {% link_in_list /submitting-your-listing-for-review %}
-{% topic_link_in_list /selling-your-app-on-github-marketplace %}
-    {% link_in_list /pricing-plans-for-github-marketplace-apps %}
-    {% link_in_list /billing-customers %}
-    {% link_in_list /receiving-payment-for-app-purchases %}

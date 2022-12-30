@@ -2,6 +2,11 @@
 
 version: 1
 links:
+  - name: Observability docs
+    description: Docs Engineering observability docs
+    kind: docs
+    service: docs-internal
+    url: https://github.com/github/docs-engineering/blob/main/docs/observability/docs.github.com.md
   - name: Datadog dashboard
     description: Production Datadog dashboard
     kind: dashboard

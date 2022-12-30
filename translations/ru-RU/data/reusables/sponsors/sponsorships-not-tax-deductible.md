@@ -1,1 +1,9 @@
-Sponsorships are generally not tax deductible but can be in some cases. It's the responsibility of the sponsored open source contributor—not {% data variables.product.prodname_dotcom %}—to inform sponsors whether the contributions are being made to a tax-exempt entity like a 501(c)(3), and if the sponsorships may be tax-deductible.
+---
+ms.openlocfilehash: 48f18c41b5467c9e8cff0d06ea5afb79e7f2820e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145067536"
+---
+В большинстве случаев направляемые на спонсорскую поддержку средства не облагаются налогами, но это не всегда так. {% data variables.product.prodname_dotcom %} не несет ответственности за информирование спонсоров о том, является ли получателем их взносов организация, освобожденная от уплаты налогов, например в соответствии с разделом 501(c)(3) Налогового кодекса США, и подлежат ли такие спонсорские взносы налогообложению. Ответственность за это возлагается на спонсируемого участника разработки открытого кода.

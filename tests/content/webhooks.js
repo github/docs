@@ -1,79 +1,67 @@
-const { difference } = require('lodash')
-const { getJSON } = require('../helpers')
-const { latest } = require('../../lib/enterprise-server-releases')
-const allVersions = Object.values(require('../../lib/all-versions'))
-const payloadVersions = allVersions.map(v => v.miscVersionName)
-const webhookPayloads = require('../../lib/webhooks')
+import { get } from '../helpers/e2etest.js'
+import {
+  SURROGATE_ENUMS,
+  makeLanguageSurrogateKey,
+} from '../../middleware/set-fastly-surrogate-key.js'
+import { describe, expect } from '@jest/globals'
 
-// grab some values for testing
-const nonEnterpriseDefaultPayloadVersion = allVersions
-  .find(version => version.nonEnterpriseDefault)
-  .miscVersionName
+describe('webhooks v1 middleware', () => {
+  test('basic get webhook', async () => {
+    const sp = new URLSearchParams()
+    // Based on live data which isn't ideal but it should rarely change at least.
+    // Just check that we find the webhook and that the result has the `category`
+    // field which all webhook types should have.
+    sp.set('category', 'branch_protection_rule')
+    sp.set('version', 'free-pro-team@latest')
+    const res = await get('/api/webhooks/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    const actionTypes = Object.keys(results)
+    expect(actionTypes.length).toBeGreaterThan(2)
+    expect(Object.keys(results[actionTypes[0]]).includes('category')).toBeTruthy()
 
-const latestGhesPayloadVersion = allVersions
-  .find(version => version.currentRelease === latest)
-  .miscVersionName
-
-const ghaePayloadVersion = allVersions
-  .find(version => version.plan === 'github-ae')
-  .miscVersionName
-
-describe('webhook payloads', () => {
-  jest.setTimeout(3 * 60 * 1000)
-
-  test('have expected top-level keys', () => {
-    payloadVersions.forEach(version => {
-      expect(version in webhookPayloads).toBe(true)
-    })
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-control']).toContain('public')
+    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
-  test('have a reasonable number of payloads per version', () => {
-    payloadVersions.forEach(version => {
-      const payloadsPerVersion = Object.keys(webhookPayloads[version])
-      expect(payloadsPerVersion.length).toBeGreaterThan(20)
-    })
+  test('get non-fpt version webhook', async () => {
+    const sp = new URLSearchParams()
+    sp.set('category', 'branch_protection_rule')
+    sp.set('version', 'enterprise-cloud@latest')
+    const res = await get('/api/webhooks/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    const actionTypes = Object.keys(results)
+    expect(actionTypes.length).toBeGreaterThan(2)
+    expect(Object.keys(results[actionTypes[0]]).includes('category')).toBeTruthy()
+
+    expect(res.statusCode).toBe(200)
   })
 
-  test('have payloads that are JSON strings, not objects', () => {
-    // use the first one found for testing purposes
-    const firstKey = Object.keys(webhookPayloads[nonEnterpriseDefaultPayloadVersion])[0]
-    const firstValue = webhookPayloads[nonEnterpriseDefaultPayloadVersion][firstKey]
-    const payloadString = getPayloadString(firstValue)
-    const payloadLines = payloadString.split('\n')
+  test('unknown webhook category', async () => {
+    const sp = new URLSearchParams()
+    sp.set('category', 'no-such-category')
+    sp.set('version', 'free-pro-team@latest')
+    const res = await get('/api/webhooks/v1?' + sp)
 
-    expect(payloadLines.length).toBeGreaterThan(5)
-    expect(payloadLines[2].trim()).toBe('```json')
-    expect(payloadLines[3].trim()).toBe('{')
-    expect(payloadLines[payloadLines.length - 3].trim()).toBe('```')
+    expect(res.statusCode).toBe(404)
+    expect(JSON.parse(res.text).error).toBeTruthy()
   })
 
-  test('on non-dotcom versions, dotcom-only payloads fall back to dotcom', async () => {
-    const ghesPayloads = webhookPayloads[latestGhesPayloadVersion]
-    const ghaePayloads = webhookPayloads[ghaePayloadVersion]
-    const dotcomOnlyPayloads = difference(Object.keys(webhookPayloads[nonEnterpriseDefaultPayloadVersion]), Object.keys(ghesPayloads))
-    // use the first one found for testing purposes
-    const dotcomOnlyPayload = dotcomOnlyPayloads[0]
-    expect(ghesPayloads[dotcomOnlyPayload]).toBeUndefined()
-    expect(ghaePayloads[dotcomOnlyPayload]).toBeUndefined()
+  test('unknown version', async () => {
+    const sp = new URLSearchParams()
+    sp.set('category', 'branch_protection_rule')
+    sp.set('version', 'no-such-version')
+    const res = await get('/api/webhooks/v1?' + sp)
 
-    // fallback handling is in middleware/contexturalizers/webhooks.js
-    const ghesPayloadsWithFallbacks = await getJSON(`/en/enterprise-server@${latest}/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion`)
-    const ghaePayloadsWithFallbacks = await getJSON('/en/github-ae@latest/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion')
-    expect(ghesPayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
-    expect(ghaePayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()
-
-    const ghesPayloadString = getPayloadString(ghesPayloadsWithFallbacks[dotcomOnlyPayload])
-    const ghaePayloadString = getPayloadString(ghaePayloadsWithFallbacks[dotcomOnlyPayload])
-    expect(ghesPayloadString.includes('```json')).toBe(true)
-    expect(ghaePayloadString.includes('```json')).toBe(true)
+    expect(res.statusCode).toBe(404)
+    expect(JSON.parse(res.text).error).toBeTruthy()
   })
 })
-
-// accommodate two possible payload string locations
-// value of top-level key: `create` (in create.payload.json)
-// value of second-level key: `issues.opened` (in issues.opened.payload.json)
-function getPayloadString (payload) {
-  return typeof payload === 'string'
-    ? payload
-    : payload[Object.keys(payload)[0]]
-}

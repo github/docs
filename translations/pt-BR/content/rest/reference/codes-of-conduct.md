@@ -1,14 +1,24 @@
 ---
 title: Códigos de conduta
+intro: The Codes of Conduct API lets you to retrieve the information about a particular repository's code of conduct.
 redirect_from:
-  - /v3/codes_of_conduct
-  - /v3/codes-of-conduct
+- /v3/codes_of_conduct
+- /v3/codes-of-conduct
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: a89dc626c6273f1490a7f5dae062038090abc1fe
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141502333"
 ---
-
-Você pode usar a API de Códigos de Conduta para recuperar informações sobre o código de conduta de um repositório. Para obter o código de conduta de um repositório, use o ponto de extremidade "[Obter um repositório](/v3/repos/#get-a-repository).
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/codes-of-conduct
+-->

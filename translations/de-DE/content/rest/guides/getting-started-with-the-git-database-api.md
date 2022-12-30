@@ -1,46 +1,55 @@
 ---
-title: Getting started with the Git Database API
-intro: 'The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags).'
+title: Erste Schritte mit der Git-Datenbank-API
+intro: 'Die Git-Datenbank-API ermöglicht Lese- und Schreibzugriff auf unformatierte Git-Objekte in deiner Git-Datenbank auf {% data variables.product.product_name %} und zum Auflisten und Aktualisieren deiner Verweise (Branchheads und Tags).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: Get started - Git Database API
+ms.openlocfilehash: b7044e299602de42a2c880df8da4a6f19ef9334b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145131343'
 ---
+## Übersicht 
 
-### Übersicht
+Dies ermöglicht es dir, viele Git-Funktionen über die API neu zu implementieren. Indem du rohe Objekte direkt in der Datenbank erstellst und Branchreferenzen aktualisierst, kannst du theoretisch sämtliche Git-Funktionen nutzen, ohne Git installiert zu haben.
 
-This basically allows you to reimplement a lot of Git functionality over our API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
+Git-Datenbank-API-Funktionen geben einen `409 Conflict` zurück, wenn das Git-Repository leer oder nicht verfügbar ist.  Ein nicht verfügbares Repository bedeutet in der Regel, dass das Repository gerade von {% data variables.product.product_name %} erstellt wird. Bei einem leeren Repository kannst du den Endpunkt [Dateiinhalte erstellen oder aktualisieren](/rest/reference/repos#create-or-update-file-contents) verwenden, um Inhalte zu erstellen und das Repository zu initialisieren, damit du die Git-Datenbank-API verwenden kannst. Wende dich an {% data variables.contact.contact_support %}, wenn dieser Antwortstatus weiterhin auftritt.
 
-Git Database API functions will return a `409 Conflict` if the Git repository is empty or unavailable.  An unavailable repository typically means {% data variables.product.product_name %} is in the process of creating the repository. For an empty repository, you can use the "[Create or update file contents](/v3/repos/contents/#create-or-update-file-contents)" endpoint to create content and initialize the repository so you can use the Git Database API. Contact {% data variables.contact.contact_support %} if this response status persists.
+![Übersicht über die Git-Datenbank](/assets/images/git-database-overview.png)
 
-![git database overview](/assets/images/git-database-overview.png)
+Weitere Informationen zur Git-Objektdatenbank findest du im Kapitel [Git Internals](http://git-scm.com/book/en/v1/Git-Internals) des Pro Git-Buchs.
 
-For more information on the Git object database, please read the [Git Internals](http://git-scm.com/book/en/v1/Git-Internals) chapter of the Pro Git book.
+Wenn du beispielsweise eine Änderung an einer Datei in deinem Repository committen möchtest, gehe wie folgt vor:
 
-As an example, if you wanted to commit a change to a file in your repository, you would:
+* Rufe das aktuelle Commitobjekt ab.
+* Rufe die aufgewiesene Struktur ab.
+* Rufe den Inhalt des Blobobjekts ab, über das die Struktur für diesen bestimmten Dateipfad verfügt.
+* Ändere den Inhalt, stelle ein neues Blobobjekt mit diesem neuen Inhalt bereit, und erhalte einen Blob-SHA-Wert zurück.
+* Stelle ein neues Strukturobjekt bereit, bei dem dieser Dateipfadzeiger durch deinen neuen Blob-SHA-Wert ersetzt ist, und erhalte einen Struktur-SHA-Wert zurück.
+* Erstelle ein neues Commitobjekt mit dem aktuellen Commit-SHA-Wert als übergeordnetes Element und des neuen Struktur-SHA-Werts, und erhalte einen Commit-SHA-Wert zurück.
+* Aktualisiere den Verweis deines Branch auf den neuen Commit-SHA-Wert.
 
-* Get the current commit object
-* Retrieve the tree it points to
-* Retrieve the content of the blob object that tree has for that particular file path
-* Change the content somehow and post a new blob object with that new content, getting a blob SHA back
-* Post a new tree object with that file path pointer replaced with your new blob SHA getting a tree SHA back
-* Create a new commit object with the current commit SHA as the parent and the new tree SHA, getting a commit SHA back
-* Update the reference of your branch to point to the new commit SHA
+Der Vorgang mag komplex erscheinen, ist jedoch recht einfach, wenn du das Modell verstehst. Außerdem eröffnet er dir eine Vielzahl an Möglichkeiten, wie du die API nutzen kannst.
 
-It might seem complex, but it's actually pretty simple when you understand the model and it opens up a ton of things you could potentially do with the API.
-
-### Checking mergeability of pull requests
+## Überprüfen der Zusammenführbarkeit von Pull Requests
 
 {% warning %}
 
-**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
+**Warnhinweis:** Vertraue nicht darauf, Git direkt oder [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)-Updates für `merge`-Git-Referenzen zu verwenden, da diese Inhalte ohne Vorankündigung veralten.
 
 {% endwarning %}
 
-A consuming API needs to explicitly request a pull request to create a _test_ merge commit. A _test_ merge commit is created when you view the pull request in the UI and the "Merge" button is displayed, or when you [get](/v3/pulls/#get-a-pull-request), [create](/v3/pulls/#create-a-pull-request), or [edit](/v3/pulls/#update-a-pull-request) a pull request using the REST API. Without this request, the `merge` Git refs will fall out of date until the next time someone views the pull request.
+Eine Verbrauchs-API muss explizit ein Pull Request anfordern, um einen _Test_-Mergecommit zu erstellen. Ein _Test_-Mergecommit wird erstellt, wenn du den Pull Request auf der Benutzeroberfläche anzeigst und die Schaltfläche „Zusammenführen“ angezeigt wird, oder wenn du mithilfe der REST-API ein Pull Request [abrufst](/rest/reference/pulls#get-a-pull-request), [erstellst](/rest/reference/pulls#create-a-pull-request) oder [bearbeitest](/rest/reference/pulls#update-a-pull-request). Ohne diese Anforderung veralten die `merge`-Git-Referenzen, bis jemand das nächste Mal den Pull Request anzeigt.
 
-If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the base branch (usually `master`):
+Wenn du derzeit Abrufmethoden verwendest, die veraltete `merge`-Git-Referenzen erzeugen, empfiehlt GitHub die folgenden Schritte, um die neuesten Änderungen aus dem Standardbranch abzurufen:
 
-1. Receive the pull request webhook.
-2. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) to start a background job for creating the merge commit candidate.
-3. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.
+1. Empfange den Pull-Request-Webhook.
+2. Rufe [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) auf, um einen Hintergrundauftrag zum Erstellen des Mergecommitkandidaten zu starten.
+3. Rufe dein Repository mit [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) ab, um festzustellen, ob das `mergeable`-Attribut `true` oder `false` ist. Erst nachdem du die vorherigen Schritte ausgeführt hast, kannst du Git direkt oder [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) für Updates für `merge`-Git-Referenzen verwenden.

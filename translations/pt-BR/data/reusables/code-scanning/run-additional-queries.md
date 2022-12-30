@@ -1,9 +1,24 @@
-Ao usar {% data variables.product.prodname_codeql %} para fazer a varredura do código, o mecanismo de análise de {% data variables.product.prodname_codeql %} gera um banco de dados do código e executa consultas no mesmo. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)".
+---
+ms.openlocfilehash: c6e1f73548abc1a1bae7c747d864cefce43c2c02
+ms.sourcegitcommit: dc42bb4a4826b414751ffa9eed38962c3e3fea8e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "146179357"
+---
+Ao usar {% data variables.product.prodname_codeql %} para fazer a varredura do código, o mecanismo de análise de {% data variables.product.prodname_codeql %} gera um banco de dados do código e executa consultas no mesmo. A análise de {% data variables.product.prodname_codeql %} usa um conjunto-padrão de consultas, mas você pode especificar outras consultas a serem executadas, além das consultas-padrão.
 
-A análise de {% data variables.product.prodname_codeql %} usa um conjunto-padrão de consultas, mas você pode especificar outras consultas a serem executadas, além das consultas-padrão. As consultas que você desejar executar devem pertencer a um pacote do {% data variables.product.prodname_ql %} e podem estar no seu próprio repositório ou em qualquer repositório público. Para obter mais informações, consulte "[Sobre os pacotes de {% data variables.product.prodname_ql %}](https://help.semmle.com/codeql/codeql-cli/reference/qlpack-overview.html).
+{% ifversion codeql-packs %} Você poderá executar consultas extras se elas fizerem parte de um pacote do {% data variables.product.prodname_codeql %} (beta) publicado no {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} ou um pacote do {% data variables.product.prodname_ql %} armazenado em um repositório. Para obter mais informações, confira "[Sobre a {% data variables.product.prodname_code_scanning %} com o {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)".
 
-As consultas só devem depender das bibliotecas-padrão (ou seja, as bibliotecas referenciadas por uma declaração de `LINGUAGEM de importação` na sua consulta), ou bibliotecas no mesmo pacote do {% data variables.product.prodname_ql %} da consulta. As bibliotecas-padrão estão localizadas no repositório [github/codeql](https://github.com/github/codeql). Para obter mais informações, consulte "[Sobre consultas do CodeQL](https://help.semmle.com/QL/learn-ql/writing-queries/introduction-to-queries.html)".
+As opções disponíveis para especificar as consultas adicionais que você deseja executar são:
 
-Você pode especificar um único arquivo _.ql_, um diretório que contém múltiplos arquivos _.ql_, um arquivo de definição de suite de consultas _.qls_ ou qualquer outra combinação. Para obter mais informações sobre definições do conjunto de consultas, consulte "[Criar as conjuntos de consulta do {% data variables.product.prodname_codeql %}](https://help.semmle.com/codeql/codeql-cli/procedures/query-suites.html)".
+- `packs` para instalar um ou mais pacotes de consulta (beta) do {% data variables.product.prodname_codeql %} e executar o pacote de consultas padrão ou as consultas desses pacotes.
+- `queries` para especificar um arquivo _.ql_ individual, um diretório que contém vários arquivos _.ql_, um arquivo de definição de pacote de consultas _.qls_ ou qualquer combinação. Para obter mais informações sobre as definições do pacote de consultas, confira "[Como criar pacotes de consultas do {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)".
 
-{% if currentVersion == "free-pro-team@latest" %}Não recomendamos fazer referências a conjuntos de consulta diretamente a partir do repositório `github/codeql`, como `github/codeql/cpp/ql/src@main`. Tais consultas não podem ser compiladas com a mesma versão do {% data variables.product.prodname_codeql %} que é usada para outras consultas, que poderia gerar erros durante a análise.{% endif %}
+Use `packs` e `queries` no mesmo fluxo de trabalho.
+{% else %} Todas as consultas que você deseja executar precisam pertencer a um pacote do {% data variables.product.prodname_ql %} em um repositório. Para obter mais informações, confira "[Sobre a {% data variables.product.prodname_code_scanning %} com o {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)".
+
+Você pode especificar um arquivo _.ql_ individual, um diretório que contém vários arquivos _.ql_, um arquivo de definição de pacote de consultas _.qls_ ou qualquer combinação. Para obter mais informações sobre as definições do pacote de consultas, confira "[Como criar pacotes de consultas do {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)".
+{% endif %}
+
+{% ifversion fpt or ghec %}Não recomendamos referenciar pacotes de consultas diretamente do repositório `github/codeql`, como `github/codeql/cpp/ql/src@main`. Essas consultas teriam que ser recompiladas e talvez não sejam compatíveis com a versão do {% data variables.product.prodname_codeql %} ativa no momento no {% data variables.product.prodname_actions %}, o que poderia causar erros durante a análise.{% endif %}

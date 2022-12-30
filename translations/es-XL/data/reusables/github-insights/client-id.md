@@ -1,1 +1,0 @@
-1. Debajo de "ID de Cliente", teclea la ID de cliente de tu {% data variables.product.prodname_github_app %}, la cual grabaste cuando creaste la app. ![Campo de ID de Cliente](/assets/images/help/insights/client-id.png)

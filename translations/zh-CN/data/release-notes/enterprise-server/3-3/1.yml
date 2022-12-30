@@ -1,0 +1,17 @@
+date: '2021-12-13'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} 严重：****在 Log4j 库中发现远程代码执行漏洞，该漏洞会影响 3.3.1 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，漏洞编号为 [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)。Log4j 库用于在 {% data variables.product.prodname_ghe_server %} 实例上运行的开源服务。已在 {% data variables.product.prodname_ghe_server %} 3.0.22、3.1.14、3.2.6 和 3.3.1 中修复该漏洞。 有关详细信息，请参阅 GitHub 博客[文章](https://github.blog/2021-12-13-githubs-response-to-log4j-vulnerability-cve-2021-44228/)。'
+    - '2021 年 12 月 17 日更新****：此版本中的修复也能缓解在该版本之后发布的 [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)。无需再升级 {% data variables.product.prodname_ghe_server %}，即可缓解 CVE-2021-44228 和 CVE-2021-45046。'
+  known_issues:
+    - "升级到 {% data variables.product.prodname_ghe_server %} 3.3 后，{% data variables.product.prodname_actions %} 可能无法自动启动。若要解决此问题，请通过 SSH 连接到设备并运行 `ghe-actions-start` 命令。"
+    - "在没有任何用户的新建 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被移除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含同一存储库中 blob 的永久链接并且该 blob de 文件路径长于 255 个字符，则问题无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样做是为了大幅改善性能。我们继续拥有将时间值作为元数据响应的一部分返回所需的所有数据，并将在以后解决现有性能问题后恢复返回该值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+    - '选择“强制路径样式”时，无法验证 {% data variables.product.prodname_actions %} 存储设置并将其保存在 {% data variables.enterprise.management_console %} 中，而必须使用 `ghe-actions-precheck` 命令行实用程序进行配置。'    
+    - '由于当前 Linux 内核中存在 bug，安装在 Azure 上并预配了 32 个以上 CPU 内核的 {% data variables.product.prodname_ghe_server %} 3.3 实例将无法启动。[更新时间：2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

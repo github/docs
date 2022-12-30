@@ -1,1 +1,9 @@
-1. Decide if you want to keep only your branch's changes, keep only the other branch's changes, or make a brand new change, which may incorporate changes from both branches. Delete the conflict markers `<<<<<<<`, `=======`, `>>>>>>>` and make the changes you want in the final merge.
+---
+ms.openlocfilehash: 443afeca8366b2b9edf488bd1796a6497fad54fd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145092842"
+---
+1. Решите, хотите ли вы сохранить изменения только вашей ветви, только другой ветви или внести совершенно новое изменение, которое может включать изменения в обеих ветвях. Удалите конфликтующие маркеры `<<<<<<<`, `=======`, `>>>>>>>` и внесите необходимые изменения в окончательном объединении.

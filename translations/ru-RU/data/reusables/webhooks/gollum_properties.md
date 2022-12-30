@@ -1,8 +1,16 @@
-| Клавиша              | Тип      | Description                                                              |
-| -------------------- | -------- | ------------------------------------------------------------------------ |
-| `pages`              | `array`  | The pages that were updated.                                             |
-| `pages[][page_name]` | `строка` | The name of the page.                                                    |
-| `pages[][title]`     | `строка` | The current page title.                                                  |
-| `pages[][action]`    | `строка` | The action that was performed on the page. Can be `created` or `edited`. |
-| `pages[][sha]`       | `строка` | The latest commit SHA of the page.                                       |
-| `pages[][html_url]`  | `строка` | Points to the HTML wiki page.                                            |
+---
+ms.openlocfilehash: 55d2a154539d7cc6b73f248c5616bd0016a561aa
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145087440"
+---
+Ключ | Тип | Описание
+----|------|-------------
+`pages`|`array` | Обновленные страницы.
+`pages[][page_name]`|`string` | Имя страницы.
+`pages[][title]`|`string` |  Заголовок текущей страницы.
+`pages[][action]`|`string` |  Действие, выполненное на странице. Может иметь значение `created` или `edited`.
+`pages[][sha]`|`string` | Последняя фиксация SHA страницы.
+`pages[][html_url]`|`string` | Указывает на вики-страницу HTML.

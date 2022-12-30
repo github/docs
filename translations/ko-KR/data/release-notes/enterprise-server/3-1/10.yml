@@ -1,0 +1,21 @@
+date: '2021-10-28'
+sections:
+  security_fixes:
+    - '일반 텍스트 암호는 특정 로그 파일에서 처리할 수 있습니다.'
+    - '거부 목록에 약한 것으로 알려진 여러 SSH 퍼블릭 키가 추가되어 더 이상 등록할 수 없습니다. 또한, 약한 SSH 키(7.6.x, 7.7.x, 8.0.0)를 생성하는 것으로 알려진 GitKraken 버전은 새 퍼블릭 키를 등록할 수 없습니다.'
+    - '패키지가 최신 보안 버전으로 업데이트되었습니다.'
+  bugs:
+    - '오케스트레이터가 정상 상태가 아니면 클러스터링 모드에서 엔터프라이즈 서버 복원에 실패할 수 있습니다.'
+    - '많은 조직의 소유자인 사용자가 애플리케이션의 여러 부분을 사용할 수 없었습니다.'
+    - 'https://docs.github.com에 대한 링크가 수정되었습니다.'
+  changes:
+    - '많은 참조가 있는 리포지토리의 검색 및 작업 성능이 최적화됩니다.'
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답으로 시간 값을 반환하지 않습니다. 이 작업은 대대적인 성능 개선을 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 제공하며 기존 성능 이슈를 해결한 후 향후에 이 값을 계속 반환할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - Blob의 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 비공개 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_ghe_server %}에 대해 {% data variables.product.prodname_actions %}가 사용하도록 설정되면 `ghe-repl-teardown` 복제본 노드 해제에 성공하지만 `ERROR:Running migrations`가 반환될 수 있습니다."
+    - 사전 수신 후크 처리와 관련된 리소스 제한으로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

@@ -1,7 +1,15 @@
-When you select the **Squash and merge** option on a pull request on {% data variables.product.product_location %}, the pull request's commits are squashed into a single commit. Instead of seeing all of a contributor's individual commits from a topic branch, the commits are combined into one commit and merged into the default branch. Pull requests with squashed commits are merged using the [fast-forward option](https://git-scm.com/docs/git-merge#_fast_forward_merge).
+---
+ms.openlocfilehash: 92b050ef47528cc06ba8a03056444e785b2b7b05
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148097867"
+---
+При выборе параметра **Squash и слияния** в запросе на вытягивание на {% данных variables.location.product_location %}фиксации запроса на вытягивание разбиваются в одну фиксацию. Вместо просмотра всех отдельных фиксаций участника из ветви раздела фиксации объединяются в одну фиксацию, а также выполняется их слияние в ветвь по умолчанию. Запросы на вытягивание со сжатыми фиксациями объединяются с помощью [параметра перемотки вперед](https://git-scm.com/docs/git-merge#_fast_forward_merge).
 
-To squash and merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository, and the repository must [allow squash merging](/articles/configuring-commit-squashing-for-pull-requests/).
+Для слияния со сжатием запросов на вытягивание необходимо иметь [разрешения на запись](/articles/repository-permission-levels-for-an-organization/) в репозитории, а для репозитория должно [быть разрешено слияние со сжатием](/articles/configuring-commit-squashing-for-pull-requests/).
 
 ![commit-squashing-diagram](/assets/images/help/pull_requests/commit-squashing-diagram.png)
 
-You can use squash and merge to create a more streamlined Git history in your repository. Work-in-progress commits are helpful when working on a feature branch, but they aren’t necessarily important to retain in the Git history. If you squash these commits into one commit while merging to the default branch, you can retain the original changes with a clear Git history.
+Для создания оптимизированного журнала Git в репозитории можно использовать слияние со сжатием. Фиксации, выполняемые в процессе работы, удобны при работе с ветвью компонентов, но они могут быть не важны для сохранения в журнале Git. Если при слиянии в ветвь по умолчанию эти фиксации будут сжаты в одну фиксацию, вы можете сохранить исходные изменения в четком журнале Git.

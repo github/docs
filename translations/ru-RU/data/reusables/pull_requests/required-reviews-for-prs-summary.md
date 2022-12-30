@@ -1,3 +1,9 @@
-Repository administrators can require that all pull requests receive a specific number of approving reviews from people with *write* or *admin* permissions in the repository or from a designated code owner before they're merged into a protected branch. For more information, see "[About protected branches](/articles/about-protected-branches)."
-
-When required reviews are enabled, anyone with access to the repository can approve changes in a pull request. However, you won't be able to merge your pull request until the required number of reviewers with *write* or *admin* permissions in the repository approve your pull request's changes in their review. For more information about repository permission levels, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization/)." If review is required from a designated code owner and the pull request affects code that has a designated owner, approval from that owner is required.
+---
+ms.openlocfilehash: 0a4745a59266ba23a3ccc0ea892356a6cb503f17
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878970"
+---
+Администраторы репозитория могут требовать, чтобы для всех запросов на вытягивание выполнялось определенное количество проверок с утверждением, прежде чем кто-то объединит запрос на вытягивание в защищенную ветвь. Вы можете требовать утверждения проверок от пользователей с разрешениями на запись в репозиторий или от назначенного владельца кода.

@@ -1,34 +1,33 @@
 ---
 title: Consultas
-miniTocMaxHeadingLevel: 2
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
+  - /v4/reference/query
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: d5c31e8e00788d2e75f27b0bb161249f01fcfb1d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107849'
 ---
+## Sobre consultas
 
-### Sobre as consultas
+Cada esquema de GraphQL tem um tipo de raiz para consultas e mutações. O [tipo de consulta](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) define as operações do GraphQL que recuperam os dados do servidor.
 
-Cada esquema de GraphQL tem um tipo de raiz para consultas e mutações. O [tipo de consulta](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) define operações do GraphQL que recuperam dados do servidor.
-
-Para obter mais informações, consulte "[Sobre consultas](/v4/guides/forming-calls#about-queries)".
+Para obter mais informações, confira "[Sobre as consultas](/graphql/guides/forming-calls-with-graphql#about-queries)".
 
 {% note %}
 
-**Note:** For [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} requests, you should use separate queries for issues and pull requests. For example, use the `is:issue` or `is:pull-request` filters and their equivalents. Using the `search` connection to return a combination of issues and pull requests in a single query will result in an empty set of nodes.
+**Observação:** para as solicitações [de usuário para servidor](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) do {% data variables.product.prodname_github_app %}, você deve usar consultas separadas para problemas e solicitações de pull. Por exemplo, use os filtros `is:issue` ou `is:pull-request` e os equivalentes. O uso da conexão `search` para retornar uma combinação de problemas e solicitações de pull em uma só consulta resultará em um conjunto vazio de nós.
 
 {% endnote %}
 
-## Conexões
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## Campos
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

@@ -1,75 +1,96 @@
 ---
 title: GitHub Actions 快速入门
-intro: '在 5 分钟或更短时间内将 {% data variables.product.prodname_actions %} 工作流程添加到现有仓库。'
+intro: '在 5 分钟或更短的时间内尝试 {% data variables.product.prodname_actions %} 的功能。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: quick_start
+topics:
+  - Fundamentals
+shortTitle: Quickstart
+ms.openlocfilehash: 164aef041c509264c9e8440d5339bce3cf4aaaca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146139455'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 简介
 
-### 简介
+您只需要 {% data variables.product.prodname_dotcom %} 仓库来创建和运行 {% data variables.product.prodname_actions %} 工作流程。 在本指南中，您将添加一个工作流程，演示 {% data variables.product.prodname_actions %} 的一些基本功能。 
 
-您只需要一个现有的 {% data variables.product.prodname_dotcom %} 仓库来创建和运行 {% data variables.product.prodname_actions %} 工作流程。 在本指南中，您将添加一个工作流程，使用 [{% data variables.product.prodname_dotcom %} Super-Linter 操作](https://github.com/github/super-linter)链接多种编码语言。 每次有新的提交被推送到您的仓库时，工作流程都会使用 Super-Linter 验证源代码。
+下面的示例显示 {% data variables.product.prodname_actions %} 作业如何自动触发、在哪里运行及其如何与仓库中的代码交互。
 
-### 创建第一个工作流程
+## 创建第一个工作流程
 
-1. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflow` 目录中创建一个名为 `superlinter.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
-2. 将以下 YAML 内容复制到 `superlinter.yml` 文件中。 **注：** 如果您的默认分支不是 `main`，请更新 `DEFAULT_BRANCH` 的值以匹配您仓库的默认分支名称。
-    {% raw %}
+1. 如果 `.github/workflows` 目录不存在，请在 {% data variables.product.prodname_dotcom %} 的存储库中创建此目录。
+2. 在 `.github/workflows` 目录中，创建名为 `github-actions-demo.yml` 的文件。 有关详细信息，请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
+3. 将以下 YAML 内容复制到 `github-actions-demo.yml` 文件中：{% raw %}
     ```yaml{:copy}
-    name: Super-Linter
-
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
-
+    name: GitHub Actions Demo
+    on: [push]
     jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
+      Explore-GitHub-Actions:
         runs-on: ubuntu-latest
-
         steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
-            uses: actions/checkout@v2
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."{% endraw %}
+          - name: Check out repository code
+            uses: {% data reusables.actions.action-checkout %}{% raw %}
+          - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+          - name: List files in the repository
+            run: |
+              ls ${{ github.workspace }}
+          - run: echo "🍏 This job's status is ${{ job.status }}."
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
     {% endraw %}
-3. 要运行您的工作流程， 滚动到页面底部，然后选择 **为此提交创建一个新分支并开始拉取请求**。 然后，若要创建拉取请求，请单击 **Propose new file（提议新文件）**。 ![提交工作流程文件](/assets/images/commit-workflow-file.png)
+3. 滚动到页面底部，然后选择“为此提交创建一个新分支并开始拉取请求”。 然后，若要创建拉取请求，请单击“提议新文件”。
+    ![提交工作流文件](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
-在仓库中提交工作流程文件会触发 `push` 事件并运行工作流程。
+向存储库的分支提交工作流文件会触发 `push` 事件并运行工作流。
 
-### 查看工作流程结果
+## 查看工作流程结果
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-1. 在左侧边栏中，单击 **Lint code base（Lint 代码库）**作业。 ![Lint 代码库作业](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% data reusables.repositories.view-failed-job-results-superlinter %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %}
+1. 在左侧边栏中，单击您想要查看的工作流程。
 
-### 更多入门工作流程
+   ![左侧边栏中的工作流程列表](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. 从工作流程运行列表中，单击要查看的运行的名称。
 
-{% data variables.product.prodname_dotcom %} 提供预配置的工作流程模板，您可以从这些模板开始自动执行或创建持续集成工作流程。 您可以在 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) 仓库{% else %} {% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览工作流程模板的完整列表。
+   ![工作流程运行的名称](/assets/images/help/repository/actions-quickstart-run-name.png)
+1. 在“作业”下，单击“Explore-GitHub-Actions”作业 。
 
-### 后续步骤
+   ![查找作业](/assets/images/help/repository/actions-quickstart-job.png)
+1. 日志显示每个步骤的处理方式。 展开任何步骤以查看其细节。
 
-只要代码推送到仓库，您刚才添加的 super-linter 工作流程就会运行，以帮助您发现代码中的错误和不一致。 但是，这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 以下是一些帮助您对 {% data variables.product.prodname_actions %} 执行后续操作的有用资源：
+   ![示例工作流程结果](/assets/images/help/repository/actions-quickstart-logs.png)
+   
+   例如，可以在存储库中看到文件列表：![示例操作详细信息](/assets/images/help/repository/actions-quickstart-log-detail.png)
+   
+## 更多入门工作流程
 
-- “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，以获取深入教程
-- “[指南](/actions/guides)”，以获取特定用例和示例
-- [github/super-linter](https://github.com/github/super-linter)，以获取有关配置 Super-Linter 操作的详细信息
+{% data reusables.actions.workflow-template-overview %}
+
+## 更复杂的示例
+{% data reusables.actions.link-to-example-library %}
+
+## 后续步骤
+
+每次将代码推送到分支时，您刚刚添加的示例工作流程都会运行，并显示 {% data variables.product.prodname_actions %} 如何处理仓库的内容。 但是，这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始：
+
+- 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 
+- 您可以使用工作流程安装软件测试应用程序，并让它们自动在 {% data variables.product.prodname_dotcom %} 的运行器上测试您的代码。 
+
+{% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 以下是一些帮助您对 {% data variables.product.prodname_actions %} 执行后续操作的有用资源：
+
+- 有关深入教程，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。

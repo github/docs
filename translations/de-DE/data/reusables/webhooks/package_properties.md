@@ -1,4 +1,12 @@
-| Schlüssel    | Typ      | Beschreibung                                                         |
-| ------------ | -------- | -------------------------------------------------------------------- |
-| `action`     | `string` | die Aktion, die durchgeführt wurde. Can be `published` or `updated`. |
-| `paketieren` | `Objekt` | Information about the package.                                       |
+---
+ms.openlocfilehash: 5adc0b5be2f2bb0559a69f86ce2195c8e83d6b74
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145088979"
+---
+Schlüssel | type | BESCHREIBUNG
+----|------|-------------
+`action`|`string` | Die durchgeführte Aktion. Kann `published` oder `updated` sein.
+`package` |`object` | Informationen zum Paket.

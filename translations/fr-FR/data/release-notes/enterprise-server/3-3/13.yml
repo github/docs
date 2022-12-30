@@ -1,0 +1,23 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 'Après avoir déverrouillé un référentiel pour un accès temporaire, un administrateur de site ne pouvait pas gérer les paramètres des produits de sécurité dans le référentiel.'
+    - 'Des clés SSH administratives en double pouvaient apparaître à la fois dans la console de gestion et dans le fichier `/home/admin/.ssh/authorized_keys`.'
+    - 'Dans certains cas, l’exécution de `ghe-cluster-config-apply` pouvait répliquer une configuration vide aux nœuds existants d’un cluster.'
+    - 'Dans certains cas, les exécutions de configuration lancées avec `ghe-config-apply` ne se terminaient pas, ou renvoyaient une erreur `Container count mismatch`.'
+    - 'Après la mise à jour d’un certificat TLS auto-signé sur une instance GitHub Enterprise Server, les éléments de l’interface utilisateur de certaines pages de l’interface web n’apparaissaient pas.'
+    - 'Dans certains cas, les tâches d’arrière-plan pouvaient se bloquer à cause d’une bibliothèque qui était utilisée simultanément bien qu’elle ne soit pas thread-safe.'
+  changes:
+    - 'La génération des packs de support est plus rapide grâce à la parallélisation de l’assainissement des journaux. Pour plus d’informations sur les packs de support, consultez « [Fournir des données au support GitHub](/support/contacting-github-support/providing-data-to-github-support) »'
+    - "Le journal d’audit de l’entreprise inclut désormais davantage d’événements générés par les utilisateurs, comme `project.create`. L’API REST renvoie également des événements supplémentaires générés par les utilisateurs, comme `repo.create`. Pour plus d’informations, voir «\_[Accéder au journal d’audit de votre entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing the-audit-log-for-your-entreprise)\_» et «\_[Utiliser l’API du journal d’audit pour votre entreprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)\_»."
+  known_issues:
+    - 'Après la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} peut ne pas démarrer automatiquement. Pour résoudre ce problème, connectez-vous à l’appliance via SSH et exécutez la commande `ghe-actions-start`.'
+    - 'Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur.'
+    - 'Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.'
+    - 'Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel.'
+    - 'Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères.'
+    - "Lorsque l’option «\_Les utilisateurs peuvent effectuer des recherches sur GitHub.com\_» est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - 'Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants.'
+    - 'Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.'
+    - "Les paramètres de stockage de {% data variables.product.prodname_actions %} ne peuvent pas être validés et enregistrés dans la {% data variables.enterprise.management_console %} lorsque l’option «\_Forcer le style de chemin\_» est sélectionnée, et doivent être configurés avec l’utilitaire de ligne de commande `ghe-actions-precheck`."
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

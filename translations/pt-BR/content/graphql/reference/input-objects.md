@@ -2,20 +2,29 @@
 title: Objetos de entrada
 redirect_from:
   - /v4/input_object
+  - /v4/reference/input_object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
+ms.openlocfilehash: 10a84ad425b0c8b871b1c64f09bef4d8cf33d007
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107885'
 ---
+## Sobre objetos de entrada
 
-### Sobre objetos de entrada
+Os [objetos de entrada](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) podem ser descritos como "objetos combináveis", porque incluem um conjunto de campos de entrada que definem o objeto.
 
-[Objetos de entrada](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) podem ser descritos como "objetos estruturáveis", pois incluem um conjunto de campos de entrada que definem o objeto.
+Por exemplo, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) usa um campo chamado `emails`. O fornecimento de um valor para `emails` transforma `CommitAuthor` em uma lista de objetos `User` que contêm esse endereço de email. Observe que os [objetos](/graphql/reference/objects) **podem** ter objetos de entrada, enquanto as [mutações](/graphql/reference/mutations) **exigem** objetos de entrada.
 
-Por exemplo, [`CommitAuthor`](/v4/input_object/commitauthor/) toma um campo denominado `e-mails`. Fornecer um valor para `e-mails` transforma `CommitAuthor` em uma lista de objetos de `usuário` que contém esse endereço de e-mail. Observe que [objetos](/v4/object) **pode ter** objetos de entrada, enquanto [mutações](/v4/mutation) **exigem** objetos de entrada.
+Para obter mais informações, confira "[Sobre as mutações](/graphql/guides/forming-calls-with-graphql#about-mutations)".
 
-Para obter mais informações, consulte "[Sobre mutações](/v4/guides/forming-calls#about-mutations)".
+{% data reusables.projects.graphql-ghes %}
 
-{% for item in graphql.schemaForCurrentVersion.inputObjects %}
-  {% include graphql-input-object %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

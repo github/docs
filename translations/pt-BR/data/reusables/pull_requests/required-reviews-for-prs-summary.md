@@ -1,3 +1,9 @@
-Os administradores do repositório podem exigir que todos os pull requests recebam um número específico de revisões de aprovações de pessoas com permissões de *gravação* ou *administrador* no repositório ou de um proprietário do código designado, antes de serem mesclados em um branch protegido. Para obter mais informações, consulte "[Sobre branches protegidos](/articles/about-protected-branches)".
-
-Quando as revisões necessárias estão ativadas, qualquer pessoa com acesso ao repositório poderá aprovar alterações em um pull request. No entanto você não conseguirá fazer merge do seu pull request até que o número necessário de revisores com permissões de *gravação* ou *admin* no repositório aprove as alterações do seu pull request na sua revisão. Para obter mais informações sobre os níveis de permissão do repositório, consulte "[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization/)". Se a revisão for necessária de um proprietário do código designado e o pull request afetar o código que tem um proprietário designado, a aprovação deste proprietário será obrigatória.
+---
+ms.openlocfilehash: 0a4745a59266ba23a3ccc0ea892356a6cb503f17
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147875648"
+---
+Os administradores do repositório podem exigir que todos os pull requests recebam um número específico de revisões antes que alguém faça o merge do pull request em um branch protegido. Você pode exigir a aprovação de revisões de pessoas com permissões de gravação no repositório ou de um proprietário de código designado.

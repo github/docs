@@ -1,13 +1,21 @@
+---
+ms.openlocfilehash: 3661ae0cbef8282faa12b3d71bef77d503fcc0c6
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147785411"
+---
 
-### Git にX.509 キーについて知らせる
+## Git にX.509 キーについて知らせる
 
-GPGではなくS/MIMEを使ってコミットやタグに署名するために、[smimesign](https://github.com/github/smimesign)を使うことができます。
+S/MIME を使ってコミットをタグに署名するには、[smimesign](https://github.com/github/smimesign) を使います。
 
 {% data reusables.gpg.smime-git-version %}
 
-1. [smimesign](https://github.com/github/smimesign#installation)をインストールしてください。
+1. [smimesign](https://github.com/github/smimesign#installation) をインストールします。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. コミットやタグの署名にS/MIMEを使うようGitを設定してください。 Git 2.19以降では、`git config gpg.x509.program`及び`git config gpg.format`コマンドを使ってください。
+3. コミットやタグの署名にS/MIMEを使うようGitを設定してください。 Git 2.19 以降では、`git config gpg.x509.program` と `git config gpg.format` コマンドを使用します。
   - すべてのリポジトリへの署名にS/MIMEを使うには以下のようにします。
   ```shell
   $ git config --global gpg.x509.program smimesign
@@ -19,7 +27,7 @@ GPGではなくS/MIMEを使ってコミットやタグに署名するために�
   $ git config --local gpg.x509.program smimesign
   $ git config --local gpg.format x509
   ```
-  Git 2.18以前では、`git config gpg.program`コマンドを使ってください。
+  Git 2.18 以前では、`git config gpg.program` コマンドを使用します。
   - すべてのリポジトリへの署名にS/MIMEを使うには以下のようにします。
   ```shell
   $ git config --global gpg.program smimesign
@@ -30,11 +38,11 @@ GPGではなくS/MIMEを使ってコミットやタグに署名するために�
   $ git config --local gpg.program smimesign
   ```
   自分のコミッタアイデンティティにマッチにするX.509キーを使っているなら、コミットやタグへの署名を始められます。
-4. コミッタアイデンティティにマッチしているX.509キーを使っていないなら、`smimesign --list-keys`コマンドを使って証明書と秘密鍵の両方を持っているX.509キーのリストを取ってください。
+4. コミッター アイデンティティと一致する X.509 キーを使っていない場合は、`smimesign --list-keys` コマンドを使って証明書と秘密鍵の両方を持っている X.509 キーのリストを表示します。
   ```shell
   $ smimesign --list-keys
   ```
-5. X.509キーのリストから、使いたいX.509キーの証明書IDをコピーしてください。 以下の例では、証明書IDは`0ff455a2708394633e4bb2f88002e3cd80cbd76f`です。
+5. X.509キーのリストから、使いたいX.509キーの証明書IDをコピーしてください。 この例では、証明書 ID は `0ff455a2708394633e4bb2f88002e3cd80cbd76f` になります。
   ```shell
   $ smimesign --list-keys
                ID: 0ff455a2708394633e4bb2f88002e3cd80cbd76f

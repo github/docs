@@ -1,33 +1,23 @@
 ---
 title: 检查
+intro: With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.
 redirect_from:
-  - /v3/checks
+- /v3/checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+- API
+miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1f1c694c92ee4be21c73dd51645d420594cf1da9
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141506575"
 ---
-
-检查 API 使您能够构建 GitHub 应用程序，以针对仓库中的代码更改运行强大的检查。 您可以创建应用程序以执行持续集成 、代码分析或代码扫描服务，并提供有关提交的详细反馈。 更多信息请参阅“[检查 API 入门指南](/rest/guides/getting-started-with-the-checks-api)”和“[使用检查 API 创建 CI 测试](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)”。
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## 检查运行
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'runs' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## 检查套件
-
-{% note %}
-
-  **注：**GitHub 应用程序针对每个提交 SHA 只接收一个 [`check_suite`](/webhooks/event-payloads/#check_suite) 事件，即使您将提交 SHA 推送到多个分支。 要了解提交 SHA 何时推送到分支，您可以订阅分支 [`create`](/webhooks/event-payloads/#create) 事件。
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'suites' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/checks
+-->

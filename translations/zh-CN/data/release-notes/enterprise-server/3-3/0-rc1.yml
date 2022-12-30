@@ -1,0 +1,357 @@
+date: '2021-11-09'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+  
+  **注意：**如果 {% data variables.product.product_location %} 正在运行候选发布版本，则无法使用热补丁升级。建议仅在测试环境中运行候选发布版本。
+  
+  {% endnote %}
+  
+  有关升级说明，请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”。
+sections:
+  features:
+    - heading: 安全管理员角色
+      notes:
+        # https://github.com/github/releases/issues/1610
+        - |组织所有者现在可以授予团队管理其存储库上的安全警报和设置的访问权限。“安全管理员”角色可以应用到任何团队，并授予团队成员以下访问权限：
+
+
+
+- 对组织中所有存储库的读取访问。
+
+- 对组织中所有安全警报的写入访问。
+
+- 对组织级“安全性”选项卡的访问。
+
+- 在组织级别对安全设置的写入访问。
+
+- 在存储库级别对安全设置的写入访问。
+
+
+
+有关详细信息，请参阅“[管理组织中的安全管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)”。
+
+|
+    - heading: '用于 GitHub Actions 的临时自托管运行器和用于自动缩放的新 Webhook'
+      notes:
+        # https://github.com/github/releases/issues/1378
+        - |{% data variables.product.prodname_actions %} 现在支持临时（单个作业）自托管运行器和一个新的 [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) Webhook，以便更轻松地自动缩放运行器。
+
+
+
+临时运行器适合自托管环境，其中每个作业都需要在干净的映像上运行。作业运行后，临时运行器会自动从 {% data variables.product.product_location %} 注销，允许你执行任何作业后管理。
+
+
+
+可以将临时运行器与新的 `workflow_job` Webhook 组合在一起来自动缩放自托管运行器，以响应 {% data variables.product.prodname_actions %} 作业请求。
+
+
+
+有关详细信息，请参阅“[使用自托管运行器自动缩放](/actions/hosting-your-own-runners/ Autoscaling -with-self- hosting- runners)”和“[Webhook 事件和有效负载](/developers/ Webhook -and-events/ Webhook -events-and-payloads#workflow_job)”。
+
+|
+    - heading: '深色高对比度主题'
+      notes:
+        # https://github.com/github/releases/issues/1539
+        - |{% data variables.product.prodname_ghe_server %} 3.3 现已发布在前景和背景元素之间有更大对比度的深色高对比度主题。此版本还包括对所有 {% data variables.product.company_short %} 主题的颜色系统的改进。
+
+
+
+![在外观设置页面上在深色默认主题和深色高对比度之间切换的动画图像](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+
+
+
+有关更多信息，请参阅“[管理主题设置](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)”。
+
+|
+  changes:
+    - heading: 管理更改
+      notes:
+        # https://github.com/github/releases/issues/1666
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括对存储库维护的改进，特别是对于包含许多无法访问的对象的存储库。请注意，升级到 {% data variables.product.prodname_ghe_server %} 3.3 后的第一个维护周期可能需要比平时更长的时间才能完成。'
+
+        # https://github.com/github/releases/issues/1533
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括用于地理分散式团队和 CI 基础结构的存储库缓存的公共 beta 版。存储库缓存会保留在其他地理区域可用的存储库的只读副本，以防止客户端从主实例下载重复的 Git 内容。有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。'
+
+        # https://github.com/github/releases/issues/1616
+        - '{% data variables.product.prodname_ghe_server %} 3.3 包括对用户模拟过程的改进。现在，模拟会话需要模拟理由，操作将被记录到审核日志中，因为由模拟用户执行，被模拟的用户将收到一封电子邮件通知，说明他们已被企业管理员模拟。有关详细信息，请参阅“[模拟用户](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)”。'
+
+        # https://github.com/github/releases/issues/1609
+        - "添加了一项新的流处理服务，以促进发布到审核日志的不断增长的事件集，包括与 Git 和 {% data variables.product.prodname_actions %} 活动相关的事件。"
+
+    - heading: 令牌更改
+      notes:
+        # https://github.com/github/releases/issues/1390
+        - |现在，可以为新的和现有的个人访问令牌设置到期日期。强烈建议为个人访问令牌设置到期日期，以防止旧令牌泄漏和损害安全性。当需要续订即将到期的令牌时，令牌所有者将收到一封电子邮件。可以重新生成已到期的令牌，为用户提供具有与原始令牌相同属性的副本令牌。
+
+
+
+当使用带有 {% data variables.product.company_short %} API 的个人访问令牌时，响应中包含一个新的 `GitHub-Authentication-Token-Expiration` 标头，它指示令牌的到期日期。有关详细信息，请参阅“[创建个人访问令牌](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+
+|
+    - heading: '通知更改'
+      notes:
+        # https://github.com/github/releases/issues/1625
+        - '来自讨论的通知电子邮件现已在主题中包含“（讨论 #xx）”，因此你可以识别和筛选引用讨论的电子邮件。'
+
+    - heading: '存储库更改'
+      notes:
+        # https://github.com/github/releases/issues/1735
+        - 公共存储库现已在其名称旁边有一个“公共”标签，例如专用和内部存储库。此更改可以更轻松地识别公共存储库并避免意外提交专用代码。
+
+        # https://github.com/github/releases/issues/1733
+        - 如果在使用分支选择器菜单时指定了分支的确切名称，那么结果现在会显示在匹配分支列表顶部。以前，确切的分支名称匹配项可能显示在列表底部。
+
+        # https://github.com/github/releases/issues/1673
+        - "当查看具有相应打开的拉取请求的分支时，{% data variables.product.prodname_ghe_server %} 现在会直接链接到该拉取请求。以前，会有一个提示促使使用分支比较或打开新的拉取请求。"
+
+        # https://github.com/github/releases/issues/1670
+        - "现在可以单击一个按钮将文件的全部原始内容复制到剪贴板。以前，你需要打开原始文件，选择所有，然后复制。若要复制文件内容，请导航到文件并单击工具栏中的 {% octicon \"copy\" aria-label=\"The copy icon\" %}。注意，此功能目前仅适用于某些浏览器。"
+
+        # https://github.com/github/releases/issues/1571
+        - "创建新版本时，你现在可以使用下拉选择器选择或创建标记，而不是在文本字段中指定标记。有关详细信息，请参阅“[管理存储库中的发布](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)”。"
+
+        # https://github.com/github/releases/issues/1752
+        - "现在，在查看包含双向 Unicode 文本的文件时，会显示警告。双向 Unicode 文本的解释或编译方式可以与它在用户界面中显示的方式不同。例如，可以使用隐藏的双向 Unicode 字符来交换文件中的文本段。有关替换这些字符的详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)。"
+
+        # https://github.com/github/releases/issues/1416
+        - "现在，可以使用 `CITATION.cff` 文件让其他人知道你希望他们如何引用你的工作成果。`CITATION.cff` 文件是纯文本文件，具有人类和机器可读的引文信息。{% data variables.product.prodname_ghe_server %} 将此信息解析为常见的引文格式，例如 [APA](https://apastyle.apa.org) 和 [BibTeX](https://en.wikipedia.org/wiki/BibTeX)。有关详细信息，请参阅“[关于 CITATION 文件](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)”。"
+
+    - heading: 'Markdown 更改'
+      notes:
+        # https://github.com/github/releases/issues/1645
+        - |你可以对 Markdown 文件、问题、拉取请求和评论中的引号和列表使用新的键盘快捷方式。
+
+
+
+* 若要添加引号，请在 Mac 上使用 <kbd>cmd shift .</kbd>，在 Windows 和 Linux 上使用 <kbd>ctrl shift .</kbd>。
+
+* 若要添加已排序列表，请在 Mac 上使用 <kbd>cmd shift 7</kbd>，在 Windows 和 Linux 上使用 <kbd>ctrl shift 7</kbd>。
+
+* 若要添加未排序列表，请在 Mac 上使用 <kbd>cmd shift 8</kbd>，在 Windows 和 Linux 上使用 <kbd>ctrl shift 8</kbd>。
+
+
+
+有关可用快捷方式的完整列表，请参阅“[键盘快捷方式](/get-started/using-github/keyboard-shortcuts)”。
+
+|
+        # https://github.com/github/releases/issues/1684
+        - "现在，你可以在任何 Markdown 字段中使用脚注语法。脚注显示为上标链接，你可以单击这些链接跳转到引用的信息，这些信息显示在文档底部的新建部分中。有关语法的详细信息，请参阅“[基本写入和格式化语法](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)”。"
+
+        # https://github.com/github/releases/issues/1647
+        - "在查看 Markdown 文件时，你现在可以单击工具栏中的 {% octicon \"code\" aria-label=\"The code icon\" %} 来查看 Markdown 文件的源。以前，你需要使用意见视图链接到 Markdown 文件源中的特定行号。"
+
+        # https://github.com/github/releases/issues/1600
+        - "现在可以通过将图像和视频粘贴到 Markdown 正文中或从 Markdown 文件底部的对话框中选择它们来将图像和视频添加到 Gist 中。有关支持的文件类型的信息，请参阅“[附加文件](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)”。"
+
+        # https://github.com/github/releases/issues/1523
+        - '{% data variables.product.prodname_ghe_server %} 现在根据标题自动为 Wikis 生成一个目录。'
+
+        # https://github.com/github/releases/issues/1626
+        - "将图像和视频等文件拖放到 Markdown 编辑器中时，{% data variables.product.prodname_ghe_server %} 现在在放置文件时使用鼠标指针位置而不是光标位置。"
+
+    - heading: '问题和拉取请求更改'
+      notes:
+        # https://github.com/github/releases/issues/1504
+        - "现在可以使用逻辑 OR 运算符按标签搜索问题。要使用逻辑 OR 筛选问题，请使用逗号语法。例如，`label:\"good first issue\",\"bug\"` 将列出标签为 `good first issue` 或 `bug` 的所有问题。有关详细信息，请参阅“[筛选和搜索问题以及拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)”。"
+
+        # https://github.com/github/releases/issues/1685
+        - |已进行改进以帮助团队管理代码评审分配。你现在可以：
+
+
+
+- 只分配给团队的直接成员。
+
+- 即使已请求一个或多个团队成员，也会继续自动分配。
+
+- 指定一个团队负责评审，即使新指定了一个或多个成员。
+
+
+
+现在，拉取请求页面上的时间线和审阅者边栏将指示评审请求是否自动分配给了一个或多个团队成员。
+
+
+
+有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/)。
+
+|
+        - 现在，可以筛选拉取请求搜索，以只包含直接请求评审的拉取请求。
+        # https://github.com/github/releases/issues/1683
+        - "拉取请求中的筛选文件现在完全隐藏在视图中，并且不再在“已更改的文件”选项卡中显示为折叠状态。“文件筛选器”菜单也得到了简化。有关详细信息，请参阅“[筛选拉取请求中的文件](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)”。"
+
+    - heading: 'GitHub Actions 更改'
+      notes:
+        # https://github.com/github/releases/issues/1593
+        - "现在可以创建“复合操作”，将多个工作流步骤组合成一个操作，并包括引用其他操作的能力。这样可以更轻松地减少工作流中的重复。以前，操作只能在其 YAML 定义中使用脚本。有关更多信息，请参阅“[创建复合操作](/actions/creating-actions/creating-a-composite-action)”。"
+
+        # https://github.com/github/releases/issues/1694
+        - "在企业级别管理自托管运行器不再需要使用具有“admin:enterprise”范围的个人访问令牌。可以使用新的 `manage_runners:enterprise` 范围来限制令牌上的权限。具有此范围的令牌可以向 [许多 REST API 终结点](/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise) 进行身份验证，以管理企业的自托管运行器。"
+
+        # https://github.com/github/releases/issues/1157
+        - |审核日志现在包括 {% data variables.product.prodname_actions %} 的附加事件。现记录以下事件的审核日志条目：
+
+
+
+* 注册或移除自托管运行器。
+
+* 将自托管运行器添加到运行器组中或从运行器组中删除。
+
+* 创建或移除运行器组。
+
+* 创建或完成工作流运行。
+
+* 工作流作业准备就绪。重要的是，该日志包括提供给运行器的机密列表。
+
+
+
+有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)。”
+
+|
+        # https://github.com/github/releases/issues/1588
+        - "已对 {% data variables.product.prodname_actions %} 进行了性能改进，这可能会使最大作业并发性更高。"
+
+    - heading: 'GitHub 包更改'
+      notes:
+        # https://github.com/github/docs-content/issues/5554
+        - "删除存储库后，现在会立即从 {% data variables.product.prodname_registry %} 外部存储中删除任何关联的包文件。"
+
+    - heading: 'Dependabot 和依赖项关系图更改'
+      notes:
+        # https://github.com/github/releases/issues/1141
+        - "依赖项审查已完成测试，现在通常可供 {% data variables.product.prodname_GH_advanced_security %} 客户使用。依赖项审查在拉取请求的“已更改的文件”选项卡中提供依赖项更改及其安全影响的易于理解的视图。视图中将显示已添加、移除或更新了哪些依赖项以及漏洞信息。有关详细信息，请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。"
+
+        # https://github.com/github/releases/issues/1630
+        - '{% data variables.product.prodname_dependabot %} 现作为专用 beta 版提供，为几个热门的生态系统提供版本更新和安全更新。{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dependabot %} 需要 {% data variables.product.prodname_actions %} 和为使用 {% data variables.product.prodname_dependabot %} 而配置的自托管运行器池。{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_dependabot %} 还需要启用 {% data variables.product.prodname_github_connect %}。若要了解详细信息并注册 beta 版，请联系 GitHub 销售团队。'
+
+    - heading: '代码扫描和机密扫描更改'
+      notes:
+        # https://github.com/github/releases/issues/1724
+        - "{% data variables.product.prodname_codeql %} 分析的深度已通过添加对更多 [库和框架](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) 的支持并增加现有库和框架模型的覆盖范围得到改进。[JavaScript](https://github.com/github/codeql/tree/main/javascript) 分析现支持最常见的模板语言，[Java](https://github.com/github/codeql/tree/main/java) 现在覆盖的终结点是以前 {% data variables.product.prodname_codeql %} 版本的三倍以上。因此，{% data variables.product.prodname_codeql %} 现在可以检测更多不受信任的用户数据的潜在来源、数据流经的步骤以及数据可能最终到达的潜在危险接收器。这使得 {% data variables.product.prodname_code_scanning %} 警报的质量得到了全面的提高。"
+
+        # https://github.com/github/releases/issues/1639
+        - '{% data variables.product.prodname_codeql %} 现在支持扫描 Java 16 中的标准语言功能，例如记录和模式匹配。{% data variables.product.prodname_codeql %} 能够分析用 Java 版本 7 到 16 编写的代码。有关支持的语言和框架的详细信息，请参阅 [{% data variables.product.prodname_codeql %} 文档](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/# id5)。'
+
+        # https://github.com/github/releases/issues/1655
+        - |将代码推送到拉取请求时，对 {% data variables.product.prodname_code_scanning %} `on:push` 触发器进行了改进。如果 `on:push` 扫描返回与拉取请求关联的结果，{% data variables.product.prodname_code_scanning %} 现在将在拉取请求上显示这些警报。
+
+
+
+其他一些 CI/CD 系统可以专门配置为在代码被推送到分支时触发管道，甚至专门配置为在每次提交时触发管道。每当触发此类分析管道并将结果上传到 SARIF API 时，{% data variables.product.prodname_code_scanning %} 将尝试将分析结果与一个打开的拉取请求相匹配。如果找到一个打开的拉取请求，结果发布将如上所述。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-27-showing-code-scanning-alerts-on-pull-requests/)。
+
+|
+        # https://github.com/github/releases/issues/1546
+        - "你现在可以在 {% data variables.product.prodname_code_scanning %} 警报页面上使用新的拉取请求筛选器来查找与拉取请求关联的所有 {% data variables.product.prodname_code_scanning %} 警报。通过拉取请求“检查”选项卡上新的“查看所有分支警报”链接，可直接查看已应用特定拉取请求筛选器的 {% data variables.product.prodname_code_scanning %} 警报。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-08-23-pull-request-filter-for-code-scanning-alerts/)。"
+
+        # https://github.com/github/releases/issues/1562
+        - "{% data variables.product.prodname_secret_scanning %} 的用户定义模式已完成测试，现在通常可供 {% data variables.product.prodname_GH_advanced_security %} 客户使用。此版本中的另一个新功能是能够编辑在存储库、组织和企业级别定义的自定义模式。编辑并保存模式后，{% data variables.product.prodname_secret_scanning %} 在存储库的整个 Git 历史记录和任何新提交中搜索匹配项。对某个模式进行编辑会关闭以前与该模式关联的警报（如果它们不再匹配更新的版本）。计划在未来的版本中进行其他改进（例如试运行）。有关详细信息，请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。"
+
+    - heading: API 和 Webhook 更改
+      notes:
+        # https://github.com/github/releases/issues/1744
+        - "大多数 REST API 预览现已完结，并成为 API 的正式组成部分。大多数 REST API 终结点不再需要预览报头，但如果你继续在请求的“Accept”标头中指定已完结预览，那么它仍将按预期发挥作用。对于仍需要在请求的 `Accept` 标头中指定预览的预览版，请参阅“[API 预览](/rest/overview/api-previews)”。"
+
+        # https://github.com/github/releases/issues/1513
+        - "现在可以使用 REST API 配置到外部资源的自定义自动链接。REST API 现提供 beta `GET`/`POST`/`DELETE` 终结点，你可以使用这些终结点查看、添加或删除与存储库关联的自定义自动链接。有关详细信息，请参阅“[自动链接](/rest/reference/repos#autolinks)”。"
+
+        # https://github.com/github/releases/issues/1578
+        - "现在可以使用 REST API 将分支存储库与其上游存储库同步。有关详细信息，请参阅 REST API 文档中的“[分支](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)”。"
+
+        # https://github.com/github/releases/issues/1527
+        - "GitHub Enterprise Server 上的企业管理员现在可以使用 REST API 为存储库启用或禁用 Git LFS。有关详细信息，请参阅“[存储库](/rest/reference/repos#git-lfs)”。"
+
+        # https://github.com/github/releases/issues/1476
+        - "现在可以使用 REST API 查询企业的审核日志。虽然审核日志转发使你能够使用自己的工具包保留和分析数据并随时间的推移确定模式，但新的终结点将帮助你对最近发生的事件执行有限的分析。有关详细信息，请参阅 REST API 文档中的“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)”。"
+
+        # https://github.com/github/releases/issues/1485
+        - GitHub 应用用户到服务器 API 请求现在可以使用 REST API 读取公共资源。例如，这包括能够列出公共存储库的问题和拉取请求以及访问公共存储库的注释和内容。
+
+        # https://github.com/github/releases/issues/1734
+        - "创建或更新存储库时，现在可以使用 REST 和 GraphQL API 配置是否允许创建分支。以前，用于创建和更新存储库的 API 不包括字段 `allow_forking` (REST) 或 `forkingAllowed` (GraphQL)。有关详细信息，请参阅 REST API 文档中的“[存储库](/rest/reference/repos)”和 GraphQL API 文档中的“[存储库](/graphql/reference/objects#repository)”。"
+
+        # https://github.com/github/releases/issues/1637
+        - |新的 GraphQL 突变 [`createCommitOnBranch`](/graphql/reference/mutations#createcommitonbranch) 使得更易于在存储库的分支中添加、更新和删除文件。与 REST API 相比，无需在创建提交之前手动创建 Blob 和树。这允许你在单个 API 调用中添加、更新或删除多个文件。
+
+
+
+使用新 API 编写的提交会自动进行 GPG 签名，并在 {% data variables.product.prodname_ghe_server %} UI 中 [标记为已验证](/github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification)。GitHub 应用可以使用突变直接或 [代表用户](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) 编写提交。
+
+|
+        # https://github.com/github/releases/issues/1665
+        - "创建新标记时，[推送](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) Webhook 有效负载现始终包括 `head_commit` 对象，其中包含新标记指向的提交数据。因此，`head_commit` 对象将始终包含有效负载 `after` 提交的提交数据。"
+
+    - heading: '性能变化'
+      notes:
+        # https://github.com/github/releases/issues/1823
+        - 对于有很多 Git 引用的存储库，页面加载和作业现在明显更快。
+
+  # No security/bug fixes for the RC release
+  # security_fixes:
+  #   - PLACEHOLDER
+
+  # bugs:
+  #   - PLACEHOLDER
+
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 实例上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 如果问题包含指向同一存储库中 Blob 的永久链接，且 Blob 的文件路径长度超过 255 个字符，则无法关闭问题。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "{% data variables.product.prodname_registry %} npm 注册表不再在元数据响应中返回时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。
+
+  deprecations:
+    - heading: 弃用 GitHub Enterprise Server 2.22
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.22 已于 2021 年 9 月 23 日停用**。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server)。'
+    - heading: 弃用 GitHub Enterprise Server 3.0
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 将于 2022 年 2 月 16 日停用**。这意味着，在此日期之后，即使针对重大安全问题，也不会发布补丁。为了获得更好的性能、改进的安全性和新功能，请尽快[升级到 {% data variables.product.prodname_ghe_server %} 的最新版本](/enterprise-server@3.3/admin/enterprise-management/upgrading-github-enterprise-server)。'
+
+    - heading: XenServer Hypervisor 支持终止
+      notes:
+        # https://github.com/github/docs-content/issues/4439
+        - "从 {% data variables.product.prodname_ghe_server %} 3.3 开始，XenServer 上的 {% data variables.product.prodname_ghe_server %} 已弃用且不再受支持。如有问题或疑虑，请联系 [GitHub 支持](https://support.github.com)。"
+
+    - heading: 弃用 OAuth 应用程序 API 终结点和使用查询参数的 API 身份验证
+      notes:
+        # https://github.com/github/releases/issues/1316
+        - |为防止意外记录或公开 `access_tokens`，我们不鼓励使用 OAuth 应用程序 API 终结点和使用查询参数进行 API 身份验证。浏览以下帖子，查看建议的替换：
+
+
+
+* [替换 OAuth 应用程序 API 终结点](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#changes-to-make)
+
+* [使用标头而不是查询参数替换身份验证](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make)
+
+
+
+这些终结点和身份验证路由计划从 {% data variables.product.prodname_ghe_server %} 3.4 中的 {% data variables.product.prodname_ghe_server %} 中删除。
+
+|
+    - heading: 弃用 CodeQL 运行器
+      notes:
+        # https://github.com/github/releases/issues/1632
+        - "{% data variables.product.prodname_codeql %} 运行器已弃用。{% data variables.product.prodname_ghe_server %} 3.3 将是支持 {% data variables.product.prodname_codeql %} 运行器的最终版本系列。从 {% data variables.product.prodname_ghe_server %} 3.4 开始，{% data variables.product.prodname_codeql %} 运行器将被删除并且不再受支持。{% data variables.product.prodname_codeql %} CLI 版本 2.6.2 或更高版本是 {% data variables.product.prodname_codeql %} 运行器的功能完整的替代项。有关详细信息，请参阅 [{% data variables.product.prodname_dotcom %} 更改日志](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)。"
+
+    - heading: 弃用自定义位缓存扩展
+      notes:
+        # https://github.com/github/releases/issues/1415
+        - |从 {% data variables.product.prodname_ghe_server %} 3.1 开始，开始逐步淘汰对 {% data variables.product.company_short %} 的专有位缓存扩展的支持。这些扩展在 {% data variables.product.prodname_ghe_server %} 3.3 中现已弃用。
+
+
+
+运行版本 3.1 或 3.2 的 {% data variables.product.product_location %} 上已经存在并处于活动状态的任何存储库都将自动更新。
+
+
+
+在升级到 {% data variables.product.prodname_ghe_server %} 3.3 之前不存在且处于活动状态的存储库可能无法以最佳方式执行，直到运行存储库维护任务并成功完成。
+
+
+
+若要手动启动存储库维护任务，请浏览到“https://<hostname>/stafftools/repositories/<owner>/<repository>/network”查看每个受影响的存储库，然后单击“计划”按钮。
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.3 至少需要 [GitHub Enterprise 备份实用工具 3.3.0](https://github.com/github/backup-utils) 进行[备份和灾难恢复](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)。'

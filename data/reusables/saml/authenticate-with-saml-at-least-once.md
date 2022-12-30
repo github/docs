@@ -1,0 +1,1 @@
+If you don't see **Configure SSO**, ensure that you have authenticated at least once through your SAML IdP to access resources on {% data variables.location.product_location %}. For more information, see "[About authentication with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."

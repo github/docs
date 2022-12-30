@@ -1,11 +1,16 @@
 ---
 title: Configuring the self-hosted runner application as a service
+shortTitle: Run the runner app as a service
 intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: tutorial
+defaultPlatform: linux
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -13,15 +18,24 @@ versions:
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
 {% capture service_non_windows_intro_shell %}On the runner machine, open a shell in the directory where you installed the self-hosted runner application. Use the commands below to install and manage the self-hosted runner service.{% endcapture %}
-{% capture service_nonwindows_intro %}You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
-{% capture service_win_name %}actions.runner.*{% endcapture %}
 
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. 
+For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+
+{% endnote %}
+{% endcapture %}
+
+{% capture service_win_name %}actions.runner.*{% endcapture %}
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script distributed with the self-hosted runner application to install and manage using the application as a service.
+For Linux systems that use `systemd`, you can use the `svc.sh` script that is created after successfully adding the runner to install and manage using the application as a service.
 
 {{ service_non_windows_intro_shell }}
 
@@ -51,7 +65,7 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 {% linux %}
 
-### Installing the service
+## Installing the service
 
 {{ service_first_step }}
 1. Install the service with the following command:
@@ -60,10 +74,17 @@ You can manage the runner service in the Windows **Services** application, or yo
    sudo ./svc.sh install
    ```
 
+1. Alternatively, the command takes an optional `user` argument to install the service as a different user.
+
+  ```shell
+  ./svc.sh install USERNAME
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
-### Installing the service
+## Installing the service
 
 {{ service_first_step }}
 1. Install the service with the following command:
@@ -73,7 +94,7 @@ You can manage the runner service in the Windows **Services** application, or yo
    ```
 {% endmac %}
 
-### Starting the service
+## Starting the service
 
 Start the service with the following command:
 
@@ -93,7 +114,7 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Checking the status of the service
+## Checking the status of the service
 
 Check the status of the service with the following command:
 
@@ -115,7 +136,7 @@ Get-Service "{{ service_win_name }}"
 
  For more information on viewing the status of your self-hosted runner, see  "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
-### Stopping the service
+## Stopping the service
 
 Stop the service with the following command:
 
@@ -135,7 +156,7 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Uninstalling the service
+## Uninstalling the service
 
 1. Stop the service if it is currently running.
 1. Uninstall the service with the following command:
@@ -159,16 +180,16 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### Customizing the self-hosted runner service
+## Customizing the self-hosted runner service
 
-If you don't want to use the above default `systemd` service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `serviced` template at `actions-runner/bin/actions.runner.service.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point. 
+If you don't want to use the above default `systemd` service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `serviced` template at `actions-runner/bin/actions.runner.service.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
 
 {% endlinux %}
 
 {% mac %}
 
-### Customizing the self-hosted runner service
+## Customizing the self-hosted runner service
 
-If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point. 
+If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
 
 {% endmac %}

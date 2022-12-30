@@ -1,7 +1,6 @@
----
 user_migrations_intro: >-
-  You can use this API to review, backup, or migrate your user data stored on {% data variables.product.product_name %}.com.
+  Du kannst diese API zum Überprüfen, Sichern oder Migrieren deiner Benutzerdaten verwenden, die auf {% data variables.product.product_name %}.com gespeichert sind.
 organization_migrations_intro: >-
-  The organization migrations API lets you move a repository from GitHub to {% data variables.product.prodname_ghe_server %}.
+  Mit der Organisationsmigrations-API kannst du ein Repository von {% data variables.product.prodname_dotcom_the_website %} zu {% data variables.product.prodname_ghe_server %} verschieben. Weitere Informationen findest du unter „[Exportieren von Migrationsdaten von GitHub.com](/enterprise-server@latest/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom)“ in der Dokumentation zu {% data variables.product.prodname_ghe_server %}.
 source_imports_intro: >-
-  The Source Import API lets you start an import from a Git, Subversion, Mercurial, or Team Foundation Server source repository. This is the same functionality as the {% data variables.product.prodname_dotcom %} Importer. For more information, see "[Importing a repository with {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)."
+  Mit der Quellenimport-API kannst du einen Import aus einem Git-, Subversion-, Mercurial- oder Team Foundation-Versionskontrolle-Quellrepository beginnen. Hierbei handelt es sich um dieselbe Funktion wie beim {% data variables.product.prodname_dotcom %} Importer. Weitere Informationen findest du unter „[Importieren eines Repositorys mit {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)“.
