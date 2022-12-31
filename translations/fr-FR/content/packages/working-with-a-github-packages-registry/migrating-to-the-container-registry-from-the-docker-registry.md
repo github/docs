@@ -1,6 +1,6 @@
 ---
-title: Migrating to the Container registry from the Docker registry
-intro: '{% ifversion docker-ghcr-enterprise-migration %}An enterprise owner can{% else %}{% data variables.product.company_short %} will{% endif %} migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
+title: Migration vers le registre de conteneurs à partir du registre Docker
+intro: '{% ifversion docker-ghcr-enterprise-migration %}Un propriétaire d’entreprise peut migrer{% else %}{% data variables.product.company_short %} migrera{% endif %} des images Docker précédemment stockées dans le registre Docker sur {% data variables.location.product_location %} vers le {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
@@ -15,36 +15,41 @@ topics:
   - Containers
   - Docker
   - Migration
+ms.openlocfilehash: d596a9bf61d8fbd49c3ae6a32d52fda4e327f9f3
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107348'
 ---
-
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## About the {% data variables.product.prodname_container_registry %}
+## À propos du {% data variables.product.prodname_container_registry %}
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %} Pour plus d’informations, consultez « [Utilisation du {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) ».
 
-## About migration from the Docker registry
+## À propos de la migration à partir du registre Docker
 
-{% data reusables.package_registry.container-registry-replaces-docker-registry %} If you've stored Docker images in the Docker registry, {% ifversion docker-ghcr-enterprise-migration %}an enterprise owner{% else %}{% data variables.product.company_short %}{% endif %} will gradually migrate the images to the {% data variables.product.prodname_container_registry %}. No action is required on your part.
+{% data reusables.package_registry.container-registry-replaces-docker-registry %} Si vous avez stocké des images Docker dans le registre Docker, {% ifversion docker-ghcr-enterprise-migration %}un propriétaire d’entreprise{% else %}{% data variables.product.company_short %}{% endif %} migrera progressivement les images vers le {% data variables.product.prodname_container_registry %}. Aucune autre action n’est requise de votre part.
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
 {% note %}
 
-**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+**Remarque** : {% data reusables.package_registry.container-registry-ghes-migration-availability %} Pour plus d’informations sur la version de {% data variables.product.product_name %} que vous utilisez, consultez « [À propos des versions de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server) ».
 
 {% endnote %}
 
 {% endif %}
 
-After a Docker image has been migrated to the {% data variables.product.prodname_container_registry %}, you'll see the following changes to the details for the package.
+Une fois qu’une image Docker a été migrée vers le {% data variables.product.prodname_container_registry %}, vous noterez les modifications suivantes apportées aux détails du package.
 
-- The icon will be the {% data variables.product.prodname_container_registry %} logo instead of the Docker logo.
-- The domain in the pull URL will be {% data variables.product.prodname_container_registry_namespace %} instead of {% data variables.product.prodname_docker_registry_namespace %}.
+- L’icône sera le logo du {% data variables.product.prodname_container_registry %} au lieu du logo Docker.
+- Le domaine de l’URL d’extraction sera {% data variables.product.prodname_container_registry_namespace %} au lieu de {% data variables.product.prodname_docker_registry_namespace %}.
 
 {% ifversion fpt or ghec %}
 
-![Screenshot of a Docker image migrated to the {% data variables.product.prodname_container_registry %}](/assets/images/help/package-registry/container-registry-details-page.png)
+![Capture d’écran d’une image Docker migrée vers le {% data variables.product.prodname_container_registry %}](/assets/images/help/package-registry/container-registry-details-page.png)
 
 {% endif %}
 
@@ -52,18 +57,18 @@ After a Docker image has been migrated to the {% data variables.product.prodname
 
 {% ifversion fpt or ghec %}
 
-After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[Packages](/rest/reference/packages)" in the REST API documentation.
+Au terme de la migration, vous ne pourrez plus utiliser l’API GraphQL pour interroger les packages avec « DOCKER » comme `PackageType`. Cela étant, vous pouvez utiliser l’API REST pour interroger des packages avec « conteneur » comme `package_type`. Pour plus d’informations, consultez « [Packages](/rest/reference/packages) » dans la documentation de l’API REST.
 
-## About billing for {% data variables.product.prodname_container_registry %}
+## À propos de la facturation pour le {% data variables.product.prodname_container_registry %}
 
-For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+Pour plus d’informations sur la facturation du {% data variables.product.prodname_container_registry %}, consultez « [À propos de la facturation pour le {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages) ».
 
 {% endif %}
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Migrating your enterprise to the {% data variables.product.prodname_container_registry %} from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
+- « [Migration de votre entreprise vers le {% data variables.product.prodname_container_registry %} à partir du registre Docker](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry) ».
 
 {% endif %}

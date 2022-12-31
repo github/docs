@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Discover resources for a user
-ms.openlocfilehash: 9650ff8dee220f0b32d74cacb0f86acd236df5b6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3b3fd627260ac03d0991db73fcb5492c1284b2c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145129059'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193213'
 ---
 向 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
 
@@ -33,7 +33,7 @@ ms.locfileid: '145129059'
 
 [OAuth 作用域][scopes]和[组织应用程序策略][oap]决定了你的应用可以为用户访问其中哪些存储库。 使用下面的工作流程来发现这些仓库。
 
-照常，首先需要 [GitHub 的 Octokit.rb][octokit.rb] Ruby 库。 然后我们将配置 Octoberkit.rb，使其为我们自动处理[分页][pagination]。
+照常，首先需要 [GitHub 的 Octokit.rb][octokit.rb] Ruby 库。 然后我们将配置 Octoberkit.rb，使其为我们自动处理分页。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。
 
 ``` ruby
 require 'octokit'
@@ -70,7 +70,7 @@ end
 
 应用程序可以为用户执行各种与组织相关的任务。 若要执行这些任务，应用程序需要具有足够权限的 [OAuth 授权][scopes]。 例如，`read:org` 作用域允许你[列出团队][list-teams]，`user` 作用域允许你[公开用户的组织成员身份][publicize-membership]。 一旦用户将其中一个或多个作用域授予您的应用程序，您就可以获取用户的组织。
 
-与上述发现存储库的过程一样，我们首先需要 [GitHub 的 Octokit.rb][octokit.rb] Ruby 库，并对其进行配置，以便为我们处理[分页][pagination]：
+与上述发现存储库的过程一样，我们首先需要 [GitHub 的 Octokit.rb][octokit.rb] Ruby 库，并对其进行配置，以便为我们处理分页。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。
 
 ``` ruby
 require 'octokit'
@@ -108,7 +108,6 @@ end
 [make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
 [publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
 [register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app

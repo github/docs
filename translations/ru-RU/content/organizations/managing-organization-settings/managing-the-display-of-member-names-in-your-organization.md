@@ -1,6 +1,6 @@
 ---
-title: Managing the display of member names in your organization
-intro: You can allow members of your organization to see a comment author's profile name in private repositories in the organization.
+title: Управление отображением имен участников в организации
+intro: Вы можете разрешить участникам организации просматривать имя профиля автора комментария в частных репозиториях в организации.
 product: '{% data reusables.gated-features.display-names %}'
 redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
@@ -14,20 +14,22 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage display of member names
+ms.openlocfilehash: 0a394b40689d95ea37906fef2ddc9b203e2041c3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147409430'
 ---
+Владельцы организации могут управлять отображением имен участников в организации.
 
-Organization owners can manage the display of member names in an organization.
+![Имя профиля комментатора, отображаемое в примечании](/assets/images/help/issues/commenter-full-name.png)
 
-![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
+Каждый участник организации выбирает собственное имя профиля в своих параметрах. Дополнительные сведения см. в разделе [Персонализация профиля](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name).
 
-Changes to the display of usernames within an organization will affect the display of other people's usernames, not your own. Each organization member chooses their own profile name in their settings. For more information, see "[Personalizing your profile](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)."
+{% ifversion profile-name-enterprise-setting %} Если владелец предприятия настроил политику на уровне предприятия, вы не сможете настроить этот параметр для своей организации. Дополнительные сведения см. в разделе [Применение политик управления репозиториями в организации](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories).{% endif %}
 
-{% ifversion profile-name-enterprise-setting %}
-You may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."{% endif %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Under "Admin repository permissions", select or unselect **Allow members to see comment author's profile name in private repositories**.
-![Checkbox to allow members to see comment author's full name in private repositories](/assets/images/help/organizations/allow-members-to-view-full-names.png)
-6. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
+5. В разделе "Разрешения репозитория администраторов" установите или снимите флажок **Разрешить участникам просматривать имя профиля автора примечания в закрытых репозиториях**.
+![Флажок, позволяющий участникам просматривать полное имя автора примечаний в частных репозиториях](/assets/images/help/organizations/allow-members-to-view-full-names.png)
+6. Выберите команду **Сохранить**.

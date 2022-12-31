@@ -1,6 +1,6 @@
 ---
-title: Importing a Git repository using the command line
-intro: '{% ifversion fpt %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
+title: 使用命令行导入 Git 仓库
+intro: '{% ifversion fpt %}如果 [GitHub 导入工具](/articles/importing-a-repository-with-github-importer)不适用于你的目的，例如，如果你现有的代码托管在私有网络上，则建议使用命令行导入。{% else %}当你现有的代码托管在私有网络上时，适合使用命令行导入 Git 项目。{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
@@ -11,37 +11,43 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Import repo locally
+ms.openlocfilehash: bd3a5e5ffca38250a74851444f6cac4cbb06eb53
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128967'
 ---
-Before you start, make sure you know:
+在开始之前，请确保您知道：
 
-- Your {% data variables.product.product_name %} username
-- The clone URL for the external repository, such as `https://external-host.com/user/repo.git` or `git://external-host.com/user/repo.git` (perhaps with a `user@` in front of the `external-host.com` domain name)
+- 您的 {% data variables.product.product_name %} 用户名
+- 外部存储库的克隆 URL，例如 `https://external-host.com/user/repo.git` 或 `git://external-host.com/user/repo.git`（可能 `external-host.com` 域名前面是 `user@`）
 
 {% tip %}
 
-For purposes of demonstration, we'll use:
+为便于示范，我们将使用：
 
-- An external account named **extuser**
-- An external Git host named `https://external-host.com`
-- A {% data variables.product.product_name %} personal account named **ghuser**
-- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} named **repo.git**
+- 外部帐户 extuser
+- 外部 Git 主机 `https://external-host.com`
+- 名为 ghuser 的 {% data variables.product.product_name %} 个人帐户
+- {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库 repo.git
 
 {% endtip %}
 
-1. [Create a new repository on {% data variables.product.product_name %}](/articles/creating-a-new-repository). You'll import your external Git repository to this new repository.
-2. On the command line, make a "bare" clone of the repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
+1. [在 {% data variables.product.product_name %} 上新建存储库](/articles/creating-a-new-repository)。 您将在此新仓库中导入外部 Git 仓库。
+2. 在命令行上，使用外部克隆 URL 创建仓库的“裸”克隆。 这会创建数据的完整副本，但没有编辑文件的工作目录，并确保干净、新鲜地导出所有旧数据。
   ```shell
-  $ git clone --bare https://external-host.com/EXTUSER/REPO.git
+  $ git clone --bare https://external-host.com/<em>extuser</em>/<em>repo.git</em>
   # Makes a bare clone of the external repository in a local directory
   ```
-3. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
+3. 使用“镜像”选项将本地克隆的仓库推送到 {% data variables.product.product_name %}，以确保所有引用（如分支和标记）都复制到导入的仓库。
   ```shell
-  $ cd REPO.git
-  $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
-  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
+  $ cd <em>repo.git</em>
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
+  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
-4. Remove the temporary local repository.
+4. 删除临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf REPO.git
+  $ rm -rf <em>repo.git</em>
   ```

@@ -1,6 +1,6 @@
 ---
-title: Managing security and analysis settings for your organization
-intro: 'You can control features that secure and analyze the code in your organization''s projects on {% data variables.product.prodname_dotcom %}.'
+title: 管理组织的安全和分析设置
+intro: '您可以控制功能以保护组织在 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
 permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
@@ -15,152 +15,123 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage security & analysis
+ms.openlocfilehash: 35e34f15b46987eea7bc732313b69ecd4e6396fa
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107699'
 ---
+## 关于安全性和分析设置的管理
 
-## About management of security and analysis settings
+{% data variables.product.prodname_dotcom %} 可帮助保护组织中的仓库。 您可以管理成员在组织中创建的所有现有或新仓库的安全性和分析功能。 {% ifversion ghec %}如果你拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证，则还可以管理对这些功能的访问。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}使用 {% data variables.product.prodname_ghe_cloud %} 并拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的组织也可以管理对这些功能的访问。 有关详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。{% endif %}
 
-{% data variables.product.prodname_dotcom %} can help secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% ifversion ghec %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also manage access to these features. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization).{% endif %}
+{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %} {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
-{% data reusables.security.security-and-analysis-features-enable-read-only %}
+## 显示安全和分析设置
 
-## Displaying the security and analysis settings
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
+显示的页面允许您为组织中的仓库启用或禁用所有安全和分析功能。
 
-The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
+{% ifversion ghec %}如果你的组织属于具有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业，则该页面还会包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
-{% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+{% ifversion ghes %}如果你的组织拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证，则该页面还会包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
-{% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+{% ifversion ghae %}该页面还会包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
-{% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+## 为所有现有存储库启用或禁用某项功能
 
-## Enabling or disabling a feature for all existing repositories
+您可以启用或禁用所有仓库的功能。 {% ifversion fpt or ghec %}您的更改对组织中仓库的影响取决于其可见性：
 
-You can enable or disable features for all repositories. 
-{% ifversion fpt or ghec %}The impact of your changes on repositories in your organization is determined by their visibility:
-
-- **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
-- **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
-- **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
+- **依赖项关系图** - 所做的更改仅影响专用存储库，因为该功能对公共存储库始终启用。
+- **{% data variables.product.prodname_dependabot_alerts %}** - 所做的更改会影响所有存储库。
+- **{% data variables.product.prodname_dependabot_security_updates %}** - 所做的更改会影响所有存储库。
 {%- ifversion ghec %}
-- **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. This option controls whether or not {% data variables.product.prodname_secret_scanning_GHAS %} is enabled. {% data variables.product.prodname_secret_scanning_partner_caps %} always runs on all public repositories.
+- **{% data variables.product.prodname_GH_advanced_security %}** - 所做的更改仅影响专用存储库，因为 {% data variables.product.prodname_GH_advanced_security %} 和相关功能对公共存储库始终启用。
+- **{% data variables.product.prodname_secret_scanning_caps %}** - 所做的更改会影响同时启用了 {% data variables.product.prodname_GH_advanced_security %} 的存储库。 此选项控制是否启用 {% data variables.product.prodname_secret_scanning_GHAS %}。 {% data variables.product.prodname_secret_scanning_partner_caps %} 始终在所有公共存储库上运行。
 {% endif %}
 
 {% endif %}
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
-{% ifversion ghes or ghec or ghae %}
-{% note %}
+{% ifversion ghes or ghec or ghae %} {% note %}
 
-**Note:** If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[Enforcing policies for Advanced Security in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
-{% endnote %}
-{% endif %}
+注意：如果遇到“由于组织的策略设置，无法启用 GitHub Advanced Security”的错误，请与企业管理员联系，请他们更改企业 GitHub Advanced Security 策略。 有关详细信息，请参阅“[在企业中强制实施高级安全策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)”。
+{% endnote %} {% endif %}
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
-   {% ifversion fpt %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
-   {% endif %}
-   {% ifversion ghec %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-ghec.png)
-   {% endif %}
-   {% ifversion ghes %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
-   {% endif %}
+1. 转到组织的安全和分析设置。 有关详细信息，请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
+2. 在“代码安全和分析”下，单击功能右侧的“全部禁用”或“全部启用” 。 {% ifversion ghes or ghec %}如果 {% data variables.product.prodname_GH_advanced_security %} 许可证中没有可用席位，则会禁用“{% data variables.product.prodname_GH_advanced_security %}”的控件。{% endif %} {% ifversion fpt %} ![“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png) {% endif %} {% ifversion ghec %} ![“配置安全和分析”功能的“全部启用”和“全部禁用”按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-ghec.png) {% endif %} {% ifversion ghes %} ![“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png) {% endif %}
    
    
-   {% ifversion ghae %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
-   {% endif %}
-   {% ifversion fpt or ghec %}
-3. Optionally, enable the feature by default for new repositories in your organization.
-   {% ifversion fpt or ghec %}
-   !["Enable by default" option for new repositories](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
-   {% endif %}
+   {% ifversion ghae %} ![“配置安全和分析”功能的“全部启用”或“全部禁用”按钮](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png) {% endif %} {% ifversion fpt or ghec %}
+3. （可选）为组织中的新仓库默认启用该功能。
+   {% ifversion fpt or ghec %} ![针对新存储库的“默认启用”选项](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png) {% endif %}
    
-   {% endif %}
-   {% ifversion fpt or ghec %}
-4. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
-   {% endif %}
+   {% endif %} {% ifversion fpt or ghec %}
+4. 单击“禁用功能”或“启用功能”，为组织中所有存储库禁用或启用该功能 。
+   {% ifversion fpt or ghec %} ![用于禁用或启用功能的按钮](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png) {% endif %}
    
-   {% endif %}
-   {% ifversion ghae or ghes %}
-5. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
-   ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
-   {% endif %}
+   {% endif %} {% ifversion ghae or ghes %}
+5. 单击“全部启用/禁用”或“为符合条件的存储库启用/禁用”以确认更改 。
+   ![用于为组织中所有符合条件的存储库启用功能的按钮](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png) {% endif %}
 
    {% data reusables.security.displayed-information %}
 
-## Enabling or disabling a feature automatically when new repositories are added
+## 添加新仓库时自动启用或禁用功能
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-2. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-  {% ifversion ghes %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
+1. 转到组织的安全和分析设置。 有关详细信息，请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
+2. 在功能右边的“代码安全和分析”下，默认为组织中的新存储库{% ifversion fpt or ghec %}或所有新的专用存储库{% endif %}启用或禁用该功能。
+   {% ifversion fpt or ghec %} ![用于启用新存储库功能的复选框的屏幕截图](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png) {% endif %} {% ifversion ghes %} ![用于启用新存储库功能的复选框的屏幕截图](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png) {% endif %}
    
-   {% ifversion ghae %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
-   {% endif %}
+   {% ifversion ghae %} ![用于对新存储库启用功能的复选框的屏幕截图](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png) {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 
-## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
+## 允许 {% data variables.product.prodname_dependabot %} 访问私有依赖项
 
-{% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[About {% data variables.product.prodname_dependabot %} version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+{% data variables.product.prodname_dependabot %} 可以检查项目中过时的依赖项引用，并自动生成拉取请求来更新它们。 为此，{% data variables.product.prodname_dependabot %} 必须有权访问所有目标依赖项文件。 通常，如果一个或多个依赖项无法访问，版本更新将失败。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot %} 版本更新](/github/administering-a-repository/about-dependabot-version-updates)”。
 
-By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private repositories or private package registries. However, if a dependency is in a private {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository.
+默认情况下，{% data variables.product.prodname_dependabot %} 无法更新位于私有仓库或私有仓库注册表中的依赖项。 但是，如果依赖项位于与使用该依赖项之项目相同的组织内的私有 {% data variables.product.prodname_dotcom %} 仓库中，则可以通过授予对主机仓库的访问权限来允许 {% data variables.product.prodname_dependabot %} 成功更新版本。
 
-If your code depends on packages in a private registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the _dependabot.yml_ file for the repository. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
+如果您的代码依赖于私有注册表中的软件包，您可以在仓库级别进行配置，允许 {% data variables.product.prodname_dependabot %} 更新这些依赖项的版本。 可通过将身份验证详细信息添加到存储库的 dependabot.yml 文件来完成此操作。 有关详细信息，请参阅[dependabot.yml 文件的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)。
 
-To allow {% data variables.product.prodname_dependabot %} to access a private {% data variables.product.prodname_dotcom %} repository:
+要允许 {% data variables.product.prodname_dependabot %} 访问私有 {% data variables.product.prodname_dotcom %} 仓库：
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "{% data variables.product.prodname_dependabot %} private repository access", click **Add private repositories** or **Add internal and private repositories**.
-   ![Add repositories button](/assets/images/help/organizations/dependabot-private-repository-access.png)
-1. Start typing the name of the repository you want to allow.
-   ![Repository search field with filtered dropdown](/assets/images/help/organizations/dependabot-private-repo-choose.png)
-1. Click the repository you want to allow.
+1. 转到组织的安全和分析设置。 有关详细信息，请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
+1. 在“{% data variables.product.prodname_dependabot %} 专用存储库访问权限”下，单击“添加专用存储库”或“添加内部和专用存储库” 。
+   ![添加存储库按钮](/assets/images/help/organizations/dependabot-private-repository-access.png)
+1. 开始键入要允许的存储库的名称。
+   ![带有筛选条件下拉列表的存储库搜索字段](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+1. 单击要允许的存储库。
 
-1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
-   !["X" button to remove a repository](/assets/images/help/organizations/dependabot-private-repository-list.png)
-{% endif %}
+1. （可选）要从列表中删除仓库，在仓库右侧单击 {% octicon "x" aria-label="The X icon" %}。
+   ![用于删除存储库的“X”按钮](/assets/images/help/organizations/dependabot-private-repository-list.png) {% endif %}
 
 {% ifversion ghes or ghec %}
 
-## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+## 从组织中的个别仓库中移除对 {% data variables.product.prodname_GH_advanced_security %} 的访问权限
 
-You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)." However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
+可以通过存储库的“设置”选项卡管理对存储库的 {% data variables.product.prodname_GH_advanced_security %} 功能的访问。有关详细信息，请参阅“[管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。 但您也可以从“Settings（设置）”选项卡对仓库禁用 {% data variables.product.prodname_GH_advanced_security %} 功能。
 
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GH_advanced_security %} enabled, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png)
-  The table lists the number of unique committers for each repository. This is the number of seats you could free up on your license by removing access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
-1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up seats used by any committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
-1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
+1. 转到组织的安全和分析设置。 有关详细信息，请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
+1. 要查看您组织中启用 {% data variables.product.prodname_GH_advanced_security %} 的所有仓库的列表，请滚动到“{% data variables.product.prodname_GH_advanced_security %} 仓库”部分。
+  ![{% data variables.product.prodname_GH_advanced_security %} 存储库部分](/assets/images/help/organizations/settings-security-analysis-ghas-repos-list.png) 此表列出了每个存储库的唯一提交者数量。 这是您可以通过移除 {% data variables.product.prodname_GH_advanced_security %} 访问权限释放的席位数。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)。”
+1. 要从仓库删除对 {% data variables.product.prodname_GH_advanced_security %} 的访问，并释放任何提交者使用的对仓库唯一的席位，请单击相邻的 {% octicon "x" aria-label="X symbol" %}。
+1. 在确认对话框中，单击“删除存储库”以删除对 {% data variables.product.prodname_GH_advanced_security %} 功能的访问权限。
 
 {% note %}
 
-**Note:** If you remove access to {% data variables.product.prodname_GH_advanced_security %} for a repository, you should communicate with the affected development team so that they know that the change was intended. This ensures that they don't waste time debugging failed runs of code scanning.
+注意：如果删除对存储库中 {% data variables.product.prodname_GH_advanced_security %} 的访问权限，则应与受影响的开发团队沟通，以便他们了解此更改是有意的。 这确保他们不会浪费时间调试运行失败的代码扫描。
 
 {% endnote %}
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
-- "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}
-- "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"
+- [保护存储库](/code-security/getting-started/securing-your-repository){% ifversion not fpt %}
+- [关于机密扫描](/github/administering-a-repository/about-secret-scanning){% endif %}{% ifversion not ghae %}
+- [关于依赖项关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph){% endif %}
+- [关于供应链安全性](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)

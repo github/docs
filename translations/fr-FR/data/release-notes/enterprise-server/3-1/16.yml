@@ -1,0 +1,24 @@
+date: '01-02-2022'
+sections:
+  security_fixes:
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+  bugs:
+    - Les pages devenaient indisponibles après une rotation des secrets MySQL jusqu’à ce que « nginx » soit redémarré manuellement.
+    - "Lors de la définition du calendrier de maintenance avec une date ISO 8601, l’heure réelle programmée ne correspondait pas, car le fuseau horaire n’était pas transformé en UTC."
+    - Des messages d’erreur erronés concernant le service « cloud-config.service » étaient affichés dans la console.
+    - Le numéro de version n’était pas correctement mis à jour après l’installation d’un correctif à chaud en utilisant « ghe-cluster-each ».
+    - "Les travaux de nettoyage de la table des webhooks pouvaient être exécutés simultanément, ce qui entraînait un conflit de ressources et augmentait la durée d’exécution des travaux."
+    - "Lors de l’utilisation de l’authentification CAS alors que l’option « Réactiver les utilisateurs suspendus » était activée, les utilisateurs suspendus n’étaient pas automatiquement réactivés."
+    - La possibilité de limiter les notifications par e-mail aux utilisateurs dont l’adresse e-mail se trouve sur un domaine vérifié ou approuvé ne fonctionnait pas correctement.
+    - Plusieurs liens de documentation menaient à une erreur 404 Not Found.
+  changes:
+    - L’enregistrement de la connexion de données GitHub Connect comprend désormais un décompte du nombre d’utilisateurs actifs et dormants et la période de dormance configurée.
+  known_issues:
+    - "Le registre npm {% data variables.product.prodname_registry %} ne retourne plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour retourner une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à retourner cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - "Sur un {% data variables.product.prodname_ghe_server %} fraîchement configuré sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au dépôt."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même dépôt, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes dans les dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - "Si {% data variables.product.prodname_actions %} est activé pour {% data variables.product.prodname_ghe_server %}, le démontage d’un nœud de réplica avec « ghe-repl-teardown » réussit, mais peut retourner « ERREUR : migrations en cours d’exécution »."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.

@@ -1,6 +1,6 @@
 ---
-title: Managing marketing emails from GitHub
-intro: 'In addition to notifications and account emails, {% data variables.product.prodname_dotcom %} occasionally sends marketing emails with news and information about our products. If you unsubscribe from existing marketing emails, you won''t be included in future campaigns unless you change your {% data variables.product.prodname_dotcom %} email settings.'
+title: Gestion des e-mails à but marketing de GitHub
+intro: 'Outre les notifications et les e-mails de compte, {% data variables.product.prodname_dotcom %} envoie occasionnellement des e-mails marketing avec des actualités et des informations sur nos produits. Si vous vous désabonnez des e-mails marketing existants, vous ne serez pas inclus dans les futures campagnes, sauf si vous modifiez vos paramètres d’e-mail {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/managing-marketing-emails-from-github
   - /github/setting-up-and-managing-your-github-user-account/managing-marketing-emails-from-github
@@ -13,23 +13,28 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Marketing emails
+ms.openlocfilehash: 07d100e59d025072e098b016bde30a23b9a7449e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145164971'
 ---
-## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
+## Annulation de l’abonnement aux e-mails à but marketing de {% data variables.product.prodname_dotcom %}
 
 {% tip %}
 
-**Tip:** If you unsubscribe from all marketing emails and then subscribe to the Explore newsletter, you'll only receive the Explore newsletter, and won't receive other marketing email.
+**Astuce :** Si vous vous désabonnez de tous les e-mails marketing, puis que vous vous abonnez au bulletin Explore, vous recevrez uniquement le bulletin Explore et ne recevrez pas d’autres e-mails marketing.
 
 {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
-  ![Screenshot of opting out of marketing email](/assets/images/help/notifications/email_preferences.png)
-4. Click **Save email preferences**.
-  ![Save email preferences button](/assets/images/help/notifications/save_email_preferences.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Sous *Préférences d’e-mail*, sélectionnez **Uniquement recevoir les e-mails liés au compte, et ceux auxquels je m’abonne**.
+  ![Capture d’écran de l’annulation de l’abonnement aux e-mails à but marketing](/assets/images/help/notifications/email_preferences.png)
+4. Cliquez sur **Enregistrer les préférences d’e-mail**.
+  ![Bouton Enregistrer les préférences d’e-mail](/assets/images/help/notifications/save_email_preferences.png)
 
-## Further reading
+## Pour aller plus loin
 
-- "[Types of emails GitHub sends](/articles/types-of-emails-github-sends)"
-- "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+- « [Types d’e-mails envoyés par GitHub](/articles/types-of-emails-github-sends) »
+- « [Configuration des notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications) »

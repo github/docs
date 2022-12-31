@@ -1,6 +1,6 @@
 ---
-title: Showing your private contributions and achievements on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from {% ifversion fpt or ghes or ghec %}private and internal{% else %}private{% endif %} repositories{% ifversion fpt or ghes or ghec %} in addition to the activity from public repositories{% endif %}.'
+title: Como mostrar as contribuições e conquistas privadas em seu perfil
+intro: 'Seu perfil do {% data variables.product.product_name %} mostra um gráfico de contribuições no seu repositório no último ano. Você pode mostrar uma atividade anonimizada de {% ifversion fpt or ghes or ghec %}repositórios privados e internos{% else %}privados{% endif %}{% ifversion fpt or ghes or ghec %} além da atividade de repositórios públicos{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
@@ -14,42 +14,40 @@ versions:
 topics:
   - Profiles
 shortTitle: Private contributions and achievements
+ms.openlocfilehash: b40e3835bf1548ff4ced75d1207de9a5b493dc90
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147079408'
 ---
-
-If you publicize your private contributions, people without access to the private repositories you work in won't be able to see the details of your private contributions. Instead, they'll see the number of private contributions you made on any given day. Your public contributions will include detailed information. For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)."
+Se você mostrar suas contribuições privadas, pessoas sem acesso aos repositórios nos quais você trabalha não poderão ver os detalhes de suas contribuições privadas. Em vez disso, elas verão o número de contribuições privadas que você fez em determinado dia. Suas contribuições públicas incluirão informações detalhadas. Para obter mais informações, confira "[Como ver as contribuições na página do seu perfil](/articles/viewing-contributions-on-your-profile-page)".
 
 {% note %}
 
-**Note:** {% ifversion fpt or ghes or ghec %}On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+**Observação:** {% ifversion fpt or ghes or ghec %}No {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, as contribuições públicas no seu perfil são visíveis {% ifversion fpt or ghec %}para qualquer pessoa no mundo que possa acessar o {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}apenas para outros usuários do {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}No {% data variables.product.prodname_ghe_managed %}, somente outros membros da sua empresa podem ver as contribuições no seu perfil.{% endif %}
 
 {% endnote %}
 
-## Changing the visibility of your private contributions
+## Alterar a visibilidade de suas contribuições privadas
 
 {% data reusables.profile.access_profile %}
-1. Publicize or hide your private contributions on your profile:
-    - To publicize your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and select **Private contributions**. Visitors will see your private contribution counts without further details.
-  ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-on.png)
-    - To hide your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and unselect **Private contributions.** Visitors will only see your public contributions.
-   ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-off.png)
+1. Mostre ou oculte contribuições privadas no perfil:
+    - Para divulgar suas contribuições privadas, acima do grafo de contribuições, use o menu suspenso **Configurações de contribuição** e selecione **Contribuições privadas**. Os visitantes verão sua contagem de contribuições privadas sem informações adicionais.
+  ![Permitir que os visitantes vejam as contribuições privadas no menu suspenso Configurações de contribuição](/assets/images/help/profile/private-contributions-on.png)
+    - Para ocultar suas contribuições privadas, acima do grafo de contribuições, use o menu suspenso **Configurações de contribuição** e desmarque **Contribuições privadas.** Os visitantes só verão suas contribuições públicas.
+   ![Permitir que os visitantes vejam as contribuições privadas no menu suspenso Configurações de contribuição](/assets/images/help/profile/private-contributions-off.png)
 
-## Changing the visibility of Achievements
+## Como alterar a visibilidade das Conquistas
 
 {% data reusables.user-settings.access_settings %}
-1. Show or hide Achievements on your profile:
-    - To show Achievements on your profile, navigate to **Profile settings**, and select the checkbox next to **Show Achievements on my profile.**
-  ![Enable visitors to see Achievements from profile settings](/assets/images/help/profile/achievements-profile-settings-off.png)
-    - To hide Achievements from your profile, navigate to **Profile settings**, and unselect the checkbox next to **Show Achievements on my profile.**
-  ![Hide Achievements from visitors in profile settings](/assets/images/help/profile/achievements-profile-settings-on.png)
-{% ifversion hide-individual-achievements %}
-1. Optionally, to hide individual Achievements from your profile:
-    {% data reusables.profile.access_profile %}
-     1. Navigate to the Achievements section on the left sidebar of your profile and select the Achievements header. ![Achievements on profile sidebar](/assets/images/help/profile/achievements-on-profile.png)
-     2. Open the detail view of the achievement you'd like to hide by clicking on the achievement.
-     3. Once in the detail view, click the {% octicon "eye" aria-label="The eye icon" %} icon to hide the achievement. ![Achievement detail view](/assets/images/help/profile/achievements-detail-view.png) When hidden, badges will be marked by the {% octicon "eye-closed" aria-label="The eye closed icon" %} icon and are only visible to you. ![Hidden achievements](/assets/images/help/profile/achievements-hidden.png)
+1. Mostrar ou ocultar as Conquistas em seu perfil:
+    - Para mostrar as Conquistas em seu perfil, acesse **Configurações de perfil** e marque a caixa de seleção ao lado de **Mostrar Conquistas no meu perfil.** 
+  ![Permitir que os visitantes vejam as Conquistas nas configurações de perfil](/assets/images/achievements-profile-settings-off.png)
+    - Para ocultar as Conquistas do seu perfil, acesse **Configurações de perfil** e desmarque a caixa de seleção ao lado de **Mostrar Conquistas no meu perfil.** 
+  ![Ocultar as Conquistas dos visitantes nas configurações de perfil](/assets/images/achievements-profile-settings-on.png)
 
-{% endif %}
-## Further reading
+## Leitura adicional
 
-- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
+- "[Como ver as contribuições na página do seu perfil](/articles/viewing-contributions-on-your-profile-page)"
+- "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

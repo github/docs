@@ -1,51 +1,54 @@
 ---
-title: Managing accessibility settings
+title: Управление параметрами специальных возможностей
 shortTitle: Manage accessibility settings
-intro: '{% data variables.product.product_name %}''s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs.'
+intro: 'Пользовательский интерфейс {% data variables.product.product_name %} может адаптироваться к особенностям зрения, слуха, моторики, когнитивным навыкам или потребностям в обучении.'
 versions:
   feature: keyboard-shortcut-accessibility-setting
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
 type: how_to
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 088bb097004f6c3b13412ec9716665b1f02edca5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107216'
 ---
+## Сведения о параметрах специальных возможностей
 
-## About accessibility settings
+Чтобы создать интерфейс для {% ifversion fpt или ghec или ghes %}{% данных variables.location.product_location %}{% elsif ghae %}{% данных variables.product.product_name %}{% endif %}, который соответствует вашим потребностям, можно настроить пользовательский интерфейс. Параметры специальных возможностей могут быть важными для пользователей с ограниченными возможностями, но также могут быть полезными для всех. Например, настройка сочетаний клавиш имеет важное значение для пользователей, которые выполняют навигацию с помощью голосового управления, но также может быть полезной для всех, если сочетание клавиш для {% data variables.product.product_name %} конфликтует с другим ярлыком приложения.
 
-To create an experience on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
+## Управление параметрами специальных возможностей
 
-## Managing accessibility settings
+Вы можете решить, следует ли использовать некоторые или все сочетания клавиш для {% ifversion fpt или ghec %}{% данных variables.location.product_location %}{% elsif ghes или ghae %}, веб-сайт для {% данных variables.location.product_location %}{% endif %}, и вы можете управлять отображением анимированных изображений.
 
-You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes or ghae %}the website for {% data variables.location.product_location %}{% endif %}, and you can control the display of animated images.
+### Управление сочетаниями клавиш
 
-### Managing keyboard shortcuts
+Вы можете выполнять действия на веб-сайте {% data variables.product.product_name %}, используя только клавиатуру. Сочетания клавиш могут быть полезны для экономии времени, но их можно активировать случайно или они могут помешать работе специальной технологии.
 
-You can perform actions across the {% data variables.product.product_name %} website by using your keyboard alone. Keyboard shortcuts can be useful to save time, but can be activated accidentally or interfere with assistive technology.
+По умолчанию все сочетания клавиш включены в {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Сочетания клавиш](/get-started/using-github/keyboard-shortcuts).
 
-By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)."
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.accessibility_settings %}
+1. В разделе "Сочетания клавиш" можно настроить параметры для сочетаний клавиш.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.accessibility_settings %}
-1. Under "Keyboard shortcuts", manage settings for your keyboard shortcuts.
-
-   - To disable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**.
-     - If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
+   - Чтобы отключить сочетания клавиш, которые не используют клавиши-модификаторы, такие как <kbd>CONTROL</kbd> или <kbd>COMMAND</kbd>, в разделе "Общие" отмените выбор **клавиш символов**.
+     - Если отключить клавиши символов, вы по-прежнему сможете активировать сочетания клавиш для веб-браузера, а также активировать сочетания клавиш для {% data variables.product.product_name %}, которые используют клавишу-модификатор.
    {%- ifversion command-palette %}
-   - To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[{% data variables.product.company_short %} Command Palette](/get-started/using-github/github-command-palette)."
+   - Чтобы настроить сочетания клавиш для активации палитры команд, в разделе "Палитра команд" используйте раскрывающиеся меню для выбора сочетания клавиш. Дополнительные сведения см. в разделе [Палитра команд {% data variables.product.company_short %}](/get-started/using-github/github-command-palette).
    {%- endif %}
 
 {% ifversion motion-management %}
 
-### Managing motion
+### Управление движением
 
-You can control how {% data variables.product.product_name %} displays animated _.gif_ images.
+Вы можете контролировать, как {% data variables.product.product_name %} отображает анимированные изображения _GIF_.
 
-By default, {% data variables.product.product_name %} syncs with your system-level preference for reduced motion. For more information, see the documentation or settings for your operating system.
+По умолчанию {% data variables.product.product_name %} синхронизируется с параметром системного уровня для движения со сжатием. Дополнительные сведения см. в разделе документации или параметров операционной системы.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.accessibility_settings %}
-1. Under "Motion", manage settings for motion.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.accessibility_settings %}
+1. В разделе "Движение" можно управлять параметрами движения.
 
-   - To control how {% data variables.product.product_name %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
+   - Чтобы контролировать, как {% data variables.product.product_name %} отображает анимированные изображения, в разделе "Автоматическое воспроизведение анимированных изображений" выберите **Синхронизация с системой**, **Включено** или **Отключено**.
 
 {% endif %}

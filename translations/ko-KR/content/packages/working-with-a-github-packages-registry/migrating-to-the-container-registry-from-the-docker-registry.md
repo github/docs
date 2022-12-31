@@ -1,6 +1,6 @@
 ---
-title: Migrating to the Container registry from the Docker registry
-intro: '{% ifversion docker-ghcr-enterprise-migration %}An enterprise owner can{% else %}{% data variables.product.company_short %} will{% endif %} migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
+title: Docker 레지스트리에서 컨테이너 레지스트리로 마이그레이션
+intro: '{% ifversion docker-ghcr-enterprise-migration %} 엔터프라이즈 소유자는 {% else %}{% data variables.product.company_short %}에서 {% endif %}이(가) {% data variables.location.product_location %}의 Docker 레지스트리에 이전에 저장된 Docker 이미지를 {% data variables.product.prodname_container_registry %}로 마이그레이션할 수 있습니다.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
@@ -15,36 +15,41 @@ topics:
   - Containers
   - Docker
   - Migration
+ms.openlocfilehash: d596a9bf61d8fbd49c3ae6a32d52fda4e327f9f3
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107351'
 ---
-
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-## About the {% data variables.product.prodname_container_registry %}
+## {% data variables.product.prodname_container_registry %} 정보
 
-{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+{% data reusables.package_registry.container-registry-benefits %} 자세한 내용은 “[{% data variables.product.prodname_container_registry %}로 작업](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”을 참조하세요.
 
-## About migration from the Docker registry
+## Docker 레지스트리에서의 마이그레이션 정보
 
-{% data reusables.package_registry.container-registry-replaces-docker-registry %} If you've stored Docker images in the Docker registry, {% ifversion docker-ghcr-enterprise-migration %}an enterprise owner{% else %}{% data variables.product.company_short %}{% endif %} will gradually migrate the images to the {% data variables.product.prodname_container_registry %}. No action is required on your part.
+{% data reusables.package_registry.container-registry-replaces-docker-registry %} Docker 레지스트리에 Docker 이미지를 저장한 경우 {% ifversion docker-ghcr-enterprise-migration %}엔터프라이즈 소유자{% else %}{% data variables.product.company_short %}{% endif %}가 이미지를 {% data variables.product.prodname_container_registry %}로 점진적으로 마이그레이션합니다. 사용자가 수행할 작업은 없습니다.
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
 {% note %}
 
-**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+**참고**: {% data reusables.package_registry.container-registry-ghes-migration-availability %} 사용 중인 {% data variables.product.product_name %}의 버전을 확인하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_docs %}의 버전 정보](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)”를 참조하세요.
 
 {% endnote %}
 
 {% endif %}
 
-After a Docker image has been migrated to the {% data variables.product.prodname_container_registry %}, you'll see the following changes to the details for the package.
+Docker 이미지가 {% data variables.product.prodname_container_registry %}로 마이그레이션되면 패키지의 세부 정보에 다음과 같은 변경 내용이 표시됩니다.
 
-- The icon will be the {% data variables.product.prodname_container_registry %} logo instead of the Docker logo.
-- The domain in the pull URL will be {% data variables.product.prodname_container_registry_namespace %} instead of {% data variables.product.prodname_docker_registry_namespace %}.
+- 아이콘은 Docker 로고 대신 {% data variables.product.prodname_container_registry %} 로고가 됩니다.
+- 끌어오기 URL의 도메인은 {% data variables.product.prodname_docker_registry_namespace %} 대신 {% data variables.product.prodname_container_registry_namespace %}가 됩니다.
 
 {% ifversion fpt or ghec %}
 
-![Screenshot of a Docker image migrated to the {% data variables.product.prodname_container_registry %}](/assets/images/help/package-registry/container-registry-details-page.png)
+![{% data variables.product.prodname_container_registry %}로 마이그레이션된 Docker 이미지의 스크린샷](/assets/images/help/package-registry/container-registry-details-page.png)
 
 {% endif %}
 
@@ -52,18 +57,18 @@ After a Docker image has been migrated to the {% data variables.product.prodname
 
 {% ifversion fpt or ghec %}
 
-After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[Packages](/rest/reference/packages)" in the REST API documentation.
+마이그레이션 후에는 더 이상 GraphQL API를 사용하여 `PackageType` “DOCKER” 패키지를 쿼리할 수 없습니다. 대신 REST API를 사용하여 `package_type` “컨테이너”가 있는 패키지를 쿼리할 수 있습니다. 자세한 내용은 REST API 설명서의 “[패키지](/rest/reference/packages)”를 참조하세요.
 
-## About billing for {% data variables.product.prodname_container_registry %}
+## {% data variables.product.prodname_container_registry %} 요금 청구 정보
 
-For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data variables.product.prodname_container_registry %}의 청구 정보에 대한 자세한 내용은 “[{% data variables.product.prodname_registry %} 요금 청구 정보](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”를 참조하세요.
 
 {% endif %}
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Migrating your enterprise to the {% data variables.product.prodname_container_registry %} from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
+- “[Docker 레지스트리에서 {% data variables.product.prodname_container_registry %}로 엔터프라이즈 마이그레이션](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)”
 
 {% endif %}

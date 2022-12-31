@@ -1,6 +1,6 @@
 ---
-title: Publishing and installing a package with GitHub Actions
-intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
+title: GitHub Actionsでのパッケージの公開とインストール
+intro: '{% data variables.product.prodname_actions %}でのワークフローを、自動的にパッケージをに公開もしくは{% data variables.product.prodname_registry %}からインストールするように設定できます。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
@@ -12,81 +12,87 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
+ms.openlocfilehash: 80516eb55e9ffc8f2de3f92cf24a7d7f230b8407
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193123'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## {% data variables.product.prodname_actions %}との{% data variables.product.prodname_registry %}について
 
-## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
+{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} 詳しい情報については「[{% data variables.product.prodname_actions %} について](/github/automating-your-workflow-with-github-actions/about-github-actions)」を参照してください。
 
-{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
+ワークフローの一部としてパッケージの公開やインストールを行うことで、リポジトリのCI及びCDの機能を拡張できます。
 
-You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
-
-{% ifversion fpt or ghec %}
-### Authenticating to the {% data variables.packages.prodname_ghcr_and_npm_registry %}
+{% ifversion packages-registries-v2 %}
+### 詳細なアクセス許可を持つパッケージ レジストリに対する認証
 
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
+### リポジトリがスコープ指定されたアクセス許可を持つパッケージ レジストリに対する認証
+
 {% endif %}
 
-### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
+{% ifversion packages-registries-v2 %}一部の {% data variables.product.prodname_registry %} レジストリでは、リポジトリがスコープ指定されたアクセス許可のみがサポートされ、詳細なアクセス許可はサポートされていません。 そのようなレジストリの一覧については、「[{% data variables.product.prodname_registry %} のアクセス許可について](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)」をご覧ください。
 
-{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.location.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a {% data variables.product.pat_generic %} for authentication. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+詳細なアクセス許可がサポートされていない {% data variables.product.prodname_registry %} レジストリにアクセスするワークフローが必要な場合{% else %}{% data variables.product.product_name %} のパッケージ レジストリの認証を受けるには、{% endif %}{% data variables.product.prodname_actions %} を有効にするときに、{% data variables.product.product_name %} によってレポジトリに対して自動的に作成される `GITHUB_TOKEN` を使うことをお勧めします。 ワークフロー ファイルでこのアクセス トークンにアクセス許可を設定して、`contents` スコープに対する読み取りアクセス権と、`packages` スコープに対する書き込みアクセス権を付与する必要があります。 フォークの場合、`GITHUB_TOKEN` には親リポジトリの読み取りアクセス権が付与されます。 詳細については、「[GITHUB_TOKEN を使用した認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+ワークフロー ファイル内の `GITHUB_TOKEN` は、{% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} コンテキストを使って参照できます。 詳細については、「[GITHUB_TOKEN を使用した認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。
 
-## About permissions and package access for repository-owned packages
+## アクセス許可とパッケージのアクセスについて
 
-{% note %}
+{% ifversion packages-registries-v2 %}
 
-**Note:** Some registries, such as RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle{% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`{% endif %}, only allow repository-owned packages. With {% data variables.packages.prodname_ghcr_and_npm_registry_full %} you can choose to allow packages to be owned by a user, an organization, or linked to a repository.
+### ユーザーまたは Organization にスコープ指定されたパッケージ
 
-{% endnote %}
+詳細なアクセス許可をサポートするレジストリを使うと、ユーザーは Organization レベルで独立したリソースとしてパッケージを作成および管理できます。 Organization または個人アカウントがパッケージを所有でき、それぞれのパッケージへのアクセスはリポジトリ権限とは別にカスタマイズできます。
 
-When you enable GitHub Actions, GitHub installs a GitHub App on your repository. The `GITHUB_TOKEN` secret is a GitHub App installation access token. You can use the installation access token to authenticate on behalf of the GitHub App installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)."
+詳細なアクセス許可をサポートするレジストリにアクセスするすべてのワークフローで、{% data variables.product.pat_generic %} の代わりに `GITHUB_TOKEN` を使う必要があります。 セキュリティのベスト プラクティスについて詳しくは、「[GitHub Actions のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)」を参照してください。
 
-{% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
+### リポジトリにスコープ指定されたパッケージ
 
-{% ifversion fpt or ghec %}
-## About permissions and package access for {% data variables.packages.prodname_ghcr_and_npm_registry %}
+{% endif %}
 
-The {% data variables.packages.prodname_ghcr_and_npm_registry_full %} allows users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
+GitHub Actionsを有効化すると、GitHubはリポジトリにGitHub Appをインストールします。 `GITHUB_TOKEN` シークレットは、GitHub App インストール アクセス トークンです。 このインストールアクセストークンは、リポジトリにインストールされたGitHub Appの代わりに認証を受けるために使うことができます。 このトークンの権限は、ワークフローを含むリポジトリに限定されます。 詳細については、「[GITHUB_TOKEN のアクセス許可](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)」を参照してください。
 
-All workflows accessing the {% data variables.packages.prodname_ghcr_and_npm_registry %} should use the `GITHUB_TOKEN` instead of a {% data variables.product.pat_generic %}. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+{% data variables.product.prodname_registry %} を使用すると、{% data variables.product.prodname_actions %} ワークフローで利用できる `GITHUB_TOKEN` を通じてパッケージをプッシュしたりプルしたりできます。
 
-## Default permissions and access settings for containers modified through workflows
+{% ifversion packages-registries-v2 %}
 
-When you create, install, modify, or delete a container through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well.
+## ワークフローを通じて変更されたコンテナに対するデフォルトの権限及びアクセス設定
 
-For example, by default if a workflow creates a container using the `GITHUB_TOKEN`, then:
-- The container inherits the visibility and permissions model of the repository where the workflow is run.
-- Repository admins where the workflow is run become the admins of the container once the container is created.
+ワークフローを通じてコンテナを作成、インストール、変更、削除する場合、管理者がワークフローに確実にアクセスできるようにするために使われるデフォルトの権限及びアクセス設定があります。 これらのアクセス設定も調整できます。
 
-These are more examples of how default permissions work for workflows that manage packages.
+たとえば既定では、ワークフローで `GITHUB_TOKEN` を使用してコンテナーが作成された場合:
+- コンテナはワークフローが実行されたリポジトリの可視性と権限モデルを継承します。
+- ワークフローが実行されたリポジトリの管理者は、コンテナが作成されるとそのコンテナの管理者になります。
 
-| {% data variables.product.prodname_actions %} workflow task | Default permissions and access |
+パッケージを管理するワークフローに対してデフォルトの権限の働き方の例は、もっとあります。
+
+| {% data variables.product.prodname_actions %}ワークフロータスク | 既定のアクセス許可とアクセス |
 |----|----|
-| Download an existing container | - If the container is public, any workflow running in any repository can download the container. <br> - If the container is internal, then all workflows running in any repository owned by the Enterprise account can download the container. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the container is private, only workflows running in repositories that are given read permission on that container can download the container. <br>
-| Upload a new version to an existing container | - If the container is private, internal, or public, only workflows running in repositories that are given write permission on that container can upload new versions to the container.
-| Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given delete permission can delete existing versions of the container.
+| 既存のコンテナのダウンロード | - コンテナがパブリックなら、任意のリポジトリで実行された任意のワークフローがコンテナをダウンロードできる。 <br> - コンテナーがインターナルなら、エンタープライズ アカウントが所有する任意のリポジトリ内で実行されるすべてのワークフローがコンテナーをダウンロードできる。 エンタープライズが所有する組織の場合は、エンタープライズ内の任意のリポジトリを読み取ることができる <br> - コンテナーがプライベートなら、そのコンテナーへの読み取り権限を与えられているリポジトリ内で動作するワークフローのみが、そのコンテナーをダウンロードできる。 <br>
+| 新しいバージョンの既存のコンテナへのアップロード | - コンテナがプライベート、インターナル、パブリックなら、そのコンテナへの書き込み権限を与えられたリポジトリで動作するワークフローだけが新バージョンをそのコンテナにアップロードできる。
+| コンテナもしくはコンテナのバージョンの削除 | - コンテナがプライベート、インターナル、パブリックなら、削除権限を与えられたリポジトリ内で動作するワークフローのみがコンテナの既存のバージョンを削除できる。
 
-You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+コンテナへのアクセスをもっと詳細に調整したり、デフォルトの権限動作の一部を調整したりすることもできます。 詳しくは、「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。
 
 {% endif %}
 
-## Publishing a package using an action
+## アクションを使ったパッケージの公開
 
-You can use {% data variables.product.prodname_actions %} to automatically publish packages as part of your continuous integration (CI) flow. This approach to continuous deployment (CD) allows you to automate the creation of new package versions, if the code meets your quality standards. For example, you could create a workflow that runs CI tests every time a developer pushes code to a particular branch. If the tests pass, the workflow can publish a new package version to {% data variables.product.prodname_registry %}.
+継続的インテグレーション (CI) フローの一環として、{% data variables.product.prodname_actions %}を使用してパッケージを自動的に公開できます。 この継続的デプロイメント (CD) に対するアプローチにより、コードが品質基準を満たしている場合に新しいパッケージの作成を自動化できます。 たとえば、開発者が特定のブランチにプッシュするたびに CI テストを実行するワークフローを作成してはいかがでしょう。 テストにパスすると、このワークフローは新しいパッケージバージョンを{% data variables.product.prodname_registry %}に公開できます。
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
+以下の例では、{% data variables.product.prodname_actions %}を使用してアプリケーションのビルド{% ifversion not fpt or ghec %}とテスト{% endif %}を行い、それから自動的にDockerイメージを作成して{% data variables.product.prodname_registry %}に公開する方法を示しています。
 
-Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
+リポジトリに新しいワークフロー ファイル (`.github/workflows/deploy-image.yml` など) を作成し、以下の YAML を追加します。
 
-{% ifversion fpt or ghec %}
-{% data reusables.package_registry.publish-docker-image %}
+{% ifversion fpt or ghec %} {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
 
@@ -163,13 +169,12 @@ jobs:
 ```
 {% endif %}
 
-The relevant settings are explained in the following table. For full details about each element in a workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)."
+上記に関連する設定については、次の表で説明しています。 ワークフロー内の各要素の詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions)」を参照してください。
 
 <table>
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 on:
   push:
     branches: ['release']
@@ -177,7 +182,7 @@ on:
 {% endraw %}
 </td>
 <td>
-  Configures the <code>Create and publish a Docker image</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
+<code>release</code> というブランチに変更をプッシュするたびに、<code>Create and publish a Docker image</code> ワークフローを実行するよう設定します。
 </td>
 </tr>
 
@@ -194,7 +199,7 @@ env:
 {% endraw %}
 </td>
 <td>
-  Defines two custom environment variables for the workflow. These are used for the {% data variables.product.prodname_container_registry %} domain, and a name for the Docker image that this workflow builds.
+  ワークフローに2つのカスタムの環境変数を定義します。 これらは{% data variables.product.prodname_container_registry %}ドメイン、そしてこのワークフローがビルドするDockerイメージの名前として使われます。
 </td>
 </tr>
 
@@ -209,7 +214,7 @@ jobs:
 {% endraw %}
 </td>
 <td>
-  There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
+  このワークフロー中には1つのジョブがあります。 これは、Ubuntuの利用可能な最新バージョンで実行されるよう設定されています。
 </td>
 </tr>
 
@@ -235,7 +240,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  このジョブではNPMをインストールし、それをアプリケーションのビルドに使用します。
 </td>
 </tr>
 
@@ -270,14 +275,13 @@ run-npm-test:
 
 </td>
 <td>
-  This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
+このジョブでは <code>npm test</code> を使用してコードをテストします。 <code>needs: run-npm-build</code> コマンドにより、このジョブは <code>run-npm-build</code> ジョブに依存するようになります。
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 build-and-push-image:
   runs-on: ubuntu-latest
   needs: run-npm-test
@@ -285,7 +289,7 @@ build-and-push-image:
 {% endraw %}
 </td>
 <td>
-  This job publishes the package. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+このジョブはパッケージを公開します。 <code>needs: run-npm-test</code> コマンドにより、このジョブは <code>run-npm-test</code> ジョブに依存するようになります。
 </td>
 </tr>
 
@@ -293,8 +297,7 @@ build-and-push-image:
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 permissions: 
   contents: read
   packages: write 
@@ -302,15 +305,14 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
+<code>GITHUB_TOKEN</code> に付与されているアクセス許可をこのジョブ内のアクション用に設定します。
 </td>
 </tr> 
 
 {% ifversion fpt or ghec %}
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Log in to the Container registry
   uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
   with:
@@ -321,14 +323,13 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Creates a step called <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+パッケージを公開するアカウントとパスワードを使ってレジストリにログインする <code>Log in to the {% data variables.product.prodname_container_registry %}</code> というステップを作成します。 いったん公開されると、パッケージはここで定めたアカウントが所有することになります。
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Extract metadata (tags, labels) for Docker
   id: meta
   uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
@@ -338,15 +339,14 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  This step uses <code><a href="https://github.com/docker/metadata-action#about">docker/metadata-action</a></code> to extract tags and labels that will be applied to the specified image. The <code>id</code> "meta" allows the output of this step to be referenced in a subsequent step. The <code>images</code> value provides the base name for the tags and labels.
+このステップは <code><a href="https://github.com/docker/metadata-action#about">docker/metadata-action</a></code> を使って、指定されたイメージに適用されるタグとラベルを抽出します。 <code>id</code> "meta"は、このステップの出力が以降のステップから参照できるようにします。 <code>images</code> の値は、タグとラベルのためのベース名を提供します。
 </td>
 </tr>
 
 {% else %}
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Log in to GitHub Docker Registry
   uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
   with:
@@ -357,75 +357,70 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+パッケージを公開するアカウントとパスワードを使ってレジストリにログインする <code>Log in to GitHub Docker Registry</code> という新しいステップを作成します。 いったん公開されると、パッケージはここで定めたアカウントが所有することになります。
 </td>
 </tr>
 {% endif %}
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Build and push Docker image
 ```
 {% endraw %}
 </td>
 <td>
-  Creates a new step called <code>Build and push Docker image</code>. This step runs as part of the <code>build-and-push-image</code> job.
+<code>Build and push Docker image</code> という新しいステップを作成します。 このステップは、<code>build-and-push-image</code> ジョブの一部として実行されます。
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
 ```
 {% endraw %}
 </td>
 <td>
-  Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
+Docker の <code>build-push-action</code> アクションを使用して、リポジトリの <code>Dockerfile</code> を元にイメージをビルドします。 ビルドが成功すると、イメージを{% data variables.product.prodname_registry %}にプッシュします。
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 with:
 ```
 {% endraw %}
 </td>
 <td>
-  Sends the required parameters to the <code>build-push-action</code> action. These are defined in the subsequent lines.
+必要なパラメーターを <code>build-push-action</code> アクションに送信します。 これらは以降の行で定義されます。
 </td>
 </tr>
 
 {% ifversion fpt or ghec %}
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 context: .
 ```
 {% endraw %}
 </td>
 <td>
-  Defines the build's context as the set of files located in the specified path. For more information, see "<a href="https://github.com/docker/build-push-action#usage">Usage</a>."
+ビルドのコンテキストを、指定されたパス内にあるファイル群として定義します。 詳細については、「<a href="https://github.com/docker/build-push-action#usage">使用</a>」を参照してください。
 </td>
 </tr>
 {% endif %}
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 push: true
 ```
 {% endraw %}
 </td>
 <td>
-  Pushes this image to the registry if it is built successfully.
+ビルドに成功したら、このイメージをレジストリにプッシュします。
 </td>
 </tr>
 
@@ -440,73 +435,66 @@ labels: ${{ steps.meta.outputs.labels }}
 {% endraw %}
 </td>
 <td>
-  Adds the tags and labels extracted in the "meta" step.
+  "meta"ステップで抽出されたタグとラベルを追加します。
 </td>
 </tr>
 
 {% else %}
 <tr>
 <td>
-{% ifversion ghae %}
-{% raw %}
-```yaml
+{% ifversion ghae %} {% raw %} ```yaml
 tags: |
 docker.YOUR-HOSTNAME.com/${{ github.repository }}/octo-image:${{ github.sha }}
 ```
-{% endraw %}
-{% else %}
-{% raw %}
-```yaml
+{% endraw %} {% else %} {% raw %} ```yaml
 tags: |
 docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 </td>
 <td>
-  Tags the image with the SHA of the commit that triggered the workflow.
+ワークフローをトリガーしたコミットのSHAでイメージにタグ付けします。
 </td>
 </tr>
 {% endif %}
 
 </table>
 
-This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
+この新しいワークフローは、リポジトリの `release` という名前のブランチに変更をプッシュするたびに自動的に実行されます。 **[アクション]** タブで、この進捗を表示できます。
 
-A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+ワークフローが完成すると、その数分後にリポジトリで新しいパッケージが表示されます。 使用可能なパッケージを見つけるには、「[リポジトリのパッケージを表示する](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)」を参照してください。
 
-## Installing a package using an action
+## アクションを使ったパッケージのインストール
 
-You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
+{% data variables.product.prodname_actions %}を使い、CIフローの一部としてパッケージをインストールできます。 たとえば、開発者がコードをプルリクエストにプッシュすると、いつでもワークフローが{% data variables.product.prodname_registry %}によってホストされているパッケージをダウンロードしてインストールすることで、依存関係を解決するようにワークフローを設定できます。 そして、ワークフローはその依存関係を必要とするCIテストを実行できます。
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
+{% data variables.product.prodname_actions %} を通じて {% data variables.product.prodname_registry %} がホストするパッケージをインストールするには、`GITHUB_TOKEN` を使う際に最小限の設定もしくは追加の認証が必要です。{% ifversion fpt or ghec %}アクションがパッケージをインストールする場合、データ転送も無料です。 詳細については、「[{% data variables.product.prodname_registry %} の課金について](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt or ghec %}
-## Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}
+{% ifversion packages-registries-v2 %}
+## {% data variables.product.pat_generic %} を使ってレジストリにアクセスするワークフローのアップグレード
 
-The {% data variables.packages.prodname_ghcr_and_npm_registry %} support the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a {% data variables.product.pat_generic %} to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
+{% data variables.product.prodname_registry %} は、ワークフロー内での容易でセキュリティで保護された認証のために `GITHUB_TOKEN` をサポートしています。 詳細なアクセス許可をサポートするレジストリを使っており、お使いのワークフローで {% data variables.product.pat_generic %} を使ってレジストリの認証を受ける場合、`GITHUB_TOKEN` を使うようにワークフローを更新することを強くお勧めします。
 
-For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+`GITHUB_TOKEN` の詳細については「[ワークフローで認証する](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
 
-Using the `GITHUB_TOKEN` instead of a {% data variables.product.pat_v1 %}, which includes the `repo` scope, increases the security of your repository as you don't need to use a long-lived {% data variables.product.pat_generic %} that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+{% data variables.product.pat_v1 %} の代わりに `repo` スコープを含む `GITHUB_TOKEN` を使えば、ワークフローが実行されるリポジトリへの不要なアクセスを提供する長期間有効な {% data variables.product.pat_generic %} を使う必要がなくなるので、リポジトリのセキュリティが向上します。 セキュリティのベスト プラクティスについて詳しくは、「[GitHub Actions のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)」を参照してください。
 
-1. Navigate to your package landing page.
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-1. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-  {% note %}
+1. パッケージのランディングページにアクセスしてください。
+1. 左側のサイドバーで、 **[アクションのアクセス]** をクリックします。
+  ![左側のメニューの [アクションのアクセス] オプション](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+1. コンテナパッケージがワークフローに確実にアクセスできるようにするためには、ワークフローが保存されているリポジトリをコンテナに追加しなければなりません。 **[リポジトリの追加]** をクリックして、追加するリポジトリを検索します。
+   ![[リポジトリの追加] ボタン](/assets/images/help/package-registry/add-repository-button.png) {% note %}
 
-  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+  **注:** **[アクションのアクセス]** メニュー オプションを使用してコンテナーにリポジトリを追加する操作は、コンテナーをリポジトリに接続する操作とは異なります。 詳細については、「[パッケージへのワークフローのアクセスの確保](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)」と「[リポジトリのパッケージへの接続](/packages/learn-github-packages/connecting-a-repository-to-a-package)」を参照してください。
 
   {% endnote %}
-1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. あるいは"role（ロール）"ドロップダウンメニューを使い、コンテナイメージに対してリポジトリに持たせたいデフォルトのアクセスレベルを選択してください。
+  ![リポジトリに付与するアクセス レベル](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. ワークフローファイルを開いてください。 レジストリへのログインの行で、お使いの {% data variables.product.pat_generic %} を {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} に置き換えてください。
 
-For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+たとえば、このワークフローでは、Docker イメージを {% data variables.product.prodname_container_registry %} に公開し、{% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} を使って認証します。
 
 ```yaml{:copy}
 name: Demo Push

@@ -1,6 +1,6 @@
 ---
-title: Create an individual assignment
-intro: You can create an assignment for students in your course to complete individually.
+title: Créer un devoir individuel
+intro: Vous pouvez créer un devoir pour les étudiants de votre cours à faire individuellement.
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
@@ -8,8 +8,14 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
+ms.openlocfilehash: 1ffa725be4e42695b297545f65c998b14ed8e000
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179745'
 ---
-## About individual assignments
+## À propos des devoirs individuels
 
 {% data reusables.classroom.assignments-individual-definition %}
 
@@ -17,42 +23,42 @@ shortTitle: Individual assignment
 
 {% data reusables.classroom.about-assignments %}
 
-For a video demonstration of the creation of an individual assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+Pour une démonstration vidéo de la création d’un devoir individuel, consultez « [Concepts de base de la configuration de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom) ».
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## Prerequisites
+## Prérequis
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating an assignment
+## Création d’un devoir
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Setting up the basics for an assignment
+## Configuration des éléments de base d’un devoir
 
-Name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
+Nommez votre devoir, choisissez une échéance éventuelle et la visibilité des dépôts de devoir.
 
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [Nommage d’un devoir](#naming-an-assignment)
+- [Attribution d’une échéance pour un devoir](#assigning-a-deadline-for-an-assignment)
+- [Choix d’un type de devoir](#choosing-an-assignment-type)
+- [Choix d’une visibilité pour les dépôts de devoir](#choosing-a-visibility-for-assignment-repositories)
 
-### Naming an assignment
+### Nommage d’un devoir
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+Pour un devoir individuel, {% data variables.product.prodname_classroom %} nomme les dépôts avec le préfixe du dépôt et le nom d’utilisateur {% data variables.product.product_name %} de l’étudiant. Par défaut, le préfixe du dépôt est le titre du devoir. Par exemple, si vous nommez un devoir « assignment-1 » et que le nom d’utilisateur de l’étudiant sur {% data variables.product.product_name %} est @octocat, le nom du dépôt de devoir pour @octocat est `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### Attribution d’une échéance pour un devoir
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing an assignment type
+### Choix d’un type de devoir
 
-Under "Individual or group assignment", select the drop-down menu, and click **Individual assignment**. You can't change the assignment type after you create the assignment. If you'd rather create a group assignment, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+Sous « Devoir individuel ou de groupe », sélectionnez le menu déroulant et cliquez sur **Devoir individuel**. Vous ne pouvez pas changer le type de devoir après l’avoir créé. Si vous préférez créer un devoir de groupe, consultez « [Créer un devoir de groupe](/education/manage-coursework-with-github-classroom/create-a-group-assignment) ».
 
-### Choosing a visibility for assignment repositories
+### Choix d’une visibilité pour les dépôts de devoir
 
 {% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
@@ -60,41 +66,41 @@ Under "Individual or group assignment", select the drop-down menu, and click **I
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Adding starter code and configuring a development environment
+## Ajout de code de démarrage et configuration d’un environnement de développement
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Choix d’un modèle de dépôt](#choosing-a-template-repository)
+- [Choix d’un environnement de développement intégré (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### Choosing a template repository
+### Choix d’un modèle de dépôt
 
-By default, a new assignment will create an empty repository for each student on the roster for the classroom. {% data reusables.classroom.you-can-choose-a-template-repository %}
+Par défaut, un nouveau devoir crée un dépôt vide pour chaque étudiant de la liste de classe. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Choosing an integrated development environment (IDE)
+### Choix d’un environnement de développement intégré (IDE)
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %} Pour plus d’informations, consultez « [Intégrer {% data variables.product.prodname_classroom %} à un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide) ».
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
-## Providing feedback for an assignment
+## Envoi de commentaires pour un devoir
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the student.
+Vous pouvez aussi évaluer automatiquement les devoirs et créer un espace pour discuter de chaque envoi avec l’étudiant.
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [Test automatique des devoirs](#testing-assignments-automatically)
+- [Création d’une demande de tirage pour les commentaires](#creating-a-pull-request-for-feedback)
 
-### Testing assignments automatically
+### Test automatique des devoirs
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Creating a pull request for feedback
+### Création d’une demande de tirage pour les commentaires
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -102,34 +108,34 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Inviting students to an assignment
+## Invitation d’étudiants à un devoir
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
+Vous pouvez voir si un étudiant a rejoint la classe, et a accepté ou envoyé un devoir sous l’onglet **Liste de classe** du devoir. Vous pouvez également lier les alias {% data variables.product.prodname_dotcom %} des étudiants à leur identificateur de liste de classe et vice versa sous cet onglet. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
+## Monitoring de la progression des étudiants
+La page de présentation des devoirs fournit une vue d’ensemble des acceptations de vos devoirs et de la progression des étudiants. Vous pouvez avoir des informations récapitulatives différentes en fonction des configurations de vos devoirs.
 
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
--  **Accepted students**: The number of accounts have accepted this assignment.
--  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing students**: The number of students currently passing the autograding tests for this assignment.
+- **Étudiants inscrits** : nombre d’étudiants sur la liste de classe.
+- **Étudiants ajoutés** : nombre de comptes {% data variables.product.prodname_dotcom %} qui ont accepté le devoir et ne sont pas associés à un identificateur de liste de classe.
+-  **Étudiants acceptés** : nombre de comptes qui ont accepté ce devoir.
+-  **Envois de devoir** : nombre d’étudiants qui ont envoyé le devoir. L’envoi est déclenché à l’échéance du devoir.
+-  **Étudiants ayant réussi** : nombre d’étudiants qui réussissent actuellement les tests d’évaluation automatique pour ce devoir.
 
-## Next steps
+## Étapes suivantes
 
-- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
+- Dès que vous avez créé le devoir, les étudiants peuvent commencer à travailler sur le devoir en utilisant les fonctionnalités Git et {% data variables.product.product_name %}. Les étudiants peuvent cloner le dépôt, pousser des commits, gérer des branches, créer et réviser des demandes de tirage, résoudre les conflits de fusion et discuter sur les changements en utilisant les problèmes. L’étudiant et vous-même pouvez passer en revue l’historique des commits du dépôt. Pour plus d’informations, consultez « [Bien démarrer avec {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github) », « [Dépôts](/repositories) » et « [Collaboration avec les problèmes et les demandes de tirage](/github/collaborating-with-issues-and-pull-requests) ».
 
-- When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+- Dès qu’un étudiant a terminé un devoir, vous pouvez passer en revue les fichiers du dépôt, ou l’historique et les visualisations du dépôt pour mieux comprendre le travail de l’étudiant. Pour plus d’informations, consultez « [Visualisation des données de dépôt avec des graphes](/github/visualizing-repository-data-with-graphs) ».
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- Vous pouvez fournir des commentaires sur un devoir en commentant des lignes ou des commits individuels dans une demande de tirage. Pour plus d’informations, consultez « [Commentaires dans une demande de tirage](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) » et « [Ouverture d’un problème à partir du code](/github/managing-your-work-on-github/opening-an-issue-from-code) ». Pour plus d’informations sur la création de réponses enregistrées afin de fournir des commentaires sur les erreurs courantes, consultez « [À propos des réponses enregistrées](/github/writing-on-github/about-saved-replies) ».
 
-## Further reading
+## Pour aller plus loin
 
-- "[{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
+- « [{% data variables.product.prodname_global_campus %} pour les enseignants](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers) »
+- « [Connecter un système de gestion des formations à {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom) »

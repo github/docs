@@ -1,7 +1,7 @@
 ---
-title: Connecting to a private network
+title: Подключение к частной сети
 shortTitle: Connect to a private network
-intro: 'You can connect {% data variables.product.prodname_dotcom %}-hosted runners to resources on a private network, including package registries, secret managers, and other on-premises services.'
+intro: 'Вы можете подключить средства выполнения тестов, размещенные в {% data variables.product.prodname_dotcom %}, к ресурсам в частной сети, включая реестры пакетов, диспетчеры секретов и другие локальные службы.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,62 +10,66 @@ type: how_to
 topics:
   - Actions
   - Developer
+ms.openlocfilehash: d593369c1f1455d1f5cf766e5983eb4f010ec064
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148010072'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о средствах выполнения тестов, размещенных в {% data variables.product.prodname_dotcom %}
 
-## About {% data variables.product.prodname_dotcom %}-hosted runners networking
+По умолчанию средства выполнения тестов, размещенные в {% data variables.product.prodname_dotcom %}, имеют доступ к общедоступному Интернету. Однако эти средства выполнения тестов также могут получить доступ к ресурсам в частной сети, например к реестру пакетов, диспетчеру секретов или другим локальным службам. 
 
-By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services. 
-
-{% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
+Средства выполнения тестов, размещенные в {% data variables.product.prodname_dotcom %}, используются совместно всеми клиентами {% data variables.product.prodname_dotcom %}, поэтому вам потребуется способ подключения частной сети только к вашим средствам выполнения сети во время выполнения ими рабочих процессов. Существует несколько различных подходов, которые можно использовать для настройки этого доступа, каждый из которых имеет различные преимущества и недостатки.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-### Using an API Gateway with OIDC
+### Использование шлюза API с OIDC
 
-With {% data variables.product.prodname_actions %}, you can use OpenID Connect (OIDC) tokens to authenticate your workflow outside of {% data variables.product.prodname_actions %}. For example, you could run an API Gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
+С помощью {% data variables.product.prodname_actions %} можно использовать маркеры OpenID Connect (OIDC) для проверки подлинности рабочего процесса за пределами {% data variables.product.prodname_actions %}. Например, можно запустить шлюз API на границе частной сети, который проверяет подлинность входящих запросов с помощью маркера OIDC, а затем отправляет запросы API от имени рабочего процесса в частную сеть.
 
-The following diagram gives an overview of this solution's architecture:
+На следующей схеме представлен обзор архитектуры этого решения:
 
-![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
+![Схема шлюза OIDC](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+Важно проверить подлинность не только того, что маркер OIDC получен из {% data variables.product.prodname_actions %}, но и то, что он получен конкретно от ожидаемых рабочих процессов, чтобы другие пользователи {% data variables.product.prodname_actions %} не могли получить доступ к службам в частной сети. Для создания этих условий можно использовать утверждения OIDC. Дополнительные сведения см. в разделе [Определение условий доверия для облачных ролей с помощью утверждений OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims).
 
-The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
+Основным недостатком этого подхода является реализация шлюза API для выполнения запросов от вашего имени, а также его запуска на границе сети.
 
-But there are various advantages too:
-- You don't need to configure any firewalls, or modify the routing of your private network. 
-- The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
+Но есть также и преимущества:
+- вам не нужно настраивать брандмауэры или изменять маршрутизацию частной сети; 
+- шлюз API без отслеживания состояния, поэтому масштабируется горизонтально для обработки высокого уровня доступности и высокой пропускной способности.
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+Дополнительные сведения см. в [справочной реализации шлюза API](https://github.com/github/actions-oidc-gateway-example) (обратите внимание, что для этого требуется настроить ваш вариант использования и данная реализация не готова к запуску как есть) и в разделе [Сведения о защите безопасности с помощью OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 {% endif %}
 
-### Using WireGuard to create a network overlay
+### Создание наложения сети с помощью WireGuard
 
-If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
+Если вы не хотите создавать отдельную инфраструктуру для шлюза API, можно создать сеть наложения между средством выполнения тестов и службой в частной сети, запустив WireGuard в обоих местах.
 
-There are various disadvantages to this approach: 
+У этого подхода есть несколько недостатков. 
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS. 
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard. 
-- You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
+- Чтобы подключиться к WireGuard, работающей в частной службе, потребуется известные IP-адрес и порт, на которые может ссылаться рабочий процесс: это может быть общедоступные IP-адрес и порт, сопоставление портов в сетевом шлюзе или служба, которая динамически обновляет DNS. 
+- В WireGuard отсутствует встроенная функция обработки обхода NAT, поэтому вам потребуется определить способ предоставления этой службы.
+- Это подключение "один к одному", поэтому, если требуется высокий уровень доступности или высокая пропускная способность, необходимо создать это на основе WireGuard. 
+- Вам потребуется создать и безопасно хранить ключи для средства выполнения тестов и частной службы. WireGuard использует UDP, поэтому ваша сеть должна поддерживать трафик UDP.
 
-There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
+Однако имеются и преимущества, например, вы можете запустить WireGuard на существующем сервере, поэтому вам не нужна отдельная инфраструктура, и она хорошо поддерживается средствами выполнения тестов, размещенными в {% data variables.product.prodname_dotcom %}.
 
-### Example: Configuring WireGuard
+### Пример. Настройка WireGuard
 
-This example workflow configures WireGuard to connect to a private service.
+В этом примере рабочий процесс настраивает WireGuard для подключения к частной службе.
 
-For this example, the WireGuard instance running in the private network has this configuration:
-- Overlay network IP address of `192.168.1.1`
-- Public IP address and port of `1.2.3.4:56789`
-- Public key `examplepubkey1234...`
+В этом примере экземпляр WireGuard, запущенный в частной сети, имеет следующую конфигурацию:
+- IP-адрес сети наложения `192.168.1.1`
+- Общедоступный IP-адрес и порт `1.2.3.4:56789`
+- Открытый ключ `examplepubkey1234...`
 
-The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
-- Overlay network IP address of `192.168.1.2`
-- Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+Экземпляр WireGuard в средстве выполнения тестов {% data variables.product.prodname_actions %} имеет следующую конфигурацию:
+- IP-адрес сети наложения `192.168.1.2`
+- Закрытые ключи хранятся в виде секрета{% data variables.product.prodname_actions %} в `WIREGUARD_PRIVATE_KEY`
 
 ```yaml
 name: WireGuard example
@@ -92,14 +96,14 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+Дополнительные сведения см. [в кратком руководстве по WireGuard](https://www.wireguard.com/quickstart/), а также в разделе [Зашифрованные секреты](/actions/security-guides/encrypted-secrets), чтобы узнать, как безопасно хранить ключи.
 
-### Using Tailscale to create a network overlay
+### Использование Tailscale для создания наложения сети
 
-Tailscale is a commercial product built on top of WireGuard. This option is very similar to WireGuard, except Tailscale is more of a complete product experience instead of an open source component.
+Tailscale — это коммерческий продукт на базе WireGuard. Данный вариант очень похож на WireGuard, за исключением того, что Tailscale является более полноценным продуктом, а не компонентом с открытым кодом.
 
-It's disadvantages are similar to WireGuard: The connection is one-to-one, so you might need to do additional work for high availability or high throughput. You still need to generate and securely store keys. The protocol is still UDP, so your network must support UDP traffic.
+Недостатки аналогичны WireGuard: подключение "один к одному", поэтому может потребоваться дополнительная работа для обеспечения высокого уровня доступности или высокой пропускной способности. Вам по-прежнему придется создавать ключи и безопасно хранить их. Протокол по-прежнему UDP, поэтому ваша сеть должна поддерживать трафик UDP.
 
-However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
+Тем не менее, есть некоторые преимущества по сравнению с WireGuard: функция обхода NAT является встроенной, поэтому вам не нужно предоставлять порт для подключения к общедоступному Интернету. На сегодняшний день это самый быстрый из обсуждаемых вариантов, поскольку Tailscale предоставляет рабочий процесс {% data variables.product.prodname_actions %} с одним шагом для подключения к сети наложения.
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+Дополнительные сведения см. в разделе [Tailscale GitHub Action](https://github.com/tailscale/github-action), а также в разделе [Зашифрованные секреты](/actions/security-guides/encrypted-secrets), чтобы узнать о безопасном хранении ключей.

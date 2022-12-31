@@ -1,0 +1,16 @@
+date: '2021-05-25'
+sections:
+  security_fixes:
+    - '**中：**在某些情况下，从团队或组织中删除的用户可以保留对已打开现有拉取请求的分支的写入权限。'
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 管理员使用“创建白名单条目”按钮添加的 IP 地址仍可能被锁定。
+    - 在群集或 HA 环境中，GitHub Pages 构建可能在将会失败的次要节点上触发。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可能创建第一个管理员用户。
+    - 在升级期间不会维护自定义防火墙规则。
+    - "Git LFS 跟踪的[通过 Web 界面上传的](https://github.com/blog/2105-upload-files-to-your-repositories)文件被错误地直接添加到存储库。"
+    - 如果问题包含指向同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - 推送到命令行上的存储库时，不会报告安全警报。
+    - '当副本节点在高可用性配置下脱机时，{% data variables.product.product_name %} 仍可能会将 {% data variables.product.prodname_pages %} 请求路由到脱机节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

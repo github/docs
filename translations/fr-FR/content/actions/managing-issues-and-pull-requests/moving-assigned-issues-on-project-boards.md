@@ -1,6 +1,6 @@
 ---
-title: Moving assigned issues on project boards
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically move an issue to a specific column on a project board when the issue is assigned.'
+title: Déplacement des problèmes attribués sur les tableaux de projet
+intro: 'Vous pouvez utiliser {% data variables.product.prodname_actions %} pour déplacer automatiquement un problème vers une colonne spécifique d’un tableau de projet quand le problème est affecté.'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
@@ -13,23 +13,27 @@ topics:
   - Workflows
   - Project management
 shortTitle: Move assigned issues
+ms.openlocfilehash: 88cec7ca6f2e7774fb29407b0b3ee14dc7041067
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147410458'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
-This tutorial demonstrates how to use the [`alex-page/github-project-automation-plus` action](https://github.com/marketplace/actions/github-project-automation) to automatically move an issue to a specific column on a project board when the issue is assigned. For example, when an issue is assigned, you can move it into the `In Progress` column your project board.
+Ce tutoriel montre comment utiliser [l’action `alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation) pour déplacer automatiquement un problème vers une colonne spécifique d’un tableau de projet lorsque le problème est affecté. Par exemple, quand un problème est affecté, vous pouvez le placer dans la colonne `In Progress` de votre tableau de projet.
 
-In the tutorial, you will first make a workflow file that uses the [`alex-page/github-project-automation-plus` action](https://github.com/marketplace/actions/github-project-automation). Then, you will customize the workflow to suit your needs.
+Dans ce tutoriel, vous allez d’abord créer un fichier de workflow qui utilise [l’action `alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation). Ensuite, vous personnaliserez le workflow en fonction de vos besoins.
 
-## Creating the workflow
+## Création du workflow
 
 1. {% data reusables.actions.choose-repo %}
-2. In your repository, choose a project board. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
+2. Dans votre dépôt, choisissez un tableau de projet. Vous pouvez utiliser un projet existant ou en créer un nouveau. Pour plus d’informations sur la création d’un projet, consultez « [Création d’un tableau de projet](/github/managing-your-work-on-github/creating-a-project-board) ».
 3. {% data reusables.actions.make-workflow-file %}
-4. Copy the following YAML contents into your workflow file.
+4. Copiez le contenu YAML suivant dans votre fichier de workflow.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -52,28 +56,28 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
               repo-token: {% raw %}${{ secrets.PERSONAL_ACCESS_TOKEN }}{% endraw %}
     ```
 
-5. Customize the parameters in your workflow file:
-   - Change the value for `project` to the name of your project board. If you have multiple project boards with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
-   - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
-   - Change the value for `repo-token`:
-     1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
-     1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
+5. Personnalisez les paramètres dans votre fichier de workflow :
+   - Remplacez la valeur de `project` par le nom de votre tableau de projet. Si vous avez plusieurs tableaux de projet portant le même nom, l’action `alex-page/github-project-automation-plus` agit sur tous les projets portant le nom spécifié.
+   - Remplacez la valeur de `column` par le nom de la colonne dans laquelle vous souhaitez que les problèmes soient placés quand ils sont affectés.
+   - Remplacez la valeur de `repo-token` :
+     1. Créez un jeton d’accès personnel avec l’étendue `repo`. Pour plus d’informations, consultez « [Création d’un jeton d’accès personnel](/github/authenticating-to-github/creating-a-personal-access-token) ».
+     1. Stockez ce jeton d’accès personnel comme secret dans votre dépôt. Pour plus d’informations sur le stockage de secrets, consultez « [Secrets chiffrés](/actions/reference/encrypted-secrets) ».
+     1. Dans votre fichier de workflow, remplacez `PERSONAL_ACCESS_TOKEN` par le nom de votre secret.
 6. {% data reusables.actions.commit-workflow %}
 
-## Testing the workflow
+## Test du workflow
 
-Whenever an issue in your repository is assigned, the issue will be moved to the specified project board column. If the issue is not already on the project board, it will be added to the project board.
+Chaque fois qu’un problème dans votre dépôt est affecté, le problème est placé dans la colonne de tableau de projet spécifiée. Si le problème ne figure pas encore dans le tableau de projet, il est ajouté au tableau de projet.
 
-If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or personal account that have the specified project name and column. Likewise, if your repository is organization-owned, the action will act on all projects in your repository or organization that have the specified project name and column.
+Si votre dépôt appartient à l’utilisateur, l’action `alex-page/github-project-automation-plus` agit sur tous les projets de votre dépôt ou compte personnel qui ont le nom et la colonne de projet spécifiés. De même, si votre dépôt appartient à l’organisation, l’action agit sur tous les projets de votre dépôt ou organisation qui ont le nom et la colonne de projet spécifiés.
 
-Test your workflow by assigning an issue in your repository.
+Testez votre workflow en affectant un problème dans votre dépôt.
 
-1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. Assign the issue. For more information, see "[Assigning issues and pull requests to other GitHub users](/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users)."
-3. To see the workflow run that assigning the issue triggered, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-4. When the workflow completes, the issue that you assigned should be added to the specified project board column.
+1. Ouvrez un problème dans votre dépôt. Pour plus d’informations, consultez « [Création d’un problème](/github/managing-your-work-on-github/creating-an-issue) ».
+2. Affectez le problème. Pour plus d’informations, consultez « [Affectation de problèmes et de demandes de tirage à d’autres utilisateurs GitHub](/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users) ».
+3. Pour voir l’exécution de workflow déclenchée par l’affectation du problème, affichez l’historique de vos exécutions de workflow. Pour plus d’informations, consultez « [Affichage de l’historique des exécutions de workflows](/actions/managing-workflow-runs/viewing-workflow-run-history) ».
+4. Une fois le workflow terminé, le problème que vous avez affecté doit être ajouté à la colonne de tableau de projet spécifiée.
 
-## Next steps
+## Étapes suivantes
 
-- To learn more about additional things you can do with the `alex-page/github-project-automation-plus` action, like deleting or archiving project cards, visit the [`alex-page/github-project-automation-plus` action documentation](https://github.com/marketplace/actions/github-project-automation).
+- Pour en savoir plus sur d’autres choses que vous pouvez faire avec l’action `alex-page/github-project-automation-plus`, telles que la suppression ou l’archivage des tableaux de projet, consultez la [documentation de l’action `alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation).

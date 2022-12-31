@@ -1,6 +1,6 @@
 ---
-title: Configuring two-factor authentication
-intro: You can choose among multiple options to add a second source of authentication to your account.
+title: 配置双重身份验证
+intro: 您可以选择多个选项，以向帐户添加第二个身份验证源。
 redirect_from:
   - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
   - /articles/configuring-two-factor-authentication-via-text-message
@@ -15,28 +15,34 @@ versions:
 topics:
   - 2FA
 shortTitle: Configure 2FA
+ms.openlocfilehash: 2a038134260ba9a6a7a0307bc3261157968ec1ea
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148179955'
 ---
-You can configure two-factor authentication using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+你可以使用移动应用{% ifversion fpt or ghec %} 或通过短信{% endif %}配置双重身份验证。 您也可以添加安全密钥。
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt or ghec %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+我们强烈建议使用基于时间的一次性密码 (TOTP) 应用程序来配置 2FA。{% ifversion fpt or ghec %} TOTP 应用程序比 SMS 更可靠，特别是对于美国以外的地区。{% endif %} TOTP 应用支持在云中安全备份你的验证码，并且在无法访问设备的情况下也可以进行还原。
 
 {% warning %}
 
-**Warning:**
-- If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.location.product_location %}.
-- If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
+**警告：**
+- 如果你是要求双重身份验证的组织中的成员{% ifversion fpt or ghec %}、计费管理员{% endif %}或其专用存储库的外部协作者，则必须离开该组织后才能在 {% data variables.location.product_location %} 上禁用 2FA。
+- 如果禁用 2FA，您将自动失去对该组织以及您在该组织私有仓库中所拥有的任何私有复刻的访问权限。 要恢复对该组织和复刻的访问权限，请重新启用双重身份验证并联系组织所有者。
 
 {% endwarning %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.enterprise.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+如果你是 {% data variables.enterprise.prodname_emu_enterprise %} 的成员，则无法为你的 {% data variables.enterprise.prodname_managed_user %} 帐户配置 2FA，除非你以设置用户的身份登录。 对于除设置用户以外的用户，管理员必须针对你的标识提供者 (IdP) 配置 2FA。
 
 {% endif %}
 
-## Configuring two-factor authentication using a TOTP mobile app
+## 使用 TOTP 移动应用程序配置双重身份验证
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
+基于时间的一次性密码 (TOTP) 应用程序可自动生成在特定时间后变化的验证码。 我们建议使用基于云的 TOTP 应用程序，例如：
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
@@ -44,109 +50,95 @@ A time-based one-time password (TOTP) application automatically generates an aut
 
 {% tip %}
 
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time. If 2FA is already enabled and you want to add another device, you must re-configure 2FA from your security settings.
+提示：若要在多个设备上通过 TOTP 配置身份验证，请在设置过程中，同时使用每个设备扫描 QR 码。 如果已启用 2FA，但您要添加其他设备，则必须从安全设置中重新配置 2FA。
 
 {% endtip %}
 
-1. Download a TOTP app.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghec or ghes > 3.7 %}
-5. Under "Setup authenticator app", do one of the following:
-    - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
-    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
-    ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-6. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". 
-![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
-{%- else %}
-5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
-6. Under "Authentication verification", do one of the following:
-    - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
-    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
-    ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-7. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application".
-![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
-{%- endif %}
-{% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-{% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
+1. 下载 TOTP 应用程序。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.enable-two-factor-authentication %} {%- ifversion fpt or ghec or ghes > 3.7 %}
+5. 在“设置验证器应用”下，执行下列操作之一：
+    - 使用移动设备的应用程序扫描 QR 码。 扫描完成后，应用程序会显示六位数代码，您可以在 {% data variables.product.product_name %} 输入该代码。
+    - 如果无法扫描 QR 码，请单击“输入此文本代码”以查看可在 TOTP 应用中手动输入的代码。
+    ![单击“输入此代码”](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+6. TOTP 移动应用程序将保存你在 {% data variables.location.product_location %} 上的帐户并每隔几秒生成新的验证码。 在 {% data variables.product.product_name %} 上，请在“Enter the six-digit code from the application（从应用程序输入六位数代码）”下的字段中输入代码。 
+![TOTP 输入代码字段](/assets/images/help/2fa/2fa_wizard_app_enter_code.png){%- else %}
+5. 在“双重身份验证”下，选择“使用应用进行设置”，然后单击“继续” 。
+6. 在“Authentication verification（身份验证）”下，执行以下操作之一：
+    - 使用移动设备的应用程序扫描 QR 码。 扫描完成后，应用程序会显示六位数代码，您可以在 {% data variables.product.product_name %} 输入该代码。
+    - 如果无法扫描 QR 码，请单击“输入此文本代码”以查看可在 TOTP 应用中手动输入的代码。
+    ![单击“输入此代码”](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
+7. TOTP 移动应用程序将保存你在 {% data variables.location.product_location %} 上的帐户并每隔几秒生成新的验证码。 在 {% data variables.product.product_name %} 上，请在“Enter the six-digit code from the application（从应用程序输入六位数代码）”下的字段中输入代码。
+![TOTP 输入代码字段](/assets/images/help/2fa/2fa_wizard_app_enter_code.png) {%- endif %} {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %} {% data reusables.two_fa.backup_options_during_2fa_enrollment %} {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
 
-## Configuring two-factor authentication using text messages
+## 使用短信配置双重身份验证
 
-If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+如果无法使用 TOTP 移动应用程序进行身份验证，您可以使用短信进行身份验证。 也可以提供后备设备的号码作为第二号码。 在无法访问主设备和恢复代码时，可通过备用短信号码恢复帐户登录。
 
-Before using this method, be sure that you can receive text messages. Carrier rates may apply.
+在使用此方法之前，请确保您可以接收短信。 运营商可能会收取短信费用。
 
 {% warning %}
 
-**Warning:** We **strongly recommend** using a TOTP application for two-factor authentication instead of SMS. {% data variables.product.product_name %} doesn't support sending SMS messages to phones in every country. Before configuring authentication via text message, review the list of countries where {% data variables.product.product_name %} supports authentication via SMS. For more information, see "[Countries where SMS authentication is supported](/articles/countries-where-sms-authentication-is-supported)".
+警告：我们强烈建议使用 TOTP 应用程序进行双重身份验证，而不是使用 SMS 。 {% data variables.product.product_name %} 并非支持向每个国家/地区的手机发送短信。 通过短信配置身份验证之前，请查看 {% data variables.product.product_name %} 支持通过 SMS 验证的国家/地区列表。 有关详细信息，请参阅“[支持 SMS 身份验证的国家/地区](/articles/countries-where-sms-authentication-is-supported)”。
 
 {% endwarning %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.two_fa.enable-two-factor-authentication %}
-4. Below "Setup authenticator app", select **SMS authentication**
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %} {% data reusables.two_fa.enable-two-factor-authentication %}
+4. 在“设置验证器应用”下方，选择“短信身份验证”
 
-  ![2FA SMS alternative option](/assets/images/help/2fa/2fa_sms_alt_option.png)
+  ![2FA 短信替代选项](/assets/images/help/2fa/2fa_sms_alt_option.png)
 
-5. Under "Setup SMS authentication", select your country code and type your mobile phone number, including the area code. When your information is correct, click **Send authentication code**.
+5. 在“设置短信身份验证”下，选择你的国家/地区代码并键入你的手机号码，包括区号。 确认信息无误后，单击“发送验证码”。
 
-  ![2FA SMS screen](/assets/images/help/2fa/2fa_wizard_sms_send.png)
+  ![2FA SMS 屏幕](/assets/images/help/2fa/2fa_wizard_sms_send.png)
 
-6. You'll receive a text message with a security code. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code sent to your phone" and click **Continue**.
+6. 您将收到含安全码的短信。 在 {% data variables.product.product_name %} 上，请在“输入发送到手机的六位数代码”下的字段中键入代码，然后单击“继续”。
 
-  ![2FA SMS continue field](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png)
-{% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
-{% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
+  ![2FA 短信“继续”字段](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png) {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %} {% data reusables.two_fa.backup_options_during_2fa_enrollment %} {% data reusables.two_fa.test_2fa_immediately %}
 
 {% endif %}
 
-## Configuring two-factor authentication using a security key
+## 使用安全密钥配置双重身份验证
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
-On most devices and browsers, you can use a physical security key over USB or NFC. Some browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key.
+在大多数设备和浏览器上，您可以通过 USB 或 NFC 使用物理安全密钥。 某些浏览器可以使用设备上的指纹读取器、面部识别或密码/PIN 作为安全密钥。
 
-Authentication with a security key is *secondary* to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
+使用安全密钥进行身份验证是使用 TOTP 应用程序{% ifversion fpt or ghec %}或短信进行身份验证的备用选择{% endif %}。 如果您丢失了安全密钥，仍可以使用手机的代码进行登录。
 
-1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
-2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-5. Next to "Security keys", click **Add**.
-  ![Add security keys option](/assets/images/help/2fa/add-security-keys-option.png)
-6. Under "Security keys", click **Register new security key**.
-  ![Registering a new security key](/assets/images/help/2fa/security-key-register.png)
-7. Type a nickname for the security key, then click **Add**.
-  ![Providing a nickname for a security key](/assets/images/help/2fa/security-key-nickname.png)
-8. Activate your security key, following your security key's documentation.
-  ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
-9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[Downloading your 2FA recovery codes](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+1. 必须已通过 TOTP 移动应用{% ifversion fpt or ghec %} 或通过 SMS{% endif %} 配置了 2FA。
+2. 确保您的计算机中已插入 WebAuthn 兼容安全密钥。
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
+5. 在“安全密钥”旁边，单击“添加”。
+  ![添加安全密钥选项](/assets/images/help/2fa/add-security-keys-option.png)
+6. 在“安全密钥”下，单击“注册新安全密钥”。
+  ![注册新安全密钥](/assets/images/help/2fa/security-key-register.png)
+7. 键入安全密钥的昵称，然后单击“添加”。
+  ![为安全密钥提供昵称](/assets/images/help/2fa/security-key-nickname.png)
+8. 按照安全密钥的文档激活安全密钥。
+  ![提示输入安全密钥](/assets/images/help/2fa/security-key-prompt.png)
+9.  确认您已下载并且能够访问恢复代码。 如果尚未下载，或者要生成另一组代码，请下载代码并将其保存在安全位置。 有关详细信息，请参阅“[下载你的 2FA 恢复代码](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)”。
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
-## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+## 使用 {% data variables.product.prodname_mobile %} 配置双重身份验证
 
-You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+在 Web 浏览器中登录 {% data variables.product.prodname_dotcom %} 帐户时，您可以使用 {% data variables.product.prodname_mobile %} 进行双重身份验证。 向 {% data variables.product.prodname_mobile %} 进行双重身份验证不依赖于 TOTP，而是使用公钥加密来保护您的帐户。
 
-Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+配置 TOTP 应用程序或 SMS 后，您还可以使用 {% data variables.product.prodname_mobile %} 进行身份验证。 如果将来您不再有权访问 {% data variables.product.prodname_mobile %}，您仍然可以使用安全密钥或 TOTP 应用程序登录。
 
-1. You must have already configured 2FA via a TOTP mobile app or via SMS.
-2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. 您必须已经通过 TOTP 移动应用程序或短信配置双重身份验证。
+2. 安装 [{% data variables.product.prodname_mobile %}](https://github.com/mobile)。
+3. 从 {% data variables.product.prodname_mobile %} 登录到您的 {% data variables.product.product_name %} 帐户。
 
-After signing in, you can now use your device for 2FA.
+登录后，您现在可以将设备用于 2FA。
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
-- "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
-- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"
+- [关于双因素身份验证](/articles/about-two-factor-authentication)
+- [配置双重身份验证恢复方法](/articles/configuring-two-factor-authentication-recovery-methods)
+- [使用双重身份验证访问 {% data variables.product.prodname_dotcom %}](/articles/accessing-github-using-two-factor-authentication)
+- [丢失 2FA 凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)
+- [创建 {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)

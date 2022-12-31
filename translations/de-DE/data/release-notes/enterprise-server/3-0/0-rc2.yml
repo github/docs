@@ -1,0 +1,24 @@
+date: '29.01.2021'
+release_candidate: true
+deprecated: true
+intro: "Release Candidate-Versionen sollten in Umgebungen getestet werden, in denen keine Produktion stattfindet. Weitere Informationen zum Release Candidate-Programm findest du im [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) oder unter „[Informationen zu Upgrades auf neue Releases](/admin/overview/about-upgrades-to-new-releases).“"
+sections:
+  bugs:
+    - heading: Fixes für bekannte Probleme bei Release Candidate 1
+      notes:
+        - "Wenn du GitHub Actions nach einem gescheiterten Einrichtungsversuch deaktiviert hast, kannst du den ersten Benutzer nicht erstellen und die Appliance nicht verwenden."
+        - Das Überwachungsprotokollereignis „Obligatorische Nachricht wurde angezeigt“ wurde nicht gespeichert.
+        - '`ghe-config-apply` musste während der ersten Einrichtung auf einem Replikat ausgeführt werden, bevor `ghe-repl-setup` zum Starten der Replikation ausgeführt werden konnte.'
+        - "Wenn du dich selbst als Unternehmensinhaber*in entfernt hast, wurde der Fehler 404 zurückgegeben."
+    - heading: Fixes für weitere Probleme
+      notes:
+        - Probleme mit Migrationen und Upgrades auf 3.0.0 wurden behoben.
+        - Die Versionsverwaltung von Sicherungshilfsprogrammen funktioniert jetzt für Release Candidate-Versionen.
+        - Das Generieren eines Supportbundles verursachte in den Orchestratorprotokollen einen Fehler.
+        - "Eine große Wiederherstellung könnte dazu führen, dass in Redis kein Speicherplatz mehr vorhanden ist."
+        - Das Kontrollkästchen zum Aktivieren von GitHub Actions in der Verwaltungskonsole ist jetzt bei allen Authentifizierungsmethoden sichtbar.
+        - "GitHub Actions kann nur aktiviert werden, wenn der benötigte Speicher auch konfiguriert ist."
+        - 'Bei `ghe-repl-status` könnte unbemerkt ein Fehler auftreten, wenn die MSSQL-Replikation nicht konfiguriert ist.'
+
+  known_issues:
+    - "Die bekannten Probleme bei Release Candidate 1 sind weiterhin gültig, ausgenommen der aufgelisteten Fehlerbehebungen."

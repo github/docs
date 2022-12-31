@@ -1,6 +1,6 @@
 ---
-title: Managing the publication of GitHub Pages sites for your organization
-intro: 'You can control whether organization members can publish {% data variables.product.prodname_pages %} sites from repositories in the organization{% ifversion ghec %} and restrict the visibilities that members can choose for the sites{% endif %}.'
+title: Verwalten der Veröffentlichung von GitHub Pages-Websites für deine Organisation
+intro: 'Du kannst kontrollieren, ob Organisationsmitglieder {% data variables.product.prodname_pages %}-Sites von Repositorys in der Organisation{% ifversion ghec %} veröffentlichen können, und die Sichtbarkeit einschränken, die Mitglieder für die Sites auswählen können{% endif %}.'
 permissions: 'Organization owners can manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization.'
 product: '{% data reusables.gated-features.pages %}'
 versions:
@@ -15,33 +15,34 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage Pages site publication
+ms.openlocfilehash: cce086c19dd6f20de28dde599c13074c48851753
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147876862'
 ---
-
-{% ifversion fpt %}
-You can choose to allow or disallow organization members from publishing {% data variables.product.prodname_pages %} sites. Organizations that use {% data variables.product.prodname_ghe_cloud %} can also choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
-{% elsif ghec %}
-You can choose to allow organization members to create publicly published sites, privately published sites, both, or neither. For more information about access control for {% data variables.product.prodname_pages %} sites, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% ifversion fpt %} Du kannst festlegen, ob Organisationsmitglieder {% data variables.product.prodname_pages %}-Websites veröffentlichen dürfen oder nicht. Organisationen, die {% data variables.product.prodname_ghe_cloud %} verwenden, können außerdem entscheiden, ob sie eine Veröffentlichung als öffentliche Website, als private Website, als beides oder keines von beidem zulassen. Weitere Informationen findest du unter [Dokumentation zu {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+{% elsif ghec %} Du kannst festlegen, ob Organisationsmitglieder öffentliche oder private Websites, Websites mit beiden Optionen oder ohne diese Optionen erstellen dürfen. Weitere Informationen zur Zugriffssteuerung für {% data variables.product.prodname_pages %}-Websites findest du unter [Ändern der Sichtbarkeit deiner {% data variables.product.prodname_pages %}-Website](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site).
 {% endif %}
 
-If you disallow publication of {% data variables.product.prodname_pages %} sites, any sites that are already published will remain published. You can manually unpublish the site. For more information, see "[Unpublishing a {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)."
+Wenn du die Veröffentlichung von {% data variables.product.prodname_pages %}-Websites verbietest, bleiben alle bereits veröffentlichten Websites veröffentlicht. Du kannst die Veröffentlichung der Website manuell aufheben. Weitere Informationen findest du unter [Aufheben der Veröffentlichung einer {% data variables.product.prodname_pages %}-Website](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site).
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}{% ifversion fpt %}
-1. Under "Pages creation, select or deselect **Public**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}{% ifversion fpt %}
+1. Aktiviere oder deaktiviere unter „Seitenerstellung“ die Option **Öffentlich**.
 
-   ![Checkboxes to allow or disallow creation of {% data variables.product.prodname_pages %} sites](/assets/images/help/organizations/github-pages-creation-checkboxes-fpt.png){% elsif ghec %}
-1. Under "Pages creation", select the visibilities you want to allow and deselect the visibilities you want to disallow.
+   ![Kontrollkästchen zum Zulassen oder Verhindern der Erstellung von {% data variables.product.prodname_pages %}-Websites](/assets/images/help/organizations/github-pages-creation-checkboxes-fpt.png){% elsif ghec %}
+1. Wähle unter „Seitenerstellung“ die Sichtbarkeitseinstellungen aus, die du zulassen möchtest, und deaktiviere die Sichtbarkeitseinstellungen, die du nicht zulassen möchtest.
 
-   ![Checkboxes to allow or disallow creation of {% data variables.product.prodname_pages %} sites](/assets/images/help/organizations/github-pages-creation-checkboxes.png){% else %}
-1. Under "Pages creation", select or deselect **Allow members to publish sites**.
+   ![Kontrollkästchen zum Zulassen oder Verhindern der Erstellung von {% data variables.product.prodname_pages %}-Websites](/assets/images/help/organizations/github-pages-creation-checkboxes.png){% else %}
+1. Aktiviere oder deaktiviere unter „Seitenerstellung“ die Option **Mitgliedern die Veröffentlichung von Websites erlauben**.
 
-   ![Unselected checkbox for "Allow members to publish sites" option](/assets/images/help/organizations/org-settings-pages-disable-publication-checkbox.png){% endif %}{% ifversion fpt or ghec %}
+   ![Deaktiviertes Kontrollkästchen „Mitgliedern die Veröffentlichung von Websites erlauben“](/assets/images/help/organizations/org-settings-pages-disable-publication-checkbox.png){% endif %}{% ifversion fpt or ghec %}
 
    {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3%}{% endif %}
 
-1. Click **Save**.
+1. Klicken Sie auf **Speichern**.
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)"
+- [Informationen zu {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)

@@ -1,6 +1,6 @@
 ---
-title: Configuring an outbound web proxy server
-intro: 'A proxy server provides an additional level of security for {% data variables.location.product_location %}.'
+title: アウトバウンドの Web プロキシ サーバーの設定
+intro: 'プロキシ サーバーは、{% data variables.product.product_location %} に追加のセキュリティのレベルをもたらしてくれます。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-a-proxy-server
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
@@ -15,29 +15,32 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure an outbound proxy
+ms.openlocfilehash: 4285f24dd45d127efec4ace66729bf6fd1f188c5
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878391'
 ---
+## {% data variables.product.product_name %} のプロキシについて
 
-## About proxies with {% data variables.product.product_name %}
-
-When a proxy server is enabled for {% data variables.location.product_location %}, outbound messages sent by {% data variables.product.prodname_ghe_server %} are first sent through the proxy server, unless the destination host is added as an HTTP proxy exclusion. Types of outbound messages include outgoing webhooks, uploading bundles, and fetching legacy avatars. The proxy server's URL is the protocol, domain or IP address, plus the port number, for example `http://127.0.0.1:8123`.
+{% data variables.product.product_location %} に対してプロキシ サーバーが有効である場合、宛先ホストが HTTP プロキシ除外として追加されていない限り、{% data variables.product.prodname_ghe_server %} によって送信されたアウトバウンド メッセージがプロキシ サーバーを経由してまず最初に送信されます。 アウトバウンドのメッセージの種類には、webhook、Bundleのアップロード、レガシーのアバターのフェッチが含まれます。 プロキシ サーバーの URL は、たとえば `http://127.0.0.1:8123` といったように、プロトコル、ドメイン、または IP アドレスにポート番号を加えたものです。
 
 {% note %}
 
-**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+**メモ:** {% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続するには、プロキシ構成で `github.com` と `api.github.com` への接続を許可する必要があります。 詳細については、「[Enterprise アカウントを {% data variables.product.prodname_dotcom_the_website %} に接続する](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)」を参照してください。
 
 {% endnote %}
 
-{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data reusables.actions.proxy-considerations %} {% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_actions %} の使用の詳細については、「[{% data variables.product.prodname_ghe_server %} 向けの {% data variables.product.prodname_actions %} の概要](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)」を参照してください。
 
-## Configuring an outbound web proxy server
+## アウトバウンドの Web プロキシ サーバーの設定
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.privacy %}
-1. Under **HTTP Proxy Server**, type the URL of your proxy server.
-  ![Field to type the HTTP Proxy Server URL](/assets/images/enterprise/management-console/http-proxy-field.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.privacy %}
+1. **[HTTP プロキシ サーバー]** で、プロキシ サーバーの URL を入力します。
+  ![HTTP プロキシ サーバーの URL を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-field.png)
   
-5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle`
-  ![Field to type any HTTP Proxy Exclusions](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+5. オプションで、プロキシのアクセスを必要としないホストがあれば **[HTTP プロキシの除外]** の下にカンマ区切りで入力します。 ドメイン内のすべてのホストをプロキシ アクセスの要求から除外するには、`.` をワイルドカード プレフィックスとして使用できます。  例: `.octo-org.tentacle`
+  ![HTTP プロキシの除外を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
 
 {% data reusables.enterprise_management_console.save-settings %}

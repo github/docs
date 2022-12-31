@@ -1,7 +1,7 @@
 ---
-title: Metadata syntax for GitHub Actions
+title: GitHub Actions에 대한 메타데이터 구문
 shortTitle: Metadata syntax
-intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
+intro: 리포지토리에서 작업을 수행하는 작업을 만들 수 있습니다. 작업에는 YAML 구문을 사용하는 메타데이터 파일이 필요합니다.
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -14,36 +14,40 @@ versions:
   ghec: '*'
 type: reference
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: 9bde653dd7f8b4d04831afa38d29db7300255f57
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107415'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## {% data variables.product.prodname_actions %}에 대한 YAML 구문
 
-## About YAML syntax for {% data variables.product.prodname_actions %}
+모든 작업에는 메타데이터 파일이 필요합니다. 메타데이터 파일 이름은 `action.yml` 또는 `action.yaml`이어야 합니다. 메타데이터 파일의 데이터는 작업에 대한 입력, 출력, 실행 구성을 정의합니다.
 
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
-
-Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+작업 메타데이터 파일은 YAML 구문을 사용합니다. YAML을 처음 사용하는 경우 “[5분 안에 YAML 알아보기](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”를 읽을 수 있습니다.
 
 ## `name`
 
-**Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
+**필수** 작업의 이름입니다. {% data variables.product.prodname_dotcom %}는 각 작업을 시각적으로 식별하는 데 도움이 되도록 **작업** 탭에 `name`을 표시합니다.
 
 ## `author`
 
-**Optional** The name of the action's author.
+**선택 사항** 작업 작성자의 이름입니다.
 
 ## `description`
 
-**Required** A short description of the action.
+**필수** 다음은 작업에 대한 간단한 설명입니다.
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
+**선택 사항** 입력 매개 변수를 사용하면 런타임 중에 작업에서 사용할 데이터를 지정할 수 있습니다. {% data variables.product.prodname_dotcom %}는 입력 매개 변수를 환경 변수로 저장합니다. 대문자가 있는 입력 ID는 런타임 중에 소문자로 변환됩니다. 소문자 입력 ID를 사용하는 것이 좋습니다.
 
-### Example: Specifying inputs
+### 예제: 입력 지정
 
-This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
+이 예제에서는 numOctocats 및 octocatEyeColor라는 두 가지 입력을 구성합니다. numOctocats 입력은 필요하지 않으며 기본값은 ‘1’로 설정됩니다. octocatEyeColor 입력은 필수이며 기본값이 없습니다. 이 작업을 사용하는 워크플로 파일은 `with` 키워드를 사용하여 octocatEyeColor에 대한 입력 값을 설정해야 합니다. `with` 구문에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)”을 참조하세요.
 
 ```yaml
 inputs:
@@ -56,43 +60,43 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+워크플로 파일에서 입력을 지정하거나 기본 입력 값을 사용하는 경우 {% data variables.product.prodname_dotcom %}는 이름이 `INPUT_<VARIABLE_NAME>`인 입력에 대한 환경 변수를 만듭니다. 만들어진 환경 변수는 입력 이름을 대문자로 변환하고 공백을 `_` 문자로 바꿉니다.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
+[작업이 ](/actions/creating-actions/creating-a-composite-action)을 사용하여 작성된 경우 자동으로 `INPUT_<VARIABLE_NAME>`을 가져오지 않습니다. 변환이 발생하지 않으면 이러한 입력을 수동으로 변경할 수 있습니다.
 
-To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
+Docker 컨테이너 작업에서 환경 변수에 액세스하려면 작업 메타데이터 파일에서 `args` 키워드를 사용하여 입력을 전달해야 합니다. Docker 컨테이너 작업의 작업 메타데이터 파일에 대한 자세한 내용은 “[Docker 컨테이너 작업 만들기](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)”를 참조하세요.
 
-For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+예를 들어 워크플로가 `numOctocats` 및 `octocatEyeColor` 입력을 정의한 경우 작업 코드는 `INPUT_NUMOCTOCATS` 및 `INPUT_OCTOCATEYECOLOR` 환경 변수를 사용하여 입력 값을 읽을 수 있습니다.
 
 ### `inputs.<input_id>`
 
-**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**필수** 입력과 연결할 `string` 식별자입니다. `<input_id>` 값은 입력 메타데이터의 맵입니다. `<input_id>`은 `inputs` 개체 내에서 고유한 식별자여야 합니다. `<input_id>`은 문자 또는 `_`로 시작해야 하며 영숫자, `-` 또는 `_`만 포함해야 합니다.
 
 ### `inputs.<input_id>.description`
 
-**Required** A `string` description of the input parameter.
+**필수** 입력 매개 변수에 대한 `string` 설명입니다.
 
 ### `inputs.<input_id>.required`
 
-**Optional** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
+**선택 사항** 작업에 입력 매개 변수가 필요한지 여부를 나타내는 `boolean`입니다. 매개 변수가 필요한 경우 `true`로 설정합니다.
 
 ### `inputs.<input_id>.default`
 
-**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
+**선택 사항** 기본값을 나타내는 `string`입니다. 기본값은 입력 매개 변수가 워크플로 파일에 지정되지 않은 경우에 사용됩니다.
 
 ### `inputs.<input_id>.deprecationMessage`
 
-**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
+**선택 사항** 입력 매개 변수를 사용하면 `string`이 경고 메시지로 기록됩니다. 이 경고를 사용하여 입력이 더 이상 사용되지 않음을 알리고 대안을 언급할 수 있습니다.
 
-## `outputs` for Docker container and JavaScript actions
+## Docker 컨테이너 및 JavaScript 작업의 `outputs`
 
-**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
+**선택 사항** 출력 매개 변수를 사용하면 작업이 설정하는 데이터를 선언할 수 있습니다. 워크플로에서 나중에 실행되는 작업은 이전에 실행한 작업의 출력 데이터 세트를 사용할 수 있습니다.  예를 들어 두 개의 입력(x + y = z)을 추가하는 작업을 수행하는 경우 이 작업은 입력으로 사용할 다른 작업에 대한 합계(z)를 출력할 수 있습니다.
 
 {% data reusables.actions.output-limitations %}
 
-If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
+작업 메타데이터 파일에서 출력을 선언하지 않은 경우에도 출력을 설정하고 워크플로에서 사용할 수 있습니다. 작업에서의 출력 설정에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 명령](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)”을 참조하세요.
 
-### Example: Declaring outputs for Docker container and JavaScript actions
+### 예제: Docker 컨테이너 및 JavaScript 작업에 대한 출력 선언
 
 ```yaml
 outputs:
@@ -102,19 +106,19 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**필수** 출력과 연결할 `string` 식별자입니다. `<output_id>` 값은 출력 메타데이터의 맵입니다. `<output_id>`은 `outputs` 개체 내에서 고유한 식별자여야 합니다. `<output_id>`은 문자 또는 `_`로 시작해야 하며 영숫자, `-` 또는 `_`만 포함해야 합니다.
 
 ### `outputs.<output_id>.description`
 
-**Required** A `string` description of the output parameter.
+**필수** 출력 매개 변수에 대한 `string` 설명입니다.
 
-## `outputs` for composite actions
+## 복합 작업의 `outputs`
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+**선택 사항** `outputs`은 `outputs.<output_id>` 및 `outputs.<output_id>.description`와 동일한 매개 변수를 사용하지만(“[`outputs`Docker 컨테이너 및 JavaScript 작업에 대한](#outputs-for-docker-container-and-javascript-actions)” 참조) `value` 토큰도 포함되어 있습니다.
 
 {% data reusables.actions.output-limitations %}
 
-### Example: Declaring outputs for composite actions
+### 예제: 복합 작업에 대한 출력 선언
 
 {% raw %}
 ```yaml
@@ -137,19 +141,19 @@ runs:
 
 ### `outputs.<output_id>.value`
 
-**Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
+**필수** 출력 매개 변수가 매핑될 값입니다. `string` 또는 컨텍스트가 있는 식으로 설정할 수 있습니다. 예를 들어 `steps` 컨텍스트를 사용하여 출력의 `value`를 단계의 출력 값으로 설정할 수 있습니다.
 
-For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
+컨텍스트 구문을 사용하는 방법에 대한 자세한 내용은 “[컨텍스트](/actions/learn-github-actions/contexts)”를 참조하세요.
 
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+**필수** JavaScript 작업, 복합 작업 또는 Docker 컨테이너 작업인지와 작업 실행 방식을 지정합니다.
 
-## `runs` for JavaScript actions
+## JavaScript 작업에 대한 `runs`
 
-**Required** Configures the path to the action's code and the runtime used to execute the code.
+**필수** 작업 코드의 경로와 코드를 실행하는 데 사용되는 런타임을 구성합니다.
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
+### 예: Node.js {% ifversion fpt or ghes > 3.3 또는 ghae > 3.3 or ghec %}v16{% else %}v12{% endif %} 사용
 
 ```yaml
 runs:
@@ -159,20 +163,20 @@ runs:
 
 ### `runs.using`
 
-**Required** The runtime used to execute the code specified in [`main`](#runsmain).
+**필수** [`main`](#runsmain)에 지정된 코드를 실행하는 데 사용되는 런타임입니다.
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-- Use `node16` for Node.js v16.{% endif %}
+- Node.js v12에 사용합니다 `node12` .{ % ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+- Node.js v16의 경우 `node16`을 사용합니다.{% endif %}
 
 ### `runs.main`
 
-**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
+**필수** 작업 코드가 포함된 파일입니다. [`using`](#runsusing)에 지정된 런타임은 이 파일을 실행합니다.
 
 ### `runs.pre`
 
-**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**선택 사항** `main:` 작업이 시작되기 전에 작업 시작 시 스크립트를 실행할 수 있습니다. 예를 들어 `pre:`를 사용하여 필수 조건 설정 스크립트를 실행할 수 있습니다. [`using`](#runsusing) 구문으로 지정된 런타임은 이 파일을 실행합니다. `pre:` 작업은 기본적으로 항상 실행되지만 [`runs.pre-if`](#runspre-if)를 사용하여 이를 재정의할 수 있습니다.
 
-In this example, the `pre:` action runs a script called `setup.js`:
+이 예제에서 `pre:` 작업은 `setup.js`라는 스크립트를 실행합니다.
 
 ```yaml
 runs:
@@ -184,11 +188,11 @@ runs:
 
 ### `runs.pre-if`
 
-**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+**선택 사항** `pre:` 작업 실행을 위한 조건을 정의할 수 있습니다. `pre:` 작업은 `pre-if`의 조건이 충족되는 경우에만 실행됩니다. 설정하지 않으면 `pre-if`의 기본값은 `always()`입니다. `pre-if`에서 상태 검사 함수는 작업 자체의 상태가 아니라 동작의 상태를 기준으로 평가합니다.
 
-Note that the `step` context is unavailable, as no steps have run yet.
+아직 실행된 단계가 없으므로 `step` 컨텍스트를 사용할 수 없습니다.
 
-In this example, `cleanup.js` only runs on Linux-based runners:
+이 예제에서는 `cleanup.js`는 Linux 기반 실행기에서만 실행됩니다.
 
 ```yaml
   pre: 'cleanup.js'
@@ -197,9 +201,9 @@ In this example, `cleanup.js` only runs on Linux-based runners:
 
 ### `runs.post`
 
-**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+**선택 사항** `main:` 동작이 완료된 후 작업이 끝날 때 스크립트를 실행할 수 있습니다. 예를 들어 `post:`을 사용하여 특정 프로세스를 종료하거나 필요하지 않은 파일을 제거할 수 있습니다. [`using`](#runsusing) 구문으로 지정된 런타임은 이 파일을 실행합니다.
 
-In this example, the `post:` action runs a script called `cleanup.js`:
+이 예제에서 `post:` 작업은 `cleanup.js`라는 스크립트를 실행합니다.
 
 ```yaml
 runs:
@@ -208,34 +212,34 @@ runs:
   post: 'cleanup.js'
 ```
 
-The `post:` action always runs by default but you can override this using `post-if`.
+`post:` 작업은 기본적으로 항상 실행되지만 `post-if`를 사용하여 이를 재정의할 수 있습니다.
 
 ### `runs.post-if`
 
-**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`. In `post-if`, status check functions evaluate against the job's status, not the action's own status.
+**선택 사항** `post:` 작업 실행을 위한 조건을 정의할 수 있습니다. `post:` 작업은 `post-if`의 조건이 충족되는 경우에만 실행됩니다. 설정하지 않으면 `post-if`의 기본값은 `always()`입니다. `post-if`에서 상태 검사 함수는 작업 자체의 상태가 아니라 동작의 상태를 기준으로 평가합니다.
 
-For example, this `cleanup.js` will only run on Linux-based runners:
+예를 들어 `cleanup.js`은 Linux 기반 실행기에서만 실행됩니다.
 
 ```yaml
   post: 'cleanup.js'
   post-if: runner.os == 'linux'
 ```
 
-## `runs` for composite actions
+## 복합 작업의 `runs`
 
-**Required** Configures the path to the composite action.
+**필수** 복합 작업의 경로를 구성합니다.
 
 ### `runs.using`
 
-**Required** You must set this value to `'composite'`.
+**필수** 값을 `'composite'`로 설정해야 합니다.
 
 ### `runs.steps`
 
-**Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
+**필수** 이 작업에서 실행하려는 단계입니다. 이는 `run` 단계 또는 `uses` 단계일 수 있습니다.
 
 #### `runs.steps[*].run`
 
-**Optional** The command you want to run. This can be inline or a script in your action repository:
+**선택적** 실행할 명령입니다. 인라인 또는 작업 리포지토리의 스크립트일 수 있습니다.
 
 {% raw %}
 ```yaml
@@ -247,7 +251,7 @@ runs:
 ```
 {% endraw %}
 
-Alternatively, you can use `$GITHUB_ACTION_PATH`:
+또는 `$GITHUB_ACTION_PATH`를 사용할 수 있습니다.
 
 ```yaml
 runs:
@@ -257,22 +261,22 @@ runs:
       shell: bash
 ```
 
-For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+자세한 내용은 “[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”를 참조하세요.
 
 #### `runs.steps[*].shell`
 
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+**선택적** 명령을 실행할 셸입니다. [여기](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)에 나열된 모든 셸을 사용할 수 있습니다. `run`이 설정된 경우 필수입니다.
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
 
-**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+**선택 사항** `if` 조건을 사용하여 조건이 충족되지 않는 한 단계가 실행되지 않도록 할 수 있습니다. 지원되는 컨텍스트 및 식을 사용하여 조건부를 만들 수 있습니다.
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 자세한 내용은 “[식](/actions/learn-github-actions/expressions)”을 참조하세요.
 
-**Example: Using contexts**
+**예제: 컨텍스트 사용**
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+ 이 단계는 이벤트 유형이 `pull_request`이고 이벤트 작업이 `unassigned`인 경우에만 실행됩니다.
 
  ```yaml
 steps:
@@ -280,9 +284,9 @@ steps:
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
 ```
 
-**Example: Using status check functions**
+**예제: 상태 검사 함수 사용**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
+`my backup step`은 복합 작업의 이전 단계가 실패한 경우에만 실행됩니다. 자세한 내용은 “[식](/actions/learn-github-actions/expressions#status-check-functions)”을 참조하세요.
 
 ```yaml
 steps:
@@ -296,30 +300,30 @@ steps:
 
 #### `runs.steps[*].name`
 
-**Optional** The name of the composite step.
+**선택 사항** 복합 단계의 이름입니다.
 
 #### `runs.steps[*].id`
 
-**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+**선택 사항** 단계의 고유 식별자입니다. `id`를 사용하여 컨텍스트에서 단계를 참조할 수 있습니다. 자세한 내용은 “[컨텍스트](/actions/learn-github-actions/contexts)”를 참조하세요.
 
 #### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**선택 사항** 해당 단계에 대해서만 환경 변수의 `map`을 설정합니다. 워크플로에 저장된 환경 변수를 수정하려면 복합 단계에서 `echo "{name}={value}" >> $GITHUB_ENV`를 사용합니다.
 
 #### `runs.steps[*].working-directory`
 
-**Optional**  Specifies the working directory where the command is run.
+**선택 사항** 명령이 실행되는 작업 디렉터리를 지정합니다.
 
 #### `runs.steps[*].uses`
 
-**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+**선택 사항** 작업 단계의 일부로 실행할 작업을 선택합니다. 작업은 재사용 가능한 코드 단위입니다. 워크플로와 동일한 리포지토리, 퍼블릭 리포지토리 또는 [게시된 Docker 컨테이너 이미지](https://hub.docker.com/)에 정의된 작업을 사용할 수 있습니다.
 
-We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+Git 참조, SHA 또는 Docker 태그 번호를 지정하여 사용 중인 작업의 버전을 포함하는 것이 좋습니다. 버전을 지정하지 않으면 작업 소유자가 업데이트를 게시할 때 워크플로가 중단되거나 예기치 않은 동작이 발생할 수 있습니다.
+- 릴리스된 작업 버전의 커밋 SHA를 사용하는 것이 안정성 및 보안 측면에서 가장 안전합니다.
+- 특정 주요 작업 버전을 사용하면 호환성을 유지하면서 중요한 수정 및 보안 패치를 받을 수 있습니다. 또한 워크플로가 계속 작동하도록 합니다.
+- 작업의 기본 분기를 사용하는 것이 편리할 수 있지만 다른 사용자가 호환성이 손상되는 변경으로 새 주 버전을 릴리스하는 경우 워크플로가 중단될 수 있습니다.
 
-Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+일부 작업에는 [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) 키워드를 사용하여 설정해야 하는 입력이 필요합니다. 작업의 추가 정보 파일을 검토하여 필요한 입력을 확인합니다.
 
 ```yaml
 runs:
@@ -345,7 +349,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
+**선택 사항** 작업에 의해 정의된 입력 매개 변수의 `map`입니다. 각 입력 매개 변수는 키/값 쌍입니다. 자세한 내용은 [예제: 입력 지정](#example-specifying-inputs)을 참조하세요.
 
 ```yaml
 runs:
@@ -363,15 +367,15 @@ runs:
 
 #### `runs.steps[*].continue-on-error`
 
-**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+**선택적**  단계가 실패할 때 작업이 실패하지 않도록 합니다. 이 단계가 실패해도 작업이 통과되도록 하려면 `true`로 설정합니다.
 
 {% endif %}
 
-## `runs` for Docker container actions
+## Docker 컨테이너 작업의 `runs`
 
-**Required** Configures the image used for the Docker container action.
+**필수** Docker 컨테이너 작업에 사용되는 이미지를 구성합니다.
 
-### Example: Using a Dockerfile in your repository
+### 예제: 리포지토리에서 Dockerfile 사용
 
 ```yaml
 runs:
@@ -379,7 +383,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example: Using public Docker registry container
+### 예제: 퍼블릭 Docker 레지스트리 컨테이너 사용
 
 ```yaml
 runs:
@@ -389,15 +393,15 @@ runs:
 
 ### `runs.using`
 
-**Required** You must set this value to `'docker'`.
+**필수** 값을 `'docker'`로 설정해야 합니다.
 
 ### `runs.pre-entrypoint`
 
-**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**선택 사항** `entrypoint` 작업이 시작되기 전에 스크립트를 실행할 수 있습니다. 예를 들어 `pre-entrypoint:`를 사용하여 필수 조건 설정 스크립트를 실행할 수 있습니다. {% data variables.product.prodname_actions %}는 `docker run`을 사용하여 이 작업을 시작하고 동일한 기본 이미지를 사용하는 새 컨테이너 내에서 스크립트를 실행합니다. 즉, 런타임 상태가 주 `entrypoint` 컨테이너와 다르며 필요한 모든 상태는 작업 영역 `HOME` 또는 `STATE_` 변수로 액세스해야 합니다. `pre-entrypoint:` 작업은 기본적으로 항상 실행되지만 [`runs.pre-if`](#runspre-if)를 사용하여 이를 재정의할 수 있습니다.
 
-The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+[`using`](#runsusing) 구문으로 지정된 런타임은 이 파일을 실행합니다.
 
-In this example, the `pre-entrypoint:` action runs a script called `setup.sh`:
+이 예제에서 `pre-entrypoint:` 작업은 `setup.sh`라는 스크립트를 실행합니다.
 
 ```yaml
 runs:
@@ -411,21 +415,21 @@ runs:
 
 ### `runs.image`
 
-**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, the file must be named `Dockerfile` and you must use a path relative to your action metadata file. The `docker` application will execute this file.
+**필수** 작업을 실행하기 위한 컨테이너로 사용할 Docker 이미지입니다. 값은 Docker 기본 이미지 이름, 리포지토리의 로컬 `Dockerfile`, Docker Hub 또는 다른 레지스트리의 퍼블릭 이미지일 수 있습니다. 리포지토리에 로컬인 `Dockerfile`을 참조하려면 파일 이름이 `Dockerfile`이어야 하고 작업 메타데이터 파일에 상대적인 경로를 사용해야 합니다. `docker` 애플리케이션은 이 파일을 실행합니다.
 
 ### `runs.env`
 
-**Optional** Specifies a key/value map of environment variables to set in the container environment.
+**선택 사항** 컨테이너 환경에서 설정할 환경 변수의 키/값 맵을 지정합니다.
 
 ### `runs.entrypoint`
 
-**Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
+**선택 사항** `Dockerfile`의 Docker `ENTRYPOINT`를 재정의하거나 아직 지정하지 않은 경우 설정합니다. `Dockerfile`이 `ENTRYPOINT`를 지정하지 않거나 `ENTRYPOINT` 명령어를 재정의하려는 경우 `entrypoint`를 사용합니다. `entrypoint`를 생략하면 Docker `ENTRYPOINT` 명령에서 지정한 명령이 실행됩니다. Docker `ENTRYPOINT` 명령에는 _shell_ 형식과 _exec_ 형식이 있습니다. Docker `ENTRYPOINT` 문서에서는 `ENTRYPOINT` 명령의 _exec_ 형식을 사용하는 것이 좋습니다.
 
-For more information about how the `entrypoint` executes, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
+`entrypoint` 실행 방식에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 Dockerfile 지원](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”을 참조하세요.
 
 ### `runs.post-entrypoint`
 
-**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**선택 사항** `runs.entrypoint` 작업이 완료되면 정리 스크립트를 실행할 수 있습니다. {% data variables.product.prodname_actions %}는 `docker run`을 사용하여 이 작업을 시작합니다. {% data variables.product.prodname_actions %}는 동일한 기본 이미지를 사용하여 새 컨테이너 내에서 스크립트를 실행하기 때문에 런타임 상태는 기본 `entrypoint` 컨테이너와 다릅니다. 작업 영역인 `HOME`에서 또는 `STATE_` 변수로 필요한 모든 상태에 액세스할 수 있습니다. `post-entrypoint:` 작업은 기본적으로 항상 실행되지만 [`runs.post-if`](#runspost-if)를 사용하여 이를 재정의할 수 있습니다.
 
 ```yaml
 runs:
@@ -439,17 +443,17 @@ runs:
 
 ### `runs.args`
 
-**Optional** An array of strings that define the inputs for a Docker container. Inputs can include hardcoded strings. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up.
+**선택 사항** Docker 컨테이너에 대한 입력을 정의하는 문자열 배열입니다. 입력에는 하드 코드된 문자열이 포함될 수 있습니다. {% data variables.product.prodname_dotcom %}은 컨테이너가 시작될 때 `args`를 컨테이너의 `ENTRYPOINT`에 전달합니다.
 
-The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
+`args`는 `Dockerfile`의 `CMD` 명령 대신 사용됩니다. `Dockerfile`에서 `CMD`를 사용하는 경우 기본 설정에 따라 정렬된 지침을 사용합니다.
 
 {% data reusables.actions.dockerfile-guidelines %}
 
-If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
+환경 변수를 작업에 전달해야 하는 경우 작업이 명령 셸을 실행하여 변수 대체를 수행하는지 확인하세요. 예를 들어 `entrypoint` 특성이 `"sh -c"`로 설정된 경우 `args`는 명령 셸에서 실행됩니다. 또는 `Dockerfile`이 `ENTRYPOINT`를 사용하여 동일한 명령(`"sh -c"`)을 실행하는 경우 `args`는 명령 셸에서 실행됩니다.
 
-For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)."
+{% data variables.product.prodname_actions %}를 사용하여 `CMD` 명령을 사용하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 Dockerfile 지원](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)”을 참조하세요.
 
-#### Example: Defining arguments for the Docker container
+#### 예제: Docker 컨테이너에 대한 인수 정의
 
 {% raw %}
 ```yaml
@@ -465,9 +469,9 @@ runs:
 
 ## `branding`
 
-**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+**선택 사항** 색상과 [깃털](https://feathericons.com/) 아이콘을 사용하여 배지를 만들어 작업을 맞춤화하고 구별할 수 있습니다. 배지는 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)에서 작업 이름 옆에 표시됩니다.
 
-### Example: Configuring branding for an action
+### 예제: 작업에 대한 브랜딩 구성
 
 ```yaml
 branding:
@@ -477,30 +481,30 @@ branding:
 
 ### `branding.color`
 
-The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
+배지의 배경색입니다. `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple` 또는 `gray-dark` 중 하나일 수 있습니다.
 
 ### `branding.icon`
 
-The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
+사용할 v4.28.0 [깃털](https://feathericons.com/) 아이콘의 이름입니다. 브랜드 아이콘과 다음은 생략됩니다.
 
 <table>
 <tr>
-<td>coffee</td>
-<td>columns</td>
+<td>커피</td>
+<td>열</td>
 <td>divide-circle</td>
 <td>divide-square</td>
 </tr>
 <tr>
 <td>divide</td>
 <td>frown</td>
-<td>hexagon</td>
+<td>육각형</td>
 <td>key</td>
 </tr>
 <tr>
 <td>meh</td>
 <td>mouse-pointer</td>
 <td>smile</td>
-<td>tool</td>
+<td>도구(tool)</td>
 </tr>
 <tr>
 <td>x-octagon</td>
@@ -510,7 +514,7 @@ The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand 
 </tr>
 </table>
 
-Here is an exhaustive list of all currently supported icons:
+현재 지원되는 모든 아이콘의 전체 목록은 다음과 같습니다.
 
 <!--
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
@@ -519,7 +523,7 @@ Here is an exhaustive list of all currently supported icons:
 
 <table>
 <tr>
-<td>activity</td>
+<td>활동</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -532,9 +536,9 @@ Here is an exhaustive list of all currently supported icons:
 </tr>
 <tr>
 <td>align-right</td>
-<td>anchor</td>
+<td>앵커</td>
 <td>aperture</td>
-<td>archive</td>
+<td>보관</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -552,7 +556,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>arrow-up-circle</td>
 <td>arrow-up-left</td>
 <td>arrow-up-right</td>
-<td>arrow-up</td>
+<td>위쪽-화살표</td>
 </tr>
 <tr>
 <td>at-sign</td>
@@ -564,29 +568,29 @@ Here is an exhaustive list of all currently supported icons:
 <td>battery-charging</td>
 <td>battery</td>
 <td>bell-off</td>
-<td>bell</td>
+<td>벨</td>
 </tr>
 <tr>
 <td>bluetooth</td>
-<td>bold</td>
+<td>굵게</td>
 <td>book-open</td>
-<td>book</td>
+<td>설명서</td>
 </tr>
 <tr>
-<td>bookmark</td>
+<td>책갈피(bookmark)</td>
 <td>box</td>
 <td>briefcase</td>
-<td>calendar</td>
+<td>달력</td>
 </tr>
 <tr>
 <td>camera-off</td>
-<td>camera</td>
-<td>cast</td>
+<td>카메라</td>
+<td>캐스트</td>
 <td>check-circle</td>
 </tr>
 <tr>
 <td>check-square</td>
-<td>check</td>
+<td>선택</td>
 <td>chevron-down</td>
 <td>chevron-left</td>
 </tr>
@@ -600,7 +604,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>chevrons-right</td>
 <td>chevrons-up</td>
 <td>circle</td>
-<td>clipboard</td>
+<td>클립보드</td>
 </tr>
 <tr>
 <td>clock</td>
@@ -612,10 +616,10 @@ Here is an exhaustive list of all currently supported icons:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>code</td>
+<td>코드</td>
 </tr>
 <tr>
-<td>command</td>
+<td>명령을 사용합니다.</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -636,7 +640,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>credit-card</td>
 <td>crop</td>
 <td>crosshair</td>
-<td>database</td>
+<td>데이터베이스</td>
 </tr>
 <tr>
 <td>delete</td>
@@ -645,13 +649,13 @@ Here is an exhaustive list of all currently supported icons:
 <td>download-cloud</td>
 </tr>
 <tr>
-<td>download</td>
+<td>다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요</td>
 <td>droplet</td>
 <td>edit-2</td>
 <td>edit-3</td>
 </tr>
 <tr>
-<td>edit</td>
+<td>편집</td>
 <td>external-link</td>
 <td>eye-off</td>
 <td>eye</td>
@@ -664,7 +668,7 @@ Here is an exhaustive list of all currently supported icons:
 </tr>
 <tr>
 <td>file-text</td>
-<td>file</td>
+<td>파일</td>
 <td>film</td>
 <td>filter</td>
 </tr>
@@ -672,12 +676,12 @@ Here is an exhaustive list of all currently supported icons:
 <td>flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
-<td>folder</td>
+<td>폴더</td>
 </tr>
 <tr>
 <td>gift</td>
 <td>git-branch</td>
-<td>git-commit</td>
+<td>  git-commit</td>
 <td>git-merge</td>
 </tr>
 <tr>
@@ -694,14 +698,14 @@ Here is an exhaustive list of all currently supported icons:
 </tr>
 <tr>
 <td>home</td>
-<td>image</td>
+<td>이미지</td>
 <td>inbox</td>
-<td>info</td>
+<td>정보</td>
 </tr>
 <tr>
-<td>italic</td>
-<td>layers</td>
-<td>layout</td>
+<td>기울임꼴</td>
+<td>계층</td>
+<td>레이아웃</td>
 <td>life-buoy</td>
 </tr>
 <tr>
@@ -737,25 +741,25 @@ Here is an exhaustive list of all currently supported icons:
 <tr>
 <td>minus-square</td>
 <td>minus</td>
-<td>monitor</td>
+<td>모니터</td>
 <td>moon</td>
 </tr>
 <tr>
 <td>more-horizontal</td>
 <td>more-vertical</td>
-<td>move</td>
+<td>이동</td>
 <td>music</td>
 </tr>
 <tr>
 <td>navigation-2</td>
-<td>navigation</td>
+<td>탐색</td>
 <td>octagon</td>
-<td>package</td>
+<td>패키지</td>
 </tr>
 <tr>
 <td>paperclip</td>
 <td>pause-circle</td>
-<td>pause</td>
+<td>일시 중지</td>
 <td>percent</td>
 </tr>
 <tr>
@@ -792,19 +796,19 @@ Here is an exhaustive list of all currently supported icons:
 <td>rewind</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
-<td>rss</td>
+<td>RSS</td>
 </tr>
 <tr>
-<td>save</td>
+<td>저장</td>
 <td>scissors</td>
 <td>search</td>
 <td>send</td>
 </tr>
 <tr>
-<td>server</td>
-<td>settings</td>
+<td>서버</td>
+<td>설정</td>
 <td>share-2</td>
-<td>share</td>
+<td>공유</td>
 </tr>
 <tr>
 <td>shield-off</td>
@@ -813,31 +817,31 @@ Here is an exhaustive list of all currently supported icons:
 <td>shopping-cart</td>
 </tr>
 <tr>
-<td>shuffle</td>
+<td>순서 섞기</td>
 <td>sidebar</td>
 <td>skip-back</td>
 <td>skip-forward</td>
 </tr>
 <tr>
 <td>slash</td>
-<td>sliders</td>
+<td>슬라이더</td>
 <td>smartphone</td>
 <td>speaker</td>
 </tr>
 <tr>
 <td>square</td>
-<td>star</td>
+<td>별표</td>
 <td>stop-circle</td>
 <td>sun</td>
 </tr>
 <tr>
 <td>sunrise</td>
-<td>sunset</td>
-<td>tablet</td>
-<td>tag</td>
+<td>일몰</td>
+<td>태블릿</td>
+<td>태그</td>
 </tr>
 <tr>
-<td>target</td>
+<td>대상</td>
 <td>terminal</td>
 <td>thermometer</td>
 <td>thumbs-down</td>
@@ -852,17 +856,17 @@ Here is an exhaustive list of all currently supported icons:
 <td>trash</td>
 <td>trending-down</td>
 <td>trending-up</td>
-<td>triangle</td>
+<td>삼각형</td>
 </tr>
 <tr>
-<td>truck</td>
+<td>트럭</td>
 <td>tv</td>
-<td>type</td>
+<td>형식</td>
 <td>umbrella</td>
 </tr>
 <tr>
-<td>underline</td>
-<td>unlock</td>
+<td>밑줄</td>
+<td>잠금 해제</td>
 <td>upload-cloud</td>
 <td>upload</td>
 </tr>
@@ -873,10 +877,10 @@ Here is an exhaustive list of all currently supported icons:
 <td>user-x</td>
 </tr>
 <tr>
-<td>user</td>
-<td>users</td>
+<td>사용자</td>
+<td>사용자</td>
 <td>video-off</td>
-<td>video</td>
+<td>비디오</td>
 </tr>
 <tr>
 <td>voicemail</td>
@@ -885,8 +889,8 @@ Here is an exhaustive list of all currently supported icons:
 <td>volume-x</td>
 </tr>
 <tr>
-<td>volume</td>
-<td>watch</td>
+<td>볼륨</td>
+<td>보기</td>
 <td>wifi-off</td>
 <td>wifi</td>
 </tr>

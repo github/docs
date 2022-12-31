@@ -1,6 +1,6 @@
 ---
-title: Checking your commit and tag signature verification status
-intro: 'You can check the verification status of your commit and tag signatures on {% data variables.product.product_name %}.'
+title: Comprobar el estado de verificación de firma de la confirmación y de la etiqueta
+intro: 'Puedes comprobar el estado de verificación de las firmas de tu confirmación y de la etiqueta en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
@@ -15,34 +15,34 @@ topics:
   - Identity
   - Access management
 shortTitle: Check verification status
+ms.openlocfilehash: 726d292ca2b91b54c9002dc393e6e21f76648889
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145091761'
 ---
-## Checking your commit signature verification status
+## <a name="checking-your-commit-signature-verification-status"></a>Comprobar el estado de verificación de firma de la confirmación
 
-1. On {% data variables.product.product_name %}, navigate to your pull request.
+1. En {% data variables.product.product_name %}, desplázate hasta la solicitud de extracción.
 {% data reusables.repositories.review-pr-commits %}
-3. Next to your commit's abbreviated commit hash, there is a box that shows whether your commit signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
-![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. To view more detailed information about the commit signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**.
-  GPG signed commits will show the ID of the key that was used.
-  ![Verified GPG signed commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
-{% ifversion ssh-commit-verification %}
-  SSH signed commits will show the signature of the public key that was used.
-  ![Verified SSH signed commit](/assets/images/help/commits/ssh-signed-commit-verified-details.png)
-{% endif %}
+3. Junto al hash de confirmación abreviado de la confirmación, hay una casilla que muestra si la firma de confirmación está verificada{% ifversion fpt or ghec %}, parcialmente verificada{% endif %} o no se ha verificado.
+![Confirmación firmada](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+4. Para ver información más detallada sobre la firma de confirmación, haga clic en **Verificada**{% ifversion fpt or ghec %}, **Parcialmente verificada**{% endif %} o **Sin verificar**.
+![Confirmación firmada verificada](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
 
-## Checking your tag signature verification status
+## <a name="checking-your-tag-signature-verification-status"></a>Comprobar el estado de verificación de firma de la etiqueta
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Tags**.
-![Tags page](/assets/images/help/releases/tags-list.png)
-3. Next to your tag description, there is a box that shows whether your tag signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
-![verified tag signature](/assets/images/help/commits/gpg-signed-tag-verified.png)
-4. To view more detailed information about the tag signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**. 
-![Verified signed tag](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+2. En la parte superior de la página Versiones, haga clic en **Etiquetas**.
+![Página de etiquetas](/assets/images/help/releases/tags-list.png)
+3. Junto a la descripción de la etiqueta, hay una casilla que muestra si la firma de la etiqueta está verificada{% ifversion fpt or ghec %}, parcialmente verificada{% endif %} o no se ha verificado.
+![Firma de etiqueta verificada](/assets/images/help/commits/gpg-signed-tag-verified.png)
+4. Para ver información más detallada sobre la firma de la etiqueta, haga clic en **Verificada**{% ifversion fpt or ghec %}, **Parcialmente verificada**{% endif %} o **Sin verificar**. 
+![Etiqueta firmada verificada](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
-## Further reading
+## <a name="further-reading"></a>Información adicional
 
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- "[Acerca de la verificación de firma de confirmación](/articles/about-commit-signature-verification)"
+- "[Firma de confirmaciones](/articles/signing-commits)"
+- "[Firma de etiquetas](/articles/signing-tags)"

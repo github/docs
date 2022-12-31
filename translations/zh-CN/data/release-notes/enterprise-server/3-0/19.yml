@@ -1,0 +1,23 @@
+date: '2021-11-09'
+sections:
+  security_fixes:
+    - "在 {% data variables.product.prodname_pages %} 中发现了一个在构建 {% data variables.product.prodname_ghe_server %} 时攻击者可利用来读取系统文件的路径遍历漏洞。要利用此漏洞，攻击者需要获得在 {% data variables.product.prodname_ghe_server %} 实例上创建和构建 {% data variables.product.prodname_pages %} 站点的权限。此漏洞影响 3.3 之前的所有 {% data variables.product.prodname_ghe_server %} 版本，并在 3.0.19、3.1.11 和 3.2.3 中修复。该漏洞通过 {% data variables.product.company_short %} Bug 悬赏计划报告，编号为 CVE-2021-22870。"
+    - 包已更新到最新的安全版本。
+  bugs:
+    - "部分 Git 操作在升级 {% data variables.product.prodname_ghe_server %} 3.x 群集后失败，原因在于 HAProxy 配置。"
+    - 在群集模式下，Unicorn 工作线程计数可能会设置错误。
+    - 在群集模式下，Resqued 工作线程计数可能会设置错误。
+    - 如果 Ubuntu 简单防火墙 (UFW) 状态为非活动状态，则客户端无法在日志中清楚地看到它。
+    - 某些页面和与 Git 相关的后台作业可能无法在具有某些群集配置的群集模式下运行。
+    - "企业审核日志页面不会显示 {% data variables.product.prodname_secret_scanning %} 的审核事件。"
+    - '在查看文件时，不会警告用户有潜在危险的双向 unicode 字符。有关详细信息，请参阅 {% data variables.product.prodname_blog %} 中的“[有关双向 Unicode 文本的警告](https://github.co/hiddenchars)”。'
+    - Hookshot Go 发送了 Collectd 无法处理的分布类型指标，这导致解析错误激增。
+    - "公共存储库显示来自 {% data variables.product.prodname_secret_scanning %} 的意外结果，类型为“未知令牌”。"
+  known_issues:
+    - "在新建的没有任何用户的 {% data variables.product.prodname_ghe_server %} 上，攻击者可以创建第一个管理员用户。"
+    - 自定义防火墙规则在升级过程中被删除。
+    - "[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories)的 Git LFS 跟踪文件被错误地直接添加到存储库。"
+    - 问题若是包含同一存储库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，专用和内部存储库中的问题不包括在 GitHub.com 搜索结果中。
+    - "当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。"
+    - 特定于处理预接收挂钩的资源限制可能导致部分预接收挂钩失败。

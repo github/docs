@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185041'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191892'
 ---
 ## 关于网络流量限制
 
@@ -30,7 +30,7 @@ ms.locfileid: '148185041'
 
 {% ifversion ghec %}
 
-如果你的企业将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，你则可以选择是使用 {% data variables.product.company_short %} 的 IP 允许列表功能，还是为标识提供者 (IdP) 使用允许列表限制。 如果你的企业未将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，你则可以使用 {% data variables.product.company_short %} 的允许列表功能。 
+如果你的企业将 {% data variables.product.prodname_emus %} 与 Azure AD 和 OIDC 配合使用，你则可以选择是使用 {% data variables.product.company_short %} 的 IP 允许列表功能，还是为标识提供者 (IdP) 使用允许列表限制。 如果你的企业未将 {% data variables.product.prodname_emus %} 与 Azure 和 OIDC 配合使用，你则可以使用 {% data variables.product.company_short %} 的允许列表功能。 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ ms.locfileid: '148185041'
 
 ## 关于 IdP 的允许列表
 
-如果将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，则可以使用 IdP 的允许列表。 
+如果将 {% data variables.product.prodname_emus %} 与 Azure AD 和 OIDC 配合使用，则可以使用 IdP 的允许列表。
 
 使用 IdP 的允许列表会停用企业中所有组织的 {% data variables.product.company_short %} IP 允许列表配置，并停用 GraphQL API 以启用和管理 IP 允许列表。 
 
@@ -109,7 +109,11 @@ OIDC CAP 仅适用于使用用户到服务器令牌对 API 的请求，例如 {%
 
 ## 使用标识提供者的允许列表
 
-如果将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，则可以使用 IdP 的允许列表。
+{% note %}
+
+注意：仅 {% data variables.product.prodname_emus %} 和 Azure AD 和 OIDC 支持使用 IdP 的允许列表。 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. 在“IP 允许列表”下，选择下拉列表并单击“标识提供者”。

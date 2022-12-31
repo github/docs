@@ -1,215 +1,201 @@
 ---
-title: Managing discussions
-intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
+title: 管理讨论
+intro: 可以分类、聚焦、转让或删除讨论。
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
   feature: discussions
 shortTitle: Manage discussions
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
+ms.openlocfilehash: e5e1474648973c90d16e8998db18518331233aa3
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164337'
 ---
+## 关于讨论的管理
 
+{% data reusables.discussions.about-discussions %} 有关讨论的详细信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-## About management of discussions
+组织所有者可以选择在组织拥有的存储库中创建讨论所需的权限。 同样，若要选择创建组织讨论所需的权限，组织所有者可以更改源存储库中所需的权限。 有关详细信息，请参阅“[管理组织中存储库的讨论创建](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。
 
-{% data reusables.discussions.about-discussions %} For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 为协作者制定{% ifversion fpt or ghec %}行为守则或{% endif %}参与指南将有助于促进协作和富有成效的论坛。 有关如何创建社区资源的详细信息，请参阅{% ifversion fpt or ghec %}“[向项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置适用于存储库参与者的指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
 
-Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. For more information, see "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
+当讨论产生可以解决的想法或漏洞时，您可以从讨论创建新议题。 有关详细信息，请参阅“[创建问题](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)”。
 
-As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating{% ifversion fpt or ghec %} a code of conduct or{% endif %} contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and{% endif %} "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+可以将讨论固定到存储库或组织的讨论列表顶部。 {% ifversion discussions-category-specific-pins %}还可以将讨论固定到特定类别。{% endif %}有关详细信息，请参阅“[固定讨论](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)”。
 
-When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
-
-You can pin a discussion to the top of the list of discussions for the repository or organization. {% ifversion discussions-category-specific-pins %}You can also pin a discussion to a specific category.{% endif %} For more information, see "[Pinning a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
-
-For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
+有关如何促进健康讨论的详细信息，请参阅“[缓和评论和对话](/communities/moderating-comments-and-conversations)”。
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-## Prerequisites
+## 必备知识
 
-To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+要管理仓库中的讨论，必须为仓库启用 {% data variables.product.prodname_discussions %}。 有关详细信息，请参阅“[启用或禁用存储库的 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
-To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+若要管理组织中的讨论，必须为组织启用 {% data variables.product.prodname_discussions %}。 有关详细信息，请参阅“[启用或禁用组织的 {% data variables.product.prodname_discussions %}](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
-## Changing the category for a discussion
+## 更改讨论类别
 
-You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+您可以对讨论进行分类，以帮助社区成员查找相关的讨论。 有关详细信息，请参阅“[管理讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)”。
 
-You can also move a discussion to a different category. It's not possible to move a discussion to or from the polls category.
+您也可以将讨论移动到另一个类别。 无法将讨论移动到投票类别或从投票类别移出。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, to the right of "Category", click {% octicon "gear" aria-label="The gear icon" %}.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧边栏中“Category（类别）”的右侧，单击 {% octicon "gear" aria-label="The gear icon" %}。
 
-   ![Screenshot of the "Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
+   ![带齿轮图标的“类别”的屏幕截图](/assets/images/help/discussions/category-in-sidebar.png)
 
-1. Click a category.
+1. 单击一个类别。
 
-   ![Screenshot of the "Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
+   ![“更改类别”下拉菜单的屏幕截图](/assets/images/help/discussions/change-category-drop-down.png)
 
-## Pinning a discussion
+## 固定讨论
 
-{% ifversion discussions-category-specific-pins %}
-You can pin a discussion above the list of discussions for the repository or organization. You can also pin a discussion to a specific category. The globally pinned discussions will be shown in addition to the discussions pinned to a specific category.
+{% ifversion discussions-category-specific-pins %} 可以将讨论固定在存储库或组织的讨论列表上方。 还可以将讨论固定到特定类别。 除了固定到特定类别的讨论外，还将显示全局固定讨论。
 
-This is what it looks like when you have a globally pinned discussion and a discussion pinned to the Ideas category.
+这是当你有一个全局固定讨论和固定到“想法”类别的讨论时的外观。
 
-![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category](/assets/images/help/discussions/overview-pinned-discussions.png)
+![全局固定讨论和固定到“想法”类别的讨论的屏幕截图](/assets/images/help/discussions/overview-pinned-discussions.png)
 
-### Pinning a discussion globally
+### 全局固定讨论
 {% endif %}
 
-You can pin up to four important discussions above the list of discussions for the repository or organization. 
+可以在存储库或组织讨论列表上固定多达四个重要的讨论。 
 
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧栏中，单击 {% octicon "pin" aria-label="The pin icon" %}“固定讨论”。
 {% ifversion discussions-category-specific-pins %}
 
-   ![Screenshot of the "Pin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion-with-category-pins.png){% else %}
+   ![右侧边栏中用于讨论的“固定讨论”选项的屏幕截图](/assets/images/help/discussions/click-pin-discussion-with-category-pins.png){% else %}
 
-   ![Screenshot of the "Pin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion.png){% endif %}
+   ![右侧边栏中用于讨论的“固定讨论”选项的屏幕截图](/assets/images/help/discussions/click-pin-discussion.png){% endif %}
 
-1. Optionally, customize the look of the pinned discussion.
+1. （可选）自定义固定讨论的外观。
 
-   ![Screenshot of customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+   ![固定讨论的自定义选项的屏幕截图](/assets/images/help/discussions/customize-pinned-discussion.png)
 
-1. Click **Pin discussion**.
+1. 单击“固定讨论”。
 
-   ![Screenshot of the "Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+   ![固定讨论的自定义选项下的“固定讨论”按钮的屏幕截图](/assets/images/help/discussions/click-pin-discussion-button.png)
 
 {% ifversion discussions-category-specific-pins %}
-### Pinning a discussion to a category
+### 将讨论固定到类别
 
-You can pin up to four important discussions above the list of discussions in a specific category. 
+可以在特定类别的讨论列表上固定四个重要讨论。 
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion to CATEGORY**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧边栏中，单击 {% octicon "pin" aria-label="The pin icon" %}“将讨论固定到类别”。
    
-   ![Screenshot of the "Pin discussion to CATEGORY" option in right sidebar for discussion](/assets/images/help/discussions/pin-discussion-to-category.png)
+   ![右侧边栏中用于讨论的“将讨论固定到类别”选项的屏幕截图](/assets/images/help/discussions/pin-discussion-to-category.png)
 
-2. To confirm, click **Pin to CATEGORY**.
+2. 若要确认，请单击“固定到类别”。
 
-   ![Screenshot of the "Pin discussion to CATEGORY" modal](/assets/images/help/discussions/pin-discussion-to-category-modal.png)
+   ![“将讨论固定到类别”模式的屏幕截图](/assets/images/help/discussions/pin-discussion-to-category-modal.png)
 
 {% endif %}
 
-## Editing a pinned discussion
+## 编辑固定的讨论
 
-Editing a pinned discussion will not change the discussion's category. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+编辑固定的讨论不会更改讨论的类别。 有关详细信息，请参阅“[管理讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)”。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧栏中，单击 {% octicon "pencil" aria-label="The pencil icon" %}“编辑固定讨论”。
   {% ifversion discussions-category-specific-pins %}
 
-   ![Screenshot of the "Edit pinned discussion" option in right sidebar for discussion](/assets/images/help/discussions/edit-pinned-discussion-with-category-pins.png) {% else %}
+   ![右侧边栏中用于讨论的“编辑固定讨论”选项的屏幕截图](/assets/images/help/discussions/edit-pinned-discussion-with-category-pins.png) {% else %}
 
 
-   ![Screenshot of the "Edit pinned discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png){% endif %}
+   ![右侧边栏中用于讨论的“编辑固定讨论”选项的屏幕截图](/assets/images/help/discussions/click-edit-pinned-discussion.png){% endif %}
 
-1. Customize the look of the pinned discussion.
+1. 自定义固定的讨论的外观。
 
-  ![Screenshot of customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+  ![固定讨论的自定义选项的屏幕截图](/assets/images/help/discussions/customize-pinned-discussion.png)
 
-1. Click **Pin discussion**.
+1. 单击“固定讨论”。
 
-  ![Screenshot of the "Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+  ![固定讨论的自定义选项下的“固定讨论”按钮的屏幕截图](/assets/images/help/discussions/click-pin-discussion-button.png)
 
-## Unpinning a discussion
+## 取消固定讨论
 
 {% ifversion discussions-category-specific-pins %}
 
-You can unpin a discussion from the list of discussions for the repository or organization, or from the list of discussions in a specific category.
+可以从存储库或组织的讨论列表中取消固定讨论，也可以从特定类别的讨论列表中取消固定讨论。
 
-### Unpinning a globally pinned discussion
+### 取消固定全局固定讨论
 
-You can unpin a globally pinned discussion. This will not delete the discussion, but the discussion will no longer be displayed above the list of discussions.
+可以取消固定全局固定讨论。 这不会删除讨论，但讨论将不再显示在讨论列表上方。
 {% endif %}
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧栏中，单击 {% octicon "pin" aria-label="The pin icon" %}“取消固定讨论”。
 
-  ![Screenshot of the "Unpin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
+  ![右侧边栏中用于讨论的“取消固定讨论”选项的屏幕截图](/assets/images/help/discussions/click-unpin-discussion.png)
 
-1. Read the warning, then click **Unpin discussion**.
+1. 阅读警告，然后单击“取消固定讨论”。
 
-  ![Screenshot of the "Unpin discussion" button beneath warning in modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
+  ![模式中警告下方的“取消固定讨论”按钮的屏幕截图](/assets/images/help/discussions/click-unpin-discussion-button.png)
 
 {% ifversion discussions-category-specific-pins %}
-### Unpinning a discussion from a category
+### 从类别中取消固定讨论
 
-You can unpin a discussion pinned to a specific category. This will not delete the discussion, but the discussion will no longer be displayed at the top of the category.
+可以取消固定到特定类别的讨论。 这不会删除讨论，但讨论将不再显示在类别上方。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion from this category**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧边栏中，单击 {% octicon "pin" aria-label="The pin icon" %}“从该类别中取消固定讨论”。
 
-   ![Screenshot of the "Unpin discussion from this category" option in right sidebar for discussion](/assets/images/help/discussions/unpin-discussion-from-category.png)
+   ![右侧边栏中用于讨论的“从该类别中取消固定讨论”选项的屏幕截图](/assets/images/help/discussions/unpin-discussion-from-category.png)
 
-1. Read the warning, then click **Unpin from this category**.
+1. 阅读警告，然后单击“从该类别取消固定”。
 
-   ![Screenshot of the "Unpin from this category" button in the "Unpin this discussion from this category" modal](/assets/images/help/discussions/unpin-discussion-from-category-modal.png)
+   ![“从该类别取消固定此讨论”模式中的“从该类别取消固定”按钮的屏幕截图](/assets/images/help/discussions/unpin-discussion-from-category-modal.png)
 
 {% endif %}
 
-## Transferring a discussion
+## 转让讨论
 
-To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
+要转让讨论，您必须具有在要转让讨论的仓库中创建讨论的权限。 如果要将讨论转让给组织，必须具有在组织的讨论的源存储库中创建讨论的权限。 您只能在同一用户或组织帐户拥有的仓库之间转让讨论。 不能将讨论从专用{% ifversion ghec or ghes %}或内部{% endif %}存储库转移到公共存储库。
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "arrow-right" aria-label="The right arrow icon" %} {% ifversion discussions-category-specific-pins %}**Transfer this discussion**{% else %}**Transfer discussion**{% endif %}.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧边栏中，单击{% octicon "arrow-right" aria-label="The right arrow icon" %} {% ifversion discussions-category-specific-pins %}Transfer this discussion{% else %}“转移讨论”{% endif %} 。
 {% ifversion discussions-category-specific-pins %}
 
-   ![Screenshot of the "Transfer discussion" option in right sidebar for discussion](/assets/images/help/discussions/transfer-discussion-with-category-pin.png) {% else %}
+   ![右侧边栏中用于讨论的“转移讨论”选项的屏幕截图](/assets/images/help/discussions/transfer-discussion-with-category-pin.png) {% else %}
 
   
-   ![Screenshot of the "Transfer discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-transfer-discussion.png){% endif %}
+   ![右侧边栏中用于讨论的“转移讨论”选项的屏幕截图](/assets/images/help/discussions/click-transfer-discussion.png){% endif %}
 
-1. Select the **Choose a repository** drop-down, and click the repository you want to transfer the discussion to. If you want to transfer a discussion to an organization, choose the source repository for the organization's discussions.
+1. 选择“选择存储库”下拉列表，并单击要将讨论转让到的存储库。 如果要将讨论转让给组织，请选择组织的讨论的源存储库。
 
-   ![Screenshot of the "Choose a repository" drop-down, "Find a repository" search field, and repository in list](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+   ![“选择存储库”下拉列表、“查找存储库”搜索字段以及列表中的存储库的屏幕截图](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
 
-1. Click **Transfer discussion**.
+1. 单击“转让讨论”。
 
-   ![Screenshot of the "Transfer discussion" button](/assets/images/help/discussions/click-transfer-discussion-button.png)
+   ![“转移讨论”按钮的屏幕截图](/assets/images/help/discussions/click-transfer-discussion-button.png)
 
-## Deleting a discussion
+## 删除讨论
 
-{% data reusables.discussions.navigate-to-repo-or-org %}
-{% data reusables.discussions.discussions-tab %}
-{% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "trash" aria-label="The trash arrow icon" %} **Delete discussion**.
+{% data reusables.discussions.navigate-to-repo-or-org %} {% data reusables.discussions.discussions-tab %} {% data reusables.discussions.click-discussion-in-list %}
+1. 在右侧栏中，单击 {% octicon "trash" aria-label="The trash arrow icon" %}“删除讨论”。
 {% ifversion discussions-category-specific-pins %}
 
-   ![Screenshot of the "Delete discussion" option in right sidebar for discussion](/assets/images/help/discussions/delete-discussion-with-category-pins.png){% else %}
+   ![右侧边栏中用于讨论的“删除讨论”选项的屏幕截图](/assets/images/help/discussions/delete-discussion-with-category-pins.png){% else %}
 
 
-   ![Screenshot of the "Delete discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-delete-discussion.png){% endif %}
+   ![右侧边栏中用于讨论的“删除讨论”选项的屏幕截图](/assets/images/help/discussions/click-delete-discussion.png){% endif %}
 
-1. Read the warning, then click **Delete this discussion**.
+1. 阅读警告，然后单击“删除此讨论”。
 
-   ![Screenshot of the "Delete this discussion" button beneath warning in modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
+   ![模式中警告下方的“删除此讨论”按钮的屏幕截图](/assets/images/help/discussions/click-delete-this-discussion-button.png)
 
-## Converting issues based on labels
+## 基于标签转换议题
 
-You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
+您可以将具有相同标签的所有议题批量转换为讨论。 具有此标签的未来议题也将自动转换为您配置的讨论和类别。
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or, for organization discussions, the source repository.
-{% data reusables.repositories.sidebar-issues %}
-{% data reusables.project-management.labels %}
-1. Next to the label you want to convert to issues, click **Convert issues**.
-1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
-1. Click **I understand, convert this issue to a discussion**.
+1. 在 {% data variables.location.product_location %} 上，导航到存储库主页；对于组织讨论，导航到源存储库主页。
+{% data reusables.repositories.sidebar-issues %} {% data reusables.project-management.labels %}
+1. 在要转换为问题的标签旁边，单击“转换问题”。
+1. 选择“选择类别”下拉菜单，然后单击某个类别进行讨论。
+1. 单击“我明白，将此问题转化为讨论”。

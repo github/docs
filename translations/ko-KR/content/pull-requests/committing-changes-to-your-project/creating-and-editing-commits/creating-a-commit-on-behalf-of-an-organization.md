@@ -1,6 +1,6 @@
 ---
-title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+title: 조직을 대신하여 커밋 만들기
+intro: '커밋 메시지에 후행부를 추가하여 조직을 대신하여 커밋을 만들 수 있습니다. 조직에 귀속된 커밋에는 {% data variables.product.product_name %}에 대한 `on-behalf-of` 배지가 포함됩니다.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -9,27 +9,33 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: On behalf of an organization
+ms.openlocfilehash: 6769b78698e8a5c5a412c8f49324c8a30825206a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094427'
 ---
 {% note %}
 
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
+**참고:** 조직을 대신하여 커밋을 만드는 기능은 현재 공개 베타 버전이며 변경될 수 있습니다.
 
 {% endnote %}
 
-To create commits on behalf of an organization:
+조직을 대신하여 커밋을 만들려는 사용자는:
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  - `org` is the organization's login
-  - `name@organization.com` is in the organization's domain
+- 후행부에 표시된 조직의 구성원이어야 합니다.
+- 커밋에 서명해야 합니다.
+- 커밋 이메일 및 조직 이메일이 조직에서 확인한 도메인에 있어야 합니다.
+- 커밋 메시지가 커밋 후행부 `on-behalf-of: @org <name@organization.com>`으로 끝나야 합니다.
+  - `org`는 조직의 로그인 ID
+  - `name@organization.com`은 조직의 도메인
 
-Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
+조직은 `name@organization.com` 이메일을 오픈 소스 활동을 위한 공개 연락 지점으로 사용할 수 있습니다.
 
-## Creating commits with an `on-behalf-of` badge on the command line
+## 명령줄에서 `on-behalf-of` 배지를 사용하여 커밋 만들기
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. 커밋 메시지와 변경 내용에 대한 짧고 의미 있는 설명을 입력합니다. 커밋 설명 후에는 닫는 따옴표 대신 두 개의 빈 줄을 추가합니다.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -37,11 +43,11 @@ Organizations can use the `name@organization.com` email as a public point of con
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **팁:** 명령줄에서 텍스트 편집기를 사용하여 커밋 메시지를 입력하는 경우 커밋 설명의 끝과 `on-behalf-of:` 커밋 후행부 사이에 두 개의 줄 바꿈이 있는지 확인하세요.
 
   {% endtip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+2. 커밋 메시지의 다음 줄에 `on-behalf-of: @org <name@organization.com>`을 입력한 후 닫는 따옴표를 입력합니다.
 
   ```shell
   $ git commit -m "Refactor usability tests.
@@ -50,25 +56,25 @@ Organizations can use the `name@organization.com` email as a public point of con
   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
   ```
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+다음에 푸시할 때 {% 데이터 variables.location.product_location %}에 새 커밋, 메시지 및 배지가 표시됩니다. 자세한 내용은 “[원격 리포지토리에 변경 내용 푸시](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”를 참조하세요.
 
-## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## {% data variables.product.product_name %}에서 `on-behalf-of` 배지로 커밋 만들기
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+{% data variables.product.product_name %}의 웹 편집기를 사용하여 파일을 변경했으면, 커밋 메시지에 `on-behalf-of:` 후행부를 추가하여 조직을 대신해 커밋을 만들 수 있습니다.
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+1. 변경한 후 페이지 하단에 변경 내용을 설명하는 짧고 의미 있는 커밋 메시지를 입력합니다.
+  ![변경 내용에 대한 메시지 커밋](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+2. 커밋 메시지 아래의 텍스트 상자에 `on-behalf-of: @org <name@organization.com>`을 추가합니다.
 
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![두 번째 커밋 메시지 텍스트 상자의 커밋 메시지 on-behalf-of 후행부 예제](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
+4. **변경 내용 커밋** 또는 **변경 내용 제안** 을 클릭합니다.
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %}.
+새 커밋, 메시지 및 배지는 {% 데이터 variables.location.product_location %}에 표시됩니다.
 
-## Further reading
+## 추가 참고 자료
 
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- “[프로필에서 기여 보기](/articles/viewing-contributions-on-your-profile)”
+- “[내 기여가 내 프로필에 표시되지 않는 이유는 무엇인가요?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
+- “[프로젝트의 기여자 보기](/articles/viewing-a-projects-contributors)”
+- “[커밋 메시지 변경](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)”

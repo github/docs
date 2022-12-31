@@ -1,0 +1,23 @@
+date: '09-06-2022'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as versões de segurança mais recentes. 
+  bugs:
+    - "Um script interno para validar nomes do host no arquivo de configuração do {% data variables.product.prodname_ghe_server %} retornaria um erro se a cadeia de caracteres do nome do host começasse com \".\" (caractere de ponto)." 
+    - "Nas configurações de HA em que o nome do host primário tiver mais que 60 caracteres, a configuração do MySQL falhará."
+    - "O argumento \"--gateway\" foi adicionado ao comando \"ghe-setup-network\" para permitir a passagem do endereço do gateway ao definir as configurações de rede usando a linha de comando."
+    - "Os anexos de imagem que foram excluídos retornariam um erro \"500 Erro Interno do Servidor\" em vez de um erro \"404 Não Encontrado\"."
+    - "O cálculo de \"máximo de confirmações na instância inteira\" relatado no painel do administrador do site estava incorreto."
+    - "Uma entrada incorreta no banco de dados de réplicas de repositórios corrompeu o banco de dados ao executar uma restauração usando {% data variables.product.prodname_enterprise_backup_utilities %}."
+  changes:
+    - A inclusão de métricas ao gerar um pacote de suporte de cluster foi otimizada. 
+    - "Em configurações de HA em que o Elasticsearch relatava um status amarelo válido, as alterações introduzidas em correções anteriores bloqueavam o comando \"ghe-repl-stop\" e não permitiam a interrupção da replicação. O uso do comando \"ghe-repo-stop --force\" agora forçará a parada do Elasticsearch quando o serviço estiver nos status normal ou amarelo válido."
+  known_issues:
+    - "Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador."
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - "Arquivos LFS do Git [enviados através da interface Web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de maneira incorreta."
+    - "Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, em que o caminho do arquivo de blob é maior que 255 caracteres."
+    - "Quando \"Usuários podem pesquisar GitHub.com\" está habilitado com {% data variables.product.prodname_github_connect %}, os problemas em repositórios privados e internos não são incluídos nos resultados de pesquisa de {% data variables.product.prodname_dotcom_the_Website %}."
+    - "O registro npm {% data variables.product.prodname_registry %} não retorna mais um valor temporal em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para retornar um valor temporal como parte da resposta de metadados e continuaremos a retornar este valor no futuro quando tivermos resolvido os problemas de desempenho existentes."
+    - Os limites de recursos que são específicos para processamento de ganchos de pré-recebimento podem causar falha em alguns ganchos de pré-recebimento.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

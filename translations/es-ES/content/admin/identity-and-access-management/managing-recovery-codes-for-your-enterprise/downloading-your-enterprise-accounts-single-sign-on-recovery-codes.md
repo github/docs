@@ -1,7 +1,7 @@
 ---
-title: Downloading your enterprise account's single sign-on recovery codes
+title: Descarga de los códigos de recuperación de inicio de sesión único de la cuenta de la empresa
 shortTitle: Download recovery codes
-intro: 'To ensure that you can access {% data variables.product.product_name %} if your identity provider (IdP) is unavailable, you should download your enterprise account''s single sign-on (SSO) recovery codes.'
+intro: 'Para asegurarte de que puedes acceder a {% data variables.product.product_name %} si el proveedor de identidades (IdP) no está disponible, debes descargar los códigos de recuperación de inicio de sesión único (SSO) de la cuenta de empresa.'
 versions:
   ghec: '*'
 type: how_to
@@ -13,25 +13,27 @@ topics:
 redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes
 permissions: Enterprise owners can download the SSO recovery codes for the enterprise account.
+ms.openlocfilehash: 82f44654b18a36d2fb29797fe8b6e0426785522b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063598'
 ---
+En caso de que el IdP no esté disponible, puede usar un código de recuperación para iniciar sesión y acceder a la empresa en {% data variables.product.product_location %}. Para más información, vea "[Acceso a la cuenta de empresa si el proveedor de identidades no está disponible](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)".
 
-In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.location.product_location %}. For more information, see "[Accessing your enterprise account if your identity provider is unavailable](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
-
-If you did not save your recovery codes when you configured SSO, you can still access the codes from your enterprise's settings.
-
+Si no has guardado los códigos de recuperación al configurar el inicio de sesión único, todavía puede acceder a ellos desde la configuración de la empresa.
 
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
 
-1. Under{% ifversion oidc-for-emu %} either{% endif %} "Require SAML authentication"{% ifversion oidc-for-emu %} or "Require OIDC authentication"{% endif %}, click **Save your recovery codes**.{% ifversion oidc-for-emu %}
-  {% note %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+
+1. En{% ifversion oidc-for-emu %}, ya sea{% endif %} "Requerir autenticación SAML"{% ifversion oidc-for-emu %} o "Requerir autenticación OIDC"{% endif %}, haz clic en **Guardar códigos de recuperación**.{% ifversion oidc-for-emu %} {% note %}
   
-  **Note:** OIDC SSO is only available for {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+  **Nota:** el inicio de sesión único de OIDC solo está disponible para {% data variables.product.prodname_emus %}. Para obtener más información, vea "[Acerca de los usuarios administrados empresariales](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)".
   
   {% endnote %}{% endif %}
   
-  ![Screenshot of the button to test SAML configuration before enforcing](/assets/images/help/enterprises/saml-recovery-codes-link.png)
-1. To save your recovery codes, click **Download**, **Print**, or **Copy**.
-  ![Screenshot of the buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)
+  ![Captura de pantalla del Botón para probar la configuración de SAML antes de aplicarla](/assets/images/help/enterprises/saml-recovery-codes-link.png)
+1. Para guardar los códigos de recuperación, haga clic en **Descargar**, **Imprimir** o **Copiar**.
+  ![Captura de pantalla de los botones para descargar, imprimir o copiar los códigos de recuperación](/assets/images/help/saml/saml_recovery_code_options.png)

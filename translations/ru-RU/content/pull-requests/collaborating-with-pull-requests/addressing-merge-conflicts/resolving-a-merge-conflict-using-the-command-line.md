@@ -1,6 +1,6 @@
 ---
-title: Resolving a merge conflict using the command line
-intro: You can resolve merge conflicts using the command line and a text editor.
+title: Разрешение конфликта слияния с помощью командной строки
+intro: Устраните конфликты слияния с помощью командной строки и текстового редактора.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
   - /articles/resolving-a-merge-conflict-from-the-command-line
@@ -15,27 +15,33 @@ versions:
 topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
+ms.openlocfilehash: 411b02950a4cdc023f47fd2d84f8623d35cc4ac2
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009912'
 ---
-Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
+Конфликты слияния возникают, если вносятся конкурирующие изменения в ту же строку файла или если один пользователь изменяет файл, а другой этот же файл удаляет. Дополнительную информацию см. в разделе [Сведения о конфликтах слияния](/articles/about-merge-conflicts/).
 
 {% tip %}
 
-**Tip:** You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
+**Совет.** Можно использовать редактор конфликтов в {% data variables.product.product_name %}, чтобы разрешать конкурирующие конфликты слияния изменений строк между ветвями, которые являются частью запроса на вытягивание. Дополнительные сведения см. в разделе [Устранение конфликта слияния в GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 {% endtip %}
 
-## Competing line change merge conflicts
+## Конкурирующие конфликты слияния изменений строк
 
-To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit.
+Чтобы разрешить конфликт слияния, вызванный конкурирующими изменениями строк, необходимо выбрать, какие изменения из разных ветвей включить в новую фиксацию.
 
-For example, if you and another person both edited the file _styleguide.md_ on the same lines in different branches of the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
+Например, если несколько человек редактировали файл _styleguide.md_ в одних и тех же строках в разных ветвях одного и того же репозитория Git, будет получена ошибка конфликта слияния при попытке выполнить слияние для этих ветвей. Необходимо разрешить этот конфликт слияния с помощью новой фиксации, прежде чем можно будет выполнить слияние для этих ветвей.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate into the local Git repository that has the merge conflict.
+2. Перейдите в локальный репозиторий Git, в котором есть конфликт слияния.
   ```shell
   cd REPOSITORY-NAME
   ```
-3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
+3. Создайте список файлов, затронутых конфликтом слияния. В этом примере у файла *styleguide.md* есть конфликт слияния.
   ```shell
   $ git status
   > # On branch branch-b
@@ -49,8 +55,8 @@ For example, if you and another person both edited the file _styleguide.md_ on t
   > #
   > no changes added to commit (use "git add" and/or "git commit -a")
   ```
-4. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
-5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
+4. Откройте избранный текстовый редактор, например [{% данных variables.product.prodname_vscode %}](https://code.visualstudio.com/), и перейдите к файлу с конфликтами слияния.
+5. Чтобы увидеть начало конфликта слияния в файле, выполните в нем поиск метки конфликта `<<<<<<<`. При открытии файла в текстовом редакторе вы увидите изменения из ГЛАВНОЙ или базовой ветви после строки `<<<<<<< HEAD`. Далее вы увидите `=======`, который отделяет ваши изменения от изменений в другой ветви, а затем `>>>>>>> BRANCH-NAME`. В этом примере один человек написал "открыть проблему" в базовой или ГЛАВНОЙ ветви, а другой написал "задать свой вопрос в IRC" в ветви сравнения или `branch-a`.
 
     ```
     If you have questions, please
@@ -60,34 +66,34 @@ For example, if you and another person both edited the file _styleguide.md_ on t
     ask your question in IRC.
     >>>>>>> branch-a
     ```
-{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} В этом примере оба изменения включены в окончательное слияние:
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
   ```
-7. Add or stage your changes.
+7. Добавьте или внесите свои изменения.
   ```shell
   $ git add .
   ```
-8. Commit your changes with a comment.
+8. Зафиксируйте изменения с помощью комментария.
   ```shell
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+Теперь можно выполнять слияние ветвей в командной строке или [отправить изменения в удаленный репозиторий](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) в {% data variables.product.product_name %} и [выполнить слияние изменений](/articles/merging-a-pull-request/) в запросе на вытягивание.
 
-## Removed file merge conflicts
+## Конфликты слияния файлов удалены
 
-To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
+Чтобы разрешить конфликт слияния, вызванный конкурирующими изменениями в файле, когда один пользователь удаляет файл в одной ветви, а другой этот же файл редактирует, необходимо выбрать, следует ли удалить или сохранить удаленный файл в новой фиксации.
 
-For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
+Например, если вы редактировали файл, такой как *README.md*, а другой человек удалил его же в другой ветви того же репозитория Git, вы получите сообщение об ошибке конфликта слияния при попытке выполнить слияние для этих веток. Необходимо разрешить этот конфликт слияния с помощью новой фиксации, прежде чем можно будет выполнить слияние для этих ветвей.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate into the local Git repository that has the merge conflict.
+2. Перейдите в локальный репозиторий Git, в котором есть конфликт слияния.
   ```shell
   cd REPOSITORY-NAME
   ```
-2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
+2. Создайте список файлов, затронутых конфликтом слияния. В этом примере у файла *README.md* есть конфликт слияния.
   ```shell
   $ git status
   > # On branch main
@@ -100,32 +106,32 @@ For example, if you edited a file, such as *README.md*, and another person remov
   > # Unmerged paths:
   > #  (use "git add/rm <file>..." as appropriate to mark resolution)
   > #
-  > #	deleted by us:   README.md
+  > #   deleted by us:   README.md
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-3. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
-6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
+3. Откройте избранный текстовый редактор, например [{% данных variables.product.prodname_vscode %}](https://code.visualstudio.com/), и перейдите к файлу с конфликтами слияния.
+6. Решите, следует ли сохранить удаленный файл. Возможно, потребуется просмотреть последние изменения, внесенные в удаленный файл, в текстовом редакторе.
 
- To add the removed file back to your repository:
+ Чтобы добавить удаленный файл обратно в репозиторий, выполните следующие действия:
   ```shell
   $ git add README.md
   ```
- To remove this file from your repository:
+ Чтобы удалить этот файл из репозитория, выполните следующие действия:
   ```shell
   $ git rm README.md
   > README.md: needs merge
   > rm 'README.md'
   ```
-7. Commit your changes with a comment.
+7. Зафиксируйте изменения с помощью комментария.
   ```shell
   $ git commit -m "Resolved merge conflict by keeping README.md file."
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+Теперь можно выполнять слияние ветвей в командной строке или [отправить изменения в удаленный репозиторий](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) в {% data variables.product.product_name %} и [выполнить слияние изменений](/articles/merging-a-pull-request/) в запросе на вытягивание.
 
-## Further reading
+## Дополнительные материалы
 
-- "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
-- "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"
+- [Сведения о конфликтах слияния](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
+- [Локальное получение для изменения запросов на вытягивание](/articles/checking-out-pull-requests-locally/)

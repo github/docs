@@ -14,6 +14,9 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 shortTitle: Azure Blob storage
 ---
+
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Prerequisites
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:

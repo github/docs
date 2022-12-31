@@ -1,7 +1,6 @@
 ---
-title: Creating a JavaScript action
-shortTitle: Create a JavaScript action
-intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
+title: Creating a JavaScript action (Erstellen einer JavaScript-Aktion)
+intro: 'In diesem Leitfaden erfährst du, wie du mit dem Aktionstoolkit eine JavaScript-Aktion erstellst.'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -16,50 +15,55 @@ type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript action
+ms.openlocfilehash: c42dca4205519f6799d7f92b254b75696853b7f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145088652'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Einführung
 
-## Introduction
+In dieser Anleitung erfährst du mehr über die grundlegenden Komponenten, die benötigt werden, um eine paketierte Docker-Container-Aktion zu erstellen und zu verwenden. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. Die Aktion schreibt „Hello World“ in die Logs oder "Hello [who-to-greet]" wenn du einen benutzerdefinierten Namen angibst.
 
-In this guide, you'll learn about the basic components needed to create and use a packaged JavaScript action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
+Diese Anleitung verwendet das Node.js Modul des {% data variables.product.prodname_actions %}-Toolkits, um die Entwicklung zu beschleunigen. Weitere Informationen findest du im Repository für [Aktionen/Toolkits](https://github.com/actions/toolkit).
 
-This guide uses the {% data variables.product.prodname_actions %} Toolkit Node.js module to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
-
-Once you complete this project, you should understand how to build your own JavaScript action and test it in a workflow.
+Nach dem Abschluss dieses Projekts solltest du verstehen, wie du deine eigene JavaScript-Aktion erstellen und sie in einem Workflow testen kannst.
 
 {% data reusables.actions.pure-javascript %}
 
 {% data reusables.actions.context-injection-warning %}
 
-## Prerequisites
+## Voraussetzungen
 
-Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
+Bevor du beginnst, musst du Node.js herunterladen und ein öffentliches {% data variables.product.prodname_dotcom %}-Repository erstellen.
 
-1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
+1. Lade Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %} herunter – enthält npm –, und installiere es.
 
-  {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
-1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Erstelle ein neues öffentliches Repository in {% data variables.product.product_location %} und nenne es „hello-world-javascript-action“. Weitere Informationen findest du unter [Erstellen eines neuen Repositorys](/articles/creating-a-new-repository).
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. Klone dein Repository auf deinen Computer. Weitere Informationen findest du unter [Klonen eines Repositorys](/articles/cloning-a-repository).
 
-1. From your terminal, change directories into your new repository.
+1. Gehe in deinem Terminal zum Verzeichnisse deines neuen Repositorys.
 
   ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
-1. From your terminal, initialize the directory with npm to generate a `package.json` file.
+1. Initialisiere im Terminal das Verzeichnis mit npm, um eine `package.json`-Datei zu generieren.
 
   ```shell{:copy}
   npm init -y
   ```
 
-## Creating an action metadata file
+## Eine Datei für die Metadaten der Aktion erstellen
 
-Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Erstelle mit dem folgenden Beispielcode eine Datei namens `action.yml` im Verzeichnis `hello-world-javascript-action`. Weitere Informationen findest du unter [Metadatensyntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 ```yaml{:copy}
 name: 'Hello World'
@@ -73,38 +77,38 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
-This file defines the `who-to-greet` input and `time` output. It also tells the action runner how to start running this JavaScript action.
+Diese Datei definiert die Eingabe für `who-to-greet` und die Ausgabe für `time`. Sie teilt dem Aktionsrunner auch mit, wie diese JavaScript-Aktion gestartet wird.
 
-## Adding actions toolkit packages
+## Toolkit-Pakete für Aktionen hinzufügen
 
-The actions toolkit is a collection of Node.js packages that allow you to quickly build JavaScript actions with more consistency.
+Das Toolkit für Aktionen ist eine Node.js-Paketsammlung, mit der du JavaScript-Aktionen schnell und konsistenter erstellen kannst.
 
-The toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package provides an interface to the workflow commands, input and output variables, exit statuses, and debug messages.
+Das Toolkitpaket [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) bietet eine Schnittstelle zu Befehlen, Eingabe- und Ausgabevariablen, Beendigungsstatus und Debugnachrichten des Workflows.
 
-The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) package that returns an authenticated Octokit REST client and access to GitHub Actions contexts.
+Das Toolkit bietet auch ein [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github)-Paket, das einen authentifizierten Octokit-REST-Client und Zugriff auf GitHub Actions-Kontexte zurückgibt.
 
-The toolkit offers more than the `core` and `github` packages. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
+Das Toolkit bietet mehr als die Pakete `core` und `github`. Weitere Informationen findest du im Repository für [Aktionen/Toolkits](https://github.com/actions/toolkit).
 
-At your terminal, install the actions toolkit `core` and `github` packages.
+Installiere am Terminal die Pakete `core` und `github` des Aktionstoolkits.
 
 ```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
 
-Now you should see a `node_modules` directory with the modules you just installed and a `package-lock.json` file with the installed module dependencies and the versions of each installed module.
+Jetzt solltest du ein `node_modules`-Verzeichnis mit den soeben installierten Modulen und eine `package-lock.json`-Datei mit den installierten Modulabhängigkeiten und den Versionen jedes installierten Moduls sehen.
 
-## Writing the action code
+## Aktions-Code schreiben
 
-This action uses the toolkit to get the `who-to-greet` input variable required in the action's metadata file and prints "Hello [who-to-greet]" in a debug message in the log. Next, the script gets the current time and sets it as an output variable that actions running later in a job can use.
+Diese Aktion verwendet das Toolkit, um die in der Metadatendatei der Aktion erforderliche Eingabevariable `who-to-greet` abzurufen, und gibt „Hello [who-to-greet]“ in einer Debuggingmeldung im Protokoll aus. Als Nächstes ruft das Skript die aktuelle Zeit ab und legt sie als eine Ausgabevariable fest, die von später in einem Auftrag ausgeführten Aktionen verwendet werden kann.
 
-GitHub Actions provide context information about the webhook event, Git refs, workflow, action, and the person who triggered the workflow. To access the context information, you can use the `github` package. The action you'll write will print the webhook event payload to the log.
+GitHub Actions stellt Kontextinformationen zum Webhook-Ereignis, zu den Git-Refs, zum Workflow, zur Aktion und zur Person bereit, die den Workflow ausgelöst hat. Um auf die Kontextinformationen zuzugreifen, kannst du das `github`-Paket verwenden. Die von Ihnen geschriebene Aktion gibt die Webhook-Ereignisnutzdaten im Protokoll aus.
 
-Add a new file called `index.js`, with the following code.
+Füge mit dem folgenden Code eine neue Datei namens `index.js` hinzu.
 
 {% raw %}
 ```javascript{:copy}
@@ -126,54 +130,52 @@ try {
 ```
 {% endraw %}
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+Wenn im obigen `index.js`-Beispiel ein Fehler ausgelöst wird, verwendet `core.setFailed(error.message);` das Aktionstoolkitpaket [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core), um eine Nachricht zu protokollieren und einen Exitcode mit Fehler festzulegen. Weitere Informationen findest du unter [Festlegen von Exitcodes für Aktionen](/actions/creating-actions/setting-exit-codes-for-actions).
 
-## Creating a README
+## Eine README erstellen
 
-To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
+Du kannst eine README-Datei erstellen, um Person zu zeigen, wie sie deine Aktion verwenden sollen. Eine README-Datei ist sehr hilfreich, wenn du planst, deine Aktion öffentlich bereitzustellen. Sie ist jedoch auch eine gute Möglichkeit, dich oder dein Team daran zu erinnern, wie die Aktion zu verwenden ist.
 
-In your `hello-world-javascript-action` directory, create a `README.md` file that specifies the following information:
+Erstelle in deinem `hello-world-javascript-action`-Verzeichnis eine `README.md`-Datei, mit der die folgenden Informationen angegeben werden:
 
-- A detailed description of what the action does.
-- Required input and output arguments.
-- Optional input and output arguments.
-- Secrets the action uses.
-- Environment variables the action uses.
-- An example of how to use your action in a workflow.
+- Eine ausführliche Beschreibung, wozu die Aktion dient
+- Erforderliche Eingabe- und Ausgabeargumente
+- Optionale Eingabe- und Ausgabeargumente
+- Geheimnisse, die von der Aktion verwendet werden
+- Umgebungsvariablen, die von der Aktion verwendet werden
+- Ein Beispiel für die Verwendung deiner Aktion in einem Workflow
 
-````markdown{:copy}
+```markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
 ## Inputs
 
-### `who-to-greet`
+## `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-### `time`
+## `time`
 
 The time we greeted you.
 
 ## Example usage
 
-```yaml
 uses: actions/hello-world-javascript-action@v1.1
 with:
   who-to-greet: 'Mona the Octocat'
 ```
-````
 
-## Commit, tag, and push your action to GitHub
+## Committe, tagge und pushe deine Aktion auf GitHub
 
-{% data variables.product.product_name %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
+{% data variables.product.product_name %} lädt jede Aktion, die zur Laufzeit in einem Workflow ausgeführt wird, herunter und führt sie als komplettes Codepaket aus, bevor du Workflowbefehle wie `run` zur Interaktion mit dem Runnercomputer verwenden kannst. Folglich musst du alle zum Ausführen des JavaScript-Codes erforderlichen Paketabhängigkeiten einschließen. Du musst die Pakete `core` und `github` des Toolkits im Repository deiner Aktion einchecken.
 
-From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
+Committe von deinem Terminal aus die Dateien `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json` und `README.md`. Wenn du eine `.gitignore`-Datei hinzugefügt hast, die `node_modules` auflistet, musst du diese Zeile entfernen, um das `node_modules`-Verzeichnis zu committen.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
+Es hat sich bewährt, auch ein Versions-Tag für Releases deiner Aktion hinzuzufügen. Weitere Informationen zur Versionsverwaltung deiner Aktion findest du unter [Informationen zu Aktionen](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions).
 
 ```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -182,24 +184,24 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
+Das Einchecken deines `node_modules`-Verzeichnisses kann zu Problemen führen. Alternativ dazu kannst du ein Tool namens [`@vercel/ncc`](https://github.com/vercel/ncc) verwenden, um deinen Code und deine Module in eine Datei zu kompilieren, die für die Verteilung verwendet wird.
 
-1. Install `vercel/ncc` by running this command in your terminal.
+1. Installiere `vercel/ncc`, indem du diesen Befehl an deinem Terminal ausführst.
   `npm i -g @vercel/ncc`
 
-1. Compile your `index.js` file.
+1. Kompiliere deine `index.js`-Datei.
   `ncc build index.js --license licenses.txt`
 
-  You'll see a new `dist/index.js` file with your code and the compiled modules.
-  You will also see an accompanying `dist/licenses.txt` file containing all the licenses of the `node_modules` you are using.
+  Du siehst eine neue `dist/index.js`-Datei mit deinem Code und den kompilierten Modulen.
+  Außerdem siehst du eine begleitende `dist/licenses.txt`-Datei mit allen Lizenzen der `node_modules`, die du verwendest.
 
-1. Change the `main` keyword in your `action.yml` file to use the new `dist/index.js` file.
+1. Ändere das `main`-Schlüsselwort in deiner `action.yml`-Datei so, dass die neue `dist/index.js`-Datei verwendet wird.
  `main: 'dist/index.js'`
 
-1. If you already checked in your `node_modules` directory, remove it.
+1. Wenn du das `node_modules`-Verzeichnis bereits eingecheckt hast, entferne es.
   `rm -rf node_modules/*`
 
-1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
+1. Committe an deinem Terminal die Aktualisierungen in die Dateien `action.yml`, `dist/index.js` und `node_modules`.
 ```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
@@ -207,17 +209,17 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-## Testing out your action in a workflow
+## Deine Aktion in einem Workflow testen
 
-Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
+Nun bist du bereit, deine Aktion in einem Workflow zu testen. Wenn sich eine Aktion in einem privaten Repository befindet, kann die Aktion nur in Workflows im gleichen Repository verwendet werden. Öffentliche Aktionen können von Workflows in jedem beliebigen Repository verwendet werden.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Example using a public action
+### Beispiel mit einer öffentlichen Aktion
 
-This example demonstrates how your new public action can be run from within an external repository.
+Dieses Beispiel veranschaulicht, wie deine neue öffentliche Aktion aus einem externen Repository heraus ausgeführt werden kann.
 
-Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
+Kopiere den folgende YAML-Code in eine neue Datei in `.github/workflows/main.yml`, und aktualisiere die Zeile `uses: octocat/hello-world-javascript-action@v1.1` mit deinem Benutzernamen und dem Namen des öffentlichen Repositorys, das du weiter oben erstellt hast. Du kannst auch die Eingabe für `who-to-greet` durch deinen Namen ersetzen.
 
 {% raw %}
 ```yaml{:copy}
@@ -239,11 +241,11 @@ jobs:
 ```
 {% endraw %}
 
-When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
+Wenn dieser Workflow ausgelöst wird, lädt der Runner die Aktion `hello-world-javascript-action` aus deinem öffentlichen Repository herunter und führt sie aus.
 
-### Example using a private action
+### Beispiel mit einer privaten Aktion
 
-Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
+Kopiere den Workflowcode in eine `.github/workflows/main.yml`-Datei im Repository deiner Aktion. Du kannst auch die Eingabe für `who-to-greet` durch deinen Namen ersetzen.
 
 **.github/workflows/main.yml**
 ```yaml{:copy}
@@ -268,6 +270,6 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+Klicke in deinem Repository auf die Registerkarte **Aktionen**, und wähle die neueste Workflowausführung aus. Klicke unter **Aufträge** oder im Visualisierungsdiagramm auf **A job to say hello**. Im Protokoll sollten „Hello Mona the Octocat“ oder der von Ihnen für die `who-to-greet`-Eingabe verwendete Name und der Zeitstempel ausgegeben werden.
 
-![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+![Ein Screenshot zur Verwendung deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)

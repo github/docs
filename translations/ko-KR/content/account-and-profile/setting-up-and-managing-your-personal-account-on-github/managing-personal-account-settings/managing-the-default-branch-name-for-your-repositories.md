@@ -1,6 +1,6 @@
 ---
-title: Managing the default branch name for your repositories
-intro: 'You can set the default branch name for new repositories that you create on {% data variables.location.product_location %}.'
+title: 리포지토리의 기본 분기 이름 관리
+intro: '{% 데이터 variables.location.product_location %}에서 만든 새 리포지토리의 기본 분기 이름을 설정할 수 있습니다.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,24 +13,29 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
 shortTitle: Manage default branch name
+ms.openlocfilehash: b1e36edcbaf8b20f8a4aa3d3adb4ad338dc1ab29
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098686'
 ---
-## About management of the default branch name
+## About the default branch name
 
-When you create a new repository on {% data variables.location.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+{% 데이터 variables.location.product_location %}에 새 리포지토리를 만들 때 리포지토리에는 기본 분기인 분기 하나가 포함됩니다. {% data variables.product.product_name %}가 만든 새 리포지토리의 기본 분기에 사용하는 이름을 변경할 수 있습니다. 기본 분기에 대한 자세한 내용은 “[분기 정보](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”를 참조하세요.
 
 {% data reusables.branches.change-default-branch %}
 
-## Setting the default branch name
+## 기본 분기 이름 설정
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.repo-tab %}
-3. Under "Repository default branch", click **Change default branch name now**.
-    ![Override button](/assets/images/help/settings/repo-default-name-button.png)
-4. Type the default name that you would like to use for new branches.
-    ![Text box for entering default name](/assets/images/help/settings/repo-default-name-text.png)
-5. Click **Update**.
-    ![Update button](/assets/images/help/settings/repo-default-name-update.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.repo-tab %}
+3. “리포지토리 기본 분기”에서 **지금 기본 분기 이름 변경** 을 클릭합니다.
+    ![재정의 단추](/assets/images/help/settings/repo-default-name-button.png)
+4. 새 분기에 사용하려는 기본 이름을 입력합니다.
+    ![기본 이름을 입력하기 위한 텍스트 상자](/assets/images/help/settings/repo-default-name-text.png)
+5. **업데이트** 를 클릭합니다.
+    ![업데이트 단추](/assets/images/help/settings/repo-default-name-update.png)
 
-## Further reading
+## 추가 참고 자료
 
-- "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- “[조직의 리포지토리에 대한 기본 분기 이름 관리](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)”

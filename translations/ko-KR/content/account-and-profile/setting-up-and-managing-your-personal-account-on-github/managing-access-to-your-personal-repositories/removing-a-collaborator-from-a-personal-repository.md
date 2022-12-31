@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a personal repository
-intro: 'When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.'
+title: 개인 리포지토리에서 협력자 제거
+intro: 프로젝트에서 협력자를 제거하면 리포지토리에 대한 읽기/쓰기 액세스 권한이 없어집니다. 리포지토리가 프라이빗이고 사용자가 포크를 만든 경우 해당 포크도 삭제됩니다.
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
@@ -21,27 +21,28 @@ topics:
   - Accounts
   - Repositories
 shortTitle: Remove a collaborator
+ms.openlocfilehash: 24b128b5858c695b0e559302fac05812d3218b8c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165166'
 ---
-## Deleting forks of private repositories
+## 프라이빗 리포지토리의 포크 삭제
 
-While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
+협력자를 제거하면 프라이빗 리포지토리의 포크가 삭제되는 반면, 해당 사용자는 리포지토리의 로컬 복제본을 계속 유지합니다.
 
-## Removing collaborator permissions from a person contributing to a repository
+## 리포지토리에 기여하는 사용자로부터 협력자 권한 제거
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
-{% else %}
-3. In the left sidebar, click **Collaborators & teams**.
-  ![Collaborators tab](/assets/images/help/repository/repo-settings-collaborators.png)
-4. Next to the collaborator you want to remove, click the **X** icon.
-  ![Remove link](/assets/images/help/organizations/Collaborator-Remove.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %} {% data reusables.repositories.click-collaborators-teams %}
+4. 제거할 협력자의 오른쪽에 있는 {% octicon "trash" aria-label="The trash icon" %}을 클릭합니다.
+  ![협력자 제거 단추](/assets/images/help/repository/collaborator-remove.png) {% else %}
+3. 왼쪽 사이드바에서 **협력자 및 팀** 을 클릭합니다.
+  ![협력자 탭](/assets/images/help/repository/repo-settings-collaborators.png)
+4. 제거할 협력자 옆에 있는 **X** 아이콘을 클릭합니다.
+  ![제거 링크](/assets/images/help/organizations/Collaborator-Remove.png) {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
-- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- “[팀에서 조직 멤버 제거](/articles/removing-organization-members-from-a-team)”
+- “[조직 리포지토리에서 외부 협력자 제거](/articles/removing-an-outside-collaborator-from-an-organization-repository)”

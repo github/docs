@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting required status checks
-intro: You can check for common errors and resolve issues with required status checks.
+title: Устранение неполадок с обязательными проверками состояния
+intro: Вы можете проверить наличие распространенных ошибок и устранить проблемы с помощью обязательных проверок состояния.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
@@ -13,18 +13,24 @@ redirect_from:
   - /github/administering-a-repository/troubleshooting-required-status-checks
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
 shortTitle: Required status checks
+ms.openlocfilehash: 6e99f8ebf0275d065c640bb7b4c7b60462f51ec0
+ms.sourcegitcommit: 84a9475bf99a37021746349a51ce814516928516
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135809'
 ---
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
+Если у вас есть проверка и состояние с одинаковыми именами и вы выбираете это имя в качестве обязательной проверки состояния, обязательными будут и проверка, и состояние. Дополнительные сведения см. в разделе [Проверки](/rest/reference/checks).
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+После включения обязательных проверок состояния личную ветвь может потребоваться синхронизировать с базовой перед слиянием. Это гарантирует, что ваша ветвь была протестирована с использованием последнего кода из базовой ветви. Если ваша ветвь устарела, необходимо выполнить слияние базовой ветви с ней. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging).
 
 {% note %}
 
-**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)."
+**Примечание**. Синхронизировать личную ветвь с базовой можно также путем перемещения изменений из одной ветви в другую в GIT. Дополнительные сведения см. в разделе [Сведения о перемещении изменения из одной ветви в другую в GIT](/github/getting-started-with-github/about-git-rebase).
 
 {% endnote %}
 
-You won't be able to push local changes to a protected branch until all required status checks pass. Instead, you'll receive an error message similar to the following.
+Вы не сможете отправить локальные изменения в защищенную ветвь, пока не будут пройдены все необходимые проверки состояния. Вместо этого вы получите сообщение об ошибке, аналогичное указанному ниже.
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
@@ -32,29 +38,29 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
+**Примечание**. Запросы на вытягивание, которые являются актуальными и прошли необходимые проверки состояния, допускают слияние и отправку в защищенную ветвь. Это можно сделать без проверок состояния для самой фиксации слияния.
 
 {% endnote %}
 
-## Conflicts between head commit and test merge commit
+## Конфликты между головной фиксацией и тестовой фиксацией слияния
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+Иногда результаты проверок состояния для тестовой фиксации слияния и головной фиксации противоречат друг другу. Если тестовая фиксация слияния имеет состояние, то она должна проходить проверки. В противном случае состояние головной фиксации должно проходить проверки, прежде чем можно будет выполнить слияние ветви. Дополнительные сведения о тестовых фиксациях слияния см. в разделе [Вытягивание](/rest/reference/pulls#get-a-pull-request).
 
-![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
+![Ветвь с конфликтующими фиксациями слияния](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 
-## Handling skipped but required checks
+## Обработка пропущенных, но обязательных проверок
 
 {% note %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**Примечание.** Если рабочий процесс пропускается из-за [фильтрации путей](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [фильтрации ветви](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) или [сообщения фиксации](/actions/managing-workflow-runs/skipping-workflow-runs), проверки, связанные с этим рабочим процессом, останутся в состоянии ожидания. Запрос на вытягивание, требующий успешной проверки, будет заблокирован при слиянии.
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+Если задание в рабочем процессе пропущено из-за условий, оно сообщит о своем состоянии: "Успешно". Дополнительные сведения см. в разделах [Пропуск выполнения рабочего процесса](/actions/managing-workflow-runs/skipping-workflow-runs) и [Использование условий для управления выполнением задания](/actions/using-jobs/using-conditions-to-control-job-execution).
 
 {% endnote %}
 
-### Example
+### Пример
 
-The following example shows a workflow that requires a "Successful" completion status for the `build` job, but the workflow will be skipped if the pull request does not change any files in the `scripts` directory.
+В следующем примере показан рабочий процесс, требующий состояния завершения "Успешно" для задания `build`, но рабочий процесс будет пропущен, если запрос на вытягивание не изменяет файлы в каталоге `scripts`.
 
 ```yaml
 name: ci
@@ -80,11 +86,11 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. You would see the following status on the pull request:
+Из-за [фильтрации путей](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) запрос на вытягивание, который изменяет только файл в корне репозитория, не активирует этот рабочий процесс и блокируется от слияния. В запросе на вытягивание отобразится следующее состояние:
 
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+![Обязательная проверка пропущена, но отображается как ожидающая](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
+Эту проблему можно исправить, создав универсальный рабочий процесс с тем же именем, который будет возвращать значение true в любом случае, как в следующем случае:
 
 ```yaml
 name: ci
@@ -99,22 +105,22 @@ jobs:
     steps:
       - run: 'echo "No build required"'
 ```
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
+Теперь проверки будут проходить успешно при каждой отправке запроса на вытягивание, который не изменяет файлы, перечисленные в разделе `paths` в первом рабочем процессе.
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
+![Проверка пропущена, но пройдена вследствие использования универсального рабочего процесса](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
-**Notes:**
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+**Примечания.**
+* Убедитесь в том, что ключ `name` и обязательное имя задания в обоих файлах рабочего процесса одинаковы. Дополнительные сведения см. в разделе [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions).
+* В приведенном выше примере используется {% data variables.product.prodname_actions %}, но это обходное решение также применимо к другим поставщикам CI/CD, которые интегрируются с {% data variables.product.company_short %}.
 
 {% endnote %}
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Required status checks from unexpected sources
+## Обязательные проверки состояния из непредвиденных источников
 
-It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+Защищенная ветвь также может требовать проверку состояния из определенного {% data variables.product.prodname_github_app %}. Если отображается сообщение наподобие приведенного ниже, убедитесь в том, что проверка, указанная в поле слияния, была задана соответствующим приложением.
 
 ```
 Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.

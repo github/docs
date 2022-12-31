@@ -3,296 +3,337 @@ release_candidate: true
 deprecated: true
 intro: |
   {% note %}
-
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
-
+  
+  **注:** {% data variables.product.product_location %} でリリース候補ビルドが実行されている場合、ホットパッチでアップグレードすることはできません。リリース候補はテスト環境でのみ実行することをお勧めします。
+  
   {% endnote %}
-
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  
+  アップグレードの手順については、「[{% data variables.product.prodname_ghe_server %} のアップグレード](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)」を参照してください。
 sections:
   features:
-    - heading: Infrastructure
+    - heading: インフラストラクチャ
       notes:
         # https://github.com/github/releases/issues/2002
-        - |
-          Repository caching is generally available. Repository caching increases Git read performance for distributed developers, providing the data locality and convenience of geo-replication without impact on push workflows. With the general availability release, GitHub Enterprise Server caches both Git and Git LFS data. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+        - |リポジトリ キャッシュは一般提供されています。リポジトリ キャッシュは、分散開発者のために Git の読み取りパフォーマンスを向上させ、プッシュ ワークフローに影響を与えることなく geo レプリケーションのデータの局所性と利便性を提供します。一般提供リリースでは、Git と Git LFS の両方のデータが GitHub Enterprise Server によってキャッシュされます。詳しい情報については、「[リポジトリのキャッシュについて](/admin/enterprise-management/caching-repositories/about-repository-caching)」を参照してください。
 
-    - heading: Instance security
+|
+    - heading: インスタンスのセキュリティ
       notes:
         # https://github.com/github/releases/issues/1569
-        - |
-          GitHub has changed the supported algorithms and hash functions for all SSH connections to GitHub Enterprise Server, disabled the unencrypted and unauthenticated Git protocol, and optionally allowed the advertisement of an Ed25519 host key. For more information, see the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) and the following articles.
+        - |GitHub は、GitHub Enterprise Server へのすべての SSH 接続についてサポートされるアルゴリズムとハッシュ機能を変更し、暗号化と認証が行われない Git プロトコルを無効にし、必要に応じて Ed25519 ホスト キーのアドバタイズを許可しました。詳しくは、[GitHub のブログ](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/)と以下の記事をご覧ください。
 
-          - "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
-          - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
-          - "[Configuring host keys for your instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
 
+
+- [インスタンスへの SSH 接続の構成](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)
+
+- [Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)
+
+- [インスタンスのホスト キーの構成](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)
+
+|
         # https://github.com/github/releases/issues/2341
-        - |
-          You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+        - |インスタンスへの着信 SMTP 接続に対して、TLS 暗号化を要求できます。詳しくは、「[通知のためのメール設定](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)」をご覧ください。
 
-    - heading: Audit logs
+|
+    - heading: 監査ログ
       notes:
         # https://github.com/github/releases/issues/1438
-        - |
-          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+        - |インスタンスに対する監査ログと Git イベントを、Amazon S3、Azure Blob Storage、Azure Event Hubs、Google Cloud Storage、または Splunk にストリーミングできます。監査ログのストリーミングはパブリック ベータ版であり、変更される可能性があります。詳しくは、「[Enterprise の監査ログのストリーミング](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)」をご覧ください。
 
+|
     - heading: GitHub Connect
       notes:
         # https://github.com/github/releases/issues/2306
-        - |
-          Server Statistics is now generally available. Server Statistics collects aggregate usage data from your GitHub Enterprise Server instance, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from GitHub Enterprise Server. For more information, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
+        - |Server Statistics が一般提供されるようになりました。Server Statistics は、GitHub Enterprise Server インスタンスから集計された使用状況データを収集します。これを使うと、Organization のニーズをより適切に予測し、チームのしくみを理解し、GitHub Enterprise Server から得られる価値を確認できます。詳しくは、「[Server Statistics について](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)」をご覧ください。
 
-    - heading: Administrator experience
+|
+    - heading: 管理者のエクスペリエンス
       notes:
         # https://github.com/github/releases/issues/2351
-        - |
-          Enterprise owners can join organizations on the instance as a member or owner from the enterprise account's **Organizations** page. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+        - |Enterprise の所有者は、Enterprise アカウントの **[Organization]** ページから、Organization をメンバーまたは所有者としてインスタンスに参加させることができます。詳しくは、「[Enterprise によって所有される Organization のロールを管理する](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2221
-        - |
-          Enterprise owners can allow users to dismiss the configured global announcement banner. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+        - |Enterprise の所有者は、構成されているグローバル アナウンス バナーをユーザーが無視することを許可できます。詳しくは、「[Enterprise のユーザメッセージをカスタマイズする](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)」をご覧ください。
 
+|
     - heading: GitHub Advanced Security
       notes:
         # https://github.com/github/releases/issues/2321
-        - |
-          Users on an instance with a GitHub Advanced Security license can opt to receive a webhook event that triggers when an organization owner or repository administrator enables or disables a code security or analysis feature. For more information, see the following documentation.
-          
-          - "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" in the webhook documentation
-          - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
-          - "[Managing security and analysis features for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+        - |GitHub Advanced Security ライセンスがあるインスタンス上のユーザーは、Organization 所有者またはリポジトリ管理者がコード セキュリティまたは分析機能を有効または無効にするとトリガーする Webhook イベントを受け取ることができます。詳しくは、次のドキュメントを参照してください。
 
+
+
+- [Webhook のイベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis) (Webhook のドキュメント)
+
+- [Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)
+
+- [リポジトリのセキュリティと分析機能を管理する](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)
+
+|
         # https://github.com/github/releases/issues/2191
-        - |
-          Users on an instance with a GitHub Advanced Security license can optionally add a comment when dismissing a code scanning alert in the web UI or via the REST API. Dismissal comments appear in the event timeline. Users can also add or retrieve a dismissal comment via the REST API. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)" and "[Code Scanning](/rest/code-scanning#update-a-code-scanning-alert)" in the REST API documentation.
+        - |GitHub Advanced Security ライセンスがあるインスタンス上のユーザーは、Web UI または REST API でコード スキャン アラートを無視するときに、必要に応じてコメントを追加できます。無視に関するコメントは、イベントのタイムラインに表示されます。ユーザーは、REST API を使って無視に関するコメントを追加または取得することもできます。詳しくは、「[pull request でコード スキャンのアラートをトリアージする](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)」と REST API のドキュメントの「[Code Scanning](/rest/code-scanning#update-a-code-scanning-alert)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2228
-        - |
-          On instances with a GitHub Advanced Security license, secret scanning prevents the leak of secrets in the web editor. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)."
+        - |GitHub Advanced Security ライセンスがあるインスタンスでは、シークレット スキャンによって Web エディターでのシークレットのリークが防がれます。詳しくは、「[シークレット スキャンによるプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2318
         # https://github.com/github/releases/issues/2277
-        - |
-          Enterprise owners and users on an instance with a GitHub Advanced Security license can view secret scanning alerts and bypasses of secret scanning's push protection in the enterprise and organization audit logs, and via the REST API. For more information, see the following documentation.
-          
-          - "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
-          - "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
-          - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
-          - "[Secret Scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)" in the REST API documentation
+        - |GitHub Advanced Security ライセンスがあるインスタンス上の Enterprise 所有者とユーザーは、Enterprise と Organization の監査ログを見るか、REST API を使うことで、シークレット スキャンのアラートと、シークレット スキャンのプッシュ保護のバイパスを確認できます。詳しくは、次のドキュメントを参照してください。
 
+
+
+- [シークレット スキャンによるプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)
+
+- [Enterprise の監査ログ イベント](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)
+
+- [組織の監査ログを確認する](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)
+
+- [Secret Scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise) (REST API のドキュメント)
+
+|
         # https://github.com/github/releases/issues/2230
         # https://github.com/github/releases/issues/2317
-        - |
-          Enterprise owners on an instance with a GitHub Advanced Security license can perform dry runs of custom secret scanning patterns for the enterprise, and all users can perform dry runs when editing a pattern. Dry runs allow you to understand a pattern's impact across the entire instance and hone the pattern before publication and generation of alerts. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+        - |GitHub Advanced Security ライセンスがあるインスタンス上の Enterprise 所有者は、Enterprise 用のカスタム シークレット スキャン パターンのドライ ランを実行でき、すべてのユーザーはパターンを編集するときにドライ ランを実行できます。ドライ ランを行うと、インスタンス全体へのパターンの影響を理解し、アラートの発行と生成の前にパターンを調整できます。詳しくは、「[シークレット スキャンのカスタム パターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2236
-        - |
-          Users on an instance with a GitHub Advanced Security license can use `sort` and `direction` parameters in the REST API when retrieving secret scanning alerts, and sort based on the alert’s `created` or `updated` fields. The new parameters are available for the entire instance, or for individual organizations or repositories. For more information, see the following documentation.
-          
-          - "[List secret scanning alerts for an enterprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
-          - "[List secret scanning alerts for an organization](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
-          - "[List secret scanning alerts for a repository](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
-          - "[Secret Scanning](/rest/secret-scanning)" in the REST API documentation
+        - |GitHub Advanced Security ライセンスがあるインスタンス上のユーザーは、シークレット スキャン アラートを取得する REST API で `sort` と `direction` パラメーターを使うことができ、アラートの `created` または `updated` フィールドを基にして並べ替えることができます。新しいパラメーターは、インスタンス全体または個別の Organization やリポジトリで利用できます。詳しくは、次のドキュメントを参照してください。
 
+
+
+- [Enterprise のシークレット スキャン アラートの一覧を表示する](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)
+
+- [Organization のシークレット スキャン アラートの一覧を表示する](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)
+
+- [リポジトリのシークレット スキャン アラートの一覧を表示する](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)
+
+- [Secret Scanning](/rest/secret-scanning) (REST API のドキュメント)
+
+|
         # https://github.com/github/releases/issues/2263
-        - |
-          The contents of the `github/codeql-go` repository have moved to the `github/codeql` repository, to live alongside similar libraries for all other programming languages supported by CodeQL. The open-source CodeQL queries, libraries, and extractor for analyzing codebases written in the Go programming language with GitHub's CodeQL code analysis tools can now be found in the new location. For more information, including guidance on migrating your existing workflows, see [github/codeql-go#741](https://github.com/github/codeql-go/issues/741).
+        - |CodeQL でサポートされる他のすべてのプログラミング言語用の同様のライブラリと一緒にするため、`github/codeql-go` リポジトリのコンテンツを `github/codeql` リポジトリに移動しました。GitHub の CodeQL コード分析ツールを使って Go プログラミング言語で書かれたコードベースを分析するためのオープンソースの CodeQL クエリ、ライブラリ、抽出子は、新しい場所で見つかります。既存のワークフローの移行に関するガイダンスなど、詳しくは、[github/codeql-go#741](https://github.com/github/codeql-go/issues/741) をご覧ください。
 
+|
     - heading: Dependabot
       notes:
         # https://github.com/github/releases/issues/2256
-        - |
-          Enterprise owners on instances with a GitHub Advanced Security license can see an overview of Dependabot alerts for the entire instance, including a repository-centric view of application security risks, and an alert-centric view of all secret scanning and Dependabot alerts. The views are in beta and subject to change, and alert-centric views for code scanning are planned for a future release of GitHub Enterprise Server. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
+        - |GitHub Advanced Security ライセンスがあるインスタンス上の Enterprise 所有者は、インスタンス全体についての Dependabot アラートの概要を見ることができます。アプリケーション セキュリティ リスクのリポジトリ中心のビューや、シークレット スキャンと Dependabot のすべてのアラートのアラート中心のビューなどです。これらのビューはベータ版なので変更される可能性があり、コード スキャンのアラート中心のビューは GitHub Enterprise Server の将来のリリースで計画されています。詳しくは、「[セキュリティの概要の表示](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2160
-        - |
-          Users can select multiple Dependabot alerts, then dismiss or reopen or dismiss the alerts. For example, from the **Closed alerts** tab, you can select multiple alerts that have been previously dismissed, and then reopen them all at once. For more information, see "[About Dependabot alerts](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
+        - |ユーザーは、複数の Dependabot アラートを選んで、閉じたり、もう一度開いたりできます。たとえば、**[Closed alerts]\(閉じられたアラート\)** タブで、以前に閉じられた複数のアラートを選んでから、それらをまとめてもう一度開くことができます。詳しくは、「[Dependabot アラートについて](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2232
-        - |
-          Dependabot updates `@types` dependencies alongside corresponding packages in TypeScript projects. Before this change, users would see separate pull requests for a package and the corresponding `@types` package. This feature is automatically enabled for repositories containing `@types` packages in the project's `devDependencies` within the _package.json_ file. You can disable this behavior by setting the [`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore) field in your `dependabot.yml` file to `@types/*`. For more information, see "[About Dependabot version updates](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)" and "[Configuration options for the _dependabot.yml_ file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+        - |Dependabot は、TypeScript プロジェクトの対応するパッケージと共に、`@types` の依存関係を更新します。この変更の前に、パッケージとそれに対応する `@types` パッケージに対する別の pull request が、ユーザーに対して表示されます。この機能は、_package.json_ ファイル内のプロジェクトの `devDependencies` に `@types` パッケージが含まれるリポジトリに対して、自動的に有効にされます。`dependabot.yml` ファイルの [`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore) フィールドを `@types/*` に設定することで、この動作を無効にできます。詳しくは、「[GitHub Dependabot のバージョンアップデートについて](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)」と「[_dependabot.yml_ ファイルの構成オプション](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)」をご覧ください。
 
-    - heading: Code security
+|
+    - heading: コード セキュリティ
       notes:
         # https://github.com/github/releases/issues/2098
         # https://github.com/github/releases/issues/2282
-        - |
-          GitHub Actions can enforce dependency reviews on users' pull requests by scanning for dependencies, and will warn users about associated security vulnerabilities. The `dependency-review-action` action is supported by a new API endpoint that diffs the dependencies between any two revisions. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+        - |GitHub Actions は、依存関係をスキャンすることでユーザーの pull request で依存関係レビューを行うことができ、関連するセキュリティの脆弱性についてユーザーに警告します。`dependency-review-action` アクションは、任意の 2 つのリビジョン間で依存関係の差異を調べる新しい API エンドポイントによってサポートされます。詳しくは、「[依存関係の確認について](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2243
-        - |
-          The dependency graph detects _Cargo.toml_ and _Cargo.lock_ files for Rust. These files will be displayed in the **Dependency graph** section of the **Insights** tab. Users will receive Dependabot alerts and updates for vulnerabilities associated with their Rust dependencies. Package metadata, including mapping packages to repositories, will be added at a later date. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+        - |依存関係グラフは、_Cargo.toml_ と _Cargo.lock_ ファイルで Rust を検出します。これらのファイルは、**[分析情報]** タブの**[Dependency graph]\(依存関係グラフ\)** セクションに表示されます。ユーザーは、Rust の依存関係に関連する脆弱性に関する Dependabot のアラートと更新プログラムを受け取ります。パッケージからリポジトリへのマッピングなど、パッケージのメタデータは後日追加されます。詳しくは、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/1766
-        - |
-          If GitHub Connect is enabled for your instance, users can contribute an improvement to a security advisory in the [GitHub Advisory Database](https://github.com/advisories). To contribute, click **Suggest improvements for this vulnerability** while viewing an advisory's details. For more information, see the following articles.
-          
-          - "[Managing GitHub Connect](/admin/configuration/configuring-github-connect/managing-github-connect)"
-          - "[Browsing security vulnerabilities in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
-          - "[About GitHub Security Advisories for repositories](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)" in the GitHub Enterprise Cloud documentation
-          - "[Editing security advisories in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
+        - |インスタンスで GitHub Connect が有効になっている場合、ユーザーは [GitHub Advisory Database](https://github.com/advisories) でのセキュリティ アドバイザリの改善に寄与できます。寄与するには、アドバイザリの詳細を表示している間に、**[Suggest improvements for this vulnerability]\(この脆弱性に対する改善の提案\)** をクリックします。詳細については、次の記事を参照してください。
 
-    - heading: GitHub Actions
+
+
+- [GitHub Connect の管理](/admin/configuration/configuring-github-connect/managing-github-connect)
+
+- [GitHub Advisory Database でのセキュリティの脆弱性の参照](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database) (GitHub Enterprise Cloud のドキュメント)
+
+- [リポジトリの GitHub セキュリティ アドバイザリについて](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories) (GitHub Enterprise Cloud のドキュメント)
+
+- [GitHub Advisory Database でのセキュリティ アドバイザリの編集](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database) (GitHub Enterprise Cloud のドキュメント)
+
+|
+    - heading: GitHub のアクション
       notes:
         # https://github.com/github/releases/issues/2159
-        - |
-          Within a workflow that calls a reusable workflow, users can pass the secrets to the reusable workflow with `secrets: inherit`. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow)."
+        - |再利用可能なワークフローを呼び出すワークフロー内で、ユーザーは `secrets: inherit` を使って再利用可能なワークフローにシークレットを渡すことができます。詳しくは、「[ワークフローの再利用](/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2102
-        - |
-          When using GitHub Actions, to reduce the risk of merging a change that was not reviewed by another person into a protected branch, enterprise owners and repository administrators can prevent Actions from creating pull requests. Organization owners could previously enable this restriction. For more information, see the following articles.
+        - |GitHub Actions を使うとき、別のユーザーによってレビューされていない変更が保護されたブランチにマージされるリスクを減らすため、Enterprise 所有者とリポジトリ管理者は、Actions によって pull request が作成されないようにすることができます。これまで、Organization 所有者はこの制限を有効にできました。詳細については、次の記事を参照してください。
 
-          - "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)"
-          - "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)"
-          - "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"
 
+
+- [エンタープライズで GitHub Actions のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)
+
+- [Organization について GitHub Actions を無効化または制限する](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)
+
+- [リポジトリの GitHub Actions の設定を管理する](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
+
+|
         # https://github.com/github/releases/issues/2155
-        - |
-          Users can write a single workflow triggered by `workflow_dispatch` and `workflow_call`, and use the `inputs` context to access input values. Previously, `workflow_dispatch` inputs were in the event payload, which increased difficulty for workflow authors who wanted to write one workflow that was both reusable and manually triggered. For workflows triggered by `workflow_dispatch`, inputs are still available in the `github.event.inputs` context to maintain compatibility.  For more information, see "[Contexts](/actions/learn-github-actions/contexts#inputs-context)."
+        - |ユーザーは、`workflow_dispatch` と `workflow_call` によってトリガーされる単一のワークフローを作成し、`inputs` コンテキストを使って入力値にアクセスすることができます。これまでは、`workflow_dispatch` の入力はイベント ペイロードの中にあり、再利用可能であると共に手動でトリガーされる 1 つのワークフローを作成しようとするワークフロー作成者にとって、難しさが増していました。`workflow_dispatch` によってトリガーされるワークフローの場合は、互換性を保つため、引き続き `github.event.inputs` コンテキストで入力を利用できます。 詳しくは、「[コンテキスト](/actions/learn-github-actions/contexts#inputs-context)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2103
-        - |
-          To summarize the result of a job, users can generate Markdown and publish the contents as a job summary. For example, after running tests with GitHub Actions, a summary can provide an overview of passed, failed, or skipped tests, potentially reducing the need to review the full log output. For more information, see "[Workflow commands for GitHub Actions](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)."
+        - |ジョブの結果を要約するため、ユーザーは Markdown を生成し、ジョブの概要として内容を発行できます。たとえば、GitHub Actions でテストを実行した後、合格または不合格になったテストやスキップされたテストの概要を提供でき、完全なログ出力を確認する必要性が減る可能性があります。詳しくは、「[GitHub Actions のワークフロー コマンド](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2161
-        - |
-          To more easily diagnose job execution failures during a workflow re-run, users can enable debug logging, which outputs information about a job's execution and environment. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)" and "[Using workflow run logs](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+        - |ワークフローの再実行の間にジョブの実行の失敗をいっそう簡単に診断するため、ユーザーはデバッグ ログを有効にできます。これにより、ジョブの実行と環境に関する情報が出力されます。詳しくは、「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」と「[ワークフロー実行ログの使用](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2140
-        - |
-          If you manage self-hosted runners for GitHub Actions, you can ensure a consistent state on the runner itself before and after a workflow run by defining scripts to execute. By using scripts, you no longer need to require that users manually incorporate these steps into workflows. Pre- and post-job scripts are in beta and subject to change. For more information, see "[Running scripts before or after a job](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)."
+        - |GitHub Actions 用のセルフホステッド ランナーを管理する場合、実行するスクリプトを定義することで、ワークフローの実行の前と後に、ランナー自体が一貫した状態であることを確認できます。スクリプトを使うことで、これらの手順をワークフローに手作業で組み込むことをユーザーに求める必要がなくなります。ジョブの前と後のスクリプトはベータ版であり、変更される可能性があります。詳しくは、「[ジョブ前後のスクリプトの実行](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)」をご覧ください。
 
+|
     - heading: GitHub Packages
       notes:
         # https://github.com/github/releases/issues/2334
-        - |
-          Enterprise owners can migrate container images from the GitHub Docker registry to the GitHub Container registry. The Container registry provides the following benefits.
-          
-          - Improves the sharing of containers within an organization
-          - Allows the application of granular access permissions
-          - Permits the anonymous sharing of public container images
-          - Implements OCI standards for hosting Docker images
-          
-          The Container registry is in beta and subject to change. For more information, see "[Migrating your enterprise to the Container registry from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)."
+        - |Enterprise 所有者は、コンテナー イメージを GitHub Docker レジストリから GitHub Container レジストリに移行できます。コンテナー レジストリには、次の利点があります。
 
-    - heading: Community experience
+
+
+- Organization 内でのコンテナーの共有を向上させる
+
+- アプリケーションにきめ細かいアクセス許可を付与する
+
+- パブリック コンテナー イメージの匿名共有を許可する
+
+- Docker イメージをホストするための OCI 標準を実装する
+
+
+
+コンテナー レジストリはベータ版であり、変更される可能性があります。詳しくは、「[Docker レジストリからコンテナー レジストリへの Enterprise の移行](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)」をご覧ください。
+
+|
+    - heading: コミュニティ エクスペリエンス
       notes:
         # https://github.com/github/releases/issues/2113
-        - |
-          GitHub Discussions is available for GitHub Enterprise Server. GitHub Discussions provides a central gathering space to ask questions, share ideas, and build connections. For more information, see "[GitHub Discussions](/discussions)."
+        - |GitHub Discussions は GitHub Enterprise Server で利用できます。GitHub Discussions は、質問し、アイデアを共有し、関係を築くための集まりの場になります。詳しくは、「[GitHub Discussions](/discussions)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2259
-        - |
-          Enterprise owners can configure a policy to control whether people's usernames or full names are displayed within internal or public repositories. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)."
+        - |Enterprise 所有者は、内部リポジトリまたはパブリック リポジトリにユーザーのユーザー名またはフル ネームが表示されるかどうかを制御するためのポリシーを構成できます。詳しくは、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)」をご覧ください。
 
-    - heading: Organizations
+|
+    - heading: 組織
       notes:
         # https://github.com/github/releases/issues/2019
-        - |
-          Users can create member-only READMEs for an organization. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+        - |ユーザーは、Organization 用にメンバー専用の README を作成できます。詳しくは、「[Organizationのプロフィールのカスタマイズ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2234
-        - |
-          Organization owners can pin a repository to an organization's profile directly from the repository via the new **Pin repository** dropdown. Pinned public repositories appear to all users of your instance, while public, private, and internal repositories are only visible to organization members.
+        - |Organization 所有者は、新しい **[Pin repository]\(リポジトリのピン留め\)** ドロップダウンを使って、リポジトリから直接 Organization のプロファイルにリポジトリをピン留めすることができます。ピン留めされたパブリック リポジトリは、インスタンスのすべてのユーザーに表示されます。一方、パブリック、プライベート、内部リポジトリは、Organization のメンバーだけに表示されます。
 
-    - heading: Repositories
+|
+    - heading: リポジトリ
       notes:
         # https://github.com/github/releases/issues/2214
-        - |
-          While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+        - |フォークを作成するとき、ユーザーはフォークの名前をカスタマイズできます。詳しくは、「[リポジトリをフォークする](/get-started/quickstart/fork-a-repo)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/1973
-        - |
-          Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see 
-          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+        - |ユーザーは、**[Restrict pushes that create matching branches]\(一致するブランチを作成するプッシュを制限する\)** ブランチ保護ルールを使って、構成されている名前パターンに一致するブランチの作成をブロックできます。たとえば、リポジトリの既定のブランチが `master` から `main` に変わる場合、リポジトリ管理者はそれ以降の `master` ブランチの作成またはプッシュをすべて禁止できます。詳細については、「 
 
+「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)」と「[ブランチ保護ルールを管理する](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)」をご覧ください。
+
+|
         # https://github.com/github/releases/issues/2179
-        - |
-          Users can create a branch directly from a repository's **Branches** page by clicking the **New branch**. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+        - |ユーザーは、**[新しいブランチ]** をクリックすることで、リポジトリの **[ブランチ]** ページから直接ブランチを作成できます。詳しくは、「[リポジトリ内でブランチを作成および削除する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2220
-        - |
-          Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+        - |ユーザーは、開かれた pull request に関連付けられているブランチを削除できます。詳しくは、「[リポジトリ内でブランチを作成および削除する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2118
-        - |
-          Repositories with multiple licenses display all of the licenses in the "About" sidebar on the {% octicon "code" aria-label="The code icon" %} **Code** tab. For more information, see "[Licensing a repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
+        - |複数のライセンスがあるリポジトリでは、{% octicon "code" aria-label="The code icon" %} **[コード]** タブの [About]\(バージョン情報\) サイドバーに、すべてのライセンスが表示されます。詳しくは、「[リポジトリのライセンス](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2233
-        - When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
+        - "ユーザーがファイルの名前を変更したり、新しいディレクトリにファイルを移動したりするとき、ファイルの内容の少なくとも半分が同じ場合は、`git log --follow` と同様に、コミット履歴ではファイルの名前が変更されたものとして示されます。詳しくは、[GitHub のブログ](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/)をご覧ください。"
 
         # https://github.com/github/releases/issues/2093
-        - |
-          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+        - |ユーザーは、他のユーザーに、ブランチに関連付けられた pull request をマージする前に、ブランチを正常にデプロイすることを要求できます。詳しくは、「[保護されたブランチについて](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)「と「[ブランチ保護ルールを管理する](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2073
-        - |
-          Enterprise owners can prevent organization owners from inviting collaborators to repositories on the instance. For more information, see "[Enforcing a policy for inviting collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)."
+        - |Enterprise 所有者は、Organization 所有者がインスタンスのリポジトリにコラボレーターを招待することを禁止できます。詳しくは、「[リポジトリへのコラボレーターの招待に関するポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2173
-        - |
-          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+        - |ユーザーは、例外をサポートするブランチ保護ルールについて、GitHub Apps に対する例外を許可できます。詳しくは、「[アプリケーションについて](/developers/apps/getting-started-with-apps/about-apps)」と「[ブランチ保護ルールを管理する](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)」をご覧ください。
 
-    - heading: Commits
+|
+    - heading: コミット
       notes:
         # https://github.com/github/releases/issues/2306
-        - |
-          For public GPG signing keys that are expired or revoked, GitHub Enterprise Server verifies Git commit signatures and show commits as verified if the user made the commit while the key was still valid. Users can also upload expired or revoked GPG keys. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+        - |期限切れまたは取り消し済みのパブリック GPG 署名キーについて、GitHub Enterprise Server は、Git コミットの署名を検証し、キーがまだ有効な間にユーザーがコミットを行った場合は、コミットを検証済みとして表示します。ユーザーは、期限切れまたは取り消し済みの GPG キーをアップロードすることもできます。詳しくは、「[コミット署名の検証について](/authentication/managing-commit-signature-verification/about-commit-signature-verification)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/1977
-        - |
-          To affirm that a commit complies with the rules and licensing governing a repository, organization owners and repository administrators can now require developers to sign off on commits made through the web interface. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)" and "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+        - |リポジトリを管理するルールとライセンスにコミットが準拠していることを確認するため、Organization 所有者とリポジトリ管理者は、開発者に、Web インターフェイスから行われるコミットにサインオフすることを要求できるようになりました。詳しくは、「[Organization のコミット サインオフ ポリシーの管理](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)」と「[リポジトリのコミット サインオフ ポリシーの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)」をご覧ください。
 
-    - heading: Pull requests
+|
+    - heading: Pull Request
       notes:
         # https://github.com/github/releases/issues/2261
-        - |
-          Using the file tree located in the **Files changed** tab of a pull request, users can navigate modified files, understand the size and scope of changes, and focus reviews. The file tree appears if a pull request modifies at least two files, and the browser window is sufficiently wide. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" and "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+        - |pull request の **[Files changed]\(変更されたファイル\)** タブにあるファイル ツリーを使って、ユーザーは変更されたファイルの間を移動し、変更のサイズとスコープを理解し、レビューに注目することができます。pull request で少なくとも 2 つのファイルが変更され、ブラウザーのウィンドウに十分な幅がある場合、ファイル ツリーが表示されます。詳しくは、「[pull request で提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」と「[プルリクエスト内のファイルをフィルタリングする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2167
-        - |
-          Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
+        - |ユーザーは、すべてのスカッシュ マージに対するコミット メッセージとして、pull request のタイトルを既定で使うことができます。詳しくは、「[プルリクエストにコミットの squash を設定する](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)」をご覧ください。
 
-    - heading: Releases
+|
+    - heading: リリース
       notes:
         # https://github.com/github/releases/issues/2281
-        - |
-          When viewing the details for a particular release, users can see the creation date for each release asset. For more information, see "[Viewing your repository's releases and tags](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+        - |特定のリリースについての詳細を表示するとき、ユーザーは、各リリース アセットの作成日を見ることができます。詳しくは、「[リポジトリのリリースとタグを表示する](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)」をご覧ください。
 
+|
         # https://github.com/github/releases/issues/2279
-        - While creating a release with automatically generated release notes, users can see the tag identified as the previous release, then choose to select a different tag to specify as the previous release. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+        - "自動生成されるリリース ノートを使ってリリースを作成するとき、ユーザーは、以前のリリースとして示されるタグを確認してから、異なるタグを選んで、以前のリリースとして指定することができます。詳しくは、「[自動生成リリース ノート](/repositories/releasing-projects-on-github/automatically-generated-release-notes)」をご覧ください。"
 
     - heading: Markdown
       notes:
         # https://github.com/github/releases/issues/2260
-        - |
-          Editing Markdown in the web interface has been improved.
-          
-          - After a user selects text and pastes a URL, the selected text will become a Markdown link to the pasted URL.
-          - When a user pastes spreadsheet cells or HTML tables, the resulting text will render as a table.
-          - When a user copies text containing links, the pasted text will include the link as a Markdown link.
+        - |Web インターフェイスでの Markdown の編集が改善されました。
 
-          For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)."
 
+
+- ユーザーがテキストを選んで URL を貼り付けた後、選ばれたテキストは、貼り付けられた URL への Markdown リンクになります。
+
+- ユーザーがスプレッドシートのセルまたは HTML のテーブルを貼り付けると、結果のテキストはテーブルとしてレンダリングされます。
+
+- ユーザーがリンクを含むテキストをコピーすると、貼り付けられたテキストに含まれるリンクは Markdown リンクになります。
+
+
+
+詳しくは、「[基本的な書き方とフォーマットの構文](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)」をご覧ください。
+
+|
         # https://github.com/github/releases/issues/2258
-        - |
-          When editing a Markdown file in the web interface, clicking the **Preview** tab will automatically scroll to the place in the preview that you were editing. The scroll location is based on the position of your cursor before you clicked the **Preview** tab.
+        - |Markdown ファイルを Web インターフェイスで編集しているとき、**[プレビュー]** タブをクリックすると、編集していた場所にプレビューが自動的にスクロールします。スクロールする場所は、**[プレビュー]** タブをクリックする前のカーソルの位置に基づきます。
 
+|
   changes:
-    - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
-    - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
+    - Web インターフェイス内のリンクやボタンなどの対話型要素は、キーボードでフォーカスを設定するとアウトラインが表示され、ページ上で現在位置を見つけるのに役立ちます。さらに、フォーカスを設定すると、フォーム フィールドの枠線のコントラストが高くなります。
+    - 新しい issue または pull request の作成中にページを最新の情報に更新する場合、担当者、レビュー担当者、ラベル、プロジェクトはすべてそのままになります。
 
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
-    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
-    - In some cases, users cannot convert existing issues to discussions.
-    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - "{% data variables.product.prodname_ghe_server %} インスタンスを設定したばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を見込んで行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを引き続き保持します。また、既存のパフォーマンスの問題を解決したら、将来的にはこの値を再び返す予定です。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。
+    - 別のホストで作成されたバックアップからインスタンスを復元した後、Actions のサービスを再起動する必要があります。
+    - リポジトリの設定で、読み取りアクセス権を持つユーザーにディスカッションの作成を許可するオプションを有効にしても、この機能は有効になりません。
+    - ユーザーが既存の issue をディスカッションに変換できない場合があります。
+    - "シークレット スキャンのカスタム パターンの末尾の区切り記号は `.*` です (具体的には [After secret]\\(シークレットの後\\) フィールド)。この区切り記号のためにリポジトリ間でのシークレットのスキャンで不整合が発生し、リポジトリの履歴にスキャンが完了していないギャップができる場合があります。増分スキャンも影響を受ける場合があります。スキャンでの問題を避けるには、パターンの末尾を変更して、`.*` 区切り記号を削除します。"
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

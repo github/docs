@@ -4,12 +4,12 @@ shortTitle: API Versions
 intro: Especifique qual versão da API REST usar sempre que fizer uma solicitação à API REST.
 versions:
   feature: api-date-versioning
-ms.openlocfilehash: c1209120fab4c4cc26962991ad48b76638627db5
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: 6689d8c342930a44c7d243c3872cdc431007eb1c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184383'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192862'
 ---
 ## Sobre o controle de versão da API
 
@@ -51,4 +51,4 @@ No momento, há suporte para as seguintes versões da API REST:
 
 {% for apiVersion in allVersions[currentVersion].apiVersions %} {{ apiVersion }} {% endfor %}
 
-Você também pode fazer com que uma solicitação de API obtenha todas as versões de API com suporte. Para saber mais, confira "[Obter todas as versões da API](/rest/meta#get-all-api-versions)."
+Você também pode fazer uma solicitação de API para obter todas as versões de API com suporte. Para saber mais, confira "[Obter todas as versões da API](/rest/meta#get-all-api-versions)."

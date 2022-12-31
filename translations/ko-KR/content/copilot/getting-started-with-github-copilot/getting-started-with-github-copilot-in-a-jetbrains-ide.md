@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: ae879b5834007a34ab0e3a7a45dcae4c1e31bc4f
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: f5b90fb18645b69f86e9e45e08ba47e534678ae4
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185061'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192785'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -23,6 +23,8 @@ ms.locfileid: '148185061'
 JetBrains IDE를 사용하는 경우 편집기 내에서 직접 {% data variables.product.prodname_copilot %}의 제안을 보고 통합할 수 있습니다. 이 가이드에서는 macOS, Windows 또는 Linux용 JetBrains IDE 내에서 {% data variables.product.prodname_copilot %}을 사용하는 방법을 보여 줍니다.
 
 ## 필수 조건
+
+{% data reusables.copilot.subscription-prerequisite %}
 
 {% data reusables.copilot.jetbrains-ides %}
 

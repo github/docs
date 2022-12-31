@@ -1,0 +1,24 @@
+date: '2021-11-23'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - "Das Ausführen von `ghe-repl-start` oder `ghe-repl-status` gibt manchmal Fehler in Verbindung mit der Datenbank zurück, wenn GitHub Actions aktiviert war."
+    - "Bei Pre-Receive-Hooks treten Fehler auf, da `PATH` nicht definiert ist."
+    - 'Das Ausführen von `ghe-repl-setup` gibt den Fehler `Verzeichnis kann nicht erstellt werden /data/user/elasticsearch: Datei ist vorhanden` zurück, wenn die Instanz zuvor als Replikat konfiguriert wurde.'
+    - 'Nach dem Einrichten eines Hochverfügbarkeitsreplikats, enthielt `ghe-repl-status` in der Ausgabe den Fehler `Unerwartete nicht geschlossene Aktion im Befehl`.'
+    - In großen Clusterumgebungen könnte das Authentifizierungs-Back-End auf einem Teil der Front-End-Knoten nicht verfügbar sein.
+    - Einige wichtige Dienste könnten auf Back-End-Knoten im GHES-Cluster nicht verfügbar gewesen sein.
+  changes:
+    - Eine zusätzliche äußere Schicht der `gzip`-Komprimierung beim Erstellen eines Clustersupportbundles mithilfe von `ghe-cluster-suport-bundle` ist jetzt standardmäßig deaktiviert. Diese äußere Komprimierung kann optional mithilfe der Befehlszeilenoption `ghe-cluster-suport-bundle -c` angewendet werden.
+    - "Der Adminkonsole wurde zusätzlicher Text hinzugefügt, um Benutzer*innen an die Datensammlung der mobilen Apps zu Verbesserungszwecken zu erinnern."
+    - "Der Datenverbindungsdatensatz von {% data variables.product.prodname_github_connect %} enthält jetzt eine Liste aktivierter {% data variables.product.prodname_github_connect %}-Features. [Aktualisiert am 09.12.2021]"
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

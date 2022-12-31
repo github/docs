@@ -1,6 +1,6 @@
 ---
-title: Configuring rate limits
-intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
+title: Como configurar limites de taxa
+intro: 'É possível definir limites de taxa no {% data variables.product.prodname_ghe_server %} usando o {% data variables.enterprise.management_console %}.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -12,112 +12,108 @@ topics:
   - Enterprise
   - Infrastructure
   - Performance
+ms.openlocfilehash: 2a90093f833639fa247acc7292d9897728043005
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107546'
 ---
-## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
+## Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}
 
-Enabling rate limits on the {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+A habilitação de limites de taxa na {% data variables.product.prodname_enterprise_api %} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, confira "[Recursos da API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
-{% ifversion ghes %}
-You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
+{% ifversion ghes %} Você pode isentar uma lista de usuários dos limites de taxa de API usando o utilitário `ghe-config` no shell administrativo. Para obter mais informações, confira "[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-config)".
 {% endif %}
 
 {% note %}
 
-**Note:** The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
+**Observação:** o {% data variables.enterprise.management_console %} lista o período (por minuto ou por hora) de cada limite de taxa.
 
 {% endnote %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
-3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Em "Limitação de Taxa", selecione **Habilitar Limitação de Taxa da API HTTP**.
+![Caixa de seleção usada para habilitar a limitação de taxa da API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+3. Informe os limites para solicitações autenticadas e não autenticadas de cada API ou aceite os limites padrão sugeridos.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion enterprise-authentication-rate-limits %}
-## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
+## Como configurar limites de taxa para autenticação no {% data variables.enterprise.management_console %}
 
-You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If a user exceeds the login attempt limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+Você pode configurar o tempo de bloqueio e os limites de tentativa de logon para o {% data variables.enterprise.management_console %}. Se um usuário exceder o limite de tentativa de logon, o {% data variables.enterprise.management_console %} permanecerá bloqueado durante o período definido pelo tempo de bloqueio. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Em "Limite de taxa de tentativa de logon", configure o tempo de bloqueio e o limite de taxa de tentativa de logon ou aceite as configurações padrão já preenchidas.
+![Campos para configurar o tempo de bloqueio e o limite de taxa de tentativa de logon](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
-## Enabling secondary rate limits
+## Habilitar limites de taxa secundária
 
-Setting secondary rate limits protects the overall level of service on {% data variables.location.product_location %}.
+A configuração dos limites de taxa secundária protege o nível geral do serviço em {% data variables.location.product_location %}.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
-{% else %}
-2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-{% endif %}
-3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% ifversion ghes %}
+2. Em "Limitação de Taxa", selecione **Habilitar Limitação de Taxa Secundária**.
+   ![Caixa de seleção usada para habilitar a limitação de taxa secundária](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png) {% else %}
+2. Em "Limitação de Taxa", selecione **Habilitar Limitação de Taxa de Abuso**.
+    ![Caixa de seleção usada para habilitar a limitação da taxa de abuso](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png) {% endif %}
+3. Informe os limites para Solicitações totais, Limite de CPU e Limite de CPU para pesquisa ou aceite os limites padrão sugeridos.
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling rate limits for Git
+## Habilitar limites de taxa para Git
 
-If a member of {% data variables.product.company_short %}'s staff has recommended it, you can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
+Se um membro da equipe do {% data variables.product.company_short %} tiver recomendado isso, você poderá aplicar limites de taxa do Git por rede de repositório ou por ID de usuário. Os limites da taxa do Git são expressos em operações simultâneas por minuto e são adaptáveis com base na carga atual da CPU.
 
 {% warning %}
 
-**Warning:** We encourage you to leave this setting disabled unless directly recommended by a member of {% data variables.product.company_short %}'s staff. Git operations are rarely the leading driver of CPU and RAM usage. Enabling this feature can make Git operations more likely to fail under high load conditions but does not address the underlying cause of those conditions.
+**Aviso:** recomendamos que você deixe essa configuração desabilitada, a menos que seja recomendado diretamente por um membro da equipe do {% data variables.product.company_short %}. As operações do Git raramente são o que mais gera uso de CPU e RAM. A habilitação desse recurso pode aumentar a propensão a falhas das operações do Git em condições de alta carga, mas não aborda a causa subjacente dessas condições.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
-![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Type limits for each repository network or user ID.
-  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Em "Limitação de Taxa", selecione **Habilitar Limitação de Taxa do Git**.
+![Caixa de seleção usada para habilitar a limitação de taxa do Git](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
+3. Digite limites para cada rede de repositório ou ID do usuário.
+  ![Campos usados para a rede de repositório e os limites da ID de usuário](/assets/images/enterprise/management-console/example-git-rate-limits.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring rate limits for {% data variables.product.prodname_actions %}
+## Configurar limites de taxa para {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+Você pode aplicar um limite de taxa a execuções de fluxo de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações sobre {% data variables.product.prodname_actions %}, confira "[Sobre {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)".
 
-### About rate limits for {% data variables.product.prodname_actions %}
+### Sobre os limites de taxa para {% data variables.product.prodname_actions %}
 
-Your {% data variables.product.product_name %} instance assigns each {% data variables.product.prodname_actions %} workflow job to a runner. If your instance cannot immediately assign a job to an available runner, the job will wait in a queue until a runner is available. If {% data variables.product.prodname_actions %} experiences sustained high load, the queue can back up, and the performance of {% data variables.location.product_location %} may degrade.
+Sua instância do {% data variables.product.product_name %} atribui cada trabalho de fluxo de trabalho {% data variables.product.prodname_actions %} a um executor. Se a sua instância não puder atribuir imediatamente um trabalho a um executor disponível, o trabalho aguardará em uma fila até que um executor esteja disponível. Se o {% data variables.product.prodname_actions %} ficar uma carga alta continua, a fila poderá fazer backup e o desempenho da {% data variables.location.product_location %}} poderá diminuir.
 
-To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue. The following error will appear in the run's annotations.
+Para evitar essa degradação de desempenho, você pode configurar um limite de taxa para {% data variables.product.prodname_actions %}. Esse limite de taxa é expresso em execuções de trabalho por minuto. {% data variables.product.product_name %} calcula e aplica o limite de taxa para a soma total de todas as execuções de trabalho na instância. Se as execuções excederem o limite de taxa, as execuções adicionais falharão em vez de entrar na fila. O erro a seguir aparecerá nas anotações da execução.
 
-> You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
+> Você excedeu o limite de taxa para solicitações de execução de fluxo de trabalho. Aguarde antes de tentar a execução novamente.
 
-An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+Um limite de taxa apropriado protege a {% data variables.location.product_location %} contra o uso anormal do {% data variables.product.prodname_actions %} sem interferir nas operações diárias. O limite exato depende dos recursos disponíveis da instância e do perfil de carga geral. Para obter mais informações sobre os requisitos de hardware do {% data variables.product.prodname_actions %}, confira "[Introdução ao {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 
-By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
+Por padrão, o limite de taxa para {% data variables.product.prodname_actions %} está desabilitado. Como o {% data variables.product.product_name %} pode lidar com picos temporários de uso sem degradação de desempenho, esse limite de taxa destina-se a proteger contra carga alta sustentada. Recomendamos deixar o limite de taxa desabilitado, a menos que você esteja enfrentando problemas de desempenho. Em alguns casos, {% data variables.contact.github_support %} pode recomendar que você ative um limite de taxa para {% data variables.product.prodname_actions %}. 
 
-### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
+### Habilitar ou desabilitar limites de taxa para {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable and configure the rate limit, run the following two commands, replacing **RUNS-PER-MINUTE** with the value of your choice.
+1. Para habilitar e configurar o limite de taxa, execute os dois comandos a seguir, substituindo **RUNS-PER-MINUTE** pelo valor de sua escolha.
 
    ```shell
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute RUNS-PER-MINUTE
    ```
-1. To disable the rate limit after it's been enabled, run the following command.
+1. Para desabilitar o limite de taxa depois de habilitado, execute o comando a seguir.
 
    ```
    ghe-config actions-rate-limiting.enabled false
    ```
-1. To apply the configuration, run the following command.
+1. Para aplicar a configuração, execute o comando a seguir.
 
    ```
    ghe-config-apply
    ```
-1. Wait for the configuration run to complete.
+1. Aguarde a conclusão da execução de suas configurações.
 
 {% endif %}

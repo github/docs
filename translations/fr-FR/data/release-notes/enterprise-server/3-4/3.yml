@@ -1,42 +1,41 @@
-date: '2022-05-17'
+date: '17/05/2022'
 sections:
   security_fixes:
-    - '**MEDIUM:** A security issue in nginx resolver was identified, where an attacker who could forge UDP packets from the DNS server could cause 1-byte memory overwrite, resulting in worker process crashes or other potentially damaging impacts. The vulnerability has been assigned [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
-    - Updated the `actions/checkout@v2` and `actions/checkout@v3` actions to address new vulnerabilities announced in the [Git security enforcement blog post](https://github.blog/2022-04-12-git-security-vulnerability-announced/).
-    - Packages have been updated to the latest security versions.
+    - '**MOYENNE :** Un problème de sécurité dans le résolveur nginx a été identifié. Un attaquant qui pouvait falsifier des paquets UDP provenant du serveur DNS pouvait provoquer l’écrasement d’un octet de mémoire, ce qui entraînait des plantages de processus de travail ou d’autres impacts potentiellement dommageables. La vulnérabilité a été affectée au numéro [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017).'
+    - "Mise à jour des actions `actions/checkout@v2` et `actions/checkout@v3` pour corriger les nouvelles vulnérabilités annoncées dans le [billet de blog sur l’application de la sécurité de Git](https://github.blog/2022-04-12-git-security-vulnerability-announced/)."
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
   bugs:
-    - In some cluster topologies, the `ghe-cluster-status` command left behind empty directories in `/tmp`.
-    - SNMP incorrectly logged a high number of `Cannot statfs` error messages to syslog.
-    - When adding custom patterns and providing non-UTF8 test strings, match highlighting was incorrect.
-    - LDAP users with an underscore character (`_`) in their user names can now login successfully.
-    - For instances configured with SAML authentication and built-in fallback enabled, built-in users would get stuck in a “login” loop when attempting to sign in from the page generated after logging out.
-    - After enabling SAML encrypted assertions with Azure as identity provider, the sign in page would fail with a `500` error.
-    - Character key shortcut preferences weren't respected.
-    - Attempts to view the `git fsck` output from the `/stafftools/repositories/:owner/:repo/disk` page would fail with a `500 Internal Server Error`.
-    - When using SAML encrypted assertions, some assertions were not correctly marking SSH keys as verified.
-    - Videos uploaded to issue comments would not be rendered properly.
-    - When using GitHub Enterprise Importer to import a repository, some issues would fail to import due to incorrectly configured project timeline events.
-    - When using `ghe-migrator`, a migration would fail to import video file attachments in issues and pull requests.
-    - 'The Releases page would return a 500 error when the repository has tags that contain non-ASCII characters. [Updated: 2022-06-10]'
-    - 'Upgrades would sometimes fail while migrating dependency graph data. [Updated: 2022-06-30]'
+    - "Dans certaines topologies de clusters, la commande `ghe-cluster-status` laissait derrière elle des répertoires vides dans `/tmp`."
+    - SNMP enregistrait incorrectement un nombre élevé de messages d’erreur `Cannot statfs` dans syslog.
+    - "Lors de l’ajout de modèles personnalisés et de la fourniture de chaînes de test non UTF8, la mise en évidence des correspondances était incorrecte."
+    - Les utilisateurs LDAP avec un caractère de soulignement (`_`) dans leur nom d’utilisateur peuvent maintenant se connecter avec succès.
+    - "Pour les instances configurées avec l’authentification SAML et le repli intégré activé, les utilisateurs intégrés restaient bloqués dans une boucle de connexion lorsqu’ils tentaient de se connecter à partir de la page générée après la déconnexion."
+    - "Après avoir activé les assertions chiffrées SAML avec Azure comme fournisseur d’identité, la page de connexion échouait avec une erreur `500`."
+    - Les préférences de raccourci clavier des caractères n’étaient pas respectées.
+    - "Les tentatives d’affichage de la sortie `git fsck` à partir de la page `/stafftools/repositories/:owner/:repo/disk` échouaient avec `500 Internal Server Error`."
+    - "Lors de l’utilisation d’assertions chiffrées SAML, certaines assertions ne marquaient pas correctement les clés SSH comme vérifiées."
+    - Les vidéos chargées pour émettre des commentaires ne s’affichaient pas correctement.
+    - "Lors de l’utilisation de GitHub Enterprise Importer pour importer un référentiel, l’importation de certains numéros échouait en raison d’événements de chronologie du projet incorrectement configurés."
+    - "Lors de l’utilisation de `ghe-migrator`, une migration ne parvenait pas à importer les pièces jointes des fichiers vidéo dans les problèmes et les demandes de tirage."
+    - 'La page Releases renvoyait une erreur 500 lorsque le référentiel comporte des balises contenant des caractères non ASCII. [Mise à jour : 2022-06-10]'
+    - 'Les mises à jour échouaient parfois lors de la migration des données du graphe des dépendances. [Mise à jour : 2022-06-30]'
   changes:
-    - In high availability configurations, clarify that the replication overview page in the Management Console only displays the current replication configuration, not the current replication status.
-    - The Nomad allocation timeout for Dependency Graph has been increased to ensure post-upgrade migrations can complete.
-    - When enabling {% data variables.product.prodname_registry %}, clarify that using a Shared Access Signature (SAS) token as connection string is not currently supported.
-    - Support bundles now include the row count of tables stored in MySQL.
-    - When determining which repository networks to schedule maintenance on, we no longer count the size of unreachable objects.
-    - The `run_started_at` response field is now included in the [Workflow runs API](/rest/actions/workflow-runs) and the `workflow_run` event webhook payload.
+    - "Dans les configurations à haute disponibilité, précision du fait que la page de présentation de la réplication dans la console de gestion affiche uniquement la configuration actuelle de la réplication, et non l’état actuel de la réplication."
+    - Le délai d’allocation de Nomad pour le graphe des dépendances a été augmenté pour assurer que les migrations post-mise à jour puissent se terminer.
+    - "Lorsque vous activez {% data variables.product.prodname_registry %}, précision que l’utilisation d’un jeton de signature d’accès partagé (SAP) comme chaîne de connexion n’est pas prise en charge actuellement."
+    - Les packs de support incluent désormais le nombre de lignes des tables stockées dans MySQL.
+    - "Lorsque nous déterminons les réseaux de référentiels sur lesquels nous devons planifier la maintenance, nous ne comptons plus la taille des objets inaccessibles."
+    - "Le champ de réponse `run_started_at` est maintenant inclus dans l’API [Exécutions de workflow](/rest/actions/workflow-runs) et dans la charge utile du webhook de l’événement `workflow_run`."
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
-    - Custom firewall rules are removed during the upgrade process.
-    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
-    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
-    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
-    - |
-      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4 releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - |Après avoir enregistré un exécuteur auto-hébergé avec le paramètre `--ephemeral` à plus d’un niveau (par exemple, entreprise et organisation), l’exécuteur peut rester bloqué dans un état d’inactivité et nécessiter un nouvel enregistrement. [Mise à jour : 2022-06-17]
+
+|
+    - "Après la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.4, des versions peuvent sembler manquer dans les référentiels. Cela peut se produire lorsque les migrations d’index Elasticsearch requises n’ont pas été effectuées avec succès."
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
-    - |
-      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]

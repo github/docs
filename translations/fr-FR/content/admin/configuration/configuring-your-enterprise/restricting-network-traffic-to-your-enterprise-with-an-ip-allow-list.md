@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185042'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191893'
 ---
 ## À propos des restrictions du trafic réseau
 
@@ -30,7 +30,7 @@ Par défaut, les utilisateurs autorisés peuvent accéder à votre entreprise à
 
 {% ifversion ghec %}
 
-Si votre entreprise utilise des {% data variables.product.prodname_emus %} avec OIDC, vous pouvez choisir d’utiliser la fonctionnalité de liste d’adresses IP autorisées de {% data variables.product.company_short %} ou d’utiliser les restrictions de la liste d’autorisations de votre fournisseur d’identité (IdP). Si votre entreprise n’utilise pas de {% data variables.product.prodname_emus %} avec OIDC, vous pouvez utiliser la fonctionnalité de liste d’autorisations de {% data variables.product.company_short %}. 
+Si votre entreprise utilise des {% data variables.product.prodname_emus %} avec Azure AD et OIDC, vous pouvez choisir d’utiliser la fonctionnalité de liste d’adresses IP autorisées de {% data variables.product.company_short %} ou d’utiliser les restrictions de la liste d’autorisations de votre fournisseur d’identité (IdP). Si votre entreprise n’utilise pas de {% data variables.product.prodname_emus %} avec Azure et OIDC, vous pouvez utiliser la fonctionnalité de liste d’autorisations de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ Vous pouvez utiliser la liste d’adresses IP autorisées de {% data variables.p
 
 ## À propos de la liste d’autorisations de votre IdP
 
-Si vous utilisez des {% data variables.product.prodname_emus %} avec OIDC, vous pouvez utiliser la liste d’autorisations de votre IdP. 
+Si vous utilisez des {% data variables.product.prodname_emus %} avec Azure AD et OIDC, vous pouvez utiliser la liste d’autorisations de votre IdP.
 
 L’utilisation de la liste d’autorisations de votre IdP désactive les configurations de liste d’adresses IP autorisées de {% data variables.product.company_short %} pour toutes les organisations de votre entreprise et désactive les API GraphQL pour l’activation et la gestion des listes d’adresses IP autorisées. 
 
@@ -109,7 +109,11 @@ Pour garantir une utilisation transparente de la stratégie d’accès condition
 
 ## Utilisation de la liste d’autorisations de votre fournisseur d’identité
 
-Vous pouvez utiliser la liste d’autorisations de votre IdP si vous utilisez des {% data variables.product.prodname_emus %} avec OIDC.
+{% note %}
+
+**Remarque :** l’utilisation de la liste verte de votre fournisseur d’identité est uniquement prise en charge pour {% data variables.product.prodname_emus %} avec Azure AD et OIDC. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. Sous « Liste d’adresses IP autorisées », sélectionnez la liste déroulante et cliquez sur **Fournisseur d’identité**.

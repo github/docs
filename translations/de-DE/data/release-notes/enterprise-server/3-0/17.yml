@@ -1,0 +1,25 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'Bei benutzerdefinierten Pre-Receive-Hooks sind unter Umständen aufgrund zu restriktiver Grenzwerte für virtuellen Arbeitsspeicher oder für CPU-Zeit Fehler aufgetreten. {% comment %} https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'Beim Versuch, alle vorhandenen Konfigurationseinstellungen mit „ghe-cleanup-settings“ zurückzusetzen, wurde der Verwaltungskonsolendienst nicht neu gestartet. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Während der Replikationsnachbearbeitung über „ghe-repl-teardown“ konnte Memcached nicht neu gestartet werden. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Bei hoher Auslastung wurden HTTP 503-Statuscodes an Benutzer zurückgegeben, wenn interne Integritätsprüfungen für Upstreamdienste fehlerhaft waren. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Umgebungen von Pre-Receive-Hooks durften den cat-Befehl über BusyBox auf Alpine nicht aufrufen. {% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'Das externe Datenbankkennwort wurde in Klartext protokolliert. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'Beim Ausführen von „ghe-config-apply“ wurde unter Umständen eine irrtümliche jq-Fehlermeldung angezeigt. {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Das Ausführen eines Failovers von einem primären Clusterrechenzentrum auf ein sekundäres Clusterrechenzentrum ist zwar erfolgreich, das Failback auf das ursprüngliche primäre Clusterrechenzentrum konnte jedoch keine Elasticsearch-Indizes höher stufen. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Von der Websiteadministratorseite für selbstgehostete Runner des Repositorys wurde „HTTP 500“ zurückgegeben. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - 'In einigen Fällen haben GitHub Enterprise-Administratoren, die versuchen, die Seite „Inaktive Benutzer anzuzeigen, die Antwort „502 Ungültiges Gateway“ oder „504 Gatewaytimeout“ erhalten. {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
+  changes:
+    - 'Webhookprotokolle außerhalb des Aufbewahrungszeitraums können nun effektiver gelöscht werden. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+  known_issues:
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn ein Replikatknoten in einer Hochverfügbarkeitskonfiguration offline ist, kann {% data variables.product.product_name %} eventuell noch immer Anforderungen von {% data variables.product.prodname_pages %} an den Offlineknoten weiterleiten, was die Verfügbarkeit von {% data variables.product.prodname_pages %} für die Benutzer verringert."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

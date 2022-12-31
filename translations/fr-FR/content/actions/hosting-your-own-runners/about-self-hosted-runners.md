@@ -1,6 +1,6 @@
 ---
-title: About self-hosted runners
-intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
+title: À propos des exécuteurs auto-hébergés
+intro: 'Vous pouvez héberger vos propres exécuteurs et personnaliser l’environnement utilisé pour exécuter les travaux dans vos workflows {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
@@ -10,177 +10,174 @@ versions:
   ghae: '*'
   ghec: '*'
 type: overview
+ms.openlocfilehash: b570dbe3a5df607f0b02e0c7a42a6a7cfb860c80
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107564'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## À propos des exécuteurs auto-hébergés
 
-## About self-hosted runners
-
-A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information about {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes or ghae %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+Un exécuteur auto-hébergé est un système que vous déployez et gérez pour exécuter des travaux à partir de {% data variables.product.prodname_actions %} sur {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Pour plus d’informations sur {% data variables.product.prodname_actions %}, consultez « [Présentation de {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %} ».{% elsif ghec or ghes or ghae %} » et « [À propos de {% data variables.product.prodname_actions %} pour les entreprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)».{% endif %}
 
 {% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
-You can add self-hosted runners at various levels in the management hierarchy:
-- Repository-level runners are dedicated to a single repository.
-- Organization-level runners can process jobs for multiple repositories in an organization.
-- Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
+Vous pouvez ajouter des exécuteurs auto-hébergés à différents niveaux dans la hiérarchie de gestion :
+- Les exécuteurs au niveau du dépôt sont dédiés à un seul dépôt.
+- Les exécuteurs au niveau de l’organisation peuvent traiter des travaux pour plusieurs dépôts d’une organisation.
+- Les exécuteurs au niveau de l’entreprise peuvent être affectés à plusieurs organisations dans un compte d’entreprise.
 
-{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} Lorsqu’une nouvelle version est publiée, l’application de l’exécuteur est mise à jour automatiquement lorsqu’un travail est affecté à l’exécuteur, ou dans un délai d’une semaine après publication si aucun travail n’est affecté à l’exécuteur.
 
-{% ifversion ghes %} 
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+**Remarque :** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
-For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+Pour plus d’informations sur l’installation et l’utilisation d’exécuteurs auto-hébergés, consultez « [Ajout d’exécuteurs auto-hébergés](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)» et « [Utilisation d’exécuteurs auto-hébergés dans un workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow) ».
 
-## {% ifversion fpt or ghec or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
+## {% ifversion fpt or ghec or ghes %}Différences entre exécuteurs hébergés par {% data variables.product.prodname_dotcom %} et {% elsif ghae %}Caractéristiques des {% endif %}exécuteurs auto-hébergés
 
-{% ifversion fpt or ghec or ghes %}
-{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
+{% ifversion fpt or ghec or ghes %} Les exécuteurs hébergés par {% data variables.product.prodname_dotcom %} offrent un moyen plus rapide et plus simple d’exécuter vos workflows, tandis que les exécuteurs auto-hébergés{% elsif ghae %}Les exécuteurs auto-hébergés{% endif %} sont un moyen hautement configurable d’exécuter des workflows dans votre propre environnement personnalisé. {% ifversion ghae %}Les exécuteurs auto-hébergés :{% endif %}
 
-{% ifversion fpt or ghec or ghes %}
-**{% data variables.product.prodname_dotcom %}-hosted runners:**
-- Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
-- Are managed and maintained by {% data variables.product.prodname_dotcom %}.
-- Provide a clean instance for every job execution.
-- Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
+{% ifversion fpt or ghec or ghes %} **Les exécuteurs hébergés par {% data variables.product.prodname_dotcom %} :**
+- Recevez les mises à jour automatiques pour le système d’exploitation, les packages et les outils préinstallés et l’application de l’exécuteur auto-hébergé.
+- Sont gérés et tenus à jour par {% data variables.product.prodname_dotcom %}.
+- Fournissez une instance claire pour chaque exécution de travail.
+- Utilisent des minutes gratuites sur votre plan {% data variables.product.prodname_dotcom %}, avec des tarifs à la minute appliqués après dépassement des minutes gratuites.
 
-**Self-hosted runners:**{% endif %}
-- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
-- Can use cloud services or local machines that you already pay for.
-- Are customizable to your hardware, operating system, software, and security requirements.
-- Don't need to have a clean instance for every job execution.
-- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes or ghae %}
-- Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+**Les exécuteurs auto-hébergés :** {% endif %}
+- Reçoivent des mises à jour automatiques uniquement pour l’application d’exécuteur auto-hébergée{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, bien que vous puissiez désactiver les mises à jour automatiques de l’exécuteur. Pour plus d’informations sur le contrôle des mises à jour logicielles de l’exécuteur sur les exécuteurs auto-hébergés, consultez « [Mise à l’échelle automatique avec des exécuteurs auto-hébergés](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners) ».{% else %}.{% endif %} Vous êtes responsable de la mise à jour du système d’exploitation et de tous les autres logiciels.
+- Peut utiliser des services cloud ou des ordinateurs locaux que vous payez déjà.
+- Sont personnalisables en termes de matériel, de système d’exploitation, de logiciel et de sécurité.
+- Il n’est pas nécessaire d’avoir une instance claire pour chaque exécution de travail.
+- Peuvent être utilisés gratuitement avec {% data variables.product.prodname_actions %}, mais vous êtes responsable du coût de maintenance de vos machines d’exécuteur.{% ifversion ghec or ghes or ghae %}
+- Peuvent être organisés en groupes pour restreindre l’accès à des {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organisations et dépôts spécifiques. Pour plus d’informations, consultez « [Gestion de l’accès aux exécuteurs auto-hébergés à l’aide de groupes](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups) ».{% endif %}
 
-## Requirements for self-hosted runner machines
+## Configuration requise pour les machines d’exécuteur auto-hébergé
 
-You can use any machine as a self-hosted runner as long at it meets these requirements:
+Vous pouvez utiliser n’importe quelle machine en tant qu’exécuteur auto-hébergé tant qu’elle répond aux exigences suivantes :
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
-* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+* Vous pouvez installer et exécuter l’application d’exécuteur auto-hébergée sur la machine. Pour plus d’informations, consultez « [Architectures et systèmes d’exploitation pris en charge pour les exécuteurs auto-hébergés](#supported-architectures-and-operating-systems-for-self-hosted-runners) ».
+* La machine peut communiquer avec {% data variables.product.prodname_actions %}. Pour plus d’informations, consultez « [Communication entre les exécuteurs auto-hébergés et {% data variables.product.product_name %}](#communication-requirements) ».
+* La machine dispose de suffisamment de ressources matérielles pour le type de workflows que vous envisagez d’exécuter. L’application d’exécuteur auto-hébergé elle-même nécessite uniquement des ressources minimales.
+* Si vous souhaitez exécuter des workflows qui utilisent des actions de conteneur Docker ou des conteneurs de service, vous devez utiliser une machine Linux et Docker doit être installé.
 
-## Autoscaling your self-hosted runners
+## Mise à l’échelle automatique de vos exécuteurs auto-hébergés
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+Vous pouvez augmenter ou diminuer automatiquement le nombre d’exécuteurs auto-hébergés dans votre environnement en réponse aux événements de webhook que vous recevez. Pour plus d’informations, consultez « [Mise à l’échelle automatique avec des exécuteurs auto-hébergés](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners) ».
 
-## Usage limits
+## Limites d’utilisation
 
-There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
+Il existe des limites sur l’utilisation de {% data variables.product.prodname_actions %} lors de l’utilisation d’exécuteurs auto-hébergés. Ces limites sont susceptibles d’être modifiées.
 
 {% data reusables.actions.usage-workflow-run-time %}
-- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+- **Durée de file d’attente des travaux**: Chaque travail pour les exécuteurs auto-hébergés peut être mis en file d’attente pendant un maximum de 24 heures. Si un exécuteur auto-hébergé ne démarre pas l’exécution du travail dans cette limite, le travail est arrêté et n’aboutit pas.
 {% data reusables.actions.usage-api-requests %}
-- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
-{% data reusables.actions.usage-workflow-queue-limits %}
+- **Matrice de travaux** : {% data reusables.actions.usage-matrix-limits %} {% data reusables.actions.usage-workflow-queue-limits %}
 
-## Workflow continuity for self-hosted runners
+## Continuité des workflows pour les exécuteurs auto-hébergés
 
 {% data reusables.actions.runner-workflow-continuity %}
 
-## Supported architectures and operating systems for self-hosted runners
+## Architectures et systèmes d’exploitation pris en charge pour les exécuteurs auto-hébergés
 
-The following operating systems are supported for the self-hosted runner application.
+Les systèmes d’exploitation suivants sont pris en charge pour l’application d’exécuteur auto-hébergé.
 
 ### Linux
 
-- Red Hat Enterprise Linux 7 or later
-- CentOS 7 or later
+- Red Hat Enterprise Linux 7 ou version ultérieure
+- CentOS 7 ou version ultérieure
 - Oracle Linux 7
-- Fedora 29 or later
-- Debian 9 or later
-- Ubuntu 16.04 or later
-- Linux Mint 18 or later
-- openSUSE 15 or later
-- SUSE Enterprise Linux (SLES) 12 SP2 or later
+- Fedora 29 ou version ultérieure
+- Debian 9 ou version ultérieure
+- Ubuntu 16.04 ou version ultérieure
+- Linux Mint 18 ou version ultérieure
+- openSUSE 15 ou version ultérieure
+- SUSE Enterprise Linux (SLES) 12 SP2 ou version ultérieure
 
 ### Windows
 
-- Windows 7 64-bit
-- Windows 8.1 64-bit
-- Windows 10 64-bit
-- Windows Server 2012 R2 64-bit
-- Windows Server 2019 64-bit
+- Windows 7 64 bits
+- Windows 8.1 64 bits
+- Windows 10 64 bits
+- Windows Server 2012 R2 64 bits
+- Windows Server 2019 64 bits
 
 ### macOS
 
-- macOS 10.13 (High Sierra) or later
+- macOS 10.13 (High Sierra) ou version ultérieure
 
 ### Architectures
 
-The following processor architectures are supported for the self-hosted runner application.
+Les architectures de processeur suivantes sont prises en charge pour l’application d’exécuteur auto-hébergé.
 
-- `x64` - Linux, macOS, Windows.
-- `ARM64` - Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
+- `x64` – Linux, macOS, Windows.
+- `ARM64` - Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (actuellement en version bêta){% endif %}.
 - `ARM32` - Linux.
 
 {% ifversion ghes %}
 
-## Supported actions on self-hosted runners
+## Actions prises en charge sur les exécuteurs auto-hébergés
 
-Some extra configuration might be required to use actions from {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. For more information, see "[Managing access to actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)" and contact your {% data variables.product.prodname_enterprise %} site administrator.
+Une configuration supplémentaire peut être nécessaire pour utiliser des actions à partir de {% data variables.product.prodname_dotcom_the_website %} avec {% data variables.product.prodname_ghe_server %}, ou pour utiliser les actions `actions/setup-LANGUAGE` avec des exécuteurs auto-hébergés qui n’ont pas accès à Internet. Pour plus d’informations, consultez « [Gestion de l’accès aux actions à partir de {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/managing-access-to-actions-from-githubcom)» et contactez votre administrateur de site {% data variables.product.prodname_enterprise %}.
 
 {% endif %}
 
 <a name="communication-requirements"></a>
 
-## Communication between self-hosted runners and {% data variables.product.product_name %}
+## Communication entre les exécuteurs auto-hébergés et {% data variables.product.product_name %}
 
-The self-hosted runner connects to {% data variables.product.product_name %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
+Les exécuteurs auto-hébergés se connectent à {% data variables.product.product_name %} pour recevoir les affectations de travaux et pour télécharger les nouvelles versions de l’application d’exécuteur. L’exécuteur auto-hébergé utilise une _interrogation longue_ {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} qui ouvre une connexion à {% data variables.product.product_name %} pendant 50 secondes, et si aucune réponse n’est reçue, il expire et crée une nouvelle interrogation longue. L’application doit s’exécuter sur la machine pour accepter et exécuter des travaux {% data variables.product.prodname_actions %}.
 
 {% data reusables.actions.self-hosted-runner-ports-protocols %}
 
-{% ifversion fpt or ghec %}
-Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
-{% elsif ghes or ghae %}
-Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
+{% ifversion fpt or ghec %} Étant donné que l’exécuteur auto-hébergé ouvre une connexion à {% data variables.location.product_location %}, vous n’avez pas besoin d’autoriser {% data variables.product.prodname_dotcom %} à établir des connexions entrantes à votre exécuteur auto-hébergé.
+{% elsif ghes or ghae %} Seule une connexion sortante de l’exécuteur vers {% data variables.location.product_location %} est requise. Il n’est pas nécessaire d’établir une connexion entrante de {% data variables.location.product_location %} vers l’exécuteur.
 {%- endif %}
 
 {% ifversion ghes %}
 
-{% data variables.product.product_name %} must accept inbound connections from your runners over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} at {% data variables.location.product_location %}'s hostname and API subdomain, and your runners must allow outbound connections over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} to {% data variables.location.product_location %}'s hostname and API subdomain.
+{% data variables.product.product_name %} doit accepter les connexions entrantes de vos exécuteurs via {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} au sous-domaine de l’API et au nom d’hôte de {% data variables.location.product_location %}, et vos exécuteurs doivent autoriser les connexions sortantes via {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} au sous-domaine de l’API et au nom d’hôte de {% data variables.location.product_location %}.
 
 {% elsif ghae %}
 
-You must ensure that the self-hosted runner has appropriate network access to communicate with your {% data variables.product.product_name %} URL and its subdomains. For example, if your subdomain for {% data variables.product.product_name %} is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
+Vous devez vous assurer que l’exécuteur auto-hébergé dispose d’un accès réseau approprié pour communiquer avec votre URL {% data variables.product.product_name %} et ses sous-domaines. Par exemple, si votre sous-domaine pour {% data variables.product.product_name %} est `octoghae`, vous devez autoriser l’exécuteur auto-hébergé à accéder à `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com` et `codeload.octoghae.githubenterprise.com`.
 
-If you use an IP address allow list, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+Si vous utilisez une liste verte d’adresses IP, vous devez ajouter l’adresse IP de votre exécuteur auto-hébergé à cette liste verte. Pour plus d’informations, consultez « [Gestion des adresses IP autorisées pour votre organisation](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list) ».
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+Vous devez vous assurer que la machine dispose de l’accès réseau approprié pour communiquer avec les hôtes {% data variables.product.prodname_dotcom %} listés ci-dessous. Certains hôtes sont requis pour les opérations d’exécuteur essentielles, tandis que d’autres hôtes ne sont requis que pour certaines fonctionnalités.
 
 {% note %}
 
-**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
+**Remarque :** Certains des domaines répertoriés ci-dessous sont configurés à l’aide d’enregistrements `CNAME`. Certains pare-feu peuvent nécessiter l’ajout de règles récursives pour tous les enregistrements `CNAME`. Notez que les enregistrements `CNAME` peuvent changer à l’avenir et que seuls les domaines listés ci-dessous resteront constants.
 
 {% endnote %}
 
-**Needed for essential operations:**
+**Requis pour les opérations essentielles :**
 
 ```
 github.com
 api.github.com
 ```
 
-**Needed for downloading actions:**
+**Requis pour télécharger les actions :**
 
 ```
 codeload.github.com
 ```
 
-**Needed for runner version updates:**
+**Requis pour les mises à jour de la version de l’exécuteur :**
 
 ```
 objects.githubusercontent.com
@@ -189,50 +186,49 @@ github-releases.githubusercontent.com
 github-registry-files.githubusercontent.com
 ```
 
-**Needed for uploading/downloading caches and workflow artifacts:**    
+**Requis pour charger/télécharger les caches et les artefacts de workflow :**    
 
 ```
 *.blob.core.windows.net
 ```
 
-**Needed for retrieving OIDC tokens:**
+**Requis pour récupérer les jetons OIDC :**
 
 ```
 *.actions.githubusercontent.com
 ```
 
-**Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
+**Nécessaire pour le téléchargement ou la publication de packages ou de conteneurs dans les packages {% data variables.product.prodname_dotcom %} :**
 
 ```
 *.pkg.github.com
 ghcr.io
 ```
 
-In addition, your workflow may require access to other network resources.
+En outre, votre workflow peut nécessiter l’accès à d’autres ressources réseau.
 
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Si vous utilisez une liste verte d’adresses IP pour votre compte d’organisation ou d’entreprise {% data variables.product.prodname_dotcom %}, vous devez ajouter l’adresse IP de votre exécuteur auto-hébergé à cette liste verte. Pour plus d’informations, consultez « [Gestion des adresses IP autorisées pour votre organisation](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list) » ou « [Application de stratégies pour les paramètres de sécurité dans votre entreprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %} » dans la documentation {% data variables.product.prodname_ghe_cloud %}.{% else %}. »{% endif %}
 
 {% else %}
 
-{% ifversion ghes %}Self-hosted runners do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.location.product_location %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.location.product_location %}, with no need for traffic to traverse a public network.{% endif %}
+{% ifversion ghes %}Les exécuteurs auto-hébergés ne nécessitent pas d’accès Internet externe pour fonctionner. Par conséquent, vous pouvez utiliser le routage réseau pour diriger la communication entre l’exécuteur auto-hébergé et {% data variables.location.product_location %}. Par exemple, vous pouvez attribuer une adresse IP privée à votre exécuteur auto-hébergé et configurer le routage pour envoyer le trafic à {% data variables.location.product_location %}, sans avoir besoin que le trafic traverse un réseau public.{% endif %}
 
 {% endif %}
 
-{% ifversion ghae %}
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
+{% ifversion ghae %} Si vous utilisez une liste verte d’adresses IP pour votre compte d’organisation ou d’entreprise {% data variables.product.prodname_dotcom %}, vous devez ajouter l’adresse IP de votre exécuteur auto-hébergé à cette liste verte. Pour plus d’informations, consultez « [Gestion des adresses IP autorisées pour votre organisation](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list) ».
 {% endif %}
 
-You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+Vous pouvez également utiliser des exécuteurs auto-hébergés avec un serveur proxy. Pour plus d’informations, consultez « [Utilisation d’un serveur proxy avec des exécuteurs auto-hébergés](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners) ».
 
-For more information about troubleshooting common network connectivity issues, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
+Pour plus d’informations sur la résolution des problèmes courants de connectivité réseau, consultez « [Surveillance des exécuteurs auto-hébergés et résolution des problèmes](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity) ».
 
 {% ifversion ghes or ghae %}
 
-## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
+## Communication entre les exécuteurs auto-hébergés et {% data variables.product.prodname_dotcom_the_website %}
 
-Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.location.product_location %}. For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+Les exécuteurs auto-hébergés n’ont pas besoin de se connecter à {% data variables.product.prodname_dotcom_the_website %}, à moins que vous ayez activé l’accès automatique aux actions {% data variables.product.prodname_dotcom_the_website %} pour {% data variables.location.product_location %}. Pour plus d’informations, consultez « [À propos de l’utilisation d’actions dans votre entreprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise) ».
 
-If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below. 
+Si vous avez activé l’accès automatique aux actions {% data variables.product.prodname_dotcom_the_website %}, l’exécuteur auto-hébergé se connecte directement à {% data variables.product.prodname_dotcom_the_website %} pour télécharger les actions. Vous devez vous assurer que la machine dispose de l’accès réseau approprié pour communiquer avec les URL {% data variables.product.prodname_dotcom %} listées ci-dessous. 
 
 ```
 github.com
@@ -242,13 +238,13 @@ codeload.github.com
 
 {% note %}
 
-**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
+**Remarque :** Certains des domaines listés ci-dessus sont configurés à l’aide d’enregistrements `CNAME`. Certains pare-feu peuvent nécessiter l’ajout de règles récursives pour tous les enregistrements `CNAME`. Notez que les enregistrements `CNAME` peuvent changer à l’avenir et que seuls les domaines listés ci-dessus resteront constants.
 
 {% endnote %}
 
 {% endif %}
 
-## Self-hosted runner security
+## Sécurité des exécuteurs auto-hébergés
 
 {% ifversion fpt or ghec %}
 
@@ -258,23 +254,23 @@ codeload.github.com
 
 {% ifversion fpt or ghec %}
 
-This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
+Cela ne pose pas de problème avec les exécuteurs hébergés par {% data variables.product.prodname_dotcom %}, car chaque exécuteur hébergé par {% data variables.product.prodname_dotcom %} est toujours une machine virtuelle isolée propre, et parce qu’il est détruit à la fin de l’exécution du travail.
 
 {% endif %}
 
-Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
+Les workflows non approuvés qui s’exécutent sur votre exécuteur auto-hébergé présentent des risques de sécurité importants pour votre machine et votre environnement réseau, en particulier si votre machine conserve son environnement entre les travaux. Voici certains des risques encourus :
 
-* Malicious programs running on the machine.
-* Escaping the machine's runner sandbox.
-* Exposing access to the machine's network environment.
-* Persisting unwanted or dangerous data on the machine.
+* Programmes malveillants s’exécutant sur la machine.
+* Échappement du bac à sable de l’exécuteur de la machine.
+* Exposition de l’accès à l’environnement réseau de la machine.
+* Persistance de données indésirables ou dangereuses sur la machine.
 
-For more information about security hardening for self-hosted runners, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+Pour plus d’informations sur le renforcement de la sécurité pour les exécuteurs auto-hébergés, consultez « [Renforcement de la sécurité pour {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners) ».
 
 {% ifversion ghec or ghes or ghae %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+- « [Bien démarrer avec les exécuteurs auto-hébergés pour votre entreprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise) »
 
 {% endif %}

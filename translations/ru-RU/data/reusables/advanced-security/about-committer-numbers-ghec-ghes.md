@@ -1,14 +1,22 @@
-We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
+---
+ms.openlocfilehash: 1c270b8561ccf065c78b204011804a7222ffe270
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098173"
+---
+Мы записываем и отображаем два числа фиксаций для {% данных variables.product.prodname_GH_advanced_security %} на {% данных variables.location.product_location %}:
 
-- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
-- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+- **Авторы фиксаций** — количество авторов фиксаций, которые внесли свой вклад по крайней мере в один {% ifversion fpt or ghec %}частный {% endif %}репозиторий в организации и которые занимают рабочие места в корпоративной лицензии. Это значит, что они также являются сотрудниками организации, внешними участниками совместной работы или имеют ожидающее принятия приглашение присоединиться к организации.
+- **Число уникальных для этого репозитория или организации** — количество авторов фиксаций, которые внесли вклад только в этот репозиторий или в репозитории этой организации. Это число показывает, сколько рабочих мест в лицензии можно освободить, отключив {% data variables.product.prodname_GH_advanced_security %} для данного репозитория или организации.
 
-If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
+Если уникальных авторов фиксаций нет, все активные авторы фиксаций также участвуют в других репозиториях или организациях с {% data variables.product.prodname_GH_advanced_security %}. Отключение функции для этого репозитория или организации не приведет к освобождению рабочих мест в лицензии.
 
-When you remove a user from your enterprise account, the user's license is freed within 24 hours.
+При удалении пользователя из корпоративной учетной записи лицензия пользователя освобождается в течение 24 часов.
 
 {% note %}
 
-**Note:** Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one seat regardless of how many repositories or organizations the user contributes to.
+**Примечание**. Пользователи могут вносить вклад в несколько репозиториев или организаций. Использование измеряется в рамках всей корпоративной учетной записи, так что каждый участник занимает одно рабочее место независимо от количества репозиториев или организаций, в которые он вносит вклад.
 
 {% endnote %}

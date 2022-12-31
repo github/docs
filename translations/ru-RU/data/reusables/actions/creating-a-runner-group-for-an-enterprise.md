@@ -1,28 +1,32 @@
+---
+ms.openlocfilehash: f49d42aa3fafbdbde2a650f84bc3b48a61e26182
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147764243"
+---
 {% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Всегда включайте объявление о безопасности над этой процедурой. Это одно из следующих действий, в зависимости от того, является ли контекст локальным средством выполнения или более крупными средством выполнения.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-Enterprises can add their runners to groups for access management. Enterprises can create groups of runners that are accessible to specific organizations in the enterprise account{% ifversion restrict-groups-to-workflows %} or to specific workflows{% endif %}. Organization owners can then assign additional granular repository{% ifversion restrict-groups-to-workflows %} or workflow{% endif %} access policies to the enterprise runner groups. For information about how to create a runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
+Предприятия могут добавлять свои средства выполнения в группы для управления доступом. Предприятия могут создавать группы средств выполнения, доступные определенным организациям в корпоративной учетной записи{% ifversion restrict-groups-to-workflows %} или определенным рабочим процессам{% endif %}. Затем владельцы организации могут назначить дополнительные детальные политики доступа репозиториев{% ifversion restrict-groups-to-workflows %} или рабочих процессов {% endif %} к корпоративной группе средств выполнения. Сведения о создании группы средств выполнения с помощью REST API см. в описании корпоративных конечных точек предприятия в разделе [REST API {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runner-groups).
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
+Средства выполнения автоматически назначаются группе по умолчанию при создании и не могут одновременно находиться в нескольких группах. Вы можете назначить средство выполнения определенной группе во время регистрации или позже переместить средство выполнения из группы по умолчанию в настраиваемую группу.
 
-When creating a group, you must choose a policy that defines which organizations have access to the runner group.
+При создании группы необходимо выбрать политику, которая определяет, какие организации имеют доступ к группе средств выполнения.
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
-1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
+1. Чтобы выбрать политику для доступа организаций, щелкните раскрывающийся список **Доступ организаций** и щелкните нужную политику. Группу средств выполнения можно настроить так, чтобы она была доступна для организаций из определенного списка или для всех организаций предприятия. {% ifversion ghes %} По умолчанию только частные репозитории могут обращаться к средствам выполнения в группе средств выполнения, но это можно переопределить.{% endif %}
 
    {%- ifversion ghec or ghes %}
 
-   ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
-   {%- elsif ghae %}
+   ![Добавление параметров группы средств выполнения](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png) {%- elsif ghae %}
 
-   ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
-   {%- endif %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}
-1. Click **Save group** to create the group and apply the policy.
+   ![Добавление параметров группы средств выполнения](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png) {%- endif %} {% data reusables.actions.runner-group-assign-policy-workflow %}
+1. Нажмите **Сохранить группу**, чтобы создать группу и применить политику.
 

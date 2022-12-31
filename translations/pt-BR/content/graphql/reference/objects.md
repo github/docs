@@ -1,5 +1,5 @@
 ---
-title: Objects
+title: Objetos
 redirect_from:
   - /v4/object
   - /v4/reference/object
@@ -10,15 +10,20 @@ versions:
   ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 55302c4bfeea14b1451fdb3391b9d5b954706be0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107850'
 ---
+## Sobre objetos
 
-## About objects
+Os [objetos](https://graphql.github.io/graphql-spec/June2018/#sec-Objects) do GraphQL representam os recursos que você pode acessar. Um objeto pode conter uma lista de campos, que são digitados especificamente.
 
-[Objects](https://graphql.github.io/graphql-spec/June2018/#sec-Objects) in GraphQL represent the resources you can access. An object can contain a list of fields, which are specifically typed.
+Por exemplo, o objeto [`Repository`](/graphql/reference/objects#repository) tem um campo chamado `name`, que é uma `String`.
 
-For example, the [`Repository`](/graphql/reference/objects#repository) object has a field called `name`, which is a `String`.
-
-For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
+Para obter mais informações, confira "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql)".
 
 {% data reusables.projects.graphql-ghes %}
 

@@ -1,6 +1,6 @@
 ---
-title: Publishing and installing a package with GitHub Actions
-intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
+title: Publication et installation d’un package avec GitHub Actions
+intro: 'Vous pouvez configurer un workflow dans {% data variables.product.prodname_actions %} pour publier ou installer automatiquement un package à partir de {% data variables.product.prodname_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
@@ -12,81 +12,87 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
+ms.openlocfilehash: 80516eb55e9ffc8f2de3f92cf24a7d7f230b8407
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193121'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## À propos de {% data variables.product.prodname_registry %} avec {% data variables.product.prodname_actions %}
 
-## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
+{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} Pour plus d’informations, consultez « [À propos de {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions) ».
 
-{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
+Vous pouvez étendre les fonctionnalités CI et CD de votre dépôt en publiant ou en installant des packages dans le cadre de votre workflow.
 
-You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
-
-{% ifversion fpt or ghec %}
-### Authenticating to the {% data variables.packages.prodname_ghcr_and_npm_registry %}
+{% ifversion packages-registries-v2 %}
+### Authentification auprès des registres de packages avec des autorisations granulaires
 
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
+### Authentification auprès des registres de packages avec des autorisations limitées au dépôt
+
 {% endif %}
 
-### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
+{% ifversion packages-registries-v2 %} Certains registres {% data variables.product.prodname_registry %} prennent uniquement en charge les autorisations limitées au dépôt, ils ne prennent pas en charge les autorisations granulaires. Pour obtenir la liste de ces registres, consultez « [À propos des autorisations pour {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages) ».
 
-{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.location.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a {% data variables.product.pat_generic %} for authentication. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+Si vous voulez que votre workflow accède à un registre {% data variables.product.prodname_registry %} qui ne prend pas en charge les autorisations granulaires, {% else %}Pour s’authentifier auprès des registres de packages sur {% data variables.product.product_name %},{% endif %} nous recommandons d’utiliser `GITHUB_TOKEN` que {% data variables.product.product_name %} crée automatiquement pour votre dépôt quand vous activez {% data variables.product.prodname_actions %}. Vous devez définir les autorisations de ce jeton d’accès dans le fichier de workflow afin d’octroyer l’accès en lecture pour l’étendue `contents` et l’accès en écriture pour l’étendue `packages`. Pour les duplications, `GITHUB_TOKEN` reçoit un accès en lecture pour le dépôt parent. Pour plus d’informations, consultez « [Authentification avec GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) ».
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+Vous pouvez référencer le `GITHUB_TOKEN` de votre fichier de workflow à l’aide du contexte {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %}. Pour plus d’informations, consultez « [Authentification avec GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token) ».
 
-## About permissions and package access for repository-owned packages
+## À propos des autorisations et de l’accès aux packages
 
-{% note %}
+{% ifversion packages-registries-v2 %}
 
-**Note:** Some registries, such as RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle{% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`{% endif %}, only allow repository-owned packages. With {% data variables.packages.prodname_ghcr_and_npm_registry_full %} you can choose to allow packages to be owned by a user, an organization, or linked to a repository.
+### Packages limités aux utilisateurs ou aux organisations
 
-{% endnote %}
+Les registres qui prennent en charge les autorisations granulaires autorisent les utilisateurs à créer et à administrer des packages en tant que ressources autonomes au niveau de l’organisation. Les packages peuvent appartenir à un compte d’organisation ou personnel, et vous pouvez personnaliser l’accès à chacun de vos packages séparément des autorisations de dépôt.
 
-When you enable GitHub Actions, GitHub installs a GitHub App on your repository. The `GITHUB_TOKEN` secret is a GitHub App installation access token. You can use the installation access token to authenticate on behalf of the GitHub App installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)."
+Tous les workflows accédant aux registres qui prennent en charge les autorisations granulaires doivent utiliser `GITHUB_TOKEN` au lieu d’un {% data variables.product.pat_generic %}. Pour plus d’informations sur les meilleures pratiques en matière de sécurité, consultez « [Renforcement de la sécurité pour GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets) ».
 
-{% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
+### Packages limités aux dépôts
 
-{% ifversion fpt or ghec %}
-## About permissions and package access for {% data variables.packages.prodname_ghcr_and_npm_registry %}
+{% endif %}
 
-The {% data variables.packages.prodname_ghcr_and_npm_registry_full %} allows users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
+Lorsque vous activez GitHub Actions, GitHub installe une application GitHub sur votre dépôt. Le secret `GITHUB_TOKEN` est un jeton d’accès d’installation d’application GitHub. Vous pouvez utiliser le jeton d’accès d’installation pour vous authentifier au nom de l’application GitHub installée sur votre dépôt. Les autorisations du jeton sont limitées au dépôt qui contient votre workflow. Pour plus d’informations, consultez « [Autorisations pour le secret GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret) ».
 
-All workflows accessing the {% data variables.packages.prodname_ghcr_and_npm_registry %} should use the `GITHUB_TOKEN` instead of a {% data variables.product.pat_generic %}. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+{% data variables.product.prodname_registry %} vous permet d’envoyer (push) et d’extraire des packages via le secret `GITHUB_TOKEN` disponible pour un workflow {% data variables.product.prodname_actions %}.
 
-## Default permissions and access settings for containers modified through workflows
+{% ifversion packages-registries-v2 %}
 
-When you create, install, modify, or delete a container through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well.
+## Autorisations et paramètres d’accès par défaut pour les conteneurs, modifiés via des workflows
 
-For example, by default if a workflow creates a container using the `GITHUB_TOKEN`, then:
-- The container inherits the visibility and permissions model of the repository where the workflow is run.
-- Repository admins where the workflow is run become the admins of the container once the container is created.
+Lorsque vous créez, installez, modifiez ou supprimez un conteneur via un workflow, certains paramètres d’accès et autorisations par défaut sont utilisés pour garantir l’accès des administrateurs au workflow. Vous pouvez également ajuster ces paramètres d’accès.
 
-These are more examples of how default permissions work for workflows that manage packages.
+Par exemple, par défaut, si un workflow crée un conteneur à l’aide du secret `GITHUB_TOKEN` :
+- Le conteneur hérite du modèle de visibilité et d’autorisations du dépôt où le workflow est exécuté.
+- Les administrateurs du dépôt où le flux de travail est exécuté deviennent administrateurs du conteneur une fois celui-ci créé.
 
-| {% data variables.product.prodname_actions %} workflow task | Default permissions and access |
+Voici d’autres exemples montrant comment les autorisations par défaut fonctionnent pour des workflows qui gèrent des packages.
+
+| Tâche de workflow {% data variables.product.prodname_actions %} | Autorisations et accès par défaut |
 |----|----|
-| Download an existing container | - If the container is public, any workflow running in any repository can download the container. <br> - If the container is internal, then all workflows running in any repository owned by the Enterprise account can download the container. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the container is private, only workflows running in repositories that are given read permission on that container can download the container. <br>
-| Upload a new version to an existing container | - If the container is private, internal, or public, only workflows running in repositories that are given write permission on that container can upload new versions to the container.
-| Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given delete permission can delete existing versions of the container.
+| Télécharger un conteneur existant | - Si le conteneur est public, tout workflow s’exécutant dans n’importe quel dépôt peut télécharger le conteneur. <br> - Si le conteneur est interne, tout workflow s’exécutant dans n’importe quel dépôt appartenant au compte d’entreprise peut télécharger le conteneur. Pour les organisations appartenant à une entreprise, vous pouvez lire n’importe quel dépôt dans l’entreprise <br> - Si le conteneur est privé, seuls les workflows s’exécutant dans des dépôts qui reçoivent une autorisation de lecture sur ce conteneur peuvent télécharger celui-ci. <br>
+| Charger une nouvelle version dans un conteneur existant | - Si le conteneur est privé, interne ou public, seuls les workflows s’exécutant dans des dépôts qui reçoivent l’autorisation d’écriture sur ce conteneur peuvent charger de nouvelles versions dans le conteneur.
+| Supprimer un conteneur ou des versions d’un conteneur | - Si le conteneur est privé, interne ou public, seuls les workflows s’exécutant dans des dépôts qui reçoivent l’autorisation de suppression peuvent supprimer des versions existantes du conteneur.
 
-You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Vous pouvez également ajuster l’accès aux conteneurs d’une manière plus précise, ou ajuster en partie le comportement des autorisations par défaut. Pour plus d’informations, consultez « [Configuration du contrôle d’accès et de la visibilité d’un package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility) ».
 
 {% endif %}
 
-## Publishing a package using an action
+## Publication d’un package à l’aide d’une action
 
-You can use {% data variables.product.prodname_actions %} to automatically publish packages as part of your continuous integration (CI) flow. This approach to continuous deployment (CD) allows you to automate the creation of new package versions, if the code meets your quality standards. For example, you could create a workflow that runs CI tests every time a developer pushes code to a particular branch. If the tests pass, the workflow can publish a new package version to {% data variables.product.prodname_registry %}.
+Vous pouvez utiliser {% data variables.product.prodname_actions %} pour publier automatiquement des packages dans le cadre de votre flux d’intégration continue (CI). Cette approche du déploiement continu (CD) vous permet d’automatiser la création de nouvelles versions de package si le code répond à vos normes de qualité. Par exemple, vous pourriez créer un workflow qui exécute des tests de CI chaque fois qu’un développeur envoie du code à une branche particulière. Si les tests réussissent, le workflow peut publier une nouvelle version de package sur {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
+L’exemple suivant montre comment utiliser {% data variables.product.prodname_actions %} pour générer votre application {% ifversion not fpt or ghec %}and test{% endif %}, puis créer automatiquement une image Docker et la publier sur {% data variables.product.prodname_registry %}.
 
-Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
+Créez un fichier de workflow dans votre dépôt (par exemple `.github/workflows/deploy-image.yml`), puis ajoutez le YAML suivant :
 
-{% ifversion fpt or ghec %}
-{% data reusables.package_registry.publish-docker-image %}
+{% ifversion fpt or ghec %} {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
 
@@ -163,13 +169,12 @@ jobs:
 ```
 {% endif %}
 
-The relevant settings are explained in the following table. For full details about each element in a workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)."
+Les paramètres pertinents sont expliqués dans le tableau suivant. Pour des informations complètes sur chaque élément d’un workflow, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions) ».
 
 <table>
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 on:
   push:
     branches: ['release']
@@ -177,7 +182,7 @@ on:
 {% endraw %}
 </td>
 <td>
-  Configures the <code>Create and publish a Docker image</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
+Configure le workflow <code>Create and publish a Docker image</code> pour qu’il s’exécute chaque fois qu’une modification est envoyée (push) à la branche nommée <code>release</code>.
 </td>
 </tr>
 
@@ -194,7 +199,7 @@ env:
 {% endraw %}
 </td>
 <td>
-  Defines two custom environment variables for the workflow. These are used for the {% data variables.product.prodname_container_registry %} domain, and a name for the Docker image that this workflow builds.
+  Définit deux variables d’environnement personnalisées pour le workflow. Celles-ci sont utilisées pour le domaine {% data variables.product.prodname_container_registry %}, et un nom pour l’image Docker que ce workflow génère.
 </td>
 </tr>
 
@@ -209,7 +214,7 @@ jobs:
 {% endraw %}
 </td>
 <td>
-  There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
+  Il existe un seul travail dans ce workflow. Il est configuré pour s’exécuter sur la dernière version disponible d’Ubuntu.
 </td>
 </tr>
 
@@ -235,7 +240,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  Ce travail installe NPM et l’utilise pour générer l’application.
 </td>
 </tr>
 
@@ -270,14 +275,13 @@ run-npm-test:
 
 </td>
 <td>
-  This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
+Ce travail utilise <code>npm test</code> pour tester le code. La commande <code>needs: run-npm-build</code> rend ce travail dépendant du travail <code>run-npm-build</code>.
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 build-and-push-image:
   runs-on: ubuntu-latest
   needs: run-npm-test
@@ -285,7 +289,7 @@ build-and-push-image:
 {% endraw %}
 </td>
 <td>
-  This job publishes the package. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+Ce travail publie le package. La commande <code>needs: run-npm-test</code> rend ce travail dépendant du travail <code>run-npm-test</code>.
 </td>
 </tr>
 
@@ -293,8 +297,7 @@ build-and-push-image:
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 permissions: 
   contents: read
   packages: write 
@@ -302,15 +305,14 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
+Définit les autorisations accordées au secret <code>GITHUB_TOKEN</code> pour les actions de ce travail.
 </td>
 </tr> 
 
 {% ifversion fpt or ghec %}
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Log in to the Container registry
   uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
   with:
@@ -321,14 +323,13 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Creates a step called <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+Crée une étape appelée <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, qui se connecte au Registre à l’aide du compte et du mot de passe qui publieront les packages. Une fois publiés, les packages appartiennent au compte défini ici.
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Extract metadata (tags, labels) for Docker
   id: meta
   uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
@@ -338,15 +339,14 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  This step uses <code><a href="https://github.com/docker/metadata-action#about">docker/metadata-action</a></code> to extract tags and labels that will be applied to the specified image. The <code>id</code> "meta" allows the output of this step to be referenced in a subsequent step. The <code>images</code> value provides the base name for the tags and labels.
+Cette étape utilise <code><a href="https://github.com/docker/metadata-action#about">docker/metadata-action</a></code> pour extraire des balises et es étiquettes qui seront appliquées à l’image spécifiée. Le « meta » <code>id</code> permet le référencement de la sortie de cette étape à l’étape suivante. La valeur <code>images</code> fournit le nom de base des balises et étiquettes.
 </td>
 </tr>
 
 {% else %}
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Log in to GitHub Docker Registry
   uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
   with:
@@ -357,75 +357,70 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+Crée une étape nommée <code>Log in to GitHub Docker Registry</code>, qui se connecte au Registre à l’aide du compte et du mot de passe qui publieront les packages. Une fois publiés, les packages appartiennent au compte défini ici.
 </td>
 </tr>
 {% endif %}
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 - name: Build and push Docker image
 ```
 {% endraw %}
 </td>
 <td>
-  Creates a new step called <code>Build and push Docker image</code>. This step runs as part of the <code>build-and-push-image</code> job.
+Crée une étape nommée <code>Build and push Docker image</code>. Cette étape s’exécute dans le cadre du travail <code>build-and-push-image</code>.
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
 ```
 {% endraw %}
 </td>
 <td>
-  Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
+Utilise l’action Docker <code>build-push-action</code> pour générer l’image, en fonction du <code>Dockerfile</code> de votre dépôt. Si la build réussit, elle envoie (push) l’image à {% data variables.product.prodname_registry %}.
 </td>
 </tr>
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 with:
 ```
 {% endraw %}
 </td>
 <td>
-  Sends the required parameters to the <code>build-push-action</code> action. These are defined in the subsequent lines.
+Envoie les paramètres requis à l’action <code>build-push-action</code>. Ceux-ci sont définis dans les lignes suivantes.
 </td>
 </tr>
 
 {% ifversion fpt or ghec %}
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 context: .
 ```
 {% endraw %}
 </td>
 <td>
-  Defines the build's context as the set of files located in the specified path. For more information, see "<a href="https://github.com/docker/build-push-action#usage">Usage</a>."
+Définit le contexte de la build comme l’ensemble de fichiers situé dans le chemin d’accès spécifié. Pour plus d’informations, consultez « <a href="https://github.com/docker/build-push-action#usage">Utilisation</a> ».
 </td>
 </tr>
 {% endif %}
 
 <tr>
 <td>
-{% raw %}
-```yaml
+{% raw %} ```yaml
 push: true
 ```
 {% endraw %}
 </td>
 <td>
-  Pushes this image to the registry if it is built successfully.
+Envoie (push) cette image au Registre s’il est généré avec succès.
 </td>
 </tr>
 
@@ -440,73 +435,66 @@ labels: ${{ steps.meta.outputs.labels }}
 {% endraw %}
 </td>
 <td>
-  Adds the tags and labels extracted in the "meta" step.
+  Ajoute les balises et étiquettes extraites à l’étape « meta ».
 </td>
 </tr>
 
 {% else %}
 <tr>
 <td>
-{% ifversion ghae %}
-{% raw %}
-```yaml
+{% ifversion ghae %} {% raw %} ```yaml
 tags: |
 docker.YOUR-HOSTNAME.com/${{ github.repository }}/octo-image:${{ github.sha }}
 ```
-{% endraw %}
-{% else %}
-{% raw %}
-```yaml
+{% endraw %} {% else %} {% raw %} ```yaml
 tags: |
 docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 </td>
 <td>
-  Tags the image with the SHA of the commit that triggered the workflow.
+Étiquette l’image avec le SHA de la validation qui a déclenché le workflow.
 </td>
 </tr>
 {% endif %}
 
 </table>
 
-This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
+Ce nouveau workflow s’exécute automatiquement chaque fois que vous envoyez une modification à une branche nommée `release` dans le dépôt. Vous pouvez visualiser la progression sous l’onglet **Actions**.
 
-A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+Quelques minutes après la fin du workflow, le nouveau package sera visible dans votre dépôt. Pour trouver vos packages disponibles, consultez « [Affichage des packages d’un dépôt](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages) ».
 
-## Installing a package using an action
+## Installation d’un package à l’aide d’une action
 
-You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
+Vous pouvez installer des packages dans le cadre de votre flux de CI en utilisant {% data variables.product.prodname_actions %}. Par exemple, vous pourriez configurer un workflow de façon à ce que, chaque fois qu’un développeur envoie (push) du code à une demande de tirage, le workflow résolve les dépendances en téléchargeant et en installant des packages hébergés par {% data variables.product.prodname_registry %}. Ensuite, le workflow peut exécuter des tests de CI qui nécessitent les dépendances.
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
+L’installation de packages hébergés par {% data variables.product.prodname_registry %} via {% data variables.product.prodname_actions %} nécessite une configuration minimale ou une authentification supplémentaire lorsque vous utilisez le secret `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Le transfert de données est également gratuit quand une action installe un package. Pour plus d’informations, consultez « [À propos de la facturation pour {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt or ghec %}
-## Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}
+{% ifversion packages-registries-v2 %}
+## Mise à niveau d’un workflow qui accède à un registre avec un {% data variables.product.pat_generic %}
 
-The {% data variables.packages.prodname_ghcr_and_npm_registry %} support the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a {% data variables.product.pat_generic %} to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
+{% data variables.product.prodname_registry %} prend en charge `GITHUB_TOKEN` pour faciliter et sécuriser l’authentification dans vos workflows. Si vous utilisez un registre qui prend en charge les autorisations granulaires et que votre workflow utilise un {% data variables.product.pat_generic %} pour s’authentifier auprès d’un registre, nous vous recommandons vivement de mettre à jour votre workflow pour utiliser `GITHUB_TOKEN`.
 
-For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+Pour plus d’informations sur le secret `GITHUB_TOKEN`, consultez « [Authentification dans un workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow) ».
 
-Using the `GITHUB_TOKEN` instead of a {% data variables.product.pat_v1 %}, which includes the `repo` scope, increases the security of your repository as you don't need to use a long-lived {% data variables.product.pat_generic %} that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+L’utilisation de `GITHUB_TOKEN` au lieu d’un {% data variables.product.pat_v1 %} avec l’étendue `repo` renforce la sécurité de votre dépôt, car vous n’avez pas besoin d’utiliser un {% data variables.product.pat_generic %} longue durée qui offre un accès inutile au dépôt où votre workflow est exécuté. Pour plus d’informations sur les meilleures pratiques en matière de sécurité, consultez « [Renforcement de la sécurité pour GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets) ».
 
-1. Navigate to your package landing page.
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-1. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-  {% note %}
+1. Accédez à la page de destination de votre package.
+1. Dans la barre latérale de gauche, cliquez sur **Accès à Actions**.
+  ![Option « Accès à Actions » dans le menu de gauche](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
+1. Pour vous assurer que votre package de conteneur a accès à votre workflow, vous devez ajouter le dépôt dans lequel le workflow est stocké à votre conteneur. Cliquez sur **Ajouter un dépôt** et recherchez le dépôt que vous souhaitez ajouter.
+   ![Bouton « Ajouter un dépôt »](/assets/images/help/package-registry/add-repository-button.png) {% note %}
 
-  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+  **Remarque :** L’ajout d’un dépôt à votre conteneur via l’option de menu **Accès à Actions** est différent de la connexion de votre conteneur à un dépôt. Pour plus d’informations, consultez « [Garantie de l’accès du workflow à votre package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package) » et « [Connexion d’un dépôt à un package](/packages/learn-github-packages/connecting-a-repository-to-a-package) ».
 
   {% endnote %}
-1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. Si vous le souhaités, dans le menu déroulant « Rôle », sélectionnez le niveau d’accès par défaut à votre image conteneur que vous aimeriez accorder au dépôt.
+  ![Niveaux d’accès d’autorisation à donner aux dépôts](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. Ouvrez votre fichier de workflow. Sur la ligne où vous vous connectez au registre, remplacez votre {% data variables.product.pat_generic %} par {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+Par exemple, ce workflow publie une image Docker dans le {% data variables.product.prodname_container_registry %} et utilise {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} pour l’authentification.
 
 ```yaml{:copy}
 name: Demo Push

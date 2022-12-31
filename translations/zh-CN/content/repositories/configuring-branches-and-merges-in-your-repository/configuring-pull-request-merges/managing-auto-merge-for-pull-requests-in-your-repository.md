@@ -1,6 +1,6 @@
 ---
-title: Managing auto-merge for pull requests in your repository
-intro: You can allow or disallow auto-merge for pull requests in your repository.
+title: 管理仓库中拉取请求的自动合并
+intro: 您可以允许或禁止仓库中拉取请求的自动合并。
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
@@ -14,16 +14,21 @@ redirect_from:
   - /github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository
   - /github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository
 shortTitle: Manage auto merge
+ms.openlocfilehash: 4d0f0d465ea3c8551dc909d56620a06ee9864c1c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883439'
 ---
-## About auto-merge
+## 关于自动合并
 
-If you allow auto-merge for pull requests in your repository, people with write permissions can configure individual pull requests in the repository to merge automatically when all merge requirements are met. If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. For more information, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+如果您允许自动合并仓库中的拉取请求，则具有写入权限的用户可以配置仓库中的单个拉取请求在满足所有合并要求时自动合并。 如果没有写入权限的人员将更改推送到已启用自动合并的拉取请求，将对该拉取请求禁用自动合并。 有关详细信息，请参阅“[自动合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”。
 
-## Managing auto-merge
+## 管理自动合并
 
 {% data reusables.pull_requests.auto-merge-requires-branch-protection %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**.
-  ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. 在{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}“拉取请求”{% else %}“合并按钮”{% endif %}下，选择或取消选择“允许自动合并”。
+  ![允许或禁止自动合并的复选框](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

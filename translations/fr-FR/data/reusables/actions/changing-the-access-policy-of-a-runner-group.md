@@ -1,38 +1,39 @@
+---
+ms.openlocfilehash: 19ffef89b0f09653fc396f4cfc99e47e2162548b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108464"
+---
 {% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Incluez toujours un avertissement de sécurité au-dessus de cette procédure. Il s’agit de l’un des avertissements suivants, selon que le contexte correspond à des exécuteurs auto-hébergés ou à des exécuteurs plus importants.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
+En ce qui concerne les groupes d’exécuteurs d’une entreprise, vous pouvez changer les organisations à l’échelle de l’entreprise qui peuvent accéder à un groupe d’exécuteurs{% ifversion restrict-groups-to-workflows %} ou restreindre les workflows qu’un groupe d’exécuteurs peut exécuter{% endif %}. En ce qui concerne les groupes d’exécuteurs d’une organisation, vous pouvez changer les dépôts à l’échelle de l’organisation qui peuvent accéder à un groupe d’exécuteurs{% ifversion restrict-groups-to-workflows %} ou restreindre les workflows qu’un groupe d’exécuteurs peut exécuter{% endif %}.
 
-### Changing what organizations or repositories can access a runner group
+### Modification de la liste des organisations et des dépôts qui peuvent accéder à un groupe d’exécuteurs
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-1. For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+1. Pour les groupes d’exécuteurs d’une grande entreprise, sous **Accès des organisations**, modifiez la liste des organisations qui peuvent accéder au groupe d’exécuteurs. Pour les groupes d’exécuteurs d’une organisation, sous **Accès au dépôt**, modifiez les dépôts qui peuvent accéder au groupe d’exécuteurs.
 
-{% elsif ghae < 3.4 or ghes < 3.4 %}
-{% data reusables.actions.configure-runner-group-access %}
-{% endif %}
+{% elsif ghae < 3.4 or ghes < 3.4 %} {% data reusables.actions.configure-runner-group-access %} {% endif %}
 
 {% ifversion restrict-groups-to-workflows %}
-### Changing what workflows can access a runner group
-You can configure a runner group to run either selected workflows or all workflows. For example, you might use this setting to protect secrets that are stored on runners or to standardize deployment workflows by restricting a runner group to run only a specific reusable workflow. This setting cannot be overridden if you are configuring an organization's runner group that was shared by an enterprise. 
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-1. Under **Workflow access**, select the dropdown menu and click **Selected workflows**.
-1. Click {% octicon "gear" aria-label="the gear icon" %}.
-1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin the workflow to a branch, tag, or full SHA. For example: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
+### Modification des workflows auxquels un groupe d’exécuteurs peut accéder
+Vous pouvez configurer un groupe d’exécuteurs pour exécuter les workflows sélectionnés ou tous les workflows. Par exemple, vous pouvez utiliser ce paramètre pour protéger les secrets stockés sur des exécuteurs ou pour normaliser les workflows de déploiement en limitant un groupe d’exécuteurs pour qu’il exécute uniquement un workflow réutilisable spécifique. Ce paramètre ne peut pas être remplacé si vous configurez un groupe d’exécuteurs d’une organisation qui a été partagé par une grande entreprise. {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+1. Sous **Accès aux workflows**, sélectionnez le menu déroulant, puis cliquez sur **Workflows sélectionnés**.
+1. Cliquez sur {% octicon "gear" aria-label="the gear icon" %}.
+1. Entrez une liste séparée par des virgules des workflows qui peuvent accéder au groupe d’exécuteurs. Utilisez le chemin d’accès complet, y compris le nom et le propriétaire du dépôt. Épinglez le workflow à une branche, à une étiquette ou à un algorithme SHA complet. Par exemple : `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
 
-   Only jobs directly defined within the selected workflows will have access to the runner group.
+   Seuls les travaux définis directement dans les workflows sélectionnés auront accès au groupe d’exécuteurs.
    
-   Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.
+   Les groupes d’exécuteurs définis au niveau d’une organisation ne peuvent pas accéder aux workflows d’une autre organisation dans la grande entreprise. Au lieu de cela, vous devez définir un groupe d’exécuteurs au niveau de la grande entreprise.
 
-1. Click **Save**.
+1. Cliquez sur **Enregistrer**.
 
 {% endif %}

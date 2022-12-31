@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 543455f8802e8e2c8b4dc60283c442a536476751
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: eb897a445a5e5a90014097ba76a5ecb095aa0bef
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145103711"
+ms.lasthandoff: 12/06/2022
+ms.locfileid: "148192066"
 ---
-Mit der Bedingung `jobs.<job_id>.if` kannst du dafür sorgen, dass ein Schritt nur ausgeführt wird, wenn eine Bedingung erfüllt ist. Du kannst eine Bedingung mit jedem unterstützten Kontext und Ausdruck erstellen.
+Mit der Bedingung `jobs.<job_id>.if` kannst du dafür sorgen, dass ein Schritt nur ausgeführt wird, wenn eine Bedingung erfüllt ist. {% data reusables.actions.if-supported-contexts %}
 
 {% data reusables.actions.expression-syntax-if %} Weitere Informationen findest du unter [Ausdrücke](/actions/learn-github-actions/expressions).
 

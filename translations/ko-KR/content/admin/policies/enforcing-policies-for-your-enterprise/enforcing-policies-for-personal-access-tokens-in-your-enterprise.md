@@ -1,62 +1,64 @@
 ---
-title: Enforcing policies for personal access tokens in your enterprise
-intro: 'Enterprise owners can control whether to allow {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}, and can require approval for {% data variables.product.pat_v2 %}s.'
+title: 엔터프라이즈에서 개인용 액세스 토큰에 대한 정책 적용
+intro: '엔터프라이즈 소유자는 {% data variables.product.pat_v2 %}s 및 {% data variables.product.pat_v1_plural %}을(를) 허용할지 여부를 제어할 수 있으며 {% data variables.product.pat_v2 %}s에 대한 승인이 필요할 수 있습니다.'
 versions:
   feature: pat-v2-enterprise
 shortTitle: '{% data variables.product.pat_generic_caps %} policies'
+ms.openlocfilehash: 6252f7ac67fe77cbe20ab85ff2cbd6f04ac17905
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107007'
 ---
-
 {% note %}
 
-**Note**: {% data reusables.user-settings.pat-v2-beta %}
+**참고**: {% data reusables.user-settings.pat-v2-beta %}
 
-During the beta, enterprises must opt in to {% data variables.product.pat_v2 %}s. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
+베타 중에 엔터프라이즈는 {% data variables.product.pat_v2 %}s에 옵트인해야 합니다. 엔터프라이즈에서 아직 옵트인하지 않은 경우 아래 단계를 수행할 때 옵트인하고 정책을 설정하라는 메시지가 표시됩니다.
 
-Even if an enterprise has not opted in to {% data variables.product.pat_v2 %}s, organizations owned by the enterprise can still opt in. All users, including {% data variables.product.prodname_emus %}, can create {% data variables.product.pat_v2 %}s that can access resources owned by the user (such as repositories created under their account) even if the enterprise has not opted in to {% data variables.product.pat_v2 %}s.
+엔터프라이즈가 {% data variables.product.pat_v2 %}s에 옵트인하지 않은 경우에도 엔터프라이즈가 소유한 조직은 여전히 옵트인할 수 있습니다. {% data variables.product.prodname_emus %}를 포함한 모든 사용자는 엔터프라이즈가 {% data variables.product.pat_v2 %}s에 옵트인하지 않은 경우에도 사용자가 소유한 리소스(예: 계정으로 만든 리포지토리)에 액세스할 수 있는 {% data variables.product.pat_v2 %}s을(를) 만들 수 있습니다.
 
 {% endnote %}
 
-## Restricting access by {% data variables.product.pat_v2 %}s
+## {% data variables.product.pat_v2 %}s으로 액세스 제한
 
-Enterprise owners can prevent {% data variables.product.pat_v2 %}s from accessing private and internal resources owned by the enterprise. {% data variables.product.pat_v2_caps %}s will still be able to access public resources within the organizations. This setting only controls access by {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page.
+엔터프라이즈 소유자는 {% 데이터 variables.product.pat_v2 %}s이(가) 엔터프라이즈가 소유한 프라이빗 및 내부 리소스에 액세스하지 못하도록 방지할 수 있습니다. {% data variables.product.pat_v2_caps %}s은(는) 조직 내의 공용 리소스에 계속 액세스할 수 있습니다. 이 설정은 {% data variables.product.pat_v2 %}이 아닌 {% data variables.product.pat_v1_plural %}의 액세스만 제어합니다. {% data variables.product.pat_v1_plural %}으로 액세스를 제한하는 방법에 대한 자세한 내용은 이 페이지에서 "[{% data variables.product.pat_v1_plural %}으로 액세스 제한](#restricting-access-by-personal-access-tokens-classic)"을 참조하세요.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click **Organizations**.
-1. Under **Restrict access via {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Allow organizations to configure access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v2 %}s.
-   - **Restrict access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s cannot access organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v2 %}s will continue to work. Organizations cannot override this setting.
-   - **Allow access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s can access organizations owned by the enterprise. Organizations cannot override this setting.
-1. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
+1. {% octicon "law" aria-label="The law icon" %} **정책** 에서 **조직을** 클릭합니다.
+1. **{% data variables.product.pat_v2 %}s를 통한 액세스 제한** 에서 요구 사항을 충족하는 옵션을 선택합니다.
+   - **조직에서 액세스 요구 사항을 구성할** 수 있도록 허용: 엔터프라이즈가 소유한 각 조직에서 {% data variables.product.pat_v2 %}s로 액세스를 제한할지 여부를 결정할 수 있습니다.
+   - **{% data variables.product.pat_v2 %}s를 통한 액세스 제한**: {% data variables.product.pat_v2_caps %}s는 엔터프라이즈가 소유한 조직에 액세스할 수 없습니다. {% data variables.product.pat_v2 %}s에서 만든 SSH 키는 계속 작동합니다. 조직은 이 설정을 재정의할 수 없습니다.
+   - **{% data variables.product.pat_v2 %}s을(를) 통해 액세스 허용**: {% data variables.product.pat_v2_caps %}s는 엔터프라이즈가 소유한 조직에 액세스할 수 있습니다. 조직은 이 설정을 재정의할 수 없습니다.
+1. **저장** 을 클릭합니다.
 
-## Enforcing an approval policy for {% data variables.product.pat_v2 %}s
+## {% data variables.product.pat_v2 %}s에 대한 승인 정책 적용
 
-Enterprise owners can require that all organizations owned by the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval. Conversely, enterprise owners can allow {% data variables.product.pat_v2 %}s to access organizations in the enterprise without prior approval. Enterprise owners can also let each organization in the enterprise choose their own approval settings.
+엔터프라이즈 소유자는 엔터프라이즈가 소유한 모든 조직이 조직에 액세스할 수 있는 각 {% 데이터 variables.product.pat_v2 %}을 승인하도록 요구할 수 있습니다. {% data variables.product.pat_v2_caps %}s은(는) 승인 없이 조직 내에서 공용 리소스를 읽을 수 있습니다. 반대로 엔터프라이즈 소유자는 {% data variables.product.pat_v2 %}s이(가) 사전 승인 없이 엔터프라이즈의 조직에 액세스하도록 허용할 수 있습니다. 엔터프라이즈 소유자는 엔터프라이즈의 각 조직에서 자체 승인 설정을 선택하도록 할 수도 있습니다.
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization or enterprise has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information about restricting {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page and "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+**참고**: {% data variables.product.pat_v1_plural %}이 아닌 {% data variables.product.pat_v2 %}s만 승인될 수 있습니다. 조직 또는 엔터프라이즈가 {% data variables.product.pat_v1_plural %}의 액세스를 제한하지 않는 한 모든 {% 데이터 variables.product.pat_v1 %}은 사전 승인 없이 조직 리소스에 액세스할 수 있습니다. {% data variables.product.pat_v1_plural %}을(를) 제한하는 방법에 대한 자세한 내용은 이 페이지의 "[{% data variables.product.pat_v1_plural %}으로 액세스 제한](#restricting-access-by-personal-access-tokens-classic)" 및 "[조직에 대한 {% 데이터 variables.product.pat_generic %} 정책 설정](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)"을 참조하세요.
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click **Organizations**.
-1. Under **Require approval of {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Allow organizations to configure approval requirements**: Each organization owned by the enterprise can decide whether to require approval of {% data variables.product.pat_v2 %} that can access the organization.
-   - **Require organizations to use the approval flow**: All organizations owned by the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval. Organizations cannot override this setting.
-   - **Disable the approval flow in all organizations**: {% data variables.product.pat_v2_caps %}s created by organization members can access organizations owned by the enterprise without prior approval. Organizations cannot override this setting.
-1. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
+1. {% octicon "law" aria-label="The law icon" %} **정책** 에서 **조직을** 클릭합니다.
+1. **{% data variables.product.pat_v2 %}s의 승인 필요** 에서 요구 사항을 충족하는 옵션을 선택합니다.
+   - **조직에서 승인 요구 사항을 구성할** 수 있도록 허용: 엔터프라이즈가 소유한 각 조직에서 조직에 액세스할 수 있는 {% data variables.product.pat_v2 %}의 승인을 요구할지 여부를 결정할 수 있습니다.
+   - **조직이 승인 흐름을 사용하도록 요구**: 엔터프라이즈가 소유한 모든 조직은 조직에 액세스할 수 있는 각 {% 데이터 variables.product.pat_v2 %}을 승인해야 합니다. 조직 소유자가 만든 {% 데이터 variables.product.pat_v2_caps %}은(는) 승인이 필요하지 않습니다. 조직은 이 설정을 재정의할 수 없습니다.
+   - **모든 조직에서 승인 흐름 사용 안 함**: 조직 구성원이 만든 {% 데이터 variables.product.pat_v2_caps %}은 사전 승인 없이 엔터프라이즈가 소유한 조직에 액세스할 수 있습니다. 조직은 이 설정을 재정의할 수 없습니다.
+1. **저장** 을 클릭합니다.
 
-## Restricting access by {% data variables.product.pat_v1_plural %}
+## {% data variables.product.pat_v1_plural %}으로 액세스 제한
 
-Enterprise owners can prevent {% data variables.product.pat_v1_plural %} from accessing the enterprise and organizations owned by the enterprise. {% data variables.product.pat_v1_caps_plural %} will still be able to access public resources within the organization. This setting only controls access by {% data variables.product.pat_v1_plural %}, not {% data variables.product.pat_v2 %}s. For more information about restricting access by {% data variables.product.pat_v2 %}s, see "[Restricting access by {% data variables.product.pat_v2 %}s](#restricting-access-by-fine-grained-personal-access-tokens)" on this page.
+엔터프라이즈 소유자는 {% data variables.product.pat_v1_plural %}이(가) 엔터프라이즈가 소유한 엔터프라이즈 및 조직에 액세스하지 못하도록 방지할 수 있습니다. {% data variables.product.pat_v1_caps_plural %}은(는) 여전히 조직 내의 공용 리소스에 액세스할 수 있습니다. 이 설정은 {% data variables.product.pat_v2 %}s이 아닌 {% data variables.product.pat_v1_plural %}의 액세스만 제어합니다. {% data variables.product.pat_v2 %}s로 액세스를 제한하는 방법에 대한 자세한 내용은 이 페이지에서 "[{% data variables.product.pat_v2 %}s로 액세스 제한](#restricting-access-by-fine-grained-personal-access-tokens)"을 참조하세요.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click **Organizations**.
-1. Under **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select the option that meets your needs:
-   - **Allow organizations to configure {% data variables.product.pat_v1_plural %} access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v1_plural %}.
-   - **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access the enterprise or organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work. Organizations cannot override this setting.
-   - **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access the enterprise and organizations owned by the enterprise. Organizations cannot override this setting.
-1. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}
+1. {% octicon "law" aria-label="The law icon" %} **정책** 에서 **조직을** 클릭합니다.
+1. **{% data variables.product.pat_v1_plural %}이(가) 조직에 액세스하지 못하도록 제한에서** 요구 사항을 충족하는 옵션을 선택합니다.
+   - **조직에서 {% data variables.product.pat_v1_plural %} 액세스 요구 사항을 구성할** 수 있도록 허용: 엔터프라이즈가 소유한 각 조직은 {% data variables.product.pat_v1_plural %}으로 액세스를 제한할지 여부를 결정할 수 있습니다.
+   - **{% data variables.product.pat_v1_plural %}을(를) 통한 액세스 제한**: {% data variables.product.pat_v1_caps_plural %}은(는) 엔터프라이즈 또는 엔터프라이즈가 소유한 조직에 액세스할 수 없습니다. {% data variables.product.pat_v1_plural %}에서 만든 SSH 키는 계속 작동합니다. 조직은 이 설정을 재정의할 수 없습니다.
+   - **{% data variables.product.pat_v1_plural %}을 통해 액세스 허용**: {% data variables.product.pat_v1_caps_plural %}는 엔터프라이즈가 소유한 엔터프라이즈 및 조직에 액세스할 수 있습니다. 조직은 이 설정을 재정의할 수 없습니다.
+1. **저장** 을 클릭합니다.

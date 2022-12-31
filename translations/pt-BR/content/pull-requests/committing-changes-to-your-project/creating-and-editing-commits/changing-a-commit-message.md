@@ -1,73 +1,78 @@
 ---
-title: Changing a commit message
+title: Alterar a mensagem do commit
 redirect_from:
   - /articles/can-i-delete-a-commit-message
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
+intro: 'Se uma mensagem do commit contiver informações imprecisas, incorretas ou confidenciais, você poderá corrigi-las localmente e fazer push de um novo commit com uma nova mensagem para o {% data variables.product.product_name %}. Também é possível alterar uma mensagem do commit para adicionar informações ausentes.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: fa4966da0fe443e6635b43fc9b3b11108d57cf6e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145127173'
 ---
-## Rewriting the most recent commit message
+## Reescrever a mensagem do commit mais recente
 
-You can change the most recent commit message using the `git commit --amend` command.
+Você pode alterar a mensagem de commit mais recente usando o comando `git commit --amend`.
 
-In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do commit mudará o ID do commit, isto é, a soma de verificação SHA1 que nomeia o commit. Efetivamente, você está criando um commit que substitui o antigo.
 
-## Commit has not been pushed online
+## Não foi feito push on-line do commit
 
-If the commit only exists in your local repository and has not been pushed to {% data variables.location.product_location %}, you can amend the commit message with the `git commit --amend` command.
+Se o commit existir no repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem de commit com o comando `git commit --amend`.
 
-1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Type `git commit --amend` and press **Enter**.
-3. In your text editor, edit the commit message, and save the commit.
-    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
+1. Na linha de comando, navegue até o repositório que contém o commit que você deseja corrigir.
+2. Digite `git commit --amend` e pressione **Enter**.
+3. No editor de texto, edite a mensagem do commit e salve o commit.
+    - Você pode adicionar um coautor incluindo um trailer no commit. Para obter mais informações, confira "[Como criar um commit com vários autores](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)".
 {% ifversion fpt or ghec %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
-{% endif %}
+    - É possível criar commits em nome da sua organização adicionando um trailer ao commit. Para obter mais informações, confira "[Como criar um commit em nome de uma organização](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)" {% endif %}
 
-The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
+O novo commit e a mensagem aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push.
 
 {% tip %}
 
-You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
+Altere o editor de texto padrão do Git alterando a configuração `core.editor`. Para obter mais informações, confira "[Configuração básica do cliente](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" no manual do Git.
 
 {% endtip %}
 
-## Amending older or multiple commit messages
+## Corrigir mensagens do commit antigas ou em grandes quantidades
 
-If you have already pushed the commit to {% data variables.location.product_location %}, you will have to force push a commit with an amended message.
+Se você já tiver feito push do commit no {% data variables.product.product_location %}, será necessário forçar o push de um commit com uma mensagem corrigida.
 
 {% warning %}
 
-We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
+O recomendável é evitar tanto quanto possível o push forçado, uma vez que isso altera o histórico do repositório. No caso de push forçado, as pessoas que já clonaram o repositório terão que corrigir manualmente o respectivo histórico local. Para obter mais informações, confira "[Como se recuperar da troca de base upstream](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" no manual do Git.
 
 {% endwarning %}
 
-**Changing the message of the most recently pushed commit**
+**Alteração da mensagem de commit enviada por psuh mais recentemente**
 
-1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
-2. Use the `push --force-with-lease` command to force push over the old commit.
+1. Siga as [etapas descritas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para alterar a mensagem de commit.
+2. Use o comando `push --force-with-lease` para forçar o push sobre o commit antigo.
   ```shell
-  $ git push --force-with-lease origin EXAMPLE-BRANCH
+  $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
-**Changing the message of older or multiple commit messages**
+**Alteração das mensagens de commit mais antigo ou múltiplo**
 
-If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
+Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você pode usar o rebase interativo e, em seguida, forçar o push para alterar o histórico do commit.
 
-1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
+1. Na linha de comando, navegue até o repositório que contém o commit que você deseja corrigir.
+2. Use o comando `git rebase -i HEAD~n` para ver a lista dos últimos commits `n` no editor de texto padrão.
 
     ```shell
     # Displays a list of the last 3 commits on the current branch
     $ git rebase -i HEAD~3
     ```
-    The list will look similar to the following:
+    A lista ficará parecida com o seguinte:
 
     ```shell
     pick e499d89 Delete CNAME
@@ -92,33 +97,33 @@ If you need to amend the message for multiple commits or an older commit, you ca
     #
     # Note that empty commits are commented out
     ```
-3. Replace `pick` with `reword` before each commit message you want to change.
+3. Substitua `pick` por `reword` antes de cada mensagem de commit que deseja alterar.
   ```shell
   pick e499d89 Delete CNAME
   reword 0c39034 Better README
   reword f7fde4a Change the commit message but push the same commit.
   ```
-4. Save and close the commit list file.
-5. In each resulting commit file, type the new commit message, save the file, and close it.
-6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+4. Salve e feche o arquivo da lista de commits.
+5. Em cada arquivo de commit resultante, digite a nova mensagem do commit, salve o arquivo e feche-o.
+6. Quando estiver pronto para fazer push das suas alterações para o GitHub, use o comando push --force para fazer push forçado sobre o commit antigo.
 ```shell
-$ git push --force origin EXAMPLE-BRANCH
+$ git push --force origin <em>example-branch</em>
 ```
 
-For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
+Para obter mais informações sobre a troca de base interativa, confira "[Modo interativo](https://git-scm.com/docs/git-rebase#_interactive_mode)" no manual do Git.
 
 {% tip %}
 
-As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
+Tal como antes, corrigir a mensagem do commit resultará em um novo commit com um novo ID. No entanto, nesse caso, cada commit que segue o commit corrigido também obterá um novo ID, pois cada commit também contém o id de seu principal.
 
 {% endtip %}
 
 {% warning %}
 
-If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
+Se você incluiu informações confidenciais em uma mensagem do commit, forçar o push de um commit com um commit corrigido pode não remover o commit original do {% data variables.product.product_name %}. O commit antigo não fará parte de um clone subsequente. No entanto, ele ainda poderá ser armazenado no cache do {% data variables.product.product_name %} e ser acessado por meio do ID do commit. Você deve contatar o {% data variables.contact.contact_support %} com o ID do commit antigo para que ele seja apagado do repositório remoto.
 
 {% endwarning %}
 
-## Further reading
+## Leitura adicional
 
-* "[Signing commits](/articles/signing-commits)"
+* "[Como assinar commits](/articles/signing-commits)"

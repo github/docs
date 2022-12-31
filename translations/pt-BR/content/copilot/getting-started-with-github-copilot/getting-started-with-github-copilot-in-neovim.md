@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 6296ff5b89e86b4b51cbb04bd9ac4ba91863a1ac
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 2eab3d278453ad283337d8e8dd6e66f7d39364e8
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185064'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193030'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,7 @@ Usando o Neovim, você pode ver e incorporar sugestões do {% data variables.pro
 
 ## Pré-requisitos
 
-- Para usar o {% data variables.product.prodname_copilot %}, é preciso ter uma assinatura ativa do {% data variables.product.prodname_copilot %}. Para ver mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)".
+{% data reusables.copilot.subscription-prerequisite %}
 
 - Para usar o {% data variables.product.prodname_copilot %} no Neovim, você precisa ter o Neovim e o Node.js versão 17 ou inferior instalados. Para obter mais informações, confira a [documentação do Neovim](https://neovim.io/doc/) e o [site do Node.js](https://nodejs.org/en/).
 

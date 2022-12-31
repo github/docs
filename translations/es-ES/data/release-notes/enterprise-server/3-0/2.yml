@@ -1,0 +1,78 @@
+date: '16-03-2021'
+intro: "Los requisitos mínimos de infraestructura han aumentado para {% data variables.product.prodname_ghe_server %} 3.0+. Para obtener más información, consulta \"[Acerca de los requisitos mínimos para GitHub Enterprise Server 3.0 y versiones posteriores](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)\""
+sections:
+  security_fixes:
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "Al intentar hacer una copia de seguridad, se produjo un error que indica \"Warning&#58; One or more storage objects were not found on the source appliance.\" al intentar limpiar los objetos de almacenamiento purgables."
+    - "La gráfica de dependencias produjo un error al interpretar los archivos de manifiesto de JavaScript \"yarn.lock\", lo cual dio como resultado errores de tipo HTTP 500 en los registros."
+    - "A veces, se producía un error al desactivar las Acciones de GitHub."
+    - "Los enlaces previos a la recepción personalizados no tenían permiso para escribir en \"/tmp\", previniendo que algunos scripts se ejecutaran correctamente."
+    - Los registros de los diarios de Systemd se duplicaron en varios lugares.
+    - "Las zonas horarias que se configuraron en GitHub Enterprise 11.10.x o anterior se restablecían a una zona horaria UTC después de actualizarse a la versión 3.0, lo cual causó que las marcas de tiempo se movieran en algunas instancias."
+    - "Al hacer clic en \"Publicar mi primer paquete\" en la barra lateral de los paquetes en un repositorio, se redirigía a una página en blanco."
+    - Un administrador de sitio podía obtener un error de página 500 al intentar ver las propuestas que se referenciaban de repositorios privados.
+    - "Después de inhabilitar GitHub Packages, algunas páginas de la organización devolvían una respuesta de error HTTP 500."
+    - Se producía un error en la importación de repositorios archivados desde GitHub Enterprise Server en los que faltaban archivos de repositorio.
+    - "No se podían utilizar las [llaves de despliegue](/developers/overview/managing-deploy-keys) del repositorio con aquellos repositorios que contenían objetos LFS."
+    - "En la barra lateral de paquetes de un repositorio, el icono de Docker se mostraba en gris y un mensaje emergente mostraba \"Este servicio está obsoleto\"."
+    - "Los webhooks configurados con un tipo de contenido \"application/x-www-form-urlencoded\" no recibían parámetros de consulta en el cuerpo de la solicitud POST."
+    - Los usuarios podían descartar un mensaje obligatorio sin verificar todas las casillas.
+    - "En algunos casos, después de actualizar a una instancia 2.22.X, faltaban los activos de la interfaz web y la página no se mostraba correctamente."
+    - "Al ejecutar \"ghe-config-apply\", se podía agotar el tiempo de espera con \"Failure waiting for nomad jobs to apply\" a causa de \"'job' stanza not found\"."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - "Cuando el modo de mantenimiento está habilitado, algunos servicios siguen incluyéndose en la lista como \"procesos activos\". Se espera que los servicios identificados se ejecuten durante el modo de mantenimiento. Si experimentas esta incidencia y no estás seguro, ponte en contacto con [GitHub Enterprise Support](https://support.github.com/contact)."
+    - La interpretación de Jupyter Notebook en la IU web podría fallar si el bloc de notas incluye caracteres diferentes a los de ASCII UTF-8.
+    - El reStructuredText (RST) que se representa en la IU web podría fallar y mostrar un texto de marcado RST sin procesar.
+    - "Las compilaciones antiguas de las páginas no se limpiaron, lo cual pudo haber llenado el disco del usuario (`/data/user/`)."
+    - "Cuando borras una rama después de fusionar una solicitud de cambios, se mostrará un mensaje de error aunque el borrado de la rama sea exitoso."
+    - |Los usuarios podían experimentar que activos como los avatares no cargaran, o que se produjera un error al insertar o extraer código. Esto puede estar causado por un error de coincidencia en el servicio "haproxy-cluster-proxy". Para determinar si una instancia está afectada:
+
+
+
+**Instancia única**
+
+
+
+1. Ejecuta lo siguiente en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi
+
+  ```
+
+
+
+2. Si se muestra que hay un error de coincidencia, reinicia la instancia.
+
+
+
+**Configuración de clúster o alta disponibilidad**
+
+
+
+1. Ejecuta lo siguiente en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+
+
+  ```
+
+  ghe-cluster-each -- ''if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo ''Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid''; fi''
+
+  ```
+
+
+
+2. Si muestra que hay uno o más nodos afectados, reinicie los nodos afectados.
+
+|
+    - "Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

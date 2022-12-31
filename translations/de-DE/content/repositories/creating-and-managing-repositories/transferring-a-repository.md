@@ -1,6 +1,6 @@
 ---
-title: Transferring a repository
-intro: You can transfer repositories to other users or organization accounts.
+title: Repository übertragen
+intro: Du kannst Repositorys auf andere Benutzer*innen oder Organisationskonten übertragen.
 redirect_from:
   - /articles/about-repository-transfers
   - /move-a-repo
@@ -21,34 +21,40 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f37ebc1492ae26998a596d90734d1d509b8f73c9
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160680'
 ---
-## About repository transfers
+## Informationen zur Übertragung von Repositorys
 
-When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.product.prodname_projects_v1 %}, and settings.
+Wenn du ein Repository an eine*n neue*n Besitzer*in überträgst, kann diese*r die Inhalte, Issues, Pull Requests, Releases, {% data variables.product.prodname_projects_v1 %} und Einstellungen des Repositorys sofort verwalten.
 
-Prerequisites for repository transfers:
-- When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
-- To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
-- The target account must not have a repository with the same name, or a fork in the same network.
-- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 or ghae %}
-- Internal repositories can't be transferred.{% endif %}
-- Private forks can't be transferred.
+Voraussetzungen für Repositoryübertragungen:
+- Wenn du ein Repository in deinem Besitz an ein anderes persönliches Konto überträgst, erhält der neue Besitzer eine Bestätigungs-E-Mail.{% ifversion fpt or ghec %} Die Bestätigungs-E-Mail enthält Anweisungen zum Akzeptieren der Übertragung. Nimmt der neue Inhaber die Übertragung nicht innerhalb eines Tages an, läuft die Einladung ab.{% endif %}
+- Wenn du ein dir gehörendes Repository auf eine Organisation überträgst, musst du die Berechtigung besitzen, ein Repository in der Zielorganisation zu erstellen.
+- Unter dem Zielkonto darf kein Repository mit gleichem Namen und kein Fork im gleichen Netzwerk vorhanden sein.
+- Der ursprüngliche Inhaber des Repositorys wird dem übertragenen Repository als Mitarbeiter hinzugefügt. Andere Projektmitarbeiter*innen des übertragenen Repositorys bleiben erhalten.{% ifversion ghes < 3.7 or ghae %}
+- Interne Repositorys können nicht übertragen werden.{% endif %}
+- Private Forks können nicht übertragen werden.
 {%- ifversion ghec %}
-- You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
+- Du kannst ein internes Repository nicht von einer Organisation im Besitz eines Unternehmenskontos in eine Organisation im Besitz eines anderen Unternehmenskontos übertragen.
 {%- endif %}
 
-{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
+{% ifversion fpt or ghec %} Wenn du ein privates Repository an ein {% data variables.product.prodname_free_user %}-Benutzer- oder -Organisationskonto überträgst, verliert das Repository den Zugriff auf Features wie geschützte Branches und {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
-### What's transferred with a repository?
+### Was wird mit einem Repository übertragen?
 
-When you transfer a repository, its issues, pull requests, wiki, stars, and watchers are also transferred. If the transferred repository contains webhooks, services, secrets, or deploy keys, they will remain associated after the transfer is complete. Git information about commits, including contributions, is preserved. In addition:
+Bei der Übertragung eines Repositorys werden auch seine Issues, Pull Requests, Wikis, Sterne und Watcher (Beobachter) übertragen. Enthält das übertragene Repository Webhooks, Dienste, Geheimnisse oder Deployment-Schlüssel, bleiben diese nach Abschluss der Übertragung verknüpft. Git-Informationen zu Commits, einschließlich Beiträgen, bleiben erhalten. Zusätzlich:
 
-- If the transferred repository is a fork, then it remains associated with the upstream repository.
-- If the transferred repository has any forks, then those forks will remain associated with the repository after the transfer is complete.
-- If the transferred repository uses {% data variables.large_files.product_name_long %}, all {% data variables.large_files.product_name_short %} objects are automatically moved. This transfer occurs in the background, so if you have a large number of {% data variables.large_files.product_name_short %} objects or if the {% data variables.large_files.product_name_short %} objects themselves are large, it may take some time for the transfer to occur.{% ifversion fpt or ghec %} Before you transfer a repository that uses {% data variables.large_files.product_name_short %}, make sure the receiving account has enough data packs to store the {% data variables.large_files.product_name_short %} objects you'll be moving over. For more information on adding storage for personal accounts, see "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)."{% endif %}
-- When a repository is transferred between two personal accounts, issue assignments are left intact. When you transfer a repository from a personal account to an organization, issues assigned to members in the organization remain intact, and all other issue assignees are cleared. Only owners in the organization are allowed to create new issue assignments. When you transfer a repository from an organization to a personal account, only issues assigned to the repository's owner are kept, and all other issue assignees are removed.
-- If the transferred repository contains a {% data variables.product.prodname_pages %} site, then links to the Git repository on the Web and through Git activity are redirected. However, we don't redirect {% data variables.product.prodname_pages %} associated with the repository.
-- All links to the previous repository location are automatically redirected to the new location. When you use `git clone`, `git fetch`, or `git push` on a transferred repository, these commands will redirect to the new repository location or URL. However, to avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
+- Wenn das übertragene Repository ein Fork ist, bleibt es mit dem vorgelagerten Repository verknüpft.
+- Wenn zu dem übertragenen Repository Forks gehören, bleiben diese Forks auch nach der Übertragung mit dem Repository verknüpft.
+- Wenn das übertragene Repository {% data variables.large_files.product_name_long %} verwendet, werden alle {% data variables.large_files.product_name_short %}-Objekte automatisch verschoben. Diese Übertragung findet im Hintergrund statt. Falls du also über sehr viele {% data variables.large_files.product_name_short %}-Objekte verfügst oder diese {% data variables.large_files.product_name_short %}-Objekte selbst sehr groß sind, kann die Übertragung einige Zeit dauern.{% ifversion fpt or ghec %} Stelle vor der Übertragung eines Repositorys, das {% data variables.large_files.product_name_short %} verwendet, sicher, dass das Empfängerkonto über ausreichend Datenpakete zum Speichern der verschobenen {% data variables.large_files.product_name_short %}-Objekte verfügt. Weitere Informationen zum Hinzufügen von Speicher zu persönlichen Konten findest du unter [Upgraden von {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage).{% endif %}
+- Bei der Übertragung eines Repositorys zwischen zwei persönlichen Konten bleiben die Issuezuweisungen erhalten. Bei Übertragung eines Repositorys von einem persönlichen Konto an eine Organisation bleiben Issues, die Organisationsmitgliedern zugewiesen sind, erhalten, während alle anderen dem Issue zugewiesenen Personen entfernt werden. Nur die Inhaber der Organisation dürfen neue Issuezuweisungen erstellen. Bei Übertragung eines Repositorys von einer Organisation an ein persönliches Konto bleiben nur die dem Repository-Inhaber zugewiesenen Issues erhalten, während alle anderen dem Issue zugewiesenen Personen entfernt werden.
+- Wenn das übertragene Repository eine {% data variables.product.prodname_pages %}-Website enthält, werden Links zum Git-Repository im Web und Links über Git-Aktivitäten weitergeleitet. Mit dem Repository verknüpfte {% data variables.product.prodname_pages %} werden hingegen nicht weitergeleitet.
+- Alle Links zum früheren Repository-Standort werden automatisch zum neuen Standort weitergeleitet. Wenn du `git clone`, `git fetch` oder `git push` in einem übertragenen Repository verwendest, werden diese Befehle an den neuen Repositoryspeicherort oder die neue URL umgeleitet. Um Verwirrung zu vermeiden, empfehlen wir jedoch, alle bestehenden lokalen Klone entsprechend zu aktualisieren, so dass sie auf die neue Repository-URL verweisen. Du kannst dies tun, indem du `git remote` in der Befehlszeile verwendest:
 
   ```shell
   $ git remote set-url origin NEW_URL
@@ -56,36 +62,32 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
   {% warning %}
 
-  **Warning**: If you create a new repository under your account in the future, do not reuse the original name of the transferred repository. If you do, redirects to the transferred repository will no longer work.
+  **Warnung**: Wenn du in der Zukunft ein neues Repository mit deinem Konto erstellst, darfst du den ursprünglichen Namen des übertragenen Repositorys nicht wiederverwenden. Wenn du das doch tust, funktionieren Umleitungen zum übertragenen Repository nicht mehr.
 
   {% endwarning %}
 
-- When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
-- Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
+- Wenn du ein Repository von einer Organisation an ein persönliches Konto überträgst, werden die Projektmitarbeiter am Repository mit reinem Lesezugriff nicht mit übertragen. Das liegt daran, dass Projektmitarbeiter keinen Lesezugriff auf Repositorys haben können, die sich im Besitz eines persönlichen Kontos befinden. Weitere Informationen zu den Berechtigungsebenen für Repositorys findest du unter [Berechtigungsebenen für ein Repository im Besitz eines persönlichen Kontos](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository) und [Repositoryrollen für eine Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization).{% ifversion fpt or ghec %}
+- Sponsoren, die über eine Sponsoringstufe Zugriff auf das Repository haben, können betroffen sein. Weitere Informationen findest du unter [Hinzufügen eines Repositorys zu einer Sponsoringstufe](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier).{% endif %}
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Weitere Informationen findest du unter [Verwalten von Remoterepositorys](/github/getting-started-with-github/managing-remote-repositories).
 
-### Repository transfers and organizations
+### Repository-Übertragungen und Organisationen
 
-To transfer repositories to an organization, you must have repository creation permissions in the receiving organization. If organization owners have disabled repository creation by organization members, only organization owners can transfer repositories out of or into the organization.
+Für die Übertragung von Repositorys auf eine Organisation benötigst du für diese Organisation die Berechtigung zur Erstellung von Repositorys. Wenn ein Organisationsinhaber die Berechtigung zur Erstellung von Repositorys durch Organisationsmitglieder deaktiviert hat, können nur Organisationsinhaber Repositorys in die und aus der Organisation übertragen.
 
-Once a repository is transferred to an organization, the organization's default repository permission settings and default membership privileges will apply to the transferred repository.
+Für ein in eine Organisation übertragenes Repository gelten die in der Organisation eingestellten Standardberechtigungen für Repositorys und Mitglieder.
 
-## Transferring a repository owned by your personal account
+## Repository deines persönlichen Kontos übertragen
 
-You can transfer your repository to any personal account that accepts your repository transfer. When a repository is transferred between two personal accounts, the original repository owner and collaborators are automatically added as collaborators to the new repository.
+Du kannst dein Repository an jedes persönliche Konto übertragen, das die Übertragung akzeptiert. Wenn ein Repository zwischen zwei persönlichen Konten übertragen wird, werden der bisherige Besitzer und die Projektmitarbeiter am Repository dem neuen Repository automatisch als Projektmitarbeiter hinzugefügt.
 
-{% ifversion fpt or ghec %}If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, before transferring the repository, you may want to remove or update your DNS records to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
+{% ifversion fpt or ghec %}Wenn du in deinem privaten Repository eine {% data variables.product.prodname_pages %}-Website mit einer benutzerdefinierten Domäne veröffentlicht hast, solltest du deine DNS-Einträge vor der Übertragung des Repositorys entfernen oder aktualisieren, um eine Domänenübernahme zu verhindern. Weitere Informationen findest du unter [Verwalten einer benutzerdefinierten Domäne für deine {% data variables.product.prodname_pages %}-Website](/articles/managing-a-custom-domain-for-your-github-pages-site).{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}
 
-## Transferring a repository owned by your organization
+## Übertragen eines Repositorys deiner Organisation
 
-If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your personal account or to another organization.
+Wenn du Besitzerberechtigungen in einer Organisation oder Administratorberechtigungen für eines ihrer Repositorys hast, kannst du ein Repository, das deiner Organisation gehört, an dein persönliches Konto oder an eine andere Organisation übertragen.
 
-1. Sign into your personal account that has admin or owner permissions in the organization that owns the repository.
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+1. Melde dich bei deinem persönlichen Konto an, das über Administrator- oder Besitzerberechtigungen in der Organisation verfügt, die Besitzer des Repositorys ist.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}

@@ -1,0 +1,28 @@
+date: '2021-10-12'
+sections:
+  security_fixes:
+    - 'Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. {% comment %} https://github.com/github/enterprise2/pull/27035, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
+  bugs:
+    - 'Bei benutzerdefinierten Pre-Receive-Hooks sind möglicherweise aufgrund eines zu restriktiven virtuellen Arbeitsspeichers oder aufgrund von CPU-Zeitlimits Fehler aufgetreten. {% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'Mit dem Versuch, alle vorhandenen Konfigurationseinstellungen mit `ghe-cleanup-settings` zurückzusetzen, konnte Verwaltungskonsolendienst nicht neu gestartet werden. {% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Während der Replikationsnachbearbeitung über `ghe-repl-teardown` konnte Memcached nicht neu gestartet werden. {% comment %} https://github.com/github/enterprise2/pull/26993, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Während Zeiten mit hoher Auslastung haben Benutzer*innen HTTP 503-Statuscodes empfangen, wenn interne Integritätsprüfungen für Upstreamdienste fehlerhaft waren. {% comment %} https://github.com/github/enterprise2/pull/27082, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'Mit konfigurierten Aktionen ist die MSSQL-Replikation nach der Wiederherstellung aus einer GitHub Enterprise Backup Utilities-Momentaufnahme fehlerhaft. {% comment %} https://github.com/github/enterprise2/pull/27097, https://github.com/github/enterprise2/pull/26254 {% endcomment %}'
+    - 'Eine fehlerhafte `jq`-Fehlermeldung wurde möglicherweise angezeigt, als `ghe-config-apply` ausgeführt wurde. {% comment %} https://github.com/github/enterprise2/pull/27194, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'Umgebungen von Pre-Receive-Hooks durften den cat-Befehl über BusyBox auf Alpine nicht aufrufen. {% comment %} https://github.com/github/enterprise2/pull/27115, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
+    - 'Das externe Datenbankkennwort wurde in Klartext protokolliert. {% comment %} https://github.com/github/enterprise2/pull/27173, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'Das Ausführen eines Failovers von einem primären Clusterrechenzentrum auf ein sekundäres Clusterrechenzentrum ist zwar erfolgreich, das Failback auf das ursprüngliche primäre Clusterrechenzentrum konnte jedoch keine Elasticsearch-Indizes höher stufen. {% comment %} https://github.com/github/github/pull/193181, https://github.com/github/github/pull/192447 {% endcomment %}'
+    - 'Durch Klicken auf die Schaltfläche „Teams importieren“ auf der Teams-Seite für eine Organisation wurde ein HTTP 404-Fehler zurückgegeben. {% comment %} https://github.com/github/github/pull/193302 {% endcomment %}'
+    - 'In einigen Fällen haben GitHub Enterprise-Administrator*innen, die versuchen, die `Inaktive Benutzer`-Seite anzuzeigen, die Antwort `502 Ungültiges Gateway` oder `504 Gatewaytimeout` erhalten. {% comment %} https://github.com/github/github/pull/194260, https://github.com/github/github/pull/193609 {% endcomment %}'
+    - 'Die Leistung wurde in einigen Situationen mit hoher Auslastung aufgrund der erhöhten Anzahl von `SynchronizePullRequestJob`-Aufträgen negativ beeinträchtigt. {% comment %} https://github.com/github/github/pull/195253, https://github.com/github/github/pull/194591 {% endcomment %}'
+  changes:
+    - 'Webhookprotokolle außerhalb des Aufbewahrungszeitraums können nun effektiver identifiziert und gelöscht werden. {% comment %} https://github.com/github/enterprise2/pull/27158 {% endcomment %}'
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keine Zeitwerte mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - "Auf einem neu eingerichteten {% data variables.product.prodname_ghe_server %} ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit `ghe-repl-teardown` erfolgreich, kann jedoch den Fehler `ERROR:Running migrations` zurückgeben."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

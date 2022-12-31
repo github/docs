@@ -1,6 +1,6 @@
 ---
-title: GitHub security features
-intro: 'An overview of {% data variables.product.prodname_dotcom %} security features.'
+title: GitHub-Sicherheitsfeatures
+intro: 'Eine Übersicht der Sicherheitsfeatures von {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,31 +12,34 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Advanced Security
+ms.openlocfilehash: a1daa40bc175bc92b0ed681e053b3f87204c2a84
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109796'
 ---
+## Informationen zu den Sicherheitsfeatures von {% data variables.product.prodname_dotcom %}
 
-## About {% data variables.product.prodname_dotcom %}'s security features
+{% data variables.product.prodname_dotcom %} bietet Sicherheitsfeatures, mit denen Code und Geheimnisse in Repositorys und verschiedenen Organisationen geschützt werden können. {% data reusables.advanced-security.security-feature-availability %}
 
-{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. {% data reusables.advanced-security.security-feature-availability %}
+Die {% data variables.product.prodname_advisory_database %} enthält eine kuratierte Liste von Sicherheitsrisiken, die du anzeigen, durchsuchen und filtern kannst. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
+## Verfügbar für alle Repositorys
+### Sicherheitsrichtlinie
 
-## Available for all repositories
-### Security policy
-
-Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+Hiermit vereinfachst du es deinen Benutzer*innen, in deinem Repository gefundene Sicherheitsrisiken vertraulich zu melden. Weitere Informationen findest du unter [Hinzufügen einer Sicherheitsrichtlinie zu deinem Repository](/code-security/getting-started/adding-a-security-policy-to-your-repository).
 
 {% ifversion fpt or ghec %}
-### Security advisories
+### Sicherheitsempfehlungen
 
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+Erörtere und behebe Sicherheitsrisiken im Code deines Repositorys auf private Weise. Du kannst dann eine Sicherheitsempfehlung veröffentlichen, um deine Community über die Sicherheitslücke zu informieren und den Communitymitgliedern zu empfehlen, ein Upgrade durchzuführen. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories).
 
-{% endif %}
-{% ifversion fpt or ghec or ghes %}
+{% endif %} {% ifversion fpt or ghec or ghes %}
 
-### {% data variables.product.prodname_dependabot_alerts %} and security updates
+### {% data variables.product.prodname_dependabot_alerts %} und Sicherheitsupdates
 
-View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
-and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+Du kannst Warnungen zu Abhängigkeiten mit bekannten Sicherheitsrisiken anzeigen, und entscheiden, ob Pull Requests automatisch generiert werden sollen, um diese Abhängigkeiten zu aktualisieren. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) und [Informationen zu {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates).
 {% endif %}
 
 {% ifversion ghae %}
@@ -44,79 +47,73 @@ and "[About {% data variables.product.prodname_dependabot_security_updates %}](/
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+Zeige Warnungen zu Abhängigkeiten mit bekannten Sicherheitsrisiken an, und verwalte diese Warnungen. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-### {% data variables.product.prodname_dependabot %} version updates
+### Versionsupdates für {% data variables.product.prodname_dependabot %}
 
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
+Verwende {% data variables.product.prodname_dependabot %} zur automatisch Generierung von Pull Requests, um deine Abhängigkeiten auf dem neuesten Stand zu halten. Dadurch wird die Gefährdung von älteren Versionen durch Abhängigkeiten verringert. Die Verwendung neuer Versionen erleichtert das Anwenden von Patches, wenn Sicherheitsrisiken erkannt werden. Ebenfalls erleichtert es {% data variables.product.prodname_dependabot_security_updates %} das erfolgreiche Generieren von Pull Requests zum Upgraden anfälliger Abhängigkeiten. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates).
 {% endif %}
 
-### Dependency graph
-The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
+### Abhängigkeitsdiagramm
+Mit dem Abhängigkeitsdiagramm kannst du die Ökosysteme und Pakete erkunden, von denen dein Repository abhängig ist, sowie die Repositorys und Pakete, die von deinem Repository abhängen.
 
-You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+Du findest das Abhängigkeitsdiagramm auf der Registerkarte **Erkenntnisse** des Repositorys. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph).
 
 {% ifversion security-overview-displayed-alerts %}
-### Security overview
+### Sicherheitsübersicht
 
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+Mit der Sicherheitsübersicht kannst du Sicherheitskonfigurationen und Warnungen überprüfen, wodurch die am stärksten gefährdeten Repositorys und Organisationen identifiziert werden können. Weitere Informationen findest du unter [Informationen zur Sicherheitsübersicht](/code-security/security-overview/about-the-security-overview).
 
 {% else %}
-### Security overview for repositories
-The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
+### Sicherheitsübersicht für Repositorys
+Die Sicherheitsübersicht zeigt, welche Sicherheitsfeatures für das Repository aktiviert sind, und bietet die Möglichkeit, alle verfügbaren Sicherheitsfeatures zu konfigurieren, die derzeit nicht aktiviert sind.
 {% endif %}
 
-## Available with {% data variables.product.prodname_GH_advanced_security %}
+## Verfügbar mit {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion fpt %}
-The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
+{% ifversion fpt %} Die folgenden {% data variables.product.prodname_GH_advanced_security %}-Features sind auf {% data variables.product.prodname_dotcom_the_website %} für öffentliche Repositorys kostenlos verfügbar. Organisationen, die {% data variables.product.prodname_ghe_cloud %} mit einer Lizenz für {% data variables.product.prodname_GH_advanced_security %} nutzen, können den vollen Funktionsumfang in jedem ihrer Repositorys verwenden. Eine Liste der Features, die mit {% data variables.product.prodname_ghe_cloud %} verfügbar sind, findest du unter [Dokumentation zu {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
 
-{% elsif ghec %}
-Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif ghec %} Viele {% data variables.product.prodname_GH_advanced_security %}-Features sind auf {% data variables.product.prodname_dotcom_the_website %} für alle öffentlichen Repositorys kostenlos verfügbar. Organisationen mit einem Unternehmenskonto, das über eine {% data variables.product.prodname_GH_advanced_security %}-Lizenz verfügt, können die folgenden Features in allen ihren Repositorys verwenden. {% data reusables.advanced-security.more-info-ghas %}
 
-{% elsif ghes %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif ghes %} {% data variables.product.prodname_GH_advanced_security %}-Features sind für Unternehmen mit einer {% data variables.product.prodname_GH_advanced_security %}-Lizenz verfügbar. Die Features sind auf Repositorys beschränkt, die einer Organisation gehören. {% data reusables.advanced-security.more-info-ghas %}
 
-{% elsif ghae %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
+{% elsif ghae %} {% data variables.product.prodname_GH_advanced_security %}-Features sind für Repositorys verfügbar, die sich im Besitz einer Organisation befinden. {% data reusables.advanced-security.more-info-ghas %} {% endif %}
 
 ### {% data variables.product.prodname_code_scanning_capc %}
 
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+Hiermit kannst du Sicherheitsrisiken und Fehler in neuem oder geänderten Code automatisch erkennen. Mögliche Probleme werden hervorgehoben und mit detaillierten Informationen angezeigt, damit du den Code korrigieren kannst, bevor er mit dem Standardbranch zusammengeführt wird. Weitere Informationen findest du unter [Informationen zu Codeüberprüfungen](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
 
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+Dieses Feature erkennt automatisch kompromittierte Geheimnisse in allen öffentlichen Repositorys. {% data variables.product.company_short %} informiert den entsprechenden Dienstanbieter darüber, dass das Geheimnis kompromittiert wurde. Weitere Details zu unterstützten Geheimnissen und Dienstanbietern findest du unter [{% data variables.product.prodname_secret_scanning_caps %}-Muster](/code-security/secret-scanning/secret-scanning-patterns).
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 ### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
 
-{% ifversion ghec %}
-Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% ifversion ghec %} Nur mit einer Lizenz für {% data variables.product.prodname_GH_advanced_security %} verfügbar.
 {% endif %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
+Hiermit werden Token oder Anmeldeinformationen, die in ein Repository eingecheckt wurden, automatisch erkannt. Du kannst Warnungen für alle Geheimnisse anzeigen, die {% data variables.product.company_short %} in deinem Code findet, damit du weißt, welche Token oder Anmeldeinformationen als kompromittiert behandelt werden müssen. Weitere Informationen findest du unter [Informationen zur Geheimnisüberprüfung](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security).
 {% endif %}
 
-### Dependency review
+### Abhängigkeitsüberprüfung
 
-Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Zeige die vollständigen Auswirkungen von Änderungen an Abhängigkeiten an, und sieh dir Details zu anfälligen Versionen an, bevor du einen Pull Request zusammenführst. Weitere Informationen findest du unter [Informationen zur Abhängigkeitsprüfung](/code-security/supply-chain-security/about-dependency-review).
 
 {% ifversion security-overview-displayed-alerts %}<!--Section appears in non-GHAS features above-->
 
 {% elsif fpt %}<!--Feature requires enterprise product-->
 
 {% else %}
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
+### Sicherheitsübersicht für Organisationen{% ifversion ghes > 3.4 or ghae > 3.4 %}, Unternehmen{% endif %} und Teams
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+Überprüfe die Sicherheitskonfiguration und Warnungen für eine Organisation, und identifiziere die Repositorys mit dem größten Risiko. Weitere Informationen findest du unter [Informationen zur Sicherheitsübersicht](/code-security/security-overview/about-the-security-overview).
 {% endif %}
 
-## Further reading
-- "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
-- "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)"
+## Weitere Informationsquellen
+- [{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)
+- [{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)

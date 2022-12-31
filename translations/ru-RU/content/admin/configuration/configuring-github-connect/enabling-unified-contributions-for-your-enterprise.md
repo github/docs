@@ -1,7 +1,7 @@
 ---
-title: Enabling unified contributions for your enterprise
+title: Включении функции общего вклада для предприятия
 shortTitle: Unified contributions
-intro: 'You can allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: 'Вы можете разрешить пользователям включать анонимизированные счетчики вкладов для работы над {% данных variables.location.product_location %} в графах вкладов на {% данных variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com
@@ -19,36 +19,37 @@ type: how_to
 topics:
   - Enterprise
   - GitHub Connect
+ms.openlocfilehash: 6c9fa2c07de998a0b4cc4988786de51c9b79f87c
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098341'
 ---
-
 {% data reusables.github-connect.beta %}
 
-## About unified contributions
+## Сведения о функции общего вклада
 
-As an enterprise owner, you can allow end users to send anonymized contribution counts for their work from {% data variables.location.product_location %} to their {% data variables.product.prodname_dotcom_the_website %} contribution graph.
+Как владелец предприятия, вы можете разрешить конечным пользователям отправлять анонимные счетчики вкладов для своей работы с {% данных variables.location.product_location %} на их {% данных variables.product.prodname_dotcom_the_website %}.
 
-After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, each user must also connect their user account on {% data variables.product.product_name %} with a personal account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+После включения {% данных variables.enterprise.prodname_unified_contributions %}, прежде чем отдельные пользователи смогут отправлять счетчики вкладов из {% данных variables.location.product_location %} в {% данных variables.product.prodname_dotcom_the_website %}, каждый пользователь также должен подключить свою учетную запись пользователя к {% данных variables.product.product_name %} с помощью личной учетной записи на {% данных variables.product.prodname_dotcom_the_website %}. Дополнительные сведения см. в разделе [Отправка вкладов предприятия в профиль {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
 
 {% data reusables.github-connect.sync-frequency %}
 
-If the enterprise owner disables the functionality or individual users opt out of the connection, the contribution counts from {% data variables.product.product_name %} will be deleted on {% data variables.product.prodname_dotcom_the_website %}. If the user reconnects their profiles after disabling them, the contribution counts for the past 90 days are restored.
+Если владелец предприятия отключит эту функцию или отдельные пользователи откажутся от подключения, счетчики вкладов из {% data variables.product.product_name %} на {% data variables.product.prodname_dotcom_the_website %} будут удалены. Если пользователь повторно подключит свои профили после отключения, счетчики вкладов за последние 90 дней будут восстановлены.
 
-{% data variables.product.product_name %} **only** sends the contribution count and source ({% data variables.product.product_name %}) for connected users. It does not send any information about the contribution or how it was made.
+{% data variables.product.product_name %} отправляет **только** счетчик вкладов и источник ({% data variables.product.product_name %}) для подключенных пользователей. Никакие сведения о вкладе или о том, как он был сделан, не отправляются.
 
-## Enabling unified contributions
+## Включение функции общего вклада
 
-Before enabling {% data variables.enterprise.prodname_unified_contributions %} on {% data variables.location.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Перед включением {% данных variables.enterprise.prodname_unified_contributions %} для {% данных variables.location.product_location %}необходимо включить {% данных variables.product.prodname_github_connect %}. Дополнительные сведения см. в статье "[Управление {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
-{% ifversion ghes %}
-{% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. Sign in to {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion ghes %} {% data reusables.github-connect.access-dotcom-and-enterprise %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.business %} {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+1. Войдите в {% данных variables.location.product_location %} и {% данных variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. Under "Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}", click **Request access**.
-  ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
-2. [Sign in](https://enterprise.github.com/login) to the {% data variables.product.prodname_ghe_server %} site to receive further instructions.
+1. В разделе "Разрешить совместное использование счетчиков вкладов на {% data variables.product.prodname_dotcom_the_website %}" щелкните **Запросить доступ**.
+  ![Запрос доступа к функции общего вклада](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
+2. Чтобы ознакомиться с дальнейшими инструкциями, [войдите](https://enterprise.github.com/login) на сайт {% data variables.product.prodname_ghe_server %}.
 
-When you request access, we may redirect you to the {% data variables.product.prodname_ghe_server %} site to check your current terms of service.
+При получении запроса на доступ мы можем перенаправить вас на сайт {% data variables.product.prodname_ghe_server %} для ознакомления с текущими условиями предоставления услуг.
 {% endif %}

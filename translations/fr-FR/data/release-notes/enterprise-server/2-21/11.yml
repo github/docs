@@ -1,0 +1,18 @@
+date: '2020-11-03'
+sections:
+  security_fixes:
+    - '**MOYENNE :** Une utilisation élevée du processeur pouvait être déclenchée par une requête spécialement conçue pour le pont SVN, entraînant un déni de service (DoS). {% comment %} https://github.com/github/slumlord/pull/1004, https://github.com/github/slumlord/pull/1000 {% endcomment %}'
+    - "**FAIBLE :** Une validation incorrecte des jetons entraînait une entropie réduite pour les jetons correspondants pendant l’authentification. Les analyses montrent, dans la pratique, une absence de risque de sécurité significatif ici. {% comment %} https://github.com/github/github/pull/159455, https://github.com/github/github/pull/159193 {% endcomment %}"
+    - 'Les packages ont été mis à jour vers les dernières versions de sécurité. {% comment %} https://github.com/github/enterprise2/pull/23539, https://github.com/github/enterprise2/pull/23171, https://github.com/github/enterprise2/pull/23692, https://github.com/github/enterprise2/pull/23677 {% endcomment %}'
+  bugs:
+    - 'La modification des modèles de problème dont les noms de fichiers contenaient des caractères non-ASCII échouait avec un message « 500 Erreur interne du serveur ». {% comment %} https://github.com/github/github/pull/160589, https://github.com/github/github/pull/159747 {% endcomment %}'
+    - 'Une méthode de collecte des métriques pour les travaux en arrière-plan augmentait l’utilisation du processeur (mise à jour : 03/11/2020). {% comment %} https://github.com/github/github/pull/160109 {% endcomment %}'
+  known_issues:
+    - 'Sur une instance GitHub Enterprise Server fraîchement configurée et sans utilisateur, un attaquant pouvait créer le premier utilisateur administrateur. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Les règles de pare-feu personnalisées ne sont pas conservées lors d’une mise à niveau. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Les fichiers suivis par Git LFS [chargés par le biais de l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont, à tort, ajoutés directement au dépôt. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Les problèmes ne peuvent pas être fermés s’ils contiennent un lien permanent vers un blob situé dans le même dépôt, dont le chemin de fichier dépasse les 255 caractères. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Quand l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec GitHub Connect, les problèmes concernant des dépôts privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Les alertes de sécurité ne sont pas signalées lors de l’envoi (push) à un dépôt sur la ligne de commande. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Les journaux d’audit peuvent être attribués à 127.0.0.1 au lieu de l’adresse IP source réelle. {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - 'Quand un nœud de réplica est hors connexion dans une configuration de haute disponibilité, {% data variables.product.product_name %} peut quand même router les requêtes de {% data variables.product.prodname_pages %} vers le nœud hors connexion, réduisant ainsi la disponibilité de {% data variables.product.prodname_pages %} pour les utilisateurs.'

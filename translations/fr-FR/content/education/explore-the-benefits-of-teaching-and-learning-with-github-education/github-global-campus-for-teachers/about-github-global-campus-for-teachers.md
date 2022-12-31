@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 2a93f87df67d1694bd93888d29a582afa9c749e4
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3e7dea02ec468109fbfa865f2d84224f8381cc39
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158964'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192800'
 ---
 En tant que membre du corps enseignant d’un établissement d’enseignement accrédité, vous pouvez demander à rejoindre {% data variables.product.prodname_global_campus %}, qui inclut les avantages et ressources {% data variables.product.prodname_education %}. Pour plus d’informations, consultez « [Demander à rejoindre {% data variables.product.prodname_global_campus %} en tant qu’enseignant](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher) ».
 
@@ -34,7 +34,7 @@ Avant de demander une remise individuelle, vérifiez si votre communauté d’ap
   - Rester informé des centres d’intérêt de la communauté étudiante en re-regardant les épisodes récents de [Campus TV](https://www.twitch.tv/githubeducation). Campus TV est créée par {% data variables.product.prodname_dotcom %} et les leaders de la communauté étudiante et peut être regardée en direct ou à la demande.
   - Demander une pochette cadeau {% data variables.product.prodname_dotcom %} avec du matériel éducatif et des récompenses pour vos étudiants.
 
-Un abonnement gratuit à {% data variables.product.prodname_copilot %} est disponible pour les enseignants vérifiés avec {% data variables.product.prodname_education %}. Vous serez automatiquement informé de l’abonnement gratuit quand vous visiterez la page d’abonnement à {% data variables.product.prodname_copilot %} dans les paramètres de votre compte. Pour plus d’informations sur l’abonnement à {% data variables.product.prodname_copilot %} et son utilisation, consultez « [Gestion de votre abonnement {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot) » et « [À propos de {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot) ».
+Un abonnement gratuit à {% data variables.product.prodname_copilot %} est disponible pour les enseignants vérifiés avec {% data variables.product.prodname_education %}. Vous serez automatiquement informé de l’abonnement gratuit quand vous visiterez la page d’abonnement à {% data variables.product.prodname_copilot %} dans les paramètres de votre compte. Pour plus d’informations sur l’abonnement à {% data variables.product.prodname_copilot %} et son utilisation, consultez « [Gestion de votre abonnement {% data variables.product.prodname_copilot_for_individuals %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot) » et « [À propos de {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot) ».
 
 ## Informations supplémentaires
 

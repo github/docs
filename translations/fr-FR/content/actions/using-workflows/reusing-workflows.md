@@ -1,7 +1,7 @@
 ---
-title: Reusing workflows
+title: Réutilisation des workflows
 shortTitle: Reuse workflows
-intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
+intro: Découvrez comment éviter les doublons quand vous créez un workflow en réutilisant des workflows existants.
 redirect_from:
   - /actions/learn-github-actions/reusing-workflows
 miniTocMaxHeadingLevel: 3
@@ -13,93 +13,96 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: 2053b2bfd653a1f6633ab5d568e5b2fdb75d7335
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191925'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.reusable-workflows-enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.reusable-workflows-ghes-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Vue d’ensemble
 
-## Overview
+Au lieu de copier et de coller d’un workflow vers un autre, vous pouvez rendre les workflows réutilisables. Vous et toute personne ayant accès au workflow réutilisable peut alors appeler le workflow réutilisable à partir d’un autre workflow.
 
-Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
+La réutilisation de workflows évite la duplication. Cela facilite la maintenance des workflows et vous permet de créer plus rapidement de nouveaux workflows en s’appuyant sur le travail des autres, comme vous le faites avec des actions. La réutilisation des workflows favorise également les bonnes pratiques en vous aidant à utiliser des workflows bien conçus, qui ont déjà été testés et qui se sont avérés efficaces. Votre organisation peut créer une bibliothèque de workflows réutilisables qui peuvent être gérés de manière centralisée.
 
-Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
+Le diagramme ci-dessous montre une exécution de flux de travail en cours qui utilise un workflow réutilisable.
 
-The diagram below shows an in-progress workflow run that uses a reusable workflow.
+* Une fois que chacun des trois travaux de build à gauche du diagramme se termine avec succès, un travail dépendant appelé « Déployer » est exécuté.
+* Le travail « Déployer » appelle un workflow réutilisable qui contient trois travaux : « Préproduction », « Révision » et « Production ».
+* Le travail de déploiement « Production » s’exécute uniquement une fois que le travail « Préproduction » s’est correctement terminé.
+* Quand un travail cible un environnement, l’exécution du workflow affiche une barre de progression qui indique le nombre d’étapes du travail. Dans le diagramme ci-dessous, le travail « Production » contient 8 étapes, l’étape 6 étant en cours de traitement.
+* L’utilisation d’un workflow réutilisable pour exécuter des travaux de déploiement vous permet d’exécuter ces travaux pour chaque build sans dupliquer du code dans les workflows.
 
-* After each of three build jobs on the left of the diagram completes successfully, a dependent job called "Deploy" is run.
-* The "Deploy" job calls a reusable workflow that contains three jobs: "Staging", "Review", and "Production."
-* The "Production" deployment job only runs after the "Staging" job has completed successfully.
-* When a job targets an environment, the workflow run displays a progress bar that shows the number of steps in the job. In the diagram below, the "Production" job contains 8 steps, with step 6 currently being processed.
-* Using a reusable workflow to run deployment jobs allows you to run those jobs for each build without duplicating code in workflows.
+![Diagramme d’un workflow réutilisable pour le déploiement](/assets/images/help/images/reusable-workflows-ci-cd.png)
 
-![Diagram of a reusable workflow for deployment](/assets/images/help/images/reusable-workflows-ci-cd.png)
+Un workflow qui utilise un autre workflow est appelé workflow « appelant ». Le workflow réutilisable est workflow « appelé ». Un workflow appelant peut utiliser plusieurs workflows appelés. Chaque workflow appelé est référencé sur une seule ligne. Le résultat est que le workflow appelant peut ne contenir que quelques lignes de code YAML, mais effectuer un grand nombre de tâches quand il est exécuté. Lorsque vous réutilisez un workflow, l’ensemble du workflow appelé est utilisé, comme s’il faisait partie du workflow appelant.
 
-A workflow that uses another workflow is referred to as a "caller" workflow. The reusable workflow is a "called" workflow. One caller workflow can use multiple called workflows. Each called workflow is referenced in a single line. The result is that the caller workflow file may contain just a few lines of YAML, but may perform a large number of tasks when it's run. When you reuse a workflow, the entire called workflow is used, just as if it was part of the caller workflow.
+Si vous réutilisez un workflow d’un autre dépôt, toutes les actions du workflow appelé s’exécutent comme si elles faisaient partie du workflow appelant. Par exemple, si le workflow appelé utilise `actions/checkout`, l’action extrait le contenu du dépôt qui héberge le workflow appelant, et non le workflow appelé.
 
-If you reuse a workflow from a different repository, any actions in the called workflow run as if they were part of the caller workflow. For example, if the called workflow uses `actions/checkout`, the action checks out the contents of the repository that hosts the caller workflow, not the called workflow.
+Lorsqu’un workflow réutilisable est déclenché par un workflow appelant, le contexte `github` est toujours associé au workflow appelant. Le workflow appelé est automatiquement autorisé à accéder à `github.token` et à `secrets.GITHUB_TOKEN`. Pour plus d’informations sur le contexte `github`, consultez « [Syntaxe de contexte et d’expression pour GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) ».
 
-When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+Vous pouvez afficher les workflows réutilisés référencés dans vos workflows {% data variables.product.prodname_actions %} en tant que dépendances dans le graphique des dépendances du dépôt contenant vos workflows. Pour plus d’informations, consultez « [À propos du graphique des dépendances](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph) ».
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+### Workflows réutilisables et workflows de démarrage
 
-### Reusable workflows and starter workflows
+Les workflows de démarrage permettent à tous les membres de votre organisation disposant de l’autorisation de créer des workflows de le faire plus rapidement et plus facilement. Lorsque des utilisateurs créent un workflow, ils peuvent choisir un workflow de démarrage, et tout ou partie du travail d’écriture du workflow sera effectué à leur place. Dans un workflow de démarrage, vous pouvez également référencer des workflows réutilisables pour permettre aux utilisateurs de tirer facilement parti de la réutilisation de code de workflow géré de manière centralisée. Si vous utilisez un SHA de commit lors du référencement du workflow réutilisable, vous garantissez que tous ceux qui réutilisent ce workflow utiliseront toujours le même code YAML. Toutefois, si vous référencez un workflow réutilisable par une étiquette ou une branche, assurez-vous que vous pouvez approuver cette version du workflow. Pour plus d’informations, consultez « [Renforcement de la sécurité pour {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows) ».
 
-Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Within a starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
+Pour plus d’informations, consultez « [Création de workflows de démarrage pour votre organisation](/actions/learn-github-actions/creating-starter-workflows-for-your-organization) ».
 
-For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+## Accès aux workflows réutilisables
 
-## Access to reusable workflows
+Un workflow réutilisable peut être utilisé par un autre workflow si {% ifversion ghes or ghec or ghae %}n’importe laquelle{% else %}l’une ou l’autre{% endif %} des conditions suivantes est vraie :
 
-A reusable workflow can be used by another workflow if {% ifversion ghes or ghec or ghae %}any{% else %}either{% endif %} of the following is true:
+* Les deux workflows se trouvent dans le même dépôt.
+* Le workflow appelé est stocké dans un dépôt public{% ifversion actions-workflow-policy %}, et votre {% ifversion ghec %}entreprise{% else %}organisation{% endif %} vous permet d’utiliser des workflows publics réutilisables{% endif %}.{% ifversion ghes or ghec or ghae %}
+* Le workflow appelé est stocké dans un dépôt interne et les paramètres définis pour ce dépôt le rendent accessible. Pour plus d’informations, consultez {% ifversion internal-actions %}« [Partage d’actions et de workflows au sein de votre entreprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}« [Gestion des paramètres de {% data variables.product.prodname_actions %} pour un dépôt](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %} ».{% endif %}
 
-* Both workflows are in the same repository.
-* The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
-
-## Using runners
+## Utilisation des exécuteurs
 
 {% ifversion fpt or ghes or ghec %}
 
-### Using GitHub-hosted runners
+### Utilisation des exécuteurs hébergés par GitHub
 
-The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+L’affectation d’exécuteurs hébergés par {% data variables.product.prodname_dotcom %} est toujours évaluée à l’aide du contexte de l’appelant uniquement. La facturation des exécuteurs hébergés par {% data variables.product.prodname_dotcom %} est toujours associée à l’appelant. Le workflow appelant ne peut pas utiliser des exécuteurs hébergés par {% data variables.product.prodname_dotcom %} à partir du dépôt appelé. Pour plus d’informations, consultez « [À propos des exécuteurs hébergés par {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners) ».
 
-### Using self-hosted runners
+### Utilisation des exécuteurs auto-hébergés
 
 {% endif %}
 
-Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
-* In the caller repository
-* In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
+Les workflows appelés qui appartiennent au même utilisateur ou à la même organisation{% ifversion ghes or ghec or ghae %} ou entreprise{% endif %} que le workflow appelant peuvent accéder aux exécuteurs auto-hébergés à partir du contexte de l’appelant. Cela signifie qu’un workflow appelé peut accéder aux exécuteurs auto-hébergés qui se trouvent :
+* Dans le dépôt appelant
+* Dans l’organisation{% ifversion ghes or ghec or ghae %} ou l’entreprise{% endif %} du dépôt appelant, à condition que l’exécuteur ait été mis à la disposition du dépôt appelant
 
-## Limitations
+## Limites
 
 {% ifversion nested-reusable-workflow %}
-* You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
+* Vous pouvez connecter jusqu’à quatre niveaux de workflows. Pour plus d’informations, consultez « [Imbrication de workflows réutilisables](#nesting-reusable-workflows) ».
 {% else %}
-* Reusable workflows can't call other reusable workflows.
+* Les workflows réutilisables ne peuvent pas appeler d’autres workflows réutilisables.
 {% endif %}
-* Reusable workflows stored within a private repository can only be used by workflows within the same repository.
-* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."{% ifversion actions-reusable-workflow-matrix %}{% else %}
-* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
+* Les workflows réutilisables stockés dans un dépôt privé ne peuvent être utilisés que par des workflows se trouvant dans le même dépôt.
+* Toutes les variables d’environnement configurées dans un contexte `env` défini au niveau du workflow dans le workflow appelant ne sont pas propagées au workflow appelé. Pour plus d’informations sur le contexte `env`, consultez « [Syntaxe de contexte et d’expression pour GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) ».{% ifversion actions-reusable-workflow-matrix %}{% else %}
+* La propriété `strategy` n’est prise en charge dans aucun travail qui appelle un workflow réutilisable.{% endif %}
 
-## Creating a reusable workflow
+## Création d’un workflow réutilisable
 
-Reusable workflows are YAML-formatted files, very similar to any other workflow file. As with other workflow files, you locate reusable workflows in the `.github/workflows` directory of a repository. Subdirectories of the `workflows` directory are not supported.
+Les workflows réutilisables sont des fichiers au format YAML, très similaires à tout autre fichier de workflow. Comme avec d’autres fichiers de workflow, vous localisez les workflows réutilisables dans le répertoire `.github/workflows` d’un dépôt. Les sous-répertoires du répertoire `workflows` ne sont pas pris en charge.
 
-For a workflow to be reusable, the values for `on` must include `workflow_call`:
+Pour qu’un workflow soit réutilisable, les valeurs de `on` devront inclure `workflow_call` :
 
 ```yaml
 on:
   workflow_call:
 ```
 
-### Using inputs and secrets in a reusable workflow
+### Utilisation d’entrées et de secrets dans un workflow réutilisable
 
-You can define inputs and secrets, which can be passed from the caller workflow and then used within the called workflow. There are three stages to using an input or a secret in a reusable workflow.
+Vous pouvez définir des entrées et des secrets, qui peuvent être passés à partir du workflow appelant, puis utilisés dans le workflow appelé. L’utiliser d’une entrée ou d’un secret dans un workflow réutilisable comporte trois étapes.
 
-1. In the reusable workflow, use the `inputs` and `secrets` keywords to define inputs or secrets that will be passed from a caller workflow.
+1. Dans le workflow réutilisable, utilisez les mots clés `inputs` et `secrets` pour définir des entrées ou des secrets qui seront passés à partir d’un workflow appelant.
    {% raw %}
    ```yaml
    on:
@@ -112,18 +115,16 @@ You can define inputs and secrets, which can be passed from the caller workflow 
          envPAT:
            required: true
    ```
-   {% endraw %}
-   For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+   {% endraw %} Pour obtenir des détails sur la syntaxe de la définition d’entrées et de secrets, consultez [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) et [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+1. Dans le workflow réutilisable, référencez l’entrée ou le secret que vous avez défini(e) dans la clé `on` à l’étape précédente.
 
    {% note %}
 
-   **Note**: If the secrets are inherited by using `secrets: inherit` in the calling workflow, you can reference them even if they are not explicitly defined in the `on` key. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)."
+   **Remarque** :Si les secrets sont hérités par l’utilisation de `secrets: inherit` dans le workflow d’appel, vous pouvez les référencer même s’ils ne sont pas définis explicitement dans la clé `on`. Pour plus d’informations, consultez « [Syntaxe de workflow pour GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit) ».
 
-   {% endnote %}
-   {%- else %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+   {% endnote %} {%- else %}
+1. Dans le workflow réutilisable, référencez l’entrée ou le secret que vous avez défini(e) dans la clé `on` à l’étape précédente.
    {%- endif %}
 
    {% raw %}
@@ -138,22 +139,21 @@ You can define inputs and secrets, which can be passed from the caller workflow 
            repo-token: ${{ secrets.envPAT }}
            configuration-path: ${{ inputs.config-path }}
    ```
-   {% endraw %}
-   In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
+   {% endraw %} Dans l’exemple ci-dessus, `envPAT` est un secret d’environnement qui a été ajouté à l’environnement `production`. Cet environnement est donc référencé dans le travail.
 
    {% note %}
 
-   **Note**: Environment secrets are encrypted strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+   **Remarque** : Les secrets d’environnement sont des chaînes chiffrées stockées dans un environnement que vous avez défini pour un dépôt. Les secrets d’environnement sont disponibles uniquement pour les travaux de workflow qui référencent l’environnement approprié. Pour plus d’informations, consultez « [Utilisation d’environnements pour le déploiement](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) ».
 
    {% endnote %}
 
-1. Pass the input or secret from the caller workflow.
+1. Passez l’entrée ou le secret à partir du workflow appelant.
 
 {% indented_data_reference reusables.actions.pass-inputs-to-reusable-workflows spaces=3 %}
 
-### Example reusable workflow
+### Exemple de workflow réutilisable
 
-This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in an action.
+Ce fichier de workflow réutilisable nommé `workflow-B.yml` (auquel nous ferons référence plus tard dans l’[exemple de workflow appelant](#example-caller-workflow)) prend une chaîne d’entrée et un secret provenant du workflow appelant et les utilise dans une action.
 
 {% raw %}
 ```yaml{:copy}
@@ -180,32 +180,32 @@ jobs:
 ```
 {% endraw %}
 
-## Calling a reusable workflow
+## Appel d’un workflow réutilisable
 
-You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
+Vous appelez un workflow réutilisable à l’aide du mot clé `uses`. Contrairement à l’étape dans laquelle vous utilisez des actions dans un workflow, vous appelez des workflows réutilisables directement au sein d’un travail, et non à partir d’étapes de travail.
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+Vous référencez des fichiers de workflow réutilisable en utilisant {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}une des syntaxes suivantes :{% else %}la syntaxe :{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-You can call multiple workflows, referencing each in a separate job.
+Vous pouvez appeler plusieurs workflows, en référençant chacun dans un travail distinct.
 
 {% data reusables.actions.uses-keyword-example %}
 
-### Passing inputs and secrets to a reusable workflow
+### Passage d’entrées et de secrets à un workflow réutilisable
 
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
 {% ifversion actions-reusable-workflow-matrix %}
-### Using a matrix strategy with a reusable workflow
+### Utilisation d’une stratégie de matrice avec un workflow réutilisable
 
-Jobs using the matrix strategy can call a reusable workflow.
+Les travaux qui utilisent la stratégie de matrice peuvent appeler un workflow réutilisable.
 
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Une stratégie de matrice vous permet d’utiliser des variables dans une définition de travail unique pour créer automatiquement plusieurs exécutions de travaux basées sur les combinaisons des variables. Par exemple, vous pouvez utiliser une stratégie de matrice pour passer différentes entrées à un workflow réutilisable. Pour plus d’informations sur les matrices, consultez « [Utilisation d’une matrice pour vos travaux](/actions/using-jobs/using-a-matrix-for-your-jobs) ».
 
-This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
+Cet exemple de travail ci-dessous appelle un workflow réutilisable et fait référence au contexte de matrice en définissant la variable `target` avec les valeurs `[dev, stage, prod]`. Il va exécuter trois travaux, un pour chaque valeur de la variable.
 
 {% raw %}
 ```yaml{:copy}
@@ -218,25 +218,20 @@ jobs:
     with:
       target: ${{ matrix.target }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
-### Supported keywords for jobs that call a reusable workflow
+### Mots clés pris en charge pour les travaux qui appellent un workflow réutilisable
 
-When you call a reusable workflow, you can only use the following keywords in the job containing the call:
+Lorsque vous appelez un workflow réutilisable, vous ne pouvez utiliser que les mots clés suivants dans le travail contenant l’appel :
 
 * [`jobs.<job_id>.name`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idname)
 * [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 * [`jobs.<job_id>.with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwith)
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
-* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
-{%- ifversion actions-inherit-secrets-reusable-workflows %}
-* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
-{%- endif %}
-{%- ifversion actions-reusable-workflow-matrix %}
-* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
-{%- endif %}
+* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id) {%- ifversion actions-inherit-secrets-reusable-workflows %}
+* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit) {%- endif %} {%- ifversion actions-reusable-workflow-matrix %}
+* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy) {%- endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
@@ -244,16 +239,16 @@ When you call a reusable workflow, you can only use the following keywords in th
 
    {% note %}
 
-   **Note:**
+   **Remarque :**
 
-   * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
-   * The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
+   * Si `jobs.<job_id>.permissions` n’est pas spécifié dans le travail appelant, le workflow appelé a les autorisations par défaut de `GITHUB_TOKEN`. Pour plus d’informations, consultez « [Authentification dans un workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token) ».
+   * Les autorisations `GITHUB_TOKEN` passées à partir du workflow appelant ne peuvent être rétrogradées (non élevées) que par le workflow appelé.
 
    {% endnote %}
 
-### Example caller workflow
+### Exemple de workflow appelant
 
-This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`config-path`) and a secret (`token`).
+Ce fichier de workflow appelle deux fichiers de workflow. Une entrée (`config-path`) et un secret (`token`) sont passés au deuxième de ces fichiers, `workflow-B.yml` (illustré dans l’[exemple de workflow réutilisable](#example-reusable-workflow)).
 
 {% raw %}
 ```yaml{:copy}
@@ -281,11 +276,11 @@ jobs:
 {% endraw %}
 
 {% ifversion nested-reusable-workflow %}
-## Nesting reusable workflows
+## Imbrication des workflows réutilisables
 
-You can connect a maximum of four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Loops in the workflow tree are not permitted.
+Vous pouvez connecter un maximum de quatre niveaux de workflows, c’est-à-dire le workflow de l’appelant de niveau supérieur et jusqu’à trois niveaux de workflows réutilisables. Par exemple : _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Les boucles ne sont pas autorisées dans l’arborescence de workflows.
 
-From within a reusable workflow you can call another reusable workflow.
+À partir d’un workflow réutilisable, vous pouvez appeler un autre workflow réutilisable.
 
 {% raw %}
 ```yaml{:copy}
@@ -300,11 +295,11 @@ jobs:
 ```
 {% endraw %}
 
-### Passing secrets to nested workflows
+### Passage de secrets à des workflows imbriqués
 
-You can use `jobs.<job_id>.secrets` in a calling workflow to pass named secrets to a directly called workflow. Alternatively, you can use `jobs.<job_id>.secrets.inherit` to pass all of the calling workflow's secrets to a directly called workflow. For more information, see the section "[Passing inputs and secrets to a reusable workflow](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)" above, and the reference article "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)." Secrets are only passed to directly called workflow, so in the workflow chain A > B > C, workflow C will only receive secrets from A if they have been passed from A to B, and then from B to C.
+Vous pouvez utiliser `jobs.<job_id>.secrets` dans un workflow appelant pour passer des secrets nommés à un workflow appelé directement. Vous pouvez également utiliser `jobs.<job_id>.secrets.inherit` pour passer tous les secrets du workflow appelant à un workflow directement appelé. Pour plus d’informations, consultez la section « [Passage d’entrées et de secrets à un workflow réutilisable](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow) » ci-dessus, ainsi que l’article de référence « [Syntaxe de workflow pour GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit) ». Les secrets sont passés uniquement au workflow appelé directement, de sorte que dans la chaîne de workflow A > B > C, le workflow C ne reçoit les secrets de A que s’ils ont été passés de A à B, puis de B à C.
 
-In the following example, workflow A passes all of its secrets to workflow B, by using the `inherit` keyword, but workflow B only passes one secret to workflow C. Any of the other secrets passed to workflow B are not available to workflow C.
+Dans l’exemple suivant, le workflow A passe tous ses secrets au workflow B à l’aide du mot clé `inherit`, mais le workflow B ne passe qu’un seul secret au workflow C. Les autres secrets passés au workflow B ne sont pas disponibles pour le workflow C.
 
 {% raw %}
 ```yaml
@@ -323,23 +318,23 @@ jobs:
 ```
 {% endraw %}
 
-### Access and permissions
+### Accès et autorisations
 
-A workflow that contains nested reusable workflows will fail if any of the nested workflows is inaccessible to the initial caller workflow. For more information, see "[Access to reusable workflows](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)."
+Un workflow qui contient des workflows réutilisables imbriqués échouera si l’un des workflows imbriqués n’est pas accessible au workflow de l’appelant initial. Pour plus d’informations, consultez « [Accès aux workflows réutilisables](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows) ».
 
-`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+Dans les workflows imbriqués, les autorisations `GITHUB_TOKEN` ne peuvent être identiques ni plus restrictives. Par exemple, dans la chaîne de workflows A > B > C, si le workflow A dispose d’une autorisation de jeton `package: read`, B et C ne peuvent pas avoir d’autorisation `package: write`. Pour plus d’informations, consultez « [Authentification automatique par jeton](/actions/security-guides/automatic-token-authentication) ».
 
-For information on how to use the API to determine which workflow files were involved in a particular workflow run, see "[Monitoring which workflows are being used](#monitoring-which-workflows-are-being-used)."
+Pour plus d’informations sur l’utilisation de l’API pour déterminer quels fichiers de workflow ont été impliqués dans une exécution de workflow particulière, consultez « [Supervision des workflows qui ont été utilisés](#monitoring-which-workflows-are-being-used) ».
 {% endif %}
 
-## Using outputs from a reusable workflow
+## Utilisation de sorties à partir d’un workflow réutilisable
 
-A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
+Un workflow réutilisable peut générer des données que vous souhaitez utiliser dans le workflow appelant. Pour utiliser ces sorties, vous devez les spécifier comme sorties du workflow réutilisable.{% ifversion actions-reusable-workflow-matrix %}
 
-If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value.
-That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
+Si un workflow réutilisable qui définit une sortie est exécuté avec une stratégie de matrice, la sortie sera celle qui est définie par le dernier workflow réutilisable réussi de la matrice qui définit réellement une valeur.
+Cela signifie que si le dernier workflow réutilisable réussi définit une chaîne vide pour sa sortie et que l’avant-dernier workflow réutilisable réussi définit une valeur réelle pour sa sortie, la sortie contiendra la valeur de l’avant-dernier workflow réutilisable.{% endif %}
 
-The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
+Le workflow réutilisable suivant comprend un seul travail contenant deux étapes. Dans chacune de ces étapes, nous définissons un mot unique comme sortie : « hello » et « world ». Dans la section `outputs` du travail, nous mappons ces sorties d’étape aux sorties de travail appelées `output1` et `output2`. Dans la section `on.workflow_call.outputs`, nous définissons ensuite deux sorties pour le workflow lui-même : une appelée `firstword` que nous mappons à `output1`, et l’autre appelée `secondword` que nous mappons à `output2`.
 
 {% raw %}
 ```yaml{:copy}
@@ -380,7 +375,7 @@ jobs:
 ```
 {% endraw %}
 
-We can now use the outputs in the caller workflow, in the same way you would use the outputs from a job within the same workflow. We reference the outputs using the names defined at the workflow level in the reusable workflow: `firstword` and `secondword`. In this workflow, `job1` calls the reusable workflow and `job2` prints the outputs from the reusable workflow ("hello world") to standard output in the workflow log.
+Nous pouvons maintenant utiliser les sorties dans le workflow appelant, de la même façon que vous utiliseriez les sorties d’un travail au sein du même workflow. Nous faisons référence aux sorties à l’aide des noms définis au niveau du workflow dans le workflow réutilisable : `firstword` et `secondword`. Dans ce workflow, `job1` appelle le workflow réutilisable et `job2` imprime les sorties de ce dernier (« hello world ») dans la sortie standard dans le journal du workflow.
 
 {% raw %}
 ```yaml{:copy}
@@ -401,37 +396,37 @@ jobs:
 ```
 {% endraw %}
 
-For more information on using job outputs, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+Pour plus d’informations sur l’utilisation de sorties de travaux, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs) ».
 
-## Monitoring which workflows are being used
+## Monitoring des workflows en cours d’utilisation
 
-You can use the {% data variables.product.prodname_dotcom %} REST API to monitor how reusable workflows are being used. The `prepared_workflow_job` audit log action is triggered when a workflow job is started. Included in the data recorded are:
-* `repo` - the organization/repository where the workflow job is located. For a job that calls another workflow, this is the organization/repository of the caller workflow.
-* `@timestamp` - the date and time that the job was started, in Unix epoch format.
-* `job_name` - the name of the job that was run.
+Vous pouvez utiliser l’API REST {% data variables.product.prodname_dotcom %} pour superviser la façon dont les workflows réutilisables sont utilisés. L’action de journal d’audit `prepared_workflow_job` est déclenchée lors du démarrage d’un travail de workflow. Les données enregistrées sont les suivantes :
+* `repo` : organisation/dépôt où se trouve le travail de workflow. Pour un travail qui appelle un autre workflow, il s’agit de l’organisation/du dépôt du workflow appelant.
+* `@timestamp` : date et heure de démarrage du travail, au format Unix Epoch.
+* `job_name` : nom du travail qui a été exécuté.
 {% ifversion nested-reusable-workflow %}
-* `calling_workflow_refs` - an array of file paths for all the caller workflows involved in this workflow job. The items in the array are in the reverse order that they were called in. For example, in a chain of workflows A > B > C, when viewing the logs for a job in workflow C, the array would be `["octo-org/octo-repo/.github/workflows/B.yml", "octo-org/octo-repo/.github/workflows/A.yml"]`.
-* `calling_workflow_shas` - an array of SHAs for all the caller workflows involved in this workflow job. The array contains the same number of items, in the same order, as the `calling_workflow_refs` array. {% endif %}
-* `job_workflow_ref` - the workflow file that was used, in the form `{owner}/{repo}/{path}/{filename}@{ref}`. For a job that calls another workflow, this identifies the called workflow.
+* `calling_workflow_refs` - un tableau de chemins de fichiers pour tous les workflows de l’appelant impliqués dans ce travail de workflow. Les éléments du tableau sont dans l’ordre inverse de celui où ils ont été appelés. Par exemple, dans une chaîne de workflows A > B > C, lors de l’affichage des journaux pour un travail dans le workflow C, le tableau est `["octo-org/octo-repo/.github/workflows/B.yml", "octo-org/octo-repo/.github/workflows/A.yml"]`.
+* `calling_workflow_shas` - un tableau de SHA pour tous les workflows de l’appelant impliqués dans ce travail de workflow. Le tableau contient le même nombre d’éléments, dans le même ordre, que le tableau `calling_workflow_refs`. {% endif %}
+* `job_workflow_ref` : fichier de workflow qui a été utilisé, sous la forme `{owner}/{repo}/{path}/{filename}@{ref}`. Pour un travail qui appelle un autre workflow, cela identifie le workflow appelé.
 
-For information about using the REST API to query the audit log for an organization, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+Pour plus d’informations sur l’utilisation de l’API REST en vue d’interroger le journal d’audit d’une organisation, consultez « [Organisations](/rest/reference/orgs#get-the-audit-log-for-an-organization) ».
 
 {% note %}
 
-**Note**: Audit data for `prepared_workflow_job` can only be viewed using the REST API. It is not visible in the {% data variables.product.prodname_dotcom %} web interface, or included in JSON/CSV exported audit data.
+**Remarque** : Les données d’audit pour `prepared_workflow_job` ne peuvent être consultées qu’à l’aide de l’API REST. Elles ne sont pas visibles dans l’interface web {% data variables.product.prodname_dotcom %}, ni incluses dans les données d’audit exportées JSON/CSV.
 
 {% endnote %}
 
 {% ifversion partial-reruns-with-reusable %}
 
-## Re-running workflows and jobs with reusable workflows
+## Réexécution de workflows et de travaux avec des workflows réutilisables
 
 {% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 
-## Next steps
+## Étapes suivantes
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)."
+Pour continuer à découvrir {% data variables.product.prodname_actions %}, consultez « [Événements qui déclenchent des workflows](/actions/learn-github-actions/events-that-trigger-workflows) ».
 
-{% ifversion restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+{% ifversion restrict-groups-to-workflows %}Vous pouvez standardiser les déploiements en créant un groupe d’exécuteurs autohébergés qui peut uniquement exécuter un workflow réutilisable spécifique. Pour plus d’informations, consultez « [Gestion de l’accès aux exécuteurs auto-hébergés à l’aide de groupes](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups) ».{% endif %}

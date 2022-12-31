@@ -1,6 +1,6 @@
 ---
-title: Exporting migration data from your enterprise
-intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
+title: 엔터프라이즈에서 마이그레이션 데이터 내보내기
+intro: '플랫폼을 변경하거나 평가판 인스턴스에서 프로덕션 인스턴스로 이동하려면 인스턴스를 준비하고, 리포지토리를 잠그고, 마이그레이션 보관 파일을 생성하여 {% data variables.product.prodname_ghe_server %} 인스턴스에서 마이그레이션 데이터를 내보낼 수 있습니다.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
@@ -18,40 +18,46 @@ topics:
   - Enterprise
   - Migration
 shortTitle: Export from your enterprise
+ms.openlocfilehash: 0e72232137588cd9da36e55245fa341d0603ca0b
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094291'
 ---
-## Preparing the {% data variables.product.prodname_ghe_server %} source instance
+## {% data variables.product.prodname_ghe_server %} 원본 인스턴스 준비
 
-1. Verify that you are a site administrator on the {% data variables.product.prodname_ghe_server %} source. The best way to do this is to verify that you can [SSH into the instance](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+1. {% data variables.product.prodname_ghe_server %} 원본의 사이트 관리자인지 확인합니다. 이 작업을 수행하는 가장 좋은 방법은 [인스턴스에 SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)할 수 있는지 확인하는 것입니다.
 
-2. {% data reusables.enterprise_migrations.token-generation %} on the {% data variables.product.prodname_ghe_server %} source instance.
+2. {% data variables.product.prodname_ghe_server %} 원본 인스턴스의 {% data reusables.enterprise_migrations.token-generation %}
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-## Exporting the {% data variables.product.prodname_ghe_server %} source repositories
+## {% data variables.product.prodname_ghe_server %} 원본 리포지토리 내보내기
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To prepare a repository for export, use the `ghe-migrator add` command with the repository's URL:
-    * If you're locking the repository, append the command with `--lock`. If you're performing a trial run, `--lock` is not needed.
+2. 내보내기용 리포지토리를 준비하려면 리포지토리의 URL과 함께 `ghe-migrator add` 명령을 사용합니다.
+    * 리포지토리를 잠그는 경우 `--lock`과 함께 명령을 추가합니다. 무료 평가판을 실행하는 경우 `--lock`은 필요하지 않습니다.
       ```shell
       $ ghe-migrator add https://HOSTNAME/USERNAME/REPO-NAME --lock
       ```
-    * You can exclude file attachments by appending `--exclude_attachments` to the command. {% data reusables.enterprise_migrations.exclude-file-attachments %}
-    * To prepare multiple repositories at once for export, create a text file listing each repository URL on a separate line, and run the `ghe-migrator add` command with the `-i` flag and the path to your text file.
+    * 명령에 `--exclude_attachments`를 추가하여 첨부 파일을 제외할 수 있습니다. {% data reusables.enterprise_migrations.exclude-file-attachments %}
+    * 내보내기를 위해 여러 리포지토리를 한 번에 준비하려면 다른 라인에 있는 각 리포지토리 URL을 나열하는 텍스트 파일을 만들고, `-i` 플래그 및 텍스트 파일의 경로와 함께 `ghe-migrator add` 명령을 실행합니다.
       ```shell
       $ ghe-migrator add -i PATH/TO/YOUR/REPOSITORY_URL.txt
       ```
 
-3. When prompted, enter your {% data variables.product.prodname_ghe_server %} username:
+3. 메시지가 표시되면 {% data variables.product.prodname_ghe_server %}의 사용자 이름을 입력합니다.
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. When prompted for a {% data variables.product.pat_generic %}, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
+4. {% 데이터 variables.product.pat_generic %}을(를) 묻는 메시지가 표시되면 "[{% 데이터 variables.product.prodname_ghe_server %} 원본 인스턴스 준비](#preparing-the-github-enterprise-server-source-instance)"에서 만든 액세스 토큰을 입력합니다.
   ```shell
   Enter {% data variables.product.pat_generic %}:  **************
   ```
-5. When `ghe-migrator add` has finished it will print the unique "Migration GUID" that it generated to identify this export as well as a list of the resources that were added to the export. You will use the Migration GUID that it generated in subsequent `ghe-migrator add` and `ghe-migrator export` steps to tell `ghe-migrator` to continue operating on the same export.
+5. `ghe-migrator add`가 완료되면 이 내보내기를 식별하기 위해 생성된 고유의 “마이그레이션 GUID”와 내보내기에 추가된 리소스 목록을 출력합니다. `ghe-migrator add` 이후에 생성된 마이그레이션 GUID 및 동일한 내보내기에서 `ghe-migrator`가 계속 작동하도록 지시하는 `ghe-migrator export` 단계를 사용합니다.
   ```shell
   > 101 models added to export
   > Migration GUID: EXAMPLE-MIGRATION-GUID
@@ -73,32 +79,32 @@ shortTitle: Export from your enterprise
   > attachments                  |  4
   > projects                     |  2
   ```
-  Each time you add a new repository with an existing Migration GUID it will update the existing export. If you run `ghe-migrator add` again without a Migration GUID it will start a new export and generate a new Migration GUID. **Do not re-use the Migration GUID generated during an export when you start preparing your migration for import**.
+  기존 마이그레이션 GUID를 사용하여 새 리포지토리를 추가할 때마다 기존 내보내기가 업데이트됩니다. 마이그레이션 GUID 없이 `ghe-migrator add`를 다시 실행하면 새 내보내기가 시작되고 새 마이그레이션 GUID가 생성됩니다. **가져오기를 위해 마이그레이션 준비를 시작할 때 내보내기 하는 동안 생성된 마이그레이션 GUID는 다시 사용하지 마세요**.
 
-3. If you locked the source repository, you can use the `ghe-migrator target_url` command to set a custom lock message on the repository page that links to the repository's new location. Pass the source repository URL, the target repository URL, and the Migration GUID from Step 5:
+3. 원본 리포지토리를 잠근 경우 `ghe-migrator target_url` 명령을 사용하여 리포지토리의 새 위치에 연결되는 리포지토리 페이지에서 사용자 지정 잠금 메시지를 설정할 수 있습니다. 5단계에서 원본 리포지토리 URL, 대상 리포지토리 URL 및 마이그레이션 GUID를 전달합니다.
 
   ```shell
   $ ghe-migrator target_url https://HOSTNAME/USERNAME/REPO-NAME https://TARGET-HOSTNAME/TARGET-USER-NAME/TARGET-REPO-NAME -g MIGRATION-GUID
   ```
 
-6. To add more repositories to the same export, use the `ghe-migrator add` command with the `-g` flag. You'll pass in the new repository URL and the Migration GUID from Step 5:
+6. 동일한 내보내기에서 리포지토리를 더 추가하려면 `-g` 플래그와 함께 `ghe-migrator add` 명령을 사용합니다. 5단계에서 새 리포지토리 URL 및 마이그레이션 GUID를 전달합니다.
   ```shell
   $ ghe-migrator add https://HOSTNAME/USERNAME/OTHER-REPO-NAME -g MIGRATION-GUID --lock
   ```
-7. When you've finished adding repositories, generate the migration archive using the `ghe-migrator export` command with the `-g` flag and the Migration GUID from Step 5:
+7. 리포지토리 추가를 마쳤으면 `-g` 플래그가 있는 `ghe-migrator export` 명령과 5단계의 마이그레이션 GUID를 사용하여 마이그레이션 보관 파일을 생성합니다.
     ```shell
     $ ghe-migrator export -g MIGRATION-GUID
     > Archive saved to: /data/github/current/tmp/MIGRATION-GUID.tar.gz
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Close the connection to {% data variables.location.product_location %}:
+8. {% 데이터 variables.location.product_location %}에 대한 연결을 닫습니다.
   ```shell
   $ exit
   > logout
   > Connection to HOSTNAME closed.
   ```
-9. Copy the migration archive to your computer using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
+9. [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) 명령을 사용하여 마이그레이션 보관 파일을 컴퓨터에 복사합니다. 보관 파일의 이름은 마이그레이션 GUID로 지정됩니다.
   ```shell
   $ scp -P 122 admin@HOSTNAME:/data/github/current/tmp/MIGRATION-GUID.tar.gz ~/Desktop
   ```

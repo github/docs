@@ -1,0 +1,16 @@
+date: '01-04-2021'
+sections:
+  security_fixes:
+    - "**ALTO:** Se ha identificado una vulnerabilidad de control de acceso incorrecta en GitHub Enterprise Server que permitía que tokens de acceso generados desde el [flujo de autenticación web] de una aplicación de GitHub (https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) leyeran metadatos de repositorios privados mediante la API REST sin tener los permisos correctos asignados. Para aprovechar esta vulnerabilidad, un atacante tendría que crear una aplicación de GitHub en la instancia y hacer que el usuario la autorice mediante el flujo de autenticación web. Los metadatos de repositorio privado devueltos estarían limitados a repositorios propiedad del usuario identificado por el token. Esta vulnerabilidad afectaba a todas las versiones de GitHub Enterprise Server anteriores a la 3.0.4 y se ha corregido en las versiones 3.0.4, 2.22.10 y 2.21.18. Esta vulnerabilidad se ha asignado a CVE-2021-22865 y se ha notificado mediante [GitHub Bug Bounty Program](https://bounty.github.com)."
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "Los servicios no realizaban la transición a los nuevos archivos de registro como parte de la rotación de registros, lo que genera un aumento del uso de disco."
+    - "La etiqueta de los resultados de la búsqueda para los repositorios internos se ha mostrado como \"Privada\" en vez de como \"Interna\"."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - Las alertas de seguridad no se notifican cuando se envían cambios a un repositorio en la línea de comandos.
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

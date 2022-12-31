@@ -1,76 +1,81 @@
 ---
-title: Running scripts before or after a job
-intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
+title: ジョブ前後のスクリプトの実行
+intro: ジョブの直前または直後に、セルフホステッド ランナー上でスクリプトを自動的に実行できます。
 versions:
   feature: job-hooks-for-runners
 type: tutorial
 miniTocMaxHeadingLevel: 3
 shortTitle: Run a script before or after a job
+ms.openlocfilehash: 11b2f63cd70c5276f0626a6016593553d1bedd0c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067651'
 ---
-
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**注:** この機能は現在ベータ版であり、変更されることがあります。
 
 {% endnote %}
 
-## About pre- and post-job scripts
+## ジョブ前後のスクリプトについて
 
-You can automatically execute scripts on a self-hosted runner, either before a job runs, or after a job finishes running. You could use these scripts to support the job's requirements, such as building or tearing down a runner environment, or cleaning out directories. You could also use these scripts to track telemetry of how your runners are used.
+セルフホステッド ランナー上で、ジョブの実行前、またはジョブの実行完了後に自動的にスクリプトを実行することができます。 これらのスクリプトを使って、ランナー環境の構築または撤収、ディレクトリのクリーンアップなど、ジョブの要件をサポートすることができます。 また、これらのスクリプトを使って、ランナーの使用状況のテレメトリを追跡することもできます。
 
-The custom scripts are automatically triggered when a specific environment variable is set on the runner; the environment variable must contain the absolute path to the script. For more information, see "[Triggering the scripts](#triggering-the-scripts)" below.
+カスタム スクリプトは、ランナー上で特定の環境変数が設定されたときに自動的にトリガーされます。環境変数には、スクリプトの絶対パスを含める必要があります。 詳細については、後述する「[スクリプトのトリガー](#triggering-the-scripts)」を参照してください。
 
-The following scripting languages are supported:
+以下のスクリプト言語がサポートされています。
 
-- **Bash**: Uses `bash` and can fallback to `sh`. Executes by running `-e {pathtofile}`.
-- **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
+- **Bash**: `bash` を使います。`sh` にフォールバックできます。 実行するには、`-e {pathtofile}` を実行します。
+- **PowerShell**: `pwsh` を使います。`powershell` にフォールバックできます。 実行するには、`-command \". '{pathtofile}'\"` を実行します。
 
-## Writing the scripts
+## スクリプトの記述
 
-Your custom scripts can use the following features:
+カスタム スクリプトでは、次の機能を使用できます。
 
-- **Environment variables**:  Scripts have access to the default environment variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables#default-environment-variables)."
-- **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions){% ifversion actions-save-state-set-output-envs %}{% else %}, with the exception of `save-state` and `set-output`, which are not supported by these scripts{% endif %}. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
-
-{% note %}
-
-**Note**: Avoid using your scripts to output sensitive information to the console, as anyone with read access to the repository might be able to see the output in the UI logs.
-
-{% endnote %}
-
-### Handling exit codes
-
-For pre-job scripts, exit code `0` indicates that the script completed successfully, and the job will then proceed to run. If there is any other exit code, the job will not run and will be marked as failed. To see the results of your pre-job scripts, check the logs for `Set up runner` entries. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
-
-The [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) setting is not supported for use by these scripts.
-
-## Triggering the scripts
-
-The custom scripts must be located on the runner, but should not be stored in the `actions-runner` application directory. The scripts are executed in the security context of the service account that's running the runner service.
+- **環境変数**: スクリプトは既定の環境変数にアクセスできます。 完全な Webhook イベント ペイロードは、`GITHUB_EVENT_PATH` にあります。 詳細については、「[環境変数](/actions/learn-github-actions/environment-variables#default-environment-variables)」を参照してください。
+- **ワークフロー コマンド**: スクリプトはワークフロー コマンドを使用できます。 詳細については、「[{% data variables.product.prodname_actions %} のワークフローコマンド](/actions/using-workflows/workflow-commands-for-github-actions)」を参照してください。ただし、これらのスクリプトではサポートされていないため、`save-state` と `set-output` は除きます。 スクリプトで環境ファイルを使うこともできます。 詳細については、「[環境ファイル](/actions/using-workflows/workflow-commands-for-github-actions#environment-files)」を参照してください。
 
 {% note %}
 
-**Note**: The triggered scripts are processed synchronously, so they will block job execution while they are running.
+**注**: スクリプトを使って機密情報をコンソールに出力することは避けてください。リポジトリに対して読み取りアクセス権を持つユーザーが UI ログの出力を確認する可能性があります。
 
 {% endnote %}
 
-The scripts are automatically executed when the runner has the following environment variables containing an absolute path to the script:
-- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
-- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: The script defined in this environment variable is triggered after the job has finished processing.
+### 終了コードの処理
 
-To set these environment variables, you can either add them to the operating system, or add them to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run a script named `cleanup_script.sh` before each job runs:
+ジョブ前スクリプトの場合、終了コード `0` はスクリプトが正常に完了したことを示します。その後、ジョブの実行に進みます。 それ以外の終了コードがある場合、ジョブは実行されず、失敗とマークされます。 ジョブ前スクリプトの結果を確認するには、ログに `Set up runner` エントリがあるかどうかを確認します。 ログの確認の詳細については、「[ログを表示してエラーを診断する](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)」を参照してください。
+
+これらのスクリプトでの使用には、[`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) の設定はサポートされていません。
+
+## スクリプトのトリガー
+
+カスタム スクリプトはランナー上に配置する必要があります。ただし、`actions-runner` アプリケーション ディレクトリには格納しないでください。 スクリプトは、ランナー サービスを実行しているサービス アカウントのセキュリティ コンテキストで実行されます。
+
+{% note %}
+
+**注**: トリガーされたスクリプトは同期的に処理されるので、実行中はジョブの実行がブロックされます。
+
+{% endnote %}
+
+スクリプトへの絶対パスを含む次の環境変数をランナーが持っている場合、スクリプトは自動実行されます。
+- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: この環境変数に定義されているスクリプトは、ジョブがランナーに割り当てられ、ジョブの実行が開始される前に開始されます。
+- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: この環境変数に定義されているスクリプトは、ジョブの処理が完了した後にトリガーされます。
+
+これらの環境変数を設定するには、オペレーティング システムに追加するか、セルフホステッド ランナー アプリケーション ディレクトリ内の `.env` というファイルに追加します。 たとえば、次の `.env` エントリがあると、各ジョブが実行される前に、`cleanup_script.sh` というスクリプトがランナーによって自動実行されます。
 
 ```bash
 ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
 
-### No timeout setting
+### タイムアウトなしの設定
 
-There is currently no timeout setting available for scripts executed by `ACTIONS_RUNNER_HOOK_JOB_STARTED` or `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. As a result, you could consider adding timeout handling to your script.
+現在、`ACTIONS_RUNNER_HOOK_JOB_STARTED` または `ACTIONS_RUNNER_HOOK_JOB_COMPLETED` が実行するスクリプトに使用できるタイムアウト設定はありません。 そのため、スクリプトにタイムアウト処理を追加することを検討できます。
 
-### Reviewing the workflow run log
+### ワークフロー実行ログの確認
 
-To confirm whether your scripts are executing, you can review the logs for that job. The scripts will be listed within separate steps for either `Set up runner` or `Complete runner`, depending on which environment variable is triggering the script. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+スクリプトが実行中かどうかを確認するために、そのジョブのログを確認することができます。 スクリプトをトリガーしている環境変数に応じて、`Set up runner` または `Complete runner` のいずれかの個別の手順内にスクリプトが一覧表示されます。 ログの確認の詳細については、「[ログを表示してエラーを診断する](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)」を参照してください。

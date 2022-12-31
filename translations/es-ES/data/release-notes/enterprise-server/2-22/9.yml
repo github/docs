@@ -1,0 +1,40 @@
+date: '23-03-2021'
+intro: Se han desactivado las descargas debido a un error importante que afectó a varios clientes. Se proporcionará una solución en el siguiente parche.
+sections:
+  security_fixes:
+    - '**ALTO RIESGO:** se ha identificado una vulnerabilidad de ejecución de código remoto en el servidor de GitHub Enterprise que podría explotarse al crear un sitio de GitHub Pages. Las opciones de configuración controladas por el usuario y utilizadas por GitHub Pages no estaban lo suficientemente restringidas y permitían reemplazar variables de entorno, lo que provocaba la ejecución de código en la instancia del servidor de GitHub Enterprise. Para aprovechar esta vulnerabilidad de seguridad, un atacante necesitaría permiso para crear un sitio de GitHub Pages en la instancia del servidor de GitHub Enterprise. Esta vulnerabilidad afectaba a todas las versiones del servidor de GitHub Enterprise anteriores a la 3.0.3 y se ha corregido en las versiones 3.0.3, 2.22.9 y 2.21.17. Se informó de esta vulnerabilidad mediante el programa de GitHub Bug Bounty y se le ha asignado CVE-2021-22864.'
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "La ejecución de \"ghe-cluster-config-init\" pudo haber causado que un clúster fuera inoperable."
+    - El sistema pudo haber perdido el rastreo del PID de HAProxy.
+    - La advertencia de la conmutación por error de mysql se mostró indefinidamente después de una recuperación de fallos exitosa.
+    - "La ejecución de \"ghe-cluster-config-init\" no reconocía completamente el código de salida de los trabajos en segundo plano que condujeron a un manejo inadecuado de las verificaciones previas al vuelo."
+    - Un enlace de Seguridad y Análisis no aparecía en la barra de navegación izquierda en la página de configuración de los repositorios.
+    - "Después de inhabilitar GitHub Packages, algunas páginas de la organización devolvían una respuesta de error HTTP 500."
+  changes:
+    - Mejoras en la confiabilidad de los servicios nómadas al implementar la misma política de reinicio que se introdujo en GitHub Enterprise Server 3.0.
+    - "Utiliza una cantidad relativa para el \"bootstrap_expect\" cónsul y nómada, lo cual permitió que un clúster hiciera un arranque primario, incluso si un conjunto de nodos estaba fuera de servicio."
+    - Los registros rotarán según su tamaño y tiempo.
+    - "Se agregó kafka-lite al comando \"ghe-cluster-status\"."
+  known_issues:
+    - "En un servidor de GitHub Enterprise recién configurado sin usuarios, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com."
+    - |La rotación de registros podría experimentar un error al enviar una señal para realizar la transición de archivos de registro nuevos, lo que provocaría que se continuaran usando archivos de registro antiguos y que eventualmente se agotara el espacio en el disco raíz.
+
+Para solucionar o prevenir esta incidencia, ejecuta los comandos siguientes en [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), o ponte en contacto con [el soporte de GitHub Enterprise](https://support.github.com/contact) para recibir asistencia:
+
+
+
+```
+
+printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+```
+
+|
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

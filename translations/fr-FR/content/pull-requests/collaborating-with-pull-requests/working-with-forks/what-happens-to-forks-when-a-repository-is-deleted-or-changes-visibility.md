@@ -15,12 +15,12 @@ versions:
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
-ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 95296f33d9163cd1171481386efd0a2351095c39
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147886797'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191362'
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -32,7 +32,7 @@ Quand vous supprimez un dépôt privé, toutes ses duplications privées sont é
 
 ## Suppression d’un dépôt public
 
-Quand vous supprimez un dépôt public, l’une des duplications publiques existantes est choisie comme nouveau dépôt parent. Tous les autres dépôts sont dupliqués à partir de ce nouveau parent et les demandes de tirage suivantes sont poussées vers ce nouveau parent.
+Quand vous supprimez un référentiel public, l’une des duplications publiques existantes est choisie comme nouveau référentiel en amont. Tous les autres référentiels sont dupliqués à partir de ce nouveau référentiel en amont et les demande de tirage (pull request) suivantes se dirigent vers ce nouveau référentiel en amont.
 
 {% endif %}
 
@@ -44,9 +44,9 @@ Quand vous supprimez un dépôt public, l’une des duplications publiques exist
 
 ## Changement d’un dépôt public en dépôt privé
 
-Si un dépôt public est rendu privé, ses duplications publiques sont séparées dans un nouveau réseau. Comme pour la suppression d’un dépôt public, une des duplications publiques existantes est choisie comme nouveau dépôt parent et tous les autres dépôts sont dupliqués à partir de ce nouveau parent. Les demandes de tirage suivantes sont poussées vers ce nouveau parent.
+Si un dépôt public est rendu privé, ses duplications publiques sont séparées dans un nouveau réseau. Comme pour la suppression d’un référentiel public, une des duplications publiques existantes est choisie comme nouveau référentiel en amont et tous les autres référentiels sont dupliqués à partir de ce nouveau référentiel en amont. Les demandes de tirage suivantes sont poussées vers ce nouveau référentiel en amont.
 
-En d’autres termes, les duplications d’un dépôt public restent publiques dans leur propre réseau de dépôts distinct, même après que le dépôt parent est devenu privé. Cela permet aux propriétaires de duplication de continuer à travailler et à collaborer sans interruption. Si les duplications publiques n’ont pas été déplacées dans un réseau distinct de cette façon, les propriétaires de ces duplications doivent obtenir les [autorisations d’accès](/articles/access-permissions-on-github) appropriées pour tirer les changements du dépôt parent (maintenant privé) et lui envoyer des demandes de tirage, même s’ils n’avaient pas besoin de ces autorisations avant.
+En d’autres termes, les duplications d’un référentiel public restent publiques dans leur propre réseau de référentiels distinct, même après que le référentiel en amont soit devenu privé. Cela permet aux propriétaires de duplication de continuer à travailler et à collaborer sans interruption. Si les duplications publiques n’ont pas été déplacées dans un réseau distinct de cette façon, les propriétaires de ces duplications doivent obtenir les [autorisations d’accès](/articles/access-permissions-on-github) appropriées pour tirer les changements du référentiel en amont (maintenant privé) et lui envoyer des demandes de tirage, même s’ils n’avaient pas besoin de ces autorisations avant.
 
 {% ifversion ghes or ghae %} Si un dépôt public a un accès en lecture Git anonyme activé et que le dépôt est rendu privé, toutes les duplications du dépôt perdent l’accès en lecture Git anonyme et ont à nouveau le paramètre désactivé par défaut. Si un dépôt dupliqué est rendu public, les administrateurs de dépôt peuvent réactiver l’accès en lecture Git anonyme. Pour plus d’informations, consultez « [Activation de l’accès en lecture Git anonyme pour un dépôt](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository) ».
 {% endif %}
@@ -57,7 +57,7 @@ Si un dépôt public est rendu privé, puis supprimé, ses duplications publique
 
 ## Changement d’un dépôt privé en dépôt public
 
-Si un dépôt privé est rendu public, chacune de ses duplications privées est transformée en dépôt privé autonome et devient le parent de son propre nouveau réseau de dépôts. Les duplications privées ne sont jamais rendues publiques automatiquement, car elles peuvent contenir des commits sensibles qui ne doivent pas être exposés publiquement.
+Si un référentiel privé est rendu public, chacune de ses duplications privées est transformée en référentiel privé autonome et devient le référentiel en amont de son propre nouveau réseau de référentiels. Les duplications privées ne sont jamais rendues publiques automatiquement, car elles peuvent contenir des commits sensibles qui ne doivent pas être exposés publiquement.
 
 ### Suppression du dépôt public
 

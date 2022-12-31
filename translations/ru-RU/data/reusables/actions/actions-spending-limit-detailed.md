@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 6079f5d142ad80174508e62837a379b841928678
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145114704"
+---
 {% data reusables.actions.actions-spending-limit-brief %}
 
-If you have an unlimited spending limit or a spending limit set higher than $0 USD, you will be billed for any additional minutes or storage beyond the included amounts in your account, also called overages. {% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where a workflow is run. Any coupons on your account do not apply to {% data variables.product.prodname_actions %} overages.
+Если у вас неограниченный лимит расходов или предельная сумма расходов превышает 0 долл. США, с вас будет взиматься плата за все дополнительные минуты или хранение сверх объемов, предусмотренных для вашей учетной записи, т. е. за превышение. {% data variables.product.prodname_dotcom %} взимает плату за использование учетной записи, владеющей репозиторием, в котором выполняется рабочий процесс. К превышениям {% data variables.product.prodname_registry %} не применяются купоны в учетной записи.
 
 {% data reusables.billing.overages-billed-monthly %}

@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub REST API
-intro: 'Learn how to get started with the {% data variables.product.prodname_dotcom %} REST API.'
+title: GitHub REST API のクイックスタート
+intro: '{% data variables.product.prodname_dotcom %} REST API の使用を開始する方法について説明します。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,36 +14,41 @@ redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 001c4e3291e697be034579525d9f0bc6da8c0c88
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192882'
 ---
-
-This article describes how to quickly get started with the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+この記事では、{% data variables.product.prodname_cli %}、JavaScript、または cURL を使用して、{% data variables.product.prodname_dotcom %} REST API の使用をすばやく開始する方法について説明します。 詳しいガイドについては、「[REST API を使用した作業の開始](/rest/guides/getting-started-with-the-rest-api)」をご覧ください。
 
 {% cli %}
 
-## Getting started using {% data variables.product.prodname_cli %}
+## {% data variables.product.prodname_cli %} を使用した作業の開始
 
-### Using {% data variables.product.prodname_cli %} in the command line
+### コマンド ラインでの {% data variables.product.prodname_cli %} の使用
 
-{% data variables.product.prodname_cli %} is the easiest way to use the {% data variables.product.prodname_dotcom %} REST API from the command line.
+{% data variables.product.prodname_cli %} は、コマンド ラインから {% data variables.product.prodname_dotcom %} REST API を使用する方法として最も簡単です。
 
-1. Install {% data variables.product.prodname_cli %} if you haven't installed it yet. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
-1. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+1. {% data variables.product.prodname_cli %} をまだインストールしていない場合は、インストールしてください。 インストールの手順については、[{% data variables.product.prodname_cli %} リポジトリ](https://github.com/cli/cli#installation)を参照してください。
+1. `auth login` サブコマンドを使用して、{% data variables.product.prodname_cli %} に対する認証を行います。 詳しくは、[{% data variables.product.prodname_cli %}`auth login` のドキュメント](https://cli.github.com/manual/gh_auth_login)を参照してください。
 
    ```shell
    gh auth login
    ```
 
-1. Use the `api` subcommand to make your API request. For more information, see the [{% data variables.product.prodname_cli %} `api` documentation](https://cli.github.com/manual/gh_api).
+1. `api` サブコマンドを使用して API 要求を行います。 詳しくは、[{% data variables.product.prodname_cli %}`api` のドキュメント](https://cli.github.com/manual/gh_api)を参照してください。
 
    ```shell
    gh api repos/octocat/Spoon-Knife/issues
    ```
 
-### Using {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} での {% data variables.product.prodname_cli %} の使用
 
-You can also use {% data variables.product.prodname_cli %} in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Using GitHub CLI in workflows](/actions/using-workflows/using-github-cli-in-workflows)."
+{% data variables.product.prodname_actions %} ワークフローでは、{% data variables.product.prodname_cli %} を使用することもできます。 詳しくは、「[ワークフローでの GitHub CLI の使用](/actions/using-workflows/using-github-cli-in-workflows)」を参照してください。
 
-Instead of using the `gh auth login` command, pass an access token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+`gh auth login` コマンドを使用するのでなく、アクセス トークンを `GH_TOKEN` という環境変数として渡します。 {% data variables.product.prodname_dotcom %} では、トークンを作成するのでなく組み込みの `GITHUB_TOKEN` を使用することをお勧めしています。 これができない場合は、ご利用のトークンをシークレットとして格納し、次の例で `GITHUB_TOKEN` を実際のシークレットの名前に置き換えます。 `GITHUB_TOKEN` について詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
 ```yaml
 on:
@@ -60,11 +65,11 @@ jobs:
           gh api repos/octocat/Spoon-Knife/issues
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+{% data variables.product.prodname_github_app %} を使用して認証する場合は、ワークフロー内にインストール アクセス トークンを作成します。
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. {% data variables.product.prodname_github_app %} の ID をシークレットとして保存します。 以下の例では、`APP_ID` をシークレットの名前に置き換えます。 アプリ ID は、アプリの設定ページで、あるいは API を通じて確認できます。 詳しくは、REST API のドキュメントの「[アプリ](/rest/apps/apps#get-an-app)」をご覧ください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
+1. アプリケーションの秘密鍵を生成してください。 作成されたファイルの内容をシークレットとして保存します。 (`-----BEGIN RSA PRIVATE KEY-----` および `-----END RSA PRIVATE KEY-----` を含め、ファイルの内容全体を保存します)。以下の例では、`APP_PEM` をシークレットの名前に置き換えます。 詳細については、「[{% data variables.product.prodname_github_apps %} による認証](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)」を参照してください。
+1. トークンを生成するステップを追加し、`GITHUB_TOKEN` ではなくそのトークンを使用します。 このトークンは 60 分後に期限切れになるので注意してください。 次に例を示します。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -93,31 +98,31 @@ jobs:
 
 {% javascript %}
 
-## Getting started using JavaScript
+## JavaScript の使用を開始する
 
-You can use Octokit.js to interact with the {% data variables.product.prodname_dotcom %} REST API in your JavaScript scripts. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+Octokit.js を使用すれば、JavaScript スクリプト内で {% data variables.product.prodname_dotcom %} REST API とやりとりすることができます。 詳しくは、[Octokit.js の README](https://github.com/octokit/octokit.js/#readme) を参照してください。
 
-### Using Octokit.js
+### Octokit.js の使用
 
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. アクセス トークンを作成します。 たとえば、{% data variables.product.pat_generic %} または {% data variables.product.prodname_github_app %} のユーザーからサーバーへのアクセス トークンを作成します。 詳しい情報については、「[{% data variables.product.pat_generic %} の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」か「[GitHub App のユーザーの特定と認可](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **警告**: アクセス トークンはパスワードと同様に扱ってください。
 
-   To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
+   トークンを安全な状態に保つには、ご利用のトークンをシークレットとして格納し、{% data variables.product.prodname_actions %} を介してスクリプトを実行します。 詳しくは、「[{% data variables.product.prodname_actions %} での Octokit.js の使用](#using-octokitjs-in-github-actions)」セクションを参照してください。
 
    {%- ifversion fpt or ghec %}
 
-   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   ご利用のトークンを {% data variables.product.prodname_codespaces %} シークレットとして格納し、スクリプトを {% data variables.product.prodname_codespaces %} で実行することもできます。 詳しくは、「[codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。{% endif %}
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   これらのオプションが使用できない場合は、[1Password CLI](https://developer.1password.com/docs/cli/secret-references/) などの別のサービスを使用してトークンを安全に格納することを検討してください。
 
    {% endwarning %}
 
-1. Install `octokit`. For example, `npm install octokit`. For other ways to install or load `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Create an instance of `Octokit` with your token. Replace `YOUR-TOKEN` with your token.
+1. `octokit`をインストールする。 たとえば、「 `npm install octokit` 」のように入力します。 `octokit` をインストールまたは読み込むための他の方法については、[Octokit.js の README](https://github.com/octokit/octokit.js/#readme) を参照してください。
+1. スクリプトで `octokit` をインポートします。 たとえば、「 `import { Octokit } from "octokit";` 」のように入力します。 その他の `octokit` のインポート方法については、[Octokit.js の README](https://github.com/octokit/octokit.js/#readme) を参照してください。
+1. 実際のトークンを指定して `Octokit` のインスタンスを作成します。 `YOUR-TOKEN` を実際のトークンに置き換えます。
 
    ```javascript
    const octokit = new Octokit({
@@ -125,7 +130,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-1. Use `octokit.request` to execute your request. Send the HTTP method and path as the first argument. Specify any path, query, and body parameters in an object as the second argument. For example, in the following request the HTTP method is `GET`, the path is `/repos/{owner}/{repo}/issues`, and the parameters are `owner: "octocat"` and `repo: "Spoon-Knife"`.
+1. `octokit.request` を使用して、要求を実行します。 HTTP メソッドとパスを最初の引数として送信します。 オブジェクト内のパス、クエリ、および本文のパラメーターを 2 番目の引数として指定します。 たとえば、次の要求では、HTTP メソッドは `GET`、パスは `/repos/{owner}/{repo}/issues`、パラメーターは `owner: "octocat"` および `repo: "Spoon-Knife"` となっています。
 
    ```javascript
    await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -134,20 +139,20 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-### Using Octokit.js in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} での Octokit.js の使用
 
-You can also execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+また、{% data variables.product.prodname_actions %} ワークフローで JavaScript スクリプトを実行することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
-{% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} では、トークンを作成するのでなく組み込みの `GITHUB_TOKEN` を使用することをお勧めしています。 これができない場合は、ご利用のトークンをシークレットとして格納し、次の例で `GITHUB_TOKEN` を実際のシークレットの名前に置き換えます。 `GITHUB_TOKEN` について詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
-The following example workflow:
+次のワークフロー例を参照してください。
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. リポジトリのコンテンツをチェックアウトする
+1. Node.js を設定する
+1. `octokit` をインストールする
+1. `GITHUB_TOKEN` の値を、`TOKEN` と呼ばれる環境変数として格納し、`.github/actions-scripts/use-the-api.mjs` を実行する。これにより、その環境変数に `process.env.TOKEN` としてアクセスできます。
 
-Example workflow:
+ワークフローの例:
 
 ```yaml
 on:
@@ -177,7 +182,7 @@ jobs:
           TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+ファイル パス `.github/actions-scripts/use-the-api.mjs` を含む JavaScript スクリプトの例:
 
 ```javascript
 import { Octokit } from "octokit"
@@ -201,11 +206,11 @@ try {
 }
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+{% data variables.product.prodname_github_app %} を使用して認証する場合は、ワークフロー内にインストール アクセス トークンを作成します。
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. {% data variables.product.prodname_github_app %} の ID をシークレットとして保存します。 以下の例では、`APP_ID` をシークレットの名前に置き換えます。 アプリケーションIDは、アプリケーションの設定ページで、あるいはアプリケーションのAPIを通じて確認できます。 詳細については、「[アプリ](/rest/apps/apps#get-an-app)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
+1. アプリケーションの秘密鍵を生成してください。 作成されたファイルの内容をシークレットとして保存します。 (`-----BEGIN RSA PRIVATE KEY-----` および `-----END RSA PRIVATE KEY-----` を含め、ファイルの内容全体を保存します)。以下の例では、`APP_PEM` をシークレットの名前に置き換えます。 詳細については、「[{% data variables.product.prodname_github_apps %} による認証](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)」を参照してください。
+1. トークンを生成するステップを追加し、`GITHUB_TOKEN` ではなくそのトークンを使用します。 このトークンは 60 分後に期限切れになるので注意してください。 次に例を示します。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -246,34 +251,34 @@ jobs:
 
 {% curl %}
 
-## Getting started using cURL
+## cURL の使用を開始する
 
-### Using cURL in the command line
+### コマンド ラインでの cURL の使用
 
 {% note %}
 
-**Note:** If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
+**注:** コマンド ラインから API 要求を行う場合、{% data variables.product.prodname_dotcom %} では、{% data variables.product.prodname_cli %} を使用することをお勧めします。これにより、認証と要求が簡略化されます。 {% data variables.product.prodname_cli %} を使用して REST API の使用を開始する方法について詳しくは、この記事の {% data variables.product.prodname_cli %} バージョンを参照してください。
 
 {% endnote %}
 
-1. Install cURL if cURL isn't already installed on your machine. To check if cURL is installed, execute `curl --version` in the command line. If the output is information about the cURL version, cURL is installed. If you get a message similar to `command not found: curl`, you need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. cURL がまだコンピューターにインストールされていない場合は、cURL をインストールします。 cURL がインストールされているかどうかを確認するには、コマンド ラインで `curl --version` を実行します。 出力が cURL バージョンに関する情報である場合は、cURL がインストールされています。 `command not found: curl` のようなメッセージが表示された場合は、cURL をダウンロードしてインストールする必要があります。 詳しくは、[cURL プロジェクトのダウンロードに関するページ](https://curl.se/download.html)を参照してください。
+1. アクセス トークンを作成します。 たとえば、{% data variables.product.pat_generic %} または {% data variables.product.prodname_github_app %} のユーザーからサーバーへのアクセス トークンを作成します。 詳しい情報については、「[{% data variables.product.pat_generic %} の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」か「[GitHub App のユーザーの特定と認可](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **警告**: アクセス トークンは、パスワードと同様の扱いとしてください。
 
    {%- ifversion fpt or ghec %}
 
-   To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   トークンを安全な状態に保つには、トークンを {% data variables.product.prodname_codespaces %} シークレットとして格納し、{% data variables.product.prodname_codespaces %} を介してコマンド ラインを使用します。 詳しくは、「[codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。{% endif %}
 
-   You can also use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+   cURL ではなく {% data variables.product.prodname_cli %} を使用することもできます。 認証は {% data variables.product.prodname_cli %} によって自動的に処理されます。 詳しくは、このページの {% data variables.product.prodname_cli %} バージョンを参照してください。
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   これらのオプションが使用できない場合は、[1Password CLI](https://developer.1password.com/docs/cli/secret-references/) などの別のサービスを使用してトークンを安全に格納することを検討してください。
 
    {% endwarning %}
 
-1. Use the `cURL` command to make your request. Pass your token in an `Authorization` header. Replace `YOUR-TOKEN` with your token.
+1. `cURL` コマンドを使用して要求を行います。 `Authorization` ヘッダーにトークンを渡します。 `YOUR-TOKEN` を実際のトークンに置き換えます。
 
    ```shell
    curl --request GET \
@@ -284,15 +289,15 @@ jobs:
 
    {% note %}
 
-   **Note:** {% data reusables.getting-started.bearer-vs-token %}
+   **注:** {% data reusables.getting-started.bearer-vs-token %}
 
    {% endnote %}
 
-### Using cURL in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} での cURL の使用
 
-You can also use cURL in your {% data variables.product.prodname_actions %} workflows.
+{% data variables.product.prodname_actions %} ワークフローでも cURL を使用できます。
 
-{% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} では、トークンを作成するのでなく組み込みの `GITHUB_TOKEN` を使用することをお勧めしています。 これができない場合は、ご利用のトークンをシークレットとして格納し、次の例で `GITHUB_TOKEN` を実際のシークレットの名前に置き換えます。 `GITHUB_TOKEN` について詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
 ```yaml
 on:
@@ -312,11 +317,11 @@ jobs:
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+{% data variables.product.prodname_github_app %} を使用して認証する場合は、ワークフロー内にインストール アクセス トークンを作成します。
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. {% data variables.product.prodname_github_app %} の ID をシークレットとして保存します。 以下の例では、`APP_ID` をシークレットの名前に置き換えます。 アプリケーションIDは、アプリケーションの設定ページで、あるいはアプリケーションのAPIを通じて確認できます。 詳細については、「[アプリ](/rest/apps/apps#get-an-app)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
+1. アプリケーションの秘密鍵を生成してください。 作成されたファイルの内容をシークレットとして保存します。 (`-----BEGIN RSA PRIVATE KEY-----` および `-----END RSA PRIVATE KEY-----` を含め、ファイルの内容全体を保存します)。以下の例では、`APP_PEM` をシークレットの名前に置き換えます。 詳細については、「[{% data variables.product.prodname_github_apps %} による認証](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)」を参照してください。
+1. トークンを生成するステップを追加し、`GITHUB_TOKEN` ではなくそのトークンを使用します。 このトークンは 60 分後に期限切れになるので注意してください。 次に例を示します。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -346,6 +351,6 @@ jobs:
 
 {% endcurl %}
 
-## Next steps
+## 次の手順
 
-For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+詳しいガイドについては、「[REST API を使用した作業の開始](/rest/guides/getting-started-with-the-rest-api)」をご覧ください。

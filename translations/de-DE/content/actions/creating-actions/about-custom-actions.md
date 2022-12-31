@@ -16,12 +16,12 @@ type: overview
 topics:
   - Action development
   - Fundamentals
-ms.openlocfilehash: ac933a5014750f75373fafa7f8dd52333b79a469
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1e81bea551ceff1980b0bbe96202f60db0d0e7f2
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147154573'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191952'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -35,7 +35,7 @@ Aktionen können direkt auf einem Computer oder in einem Docker-Container laufen
 
 ## Arten von Aktionen
 
-Du kannst Docker-Container- und JavaScript-Aktionen erstellen. Aktionen benötigen eine Metadaten-Datei, in der die Eingaben, Ausgaben und der Haupteinstiegspunkt für die Aktion definiert werden. Der Name der Metadatendatei muss entweder `action.yml` oder `action.yaml` lauten. Weitere Informationen findest du unter [Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions).
+Du kannst Docker-Container-, JavaScript- und zusammengesetzte Aktionen erstellen. Aktionen benötigen eine Metadaten-Datei, in der die Eingaben, Ausgaben und der Haupteinstiegspunkt für die Aktion definiert werden. Der Name der Metadatendatei muss entweder `action.yml` oder `action.yaml` lauten. Weitere Informationen findest du unter [Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions).
 
 | type | Betriebssystem |
 | ---- | ------------------- |
@@ -169,6 +169,6 @@ Sowohl {% data variables.product.prodname_actions %} als auch {% data variables.
 * Erfordern weder, dass du Code noch eine App bereitstellst.
 * Du benötigst eine einfache Schnittstelle zum Erstellen und Verwenden von Geheimnissen. Dadurch können die Aktionen mit Diensten von Drittanbietern interagieren, ohne die Anmelde-Informationen des Aktions-Benutzers speichern zu müssen.
 
-## Weiterführende Themen
+## Weitere Informationsquellen
 
 - [Entwicklungstools für {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)

@@ -1,6 +1,6 @@
 ---
-title: Deleting your personal account
-intro: 'You can delete your personal account on {% data variables.location.product_location %} at any time.'
+title: Suppression de votre compte personnel
+intro: 'Vous pouvez supprimer votre compte personnel sur {% data variables.product.product_location %} à tout moment.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -15,53 +15,55 @@ versions:
 topics:
   - Accounts
 shortTitle: Delete your account
+ms.openlocfilehash: c26ae9af0266defeaa7d0e15afc22b2edee2b7d2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147687181'
 ---
+## À propos de la suppression de votre compte personnel
 
-## About deletion of your personal account
-
-Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
+La suppression de votre compte personnel supprime tous les référentiels, les duplications (forks) de référentiels privés, les wikis, les problèmes, les demandes de tirage (pull requests) et les pages appartenant à votre compte. {% ifversion fpt or ghec %}Les problèmes et les demandes de tirage que vous avez créés, ainsi que les commentaires que vous avez effectués dans les dépôts détenus par d’autres utilisateurs, ne seront pas supprimés. Vos ressources et vos commentaires seront associés à [l’utilisateur fantôme](https://github.com/ghost).{% else %}Les problèmes et les demandes de tirage que vous avez créés, ainsi que les commentaires que vous avez effectués dans les dépôts détenus par d’autres utilisateurs, ne seront pas supprimés.{% endif %}
 
 {% ifversion ghec %}
 
 {% note %}
 
-**Note**: If your enterprise manages your account and you sign into {% data variables.location.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+**Remarque**: Si votre entreprise gère votre compte et que vous vous connectez à {% data variables.product.product_location %} via le fournisseur d’identité de votre entreprise, vous ne pouvez pas supprimer votre compte. Pour plus d’informations, consultez « [À propos d’{% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users) ».
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.location.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+{% ifversion fpt or ghec %}Lorsque vous supprimez votre compte, nous cessons de vous le facturer. L’adresse e-mail associée au compte devient disponible pour une utilisation avec un autre compte sur {% data variables.product.product_location %}. Après 90 jours, le nom du compte devient également utilisable par toute autre personne avec un nouveau compte. {% endif %}
 
-If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
+Si vous êtes le seul propriétaire d’une organisation, vous devez transférer la propriété à une autre personne ou supprimer l’organisation avant de pouvoir supprimer votre compte personnel. S’il existe d’autres propriétaires dans l’organisation, vous devez vous supprimer de l’organisation avant de pouvoir supprimer votre compte personnel.
 
-For more information, see the following articles.
+Pour plus d'informations, consultez les articles suivants.
 
-- "[Transferring organization ownership](/articles/transferring-organization-ownership)"
-- "[Deleting an organization account](/articles/deleting-an-organization-account)"
-- "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)"
+- « [Transfert de propriété d’une organisation](/articles/transferring-organization-ownership) »
+- « [Suppression d’un compte d’organisation](/articles/deleting-an-organization-account) »
+- « [Vous supprimer vous-même d’une organisation](/articles/removing-yourself-from-an-organization/) »
 
-## Back up your account data
+## Sauvegarder les données de votre compte
 
-Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
+Avant de supprimer votre compte personnel, effectuez une copie de tous les référentiels, duplications privées, wikis, problèmes et demandes de tirage appartenant à votre compte. Pour plus d’informations, consultez « [Sauvegarde d’un dépôt](/repositories/archiving-a-github-repository/backing-up-a-repository) ».
 
 {% warning %}
 
-**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
+**Avertissement** : Une fois votre compte personnel supprimé, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}un propriétaire d’entreprise{% endif %} ne pourra pas restaurer votre contenu.
 
 {% endwarning %}
 
-## Delete your personal account
+## Supprimer votre compte personnel
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.account_settings %}
-3. At the bottom of the Account Settings page, under "Delete account", click **Delete your account**. Before you can delete your personal account:
-    - If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
-    - If there are other organization owners in the organization, you must remove yourself from the organization.
-   ![Account deletion button](/assets/images/help/settings/settings-account-delete.png)
-4. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
-  ![Delete account confirmation dialog](/assets/images/help/settings/settings-account-deleteconfirm.png)
-  {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted and your billing will end immediately, and your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.
-  {% else %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.
-  {% endif %}- In the first field, type your {% data variables.product.product_name %} username or email.
-    - In the second field, type the phrase from the prompt.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.account_settings %}
+3. En bas de la page Paramètres du compte, sous « Supprimer le compte », cliquez sur **Supprimer votre compte**. Avant de pouvoir supprimer votre compte personnel :
+    - Si vous êtes le seul propriétaire de l’organisation, vous devez transférer la propriété à une autre personne ou supprimer votre organisation.
+    - S’il existe d’autres propriétaires d’organisation dans l’organisation, vous devez vous supprimer de l’organisation.
+   ![Bouton de suppression de compte](/assets/images/help/settings/settings-account-delete.png)
+4. Dans la boîte de dialogue « Vérifiez que vous êtes certain de vouloir faire cela », effectuez les étapes pour confirmer que vous comprenez ce qui se produit lorsque votre compte est supprimé : ![Boîte de dialogue de confirmation de suppression du compte](/assets/images/help/settings/settings-account-deleteconfirm.png){% ifversion fpt or ghec %}- Rappelez-vous que tous les dépôts, duplications de dépôts privés, wikis, problèmes, demandes de tirage et sites {% data variables.product.prodname_pages %} appartenant à votre compte seront supprimés, que votre facturation cessera immédiatement, et que votre nom d’utilisateur pourra être utilisé par n’importe qui sur {% data variables.product.product_name %} après 90 jours.
+  {% else %}- Rappelez-vous que tous les dépôts, duplications de dépôts privés, wikis, problèmes, demandes de tirage et pages appartenant à votre compte seront supprimés, et que votre nom d’utilisateur pourra être utilisé sur {% data variables.product.product_name %} après 90 jours.
+  {% endif %}- Dans le premier champ, tapez votre nom d’utilisateur ou e-mail {% data variables.product.product_name %}.
+    - Dans le deuxième champ, tapez l’expression de l’invite.

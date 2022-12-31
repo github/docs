@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786028'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193313'
 ---
 ## À propos de {% data variables.product.prodname_copilot %} dans {% data variables.product.prodname_vs %}
 
@@ -37,13 +37,20 @@ Vous pouvez utiliser les raccourcis clavier par défaut dans {% data variables.p
 Si vous ne voulez pas utiliser les raccourcis clavier par défaut dans {% data variables.product.prodname_vs %} lorsque vous utilisez {% data variables.product.prodname_copilot %}, vous pouvez relier les raccourcis dans l’éditeur de raccourcis clavier en utilisant vos raccourcis clavier préférés pour chaque commande spécifique.
 
 1. Dans la barre d’outils {% data variables.product.prodname_vs %}, sous **Outils**, cliquez sur **Options**.
+   
    ![Capture d’écran de l’option Options de la barre d’outils {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. Dans la boîte de dialogue « Options », sous **Environnement**, cliquez sur **Clavier**.
+   
    ![Capture d’écran de l’option « Clavier » dans la boîte de dialogue « Options »](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. Sous « Afficher les commandes contenant : », recherchez la commande que vous voulez associer.
+   
    ![Capture d’écran de la barre de recherche Afficher les commandes contenant](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. Sous « Appuyez sur les touches de raccourci », tapez le raccourci que vous souhaitez attribuer à la commande, puis cliquez sur **Attribuer**.
-   ![Capture d’écran de l’affectation des raccourcis clavier](/assets/images/help/copilot/vs-rebind-shortcut.png)
+
+1. Sous « Appuyez sur les touches de raccourci », tapez le raccourci que vous souhaitez attribuer à la commande, puis cliquez sur **Attribuer**.
+
+   ![Capture d’écran de l’affectation des raccourcis clavier](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

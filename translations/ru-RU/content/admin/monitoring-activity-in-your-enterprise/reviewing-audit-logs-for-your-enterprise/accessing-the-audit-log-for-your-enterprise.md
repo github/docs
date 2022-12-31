@@ -1,6 +1,6 @@
 ---
-title: Accessing the audit log for your enterprise
-intro: You can view aggregated actions from all of the organizations owned by an enterprise account in the enterprise's audit log.
+title: Доступ к журналу аудита для предприятия
+intro: 'Вы можете просматривать агрегированные действия всех организаций, принадлежащих вашей корпоративной учетной записи, в журнале корпоративного аудита.'
 shortTitle: Access audit logs
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can access the audit log.'
 redirect_from:
@@ -19,9 +19,13 @@ topics:
   - Auditing
   - Enterprise
   - Logging
+ms.openlocfilehash: 9d32273ead3ed20b96470d5972721c682bc5152d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147063341'
 ---
 {% data reusables.audit_log.retention-periods %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.audit-log-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.audit-log-tab %}

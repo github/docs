@@ -1,3 +1,10 @@
-{% ifversion not ghae %}
-If your repository has a supported dependency manifest{% ifversion fpt or ghec %} (and if you've set up the dependency graph if it's a private repository){% endif %}, whenever {% data variables.product.product_name %} detects a vulnerable dependency in your repository, you will receive a weekly digest email. You can also configure your security alerts as web notifications, individual email notifications, daily email digests, or alerts in the {% data variables.product.product_name %} interface. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+---
+ms.openlocfilehash: 86e470a2557996f90def0d7ab84e17e646642e0a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145105625"
+---
+{% ifversion not ghae %} Si votre dépôt a un manifeste de dépendances pris en charge{% ifversion fpt or ghec %} (et si vous avez configuré le graphe des dépendances s’il s’agit d’un dépôt privé){% endif %}, chaque fois que {% data variables.product.product_name %} détecte une dépendance vulnérable dans votre dépôt, vous recevez un e-mail récapitulatif hebdomadaire. Vous pouvez également configurer vos alertes de sécurité en tant que notifications web, e-mails de notification individuels, e-mails récapitulatifs quotidiens ou alertes dans l’interface {% data variables.product.product_name %}. Pour plus d’informations, consultez « [À propos des {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) ».
 {% endif %}

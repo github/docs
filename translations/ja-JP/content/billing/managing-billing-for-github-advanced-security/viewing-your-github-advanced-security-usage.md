@@ -1,6 +1,6 @@
 ---
-title: Viewing your GitHub Advanced Security usage
-intro: 'You can view usage of {% data variables.product.prodname_GH_advanced_security %} for your enterprise.'
+title: GitHub Advanced Security の使用状況を表示する
+intro: 'Enterpriseの{% data variables.product.prodname_GH_advanced_security %}の使用状況を表示できます。'
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
@@ -18,97 +18,87 @@ topics:
   - Advanced Security
   - Enterprise
 shortTitle: View Advanced Security usage
+ms.openlocfilehash: 8647ba2eb00f580256bd3f49ac2218331e45eef3
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146180488'
 ---
+## {% data variables.product.prodname_GH_advanced_security %}のライセンスについて
 
-## About licenses for {% data variables.product.prodname_GH_advanced_security %}
+{% data reusables.advanced-security.about-ghas-license-seats %} 詳しくは、「[{% data variables.product.prodname_GH_advanced_security %} の請求について](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)」をご覧ください。
 
-{% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
-
-{% ifversion ghas-committers-calculator %}
-You can calculate how many additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories with the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)."
+{% ifversion ghas-committers-calculator %} サイト管理者ダッシュボードで {% data variables.product.prodname_GH_advanced_security %} をより多くの Organization やリポジトリに対して有効にする場合は、使用する追加のシート数を計算できます。 詳しくは、「[サイト管理ダッシュボード](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)」をご覧ください。
 {% endif %}
 
-## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
+## Enterprise アカウントの {% data variables.product.prodname_GH_advanced_security %}ライセンスの使用状況を表示する
 
-You can check how many seats your license includes and how many of them are currently used.
+ライセンスに含まれるシート数と、現在使用されているシート数を確認できます。
 
 {% ifversion fpt or ghec %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-   The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage.
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings](/assets/images/help/enterprises/enterprise-licensing-tab-ghas.png)
-  If you run out of seats, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more seats. For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)."
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings showing "Limit exceeded"](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-seats.png)
-4. Optionally, to see a detailed breakdown of usage per organization, in the left sidebar, click **Billing**.
-  ![Billing tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-billing-tab.png)
-  In the "{% data variables.product.prodname_GH_advanced_security %}" section you can see the number of committers and unique committers for each organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-dotcom.png)
-5. Optionally, click the name of an organization where you are an owner to display the security and analysis settings for the organization.
-  ![Owned organization in {% data variables.product.prodname_GH_advanced_security %} section of enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
-6. On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png)
-  For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}"{% data variables.product.prodname_GH_advanced_security %}" セクションには、現在の使用状況が詳しく表示されます。
+  ![Enterprise ライセンス設定の {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/enterprises/enterprise-licensing-tab-ghas.png) シートが足りない場合、このセクションが赤くなり、"上限を越えました。" と表示されます。 {% data variables.product.prodname_GH_advanced_security %} の使用を減らすか、シートを追加購入する必要があります。 詳細については、「[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)」(GitHub Advanced Security の課金について) を参照してください。
+  ![Enterprise ライセンス設定の {% data variables.product.prodname_GH_advanced_security %}。"上限を越えました" と表示されています](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-seats.png)
+4. オプションで、Organization ごとに使用状況の詳しい内訳を確認するには、左側のサイドバーで、 **[請求]** をクリックします。
+  ![Enterprise アカウント設定のサイドバーの [請求] タブ](/assets/images/help/business-accounts/settings-billing-tab.png) "{% data variables.product.prodname_GH_advanced_security %}" セクションで、コミッターの数と、Organization ごとの一意のコミッターの数を確認できます。
+  ![Enterprise 請求設定の {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/billing/ghas-orgs-list-enterprise-dotcom.png)
+5. 必要に応じて、所有者である Organization の名前をクリックして、Organization のセキュリティと分析の設定を表示します。
+  ![Enterprise 請求設定の {% data variables.product.prodname_GH_advanced_security %} セクションの所有されている Organization](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
+6. [セキュリティと分析] 設定ページで、[{% data variables.product.prodname_GH_advanced_security %} リポジトリ] セクションまでスクロールして、この Organization のリポジトリごとの使用状況の詳しい内訳を確認します。
+  ![{% data variables.product.prodname_GH_advanced_security %} リポジトリ セクション](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png) 詳しくは、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」をご覧ください。
 
 {% elsif ghes %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-   The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage. You can see the total number of seats used, as well as a table with the number of committers and unique committers for each organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
-5. Optionally, click the name of an organization where you are an owner to display the security and analysis settings for the organization.
-  ![Owned organization in {% data variables.product.prodname_GH_advanced_security %} section of enterprise billing settings](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
-6. On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png)
-  For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}"{% data variables.product.prodname_GH_advanced_security %}" セクションには、現在の使用状況が詳しく表示されます。 使用されているシートの総数とともに、各Organizationのコミッター数とユニークなコミッター数の表を見ることができます。
+  ![Enterprise ライセンスの{% data variables.product.prodname_GH_advanced_security %} セクション](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
+5. 必要に応じて、所有者である Organization の名前をクリックして、Organization のセキュリティと分析の設定を表示します。
+  ![Enterprise 請求設定の {% data variables.product.prodname_GH_advanced_security %} セクションの所有されている Organization](/assets/images/help/billing/ghas-orgs-list-enterprise-click-org.png)
+6. [セキュリティと分析] 設定ページで、[{% data variables.product.prodname_GH_advanced_security %} リポジトリ] セクションまでスクロールして、この Organization のリポジトリごとの使用状況の詳しい内訳を確認します。
+  ![{% data variables.product.prodname_GH_advanced_security %} リポジトリ セクション](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png) 詳しくは、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」をご覧ください。
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5378 %}
 
-## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
+## {% data variables.product.prodname_GH_advanced_security %}のライセンスの使用情報のダウンロード
 
-You can download a CSV file with {% data variables.product.prodname_GH_advanced_security %} license usage information at both the enterprise and organization levels. The CSV file contains information about each {% data variables.product.prodname_advanced_security %} seat that is in use, including:
+Enterprise及びOrganizationの双方のレベルで、{% data variables.product.prodname_GH_advanced_security %}のライセンスの使用情報を含むCSVファイルをダウンロードできます。 このCSVファイルには、使用されている{% data variables.product.prodname_advanced_security %}の各シートに関する以下の情報が含まれます。
 
-- The username of the person using the seat
-- The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
-- The organizations that people using seats belong to
-- The most recent commit dates
+- シートを使用している人のユーザ名
+- コミットが行われた{% data variables.product.prodname_advanced_security %}が有効化されているリポジトリ
+- シートを使用している人が所属するOrganization
+- 最新のコミット日
 
-You can use this information for insights into how your {% data variables.product.prodname_advanced_security %} licenses are being used, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} seat or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
+この情報を使って、Enterpriseのどのメンバーが{% data variables.product.prodname_advanced_security %}シートを使っているか、あるいはどのようにOrganization間で{% data variables.product.prodname_advanced_security %}ライセンスが消費されているといった、{% data variables.product.prodname_advanced_security %}ライセンスの使用状況を把握できます。
 
-You can download the {% data variables.product.prodname_advanced_security %} license usage CSV through the {% data variables.product.product_name %} user interface or the REST API.
+{% data variables.product.prodname_advanced_security %}ライセンス使用状況のCSVは、{% data variables.product.product_name %}のユーザインターフェース、あるいはREST APIを通じてダウンロードできます。
 
-### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the UI
+### UIでの{% data variables.product.prodname_advanced_security %}ライセンス使用情報のダウンロード
 
-#### At the organization-level
+#### Organizationレベル
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-1. Underneath "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-label="The download icon" %} CSV report** next to "Committers."
-  ![Download button for organization-level data](/assets/images/help/billing/download-organization-GHAS-usage-data.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.billing_plans %}
+1. 「{% data variables.product.prodname_GH_advanced_security %}」の下で、"Committers（コミッター）"の隣の{% octicon "download" aria-label="The download icon" %}をクリックしてください。
+  ![Organization レベル データの [ダウンロード] ボタン](/assets/images/help/billing/download-organization-GHAS-usage-data.png)
 
-#### At the enterprise-level
+#### Enterpriseレベル
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Under "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-label="The download icon" %} CSV report** next to "Committers."
-  ![Download button for enterprise-level data](/assets/images/help/billing/download-enterprise-GHAS-usage-data.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.license-tab %}
+1. 「{% data variables.product.prodname_GH_advanced_security %}」の下で、"Commiters（コミッター）"の隣の{% octicon "download" aria-label="The download icon" %}をクリックしてください。
+  ![Enterprise レベル データの [ダウンロード] ボタン](/assets/images/help/billing/download-enterprise-GHAS-usage-data.png)
 
-### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the REST API
+### REST API経由の{% data variables.product.prodname_advanced_security %}ライセンス使用情報のダウンロード
 
-You can retrieve {% data variables.product.prodname_advanced_security %} usage information via the billing API.
+支払いAPIを通じて{% data variables.product.prodname_advanced_security %}の使用情報を取得できます。
 
 {% ifversion ghec %}
 
-For organization-level data, use the `/orgs/{org}/settings/billing/advanced-security` endpoint. For more information, see "[Billing](/rest/reference/billing#get-github-advanced-security-active-committers-for-an-organization)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+Organization レベルのデータの場合は、`/orgs/{org}/settings/billing/advanced-security` エンドポイントを使用します。 詳しくは、{% data variables.product.prodname_dotcom %} REST API ドキュメントの「[請求](/rest/reference/billing#get-github-advanced-security-active-committers-for-an-organization)」をご覧ください。
 
 {% endif %}
 
-For enterprise-level data, use the `/enterprises/{enterprise}/settings/billing/advanced-security` endpoint. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-github-advanced-security-active-committers-for-an-enterprise)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+Enterprise レベル データの場合は、`/enterprises/{enterprise}/settings/billing/advanced-security` エンドポイントを使用します。 詳しくは、{% data variables.product.prodname_dotcom %} REST API ドキュメントの「[{% data variables.product.prodname_enterprise %} の管理](/rest/reference/enterprise-admin#get-github-advanced-security-active-committers-for-an-enterprise)」をご覧ください。
 
 {% endif %}

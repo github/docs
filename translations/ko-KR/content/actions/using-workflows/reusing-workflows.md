@@ -1,7 +1,7 @@
 ---
-title: Reusing workflows
+title: 워크플로 다시 사용
 shortTitle: Reuse workflows
-intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
+intro: 기존 워크플로를 다시 사용하여 워크플로를 만들 때 중복을 방지하는 방법을 알아봅니다.
 redirect_from:
   - /actions/learn-github-actions/reusing-workflows
 miniTocMaxHeadingLevel: 3
@@ -13,93 +13,96 @@ versions:
 type: how_to
 topics:
   - Workflows
+ms.openlocfilehash: 2053b2bfd653a1f6633ab5d568e5b2fdb75d7335
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191928'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.reusable-workflows-enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.reusable-workflows-ghes-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 개요
 
-## Overview
+워크플로를 복사하여 다른 워크플로로 붙여넣는 대신 워크플로를 재사용할 수 있습니다. 사용자와 재사용 가능한 워크플로에 대한 액세스 권한이 있는 사용자는 다른 워크플로에서 재사용 가능한 워크플로를 호출할 수 있습니다.
 
-Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
+워크플로를 다시 사용하면 중복을 방지할 수 있습니다. 이렇게 하면 워크플로를 더 쉽게 유지 관리할 수 있으며 작업과 마찬가지로 다른 사용자의 작업을 기반으로 하여 새 워크플로를 더 빠르게 만들 수 있습니다. 워크플로 재사용은 또한 잘 설계되고 이미 테스트되어 효과적인 것으로 입증된 워크플로를 사용할 수 있도록 지원하여 모범 사례를 촉진합니다. 조직은 중앙에서 유지 관리할 수 있는 재사용 가능한 워크플로 라이브러리를 빌드할 수 있습니다.
 
-Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
+아래 다이어그램은 재사용 가능한 워크플로를 사용하는 진행 중인 워크플로 실행을 보여 줍니다.
 
-The diagram below shows an in-progress workflow run that uses a reusable workflow.
+* 다이어그램 왼쪽에 있는 세 개의 빌드 작업이 각각 성공적으로 완료되면 "배포"라는 종속 작업이 실행됩니다.
+* "배포" 작업은 "스테이징", "검토" 및 "프로덕션"의 세 가지 작업을 포함하는 재사용 가능한 워크플로를 호출합니다.
+* “프로덕션” 배포 작업은 “스테이징” 작업이 성공적으로 완료된 후에만 실행됩니다.
+* 작업이 환경을 대상으로 하는 경우 워크플로 실행에는 작업의 단계 수를 보여 주는 진행률 표시줄이 표시됩니다. 아래 다이어그램에서 "프로덕션" 작업에는 8단계가 포함되어 있으며 6단계는 현재 처리 중입니다.
+* 재사용 가능한 워크플로를 사용하여 배포 작업을 실행하면 워크플로에서 코드를 복제하지 않고 각 빌드에 대해 해당 작업을 실행할 수 있습니다.
 
-* After each of three build jobs on the left of the diagram completes successfully, a dependent job called "Deploy" is run.
-* The "Deploy" job calls a reusable workflow that contains three jobs: "Staging", "Review", and "Production."
-* The "Production" deployment job only runs after the "Staging" job has completed successfully.
-* When a job targets an environment, the workflow run displays a progress bar that shows the number of steps in the job. In the diagram below, the "Production" job contains 8 steps, with step 6 currently being processed.
-* Using a reusable workflow to run deployment jobs allows you to run those jobs for each build without duplicating code in workflows.
+![배포를 위해 재사용 가능한 워크플로의 다이어그램](/assets/images/help/images/reusable-workflows-ci-cd.png)
 
-![Diagram of a reusable workflow for deployment](/assets/images/help/images/reusable-workflows-ci-cd.png)
+다른 워크플로를 사용하는 워크플로를 “호출자” 워크플로라고 합니다. 재사용 가능한 워크플로는 “호출된” 워크플로입니다. 한 호출자 워크플로는 여러 호출된 워크플로를 사용할 수 있습니다. 호출된 각 워크플로는 한 줄에 참조됩니다. 그 결과 호출자 워크플로 파일에는 몇 줄의 YAML만 포함될 수 있지만 실행할 때 많은 수의 작업을 수행할 수 있습니다. 워크플로를 다시 사용하면 호출자 워크플로의 일부인 것처럼 호출된 전체 워크플로가 사용됩니다.
 
-A workflow that uses another workflow is referred to as a "caller" workflow. The reusable workflow is a "called" workflow. One caller workflow can use multiple called workflows. Each called workflow is referenced in a single line. The result is that the caller workflow file may contain just a few lines of YAML, but may perform a large number of tasks when it's run. When you reuse a workflow, the entire called workflow is used, just as if it was part of the caller workflow.
+다른 리포지토리의 워크플로를 다시 사용하는 경우 호출된 워크플로의 모든 작업은 호출자 워크플로의 일부인 것처럼 실행됩니다. 예를 들어 호출된 워크플로 `actions/checkout`을 사용하는 경우 작업은 호출된 워크플로가 아닌 호출자 워크플로를 호스트하는 리포지토리의 콘텐츠를 확인합니다.
 
-If you reuse a workflow from a different repository, any actions in the called workflow run as if they were part of the caller workflow. For example, if the called workflow uses `actions/checkout`, the action checks out the contents of the repository that hosts the caller workflow, not the called workflow.
+재사용 가능한 워크플로가 호출자 워크플로에 의해 트리거되면 `github` 컨텍스트는 항상 호출자 워크플로와 연결됩니다. 호출된 워크플로에 `github.token`대한 액세스 및 `secrets.GITHUB_TOKEN`에 대한 액세스 권한이 자동으로 부여됩니다. `github` 컨텍스트에 대한 자세한 내용은 “[GitHub Actions 컨텍스트 및 식 구문](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”을 참조하세요.
 
-When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+{% data variables.product.prodname_actions %} 워크플로에서 참조된 재사용된 워크플로우를 워크플로가 포함된 리포지토리의 종속성 그래프에 표시된 종속성으로 볼 수 있습니다. 자세한 내용은 “[종속성 그래프 정보](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”를 참조하세요.
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+### 재사용 가능한 워크플로 및 시작 워크플로
 
-### Reusable workflows and starter workflows
+시작 워크플로를 사용하면 워크플로를 만들 수 있는 권한이 있는 조직의 모든 사용자가 더 빠르고 쉽게 워크플로를 만들 수 있습니다. 사용자가 새 워크플로를 만들 때 시작 워크플로를 선택할 수 있으며 워크플로 작성 작업의 일부 또는 전부가 해당 워크플로에 대해 수행됩니다. 시작 워크플로 내에서 재사용 가능한 워크플로를 참조하여 사용자가 중앙 관리형 워크플로 코드를 쉽게 재사용할 수 있도록 할 수 있습니다. 재사용 가능한 워크플로를 참조할 때 태그 또는 커밋 SHA를 사용하는 경우 해당 워크플로를 다시 사용하는 모든 사용자가 항상 동일한 YAML 코드를 사용하도록 할 수 있습니다. 그러나 태그 또는 분기로 재사용 가능한 워크플로를 참조하는 경우 해당 버전의 워크플로를 신뢰할 수 있어야 합니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 보안 강화](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)”를 참조하세요.
 
-Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Within a starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
+자세한 내용은 “[조직의 시작 워크플로 만들기](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)”를 참조하세요.
 
-For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+## 재사용 가능한 워크플로에 대한 액세스
 
-## Access to reusable workflows
+{% ifversion ghes or ghec or ghae %}다음 중 {% else %}하나{% endif %}에 해당하는 경우 다른 워크플로에서 재사용 가능한 워크플로를 사용할 수 있습니다.
 
-A reusable workflow can be used by another workflow if {% ifversion ghes or ghec or ghae %}any{% else %}either{% endif %} of the following is true:
+* 두 워크플로가 모두 동일한 리포지토리에 있습니다.
+* 호출된 워크플로는 퍼블릭 리포지토리{% ifversion actions-workflow-policy %}에 저장되며, {% ifversion ghec %}엔터프라이즈{% else %}조직{% endif %}에서 재사용 가능한 퍼블릭 워크플로를 사용할 수 있습니다{% endif %}.{% ifversion ghes or ghec or ghae %}
+* 호출된 워크플로는 내부 리포지토리에 저장되며 해당 리포지토리에 대한 설정을 통해 액세스할 수 있습니다. 자세한 정보는 {% ifversion internal-actions %}“[엔터프라이즈와 작업 및 워크플로 공유](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”{% else %}“[리포지토리의 {% data variables.product.prodname_actions %} 설정 관리](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}”를 참조하세요.{% endif %}
 
-* Both workflows are in the same repository.
-* The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
-
-## Using runners
+## 실행기 사용
 
 {% ifversion fpt or ghes or ghec %}
 
-### Using GitHub-hosted runners
+### GitHub 호스팅 실행기 사용
 
-The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+{% data variables.product.prodname_dotcom %} 호스팅 실행기의 할당은 항상 호출자 컨텍스트만 사용하여 평가됩니다. {% data variables.product.prodname_dotcom %}호스팅 실행기에 대한 청구는 항상 호출자에 연결됩니다. 호출자 워크플로는 호출된 리포지토리에서 {% data variables.product.prodname_dotcom %} 호스팅 실행기를 사용할 수 없습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 호스팅 실행기 정보](/actions/using-github-hosted-runners/about-github-hosted-runners)”를 참조하세요.
 
-### Using self-hosted runners
+### 자체 호스팅 실행기 정보
 
 {% endif %}
 
-Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
-* In the caller repository
-* In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
+호출자 워크플로와 동일한 사용자, 조직{% ifversion ghes or ghec or ghae %} 또는 엔터프라이즈에서{% endif %} 소유한 호출된 워크플로는 호출자의 컨텍스트에서 자체 호스팅된 실행기에 액세스할 수 있습니다. 즉, 호출된 워크플로는 다음에 위치한 자체 호스팅 실행기에 액세스할 수 있습니다.
+* 호출자 리포지토리
+* 호출자 리포지토리에서 실행기를 사용할 수 있는 경우 호출자 리포지토리의 조직{% ifversion ghes or ghec or ghae %} 또는 엔터프라이즈{% endif %}
 
-## Limitations
+## 제한 사항
 
 {% ifversion nested-reusable-workflow %}
-* You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
+* 최대 4개 수준의 워크플로를 연결할 수 있습니다. 자세한 내용은 "[재사용 가능한 워크플로 중첩"을 참조하세요.](#nesting-reusable-workflows)
 {% else %}
-* Reusable workflows can't call other reusable workflows.
+* 재사용 가능한 워크플로는 다른 재사용 가능한 워크플로를 호출할 수 없습니다.
 {% endif %}
-* Reusable workflows stored within a private repository can only be used by workflows within the same repository.
-* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."{% ifversion actions-reusable-workflow-matrix %}{% else %}
-* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
+* 프라이빗 리포지토리 내에 저장된 재사용 가능한 워크플로는 동일한 리포지토리 내의 워크플로에서만 사용할 수 있습니다.
+* 호출자 워크플로의 워크플로 수준에서 정의된 `env` 컨텍스트에서 설정된 환경 변수는 호출된 워크플로로 전파되지 않습니다. `env` 컨텍스트에 대한 자세한 내용은 “[GitHub Actions 컨텍스트 및 식 구문](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)”을 참조하세요.{% ifversion actions-reusable-workflow-matrix %}{% else %}
+* 이 `strategy` 속성은 재사용 가능한 워크플로를 호출하는 작업에서 지원되지 않습니다.{% endif %}
 
-## Creating a reusable workflow
+## 재사용 가능한 워크플로 만들기
 
-Reusable workflows are YAML-formatted files, very similar to any other workflow file. As with other workflow files, you locate reusable workflows in the `.github/workflows` directory of a repository. Subdirectories of the `workflows` directory are not supported.
+재사용 가능한 워크플로는 YAML 형식의 파일로, 다른 워크플로 파일과 매우 유사합니다. 다른 워크플로 파일과 마찬가지로 리포지토리의 `.github/workflows` 디렉터리에서 재사용 가능한 워크플로를 찾습니다. `workflows` 디렉터리의 하위 디렉터리가 지원되지 않습니다.
 
-For a workflow to be reusable, the values for `on` must include `workflow_call`:
+워크플로를 다시 사용하려면 다음 `on` 값이 `workflow_call`을 포함해야 합니다.
 
 ```yaml
 on:
   workflow_call:
 ```
 
-### Using inputs and secrets in a reusable workflow
+### 재사용 가능한 워크플로에서 입력 및 비밀 사용
 
-You can define inputs and secrets, which can be passed from the caller workflow and then used within the called workflow. There are three stages to using an input or a secret in a reusable workflow.
+호출자 워크플로에서 전달된 다음 호출된 워크플로 내에서 사용할 수 있는 입력 및 비밀을 정의할 수 있습니다. 재사용 가능한 워크플로에서 입력 또는 비밀을 사용하는 세 가지 단계가 있습니다.
 
-1. In the reusable workflow, use the `inputs` and `secrets` keywords to define inputs or secrets that will be passed from a caller workflow.
+1. 재사용 가능한 워크플로에서 `inputs` 및 `secrets` 키워드를 사용하여 호출자 워크플로에서 전달될 입력 또는 비밀을 정의합니다.
    {% raw %}
    ```yaml
    on:
@@ -112,18 +115,16 @@ You can define inputs and secrets, which can be passed from the caller workflow 
          envPAT:
            required: true
    ```
-   {% endraw %}
-   For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
+   {% endraw %} 입력 및 비밀을 정의하는 구문에 대한 자세한 내용은 [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) 및 [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets)를 참조하세요.
    {% ifversion actions-inherit-secrets-reusable-workflows %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+1. 다시 사용 가능한 워크플로에서 이전 단계에서 `on` 키에 정의한 입력 또는 비밀을 참조합니다.
 
    {% note %}
 
-   **Note**: If the secrets are inherited by using `secrets: inherit` in the calling workflow, you can reference them even if they are not explicitly defined in the `on` key. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)."
+   **참고**: 비밀이 호출 워크플로에서 `secrets: inherit`를 사용하여 상속되는 경우에는 `on` 키에 명시적으로 정의되지 않더라도 비밀을 참조할 수 있습니다. 자세한 내용은 “[GitHub Actions의 워크플로 구문](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)”을 참조하세요.
 
-   {% endnote %}
-   {%- else %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
+   {% endnote %} {%- else %}
+1. 다시 사용 가능한 워크플로에서 이전 단계에서 `on` 키에 정의한 입력 또는 비밀을 참조합니다.
    {%- endif %}
 
    {% raw %}
@@ -138,22 +139,21 @@ You can define inputs and secrets, which can be passed from the caller workflow 
            repo-token: ${{ secrets.envPAT }}
            configuration-path: ${{ inputs.config-path }}
    ```
-   {% endraw %}
-   In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
+   {% endraw %} 위의 예제에서 `envPAT`는 `production` 환경에 추가된 환경 비밀입니다. 따라서 이 환경은 작업 내에서 참조됩니다.
 
    {% note %}
 
-   **Note**: Environment secrets are encrypted strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+   **참고**: 환경 비밀은 리포지토리에 대해 정의한 환경에 저장된 암호화된 문자열입니다. 환경 비밀은 적절한 환경을 참조하는 워크플로 작업에서만 사용할 수 있습니다. 자세한 내용은 “[배포에 환경 사용](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)”을 참조하세요.
 
    {% endnote %}
 
-1. Pass the input or secret from the caller workflow.
+1. 호출자 워크플로에서 입력 또는 비밀을 전달합니다.
 
 {% indented_data_reference reusables.actions.pass-inputs-to-reusable-workflows spaces=3 %}
 
-### Example reusable workflow
+### 재사용 가능한 워크플로 예제
 
-This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in an action.
+이 재사용 가능한 `workflow-B.yml`라는 워크플로 파일(뒷부분의 [예제 호출자 워크플로](#example-caller-workflow)에서 참조)은 호출자 워크플로에서 입력 문자열과 비밀을 가져와서 작업에서 사용합니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -180,32 +180,32 @@ jobs:
 ```
 {% endraw %}
 
-## Calling a reusable workflow
+## 재사용 가능한 워크플로 호출
 
-You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
+`uses` 키워드를 사용하여 재사용 가능한 워크플로를 호출합니다. 워크플로 내에서 작업을 사용하는 경우와 달리 작업 단계 내에서가 아니라 작업 내에서 직접 재사용 가능한 워크플로를 호출합니다.
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 또는 ghae > 3.4 %}다음 구문 중 하나를 사용하여 재사용 가능한 워크플로 파일을 참조합니다.{% else %}구문:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-You can call multiple workflows, referencing each in a separate job.
+별도의 작업에서 각각을 참조하여 여러 워크플로를 호출할 수 있습니다.
 
 {% data reusables.actions.uses-keyword-example %}
 
-### Passing inputs and secrets to a reusable workflow
+### 재사용 가능한 워크플로에서 입력 및 비밀 전달
 
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
 {% ifversion actions-reusable-workflow-matrix %}
-### Using a matrix strategy with a reusable workflow
+### 재사용 가능한 워크플로에 행렬 전략 사용
 
-Jobs using the matrix strategy can call a reusable workflow.
+행렬 전략을 사용하는 작업은 재사용 가능한 워크플로를 호출할 수 있습니다.
 
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+매트릭스 전략을 사용하면 단일 작업 정의에서 변수를 사용하여 변수의 조합을 기반으로 하는 여러 작업 실행을 자동으로 만들 수 있습니다. 예를 들어 행렬 전략을 사용하여 재사용 가능한 워크플로에 다른 입력을 전달할 수 있습니다. 행렬에 대한 자세한 내용은 "[작업에 행렬 사용](/actions/using-jobs/using-a-matrix-for-your-jobs)"을 참조하세요.
 
-This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
+아래 예제 작업은 재사용 가능한 워크플로를 호출하고 값`[dev, stage, prod]`으로 변수 `target` 를 정의하여 행렬 컨텍스트를 참조합니다. 변수의 각 값에 대해 하나씩 세 개의 작업을 실행합니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -218,25 +218,20 @@ jobs:
     with:
       target: ${{ matrix.target }}
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
-### Supported keywords for jobs that call a reusable workflow
+### 재사용 가능한 워크플로를 호출하는 작업에 대해 지원되는 키워드
 
-When you call a reusable workflow, you can only use the following keywords in the job containing the call:
+재사용 가능한 워크플로를 호출하는 경우 호출이 포함된 작업에서 다음 키워드만 사용할 수 있습니다.
 
 * [`jobs.<job_id>.name`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idname)
 * [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 * [`jobs.<job_id>.with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwith)
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
-* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
-{%- ifversion actions-inherit-secrets-reusable-workflows %}
-* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
-{%- endif %}
-{%- ifversion actions-reusable-workflow-matrix %}
-* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
-{%- endif %}
+* [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id) {%- ifversion actions-inherit-secrets-reusable-workflows %}
+* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit) {%- endif %} {%- ifversion actions-reusable-workflow-matrix %}
+* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy) {%- endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)
@@ -244,16 +239,16 @@ When you call a reusable workflow, you can only use the following keywords in th
 
    {% note %}
 
-   **Note:**
+   **참고:**
 
-   * If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
-   * The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
+   * 호출 작업에 `jobs.<job_id>.permissions`가 지정되지 않은 경우 호출된 워크플로에 `GITHUB_TOKEN`에 대한 기본 사용 권한이 있습니다. 자세한 내용은 “[워크플로의 인증](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)”을 참조하세요.
+   * 호출자 워크플로에서 전달된 `GITHUB_TOKEN` 권한은 호출된 워크플로에 의해서만 다운그레이드(상승되지 않음)할 수 있습니다.
 
    {% endnote %}
 
-### Example caller workflow
+### 호출자 워크플로 예제
 
-This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`config-path`) and a secret (`token`).
+이 워크플로 파일은 두 개의 워크플로 파일을 호출합니다. 이 중 두 번째인 ([재사용 가능한 워크플로 예제](#example-reusable-workflow)에 나타난) `workflow-B.yml`에 입력(`config-path`) 및 비밀(`token`)을 전달합니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -281,11 +276,11 @@ jobs:
 {% endraw %}
 
 {% ifversion nested-reusable-workflow %}
-## Nesting reusable workflows
+## 재사용 가능한 워크플로 중첩
 
-You can connect a maximum of four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Loops in the workflow tree are not permitted.
+최대 4개의 워크플로 수준(즉, 1개의 최상위 호출자 워크플로 및 최대 3개 수준의 재사용 가능한 워크플로)을 연결할 수 있습니다. 예: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. 워크플로 트리의 루프는 허용되지 않습니다.
 
-From within a reusable workflow you can call another reusable workflow.
+재사용 가능한 워크플로 내에서 재사용 가능한 다른 워크플로를 호출할 수 있습니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -300,11 +295,11 @@ jobs:
 ```
 {% endraw %}
 
-### Passing secrets to nested workflows
+### 중첩된 워크플로에 비밀 전달
 
-You can use `jobs.<job_id>.secrets` in a calling workflow to pass named secrets to a directly called workflow. Alternatively, you can use `jobs.<job_id>.secrets.inherit` to pass all of the calling workflow's secrets to a directly called workflow. For more information, see the section "[Passing inputs and secrets to a reusable workflow](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)" above, and the reference article "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)." Secrets are only passed to directly called workflow, so in the workflow chain A > B > C, workflow C will only receive secrets from A if they have been passed from A to B, and then from B to C.
+호출 워크플로에서 `jobs.<job_id>.secrets`를 사용하여 명명된 비밀을 직접 호출된 워크플로에 전달할 수 있습니다. 또는 `jobs.<job_id>.secrets.inherit`를 사용하여 호출 워크플로의 모든 비밀을 직접 호출된 워크플로에 전달할 수 있습니다. 자세한 내용은 위의 “[재사용 가능한 워크플로에 입력 및 비밀 전달](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)” 섹션과 참조 문서 “[GitHub Actions 워크플로 구문](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)”을 참조하세요. 비밀은 직접 호출된 워크플로에만 전달되므로 워크플로 체인 A > B > C에서 워크플로 C는 비밀이 A에서 B로 전달된 다음 B에서 C로 전달된 경우에만 A로부터 비밀을 받습니다.
 
-In the following example, workflow A passes all of its secrets to workflow B, by using the `inherit` keyword, but workflow B only passes one secret to workflow C. Any of the other secrets passed to workflow B are not available to workflow C.
+다음 예제에서 워크플로 A는 `inherit` 키워드를 사용하여 모든 비밀을 워크플로 B에 전달하지만 워크플로 B는 비밀을 하나만 워크플로 C에 전달합니다. 워크플로 B에 전달된 다른 비밀은 모두 워크플로 C에서 사용할 수 없습니다.
 
 {% raw %}
 ```yaml
@@ -323,23 +318,23 @@ jobs:
 ```
 {% endraw %}
 
-### Access and permissions
+### 액세스 및 사용 권한
 
-A workflow that contains nested reusable workflows will fail if any of the nested workflows is inaccessible to the initial caller workflow. For more information, see "[Access to reusable workflows](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)."
+중첩된 재사용 가능 워크플로를 포함하고 있는 워크플로는 중첩된 워크플로 중 하나라도 초기 호출자 워크플로에 액세스할 수 없는 경우 실패합니다. 자세한 내용은 “[재사용 가능한 워크플로에 대한 액세스](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)”를 참조하세요.
 
-`GITHUB_TOKEN` permissions can only be the same or more restrictive in nested workflows. For example, in the workflow chain A > B > C, if workflow A has `package: read` token permission, then B and C cannot have `package: write` permission. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+`GITHUB_TOKEN` 사용 권한은 중첩된 워크플로에서 동일하거나 더 제한적일 수 있습니다. 예를 들어 워크플로 체인 A > B > C에서 워크플로 A에 `package: read` 토큰 권한이 있는 경우 B와 C는 `package: write` 사용 권한을 가질 수 없습니다. 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요.
 
-For information on how to use the API to determine which workflow files were involved in a particular workflow run, see "[Monitoring which workflows are being used](#monitoring-which-workflows-are-being-used)."
+API를 사용하여 특정 워크플로 실행에 관련된 워크플로 파일을 확인하는 방법에 대한 자세한 내용은 "[사용 중인 워크플로 모니터링"을 참조하세요](#monitoring-which-workflows-are-being-used).
 {% endif %}
 
-## Using outputs from a reusable workflow
+## 재사용 가능한 워크플로의 출력 사용
 
-A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
+재사용 가능한 워크플로는 호출자 워크플로에서 사용하려는 데이터를 생성할 수 있습니다. 이러한 출력을 사용하려면 재사용 가능한 워크플로의 출력으로 지정해야 합니다.{% ifversion actions-reusable-workflow-matrix %}
 
-If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value.
-That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
+출력을 설정하는 재사용 가능한 워크플로가 행렬 전략으로 실행되는 경우 출력은 실제로 값을 설정하는 행렬의 재사용 가능한 워크플로를 마지막으로 성공적으로 완료하여 설정한 출력이 됩니다.
+즉, 재사용 가능한 워크플로의 마지막 성공적 완료가 출력에 대해 빈 문자열을 설정하고, 재사용 가능한 워크플로의 마지막 두 번째 성공적 완료가 출력에 대한 실제 값을 설정하는 경우 출력에는 재사용 가능한 워크플로의 마지막 두 번째 완료의 값이 포함됩니다. {% endif %}
 
-The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
+다음 재사용 가능한 워크플로에는 두 단계를 포함하는 단일 작업이 있습니다. 각 단계에서는 “hello” 및 “world”라는 단일 단어를 출력으로 설정합니다. 작업의 `outputs` 섹션에서는 다음 단계 출력을 `output1` 또는 `output2`라는 작업 출력에 매핑합니다. 그런 다음 `on.workflow_call.outputs` 섹션에서는 워크플로 자체에 대해 두 개의 출력을 정의합니다. 하나는 `output1`에 매핑되는 `firstword`라는 출력이고 다른 하나는 `output2`에 매핑되는 `secondword`라는 출력입니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -380,7 +375,7 @@ jobs:
 ```
 {% endraw %}
 
-We can now use the outputs in the caller workflow, in the same way you would use the outputs from a job within the same workflow. We reference the outputs using the names defined at the workflow level in the reusable workflow: `firstword` and `secondword`. In this workflow, `job1` calls the reusable workflow and `job2` prints the outputs from the reusable workflow ("hello world") to standard output in the workflow log.
+이제 동일한 워크플로 내의 작업에서 출력을 사용하는 것과 동일한 방식으로 호출자 워크플로의 출력을 사용할 수 있습니다. 다시 사용할 수 있는 워크플로의 워크플로 수준에서 정의된 이름(`firstword` 및 `secondword`)를 사용하여 출력을 참조합니다. 이 워크플로에서는 `job1`에서 재사용 가능한 워크플로를 호출하고 `job2`에서 재사용 가능한 워크플로의 출력(“hello world”)을 워크플로 로그의 표준 출력으로 출력합니다.
 
 {% raw %}
 ```yaml{:copy}
@@ -401,37 +396,37 @@ jobs:
 ```
 {% endraw %}
 
-For more information on using job outputs, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+작업 출력 사용에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idoutputs)”을 참조하세요.
 
-## Monitoring which workflows are being used
+## 사용 중인 워크플로 모니터링
 
-You can use the {% data variables.product.prodname_dotcom %} REST API to monitor how reusable workflows are being used. The `prepared_workflow_job` audit log action is triggered when a workflow job is started. Included in the data recorded are:
-* `repo` - the organization/repository where the workflow job is located. For a job that calls another workflow, this is the organization/repository of the caller workflow.
-* `@timestamp` - the date and time that the job was started, in Unix epoch format.
-* `job_name` - the name of the job that was run.
+{% data variables.product.prodname_dotcom %} REST API를 사용하여 재사용 가능한 워크플로가 사용되는 방식을 모니터링할 수 있습니다. `prepared_workflow_job` 감사 로그 작업은 워크플로 작업이 시작될 때 트리거됩니다. 기록된 데이터에는 다음이 포함됩니다.
+* `repo` - 워크플로 작업이 있는 조직/리포지토리입니다. 다른 워크플로를 호출하는 작업의 경우 호출자 워크플로의 조직/리포지토리입니다.
+* `@timestamp` - 작업이 시작된 날짜 및 시간(Unix epoch 형식)입니다.
+* `job_name` - 실행된 작업의 이름입니다.
 {% ifversion nested-reusable-workflow %}
-* `calling_workflow_refs` - an array of file paths for all the caller workflows involved in this workflow job. The items in the array are in the reverse order that they were called in. For example, in a chain of workflows A > B > C, when viewing the logs for a job in workflow C, the array would be `["octo-org/octo-repo/.github/workflows/B.yml", "octo-org/octo-repo/.github/workflows/A.yml"]`.
-* `calling_workflow_shas` - an array of SHAs for all the caller workflows involved in this workflow job. The array contains the same number of items, in the same order, as the `calling_workflow_refs` array. {% endif %}
-* `job_workflow_ref` - the workflow file that was used, in the form `{owner}/{repo}/{path}/{filename}@{ref}`. For a job that calls another workflow, this identifies the called workflow.
+* `calling_workflow_refs` - 이 워크플로 작업에 관련된 모든 호출자 워크플로에 대한 파일 경로 배열입니다. 배열의 항목은 호출된 역순입니다. 예를 들어 A > B > C 워크플로 체인에서 워크플로 C에서 작업에 대한 로그를 볼 때 배열은 입니다 `["octo-org/octo-repo/.github/workflows/B.yml", "octo-org/octo-repo/.github/workflows/A.yml"]`.
+* `calling_workflow_shas` - 이 워크플로 작업에 관련된 모든 호출자 워크플로에 대한 SHA 배열입니다. 배열에는 배열과 동일한 순서로 동일한 수의 항목이 `calling_workflow_refs` 포함됩니다. {% endif %}
+* `job_workflow_ref` - 사용된 워크플로 파일(`{owner}/{repo}/{path}/{filename}@{ref}` 형식)입니다. 다른 워크플로를 호출하는 작업의 경우 호출된 워크플로를 식별합니다.
 
-For information about using the REST API to query the audit log for an organization, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+REST API를 사용하여 조직의 감사 로그를 쿼리하는 방법에 대한 자세한 내용은 “[조직](/rest/reference/orgs#get-the-audit-log-for-an-organization)”을 참조하세요.
 
 {% note %}
 
-**Note**: Audit data for `prepared_workflow_job` can only be viewed using the REST API. It is not visible in the {% data variables.product.prodname_dotcom %} web interface, or included in JSON/CSV exported audit data.
+**참고**: `prepared_workflow_job`에 대한 감사 데이터는 REST API를 사용하여서만 볼 수 있습니다. {% data variables.product.prodname_dotcom %} 웹 인터페이스에 표시되지 않으며 JSON/CSV 내보낸 감사 데이터에 포함되어 있지 않습니다.
 
 {% endnote %}
 
 {% ifversion partial-reruns-with-reusable %}
 
-## Re-running workflows and jobs with reusable workflows
+## 재사용 가능한 워크플로를 사용하여 워크플로 및 작업 다시 실행
 
 {% data reusables.actions.partial-reruns-with-reusable %}
 
 {% endif %}
 
-## Next steps
+## 다음 단계
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)."
+{% data variables.product.prodname_actions %}에 대해 계속 알아보려면 “[워크플로를 트리거하는 이벤트](/actions/learn-github-actions/events-that-trigger-workflows)”를 참조하세요.
 
-{% ifversion restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+{% ifversion restrict-groups-to-workflows %}재사용 가능한 특정 워크플로만 실행할 수 있는 자체 호스팅 실행기 그룹을 만들어 배포를 표준화할 수 있습니다. 자세한 내용은 “[그룹을 사용하여 자체 호스팅 실행기에 대한 액세스 관리](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”를 참조하세요.{% endif %}

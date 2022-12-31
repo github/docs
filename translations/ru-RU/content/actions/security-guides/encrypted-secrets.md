@@ -1,6 +1,6 @@
 ---
-title: Encrypted secrets
-intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
+title: Зашифрованные секреты
+intro: 'Зашифрованные секреты позволяют хранить конфиденциальную информацию в вашей организации{% ifversion fpt or ghes or ghec %}, репозитории или средах репозитория{% else %} или репозитории{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -8,83 +8,84 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
   - /actions/managing-workflows/storing-secrets
-  
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 4f45a2e0a3ac0c93215f7e4a095c2b8033450808
+ms.sourcegitcommit: aa488e9e641139f9056885b1479c8801e9906131
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162802'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Сведения о зашифрованных секретах
 
-## About encrypted secrets
-
-Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
+Секреты — это зашифрованные переменные среды, создаваемые в организации, репозитории или среде репозитория. Создаваемые секреты доступны для использования в рабочих процессах {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} использует [запечатанный прямоугольник libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), чтобы обеспечить шифрование секретов до того, как они достигнут {% data variables.product.prodname_dotcom %}, и остается зашифрованным, пока вы не используете их в рабочем процессе.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
-For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
+Для секретов, хранящихся на уровне среды, можно включить нужных проверяющих для управления доступом к секретам. Доступ к секретам среды предоставляется заданию только после создания утверждения требуемыми проверяющими.
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
+**Примечание.** {% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
 
 {% endif %}
 
-### Naming your secrets
+### Присвоение имен секретам
 
 {% data reusables.codespaces.secrets-naming %}
 
-  For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
+  Например, секрет, созданный на уровне среды, должен иметь уникальное имя в этой среде, секрет, созданный на уровне репозитория, должен иметь уникальное имя в этом репозитории, а секрет, созданный на уровне организации, должен иметь уникальное имя на этом уровне.
 
-  {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
+  {% data reusables.codespaces.secret-precedence %} Аналогичным образом, если организация, репозиторий и среда содержат секрет с одним и тем же именем, приоритет имеет секрет на уровне среды.
 
-To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
+Чтобы гарантировать, что {% data variables.product.prodname_dotcom %} изменит секрет в журналах, не используйте структурированные данные в качестве значений секретов. Например, не создавайте секреты, содержащие BLOB-объекты JSON или закодированные BLOB-объекты Git.
 
-### Accessing your secrets
+### Доступ к секретам
 
-To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
+Чтобы сделать секрет доступным для действия, необходимо задать секрет как входные данные или переменную среды в файле рабочего процесса. Просмотрите файл сведений о действии, чтобы узнать, каких входных данных и переменных среды ожидает действие. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv).
 
-You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
+Вы можете использовать и считывать зашифрованные секреты в файле рабочего процесса, если у вас есть доступ для редактирования файла. Дополнительные сведения см. в разделе [Разрешения на доступ к {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github).
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
+Секреты организации и репозитория считываются при выполнении рабочего процесса в очереди, а секреты среды считываются при запуске задания, ссылающегося на среду.
 
-You can also manage secrets using the REST API. For more information, see "[Secrets](/rest/reference/actions#secrets)."
+Вы также можете управлять секретами с помощью REST API. Дополнительные сведения см. в разделе [Секреты](/rest/reference/actions#secrets).
 
-### Limiting credential permissions
+### Ограничение разрешений для учетных данных
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary.{% ifversion pat-v2 %} When generating a {% data variables.product.pat_v2 %}, select the minimum repository access required.{% endif %}
+При создании учетных данных рекомендуется предоставить минимальные разрешения. Например, вместо использования личных учетных данных используйте [ключи развертывания](/developers/overview/managing-deploy-keys#deploy-keys) или учетную запись службы. Попробуйте предоставить разрешения только для чтения, если это необходимо, и максимально ограничить доступ. При создании {% data variables.product.pat_v1 %} выберите наименьшее необходимое количество областей. {% ifversion pat-v2 %} При создании {% data variables.product.pat_v2 %} выберите минимальный необходимый доступ к репозиторию. {% endif %}
 
 {% note %}
 
-**Note:** You can use the REST API to manage secrets. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+**Примечание.** Для управления секретами можно использовать REST API. Дополнительные сведения см. в статье [API секретов {% data variables.product.prodname_actions %}](/rest/reference/actions#secrets).
 
 {% endnote %}
 
-## Creating encrypted secrets for a repository
+## Создание зашифрованных секретов для репозитория
 
 {% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
-1. Click **New repository secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the value for your secret.
-1. Click **Add secret**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.actions.sidebar-secret %}
+1. Выберите **Новый секрет репозитория**.
+1. Введите имя секрета в поле ввода **Имя**.
+1. Введите значение секрета.
+1. Щелкните **Добавить секрет**.
 
-If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
+Если в репозитории есть секреты среды или доступ к секретам из родительской организации, эти секреты также отображаются на этой странице.
 
 {% endwebui %}
 
@@ -92,48 +93,46 @@ If your repository has environment secrets or can access secrets from the parent
 
 {% data reusables.cli.cli-learn-more %}
 
-To add a repository secret, use the `gh secret set` subcommand. Replace `secret-name` with the name of your secret.
+Чтобы добавить секрет репозитория, используйте подкоманду `gh secret set`. Замените `secret-name` именем своего секрета.
 
 ```shell
 gh secret set SECRET_NAME
 ```
 
-The CLI will prompt you to enter a secret value. Alternatively, you can read the value of the secret from a file.
+CLI предложит ввести значение секрета. Кроме того, можно считать значение секрета из файла.
 
 ```shell
 gh secret set SECRET_NAME < secret.txt
 ```
 
-To list all secrets for the repository, use the `gh secret list` subcommand.
+Чтобы получить список всех секретов для репозитория, используйте подкоманду `gh secret list`.
 
 {% endcli %}
 
-## Creating encrypted secrets for an environment
+## Создание зашифрованных секретов для среды
 
 {% data reusables.actions.permissions-statement-secrets-environment %}
 
 {% webui %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-environment %}
-1. Click on the environment that you want to add a secret to.
-2. Under **Environment secrets**, click **Add secret**.
-3. Type a name for your secret in the **Name** input box.
-4. Enter the value for your secret.
-5. Click **Add secret**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.actions.sidebar-environment %}
+1. Щелкните среду, в которую нужно добавить секрет.
+2. В разделе **Секреты среды** нажмите кнопку **Добавить секрет**.
+3. Введите имя секрета в поле ввода **Имя**.
+4. Введите значение секрета.
+5. Щелкните **Добавить секрет**.
 
 {% endwebui %}
 
 {% cli %}
 
-To add a secret for an environment, use the `gh secret set` subcommand with the `--env` or `-e` flag followed by the environment name.
+Чтобы добавить секрет для среды, используйте `gh secret set` подкоманду с флагом `--env` или `-e`, за которым следует имя среды.
 
 ```shell
 gh secret set --env ENV_NAME SECRET_NAME
 ```
 
-To list all secrets for an environment, use the `gh secret list` subcommand with the `--env` or `-e` flag followed by the environment name.
+Чтобы создать список всех секретов для среды, используйте `gh secret list` подкоманду с флагом `--env` или `-e`, за которым следует имя среды.
 
 ```shell
 gh secret list --env ENV_NAME
@@ -141,22 +140,20 @@ gh secret list --env ENV_NAME
 
 {% endcli %}
 
-## Creating encrypted secrets for an organization
+## Создание зашифрованных секретов для организации
 
-When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
+При создании секрета в организации можно использовать политику, чтобы ограничить для репозиториев доступ к секрету. Например, можно предоставить доступ ко всем репозиториям или ограничить доступ только частными репозиториями или указанным списком репозиториев.
 
 {% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% webui %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. Click **New organization secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the **Value** for your secret.
-1. From the **Repository access** dropdown list, choose an access policy.
-1. Click **Add secret**.
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
+1. Щелкните **Создать секрет организации**.
+1. Введите имя секрета в поле ввода **Имя**.
+1. Введите **значение** для своего секрета.
+1. В раскрывающемся списке **Доступ к репозиторию** выберите политику доступа.
+1. Щелкните **Добавить секрет**.
 
 {% endwebui %}
 
@@ -164,7 +161,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 {% note %}
 
-**Note:** By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
+**Примечание.** По умолчанию {% data variables.product.prodname_cli %} выполняет проверку подлинности в областях `repo` и `read:org`. Для управления секретами организации необходимо дополнительно авторизовать область `admin:org`.
 
 ```
 gh auth login --scopes "admin:org"
@@ -172,25 +169,25 @@ gh auth login --scopes "admin:org"
 
 {% endnote %}
 
-To add a secret for an organization, use the `gh secret set` subcommand with the `--org` or `-o` flag followed by the organization name.
+Чтобы добавить секрет для организации, используйте подкоманду `gh secret set` с флагом `--org` или `-o`, за которым следует имя организации.
 
 ```shell
 gh secret set --org ORG_NAME SECRET_NAME
 ```
 
-By default, the secret is only available to private repositories. To specify that the secret should be available to all repositories within the organization, use the `--visibility` or `-v` flag.
+По умолчанию секрет доступен только частным репозиториям. Чтобы указать, что секрет должен быть доступен для всех репозиториев в организации, используйте флаг `--visibility` или `-v`.
 
 ```shell
 gh secret set --org ORG_NAME SECRET_NAME --visibility all
 ```
 
-To specify that the secret should be available to selected repositories within the organization, use the `--repos` or `-r` flag.
+Чтобы указать, что секрет должен быть доступен для выбранных репозиториев в организации, используйте флаг `--repos` или `-r`.
 
 ```shell
 gh secret set --org ORG_NAME SECRET_NAME --repos REPO-NAME-1, REPO-NAME-2"
 ```
 
-To list all secrets for an organization, use the `gh secret list` subcommand with the `--org` or `-o` flag followed by the organization name.
+Чтобы создать список всех секретов для организации, используйте подкоманду `gh secret list` с флагом `--org` или `-o`, за которым следует имя организации.
 
 ```shell
 gh secret list --org ORG_NAME
@@ -198,34 +195,31 @@ gh secret list --org ORG_NAME
 
 {% endcli %}
 
-## Reviewing access to organization-level secrets
+## Проверка доступа к секретам на уровне организации
 
-You can check which access policies are being applied to a secret in your organization.
+Вы можете проверить, какие политики доступа применяются к секрету в вашей организации.
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
-1. The list of secrets includes any configured permissions and policies. For example:
-![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
-1. For more details on the configured permissions for each secret, click **Update**.
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.actions.sidebar-secret %}
+1. Список секретов включает все настроенные разрешения и политики. Например: ![список секретов](/assets/images/help/settings/actions-org-secrets-list.png)
+1. Для получения дополнительных сведений о настроенных разрешениях для каждого секрета щелкните **Обновить**.
 
-## Using encrypted secrets in a workflow
+## Использование зашифрованных секретов в рабочем процессе
 
 {% note %}
 
-**Notes:**
+**Примечания.**
 
 * {% data reusables.actions.forked-secrets %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 
-* Secrets are not automatically passed to reusable workflows. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
+* Секреты не передаются автоматически повторно используемым рабочим процессам. Дополнительные сведения см. в статье [Многократное использование рабочих процессов](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow).
 
 {% endif %}
 
 {% endnote %}
 
-To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[Contexts](/actions/learn-github-actions/contexts)" and "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+Чтобы указать действие с секретом в качестве входных данных или переменной среды, можно использовать контекст `secrets` для доступа к секретам, созданным в репозитории. Дополнительные сведения см. в разделе [Контексты](/actions/learn-github-actions/contexts) и [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions).
 
 {% raw %}
 ```yaml
@@ -238,15 +232,15 @@ steps:
 ```
 {% endraw %}
 
-Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
+На секреты нельзя напрямую ссылаться в условных выражениях `if:`. Вместо этого рекомендуется задать секреты в качестве переменных среды на уровне задания, а затем создать ссылки на переменные среды для условного выполнения шагов в задании. Подробнее см. в разделе [Доступность контекста](/actions/learn-github-actions/contexts#context-availability) и [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
 
-If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+Если секрет не задан, возвращаемое значение выражения, которое ссылается на этот секрет (например, {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} в примере) будет пустой строкой.
 
-Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). To help protect secrets, consider using environment variables, `STDIN`, or other mechanisms supported by the target process.
+По возможности избегайте передачи секретов между процессами из командной строки. Процессы командной строки могут быть видимы для других пользователей (с помощью команды `ps`) или сканируются [событиями аудита безопасности](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Чтобы обеспечить защиту секретов, рассмотрите возможность использования переменных среды, `STDIN`или других механизмов, поддерживаемых целевым процессом.
 
-If you must pass secrets within a command line, then enclose them within the proper quoting rules. Secrets often contain special characters that may unintentionally affect your shell. To escape these special characters, use quoting with your environment variables. For example:
+Если необходимо передать секреты в командной строке, добавьте их в соответствующие правила . Секреты зачастую содержат специальные символы, которые могут непреднамеренно повлиять на оболочку. Чтобы экранировать эти специальные символы, заключайте переменные среды в кавычки. Пример:
 
-### Example using Bash
+### Пример с использованием Bash
 
 {% raw %}
 ```yaml
@@ -259,7 +253,7 @@ steps:
 ```
 {% endraw %}
 
-### Example using PowerShell
+### Пример с использованием PowerShell
 
 {% raw %}
 ```yaml
@@ -272,7 +266,7 @@ steps:
 ```
 {% endraw %}
 
-### Example using Cmd.exe
+### Пример с использованием Cmd.exe
 
 {% raw %}
 ```yaml
@@ -285,43 +279,43 @@ steps:
 ```
 {% endraw %}
 
-## Limits for secrets
+## Ограничения для секретов
 
-You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
+Можно хранить до 1000 секретов организации, 100 секретов репозитория и 100 секретов среды.
 
-A workflow created in a repository can access the following number of secrets:
+Рабочий процесс, созданный в репозитории, может получить доступ к следующему количеству секретов:
 
-* All 100 repository secrets.
-* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
-* All 100 environment secrets.
+* Все 100 секретов в репозитории
+* Если репозиторию назначен доступ к более чем 100 секретам организации, рабочий процесс может использовать только первые 100 секретов организации (отсортированные по имени в алфавитном порядке).
+* Все 100 секретов среды.
 
-Secrets are limited to 64 KB in size. To store larger secrets, see the "[Storing large secrets](#storing-large-secrets)" workaround below.
+Размер секретов ограничен 64 КБ. Сведения о хранении больших секретов см. в описании обходного решения [Хранение больших секретов](#storing-large-secrets) ниже.
 
-### Storing large secrets
+### Хранение больших секретов
 
-To use secrets that are larger than 64 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
+Чтобы использовать секреты размером более 64 КБ, можно использовать обходное решение — хранить зашифрованные секреты в репозитории и сохранять парольную фразу расшифровки в виде секрета на {% data variables.product.prodname_dotcom %}. Например, можно использовать `gpg` для локального шифрования файла, содержащего секрет, прежде чем добавлять файл в репозиторий на {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html).
 
 {% warning %}
 
-**Warning**: Be careful that your secrets do not get printed when your workflow runs. When using this workaround, {% data variables.product.prodname_dotcom %} does not redact secrets that are printed in logs.
+**Внимание!** Будьте внимательны, чтобы секреты не выводились на печать при выполнении рабочего процесса. При использовании этого временного решения {% data variables.product.prodname_dotcom %} не редактирует секреты, которые выводятся на печать в журналах.
 
 {% endwarning %}
 
-1. Run the following command from your terminal to encrypt the file containing your secret using `gpg` and the AES256 cipher algorithm. In this example, `my_secret.json` is the file containing the secret.
+1. Выполните следующую команду на терминале, чтобы зашифровать файл, содержащий секрет, с помощью `gpg` и алгоритма шифра AES256. В этом примере секрет содержит файл `my_secret.json`.
 
    ```bash
    gpg --symmetric --cipher-algo AES256 my_secret.json
    ```
 
-1. You will be prompted to enter a passphrase. Remember the passphrase, because you'll need to create a new secret on {% data variables.product.prodname_dotcom %} that uses the passphrase as the value.
+1. Вам будет предложено ввести парольную фразу. Запомните парольную фразу, так как вам потребуется создать новый секрет в {% data variables.product.prodname_dotcom %}, который использует парольную фразу как значение.
 
-1. Create a new secret that contains the passphrase. For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you used in the step above.
+1. Создайте новый секрет, который содержит парольную фразу. Например, создайте новый секрет с именем `LARGE_SECRET_PASSPHRASE` и задайте для секрета парольную фразу, использованную на предыдущем шаге.
 
-1. Copy your encrypted file to a path in your repository and commit it. In this example, the encrypted file is `my_secret.json.gpg`.
+1. Скопируйте зашифрованный файл в путь в репозитории и выполните его фиксацию. В этом примере зашифрованный файл имеет значение `my_secret.json.gpg`.
 
    {% warning %}
 
-   **Warning**: Make sure to copy the encrypted `my_secret.json.gpg` file ending with the `.gpg` file extension, and **not** the unencrypted `my_secret.json` file.
+   **Внимание!** Обязательно скопируйте зашифрованный файл `my_secret.json.gpg`, заканчивающийся расширением `.gpg`, а **не** незашифрованный файл `my_secret.json`.
 
    {% endwarning %}
 
@@ -330,7 +324,7 @@ To use secrets that are larger than 64 KB, you can use a workaround to store enc
    git commit -m "Add new encrypted secret JSON file"
    ```
 
-1. Create a shell script in your repository to decrypt the secret file. In this example, the script is named `decrypt_secret.sh`.
+1. Создайте скрипт оболочки в репозитории для расшифровки файла секрета. В этом примере секрет называется `decrypt_secret.sh`.
 
    ```bash
    #!/bin/sh
@@ -343,7 +337,7 @@ To use secrets that are larger than 64 KB, you can use a workaround to store enc
    --output $HOME/secrets/my_secret.json my_secret.json.gpg
    ```
 
-1. Ensure your shell script is executable before checking it in to your repository.
+1. Перед возвратом в репозиторий убедитесь, что скрипт оболочки является исполняемым.
 
    ```bash
    chmod +x decrypt_secret.sh
@@ -352,7 +346,7 @@ To use secrets that are larger than 64 KB, you can use a workaround to store enc
    git push
    ```
 
-1. In your {% data variables.product.prodname_actions %} workflow, use a `step` to call the shell script and decrypt the secret. To have a copy of your repository in the environment that your workflow runs in, you'll need to use the [`actions/checkout`](https://github.com/actions/checkout) action. Reference your shell script using the `run` command relative to the root of your repository.
+1. В рабочем процессе {% data variables.product.prodname_actions %} используйте `step` для вызова скрипта оболочки и расшифровки секрета. Чтобы создать копию репозитория в среде, в которой выполняется рабочий процесс, необходимо использовать действие [`actions/checkout`](https://github.com/actions/checkout). Создайте ссылку на сценарий оболочки с помощью команды `run` относительно корня репозитория.
 
    ```yaml
    name: Workflows with large secrets
@@ -376,30 +370,30 @@ To use secrets that are larger than 64 KB, you can use a workaround to store enc
            run: cat $HOME/secrets/my_secret.json
    ```
 
-## Storing Base64 binary blobs as secrets
+## Хранение двоичных BLOB-объектов Base64 в виде секретов
 
-You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+Кодировку Base64 можно использовать для хранения небольших BLOB-объектов в виде секретов. Затем можно создать ссылку на секрет в рабочем процессе и декодировать его для использования в средстве выполнения тестов. Сведения об ограничении по размеру см. в разделе [Ограничения для секретов](/actions/security-guides/encrypted-secrets#limits-for-secrets).
 
 {% note %}
 
-**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+**Примечание**. Обратите внимание, что Base64 просто преобразует двоичный файл в текст и не заменяет фактическое шифрование.
 
 {% endnote %}
 
-1. Use `base64` to encode your file into a Base64 string. For example:
+1. Используйте `base64` для кодирования файла в строку Base64. Пример:
 
    ```
    $ base64 -i cert.der -o cert.base64
    ```
 
-1. Create a secret that contains the Base64 string. For example:
+1. Создайте секрет, который содержит строку Base64. Пример:
 
    ```
    $ gh secret set CERTIFICATE_BASE64 < cert.base64
    ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
    ```
 
-1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  For example: 
+1. Чтобы получить доступ к строке Base64 из средства выполнения тестов, передайте секрет в `base64 --decode`.  Пример: 
 
    ```yaml
    name: Retrieve Base64 secret

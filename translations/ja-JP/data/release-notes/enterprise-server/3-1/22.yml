@@ -1,0 +1,20 @@
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
+  bugs:
+    - "{% data variables.product.prodname_ghe_server %} 構成ファイル内のホスト名を検証するための内部スクリプトは、ホスト名の文字列が \".\" (ピリオド文字) で始まっている場合、エラーを返しました。" 
+    - プライマリ ノードのホスト名が 60 文字より長い HA 構成では、MySQL の構成が失敗しました。
+    - "サイト管理者ダッシュボードで報告される \"インスタンス全体の最大コミッター数\" の計算が、正しくありませんでした。"
+    - "{% data variables.product.prodname_enterprise_backup_utilities %} を使って復元を実行するとき、リポジトリ レプリカのデータベース エントリが正しくないと、データベースが破損しました。"
+  changes:
+    - Elasticsearch が有効な黄色状態を報告する HA 構成では、前の修正で行われた変更により、`ghe-repl-stop` コマンドがブロックされ、レプリケーションを停止できません。サービスが通常状態または有効な黄色状態のときに、`ghe-repo-stop --force` を使うと、Elasticsearch が強制的に停止されるようになります。
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} が有効にされていると、`ghe-repl-teardown` でのレプリカ ノードの破棄は成功しますが、`ERROR:Running migrations` が返されることがあります。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。

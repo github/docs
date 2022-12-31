@@ -1,45 +1,44 @@
-1. Select the **Account or organization** dropdown menu and click the name of the account your support ticket is regarding.
-![Screenshot of the "Account or organization" dropdown menu.](/assets/images/help/support/account-field.png)
-1. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact.
-![Screenshot of the "From" dropdown menu.](/assets/images/help/support/from-field.png)
+---
+ms.openlocfilehash: c7e95cef82f138648c1c664be0cc894854bfb0bf
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098620"
+---
+1. Выберите раскрывающееся меню **Учетная запись или Организация** и щелкните имя учетной записи, о которой идет речь в запросе в службу поддержки.
+![Снимок экрана: раскрывающееся меню "Учетная запись или организация".](/assets/images/help/support/account-field.png)
+1. Выберите раскрывающееся меню **От** и щелкните адрес электронной почты, с которым вы хотите, чтобы связались с {% data variables.contact.github_support %}.
+![Снимок экрана: раскрывающееся меню "От".](/assets/images/help/support/from-field.png)
 {%- ifversion ghec or ghes %}
-1. Select the **Product** dropdown menu and click {% ifversion ghes %}**GitHub Enterprise Server (self-hosted)**{% else %}**GitHub Enterprise Cloud**{% endif %}.
-{% ifversion ghec %}![Screenshot of the "Product" dropdown menu.](/assets/images/help/support/product-field-ghec.png){% else %}![Screenshot of the "Product" dropdown menu.](/assets/images/help/support/product-field.png){% endif %}
+1. Выберите раскрывающееся меню **Продукт** и щелкните {% ifversion ghes %}**GitHub Enterprise Server (self-hosted)** {% else %}**GitHub Enterprise Cloud**{% endif %}.
+{% ifversion ghec %}![Снимок экрана: раскрывающееся меню "Продукт".](/assets/images/help/support/product-field-ghec.png){% else %}![Снимок экрана: раскрывающееся меню "Продукт".](/assets/images/help/support/product-field.png){% endif %} {%- endif %} {%- ifversion ghes %}
+1. При появлении запроса выберите раскрывающееся меню **Установка сервера** и щелкните установку, о которой говорится в вашем запросе в службу поддержки. Если установка не указана, щелкните **Другое**.
+![Снимок экрана: раскрывающееся меню "Установка сервера"](/assets/images/help/support/installation-field.png) {%- endif %} {%- ifversion ghes %}
+1. Выберите раскрывающееся меню **"Выпуск серии"** и выберите выпуск {% данных variables.location.product_location_enterprise %} запущен.
+![Снимок экрана: раскрывающееся меню "Серия выпуска"](/assets/images/help/support/release-field.png) {%- endif %} {%- ifversion ghes or ghec %}
+1. Выберите раскрывающееся меню **Приоритет** и щелкните соответствующую срочность. Дополнительные сведения см. в разделе [Сведения о приоритете билета](/support/learning-about-github-support/about-ticket-priority).
+  ![Снимок экрана: раскрывающееся меню "Приоритет".](/assets/images/help/support/priority-field.png)
+{%- endif %} {%- ifversion ghes %}
+    - Выберите **{% data variables.product.support_ticket_priority_urgent %}** , чтобы сообщить о {% ifversion fpt or ghec %}критическом сбое системы{% else %}фатальных сбоях системы, сбоях, влияющих на критические операции системы, инцидентах безопасности и просроченных лицензиях{% endif %}.
+    - Выберите **{% data variables.product.support_ticket_priority_high %}** , чтобы сообщить о проблемах, влияющих на бизнес-операции, включая {% ifversion fpt or ghec %}удаление конфиденциальных данных (фиксации, проблемы, запросы на вытягивание, переданные вложения) из ваших собственных учетных записей и восстановления организации{% else %}проблемы с производительностью системы{% endif %} или сообщить о критических ошибках.
+    - Выберите **{% data variables.product.support_ticket_priority_normal %}** , чтобы {% ifversion fpt or ghec %}запросить восстановление учетной записи или очистку от спама, сообщить о проблемах со входом у пользователя{% else %}отправить технические запросы, такие как изменения конфигурации и интеграции сторонних продуктов{% endif %}, и сообщить о некритических ошибках.
+    - Выберите **{% data variables.product.support_ticket_priority_low %}** , чтобы задать общие вопросы и отправить запросы на новые функции, покупки, обучение или проверки работоспособности.
+{%- endif %} {%- ifversion ghes or ghec %}
+1. При желании, если учетная запись включает {% data variables.contact.premium_support %} и запрос имеет {% ifversion ghes %}срочный или высокий{% elsif ghec %}высокий{% endif %} приоритет, можно запросить обратный звонок на английском языке. Выберите **Запросить обратный звонок в службе поддержки GitHub**, в раскрывающемся меню с кодом страны выберите свою страну и введите свой номер телефона.
+![Снимок экрана: флажок "Запросить обратный звонок", раскрывающееся меню "Код страны" и текстовое поле "Номер телефона".](/assets/images/help/support/request-callback.png)
 {%- endif %}
-{%- ifversion ghes %}
-1. If prompted, select the **Server installation** dropdown menu and click the installation your support ticket is regarding. If the installation is not listed, click **Other**.
-![Screenshot of the "Server Installation" dropdown menu](/assets/images/help/support/installation-field.png)
-{%- endif %}
-{%- ifversion ghes %}
-1. Select the **Release series** dropdown menu and click the release {% data variables.location.product_location_enterprise %} is running.
-![Screenshot of the "Release series" dropdown menu](/assets/images/help/support/release-field.png)
-{%- endif %}
-{%- ifversion ghes or ghec %}
-1. Select the **Priority** dropdown menu and click the appropriate urgency. For more information, see "[About ticket priority](/support/learning-about-github-support/about-ticket-priority)."
-  ![Screenshot of the "Priority" dropdown menu.](/assets/images/help/support/priority-field.png)
-{%- endif %}
-{%- ifversion ghes %}
-    - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% ifversion fpt or ghec %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
-    - Choose **{% data variables.product.support_ticket_priority_high %}** to report issues impacting business operations, including {% ifversion fpt or ghec %}removing sensitive data (commits, issues, pull requests, uploaded attachments) from your own accounts and organization restorations{% else %}system performance issues{% endif %}, or to report critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_normal %}** to {% ifversion fpt or ghec %}request account recovery or spam unflagging, report user login issues{% else %}make technical requests like configuration changes and third-party integrations{% endif %}, and to report non-critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.
-{%- endif %}
-{%- ifversion ghes or ghec %}
-1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
-![Screenshot of the "Request callback" checkbox, "Country code" dropdown menu, and "Phone number" text box.](/assets/images/help/support/request-callback.png)
-{%- endif %}
-1. Under "Subject", type a descriptive title for the issue you're having.
-![Screenshot of the "Subject" text box.](/assets/images/help/support/subject-field.png)
-1. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.
-  ![Screenshot of the "How can we help" text area.](/assets/images/help/support/how-can-we-help-field.png)
-   Helpful information may include:
-    - Steps to reproduce the issue
-    - Any special circumstances surrounding the discovery of the issue (for example, the first occurrence or occurrence after a specific event, frequency of occurrence, business impact of the problem, and suggested urgency)
-    - Exact wording of error messages
-{% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
+1. В текстовом поле "Тема" введите описательный заголовок проблемы, с которой вы столкнулись.
+![Снимок экрана: текстовое поле "Тема".](/assets/images/help/support/subject-field.png)
+1. В текстовой области "Как мы можем помочь" укажите дополнительные сведения, которые помогут группе поддержки устранить проблему. Для форматирования сообщения можно использовать разметку Markdown.
+  ![Снимок экрана: текстовая область "Как мы можем помочь".](/assets/images/help/support/how-can-we-help-field.png)
+   Полезные сведения могут включать:
+    - Шаги для воспроизведения проблемы
+    - Любые особые обстоятельства, связанные с обнаружением проблемы (например, первое возникновение или возникновение после определенного события, частота возникновения, воздействие проблемы на бизнес и предполагаемая срочность).
+    - Точную формулировку сообщений об ошибках {% indented_data_reference reusables.repositories.anyone-can-view-anonymized-url spaces=3 %}
 
 {%- ifversion ghes %}
-1. Optionally, attach diagnostics files and other files by dragging and dropping, uploading, or pasting from the clipboard.
+1. При необходимости прикрепите файлы диагностики и другие файлы, перетащив их, загрузив или вставив из буфера обмена.
 {%- endif %}
-1. Click **Send request**.
-![Screenshot of the "Send request" button.](/assets/images/help/support/send-request-button.png)
+1. Щелкните **Отправить запрос**.
+![Снимок экрана: кнопка "Отправить запрос".](/assets/images/help/support/send-request-button.png)

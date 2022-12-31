@@ -1,7 +1,7 @@
 ---
-title: Enabling unified search for your enterprise
+title: 为企业启用统一搜索
 shortTitle: Unified search
-intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.location.product_location %}.'
+intro: '从 {% data variables.product.product_location %} 搜索时，你可以允许用户在搜索结果中包含 {% data variables.product.prodname_dotcom_the_website %} 上的存储库。'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com
@@ -20,34 +20,35 @@ topics:
   - Enterprise
   - GitHub Connect
   - GitHub search
+ms.openlocfilehash: 0270600113cb3b341b38e6f55d7108798d523ebb
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145098132'
 ---
-
-## About {% data variables.enterprise.prodname_unified_search %}
+## 关于 {% data variables.product.prodname_unified_search %}
 
 {% data reusables.github-connect.beta %}
 
-When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. 
+启用统一搜索后，用户从 {% data variables.product.prodname_ghe_managed %}{% endif %} 上的 {% data variables.product.product_location %}{% ifversion ghae %} 中搜索时，可以查看来自 {% data variables.product.prodname_dotcom_the_website %} 内容的搜索结果。 
 
-You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
+可以选择允许 {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库的搜索结果，可以单独选择允许 {% data variables.product.prodname_ghe_cloud %} 上的专用存储库的搜索结果。 如果你启用专用存储库的统一搜索，则用户只能搜索他们有权访问且由连接的组织或企业帐户拥有的专用存储库。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)”。
 
-Users will never be able to search {% data variables.location.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
+用户将永远无法从 {% data variables.product.prodname_dotcom_the_website %} 搜索 {% data variables.product.product_location %}，即使他们可以访问这两个环境。
 
-After you enable unified search for {% data variables.location.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_dotcom_the_website %} in {% data variables.location.product_location %}, each user must also connect their user account on {% data variables.product.product_name %} with a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search in your private enterprise account](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+在为 {% data variables.product.product_location %} 启用统一搜索后，每个用户还必须将他们在 {% data variables.product.product_name %} 上的用户帐户与 {% data variables.product.prodname_dotcom_the_website %} 上的用户帐户相关联，这样才能在 {% data variables.product.product_location %} 看到 {% data variables.product.prodname_dotcom_the_website %} 的专用存储库中的搜索结果。 有关详细信息，请参阅“[在私有企业帐户中启用 {% data variables.product.prodname_dotcom_the_website %} 存储库搜索](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)”。
 
-Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_dotcom_the_website %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_dotcom_the_website %} are not supported.
+通过 REST 和 GraphQL API 进行搜索不包含 {% data variables.product.prodname_dotcom_the_website %} 搜索结果。 不支持在 {% data variables.product.prodname_dotcom_the_website %} 中进行高级搜索和搜索 Wiki。
 
-## Enabling {% data variables.enterprise.prodname_unified_search %}
+## 启用 {% data variables.product.prodname_unified_search %}
 
-Before you can enable {% data variables.enterprise.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+在启用 {% data variables.product.prodname_unified_search %} 之前，必须启用 {% data variables.product.prodname_github_connect %}。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)”。
 
-{% ifversion ghes %}
-{% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. Sign into {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion ghes %} {% data reusables.github-connect.access-dotcom-and-enterprise %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.business %} {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+1. 登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_dotcom_the_website %}。
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. Under "Users can search {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
-  ![Enable search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
-1. Optionally, under "Users can search private repositories on {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
-    ![Enable private repositories search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/enable-private-search.png)
+1. 在“用户可以搜索 {% data variables.product.prodname_dotcom_the_website %}”下，使用下拉菜单并单击“启用”。
+  ![在搜索 GitHub.com 下拉菜单中启用搜索选项](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
+1. 或者，在“用户可以在 {% data variables.product.prodname_dotcom_the_website %} 上搜索专用存储库”下，使用下拉菜单并单击“启用”。
+    ![在搜索 GitHub.com 下拉菜单中启用专用存储库搜索选项](/assets/images/enterprise/site-admin-settings/enable-private-search.png)

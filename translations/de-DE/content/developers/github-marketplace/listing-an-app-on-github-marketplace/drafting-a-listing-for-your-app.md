@@ -1,6 +1,6 @@
 ---
-title: Drafting a listing for your app
-intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
+title: Entwerfen eines Angebots für deine App
+intro: 'Wenn du ein Angebot für den {% data variables.product.prodname_marketplace %} erstellst, speichert GitHub ihn im Entwurfsmodus, bis du die App zur Genehmigung abschickst. Dein Angebot zeigt Kunden, wie sie deine App verwenden können.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
@@ -19,50 +19,54 @@ versions:
 topics:
   - Marketplace
 shortTitle: Draft an app listing
+ms.openlocfilehash: 9dccf5486c446c5cdd9dbef4d36650340116e044
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145089692'
 ---
-## Create a new draft {% data variables.product.prodname_marketplace %} listing
+## Erstellen eines neuen {% data variables.product.prodname_marketplace %}-Angebotsentwurfs
 
-You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
+Du kannst nur Angebotsentwürfe für Apps erstellen, die öffentlich sind. Bevor du deinen Angebotsentwurf erstellst, kannst du die folgenden Richtlinien zum Schreiben und Konfigurieren von Einstellungen in deinem {% data variables.product.prodname_marketplace %}-Angebot lesen:
 
-* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
-* [Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
-* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
+* [Schreiben von {% data variables.product.prodname_marketplace %}-Angebotsbeschreibungen](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
+* [Festlegen eines Preisplans für ein {% data variables.product.prodname_marketplace %}-Angebot](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
+* [Konfigurieren des {% data variables.product.prodname_marketplace %}-Webhooks](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
 
-To create a {% data variables.product.prodname_marketplace %} listing:
+Zum Erstellen eines {% data variables.product.prodname_marketplace %}-Angebots gehst du folgendermaßen vor:
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
+3. Klicke auf der linken Seitenleiste entweder auf **OAuth Apps** oder auf **GitHub Apps**, je nach App, die du {% data variables.product.prodname_marketplace %} hinzufügst.
 
   {% note %}
 
-  **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
+  **Hinweis**: Du kannst ein Angebot auch hinzufügen, indem du zu https://github.com/marketplace/new navigierst, deine verfügbaren Apps anzeigst und auf **Angebotsentwurf erstellen** klickst.
 
   {% endnote %}
 
-  ![App type selection](/assets/images/settings/apps_choose_app.png)
+  ![Auswahl des App-Typs](/assets/images/settings/apps_choose_app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
-![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
-{% data reusables.user-settings.edit_marketplace_listing %}
-5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
-![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
+4. Wähle die App aus, die du {% data variables.product.prodname_marketplace %} hinzufügen möchtest.
+![App-Auswahl für {% data variables.product.prodname_marketplace %}-Angebot](/assets/images/github-apps/github_apps_select-app.png) {% data reusables.user-settings.edit_marketplace_listing %}
+5. Nachdem du einen neuen Angebotsentwurf erstellt hast, wird Dir eine Übersicht der Abschnitte angezeigt, die du aufrufen musst, bevor dein {% data variables.product.prodname_marketplace %}-Angebot fertig gestellt ist.
+![GitHub Marketplace-Angebot](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
+**Hinweis:** Es wird empfohlen, im Abschnitt „Kontaktdaten“ deines Angebots einzelne E-Mail-Adressen anstelle von Gruppen-E-Mail-Adressen wie z. B. support@domain.com zu verwenden. GitHub nutzt diese E-Mail-Adressen, um Dich über Aktualisierungen von {% data variables.product.prodname_marketplace %}, die sich auf dein Angebot auswirken könnten, neue Featurereleases, Marketingmöglichkeiten und Auszahlungen zu informieren sowie Dir Informationen über Konferenzen und Sponsoring zukommen zu lassen.
 
 {% endnote %}
 
-## Editing your listing
+## Bearbeiten deines Angebots
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+Nachdem du einen {% data variables.product.prodname_marketplace %}-Angebotsentwurf erstellt hast, kannst du jederzeit zurückkehren und Informationen in deinem Angebot ändern. Ist deine App bereits genehmigt und in {% data variables.product.prodname_marketplace %} enthalten, kannst du die Informationen und Bilder in deinem Angebot bearbeiten, jedoch keine bereits veröffentlichten Preispläne ändern. Informationen findest du unter [Festlegen eines Preisplans für ein {% data variables.product.prodname_marketplace %}-Angebot](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/).
 
-## Submitting your app
+## Übermitteln deiner App
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Nachdem du dein {% data variables.product.prodname_marketplace %}-Angebot fertig gestellt hast, kannst du es auf der Seite **Overview** (Übersicht) zur Überprüfung übermitteln. Du musst die [{% data variables.product.prodname_marketplace %}-Entwicklervereinbarung](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/) lesen und akzeptieren. Anschließend kannst du auf **Submit for review** (Zur Überprüfung übermitteln) klicken. Nachdem du deine App zur Überprüfung übermittelt hast,nimmt ein Onboarding-Experte Kontakt mit Dir auf und gibt Dir zusätzliche Informationen zum Onboardingprozess.
 
-## Removing a {% data variables.product.prodname_marketplace %} listing
+## Entfernen eines {% data variables.product.prodname_marketplace %}-Angebots
 
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.
+Wenn du deine App nicht mehr in {% data variables.product.prodname_marketplace %} anbieten möchtest, wende Dich an {% data variables.contact.contact_support %}, um dein Angebot zu entfernen.

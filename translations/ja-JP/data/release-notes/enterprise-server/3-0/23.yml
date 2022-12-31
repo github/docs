@@ -1,0 +1,19 @@
+date: '2022-01-18'
+sections:
+  security_fixes:
+    - 'パッケージは最新のセキュリティ バージョンに更新されました。これらの更新では、Log4j がバージョン 2.17.1 に更新されました。メモ: GitHub Enterprise Server のこれらのバージョンで CVE-2021-44228、CVE-2021-45046、CVE-2021-45105、CVE-2021-44832 の影響に対処するには、以前 3.3.1、3.2.6、3.1.14、3.0.22 でリリースされた軽減策で十分です。'
+    - 生成されたサポート バンドルでさらに多くのシークレットをサニタイズする
+    - パッケージは最新のセキュリティ バージョンに更新されました。
+  bugs:
+    - "\"ghe-config-apply\" の実行は、\"/data/user/tmp/pages\" でのアクセス許可の問題が原因で失敗することがありました。"
+    - 解像度の低いブラウザーでスクロールすると、管理コンソールの保存ボタンが表示されませんでした。
+    - IOPS と Storage Traffic 監視グラフが、修正されたバージョンのアップグレードの後で更新されませんでした。
+    - 一部の Webhook 関連のジョブで、大量のログが生成されることがありました。
+  known_issues:
+    - "ユーザーが存在していない、セットアップしたばかりの {% data variables.product.prodname_ghe_server %} では、攻撃者が最初の管理者ユーザーを作成することができました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue はクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーを引き起こす場合があります。

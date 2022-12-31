@@ -123,7 +123,7 @@ You can use activity types and filters to further control when your workflow wil
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
 

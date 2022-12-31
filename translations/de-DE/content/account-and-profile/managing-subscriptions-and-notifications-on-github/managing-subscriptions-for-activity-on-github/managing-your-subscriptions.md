@@ -1,6 +1,6 @@
 ---
-title: Managing your subscriptions
-intro: 'To help you manage your notifications efficiently, there are several ways to unsubscribe.'
+title: Verwaltung Deiner Abonnements
+intro: 'Um Dir zu helfen, Deine Benachrichtigungen effizient zu verwalten, gibt es mehrere Möglichkeiten, Dich abzumelden.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,73 +12,79 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
   - /github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
 shortTitle: Manage your subscriptions
+ms.openlocfilehash: 750a3a9ad87ff9aa709b84a98f548d85d53072ee
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145091458'
 ---
-To help you understand your subscriptions and decide whether to unsubscribe, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
+Weitere Informationen zu Abonnements und dazu, wann du ein Abonnement kündigen solltest, findest du unter [Anzeigen deiner Abonnements](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions).
 
 {% note %}
 
-**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
+**Hinweis:** Anstatt dein Abonnement zu kündigen, hast du die Möglichkeit, ein Repository zu ignorieren. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da du in diesem Fall auch keine Benachrichtigung erhältst, wenn du @mentioned wirst. {% ifversion fpt or ghec %}Wenn du Missbrauch feststellst und ein Repository ignorieren möchtest, wende dich an {% data variables.contact.contact_support %}, damit wir dir helfen können. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
-## Choosing how to unsubscribe
+## Wähle die Art der Abmeldung
 
-To unwatch (or unsubscribe from) repositories quickly, navigate to [github.com/watching](https://github.com/watching) to see all the repositories you're following. For more information, see "[Unwatching repositories](#unwatching-repositories)."
+Um schnell die Überwachung von Repositorys zu beenden (oder sie zu kündigen), navigierst du zu [github.com/watching](https://github.com/watching). Dort werden alle Repositorys angezeigt, denen du folgst. Weitere Informationen findest du unter [Beobachtungen für Repositorys deaktivieren](#unwatching-repositories).
 
-To unsubscribe from multiple notifications at the same time, you can unsubscribe using your inbox or on the subscriptions page. Both of these options offer more context about your subscriptions than the "Watched repositories" page.
+Um mehrere Benachrichtigungen gleichzeitig abzumelden, kannst Du Dich über Deinen Posteingang oder über die Abonnementseite abmelden. Beide Optionen bieten mehr Kontext über Deine Abonnements als die Seite „Watched repositories" (beobachtete Repositorys).
 
-### Benefits of unsubscribing from your inbox
+### Vorteile der Abmeldung über Deinen Posteingang
 
-When you unsubscribe from notifications in your inbox, you have several other triaging options and can filter your notifications by custom filters and discussion types. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."
+Wenn du Benachrichtigungen in Deinem Posteingang abmeldest, hast Du mehrere weitere Selektionsoptionen und kannst Deine Benachrichtigungen nach benutzerdefinierten Filtern und Diskussionstypen auswählen. Weitere Informationen findest du unter [Verwalten von Benachrichtigungen aus deinem Posteingang](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox).
 
-### Benefits of unsubscribing from the subscriptions page
+### Vorteile der Abmeldung von der Abonnementseite
 
-When you unsubscribe from notifications on the subscriptions page, you can see more of the notifications you're subscribed to and sort them by "Most recently subscribed" or "Least recently subscribed".
+Wenn Du Benachrichtigungen auf der Abonnementseite abmeldest, kannst Du mehr Details der von Dir abonnierten Benachrichtigungen sehen und sie nach „Most recently subscribed" (neueste Abonnements) oder „Least recently subscribed" (älteste Abonnements) sortieren.
 
-The subscriptions page shows you all of the notifications that you're currently subscribed to, including notifications that you have marked as **Done** in your inbox.
+Auf der Seite „Abonnements“ findest du alle Benachrichtigungen, die du derzeit abonniert hast, einschließlich Benachrichtigungen, die du in deinem Posteingang als **Erledigt** markiert hast.
 
-You can only filter your subscriptions by repository and the reason you're receiving the notification.
+Du kannst Deine Abonnements nur nach Repository und dem Grund filtern, warum Du die Benachrichtigung erhältst.
 
-## Unsubscribing from notifications in your inbox
+## Abmelden von Benachrichtigungen in Deinem Posteingang
 
-When you unsubscribe from notifications in your inbox, they will automatically disappear from your inbox.
-
-{% data reusables.notifications.access_notifications %}
-1. From the notifications inbox, select the notifications you want to unsubscribe to.
-2. Click **Unsubscribe.**
-  ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
-
-## Unsubscribing from notifications on the subscriptions page
+Wenn Du Benachrichtigungen in Deinem Posteingang abmeldest, werden diese automatisch aus Deinem Posteingang verschwinden.
 
 {% data reusables.notifications.access_notifications %}
-1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Subscriptions**.
-  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
+1. Wähle im Posteingang für Benachrichtigungen diejenige Benachrichtigungen aus, die Du abmelden möchtest.
+2. Klicke auf **Kündigen**
+  ![Option „Kündigen“ im Hauptposteingang](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png).
 
-2. Select the notifications you want to unsubscribe to. In the top right, click **Unsubscribe.**
-  ![Subscriptions page](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
-
-## Unwatching repositories
-
-When you unwatch a repository, you unsubscribe from future updates from that repository unless you participate in a conversation or are @mentioned.
+## Abmeldung von Benachrichtigungen auf der Abonnementseite
 
 {% data reusables.notifications.access_notifications %}
-1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Watched repositories**.
+1. Wähle auf der linken Randleiste unter der Liste der Repositorys das Dropdownmenü „Benachrichtigungen verwalten“ aus, und klicke auf **Abonnements**.
+  ![Dropdownmenüoptionen zum Verwalten von Benachrichtigungen](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-  ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
+2. Wähle die Benachrichtigungen, die Du abmelden möchtest. Klicke rechts oben auf **Kündigen**
+  ![Seite „Abonnements“](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png).
 
-2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
+## Beobachtungen für Repositorys deaktivieren
+
+Wenn du ein Repository nicht mehr beobachtest, meldest du dich von zukünftigen Updates dieses Repositorys ab, außer du nimmst an einer Unterhaltung teil oder wirst @mentioned.
+
+{% data reusables.notifications.access_notifications %}
+1. Wähle auf der linken Randleiste unter der Liste der Repositorys das Dropdownmenü „Benachrichtigungen verwalten“ aus, und klicke auf **Beobachtete Repositorys**.
+
+  ![Dropdownmenü-Optionen „Manage notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
+
+2. Nimm auf der Seite der beobachteten Repositorys eine Bewertung dieser Repositorys vor und wähle dann aus:
    
-   - Unwatch a repository
-   - Ignore all notifications for a repository
-   - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
+   - Ein Repository nicht mehr beobachten
+   - Ignorieren aller Benachrichtigungen für ein Repository
+   - Bei der Aktivierung kannst du die Ereignistypen anpasse, für die du Benachrichtigungen erhältst ({% data reusables.notifications-v2.custom-notification-types %}).
    
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-1. Optionally, to unsubscribe from all repositories owned by a given user or organization, select the **Unwatch all** dropdown and click the organization whose repositories you'd like to unsubscribe from. The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
+1. Wenn du optional alle Repositorys kündigen möchtest, die einem bestimmten Benutzer oder einer bestimmten Organisation gehören, wähle die Dropdownliste **Alle Beobachtungen deaktivieren** aus, und klicke auf die Organisation, deren Repositorys du kündigen möchtest. Die Schaltfläche zum Deaktivierung der Beobachtung aller Repositorys ist nur verfügbar, wenn du alle Aktivitäten beobachtest oder benutzerdefinierte Benachrichtigungen für mehr als 10 Repositorys verwendest.
 
-   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+   ![Screenshot der Schaltfläche „Alle Beobachtungen deaktivieren“](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
 
-   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
+   - Klicke auf **Beobachtung deaktivieren**, um zu bestätigen, dass du die Repositorys im Besitz des ausgewählten Benutzers oder der ausgewählten Organisation nicht mehr beobachten möchtest, oder klicke auf **Abbrechen**, um den Vorgang abzubrechen.
 
-   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+   ![Screenshot des Bestätigungsdialogfelds für das Deaktivieren aller Beobachtungen](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
 
 {% endif %}

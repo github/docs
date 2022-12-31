@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 2a93f87df67d1694bd93888d29a582afa9c749e4
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3e7dea02ec468109fbfa865f2d84224f8381cc39
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158963'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192799'
 ---
 作为认证教育机构的教职员工，你可以申请 {% data variables.product.prodname_global_campus %}，其中包括 {% data variables.product.prodname_education %} 权益和资源。 有关详细信息，请参阅“[以教师身份申请加入 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)”。
 
@@ -34,7 +34,7 @@ ms.locfileid: '148158963'
   - 重新观看最近的 [Campus TV](https://www.twitch.tv/githubeducation) 剧集，了解学生社区对什么感兴趣。 Campus TV 由 {% data variables.product.prodname_dotcom %} 和学生社区领袖创建，可观看直播或按需观看。
   - 请求一个 {% data variables.product.prodname_dotcom %} swag 包，其中包含为学生提供的教育材料和超值服务。
 
-{% data variables.product.prodname_copilot %} 的免费订阅可供通过 {% data variables.product.prodname_education %} 验证的教师使用。 在帐户设置中访问 {% data variables.product.prodname_copilot %} 订阅页时，将自动收到有关免费订阅的通知。 有关订阅和使用 {% data variables.product.prodname_copilot %} 的详细信息，请参阅“[管理 {% data variables.product.prodname_copilot %} 订阅](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)”和“[关于 {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)”。
+{% data variables.product.prodname_copilot %} 的免费订阅可供通过 {% data variables.product.prodname_education %} 验证的教师使用。 在帐户设置中访问 {% data variables.product.prodname_copilot %} 订阅页时，将自动收到有关免费订阅的通知。 有关订阅和使用 {% data variables.product.prodname_copilot %} 的详细信息，请参阅“[管理 {% data variables.product.prodname_copilot_for_individuals %} 订阅](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)”和“[关于 {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)”。
 
 ## 延伸阅读
 

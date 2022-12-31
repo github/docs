@@ -5,7 +5,7 @@ import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import statsd from '../../lib/statsd.js'
-import { cacheControlFactory } from '../cache-control.js'
+import { searchCacheControl } from '../cache-control.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
 import { setFastlySurrogateKey } from '../set-fastly-surrogate-key.js'
 import {
@@ -13,13 +13,6 @@ import {
   POSSIBLE_HIGHLIGHT_FIELDS,
   DEFAULT_HIGHLIGHT_FIELDS,
 } from './es-search.js'
-
-// This means we tell the browser to cache the XHR request for 1h
-const browserCacheControl = cacheControlFactory(60 * 60)
-// This tells the CDN to cache the response for 4 hours
-const cdnCacheControl = cacheControlFactory(60 * 60 * 4, {
-  key: 'surrogate-control',
-})
 
 // Used by the legacy search
 const versions = new Set(Object.values(searchVersions))
@@ -157,8 +150,7 @@ router.get(
       }
     })
     if (process.env.NODE_ENV !== 'development') {
-      browserCacheControl(res)
-      cdnCacheControl(res)
+      searchCacheControl(res)
       setFastlySurrogateKey(res, `api-search:${language}`, true)
     }
 
@@ -287,8 +279,7 @@ router.get(
       statsd.timing('api.search.query', meta.took.query_msec, tags)
 
       if (process.env.NODE_ENV !== 'development') {
-        browserCacheControl(res)
-        cdnCacheControl(res)
+        searchCacheControl(res)
         setFastlySurrogateKey(res, `api-search:${language}`, true)
       }
 

@@ -1,115 +1,113 @@
 ---
-title: Using larger runners
+title: より大きなランナーの使用
 shortTitle: Larger runners
-intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
+intro: '{% data variables.product.prodname_dotcom %} は、より多くの RAM と CPU を備えた、より大きなランナーを提供します。'
 miniTocMaxHeadingLevel: 3
 product: '{% data reusables.gated-features.hosted-runners %}'
 versions:
   feature: actions-hosted-runners
+ms.openlocfilehash: eca33ee8b427f918a3db5d8b4ca05947b7662896
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148120874'
 ---
+## {% data variables.actions.hosted_runner %}の概要
 
-## Overview of {% data variables.actions.hosted_runner %}s
+[標準の {% data variables.product.prodname_dotcom %} ホスト ランナー](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)に加えて、{% data variables.product.prodname_dotcom %} では、{% data variables.product.prodname_team %} と {% data variables.product.prodname_ghe_cloud %} プランのお客様にも、より多くの RAM と CPU を備えたさまざまな{% data variables.actions.hosted_runner %}を提供しています。 これらのランナーは、{% data variables.product.prodname_dotcom %} によってホストされ、ランナー アプリケーションとその他のツールをプレインストールしています。
 
-In addition to the [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources), {% data variables.product.prodname_dotcom %} also offers customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans a range of {% data variables.actions.hosted_runner %}s with more RAM and CPU. These runners are hosted by {% data variables.product.prodname_dotcom %} and have the runner application and other tools preinstalled.
+Organization で {% data variables.actions.hosted_runner %} が有効になっている場合、事前に構成された 4 つの {% data variables.actions.hosted_runner %} のセットを使って、既定のランナー グループが自動的に作成されます。
 
-When {% data variables.actions.hosted_runner %}s are enabled for your organization, a default runner group is automatically created for you with a set of four pre-configured {% data variables.actions.hosted_runner %}s.
+{% data variables.actions.hosted_runner %}を Organization に追加する場合は、使用可能なハードウェア仕様とオペレーティング システム イメージから選んだマシンの種類を定義します。 {% data variables.product.prodname_dotcom %} では、定義した自動スケールの制限に基づき、Organization のジョブの需要に合わせてスケールアップおよびスケールダウンする、このランナーの複数のインスタンスが作成されます。
 
-When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
+## {% data variables.actions.hosted_runner %} 用のコンピューターの仕様 
 
-## Machine specs for {% data variables.actions.hosted_runner %}s 
-
-|Size (vcpu) | Memory (GB) | Storage (SSD) |
+|サイズ (vCPU) | メモリ (GB) | ストレージ (SSD) |
 | ------------- | ------------- | ------------- |
-|4 cores | 16  RAM  | 150 GB|
-| 8 cores | 32 RAM | 300 GB |
-|16 cores| 64 RAM | 600 GB |
-|32 cores| 128 RAM| 1200 GB|
-|64 cores| 256 RAM | 2040 GB|
+|4 コア | 16 RAM  | 150 GB|
+| 8 コア | 32 RAM | 300 GB |
+|16 コア| 64 RAM | 600 GB |
+|32 コア| 128 RAM| 1200 GB|
+|64 コア| 256 RAM | 2040 GB|
 
-## Architectural overview of {% data variables.actions.hosted_runner %}s
+## {% data variables.actions.hosted_runner %}のアーキテクチャの概要
 
-The {% data variables.actions.hosted_runner %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target either the group name or the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+{% data variables.actions.hosted_runner %}は Organization レベルで管理され、ランナーの複数のインスタンスを含むことができるグループに配置されます。 また、Enterprise レベルで作成し、階層内の Organization と共有することもできます。 グループを作成したら、ランナーをグループに追加し、ワークフローを更新して、{% data variables.actions.hosted_runner %}に割り当てられたグループ名またはラベルをターゲットにすることができます。 また、処理のためにグループにジョブを送信できるリポジトリも制御できます。 グループについて詳しくは、「[{% data variables.actions.hosted_runner %}へのアクセスの制御](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)」を参照してください。
 
-In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` has been defined with customized hardware and operating system configuration.
+次の図では、`ubuntu-20.04-16core` という名前のホストされたランナーのクラスが、カスタマイズされたハードウェアとオペレーティング システムの構成で定義されています。
 
-![Diagram explaining {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
+![{% data variables.actions.hosted_runner %}を説明した図](/assets/images/hosted-runner.png)
 
-1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`. 
-2. The runners have been assigned the label `ubuntu-20.04-16core`. 
-3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
-4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
-5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
+1. このランナーのインスタンスは自動的に作成され、`grp-ubuntu-20.04-16core` というグループに追加されます。 
+2. ランナーにはラベル `ubuntu-20.04-16core` が割り当てられています。 
+3. ワークフロー ジョブは、`runs-on` キーの `ubuntu-20.04-16core` ラベルを使用して、ジョブの実行に必要なランナーの種類を示します。
+4. {% data variables.product.prodname_actions %} は、ランナー グループをチェックして、リポジトリがランナーにジョブを送信する権限があるかどうかを確認します。
+5. このジョブは、`ubuntu-20.04-16core` ランナーの次に使用可能なインスタンスで実行されます。
 
-## Autoscaling {% data variables.actions.hosted_runner %}s
+## {% data variables.actions.hosted_runner %}の自動スケーリング
 
-Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+{% data variables.actions.hosted_runner %}は、ニーズに合わせて自動的にスケーリングするように構成できます。 ジョブが処理のために送信されると、事前に定義された上限に達するまで、ジョブを実行するために、より多くのマシンを自動的にプロビジョニングできます。 各マシンは一度に 1 つのジョブのみを処理するため、これらの設定によって、同時に実行できるジョブの数が効率的に決定されます。 
 
-During the runner deployment process, you can configure the _Max_ option, which allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
+ランナーの展開プロセス中に _[最大]_ オプションを構成できます。これにより、このセットで並行して作成されるマシンの最大数を設定してコストを制御できます。 この値を大きくすると、並列処理によってワークフローがブロックされるのを回避できます。
 
-## Networking for {% data variables.actions.hosted_runner %}s
+## {% data variables.actions.hosted_runner %}のネットワーク
 
-By default, {% data variables.actions.hosted_runner %}s receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runner %}s to receive a static IP address from {% data variables.product.prodname_dotcom %}'s IP address pool. When enabled, instances of the {% data variables.actions.hosted_runner %} will receive an address from a range that is unique to the runner, allowing you to use this range to configure a firewall allowlist. {% ifversion fpt %}You can use up to 10 static IP address ranges in total across all your {% data variables.actions.hosted_runner %}s{% endif %}{% ifversion ghec %}You can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the enterprise level. In addition, you can use up to 10 static IP address ranges for the {% data variables.actions.hosted_runner %}s created at the organization level, for each organization in your enterprise{% endif %}.
-
-{% note %}
-
-**Note**: If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
-
-{% endnote %}
-
-## Planning for {% data variables.actions.hosted_runner %}s
-
-### Create a runner group
-
-Runner groups are used to collect sets of virtual machines and create a security boundary around them. You can then decide which organizations or repositories are permitted to run jobs on those sets of machines. During the {% data variables.actions.hosted_runner %} deployment process, the runner can be added to an existing group, or otherwise it will join a default group. You can create a group by following the steps in "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-
-### Understanding billing
+既定では、{% data variables.actions.hosted_runner %}は、ジョブの実行ごとに変更される動的 IP アドレスを受け取ります。 必要に応じて、{% data variables.product.prodname_ghe_cloud %} のお客様は、{% data variables.actions.hosted_runner %}を構成して、{% data variables.product.prodname_dotcom %} の IP アドレス プールから静的 IP アドレスを受信できます。 有効にすると、{% data variables.actions.hosted_runner %}のインスタンスは、ランナーに固有の範囲からアドレスを受け取り、この範囲を使用してファイアウォール許可リストを構成できます。 {% ifversion fpt %}{% data variables.actions.hosted_runner %}s{% endif %}{% ifversion ghec %}全体で合計で最大 10 個の静的 IP アドレス範囲を使用できます。エンタープライズ レベルで作成された {% data variables.actions.hosted_runner %}には、最大 10 個の静的 IP アドレス範囲を使用できます。 さらに、Enterprise 内の Organization ごとに、Organization レベルで作成された {% data variables.actions.hosted_runner %} に対して最大 10 個の静的 IP アドレス範囲を使用できます。{% endif %}
 
 {% note %}
 
-**Note**: The {% data variables.actions.hosted_runner %}s do not use included entitlement minutes, and are not free for public repositories.
+**注**: ランナーが 30 日以上使用されていない場合、その IP アドレス範囲は自動的に削除され、回復することができません。
 
 {% endnote %}
 
-Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s are billed differently. For more information, see "[Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)".
+## {% data variables.actions.hosted_runner %}の計画
 
-## Adding a {% data variables.actions.hosted_runner %} to an enterprise
+### ランナー グループを作成する
 
-You can add {% data variables.actions.hosted_runner %}s to an enterprise, where they can be assigned to multiple organizations. The organization admins can then control which repositories can use the runners. To add a {% data variables.actions.hosted_runner %} to an enterprise, you must be an enterprise owner.
+ランナー グループは、仮想マシンのセットを収集し、その周囲にセキュリティ境界を作成するために使用されます。 その後、それらのマシン セットでジョブを実行できる Organization またはリポジトリを決定できます。 {% data variables.actions.hosted_runner %}の展開プロセス中に、ランナーを既存のグループに追加することも、既定のグループに参加させることもできます。 「[{% data variables.actions.hosted_runner %}へのアクセスの制御](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)」の手順に従ってグループを作成できます。
+
+### 課金について
+
+{% note %}
+
+**注**: {% data variables.actions.hosted_runner %} は、含まれるエンタイトルメント分数を使わず、パブリック リポジトリについて無料ではありません。
+
+{% endnote %}
+
+標準の {% data variables.product.prodname_dotcom %} ホスト ランナーと比較すると、{% data variables.actions.hosted_runner %}の課金方法は異なります。 詳しくは、「[1 分あたりの料金](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)」を参照してください。
+
+## Enterprise への{% data variables.actions.hosted_runner %}の追加
+
+{% data variables.actions.hosted_runner %}を Enterprise に追加して、複数の Organization に割り当てることができます。 Organization の管理者は、そのランナーを使用できるリポジトリを制御できます。 {% data variables.actions.hosted_runner %}を Enterprise に追加するには、Enterprise の所有者である必要があります。
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, you specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %} {% data reusables.enterprise-accounts.actions-tab %} {% data reusables.enterprise-accounts.actions-runners-tab %} {% data reusables.actions.add-hosted-runner %}
+1. Organization が{% data variables.actions.hosted_runner %}にアクセスできるようにするには、それを使用できる Organization の一覧を指定します。 詳しくは、「[ランナーへのアクセスの管理](#managing-access-to-your-runners)」を参照してください。
 
-## Adding a {% data variables.actions.hosted_runner %} to an organization
+## Organization への{% data variables.actions.hosted_runner %}の追加
 
-You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it. 
+{% data variables.actions.hosted_runner %}を Organization に追加できます。ここで、Organization 管理者は、それを使用できるリポジトリを制御できます。 
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% data reusables.actions.add-hosted-runner %}
-1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runners %} {% data reusables.actions.add-hosted-runner %}
+1. リポジトリが{% data variables.actions.hosted_runner %}にアクセスできるようにするには、それを使用できるリポジトリの一覧に追加します。 詳しくは、「[ランナーへのアクセスの管理](#managing-access-to-your-runners)」を参照してください。
 
-## Running jobs on your runner
+## ランナーでのジョブの実行
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run. 
+ランナーの種類が定義されたら、ワークフローの YAML ファイルを更新し、処理のために新しく作成されたランナー インスタンスにジョブを送信できます。 ランナー グループまたはラベルを使用して、ジョブが実行される場所を定義することができます。 
 
-Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
+ランナーの設定を表示できるのは、所有者または管理者アカウントのみです。 管理者以外のユーザーは、組織の管理者に連絡して、有効になっているランナーを確認できます。 組織の管理者は、新しいランナーとランナー グループを作成したり、ランナー グループにアクセスできるリポジトリを指定するためのアクセス許可を構成したりできます。
 
-### Using groups to control where jobs are run
+### グループを使用してジョブの実行場所を制御する
 
 {% data reusables.actions.jobs.example-runs-on-groups %}
 
-### Using labels to control where jobs are run
+### ラベルを使用してジョブの実行場所を制御する
 
-In this example, a runner group is populated with Ubuntu 16-core runners, which have also been assigned the label `ubuntu-20.04-16core`. The `runs-on` key sends the job to any available runner with a matching label:
+この例では、ランナー グループに、ラベル `ubuntu-20.04-16core` も割り当てられている Ubuntu 16-core ランナーが設定されています。 `runs-on` キーは、一致するラベルを持つ使用可能なランナーにジョブを送信します。
 
 ```yaml
 name: learn-github-actions
@@ -127,15 +125,15 @@ jobs:
       - run: bats -v
 ```
 
-### Using labels and groups to control where jobs are run
+### ラベルとグループを使用してジョブの実行場所を制御する
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
 
-### Using multiple labels
+### 複数のラベルを使用する
 
-You can specify multiple labels that need to be matched for a job to run on a runner. A runner will need to match all labels to be eligible to run the job.
+ランナー上でジョブを実行するために一致する必要がある複数のラベルを指定することができます。 ランナーは、ジョブを実行する資格を持つすべてのラベルと一致する必要があります。
 
-In this example, a runner will need to match all three of the labels to run the job:
+この例では、ランナーは、ジョブを実行するために 3 つすべてのラベルと一致する必要があります。
 
 ```yaml
 name: learn-github-actions
@@ -155,38 +153,37 @@ jobs:
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
-## Managing access to your runners
+## ランナーへのアクセスの管理
 
 {% note %}
 
-**Note**: Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.
+**注**: ワークフローが{% data variables.actions.hosted_runner %}にジョブを送信できるようにするには、まずランナー グループのアクセス許可を構成する必要があります。 詳しくは、以下のセクションをご覧ください。
 
 {% endnote %}
 
-Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must grant access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
+ランナー グループは、{% data variables.actions.hosted_runner %}でジョブを実行できるリポジトリを制御するために使用されます。 {% data variables.actions.hosted_runner %}を定義した場所に応じて、管理階層の各レベルからグループへのアクセス権を付与する必要があります。
 
-- **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
-- **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
+- **Enterprise レベルのランナー**: 必要なすべての Organization へのアクセス権を付与するようにランナー グループを構成します。 さらに、Organization ごとに、アクセスが許可されたリポジトリを指定するようにグループを構成する必要があります。
+- **Organization レベルのランナー**: アクセスが許可されたリポジトリを指定して、ランナー グループを構成します。
 
-For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization; you must then configure the group at the organization level to allow access from `octo-repo`:
+たとえば、次の図には、Enterprise レベルに `grp-ubuntu-20.04-16core` という名前のランナー グループがあります。 `octo-repo` という名前のリポジトリがグループ内のランナーを使用できるようにするには、まず、`octo-org` Organization からのアクセスを許可するように Enterprise レベルでグループを構成する必要があります。次に、`octo-repo` からのアクセスを許可するように Organization レベルでグループを構成する必要があります。
 
-![Diagram explaining {% data variables.actions.hosted_runner %} groups](/assets/images/hosted-runner-mgmt.png)
+![{% data variables.actions.hosted_runner %}のグループを説明した図](/assets/images/hosted-runner-mgmt.png)
 
-### Allowing repositories to access a runner group
+### リポジトリによるランナー グループへのアクセスの許可
 
-This procedure demonstrates how to configure group permissions at the enterprise and organization levels:
+この手順では、Enterprise と Organization のレベルでグループのアクセス許可を構成する方法を示します。
 
-{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-  - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
-  - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
+{% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %} {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+  - Enterprise のランナー グループの場合、 **[Organization のアクセス]** で、ランナー グループにアクセスできる Organization を変更します。
+  - Organization のランナー グループの場合、 **[リポジトリ アクセス]** で、ランナー グループにアクセスできるリポジトリを変更します。
 
 {% warning %}
 
-**Warning**:
+**警告**:
 
 {% data reusables.actions.hosted-runner-security %}
 
-For more information, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+詳しくは、「[{% data variables.actions.hosted_runner %}へのアクセスの制御](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)」を参照してください。
 
 {% endwarning %}

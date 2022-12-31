@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 198f0354e63721a4763e8fa32f832a19b2dac9d9
-ms.sourcegitcommit: 3abdbdbb47a9319f20e11845e9c2d8a7fce63422
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148165094'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193134'
 ---
 Usar o {% data variables.product.prodname_dotcom %} nos projetos da sua escola é uma maneira prática de colaborar com outras pessoas e de criar um portfólio que demonstra experiência no mundo real.
 
@@ -40,7 +40,7 @@ O {% data variables.product.prodname_global_campus %} é um portal do qual você
 - Descubra repositórios criados por alunos do GitHub Community Exchange. Para obter mais informações, confira "[Sobre o GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)".
 
 Os alunos do {% data variables.product.prodname_global_campus %} também recebem os benefícios do {% data variables.product.prodname_dotcom %} a seguir.
-- **{% data variables.product.prodname_copilot %}** : alunos verificados recebem uma assinatura gratuita para {% data variables.product.prodname_copilot %}. Você será notificado automaticamente sobre a assinatura gratuita quando visitar a página de assinatura do {% data variables.product.prodname_copilot %} nas configurações da sua conta. Para obter mais informações sobre como assinar e usar o {% data variables.product.prodname_copilot %}, confira "[Como gerenciar sua assinatura do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)" e "[Sobre o {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)".
+- **{% data variables.product.prodname_copilot %}** : alunos verificados recebem uma assinatura gratuita para {% data variables.product.prodname_copilot %}. Você será notificado automaticamente sobre a assinatura gratuita quando visitar a página de assinatura do {% data variables.product.prodname_copilot %} nas configurações da sua conta. Para obter mais informações sobre como assinar e usar o {% data variables.product.prodname_copilot %}, confira "[Como gerenciar sua assinatura do {% data variables.product.prodname_copilot_for_individuals %} ](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)" e "[Sobre {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)".
 - **{% data variables.product.prodname_github_codespaces %}** : {% data reusables.education.student-codespaces-benefit %} Para obter mais informações sobre como começar a usar o {% data variables.product.prodname_github_codespaces %}, confira "[Visão geral do {% data variables.product.prodname_github_codespaces %}](/codespaces/overview)."
 
 {% note %}

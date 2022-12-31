@@ -1,6 +1,6 @@
 ---
-title: Requiring two-factor authentication for an organization
-intro: 'You can require organization members and outside collaborators to enable two-factor authentication for their personal accounts in an organization, making it harder for malicious actors to access an organization''s repositories and settings.'
+title: Solicitar autenticación de dos factores para una organización
+intro: 'Le puedes solicitar a los miembros de la organización y a los colaboradores externos que activen la autenticación de dos factores para sus cuentas personales en una organización, para que sea más difícil para los actores maliciosos acceder a los parámetros y los repositorios de una organización.'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
@@ -14,59 +14,58 @@ topics:
   - Policies
   - Security
 shortTitle: Require 2FA
+ms.openlocfilehash: 2f7fe986cf3b13a171f85da9d5fdb74eeed0d648
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146331644'
 ---
-When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.location.product_location %}. Organization administrators can require members to have two-factor authentication enabled.
+Cuando utilizas LDAP o la autenticación integrada, la autenticación bifactorial será compatible en {% data variables.product.product_location %}. Los administradores de la organización le pueden solicitar a los miembros que tengan la autenticación de dos factores activada.
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-For more information, see "[About two-factor authentication](/github/authenticating-to-github/about-two-factor-authentication)."
+Para más información, vea "[Acerca de la autenticación en dos fases](/github/authenticating-to-github/about-two-factor-authentication)".
 
-## Requirements for enforcing two-factor authentication
+## Requisitos para aplicar la autenticación de dos factores
 
-Before you can require organization members and outside collaborators to use 2FA, you must [enable two-factor authentication](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa/) for your own personal account.
+Para poder exigir que los miembros de la organización y los colaboradores externos usen 2FA, debe [habilitar la autenticación en dos fases](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa/) en la cuenta personal propia.
 
 {% warning %}
 
-**Warnings:**
+**Advertencias:**
 
-- When your require two-factor authentication, members and outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories, including their forks of private repositories. If they enable 2FA for their personal account within three months of being removed from the organization, you can [reinstate their access privileges and settings](/enterprise/user/articles/reinstating-a-former-member-of-your-organization).
-- When 2FA is required, organization members or outside collaborators who disable 2FA will automatically be removed from the organization.
-- If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
+- Cuando solicitas la autenticación de dos factores, los miembros y los colaboradores externos (incluidas cuentas bot) que no usan la 2FA serán eliminados de la organización y perderán acceso a sus repositorios, incluidas sus bifurcaciones de los repositorios privados. Si habilitan 2FA para su cuenta personal en un plazo de tres meses después de quitarse de la organización, puede [restablecer sus privilegios de acceso y su configuración](/enterprise/user/articles/reinstating-a-former-member-of-your-organization).
+- Cuando se solicita la 2FA, los miembros de la organización o los colaboradores externos que desactiven la 2FA se eliminarán automáticamente de la organización.
+- Si eres el único propietario de una organización que requiere autenticación de dos factores, no podrás inhabilitar la 2FA de tu cuenta personal sin inhabilitar la autenticación de dos factores para la organización.
 
 {% endwarning %}
 
-Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
+Antes de solicitar el uso de la autenticación de dos factores, te recomendamos notificar a los miembros de la organización y a los colaboradores externos y pedirles que configuren la 2FA para sus cuentas. Puede [ver si los miembros y colaboradores externos ya usan 2FA](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) en la pestaña Personas de una organización.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-{% data reusables.organizations.require_two_factor_authentication %}
-{% data reusables.organizations.removed_outside_collaborators %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.organizations.require_two_factor_authentication %} {% data reusables.organizations.removed_outside_collaborators %}
 
-## Viewing people who were removed from your organization
+## Ver las personas que se eliminaron de tu organización
 
-To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search the audit log](/enterprise/admin/guides/installation/searching-the-audit-log/) using `reason:two_factor_requirement_non_compliance` in the search field.
+Para ver a las personas que se han quitado automáticamente de la organización por incumplir los requisitos de autenticación en dos fases, puede [buscar en el registro de auditoría](/enterprise/admin/guides/installation/searching-the-audit-log/) mediante `reason:two_factor_requirement_non_compliance` en el campo de búsqueda.
 
-{% data reusables.audit_log.octicon_icon %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
-4. Enter your search query using `reason:two_factor_requirement_non_compliance`.
- ![Staff tools audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png)
- To narrow your search for:
-    - Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
-    - Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
+{% data reusables.audit_log.octicon_icon %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
+4. Escriba la consulta de búsqueda con `reason:two_factor_requirement_non_compliance`.
+ ![Evento de registro de auditoría de herramientas del personal en el que se muestra un usuario quitado por incumplimiento de 2FA](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png) Para restringir la búsqueda:
+    - Miembros de la organización quitados, escriba `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
+    - Colaboradores externos quitados, escriba `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
 
-  You can also view people removed from a particular organization by using the organization name in your search:
+  También puedes ver las personas eliminadas de una organización en particular usando el nombre de la organización en tu búsqueda:
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
-5. Click **Search**.  
+5. Haga clic en **Buscar**.  
 
-## Helping removed members and outside collaborators rejoin your organization
+## Ayudar a que los miembros y colaboradores externos eliminados se vuelvan a unir a tu organización
 
-If any members or outside collaborators are removed from the organization when you enable required use of two-factor authentication, they'll receive an email notifying them that they've been removed. They should then enable 2FA for their personal account, and contact an organization owner to request access to your organization.
+Si algún miembro o colaborador externo se eliminó de la organización cuando habilitaste el uso requerido de autenticación de dos factores, recibirá un correo electrónico que le notifique que ha sido eliminado. Debe entonces habilitar la 2FA para su cuenta personal y contactarse con un propietario de la organización para solicitar acceso a tu organización.
 
-## Further reading
+## Información adicional
 
-- "[Viewing whether users in your organization have 2FA enabled](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-- "[Securing your account with two-factor authentication (2FA)](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa)"
-- "[Reinstating a former member of your organization](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)"
-- "[Reinstating a former outside collaborator's access to your organization](/enterprise/user/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"
+- "[Visualización de si los usuarios de la organización han habilitado la autenticación en dos fases](/enterprise/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+- "[Protección de la cuenta con la autenticación en dos fases (2FA)](/enterprise/user/articles/securing-your-account-with-two-factor-authentication-2fa)"
+- "[Readmisión de un miembro anterior de la organización](/enterprise/user/articles/reinstating-a-former-member-of-your-organization)"
+- "[Readmisión del acceso a la organización para un colaborador externo antiguo](/enterprise/user/articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization)"

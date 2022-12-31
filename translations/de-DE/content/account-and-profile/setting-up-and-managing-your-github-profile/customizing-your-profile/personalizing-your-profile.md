@@ -1,6 +1,6 @@
 ---
-title: Personalizing your profile
-intro: 'You can share information about yourself with other {% data variables.product.product_name %} users by setting a profile picture and adding a bio to your profile.'
+title: Personalisieren deines Profils
+intro: 'Du kannst Informationen zu deiner Person für andere {% data variables.product.product_name %}-Benutzer*innen bereitstellen, indem du ein Profilbild einrichtest und eine Biografie zum Profil hinzufügst.'
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
@@ -18,188 +18,158 @@ versions:
 topics:
   - Profiles
 shortTitle: Personalize
+ms.openlocfilehash: c12fccd91144428fe9aad2f01d2c0b0941fdd4d4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146681053'
 ---
-## Changing your profile picture
+## Dein Profilbild ändern
 
-Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
+Mit deinem Profilbild kannst du überall auf {% data variables.product.product_name %} in Pull Requests, Kommentaren, Beiträge-Seiten und Diagrammen leichter identifiziert werden.
 
-When you sign up for an account, {% data variables.product.product_name %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
+Wenn du ein Konto anlegst, stellt {% data variables.product.product_name %} dir ein zufällig generiertes „Identicon“ bereit. [Dein Identicon](https://github.com/blog/1586-identicons) wird aus einem Hash deiner Benutzer-ID generiert, sodass es keine Möglichkeit gibt, dessen Farbe oder Muster zu kontrollieren. Du kannst das Identicon durch ein Bild ersetzen, das Dich repräsentiert.
 
 {% note %}
 
-**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
+**Hinweis{% ifversion ghec %}e{% endif %}**: {% ifversion ghec %}
 
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-{% endnote %}
-
-### Setting a profile picture
-
-{% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. Click **Upload a photo...**.{% ifversion not ghae %}
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-3. Crop your picture. When you're done, click **Set new profile picture**.
-	![Crop uploaded photo](/assets/images/help/profile/avatar_crop_and_save.png)
-
-### Resetting your profile picture to the identicon
-
-{% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. To revert to your identicon, click **Remove photo**. {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-
-## Changing your profile name
-
-You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
-
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+* {% endif %}Dein Profilbild sollte eine PNG-, JPG- oder GIF-Datei sein, die kleiner als 1 MB und 3000 × 3000 Pixel ist. Für eine optimale Darstellung empfehlen wir eine Bildgröße von etwa 500 x 500 Pixeln.
+{% ifversion ghec %}* Gravatar-Profilbilder werden von {% data variables.product.prodname_emus %} nicht unterstützt.{% endif %}
 
 {% endnote %}
-{% endif %}
+
+### Ein Profilbild einrichten
 
 {% data reusables.user-settings.access_settings %}
-2. Under "Name", type the name you want to be displayed on your profile.
-  ![Name field in profile settings](/assets/images/help/profile/name-field.png)
+2. Klicke unter **Profilbild** auf {% octicon "pencil" aria-label="The edit icon" %} **Bearbeiten**.
+![Profilbild bearbeiten](/assets/images/help/profile/edit-profile-photo.png)
+3. Klicke auf **Foto hochladen...** .{% ifversion not ghae %} ![Profilbild hochladen](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+3. Schneide das Bild zu. Wenn du fertig bist, klicke auf **Neues Profilbild festlegen**.
+    ![Hochgeladenes Foto zuschneiden](/assets/images/help/profile/avatar_crop_and_save.png)
 
-## Adding a bio to your profile
+### Dein Profilbild auf das Identicon zurücksetzen
 
-Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
+{% data reusables.user-settings.access_settings %}
+2. Klicke unter **Profilbild** auf {% octicon "pencil" aria-label="The edit icon" %} **Bearbeiten**.
+![Profilbild bearbeiten](/assets/images/help/profile/edit-profile-photo.png)
+3. Klicke auf **Foto entfernen**, um dein Identicon wiederherzustellen. {% ifversion not ghae %}Wenn deine E-Mail-Adresse einem [Gravatar](https://en.gravatar.com/) zugeordnet ist, kannst du dein Identicon nicht wiederherstellen. Klicke stattdessen auf **Gravatar wiederherstellen**.
+![Profilbild aktualisieren](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+
+## Deinen Profilnamen ändern
+
+Du kannst den Namen, der in deinem Profil angezeigt wird, ändern. Dieser Name kann auch neben Kommentaren angezeigt werden, die du in privaten Repositorys im Besitz einer Organisation hinterlässt. Weitere Informationen findest du unter [Verwalten der Anzeige von Mitgliedsnamen in deiner Organisation](/articles/managing-the-display-of-member-names-in-your-organization).
+
+{% ifversion fpt or ghec %} {% note %}
+
+**Hinweis:** Wenn du Mitglied eines {% data variables.product.prodname_emu_enterprise %}, bist, müssen Änderungen am Profilnamen über deinen Identitätsanbieter statt über {% data variables.product.prodname_dotcom_the_website %} vorgenommen werden. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %} {% endif %}
+
+{% data reusables.user-settings.access_settings %}
+2. Gib unter „Name“ den Namen ein, der in deinem Profil angezeigt werden soll.
+  ![Feld „Name“ in den Profileinstellungen](/assets/images/help/profile/name-field.png)
+
+## Eine Biografie zu deinem Profil hinzufügen
+
+Füge eine Biografie zu deinem Profil hinzu, um anderen {% data variables.product.product_name %}-Benutzern Informationen zu deiner Person bereitzustellen. Mithilfe von [@mentions](/articles/basic-writing-and-formatting-syntax) und Emojis kannst du angeben, wo du derzeit arbeitest oder zuvor gearbeitet hast, welcher Arbeit du nachgehst, oder sogar, welchen Kaffee du magst.
 
 {% ifversion fpt or ghes or ghec %}
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+Eine README ist die beliebtere Methode, ausführlichere Informationen über sich selbst im Profil zu teilen. Weitere Informationen findest du unter [Verwalten der README für dein Profil](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme).
 
 {% endif %}
 
 {% note %}
 
-**Note:**
-  If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+**Hinweis:** Wenn du die Aktivitätsübersicht für dein Profil aktiviert hast und in deiner Bio eine Organisation mit @mention erwähnst, bei der du Mitglied bist, wird diese Organisation in der Aktivitätsübersicht an erster Stelle aufgeführt. Weitere Informationen findest du unter [Anzeigen einer Aktivitätsübersicht auf deinem Profil](/articles/showing-an-overview-of-your-activity-on-your-profile).
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under **Bio**, add the content that you want displayed on your profile. The bio field is limited to 160 characters.
-	![Update bio on profile](/assets/images/help/profile/bio-field.png)
+2. Füge unter **Bio** den Inhalt hinzu, der auf deinem Profil angezeigt werden soll. Das Feld für die Biografie ist auf 160 Zeichen begrenzt.
+    ![Biografie im Profil aktualisieren](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
 
-  **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+  **Tipp:** Wenn du eine Organisation mit @mention erwähnst, werden nur die Namen der Organisationen automatisch vervollständigt, bei denen du Mitglied bist. Du kannst dennoch Organisationen mit @mention erwähnen, bei denen du kein Mitglied bist, z. B. einen ehemaligen Auftraggeber. Die automatische Vervollständigung funktioniert in diesem Fall jedoch nicht.
 
   {% endtip %}
 
-{% data reusables.profile.update-profile %}
+3. Klicke auf **Profil aktualisieren**.
+    ![Schaltfläche „Profil aktualisieren“](/assets/images/help/profile/update-profile-button.png)
 
-{% ifversion profile-time-zone %}
+## Einen Status festlegen
 
-## Setting your location and time zone
+Du kannst einen Status festlegen, um Informationen zu deiner aktuellen Verfügbarkeit auf {% data variables.product.product_name %} anzuzeigen. An folgenden Stellen wird dein Status angezeigt:
+- auf deiner {% data variables.product.product_name %}-Profilseite.
+- wenn Benutzer auf {% data variables.product.product_name %} mit dem Mauszeiger über deinen Benutzernamen oder deinen Avatar fahren.
+- auf der Teamseite eines Teams, bei dem du Mitglied bist. Weitere Informationen findest du unter [Informationen zu Teams](/articles/about-teams/#team-pages).
+- auf dem Organisations-Dashboard einer Organisation, bei der du Mitglied bist. Weitere Informationen findest du unter [Informationen zum Dashboard deiner Organisation](/articles/about-your-organization-dashboard/).
 
-You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
+Wenn du deinen Status festlegst, kannst du andere Benutzer auch darüber informieren, dass du auf {% data variables.product.product_name %} nur begrenzt verfügbar bist.
 
-When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated.
+![Mit @ erwähnter Benutzername mit Anmerkung „beschäftigt“](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and time zone fields.](/assets/images/help/profile/profile-location-and-time.png)
+![Neben Benutzernamen des angeforderten Reviewers wird „beschäftigt“ angezeigt](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
+Wenn du die Option „Beschäftigt“ auswählst, wird ein entsprechender Hinweis neben deinem Benutzernamen angezeigt, wenn andere Benutzer*innen dich mit @mention erwähnen, dir ein Issue oder einen Pull Request zuweisen oder einen Pull-Request-Review von dir anfordern. Du wirst außerdem von der automatischen Zuweisung von Reviews für Pull Requests ausgeschlossen, die einem Team zugewiesen sind, dem du angehörst. Weitere Informationen findest du unter [Verwalten von Code-Review-Einstellungen für dein Team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team).
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-relative-time.png)
-
-{% data reusables.user-settings.access_settings %}
-1. Under **Location**, type the location you want to be displayed on your profile.
-
-  ![Screenshot of the location and local time settings emphasizing the location field.](/assets/images/help/profile/location-field.png)
-
-1. Optionally, to display the current local time on your profile, select **Display current local time**.
-
-  ![Screenshot of the location and local time settings emphasizing the display current local time checkbox.](/assets/images/help/profile/display-local-time-checkbox.png)
-
-   - Select the **Time zone** dropdown menu, then click your local time zone.
-
-     ![Screenshot of the location and local time settings emphasizing the time zone dropdown menu.](/assets/images/help/profile/time-zone-dropdown.png)
-   
-{% data reusables.profile.update-profile %}
-
-{% endif %}
-
-## Setting a status
-
-You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
-- on a team page for a team where you're a team member. For more information, see "[About teams](/articles/about-teams/#team-pages)."
-- on the organization dashboard in an organization where you're a member. For more information, see "[About your organization dashboard](/articles/about-your-organization-dashboard/)."
-
-When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
-
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
-
-![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
-
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
-
-1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set status** or, if you already have a status set, click your current status.
-  ![Button on profile to set your status](/assets/images/help/profile/set-status-on-profile.png)
-2. To add custom text to your status, click in the text field and type a status message.
-  ![Field to type a status message](/assets/images/help/profile/type-a-status-message.png)
-3. Optionally, to set an emoji status, click the smiley icon and select an emoji from the list.
-  ![Button to select an emoji status](/assets/images/help/profile/select-emoji-status.png)
-4. Optionally, if you'd like to share that you have limited availability, select "Busy."
-  ![Busy option selected in Edit status options](/assets/images/help/profile/limited-availability-status.png)
-5. Use the **Clear status** drop-down menu, and select when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
-  ![Drop down menu to choose when your status expires](/assets/images/help/profile/status-expiration.png)
-6. Use the drop-down menu and click the organization you want your status visible to. If you don't select an organization, your status will be public.
-  ![Drop down menu to choose who your status is visible to](/assets/images/help/profile/status-visibility.png)
-7. Click **Set status**.
-  ![Button to set status](/assets/images/help/profile/set-status-button.png)
+1. Klicke in der oberen rechten Ecke von {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %} auf dein Profilfoto, und klicke dann auf **Status festlegen**. Wenn du bereits einen Status festgelegt hast, klicke auf diesen.
+  ![Schaltfläche im Profil zum Festlegen des Status](/assets/images/help/profile/set-status-on-profile.png)
+2. Um benutzerdefinierten Text zu deinem Status hinzuzufügen, klicke in das Textfeld und gib dort eine Statusmeldung ein.
+  ![Feld zum Eingeben einer Statusmeldung](/assets/images/help/profile/type-a-status-message.png)
+3. Um einen Emoji-Status festzulegen, klicke optional auf das Smiley-Symbol und wähle einen Emoji aus der Liste aus.
+  ![Schaltfläche zum Auswählen eines Emojistatus](/assets/images/help/profile/select-emoji-status.png)
+4. Wenn du angeben möchtest, dass du nur eingeschränkt verfügbar bist, wähle optional „Busy“ (Beschäftigt) aus.
+  ![In den Optionen zum Bearbeiten des Status ausgewählte Option „Beschäftigt“](/assets/images/help/profile/limited-availability-status.png)
+5. Verwende das Dropdownmenü **Status löschen**, und wähle aus, wann dein Status ablaufen soll. Wenn du kein Ablaufdatum für den Status auswählst, bleibt dein Status bestehen, bis du ihn löschst oder bearbeitest.
+  ![Dropdownmenü zum Auswählen des Ablaufzeitpunkts für den Status](/assets/images/help/profile/status-expiration.png)
+6. Klicke im Dropdownmenü auf die Organisation, für die dein Status sichtbar sein soll. Wenn du keine Organisation auswählst, ist dein Status öffentlich sichtbar.
+  ![Dropdownmenü zum Auswählen der Benutzer*innen, für die der Status sichtbar ist](/assets/images/help/profile/status-visibility.png)
+7. Klicke auf **Status festlegen**.
+  ![Schaltfläche zum Festlegen des Status](/assets/images/help/profile/set-status-button.png)
 
 {% ifversion fpt or ghec %}
-## Displaying badges on your profile
+## Anzeigen von Badges auf deinem Profil
 
-When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.
+Wenn du an bestimmten Programmen teilnimmst, zeigt {% data variables.product.prodname_dotcom %} automatisch einen auf deinem Profil an.
 
-| Badge | Program | Description |
+| Badge | Programm | BESCHREIBUNG |
 | --- | --- | --- |
-| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/). |
-| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)." |
-| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
-| {% octicon "shield" aria-label="The shield icon" %} | **Security advisory credit** | If a security advisory you submit to the [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) is accepted, you'll get a Security advisory credit badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Security Advisories, see [{% data variables.product.prodname_dotcom %} Security Advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories). |
-| {% octicon "check" aria-label="The check icon" %} | **Discussion answered** | If your reply to a discussion is marked as the answer, you'll get a Discussion answered badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Discussions, see [About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions). |
+| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | Wenn du ein registriertes Mitglied des Entwicklerprogramms von {% data variables.product.prodname_dotcom %} bist und eine App mit der {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}-API entwickeln, wird deinem Profil der Badge „Developer Program Member“ hinzugefügt. Weitere Informationen zum Entwicklerprogramm von {% data variables.product.prodname_dotcom %} findest du unter [GitHub-Entwickler](/program/). |
+| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | Wenn du {% data variables.product.prodname_pro %} verwendest, wird deinem Profil ein PRO-Badge hinzugefügt. Weitere Informationen zu {% data variables.product.prodname_pro %} findest du unter [Produkte von {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro). |
+| {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | Wenn du bei der Suche nach Sicherheitsrisiken mitgeholfen hast, wird deinem Profil der Badge „Security Bug Bounty Hunter“ hinzugefügt. Weitere Informationen zum Sicherheitsprogramm von {% data variables.product.prodname_dotcom %} findest du unter [Sicherheit mit {% data variables.product.prodname_dotcom %}](https://bounty.github.com/). |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | Wenn du an {% data variables.product.prodname_campus_program %} teilnimmst, wird deinem Profil der Badge „{% data variables.product.prodname_dotcom %} Campus Expert“ hinzugefügt. Weitere Informationen zum Campus Experts-Programm findest du unter [Campus Experts](https://education.github.com/experts). |
+| {% octicon "shield" aria-label="The shield icon" %} | **Sicherheitsempfehlungsbadge** | Wenn eine Sicherheitsempfehlung, die du an die [{% data variables.product.prodname_dotcom %}-Empfehlungsdatenbank](https://github.com/advisories) übermittelst, akzeptiert wird, erhältst du in deinem Profil einen Sicherheitsempfehlungsbadge. Weitere Informationen zu {% data variables.product.prodname_dotcom %}-Sicherheitsempfehlungen findest du unter [{% data variables.product.prodname_dotcom %}-Sicherheitsempfehlungen](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories). |
+| {% octicon "check" aria-label="The check icon" %} | **Beantwortete Diskussionen** | Wenn deine Antwort auf eine Diskussion als Antwort gekennzeichnet ist, erhältst du in deinem Profil einen Badge für eine beantwortete Diskussion. Weitere Informationen zu {% data variables.product.prodname_dotcom %} Discussions findest du unter [Informationen zu Diskussionen](/discussions/collaborating-with-your-community-using-discussions/about-discussions). |
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-## Earning Achievements
+## Erzielen von Erfolgen
 
-Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
+Erfolge honorieren bestimmte Ereignisse und Aktionen auf {% data variables.product.prodname_dotcom %}. Sie werden als kleine Badges angezeigt, die auf der Seitenleiste deines Profils aufgeführt sind. Wenn du auf einen Erfolg klickst oder darauf zeigst, wird eine detaillierte Ansicht angezeigt, die in Form einer kurzen Beschreibung und über Links zum Beitragsereignis angibt, wie der Erfolg erzielt wurde. Die Ereignislinks sind nur für Benutzer*innen sichtbar, die Zugriff auf die Repositorys oder Organisationen haben, in denen das Ereignis stattfindet. Für Benutzer*innen ohne Zugriffsberechtigungen werden Ereignislinks als nicht zugänglich angezeigt.
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[Showing your private contributions and Achievements on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+Informationen dazu, wie du verhindern kannst, dass private Beiträge zu den Erfolgen hinzugezählt werden, oder wie du Erfolge vollständig deaktivieren kannst, findest du unter [Anzeigen privater Beiträge und Erfolge auf deinem Profil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**Hinweis:** Dieses Feature befindet sich derzeit in der Betaversion und wird ggf. noch geändert.
 
 {% endnote %}
 
 {% endif %}
 
-## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
+## Liste der qualifizierenden Repositorys für den Erfolg „Mars 2020 Helicopter Contributor“
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+Wenn du Commits im Commitverlauf für das aufgeführte Tag eines oder mehrerer der folgenden Repositorys erstellt hast, wird deinem Profil der Erfolg „Mars 2020 Helicopter Contributor“ hinzugefügt. Der erstellte Commit kann dir nur zugeschrieben werden, wenn er mit einer bestätigten E-Mail-Adresse erfolgt ist, die deinem Konto zu dem Zeitpunkt zugeordnet war, als {% data variables.product.prodname_dotcom %} die zulässigen Beiträge bestimmt hat. Du kannst Ersteller*in oder [Mitersteller*in](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) des Commits sein. Zukünftige Änderungen an bestätigten E-Mail-Adressen haben keine Auswirkungen auf den Badge. Die Liste basiert auf Informationen, die wir vom Jet Propulsion Laboratory der NASA erhalten haben.
 
 | {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
 |---|---|---|
-| [torvalds/linux](https://github.com/torvalds/linux) | 3.4 | [v3.4](https://github.com/torvalds/linux/releases/tag/v3.4) |
+| [torvalds/linux](https://github.com/torvalds/linux) | 3.4 | [Version 3.4](https://github.com/torvalds/linux/releases/tag/v3.4) |
 | [python/cpython](https://github.com/python/cpython) | 3.9.2 | [v3.9.2](https://github.com/python/cpython/releases/tag/v3.9.2) |
 | [boto/boto3](https://github.com/boto/boto3) | 1.17.17 | [1.17.17](https://github.com/boto/boto3/releases/tag/1.17.17) |
 | [boto/botocore](https://github.com/boto/botocore) | 1.20.11 | [1.20.11](https://github.com/boto/botocore/releases/tag/1.20.11) |
@@ -217,13 +187,13 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | [python-pillow/Pillow](https://github.com/python-pillow/Pillow) | 8.1.0 | [8.1.0](https://github.com/python-pillow/Pillow/releases/tag/8.1.0) |
 | [pycurl/pycurl](https://github.com/pycurl/pycurl) | 7.43.0.6 | [REL_7_43_0_6](https://github.com/pycurl/pycurl/releases/tag/REL_7_43_0_6) |
 | [pyparsing/pyparsing](https://github.com/pyparsing/pyparsing) | 2.4.7 | [pyparsing_2.4.7](https://github.com/pyparsing/pyparsing/releases/tag/pyparsing_2.4.7) |
-| [pyserial/pyserial](https://github.com/pyserial/pyserial) | 3.5 | [v3.5](https://github.com/pyserial/pyserial/releases/tag/v3.5) |
+| [pyserial/pyserial](https://github.com/pyserial/pyserial) | 3,5 | [v3.5](https://github.com/pyserial/pyserial/releases/tag/v3.5) |
 | [dateutil/dateutil](https://github.com/dateutil/dateutil) | 2.8.1 | [2.8.1](https://github.com/dateutil/dateutil/releases/tag/2.8.1) |
 | [yaml/pyyaml ](https://github.com/yaml/pyyaml) | 5.4.1 | [5.4.1](https://github.com/yaml/pyyaml/releases/tag/5.4.1) |
 | [psf/requests](https://github.com/psf/requests) | 2.25.1 | [v2.25.1](https://github.com/psf/requests/releases/tag/v2.25.1) |
 | [boto/s3transfer](https://github.com/boto/s3transfer) | 0.3.4 | [0.3.4](https://github.com/boto/s3transfer/releases/tag/0.3.4) |
 | [enthought/scimath](https://github.com/enthought/scimath) | 4.2.0 | [4.2.0](https://github.com/enthought/scimath/releases/tag/4.2.0) |
-| [scipy/scipy](https://github.com/scipy/scipy) | 1.6.1 | [v1.6.1](https://github.com/scipy/scipy/releases/tag/v1.6.1) |
+| [scipy/scipy](https://github.com/scipy/scipy) | 1.6.1 | [1\.6.1](https://github.com/scipy/scipy/releases/tag/v1.6.1) |
 | [benjaminp/six](https://github.com/benjaminp/six) | 1.15.0 | [1.15.0](https://github.com/benjaminp/six/releases/tag/1.15.0) |
 | [enthought/traits](https://github.com/enthought/traits) | 6.2.0 | [6.2.0](https://github.com/enthought/traits/releases/tag/6.2.0) |
 | [urllib3/urllib3](https://github.com/urllib3/urllib3) | 1.26.3 | [1.26.3](https://github.com/urllib3/urllib3/releases/tag/1.26.3) |
@@ -268,6 +238,6 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | [locationtech/jts](https://github.com/locationtech/jts) | 1.15.0 | [jts-1.15.0](https://github.com/locationtech/jts/releases/tag/jts-1.15.0) |
 | [apache/logging-log4j2](https://github.com/apache/logging-log4j2) | 2.11 | [log4j-2.11.0](https://github.com/apache/logging-log4j2/releases/tag/log4j-2.11.0) |
 
-## Further reading
+## Weiterführende Themen
 
-- "[About your profile](/articles/about-your-profile)"
+- [Informationen zu deinem Profil](/articles/about-your-profile)

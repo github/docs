@@ -19,7 +19,9 @@ If you use {% data variables.product.prodname_vscode %}, you can view and incorp
 
 ## Prerequisites
 
-To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
+{% data reusables.copilot.subscription-prerequisite %}
+
+- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
 
 ## Installing the {% data variables.product.prodname_vscode %} extension
 

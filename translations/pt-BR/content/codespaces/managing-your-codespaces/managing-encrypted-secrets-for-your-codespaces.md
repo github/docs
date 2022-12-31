@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160439'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192806'
 ---
 ## Sobre os segredos criptografados para os {% data variables.product.prodname_github_codespaces %}
 
@@ -28,7 +28,7 @@ Você pode adicionar segredos criptografados a sua conta pessoal que deseja usar
 - Tokens de acesso para serviços de nuvem
 - Entidades de serviço
 - Identificadores da assinatura
-- [Credenciais de um registro de imagens privado](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- Credenciais para um registro de imagem privada (para obter mais informações, confira "[Como permitir que seu codespace acesse um registro privado](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry)")
 
 Você pode escolher quais repositórios devem ter acesso a cada segredo. Em seguida, você pode usar o segredo em qualquer código que criar para um repositório que tiver acesso ao segredo. Para compartilhar um segredo que tem um codespace criado com base em um modelo, publique o codespace em um repositório no {% data variables.product.prodname_dotcom %} e conceda ao repositório acesso ao segredo.
 

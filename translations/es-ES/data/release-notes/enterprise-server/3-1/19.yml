@@ -1,0 +1,41 @@
+date: '04-04-2022'
+sections:
+  security_fixes:
+    - 'RIESGO MEDIO: se ha identificado una vulnerabilidad de salto de directorio en la consola de administración de {% data variables.product.prodname_ghe_server %} que permitía la omisión de las protecciones contra CSRF. Esta vulnerabilidad afectó a todas las versiones de {% data variables.product.prodname_ghe_server %} anteriores a la 3.5 y se corrigió en las versiones 3.1.19, 3.2.11, 3.3.6 y 3.4.1. Esta vulnerabilidad se notificó mediante el programa de recompensas de {% data variables.product.prodname_dotcom %} por la detección de errores y se le ha asignado CVE-2022-23732.'
+    - 'RIESGO MEDIO: se ha identificado una vulnerabilidad de desbordamiento de enteros en la rama 1.x y la rama 2.x de "yajil" que posteriormente provoca daños en la memoria de montón al tratar con entradas grandes (~2GB). Esta vulnerabilidad se notificó de forma interna y se le ha asignado CVE-2022-24795. '
+    - "Los conjuntos de soporte técnico podrían incluir archivos confidenciales si {% data variables.product.prodname_actions %} estuviera habilitada." 
+    - Los paquetes se han actualizado a las últimas versiones de seguridad. 
+  bugs:
+    - "Se mostraron las opciones para habilitar \"TLS 1.0\" y \"TLS 1.1\" en la configuración de privacidad de la consola de administración, aunque la eliminación de esas versiones de protocolo se produjo en una versión anterior." 
+    - "En un entorno de alta disponibilidad, configurar la replicación de MSSQL podría requerir pasos manuales adicionales tras habilitar {% data variables.product.prodname_actions %} por primera vez." 
+    - Un subconjunto de archivos de configuración interna se actualizan de forma más confiable tras una revisión en caliente. 
+    - "Habría ocasiones en las que el script \"ghe-run-migrations\" no generaría nombres de certificados temporales correctamente." 
+    - "En un entorno de clúster, podría producirse un error en las operaciones de Git LFS con llamadas API internas fallidas que cruzaran varios nodos web." 
+    - "Se agotó el tiempo de espera de los enlaces de recepción previa que usaron \"gpg --import\" debido a la insuficiencia de privilegios \"syscall\"." 
+    - "En algunas topologías de clúster, la información de entrega de webhook no estaba disponible." 
+    - "En las configuraciones de alta disponibilidad, no se anularía ninguna réplica si {% data variables.product.prodname_actions %} se hubiera habilitado anteriormente." 
+    - Las comprobaciones de estado de Elasticsearch no permitirían un estado del clúster amarillo al ejecutar migraciones. 
+    - Las organizaciones creadas como resultado de un usuario que transforma su cuenta de usuario en una organización no se agregaron a la cuenta empresarial global. 
+    - "Al usar \"ghe-migrator\" o exportar desde {% data variables.product.prodname_dotcom_the_website %}, se produciría un error en una exportación de larga duración al eliminarse los datos en mitad de la exportación." 
+    - Los vínculos a páginas inaccesibles se han eliminado. 
+    - Al agregar un equipo como revisor a una solicitud de incorporación de cambios se mostraría en ocasiones el número incorrecto de miembros de ese equipo. 
+    - "Un número elevado de usuarios inactivos podría hacer que se produjera un error en una configuración de {% data variables.product.prodname_github_connect %}." 
+    - "La página \"Inscripciones a características y beta\" de la interfaz de usuario web de administración del sitio no estaba correctamente disponible." 
+    - "El vínculo del \"Modo de administrador del sitio\" del pie de página del sitio no cambió el estado al hacer clic." 
+  changes:
+    - Los límites de conexión Memcached aumentaron para adaptarse mejor a topologías de clúster de gran tamaño. 
+    - Identifica y elimina registros de webhooks fuera de la ventana de retención de registros de webhook de forma más eficiente. 
+    - Dependency Graph API se ejecutaba anteriormente con un puerto definido estáticamente. 
+    - Se han actualizado los recuentos de particiones predeterminados para la configuración de particiones de Elasticsearch relacionadas con el clúster. 
+    - "Los roles de \"Evaluación de prioridades\" y \"Mantenimiento\" de los equipos se conservan durante las migraciones de repositorio." 
+    - 'Las excepciones "NotProcessedError" se producían de manera innecesaria.'
+    - Se ha mejorado el rendimiento de las solicitudes web realizadas por propietarios empresariales. 
+  known_issues:
+    - "El registro npm de {% data variables.product.prodname_registry %} ya no devuelve un valor de hora en las respuestas de metadatos. Esto se hacía para permitir mejoras de rendimiento importantes. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y reanudaremos la devolución de este valor en el futuro una vez que hayamos resuelto las incidencias de rendimiento existentes."
+    - "En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
+    - "Los archivos supervisados de Git LFS [cargados desde la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se han agregado de manera incorrecta y directa al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres.
+    - "Cuando se habilita \"Los usuarios pueden buscar en GitHub.com\" con {% data variables.product.prodname_github_connect %}, las incidencias en los repositorios privados e internos no se incluyen en los resultados de búsqueda de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Si se habilitan las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}, desmontar un nodo de réplica con \"ghe-repl-teardown\" tendrá éxito, pero podría devolver un \"ERROR:Running migrations\"."
+    - Los límites de recursos que son específicos para procesar enlaces previos a la recepción podrían ocasionar errores en algunos de ellos.

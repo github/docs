@@ -1,6 +1,6 @@
 ---
-title: Securing your account with two-factor authentication (2FA)
-intro: 'You can set up your account on {% data variables.location.product_location %} to require an authentication code in addition to your password when you sign in.'
+title: 2FA(2단계 인증)를 사용하여 계정 보호
+intro: '로그인할 때 암호 외에 인증 코드가 필요하도록 {% 데이터 variables.location.product_location %}에서 계정을 설정할 수 있습니다.'
 redirect_from:
   - /categories/84/articles
   - /categories/two-factor-authentication-2fa
@@ -22,5 +22,11 @@ children:
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
+ms.openlocfilehash: 4aa0c346fb283f90eb0d5093bd3a849c96933880
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098654'
 ---
 

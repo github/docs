@@ -1,6 +1,6 @@
 ---
-title: Managing deploy keys
-intro: Learn different ways to manage SSH keys on your servers when you automate deployment scripts and which way is best for you.
+title: Управление ключами развертывания
+intro: 'Изучите несколько способов управлять ключами SSH на серверах при автоматизации сценариев развертывания и узнайте, какой из них вам лучше подходит.'
 redirect_from:
   - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
@@ -14,90 +14,93 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: d038e6d56395a5a3d414170e431487fc0b80b426
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094188'
 ---
+Ключами SSH можно управлять на серверах при автоматизации сценариев развертывания с помощью перенаправления агента SSH, HTTPS с токенами OAuth, развертывания ключей или пользователей компьютера.
 
+## Перенаправление агента SSH
 
-You can manage SSH keys on your servers when automating deployment scripts using SSH agent forwarding, HTTPS with OAuth tokens, deploy keys, or machine users.
+Во многих случаях, особенно, в начале проекта, перенаправление агента SSH является самым быстрым и простым способом использования. При перенаправлении агента используются те же ключи SSH, что и на локальном компьютере разработки.
 
-## SSH agent forwarding
+#### Плюсы
 
-In many cases, especially in the beginning of a project, SSH agent forwarding is the quickest and simplest method to use. Agent forwarding uses the same SSH keys that your local development computer uses.
+* Создавать или отслеживать новые ключи не нужно.
+* Управление ключами отсутствует; пользователи имеют те же разрешения на сервере, что и на локальном компьютере.
+* Ключи не хранятся на сервере, поэтому, если сервер скомпрометирован, вам не нужно искать и удалять скомпрометированные ключи.
 
-#### Pros
+#### Минусы
 
-* You do not have to generate or keep track of any new keys.
-* There is no key management; users have the same permissions on the server that they do locally.
-* No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
+* Пользователи **должны выполнять** развертывание по протоколу SSH; Невозможно использовать автоматизированные процессы развертывания.
+* Перенаправление агента SSH может быть сложной задачей для пользователей Windows.
 
-#### Cons
+#### Настройка
 
-* Users **must** SSH in to deploy; automated deploy processes can't be used.
-* SSH agent forwarding can be troublesome to run for Windows users.
+1. Включите перенаправление агента локально. Дополнительные сведения см. [в нашем руководстве по перенаправлению агента SSH][ssh-agent-forwarding].
+2. Задайте сценарии развертывания для перенаправления агента. Например, в сценарии bash включение перенаправления агента будет выглядеть примерно так: `ssh -A serverA 'bash -s' < deploy.sh`
 
-#### Setup
+## Клонирование HTTPS с помощью токенов OAuth
 
-1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
-`ssh -A serverA 'bash -s' < deploy.sh`
+Если не требуется использовать ключи SSH, можно использовать HTTPS с токенами OAuth.
 
-## HTTPS cloning with OAuth tokens
+#### Плюсы
 
-If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
-
-#### Pros
-
-* Anyone with access to the server can deploy the repository.
-* Users don't have to change their local SSH settings.
-* Multiple tokens (one for each user) are not needed; one token per server is enough.
-* A token can be revoked at any time, turning it essentially into a one-use password.
+* Любой пользователь с доступом к серверу может развернуть репозиторий.
+* Пользователям не нужно изменять локальные параметры SSH.
+* Несколько токенов (по одному для каждого пользователя) не требуется; достаточно одного токена на сервер.
+* Токен можно отозвать в любое время, превратив его в одноразовый пароль.
 {% ifversion ghes %}
-* Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
+* Новые токены можно легко создать с помощью сценария [API OAuth](/rest/reference/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
-#### Cons
+#### Минусы
 
-* You must make sure that you configure your token with the correct access scopes.
-* Tokens are essentially passwords, and must be protected the same way.
+* Необходимо убедиться, что токен настроен с правильными областями доступа.
+* По сути токены являются паролями и должны защищаться так же.
 
-#### Setup
+#### Настройка
 
-See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+Ознакомьтесь с [нашим руководством по созданию {% данных variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-## Deploy keys
+## Ключи развертывания
 
 {% data reusables.repositories.deploy-keys %}
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-#### Pros
+#### Плюсы
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* Users don't have to change their local SSH settings.
-* Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
+* Любой пользователь с доступом к репозиторию и серверу может развернуть проект.
+* Пользователям не нужно изменять локальные параметры SSH.
+* Ключи развертывания по умолчанию доступны только для чтения, но вы можете предоставить им доступ для записи при добавлении их в репозиторий.
 
-#### Cons
+#### Минусы
 
-* Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
-* Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
+* Ключи развертывания предоставляет доступ только к одному репозиторию. Более сложные проекты могут содержать множество репозиториев для извлечения на тот же сервер.
+* Ключи развертывания, как правило, не защищены парольной фразой, что упрощает доступ к ключу, если сервер скомпрометирован.
 
-#### Setup
+#### Настройка
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
-{% data reusables.profile.navigating-to-profile %} 
+1. [Запустите `ssh-keygen`процедуру][generating-ssh-keys] на сервере и запомните путь сохранения созданной пары ключей открытого и закрытого ключей RSA.
+{% данных reusables.profile.navigating-to-profile %} 
 
-   ![Navigation to profile](/assets/images/profile-page.png)
-1. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
-2. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
-3. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
-4. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
-5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
-6. Click **Add key**.
+   ![Переход к профилю](/assets/images/profile-page.png)
+1. На странице профиля нажмите кнопку **Репозитории**, а затем имя репозитория. ![Ссылка на репозитории](/assets/images/repos.png)
+2. Из своего репозитория нажмите **Параметры**. ![Параметры репозитория](/assets/images/repo-settings.png)
+3. На боковой панели нажмите **Ключи развертывания**, а затем нажмите кнопку **Добавить ключ развертывания**. ![Ссылка «Добавить ключи развертывания»](/assets/images/add-deploy-key.png)
+4. Укажите название, вставьте в свой открытый ключ.  ![Страница ключей развертывания](/assets/images/deploy-key.png)
+5. Выберите **Разрешить доступ на запись**, если этот ключ должен иметь доступ на запись в репозитории. Ключ развертывания с доступом на запись позволяет отправить развертывание в репозиторий.
+6. Нажмите **Добавить ключ**.
 
-#### Using multiple repositories on one server
+#### Использование нескольких репозиториев на одном сервере
 
-If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
+При использовании нескольких репозиториев на одном сервере необходимо создать выделенную пару ключей для каждого из них. Невозможно повторно использовать ключ развертывания для нескольких репозиториев.
 
-In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. For example:
+В файле конфигурации сервера SSH (обычно `~/.ssh/config`) добавьте запись псевдонима для каждого репозитория. Пример:
 
 ```bash
 Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
@@ -109,79 +112,79 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
-* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` — псевдоним репозитория.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` — настраивает имя узла для использования с псевдонимом.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` — назначает псевдониму закрытый ключ.
 
-You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
+Затем можно использовать псевдоним имени узла для взаимодействия с репозиторием с помощью SSH, который будет использовать уникальный ключ развертывания, назначенный данному псевдониму. Пример:
 
 ```bash
 $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
-## Server-to-server tokens
+## Маркеры "сервер-сервер"
 
-If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
+Если серверу требуется доступ к репозиториям в одной или нескольких организациях, можно использовать приложение GitHub для определения необходимого доступа, а затем в этом приложении GitHub создать _строго ограниченные_ маркеры _«сервера-сервер»_ . Маркеры «сервер-сервер» могут ограничиваться одним или несколькими репозиториями, и иметь точные разрешения. Например, можно создать маркер с доступом только для чтения к содержимому репозитория.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
+Так как приложения GitHub являются субъектом первого класса для {% data variables.product.product_name %}, маркеры «сервер-сервер» отделяются от любого пользователя GitHub, что делает их сопоставимыми с "маркерами службы". Кроме того, маркеры «сервер-сервер» имеют выделенные ограничения скорости, которые масштабируются по размеру организаций, в которых маркеры действуют. Дополнительные сведения см. в разделе [Ограничения скорости для {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
-#### Pros
+#### Плюсы
 
-- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
-- Dedicated rate limits that grow with your organization.
-- Decoupled from GitHub user identities, so they do not consume any licensed seats.
-- Never granted a password, so cannot be directly signed in to.
+- Строго ограниченные маркеры с четко определенными наборами разрешений и сроком действия (1 час или меньше, если отозван вручную с помощью API).
+- Выделенные ограничения скорости растут вместе с вашей организацией.
+- Отсоединено от удостоверений пользователей GitHub, поэтому лицензированные места не используются.
+- Пароль никогда не предоставлялся, поэтому невозможно выполнить прямой вход в систему.
 
-#### Cons
+#### Минусы
 
-- Additional setup is needed to create the GitHub App.
-- Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+- Для создания приложения GitHub требуется дополнительная настройка.
+- Срок действия маркеров «сервер-сервер» истекает через 1 час, поэтому их необходимо создавать повторно, обычно, по запросу с помощью кода.
 
-#### Setup
+#### Настройка
 
-1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
-1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/developers/apps/creating-a-github-app).
-1. Note your GitHub App `id`.
-1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
-1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
-1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
-1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
+1. Определите, каким должно быть приложение GitHub: общедоступным или частным. Если ваше приложение GitHub будет работать в вашей организации только с репозиториями, вероятно, вы захотите, чтобы оно было частным.
+1. Определите разрешения, требуемые для приложения GitHub, например, доступ только для чтения к содержимому репозитория.
+1. Создайте приложение GitHub с помощью страницы параметров организации. Дополнительные сведения см. в разделе [Создание приложения GitHub](/developers/apps/creating-a-github-app).
+1. Запишите `id` своего приложения GitHub.
+1. Создайте и скачайте закрытый ключ приложения GitHub и сохраните его в надежном месте. Дополнительные сведения см. в статье [Создание закрытого ключа](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
+1. Установите приложение GitHub в репозиториях, в которых оно должно работать. При необходимости можно установить приложение GitHub на все репозитории в вашей организации.
+1. Определите `installation_id`, который представляет собой подключение между приложением GitHub и репозиториями организации, к которым можно получить доступ.  Каждая пара «приложение GitHub и организация» имеет не более одного `installation_id`. Можно определить этот `installation_id` с помощью [получения установки организации для приложения, прошедшего проверку подлинности](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). Для этого требуется проверка подлинности в приложении GitHub с помощью JWT. Дополнительные сведения см. в статье [Проверка подлинности в приложении GitHub](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
+1. Создайте маркер «сервер-сервер», используя соответствующую конечную точку REST API, [Создайте маркер доступа установки для приложения](/rest/reference/apps#create-an-installation-access-token-for-an-app). Для этого требуется проверка подлинности в приложении GitHub с помощью JWT. Дополнительные сведения см. в статье [Проверка подлинности в приложении GitHub](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app) и [Проверка подлинности при установке](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
+1. Используйте этот маркер «сервер-сервер» для взаимодействия с репозиториями с помощью REST, API GraphQL или клиента Git.
 
-## Machine users
+## Пользователи компьютеров
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+Если вашему серверу требуется доступ к нескольким репозиториям, можно создать учетную запись для {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} и присоединить ключ SSH, который будет использоваться исключительно для автоматизации. Так как эта учетная запись для {% ifversion ghae %}{% данных variables.product.product_name %}{% else %}{% данных variables.location.product_location %}{% endif %} не будет использоваться человеком, он называется _пользователем компьютера_. Вы можете добавить пользователя компьютера в качестве [участника совместной работы][collaborator] в личном репозитории (предоставление права на чтение и запись), в качестве [внешнего участника совместной работы][outside-collaborator] в репозитории организации (предоставление права на чтение, записи или администратора) или для [команды][team] с доступом к репозиториям, которые необходимо автоматизировать (предоставление прав команде).
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** Our [terms of service][tos] state:
+**Совет.** Наши [условия предоставления услуг][tos]:
 
-> *Accounts registered by "bots" or other automated methods are not permitted.*
+> *Учетные записи, зарегистрированные "ботами" или другими автоматизированными методами, запрещены.*
 
-This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
+Это означает, что невозможно автоматизировать создание учетных записей. Но если требуется создать одного пользователя компьютера для автоматизации таких задач, как сценарии развертывания в проекте или организации, это отлично.
 
 {% endtip %}
 
 {% endif %}
 
-#### Pros
+#### Плюсы
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* No (human) users need to change their local SSH settings.
-* Multiple keys are not needed; one per server is adequate.
+* Любой пользователь с доступом к репозиторию и серверу может развернуть проект.
+* Пользователям не нужно изменять их локальные параметры SSH.
+* Несколько ключей не требуются; одного на сервер достаточно.
 
-#### Cons
+#### Минусы
 
-* Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
-* Machine user keys, like deploy keys, are usually not protected by a passphrase.
+* Ограничить доступ пользователей компьютеров правами только для чтения могут только организации. Личные репозитории всегда предоставляют участникам совместной работы доступ на чтение и запись.
+* Ключи пользователя компьютера, такие как ключи развертывания, как правило, не защищены парольной фразой.
 
-#### Setup
+#### Настройка
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
-2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
+1. [Запустите `ssh-keygen`процедуру][generating-ssh-keys] на сервере и подключите открытый ключ к учетной записи пользователя компьютера.
+2. Предоставьте учетной записи пользователя компьютера доступ к репозиториям, которые требуется автоматизировать. Это можно сделать, добавив учетную запись в качестве [участника совместной работы][collaborator], в качестве [внешнего участника совместной работы][outside-collaborator] или для [команды][team] в организации.
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
@@ -191,5 +194,5 @@ This means that you cannot automate the creation of accounts. But if you want to
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Дополнительные материалы
+- [Настройка уведомлений](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

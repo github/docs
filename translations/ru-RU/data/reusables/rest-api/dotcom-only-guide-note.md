@@ -1,12 +1,20 @@
+---
+ms.openlocfilehash: 1ecd8a8a6bc2d22561d49e6d470a5b22b3ea6ec3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148098164"
+---
 {% ifversion not fpt or ghec %}
 
 {% note %}
 
-**Note**: The following guide uses the REST API for {% data variables.product.prodname_dotcom_the_website %}.
+**Примечание.** В следующем руководстве используется REST API для {% data variables.product.prodname_dotcom_the_website %}.
 
-- Use <code>{% data variables.product.api_url_pre %}</code> to access the API for {% data variables.product.product_name %}. 
+- Используйте <code>{% data variables.product.api_url_pre %}</code> для доступа к API для {% data variables.product.product_name %}. 
 
-- The guide specifies usernames and repositories that may not exist on {% data variables.location.product_location %}. You may need to use different names to see similar output.
+- В этом руководстве указаны имена пользователей и репозитории, которые могут не существовать в {% данных variables.location.product_location %}. Возможно, для просмотра схожих выходных данных придется использовать другие имена.
 
 {% endnote %}
 

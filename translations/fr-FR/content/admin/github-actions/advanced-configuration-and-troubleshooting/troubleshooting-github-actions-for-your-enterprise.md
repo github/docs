@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting GitHub Actions for your enterprise
-intro: 'Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
+title: Résolution des problèmes liés à GitHub Actions pour votre entreprise
+intro: 'Résolution des problèmes courants qui se produisent durant l’utilisation de {% data variables.product.prodname_actions %} sur {% data variables.product.prodname_ghe_server %}.'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
   ghes: '*'
@@ -12,74 +12,79 @@ topics:
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 shortTitle: Troubleshoot GitHub Actions
+ms.openlocfilehash: a0965405e8e37bd75a245738d8d20c91f11ce254
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107300'
 ---
+## Vérification de l’intégrité de {% data variables.product.prodname_actions %}
 
-## Checking the health of {% data variables.product.prodname_actions %}
+Vous pouvez vérifier l’intégrité de {% data variables.product.prodname_actions %} sur {% data variables.location.product_location %} avec l’utilitaire en ligne de commande `ghe-actions-check`. Pour plus d’informations, consultez « [Utilitaires en ligne de commande](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check) » et « [Accès à l’interpréteur de commandes (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) ».
 
-You can check the health of {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} with the `ghe-actions-check` command-line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+## Configuration d’exécuteurs auto-hébergés lors de l’utilisation d’un certificat auto-signé pour {% data variables.product.prodname_ghe_server %}
 
-## Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
+{% data reusables.actions.enterprise-self-signed-cert %} Pour plus d’informations, consultez « [Configuration de TLS](/admin/configuration/configuring-tls) ».
 
-{% data reusables.actions.enterprise-self-signed-cert %} For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
+### Installation du certificat sur l’ordinateur exécuteur
 
-### Installing the certificate on the runner machine
+Pour qu’un exécuteur auto-hébergé se connecte à une instance {% data variables.product.prodname_ghe_server %} en utilisant un certificat auto-signé, vous devez installer le certificat sur l’ordinateur exécuteur afin de renforcer la sécurité de la connexion.
 
-For a self-hosted runner to connect to a {% data variables.product.prodname_ghe_server %} using a self-signed certificate, you must install the certificate on the runner machine so that the connection is security hardened.
+Pour savoir comment installer un certificat, consultez la documentation du système d’exploitation de votre exécuteur.
 
-For the steps required to install a certificate, refer to the documentation for your runner's operating system.
+### Configuration de Node.JS pour utiliser le certificat
 
-### Configuring Node.JS to use the certificate
+La plupart des actions sont écrites en JavaScript et exécutées avec Node.js, qui n’utilise pas le magasin de certificats du système d’exploitation. Pour que l’application d’exécuteur auto-hébergé utilise le certificat, vous devez définir la variable d’environnement `NODE_EXTRA_CA_CERTS` sur l’ordinateur exécuteur.
 
-Most actions are written in JavaScript and run using Node.js, which does not use the operating system certificate store. For the self-hosted runner application to use the certificate, you must set the `NODE_EXTRA_CA_CERTS` environment variable on the runner machine.
+Vous pouvez définir la variable d’environnement en tant que variable d’environnement système ou la déclarer dans un fichier nommé _.env_ dans le répertoire d’application d’exécuteur auto-hébergé.
 
-You can set the environment variable as a system environment variable, or declare it in a file named _.env_ in the self-hosted runner application directory.
-
-For example:
+Par exemple :
 
 ```shell
 NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 ```
 
-Environment variables are read when the self-hosted runner application starts, so you must set the environment variable before configuring or starting the self-hosted runner application. If your certificate configuration changes, you must restart the self-hosted runner application.
+Les variables d’environnement étant lues au démarrage de l’application d’exécuteur auto-hébergé, vous devez définir les variables d’environnement avant de configurer ou de démarrer l’application d’exécuteur auto-hébergé. Si la configuration de votre certificat change, vous devez redémarrer l’application d’exécuteur auto-hébergé.
 
-### Configuring Docker containers to use the certificate
+### Configuration de conteneurs Docker pour utiliser le certificat
 
-If you use Docker container actions or service containers in your workflows, you might also need to install the certificate in your Docker image in addition to setting the above environment variable.
+Si vous utilisez des actions de conteneur ou des conteneurs de service Docker dans vos workflows, vous devrez peut-être aussi installer le certificat dans votre image Docker en plus de définir la variable d’environnement ci-dessus.
 
-## Configuring HTTP proxy settings for {% data variables.product.prodname_actions %}
+## Configuration des paramètres de proxy HTTP pour {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
+Si ces paramètres ne sont pas correctement configurés, vous obtiendrez peut-être des erreurs telles que `Resource unexpectedly moved to https://<IP_ADDRESS>` pendant la définition ou la modification de votre configuration {% data variables.product.prodname_actions %}.
 
-## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
+## Exécuteurs ne se connectant pas à {% data variables.product.prodname_ghe_server %} avec un nouveau nom d’hôte
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-If you deploy {% data variables.product.prodname_ghe_server %} in your environment with a new hostname and the old hostname no longer resolves to your instance, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
+Si vous déployez {% data variables.product.prodname_ghe_server %} dans votre environnement avec un nouveau nom d’hôte et que l’ancien nom d’hôte ne se résout plus en votre instance, les exécuteurs auto-hébergés ne pourront pas se connecter à l’ancien nom d’hôte et n’exécuteront aucun travail.
 
-You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.location.product_location %}. Each self-hosted runner will require one of the following procedures:
+Vous devrez mettre à jour la configuration de vos exécuteurs auto-hébergés pour qu’ils utilisent le nouveau nom d’hôte de {% data variables.location.product_location %}. Pour chaque exécuteur auto-hébergé, vous devrez effectuer l’une des procédures suivantes :
 
-* In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
-* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[Removing self-hosted runners](/actions/hosting-your-own-runners/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+* Dans le répertoire de l’application d’exécuteur auto-hébergé, modifiez les fichiers `.runner` et `.credentials` pour remplacer toutes les occurrence de l’ancien nom d’hôte par le nouveau nom d’hôte, puis redémarrez l’application d’exécuteur auto-hébergé.
+* Supprimez l’exécuteur de {% data variables.product.prodname_ghe_server %} à l’aide de l’interface utilisateur, puis rajoutez-le. Pour plus d’informations, consultez « [Suppression d’exécuteurs auto-hébergés](/actions/hosting-your-own-runners/removing-self-hosted-runners) et « [Ajout d’exécuteurs auto-hébergés](/actions/hosting-your-own-runners/adding-self-hosted-runners) ».
 
-## Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
+## Travaux bloqués et limites de mémoire et de processeur {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} is composed of multiple services running on {% data variables.location.product_location %}. By default, these services are set up with default CPU and memory limits that should work for most instances. However, heavy users of {% data variables.product.prodname_actions %} might need to adjust these settings.
+{% data variables.product.prodname_actions %} se compose de plusieurs services s’exécutant sur {% data variables.location.product_location %}. Par défaut, ces services sont configurés avec des limites de processeur et de mémoire par défaut qui sont censées fonctionner avec la plupart des instances. Cependant, les utilisateurs qui sollicitent fortement {% data variables.product.prodname_actions %} peuvent avoir besoin d’ajuster ces paramètres.
 
-You may be hitting the CPU or memory limits if you notice that jobs are not starting (even though there are idle runners), or if the job's progress is not updating or changing in the UI.
+Si vous remarquez que les travaux ne se lancent pas (même en présence d’exécuteurs inactifs) ou que leur progression n’est pas mise à jour ou qu’elle ne varie pas dans l’interface utilisateur, il se peut que vous avez atteint les limites de processeur ou de mémoire.
 
-### 1. Check the overall CPU and memory usage in the management console
+### 1. Vérifier l’utilisation globale du processeur et de la mémoire dans la console de gestion
 
-Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[Accessing the monitor dashboard](/admin/enterprise-management/accessing-the-monitor-dashboard)."
+Accédez à la console de gestion puis, dans le tableau de bord moniteur, sous « Intégrité du système », inspectez les graphiques globaux du processeur et de la mémoire. Pour plus d’informations, consultez « [Accès au tableau de bord moniteur](/admin/enterprise-management/accessing-the-monitor-dashboard) ».
 
-If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.location.product_location %} is running at capacity and needs to be scaled up. For more information, see "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
+Si l’utilisation globale du processeur sous « Intégrité du système » est proche de 100 % ou qu’il ne reste plus de mémoire libre, {% data variables.location.product_location %} s’exécute au maximum de sa capacité et doit faire l’objet d’un scale-up. Pour plus d’informations, consultez « [Augmentation des ressources processeur ou mémoire](/admin/enterprise-management/increasing-cpu-or-memory-resources) ».
 
-### 2. Check the Nomad Jobs CPU and memory usage in the management console
+### 2. Vérifier l’utilisation globale du processeur et de la mémoire pour les travaux Nomad dans la console de gestion
 
-If the overall "System Health" CPU and memory usage is OK, scroll down the monitor dashboard page to the "Nomad Jobs" section, and look at the "CPU Percent Value" and "Memory Usage" graphs.
+Si l’utilisation globale du processeur et de la mémoire sous « Intégrité du système » est correcte, faites défiler la page du tableau de bord moniteur vers le bas jusqu’à la section « Travaux Nomad », puis examinez les graphiques « Pourcentage processeur » et « Utilisation de la mémoire ».
 
-Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
+Chaque tracé visible dans ces graphiques correspond à un service. Pour les services {% data variables.product.prodname_actions %}, recherchez :
 
 * `mps_frontend`
 * `mps_backend`
@@ -88,18 +93,18 @@ Each plot in these graphs corresponds to one service. For {% data variables.prod
 * `actions_frontend`
 * `actions_backend`
 
-If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
+Si l’un de ces services a atteint un taux d’utilisation du processeur de 100 % ou en est proche ou que la mémoire est proche de leur limite (2 Go par défaut), il est peut-être nécessaire d’augmenter les ressources allouées à ces services. Parmi les services ci-dessus, notez ceux qui sont proches de leur limite ou qui l’ont atteinte.
 
-### 3. Increase the resource allocation for services at their limit
+### 3. Augmenter l’allocation de ressources pour les services ayant atteint leur limite
 
-1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
-1. Run the following command to see what resources are available for allocation:
+1. Connectez-vous à l’interpréteur de commandes d’administration avec SSH. Pour plus d’informations, consultez « [Accès à l’interpréteur de commandes d’administration (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh) ».
+1. Exécutez la commande suivante pour voir quelles ressources sont disponibles pour une allocation :
 
    ```shell
    nomad node status -self
    ```
 
-   In the output, find the "Allocated Resources" section. It looks similar to the following example:
+   Dans la sortie, recherchez la section « Allocated Resources » (Ressources allouées). Il se présente sous la forme suivante :
 
    ```
    Allocated Resources
@@ -107,25 +112,25 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    7740/49600 MHZ   23 GiB/32 GiB   4.4 GiB/7.9 GiB
    ```
 
-   For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
+   Pour le processeur et la mémoire, la quantité **totale** allouée pour **tous** les services correspond à la valeur de gauche, et la quantité disponible correspond à la valeur de droite. Dans l’exemple ci-dessus, la quantité de mémoire allouée est de 23 Gio sur un total de 32 Gio. Cela signifie qu’il reste 9 Gio de mémoire à allouer.
 
    {% warning %}
 
-   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
+   **Avertissement :** Veillez à ne pas allouer plus de ressources que vous n’en possédez au total, car les services ne démarreront pas.
 
    {% endwarning %}
-1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
+1. Passez au répertoire `/etc/consul-templates/etc/nomad-jobs/actions` :
 
    ```shell
    cd /etc/consul-templates/etc/nomad-jobs/actions
    ```
 
-   In this directory there are three files that correspond to the {% data variables.product.prodname_actions %} services from above:
+   Ce répertoire contient trois fichiers qui correspondent aux services {% data variables.product.prodname_actions %} ci-dessus :
 
    * `mps.hcl.ctmpl`
    * `token.hcl.ctmpl`
    * `actions.hcl.ctmpl`
-1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
+1. Pour les services dont vous avez noté qu’ils nécessitent un ajustement, ouvrez le fichier correspondant et recherchez le groupe `resources` qui se présente comme suit :
 
    ```
    resources {
@@ -137,9 +142,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    }
    ```
 
-   The values are in MHz for CPU resources, and MB for memory resources.
+   Les valeurs sont exprimées en MHz pour les ressources processeur et en Mo pour les ressources mémoire.
 
-   For example, to increase the resource limits in the above example to 1 GHz for the CPU and 4 GB of memory, change it to:
+   Ainsi, pour augmenter les limites des ressources dans l’exemple ci-dessus, avec 1 GHz pour le processeur et 4 Go pour la mémoire, apportez les modifications suivantes :
 
    ```
    resources {
@@ -150,39 +155,39 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
      }
    }
    ```
-1. Save and exit the file.
-1. Run `ghe-config-apply` to apply the changes.
+1. Enregistrez et fermez le fichier.
+1. Exécutez `ghe-config-apply` pour appliquer les modifications.
 
-    When running `ghe-config-apply`, if you see output like `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, then the change has likely over-allocated CPU or memory resources. If this happens, edit the configuration files again and lower the allocated CPU or memory, then re-run `ghe-config-apply`.
-1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
+    Pendant l’exécution de `ghe-config-apply`, si vous obtenez la sortie `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, il est probable que la modification a occasionné une surallocation de ressources processeur ou mémoire. Dans ce cas, modifiez à nouveau les fichiers de configuration et réduisez la quantité de ressources processeur et mémoire allouées, puis réexécutez `ghe-config-apply`.
+1. Une fois la configuration appliquée, exécutez `ghe-actions-check` pour vérifier que les services {% data variables.product.prodname_actions %} sont opérationnels.
 
 {% ifversion fpt or ghec or ghes %}
-## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
+## Résolution des défaillances quand {% data variables.product.prodname_dependabot %} déclenche des workflows existants
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.location.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
+Après avoir configuré les mises à jour {% data variables.product.prodname_dependabot %} pour {% data variables.location.product_location %}, il se peut que constatiez des défaillances quand des workflows existants sont déclenchés par des événements {% data variables.product.prodname_dependabot %}.
 
-By default, {% data variables.product.prodname_actions %} workflow runs that are triggered by {% data variables.product.prodname_dependabot %} from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events are treated as if they were opened from a repository fork. Unlike workflows triggered by other actors, this means they receive a read-only `GITHUB_TOKEN` and do not have access to any secrets that are normally available. This will cause any workflows that attempt to write to the repository to fail when they are triggered by {% data variables.product.prodname_dependabot %}.
+Par défaut, les exécutions de workflows {% data variables.product.prodname_actions %} qui sont déclenchées par {% data variables.product.prodname_dependabot %} à partir d’événements `push`, `pull_request`, `pull_request_review` ou `pull_request_review_comment` ont considérées comme ayant été ouvertes à partir d’une duplication (fork) de dépôt. Contrairement aux workflows déclenchés par d’autres acteurs, cela signifie qu’ils reçoivent un `GITHUB_TOKEN` en lecture seule et qu’ils n’ont pas accès aux secrets qui sont normalement disponibles. Ainsi, les flux de travail qui tentent d’écrire dans le dépôt échouent quand ils sont déclenchés par {% data variables.product.prodname_dependabot %}.
 
-There are three ways to resolve this problem:
+Il existe trois façons de résoudre ce problème :
 
-1. You can update your workflows so that they are no longer triggered by {% data variables.product.prodname_dependabot %} using an expression like: `if: github.actor != 'dependabot[bot]'`. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
-2. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)."
-3. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+1. Vous pouvez mettre à jour vos workflows de sorte qu’ils ne soient plus déclenchés par {% data variables.product.prodname_dependabot %} en utilisant une expression de ce type : `if: github.actor != 'dependabot[bot]'`. Pour plus d’informations, consultez « [Expressions](/actions/learn-github-actions/expressions) ».
+2. Vous pouvez modifier vos workflows de sorte qu’ils utilisent un processus en deux étapes qui comprend `pull_request_target` qui ne présente pas ces limites. Pour plus d’informations, consultez « [Automatisation de {% data variables.product.prodname_dependabot %} avec {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events) ».
+3. Vous pouvez permettre aux workflows déclenchés par {% data variables.product.prodname_dependabot %} d’accéder aux secrets et autoriser le terme `permissions` à augmenter l’étendue par défaut de `GITHUB_TOKEN`. Pour plus d’informations, consultez « [Permettre aux workflows déclenchés par {% data variables.product.prodname_dependabot %} d’accéder aux secrets et leur accorder des autorisations supérieures](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions) » ci-dessous.
 
-### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
+### Permettre aux workflows déclenchés par {% data variables.product.prodname_dependabot %} d’accéder aux secrets et leur accorder des autorisations supérieures
 
-1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
-1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.location.product_location %}, use the following command.
+1. Connectez-vous à l’interpréteur de commandes d’administration avec SSH. Pour plus d’informations, consultez « [Accès à l’interpréteur de commandes d’administration (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh) ».
+1. Pour supprimer les limites sur les workflows déclenchés par {% data variables.product.prodname_dependabot %} sur {% data variables.location.product_location %}, utilisez la commande suivante.
     ``` shell
     $ ghe-config app.actions.disable-dependabot-enforcement true
     ```
-1. Apply the configuration.
+1. Appliquez la configuration.
     ```shell
     $ ghe-config-apply
     ```
-1. Return to {% data variables.product.prodname_ghe_server %}.
+1. Revenez à {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
 
@@ -190,38 +195,38 @@ There are three ways to resolve this problem:
 
 <a name="bundled-actions"></a>
 
-## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
+## Résolution des problèmes liés aux actions groupées dans {% data variables.product.prodname_actions %}
 
-If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and starter workflows.
+Si vous obtenez l’erreur suivante pendant l’installation de {% data variables.product.prodname_actions %} dans {% data variables.product.prodname_ghe_server %}, vous pouvez résoudre le problème en installant les actions groupées et les workflows de démarrage officiels.
 
 ```shell
 A part of the Actions setup had problems and needs an administrator to resolve.
 ```
 
-To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
+Pour installer les actions groupées et les workflows de démarrage officielles dans une organisation désignée dans {% data variables.product.prodname_ghe_server %}, suivez cette procédure.
 
-1. Identify an organization that will store the official bundled actions and starter worflows. You can create a new organization or reuse an existing one. 
-    - To create a new organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." 
-    - For assistance with choosing a name for this organization, see "[Reserved Names](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)." 
+1. Identifiez l’organisation qui va stocker les actions groupées et les flux de travail de démarrage officiels. Vous pouvez créer une nouvelle organisation ou en réutiliser une existante. 
+    - Pour créer une organisation, consultez « [Création d’une organisation en partant de zéro](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) ». 
+    - Pour obtenir de l’aide concernant le nom à donner à l’organisation, consultez « [Noms réservés](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names) ». 
 
-1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
-1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+1. Connectez-vous à l’interpréteur de commandes d’administration avec SSH. Pour plus d’informations, consultez « [Accès à l’interpréteur de commandes d’administration (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh) ».
+1. Pour désigner votre organisation en tant qu’emplacement de stockage des actions groupées, utilisez la commande `ghe-config`, en `ORGANIZATION` remplaçant par le nom de votre organisation.
     ```shell
     $ ghe-config app.actions.actions-org ORGANIZATION
     ```
-    and:
+    et
     ```shell
     $ ghe-config app.actions.github-org ORGANIZATION
     ```
-1.  To add the bundled actions to your organization, unset the SHA.
+1.  Pour ajouter les actions groupées à votre organisation, annulez le SHA.
     ```shell
     $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
     ```
-1. Apply the configuration.
+1. Appliquez la configuration.
     ```shell
     $ ghe-config-apply
     ```
 
-After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[Managing access permissions for GitHub Actions in your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
+Une fois ces étapes terminées, vous pouvez reprendre la configuration de {% data variables.product.prodname_actions %} à l’étape « [Gestion des autorisations d’accès pour GitHub Actions dans votre entreprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise) ».
 
 {% endif %}

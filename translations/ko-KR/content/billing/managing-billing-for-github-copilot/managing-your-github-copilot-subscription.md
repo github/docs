@@ -1,52 +1,54 @@
 ---
-title: Managing your GitHub Copilot subscription
-intro: 'Set up your {% data variables.product.prodname_copilot %} trial and manage your subscription.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+title: GitHub Copilot 구독 관리
+intro: '{% data variables.product.prodname_copilot %} 평가판을 설정하고 구독을 관리합니다.'
 versions:
   feature: copilot
 type: how_to
 topics:
-  - Copilot
+- Copilot
 shortTitle: Your GitHub Copilot subscription
+ms.openlocfilehash: 9cdd9e46dcbfe433f5d0b6ba25bda4c798dca06b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884159"
 ---
-
-## Setting up a trial of {% data variables.product.prodname_copilot %} 
+## {% data variables.product.prodname_copilot %} 평가판 설정 
 
 {% data reusables.copilot.signup-procedure %}
 
-## Modifying your {% data variables.product.prodname_copilot %} subscription
+## {% data variables.product.prodname_copilot %} 구독 수정
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
-   - If you are on a monthly billing cycle, select **Change to yearly billing**.
-   - If you are on a yearly billing cycle, select **Change to monthly billing**.
-   ![Screenshot of GitHub Copilot section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. “{% data variables.product.prodname_copilot %}” 섹션에서 **편집** 드롭다운을 선택합니다.
+   - 월별 청구 주기를 사용하는 경우 **연간 청구로 변경** 을 선택합니다.
+   - 연간 청구 주기를 사용하는 경우 **월별 청구로 변경** 을 선택합니다.
+   ![편집 드롭다운이 강조 표시된 청구 페이지의 GitHub Copilot 섹션 스크린샷](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
    
 
-## Canceling your {% data variables.product.prodname_copilot %} subscription
+## {% data variables.product.prodname_copilot %} 구독 취소
 
-You can cancel your {% data variables.product.prodname_copilot %} subscription at any time. If you cancel during your 60 day trial, you won't be charged. If you do not cancel your {% data variables.product.prodname_copilot %} subscription before the end of the 60 day trial, you will be charged according to the billing cycle you selected when setting up the trial.
+언제든지 {% data variables.product.prodname_copilot %} 구독을 취소할 수 있습니다. 60일 평가판 기간 중에 취소하는 경우 요금이 청구되지 않습니다. 60일 평가판이 끝나기 전에 {% data variables.product.prodname_copilot %} 구독을 취소하지 않으면 평가판을 설정할 때 선택한 청구 주기에 따라 요금이 청구됩니다.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
-   - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. “{% data variables.product.prodname_copilot %}” 섹션에서 **편집** 드롭다운을 선택합니다.
+   - 유료 구독이 있는 경우 **{% data variables.product.prodname_copilot %} 취소** 를 클릭합니다.
    
-   ![Screenshot of GitHub Copilot section on billing page with cancel GitHub Copilot option emphasized](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
+   ![GitHub Copilot 취소 옵션이 강조 표시된 청구 페이지의 GitHub Copilot 섹션 스크린샷](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
 
-   - If you are within your 60 day trial period, click **Cancel trial**.
-   ![Screenshot of GitHub Copilot section on billing page with cancel trial option emphasized](/assets/images/help/copilot/copilot-cancel-trial.png)
+   - 60일 평가판 기간 내에 있는 경우 **평가판 취소** 를 클릭합니다.
+   ![평가판 취소 옵션이 강조 표시된 청구 페이지의 GitHub Copilot 섹션 스크린샷](/assets/images/help/copilot/copilot-cancel-trial.png)
 
-2. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**
+2. “{% data variables.product.prodname_copilot %}” 모달에서 **{% data variables.product.prodname_copilot %} 취소** 를 클릭합니다.
 
-   ![Screenshot of GitHub Copilot cancel modal with I understand, cancel GitHub Copilot button emphasized](/assets/images/help/copilot/copilot-cancel-modal.png)
+   ![GitHub Copilot 취소 단추가 강조 표시된 GitHub Copilot 취소 모달 스크린샷](/assets/images/help/copilot/copilot-cancel-modal.png)
 
-   - If you are within your 60 day trial period, click **I understand, cancel {% data variables.product.prodname_copilot %} trial**.
+   - 60일 평가판 기간 내에 있는 경우 **{% data variables.product.prodname_copilot %} 평가판 취소** 를 클릭합니다.
 
-   ![Screenshot of GitHub Copilot cancel trial modal with I understand, cancel trial button emphasized](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
+   ![평가판 취소 단추가 강조 표시된 GitHub Copilot 취소 평가판 모달 스크린샷](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
 
-## Further reading
+## 추가 참고 자료
 
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
-- [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
+- [{% data variables.product.prodname_copilot %} 정보](/copilot/overview-of-github-copilot/about-github-copilot)
+- [{% data variables.product.prodname_copilot %} 시작](/copilot/getting-started-with-github-copilot)

@@ -1,6 +1,6 @@
 ---
-title: Configuring code scanning
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans the code in your project for vulnerabilities and errors.'
+title: 配置代码扫描
+intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何扫描项目代码以查找漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
 miniTocMaxHeadingLevel: 3
@@ -23,81 +23,80 @@ topics:
   - JavaScript
   - Python
 shortTitle: Configure code scanning
+ms.openlocfilehash: cad147292c113d749004f2fe303b27a4dada1456
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182312'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
+{% ifversion ghes or ghae %} {% note %}
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
+注意：本文介绍了此版 {% data variables.product.product_name %} 的初始发行版中包含的 CodeQL 操作版本和相关 CodeQL CLI 捆绑包中可用的功能。 如果企业使用较新版本的 CodeQL 操作，请参阅 [{% data variables.product.prodname_ghe_cloud %} 一文](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)，了解有关最新功能的信息。 {% ifversion not ghae %}有关使用最新版本的信息，请参阅“[为设备配置代码扫描](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)”。{% endif %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% endnote %} {% endif %}
 
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+## 关于 {% data variables.product.prodname_code_scanning %} 配置
 
-{% endnote %}
-{% endif %}
+您可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_name %} 中运行 {% data variables.product.prodname_code_scanning %}，或从持续集成 (CI) 系统运行它。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”或“[关于 CI 系统中的 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)”。
 
-## About {% data variables.product.prodname_code_scanning %} configuration
+本文说明使用操作在 {% data variables.product.product_name %} 上运行 {% data variables.product.prodname_code_scanning %}。
 
-You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" or "[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
-
-This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.
-
-Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must set up {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+在为仓库配置 {% data variables.product.prodname_code_scanning %} 之前，必须将 {% data variables.product.prodname_actions %} 工作流程添加到仓库中以设置 {% data variables.product.prodname_code_scanning %}。 有关详细信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
 
 {% data reusables.code-scanning.edit-workflow %}
 
-{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-label="The shield symbol" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
+{% data variables.product.prodname_codeql %} 分析只是您可以在 {% data variables.product.prodname_dotcom %} 中执行的一种 {% data variables.product.prodname_code_scanning %}。 {% data variables.product.prodname_marketplace %}{% ifversion ghes %} 在 {% data variables.product.prodname_dotcom_the_website %} 上，{% endif %}包含您可以使用的其他 {% data variables.product.prodname_code_scanning %} 工作流程。 {% ifversion fpt or ghec %}可以在“开始使用 {% data variables.product.prodname_code_scanning %}”页面上找到这些选项，可以从“{% octicon "shield" aria-label="The shield symbol" %} 安全性”选项卡访问该页面。{% endif %}本文中提供的特定示例与 {% data variables.code-scanning.codeql_workflow %} 文件相关。
 
-## Editing a {% data variables.product.prodname_code_scanning %} workflow
+## 编辑 {% data variables.product.prodname_code_scanning %} 工作流
 
-{% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
+{% data variables.product.prodname_dotcom %} 将工作流文件保存在存储库的 .github/workflows 目录中。 可搜索文件名来查找已添加的工作流。 例如，默认情况下，{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 的工作流文件称为 codeql-analysis.yml。
 
-1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-![Edit workflow file button](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
-1. After you have edited the file, click **Start commit** and complete the "Commit changes" form. You can choose to commit directly to the current branch, or create a new branch and start a pull request.
-![Commit update to codeql.yml workflow](/assets/images/help/repository/code-scanning-workflow-update.png)
+1. 在仓库中，浏览至要编辑的工作流程文件。
+1. 要打开工作流编辑器，在文件视图右上角单击 {% octicon "pencil" aria-label="The edit icon" %}。
+![编辑工作流文件按钮](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
+1. 编辑完文件后，请单击“开始提交”，并完成“提交更改”窗体。 可以选择直接提交到当前分支，也可以创建一个新分支，并发起拉取请求。
+![将更新提交到 codeql.yml 工作流程](/assets/images/help/repository/code-scanning-workflow-update.png)
 
-For more information about editing workflow files, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+有关编辑工作流文件的详细信息，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-## Configuring frequency
+## 配置频率
 
-You can configure the {% data variables.code-scanning.codeql_workflow %} to scan code on a schedule or when specific events occur in a repository.
+可以将 {% data variables.code-scanning.codeql_workflow %} 配置为按计划或在存储库中发生特定事件时扫描代码。
 
-Scanning code when someone pushes a change, and whenever a pull request is created, prevents developers from introducing new vulnerabilities and errors into the code. Scanning code on a schedule informs you about the latest vulnerabilities and errors that {% data variables.product.company_short %}, security researchers, and the community discover, even when developers aren't actively maintaining the repository.
+每当推送到仓库以及每次创建拉取请求时，时扫描代码可防止开发者在代码中引入新的漏洞和错误。 按时间表扫描可了解 {% data variables.product.company_short %}、安全研究者和社区发现的最新漏洞和错误，即使开发者并未主动维护仓库。
 
-### Scanning on push
+### 按推送扫描
 
-By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)."
+默认情况下，{% data variables.code-scanning.codeql_workflow %} 使用 `on.push` 事件在每次推送到存储库的默认分支和任何受保护分支时触发代码扫描。 要使 {% data variables.product.prodname_code_scanning %} 指定分支上触发，工作流程必须存在于该分支中。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#on)”。
 
-If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+如果在推送时扫描，结果会显示在存储库的“安全性”选项卡中。 有关详细信息，请参阅“[管理存储库的代码扫描警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
-Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+此外，当 `on:push` 扫描返回可映射到打开的拉取请求的结果时，这些警报将自动出现在拉取请求中，与其他拉取请求警报位于同一位置。 警报是通过比较对分支头的现有分析与对目标分支的分析来确定的。 有关 {% data variables.product.prodname_code_scanning %} 的详细信息，请参阅“[会审拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
 
-### Scanning pull requests
+### 扫描拉取请求
 
-The default {% data variables.code-scanning.codeql_workflow %} uses the `pull_request` event to trigger a code scan on pull requests targeted against the default branch. {% ifversion ghes %}The `pull_request` event is not triggered if the pull request was opened from a private fork.{% else %}If a pull request is from a private fork, the `pull_request` event will only be triggered if you've selected the "Run workflows from fork pull requests" option in the repository settings. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+默认 {% data variables.code-scanning.codeql_workflow %} 使用 `pull_request` 事件在发生针对默认分支的拉取请求时触发代码扫描。 {% ifversion ghes %}如果从专用分支打开拉取请求，则不会触发 `pull_request` 事件。{% else %}如果拉取请求来自专用分支，则仅当你在存储库设置中选择了“从分支拉取请求运行工作流”选项时，才会触发 `pull_request` 事件。 有关详细信息，请参阅“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)”。{% endif %}
 
-For more information about the `pull_request` event, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#pull_request)."
+有关 `pull_request` 事件的详细信息，请参阅“[触发工作流的事件](/actions/learn-github-actions/events-that-trigger-workflows#pull_request)”。
 
-If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+如果扫描拉取请求，结果将在拉取请求检查中显示为警报。 有关详细信息，请参阅[在拉取请求中对代码扫描警报进行会审](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)。
 
-Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+使用 `pull_request` 触发器（配置为扫描拉取请求的合并提交，而不是头提交）与每次推送时扫描分支头相比，可产生更高效且准确的结果。 但是，如果使用的 CI/CD 系统无法配置为发生拉取请求时触发，你仍然可以使用 `on:push` 触发器和 {% data variables.product.prodname_code_scanning %} 会将结果映射到在分支上打开的拉取请求，并将警报作为注释添加到拉取请求。 有关详细信息，请参阅“[推送时扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)”。
 
-### Defining the severities causing pull request check failure
+### 定义导致拉取请求检查失败的严重性
 
-By default, only alerts with the severity level of `Error` or security severity level of `Critical` or `High` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities and of security severities that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+默认情况下，只有严重性级别为 `Error` 或安全严重级别为 `Critical` 或 `High` 的警报会导致拉取请求检查失败，而对于较低严重性的警报，检查仍会成功。 可以在存储库设置中更改将导致拉取请求检查失败的警报严重性和安全严重性级别。 有关严重性级别的详细信息，请参阅“[关于代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)”。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. 在“Code scanning（代码扫描）”下的“Check Failure（检查失败）”右边，使用下拉菜单选择您想要导致拉请求检查失败的严重程度。
+![检查失败设置](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 
-### Avoiding unnecessary scans of pull requests
+### 避免对拉取请求进行不必要的扫描
 
-You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
+你可能希望避免触发针对默认分支的特定拉取请求的代码扫描，而不考虑哪些文件已更改。 可以通过在 {% data variables.product.prodname_code_scanning %} 数据流中指定 `on:pull_request:paths-ignore` 或 `on:pull_request:paths` 来进行配置。 例如，如果拉取请求中仅更改了文件扩展名为 `.md` 或 `.txt` 的文件，你可以使用以下 `paths-ignore` 数组。
 
 ``` yaml
 on:
@@ -112,28 +111,28 @@ on:
 
 {% note %}
 
-**Notes**
+**说明**
 
-* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."
-* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
+* `on:pull_request:paths-ignore` 和 `on:pull_request:paths` 可设置用于决定工作流中的操作是否将在发生拉取请求时运行的条件。 它们不会决定操作运行时将分析哪些文件。 当拉取请求包含任何未被 `on:pull_request:paths-ignore` 或 `on:pull_request:paths` 匹配的文件时，工作流会运行操作并扫描拉动请求中更改的所有文件，包括那些被 `on:pull_request:paths-ignore` 或 `on:pull_request:paths` 匹配的文件，除非这些文件已被排除。 有关如何从分析中排除文件的信息，请参阅“[指定要扫描的目录](#specifying-directories-to-scan)”。
+* 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 工作流文件，请勿对 `paths-ignore` 事件使用 `paths` 或 `on:push` 关键字，因为这可能会导致缺少分析。 为了获得准确的结果，{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 需要能够与上次提交的分析比较新的变化。
 
 {% endnote %}
 
-For more information about using `on:pull_request:paths-ignore` and `on:pull_request:paths` to determine when a workflow will run for a pull request, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+有关使用 `on:pull_request:paths-ignore` 和 `on:pull_request:paths` 确定工作流何时为拉取请求运行的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
-### Scanning on a schedule
+### 按时间表扫描
 
-If you use the default {% data variables.code-scanning.codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)."
+如果使用默认 {% data variables.code-scanning.codeql_workflow %}，则除了由事件触发的扫描之外，工作流还将每周扫描一次存储库中的代码。 若要调整此计划，请在工作流中编辑 `cron` 值。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#onschedule)”。
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} only runs scheduled jobs that are in workflows on the default branch. Changing the schedule in a workflow on any other branch has no effect until you merge the branch into the default branch.
+注意：{% data variables.product.prodname_dotcom %} 只运行默认分支上的工作流中的预定作业。 在任何其他分支上的工作流程中更改时间表后，需要将该分支合并到默认分支才能使更改生效。
 
 {% endnote %}
 
-### Example
+### 示例
 
-The following example shows a {% data variables.code-scanning.codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
+以下示例显示了特定存储库的 {% data variables.code-scanning.codeql_workflow %}，该存储库具有一个名为 `main` 的默认分支和一个名为 `protected` 的受保护分支。
 
 ``` yaml
 on:
@@ -145,14 +144,14 @@ on:
     - cron: '20 14 * * 1'
 ```
 
-This workflow scans:
-* Every push to the default branch and the protected branch
-* Every pull request to the default branch
-* The default branch every Monday at 14:20 UTC
+此工作流扫描：
+* 对默认分支和受保护分支的每次推送
+* 对默认分支的每个拉取请求
+* 默认分支（每周一 14:20 UTC）
 
-## Specifying an operating system
+## 指定操作系统
 
-If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
+如果代码需要特定的操作系统来编译，则可以在 {% data variables.code-scanning.codeql_workflow %} 中配置操作系统。 编辑 `jobs.analyze.runs-on` 的值，指定运行 {% data variables.product.prodname_code_scanning %} 操作的计算机操作系统。 {% ifversion ghes %}通过在 `self-hosted` 之后使用适当的标签作为二元素数组中的第二个元素来指定操作系统。{% else %}
 
 ``` yaml
 jobs:
@@ -161,7 +160,7 @@ jobs:
     runs-on: [ubuntu-latest]
 ```
 
-If you choose to use a self-hosted runner for code scanning, you can specify an operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% endif %}
+如果选择使用自托管的运行程序进行代码扫描，可以在 `self-hosted` 之后使用适当的标签作为二元素数组中的第二个元素来指定操作系统。{% endif %}
 
 ``` yaml
 jobs:
@@ -170,15 +169,15 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} supports the latest versions of Ubuntu, Windows, and macOS. Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. For more information, see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 支持最新版本的 Ubuntu、Windows 和 macOS。 因此，此设置的典型值为：`ubuntu-latest`、`windows-latest` 和 `macos-latest`。 有关详细信息，请参阅“[为作业选择运行器](/actions/using-jobs/choosing-the-runner-for-a-job)”和“[将标签用于自托管运行器](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。
 
-{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %} For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+{% ifversion ghes %}必须确保 Git 位于自托管运行器上的 PATH 变量中。{% else %}如果你使用自托管运行器，则必须确保 Git 在 PATH 变量中。{% endif %} 有关详细信息，请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
 
-For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis{% ifversion not ghes %} on self-hosted machines{% endif %}, see  "[Recommended hardware resources for running {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)."
+有关在自托管计算机上运行 {% data variables.product.prodname_codeql %} 分析{% ifversion not ghes %} 的建议规范（RAM、CPU 核心和磁盘）{% endif %}，请参阅“[用于运行 {% data variables.product.prodname_codeql %} 的建议硬件资源](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql)”。
 
-## Specifying the location for {% data variables.product.prodname_codeql %} databases
+## 指定 {% data variables.product.prodname_codeql %} 数据库的位置
 
-In general, you do not need to worry about where the {% data variables.code-scanning.codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
+通常，无需担心 {% data variables.code-scanning.codeql_workflow %} 将 {% data variables.product.prodname_codeql %} 数据库放置的位置，因为后面的步骤会自动查找前面步骤创建的数据库。 但是，如果你正在编写一个自定义工作流步骤，要求 {% data variables.product.prodname_codeql %} 数据库位于特定的磁盘位置，例如将数据库作为工作流工件上传，则可以使用 `init` 下的 `db-location` 参数指定该位置。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -186,21 +185,21 @@ In general, you do not need to worry about where the {% data variables.code-scan
     db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
 ```
 
-The {% data variables.code-scanning.codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+{% data variables.code-scanning.codeql_workflow %} 期望 `db-location` 中提供的路径是可写的，或者不存在，或者是一个空目录。 当在运行自托管运行器或使用 Docker 容器的作业中使用此参数时， 用户有责任确保所选目录在运行之间被清空， 或数据库一旦不再需要即予移除。 {% ifversion fpt or ghec or ghes %}对于运行在 {% data variables.product.prodname_dotcom %} 托管的运行器中的任务，这是不必要的，因为每次运行时都会获得一个新的实例和一个清洁的文件系统。 有关详细信息，请参阅“[有关 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)”。{% endif %}
 
-If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice.
+如果不使用此参数，{% data variables.code-scanning.codeql_workflow %} 将在自己选择的临时位置创建数据库。
 
-## Changing the languages that are analyzed
+## 更改分析的语言
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 会自动检测用受支持的语言编写的代码。
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-The default {% data variables.code-scanning.codeql_workflow %} file contains a matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+默认 {% data variables.code-scanning.codeql_workflow %} 文件包含一个名为 `language` 的矩阵，其中列出了存储库中要分析的语言。 将 {% data variables.product.prodname_code_scanning %} 添加到仓库时，{% data variables.product.prodname_codeql %} 会自动填充此矩阵。 使用 `language` 矩阵优化 {% data variables.product.prodname_codeql %} 以并行运行每个分析。 由于并行生成的性能优势，建议所有工作流都采用此配置。 有关矩阵的详细信息，请参阅“[为作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was set up. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was set up, and you later added Python code, you will need to add `python` to the matrix.
+如果工作流使用 `language` 矩阵，则 {% data variables.product.prodname_codeql %} 会被硬编码为仅分析矩阵中的语言。 若要更改要分析的语言，请编辑 matrix 变量的值。 您可以删除某种语言以防止被分析，也可以添加在设置 {% data variables.product.prodname_code_scanning %} 时仓库中不存在的语言。 例如，如果在设置 {% data variables.product.prodname_code_scanning %} 时存储库最初只包含 JavaScript，而后来添加了 Python 代码，则需要向矩阵中添加 `python`。
 
 ```yaml
 jobs:
@@ -213,7 +212,7 @@ jobs:
         language: ['javascript', 'python']
 ```
 
-If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
+如果工作流程中不包含名为 `language` 的矩阵，则 {% data variables.product.prodname_codeql %} 将被配置为按顺序运行分析。 如果您未在工作流程中指定语言，则 {% data variables.product.prodname_codeql %} 将自动检测并尝试分析仓库中所有受支持的语言。 如果要选择要分析的语言，而不使用矩阵，则可以在 `init` 操作下使用 `languages` 参数。
 
 ```yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -221,15 +220,15 @@ If your workflow does not contain a matrix called `language`, then {% data varia
     languages: cpp, csharp, python
 ```
 {% ifversion fpt or ghec %}
-## Analyzing Python dependencies
+## 分析 Python 依赖项
 
-For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
+对于仅使用 Linux 的 GitHub 托管的运行器，{% data variables.code-scanning.codeql_workflow %} 将尝试自动安装 Python 依赖项，以便为 CodeQL 分析提供更多结果。 可以通过为“初始化 CodeQL”步骤调用的操作指定 `setup-python-dependencies` 参数来控制此行为。 默认情况下，此参数设置为 `true`：
 
--  If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
+-  如果仓库包含用 Python 编写的代码，“初始化 CodeQL”步骤将在 GitHub 托管的运行器上安装必要的依赖项。 如果自动安装成功，该操作还会将环境变量 `CODEQL_PYTHON` 设置为包含依赖项的 Python 可执行文件。
 
-- If the repository doesn't have any Python dependencies, or the dependencies are specified in an unexpected way, you'll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.
+- 如果仓库没有任何 Python 依赖项，或者依赖项是以意外方式指定的，您将收到警告，并且该操作会继续执行其余作业。 即使在解释依赖项时出现问题，该操作也可以成功运行，但结果可能不完整。
 
-Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
+或者，您也可以在任何操作系统上手动安装 Python 依赖项。 需要添加 `setup-python-dependencies` 并将其设置为 `false`，并将 `CODEQL_PYTHON` 设置为包含依赖项的 Python 可执行文件，如以下工作流提取所示：
 
 ```yaml
 jobs:
@@ -265,11 +264,11 @@ jobs:
 ```
 {% endif %}
 
-## Configuring a category for the analysis
+## 配置分析类别
 
-Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
+使用 `category` 区分针对同一工具和提交的多个分析，但在不同的语言或代码的不同部分执行。 您在工作流程中指定的类别将包含在 SARIF 结果文件中。
 
-This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
+如果您使用单一仓库，并且对单一仓库的不同部分有多个对应的 SARIF 文件，此参数是特别有用。
 
 ``` yaml
     - name: Perform CodeQL Analysis
@@ -281,36 +280,36 @@ This parameter is particularly useful if you work with monorepos and have multip
         category: "my_category"
 ```
 
-If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
-- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
+如果未在工作流中指定 `category` 参数，则 {% data variables.product.product_name %} 将基于触发操作、操作名称和任何矩阵变量的工作流文件的名称生成类别名称。 例如：
+- `.github/workflows/codeql-analysis.yml` 工作流和 `analyze` 操作将生成类别 `.github/workflows/codeql.yml:analyze`。
+- `.github/workflows/codeql-analysis.yml` 工作流、`analyze` 操作和 `{language: javascript, os: linux}` 矩阵变量将生成类别 `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`。
 
-The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)."
+`category` 值将显示为 `<run>.automationDetails.id` SARIF v2.1.0 中的属性。 有关详细信息，请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)”。
 
-Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
+指定的类别不会覆盖 SARIF 文件中 `runAutomationDetails` 对象的详细信息（如果已包含）。
 
-## Running additional queries
+## 运行额外查询
 
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% ifversion codeql-packs %}
-### Using {% data variables.product.prodname_codeql %} query packs
+### 使用 {% data variables.product.prodname_codeql %} 查询包
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+要添加一个或多个 {% data variables.product.prodname_codeql %} 查询包 (beta)，请在工作流的 `uses: {% data reusables.actions.action-codeql-action-init %}` 部分中添加一个 `with: packs:` 条目。 在 `packs` 中，可以指定要使用的一个或多个包，还可以指定要下载的版本。 在未指定版本的情况下，将下载最新版本。 如果要使用不可公开使用的包，则需要将 `GITHUB_TOKEN` 环境变量设置为有权访问包的机密。 有关详细信息，请参阅“[工作流中的身份验证](/actions/reference/authentication-in-a-workflow)”和“[加密机密](/actions/reference/encrypted-secrets)”。
 
 {% note %}
 
-**Note:** For workflows that generate {% data variables.product.prodname_codeql %} databases for multiple languages, you must instead specify the {% data variables.product.prodname_codeql %} query packs in a configuration file. For more information, see "[Specifying {% data variables.product.prodname_codeql %} query packs](#specifying-codeql-query-packs)" below.
+注意：对于为多种语言生成 {% data variables.product.prodname_codeql %} 数据库的工作流，必须改为在配置文件中指定 {% data variables.product.prodname_codeql %} 查询包。 有关详细信息，请参阅下面的“[指定 {% data variables.product.prodname_codeql %} 查询包](#specifying-codeql-query-packs)”。
 
 {% endnote %}
 
-In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the four {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run:
-- The latest version of `pack1` is downloaded and all default queries are run.
-- Version 1.2.3 of `pack2` is downloaded and all default queries are run.
-- The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
-- Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
+在下面的示例中，`scope` 是发布包的组织或个人帐户。 工作流运行时，将从 {% data variables.product.product_name %} 下载四个 {% data variables.product.prodname_codeql %} 查询包，并运行每个包的默认查询或查询套件：
+- 下载最新版本的 `pack1` 并运行所有默认查询。
+- 下载版本 1.2.3 的 `pack2` 并运行所有默认查询。
+- 下载与版本 3.2.1 兼容的最新版本 `pack3`，并运行所有查询。
+- 下载 4.5.6 版本的 `pack4`，并且仅运行在 `path/to/queries` 中找到的查询。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -319,9 +318,9 @@ In the example below, `scope` is the organization or personal account that publi
     packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~3.2.1,scope/pack4@4.5.6:path/to/queries
 ```
 
-### Downloading {% data variables.product.prodname_codeql %} packs from {% data variables.product.prodname_ghe_server %}
+### 从 {% data variables.product.prodname_ghe_server %} 下载 {% data variables.product.prodname_codeql %} 包
 
-If your workflow uses packs that are published on a {% data variables.product.prodname_ghe_server %} installation, you need to tell your workflow where to find them. You can do this by using the `registries` input of the {% data reusables.actions.action-codeql-action-init %} action. This input accepts a list of `url`, `packages`, and `token` properties as shown below.
+如果工作流使用在 {% data variables.product.prodname_ghe_server %} 安装上发布的包，则需要告知工作流在何处查找这些包。 为此，可以使用 {% data reusables.actions.action-codeql-action-init %} 操作的 `registries` 输入。 此输入接受 `url`、`packages` 和 `token` 属性的列表，如下所示。
 
 ```
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -347,13 +346,12 @@ If your workflow uses packs that are published on a {% data variables.product.pr
     {% endraw %}
 ```
 
-The package patterns in the registries list are examined in order, so you should generally place the most specific package patterns first. The values for `token` must be a {% data variables.product.pat_v1 %} generated by the GitHub instance you are downloading from with the `read:packages` permission.
+注册表列表中的包模式按顺序进行检查，因此通常应将最具体的包模式放在最前面。 `token` 的值必须是通过 `read:packages` 权限从中下载的 GitHub 实例生成的 {% data variables.product.pat_v1 %}。
 
-Notice the `|` after the `registries` property name. This is important since  {% data variables.product.prodname_actions %} inputs can only accept strings. Using the `|` converts the subsequent text to a string, which is parsed later by the {% data reusables.actions.action-codeql-action-init %} action.
+注意 `registries` 属性名称之后的 `|`。 这一点很重要，因为 {% data variables.product.prodname_actions %} 输入只能接受字符串。 使用 `|` 将后续文本转换为字符串，稍后由 {% data reusables.actions.action-codeql-action-init %} 操作分析。
 
-### Using queries in QL packs
-{% endif %}
-To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+### 在 QL 包中使用查询
+{% endif %} 若要添加一个或多个查询，请在工作流的 `uses: {% data reusables.actions.action-codeql-action-init %}` 部分中添加一个 `with: queries:` 条目。 如果查询在专用存储库中，请使用 `external-repository-token` 参数来指定具有签出专用存储库访问权限的令牌。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -363,17 +361,17 @@ To add one or more queries, add a `with: queries:` entry within the `uses: {% da
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
 
-You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
+还可以在 `queries` 的值中指定查询套件。 查询套件是查询的集合，通常按用途或语言进行分组。
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 {% ifversion codeql-packs %}
-### Working with custom configuration files
+### 使用自定义配置文件
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% ifversion codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% ifversion codeql-packs %}packs or {% endif %}queries, prefix the value of {% ifversion codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+如果还将配置文件用于自定义设置，则将使用工作流中指定的任何其他{% ifversion codeql-packs %}包或{% endif %}查询，而不是配置文件中指定的查询。 如果要运行其他{% ifversion codeql-packs %}包或{% endif %}查询的组合，请在工作流中的 {% ifversion codeql-packs %}`packs` 或 {% endif %}`queries` 值前附加 `+` 符号。 有关详细信息，请参阅[使用自定义配置文件](#using-a-custom-configuration-file)。
 
-In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+在下面的示例中，`+` 符号确保指定的附加{% ifversion codeql-packs %}包和{% endif %}查询与引用的配置文件中指定的任何包和查询一起使用。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -385,11 +383,11 @@ In the following example, the `+` symbol ensures that the specified additional {
     {%- endif %}
 ```
 
-## Using a custom configuration file
+## 使用自定义配置文件
 
-A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries{% ifversion code-scanning-exclude-queries-from-analysis %}, exclude or include specific queries,{% endif %} and to specify which directories to scan during analysis.
+自定义配置文件是指定要运行的其他{% ifversion codeql-packs %}包和{% endif %}查询的替代方法。 还可以使用该文件禁用默认查询{% ifversion code-scanning-exclude-queries-from-analysis %}、排除或包含特定查询{% endif %}以及指定要在分析期间扫描的目录。
 
-In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
+在工作流文件中，使用 `init` 操作的 `config-file` 参数指定要使用的配置文件的路径。 此示例加载配置文件 ./.github/codeql/codeql-config.yml。
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -399,7 +397,7 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
+如果配置文件位于外部专用存储库中，请使用 `init` 操作的 `external-repository-token` 参数指定有权访问专用存储库的令牌。
 
 ```yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -407,14 +405,14 @@ If the configuration file is located in an external private repository, use the 
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
 
-The settings in the configuration file are written in YAML format.
+配置文件中的设置以 YAML 格式编写。
 
 {% ifversion codeql-packs %}
-### Specifying {% data variables.product.prodname_codeql %} query packs
+### 指定 {% data variables.product.prodname_codeql %} 查询包
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
+在数组中指定 {% data variables.product.prodname_codeql %} 查询包。 请注意，格式与工作流文件使用的格式不同。
 
 {% raw %}
 ``` yaml
@@ -434,9 +432,9 @@ packs:
 ```
 {% endraw %}
 
-The full format for specifying a query pack is `scope/name[@version][:path]`. Both `version` and `path` are optional. `version` is semver version range. If it is missing, the latest version is used. For more information about semver ranges, see the [semver docs on npm](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
+指定查询包的完整格式为 `scope/name[@version][:path]`。 `version` 和 `path` 都是可选的。 `version` 是 semver 版本范围。 如果缺少该版本，则使用最新版本。 有关 semver 范围的详细信息，请参阅 [npm 上的 semver 文档](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges)。
 
-If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
+如果您的工作流程生成多个 {% data variables.product.prodname_codeql %} 数据库，则可以使用包的嵌套映射指定要在自定义配置文件中运行的任何 {% data variables.product.prodname_codeql %} 查询包。
 
 {% raw %}
 ``` yaml
@@ -450,12 +448,11 @@ packs:
     - scope/java-pack1
     - scope/java-pack2@v1.0.0
 ```
-{% endraw %}
-{% endif %}
+{% endraw %} {% endif %}
 
-### Specifying additional queries
+### 指定额外查询
 
-You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
+在 `queries` 数组中指定其他查询。 数组的每个元素都包含一个 `uses` 参数，其值标识单个查询文件、包含查询文件的目录或查询套件定义文件。
 
 ``` yaml
 queries:
@@ -464,23 +461,23 @@ queries:
   - uses: ./query-suites/my-security-queries.qls
 ```
 
-Optionally, you can give each array element a name, as shown in the example configuration files below. For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
+（可选）您可以给每个数组元素一个名称，如下面的示例配置文件所示。 有关其他查询的详细信息，请参阅上面的“[运行其他查询](#running-additional-queries)”。
 
-### Disabling the default queries
+### 禁用默认查询
 
-If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
+如果只想运行自定义查询，可以使用 `disable-default-queries: true` 禁用默认安全查询。
 
 {% ifversion code-scanning-exclude-queries-from-analysis %}
-### Excluding specific queries from analysis
+### 从分析中排除特定查询
 
-You can add `exclude` and `include` filters to your custom configuration file, to specify the queries you want to exclude or include in the analysis.
+可以向自定义配置文件添加 `exclude` 和 `include` 筛选器，以指定要在分析中排除或包含的查询。
 
-This is useful if you want to exclude, for example:
-- Specific queries from the default suites (`security`, `security-extended` and `security-and-quality`).
-- Specific queries whose results do not interest you.
-- All the queries that generate warnings and recommendations.
+这在要排除诸如以下内容时非常有用：
+- 来自默认套件的特定查询（`security`、`security-extended` 和`security-and-quality`）。
+- 对其结果不感兴趣的特定查询。
+- 生成警告和建议的所有查询。
 
-You can use `exclude` filters similar to those in the configuration file below to exclude queries that you want to remove from the default analysis. In the example of configuration file below, both the `js/redundant-assignment` and the `js/useless-assignment-to-local` queries are excluded from analysis.
+可以使用 `exclude` 筛选器（类似于以下配置文件中的筛选器）来排除要从默认分析中移除的查询。 在以下配置文件示例中，`js/redundant-assignment` 和 `js/useless-assignment-to-local` 查询都从分析中排除。
 
 ```yaml
 query-filters:
@@ -489,25 +486,25 @@ query-filters:
   - exclude:
       id: js/useless-assignment-to-local
 ```
-To find the id of a query, you can click the alert in the list of alerts in the Security tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+若要查找查询的 ID，可以在“安全性”选项卡中的警报列表中单击警报。这会打开警报详细信息页。 `Rule ID` 字段包含查询 ID。有关警报详细信息页的详细信息，请参阅“[关于 {% data variables.product.prodname_code_scanning %} 警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)”。
 
 {% tip %}
 
-**Tips:**
-- The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
-- Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
+**提示：**
+- 筛选器的顺序非常重要。 在有关查询和查询包的指令之后出现的第一个筛选器指令确定在默认情况下是包含还是排除查询。
+- 后续指令按顺序执行，在文件后面出现的指令优先于前面的指令。
 
 {% endtip %}
 
-You can find another example illustrating the use of these filters in the "[Example configuration files](#example-configuration-files)" section.
+可以在“[示例配置文件](#example-configuration-files)”部分中找到说明这些筛选器的使用的另一个示例。
 
-For more information about using `exclude` and `include` filters in your custom configuration file, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
+有关在自定义配置文件中使用 `exclude` 和 `include` 筛选器的详细信息，请参阅“[创建 {% data variables.product.prodname_codeql %} 查询套件](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/#filtering-the-queries-in-a-query-suite)”。 有关可以筛选的查询元数据的信息，请参阅“[CodeQL 查询的元数据](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)”。
 
 {% endif %}
 
-### Specifying directories to scan
+### 指定要扫描的目录
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae > 3.3 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
+对于 {% data variables.product.prodname_codeql %} 支持的解释语言（Python{% ifversion fpt or ghes > 3.3 or ghae > 3.3 %}、Ruby{% endif %} 和 JavaScript/TypeScript），你可以通过在配置文件中添加 `paths` 数组将 {% data variables.product.prodname_code_scanning %} 限制为特定目录中的文件。 你可以通过添加 `paths-ignore` 数组从分析中排除特定目录中的文件。
 
 ``` yaml
 paths:
@@ -519,28 +516,28 @@ paths-ignore:
 
 {% note %}
 
-**Note**:
+**注意**：
 
-* The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
-* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
-* `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
+* 在 {% data variables.product.prodname_code_scanning %} 配置文件的上下文中使用的 `paths` 和 `paths-ignore` 关键字在工作流中用于 `on.<push|pull_request>.paths` 时不应与相同的关键字混淆。 当它们用于修改工作流中的 `on.<push|pull_request>` 时，它们确定当有人修改指定目录中的代码时是否会运行这些操作。 有关详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)”。
+* 筛选模式字符 `?`、`+`、`[`、`]` 和 `!` 不受支持，将按字面意思进行匹配。
+* `**` 字符只能位于行首或行尾，或被斜线包围，并且不能混用 `**` 和其他字符。 例如，`foo/**`、`**/foo` 和 `foo/**/bar` 都是允许的语法，但 `**foo` 不是。 但是，可以将单星与其他字符一起使用，如示例中所示。 需要引用包含 `*` 字符的任何内容。
 
 {% endnote %}
 
-For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+对于编译的语言，如果要将 {% data variables.product.prodname_code_scanning %} 限制到项目中的特定目录，您必须在工作流程中指定适当的构建步骤。 需要用于从构建中排除目录的命令取决于你的构建系统。 有关详细信息，请参阅“[为已编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。
 
-You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) in your workflow.
+修改特定目录中的代码时，可以快速分析单存储库的一小部分。 需要在构建步骤中排除目录，并在工作流中为 [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) 使用 `paths-ignore` 和 `paths` 关键字。
 
-### Example configuration files
+### 示例配置文件
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## 为编译语言配置 {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages)."
+{% data reusables.code-scanning.autobuild-add-build-steps %} 要详细了解如何为编译语言配置 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，请参阅“[编译语言配置 {% data variables.product.prodname_codeql %} 工作流](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages)”。
 
-## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## 将 {% data variables.product.prodname_code_scanning %} 数据上传到 {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} can display code analysis data generated externally by a third-party tool. You can upload code analysis data with the `upload-sarif` action. For more information, see "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
+{% data variables.product.prodname_dotcom %} 可显示通过第三方工具在外部生成的代码分析数据。 可以使用 `upload-sarif` 操作上传代码分析数据。 有关详细信息，请参阅“[将 SARIF 文件上传到 GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)”。

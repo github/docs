@@ -1,6 +1,6 @@
 ---
-title: Reinstating a former member of your organization
-intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+title: Reaktivieren eines ehemaligen Mitglieds deiner Organisation
+intro: 'Organisationsbesitzer*innen können {% ifversion fpt or ghec %}ehemalige Organisationsmitglieder zum erneuten Beitritt in deine Organisation einladen{% else %}ehemalige Mitglieder zu deiner Organisation hinzufügen{% endif%} und auswählen, ob die zuvor zugewiesenen Rollen der Personen, Zugriffsberechtigungen, Forks und Einstellungen wiederhergestellt werden sollen.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -14,69 +14,58 @@ topics:
   - Organizations
   - Teams
 shortTitle: Reinstate a member
+ms.openlocfilehash: b9ad15f9fc882206ed7b335bcc6dea698c2f1f8e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145101479'
 ---
+## Informationen zur Mitgliedsreaktivierung
 
-## About member reinstatement
+Wenn Benutzer*innen auf eine der folgenden Arten aus deiner Organisation entfernt werden, werden die Zugriffsberechtigungen und Einstellungen der Benutzer*innen für drei Monate gespeichert. 
 
-If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months. 
+- Du hast Benutzer*innen manuell aus deiner Organisation entfernt. Weitere Informationen findest du unter [Entfernen eines Mitglieds aus deiner Organisation](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization).{% ifversion not ghae %}
+- Der Benutzer wurde aus deiner Organisation entfernt, da du Mitglieder und externe Mitarbeiter benötigt hast, um die zweistufige Authentifizierung (2FA) zu aktivieren. Weitere Informationen findest du unter [Erfordern der zweistufigen Authentifizierung in deiner Organisation](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization).{% endif %}{% ifversion fpt or ghec %}
+- Der Benutzer wurde aus deiner Organisation entfernt, weil du einmaliges Anmelden mit SAML erzwungen hast. Weitere Informationen findest du unter „[Verwalten des einmaligen Anmeldens mit SAML für deine Organisation](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in der Dokumentation zu {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}{% endif %}
+- Ein Organisationsmitglied in einen externen Mitarbeiter umwandeln. Weitere Informationen findest du unter [Ändern der Rolle eines Organisationsmitglieds in eine*n externe*n Mitarbeiter*in](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator).
 
-- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
-- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
-- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-- You converted an organization member to an outside collaborator. For more information, see "[Converting an organization member to an outside collaborator](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
-
-You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+Du kannst die Berechtigungen der Benutzer*innen wiederherstellen, wenn du sie innerhalb dieses Zeitraums wieder in die Organisation {% ifversion fpt or ghec %}einlädst{% else %}{% endif %}.
 
 {% note %}
 
-**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
+**Hinweis:** {% data reusables.saml.removed-users-can-rejoin %} Du musst diese Benutzer*innen nicht einladen, sich erneut anzumelden. Stattdessen kann sich der Benutzer bei ihrem persönlichen Konto anmelden, zur Organisation navigieren und auf das Banner klicken, um sich über die Einmalige Anmeldung mit SAML zu authentifizieren.
 
 {% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former organization member, you can restore:
- - The user's role in the organization
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+Bei der Wiedereinsetzung eines ehemaligen Organisationsmitglieds kannst du Folgendes wiederherstellen:
+ - Die Rolle des Benutzers innerhalb der Organisation
+ - Alle privaten Forks der Repositorys der Organisation
+ - Die Mitgliedschaft innerhalb der Organisationsteams
+ - Die früheren Zugriffsrechte und Berechtigungen für die Repositorys der Organisation
+ - Sterne für die Repositorys der Organisation
+ - Issue-Zuweisungen innerhalb der Organisation
+ - Repository-Abonnements (Benachrichtigungseinstellungen für das Beobachten, Nicht-Beobachten oder Ignorieren der Repository-Aktivitäten)
 
-{% ifversion ghes %}
-If an organization member was removed from the organization because they did not use two-factor authentication and your organization still requires members to use 2FA, the former member must enable two-factor authentication before you can reinstate their membership.
+{% ifversion ghes %} Wenn ein Organisationsmitglied aus der Organisation entfernt wurde, weil es keine zweistufige Authentifizierung verwendet, und deine Organisation diese nach wie vor von Mitgliedern verlangt, muss das ehemalige Mitglied die zweistufige Authentifizierung aktivieren, damit seine Mitgliedschaft reaktiviert werden kann.
 {% endif %}
 
-{% ifversion fpt or ghec %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-scim %}
-{% endif %}
+{% ifversion fpt or ghec %} Wenn deine Organisation ein benutzerabhängiges Abonnement hat, muss eine ungenutzte Lizenz verfügbar sein, bevor du ein ehemaliges Organisationsmitglied wieder einrichten kannst. Weitere Informationen findest du unter [Informationen zu den Preisen pro Benutzer*in](/articles/about-per-user-pricing). {% data reusables.organizations.org-invite-scim %} {% endif %}
 
-## Reinstating a former member of your organization
+## Reaktivieren eines ehemaligen Mitglieds deiner Organisation
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.invite_member_from_people_tab %}
-{% data reusables.organizations.reinstate-user-type-username %}
-{% ifversion fpt or ghec %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Invite and reinstate** or **Invite and start fresh**.
-  ![Choose to restore info or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
-{% else %}
-6. Choose whether to restore that person's previous privileges in the organization or clear their previous privileges and set new access permissions, then click **Add and reinstate** or **Add and start fresh**.
-  ![Choose whether to restore privileges](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
-{% else %}
-7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
-{% endif %}
-{% ifversion fpt or ghec %}
-{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.invite_member_from_people_tab %} {% data reusables.organizations.reinstate-user-type-username %} {% ifversion fpt or ghec %}
+6. Wähle, ob die vorherigen Berechtigungen dieser Person in der Organisation wiederhergestellt werden können, oder lösche die vorherigen Berechtigung und lege neue Zugriffsberechtigungen fest. Klicke dann auf **Einladen und wiederherstellen** oder **Einladen und neu starten**.
+  ![Auswählen, ob Informationen wiederhergestellt werden sollen oder nicht](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png) {% else %}
+6. Wähle, ob die vorherigen Berechtigungen dieser Person in der Organisation wiederhergestellt werden können, oder lösche die vorherigen Berechtigung und lege neue Zugriffsberechtigungen fest. Klicke dann auf **Einladen und wiederherstellen** oder **Einladen und neu starten**.
+  ![Wähle aus, ob Berechtigungen wiederhergestellt werden sollen](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png) {% endif %} {% ifversion fpt or ghec %}
+7. Wenn du die früheren Berechtigungen eines ehemaligen Organisationsmitglieds gelöscht hast, wähle eine Rolle für den Benutzer aus und fügen ihn optional zu einem oder mehreren Teams hinzu. Klicke dann auf **Einladung senden**.
+  ![Rollen- und Teamoptionen und die Schaltfläche „Einladung senden“](/assets/images/help/organizations/add-role-send-invitation.png) {% else %}
+7. Wenn du die früheren Berechtigungen eines ehemaligen Organisationsmitglieds gelöscht hast, wähle eine Rolle für den Benutzer aus und fügen ihn optional zu einem oder mehreren Teams hinzu. Klicke dann auf **Mitglied hinzufügen**.
+  ![Rollen- und Team-Optionen und Hinzufügen der Member-Schaltfläche](/assets/images/help/organizations/add-role-add-member.png) {% endif %} {% ifversion fpt or ghec %} {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %} {% endif %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- [Ein Organisationsmitglied in einen externen Mitarbeiter umwandeln](/articles/converting-an-organization-member-to-an-outside-collaborator)

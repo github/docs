@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: e44a606d9e8334ff762c19fc543add0779b715eb
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148106933"
+---
 {% note %}
 
-**Note**:  If you disable billing for {% data variables.product.prodname_github_codespaces %} for some organization members and collaborators, or for your entire organization, anyone who can either push changes to, or fork, a repository in your organization, will still be able to create a codespace for that repository by using their personal account. However, this will not incur any charge for your organization. For information about restricting access to a repository, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+**Hinweis**:  Wenn du die Nutzung kostenpflichtiger Codespaces für deine Organisation deaktivierst, können alle Personen mit der Berechtigung zum Klonen eines Repositorys in deiner Organisation weiterhin einen Codespace für dieses Repository erstellen, indem sie ihr persönliches Konto verwenden. Dadurch werden jedoch keine Gebühren für deine Organisation verursacht. Informationen zum Einschränken des Zugriffs auf ein Repository findest du unter [Verwalten von Teams und Personen mit Zugriff auf dein Repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository).
 
 {% endnote %}

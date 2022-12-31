@@ -1,6 +1,6 @@
 ---
-title: Webhook events and payloads
-intro: 'Learn about when each webhook event occurs and what the payload contains.'
+title: Webhook のイベントとペイロード
+intro: 各 Webhook イベントが発生するタイミングと、そのペイロードに含まれる内容について説明します。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks
@@ -15,48 +15,52 @@ versions:
 topics:
   - Webhooks
 shortTitle: Webhook events & payloads
+ms.openlocfilehash: 0592f191b463354b92c3953880c7a7a435e0b07a
+ms.sourcegitcommit: b2e5d14036a700b781e91158a552f8c0b1f04839
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165539'
 ---
-
 {% data reusables.webhooks.webhooks_intro %}
 
-You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
+このページに表示されているイベントをサブスクライブする webhook を作成できます。 各 webhook イベントには、webhook プロパティの説明とペイロードの例が含まれています。 詳細については、「[webhook の作成](/webhooks/creating/)」を参照してください。
 
-## Webhook payload object common properties
+## webhook ペイロードオブジェクトの共通プロパティ
 
-Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
+各 webhook イベントペイロードには、イベント固有のプロパティも含まれています。 固有のプロパティは、個々のイベントタイプのセクションにあります。
 
-Key | Type | Description
+キー | Type | 説明
 ----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
-{% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
-{% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %} For more information, see "[Building {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)."
+`action` | `string` | ほとんどの webhook ペイロードには、イベントをトリガーした特定のアクティビティを含む `action` プロパティが含まれています。
+{% data reusables.webhooks.sender_desc %} このプロパティは、すべての webhook ペイロードに含まれています。
+{% data reusables.webhooks.repo_desc %} イベントがリポジトリ内のアクティビティから発生した場合、webhook ペイロードには `repository` プロパティが含まれます。
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %}詳細については、「[{% data variables.product.prodname_github_app %} を構築する](/apps/building-github-apps/)」を参照してください。
 
-The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/rest/reference/activity#events). One exception is the [`push` event](#push). The unique properties of the `push` event webhook payload and the `payload` property in the Events API differ. The webhook payload contains more detailed information.
+webhook イベントの一意のプロパティは、[Events API](/rest/reference/activity#events) の使用時に `payload` プロパティに含まれるプロパティと同じです。 例外の 1 つは [`push` イベント](#push)です。 `push` イベントの webhook ペイロードの一意のプロパティと Events API の `payload` プロパティは異なります。 webhook ペイロードには、より詳細な情報が含まれています。
 
 {% tip %}
 
-**Note:** Payloads are capped at 25 MB. If your event generates a larger payload, a webhook will not be fired. This may happen, for example, on a `create` event if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.
+**注:** ペイロードの上限は 25 MB です。 イベントにより大きなペイロードが生成された場合、webhook は起動しません。 これは、たとえば、多数のブランチまたはタグが一度にプッシュされた場合に、`create` イベントで発生する可能性があります。 確実にデリバリが行われるよう、ペイロードサイズを監視することをお勧めします。
 
 {% endtip %}
 
-### Delivery headers
+### デリバリヘッダ
 
-HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
+webhook によって設定されている URL エンドポイントに配信される HTTP POST ペイロードには、いくつかの特別なヘッダが含まれています。
 
-Header | Description
+Header | 説明
 -------|-------------|
-`X-GitHub-Event`| Name of the event that triggered the delivery.
-`X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
-`X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
-`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
-`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.
+`X-GitHub-Event`| デリバリをトリガーしたイベントの名前。
+`X-GitHub-Delivery`| デリバリーを識別する [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier)。{% ifversion ghes or ghae %}
+`X-GitHub-Enterprise-Version` | HTTP POST ペイロードを送信した {% data variables.product.prodname_ghe_server %} インスタンスのバージョン。
+`X-GitHub-Enterprise-Host` | HTTP POST ペイロードを送信した {% data variables.product.prodname_ghe_server %} インスタンスのホスト名。{% endif %}{% ifversion not ghae %}
+`X-Hub-Signature`| このヘッダーは、webhook が [`secret`](/rest/reference/repos#create-hook-config-params) で構成されている場合に送信されます。 これは要求本文の HMAC 16 進ダイジェストであり、SHA-1 ハッシュ関数と `secret` (HMAC `key` として) を使用して生成されます。{% ifversion fpt or ghes or ghec %}`X-Hub-Signature` は、既存の統合との互換性のために提供されており、代わりにより安全な `X-Hub-Signature-256` を使用することをお勧めします。{% endif %}{% endif %}
+`X-Hub-Signature-256`| このヘッダーは、webhook が [`secret`](/rest/reference/repos#create-hook-config-params) で構成されている場合に送信されます。 これは要求本文の HMAC 16 進ダイジェストであり、SHA-256 ハッシュ関数と `secret` (HMAC `key` として) を使用して生成されます。
 
-Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
+また、要求の `User-Agent` にはプレフィックス `GitHub-Hookshot/` も含まれます。
 
-### Example delivery
+### デリバリの例
 
 ```shell
 > POST /payload HTTP/2

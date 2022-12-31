@@ -1,6 +1,6 @@
 ---
 title: 了解仓库之间的连接
-intro: 通过查看存储库的网络和分叉以及依赖于存储库的项目，您可以更好地了解存储库之间存在的连接。
+intro: 使用网络图和分支列表了解分支网络。
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147060064'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191353'
 ---
 ## 查看仓库的网络
 
-网络图显示整个仓库网络的分支历史记录，包括根仓库的分支和包含网络独有提交的复刻的分支。
+网络图显示了整个存储库网络的分支历史记录，包括创建分支。 此图是最近提交的时间线，最多显示 100 个最近已推送的分支。 第一行引用日期，第一列引用分支所有者。 使用箭头键或其他键盘快捷方式可以更轻松地在图中浏览。 图下面的“可用的键盘快捷方式”弹出窗口中提供了这些选项。
+
 
 ![仓库网络图](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ ms.locfileid: '147060064'
 
 成员图显示仓库的所有复刻。
 
-复刻按仓库复刻者用户名的字母顺序列出。 您可以单击要重定向到用户 {% data variables.product.product_name %} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
+分支按存储库分支创建组织或创建者用户名的字母顺序列出。 可以单击要重定向到组织或用户 {% data variables.product.product_name %} 个人资料页面的组织或用户名，或者单击要重定向到存储库特定分支的分支名称。
 
 {% ifversion fpt or ghec %}
 

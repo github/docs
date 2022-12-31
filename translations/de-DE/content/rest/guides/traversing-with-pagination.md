@@ -1,97 +1,95 @@
 ---
-title: Traversing with pagination
-intro: Explore how to use pagination to manage your responses with some examples using the Search API.
+title: Durchlaufen mit Paginierung
+intro: Hier erfährst du, wie du mit der Paginierung deine Antworten verwaltest, einschließlich einiger Beispiele mit der Such-API.
 redirect_from:
-  - /guides/traversing-with-pagination
-  - /v3/guides/traversing-with-pagination
+- /guides/traversing-with-pagination
+- /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - API
+- API
 shortTitle: Traverse with pagination
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 92173dffdf2c50bdcd2b10fa42ef634683a3e149
+ms.sourcegitcommit: d1d7ccc513192fdd0fc27bb49dc9c85108119b91
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179529"
 ---
+Die API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} bietet eine Vielzahl von Informationen, die Entwickler nutzen können.
+Meistens wirst du sogar feststellen, dass du _zu viele_ Informationen anforderst, und um unsere Server zufrieden zu stellen, [paginiert die API die angeforderten Elemente automatisch](/rest/overview/resources-in-the-rest-api#pagination).
 
-The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
-Most of the time, you might even find that you're asking for _too much_ information,
-and in order to keep our servers happy, the API will automatically [paginate the requested items](/rest/overview/resources-in-the-rest-api#pagination).
-
-In this guide, we'll make some calls to the Search API, and iterate over
-the results using pagination. You can find the complete source code for this project
-in the [platform-samples][platform samples] repository.
+In diesem Leitfaden führen wir einige Aufrufe der Search-API durch und durchlaufen die Ergebnisse mithilfe der Paginierung. Den vollständigen Quellcode für dieses Projekt findest du im Repository [platform-samples][platform samples].
 
 {% data reusables.rest-api.dotcom-only-guide-note %}
 
 
 
-## Basics of Pagination
+## Grundlagen der Paginierung
 
-To start with, it's important to know a few facts about receiving paginated items:
+Zunächst ist es wichtig, einige Fakten zum Empfangen von paginierten Elementen zu kennen:
 
 
-1. Different API calls respond with different defaults. For example, a call to
-[List public repositories](/rest/reference/repos#list-public-repositories)
-provides paginated items in sets of 30, whereas a call to the GitHub Search API
-provides items in sets of 100
-2. You can specify how many items to receive (up to a maximum of 100); but,
-3. For technical reasons, not every endpoint behaves the same. For example,
-[events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
-Be sure to read the documentation on how to handle paginated results for specific endpoints.
+1. Unterschiedliche API-Aufrufe reagieren mit unterschiedlichen Standardwerten. Ein Aufruf von [List public repositories](/rest/reference/repos#list-public-repositories) stellt beispielsweise paginierte Elemente in Gruppen von 30 bereit, während ein Aufruf der GitHub Search-API Elemente in Gruppen von 100 bereitstellt
+2. Du kannst angeben, wie viele Elemente empfangen werden sollen (bis zu 100); Aber
+3. Aus technischen Gründen verhält sich nicht jeder Endpunkt gleich. Für [events](/rest/reference/activity#events) kannst du beispielsweise keinen Höchstwert für zu empfangende Elemente festlegen.
+Lies unbedingt die Dokumentation zum Behandeln von paginierten Ergebnissen für bestimmte Endpunkte.
 
 {% note %}
 
-**Note**: You should always rely on URLs included in the link header. Don't try to guess or construct your own URLs.
+**Hinweis**: Du solltest dich immer auf URLs verlassen, die im Linkheader enthalten sind. Versuche nicht, URLs zu erraten oder eigene zu erstellen.
 
 {% endnote %}
 
 
-### Link header
+### Link-Header
 
-The response header includes information about pagination. For more information about headers, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#about-the-response-code-and-headers)." To get the response header, include the `-I` flag in your request. For example:
+Der Antwortheader enthält Informationen zur Paginierung. Weitere Informationen zu Headern findest du unter [Erste Schritte mit der REST-API](/rest/guides/getting-started-with-the-rest-api#about-the-response-code-and-headers). Um den Antwortheader abzurufen, füge deiner Anforderung das `-I`-Flag hinzu. Zum Beispiel:
 
 ```shell 
 $ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"   https://api.github.com/enterprises/advacado-corp/audit-log
 
 ```
 
-The `-I` flag returns only the response header. If the response is paginated, the response header will include a `link` header. The header will look something like this:
+Das `-I`-Flag gibt nur den Antwortheader zurück. Wenn die Antwort paginiert ist, enthält der Antwortheader einen `link`-Header. Der Header sieht in etwa wie folgt aus:
 
 ```
 link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>; rel="next"
 ```
 
-or
+oder
 
 ```
 link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?page=511>; rel="last"
 ```
-### Types of pagination
+### Arten der Paginierung
 
-{% data variables.product.company_short %}'s API uses two pagination methods: page-based pagination and cursor-based pagination. If the `link` header includes `page`, then the operation uses page-based pagination. If the `link` header includes `before` and `after`, then the operation uses cursor-based pagination.
+Die API von {% data variables.product.company_short %} verwendet zwei Paginierungsmethoden: seitenbasierte Paginierung und cursorbasierte Paginierung. Wenn der `link`-Header den Wert `page` enthält, verwendet der Vorgang die seitenbasierte Paginierung. Wenn der `link`-Header die Werte `before` und `after` enthält, verwendet der Vorgang die cursorbasierte Paginierung.
 
 
-#### Page based pagination
+#### Seitenbasierte Paginierung
 
-The link header for page-based pagination will tell you information about the previous, next, first, and last pages. If you did not request a specific page, then the response will default to the first page and information about the first and previous pages will be omitted.
+Der Linkheader für die seitenbasierte Paginierung enthält Informationen zu den vorherigen, nächsten, ersten und letzten Seiten. Wenn du keine bestimmte Seite angefordert hast, wird die Antwort standardmäßig auf die erste Seite angewendet, und Informationen zur ersten und vorherigen Seite werden weggelassen.
 
-For example, for a request that did not specify a page, this header states that the next page is `2` and the last page is `511`.
+Für eine Anforderung, die keine Seite angegeben hat, gibt dieser Header beispielsweise an, dass die nächste Seite `2` und die letzte Seite `511` ist.
 
 ```
 link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?page=511>; rel="last"
 ```
 
-For example, for a request that specified page 5, this header states that the previous page is `4`, the next page is `6`, the last page is `511`, and the first page is `1`.
+Für eine Anforderung, die Seite 5 angegeben hat, gibt dieser Header beispielsweise an, dass die vorherige Seite `4`, die nächste Seite `6`, die letzte Seite `511` und die erste Seite `1` ist.
 
 ```
 link: <https://api.github.com/repositories/1300192/issues?page=4>; rel="prev", <https://api.github.com/repositories/1300192/issues?page=6>; rel="next", <https://api.github.com/repositories/1300192/issues?page=511>; rel="last", <https://api.github.com/repositories/1300192/issues?page=1>; rel="first"
 ```
 
-#### Cursor based pagination
+#### Cursorbasierte Paginierung
 
-Cursor pagination uses terms `before` and `after` in order to navigate through pages. `rel="next"` and `rel="prev"` this mark the cursor point in the data set and provides a reference for traveling to the page `before` and `after` the current page.  
+Die cursorbasierte Paginierung verwendet die Begriffe `before` und `after`, um durch die Seiten zu navigieren. `rel="next"` und `rel="prev"` kennzeichnen den Cursorpunkt im Dataset und dienen als Verweis für die Seite `before` und `after` der aktuellen Seite.  
 
 ```
 link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2MzZlKzEyfFdxSzIxdGU0MlBWNUp5UzhBWDF6LWc%3D&before=>; rel="next",
@@ -99,7 +97,7 @@ link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2
 <https://api.github.com/enterprises/13827/audit-log?after=&before=MS42NjQzODM5MTcyMjllKzEyfDI4NDE6NEVFNDoxODBDRkM5OjY5REE0MzI6NjMzNDdCQUQ%3D>; rel="prev"
 ```
 
-In this example, `rel=next` says that the next page is located at:
+In diesem Beispiel gibt `rel=next` an, dass sich die nächste Seite hier befindet:
 
 ```
 after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=
@@ -108,17 +106,17 @@ after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%
 
 
 
-### Using pagination
+### Verwenden der Paginierung
 
-#### Cursor based pagination
+#### Cursorbasierte Paginierung
 
-Using cursor based pagination requires you to use the terms `before` and `after`. To navigate using `before` and `after`, copy the link header generated above into your curl request:
+Bei der cursorbasierten Paginierung musst du die Begriffe `before` und `after` verwenden. Um mit `before` und `after` zu navigieren, kopiere den oben generierten Linkheader in deine cURL-Anforderung:
 
 ```shell
 $ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=
 ```
 
-The above example will generate a page of results and new header information that you can use to make the next request. `rel="next"` provides the next page of results. `rel="prev"` provides the previous page of results. The important part of the output here is the link header needs to be generated rather than manually imputed. Copy the entire link from the following output.
+Im obigen Beispiel werden eine Seite mit Ergebnissen und neuen Headerinformationen generiert, die du für die nächste Anforderung verwenden kannst. `rel="next"` stellt die nächste Ergebnisseite bereit. `rel="prev"` stellt die vorherige Ergebnisseite bereit. Am wichtigsten bei dieser Ausgabe ist, dass der Linkheader generiert werden muss, anstatt diesen manuell zu imputieren. Kopiere den gesamten Link aus der folgenden Ausgabe.
 
 ```
 link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2MzZlKzEyfFdxSzIxdGU0MlBWNUp5UzhBWDF6LWc%3D&before=>; rel="next", 
@@ -126,74 +124,63 @@ link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2
 <https://api.github.com/enterprises/13827/audit-log?after=&before=MS42NjQzODM5MTcyMjllKzEyfDI4NDE6NEVFNDoxODBDRkM5OjY5REE0MzI6NjMzNDdCQUQ%3D>; rel="prev"
 ```
 
-Unlike page-based pagination, the results will not return the last page number in the response.
+Im Gegensatz zur seitenbasierten Paginierung geben die Ergebnisse nicht die letzte Seitenzahl in der Antwort zurück.
 
     link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2MzZlKzEyfFdxSzIxdGU0MlBWNUp5UzhBWDF6LWc%3D&before=>; rel="next", 
     <https://api.github.com/enterprises/13827/audit-log?after=&before=>; rel="first", 
     <https://api.github.com/enterprises/13827/audit-log?after=&before=MS42NjQzODM5MTcyMjllKzEyfDI4NDE6NEVFNDoxODBDRkM5OjY5REE0MzI6NjMzNDdCQUQ%3D>; rel="prev"
     
-Because cursor based pagination creates a reference point in the data set, it cannot calculate the total number of results.
+Da die cursorbasierte Paginierung einen Verweispunkt im Dataset erstellt, kann die Gesamtanzahl der Ergebnisse nicht berechnet werden.
 
 
-#### Page based pagination
+#### Seitenbasierte Paginierung
 
-To navigate using page based pagination pass in a `page`
-parameter. By default, `page` always starts at `1`. In the following example, we have made a curl request to the search API Mozilla projects use the phrase `addClass`. Instead of starting at 1, lets jump to page 14. 
+Um mithilfe der seitenbasierten Paginierung zu navigieren, übergib einen `page`-Parameter. Standardmäßig beginnt `page` immer bei `1`. Das folgende Beispiel ist eine cURL-Anforderung an die Such-API von Mozilla-Projekten. Hierbei wird der Ausdruck `addClass` verwendet. Wir beginnen nicht bei 1, sondern springen direkt zu Seite 14. 
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
-Here's an except of the link header in the HTTP request:
+Hier ist ein Beispiel für den Linkheader in der HTTP-Anforderung:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
-In this example, `rel="next"` is at 15, and `rel="last"` is 34. But now we've
-got some more information: `rel="first"` indicates the URL for the _first_ page,
-and more importantly, `rel="prev"` lets you know the page number of the previous
-page. Using this information, you could construct some UI that lets users jump
-between the first, previous, next, or last list of results in an API call.
+In diesem Beispiel ist `rel="next"` bei 15, und `rel="last"` ist 34. Aber jetzt haben wir noch weitere Informationen: `rel="first"` gibt die URL für die _erste_ Seite an, und wichtiger ist, dass `rel="prev"` lässt Dich die Seitenzahl der vorherigen Seite erkennen. Mithilfe dieser Informationen kannst du eine Benutzeroberfläche erstellen, mit der Benutzer zwischen der ersten, vorherigen, nächsten oder letzten Liste der Ergebnisse in einem API-Aufruf springen können.
 
 
-### Changing the number of items received
+### Ändern der Anzahl der empfangenen Elemente
 
-#### Page based pagination
+#### Seitenbasierte Paginierung
 
-By passing the `per_page` parameter, you can specify how many items you want
-each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
+Durch Übergeben des Parameters `per_page` kannst du angeben, wie viele Elemente jede Seite zurückgeben soll, bis zu 100 Elemente. Versuchen wir, 50 Elemente zu `addClass` zu erfragen:
 
 ```shell
 $ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
-Notice what it does to the header response:
+Beachte, was dies mit der Header-Antwort macht:
 
     Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
-As you might have guessed, the `rel="last"` information says that the last page
-is now 20. This is because we are asking for more information per page about
-our results.
+Wie du vielleicht erraten hast, sagt die Information `rel="last"`, dass die letzte Seite jetzt 20 ist. Dies liegt daran, dass wir nach weiteren Informationen pro Seite zu unseren Ergebnissen fragen.
 
-#### Cursor based pagination
+#### Cursorbasierte Paginierung
 
-You can also pass the `per_page` parameter for cursor-based pagination. 
+Du kannst auch den `per_page`-Parameter für die cursorbasierte Paginierung übergeben. 
 
 ```shell
 $ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=&per_page=50
 ```
 
-## Consuming the information
+## Verwenden der Informationen
 
-You don't want to be making low-level curl calls just to be able to work with
-pagination, so let's write a little Ruby script that does everything we've
-just described above.
+Du möchtest keine curl-Aufrufe auf niedriger Ebene tätigen, um nur mit Paginierung arbeiten zu können, also schreiben wir ein kleines Ruby-Skript, das alles ausführt, was wir gerade oben beschrieben haben.
 
-As always, first we'll require [GitHub's Octokit.rb][octokit.rb] Ruby library, and
-pass in our [{% data variables.product.pat_generic %}][personal token]:
+Wie immer benötigen wir zuerst die Ruby-Bibliothek [Octokit.rb][octokit.rb] von GitHub und übergeben unser [{% data variables.product.pat_generic %}][personal token]:
 
 ``` ruby
 require 'octokit'
@@ -203,26 +190,17 @@ require 'octokit'
 client = Octokit::Client.new :access_token => ENV['MY_PERSONAL_TOKEN']
 ```
 
-Next, we'll execute the search, using Octokit's `search_code` method. Unlike
-using `curl`, we can also immediately retrieve the number of results, so let's
-do that:
+Als Nächstes führen wir die Suche mithilfe der Octokit-Methode `search_code` aus. Im Gegensatz zur Verwendung von `curl` können wir auch sofort die Anzahl der Ergebnisse abrufen, also gehen wir folgendermaßen vor:
 
 ``` ruby
 results = client.search_code('addClass user:mozilla')
 total_count = results.total_count
 ```
 
-Now, let's grab the number of the last page, similar to `page=34>; rel="last"`
-information in the link header. Octokit.rb support pagination information through
-an implementation called "[Hypermedia link relations][hypermedia-relations]."
-We won't go into detail about what that is, but, suffice to say, each element
-in the `results` variable has a hash called `rels`, which can contain information
-about `:next`, `:last`, `:first`, and `:prev`, depending on which result you're
-on. These relations also contain information about the resulting URL, by calling
-`rels[:last].href`.
+Nun greifen wir auf die Anzahl der letzten Seite zurück, ähnlich wie die Informationen `page=34>; rel="last"` im Link-Header. Octokit.rb unterstützt Paginierungsinformationen durch eine Implementierung namens „[Hypermedia Link Relations][hypermedia-relations]“.
+Wir werden nicht ins Detail gehen, was das ist, aber es genügt zu sagen, dass jedes Element in der Variable `results` einen Hash namens `rels`, hat, der Informationen über `:next`, `:last`, `:first` und `:prev` enthalten kann, je nachdem, welches Ergebnis du hast. Diese Beziehungen enthalten auch Informationen zur resultierenden URL, indem `rels[:last].href` aufgerufen wird.
 
-Knowing this, let's grab the page number of the last result, and present all
-this information to the user:
+Mit diesem Wissen können wir die Seitenzahl des letzten Ergebnisses abrufen und dem Benutzer all diese Informationen präsentieren:
 
 ``` ruby
 last_response = client.last_response
@@ -231,13 +209,8 @@ number_of_pages = last_response.rels[:last].href.match(/page=(\d+).*$/)[1]
 puts "There are #{total_count} results, on #{number_of_pages} pages!"
 ```
 
-Finally, let's iterate through the results. You could do this with a loop `for i in 1..number_of_pages.to_i`,
-but instead, let's follow the `rels[:next]` headers to retrieve information from
-each page. For the sake of simplicity, let's just grab the file path of the first
-result from each page. To do this, we'll need a loop; and at the end of every loop,
-we'll retrieve the data set for the next page by following the `rels[:next]` information.
-The loop will finish when there is no `rels[:next]` information to consume (in other
-words, we are at `rels[:last]`). It might look something like this:
+Schließlich durchlaufen wir die Ergebnisse. Du könntest dies mit einer Schleife `for i in 1..number_of_pages.to_i` tun, aber stattdessen folgen wir den `rels[:next]`-Headern, um Informationen von jeder Seite abzurufen. Der Einfachheit halber nehmen wir einfach den Dateipfad des ersten Ergebnisses jeder Seite. Dazu benötigen wir eine Schleife; und am Ende jeder Schleife rufen wir den Datensatz für die nächste Seite ab, indem wir den Informationen `rels[:next]` folgen.
+Die Schleife wird beendet, wenn keine Informationen `rels[:next]` verwendet werden sollen (d. h. wir sind bei `rels[:last]`). Diese Ausgabe sieht ungefähr so aus:
 
 ``` ruby
 puts last_response.data.items.first.path
@@ -247,9 +220,7 @@ until last_response.rels[:next].nil?
 end
 ```
 
-Changing the number of items per page is extremely simple with Octokit.rb. Simply
-pass a `per_page` options hash to the initial client construction. After that,
-your code should remain intact:
+Das Ändern der Anzahl der Elemente pro Seite ist mit Octokit.rb äußerst einfach. Übergib einfach einen Optionshash `per_page` an die erste Clientkonstruktion. Danach sollte dein Code intakt bleiben:
 
 ``` ruby
 require 'octokit'
@@ -276,17 +247,15 @@ until last_response.rels[:next].nil?
 end
 ```
 
-## Constructing Pagination Links
+## Erstellen von Paginierungslinks
 
-Normally, with pagination, your goal isn't to concatenate all of the possible
-results, but rather, to produce a set of navigation, like this:
+Normalerweise besteht dein Ziel bei der Paginierung nicht darin, alle möglichen Ergebnisse zu verketten, sondern eine Reihe von Navigationselementen wie folgt zu erstellen:
 
-![Sample of pagination links](/assets/images/pagination_sample.png)
+![Beispiel für Paginierungslinks](/assets/images/pagination_sample.png)
 
-Let's sketch out a micro-version of what that might entail.
+Skizzieren wir eine Mikroversion dessen, was das bedeuten könnte.
 
-From the code above, we already know we can get the `number_of_pages` in the
-paginated results from the first call:
+Aus dem obigen Code wissen wir bereits, dass wir die `number_of_pages` in den paginierten Ergebnissen aus dem ersten Aufruf abrufen können:
 
 ``` ruby
 require 'octokit'
@@ -305,7 +274,7 @@ puts last_response.rels[:last].href
 puts "There are #{total_count} results, on #{number_of_pages} pages!"
 ```
 
-From there, we can construct a beautiful ASCII representation of the number boxes:
+Von dort aus können wir eine schöne ASCII-Darstellung der Zahlenfelder erstellen:
 ``` ruby
 numbers = ""
 for i in 1..number_of_pages.to_i
@@ -314,8 +283,7 @@ end
 puts numbers
 ```
 
-Let's simulate a user clicking on one of these boxes, by constructing a random
-number:
+Lass uns einen Benutzer simulieren, der auf eines dieser Felder klickt, indem eine Zufallszahl erstellt wird:
 
 ``` ruby
 random_page = Random.new
@@ -324,15 +292,13 @@ random_page = random_page.rand(1..number_of_pages.to_i)
 puts "A User appeared, and clicked number #{random_page}!"
 ```
 
-Now that we have a page number, we can use Octokit to explicitly retrieve that
-individual page, by passing the `:page` option:
+Da wir nun über eine Seitenzahl verfügen, können wir Octokit verwenden, um diese einzelne Seite explizit abzurufen, indem die Option `:page` übergeben wird:
 
 ``` ruby
 clicked_results = client.search_code('addClass user:mozilla', :page => random_page)
 ```
 
-If we wanted to get fancy, we could also grab the previous and next pages, in
-order to generate links for back (`<<`) and forward (`>>`) elements:
+Wenn wir uns etwas einfallen lassen wollen, könnten wir auch die vorherige und die nächste Seite nehmen, um Links für die Elemente Zurück (`<<`) und Vorwärts (`>>`) zu erzeugen:
 
 ``` ruby
 prev_page_href = client.last_response.rels[:prev] ? client.last_response.rels[:prev].href : "(none)"

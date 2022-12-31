@@ -1,5 +1,13 @@
-{% ifversion fpt or ghec or ghes %}{% data variables.product.company_short %} bills for {% data variables.product.prodname_advanced_security %} on a per-committer basis. For more information, see "[Managing licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security)."{% elsif ghes %}For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your Enterprise](/admin/advanced-security)."{% endif %}
+---
+ms.openlocfilehash: a9edfbc5b5f3c0f50ae1e476d393e658751a5079
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147888575"
+---
+{% data variables.product.company_short %}は{% data variables.product.prodname_advanced_security %}に対してコミッター単位で課金します。 {% ifversion fpt or ghec %}詳細については、[{% data variables.product.prodname_GH_advanced_security %} のライセンス管理](/billing/managing-licensing-for-github-advanced-security)に関する記事を参照してください。{% elsif ghes %}詳細については、「[エンタープライズの {% data variables.product.prodname_GH_advanced_security %} の管理](/admin/advanced-security)」を参照してください。{% endif %}
 
-You can enforce a policy that controls whether repository administrators are allowed to enable features for {% data variables.product.prodname_advanced_security %} in an organization's repositories. You can configure a policy for all organizations owned by your enterprise account, or for individual organizations that you choose.
+リポジトリ管理者がOrganizationのリポジトリで{% data variables.product.prodname_advanced_security %}の機能を有効化できるようにするかをコントロールするポリシーを適用できます。 Enterpriseアカウントが所有するすべてのOrganizationに対して、あるいは選択した個々のOrganizationに対してポリシーを設定できます。
 
-Disallowing {% data variables.product.prodname_advanced_security %} for an organization prevents repository administrators from enabling {% data variables.product.prodname_advanced_security %} features for additional repositories, but does not disable the features for repositories where the features are already enabled. For more information about configuration of {% data variables.product.prodname_advanced_security %} features, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" or "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+Organizationに対して{% data variables.product.prodname_advanced_security %}を不許可にすれば、リポジトリ管理者が追加のリポジトリで{% data variables.product.prodname_advanced_security %}の機能を有効化できないようにすることができますが、そうしても機能がすでに有効化されていたリポジトリでは機能は無効化されません。 {% data variables.product.prodname_advanced_security %} 機能の構成の詳細については、「[組織のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」または「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。

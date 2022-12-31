@@ -1,0 +1,17 @@
+date: '2021-08-10'
+sections:
+  bugs:
+    - 定期的なスケジュール バックアップを実行することなく GitHub Actions を有効にすると、MSSQL のトランザクション ログが無制限に拡大し、アプライアンスのデータ ディスクの利用可能な領域をすべて消費し、停止につながる可能性があります。
+    - "\"リポジトリ作成\" の Organization 設定に対して行われた変更の監査ログ エントリが不正確でした。"
+    - "\"ActionController::UnknownFormat\" 例外のログが多すぎて、不必要にディスクを消費していました。"
+    - "LDAP の \"group_dn\" の値が 255 文字より長いと、\"行 1 の列 'group_dn' でデータが切り詰められました\" というエラーが記録されました。"
+  changes:
+    - 不正利用レート制限は、セカンダリ レート制限と呼ばれるようになりました。これは、これによって制限されるのが必ずしも不正利用とは限らないためです。
+  known_issues:
+    - "新しくセットアップされたユーザーのいない {% data variables.product.prodname_ghe_server %} で、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - 同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、issue をクローズできません。
+    - "GitHub Connect で [ユーザーが GitHub.com を検索できる] が有効になっている場合、プライベートと内部リポジトリの issue は GitHub.com の検索結果に含まれません。"
+    - "高可用性構成でレプリカ ノードがオフラインの場合、{% data variables.product.product_name %} によって、{% data variables.product.prodname_pages %} 要求が引き続きオフライン ノードにルーティングされる可能性があり、ユーザーに対して {% data variables.product.prodname_pages %} の可用性が下がります。"
+    - pre-receive フックの処理に固有のリソース制限が、一部の pre-receive フックのエラーの原因となる場合があります。

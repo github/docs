@@ -1,7 +1,7 @@
 ---
-title: Configuring secret scanning for your appliance
+title: Configurar a varredura de segredo para o seu dispositivo
 shortTitle: Configuring secret scanning
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
+intro: 'Você pode habilitar, configurar e desabilitar {% data variables.product.prodname_secret_scanning %} para {% data variables.product.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} permite aos usuários fazer a varredura de códigos para os segredos que se confirmaram acidentalmente.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,59 +15,58 @@ topics:
   - Enterprise
   - Secret scanning
   - Security
+ms.openlocfilehash: c44d724293b970ff3075deb1befb2f0eae427d5c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066318'
 ---
-
 {% data reusables.secret-scanning.beta %}
 
-## About {% data variables.product.prodname_secret_scanning %}
+## Sobre a {% data variables.product.prodname_secret_scanning %}
 
-If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the Security tab for the repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)."
+Se alguém verificar um segredo com um padrão conhecido em um repositório, {% data variables.product.prodname_secret_scanning %} irá pegar o segredo conforme o check-in e ajudará você a mitigar o impacto da fuga. Os administradores do repositório são notificados sobre qualquer submissão que contém um segredo e podem visualizar rapidamente todos os segredos detectados na aba Segurança do repositório. Para obter mais informações, confira "[Sobre a {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## Verificando se a sua licença inclui {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for {% data variables.product.prodname_secret_scanning %}
+## Pré-requisitos para {% data variables.product.prodname_secret_scanning %}
 
-- The [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.location.product_location %}.
+- O sinalizador de CPU [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Extensões SIMD de Streaming Suplementar 3) precisa ser habilitado na VM/KVM que executa o {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Uma licença do {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (confira "[Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
-- {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
+- A {% data variables.product.prodname_secret_scanning_caps %} habilitada no console de gerenciamento (confira "[Como habilitar o {% data variables.product.prodname_GH_advanced_security %} para sua empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
-### Checking support for the SSSE3 flag on your vCPUs
+### Verificar suporte para o sinalizador SSSE3 nos seus vCPUs
 
-The SSSE3 set of instructions is required because {% data variables.product.prodname_secret_scanning %} leverages hardware accelerated pattern matching to find potential credentials committed to your {% data variables.product.prodname_dotcom %} repositories. SSSE3 is enabled for most modern CPUs. You can check whether SSSE3 is enabled for the vCPUs available to your {% data variables.product.prodname_ghe_server %} instance.
+O conjunto de instruções das SSSE3 é necessário porque o {% data variables.product.prodname_secret_scanning %} alavanca o padrão acelerado de hardware que corresponde para encontrar possíveis credenciais confirmadas com os seus repositórios de {% data variables.product.prodname_dotcom %}. SSSE3 está habilitado para a maioria das CPUs modernas. Você pode verificar se o SSSE3 está habilitado para oa vCPUs disponíveis para sua instância de {% data variables.product.prodname_ghe_server %}.
 
-1. Connect to the administrative shell for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
-2. Enter the following command:
+1. Conecte ao shell administrativo para sua instância de {% data variables.product.prodname_ghe_server %}. Para obter mais informações, confira "[Como acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
+2. Insira o seguinte comando:
 
    ```shell
    grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
    ```
 
-   If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
+   Se isso retornar o valor `0`, isso significará que o sinalizador SSSE3 está disponível e habilitado. Agora você pode habilitar {% data variables.product.prodname_secret_scanning %} para {% data variables.product.product_location %}. Para obter mais informações, confira "[Como habilitar a {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" abaixo.
 
-   If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
+   Se isso não retornar `0`, o SSSE3 não estará habilitado na VM/KVM. Você precisa consultar a documentação do hardware/hipervisor sobre como habilitar o sinalizador ou disponibilizá-lo para VMs convidados.
 
-## Enabling {% data variables.product.prodname_secret_scanning %}
-
-{% data reusables.enterprise_management_console.enable-disable-security-features %}
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
-{% data reusables.enterprise_management_console.save-settings %}
-
-## Disabling {% data variables.product.prodname_secret_scanning %}
+## Como habilitar a {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. Em "Segurança", clique em **{% data variables.product.prodname_secret_scanning_caps %}** .
+![Caixa de seleção usada para habilitar ou desabilitar a {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png) {% data reusables.enterprise_management_console.save-settings %}
+
+## Como desabilitar a {% data variables.product.prodname_secret_scanning %}
+
+{% data reusables.enterprise_management_console.enable-disable-security-features %}
+
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. Em "Segurança", desmarque **{% data variables.product.prodname_secret_scanning_caps %}** .
+![Caixa de seleção usada para habilitar ou desabilitar a {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png) {% data reusables.enterprise_management_console.save-settings %}

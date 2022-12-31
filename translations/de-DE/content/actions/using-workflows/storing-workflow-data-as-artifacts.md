@@ -1,7 +1,7 @@
 ---
-title: Storing workflow data as artifacts
-shortTitle: Store artifacts
-intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
+title: Speichern von Workflowdaten als Artefakte
+shortTitle: Storing workflow artifacts
+intro: Mit Artefakten kannst du Daten zwischen Aufträgen in einem Workflow freigeben und Daten nach Abschluss des Workflows speichern.
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -17,64 +17,68 @@ versions:
 type: tutorial
 topics:
   - Workflows
+ms.openlocfilehash: d23b62f1e77fd08fd798f4fb1af9f44e4d1b1123
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146179735'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Informationen zu Workflow-Artefakten
 
-## About workflow artifacts
+Artefakte erlauben es dir, Daten nach dem Job-Abschluss abzuspeichern und diese Daten an einen anderen Job im selben Workflow weiterzugeben. Ein Artefakt ist eine Datei oder eine Dateisammlung, die während einer Workflow-Ausführung erstellt wird. Zum Beispiel kannst du Artefakte verwenden, um deine Build- und Testausgabe zu speichern, nachdem ein Workflow-Lauf beendet ist. {% data reusables.actions.reusable-workflow-artifacts %}
 
-Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. {% data reusables.actions.reusable-workflow-artifacts %}
+{% data reusables.actions.artifact-log-retention-statement %} Der Aufbewahrungszeitraum für einen Pull Request beginnt jedes Mal neu, wenn eine Person einen neuen Commit für den Pull Request durchführt.
 
-{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+Dies sind einige der gängigen Artefakte, die du hochladen kannst:
 
-These are some of the common artifacts that you can upload:
-
-- Log files and core dumps
-- Test results, failures, and screenshots
-- Binary or compressed files
-- Stress test performance output and code coverage results
+- Protokolldateien und Coredumps
+- Testergebnisse, Fehler und Screenshots
+- Binäre oder komprimierte Dateien
+- Ergebnisse zur Stresstest-Leistungsausgabe und Codeabdeckung
 
 {% ifversion fpt or ghec %}
 
-Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
+Das Speichern von Artefakten verwendet Speicherplatz auf {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} Weitere Informationen findest du unter [Verwalten der Abrechnung von {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions).
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %}.
+Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verwendeten Speicher auf {% data variables.product.prodname_actions %} wieder verfügbar machen, indem du Artefakte löschst, bevor sie auf {% data variables.product.product_location %} ablaufen.
 
 {% endif %}
 
-Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {% data variables.product.product_name %} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
+Artefakte werden während eines Workflow-Laufs hochgeladen und du kannst den Namen und die Größe eines Artefakts in der Benutzeroberfläche anzeigen. Wenn ein Artefakt mit der {% data variables.product.product_name %}-Oberfläche heruntergeladen wird, werden alle Dateien, die als Teil des Artefakts einzeln hochgeladen wurden, zusammen in eine einzige Datei gezippt. Die Abrechnung erfolgt anhand der Größe des hochgeladenen Artefakts und nicht der Größe der Zip-Datei erfolgt.
 
-{% data variables.product.product_name %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
+{% data variables.product.product_name %} bietet zwei Aktionen, über die du Build-Artefakte hoch- und herunterladen kannst. Weitere Informationen findest du unter {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact)- und [download-artifact](https://github.com/actions/download-artifact)-Aktionen {% else %} sowie den `actions/upload-artifact`- und `download-artifact`-Aktionen auf {% data variables.product.product_location %}{% endif %}.
 
-To share data between jobs:
+Daten zwischen Aufträgen freigeben:
 
-* **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
-* **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
+* **Hochladen von Dateien**: Gib der hochgeladenen Datei einen Namen, und lade die Daten hoch, bevor der Auftrag beendet ist.
+* **Herunterladen von Dateien**: Du kannst nur Artefakte herunterladen, die während derselben Workflowausführung hochgeladen wurden. Wenn du eine Datei herunterlädst, kannst du sie mit Namen referenzieren.
 
-The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
+Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben kannst du Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Eingaben und Ausgaben findest du unter [Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions).
 
 {% ifversion actions-caching %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on dependency caching, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
+Weitere Informationen zur Abhängigkeitszwischenspeicherung findest du unter [Zwischenspeichern von Abhängigkeiten zum Beschleunigen von Workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching).
 
 {% endif %}
 
-## Uploading build and test artifacts
+## Build- und Testartefakte hochladen
 
-You can create a continuous integration (CI) workflow to build and test your code. For more information about using {% data variables.product.prodname_actions %} to perform CI, see "[About continuous integration](/articles/about-continuous-integration)."
+Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um deinen Code zu bauen und zu testen. Weitere Informationen zur Verwendung von {% data variables.product.prodname_actions %} zum Ausführen von CI findest du unter [Informationen zu Continuous Integration](/articles/about-continuous-integration).
 
-The output of building and testing your code often produces files you can use to debug test failures and production code that you can deploy. You can configure a workflow to build and test the code pushed to your repository and report a success or failure status. You can upload the build and test output to use for deployments, debugging failed tests or crashes, and viewing test suite coverage.
+Durch die Ergebnisse der Erstellung und des Tests deines Codes werden oft zum Debuggen von Testfehlern einsetzbare Dateien und bereitstellbarer Produktionscode erstellt. Du kannst einen Workflow konfigurieren, um den per Push-Vorgang an dein Repository übertragenen Code zu erstellen und zu testen und um einen erfolgreichen oder fehlerhaften Status zu melden. Du kannst die Build- und Testausgabe hochladen, um sie für Bereitstellungen, zum Debuggen fehlerhafter Tests oder von Abstürzen und zum Anzeigen der Testsuite-Abdeckung zu verwenden.
 
-You can use the `upload-artifact` action to upload artifacts. When uploading an artifact, you can specify a single file or directory, or multiple files or directories. You can also exclude certain files or directories, and use wildcard patterns. We recommend that you provide a name for an artifact, but if no name is provided then `artifact` will be used as the default name. For more information on syntax, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.location.product_location %}{% endif %}.
+Du kannst die `upload-artifact`-Aktion verwenden, um Artefakte hochzuladen. Beim Hochladen eines Artefakts kannst du eine einzelne Datei oder ein einzelnes Verzeichnis oder mehrere Dateien oder Verzeichnisse angeben. Du kannst auch bestimmte Dateien oder Verzeichnisse ausschließen und Platzhaltermuster verwenden. Es wird empfohlen, einen Namen für ein Artefakt anzugeben, aber wenn kein Name angegeben wird, wird `artifact` als Standardname verwendet. Weitere Informationen zur Syntax findest du bei der {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact`-Aktion auf {% data variables.product.product_location %}{% endif %}.
 
-### Example
+### Beispiel
 
-For example, your repository or a web application might contain SASS and TypeScript files that you must convert to CSS and JavaScript. Assuming your build configuration outputs the compiled files in the `dist` directory, you would deploy the files in the `dist` directory to your web application server if all tests completed successfully.
+Zum Beispiel kann dein Projektarchiv oder eine Webanwendung SASS- und TypeScript-Dateien enthalten, die du in CSS und JavaScript konvertieren musst. Wenn du davon ausgehst, dass deine Buildkonfiguration die kompilierten Dateien in das Verzeichnis `dist` ausgibt, würdest du die Dateien im Verzeichnis `dist` auf deinem Webanwendungsserver bereitstellen, wenn alle Tests erfolgreich abgeschlossen wurden.
 
 ```
 |-- hello-world (repository)
@@ -88,9 +92,9 @@ For example, your repository or a web application might contain SASS and TypeScr
 |   
 ```
 
-This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
+Dieses Beispiel zeigt dir, wie du einen Workflow für ein Node.js-Projekt erstellst, der den Code im Verzeichnis `src` erstellt und die Tests im Verzeichnis `tests` ausführt. Du kannst davon ausgehen, dass die Ausführung von `npm test` einen Code Coverage-Bericht namens `code-coverage.html` erstellt, der im Verzeichnis `output/test/` gespeichert wird.
 
-The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also uploads the `code-coverage.html` report as another artifact.
+Der Workflow lädt die Produktionsartefakte im Verzeichnis `dist` hoch, schließt jedoch alle Markdowndateien aus. Außerdem wird der `code-coverage.html`-Bericht als weiteres Artefakt hochgeladen.
 
 ```yaml{:copy}
 name: Node CI
@@ -122,9 +126,9 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-## Configuring a custom artifact retention period
+## Konfigurieren eines benutzerdefinierten Aufbewahrungszeitraums für Artefakte
 
-You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
+Du kannst einen benutzerdefinierten Aufbewahrungszeitraum für einzelne Artefakte definieren, die von einem Workflow erstellt wurden. Wenn du einen Workflow zum Erstellen eines neuen Artefakts verwendest, kannst du `retention-days` mit der `upload-artifact`-Aktion verwenden. In diesem Beispiel wird veranschaulicht, wie du einen benutzerdefinierten Aufbewahrungszeitraum von 5 Tagen für das Artefakt namens `my-artifact` festlegst:
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
@@ -135,25 +139,25 @@ You can define a custom retention period for individual artifacts created by a w
       retention-days: 5
 ```
 
-The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
+Der `retention-days`-Wert darf den vom Repository, der Organisation oder dem Unternehmen festgelegten Aufbewahrungsgrenzwert nicht überschreiten.
 
-## Downloading or deleting artifacts
+## Artefakte herunterladen oder löschen
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
+Während einer Workflowausführung kannst du die [`download-artifact`](https://github.com/actions/download-artifact)-Aktion verwenden, um Artefakte herunterzuladen, die zuvor in derselben Workflowausführung hochgeladen wurden.
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
+Nach Abschluss einer Workflowausführung kannst du Artefakte auf {% data variables.product.prodname_dotcom %} oder mithilfe der REST-API herunterladen oder löschen. Weitere Informationen findest du unter [Herunterladen von Workflowartefakten](/actions/managing-workflow-runs/downloading-workflow-artifacts), [Entfernen von Workflowartefakten](/actions/managing-workflow-runs/removing-workflow-artifacts) und [Artefakt-REST-API](/rest/reference/actions#artifacts).
 
-### Downloading artifacts during a workflow run
+### Herunterladen von Artefakten während einer Workflowausführung
 
-The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
+Die [`actions/download-artifact`](https://github.com/actions/download-artifact)-Aktion kann verwendet werden, um zuvor hochgeladene Artefakte während einer Workflowausführung herunterzuladen.
 
 {% note %}
 
-**Note:** You can only download artifacts in a workflow that were uploaded during the same workflow run.
+**Hinweis**: Du kannst nur Artefakte in einem Workflow herunterladen, die während derselben Workflowausführung hochgeladen wurden.
 
 {% endnote %}
 
-Specify an artifact's name to download an individual artifact. If you uploaded an artifact without specifying a name, the default name is `artifact`.
+Gib den Namen eines Artefaktes an, um ein einzelnes Artefakt herunterzuladen. Wenn du ein Artefakt hochgeladen hast, ohne einen Namen anzugeben, lautet der Standardname `artifact`.
 
 ```yaml
 - name: Download a single artifact
@@ -162,37 +166,37 @@ Specify an artifact's name to download an individual artifact. If you uploaded a
     name: my-artifact
 ```
 
-You can also download all artifacts in a workflow run by not specifying a name. This can be useful if you are working with lots of artifacts.
+Du kannst auch alle Artefakte in einer Workflowausführung herunterladen, indem du keinen Namen angibst. Dies kann nützlich sein, wenn du mit zahlreichen Artefakten arbeitest.
 
 ```yaml
 - name: Download all workflow run artifacts
   uses: {% data reusables.actions.action-download-artifact %}
 ```
 
-If you download all workflow run's artifacts, a directory for each artifact is created using its name.
+Wenn du die Artefakte aller Workflowausführungen herunterlädst, wird ein Verzeichnis für jedes Artefakt unter Verwendung seines Namens erstellt.
 
-For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.location.product_location %}{% endif %}.
+Weitere Informationen zur Syntax findest du in der {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact`-Aktion auf {% data variables.product.product_location %}{% endif %}.
 
-## Passing data between jobs in a workflow
+## Übergeben von Daten zwischen Aufträgen in einem Workflow
 
-You can use the `upload-artifact` and `download-artifact` actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
+Du kannst die Aktionen `upload-artifact` und `download-artifact` verwenden, um Daten zwischen Aufträgen in einem Workflow freizugeben. In diesem Beispiel-Workflow wird veranschaulicht, wie Daten zwischen Aufträgen im selben Workflow weitergegeben werden. Weitere Informationen findest du unter {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact)- und [download-artifact](https://github.com/actions/download-artifact)-Aktionen {% else %} sowie den `actions/upload-artifact`- und `download-artifact`-Aktionen auf {% data variables.product.product_location %}{% endif %}.
 
-Jobs that are dependent on a previous job's artifacts must wait for the dependent job to complete successfully. This workflow uses the `needs` keyword to ensure that `job_1`, `job_2`, and `job_3` run sequentially. For example, `job_2` requires `job_1` using the `needs: job_1` syntax.
+Von den Artefakten eines vorherigen Auftrags abhängige Aufträge müssen auf den erfolgreichen Abschluss des abhängigen Auftrags warten. Dieser Workflow verwendet das `needs`-Schlüsselwort, um sicherzustellen, dass `job_1`, `job_2` und `job_3` sequenziell ausgeführt werden. `job_2` erfordert z. B. `job_1` mit der `needs: job_1`-Syntax.
 
-Job 1 performs these steps:
-- Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+Auftrag 1 führt die folgenden Schritte durch:
+- Führt eine mathematische Berechnung aus und speichert das Ergebnis in einer Textdatei namens `math-homework.txt`.
+- Verwendet die `upload-artifact`-Aktion, um die Datei `math-homework.txt` mit dem Artefaktnamen `homework` hochzuladen.
 
-Job 2 uses the result in the previous job:
-- Downloads the `homework` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Uploads the `math-homework.txt` file. This upload overwrites the previously uploaded artifact because they share the same name.
+Auftrag 2 verwendet das Ergebnis des vorherigen Auftrags:
+- Lädt das `homework`-Artefakt herunter, das im vorherigen Auftrag hochgeladen wurde. Die Aktion `download-artifact` lädt die Artefakte standardmäßig in das Arbeitsbereichverzeichnis herunter, in dem der Schritt ausgeführt wird. Du kannst den Eingabeparameter `path` verwenden, um ein anderes Downloadverzeichnis anzugeben.
+- Liest den Wert in der Datei `math-homework.txt`, führt eine mathematische Berechnung aus, und speichert das Ergebnis erneut in `math-homework.txt`, wobei der Inhalt überschrieben wird.
+- Lädt die Datei `math-homework.txt` hoch. Durch diesen Upload wird das zuvor hochgeladene Artefakt überschrieben, da beide denselben Namen tragen.
 
-Job 3 displays the result uploaded in the previous job:
-- Downloads the `homework` artifact.
-- Prints the result of the math equation to the log.
+Auftrag 3 zeigt das im vorherigen Auftrag hochgeladene Ergebnis an:
+- Lädt das Artefakt `homework` herunter.
+- Gibt das Ergebnis der mathematischen Gleichung im Protokoll aus.
 
-The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
+Die vollständige, in diesem Workflow-Beispiel durchgeführte mathematische Operation lautet `(3 + 7) x 9 = 90`.
 
 ```yaml{:copy}
 name: Share data between jobs
@@ -248,13 +252,13 @@ jobs:
           echo The result is $value
 ```
 
-The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+Die Workflowausführung archiviert alle von ihr generierten Artefakte. Weitere Informationen zum Herunterladen archivierter Artefakte findest du unter [Herunterladen von Workflowartefakten](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen übergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 
 {% ifversion fpt or ghec %}
 
-## Further reading
+## Weiterführende Themen
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+- [Verwalten der Abrechnung für {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions).
 
 {% endif %}

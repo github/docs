@@ -1,6 +1,6 @@
 ---
-title: Linking a pull request to an issue
-intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
+title: 끌어오기 요청을 이슈에 연결
+intro: '끌어오기 요청 {% ifversion link-existing-branches-to-issue %}또는 분기{% endif %}를 문제에 연결하여 수정이 진행 중임을 표시하고 끌어오기 요청 {% ifversion link-existing-branches-to-issue %}또는 분기{% endif %}가 병합될 때 문제를 자동으로 닫을 수 있습니다.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -17,89 +17,92 @@ versions:
 topics:
   - Pull requests
 shortTitle: Link PR to issue
+ms.openlocfilehash: 8c3ec2b778029c91d0e97783ced873e6b9b28a9b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109365'
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**참고:** 끌어오기 요청 설명의 특수 키워드는 끌어오기 요청이 리포지토리의 기본 분기를 대상으로 할 때 해석됩니다. 그러나 PR의 기반이 다른 분기인 경우 이러한 키워드는 무시되고 링크가 생성되지 않으며 PR을 병합해도 문제에 영향을 주지 않습니다. **키워드를 사용하여 끌어오기 요청을 문제에 연결하려면 PR이 기본 분기에 있어야 합니다.**
 
 {% endnote %}
 
-## About linked issues and pull requests
+## 연결된 문제 및 끌어오기 요청 정보
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+문제를 끌어오기 요청에 수동으로 연결하거나 끌어오기 요청 설명에서 지원되는 키워드를 사용할 수 있습니다.
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
+끌어오기 요청을 끌어오기 요청 주소 문제에 연결하면 협력자는 누군가가 이 문제에 대해 작업하고 있음을 확인할 수 있습니다.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+연결된 끌어오기 요청을 리포지토리의 기본 분기에 병합하면 연결된 문제가 자동으로 닫힙니다. 기본 분기에 대한 자세한 내용은 “[기본 분기 변경](/github/administering-a-repository/changing-the-default-branch)”을 참조하세요.
 
-## Linking a pull request to an issue using a keyword
+## 키워드를 사용하여 끌어오기 요청을 이슈에 연결
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
+끌어오기 요청의 설명 또는 커밋 메시지에서 지원되는 키워드를 사용하여 끌어오기 요청을 문제에 연결할 수 있습니다. 끌어오기 요청은 기본 분기에 **있어야 합니다**.
 
-* close
+* 닫기
 * closes
 * closed
-* fix
+* 수정
 * fixes
-* fixed
+* 고정
 * resolve
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
+키워드를 사용하여 다른 끌어오기 요청에서 끌어오기 요청 주석을 참조하는 경우 끌어오기 요청이 연결됩니다. 참조하는 끌어오기 요청을 병합하면 참조된 끌어오기 요청도 닫힙니다.
 
-The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
+키워드를 닫는 구문은 문제가 끌어오기 요청과 동일한 리포지토리에 있는지 여부에 따라 달라집니다.
 
-Linked issue | Syntax | Example
+연결된 문제 | 구문 | 예제
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
-Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
+동일한 리포지토리의 문제 | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
+다른 리포지토리의 문제 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
+여러 문제 | 각 문제에 대해 전체 구문 사용 | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
+수동으로 연결된 끌어오기 요청만 수동으로 연결을 해제할 수 있습니다. 키워드를 사용하여 연결한 문제를 연결 해제하려면 끌어오기 요청 설명을 편집하여 키워드를 제거해야 합니다.
 
-You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
+커밋 메시지에서 닫는 키워드를 사용할 수도 있습니다. 커밋을 기본 분기에 병합할 때 문제가 닫혀 있지만 커밋이 포함된 끌어오기 요청은 연결된 끌어오기 요청으로 나열되지 않습니다.
 
-## Manually linking a pull request to an issue using the pull request sidebar
+## 끌어오기 요청 사이드바를 사용하여 끌어오기 요청을 문제에 수동으로 연결
 
-Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
+리포지토리에 대한 쓰기 권한이 있는 사용자는 모두 끌어오기 요청을 끌어오기 요청 사이드바에서 문제에 수동으로 연결할 수 있습니다.
 
-You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
+각 끌어오기 요청에 최대 10개의 문제를 수동으로 연결할 수 있습니다. 문제 및 끌어오기 요청은 동일한 리포지토리에 있어야 합니다.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+3. 끌어오기 요청 목록에서 문제에 연결하려는 끌어오기 요청을 클릭합니다.
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+4. 오른쪽 사이드바의 “개발” 섹션에서 {% octicon "gear" aria-label="The Gear icon" %}을(를) 클릭합니다.
 {% else %}
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-{% endif %}
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+4. 오른쪽 사이드바에서 **연결된 문제** 를 클릭합니다.
+  ![오른쪽 사이드바의 연결된 문제](/assets/images/help/pull_requests/linked-issues.png) {% endif %}
+5. 끌어오기 요청에 연결하려는 문제를 클릭합니다.
+  ![드롭다운하여 문제 연결](/assets/images/help/pull_requests/link-issue-drop-down.png)
 
 {% ifversion link-existing-branches-to-issue %}
 
-## Manually linking a pull request or branch to an issue using the issue sidebar
+## 문제 사이드바를 사용하여 끌어오기 요청 또는 분기를 문제에 수동으로 연결
 
-Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+리포지토리에 대한 쓰기 권한이 있는 사용자는 모두 끌어오기 요청을 수동으로 문제 사이드바에서 문제에 연결할 수 있습니다.
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+각 끌어오기 요청에 최대 10개의 문제를 수동으로 연결할 수 있습니다. 문제는 연결된 끌어오기 요청 또는 분기와 다른 리포지토리에 있을 수 있습니다. 마지막으로 선택한 리포지토리가 기억됩니다. 
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-issues %}
+3. 문제 목록에서 끌어오기 요청 또는 분기를 연결하려는 문제를 클릭합니다.
+4. 오른쪽 사이드바에서 **개발** 을 클릭합니다.
+  ![오른쪽 사이드바의 개발 메뉴](/assets/images/help/issues/development-menu.png)
+5. 문제에 연결하려는 끌어오기 요청 또는 분기가 포함된 리포지토리를 클릭합니다.
+  ![드롭다운하여 리포지토리 선택](/assets/images/help/issues/development-menu-select-repository.png)
+6. 문제에 연결하려는 끌어오기 요청 또는 분기를 클릭합니다.
+  ![드롭다운하여 끌어오기 요청 또는 분기 연결](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
+7. **적용** 을 클릭합니다.
+  ![적용](/assets/images/help/issues/development-menu-apply.png)
 
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+* “[자동 링크된 참조 및 URL](/articles/autolinked-references-and-urls/#issues-and-pull-requests)”

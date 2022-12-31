@@ -26,6 +26,10 @@ shortTitle: NuGet registry
 
 {% data reusables.package_registry.authenticate-packages %}
 
+{% ifversion packages-nuget-v2 %}
+You can choose to give access permissions to packages independently for {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_actions %}. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)" and "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
+{% endif %}
+
 ### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
 
 Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
@@ -45,7 +49,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your {% data variables.product.pat_v1 %}.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
+- `OWNER` with the name of the user or organization account that owns {% ifversion packages-nuget-v2 %}the package you want to install, or to which you want to publish a package{% else %}the repository containing your project{% endif %}.{% ifversion ghes or ghae %}
 - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
@@ -91,6 +95,16 @@ If your instance has subdomain isolation disabled:
 
 You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}.
 
+{% ifversion packages-nuget-v2 %}
+
+The NuGet registry stores packages within your organization or personal account, and allows you to associate packages with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
+
+{% data reusables.package_registry.publishing-user-scoped-packages %}
+
+If you specify a `RepositoryURL` in your `nuget.config` file, the published package will automatically be connected to the specified repository. For more information, see "[Publishing a package using a `nuget.config` file](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)." For information on linking an already-published package to a repository, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+
+{% endif %}
+
 ### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
 
 If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
@@ -121,8 +135,8 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
   dotnet new console --name OctocatApp
   ```
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
-    - `OWNER` with the name of the user or organization account that owns the repository containing your project.
-    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
+    - `OWNER` with the name of the user or organization account that owns the repository to which you want to connect your package.
+    - `REPOSITORY` with the name of the repository to which you want to connect your package.                      
     - `1.0.0` with the version number of the package.{% ifversion ghes or ghae %}
     - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
   ``` xml
@@ -155,7 +169,7 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
+To connect multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
 
 For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
 

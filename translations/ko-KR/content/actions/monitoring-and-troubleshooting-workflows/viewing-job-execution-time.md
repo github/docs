@@ -1,29 +1,30 @@
 ---
-title: Viewing job execution time
+title: 작업 실행 시간 보기
 shortTitle: View job execution time
-intro: 'You can view the execution time of a job, including the billable minutes that a job accrued.'
+intro: 작업이 발생한 청구 가능 시간(분)을 포함한 작업의 실행 시간을 볼 수 있습니다.
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
   ghec: '*'
+ms.openlocfilehash: 2248c40de279e7b9f88775e98cf5a92d467eded5
+ms.sourcegitcommit: d6838593f16c4b800e83cac82f6d398a14f7516d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2022
+ms.locfileid: '148045724'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data variables.product.prodname_dotcom %}호스팅 실행기를 사용하고 다음 분으로 반올림되는 프라이빗 리포지토리에서 실행되는 작업에 대해서만 청구 가능한 작업 실행 시간(분)이 표시됩니다. 퍼블릭 리포지토리에서 {% data variables.product.prodname_actions %}를 사용하거나 자체 호스팅 실행기에서 실행되는 작업에 대해 청구 가능한 시간(분)이 없습니다.
 
-Billable job execution minutes are only shown for jobs run on private repositories that use {% data variables.product.prodname_dotcom %}-hosted runners and are rounded up to the next minute. There are no billable minutes when using {% data variables.product.prodname_actions %} in public repositories or for jobs run on self-hosted runners.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
+1. 작업 요약에서 작업의 실행 시간을 볼 수 있습니다. 청구 가능한 작업 실행 시간에 대한 세부 정보를 보려면 왼쪽 사이드바의 "실행 세부 정보"에서 **{% 옥티콘 "stopwatch" aria-label="스톱워치 아이콘" %} 사용량을** 클릭합니다.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. Under the job summary, you can view the job's execution time. To view details about the billable job execution time, in the left sidebar under "Run details", click **{% octicon "stopwatch" aria-label="The stopwatch icon" %} Usage**.
-
-   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
+   ![실행 및 청구 가능 시간 세부 정보 링크](/assets/images/help/repository/view-run-billable-time.png)
 
    {% note %}
 
-   **Note:** The billable time shown does not include any minute multipliers. To view your total {% data variables.product.prodname_actions %} usage, including minute multipliers, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)."
+   **참고:** 표시된 청구 가능 시간에는 분 승수가 포함되지 않습니다. 분 승수를 포함하여 총 {% data variables.product.prodname_actions %} 사용량을 보려면 “[{% data variables.product.prodname_actions %} 사용량 보기](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)”를 참조하세요.
 
    {% endnote %}
