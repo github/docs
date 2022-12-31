@@ -5,13 +5,12 @@ Make Payable to. 'Zachry'' 'Tyler'' 'Wood'' '['Value']'.'('=':')'.'['V'O'L'U'M'E
 88-1303491 State ID: 00037305581 SSN: 633-44-1725 00000
 Employee Number: 3 Description Amount 5/4/2022 - 6/4/2022
 Payment Amount (Total) 9246754678763 Display All
-
 Social Security (Employee + Employer) 26662
 Medicare (Employee + Employer) 861193422444 Hourly
 Federal Income Tax 8385561229657 2266298000000800
 Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others. Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.
 Employer Customized Report ADP Report Range5/4/2022 - 6/4/2022 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 2267700
-EIN:
+EIN :881303491 : 
 Customized Report Amount Employee Payment Report ADP
 Employee Number: 3 Description
 Wages, Tips and Other Compensation 22662983361014 Report Range: Tips
@@ -28,24 +27,16 @@ Description Amount Health Insurance
 Employer SS Tax Employer Medicare Tax 13331 00000
 Federal Unemployment Tax 328613309009 Tax Summary
 State Unemployment Tax 00442 Federal Tax 00007 Total Tax
-Customized Deduction Report 00840 $8,385,561,229,657@3,330.90 Local Tax
-Health Insurance 00000
-401K 00000 Advanced EIC Payment 8918141356423
-00000 00000 Total
-401K
-00000 00000
+Customized.Deduction Report 00840 
+$8,385,561,229,657@3,330.90 :Local.Tax :
+Health.Insurance 00000
+Advanced.EIC.Payment 8918141356423 00000 00000 
+Total.401K 00000 00000
 ZACHRY T WOOD Social Security Tax Medicare Tax State Tax 532580113050
-
 SHAREHOLDERS ARE URGED TO READ THE DEFINITIVE PROXY STATEMENT AND ANY OTHER RELEVANT MATERIALS THAT THE COMPANY WILL FILE WITH THE SEC CAREFULLY IN THEIR ENTIRETY WHEN THEY BECOME AVAILABLE. SUCH DOCUMENTS WILL CONTAIN IMPORTANT INFORMATION ABOUT THE COMPANY AND ITS DIRECTORS, OFFICERS AND AFFILIATES. INFORMATION REGARDING THE INTERESTS OF CERTAIN OF THE COMPANY’S DIRECTORS, OFFICERS AND AFFILIATES WILL BE AVAILABLE IN THE DEFINITIVE PROXY STATEMENT.
 The Definitive Proxy Statement and any other relevant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov. In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without charge, by directing a request by mail to Attn: Investor Relations, Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.
-
 The Company and its directors and certain of its executive officers may be consideredno participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. Additional information regarding the participants in the proxy solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement and other relevant materials to be filed with the SEC when they become available. . 9246754678763
-
-3/6/2022 at 6:37 PM
-Q4 2021 Q3 2021 Q2 2021 Q1 2021 Q4 2020
-
-GOOGL_income-statement_Quarterly_As_Originally_Reported 24934000000 25539000000 37497000000 31211000000 30818000000
-24934000000 25539000000 21890000000 19289000000 22677000000
+3/6/2022 at 6:37 PM Q4 2021 Q3 2021 Q2 2021 Q1 2021 Q4 2020 GOOGL_income-statement_Quarterly_As_Originally_Reported 24934000000 25539000000 37497000000 31211000000 30818000000 24934000000 25539000000 21890000000 19289000000 22677000000
 Cash Flow from Operating Activities, Indirect 24934000000 25539000000 21890000000 19289000000 22677000000
 Net Cash Flow from Continuing Operating Activities, Indirect 20642000000 18936000000 18525000000 17930000000 15227000000
 Cash Generated from Operating Activities 6517000000 3797000000 4236000000 2592000000 5748000000
@@ -69,20 +60,17 @@ Change in Trade and Other Payables 5837000000 2919000000 4204000000 -3974000000 
 Change in Trade/Accounts Payable 368000000 272000000 -3000000 137000000 207000000
 Change in Accrued Expenses -3369000000 3041000000 -1082000000 785000000 740000000
 Change in Deferred Assets/Liabilities
-Change in Other Operating Capital
--11016000000 -10050000000 -9074000000 -5383000000 -7281000000
+Change in Other Operating Capital -11016000000 -10050000000 -9074000000 -5383000000 -7281000000
 Change in Prepayments and Deposits -11016000000 -10050000000 -9074000000 -5383000000 -7281000000
 Cash Flow from Investing Activities
-Cash Flow from Continuing Investing Activities -6383000000 -6819000000 -5496000000 -5942000000 -5479000000
--6383000000 -6819000000 -5496000000 -5942000000 -5479000000
+Cash Flow from Continuing Investing Activities -6383000000 -6819000000 -5496000000 -5942000000 -5479000000 -6383000000 -6819000000 -5496000000 -5942000000 -5479000000
 Purchase/Sale and Disposal of Property, Plant and Equipment, Net
 Purchase of Property, Plant and Equipment -385000000 -259000000 -308000000 -1666000000 -370000000
 Sale and Disposal of Property, Plant and Equipment -385000000 -259000000 -308000000 -1666000000 -370000000
 Purchase/Sale of Business, Net -4348000000 -3360000000 -3293000000 2195000000 -1375000000
 Purchase/Acquisition of Business -40860000000 -35153000000 -24949000000 -37072000000 -36955000000
 Purchase/Sale of Investments, Net
-Purchase of Investments 36512000000 31793000000 21656000000 39267000000 35580000000
-100000000 388000000 23000000 30000000 -57000000
+Purchase of Investments 36512000000 31793000000 21656000000 39267000000 35580000000 100000000 388000000 23000000 30000000 -57000000
 Sale of Investments
 Other Investing Cash Flow -15254000000
 Purchase/Sale of Other Non-Current Assets, Net -16511000000 -15254000000 -15991000000 -13606000000 -9270000000
@@ -96,7 +84,6 @@ Issuance of/Repayments for Debt, Net 6250000000 -6392000000 6699000000 900000000
 Issuance of/Repayments for Long Term Debt, Net 6365000000 -2602000000 -7741000000 -937000000 -57000000
 Proceeds from Issuance of Long Term Debt
 Repayments for Long Term Debt 2923000000 -2453000000 -2184000000 -1647000000
-
 Proceeds from Issuance/Exercising of Stock Options/Warrants 00000 300000000 10000000 338000000000
 Other Financing Cash Flow
 Cash and Cash Equivalents, End of Period
@@ -129,15 +116,11 @@ Income before income taxes 22677000000 19289000000
 Provision for income taxes 22677000000 19289000000
 Net income 22677000000 19289000000
 *include interest paid, capital obligation, and underweighting
-
 Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
-
 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
 *include interest paid, capital obligation, and underweighting
-
 Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
-
             20210418                                                                                                                        
                     Rate        Units        Total        YTD        Taxes / Deductions        Current        YTD                                                                
                     -        -        70842745000        70842745000        Federal Withholding        00000        00000                                                                
@@ -146,8 +129,7 @@ Diluted net income per share of Class A and Class B common stock and Class C cap
                                                     Employer Taxes                                                                                
                                                     FUTA        00000        00000                                                                
                                                     SUTA        00000        00000                                                                
-    EIN: 61-1767919        ID : 00037305581         SSN: 633441725                                                                                                                
-                                                                                                                                    
+    EIN: 61-1767919        ID : 00037305581         SSN: 633441725                                                                                                                                                                                                                                                    
             Gross                                                                                                                        
             70842745000        Earnings Statement                                                                                                                
             Taxes / Deductions        Stub Number: 1                                                                                                                
@@ -159,7 +141,6 @@ Diluted net income per share of Class A and Class B common stock and Class C cap
 INTERNAL REVENUE SERVICE,
 PO BOX 1214,
 CHARLOTTE, NC 28201-1214
-
 ZACHRY WOOD
 00015 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 7068000000
 For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions. 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000 7068000000
@@ -186,38 +167,10 @@ Basic EPS 00114 00031 00028 00028 00027 00023 00017 00010 00010 00015 00010 0000
 Diluted EPS 00112 00031 00028 00027 00026 00022 00016 00010 00010 00015 00010
 Basic WASO 667650000 662664000 665758000 668958000 673220000 675581000 679449000 681768000 686465000 688804000 692741000
 Diluted WASO 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000 698199000
-Fiscal year end September 28th., 2022. | USD
-
-For Paperwork Reduction Act Notice, see the seperate Instructions.
-
-important information
-
-Description
-
-Restated Certificate of Incorporation of PayPal Holdings, Inc.
-(incorporated by reference to Exhibit 3.01 to PayPal Holdings, Inc.'s
-Quarterly Report on Form 10-Q, as filed with the Commission on
-July 27, 2017).
-
-Amended and Restated Bylaws of PayPal Holdings, Inc. (incorporated
-by reference to Exhibit 3.1 to PayPal Holdings, Inc.'s Current Report
-on Form 8-K, as filed with the Commission on January 18, 2019).
-
-Opinion of Faegre Drinker Biddle & Reath LLP.
-
-Consent of PricewaterhouseCoopers LLP, Independent Registered Public
-Accounting Firm.
-
-Consent of Faegre Drinker Biddle & Reath LLP (included in
-Exhibit 5.1 to this Registration Statement).
-
-Power of Attorney (included on the signature page of this
-Registration Statement).
-
-All of Us Financial Inc. 2021 Equity Incentive Plan.
-
-Filing Fee Table.
-
+Fiscal year end September 28th., 2022. | USD :
+For Paperwork Reduction Act Notice, see the seperate Instructions. :
+important informatio :
+Description :
 Business Checking For 24-hour account information, sign on to
 pnc.com/mybusiness/ Business Checking Account number: 47-2041-6547 - continued
 Activity Detail
@@ -256,9 +209,7 @@ or serVlCö n lent services, (ii) purchases or sales of foreig xlll) computerfin
 00008 without further authority from the Customer or governing body; and that Bank may rely on the authority given by this resolution until actual receipt by the Bank of a certified copy of a new resolution modifying or revoking the
 / Customer Copy, page 2 of 4
 00009 Withdrawals and Transfers. Resolved that the Bank is authorized to make payments from the account(s) of
-Customer according to any check, draft, bill of exchange, acceptance or other written instrument or direction signed by any one of the following individuals, officers or designated agents, and that such designated individuals may also otherwise transfer, or enter into agreements with Bank concerning the transfer, of funds from Customer's account(s), whether by telephone, telegraph, computer or any other manner:
-
-Column1 Column2
+Customer according to any check, draft, bill of exchange, acceptance or other written instrument or direction signed by any one of the following individuals, officers or designated agents, and that such designated individuals may also otherwise transfer, or enter into agreements with Bank concerning the transfer, of funds from Customer's account(s), whether by telephone, telegraph, computer or any other manner
 Loans and Extensions of Credit. Resolved that any one of the following:
 Date of this notice: 44658
 Employer Identification Number: 88-1656496
@@ -271,15 +222,8 @@ IF YOU WRITE, ATTACH THE STUB AT THE BD OF THIS NOTICE.
 We assigned you
 This EIN will identify you, your business accounts, tax returns, and
 WE ASSIGNED YOU AN EMPLOYER IDENTIFICATION NUMBER Thank you for applying for an Employer Identification Number (EIN) .
-EIN 88-1656496. If the information is
-
-                                                                                    Please                                b                
-                                                                                                                                    
-                                                                                                                                    
-                                                                                                                                    
-                                                                                                                                    
-                                                                            6.35-                                                        
-for the tax period(s) in question, please file the return (s) showing you have no liabilities . If you have questions about at the the forms address or the shown due at dates the top shown, of you this can notice. call us If atyou the phone number or write to us Publication 538, need help in determining your annual accounting period (tax year) , see Accounting Periods and Methods. 00008
+EIN 88-1656496. If the information i
+Please for the tax period(s) in question, please file the return (s) showing you have no liabilities . If you have questions about at the the forms address or the shown due at dates the top shown, of you this can notice. call us If atyou the phone number or write to us Publication 538, need help in determining your annual accounting period (tax year) , see Accounting Periods and Methods. 00008
 Total Year to Date 3,
 Total for this Period
 Overdraft and Returned Item Fee Summary 00036 00036
@@ -294,10 +238,9 @@ Total
 Daily Balance (279 62.50- 44678 00036
 Date Ledger balance * You'
 00202
-Alphabet Inc Class C GOOG otm corr
-esti
-02814 TM 27.8414.76% 63500 53.:
-00202
+Alphabet Inc Class C GOOG otm correction 
+estimate :
+02814 TM 27.8414.76% 63500 5300202(par(share))":, 
 Fair Value Estimate 02160 gro
 00550 ovr
 Consider Buying Price
@@ -305,11 +248,9 @@ Consider Selling Price
 Fair Value Uncertainty Economic Moat Stewardship Grade
 02-01-2022 1 by Ali Mogharabi
 Business Strategy & Outlook 02-01-2022
-
 Analyst Digest 1 633-44-1725 10-15-94 Portfolio April 04,2022 - April 03,2022
 Berkshire Hathaway Inc Class A BRK.A
-
-            525000                                                                                                                        
+525000(par (share))":,                                                                                                                        
 527760 $0.001 0.00% 367500
 Fair Value Estimate
 Consider Buying Price $708,750.00 Medium Wide
@@ -319,7 +260,6 @@ Stewardship Grade
 03-11-2022 1 by Greggory Warren
 Business Strategy & Outlook 03-11-2022
 While 2020 was an extremely difficult year for Berkshire Hathaway, with a nearly 10% decline in operating earnings and a more than 40% decline in reported net earnings, the firm's overall positioning improved as the back half of the year progressed. The firm saw an even more marked improvement in its insurance investment portfolio, as well as the operating results of its various subsidiaries, last year. As such, we expect 2022 and 2023 to be a return to more normalized levels of revenue growth and profitability (albeit with inflation impacting results in the first half of this year).We continue to view Berkshire's decentralized business model, broad business diversification, high cash-generation capabilities, and unmatched balance sheet strength as true differentiators. While these advantages have been overshadowed by an ever-expanding cash balance-ANhich is earning next to nothing in a near-zero interest-rate environment--we believe the company has finally hit a nexus where it is far more focused on reducing its cash hoard through stock and bond investments and share repurchases. During the past eight calendar quarters, the
-
 not correct as shown above, please make the correction using the attached tear-off stub and return it to us . Based on the information received from you or your representative, you must file the following forms by the dates shown. We assigned you
 4/7/2022
 Form 940 4/7/2022
@@ -334,7 +274,6 @@ until it is filed and paid. If you were not in business or did not hire any empl
 for the tax period(s) in question, please file the return (s) showing you have no liabilities . If you have questions about the forms or the due dates shown, you can call us at PI
 the phone number or write to us at the address shown at the top of this notice. If you
 need help in determining your annual accounting period (tax year) , see Publication 538, Accounting Periods and Methods.
-
 Business Checking PNCBANK @PNCBANK
 For the period 04/13/2022 Primary account number: 47-2041-6547 Page 1 of 3
 146967 1022462 Q 304 Number of enclosures: 0
@@ -381,7 +320,6 @@ Service Charge description Amount
 Account Maintenance Charge 00063
 Total For Services Used This Period 00036
 Total Service Charge 00099 Waived - Waived - New Customer Period
-
 Reviewing Your Statement of this statement if: you have any questions regarding your account(s); your name or address is incorrect; you have any questions regarding interest paid to an interest-bearing account. PNCBANK
 Balancing Your Account Update Your Account Register Volume
 Compare: The activity detail section of your statement to your account register.
@@ -390,46 +328,31 @@ Your Statement Information : step 2: Add together checks and other deductions li
 Amount Check Deduction Descrption Amount
 Balancing Your Account Update Your Account Register
 on deposit: 22934637118600.00USD
-
 4720416547
 Reviewing Your Statement of this statement if: you have any questions regarding your account(s); your name or address is incorrect; you have any questions regarding interest paid to an interest-bearing account. Total A=$22934637118600
-
 Step 3: 22934637118600
-
 Enter the ending balance recorded on your statement
 Add deposits and other additions not recorded Total A + $22934637118600
-
-                                    Subtotal=$22934637118600                                                                                                
+Subtotal=$22934637118600                                                                                                
 Subtract checks and other deductions not recorded Total B $ 22934637118600
-
 The result should equal your account register balance $ 22934637118600
 Total B22934637118600
 Verification of Direct Deposits
-
 To verify whether a direct deposit or other transfer to your account has occurred, call us Monday - Friday: 7 AM - 10 PM ET and Saturday & Sunday: 8 AM - 5 PM ET at the customer service number listed on the upper right side of the first page of this statement.
 In Case of Errors or Questions About Your Electronic Transfers Telephone us at the customer service number listed on the upper right side of the first page of this statement or write us at PNC Bank Debit Card Services, 500 First Avenue, 4th Floor, Mailstop P7-PFSC-04-M, Pittsburgh, PA 15219 as soon as you can, if you think your statement or receipt is wrong or if you need more information about a transfer on the statement or receipt. We must hear from you no later than 60 days after we sent you the FIRST statement on which the error or problem appeared. Tell us your name and account number (if any). Describe the error or the transfer you are unsure about, and explain as clearly as you can why you believe it is an error or why you need more information. Tell us the dollar amount of the suspected error. We will investigate your complaint and will correct any error promptly. If we take longer than 10 business days, we will provisionally credit your account for the amount you think is in error, so that you will have use of the money during the time it Cakes us to complete our investigation. EquaLHousing Lender
 Member FDIC
-
 Home > Chapter 7: Reports > Custom Reports > Exporting Custom Reports > Export Custom Report as Excel File
 Export Custom Report as Excel File
 Show  00000
   Excel report exports are in XLSX format. If you are using an older version of Excel, you can install the Microsoft Compatibility Pack so that you can open XLSX files.
 1 Locate the report you want to export in the custom reports section of the Reports dashboard, and click an Excel export link.
-To export the report without first viewing the data, click the “Export XLS” link under the Action button menu.
-
-                                                                                                                                     
+To export the report without first viewing the data, click the “Export XLS” link under the Action button menu.                                                                                                                                     
             To view the report prior to exporting, click on its linked Report Name, then click the “xls” link in the Export line directly above the report Snapshot.                                                                                                                        
-            NOTE: You can filter the report by Date Range or Payment Method prior to exporting it; the export will include only those transactions included by the filters.                                                                                                                        
-                                                                                                                                    
-                                                                                                                                     
+            NOTE: You can filter the report by Date Range or Payment Method prior to exporting it; the export will include only those transactions included by the filters.                                                                                                                                                                                                                                                                                                                                                                                                
 2 Depending on your browser, you will have the option to open and/or save the file.
-a To open the file, click the “Open” button in the dialog box. The file will open in Excel, but will not be saved. You will need to save the file in Excel if you want to store it on your computer.
-
-                                                                                                                                     
+a To open the file, click the “Open” button in the dialog box. The file will open in Excel, but will not be saved. You will need to save the file in Excel if you want to store it on your computer.                                                                                                                                     
     b        To save the file to your computer.                                                                                                                        
-            i        Click the “Save” button in the dialog box.                                                                                                                 
-                                                                                                                                    
-                                                                                                                                      
+            i        Click the “Save” button in the dialog box.                                                                                                                                                                                                                                                                                                                                                                                          
             ii        A Save As dialog box opens.                                                                                                                
                     NOTE: In Google Chrome, and some other browsers, clicking the “xls” link will take you directly to this step.                                                                                                                
                                                                                                                                     
