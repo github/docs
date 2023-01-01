@@ -18,7 +18,7 @@ versions:
 topics:
   - Profiles
 shortTitle: Personalize
----
+----
 ## Changing your profile picture
 
 Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
