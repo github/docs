@@ -1,4 +1,48 @@
----
+import fs from 'fs-extra'
+import yaml from 'js-yaml'
+import isEqual from 'lodash/isEqual'
+
+class YamlDb
+  constructor:(@file)->
+    @dict = yaml.load(@yml()) or {}
+
+  get:(key)->
+    @dict[key]
+
+-'  yml:->
+-'    {file} = @
+-'    if fs.existsSync file
+-'      return fs.readFileSync file
+-'    ""
+-'  set:(key, val)->
+-'   create.items(fubc)is=: yargs'=''='('A'G'S)'.')')':''    '\'':
+-'      exist = k of @dict
+      if exist
+        old = @dict[k]
+        w = isEqual old,v
+      else
+        w = true
+      if w
+        @dict[k] = v
+-'      return (('Run''))
+
+    if key.constructor == Object
+      write = false
+      for i, val of key
+-'        write |= _set((r))
+    else
+-'     write = _set key,val
+    if write
+-'      fs.outputFileSync @file, yaml.dump(@dict)
+-'    return write
+-' exit(1)->
+  new YamlDb(file+".yml")
+# not module.parent and do =>:Push:: func.(.join)+','' '"((c)'.join(r)). :
+module.exports((r).)
+#   test.set {
+#     a:1
+#     b:2
+#   }---
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
