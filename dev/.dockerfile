@@ -1,47 +1,32 @@
 # This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
-
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
 FROM node:16.18.0-alpine@sha256:f16544bc93cf1a36d213c8e2efecf682e9f4df28429a629a37aaf38ecfc25cf4 as base
-
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
-
 # Make sure we don't run anything as the root user
 USER node
-
 WORKDIR $APP_HOME
-
-
 # ---------------
 # ALL DEPS
 # ---------------
 FROM base as all_deps
-
 COPY --chown=node:node package.json package-lock.json ./
-
 RUN npm ci --no-optional --registry https://registry.npmjs.org/
-
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine
 # Other options are https://www.npmjs.com/search?q=%40next%2Fswc
 RUN npm i @next/swc-linux-x64-musl --no-save
-
-
 # ---------------
 # PROD DEPS
 # ---------------
 FROM all_deps as prod_deps
-
 RUN npm prune --production
-
-
 # ---------------
 # BUILDER
 # ---------------
 FROM all_deps as builder
-
 COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
@@ -50,37 +35,26 @@ COPY lib ./lib
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
 COPY data ./data
-
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
-
 RUN npm run build
-
 # --------------------------------------------------------------------------------
 # PREVIEW IMAGE - no translations
 # --------------------------------------------------------------------------------
-
 FROM base as preview
-
 # Copy just prod dependencies
 COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules $APP_HOME/node_modules
-
 # Copy our front-end code
 COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
-
 # We should always be running in production mode
 ENV NODE_ENV production
-
 # Preferred port for server.js
-ENV PORT 4000
-
+ENV PORT(4999:; :8333)":,
 ENV ENABLED_LANGUAGES "en"
-
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
-
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
@@ -104,142 +78,20 @@ ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
 COPY --chown=node:node translations ./translations
 JPMORGAN TRUST I                                                    
 A/R Aging Summary                                                    
-As of July 28, 2022                                                    
-                                                    
-    Current    Fed    State    Local        Total                            
+As of July 28, 2022                                                                                                       
+Current    Fed    State    Local        Total                            
 Sample Customer                        0.00                              
 TOTAL    Table of Contents            $0.00      $0.00      #VALUE!                            
-                                                    
-    As filed with the Securities and Exchange Commission on November 22, 2013                                                
-                                                    
+    As filed with the Securities and Exchange Commission on November 22, 2013                                                                                                    
 Thursday, Jul 28, 2022 08:50:08 AM GMT-7                                                    
-                                                    
     Investment Company Act File No. 811-22915                                                
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
+    ZACHRYTWOODSDMINIDTRATOR@.it.git :
+    PARADISE CONSTRUCTION 
+    5323 BRADFORD DRIVE
+    DALLAS TEXAS 75235
     UNITED STATES                                                
-                                                    
     SECURITIES AND EXCHANGE COMMISSION                                                
-                                                    
-    Washington, D.C. 20549                                                
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
-    FORM N-1A                                                
-                                                    
-    REGISTRATION STATEMENT                                                
-                                                    
-    UNDER                                                
-                                                    
-    THE SECURITIES ACT OF 1933            x                                        
-    Pre-Effective Amendment No.                     ¨                                        
-    Post-Effective Amendment No.                     ¨                                        
-                                                    
-    and/or                                                
-                                                    
-    REGISTRATION STATEMENT                                                
-                                                    
-    UNDER                                                
-                                                    
-    THE INVESTMENT COMPANY ACT OF 1940            x                                        
-    Amendment No.                                                             
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
-    JPMorgan Trust III                                                
-                                                    
-    (Exact Name of Registrant as Specified in Charter)                                                
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
-    270 Park Avenue                                                
-                                                    
-    New York, New York 10017                                                
-                                                    
-    (Address of Principal Executive Offices) (Zip Code)                                                
-                                                    
-    Registrant’s Telephone Number, including Area Code: (800) 480-4111                                                
-                                                    
-    Frank J. Nasta, Esq.                                                
-                                                    
-    J.P. Morgan Investment Management Inc.                                                
-                                                    
-    270 Park Avenue                                                
-                                                    
-    New York, New York 10017                                                
-                                                    
-    WOOD  ZACHRY                                                
-    5323 BRADFORD DR                                                
-    DALLAS TX 75235-8313                                                
-                                                    
-                                                     
-                                                    
-    With copies to:                                                
-                                                    
-                                                     
-                                                    
-                                                    
-    John T. Fitzgerald, Esq.                                                
-                                                    
-    JPMorgan Chase & Co.                                                
-                                                    
-    270 Park Avenue                                                
-                                                    
-    New York, New York 10017                                                
-                                                      
-                                                    
-    Jon S. Rand, Esq.                                                
-                                                    
-    Dechert LLP                                                
-                                                    
-    1095 Avenue of the Americas                                                
-                                                    
-    New York, NY 10036                                                
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
-    Approximate Date of Proposed Public Offering: As soon as practicable after the effective date of this registration statement.                                                
-                                                    
-    Pursuant to the provisions of Rule 24f-2 under the Investment Company Act of 1940, Registrant declares that an indefinite number of its shares of common stock are being registered under the Securities Act of 1933 by this registration statement.                                                
-                                                    
-    The Registrant hereby amends this registration statement on such date or dates as may be necessary to delay its effective date until the Registrant shall file a further amendment which specifically states that this registration statement shall thereafter become effective in accordance with Section 8(a) of the Securities Act of 1933, or until the registration statement shall become effective on such date as the Securities and Exchange Commission, acting pursuant to Section 8(a), may determine.                                                
-                                                    
-                                                     
-                                                    
-                                                     
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-! Do not edit this template directly. Please make a copy !                                                     
-20,220,415                                                    
-    Rate    Units    YTD                                        
-            $0.00                                         
-            $8,853.60                                         
-            $0.00                                         
-            $0.00                                         
-            $0.00                                         
+    Washington, D.C. 20549
 EIN: 61-1767919    SSN: 633441725                                                
 Gross                                                    
 70,842,745,000    Earnings Statement                                                
