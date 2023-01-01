@@ -14,12 +14,12 @@ topics:
   - Security
   - SSO
   - Troubleshooting
-ms.openlocfilehash: 806db249c8ad083965136005843d30fd1a3f5015
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7b8c42a1012e91268f4315d99934a4f38c52a529
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147093188'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107537'
 ---
 ## Conflictos de nombre de usuario
 
@@ -32,6 +32,7 @@ Si tienes problemas al cambiar entre distintas configuraciones de autenticación
 
 - "[Cambio de la configuración de SAML de una cuenta de organización a una empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
 - "[Migración de SAML a OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)"
+- "[Migración de la empresa a un nuevo proveedor de identidades o inquilino](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant)"
 
 ## Acceso a la empresa cuando el inicio de sesión único no está disponible
 

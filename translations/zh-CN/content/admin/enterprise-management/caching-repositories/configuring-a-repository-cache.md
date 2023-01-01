@@ -1,6 +1,6 @@
 ---
 title: Configuring a repository cache
-intro: 'You can configure a repository cache by creating a new appliance, connecting the repository cache to your primary appliance, and configuring replication of repository networks to the repository cache.'
+intro: 'You can configure a repository cache for {% data variables.product.product_name %} by creating a new instance, connecting the repository cache to your primary instance, and configuring replication of repository networks to the repository cache.'
 versions:
   ghes: '*'
 type: how_to
@@ -34,13 +34,14 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 ## Configuring a repository cache
 
 {% ifversion ghes = 3.3 %}
-1. On your primary {% data variables.product.prodname_ghe_server %} appliance, enable the feature flag for repository caching.
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. To enable repository caching, run the following command.
    
    ```
    $ ghe-config cluster.cache-enabled true
    ```
 {%- endif %}
-1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. This appliance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your desired platform. This instance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the repository cache's IP address using SSH.
 
@@ -62,11 +63,22 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
    $ ghe-repl-setup PRIMARY-IP
    ```
 
-1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
+{% ifversion ghes < 3.6 %}
+1. Set a `cache-location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
    $ ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
    ```
+{% else %}
+1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
+    - Set a `cache-location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed.  The *CACHE-LOCATION* value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)."
+    - Set a `cache-domain` for the repository cache, replacing *EXTERNAL-CACHE-DOMAIN* with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the *CACHE-LOCATION* value as a subdomain to the hostname configured for your instance. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+    - New caches will attempt to seed from another cache in the same datacenter. Set a `datacenter` for the repository cache, replacing *REPLICA-DC-NAME* with the name of the datacenter where you're deploying the node.
+
+    ```shell
+    $ ghe-repl-node --cache CACHE-LOCATION --cache-domain EXTERNAL-CACHE-DOMAIN --datacenter REPLICA-DC-NAME
+    ```
+{% endif %}
 
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}

@@ -10,10 +10,10 @@ Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret
 Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %}
 Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
 Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
-Asana | Asana {% data variables.product.pat_generic %} | asana_personal_access_token
+Asana | Asana {% data variables.product.pat_generic_title_case %} | asana_personal_access_token
 Atlassian | Atlassian API Token | atlassian_api_token
 Atlassian | Atlassian JSON Web Token | atlassian_jwt
-Atlassian | Bitbucket Server {% data variables.product.pat_generic %} | bitbucket_server_personal_access_token
+Atlassian | Bitbucket Server {% data variables.product.pat_generic_title_case %} | bitbucket_server_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
@@ -22,7 +22,7 @@ Azure | Azure Batch Key Identifiable | azure_batch_key_identifiable{% endif %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
-Azure | Azure DevOps {% data variables.product.pat_generic %} | azure_devops_personal_access_token
+Azure | Azure DevOps {% data variables.product.pat_generic_title_case %} | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
 Azure | Azure SAS Token | azure_sas_token
@@ -35,14 +35,14 @@ Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_k
 Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential
-Contentful | Contentful {% data variables.product.pat_generic %} | contentful_personal_access_token
+Contentful | Contentful {% data variables.product.pat_generic_title_case %} | contentful_personal_access_token
 Databricks | Databricks Access Token | databricks_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 DevCycle | DevCycle Client API Key | devcycle_client_api_key
 DevCycle | DevCycle Server API Key | devcycle_server_api_key
 DevCycle | DevCycle Mobile API Key | devcycle_mobile_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-DigitalOcean | DigitalOcean {% data variables.product.pat_generic %} | digitalocean_personal_access_token
+DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %} | digitalocean_personal_access_token
 DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
 DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
 DigitalOcean | DigitalOcean System Token | digitalocean_system_token{% endif %}
@@ -67,7 +67,7 @@ Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key
 Frame.io | Frame.io JSON Web Token | frameio_jwt
 Frame.io| Frame.io Developer Token | frameio_developer_token
 FullStory | FullStory API Key | fullstory_api_key
-GitHub | GitHub {% data variables.product.pat_generic %} | github_personal_access_token
+GitHub | GitHub {% data variables.product.pat_generic_title_case %} | github_personal_access_token
 GitHub | GitHub OAuth Access Token | github_oauth_access_token
 GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
@@ -95,7 +95,7 @@ HashiCorp | HashiCorp Vault Root Service Token | hashicorp_vault_root_service_to
 HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
 Hubspot | Hubspot API Key | hubspot_api_key
 Intercom | Intercom Access Token | intercom_access_token
-Ionic | Ionic {% data variables.product.pat_generic %} | ionic_personal_access_token
+Ionic | Ionic {% data variables.product.pat_generic_title_case %} | ionic_personal_access_token
 Ionic | Ionic Refresh Token | ionic_refresh_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 JD Cloud | JD Cloud Access Key | jd_cloud_access_key{% endif %}
@@ -192,7 +192,7 @@ Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key
 Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Supabase | Supabase Service Key | supabase_service_key{% endif %}
-Tableau | Tableau {% data variables.product.pat_generic %} | tableau_personal_access_token
+Tableau | Tableau {% data variables.product.pat_generic_title_case %} | tableau_personal_access_token
 Telegram | Telegram Bot Token | telegram_bot_token
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
@@ -200,7 +200,7 @@ Twilio | Twilio Access Token | twilio_access_token{% endif %}
 Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-Typeform | Typeform {% data variables.product.pat_generic %} | typeform_personal_access_token{% endif %}
+Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}

@@ -33,7 +33,7 @@ export const TableOfContents = (props: Props) => {
                 </Link>
               </h2>
               {intro && (
-                <p className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
+                <div className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
               )}
             </li>
           )

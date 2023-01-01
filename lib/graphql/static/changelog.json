@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>hasDiscussionsEnabled</code> was added to interface <code>RepositoryInfo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'ArchiveProjectV2ItemInput' was added</p>",
           "<p>Type 'ArchiveProjectV2ItemPayload' was added</p>",
           "<p>Type 'LinkProjectV2ToRepositoryInput' was added</p>",

@@ -17,25 +17,31 @@ export const SupportSection = () => {
     currentVersion.includes(enterpriseServerReleases.oldestSupported)
   const isEarlyAccess = relativePath?.includes('early-access/')
   const isEnglish = router.locale === 'en'
+  const isSitePolicyDocs = router.asPath.startsWith('/site-policy')
+
+  const showSurvey = !isDeprecated && !isSitePolicyDocs
+  const showContribution = !isDeprecated && !isEarlyAccess && isEnglish
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
       <div className="container-xl mx-auto py-6 py-lg-6 clearfix border-top border-color-secondary">
-        {!isDeprecated && (
+        {showSurvey && (
           <div className="col-12 col-lg-6 col-xl-3 mb-6 mb-xl-0 float-left pr-4">
             <Survey />
           </div>
         )}
-        {!isDeprecated && !isEarlyAccess && isEnglish && (
-          <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left pr-4 offset-xl-1">
+        {showContribution && (
+          <div
+            className={cx(
+              'col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left pr-4',
+              showSurvey && 'offset-xl-1'
+            )}
+          >
             <Contribution />
           </div>
         )}
         <div
-          className={cx(
-            'col-12 col-lg-12 col-xl-3 float-left pr-4',
-            !isDeprecated && 'offset-xl-1'
-          )}
+          className={cx('col-12 col-lg-12 col-xl-3 float-left pr-4', showSurvey && 'offset-xl-1')}
         >
           <Support />
         </div>

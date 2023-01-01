@@ -1,6 +1,6 @@
 ---
-title: About Visual Studio subscriptions with GitHub Enterprise
-intro: 'You can give {% data variables.product.prodname_vs %} subscribers on your team access to {% data variables.product.prodname_enterprise %} with a combined offering from Microsoft.'
+title: Acerca de las suscripciones a Visual Studio con GitHub Enterprise
+intro: 'Puedes otorgar acceso a {% data variables.product.prodname_enterprise %} a tus suscriptores de {% data variables.product.prodname_vs %} con una oferta combinada de Microsoft.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
@@ -17,35 +17,40 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: About
+ms.openlocfilehash: dd66572e3de9f34f6783b15d9fe8c876f4bb9d6b
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120613'
 ---
+## Acerca de {% data variables.visual_studio.prodname_vss_ghe %}
 
-## About {% data variables.visual_studio.prodname_vss_ghe %}
+{% data reusables.enterprise-accounts.vss-ghe-description %} {% data variables.visual_studio.prodname_vss_ghe %} se encuentra disponible desde Microsoft bajo las condiciones del Acuerdo Empresarial de Microsoft. Para más información, consulta [{% data variables.visual_studio.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/) en el sitio web de {% data variables.product.prodname_vs %}.
 
-{% data reusables.enterprise-accounts.vss-ghe-description %} {% data variables.visual_studio.prodname_vss_ghe %} is available from Microsoft under the terms of the Microsoft Enterprise Agreement. For more information, see [{% data variables.visual_studio.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/) on the {% data variables.product.prodname_vs %} website.
+Para usar la parte de {% data variables.product.prodname_enterprise %} de la licencia, la cuenta personal de cada suscriptor en {% data variables.product.prodname_dotcom_the_website %} debe ser o convertirse en miembro de una organización propiedad de tu empresa en {% data variables.product.prodname_dotcom_the_website %}. Para lograrlo, los propietarios de las organizaciones pueden invitar por correo electrónico a los miembros nuevos para que se unan a una organización. El suscriptor puede aceptar la invitación con una cuenta personal existente en {% data variables.product.prodname_dotcom_the_website %} o crear una cuenta nueva.
 
-To use the {% data variables.product.prodname_enterprise %} portion of the license, each subscriber's personal account on {% data variables.product.prodname_dotcom_the_website %} must be or become a member of an organization owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}. To accomplish this, organization owners can invite new members to an organization by email address. The subscriber can accept the invitation with an existing personal account on {% data variables.product.prodname_dotcom_the_website %} or create a new account.
+Para obtener más información sobre la configuración de {% data variables.visual_studio.prodname_vss_ghe %}, consulta "[Configuración de {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)".
 
-For more information about the setup of {% data variables.visual_studio.prodname_vss_ghe %}, see "[Setting up {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
+## Acerca de las licencias para {% data variables.visual_studio.prodname_vss_ghe %}
 
-## About licenses for {% data variables.visual_studio.prodname_vss_ghe %}
+Después de asignar una licencia para {% data variables.visual_studio.prodname_vss_ghe %} a un suscriptor, el suscriptor usará la parte {% data variables.product.prodname_enterprise %} de la licencia mediante la unión a una organización de tu empresa con una cuenta personal en {% data variables.product.prodname_dotcom_the_website %}. Si la dirección de correo electrónico verificada de la cuenta personal de un miembro de empresa en {% data variables.product.prodname_dotcom_the_website %} coincide con el nombre principal de usuario (UPN) de un suscriptor de tu cuenta de {% data variables.product.prodname_vs %}, el suscriptor de {% data variables.product.prodname_vs %} consumirá automáticamente una licencia de {% data variables.visual_studio.prodname_vss_ghe %}.
 
-After you assign a license for {% data variables.visual_studio.prodname_vss_ghe %} to a subscriber, the subscriber will use the {% data variables.product.prodname_enterprise %} portion of the license by joining an organization in your enterprise with a personal account on {% data variables.product.prodname_dotcom_the_website %}. If the verified email address for the personal account of an enterprise member on {% data variables.product.prodname_dotcom_the_website %} matches the User Primary Name (UPN) for a subscriber to your {% data variables.product.prodname_vs %} account, the {% data variables.product.prodname_vs %} subscriber will automatically consume one license for {% data variables.visual_studio.prodname_vss_ghe %}.
+La cantidad total de licencias para tu empresa en {% data variables.product.prodname_dotcom %} es la suma de todas las licencias estándar de {% data variables.product.prodname_enterprise %} y de la cantidad de licencias de suscripción de {% data variables.product.prodname_vs %} que incluyan acceso a {% data variables.product.prodname_dotcom %}. Si la cuenta personal de un miembro de la empresa no se corresponde con la dirección de correo electrónico de un suscriptor de {% data variables.product.prodname_vs %}, la licencia que consume la cuenta personal no está disponible para un suscriptor de {% data variables.product.prodname_vs %}.
 
-The total quantity of your licenses for your enterprise on {% data variables.product.prodname_dotcom %} is the sum of any standard {% data variables.product.prodname_enterprise %} licenses and the number of {% data variables.product.prodname_vs %} subscription licenses that include access to {% data variables.product.prodname_dotcom %}. If the personal account for an enterprise member does not correspond with the email address for a {% data variables.product.prodname_vs %} subscriber, the license that the personal account consumes is unavailable for a {% data variables.product.prodname_vs %} subscriber.
+Para más información sobre {% data variables.product.prodname_enterprise %}, vea "[Productos de {% data variables.product.company_short %}](/github/getting-started-with-github/githubs-products#github-enterprise)". Para más información sobre las cuentas de {% data variables.product.prodname_dotcom_the_website %}, vea "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/types-of-github-accounts)".
 
-For more information about {% data variables.product.prodname_enterprise %}, see "[{% data variables.product.company_short %}'s products](/github/getting-started-with-github/githubs-products#github-enterprise)." For more information about accounts on {% data variables.product.prodname_dotcom_the_website %}, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/github/getting-started-with-github/types-of-github-accounts)."
-
-You can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise on {% data variables.location.product_location %}. The list of pending invitations includes subscribers who are not yet members of at least one organization in your enterprise. For more information, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" and "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)."
+Puedes ver la cantidad de licencias de {% data variables.product.prodname_enterprise %} disponibles para tu empresa en {% data variables.location.product_location %}. La lista de invitaciones pendientes incluye a los suscriptores que aún no sean miembros de por lo menos una organización en tu empresa. Para más información, vea "[Visualización de la suscripción y el uso de la cuenta de empresa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" y "[Visualización de personas en la empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)".
 
 {% tip %}
 
-**Tip**: If you download a CSV file with your enterprise's license usage in step 6 of "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account#viewing-the-subscription-and-usage-for-your-enterprise-account)," any members with a missing value for the "Name" or "Profile" columns have not yet accepted an invitation to join an organization within the enterprise.
+**Sugerencia**: Si descarga un archivo CSV con el uso de licencia de la empresa en el paso 6 de "[Visualización de la suscripción y el uso de la cuenta de empresa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account#viewing-the-subscription-and-usage-for-your-enterprise-account)", los miembros a los que les falte un valor en las columnas "Nombre" o "Perfil" todavía no han aceptado una invitación para unirse a una organización dentro de la empresa.
 
 {% endtip %}
 
-You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
+También puedes ver las invitaciones pendientes de {% data variables.product.prodname_enterprise %} para los suscriptores en {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
 
-## Further reading
+## Información adicional
 
-- [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/visualstudio/subscriptions/access-github) in Microsoft Docs
-- [Use {% data variables.product.prodname_vs %} or {% data variables.product.prodname_vscode %} to deploy apps from {% data variables.product.prodname_dotcom %}](https://docs.microsoft.com/en-us/azure/developer/github/deploy-with-visual-studio) in Microsoft Docs
+- [Suscripciones de {% data variables.product.prodname_vs %} con {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/visualstudio/subscriptions/access-github) en Microsoft Docs
+- [Uso de {% data variables.product.prodname_vs %} o {% data variables.product.prodname_vscode %} para implementar aplicaciones de {% data variables.product.prodname_dotcom %}](https://docs.microsoft.com/en-us/azure/developer/github/deploy-with-visual-studio) en Microsoft Docs

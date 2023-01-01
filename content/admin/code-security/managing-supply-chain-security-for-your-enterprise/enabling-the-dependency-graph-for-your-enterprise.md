@@ -16,6 +16,8 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
+{% data reusables.dependency-review.dependency-review-enabled-ghes %}
+
 After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
 {% ifversion ghes %}

@@ -1,6 +1,6 @@
 ---
-title: Managing custom repository roles for an organization
-intro: You can create, edit, or delete custom repository roles for your organization.
+title: Organizationのカスタムリポジトリロールの管理
+intro: Organization のカスタム リポジトリ ロールを作成、編集、または削除できます。
 permissions: Organization owners can manage custom repository roles.
 versions:
   feature: custom-repository-roles
@@ -10,58 +10,51 @@ topics:
 shortTitle: Manage custom roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
+ms.openlocfilehash: f7f8be4eda3ecf62a1b587a509881f9fee1a463f
+ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148131004'
 ---
-
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
-## About custom repository roles
+## カスタムリポジトリロールについて
 
-{% data reusables.organizations.about-custom-repo-roles %} For more information, see "[About custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)."
+{% data reusables.organizations.about-custom-repo-roles %} 詳しくは、「[カスタム リポジトリ ロールについて](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)」を参照してください。
 
-## Creating a repository role
+## リポジトリロールの作成
 
-To create a new repository role, you add permissions to an inherited role and give the custom role a name.
+新しいリポジトリロールを作成するには、継承されたロールに権限を追加し、カスタムロールに名前を付けます
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-5. Click **Create a Role**.
-  ![Screenshot of "Create a Role" button](/assets/images/help/organizations/repository-role-create-role.png)
-4. Under "Name", type the name of your repository role.
-  ![Field to type a name for the repository role](/assets/images/help/organizations/repository-role-name.png)
-5. Under "Description", type a description of your repository role.
-  ![Field to type a description for the repository role](/assets/images/help/organizations/repository-role-description.png)
-6. Under "Choose a role to inherit", select the role you want to inherit.
-  ![Selecting repository role base role option](/assets/images/help/organizations/repository-role-base-role-option.png)
-7. Under "Add Permissions", use the drop-down menu to select the permissions you want your custom role to include.
-  ![Selecting permission levels from repository role drop-down](/assets/images/help/organizations/repository-role-drop-down.png)
-7. Click **Create role**.
-  ![Confirm creating a repository role](/assets/images/help/organizations/repository-role-creation-confirm.png)
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.org-list %} {% data reusables.organizations.org-settings-repository-roles %}
+5. **[ロールの作成]** をクリックします。
+  ![[ロールの作成] ボタンのスクリーンショット](/assets/images/help/organizations/repository-role-create-role.png)
+4. "Name（名前）"の下で、リポジトリロールの名前を入力してください。
+  ![リポジトリ ロールの名前の入力フィールド](/assets/images/help/organizations/repository-role-name.png)
+5. "Description（説明）"の下で、リポジトリロールの説明を入力してください。
+  ![リポジトリ ロールの説明の入力フィールド](/assets/images/help/organizations/repository-role-description.png)
+6. "Choose a role to inherit（継承するロールの選択）"の下で、継承したいロールを選択してください。
+  ![リポジトリ ロールの基本ロール オプションの選択](/assets/images/help/organizations/repository-role-base-role-option.png)
+7. "Add Permissions（権限の追加）"の下で、ドロップダウンメニューを使ってカスタムロールに含めたい権限を選択してください。
+  ![リポジトリ ロールのドロップダウンからの権限レベルの選択](/assets/images/help/organizations/repository-role-drop-down.png)
+7. **[ロールの作成]** をクリックします。
+  ![リポジトリ ロールの作成の確認](/assets/images/help/organizations/repository-role-creation-confirm.png)
 
-## Editing a repository role
+## リポジトリロールの編集
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
-  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-edit-setting.png)
-4. Edit, then click **Update role**.
-  ![Edit fields and update repository roles](/assets/images/help/organizations/repository-role-update.png)
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.org-list %} {% data reusables.organizations.org-settings-repository-roles %}
+3. 編集するロールの右にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックしてから **[編集]** をクリックします。
+  ![リポジトリ ロールのドロップダウン メニューの編集オプション](/assets/images/help/organizations/repository-role-edit-setting.png)
+4. 編集してから、 **[ロールの更新]** をクリックします。
+  ![フィールドを編集して、リポジトリ ロールを更新する](/assets/images/help/organizations/repository-role-update.png)
 
-## Deleting a repository role
+## リポジトリロールの削除
 
-If you delete an existing repository role, all pending invitations, teams, and users with the custom role will be reassigned to the organization's base permissions.
+既存のリポジトリロールを削除すると、そのカスタムロールを持つ保留中の招待、Team、ユーザはすべてOrganizationの基本権限に割り当てなおされます。
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-delete-setting.png)
-4. Review changes for the role you want to remove, then click **Delete role**.
-  ![Confirm deleting a repository role](/assets/images/help/organizations/repository-role-delete-confirm.png)
+{% data reusables.profile.access_profile %} {% data reusables.profile.access_org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.org-list %} {% data reusables.organizations.org-settings-repository-roles %}
+3. 削除するロールの右にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックしてから、 **[削除]** をクリックします。
+  ![リポジトリ ロールのドロップダウン メニューの編集オプション](/assets/images/help/organizations/repository-role-delete-setting.png)
+4. 削除するロールに対する変更をレビューしてから、 **[ロールの削除]** をクリックします。
+  ![リポジトリ ロールの削除を確認する](/assets/images/help/organizations/repository-role-delete-confirm.png)

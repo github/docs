@@ -1,5 +1,5 @@
 ---
-title: Using LDAP
+title: Usar LDAP
 redirect_from:
   - /enterprise/admin/articles/configuring-ldap-authentication
   - /enterprise/admin/articles/about-ldap-authentication
@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.product_name %} by configuring LDAP authentication for your instance.'
+intro: 'Si usas el Protocolo ligero de acceso a directorios (LDAP) para centralizar el acceso entre aplicaciones, puedes integrar {% data variables.product.product_name %} mediante la configuración de la autenticación LDAP para la instancia.'
 versions:
   ghes: '*'
 type: how_to
@@ -20,19 +20,24 @@ topics:
   - Authentication
   - Enterprise
   - Identity
+ms.openlocfilehash: 5d9b6aa9a5d641afa0b24dbe0e0f446ab723c735
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107529'
 ---
+## Acerca de la autenticación LDAP para {% data variables.product.product_name %}
 
-## About LDAP authentication for {% data variables.product.product_name %}
+LDAP es un protocolo de aplicación popular para acceder a servicios de información de directorios y mantenerlos, y uno de los protocolos más comunes para integrar software de terceros con directorios de usuarios de empresas grandes. Para obtener más información, consulta "[Protocolo ligero de acceso a directorios](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" en Wikipedia.
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
-
-If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.location.product_location %}.
+Si usas un directorio LDAP para la autenticación centralizada, puedes configurar la autenticación LDAP para las personas que usan {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## Supported LDAP services
+## Servicios LDAP admitidos
 
-{% data variables.product.prodname_ghe_server %} integrates with these LDAP services:
+El {% data variables.product.prodname_ghe_server %} se integra con los siguientes servicios LDAP:
 
 * Active Directory
 * FreeIPA
@@ -41,179 +46,171 @@ If you use an LDAP directory for centralized authentication, you can configure L
 * Open Directory
 * 389-ds
 
-## Username considerations with LDAP
+## Consideraciones sobre el nombre de usuario con LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obtener más información, consulta "[Consideraciones sobre el nombre de usuario para la autenticación externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
-## Configuring LDAP with {% data variables.location.product_location %}
+## Configuración de LDAP con {% data variables.location.product_location %}
 
-After you configure LDAP, users will be able to sign into your instance with their LDAP credentials. When users sign in for the first time, their profile names, email addresses, and SSH keys will be set with the LDAP attributes from your directory.
+Una vez configurado LDAP, los usuarios podrán iniciar sesión en tu instancia con sus credenciales LDAP. Cuando los usuarios inician sesión por primera vez, sus nombres de perfil, direcciones de correo electrónico y claves SSH se establecen con los atributos de LDAP desde tu directorio.
 
-When you configure LDAP access for users via the {% data variables.enterprise.management_console %}, your user licenses aren't used until the first time a user signs in to your instance. However, if you create an account manually using site admin settings, the user license is immediately accounted for.
+Cuando configuras el acceso de LDAP para los usuarios a través de {% data variables.enterprise.management_console %}, tus licencias de usuario no se utilizarán sino hasta que los usuarios ingresen en tu instancia por primera vez. Sin embargo, si creas una cuenta manualmente utilizando la configuración de administrador para el sitio, esta licencia de usuario se tomará en cuenta.
 
 {% warning %}
 
-**Warning:** Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
+**Advertencia**: Antes de configurar LDAP en {% data variables.location.product_location %}, asegúrate de que el servicio LDAP admita resultados paginados.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.authentication %}
-3. Under "Authentication", select **LDAP**.
-![LDAP select](/assets/images/enterprise/management-console/ldap-select.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select LDAP built-in authentication checkbox](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
-5. Add your configuration settings.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
+3. En **Authentication**, seleccione LDAP.
+![Seleccionar LDAP](/assets/images/enterprise/management-console/ldap-select.png)
+4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Seleccionar la casilla de verificación autenticación integrada LDAP](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
+5. Agrega tus parámetros de configuración.
 
-## LDAP attributes
-Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
+## Atributos de LDAP
+Usa estos atributos para terminar de configurar LDAP para {% data variables.location.product_location %}.
 
-| Attribute name           | Type     | Description |
+| Nombre del atributo           | Tipo     | Descripción |
 |--------------------------|----------|-------------|
-| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.location.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
-| `Port`                   | Required | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
-| `Encryption`             | Required | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
-| `Domain search user`     | Optional | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
-| `Domain search password` | Optional | The password for the domain search user. |
-| `Administrators group`   | Optional | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
-| `Domain base`            | Required | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
-| `Restricted user groups` | Optional | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, *all* users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
-| `User ID`                | Required | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
-| `Profile name`           | Optional | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
-| `Emails`                 | Optional | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
-| `SSH keys`               | Optional | The public SSH keys attached to a user's {% data variables.product.prodname_ghe_server %} account. The keys must be in OpenSSH format. |
-| `GPG keys`               | Optional | The GPG keys attached to a user's {% data variables.product.prodname_ghe_server %} account. |
-| `Disable LDAP authentication for Git operations` | Optional |If selected, [turns off](#disabling-password-authentication-for-git-operations) users' ability to use LDAP passwords to authenticate Git operations. |
-| `Enable LDAP certificate verification` | Optional |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
-| `Synchronization` | Optional |If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
+| `Host`                   | Obligatorio | El host de LDAP, por ejemplo `ldap.example.com` o `10.0.0.30`. Si el nombre del host solo está disponible desde la red interna, es posible que primero debas configurar el DNS de {% data variables.location.product_location %} para que pueda resolver el nombre del host mediante el uso de los servidores de nombres internos. |
+| `Port`                   | Obligatorio | El puerto que están escuchando los servicios LDAP. Los ejemplos incluyen: 389 y 636 (para LDAPS). |
+| `Encryption`             | Obligatorio | El método de cifrado usado para garantizar las comunicaciones con el servidor LDAP. Los ejemplos incluyen el normal (sin cifrado), el SSL/LDAPS (cifrado desde el principio) y el StartTLS (se actualiza a comunicación cifrada una vez que se conecta). |
+| `Domain search user`     | Opcionales | El usuario LDAP que busca a otros usuarios que iniciaron sesión, para permitir la autenticación. Esto suele ser una cuenta de servicio creada específicamente para integraciones de terceros. Utilice un nombre completo como `cn=Administrator,cn=Users,dc=Example,dc=com`. Con Active Directory, también puede usar la sintaxis `[DOMAIN]\[USERNAME]` (por ejemplo, `WINDOWS\Administrator`) para el usuario de búsqueda de dominio con Active Directory. |
+| `Domain search password` | Opcionales | La contraseña para el usuario de búsqueda de dominio. |
+| `Administrators group`   | Opcionales | Los usuarios de este grupo son promovidos a administradores del sitio cuando inician sesión en tu aparato. Si no configuras un Grupo de administradores LDAP, la primera cuenta de usuario LDAP que inicie sesión en tu aparato será promovida automáticamente a administrador del sitio. |
+| `Domain base`            | Obligatorio | El `Distinguished Name` (DN) completo de un subárbol de LDAP en el que desea buscar usuarios y grupos. Puedes agregar tantos como quieras; sin embargo, cada grupo debe estar definido en la misma base de dominio que los usuarios que le pertenecen. Si especificas grupos de usuarios con restricciones, solo los usuarios que pertenecen a esos grupo estarán al alcance. Te recomendamos que especifiques el primer nivel de tu árbol de directorios LDAP como tu base de dominio y que uses grupos de usuarios con restricciones para controlar el acceso. |
+| `Restricted user groups` | Opcionales | Si se especifica, solo los usuarios de estos grupos tendrán permiso para iniciar sesión. Solo necesitas especificar los nombres comunes (CN) de los grupos y puedes agregar tantos grupos como quieras. Si no se especifica ningún grupo, *todos* los usuarios dentro del alcance de la base de dominio especificada podrán iniciar sesión en su instancia de {% data variables.product.prodname_ghe_server %}. |
+| `User ID`                | Obligatorio | El atributo de LDAP que identifica al usuario LDAP que intenta una autenticación. Una vez que se establece una asignación, los usuarios pueden modificar sus nombres de usuario del {% data variables.product.prodname_ghe_server %}. Este campo debe ser `sAMAccountName` para la mayoría de las instalaciones de Active Directory, pero puede ser `uid` para otras soluciones de LDAP, como OpenLDAP. El valor predeterminado es `uid`. |
+| `Profile name`           | Opcional | El nombre que aparecerá en la página de perfil del {% data variables.product.prodname_ghe_server %} del usuario. A menos que la sincronización LDAP esté activada, los usuarios pueden modificar sus nombres de perfil. |
+| `Emails`                 | Opcionales | Las direcciones de correo electrónico para la cuenta del {% data variables.product.prodname_ghe_server %} de un usuario. |
+| `SSH keys`               | Opcionales | Las claves SSH públicas vinculadas a la cuenta del {% data variables.product.prodname_ghe_server %} de un usuario. Las claves deben ser en formato OpenSSH. |
+| `GPG keys`               | Opcionales | Las claves GPG vinculadas a la cuenta del {% data variables.product.prodname_ghe_server %} de un usuario. |
+| `Disable LDAP authentication for Git operations` | Opcionales |Si está seleccionada, [desactiva](#disabling-password-authentication-for-git-operations) la capacidad de los usuarios de usar contraseñas LDAP para autenticar las operaciones de Git. |
+| `Enable LDAP certificate verification` | Opcionales |Si está seleccionada, [activa](#enabling-ldap-certificate-verification) la comprobación del certificado LDAP. |
+| `Synchronization` | Opcionales |Si está seleccionada, [activa](#enabling-ldap-sync) la sincronización de LDAP. |
 
-### Disabling password authentication for Git operations
+### Desactivar la autenticación de contraseña para las operaciones de Git
 
-Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
+Selecciona **Deshabilitar la autenticación de nombre de usuario y contraseña para las operaciones de Git** en los parámetros de LDAP para implementar el uso de {% data variables.product.pat_generic %} o claves de SSH para el acceso a Git, que pueden ayudarte a impedir que el servidor se sobrecargue de solicitudes de autenticación LDAP. Recomendamos esta configuración, ya que un servidor LDAP de respuesta lenta, en especial combinado con una gran cantidad de solicitudes debido al sondeo, suele ser una causa de problemas e interrupciones.
 
-![Disable LDAP password auth for Git check box](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
+![Desactivar la casilla de verificación autenticación de contraseña LDAP](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
+Cuando se selecciona esta opción, si un usuario intenta usar una contraseña para las operaciones de Git a través de la línea de comandos, recibirá un mensaje de error que indica: `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
-### Enabling LDAP certificate verification
+### Activar la verificación de certificado LDAP
 
-Select **Enable LDAP certificate verification** in your LDAP settings to validate the LDAP server certificate you use with TLS.
+Seleccione **Enable LDAP certificate verification** en los parámetros de LDAP para validar el certificado del servidor LDAP que usa con TLS.
 
-![LDAP certificate verification box](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
+![Casilla de verificación de certificado LDAP](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
 
-When this option is selected, the certificate is validated to make sure:
-- If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
-- The certificate is not expired.
-- The certificate is signed by a trusted certificate authority (CA).
+Cuando se selecciona esta opción, el certificado se valida para garantizar que:
+- Si el certificado contiene al menos un nombre alternativo del firmante (SAN), uno de los SAN coincida con el nombre del host de LDAP. De lo contrario, que el nombre común (CN) coincida con el nombre del host de LDAP.
+- El certificado no ha expirado.
+- El certificado esté firmado por una entidad de certificación (CA) de confianza.
 
-### Enabling LDAP Sync
-
-{% note %}
-
-**Note:** Teams using LDAP Sync are limited to a maximum 1499 members.
-
-{% endnote %}
-
-LDAP Sync lets you synchronize {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.prodname_ghe_server %}. For more information, see "[Creating teams](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
-
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
-
-![Synchronization check box](/assets/images/enterprise/management-console/ldap-synchronize.png)
-
-After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
-
-- If you've allowed built-in authentication for users outside your identity provider, and the user is using built-in authentication, move on to the next user.
-- If no LDAP mapping exists for the user, try to map the user to an LDAP entry in the directory. If the user cannot be mapped to an LDAP entry, suspend the user and move on to the next user.
-- If there is an LDAP mapping and the corresponding LDAP entry in the directory is missing, suspend the user and move on to the next user.
-- If the corresponding LDAP entry has been marked as disabled and the user is not already suspended, suspend the user and move on to the next user.
-- If the corresponding LDAP entry is not marked as disabled, and the user is suspended, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
-- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
-- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
-- If the corresponding LDAP entry includes a `name` attribute, update the user's profile name.
-- If the corresponding LDAP entry is in the Administrators group, promote the user to site administrator.
-- If the corresponding LDAP entry is not in the Administrators group, demote the user to a normal account.
-- If an LDAP User field is defined for emails, synchronize the user's email settings with the LDAP entry. Set the first LDAP `mail` entry as the primary email.
-- If an LDAP User field is defined for SSH public keys, synchronize the user's public SSH keys with the LDAP entry.  
-- If an LDAP User field is defined for GPG keys, synchronize the user's GPG keys with the LDAP entry.  
+### Activar la sincronización LDAP
 
 {% note %}
 
-**Note**: LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`. Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
+**Nota:** Los equipos que usan la sincronización de LDAP están limitados a un máximo de 1499 miembros.
 
 {% endnote %}
 
-A synchronization job will also run at the specified time interval to perform the following operations on each team that has been mapped to an LDAP group:
+La sincronización LDAP te permite sincronizar usuarios y miembros del equipo del {% data variables.product.prodname_ghe_server %} con tus grupos LDAP establecidos. Esto te permite establecer un control de acceso basado en roles para los usuarios desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro del {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulte "[Creación de equipos](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)".
 
-- If a team's corresponding LDAP group has been removed, remove all members from the team.
-- If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization and is not an owner of the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
+Para habilitar la sincronización de LDAP, en la configuración de LDAP, seleccione **Synchronize Emails**, **Synchronize SSH Keys** o **Synchronize GPG Keys** .
+
+![Casilla de verificación de Sincronización](/assets/images/enterprise/management-console/ldap-synchronize.png)
+
+Una vez que actives la sincronización LDAP, se ejecutará un trabajo de sincronización en el intervalo de tiempo especificado para realizar las siguientes operaciones en cada cuenta de usuario:
+
+- Si has permitido la autenticación integrada para usuarios externos a tu proveedor de identidad, y el usuario está usando la autenticación integrada, pasa al siguiente usuario.
+- Si no existe una asignación LDAP para el usuario, intenta asignar el usuario a una entrada LDAP en el directorio. Si el usuario no se puede asignar a una entrada LDAP, suspéndelo y pasa al siguiente usuario.
+- Si hay una asignación LDAP y falta la entrada LDAP correspondiente en el directorio, suspende el usuario y pasa al siguiente usuario.
+- Si la entrada LDAP correspondiente se marcó como desactivada, y el usuario aún no se suspendió, suspéndelo y pasa al siguiente usuario.
+- Si la entrada LDAP correspondiente no se marcó como deshabilitada, el usuario queda suspendido y se activa _Reactivate suspended users_ en el Centro de administración para anular la suspensión del usuario.
+- Si uno o más grupos de usuarios restringidos se configuran en la instancia y la entrada de LDAP correspondiente no está en uno de estos grupos, suspende al usuario.
+- Si se configuran uno o más grupos de usuarios restringidos en la instancia, la entrada de LDAP correspondiente se encuentra en alguno de estos grupos y se habilita _Reactivate suspended users_ en el Centro de administración para anular la suspensión del usuario.
+- Si la entrada de LDAP correspondiente incluye un atributo `name`, se actualiza el nombre de perfil del usuario.
+- Si la entrada LDAP correspondiente está en el grupo de administradores, promueve al usuario a administrador del sitio.
+- Si la entrada LDAP correspondiente no está en el grupo de administradores, degrada al usuario a una cuenta normal.
+- Si un campo de usuario LDAP está definido para correos electrónicos, sincroniza los parámetros del correo electrónico del usuario con la entrada LDAP. Establezca la primera entrada de LDAP `mail` como correo electrónico principal.
+- Si un campo de usuario LDAP está definido para claves públicas SSH, sincroniza las claves SSH públicas del usuario con la entrada LDAP.  
+- Si un campo de usuario LDAP está definido para claves GPG, sincroniza las claves GPG del usuario con la entrada LDAP.  
+
+{% note %}
+
+**Nota**: Las entradas de LDAP solo se pueden marcar como deshabilitadas si usa Active Directory y el atributo `userAccountControl` está presente y marcado con `ACCOUNTDISABLE`. Algunas variaciones de Active Directory, como AD LDS y ADAM, no admiten el atributo `userAccountControl`.
+
+{% endnote %}
+
+También se ejecutará un trabajo de sincronización en el intervalo de tiempo especificado para realizar las siguientes operaciones en cada equipo que haya sido asignado a un grupo LDAP:
+
+- Si se eliminó el grupo LDAP correspondiente de un equipo, elimina todos los miembros del equipo.
+- Si las entradas de miembros LDAP se eliminaron del grupo LDAP, elimina los usuarios correspondientes del equipo. Si el usuario ya no es miembro de ningún equipo de la organización y tampoco es propietario de la organización, retíralo de esta. Si como resultado el usuario pierde acceso a algún repositorio, elimina toda bifurcación privada que el usuario tenga de esos repositorios.
 
   {% note %}
 
-  **Note:** LDAP Sync will not remove a user from an organization if the user is an owner of that organization. Another organization owner will need to manually remove the user instead.
+  **Nota**: La sincronización de LDAP no quitará a un usuario de una organización si este es propietario de esa organización. Otro propietario de la organización deberá quitarlo manualmente.
 
   {% endnote %}
-- If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
+- Si las entradas de miembros LDAP se agregaron al grupo LDAP, agrega los usuarios correspondientes al equipo. Si como resultado el usuario recupera el acceso a algún repositorio, restablece toda bifurcación privada de los repositorios que haya sido eliminada debido a que el usuario perdió acceso en los últimos 90 días.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}
 
-**Security Warning:**
+**Advertencia de seguridad:**
 
-When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
+Cuando la sincronización LDAP está activada, los administradores del sitio y los propietarios de la organización pueden buscar en el directorio LDAP los grupos a los cuales asignar el equipo.
 
-This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
+Esto posibilita divulgar información organizativa confidencial a contratistas u otros usuarios sin privilegios, incluidos los siguientes:
 
-- The existence of specific LDAP Groups visible to the *Domain search user*.
-- Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
+- La existencia de grupos de LDAP específicos visibles para el *usuario de búsqueda de dominio*.
+- Los miembros del grupo LDAP que tienen cuentas de usuario del {% data variables.product.prodname_ghe_server %}, que se divulga cuando se crea un equipo sincronizado con ese grupo LDAP.
 
-If disclosing such information is not desired, your company or organization should restrict the permissions of the configured *Domain search user* in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
+Si no se desea divulgar dicha información, su empresa u organización debe restringir los permisos del *usuario de búsqueda de dominio* configurado en la Consola de administración. Si no es posible aplicar dicha restricción, comuníquese con el {% data variables.contact.contact_ent_support %}.
 
 {% endwarning %}
 
-### Supported LDAP group object classes
+### Clases de objetos del grupo LDAP admitidas
 
-{% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
+El {% data variables.product.prodname_ghe_server %} admite estas clases de objetos del grupo LDAP. Los grupos se pueden anidar.
 
 - `group`
 - `groupOfNames`
 - `groupOfUniqueNames`
 - `posixGroup`
 
-## Viewing and creating LDAP users
+## Ver y crear usuarios LDAP
 
-You can view the full list of LDAP users who have access to your instance and provision new users.
+Puedes ver la lista completa de usuarios LDAP que tienen acceso a tu instancia y aprovisionar nuevos usuarios.
 
-{% data reusables.enterprise_site_admin_settings.sign-in %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **LDAP users**.
-![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
-![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
+{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %}
+3. En la barra lateral de la izquierda, haga clic en **LDAP users**.
+![Pestaña LDAP users](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
+4. Para buscar un usuario, escriba parte de un nombre de usuario o el nombre completo y haga clic en **Search**. Se mostrarán los usuarios existentes en los resultados de búsqueda. Si un usuario no existe, haga clic en **Create** para aprovisionar la nueva cuenta de usuario.
+![Búsqueda LDAP](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
-## Updating LDAP accounts
+## Actualizar cuentas LDAP
 
-Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
+A menos que [se habilite la sincronización de LDAP](#enabling-ldap-sync), los cambios en las cuentas de LDAP no se sincronizan automáticamente con {% data variables.product.prodname_ghe_server %}.
 
-* To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
-* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
+* Para usar un nuevo grupo de administración LDAP, los usuarios deben ser promovidos y degradados de forma manual en el {% data variables.product.prodname_ghe_server %} para reflejar las modificaciones en LDAP.
+* Para agregar o quitar cuentas de LDAP en grupos de administradores de LDAP, [aumente o disminuya el nivel de las cuentas en {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
+* Para quitar cuentas de LDAP, [suspenda las cuentas de {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
 
-### Manually syncing LDAP accounts
+### Sincronizar cuentas LDAP de forma manual
 
-{% data reusables.enterprise_site_admin_settings.sign-in %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.search-user %}
-{% data reusables.enterprise_site_admin_settings.click-user %}
-{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
-![LDAP sync now button](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
+{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.search-user %} {% data reusables.enterprise_site_admin_settings.click-user %} {% data reusables.enterprise_site_admin_settings.admin-top-tab %} {% data reusables.enterprise_site_admin_settings.admin-tab %}
+5. En "LDAP", haga clic en **Sync now** para actualizar manualmente la cuenta con datos del servidor de LDAP.
+![Botón Sync now de LDAP](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-You can also [use the API to trigger a manual sync](/enterprise/user/rest/reference/enterprise-admin#ldap).
+También puede [usar la API para desencadenar una sincronización manual](/enterprise/user/rest/reference/enterprise-admin#ldap).
 
-## Revoking access to {% data variables.location.product_location %}
+## Revocación del acceso a {% data variables.location.product_location %}
 
-If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
+Si [la sincronización de LDAP está habilitada](#enabling-ldap-sync), si se eliminan las credenciales de LDAP de un usuario, se suspenderá su cuenta después de la siguiente ejecución de sincronización.
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
+Si la sincronización de LDAP **no** está habilitada, debe suspender de forma manual la cuenta del {% data variables.product.prodname_ghe_server %} después de eliminar las credenciales de LDAP. Para obtener más información, consulte "[Suspensión y anulación de la suspensión de usuarios](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".

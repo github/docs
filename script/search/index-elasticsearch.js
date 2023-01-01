@@ -238,7 +238,7 @@ async function indexVersion(
 ) {
   // Note, it's a bit "weird" that numbered releases versions are
   // called the number but that's how the lib/search/indexes
-  // files are named at the moment.
+  // files were.
   const indexVersion = shortNames[version].hasNumberedReleases
     ? shortNames[version].currentRelease
     : shortNames[version].miscBaseName

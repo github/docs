@@ -28,6 +28,8 @@ topics:
 
 {% data variables.product.prodname_dependabot %} helps users of {% data variables.location.product_location %} find and fix vulnerabilities in their dependencies.{% ifversion ghes %} You can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
 
+{% data variables.product.prodname_dependabot %} is just one of many features available to harden supply chain security for {% data variables.location.product_location %}. For more information about the other features, see "[About supply chain security for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise)."
+
 ### About {% data variables.product.prodname_dependabot_alerts %}
 {% endif %}
 

@@ -73,7 +73,7 @@ ms.locfileid: '148106462'
 | 修飾子        | 例
 | ------------- | -------------
 | `state:open` | [**libraries state:open mentions:vmg**](https://github.com/search?utf8=%E2%9C%93&q=libraries+state%3Aopen+mentions%3Avmg&type=Issues) は、"libraries" という単語を含む @vmg をメンションするオープンの issue と一致します。
-| `state:closed` | [**design state:closed in:body** ](https://github.com/search?utf8=%E2%9C%93&q=design+state%3Aclosed+in%3Abody&type=Issues) は、本文で "design" という単語を含むクローズした issue と一致します。
+| `state:closed` | [**design state:closed in:body**](https://github.com/search?utf8=%E2%9C%93&q=design+state%3Aclosed+in%3Abody&type=Issues) は、本文で "design" という単語を含むクローズした issue と一致します。
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) は、"performance" という単語を含むオープンの issue と一致します。
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) は、"android" という単語を含む、クローズした issue や pull request と一致します。
 
@@ -85,7 +85,7 @@ ms.locfileid: '148106462'
 | 修飾子        | 例
 | ------------- | -------------
 | `reason:completed` | [**libraries is:closed reason:completed**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) は、"completed" としてクローズされた、"libraries" という単語を含む issue に一致します。
-| `reason:"not planned"` | [**libraries is:closed reason:"not planned"** ](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) は、"not planned" としてクローズされた、"libraries" という単語を含む issue に一致します。
+| `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) は、"not planned" としてクローズされた、"libraries" という単語を含む issue に一致します。
  
 {% endif %}
 
@@ -119,7 +119,7 @@ ms.locfileid: '148106462'
 
 | 修飾子     | 例
 | ------------- | -------------
-| <code>mentions:<em>USERNAME</em></code> | [ **`resque mentions:defunkt`** ](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) は、@defunkt をメンションしている "resque" という単語を含む issue と一致します。
+| <code>mentions:<em>USERNAME</em></code> | [ **`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) は、@defunkt をメンションしている "resque" という単語を含む issue と一致します。
 
 ## Team メンションで検索
 
@@ -174,8 +174,8 @@ ms.locfileid: '148106462'
 
 | 修飾子        | 例
 | ------------- | -------------
-| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"** ](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) は、"overhaul" という名前のマイルストーンにある issue と一致します。
-| | [**milestone:"bug fix"** ](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) は、"bug fix" という名前のマイルストーンにある issue と一致します。
+| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) は、"overhaul" という名前のマイルストーンにある issue と一致します。
+| | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) は、"bug fix" という名前のマイルストーンにある issue と一致します。
 
 ## プロジェクトボードで検索
 
@@ -308,7 +308,7 @@ ms.locfileid: '148106462'
 
 | 修飾子        | 例
 | ------------- | -------------
-| <code>merged:<em>YYYY-MM-DD</em></code> | [ **`language:javascript merged:<2011-01-01`** ](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) は、2011 年より前にマージされた JavaScript リポジトリの pull request と一致します。
+| <code>merged:<em>YYYY-MM-DD</em></code> | [ **`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) は、2011 年より前にマージされた JavaScript リポジトリの pull request と一致します。
 | | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) は、2014 年 5 月以降にマージされ、タイトルに "fast" という単語を含む Ruby の pull request と一致します。
 
 ## プルリクエストがマージされているかどうかで検索

@@ -23,6 +23,8 @@ When an application running inside a codespace prints output to the terminal tha
 
 ![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
+{% data reusables.codespaces.forwarded-ports-environment-variable %}
+
 You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
 {% note %}
@@ -48,7 +50,7 @@ You can manually forward a port that wasn't forwarded automatically.
 
 ## Using HTTPS forwarding
 
-By default, {% data variables.product.prodname_github_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed.
+By default, {% data variables.product.prodname_github_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed. If you update a port with public visibility to use HTTPS, the port's visibility will automatically change to private.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Right click the port you want to update, then hover over **Change Port Protocol**.

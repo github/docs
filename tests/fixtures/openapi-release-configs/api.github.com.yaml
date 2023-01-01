@@ -1,0 +1,19 @@
+---
+published: true
+deprecated: false
+variables:
+  externalDocsUrl: 'https://docs.github.com'
+  apiName: 'GitHub'
+patch:
+  - op: add
+    path: /servers
+    value:
+      - url: https://api.github.com
+  - op: add
+    path: /externalDocs
+    value:
+      description: GitHub v3 REST API
+      url: https://docs.github.com/rest/
+  - op: add
+    path: /info/x-github-plan
+    value: api.github.com

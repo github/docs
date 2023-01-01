@@ -1,92 +1,96 @@
 ---
-title: Using GitHub Codespaces with GitHub Classroom
+title: 将 GitHub Codespaces 与 GitHub Classroom 配合使用
 shortTitle: Using Codespaces with GitHub Classroom
 product: '{% data reusables.gated-features.codespaces-classroom-articles %}'
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} as the preferred editor in your assignments to give students access to a browser-based Visual Studio Code environment with one-click setup.'
+intro: '你可以将 {% data variables.product.prodname_github_codespaces %} 用作你作业中的首选编辑器，使学生能够通过一键式设置访问基于浏览器的 Visual Studio Code 环境。'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
+ms.openlocfilehash: 062d7dc201a1f3c6ac1ee8bd92220b31c89f33b8
+ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148130995'
 ---
-## About {% data variables.product.prodname_github_codespaces %}
+## 关于 {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment that is the same for all users of your project. For more information, see "[{% data variables.product.prodname_github_codespaces %} overview](/codespaces/overview)."
+{% data variables.product.prodname_github_codespaces %} 是一个基于云的即时开发环境，它使用容器为你提供用于开发的通用语言、工具和实用程序。 {% data variables.product.prodname_github_codespaces %} 也是可配置的，使你能为项目的所有用户创建相同的自定义开发环境。 有关详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 概述](/codespaces/overview)”。
 
-Once {% data variables.product.prodname_github_codespaces %} is enabled in an organization or enterprise, users can create a codespace from any branch or commit in an organization or enterprise repository and begin developing using cloud-based compute resources. You can connect to a codespace from the browser or locally using Visual Studio Code. {% data reusables.codespaces.links-to-get-started %}
+在组织或企业中启用 {% data variables.product.prodname_github_codespaces %} 后，用户可以从组织或企业存储库中的任何分支或提交创建 codespace，并开始使用基于云的计算资源进行开发。 可以使用 Visual Studio Code 从浏览器或本地连接到 codespace。 {% data reusables.codespaces.links-to-get-started %}
 
-Setting {% data variables.product.prodname_github_codespaces %} as the preferred editor for an assignment in GitHub Classroom assignments, is beneficial for both students and teachers. {% data variables.product.prodname_github_codespaces %} is a good option for students using loaned devices or without access to a local IDE setup, since each codespace is cloud-based and requires no local setup. Students can launch a codespace for an assignment repository in Visual Studio Code directly in their browser, and begin developing right away without needing any further configuration.  
+将 {% data variables.product.prodname_github_codespaces %} 设置为 GitHub Classroom 作业的首选编辑器对学生和教师都很有用。 {% data variables.product.prodname_github_codespaces %} 是使用租赁设备或无法访问本地 IDE 设置的学生的理想选择，因为每个 codespace 都是基于云的，不需要进行本地设置。 学生可以直接在浏览器中为 Visual Studio Code 中的作业存储库启动 codespace，并立即开始开发，而无需进一步的配置。  
 
-For assignments with complex setup environments, teachers can customize the dev container configuration for a repository's codespaces. This ensures that when a student creates a codespace, it automatically opens with the development environment configured by the teacher. For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+对于具有复杂设置环境的作业，教师可以自定义存储库 codespace 的开发容器配置。 这可以确保学生在创建 codespace 时，它会自动打开由教师配置的开发环境。 有关开发容器的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。
 
 {% note %}
 
-**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+注意：各个 codespace 会在停止且长时间未使用的情况下自动删除。 有关详细信息，请参阅“[配置 codespace 的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)”。
 
 {% endnote %}
 
-## About the {% data variables.product.prodname_codespaces %} Education benefit for verified teachers
+## 关于经过验证的教师的 {% data variables.product.prodname_codespaces %} 教育权益
 
-The {% data variables.product.prodname_codespaces %} Education benefit gives verified teachers a free monthly allowance of {% data variables.product.prodname_github_codespaces %} hours to use in {% data variables.product.prodname_classroom %}. The free allowance is estimated to be enough for a class of 50 with 5 assignments per month, on a 2 core machine with 1 codespace stored per student.
+{% data variables.product.prodname_codespaces %} 教育权益为经过验证的教师提供每月限额的免费 {% data variables.product.prodname_github_codespaces %} 小时数，可在 {% data variables.product.prodname_classroom %} 中使用。 免费限额估计足够一个每月有 5 次作业的 50 人班级使用，在一台双核机器上，每个学生存储 1 个 codespace。
 
 {% data reusables.classroom.free-limited-codespaces-for-verified-teachers-beta-note %}
 
-To become a verified teacher, you need to be approved for an educator or teacher benefit. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)." 
+若要成为经过验证的教师，需要获得教师权益的批准。 有关详细信息，请参阅“[以教师身份申请加入 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)”。 
 
-After you have confirmation that you are a verified teacher, visit [{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher) to upgrade the organization to GitHub Team. For more information, see [GitHub's products](/get-started/learning-about-github/githubs-products#github-team). 
+在确认你是一名经过验证的教师后，请访问 [{% data variables.product.prodname_global_campus %} for Teachers](https://education.github.com/globalcampus/teacher)，将组织升级为 GitHub 团队。 有关详细信息，请参阅“[GitHub 的产品](/get-started/learning-about-github/githubs-products#github-team)”。 
 
-If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, when you enable {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_classroom %} for your organization, GitHub automatically adds a Codespace policy to restrict machine types for all codespaces in the organization to 2 core machines. This helps you make the most of the free {% data variables.product.prodname_github_codespaces %} usage. However, you can change or remove these policies in your organization settings. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+如果你有资格获得 {% data variables.product.prodname_codespaces %} 教育权益，则当你在 {% data variables.product.prodname_classroom %} 中为组织启用 {% data variables.product.prodname_github_codespaces %} 时，GitHub 会自动添加 Codespace 策略，以将组织内所有 codespace 的计算机类型限制为双核计算机。 这有助于充分利用免费的 {% data variables.product.prodname_github_codespaces %} 使用量。 但是，可以在组织设置中更改或移除这些策略。 有关详细信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 
-When the {% data variables.product.prodname_codespaces %} Education benefit moves out of beta, if your organization exceeds their free allowance for {% data variables.product.prodname_github_codespaces %} usage, your organization will be billed for additional usage. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)."
+当 {% data variables.product.prodname_codespaces %} 教育权益移出 beta 版时，如果你的组织超出 {% data variables.product.prodname_github_codespaces %} 的免费使用限额，则你的组织将因额外使用量而付费。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces)”。
 
-## Enabling {% data variables.product.prodname_codespaces %} for your organization
+## 为组织启用 {% data variables.product.prodname_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} is available to use with {% data variables.product.prodname_classroom %} for organizations that use {% data variables.product.prodname_team %}. If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, you must enable {% data variables.product.prodname_github_codespaces %} through {% data variables.product.prodname_classroom %}, instead of enabling it directly in your organization settings. Otherwise, your organization will be billed directly for all usage of {% data variables.product.prodname_github_codespaces %}.
+对于使用 {% data variables.product.prodname_team %} 的组织，{% data variables.product.prodname_github_codespaces %} 可与 {% data variables.product.prodname_classroom %} 搭配使用。 如果你有资格获得 {% data variables.product.prodname_codespaces %} 教育权益，则必须通过 {% data variables.product.prodname_classroom %} 启用 {% data variables.product.prodname_github_codespaces %}，而不是直接在你的组织设置中启用它。 否则，你的组织将直接针对 {% data variables.product.prodname_github_codespaces %} 的所有使用量付费。
 
-### Enabling Codespaces for an organization when creating a new classroom
+### 创建新课堂时为组织启用 Codespaces
 {% data reusables.classroom.sign-into-github-classroom %}
-1. Click **New classroom**.
+1. 单击“新建教室”。
    
-  !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
+  ![“新建课堂”按钮](/assets/images/help/classroom/click-new-classroom-button.png)
 
-1. In the list of organizations, click the organization you'd like to use for your classroom. Organizations that are eligible for {% data variables.product.prodname_github_codespaces %} will have a note showing that they are eligible. Optionally, you can create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+1. 在组织列表中，单击您希望用于教室的组织。 有资格使用 {% data variables.product.prodname_github_codespaces %} 的组织将有一条备注，显示他们符合条件。 （可选）您可以创建一个新组织。 有关详细信息，请参阅[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)。
 
-  ![Choose organization for classroom with codespaces eligibility](/assets/images/help/classroom/org-view-codespaces-eligibility.png)
+  ![为具有 codespace 资格的课堂选择组织](/assets/images/help/classroom/org-view-codespaces-eligibility.png)
 
-1. In the "Name your classroom" page, under "{% data variables.product.prodname_codespaces %} in your Classroom", click **Enable**. Note that this will enable {% data variables.product.prodname_github_codespaces %} for all repositories and users in the organization.
+1. 在“命名课堂”页的“课堂中的 {% data variables.product.prodname_codespaces %}”下，单击“启用”。 请注意，这将为组织中的所有存储库和用户启用 {% data variables.product.prodname_github_codespaces %}。
 
-  ![Enable Codespaces for org in "Setup classroom basics" page](/assets/images/help/classroom/setup-classroom-enable-codespaces-button.png)
+  ![在“设置课堂基础知识”页中为组织启用 Codespaces](/assets/images/help/classroom/setup-classroom-enable-codespaces-button.png)
 
-1. When you are ready to create the new classroom, click **Create classroom**.
+1. 准备好创建新课堂时，单击“创建课堂”。
 
-### Enabling Codespaces for an organization via an existing classroom
+### 通过现有课堂为组织启用 Codespaces
 
-{% data reusables.classroom.sign-into-github-classroom %}
-{% data reusables.classroom.click-classroom-in-list %}
-{% data reusables.classroom.click-settings %}
-1. Under "{% data variables.product.prodname_github_codespaces %}", click **Enable**. This will enable {% data variables.product.prodname_github_codespaces %} for all repositories and users in the organization. A new Codespace policy is also added to restrict machine types for all codespaces in the organization to 2 core machines. 
+{% data reusables.classroom.sign-into-github-classroom %} {% data reusables.classroom.click-classroom-in-list %} {% data reusables.classroom.click-settings %}
+1. 在“{% data variables.product.prodname_github_codespaces %}”下，单击“启用”。 这将为组织中的所有存储库和用户启用 {% data variables.product.prodname_github_codespaces %}。 还添加了新的 Codespace 策略，用于将组织中所有 codespace 的计算机类型限制为双核计算机。 
   
-  ![Enable Codespaces for org in existing classroom settings](/assets/images/help/classroom/classroom-settings-enable-codespaces-button.png)
+  ![为现有课堂设置中的组织启用 Codespaces](/assets/images/help/classroom/classroom-settings-enable-codespaces-button.png)
 
-You can use the same methods as above to disable {% data variables.product.prodname_github_codespaces %} for your organization as well. Note that this will disable {% data variables.product.prodname_github_codespaces %} for all users and repositories in the organization. 
+还可以使用与上述相同的方法为组织禁用 {% data variables.product.prodname_github_codespaces %}。 请注意，这将为组织中的所有用户和存储库禁用 {% data variables.product.prodname_github_codespaces %}。 
 
-## Configuring an assignment to use {% data variables.product.prodname_codespaces %}
-To make {% data variables.product.prodname_github_codespaces %} available to students for an assignment, you can choose {% data variables.product.prodname_github_codespaces %} as the supported editor for the assignment. When creating a new assignment, in the "Add your starter code and choose your optional online IDE" page, under "Add a supported editor", select **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu. 
+## 配置作业以使用 {% data variables.product.prodname_codespaces %}
+若要使学生可以使用 {% data variables.product.prodname_github_codespaces %} 来完成作业，可以选择 {% data variables.product.prodname_github_codespaces %} 作为作业支持的编辑器。 创建新作业时，在“添加初学者代码并选择可选的联机 IDE”页的“添加受支持的编辑器”下，从下拉菜单中选择“{% data variables.product.prodname_github_codespaces %}”。 
 
-![Select Codespaces as supported editor for assignment](/assets/images/help/classroom/select-supported-editor-including-codespaces.png)
+![选择 Codespaces 作为作业支持的编辑器](/assets/images/help/classroom/select-supported-editor-including-codespaces.png)
 
-If you use a template repository for an assignment, you can define a dev container in the repository to customize the tools and runtimes available to students when they launch a codespace to work on the assignment. If you do not define a dev container, {% data variables.product.prodname_github_codespaces %} will use a default configuration, which contains many of the common tools that your students might need for development. For more information on defining a dev container, see "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+如果使用模板存储库完成作业，则可以在存储库中定义开发容器，以便在学生启动 codespace 处理作业时自定义可供学生使用的工具和运行时。 如果未定义开发容器，{% data variables.product.prodname_github_codespaces %} 将使用默认配置，其中包含学生可能需要开发的许多常用工具。 有关定义开发容器的详细信息，请参阅“[将开发容器配置添加到存储库](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)”。
 
-## Launching an assignment using {% data variables.product.prodname_github_codespaces %}
+## 使用 {% data variables.product.prodname_github_codespaces %} 启动作业
 
-When a student opens an assignment, the repository's README file includes their teacher's recommendation of the IDE they should use for the work.
+当学生打开作业时，存储库的自述文件包括其教师建议的 IDE，他们应该使用该 IDE 来完成工作。
 
-![Screenshot of the Codespaces note in the README for a student assignment repository](/assets/images/help/classroom/student-codespaces-readme-link.png)
+![学生作业存储库自述文件中 Codespaces 备注的屏幕截图](/assets/images/help/classroom/student-codespaces-readme-link.png)
 
-Students can launch a new or existing codespace by clicking the **Open in GitHub Codespace** button in the README, or by clicking the **{% octicon "code" aria-label="The code icon" %} Code** button on the main page of the assignment repository, then selecting the **Codespaces** tab. From the **Codespaces** tab you can select an existing codespace or create a new one. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+学生可以通过单击 README 中的“在 GitHub Codespace 中打开”按钮，或通过单击作业存储库主页上的“{% octicon "code" aria-label="The code icon" %} 代码”按钮，然后选择“Codespaces”选项卡来启动新的或现有的 codespace。在“Codespaces”选项卡中，可以选择现有 codespace 或新建一个   。 有关详细信息，请参阅“[创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
 
-![Launch new codespace in assignment repository](/assets/images/help/classroom/student-launch-new-codespace.png)
+![在作业存储库中启动新的 codespace](/assets/images/help/classroom/student-launch-new-codespace.png)
 
-Teachers can view each student's codespace for an assignment in the assignment overview page. You can click on the Codespaces icon on the right side of each student row to launch the codespace. 
+教师可以在作业概述页中查看每个学生的作业 codespace。 可以单击每个学生行右侧的 Codespaces 图标以启动 codespace。 
 
-![Teacher assignment overview with student's codespaces](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
+![学生 codespace 的教师作业概述](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-When you connect to a codespace through a browser, auto-save is enabled automatically. If you want to save changes to the repository, you will need to commit the changes and push them to a remote branch. If you leave your codespace running without interaction for 30 minutes by default, the codespace will timeout and stop running. Your data will be preserved from the last time you made a change. For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
+通过浏览器连接到 codespace 时，会自动启用自动保存。 如果要将更改保存到存储库，则需要提交更改并将其推送到远程分支。 如果默认情况下允许 codespace 在没有互动的情况下运行 30 分钟，codespace 将超时并停止运行。 将保留上次更改以来的数据。 有关 codespace 生命周期的详细信息，请参阅“[Codespace 生命周期](/codespaces/developing-in-codespaces/codespaces-lifecycle)。”

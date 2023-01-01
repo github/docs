@@ -32745,7 +32745,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   hasAnonymousAccessEnabled: Boolean!
 
   """
-  Are discussions available on this repository?
+  Indicates if the repository has the Discussions feature enabled.
   """
   hasDiscussionsEnabled: Boolean!
 
@@ -34044,6 +34044,11 @@ interface RepositoryInfo {
   Indicates if the repository has anonymous Git read access feature enabled.
   """
   hasAnonymousAccessEnabled: Boolean!
+
+  """
+  Indicates if the repository has the Discussions feature enabled.
+  """
+  hasDiscussionsEnabled: Boolean!
 
   """
   Indicates if the repository has issues feature enabled.

@@ -12,12 +12,12 @@ import { program } from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
-import yaml from 'js-yaml'
 
 import { decorate } from './utils/decorator.js'
+import { getSchemas } from './utils/get-openapi-schemas.js'
 
 const TEMP_DOCS_DIR = path.join(process.cwd(), 'openapiTmp')
-const DEREFERENCED_DIR = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const DOCS_DEREF_OPENAPI_DIR = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const GITHUB_REP_DIR = path.join(process.cwd(), '../github')
 const OPEN_API_RELEASES_DIR = path.join(GITHUB_REP_DIR, '/app/api/description/config/releases')
 
@@ -36,6 +36,7 @@ program
   .parse(process.argv)
 
 const { decorateOnly, versions, includeUnpublished, includeDeprecated } = program.opts()
+const versionsArray = versions ? versions.split(' ') : []
 
 await validateInputParameters()
 
@@ -45,7 +46,9 @@ async function main() {
   // When the input parameter type is decorate-only, use the
   // `github/docs-internal` repo to generate a list of schema files.
   // Otherwise, use the `github/github` list of config files
-  const schemas = decorateOnly ? await readdir(DEREFERENCED_DIR) : await getSchemas()
+  const schemas = decorateOnly
+    ? await readdir(DOCS_DEREF_OPENAPI_DIR)
+    : await getSchemas(OPEN_API_RELEASES_DIR, includeDeprecated, includeUnpublished, versionsArray)
 
   // Generate the dereferenced OpenAPI schema files
   if (!decorateOnly) {
@@ -53,7 +56,6 @@ async function main() {
   }
   // Decorate the dereferenced files in a format ingestible by docs.github.com
   await decorate(schemas)
-
   console.log(
     '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*`.\n\n'
   )
@@ -95,7 +97,7 @@ async function getBundledFiles(schemas) {
   }
 
   execSync(
-    `find ${TEMP_DOCS_DIR} -type f -name "*deref.json" -exec mv '{}' ${DEREFERENCED_DIR} ';'`
+    `find ${TEMP_DOCS_DIR} -type f -name "*deref.json" -exec mv '{}' ${DOCS_DEREF_OPENAPI_DIR} ';'`
   )
 
   rimraf.sync(TEMP_DOCS_DIR)
@@ -105,51 +107,11 @@ async function getBundledFiles(schemas) {
   // name of the `github/github` checkout. A CI test
   // checks the version and fails if it's not a semantic version.
   for (const filename of schemas) {
-    const schema = JSON.parse(await readFile(path.join(DEREFERENCED_DIR, filename)))
+    const schema = JSON.parse(await readFile(path.join(DOCS_DEREF_OPENAPI_DIR, filename)))
 
     schema.info.version = `${githubBranch} !!DEVELOPMENT MODE - DO NOT MERGE!!`
-    await writeFile(path.join(DEREFERENCED_DIR, filename), JSON.stringify(schema, null, 2))
+    await writeFile(path.join(DOCS_DEREF_OPENAPI_DIR, filename), JSON.stringify(schema, null, 2))
   }
-}
-
-// Gets the full list of unpublished, deprecated, and active schemas
-// from the github/github repo
-async function getSchemas() {
-  const openAPIConfigs = await readdir(OPEN_API_RELEASES_DIR)
-  const unpublished = []
-  const deprecated = []
-  const currentReleases = []
-
-  // The file content in the `github/github` repo is YAML before it is
-  // bundled into JSON.
-  for (const file of openAPIConfigs) {
-    const newFileName = `${path.basename(file, 'yaml')}deref.json`
-    const content = await readFile(path.join(OPEN_API_RELEASES_DIR, file), 'utf8')
-    const yamlContent = yaml.load(content)
-    if (!yamlContent.published) {
-      unpublished.push(newFileName)
-    }
-    if (yamlContent.deprecated) {
-      deprecated.push(newFileName)
-    }
-    if (!yamlContent.deprecated && yamlContent.published) {
-      currentReleases.push(newFileName)
-    }
-  }
-
-  const allSchemas = { currentReleases, unpublished, deprecated }
-  if (versions) {
-    await validateVersionsOptions(allSchemas)
-    return versions.map((elem) => `${elem}.deref.json`)
-  }
-  const schemas = allSchemas.currentReleases
-  if (includeUnpublished) {
-    schemas.push(...allSchemas.unpublished)
-  }
-  if (includeDeprecated) {
-    schemas.push(...allSchemas.deprecated)
-  }
-  return schemas
 }
 
 async function getBundlerOptions() {
@@ -187,19 +149,4 @@ async function validateInputParameters() {
       throw new Error(errorMsg)
     }
   }
-}
-
-async function validateVersionsOptions(schemas) {
-  // Validate individual versions provided
-  versions.forEach((version) => {
-    if (
-      schemas.deprecated.includes(`${version}.deref.json`) ||
-      schemas.unpublished.includes(`${version}.deref.json`)
-    ) {
-      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #docs-engineering if this is a use case that you need.`
-      throw new Error(errorMsg)
-    } else if (!schemas.currentReleases.includes(`${version}.deref.json`)) {
-      throw new Error(`🛑 The version (${version}) you specified is not valid.`)
-    }
-  })
 }

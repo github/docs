@@ -1,6 +1,6 @@
 ---
-title: webhookの作成
-intro: 'webhookの構築、webhookが{% data variables.product.prodname_dotcom %}上で待ち受けるイベントの選択、webhookのペイロードを受信して管理するサーバーのセットアップ方法を学んでください。'
+title: Creating webhooks
+intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
 redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
@@ -11,79 +11,85 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-ms.openlocfilehash: f07c5de7acd3c5be5236765236d24a6938e3b91f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145112366'
 ---
-[Webhook の基本][webhooks-overview]を理解したので、Webhook で動作する独自の統合を構築するプロセスを見ていきましょう。 このチュートリアルでは、1日あたりに受け取るIssueの数に基づいて、リポジトリの人気の度合いをリストするリポジトリwebhookを作成します。
+Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
 
-webhookの作成は、2ステップのプロセスです。 まず、webhookを{% data variables.product.product_name %}を通じてどのように動作させたいのかをセットアップする必要があります。これはすなわち、どのイベントを待ち受けるのかということです。 その後、ペイロードを受信して管理するようにサーバーをセットアップします。
+Creating a webhook is a two-step process. You'll first need to set up what events you webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-## ローカルホストをインターネットに公開する
+## Exposing localhost to the internet
 
-このチュートリアルでは、{% data variables.product.prodname_dotcom %}からメッセージを受信するためにローカルサーバーを使用します。 そのためには、まずローカル開発環境をインターネットに公開する必要があります。 そのためにngrokを使用しましょう。 ngrokは無料で、主要なオペレーティングシステムで利用できます。 詳細については、[`ngrok` のダウンロード ページ](https://ngrok.com/download)を参照してください。
+For the purposes of this tutorial, we're going to use a local server to receive webhook events from {% data variables.product.prodname_dotcom %}. 
 
-`ngrok` をインストールしたら、コマンド ラインで `./ngrok http 4567` を実行してローカル ホストを公開できます。 4567は、サーバーがメッセージを受信するポート番号です。 以下のような行が表示されるはずです。
+First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`ngrok`](https://ngrok.com) to do this.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
+
+`ngrok` is available, free of charge, for all major operating systems. For more information, see [the `ngrok` download page](https://ngrok.com/download).
+
+After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
-`*.ngrok.io` URL をメモします。 webhookのセットアップで利用します。
+Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
 
-## Webhook を設定する
+## Setting up a webhook
 
-webhookは、Organizationもしくは特定のリポジトリにインストールできます。
+You can install webhooks on an organization or on a specific repository.
 
-webhookをセットアップするには、リポジトリもしくはOrganizationのsettings（設定）ページにアクセスしてください。 そこから **[Webhook]** 、 **[Webhook の追加]** の順にクリックします。
+To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
 
-または、[Webhook API を使用して][webhook-api] Webhook をビルドして管理することもできます。
+Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
 
-webhookには、利用を開始する前にいくつかの設定オプションが必要です。 以下、それぞれの設定について見ていきます。
+Webhooks require a few configuration options before you can make use of them. We'll go through each of these settings below.
 
-## ペイロード URL
+## Payload URL
 
 {% data reusables.webhooks.payload_url %}
 
-このチュートリアル用にローカルで開発しているため、`*.ngrok.io` URL の後に `/payload` を設定します。 たとえば、`http://7e9ea9dc.ngrok.io/payload` のようにします。
+Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
 
 ## Content type
 
-{% data reusables.webhooks.content_type %} このチュートリアルでは、`application/json` の既定のコンテンツ タイプで問題ありません。
+{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
 
 ## Secret
 
 {% data reusables.webhooks.secret %}
 
-## SSL の検証
+## SSL verification
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-## アクティブ
+## Active
 
-デフォルトでは、webhookの配信は「Active」です。 「Active」の選択を解除することで、webhookのペイロードの配信を無効化できます。
+By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
 
-## イベント
+## Events
 
-イベントは、webhookの中核です。 これらのwebhookは、リポジトリで特定のアクションが行われたときに動作し、それがサーバーのペイロードURLで受信され、処理が行われます。
+Events are at the core of webhooks. These webhooks fire whenever a certain action is taken on the repository, which your server's payload URL intercepts and acts upon.
 
-webhook イベントとそれらがいつ実行されるかの完全なリストについては、[Webhook API][hooks-api] のリファレンスを参照してください。
+A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
 
-ここでの Webhook はリポジトリ内の Issue を扱うので、 **[個別のイベントを選択する]** をクリックしてから、 **[Issue]** をクリックします。 トリガーされた Webhook の発行イベントを受け取るには、**[アクティブ]** を選択します。 また、デフォルトオプションを使ってすべてのイベントを選択することもできます。
+Since our webhook is dealing with issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
 
-完了したら、 **[Webhook の追加]** をクリックします。 
+When you're finished, click **Add webhook**. 
 
-これでwebhookができたので、ローカルサーバーをセットアップしてwebhookをテストしましょう。 その方法については、[サーバーの構成](/webhooks/configuring/)に進んでください。
+Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
 
-### ワイルドカードイベント
+### Wildcard event
 
-すべてのイベントに対して Webhook を設定するには、ワイルドカード (`*`) 文字を使って Webhook イベントを指定します。 ワイルドカードイベントを追加すると、設定されたすべての既存のイベントはワイルドカードイベントで置き換えられ、サポートされるすべてのイベントについてペイロードが送信されます。 また、将来追加される可能性のある新しいイベントも自動的に受信されるようになります。
+To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
 
 [webhooks-overview]: /webhooks/
 [webhook-api]: /rest/reference/repos#hooks

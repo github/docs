@@ -455,7 +455,7 @@ GitHub has two types of personal access tokens:
 
 You should use variables to refer to these types of tokens, as well as to personal access tokens in general:
 
-- Use `{% data variables.product.pat_generic %}` or `{% data variables.product.pat_generic_caps %}` to refer to personal access tokens in general.
+- Use `{% data variables.product.pat_generic %}`or `{% data variables.product.pat_generic_caps %}` to refer to personal access tokens in general. Use `{% data variables.product.pat_generic_title_case %}` if the phrase should be in title case ("Personal Access Token") in order to match UI text.
 - Use `{% data variables.product.pat_v2 %}` or `{% data variables.product.pat_v2_caps %}` to refer to fine-grained personal access tokens.
 - Use `{% data variables.product.pat_v1 %}`, `{% data variables.product.pat_v1_plural %}`, `{% data variables.product.pat_v1_caps %}`, or `{% data variables.product.pat_v1_caps_plural %}` to refer to personal access tokens (classic).
 

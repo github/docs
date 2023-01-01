@@ -60,7 +60,6 @@ export default async function genericToc(req, res, next) {
   if (currentTocType === 'flat' && !isOneOffProductToc) {
     isRecursive = false
     renderIntros = true
-    req.context.genericTocFlat = []
     req.context.genericTocFlat = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
       renderIntros,
@@ -93,6 +92,7 @@ async function getTocItems(node, context, opts) {
   return await Promise.all(
     node.childPages.filter(filterHidden).map(async (child) => {
       const { page } = child
+      // The rawTitle never contains Markdown but it might contain Liquid
       const title = page.rawTitle.includes('{')
         ? await liquid.parseAndRender(page.rawTitle, context)
         : page.rawTitle
@@ -100,9 +100,9 @@ async function getTocItems(node, context, opts) {
       if (opts.renderIntros) {
         intro = ''
         if (page.rawIntro) {
-          intro = page.rawIntro.includes('{')
-            ? await liquid.parseAndRender(page.rawIntro, context)
-            : page.rawIntro
+          // The intro can contain Markdown even though it might not
+          // contain any Liquid.
+          intro = await page.renderProp('rawIntro', context)
         }
       }
 

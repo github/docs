@@ -56385,7 +56385,7 @@
         },
         {
           "name": "hasDiscussionsEnabled",
-          "description": "<p>Are discussions available on this repository?.</p>",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -73681,6 +73681,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "hasIssuesEnabled",

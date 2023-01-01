@@ -340,6 +340,7 @@ translations/zh-CN/data/release-notes/enterprise-server/3-2/6.yml,file deleted b
 translations/zh-CN/data/release-notes/enterprise-server/3-2/7.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/release-notes/enterprise-server/3-2/8.yml,file deleted because it no longer exists in main
 translations/zh-CN/data/release-notes/enterprise-server/3-2/9.yml,file deleted because it no longer exists in main
+translations/zh-CN/data/reusables/actions/enterprise-s3-support-warning.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
@@ -446,7 +447,6 @@ translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/d
 translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app.md,rendering error
 translations/zh-CN/content/actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine.md,rendering error
 translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect.md,broken liquid tags
-translations/zh-CN/content/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers.md,broken liquid tags
 translations/zh-CN/content/actions/examples/using-concurrency-expressions-and-a-test-matrix.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,rendering error
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,rendering error
@@ -625,11 +625,9 @@ translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,broken liquid tags
-translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/adding-people-to-teams.md,rendering error
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/continuous-integration-using-jenkins.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,rendering error
-translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/index.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization.md,rendering error
 translations/zh-CN/content/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,broken liquid tags
@@ -766,6 +764,7 @@ translations/zh-CN/content/codespaces/customizing-your-codespace/setting-your-ti
 translations/zh-CN/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/connecting-to-a-private-network.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/creating-a-codespace.md,broken liquid tags
+translations/zh-CN/content/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
@@ -802,6 +801,7 @@ translations/zh-CN/content/codespaces/troubleshooting/github-codespaces-logs.md,
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-codespaces-clients.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-creation-and-deletion-of-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces.md,broken liquid tags
+translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-port-forwarding-for-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/working-with-support-for-github-codespaces.md,broken liquid tags
@@ -837,6 +837,7 @@ translations/zh-CN/content/developers/overview/about-githubs-apis.md,broken liqu
 translations/zh-CN/content/developers/overview/managing-deploy-keys.md,broken liquid tags
 translations/zh-CN/content/developers/overview/secret-scanning-partner-program.md,broken liquid tags
 translations/zh-CN/content/developers/webhooks-and-events/events/issue-event-types.md,broken liquid tags
+translations/zh-CN/content/developers/webhooks-and-events/webhooks/creating-webhooks.md,rendering error
 translations/zh-CN/content/developers/webhooks-and-events/webhooks/webhook-events-and-payloads.md,rendering error
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions.md,broken liquid tags
 translations/zh-CN/content/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion.md,broken liquid tags
@@ -847,7 +848,6 @@ translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learni
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
-translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,broken liquid tags
@@ -935,7 +935,7 @@ translations/zh-CN/content/organizations/managing-organization-settings/managing
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
-translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,broken liquid tags
+translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,broken liquid tags
 translations/zh-CN/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
@@ -1041,6 +1041,7 @@ translations/zh-CN/content/rest/enterprise-admin/scim.md,broken liquid tags
 translations/zh-CN/content/rest/enterprise-admin/users.md,broken liquid tags
 translations/zh-CN/content/rest/gitignore.md,broken liquid tags
 translations/zh-CN/content/rest/guides/building-a-ci-server.md,broken liquid tags
+translations/zh-CN/content/rest/guides/delivering-deployments.md,broken liquid tags
 translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
 translations/zh-CN/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/zh-CN/content/rest/guides/working-with-comments.md,broken liquid tags
@@ -1098,7 +1099,6 @@ translations/zh-CN/data/reusables/actions/enterprise-postinstall-nextsteps.md,br
 translations/zh-CN/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/github-connect-resolution.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
-translations/zh-CN/data/reusables/actions/jobs/section-choosing-the-runner-for-a-job.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/jobs/section-running-jobs-in-a-container.md,broken liquid tags
 translations/zh-CN/data/reusables/actions/message-parameters.md,rendering error
@@ -1165,6 +1165,7 @@ translations/zh-CN/data/reusables/dependabot/default-dependencies-allow-ignore.m
 translations/zh-CN/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/zh-CN/data/reusables/dependabot/enterprise-enable-dependabot.md,rendering error
 translations/zh-CN/data/reusables/dependabot/supported-package-managers.md,rendering error
+translations/zh-CN/data/reusables/dependency-review/feature-overview.md,broken liquid tags
 translations/zh-CN/data/reusables/desktop/get-an-account.md,broken liquid tags
 translations/zh-CN/data/reusables/discussions/enabling-or-disabling-github-discussions-for-your-organization.md,broken liquid tags
 translations/zh-CN/data/reusables/discussions/navigate-to-repo-or-org.md,broken liquid tags
