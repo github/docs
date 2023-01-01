@@ -1,4 +1,10 @@
-# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
+ENV :#!/Users/bin/Bash:
+-with :dev/null/bitore.sig/DOCKER.Gui.sng :
+# This_Dockerfile :WORKSFLOW :
+# :Job :use :# :
+'"#Uses "_"':'' :
+#Step :-":'' :,
+'d for docker-based deployments to Azure for both preview environments and production
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
