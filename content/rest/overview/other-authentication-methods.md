@@ -92,6 +92,8 @@ If you have two-factor authentication enabled, make sure you understand how to [
 
 If you're using the API to access an organization that enforces [SAML SSO][saml-sso] for authentication, you'll need to create a {% data variables.product.pat_generic %} and [authorize the token][allowlist] for that organization. Visit the URL specified in `X-GitHub-SSO` to authorize the token for the organization.
 
+The generated URL is valid for one hour, and then expires. After one hour, you will need to generate another URL.
+
 ```shell
 $ curl -v -H "Authorization: Bearer TOKEN" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
 
