@@ -21,7 +21,7 @@
     "ajv-formats": "^2.1.1",
     "bottleneck": "2.19.5",
     "cheerio": "^1.0.0-rc.11",
-    "cheerio-to-text": "0.2.0",
+    "cheerio-to-text": "0.2.2",
     "classnames": "^2.3.1",
     "connect-datadog": "0.0.9",
     "cookie-parser": "^1.4.6",
