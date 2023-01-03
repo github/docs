@@ -1,6 +1,6 @@
 ---
-title: Webhook events and payloads
-intro: 'Learn about when each webhook event occurs and what the payload contains.'
+title: Eventos y cargas de webhook
+intro: Aprende sobre cuándo se produce cada evento de webhook y qué contiene la carga.
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks
@@ -15,48 +15,52 @@ versions:
 topics:
   - Webhooks
 shortTitle: Webhook events & payloads
+ms.openlocfilehash: 0592f191b463354b92c3953880c7a7a435e0b07a
+ms.sourcegitcommit: b2e5d14036a700b781e91158a552f8c0b1f04839
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165542'
 ---
-
 {% data reusables.webhooks.webhooks_intro %}
 
-You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
+Puedes crear webhooks que se suscriban a los eventos listados en esta página. Cada evento de webhook incluye una descripción de las propiedades de dicho webhook y un ejemplo de carga útil. Para más información, vea "[Creación de webhooks](/webhooks/creating/)".
 
-## Webhook payload object common properties
+## Propuiedades comunes del objeto de la carga útil del webhook
 
-Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
+Cada carga útil del evento del webhook contiene propiedades únicas de dicho evento. Puedes encontrar estas propiedades únicas en las secciones individuales de tipo de evento.
 
-Key | Type | Description
+Clave | Tipo | Descripción
 ----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
-{% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
-{% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %} For more information, see "[Building {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)."
+`action` | `string` | La mayoría de las cargas de webhook contienen una propiedad `action` que contiene la actividad específica que ha desencadenado el evento.
+{% data reusables.webhooks.sender_desc %} Esta propiedad se incluye en cada carga útil del webhook.
+{% data reusables.webhooks.repo_desc %} Las cargas de webhook contienen la propiedad `repository` cuando el evento se produce desde una actividad en un repositorio.
+{% data reusables.webhooks.org_desc %} {% data reusables.webhooks.app_desc %} Para más información, vea "[Creación de {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)".
 
-The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/rest/reference/activity#events). One exception is the [`push` event](#push). The unique properties of the `push` event webhook payload and the `payload` property in the Events API differ. The webhook payload contains more detailed information.
+Las propiedades únicas de un evento de webhook son las mismas que encontrará en la propiedad `payload` al usar [Events API](/rest/reference/activity#events). Una excepción es el [evento `push`](#push). Las propiedades únicas de la carga de webhook de eventos `push` y la propiedad `payload` de Events API difieren. La carga útil del webhook contiene información más detallada.
 
 {% tip %}
 
-**Note:** Payloads are capped at 25 MB. If your event generates a larger payload, a webhook will not be fired. This may happen, for example, on a `create` event if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.
+**Nota:** Las cargas se limitan a 25 MB. Si tu evento genera una carga útil mayor, el webhook no se lanzará. Esto puede pasar, por ejemplo, en un evento `create` si se insertan muchas ramas o etiquetas al mismo tiempo. Te sugerimos monitorear el tamaño de tu carga útil para garantizar la entrega.
 
 {% endtip %}
 
-### Delivery headers
+### Encabezados de entrega
 
-HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
+Las cargas útiles de HTTP POST que se entregan a la terminal URL configurada para tu webhook contendrán varios encabezados especiales:
 
-Header | Description
+Encabezado | Descripción
 -------|-------------|
-`X-GitHub-Event`| Name of the event that triggered the delivery.
-`X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
-`X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
-`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
-`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.
+`X-GitHub-Event`| Nombre del evento que desencadenó la entrega.
+`X-GitHub-Delivery`| [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) para identificar la entrega.{% ifversion ghes or ghae %}
+`X-GitHub-Enterprise-Version` | La versión de la instancia de {% data variables.product.prodname_ghe_server %} que envía la carga útil del HTTP POST.
+`X-GitHub-Enterprise-Host` | El nombre de host para la instancia de {% data variables.product.prodname_ghe_server %} que ha enviado la carga HTTP POST.{% endif %}{% ifversion not ghae %}
+`X-Hub-Signature`| Este encabezado se envía si el webhook está configurado con [`secret`](/rest/reference/repos#create-hook-config-params). Este es el resumen hexadecimal de HMAC del cuerpo de la solicitud y se genera mediante la función de hash SHA-1 y `secret` como `key`de HMAC.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` se proporciona para compatibilidad con las integraciones existentes y, en su lugar, se recomienda usar `X-Hub-Signature-256`, que es más seguro.{% endif %}{% endif %}
+`X-Hub-Signature-256`| Este encabezado se envía si el webhook está configurado con [`secret`](/rest/reference/repos#create-hook-config-params). Este es el resumen hexadecimal de HMAC para el cuerpo de la solicitud y se genera mediante la función de hash SHA-256 y `secret` como `key` de HMAC.
 
-Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
+Además, `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hookshot/`.
 
-### Example delivery
+### Ejemplo de entrega
 
 ```shell
 > POST /payload HTTP/2

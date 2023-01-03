@@ -22,12 +22,12 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-identity-and-access-management-for-your-enterprise
-ms.openlocfilehash: d719ef81948cef75018b0976fc97ef45c267469f
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: ea9db1269f389bdc126c8693ffeeb4b11dc42f99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180027'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192687'
 ---
 ## 关于{% ifversion ghec or ghae %}你的企业在{% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} 上的 SAML SSO
 
@@ -45,11 +45,11 @@ ms.locfileid: '148180027'
 
 启用 SAML SSO 后，根据使用的 IDP，您可能能够启用额外的身份和访问管理功能。 
 
-如果使用 Azure AD 作为 IDP，您可以使用团队同步来管理每个组织中的团队成员身份。 {% data reusables.identity-and-permissions.about-team-sync %} 有关详细信息，请参阅“[管理企业帐户中组织的团队同步](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
+如果使用 Azure AD 作为 IDP，您可以使用团队同步来管理每个组织中的团队成员身份。 {% data reusables.identity-and-permissions.about-team-sync %}
 
 {% note %}
 
-注意：除非你的企业启用了 {% data variables.product.prodname_emus %}，否则无法在企业级别使用 SCIM。
+注意：无法为企业帐户配置 SCIM，除非创建的帐户要使用 {% data variables.product.prodname_emus %}。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)”。
 
 {% endnote %}
 
@@ -61,23 +61,37 @@ SAML SSO 允许人员通过外部系统进行身份验证和访问 {% data varia
 
 SAML 是一种基于 XML 的身份验证和授权标准。 为 {% data variables.location.product_location %} 配置 SAML 时，用于身份验证的外部系统称为标识提供者 (IdP)。 实例充当 SAML 服务提供程序 (SP)。 有关 SAML 标准的详细信息，请参阅 Wikipedia 上的[安全断言标记语言](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)。
 
-有关 {% data variables.product.product_name %} 上 SAML SSO 的配置的详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)”。
+{% elsif ghae %}
 
-{% data reusables.saml.saml-ghes-account-revocation %}
+{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+
+在标识提供者 (IdP) 上为 {% data variables.product.product_name %} 配置应用程序后，可以通过将用户和组分配到 IdP 上的应用程序来预配对 {% data variables.location.product_location %} 的访问权限。 有关用于 {% data variables.product.product_name %} 的 SAML SSO 的详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
+
+{% endif %}
+
+{% ifversion ghes < 3.6 %}
+
+分配或取消分配应用程序时，IdP 不会自动与 {% data variables.product.product_name %} 通信。 {% data variables.product.product_name %} 会在有人第一次导航到 {% data variables.product.product_name %} 并通过 IdP 进行身份验证来登录时使用 SAML 实时 (JIT) 预配创建用户帐户。 在授予对 {% data variables.product.product_name %} 的访问权限时，可能需要手动通知用户。
+
+{% endif %}
+
+{% ifversion ghes %}
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-{% elsif ghae %}
+{% endif %}
 
-{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+有关在 {% data variables.product.product_name %} 上配置 SAML SSO 的详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)”。{% ifversion ghec or ghae or scim-for-ghes %} 若要了解如何使用特定 IdP 为 {% data variables.location.product_location %} 配置身份验证和{% ifversion ghae or ghes %}用户{% endif %}预配，请参阅“[将 SAML 用于企业 IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)”中的关于各个 IdP 的文章。{% endif %}
 
-在标识提供者 (IdP) 上为 {% data variables.product.product_name %} 配置应用程序后，可以通过将应用程序分配到 IdP 上的用户和组来预配对 {% data variables.location.product_location %} 的访问权限。 有关用于 {% data variables.product.product_name %} 的 SAML SSO 的详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
+{% ifversion ghae or scim-for-ghes %}
+
+## 关于创建用户帐户
 
 {% data reusables.scim.after-you-configure-saml %} 有关详细信息，请参阅[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)。
 
-若要了解如何使用特定 IdP 为 {% data variables.location.product_location %} 配置身份验证和用户预配，请参阅“[使用标识提供者配置身份验证和预配](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)”。
+{% data reusables.saml.saml-ghes-account-revocation %}
 
 {% endif %}
 
@@ -128,6 +142,6 @@ Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
 
 ## 延伸阅读
 
-- OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)
-- IETF 网站上的[跨域身份管理系统：协议 (RFC 7644)](https://tools.ietf.org/html/rfc7644){%- ifversion ghae %}
+- OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security) {%- ifversion ghae or scim-for-ghes %}
+- IETF 网站上的[跨域身份管理系统：协议 (RFC 7644)](https://tools.ietf.org/html/rfc7644){%- endif %} {%- ifversion ghae %}
 - [使用 IP 允许列表限制到企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){%- endif %}

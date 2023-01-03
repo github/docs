@@ -1,30 +1,36 @@
 ---
-title: View autograding results
-intro: You can see results from autograding within the repository for your assignment.
+title: Просмотр результатов автоматической проверки
+intro: Результаты автоматической оценки можно просмотреть в репозитории для вашего задания.
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+ms.openlocfilehash: ea52ff96e16caf0eb0e05addee7a93e58d57e078
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098580'
 ---
-## About autograding
+## Сведения об автоматической проверке
 
-Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
+Преподаватель может настроить тесты, которые автоматически проверяют работу при отправке в репозиторий заданий на {% данных variables.location.product_location %}.
 
-If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
+Если вы учащийся, и преподаватель настроил автоматическую проверку задания в {% data variables.product.prodname_classroom %}, вы сможете найти результаты тестирования автоматической проверки теста в репозитории назначений. Если все тесты успешно выполнены и готовы для фиксации, вы увидите зеленую галочку. Если какие-либо тесты не готовы для фиксации, вы увидите красный значок X. Подробные журналы можно просмотреть, щелкнув зеленую галочку или красный значок X.
 
-## Viewing autograding results for an assignment repository
+## Просмотр результатов автоматической проверки для репозитория назначений
 
-{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+{% data variables.product.prodname_classroom %} использует {% data variables.product.prodname_actions %} для автоматической проверки тестов. Дополнительные сведения о просмотре журналов тестирования автоматической проверки см. в разделе [Использование журналов выполнения рабочего процесса](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
-The **Actions** tab shows the full history of test runs.
+На вкладке **Действия** отображается полный журнал тестовых запусков.
 
-!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
+![Вкладка "Действия" с выбранным параметром "Все рабочие процессы"](/assets/images/help/classroom/autograding-actions-tab.png)
 
-You can click a specific test run to review log output, like compilation errors and test failures.
+Вы можете щелкнуть конкретный тестовый запуск, чтобы просмотреть выходные данные журнала, такие как ошибки компиляции и сбои при тестировании.
 
-![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![Журналы результатов тестирования "Рабочий процесс автоматической проверки {% data variables.product.prodname_classroom %}" в {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-## Further reading
+## Дополнительные материалы
 
-- "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- [Сведения о проверках статуса](/github/collaborating-with-issues-and-pull-requests/about-status-checks)

@@ -1,6 +1,6 @@
 ---
-title: Reviewing dependency changes in a pull request
-intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+title: 끌어오기 요청에서 종속성 변경 검토
+intro: 끌어오기 요청에 종속성 변경 내용이 포함된 경우 변경된 내용 및 종속성에 알려진 취약성이 있는지 여부에 대한 요약을 볼 수 있습니다.
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
@@ -19,70 +19,71 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
+ms.openlocfilehash: 34cefbae8b7ccfd32773a47de2509a6eccc7a799
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106607'
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-## About dependency review
+## 종속성 검토 정보
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
+{% ifversion ghec %} 프라이빗 리포지토리에서 종속성 검토를 사용하려면 먼저 종속성 그래프를 사용하도록 설정해야 합니다. 자세한 내용은 “[리포지토리의 종속성 탐색](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”을 참조하세요.{% endif %}
 
-{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %} 종속성 검토를 사용하려면 먼저 종속성 그래프를 사용하도록 설정하고 {% data variables.location.product_location %}를 {% data variables.product.prodname_dotcom_the_website %}에 연결해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_server %}에서 취약한 종속성에 대한 경고 사용](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”을 참조하세요.{% endif %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+종속성 검토를 사용하면 “왼쪽으로 이동”할 수 있습니다. 제공된 예측 정보를 사용하여 프로덕션에 도달하기 전에 취약한 종속성을 파악할 수 있습니다. 자세한 내용은 “[종속성 검토 정보](/code-security/supply-chain-security/about-dependency-review)”를 참조하세요.
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 
-You can use the {% data variables.product.prodname_dependency_review_action %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
+{% data variables.product.prodname_dependency_review_action %}을 사용하여 리포지토리의 끌어오기 요청에 대한 종속성 검토를 적용할 수 있습니다. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
-{% endif %}
+catch하려는 종속성 취약성 유형을 지정하여 요구 사항에 더 잘 맞도록 {% ifversion dependency-review-action-configuration %} {% data variables.product.prodname_dependency_review_action %}을 구성할 수 있습니다. 자세한 내용은 "[종속성 검토 구성](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)"을 참조하세요. {% endif %}
 
 {% endif %}
-## Reviewing dependencies in a pull request
+## 끌어오기 요청에서 종속성 검토
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %}
 
-1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
+1. 끌어오기 요청에 많은 파일이 포함된 경우 **파일 필터** 드롭다운 메뉴를 사용하여 종속성을 기록하지 않는 모든 파일을 축소합니다. 이렇게 하면 종속성 변경 내용에 대한 검토에 더 쉽게 집중할 수 있습니다.
 
-   ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
-   The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+   ![파일 필터 메뉴](/assets/images/help/pull_requests/file-filter-menu-json.png) 종속성 검토를 사용하면 기본적으로 원본 차이가 렌더링되지 않는 큰 잠금 파일에서 변경된 내용을 좀 더 명확하게 볼 수 있습니다.
 
   {% note %}
 
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+   **참고:** 종속성 검토 서식 있는 차이는 커밋된 정적 JavaScript 파일(예: `jquery.js`)에 사용할 수 없습니다.
 
    {% endnote %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. 매니페스트 또는 잠금 파일의 헤더 오른쪽에서 **{% octicon "file" aria-label="The rich diff icon" %}** 서식 있는 차이 단추를 클릭하여 종속성 검토를 표시합니다.
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![서식 있는 차이 단추](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. Check the dependencies listed in the dependency review.
+2. 종속성 검토에 나열된 종속성을 확인합니다.
 
-   ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
+   ![종속성 검토의 취약성 경고](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 
-   Any added or changed dependencies that have vulnerabilities are listed first, ordered by severity and then by dependency name. This means that the highest severity dependencies are always at the top of a dependency review. Other dependencies are listed alphabetically by dependency name.
+   취약성이 있는 추가되거나 변경된 종속성은 먼저 심각도에 따라 정렬된 다음 종속성 이름순으로 나열됩니다. 즉, 가장 높은 심각도 종속성은 항상 종속성 검토의 맨 위에 있습니다. 다른 종속성은 종속성 이름에 따라 사전순으로 나열됩니다.
 
-   The icon beside each dependency indicates whether the dependency has been added (<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), updated (<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>), or removed (<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>) in this pull request.
+   각 종속성 옆에 있는 아이콘은 이 끌어오기 요청에서 종속성이 추가되었는지(<span style="color:#22863a">{% octicon "diff-added" aria-label="Dependency added icon" %}</span>), 업데이트되었는지(<span style="color:#b08800">{% octicon "diff-modified" aria-label="Dependency modified icon" %}</span>), 제거되었는지(<span style="color:#cb2431">{% octicon "diff-removed" aria-label="Dependency removed icon" %}</span>)를 나타냅니다.
 
-   Other information includes:
+   기타 정보는 다음과 같습니다.
 
-   * The version, or version range, of the new, updated, or deleted dependency.
-   * For a specific version of a dependency:
-      * The age of that release of the dependency.
-      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
-      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
+   * 새 종속성, 업데이트된 종속성, 삭제된 종속성의 버전 또는 버전 범위.
+   * 종속성의 특정 버전의 경우:
+      * 종속성 릴리스의 기간.
+      * 이 소프트웨어에 종속된 프로젝트의 수. 이 정보는 종속성 그래프에서 가져옵니다. 종속성의 수를 확인하면 실수로 잘못된 종속성을 추가하는 것을 방지할 수 있습니다.
+      * 이 정보를 사용할 수 있는 경우 이 종속성에서 사용하는 라이선스. 이 기능은 특정 라이선스가 있는 코드가 프로젝트에서 사용되는 것을 방지하려는 경우에 유용합니다.
 
-   Where a dependency has a known vulnerability, the warning message includes:
+   종속성에 알려진 취약성이 있는 경우 경고 메시지에는 다음이 포함됩니다.
 
-   * A brief description of the vulnerability.
-   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
-   * The severity of the vulnerability.
-   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
+   * 취약성에 대한 간략한 설명.
+   * CVE(Common Vulnerabilities and Exposures) 또는 GHSA({% data variables.product.prodname_security_advisories %}) ID 번호. 이 ID를 클릭하여 취약성에 대해 자세히 알아볼 수 있습니다.
+   * 취약성의 심각도.
+   * 취약성이 수정된 종속성의 버전. 다른 사용자에 대한 끌어오기 요청을 검토하는 경우 기여자에게 종속성을 패치된 버전 또는 이후 릴리스로 업데이트하도록 요청할 수 있습니다.
 
 {% data reusables.repositories.return-to-source-diff %}

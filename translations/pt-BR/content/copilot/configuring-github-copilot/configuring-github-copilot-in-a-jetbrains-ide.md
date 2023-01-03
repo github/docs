@@ -7,16 +7,18 @@ topics:
 versions:
   feature: copilot
 shortTitle: JetBrains
-ms.openlocfilehash: 845f9306f519391f165dd00d3eefebed67bd409a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9f0f35bf5aebbf1899bd3991b0bca9e62f1da6ed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079602'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193188'
 ---
 ## Sobre o {% data variables.product.prodname_copilot %} nos IDEs da JetBrains
 
-Se você usa um IDE da JetBrains, o {% data variables.product.prodname_copilot %} pode fazer o preenchimento automático do código conforme você digita. Após a instalação, você poderá habilitar ou desabilitar o {% data variables.product.prodname_copilot %} e definir configurações avançadas no IDE ou no {% data variables.product.prodname_dotcom_the_website %}.
+Se você usa um IDE da JetBrains, o {% data variables.product.prodname_copilot %} pode fazer o preenchimento automático do código conforme você digita. Após a instalação, você poderá habilitar ou desabilitar o {% data variables.product.prodname_copilot %} e definir configurações avançadas no IDE ou no {% data variables.product.prodname_dotcom_the_website %}. Este artigo descreve como configurar o {% data variables.product.prodname_copilot %} no IDE IntelliJ, mas as interfaces de usuário de outros IDEs Jetbrains podem ser diferentes.
+
+{% data reusables.copilot.dotcom-settings %}
 
 ## Pré-requisitos
 
@@ -83,6 +85,21 @@ Você pode gerenciar as configurações avançadas do {% data variables.product.
 1. Edite as configurações de acordo com suas preferências pessoais.
    - Para ajustar o comportamento e a aparência das sugestões de código e se deseja verificar automaticamente se há atualizações, marque ou desmarque as caixas de seleção correspondentes.
    - Se você selecionar que deseja receber atualizações automáticas, escolha se quer receber atualizações estáveis, mas menos frequentes, ou atualizações noturnas, que podem ser menos estáveis. Clique na lista suspensa **Atualizar canal** e selecione **Estável** para atualizações estáveis ou **Noturnas** para atualizações noturnas.
-   - Em "Linguagens desabilitadas", use as caixas de seleção para marcar ou desmarcar as linguagens para as quais deseja desabilitar o {% data variables.product.prodname_copilot %}.
+   - Em "Idiomas desabilitados", use as caixas de seleção para marcar ou desmarcar os idiomas para os quais deseja desativar o {% data variables.product.prodname_copilot %}.
+
+## Como definir as configurações de proxy para o {% data variables.product.prodname_copilot %}
+
+Você pode configurar o {% data variables.product.prodname_copilot %} para se conectar por meio de um servidor proxy HTTP em um IDE Jetbrains. {% data variables.product.prodname_copilot %} oferece suporte a configurações básicas de proxy HTTP, com ou sem autenticação básica. 
+
+1. No IDE do JetBrains, clique no menu **Arquivo** e depois em **Configurações**.
+1. Em **Aparência e Comportamento**, clique em **Configurações do Sistema** e, em seguida, clique em **Proxy HTTP**.
+1. Marque a caixa de seleção **Configuração manual de proxy** e marque a caixa de seleção **HTTP**.
+1. No campo "Nome do host", insira o nome do host do servidor proxy e, no campo "Número da porta", insira o número da porta do servidor proxy.
+
+    ![Captura de tela das configurações de proxy HTTP no JetBrains](/assets/images/help/copilot/proxy-configuration-jetbrains.png)
+
+1. Opcionalmente, na barra lateral esquerda, clique em **Ferramentas** e, em seguida, clique em **Certificados do Servidor**. Em seguida, selecione ou desmarque a caixa de seleção "Aceitar certificados não confiáveis automaticamente", dependendo de você desejar aceitar ou não certificados não confiáveis automaticamente.
+
+    ![Captura de tela das configurações de certificados do servidor no JetBrains](/assets/images/help/copilot/server-certificates-jetbrains.png)
 
 {% data reusables.copilot.dotcom-settings %}

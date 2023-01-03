@@ -1,83 +1,88 @@
 ---
-title: Getting started with GitHub AE
-intro: 'Get started with setting up and configuring {% data variables.product.product_name %} for {% data variables.location.product_location %}.'
+title: GitHub AE 시작
+intro: '{% data variables.location.product_location %}에 대한 {% data variables.product.product_name %} 설정 및 구성을 시작합니다.'
 versions:
   ghae: '*'
+ms.openlocfilehash: 957a922a2493abd8f625cdb9e9d6650283820222
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180063'
 ---
+이 가이드에서는 엔터프라이즈 소유자로 {% data variables.product.product_name %}에서 {% data variables.location.product_location %}에 대한 설정 설정, 구성 및 관리를 안내합니다. {% data variables.product.product_name %}에 대한 자세한 내용은 “[{% data variables.product.prodname_ghe_managed %} 정보](/admin/overview/about-github-ae)”를 참조하세요.
 
-This guide will walk you through setting up, configuring, and managing settings for {% data variables.location.product_location %} on {% data variables.product.product_name %} as an enterprise owner. For more information about {% data variables.product.product_name %}, see "[About {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
+## 1부: {% data variables.product.product_name %} 설정
+{% data variables.product.product_name %}을(를) 시작하려면 엔터프라이즈 계정을 만들고, {% data variables.product.product_name %}을(를) 초기화하고, IP 허용 목록을 구성하고, 사용자 인증 및 프로비저닝을 구성하고, {% data variables.location.product_location %}에 대한 청구를 관리할 수 있습니다.
 
-## Part 1: Setting up {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you can create your enterprise account, initialize {% data variables.product.product_name %}, configure an IP allow list, configure user authentication and provisioning, and manage billing for {% data variables.location.product_location %}.
-
-### 1. Creating your {% data variables.product.product_name %} enterprise account
-You will first need to purchase {% data variables.product.product_name %}. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+### 1. {% data variables.product.product_name %} 엔터프라이즈 계정 만들기
+먼저 {% data variables.product.product_name %}를 구매해야 합니다. 자세한 내용은 [{% data variables.product.prodname_dotcom %}의 영업 팀](https://enterprise.github.com/contact)에 문의하세요.
 
 {% data reusables.github-ae.initialize-enterprise %}
 
-### 2. Initializing {% data variables.product.product_name %}
-After {% data variables.product.company_short %} creates the owner account for {% data variables.location.product_location %} on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name {% data variables.location.product_location %}, configure SAML SSO, create policies for all organizations in {% data variables.location.product_location %}, and configure a support contact for your enterprise members. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+### 2. {% data variables.product.product_name %} 초기화
+{% data variables.product.company_short %}이(가) {% data variables.product.product_name %}에서 {% data variables.location.product_location %}에 대한 소유자 계정을 만든 후 로그인하고 초기화를 완료하는 이메일을 받게 됩니다. 초기화 중에 엔터프라이즈 소유자로서 {% data variables.location.product_location %}의 이름을 지정하고, SAML SSO를 구성하고, {% data variables.location.product_location %}의 모든 조직에 대한 정책을 만들고, 엔터프라이즈 구성원에 대한 지원 연락처를 구성합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_managed %} 초기화](/admin/configuration/configuring-your-enterprise/initializing-github-ae)”를 참조하세요.
 
-### 3. Restricting network traffic
-You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."
+### 3. 네트워크 트래픽 제한
+특정 IP 주소의 허용 목록을 구성하여 엔터프라이즈 계정의 조직이 소유한 자산에 대한 액세스를 제한할 수 있습니다. 자세한 내용은 "[IP 허용 목록을 사용하여 엔터프라이즈로 네트워크 트래픽 제한"을 참조하세요](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
-### 4. Managing identity and access for {% data variables.location.product_location %}
-You can centrally manage access to {% data variables.location.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+### 4. {% data variables.location.product_location %}에 대한 ID 및 액세스 관리
+사용자 인증을 위한 SAML SSO(Single Sign-On)와 사용자 프로비저닝을 위한 SCIM(도메인 간 ID 관리)을 사용하여 ID 공급자(IdP)에서 {% data variables.product.product_name %}의 {% data variables.location.product_location %}에 대한 액세스를 중앙에서 관리할 수 있습니다. 프로비저닝을 구성한 후에는 IdP에서 애플리케이션에 사용자를 할당하거나 할당을 취소하여 엔터프라이즈에서 사용자 계정을 만들거나 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 “[엔터프라이즈의 ID 및 액세스 관리 정보](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)”를 참조하세요.
 
-### 5. Managing billing for {% data variables.location.product_location %}
-Owners of the subscription for {% data variables.location.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+### 5. {% data variables.location.product_location %}에 대한 청구 관리
+{% data variables.product.product_name %}의 {% data variables.location.product_location %}에 대한 구독 소유자는 Azure Portal {% data variables.product.product_name %}에 대한 청구 세부 정보를 볼 수 있습니다. 자세한 내용은 “[엔터프라이즈에 대한 청구 관리](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)”를 참조하세요.
 
-## Part 2: Organizing and managing enterprise members
-As an enterprise owner for {% data variables.product.product_name %}, you can manage settings on user, repository, team, and organization levels. You can manage members of {% data variables.location.product_location %}, create and manage organizations, set policies for repository management, and create and manage teams.
+## 2부: 엔터프라이즈 멤버 구성 및 관리
+{% data variables.product.product_name %}의 엔터프라이즈 소유자는 사용자, 리포지토리, 팀, 조직 수준에서 설정을 관리할 수 있습니다. {% data variables.location.product_location %}의 구성원을 관리하고, 조직을 만들고 관리하고, 리포지토리 관리에 대한 정책을 설정하고, 팀을 만들고 관리할 수 있습니다.
 
-### 1. Managing members of {% data variables.location.product_location %}
+### 1. {% data variables.location.product_location %}의 멤버 관리
 {% data reusables.getting-started.managing-enterprise-members %}
 
-### 2. Creating organizations
+### 2. 조직 만들기
 {% data reusables.getting-started.creating-organizations %}
 
-### 3. Adding members to organizations
+### 3. 조직에 멤버 추가
 {% data reusables.getting-started.adding-members-to-organizations %}
 
-### 4. Creating teams
+### 4. 팀 만들기
 {% data reusables.getting-started.creating-teams %}
 
-### 5. Setting organization and repository permission levels
+### 5. 조직 및 리포지토리 권한 수준 설정
 {% data reusables.getting-started.setting-org-and-repo-permissions %}
 
-### 6. Enforcing repository management policies
+### 6. 리포지토리 관리 정책 적용
 {% data reusables.getting-started.enforcing-repo-management-policies %}
 
-## Part 3: Building securely
-To increase the security of {% data variables.location.product_location %}, you can monitor {% data variables.location.product_location %} and configure security and analysis features for your organizations.
+## 3부: 안전하게 빌드
+{% data variables.location.product_location %}의 보안을 강화하려면 {% data variables.location.product_location %}을(를) 모니터링하고 조직에 대한 보안 및 분석 기능을 구성할 수 있습니다.
 
-### 1. Monitoring {% data variables.location.product_location %}
-You can monitor {% data variables.location.product_location %} with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/monitoring-activity-in-your-enterprise)."
+### 1. {% data variables.location.product_location %} 모니터링
+활동 대시보드 및 감사 로깅을 사용하여 {% 데이터 variables.location.product_location %}을(를) 모니터링할 수 있습니다. 자세한 내용은 “[엔터프라이즈의 작업 모니터링](/admin/monitoring-activity-in-your-enterprise)”을 참조하세요.
 
-### 2. Configuring security features for your organizations
+### 2. 조직의 보안 기능 구성
 {% data reusables.getting-started.configuring-security-features %}
 
-## Part 4: Customizing and automating work on {% data variables.location.product_location %}
-You can customize and automate work in organizations in {% data variables.location.product_location %} with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
+## 4부: {% data variables.location.product_location %}에서 작업 사용자 지정 및 자동화
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_pages %}를 사용하여 {% data variables.location.product_location %}의 조직에서 작업을 사용자 지정하고 자동화할 수 있습니다.
 
-### 1. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 1. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 사용
 {% data reusables.getting-started.api %}
 
-### 2. Building {% data variables.product.prodname_actions %}
+### 2. {% data variables.product.prodname_actions %} 빌드
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
+{% data variables.product.product_name %}용 {% data variables.product.prodname_actions %}를 사용하도록 설정하고 구성하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_ghe_managed %}용 {% data variables.product.prodname_actions %} 시작](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)”을 참조하세요.
 
-### 3. Using {% data variables.product.prodname_pages %}
+### 3. {% data variables.product.prodname_pages %} 사용
 {% data reusables.getting-started.github-pages-enterprise %}
-## Part 5: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need with {% data variables.product.prodname_dotcom %} Enterprise Support.
+## 5부: {% data variables.product.prodname_dotcom %}의 학습 및 지원 리소스 사용
+엔터프라이즈 멤버는 학습 리소스를 사용하여 Git 및 {% data variables.product.prodname_dotcom %}에 대해 자세히 알아볼 수 있으며, {% data variables.product.prodname_dotcom %} 엔터프라이즈 지원을 통해 필요한 지원을 받을 수 있습니다.
 
-### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_managed %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+### 1. {% data variables.product.prodname_docs %}에서 {% data variables.product.product_name %}에 대해 읽기
+{% data variables.product.prodname_ghe_managed %}에서 사용할 수 있는 기능을 반영하는 설명서를 읽을 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_docs %} 버전 정보](/get-started/learning-about-github/about-versions-of-github-docs)”를 참조하세요.
 
-### 2. Learning with {% data variables.product.prodname_learning %}
+### 2. {% data variables.product.prodname_learning %}을 사용하여 학습
 {% data reusables.getting-started.learning-enterprise %}
 
-### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
+### 3. {% data variables.product.prodname_dotcom %} 엔터프라이즈 지원 사용
 {% data reusables.getting-started.contact-support-enterprise %}

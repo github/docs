@@ -1,6 +1,6 @@
 ---
-title: Configuring built-in firewall rules
-intro: 'You can view default firewall rules and customize rules for {% data variables.location.product_location %}.'
+title: 組み込みファイアウォールのルール設定
+intro: '{% data variables.product.product_location %} の既定のファイアウォール規則とカスタマイズされたルールを見ることができます。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -15,19 +15,25 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure firewall rules
+ms.openlocfilehash: 7492f69c6b334847229c76f7462beaabbc4154a2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145120790'
 ---
-## About {% data variables.location.product_location %}'s firewall
+## {% data variables.product.product_location %} のファイアウォールについて
 
-{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} は、仮想アプライアンスで Ubuntu の Uncomplicated Firewall (UFW) を使用します。 詳しくは、Ubuntu のドキュメントの「[UFW](https://help.ubuntu.com/community/UFW)」をご覧ください。 {% data variables.product.prodname_ghe_server %} は、許可されたサービスのファイアウォールのホワイトリストをリリースごとに自動的に更新します。
 
-After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[Network ports](/enterprise/admin/guides/installation/network-ports)."
+{% data variables.product.prodname_ghe_server %} をインストールすると、接続を受け入れるために必要なすべてのネットワークポートが自動的に開かれます。 すべての不必要なポートは自動的に `deny` に構成され、既定の送信ポリシーは `allow` に構成されます。 すべての新しい接続について、ステートフルな追跡が有効になります。これらは、通常、`SYN` ビットがセットされているネットワーク パケットです。 詳細については、「[ネットワーク ポート](/enterprise/admin/guides/installation/network-ports)」を参照してください。
 
-The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFW のルール セットについて詳しくは、[UFW の README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213) をご覧ください。
 
-## Viewing the default firewall rules
+## デフォルトのファイアウォールルールの表示
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
+2. 既定のファイアウォール ルールを表示するには、`sudo ufw status` コマンドを使います。 次のような出力が表示されます。
   ```shell
   $ sudo ufw status
   > Status: active
@@ -55,46 +61,46 @@ The UFW firewall also opens several other ports that are required for {% data va
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-## Adding custom firewall rules
+## カスタムのファイアウォールルールの追加
 
 {% warning %}
 
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, contact {% data variables.contact.contact_ent_support %} to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
+**警告:** 既知の動作状態にリセットすることが必要になったときのため、カスタム ファイアウォール ルールを追加する前に、現在のルールをバックアップしてください。 サーバーからロックアウトされている場合には、{% data variables.contact.contact_ent_support %}に問い合わせて、元のファイアウォールルールを再設定してください。 元のファイアウォールルールを復元すると、サーバーでダウンタイムが発生します。
 
 {% endwarning %}
 
-1. Configure a custom firewall rule.
-2. Check the status of each new rule with the `status numbered` command.
+1. カスタムのファイアウォールルールを設定する。
+2. `status numbered` コマンドを使って、新しい各ルールの状態を確認します。
   ```shell
   $ sudo ufw status numbered
   ```
-3. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
+3. カスタム ファイアウォール ルールをバックアップするには、`cp` コマンドを使ってルールを新しいファイルに移動します。
   ```shell
   $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
+{% data variables.product.product_location %} をアップグレードした後で、カスタム ファイアウォール ルールを適用し直す必要があります。 ファイアウォールのカスタムルールを再適用するためのスクリプトを作成することをお勧めします。
 
-## Restoring the default firewall rules
+## デフォルトのファイアウォールルールのリストア
 
-If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
+ファイアウォールルールの変更後に何か問題が生じたなら、オリジナルのバックアップからルールをリセットできます。
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**警告:** 元のルールをバックアップしないでファイアウォールを変更した場合は、{% data variables.contact.contact_ent_support %} に連絡してサポートを求めてください。
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
+2. 前にバックアップしたルールを復元するには、`cp` コマンドでそれらをファイアウォールにコピーして戻します。
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
-3. Restart the firewall with the `systemctl` command.
+3. `systemctl` コマンドを使ってファイアウォールを再起動します。
   ```shell
   $ sudo systemctl restart ufw
   ```
-4. Confirm that the rules are back to their defaults with the `ufw status` command.
+4. `ufw status` コマンドで、ルールが既定の状態に戻っていることを確認します。
   ```shell
   $ sudo ufw status
   > Status: active

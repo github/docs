@@ -1,0 +1,34 @@
+date: '2021-03-23'
+intro: Las descargas se han deshabilitado debido a un error importante que afecta a varios clientes. Una solución estará disponible en el próximo parche.
+sections:
+  security_fixes:
+    - '**ALTA:** Se identificó una vulnerabilidad de ejecución remota de código en GitHub Enterprise Server que podría explotarse al crear un sitio de Páginas de GitHub. Las opciones de configuración controladas por el usuario utilizadas por las páginas de GitHub no estaban lo suficientemente restringidas y permitieron anular las variables de entorno que conducen a la ejecución del código en la instancia del servidor de GitHub Enterprise. Para aprovechar esta vulnerabilidad, un atacante necesitaría permiso para crear y construir un sitio de Páginas de GitHub en la instancia del servidor de GitHub Enterprise. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server anteriores a la 3.0.3 y se corrigió en 3.0.3, 2.22.9 y 2.21.17. Esta vulnerabilidad se informó a través del programa GitHub Bug Bounty y se le asignó CVE-2021-22864.'
+    - Los paquetes se han actualizado a las últimas versiones de seguridad.
+  bugs:
+    - "La ejecución de \"ghe-cluster-config-init\" no tuvo en cuenta completamente el código de salida de los trabajos en segundo plano, lo que provocó un manejo inadecuado de las comprobaciones previas."
+  changes:
+    - Los registros rotarán según el tamaño además del tiempo.
+    - "Use un número relativo para el cónsul y el nómada \"bootstrap_expect\", lo que permite que un clúster arranque incluso si un puñado de nodos están inactivos."
+  known_issues:
+    - "En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador."
+    - Las reglas de firewall personalizadas no se mantienen durante una actualización.
+    - "Los archivos rastreados de Git LFS [cargados a través de la interfaz web] (https://github.com/blog/2105-upload-files-to-your-repositories) se agregan incorrectamente directamente al repositorio."
+    - Las incidencias no se pueden cerrar si contienen un vínculo permanente a un blob en el mismo repositorio en el que la ruta de acceso de archivo del blob tiene más de 255 caracteres.
+    - "Cuando \"Los usuarios pueden buscar en GitHub.com\" está habilitado con GitHub Connect, los problemas en repositorios privados e internos no se incluyen en los resultados de búsqueda de GitHub.com."
+    - Las alertas de seguridad no se informan cuando se envían a un repositorio en la línea de comando.
+    - |La rotación de registros puede no indicar a los servicios que realicen la transición a nuevos archivos de registro, lo que hace que se sigan utilizando archivos de registro más antiguos y, finalmente, se agote el espacio del disco raíz.
+
+Para solucionar y/o prevenir este problema, ejecute los siguientes comandos en el [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) o comuníquese con [GitHub Enterprise Support](https://support.github.com/contact) para obtener ayuda:
+
+
+
+"""
+
+printf "RUTA=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * raíz /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo esponja /etc/cron.d/logrotate
+
+sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+
+"""
+
+|
+    - "Cuando un nodo de réplica está sin conexión en una configuración de alta disponibilidad, {% data variables.product.product_name %} aún se pueden enrutar solicitudes de {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios."

@@ -1,34 +1,39 @@
 ---
-title: Getting started with GitHub Copilot in Neovim
+title: Neovim에서 GitHub Copilot 시작
 shortTitle: Neovim
 product: '{% data reusables.gated-features.copilot %}'
-intro: 'Learn how to install {% data variables.product.prodname_copilot %} in Neovim, and start seeing suggestions as you write comments and code.'
+intro: 'Neovim에 {% data variables.product.prodname_copilot %}을 설치하고 메모와 코드를 작성할 때 제안 사항을 확인하는 방법을 알아봅니다.'
 versions:
   feature: copilot
 topics:
   - Copilot
+ms.openlocfilehash: 2eab3d278453ad283337d8e8dd6e66f7d39364e8
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193035'
 ---
-
 {% data reusables.copilot.copilot-cta-button %}
 
-## About {% data variables.product.prodname_copilot %} and Neovim
+## {% data variables.product.prodname_copilot %} 및 Neovim 정보
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use a Neovim, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
+Neovim을 사용하는 경우 편집기 내에서 직접 {% data variables.product.prodname_copilot %}의 제안을 보고 통합할 수 있습니다.
 
-## Prerequisites
+## 필수 조건
 
-- To use {% data variables.product.prodname_copilot %} you must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+{% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
+- Neovim에서 {% data variables.product.prodname_copilot %}을 사용하려면 Neovim 및 Node.js 버전 17 이하가 설치되어 있어야 합니다. 자세한 내용은 [Neovim 설명서](https://neovim.io/doc/) 및 [Node.js 웹 사이트](https://nodejs.org/en/)를 참조하세요.
 
-## Installing the Neovim extension
+## Neovim 확장 설치
 
 {% mac %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal.
+   - Neovim의 기본 제공 플러그 인 관리자와 함께 {% data variables.product.prodname_copilot %}를 설치하려면 터미널에서 다음 명령을 입력합니다.
 
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
@@ -41,7 +46,7 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 {% windows %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Git Bash.
+   - Neovim의 기본 제공 플러그 인 관리자와 함께 {% data variables.product.prodname_copilot %}을(를) 설치하려면 Git Bash에서 다음 명령을 입력합니다.
 
            git clone https://github.com/github/copilot.vim.git `
             $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
@@ -54,7 +59,7 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 {% linux %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command:
+   - Neovim의 기본 제공 플러그 인 관리자와 함께 {% data variables.product.prodname_copilot %}를 설치하려면 다음 명령을 입력합니다.
 
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
@@ -63,14 +68,14 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 
 {% endlinux %}
 
-## Learning to use {% data variables.product.prodname_copilot %} in Neovim
+## Neovim에서 {% data variables.product.prodname_copilot %}을(를) 사용하는 학습
 
-For guidance on using {% data variables.product.prodname_copilot %} in Neovim, you can view the plugin documentation. To see the documentation, open Neovim and run the following command.
+Neovim에서 {% data variables.product.prodname_copilot %}를 사용하는 방법에 대한 지침은 플러그 인 설명서를 참조하세요. 설명서를 보려면 Neovim을 열고 다음 명령을 실행합니다.
 
   ```
   :help copilot
   ```
 
-## Further reading
+## 추가 참고 자료
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)

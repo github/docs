@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Static Web App
-intro: You can deploy your web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
+title: 部署到 Azure Static Web App
+intro: 作为持续部署 (CD) 工作流程的一部分，可以将 Web 应用部署到 Azure Static Web App。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,46 +10,50 @@ type: tutorial
 topics:
   - CD
   - Azure Static Web Apps
+ms.openlocfilehash: 3e5b9a90e91e237fbd1b5679624ed3cdb3865856
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147410545'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建 Web 应用并将其部署到 [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/)。
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+注意：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 先决条件
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
 
-1. Create an Azure Static Web App using the 'Other' option for deployment source. For more information, see "[Quickstart: Building your first static site in the Azure portal](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" in the Azure documentation. 
+1. 对部署源使用“Other（其他）”选项创建 Azure Static Web App。 有关详细信息，请参阅 Azure 文档中的“[快速入门：在 Azure 门户中构建第一个静态站点](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)”。 
 
-2. Create a secret called `AZURE_STATIC_WEB_APPS_API_TOKEN` with the value of your static web app deployment token. For more information about how to find your deployment token, see "[Reset deployment tokens in Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" in the Azure documentation.
+2. 使用静态 Web 应用部署令牌的值创建名为 `AZURE_STATIC_WEB_APPS_API_TOKEN` 的机密。 有关如何查找部署令牌的详细信息，请参阅 Azure 文档中的“[在 Azure 静态 Web 应用中重置部署令牌](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)”。
 
-## Creating the workflow
+## 创建工作流程
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy an Azure static web app when there is a push to the `main` branch or when a pull request targeting `main` is opened, synchronized, or reopened. The workflow also tears down the corresponding pre-production deployment when a pull request targeting `main` is closed.
+以下示例工作流演示了在推送到 `main` 分支时，或者在打开、同步或重新打开面向 `main` 的拉取请求时，如何生成和部署 Azure 静态 Web 应用。 当面向 `main` 的拉取请求关闭时，工作流还会破坏相应的预生产部署。
 
-Under the workflow `env` key, change the following values:
-- `APP_LOCATION` to the location of your client code
-- `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
-- `APP_ARTIFACT_LOCATION` to the location of your client code build output
+在工作流 `env` 键下，更改以下值：
+- 将 `APP_LOCATION` 更改为客户端代码的位置
+- 将 `API_LOCATION` 更改为 API 源代码的位置。 如果 `API_LOCATION` 不相关，则可以删除该变量以及使用它的行。
+- 将 `APP_ARTIFACT_LOCATION` 更改为客户端代码构建输出的位置
 
-For more information about these values, see "[Build configuration for Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" in the Azure documentation.
+有关这些值的详细信息，请参阅 Azure 文档中的“[为 Azure Static Web Apps 生成配置](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)”。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -107,10 +111,10 @@ jobs:
           action: "close"
 ```
 
-## Additional resources
+## 其他资源
 
-The following resources may also be useful:
+以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 对于原始初学者工作流，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 存储库中的 [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml)。
+* 用于部署 Web 应用的操作是官方 Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) 操作。
+* 有关部署到 Azure 的 GitHub 操作工作流的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

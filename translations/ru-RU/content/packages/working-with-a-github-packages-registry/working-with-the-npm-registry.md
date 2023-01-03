@@ -1,6 +1,6 @@
 ---
-title: Working with the npm registry
-intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
+title: Работа с реестром npm
+intro: 'Вы можете настроить в npm публикацию пакетов в {% data variables.product.prodname_registry %} и использование пакетов, хранящихся в {% data variables.product.prodname_registry %}, в качестве зависимостей в проекте npm.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-npm-for-use-with-github-package-registry
@@ -14,65 +14,62 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: npm registry
+ms.openlocfilehash: 11b1ab58cd57c6cecdeb2366b83696166cdc6245
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193132'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-{% ifversion packages-npm-v2 %}
-{% else %}
-## Limits for published npm versions
+{% ifversion packages-npm-v2 %} {% else %}
+## Ограничения для опубликованных версий npm
 
-If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
+При публикации более 1000 версий пакета npm в {% data variables.product.prodname_registry %} во время использования могут наблюдаться проблемы с производительностью и тайм-ауты.
 
-In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
+В будущем в целях улучшения производительности службы вы не сможете публиковать более 1000 версий пакета в {% data variables.product.prodname_dotcom %}. Все версии, опубликованные до достижения этого ограничения, по-прежнему будут доступны для чтения.
 
-If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
+Если вы достигнете этого ограничения, рассмотрите возможность удаления версий пакетов или обратитесь в службу поддержки за помощью. Когда это ограничение будет реализовано, в нашу документацию будет включен способ его обхода. Дополнительные сведения см. в статьях [Удаление и восстановление пакета](/packages/learn-github-packages/deleting-and-restoring-a-package) или [Связь со службой поддержки](/packages/learn-github-packages/about-github-packages#contacting-support).
 {% endif %}
 
-## Authenticating to {% data variables.product.prodname_registry %}
+## Проверка подлинности в {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% ifversion packages-npm-v2 %}
-{% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+{% ifversion packages-npm-v2 %} {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
-You can also choose to give access permissions to packages independently for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_actions %}. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package) and [Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
+Вы также можете предоставить доступ к пакетам независимо для {% data variables.product.prodname_codespaces %} и {% data variables.product.prodname_actions %}. Дополнительные сведения см. в разделе [Обеспечение доступа Codespaces к пакету](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package) и [Обеспечение доступа рабочего процесса к пакету](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
 {% endif %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### Проверка подлинности с помощью {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user *~/.npmrc* file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
+Вы можете пройти проверку подлинности в {% data variables.product.prodname_registry %} с помощью npm, изменив файл *~/.npmrc* для каждого пользователя, чтобы включить {% data variables.product.pat_v1 %} или выполнив вход в npm в командной строке с помощью имени пользователя и {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your *~/.npmrc* file, edit the *~/.npmrc* file for your project to include the following line, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %} and {% endif %}*TOKEN* with your {% data variables.product.pat_generic %}. Create a new *~/.npmrc* file if one doesn't exist.
+Чтобы пройти проверку подлинности, добавив {% data variables.product.pat_v1 %} в файл *~/.npmrc* , измените файл *~/.npmrc* для проекта, добавив следующую строку, заменив {% ifversion ghes or ghae %}*HOSTNAME* именем узла {% data variables.location.product_location %} и {% endif %}*TOKEN* на {% data variables.product.pat_generic %}. Если файл *~/.npmrc* не существует, создайте его.
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} Если в вашем экземпляре включена изоляция поддоменов: {% endif %}
 
 ```shell
 //{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_authToken=TOKEN
 ```
 
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} Если в вашем экземпляре выключена изоляция поддоменов:
 
 ```shell
 //HOSTNAME/_registry/npm/:_authToken=TOKEN
 ```
 {% endif %}
 
-To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_v1 %}, and *PUBLIC-EMAIL-ADDRESS* with your email address.
+Для проверки подлинности путем входа в npm используйте `npm login` команду , заменив *USERNAME* именем пользователя {% data variables.product.prodname_dotcom %}, *TOKEN* — {% data variables.product.pat_v1 %}, а *PUBLIC-EMAIL-ADDRESS* — вашим адресом электронной почты.
 
-If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+Если {% data variables.product.prodname_registry %} не является реестром пакета по умолчанию для использования npm, и вы хотите использовать команду `npm audit`, рекомендуется при проверке подлинности в {% data variables.product.prodname_registry %} использовать флаг `--scope` с владельцем пакета.
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} Если в вашем экземпляре включена изоляция поддоменов: {% endif %}
 
 ```shell
 $ npm login --scope=@OWNER --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}
@@ -82,8 +79,7 @@ $ npm login --scope=@OWNER --registry=https://{% ifversion fpt or ghec %}npm.pkg
 > Email: PUBLIC-EMAIL-ADDRESS
 ```
 
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} Если в вашем экземпляре выключена изоляция поддоменов:
 
 ```shell
 $ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/
@@ -93,97 +89,78 @@ $ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/
 ```
 {% endif %}
 
-## Publishing a package
+## Публикация пакета
 
 {% note %}
 
-**Note:** Package names and scopes must only use lowercase letters.
+**Примечание.** В именах и областях пакетов должны использоваться только строчные буквы.
 
 {% endnote %}
 
-{% ifversion packages-npm-v2 %}
-The {% data variables.product.prodname_registry %} registry stores npm packages within your organization or personal account, and allows you to associate a package with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
-{% endif %}
+{% ifversion packages-npm-v2 %} Реестр {% data variables.product.prodname_registry %} хранит пакеты npm в вашей организации или личной учетной записи и позволяет связать пакет с репозиторием. Можно указать, нужно ли наследовать разрешения из репозитория или задавать детализированные разрешения независимо от репозитория.
 
-By default, {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the name field of the *package.json* file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. If you're running [npm v8.5.3](https://github.com/npm/cli/releases/tag/v8.5.3) or later, you can add a summary for the package listing page by including a *README.md* file in your package directory. For more information, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" and "[How to create Node.js Modules](https://docs.npmjs.com/getting-started/creating-node-modules)" in the npm documentation.
+{% data reusables.package_registry.publishing-user-scoped-packages %} {% endif %}
 
-You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `URL` field in the *package.json* file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
+По умолчанию {% data variables.product.prodname_registry %} публикует пакет в репозитории {% data variables.product.prodname_dotcom %}, указанном вами в поле имени файла *package.json*. Например, вы могли бы опубликовать пакет с именем `@my-org/test` в репозитории `my-org/test` {% data variables.product.prodname_dotcom %}. Если вы используете [npm 8.5.3](https://github.com/npm/cli/releases/tag/v8.5.3) или более поздней версии, вы можете добавить сводку для страницы со списком пакетов, включив файл *README.md* в каталог пакета. Дополнительные сведения см. в разделах [Работа с package.json](https://docs.npmjs.com/getting-started/using-a-package.json) и [Создание модулей Node.js](https://docs.npmjs.com/getting-started/creating-node-modules) в документации npm.
 
-{% ifversion fpt or ghec %}
-When a package is published, it isn't automatically linked to a repository. You can however choose to link your published package to a repository using the user interface or command line. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
-{% endif %}
+Вы можете опубликовать несколько пакетов в одном репозитории {% data variables.product.prodname_dotcom %}, включив поле `URL` в файл *package.json*. Дополнительные сведения см. в разделе [Публикация нескольких пакетов в одном репозитории](#publishing-multiple-packages-to-the-same-repository).
 
-You can set up the scope mapping for your project using either a local *.npmrc* file in the project or using the `publishConfig` option in the *package.json*. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@owner/name`. Scoped packages always begin with an `@` symbol. You may need to update the name in your *package.json* to use the scoped name. For example, `"name": "@codertocat/hello-world-npm"`.
-
-{% ifversion packages-npm-v2 %}
-When you first publish a package, the default visibility is private. When a package is linked to repository, the package visibility is dependent on the repository's visibility. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
-{% endif %}
+Вы можете настроить сопоставление областей для проекта, используя либо локальный *NPMRC-файл* в проекте, либо параметр `publishConfig` в *package.json*. {% data variables.product.prodname_registry %} поддерживает только пакеты npm с ограниченной областью. Имена пакетов с ограниченной областью имеют формат `@owner/name`. Пакеты с ограниченной областью всегда начинаются с символа `@`. Вам может потребоваться обновить имя в файле *package.json*, чтобы использовать имя с ограниченной областью. Например, `"name": "@codertocat/hello-world-npm"`.
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Publishing a package using a local *.npmrc* file
+### Публикация пакета с помощью локального *NPMRC-файла*
 
-You can use an *.npmrc* file to configure the scope mapping for your project. In the *.npmrc* file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an *.npmrc* file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
+Для настройки сопоставления областей для проекта можно использовать *NPMRC-файл*. В *NPMRC-файле* используйте владельца учетной записи и URL-адрес {% data variables.product.prodname_registry %}, чтобы {% data variables.product.prodname_registry %} знал, куда направлять запросы пакетов. Использование *NPMRC-файла* случайную публикацию другими разработчиками пакета в npmjs.org вместо {% data variables.product.prodname_registry %}.
 
-{% data reusables.package_registry.authenticate-step %}
-{% data reusables.package_registry.create-npmrc-owner-step %}
-{% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Verify the name of your package in your project's *package.json*. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your *package.json* should be `@my-org/test`.
-{% data reusables.package_registry.verify_repository_field %}
-{% data reusables.package_registry.publish_package %}
+{% data reusables.package_registry.authenticate-step %} {% data reusables.package_registry.create-npmrc-owner-step %} {% data reusables.package_registry.add-npmrc-to-repo-step %}
+1. Проверьте имя пакета в файле *package.json* вашего проекта. Поле `name` должно содержать область и имя пакета. Например, если пакет называется "test", и вы публикуете его в организации "My-org" {% data variables.product.prodname_dotcom %}, поле `name` в файле *package.json* должно быть `@my-org/test`.
+{% data reusables.package_registry.verify_repository_field %} {% data reusables.package_registry.publish_package %}
 
-### Publishing a package using `publishConfig` in the *package.json* file
+### Публикация пакета с помощью `publishConfig` в файле *package.json*
 
-You can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+Вы можете использовать элемент `publishConfig` в файле *package.json*, чтобы указать реестр, в котором следует опубликовать пакет. Дополнительные сведения см. в разделе [publishConfig](https://docs.npmjs.com/files/package.json#publishconfig) в документации npm.
 
-1. Edit the *package.json* file for your package and include a `publishConfig` entry.
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
+1. Измените файл *package.json* для вашего пакета и включите запись `publishConfig`.
+  {% ifversion ghes %} Если в вашем экземпляре включена изоляция поддоменов: {% endif %}
   ```shell
   "publishConfig": {
     "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}"
   },
   ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
+  {% ifversion ghes %} Если в вашем экземпляре выключена изоляция поддоменов:
    ```shell
    "publishConfig": {
      "registry": "https://HOSTNAME/_registry/npm/"
    },
   ```
-  {% endif %}
-{% data reusables.package_registry.verify_repository_field %}
-{% data reusables.package_registry.publish_package %}
+  {% endif %} {% data reusables.package_registry.verify_repository_field %} {% data reusables.package_registry.publish_package %}
 
-## Publishing multiple packages to the same repository
+## Публикация нескольких пакетов в одном репозитории
 
-To publish multiple packages to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the *package.json* file for each package.
+Чтобы опубликовать несколько пакетов в одном репозитории, можно включить URL-адрес репозитория {% data variables.product.prodname_dotcom %} в поле `repository` файла *package.json* для каждого пакета.
 
-To ensure the repository's URL is correct, replace REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository.
+Чтобы правильно указать URL-адрес репозитория, замените REPOSITORY именем репозитория, содержащего пакет, который вы хотите опубликовать, а OWNER — именем учетной записи пользователя или организации в {% data variables.product.prodname_dotcom %}, которой принадлежит репозиторий.
 
-{% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name.
+{% data variables.product.prodname_registry %} будет сопоставляться с репозиторием на основе URL-адреса, а не на основе имени пакета.
 
 ```shell
 "repository":"https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY",
 ```
 
-## Installing a package
+## Установка пакета
 
-You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the *package.json* file for your project. For more information on using a *package.json* in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
+Пакеты можно устанавливать из {% data variables.product.prodname_registry %}, добавляя пакеты в виде зависимостей в файл *package.json* для проекта. Дополнительные сведения об использовании *package.json* в проекте см. в разделе [Работа с package.json](https://docs.npmjs.com/getting-started/using-a-package.json) в документации npm.
 
-By default, you can add packages from one organization. For more information, see "[Installing packages from other organizations](#installing-packages-from-other-organizations)."
+По умолчанию вы можете добавлять пакеты из одной организации. Дополнительные сведения см. в разделе [Установка пакетов из других организаций](#installing-packages-from-other-organizations).
 
-You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes or ghec %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
+Кроме того, вам необходимо добавить в проект *NPMRC-файл*, чтобы все запросы на установку пакетов {% ifversion ghae %}перенаправлялись в{% else %}проходили через{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes or ghec %}При перенаправлении всех запросов пакетов через {% data variables.product.prodname_registry %} вы можете использовать пакеты как с ограниченной, так и с неограниченной областью из *npmjs.org*. Дополнительные сведения см. в разделе [npm-scope](https://docs.npmjs.com/misc/scope) документации npm.{% endif %}
 
-{% ifversion ghae %}
-By default, you can only use npm packages hosted on your enterprise, and you will not be able to use unscoped packages. For more information on package scoping, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation. If required, {% data variables.product.prodname_dotcom %} support can enable an upstream proxy to npmjs.org. Once an upstream proxy is enabled, if a requested package isn't found on your enterprise, {% data variables.product.prodname_registry %} makes a proxy request to npmjs.org.  
+{% ifversion ghae %} По умолчанию можно использовать только пакеты npm, размещенные в вашем предприятии, и нельзя использовать пакеты с неограниченной областью. Дополнительные сведения об определении области пакетов см. в разделе [npm-scope](https://docs.npmjs.com/misc/scope) документации npm. При необходимости поддержка {% data variables.product.prodname_dotcom %} может включить вышестоящий прокси-сервер в npmjs.org. Если вышестоящий прокси-сервер включен, и запрошенный пакет не обнаруживается в вашей организации, {% data variables.product.prodname_registry %} выполняет запрос прокси-сервера в npmjs.org.  
 {% endif %}
 
-{% data reusables.package_registry.authenticate-step %}
-{% data reusables.package_registry.create-npmrc-owner-step %}
-{% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. Replace `<organization_name>/<package_name>` with your package dependency.
+{% data reusables.package_registry.authenticate-step %} {% data reusables.package_registry.create-npmrc-owner-step %} {% data reusables.package_registry.add-npmrc-to-repo-step %}
+1. Настройте *package.json* в проекте для использования устанавливаемого пакета. Чтобы добавить зависимости пакета в файл *package.json* для {% data variables.product.prodname_registry %}, укажите полное имя пакета, такое как `@my-org/server`. Для пакетов из *npmjs.com* укажите полное имя, такое как `@babel/core` или `@lodash`. Замените `<organization_name>/<package_name>` зависимостью пакета.
 
   ```json
   {
@@ -198,27 +175,24 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
     }
   }
   ```
-5. Install the package.
+5. Установите пакет.
 
   ```shell
   $ npm install
   ```
 
-### Installing packages from other organizations
+### Установка пакетов из других организаций
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %} and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.
+По умолчанию вы можете использовать только пакеты {% data variables.product.prodname_registry %} из одной организации. Если вы хотите перенаправлять запросы пакетов нескольким организациям и пользователям, можно добавить дополнительные строки в *NPMRC-файл* , заменив {% ifversion ghes or ghae %}*HOSTNAME* именем узла {% data variables.location.product_location %}, а {% endif %}*OWNER* — именем пользователя или учетной записи организации, которая владеет репозиторием, содержащим ваш проект.
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} Если в вашем экземпляре включена изоляция поддоменов: {% endif %}
 
 ```shell
 @OWNER:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
 @OWNER:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
 ```
 
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+{% ifversion ghes %} Если в вашем экземпляре выключена изоляция поддоменов:
 
 ```shell
 @OWNER:registry=https://HOSTNAME/_registry/npm
@@ -227,7 +201,7 @@ If your instance has subdomain isolation disabled:
 {% endif %}
 
 {% ifversion ghes %}
-## Using the official NPM registry
+## Использование официального реестра NPM
 
-{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+{% data variables.product.prodname_registry %} позволяет получать доступ к официальному реестру NPM в `registry.npmjs.com`, если ваш администратор {% data variables.product.prodname_ghe_server %} включил эту функцию. Дополнительные сведения см. в разделе [Подключение к официальному реестру NPM](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}

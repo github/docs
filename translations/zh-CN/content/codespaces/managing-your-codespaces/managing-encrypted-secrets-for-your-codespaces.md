@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160440'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192807'
 ---
 ## 关于 {% data variables.product.prodname_github_codespaces %} 的加密机密
 
@@ -28,7 +28,7 @@ ms.locfileid: '148160440'
 - 云服务的访问令牌
 - 服务主体
 - 订阅标识符
-- [专用映像注册表的凭据](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- 专用映像注册表的凭据（有关详细信息，请参阅“[允许 codespace 访问专用注册表](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry)”）
 
 您可以选择哪些仓库应有权访问每个密码。 然后，您可以在为有权访问密码的仓库创建的任何代码空间中使用该密码。 若要与通过模板创建的 codespace 共享机密，需要将 codespace 发布到 {% data variables.product.prodname_dotcom %} 上的存储库，然后授予该存储库对该机密的访问权限。
 

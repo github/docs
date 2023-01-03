@@ -48,4 +48,4 @@ The following REST API versions are currently supported:
 {{ apiVersion }}
 {% endfor %}
 
-You can also make an API request get all supported API versions. For more information, see "[Get all API versions](/rest/meta#get-all-api-versions)."
+You can also make an API request to get all of the supported API versions. For more information, see "[Get all API versions](/rest/meta#get-all-api-versions)."

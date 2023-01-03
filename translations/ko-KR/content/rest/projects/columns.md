@@ -2,7 +2,7 @@
 title: '{% data variables.product.prodname_project_v1_caps %} 열'
 shortTitle: Columns
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.product.prodname_project_v1 %} 열 API를 사용하면 {% data variables.projects.projects_v1_board %}에서 열을 만들고 관리할 수 있습니다.'
+intro: 'REST API를 사용하여 {% data variables.projects.projects_v1_board %}에서 열을 만들고 관리합니다.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 8804dd9fafb1dd8142c50e30db36cc5daf7c04df
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 41ae7c65372079bb9a226839fa1615cbaab9f60b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423070'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193494'
 ---
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

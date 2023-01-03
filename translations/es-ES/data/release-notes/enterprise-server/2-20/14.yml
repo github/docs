@@ -1,0 +1,13 @@
+date: '2020-08-12'
+sections:
+  bugs:
+    - 'Se ha resuelto un problema que podía conllevar un uso alto de CPU mientras se generaban las plantillas de configuración del sistema. {% comment %} https://github.com/github/enterprise2/pull/21784, https://github.com/github/enterprise2/pull/21741 {% endcomment %}'
+    - 'Los cambios recientes a las asignaciones de memoria podían conllevar una degradación en el rendimiento del sistema {% comment %} https://github.com/github/enterprise2/pull/22067 {% endcomment %}'
+  known_issues:
+    - 'En una instancia de GitHub Enterprise Server recién configurada sin ningún usuario, un atacante podía crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una actualización. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos supervisados de Git LFS [cargados desde la interfaz web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregan de forma incorrecta y directa al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las incidencias no se pueden cerrar si contienen un enlace permanente a un blob del mismo repositorio en el que la ruta es mayor de 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las incidencias en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Las alertas de seguridad no se notifican cuando se realiza la inserción en un repositorio en la línea de comandos. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'Cuando un nodo de réplica está sin conexión en una configuración de disponibilidad alta, es posible que {% data variables.product.product_name %} todavía enrute las solicitudes a {% data variables.product.prodname_pages %} al nodo sin conexión, lo que reduce la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

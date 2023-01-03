@@ -1,5 +1,5 @@
 ---
-title: OAuth Apps
+title: OAuth アプリの比較
 allowTitleToDifferFromFilename: true
 intro: ''
 topics:
@@ -10,8 +10,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: bb80e0627236ff7e045dd72823201b6d8e750445
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147888437'
 ---
+## {% data variables.product.prodname_oauth_app %} API について
 
-## About the {% data variables.product.prodname_oauth_app %} API
-
-You can use this API to manage the OAuth tokens an {% data variables.product.prodname_oauth_app %} uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
+この API を使用すると、{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} にあるユーザーのアカウントにアクセスするために {% data variables.product.prodname_oauth_app %} によって使用される OAuth トークンを管理することができます。

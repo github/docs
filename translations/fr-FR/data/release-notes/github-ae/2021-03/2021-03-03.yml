@@ -1,0 +1,93 @@
+date: '03/03/2021'
+friendlyDate: '3 mars 2021'
+title: 'Semaine du 3 mars 2021'
+currentWeek: false
+sections:
+  features:
+    - heading: 'GitHub Actions version bêta'
+      notes:
+        - |[{% data variables.product.prodname_actions %}](https://github.com/features/actions) est une solution à la fois puissante et souple pour le CI/CD et l’automatisation des workflows. Pour plus d’informations, consultez « [Présentation de {% data variables.product.prodname_actions %}](/actions/learn-github-actions/introduction-to-github-actions) ».
+
+
+
+Veuillez noter que quand {% data variables.product.prodname_actions %} est activé pendant cette mise à niveau, deux organisations appelées « GitHub Actions » (@**actions** et @**github**) apparaissent dans {% data variables.product.product_location %}. Ces organisations sont requises par {% data variables.product.prodname_actions %}. Les utilisateurs appelés @**ghost** et @**actions** apparaissent comme acteurs dans la création de ces organisations dans le journal d’audit.
+
+|
+    - heading: 'GitHub Packages version bêta'
+      notes:
+        - |[{% data variables.product.prodname_registry %}](https://github.com/features/packages) est un service d’hébergement de packages qui est intégré de manière native aux API et aux webhooks {% data variables.product.prodname_actions %}. Créez un [workflow DevOps de bout en bout](/github-ae@latest/packages/quickstart) comprenant votre code, l’intégration continue et des solutions de déploiement. Pendant cette version bêta, {% data variables.product.prodname_registry %} est offert gratuitement aux clients {% data variables.product.product_name %}.
+
+|
+    - heading: 'GitHub Advanced Security version bêta'
+      notes:
+        - |{% data variables.product.prodname_GH_advanced_security %} est disponible en version bêta et comprend l’analyse du code et l’analyse des secrets. Pendant cette version bêta, les fonctionnalités de {% data variables.product.prodname_GH_advanced_security %} sont offertes gratuitement aux clients {% data variables.product.product_name %}. Les administrateurs de dépôt et d’organisation peuvent choisir d’utiliser {% data variables.product.prodname_GH_advanced_security %} sous l’onglet Sécurité et analyse sous les paramètres.
+
+
+
+En savoir plus sur l’[analyse du code] de {% data variables.product.prodname_GH_advanced_security %}(/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) et l’[analyse des secrets](/github/administering-a-repository/about-secret-scanning) dans {% data variables.product.prodname_ghe_managed %}.
+
+|
+    - heading: Gérer les équipes de votre fournisseur d’identité (IdP)
+      notes:
+        - |Les clients utilisant SCIM (System for Cross-domain Identity Management) peuvent maintenant synchroniser des groupes de sécurité dans Azure Active Directory avec des équipes {% data variables.product.company_short %}.  Une fois qu’une équipe est associée à un groupe de sécurité, l’appartenance est automatiquement mise à jour dans {% data variables.product.product_name %} quand un utilisateur est ajouté ou supprimé de son groupe de sécurité affecté.
+
+|
+    - heading: Listes vertes d’adresses IP version bêta
+      notes:
+        - |Les [listes vertes d’adresses IP {% data variables.product.company_short %}](/admin/configuration/restricting-network-traffic-to-your-enterprise) donnent la capacité de filtrer le trafic des plages d’adresses IP spécifiées par l’administrateur définies par la notation CIDR. La liste verte est définie au niveau du compte de l’entreprise ou de l’organisation dans Sécurité > Paramètres. Tout trafic qui tente d’atteindre des ressources dans le compte de l’entreprise et des organisation est filtré avec les listes vertes d’adresses IP. Cette fonctionnalité est fournie en plus de la capacité à demander des changements de groupe de sécurité réseau qui permettent de filtrer le trafic dans l’intégralité du locataire GHAE.
+
+|
+  changes:
+    - heading: Changements pour les développeurs
+      notes:
+        - |[Les propriétaires d’organisation peuvent maintenant désactiver la publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) de sites {% data variables.product.prodname_pages %} des dépôts de l’organisation. Les sites existants restent publiés.
+
+|
+        - "Les dépôts qui utilisent {% data variables.product.prodname_pages %} peuvent maintenant [créer et déployer à partir de n’importe quelle branche](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)."
+        - "Lorsque vous rédigez un problème ou une demande de tirage, la syntaxe de liste pour les puces, les nombres et les tâches s’autocomplète quand vous appuyez sur `Retour` ou `Entrée`."
+        - "Vous pouvez maintenant supprimer un répertoire d’un dépôt dans la page des dépôts. Lorsque vous accédez à un répertoire, un nouveau bouton kebab (trois puces verticales) à côté du bouton « Ajouter un fichier » donne l’option de supprimer le répertoire."
+        - "Il est maintenant plus facile et plus rapide de [référencer les problèmes ou les demandes de tirage](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests) avec une recherche sur plusieurs mots après le « # »."
+
+    - heading: Changements au niveau de l’administration
+      notes:
+        - "Les propriétaires d’entreprise peuvent maintenant publier un message obligatoire. Le message est montré à tous les utilisateurs, qui doivent en accuser réception. Il peut être utilisé pour afficher une information importante, les conditions d’utilisation d’un service ou des politiques."
+        - "L’autorisation de chemin de fichier unique {% data variables.product.prodname_github_app%} peut maintenant [prendre en charge jusqu’à dix fichiers](/developers/apps/creating-a-github-app-using-url-parameters)."
+        - "Lors de la configuration d’une {% data variables.product.prodname_github_app%}, l’URL de rappel d’autorisation est un champ obligatoire. À présent, nous allons permettre à l’intégrateur de spécifier plusieurs URL de rappel. {% data variables.product.product_name %} refuse l’autorisation si l’URL de rappel de la requête n’est pas listée."
+        - "Un [nouveau point de terminaison d’API](/rest/reference/apps#create-a-scoped-access-token) permet l’échange d’un jeton utilisateur-à-serveur par un jeton utilisateur-à-serveur limité à des dépôts spécifiques."
+        - "Les événements sont maintenant consignés dans le journal d’audit sur la [promotion d’un membre d’équipe en chargé de maintenance d’équipe et la rétrogradation d’un chargé de maintenance d’équipe en membre d’équipe](/admin/user-management/audited-actions#teams)."
+        - "Le [flux d’autorisation d’appareil OAuth](/developers/apps/authorizing-oauth-apps#device-flow) est maintenant pris en charge. Cela permet à tout client CLI ou outil de développement de s’authentifier avec un système secondaire."
+        - Les utilisateurs ne peuvent plus supprimer leur compte si le provisionnement SCIM est activé.
+
+    - heading: Renommage des branches par défaut
+      notes:
+        - |Les propriétaires d’entreprise et d’organisation peuvent désormais définir le nom de branche par défaut pour les nouveaux dépôts. Les propriétaires d’entreprise peuvent aussi appliquer leur choix de nom de branche par défaut pour toutes les organisations ou autoriser des organisations individuelles à choisir le leur.
+
+
+
+Les dépôts existants ne sont pas affectés par ces paramètres, leur branche par défaut ne sera pas renommée.
+
+
+
+Ce changement fait partie des nombreux changements qu’apporte actuellement {% data variables.product.company_short %} pour prendre en charge des projets et des chargés de maintenance qui veulent renommer leur branche par défaut. Pour en savoir plus, consultez [github/renaming](https://github.com/github/renaming).
+
+|
+  bugs:
+    - heading: Résolution des bogues
+      notes:
+        - Les utilisateurs ne peuvent plus définir une adresse e-mail de secours sur leur profil. Leur adresse e-mail est définie par le biais du fournisseur d’identité uniquement.
+        - Vous ne pouvez plus activer l’authentification à deux facteurs après avoir configuré l’authentification via votre fournisseur d’identité.
+        - |{% data variables.product.product_name %} peut désormais se connecter à Azure Boards.
+
+|
+        - Les en-têtes de version étaient manquants dans les API et sont désormais définis sur « GitHub AE ».
+        - Les liens vers la documentation ont été réparés.
+        - La configuration du transfert du journal d’audit dans les paramètres de l’entreprise échouait.
+        - La navigation vers gists pouvait entraîner une erreur 500.
+        - Il était impossible d’enregistrer l’e-mail ou l’URL du support. Ils s’enregistrent maintenant au bout de quelques minutes.
+        - Les modèles de demande de tirage de niveau organisation n’étaient pas appliqués à toutes les demandes de tirage de l’organisation.
+
+  known_issues:
+    - heading: Problèmes connus
+      notes:
+        - Les données de localisation géographique ne s’affichent pas dans le journal d’audit. Les informations géographiques peuvent sinon être trouvées à partir de l’adresse IP associée à chaque événement.
+        - "Le lien vers {% data variables.product.prodname_registry %} dans une page de dépôt affiche une page de recherche incorrecte quand le dépôt n’a aucun package."

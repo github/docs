@@ -1,6 +1,6 @@
 ---
 title: Compréhension des connexions entre dépôts
-intro: Vous pouvez mieux comprendre les connexions qui existent entre les dépôts en consultant le réseau et les duplication (fork) d’un dépôt et les projets qui dépendent de ce dernier.
+intro: Utilisez le graphique réseau et la liste des duplications pour comprendre les réseaux de duplications.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060065'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191357'
 ---
 ## Affichage du réseau d’un dépôt
 
-Le graphique du réseau affiche l’historique des branches de tout le réseau du dépôt, y compris les branches du dépôt racine et celles des duplications qui contiennent des validations propres au réseau.
+Le graphique réseau affiche l’historique des branches de l’ensemble du réseau de référentiels, y compris les branches de duplication. Ce graphique est une chronologie des validations les plus récentes et affiche jusqu’à 100 des branches les plus récemment envoyées. La première ligne fait référence à la date et la première colonne fait référence au propriétaire de la branche. Utilisez des touches de direction ou d’autres raccourcis clavier pour naviguer plus facilement dans le graphique. Ils sont fournis dans la fenêtre contextuelle « Raccourcis clavier disponibles » sous le graphique.
+
 
 ![Graphique du réseau du dépôt](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ Le graphique du réseau affiche l’historique des branches de tout le réseau d
 
 Le graphique Membres affiche toutes les duplications d’un dépôt.
 
-Les duplications sont présentées dans l’ordre alphabétique du nom d’utilisateur de la personne qui a dupliqué le dépôt. Vous pouvez cliquer sur le nom d’utilisateur afin d’être redirigé vers la page de profil {% data variables.product.product_name %} de l’utilisateur, ou cliquer sur le nom de duplication afin d’être redirigé vers la duplication spécifique du dépôt.
+Les duplications sont présentées dans l’ordre alphabétique de l’organisation ou du nom d’utilisateur de la personne qui a dupliqué le référentiel. Vous pouvez cliquer sur l’organisation ou le nom d’utilisateur afin d’être redirigé vers la page de profil {% data variables.product.product_name %} de l’organisation ou de l’utilisateur ou cliquer sur le nom de duplication afin d’être redirigé vers la duplication spécifique du référentiel.
 
 {% ifversion fpt or ghec %}
 

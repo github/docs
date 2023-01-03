@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-ms.openlocfilehash: cb24557b15eafd4a5be8ef1a991ae3c43f376c67
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
+ms.openlocfilehash: 05ac86405caadf3085b15a2aed9b54acb84f91f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147786032'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193472'
 ---
 ## Сведения о {% data variables.product.prodname_copilot %} в {% data variables.product.prodname_vs %}
 
@@ -37,13 +37,20 @@ ms.locfileid: '147786032'
 Если вы не хотите использовать сочетания клавиш по умолчанию в {% data variables.product.prodname_vs %} при использовании {% data variables.product.prodname_copilot %}, можно повторно привязать сочетания клавиш в редакторе сочетаний клавиш, указав предпочитаемые сочетания клавиш для каждой конкретной команды.
 
 1. На панели инструментов {% data variables.product.prodname_vs %} в разделе **Средства** щелкните **Параметры**.
+   
    ![Снимок экрана: элемент "Параметры" на панели инструментов {% data variables.product.prodname_vs %}](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. В диалоговом окне "Параметры" в разделе **Среда** щелкните **Клавиатура**.
+   
    ![Снимок экрана: пункт "Клавиатура" в диалоговом окне "Параметры"](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. В поле "Показать команды, содержащие:" найдите команду, которую требуется повторно привязать.
-   ![Снимок экрана: строка поиска "Показать команды, содержащие:"](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. В поле "Введите сочетание клавиш:" введите сочетание клавиш, которое нужно назначить команде, а затем нажмите кнопку **Назначить**.
-   ![Снимок экрана: назначение сочетания клавиш](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   
+   ![Снимок экрана: отображение команд, содержащих панель поиска](/assets/images/help/copilot/vs-show-commands-containing.png)
+
+1. В разделе "Нажатие сочетаний клавиш" введите ярлык, который нужно назначить команде, а затем нажмите кнопку **Назначить**.
+
+   ![Снимок экрана: назначение сочетания клавиш](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 

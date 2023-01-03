@@ -5,7 +5,6 @@ intro: '可以使用 Okta 作为标识提供者 (IdP) 来集中管理 {% data va
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
-  feature: scim-for-ghes
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
@@ -17,12 +16,12 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 62a1436fcedc4d90f767d0c612e70810132aff58
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107513'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192671'
 ---
 {% data reusables.saml.okta-ae-sso-beta %}
 
@@ -31,6 +30,11 @@ ms.locfileid: '148107513'
 你可以使用 Okta 作为 {% data variables.product.product_name %} 的标识提供者 (IdP)，这可允许你的 Okta 用户使用其 Okta 凭据登录到 {% data variables.product.product_name %}。
 
 要使用 Okta 作为 {% data variables.product.product_name %} 的 IdP，可以将 {% data variables.product.product_name %} 应用添加到 Okta、将 Okta 配置为 {% data variables.product.product_name %} 中的 IdP，并为你的 Okta 用户和组预配访问权限。
+
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- “[将 Okta 组映射到团队](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)”
+
+启用 SCIM 后，你在 Okta 中为其分配了 {% data variables.product.product_name %} 应用程序的任何用户都可以使用以下预配。
 
 {% data reusables.scim.ghes-beta-note %}
 
@@ -42,6 +46,8 @@ ms.locfileid: '148107513'
 | 推送用户停用 | 在 Okta 中停用用户时，它将在 {% data variables.product.product_name %} 上从你的企业中暂停该用户。 |
 | 推送个人资料更新 | 在 Okta 中更新用户的配置文件时，它将在 {% data variables.product.product_name %} 上从你的企业中更新该用户的成员身份元数据。 |
 | 重新激活用户 | 在 Okta 中重新激活用户时，它将在 {% data variables.product.product_name %} 上从你的企业中取消暂停该用户。 |
+
+有关在{% data variables.location.product_location %}上管理企业的身份验证和访问控制的详细信息，请参阅“[管理企业的身份验证和访问控制](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。
 
 ## 先决条件
 

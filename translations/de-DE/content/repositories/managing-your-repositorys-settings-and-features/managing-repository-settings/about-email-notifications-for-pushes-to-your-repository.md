@@ -1,6 +1,6 @@
 ---
-title: About email notifications for pushes to your repository
-intro: You can choose to automatically send email notifications to a specific email address when anyone pushes to the repository.
+title: Informationen zu E-Mail-Benachrichtigungen für Pushes an Ihr Repository
+intro: 'Du kannst festlegen, dass E-Mail-Benachrichtigungen automatisch an eine bestimmte E-Mail-Adresse gesendet werden, wenn jemand an das Repository überträgt.'
 permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository
@@ -17,33 +17,37 @@ versions:
 topics:
   - Repositories
 shortTitle: Email notifications for pushes
+ms.openlocfilehash: ee12b8f8270921abd1fe70c748449e46fd472e2c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132171'
 ---
 {% data reusables.notifications.outbound_email_tip %}
 
-Each email notification for a push to a repository lists the new commits and links to a diff containing just those commits. In the email notification you'll see:
+In jeder E-Mail-Benachrichtigung für einen Push an ein Repository werden die neuen Commits und Links zu einem Diff aufgelistet, der nur diese Commits enthält. In der E-Mail-Benachrichtigung siehst Du Folgendes:
 
-- The name of the repository where the commit was made
-- The branch a commit was made in
-- The SHA1 of the commit, including a link to the diff in {% data variables.product.product_name %}
-- The author of the commit
-- The date when the commit was made
-- The files that were changed as part of the commit
-- The commit message
+- Den Namen des Repositorys, in dem der Commit erstellt wurde
+- Den Branch, in dem der Commit erstellt wurde
+- Den SHA1 des Commits, einschließlich eines Links zum Diff in {% data variables.product.product_name %}
+- Den Autor des Commits
+- Das Erstellungsdatum des Commits
+- Die Dateien, die im Rahmen des Commits geändert wurden
+- Die Commit-Mitteilung
 
-You can filter email notifications you receive for pushes to a repository. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)."
+Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repository erhältst. Weitere Informationen findest du unter [Konfigurieren von Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications).
 
-## Enabling email notifications for pushes to your repository
+## E-Mail-Benachrichtigungen für Pushes in Dein Repository aktivieren
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-notifications %}
-5. Type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address.
-![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
-1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}.
-![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
-7. Click **Setup notifications**.
-![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-notifications %}
+5. Gib bis zu zwei E-Mail-Adressen (getrennt durch Leerzeichen) ein, an die Du Benachrichtigungen senden möchtest. Wenn Du E-Mails an mehr als zwei Konten senden möchtest, legst Du eine der E-Mail-Adressen als Gruppen-E-Mail-Adresse fest.
+![Textfeld für die E-Mail-Adresse](/assets/images/help/settings/email_services_addresses.png)
+1. Wenn du einen eigenen Server verwendest, kannst du die Integrität von E-Mails über **Approved-Header** überprüfen. Ein **Approved-Header** ist ein Token oder Geheimnis, das du in dieses Feld eingibst und das dann mit der E-Mail gesendet wird. Wenn der `Approved`-Header einer E-Mail mit dem Token übereinstimmt, kannst du darauf vertrauen, dass die E-Mail von {% data variables.product.product_name %} stammt.
+![Textfeld für den Approved-Header von E-Mails](/assets/images/help/settings/email_services_approved_header.png)
+7. Klicke auf **Benachrichtigungen einrichten**.
+![Schaltfläche „Benachrichtigungen einrichten“](/assets/images/help/settings/setup_notifications_settings.png)
 
-## Further reading
-- "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
+## Weiterführende Themen
+- „[Informationen zu Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)“
 

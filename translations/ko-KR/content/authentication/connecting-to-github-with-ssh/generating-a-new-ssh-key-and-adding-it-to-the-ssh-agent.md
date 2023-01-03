@@ -1,6 +1,6 @@
 ---
-title: Generating a new SSH key and adding it to the ssh-agent
-intro: 'After you''ve checked for existing SSH keys, you can generate a new SSH key to use for authentication, then add it to the ssh-agent.'
+title: 새 SSH 키 생성 및 ssh-agent에 추가
+intro: 기존 SSH 키를 확인한 후 인증에 사용할 새 SSH 키를 생성한 다음 ssh-agent에 추가할 수 있습니다.
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent
   - /articles/generating-a-new-ssh-key
@@ -15,34 +15,38 @@ versions:
 topics:
   - SSH
 shortTitle: Generate new SSH key
+ms.openlocfilehash: 024d74d62b99b6dd94fcecdc835d6094f83234f4
+ms.sourcegitcommit: a0ad3bfe2a99c3092e76ca9b3d476cf30988ca55
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118974'
 ---
+## SSH 키 암호 정보
 
-## About SSH key passphrases
+{% data reusables.ssh.about-ssh %} 자세한 내용은 “[SSH 정보](/authentication/connecting-to-github-with-ssh/about-ssh)”를 참조하세요.
 
-{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+SSH 키를 생성할 때 암호를 추가하여 키를 추가로 보호할 수 있습니다. 키를 사용할 때마다 암호를 입력해야 합니다. 키에 암호가 있고 키를 사용할 때마다 암호를 입력하지 않으려는 경우 SSH 에이전트에 키를 추가할 수 있습니다. SSH 에이전트는 SSH 키를 관리하고 암호를 저장합니다.
 
-When you generate an SSH key, you can add a passphrase to further secure the key. Whenever you use the key, you must enter the passphrase. If your key has a passphrase and you don't want to enter the passphrase every time you use the key, you can add your key to the SSH agent. The SSH agent manages your SSH keys and remembers your passphrase.
+SSH 키가 아직 없는 경우 인증에 사용할 새 SSH 키를 생성해야 합니다. SSH 키가 이미 있는지 확실하지 않은 경우 기존 키를 확인할 수 있습니다. 자세한 내용은 “[기존 SSH 키 확인](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)”을 참조하세요.
 
-If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
+하드웨어 보안 키를 사용하여 {% data variables.product.product_name %}에 인증하려면 하드웨어 보안 키에 대한 새 SSH 키를 생성해야 합니다. 키 쌍으로 인증할 때 하드웨어 보안 키를 컴퓨터에 연결해야 합니다. 자세한 내용은 [ OpenSSH 8.2 릴리스 정보](https://www.openssh.com/txt/release-8.2)를 참조하세요.
 
-If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
+## 새 SSH 키 생성
 
-## Generating a new SSH key
-
-You can generate a new SSH key on your local machine. After you generate the key, you can add the key to your account on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable authentication for Git operations over SSH.
+로컬 머신에서 새 SSH 키를 생성할 수 있습니다. 키를 생성한 후 {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}의 계정에 키를 추가하여 SSH를 통한 Git 작업에 대한 인증을 사용하도록 설정할 수 있습니다.
 
 {% ifversion ghes %}
 
-If you are a site administrator for {% data variables.location.product_location %}, you can use the same key to grant yourself administrative SSH access to the instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+{% data variables.location.product_location %}의 사이트 관리자인 경우 동일한 키를 사용하여 인스턴스에 대한 관리 SSH 액세스 권한을 부여할 수 있습니다. 자세한 내용은 “[관리 셸(SSH) 액세스](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)”를 참조하세요.
 
 {% endif %}
 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
-   {%- ifversion ghae %}
-    <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
+2. {% data variables.product.product_name %} 이메일 주소로 대체하여 아래 텍스트를 붙여넣습니다.
+   {%- ifversion ghae %}  <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -54,19 +58,18 @@ If you are a site administrator for {% data variables.location.product_location 
    ```
    {% note %}
 
-   **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+   **참고:** Ed25519 알고리즘을 지원하지 않는 레거시 시스템을 사용하는 경우 다음을 사용합니다.
    ```shell
     $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    ```
 
-   {% endnote %}
-   {%- endif %}
+   {% endnote %} {%- endif %}
 
-   This creates a new SSH key, using the provided email as a label.
+   그러면 제공된 이메일을 레이블로 사용하여 새 SSH 키가 생성됩니다.
    ```shell
    > Generating public/private ALGORITHM key pair.
    ```
-When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
+"키를 저장할 파일을 입력하라"는 메시지가 표시되면 **Enter** 키를 눌러 기본 파일 위치를 적용할 수 있습니다. 이전에 SSH 키를 만든 경우 ssh-keygen은 다른 키를 다시 작성하도록 요청할 수 있습니다. 이 경우 사용자 지정 명명된 SSH 키를 만드는 것이 좋습니다. 이렇게 하려면 기본 파일 위치를 입력하고 id_ssh_keyname 사용자 지정 키 이름으로 바꿉니다.
 
 
    {% mac %}
@@ -93,36 +96,36 @@ When you're prompted to "Enter a file in which to save the key", you can press *
 
    {% endlinux %}
 
-4. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)."
+4. 프롬프트에 보안 암호를 입력합니다. 자세한 내용은 “[SSH 키 암호 사용](/articles/working-with-ssh-key-passphrases)”을 참조하세요.
    ```shell
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
    ```
 
-## Adding your SSH key to the ssh-agent
+## ssh-agent에 SSH 키 추가
 
-Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">When adding your SSH key to the agent, use the default macOS `ssh-add` command, and not an application installed by [macports](https://www.macports.org/), [homebrew](http://brew.sh/), or some other external source.</span>
+키를 관리하기 위해 ssh-agent에 새 SSH 키를 추가하기 전에 기존 SSH 키를 확인하고 새 SSH 키를 생성해야 합니다. <span class="platform-mac">에이전트에 SSH 키를 추가할 때 [macports](https://www.macports.org/), [homebrew](http://brew.sh/) 또는 기타 외부 원본에서 설치한 애플리케이션이 아닌 기본 macOS `ssh-add` 명령을 사용합니다.</span>
 
 {% mac %}
 
 {% data reusables.command_line.start_ssh_agent %}
 
-2. If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
+2. macOS Sierra 10.12.2 이상을 사용하는 경우 ssh-agent에 키를 자동으로 로드하고 키 집합에 암호를 저장하도록 `~/.ssh/config` 파일을 수정해야 합니다.
 
-   * First, check to see if your `~/.ssh/config` file exists in the default location.
+   * 먼저 `~/.ssh/config` 파일이 기본 위치에 있는지 확인합니다.
 
      ```shell
      $ open ~/.ssh/config
      > The file /Users/YOU/.ssh/config does not exist.
      ```
 
-   * If the file doesn't exist, create the file.
+   * 파일이 없으면 파일을 만듭니다.
 
      ```shell
      $ touch ~/.ssh/config
      ```
 
-   * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
+   * `~/.ssh/config` 파일을 열고 다음 줄을 포함하도록 파일을 수정합니다. SSH 키 파일에 예제 코드와 다른 이름 또는 경로가 있는 경우 현재 설정과 일치하도록 파일 이름 또는 경로를 수정합니다.
 
      ```
      Host *.{% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}
@@ -133,11 +136,11 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
      {% note %}
 
-     **Notes:**
+     **참고:**
 
-     - If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     - 키에 암호를 추가하지 않도록 선택한 경우 `UseKeychain` 줄을 생략해야 합니다.
 
-     - If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}` section.
+     - `Bad configuration option: usekeychain` 오류가 표시되면 구성의 `Host *.{% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}` 섹션에 줄을 추가합니다.
 
        ```
        Host *.{% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}
@@ -145,22 +148,22 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
        ```
      {% endnote %}
 
-3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+3. ssh-agent에 SSH 프라이빗 키를 추가하고 키 집합에 암호를 저장합니다. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add --apple-use-keychain ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
   ```
   {% note %}
 
-   **Note:** The `--apple-use-keychain` option stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `--apple-use-keychain` option.
+   **참고:** ssh-agent에 SSH 키를 추가할 때 옵션은 `--apple-use-keychain` 암호를 키 집합에 저장합니다. 키에 암호를 추가하지 않기로 선택한 경우 `--apple-use-keychain` 옵션 없이 명령을 실행합니다.
 
-   The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In MacOS versions prior to Monterey (12.0), the `--apple-use-keychain` and `--apple-load-keychain` flags used the syntax `-K` and `-A`, respectively.
+   옵션은 `--apple-use-keychain` Apple의 표준 버전에 있습니다 `ssh-add`. 몬테레이 이전 MacOS 버전(12.0) `--apple-use-keychain` 에서 및 `--apple-load-keychain` 플래그는 구문 `-K` 과 `-A`를 각각 사용했습니다.
 
-  If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
+  Apple의 표준 버전 `ssh-add` 이 설치되어 있지 않으면 오류가 발생할 수 있습니다. 자세한 내용은 "[오류: ssh-add: 잘못된 옵션 -- K](/articles/error-ssh-add-illegal-option-k)"를 참조하세요.
 
 
    {% endnote %}
 
-4. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+4. {% data variables.product.product_name %}의 계정에 SSH 키를 추가합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 계정에 새 SSH 키 추가](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)”를 참조하세요.
 
 {% endmac %}
 
@@ -168,17 +171,16 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
+1. ssh-agent가 실행 중인지 확인합니다. “[SSH 키 암호 사용](/articles/working-with-ssh-key-passphrases)”의 “ssh-agent 자동 시작” 지침을 사용하거나 다음과 같이 수동으로 시작할 수 있습니다.
    ```shell
    # start the ssh-agent in the background
    $ eval "$(ssh-agent -s)"
    > Agent pid 59566
    ```
 
-2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+2. ssh-agent에 SSH 프라이빗 키를 추가합니다. {% data reusables.ssh.add-ssh-key-to-ssh-agent %} {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+3. {% data variables.product.product_name %}의 계정에 SSH 키를 추가합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 계정에 새 SSH 키 추가](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)”를 참조하세요.
 
 {% endwindows %}
 
@@ -186,36 +188,33 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.command_line.start_ssh_agent %}
 
-2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+2. ssh-agent에 SSH 프라이빗 키를 추가합니다. {% data reusables.ssh.add-ssh-key-to-ssh-agent %} {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+3. {% data variables.product.product_name %}의 계정에 SSH 키를 추가합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 계정에 새 SSH 키 추가](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)”를 참조하세요.
 
 {% endlinux %}
 
-## Generating a new SSH key for a hardware security key
+## 하드웨어 보안 키에 대한 새 SSH 키 생성
 
-If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
+macOS나 Linux를 사용하는 경우 새 SSH 키를 생성하기 전에 SSH 클라이언트를 업데이트하거나 새 SSH 클라이언트를 설치해야 할 수 있습니다. 자세한 내용은 “[오류: 알 수 없는 키 유형](/github/authenticating-to-github/error-unknown-key-type)”을 참조하세요.
 
-1. Insert your hardware security key into your computer.
+1. 컴퓨터에 하드웨어 보안 키를 삽입합니다.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
+3. {% data variables.product.product_name %} 계정의 이메일 주소로 대체하여 아래 텍스트를 붙여넣습니다.
    ```shell
    $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
 
-   {%- ifversion not ghae %}
-   {% note %}
+   {%- ifversion not ghae %} {% note %}
 
-   **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
+   **참고:** 명령이 실패하고 `invalid format` 또는 `feature not supported,` 오류가 발생하는 경우 Ed25519 알고리즘을 지원하지 않는 하드웨어 보안 키를 사용하고 있을 수 있습니다. 대신 다음 명령을 사용합니다.
    ```shell
     $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
    ```
 
-   {% endnote %}
-   {%- endif %}
-4. When you are prompted, touch the button on your hardware security key.
-5. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
+   {% endnote %} {%- endif %}
+4. 메시지가 표시되면 하드웨어 보안 키의 단추를 터치합니다.
+5. “Enter a file in which to save the key”(키를 저장할 파일 입력)라는 메시지가 표시되면 Enter 키를 눌러 기본 파일 위치를 적용합니다.
 
    {% mac %}
 
@@ -241,9 +240,9 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
    {% endlinux %}
 
-6. When you are prompted to type a passphrase, press **Enter**.
+6. 암호를 입력하라는 메시지가 표시되면 **Enter** 키를 누릅니다.
    ```shell
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
    ```
-7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+7. {% data variables.product.prodname_dotcom %}의 계정에 SSH 키를 추가합니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 계정에 새 SSH 키 추가](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)”를 참조하세요.

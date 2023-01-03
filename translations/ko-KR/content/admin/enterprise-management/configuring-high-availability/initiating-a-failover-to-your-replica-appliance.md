@@ -13,12 +13,12 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: b27d925f5b9ecf35da9ba55633e312e8c9fb94e4
-ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.openlocfilehash: e2c15dab0a812fe6031f78e7edbccaff6a2503c0
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2022
-ms.locfileid: '148008887'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192995'
 ---
 장애 조치(failover)에 필요한 시간은 복제본을 수동으로 승격하고 트래픽을 리디렉션하는 데 걸리는 시간에 따라 달라집니다. 평균 시간 범위는 20~30분입니다.
 
@@ -53,6 +53,13 @@ ms.locfileid: '148008887'
   ```shell
   $ ghe-repl-promote
   ```
+
+   {% note %}
+
+   **참고:** 주 노드를 사용할 수 없는 경우 경고 및 시간 제한이 발생할 수 있지만 무시할 수 있습니다.
+
+  {% endnote %}
+
 5. 복제본의 IP 주소를 가리키도록 DNS 레코드를 업데이트합니다. 트래픽은 TTL 기간이 경과한 후 복제본으로 전달됩니다. 부하 분산 장치를 사용하는 경우 복제본에 트래픽을 보내도록 구성되어 있는지 확인합니다.
 6. 정상적인 작업을 다시 시작할 수 있음을 사용자에게 알립니다.
 7. 원하는 경우 새 기본 어플라이언스에서 기존 어플라이언스 및 이전 기본 어플라이언스로의 복제를 설정합니다. 자세한 내용은 “[고가용성 구성 정보](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”를 참조하세요.

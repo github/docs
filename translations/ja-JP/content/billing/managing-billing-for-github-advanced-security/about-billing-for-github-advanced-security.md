@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub Advanced Security
-intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt or ghec %} in a private or internal repository{% endif %}, you need a license{% ifversion fpt %} for your enterprise{% endif %}.{% ifversion fpt or ghec %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+title: GitHub Advanced Security の課金について
+intro: '{% ifversion fpt or ghec %}プライベートもしくはインターナルリポジトリで{% endif %}{% data variables.product.prodname_GH_advanced_security %}の機能を使いたいなら、{% ifversion fpt %}Enterpriseで{% endif %}ライセンスが必要になります。{% ifversion fpt or ghec %}これらの機能は、{% data variables.product.prodname_dotcom_the_website %}上のパブリックリポジトリでは無料で利用できます。{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -17,23 +17,28 @@ topics:
   - Enterprise
   - Licensing
 shortTitle: Advanced Security billing
+ms.openlocfilehash: 09e7634b5ab0ace00c847f9db9faf229fc8e840e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066931'
 ---
-
-## About billing for {% data variables.product.prodname_GH_advanced_security %}
+## {% data variables.product.prodname_GH_advanced_security %} の課金について
 
 {% ifversion fpt %}
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license, available with {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}. 
+{% data variables.product.prodname_dotcom_the_website %}上のパブリックリポジトリ以外のリポジトリで{% data variables.product.prodname_GH_advanced_security %}の機能を使いたいなら、{% data variables.product.prodname_ghe_cloud %}あるいは{% data variables.product.prodname_ghe_server %}で利用できる{% data variables.product.prodname_GH_advanced_security %}のライセンスが必要になります。 {% data variables.product.prodname_GH_advanced_security %} の詳細については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
 
-For information about billing for {% data variables.product.prodname_GH_advanced_security %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+{% data variables.product.prodname_GH_advanced_security %} の課金について詳しくは、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)を参照してください。
 
 {% elsif ghec %}
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+{% data variables.product.prodname_dotcom_the_website %}上のパブリックリポジトリ以外のリポジトリで{% data variables.product.prodname_GH_advanced_security %}の機能を使いたいなら、{% data variables.product.prodname_GH_advanced_security %}のライセンスが必要になります。 {% data variables.product.prodname_GH_advanced_security %} の詳細については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
 
 {% elsif ghes %}
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+{% data variables.product.prodname_GH_advanced_security %}のライセンスを購入してアップロードすれば、ユーザがコードセキュリティの追加機能を使えるようにできます。 {% data variables.product.prodname_GH_advanced_security %} の詳細については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
 
 {% endif %}
 
@@ -41,13 +46,9 @@ You can make extra features for code security available to users by buying and u
 
 {% data reusables.advanced-security.license-overview %}
 
-{% ifversion ghes %}
-You can determine how many licenses you'll need for {% data variables.product.prodname_GH_advanced_security %} by generating a count of your instance's active committers in the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
-{% endif %}
+Enterpriseでの{% data variables.product.prodname_GH_advanced_security %}のライセンスについては、{% data variables.contact.contact_enterprise_sales %}にお問い合わせください。
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise, contact {% data variables.contact.contact_enterprise_sales %}.
-
-## About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
+## {% data variables.product.prodname_GH_advanced_security %} のコミッター番号について
 
 {% data reusables.advanced-security.about-committer-numbers-ghec-ghes %}
 
@@ -57,33 +58,33 @@ To discuss licensing {% data variables.product.prodname_GH_advanced_security %} 
 
 {% endif %}
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Enterprise アカウントが所有する Organization による {% data variables.product.prodname_advanced_security %} の使用を許可または禁止するポリシーを適用できます。 詳細については、{% data variables.product.prodname_ghe_cloud %} ドキュメントの「[エンタープライズに {% data variables.product.prodname_advanced_security %} のポリシーを適用する]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}」を参照してください。{% else %}."{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 
-For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+ライセンス使用の表示について詳しくは、「[{% data variables.product.prodname_GH_advanced_security %} 使用の表示](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)」を参照してください。
 
 {% endif %}
 
-## Understanding active committer usage
+## アクティブなコミッターの使用状況を理解する
 
-The following example timeline demonstrates how active committer count for {% data variables.product.prodname_GH_advanced_security %} could change over time in an enterprise. For each month, you will find events, along with the resulting committer count.
+以下のタイムラインの例は、{% data variables.product.prodname_GH_advanced_security %}のアクティブなコミッター数がEnterprise内で時間と共にどのように変化しうるかを示しています。 月ごとに、イベントと合わせてその結果のコミッター数があります。
 
-| Date | Events during the month | Total committers | 
+| Date | その月のイベント | コミッター総数 | 
 | :- | :- | -: | 
-| <nobr>April 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** | 
-| <nobr>May 1</nobr> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | **50** |
-| <nobr>August 1</nobr> | Developer **A**'s contributions no longer count towards the licences required, because 90 days have passed. | <sub>_50 - 1_</sub></br>**49** | 
-| <nobr>August 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | <sub>_49 + 10_</sub><br/>**59** | 
-| <nobr>August 16</nobr> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | <sub>_49 - 29_</sub><br/>**20** |
+| <nobr>4 月 15 日</nobr> | エンタープライズのメンバーが、リポジトリ **X** に対して {% data variables.product.prodname_GH_advanced_security %} を有効化。リポジトリ **X** には、過去 90 日間に 50 個のコミッターがあります。 | **50** | 
+| <nobr>5 月 1 日</nobr> | 開発者 **A** が、リポジトリ **X** で作業しているチームを離れる。開発者 **A** のコントリビューションは、引き続き 90 日間カウントされます。 | **50** | **50** |
+| <nobr>8 月 1 日</nobr> | 90 日が経過したので、開発者 **A** のコントリビューションは必要なライセンスに対してカウントされなくなる。 | <sub>_50 - 1_</sub></br>**49** | 
+| <nobr>8 月 15 日</nobr> | エンタープライズのメンバーが、2 つ目のリポジトリであるリポジトリ **Y** に対して {% data variables.product.prodname_GH_advanced_security %} を有効化。過去 90 日間に、合計 20 人の開発者がそのリポジトリに貢献しました。 この 20 人の開発者のうち、10 人が最近リポジトリ **X** でも作業しており、追加のライセンスは必要ありません。 | <sub>_49 + 10_</sub><br/>**59** | 
+| <nobr>8 月 16 日</nobr> | エンタープライズのメンバーが、リポジトリ **X** に対して {% data variables.product.prodname_GH_advanced_security %} を無効化。リポジトリ **X** で作業していた 49 人の開発者のうち、10 人はリポジトリ **Y** でも作業を続けており、このリポジトリでは過去 90 日間に合計 20 人の開発者が貢献しています。 | <sub>_49 - 29_</sub><br/>**20** |
 
 {% note %}
 
-**Note:** A user will be flagged as active when their commits are pushed to any branch of a repository, even if the commits were authored more than 90 days ago.
+**注:** ユーザーは、コミットが 90 日以上前に作成されていたとしても、リポジトリのいずれかのブランチにコミットをプッシュしていればアクティブと見なされます。
 
 {% endnote %}
 
-## Getting the most out of {% data variables.product.prodname_GH_advanced_security %}
+## {% data variables.product.prodname_GH_advanced_security %}の最大限の活用
 
 {% data reusables.advanced-security.getting-the-most-from-your-license %}
 

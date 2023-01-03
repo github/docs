@@ -1,6 +1,6 @@
 ---
-title: Viewing packages
-intro: 'You can see details about packages published to a repository, and narrow results by organization or user.'
+title: Visualizar pacotes
+intro: É possível ver informações sobre pacotes publicados em um repositório e limitar os resultados por organização ou usuário.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages
@@ -14,56 +14,53 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: 4fe01f80ec64f8029b1b2bce1d776da4eddfbd75
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192838'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+## Sobre a visualização de pacotes
 
-## About package views
+A sua capacidade de visualizar um pacote depende de vários fatores. Por padrão, você pode visualizar todos os pacotes que você publicou.
 
-Your ability to view a package depends on several factors. By default, you can view all packages you have published.
+{% ifversion packages-registries-v2 %} Pacotes com escopo para repositórios herdam suas permissões e visibilidade do repositório que possui o pacote. Alguns registros **só** dão suporte a pacotes com escopo de repositório. Para obter uma lista desses registros, confira "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)".
 
-Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
-- Docker registry (`docker.pkg.github.com`){% endif %}
-{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-- RubyGems registry
-- Apache Maven registry
-- NuGet registry
+Outros registros oferecem a opção de permissões granulares e configurações de visibilidade que podem ser personalizadas para cada pacote pertencente a uma conta de usuário pessoal ou de organização. Você pode optar por usar permissões granulares ou conectar o pacote a um repositório e herdar as permissões do repositório. Para obter mais informações, confira "[Como conectar um repositório a um pacote](/packages/learn-github-packages/connecting-a-repository-to-a-package)" e "[Como configurar o controle de acesso e a visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
-{% ifversion fpt or ghec %}
-The {% data variables.packages.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit it's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+{% else %}
+
+Os pacotes herdam suas permissões e visibilidade do repositório no qual estão hospedados. Para obter mais informações, confira "[Sobre as permissões para o {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
+
 {% endif %}
-
-For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
 
 {% data reusables.package_registry.package-page-info %}
 
-## Viewing a repository's packages
+## Visualizar pacotes de um repositório
 
-You can find and view a package located in a particular repository.
+Você pode encontrar e visualizar um pacote localizado em um repositório específico.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.package_registry.packages-from-code-tab %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.navigate-to-packages %}
+
+## Visualizar pacotes de uma organização
+
+Você pode encontrar e visualizar um pacote localizado nos repositórios de uma organização a que pertence.
+
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %}
+3. Abaixo do nome da sua organização, clique em {% octicon "package" aria-label="The package icon" %} **Pacotes**.
 {% data reusables.package_registry.navigate-to-packages %}
 
-## Viewing an organization's packages
+## Visualizar seus pacotes
 
-You can find and view a package located in the repositories of an organization you belong to.
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
-{% data reusables.package_registry.navigate-to-packages %}
-
-## Viewing your packages
-
-You can find and view any package you've published across all organizations and repositories. 
+Você pode encontrar e visualizar qualquer pacote que você publicou em todas as organizações e repositórios. 
 
 {% data reusables.profile.access_profile %}
-2. On the top of the profile page, in the main navigation, click **Packages**.
-  ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
-{% data reusables.package_registry.navigate-to-packages %}
+2. Na parte superior da página de perfil, no menu de navegação principal, clique em **Pacotes**.
+  ![Guia Projeto](/assets/images/help/package-registry/user-packages-tab.png) {% data reusables.package_registry.navigate-to-packages %}
 
-## Further reading
+## Leitura adicional
 
-- "[Searching for packages](/search-github/searching-on-github/searching-for-packages)"
+- "[Pesquisa de pacotes](/search-github/searching-on-github/searching-for-packages)"

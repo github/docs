@@ -1,6 +1,6 @@
 ---
-title: About two-factor authentication and SAML single sign-on
-intro: Organizations administrators can enable both SAML single sign-on and two-factor authentication to add additional authentication measures for their organization members.
+title: Сведения о двухфакторной проверке подлинности и едином входе SAML
+intro: 'Администраторы организаций могут включить единый вход SAML и двухфакторную проверку подлинности, чтобы добавить дополнительные способы проверки подлинности для участников своей организации.'
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
@@ -10,17 +10,22 @@ topics:
   - Organizations
   - Teams
 shortTitle: 2FA & SAML single sign-on
+ms.openlocfilehash: f435097c61c12387d1d4f40bbdc924a8c56a3de4
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099156'
 ---
+Двухфакторная проверка подлинности (2FA) обеспечивает базовую проверку подлинности для членов организации. Включив 2FA, администраторы организации ограничивают вероятность компрометации учетной записи участника на {% данных variables.location.product_location %}. Дополнительные сведения о двухфакторной проверке подлинности см. в разделе [Сведения о двухфакторной проверке подлинности](/articles/about-two-factor-authentication).
 
-Two-factor authentication (2FA) provides basic authentication for organization members. By enabling 2FA, organization administrators limit the likelihood that a member's account on {% data variables.location.product_location %} could be compromised. For more information on 2FA, see "[About two-factor authentication](/articles/about-two-factor-authentication)."
+Чтобы добавить дополнительные способы проверки подлинности, администраторы организации также могут [включить единый вход SAML](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), чтобы члены организации должны были использовать единый вход для доступа к организации. Дополнительные сведения о едином входе SAML см. в разделе [Сведения об управлении удостоверениями и доступом с помощью единого входа SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on).
 
-To add additional authentication measures, organization administrators can also [enable SAML single sign-on (SSO)](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) so that organization members must use single sign-on to access an organization. For more information on SAML SSO, see "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)."
+Если включены и двухфакторная проверка подлинности, и единый вход SAML, члены организации должны выполнить следующие действия:
+- Используйте 2FA для входа в свою учетную запись на {% данных variables.location.product_location %}
+- Использовать единый вход для доступа к организации
+- Использовать авторизованный маркер для доступа к API или Git и единый вход для авторизации маркера
 
-If both 2FA and SAML SSO are enabled, organization members must do the following:
-- Use 2FA to log in to their account on {% data variables.location.product_location %}
-- Use single sign-on to access the organization
-- Use an authorized token for API or Git access and use single sign-on to authorize the token
+## Дополнительные материалы
 
-## Further reading
-
-- "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)"
+- [Применение единого входа SAML для вашей организации](/articles/enforcing-saml-single-sign-on-for-your-organization)

@@ -1,6 +1,6 @@
 ---
-title: Transferring a repository
-intro: You can transfer repositories to other users or organization accounts.
+title: 리포지토리 전송
+intro: 리포지토리를 다른 사용자 또는 조직 계정으로 전송할 수 있습니다.
 redirect_from:
   - /articles/about-repository-transfers
   - /move-a-repo
@@ -21,34 +21,40 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f37ebc1492ae26998a596d90734d1d509b8f73c9
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160682'
 ---
-## About repository transfers
+## 리포지토리 전송 정보
 
-When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.product.prodname_projects_v1 %}, and settings.
+리포지토리를 새 소유자에게 전송하면 리포지토리의 콘텐츠, 문제, 끌어오기 요청, 릴리스, {% data variables.product.prodname_projects_v1 %} 및 설정을 즉시 관리할 수 있습니다.
 
-Prerequisites for repository transfers:
-- When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
-- To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
-- The target account must not have a repository with the same name, or a fork in the same network.
-- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 or ghae %}
-- Internal repositories can't be transferred.{% endif %}
-- Private forks can't be transferred.
+리포지토리 전송을 위한 필수 구성 요소는 다음과 같습니다.
+- 소유한 리포지토리를 다른 개인 계정으로 전송하면 새 소유자가 확인 메일을 받게 됩니다.{% ifversion fpt or ghec %} 확인 메일에는 전송을 수락하기 위한 지침이 포함되어 있습니다. 새 소유자가 1일 이내에 전송을 수락하지 않으면 초대가 만료됩니다.{% endif %}
+- 소유한 리포지토리를 조직에 전송하려면 대상 조직에서 리포지토리를 만들 수 있는 권한이 있어야 합니다.
+- 대상 계정에는 동일한 이름의 리포지토리 또는 동일한 네트워크에 포크가 없어야 합니다.
+- 리포지토리의 원래 소유자는 전송된 리포지토리의 협력자로 추가됩니다. 전송된 리포지토리에 대한 다른 협력자는 그대로 유지됩니다. {% ifversion ghes < 3.7 or ghae %}
+- 내부 리포지토리는 전송할 수 없습니다.{% endif %}
+- 프라이빗 포크는 전송할 수 없습니다.
 {%- ifversion ghec %}
-- You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
+- 한 엔터프라이즈 계정이 소유한 조직에서 다른 엔터프라이즈 계정이 소유한 조직으로 내부 리포지토리를 전송할 수 없습니다.
 {%- endif %}
 
-{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
+{% ifversion fpt or ghec %}프라이빗 리포지토리를 {% data variables.product.prodname_free_user %} 사용자 또는 조직 계정으로 전송하는 경우 리포지토리는 보호된 분기 및 {% data variables.product.prodname_pages %}와(과) 같은 기능에 액세스할 수 없게 됩니다. {% data reusables.gated-features.more-info %}{% endif %}
 
-### What's transferred with a repository?
+### 리포지토리를 사용하여 전송되는 항목은 무엇인가요?
 
-When you transfer a repository, its issues, pull requests, wiki, stars, and watchers are also transferred. If the transferred repository contains webhooks, services, secrets, or deploy keys, they will remain associated after the transfer is complete. Git information about commits, including contributions, is preserved. In addition:
+리포지토리를 전송하면 해당 문제, 끌어오기 요청, 위키, 별, 감시자도 전송됩니다. 전송된 리포지토리에 웹후크, 서비스, 비밀 또는 배포 키가 포함된 경우 전송이 완료된 후에도 연결된 상태로 유지됩니다. 기여를 포함하여 커밋에 대한 Git 정보가 유지됩니다. 다음 액세스 권한도 필요합니다.
 
-- If the transferred repository is a fork, then it remains associated with the upstream repository.
-- If the transferred repository has any forks, then those forks will remain associated with the repository after the transfer is complete.
-- If the transferred repository uses {% data variables.large_files.product_name_long %}, all {% data variables.large_files.product_name_short %} objects are automatically moved. This transfer occurs in the background, so if you have a large number of {% data variables.large_files.product_name_short %} objects or if the {% data variables.large_files.product_name_short %} objects themselves are large, it may take some time for the transfer to occur.{% ifversion fpt or ghec %} Before you transfer a repository that uses {% data variables.large_files.product_name_short %}, make sure the receiving account has enough data packs to store the {% data variables.large_files.product_name_short %} objects you'll be moving over. For more information on adding storage for personal accounts, see "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)."{% endif %}
-- When a repository is transferred between two personal accounts, issue assignments are left intact. When you transfer a repository from a personal account to an organization, issues assigned to members in the organization remain intact, and all other issue assignees are cleared. Only owners in the organization are allowed to create new issue assignments. When you transfer a repository from an organization to a personal account, only issues assigned to the repository's owner are kept, and all other issue assignees are removed.
-- If the transferred repository contains a {% data variables.product.prodname_pages %} site, then links to the Git repository on the Web and through Git activity are redirected. However, we don't redirect {% data variables.product.prodname_pages %} associated with the repository.
-- All links to the previous repository location are automatically redirected to the new location. When you use `git clone`, `git fetch`, or `git push` on a transferred repository, these commands will redirect to the new repository location or URL. However, to avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
+- 전송된 리포지토리가 포크인 경우 업스트림 리포지토리와 연결된 상태로 유지됩니다.
+- 전송된 리포지토리에 포크가 있는 경우 해당 포크는 전송이 완료된 후에도 리포지토리와 연결된 상태로 유지됩니다.
+- 전송된 리포지토리에서 {% data variables.large_files.product_name_long %}을(를) 사용하는 경우 모든 {% data variables.large_files.product_name_short %} 개체가 자동으로 이동됩니다. 이 전송은 백그라운드에서 발생하므로 많은 수의 {% data variables.large_files.product_name_short %} 개체가 있거나 {% data variables.large_files.product_name_short %} 개체 자체가 큰 경우 전송하는 데 다소 시간이 걸릴 수 있습니다.{% ifversion fpt or ghec %} {% data variables.large_files.product_name_short %}을(를) 사용하는 리포지토리를 전송하기 전에 수신 계정에 이동할 {% data variables.large_files.product_name_short %} 개체를 저장할 충분한 데이터 팩이 있는지 확인합니다. 개인 계정용 스토리지를 추가하는 방법에 대한 자세한 내용은 “[{% data variables.large_files.product_name_long %}업그레이드](/articles/upgrading-git-large-file-storage)”를 참조하세요.{% endif %}
+- 두 개인 계정 간에 리포지토리가 전송되면 문제 할당은 그대로 유지됩니다. 개인 계정에서 조직으로 리포지토리를 전송하는 경우 조직의 구성원에게 할당된 문제는 그대로 유지되고 다른 모든 문제 담당자는 지워집니다. 조직의 소유자만 새 문제 할당을 만들 수 있습니다. 조직에서 개인 계정으로 리포지토리를 전송하는 경우 리포지토리의 소유자에게 할당된 문제만 유지되고 다른 모든 문제 담당자는 제거됩니다.
+- 전송된 리포지토리에 {% data variables.product.prodname_pages %} 사이트가 포함된 경우 웹 및 Git 활동을 통해 Git 리포지토리에 대한 링크가 리디렉션됩니다. 그러나 리포지토리와 연결된 {% data variables.product.prodname_pages %}은(는) 리디렉션하지 않습니다.
+- 이전 리포지토리 위치에 대한 모든 링크는 자동으로 새 위치로 리디렉션됩니다. 전송된 리포지토리에서 `git clone`, `git fetch` 또는 `git push`를 사용하는 경우 이러한 명령은 새 리포지토리 위치 또는 URL로 리디렉션됩니다. 그러나 혼동을 방지하려면 새 리포지토리 URL을 가리키도록 기존 로컬 클론을 업데이트하는 것이 좋습니다. 명령줄에서 `git remote`를 사용하여 이 작업을 수행할 수 있습니다.
 
   ```shell
   $ git remote set-url origin NEW_URL
@@ -56,36 +62,32 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
   {% warning %}
 
-  **Warning**: If you create a new repository under your account in the future, do not reuse the original name of the transferred repository. If you do, redirects to the transferred repository will no longer work.
+  **경고**: 나중에 계정 아래에 새 리포지토리를 만드는 경우 전송된 리포지토리의 원래 이름을 다시 사용하지 마세요. 이렇게 하면 전송된 리포지토리로 리디렉션이 더 이상 작동하지 않습니다.
 
   {% endwarning %}
 
-- When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
-- Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
+- 조직에서 개인 계정으로 리포지토리를 전송하는 경우 리포지토리의 읽기 전용 협력자는 전송되지 않습니다. 협력자는 개인 계정이 소유한 리포지토리에 대한 읽기 전용 액세스 권한을 가질 수 없기 때문입니다. 리포지토리 권한 수준에 대한 자세한 내용은 “[개인 계정 리포지토리에 대한 권한 수준](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)” 및 “[조직의 리포지토리 역할](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”을 참조하세요.{% ifversion fpt or ghec %}
+- 스폰서쉽 계층을 통해 리포지토리에 액세스할 수 있는 스폰서가 영향을 받을 수 있습니다. 자세한 내용은 “[스폰서쉽 계층에 리포지토리 추가](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)”를 참조하세요.{% endif %}
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+자세한 내용은 “[원격 리포지토리 관리](/github/getting-started-with-github/managing-remote-repositories)”를 참조하세요.
 
-### Repository transfers and organizations
+### 리포지토리 전송 및 조직
 
-To transfer repositories to an organization, you must have repository creation permissions in the receiving organization. If organization owners have disabled repository creation by organization members, only organization owners can transfer repositories out of or into the organization.
+리포지토리를 조직에 전송하려면 수신 조직에 리포지토리 만들기 권한이 있어야 합니다. 조직 소유자가 조직 구성원에 의해 리포지토리 만들기를 사용하지 않도록 설정한 경우 조직 소유자만 리포지토리를 조직 외부 또는 내부로 전송할 수 있습니다.
 
-Once a repository is transferred to an organization, the organization's default repository permission settings and default membership privileges will apply to the transferred repository.
+리포지토리가 조직으로 전송되면 조직의 기본 리포지토리 권한 설정 및 기본 멤버 자격 권한이 전송된 리포지토리에 적용됩니다.
 
-## Transferring a repository owned by your personal account
+## 개인 계정이 소유한 리포지토리 전송
 
-You can transfer your repository to any personal account that accepts your repository transfer. When a repository is transferred between two personal accounts, the original repository owner and collaborators are automatically added as collaborators to the new repository.
+리포지토리 전송을 수락하는 개인 계정으로 리포지토리를 전송할 수 있습니다. 두 개인 계정 간에 리포지토리가 전송되면 원래 리포지토리 소유자와 협력자가 새 리포지토리에 협력자로 자동으로 추가됩니다.
 
-{% ifversion fpt or ghec %}If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, before transferring the repository, you may want to remove or update your DNS records to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
+{% ifversion fpt or ghec %}개인 리포지토리에 {% data variables.product.prodname_pages %} 사이트를 게시하고 사용자 지정 도메인을 추가한 경우 리포지토리를 전송하기 전에 도메인 인수의 위험을 방지하기 위해 DNS 레코드를 제거하거나 업데이트할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_pages %} 사이트의 사용자 지정 도메인 관리](/articles/managing-a-custom-domain-for-your-github-pages-site)”를 참조하세요.{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}
 
-## Transferring a repository owned by your organization
+## 조직이 소유한 리포지토리 전송
 
-If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your personal account or to another organization.
+조직의 소유자 권한 또는 관리자 권한이 해당 리포지토리 중 하나에 있는 경우 조직 소유의 리포지토리를 개인 계정 또는 다른 조직으로 전송할 수 있습니다.
 
-1. Sign into your personal account that has admin or owner permissions in the organization that owns the repository.
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+1. 리포지토리를 소유한 조직의 관리자 또는 소유자 권한이 있는 개인 계정에 로그인합니다.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}

@@ -1,5 +1,13 @@
-You can customize your codespace by adjusting the amount of vCPUs and RAM, adding dotfiles to personalize your environment, or by modifying the tools and scripts installed. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)."
+---
+ms.openlocfilehash: 5f6285fe19915c3962b43cb45a26e65144607788
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062402"
+---
+Du kannst deinen Codespace anpassen, indem du die Anzahl der vCPUs und den RAM anpassst, [Dotfiles zum Personalisieren deiner Umgebung hinzufügst](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account) oder die installierten Tools und Skripts bearbeitest.
 
-{% data variables.product.prodname_github_codespaces %} uses a file called `devcontainer.json` to configure the development container that you use when you work in a codespace. Each repository can contain one or more  `devcontainer.json` files, to give you exactly the development environment you need to work on your code in a codespace. 
+{% data variables.product.prodname_codespaces %} verwendet eine Datei namens `devcontainer.json`, um den Entwicklungscontainer zu konfigurieren, mit dem du in einem Codespace arbeitest. Jedes Repository kann eine oder mehrere `devcontainer.json`-Dateien enthalten, sodass du genau die Entwicklungsumgebung erhältst, die du zum Arbeiten an deinem Code in einem Codespace benötigst. 
 
-On launch, {% data variables.product.prodname_github_codespaces %} uses a `devcontainer.json` file, and any dependent files that make up the dev container configuration, to install tools and runtimes, and perform other setup tasks that the project requires. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+Beim Starten verwendet {% data variables.product.prodname_codespaces %} eine `devcontainer.json`-Datei sowie alle davon abhängigen Dateien, aus denen die Entwicklungscontainerkonfiguration besteht, um Tools und Runtimes zu installieren und weitere Einrichtungsaufgaben auszuführen, die für das Projekt benötigt werden. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project).

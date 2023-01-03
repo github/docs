@@ -1,6 +1,6 @@
 ---
-title: Managing the default branch name for your repositories
-intro: 'You can set the default branch name for new repositories that you create on {% data variables.location.product_location %}.'
+title: Verwalten des Standardbranchnamens für deine Repositorys
+intro: 'Du kannst den Standardbranchnamen für neue Repositorys festlegen, die du auf {% data variables.product.product_location %} erstellst.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,24 +13,29 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
 shortTitle: Manage default branch name
+ms.openlocfilehash: a3943f32860f55becaa840f7ca40c13ba87b5ce2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145193762'
 ---
-## About management of the default branch name
+## About the default branch name
 
-When you create a new repository on {% data variables.location.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+Wenn du ein neues Repository in {% data variables.product.product_location %} erstellst, enthält dieses einen Branch, bei dem es sich um den Standardbranch handelt. Du kannst den Namen ändern, den {% data variables.product.product_name %} für den Standardbranch in neuen Repositorys verwendet, die du erstellst. Weitere Informationen zum Standardbranch findest du unter [Informationen zu Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch).
 
 {% data reusables.branches.change-default-branch %}
 
-## Setting the default branch name
+## Festlegen des Standardbranchnamens
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.repo-tab %}
-3. Under "Repository default branch", click **Change default branch name now**.
-    ![Override button](/assets/images/help/settings/repo-default-name-button.png)
-4. Type the default name that you would like to use for new branches.
-    ![Text box for entering default name](/assets/images/help/settings/repo-default-name-text.png)
-5. Click **Update**.
-    ![Update button](/assets/images/help/settings/repo-default-name-update.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.repo-tab %}
+3. Klicke unter „Standardbranch für Repository“ auf **Standardbranchnamen jetzt ändern**.
+    ![Schaltfläche zum Überschreiben](/assets/images/help/settings/repo-default-name-button.png)
+4. Gib den Standardnamen ein, den du für neue Branches verwenden möchtest.
+    ![Textfeld zum Eingeben des Standardnamens](/assets/images/help/settings/repo-default-name-text.png)
+5. Klicke auf **Aktualisieren**.
+    ![Schaltfläche „Aktualisieren“](/assets/images/help/settings/repo-default-name-update.png)
 
-## Further reading
+## Weiterführende Themen
 
-- "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- [Verwalten des Standardbranchnamens für Repositorys in deiner Organisation](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)

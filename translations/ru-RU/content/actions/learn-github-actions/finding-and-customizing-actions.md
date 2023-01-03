@@ -1,7 +1,7 @@
 ---
-title: Finding and customizing actions
+title: Поиск и настройка действий
 shortTitle: Find and customize actions
-intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
+intro: 'Важнейшим структурным элементом рабочего процесса являются действия. Рабочий процесс может содержать действия, созданные в сообществе, а также вы можете создать собственные действия непосредственно в репозитории своего приложения. В этом руководстве описывается обнаружение, использование и настройка действий.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -15,71 +15,75 @@ versions:
 type: how_to
 topics:
   - Fundamentals
+ms.openlocfilehash: 87557d4e057d1886d01e978adf56cdc71a390fdf
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148009988'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Обзор
 
-## Overview
+Действия, используемые в рабочем процессе, можно определять в следующих местах:
 
-The actions you use in your workflow can be defined in:
+- в том же репозитории, в котором находится файл рабочего процесса;{% ifversion internal-actions %}
+- во внутреннем репозитории в той же корпоративной учетной записи, настроенной для предоставления доступа к рабочим процессам;{% endif %}
+- в любом общедоступном репозитории;
+- в опубликованном образе контейнера Docker в Docker Hub.
 
-- The same repository as your workflow file{% ifversion internal-actions %}
-- An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
-- Any public repository
-- A published Docker container image on Docker Hub
-
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
+{% data variables.product.prodname_marketplace %} — это основное место для поиска действий, созданных сообществом {% data variables.product.prodname_dotcom %}.{% ifversion fpt or ghec %} На [странице {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/) можно фильтровать действия по категориям. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
 {% ifversion fpt or ghec %}
 
-## Browsing Marketplace actions in the workflow editor
+## Просмотр действий Marketplace в редакторе рабочих процессов
 
-You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the {% data variables.product.prodname_dotcom %} community.
+Вы искать находить и просматривать действия непосредственно в редакторе рабочих процессов репозитория. На боковой панели можно найти конкретное действие, просмотреть рекомендуемые действия и рекомендуемые категории. Вы также можете просмотреть количество звездочек, полученных действием от сообщества {% data variables.product.prodname_dotcom %}.
 
-1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-   ![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
-1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-   ![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
+1. В репозитории перейдите к файлу рабочего процесса, который необходимо изменить.
+1. В правом верхнем углу представления файла щелкните {% octicon "pencil" aria-label="The edit icon" %}, чтобы открыть редактор рабочих процессов.
+   ![Кнопка изменения файла рабочего процесса](/assets/images/help/repository/actions-edit-workflow-file.png)
+1. Справа от редактора используйте боковую панель {% data variables.product.prodname_marketplace %} для просмотра действий. Наличие значка {% octicon "verified" aria-label="The verified badge" %} у действия означает, что создатель действия является подтвержденной партнерской организацией на {% data variables.product.prodname_dotcom %}.
+   ![Боковая панель рабочих процессов Marketplace](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
-## Adding an action to your workflow
+## Добавление действия в рабочий процесс
 
-You can add an action to your workflow by referencing the action in your workflow file. 
+Вы можете добавить действие в рабочий процесс, сославшись на действие в файле рабочего процесса. 
 
-You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+Действия, на которые ссылаются ваши рабочие процессы {% data variables.product.prodname_actions %}, можно просмотреть в виде зависимостей в графе зависимостей репозитория, содержащего рабочие процессы. Дополнительные сведения см. в разделе [Сведения о графе зависимостей](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt или ghec или ghes > 3.4 или ghae > 3,4 %}
 
 {% note %}
 
-**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
+**Примечание**. Для повышения безопасности перенаправления для действий в {% data variables.product.prodname_actions %} являются нерекомендуемыми. Это означает, что при изменении владельца или имени репозитория действия все рабочие процессы, в которых используется это действие с предыдущим именем, будут завершаться сбоем.
 
 {% endnote %}
 
 {% endif %}
 
-### Adding an action from {% data variables.product.prodname_marketplace %}
+### Добавление действия из {% data variables.product.prodname_marketplace %}
 
-An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
+На странице со списком действий приводятся версия действия и синтаксис рабочего процесса, необходимый для использования действия. Чтобы обеспечить стабильность рабочего процесса даже при изменении действия, можно указывать версию действия, которую требуется использовать, с помощью номера тега GIT или Docker в файле рабочего процесса.
 
-1. Navigate to the action you want to use in your workflow.
-1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
-   ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. Перейдите к действию, которое необходимо использовать в рабочем процессе.
+1. В разделе "Установка" щелкните {% octicon "clippy" aria-label="The edit icon" %}, чтобы скопировать синтаксис рабочего процесса.
+   ![Просмотр списка действий](/assets/images/help/repository/actions-sidebar-detailed-view.png)
+1. Вставьте синтаксис в качестве нового шага рабочего процесса. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps).
+1. Если действие требует предоставления входных данных, задайте их в рабочем процессе. Сведения о входных данных, которые могут потребоваться действию, см. в разделе [Использование входных и выходных данных с действием](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action).
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
 
-### Adding an action from the same repository
+### Добавление действия из того же репозитория
 
-If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
+Если действие определено в том же репозитории, в котором оно используется в файле рабочего процесса, можно сослаться на действие с помощью синтаксиса `{owner}/{repo}@{ref}` или `./path/to/dir` в файле рабочего процесса.
 
-Example repository file structure:
+Пример структуры файла репозитория:
 
 ```
 |-- hello-world (repository)
@@ -91,7 +95,7 @@ Example repository file structure:
 |               └── action.yml
 ```
 
-Example workflow file:
+Пример файла рабочего процесса:
 
 ```yaml
 jobs:
@@ -104,13 +108,13 @@ jobs:
       - uses: ./.github/actions/hello-world-action
 ```
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Файл `action.yml` применяется для предоставления метаданных для действия. Сведения о содержимом этого файла см. в разделе [Синтаксис метаданных для GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions).
 
-### Adding an action from a different repository
+### Добавление действия из другого репозитория
 
-If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
+Если действие определено не в том же репозитории, где находится файл рабочего процесса, сослаться на действие можно с помощью синтаксиса `{owner}/{repo}@{ref}` в файле рабочего процесса.
 
-The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+Действие должно храниться в общедоступном репозитории{% ifversion internal-actions %} или во внутреннем репозитории, которому разрешен доступ к рабочим процессам. Дополнительные сведения см. в разделе [Общий доступ к действиям и рабочим процессам в организации](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -120,9 +124,9 @@ jobs:
         uses: {% data reusables.actions.action-setup-node %}
 ```
 
-### Referencing a container on Docker Hub
+### Ссылка на контейнер в Docker Hub
 
-If an action is defined in a published Docker container image on Docker Hub, you must reference the action with the `docker://{image}:{tag}` syntax in your workflow file. To protect your code and data, we strongly recommend you verify the integrity of the Docker container image from Docker Hub before using it in your workflow.
+Если действие определено в опубликованном образе контейнера Docker в Docker Hub, на действие необходимо ссылаться с помощью синтаксиса `docker://{image}:{tag}` в файле рабочего процесса. Чтобы защитить код и данные, настоятельно рекомендуется проверить целостность образа контейнера Docker из Docker Hub перед его использованием в рабочем процессе.
 
 ```yaml
 jobs:
@@ -132,57 +136,57 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+Некоторые примеры действий Docker см. в разделах [Рабочий процесс Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) и [Создание действия контейнера Docker](/articles/creating-a-docker-container-action).
 
 
-## Using release management for your custom actions
+## Применение управления выпусками для пользовательских действий
 
-The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
+Создатели действия сообщества могут использовать теги, ветви или значения SHA для управления выпусками действия. Как и в случае с любой зависимостью, следует указать версию действия, которую необходимо использовать, в зависимости от того, насколько приемлемо автоматическое принятие изменений действия.
 
-You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
+Версия действия указывается в файле рабочего процесса. Узнать, какой подход к управлению выпусками применяется и какой тег, ветвь или значение SHA следует использовать, можно в документации по действию.
 
 {% note %}
 
-**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
+**Примечание**. При использовании сторонних действий рекомендуется применять значение SHA. Дополнительные сведения см. в разделе [Усиление безопасности GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions).
 
 {% endnote %}
 
-### Using tags
+### Использование тегов
 
-Tags are useful for letting you decide when to switch between major and minor versions, but these are more ephemeral and can be moved or deleted by the maintainer. This example demonstrates how to target an action that's been tagged as `v1.0.1`:
+Теги помогают решить, когда следует переключаться между основными и дополнительными версиями, но они являются временными и могут перемещаться или удаляться ответственным лицом. В этом примере показано, как нацелиться на действие, помеченное как `v1.0.1`:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@v1.0.1
 ```
 
-### Using SHAs
+### Использование значений SHA
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
+Если требуется более надежное управление версиями, следует использовать значение SHA, связанное с версией действия. Значения SHA являются неизменяемыми и, следовательно, более надежными, чем теги или ветви. Однако этот подход означает, что вы не будете автоматически получать обновления для действия, включая важные исправления ошибок и обновления системы безопасности. Необходимо использовать полное значение SHA фиксации, а не сокращенное. В этом примере используется SHA действия:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
 ```
 
-### Using branches
+### Использование ветвей
 
-Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. This example targets a branch named `@main`:
+Указание целевой ветви для действия означает, что всегда будет использоваться версия в этой ветви. Этот подход может вызвать проблемы, если обновление ветви включает критические изменения. В этом примере используется ветвь с именем `@main`:
 
 ```yaml
 steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[Using release management for actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+Дополнительные сведения см. в разделе [Использование управления выпусками для действий](/actions/creating-actions/about-actions#using-release-management-for-actions).
 
-## Using inputs and outputs with an action
+## Использование входных и выходных данных с действием
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+Действие часто принимает входные данные или требует их и создает выходные данные, которые можно использовать. Например, действие может требовать указать путь к файлу, имя метки или другие данные, которые будут использоваться в процессе обработки действия.
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
+Чтобы просмотреть входные и выходные данные действия, проверьте `action.yml` или `action.yaml` в корневом каталоге репозитория.
 
-In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
+В этом примере файла `action.yml` ключевое слово `inputs` определяет обязательные входные данные `file-path` и включает значение по умолчанию, которое будет использоваться, если значение не указано. Ключевое слово `outputs` определяет выходные данные `results-file`, то есть файл с результатами.
 
 ```yaml
 name: "Example"
@@ -199,11 +203,11 @@ outputs:
 
 {% ifversion ghae %}
 
-## Using the actions included with {% data variables.product.prodname_ghe_managed %}
+## Использование действий, включенных в {% data variables.product.prodname_ghe_managed %}
 
-By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+По умолчанию в {% data variables.product.prodname_ghe_managed %} можно использовать большинство официальных действий, созданных на {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Использование действий в {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae).
 {% endif %}
 
-## Next steps
+## Дальнейшие действия
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Essential features of {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)."
+Дальнейшие сведения о {% data variables.product.prodname_actions %} см. в разделе [Основные функции {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions).

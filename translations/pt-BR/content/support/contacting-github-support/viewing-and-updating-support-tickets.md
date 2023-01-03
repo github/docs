@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051977'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193199'
 ---
 ## Sobre gestão de tíquetes
 
@@ -27,7 +27,12 @@ Use o [Portal de Suporte do GitHub](https://support.github.com/) para ver tíque
 
 {% data reusables.support.view-open-tickets %}
 1. Na caixa de texto, você pode ler o histórico de comentários. A resposta mais recente está na parte superior.
-![Captura de tela do histórico de comentários do tíquete com a resposta mais recente no início.](/assets/images/help/support/support-recent-response.png)
+
+   ![Captura de tela do histórico de comentários do tíquete de suporte com a resposta mais recente na parte superior](/assets/images/help/support/support-recent-response.png)
+
+1. Opcionalmente, para traduzir o comentário do tíquete, clique em {% octicon "globe" aria-label="The globe icon" %} e escolha o idioma de sua preferência no menu suspenso. Você pode traduzir seu tíquete de suporte para chinês (simplificado), francês, alemão, japonês, português (Brasil) ou espanhol.
+
+   ![Captura de tela de um tíquete de suporte com o menu suspenso mostrando as opções de tradução enfatizadas](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

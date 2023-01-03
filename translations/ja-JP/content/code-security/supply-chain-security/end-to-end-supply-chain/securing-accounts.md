@@ -1,8 +1,8 @@
 ---
-title: Best practices for securing accounts
+title: アカウントをセキュリティで保護するためのベスト プラクティス
 shortTitle: Securing accounts
 allowTitleToDifferFromFilename: true
-intro: Guidance on how to protect accounts with access to your software supply chain.
+intro: ソフトウェア サプライ チェーンにアクセスしてアカウントを保護する方法に関するガイダンス。
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,123 +15,117 @@ topics:
   - SSH
   - Security
   - Accounts
+ms.openlocfilehash: 4225b80d139462fd64e440947c1eba9adb817294
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883410'
 ---
-## About this guide
+## このガイドについて
 
-This guide describes the highest impact changes you can make to increase account security. Each section outlines a change you can make to your processes to improve the security. The highest impact changes are listed first.
+このガイドでは、アカウントのセキュリティを強化するために行うことができる影響が最も大きい変更について説明します。 各セクションで、セキュリティを向上させるためにプロセスに対して行うことができる変更の概要を示します。 変更は影響が大きい順に示されます。
 
-## What's the risk?
+## リスクとは
 
-Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec or ghae %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+アカウントのセキュリティは、サプライ チェーンのセキュリティの基礎となります。 攻撃者が {% data variables.product.product_name %} 上のユーザーのアカウントを乗っ取ることができると、コードやビルド プロセスに悪意のある変更を加えることができます。 したがって、最初の目標としては、自分自身のアカウントおよび他の{% ifversion fpt %}組織{% elsif ghec or ghae %}組織またはエンタープライズ{% elsif ghes %}{% data variables.product.product_location %}{% endif %}の{% ifversion ghes %}ユーザー{% else %}メンバー{% endif %}のアカウントの乗っ取りを困難にする必要があります。
 
 {% ifversion ghec or ghes %}
-## Centralize authentication
+## 認証の一元化
 {% endif %}
 
-{% ifversion ghec %}
-If you're an enterprise or organization owner, you can configure centralized authentication with SAML. While you can add or remove members manually, it's simpler and more secure to set up single sign-on (SSO) and SCIM between {% data variables.product.product_name %} and your SAML identity provider (IdP). This also simplifies the authentication process for all members of your enterprise.
+{% ifversion ghec %} エンタープライズまたは組織の所有者であれば、SAML を使用して一元化された認証を構成できます。 メンバーの追加または削除は手動で行うことができますが、シングル サインオン (SSO) と SCIM を {% data variables.product.product_name %} と SAML ID プロバイダー (IdP) の間に設定する方が簡単で安全です。 これにより、エンタープライズのすべてのメンバーの認証プロセスも簡略化されます。
 
-You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.location.product_location %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+エンタープライズ アカウントまたは組織アカウントに対して SAML 認証を構成できます。 SAML を使用すると、{% data variables.product.product_location %} 上のエンタープライズまたは組織のメンバーの個人アカウントに IdP を介してアクセス権を付与できます。あるいは、{% data variables.product.prodname_emus %} を使用してエンタープライズに属するアカウントを作成および制御できます。 詳しくは、[企業の認証](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)に関する記事をご覧ください。
 
-After you configure SAML authentication, when members request access to your resources, they'll be directed to your SSO flow to ensure they are still recognized by your IdP. If they are unrecognized, their request is declined.
+SAML 認証を構成した後、メンバーがリソースへのアクセスを要求すると、メンバーは SSO フローに転送されて、IdP でも認識されていることが確認されます。 認識されていない場合、要求は拒否されます。
 
-Some IdPs support a protocol called SCIM, which can automatically provision or deprovision access on {% data variables.product.product_name %} when you make changes on your IdP. With SCIM, you can simplify administration as your team grows, and you can quickly revoke access to accounts. SCIM is available for individual organizations on {% data variables.product.product_name %}, or for enterprises that use {% data variables.product.prodname_emus %}. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+一部の IdP では SCIM というプロトコルがサポートされます。これは、IdP で変更を行ったときに、{% data variables.product.product_name %} 上で自動的にアクセス権をプロビジョニングまたはプロビジョニング解除できます。 SCIM を使用すると、チームの成長に合わせて管理を簡素化し、アカウントに対するアクセス権をすばやく取り消すことができます。 SCIM は、{% data variables.product.product_name %} 上の個々の組織または {% data variables.product.prodname_emus %} を使用するエンタープライズで使用可能です。 詳細については、「[Organization の SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
 {% endif %}
 
-{% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you can simplify the login experience for users by choosing an authentication method that connects with your existing identity provider (IdP), like CAS, SAML, or LDAP. This means that they no longer need to remember an extra password for {% data variables.product.prodname_dotcom %}.
+{% ifversion ghes %} {% data variables.product.product_location %} のサイト管理者であれば、既存の ID プロバイダー (IdP) (CAS、SAML、LDAP など) と接続する認証方法を選択することで、ユーザーのログイン エクスペリエンスを簡素化できます。 つまり、{% data variables.product.prodname_dotcom %} の追加のパスワードを記憶する必要がなくなります。
 
-Some authentication methods also support communicating additional information to {% data variables.product.product_name %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
+認証方法によっては、{% data variables.product.product_name %} への追加情報 (たとえば、ユーザーがどのグループのメンバーであるかや、ユーザーの暗号化キーの同期など) の通信もサポートされます。 これは、組織の成長に合わせて管理を簡素化する優れた方法です。
 
-For more information about the authentication methods available for {% data variables.product.product_name %}, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+{% data variables.product.product_name %} で使用できる認証方法の詳細については、「[Enterprise の認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)」を参照してください。
 {% endif %}
 
-## Configure two-factor authentication
+## 2 要素認証の構成
 
-The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or {% data variables.location.product_location %}{% elsif ghec %}your accounts{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %} is to configure two-factor authentication (2FA){% ifversion ghae %} on your SAML identity provider (IdP){% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+{% ifversion fpt %}個人アカウント{% elsif ghes %}{% data variables.product.product_location %} 上の個人アカウント{% elsif ghec %}アカウント{% elsif ghae %}{% data variables.product.product_name %}上のエンタープライズ{% endif %}のセキュリティを向上するために最適な方法は、2 要素認証 (2FA) を{% ifversion ghae %} SAML ID プロバイダー (IdP) で{% endif %}構成することです。 パスワード自体は、推測しやすいこと、侵害された別のサイトでも利用されていたこと、またはフィッシングなどのソーシャル エンジニアリングによって侵害される可能性があります。 2FA を使用すると、攻撃者がパスワードを取得した場合でさえ、アカウントの侵害がはるかに困難になります。
 
 {% ifversion not ghae %}
 
-{% ifversion ghec %}
-If you're an enterprise owner, you may be able to configure a policy to require 2FA for all organizations owned by your enterprise.
+{% ifversion ghec %} エンタープライズの所有者であれば、エンタープライズに所属するすべての組織で 2FA を必要とするようにポリシーを構成できる場合があります。
 {% endif %}
 
-{% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize user authentication](#centralize-user-authentication)."
+{% ifversion ghes %} {% data variables.product.product_location %} のサイト管理者であれば、インスタンスのすべてのユーザーのために 2FA を構成できる場合があります。 {% data variables.product.product_name %} 上で 2FA を使用できるかどうかは、使用する認証方法によって異なります。 詳細については、[ユーザー認証の一元化](#centralize-user-authentication)に関するページを参照してください。
 {% endif %}
 
-If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
+組織の所有者であれば、組織のすべてのメンバーが 2FA を有効化することを要求{% ifversion fpt %}できます{% else %}できる場合があります{% endif %}。
 
 {% ifversion ghec or ghes %}
 
-### Configure your enterprise account
+### エンタープライズ アカウントの構成
 
-Enterprise owners may be able to require 2FA for all {% ifversion ghes %}users on{% elsif ghec %}members of{% endif %} the {% ifversion ghes %}instance{% elsif ghec %}enterprise{% endif %}. The availability of 2FA policies on {% data variables.product.product_name %} depends on how {% ifversion ghes %}users{% else %}members{% endif %} authenticate to access your {% ifversion ghes %}instance{% elsif ghec %}enterprise's resources{% endif %}.
+エンタープライズの所有者は、{% ifversion ghes %}インスタンス{% elsif ghec %}エンタープライズ{% endif %}のすべての{% ifversion ghes %}ユーザー{% elsif ghec %}メンバー{% endif %}に 2FA を要求できる場合があります。 {% data variables.product.product_name %} 上で 2FA ポリシーを使用できるかどうかは、{% ifversion ghes %}ユーザー{% else %}メンバー{% endif %}が{% ifversion ghes %}インスタンス{% elsif ghec %}エンタープライズのリソース{% endif %}にアクセスする際にどのように認証されるかによって異なります。
 
 {% ifversion ghes %}
-- If you sign into {% data variables.location.product_location %} through an external IdP using CAS or SAML SSO, you
-{% elsif ghec %}
-If your enterprise uses {% data variables.product.prodname_emus %} or SAML authentication is enforced for your enterprise, you
-{%- endif %} cannot configure 2FA on {% data variables.product.product_name %}. Someone with administrative access to your IdP must configure 2FA for the IdP.
+- CAS または SAML SSO を使用して外部 IdP から {% data variables.product.product_location %} にサインインする場合、{% elsif ghec %} エンタープライズが {% data variables.product.prodname_emus %} を使用するか SAML 認証がエンタープライズに適用されている場合、{%- endif %} {% data variables.product.product_name %} 上で 2FA を構成することはできません。 IdP の管理アクセス権を持つユーザーが、IdP に対して 2FA を構成する必要があります。
 
 {% ifversion ghes %}
 
-- If you sign into {% data variables.location.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
+- 外部 LDAP ディレクトリを介して {% data variables.product.product_location %} にサインインする場合、{% data variables.product.product_name %} 上でエンタープライズの 2FA を要求することができます。 ディレクトリ外部のユーザーの組み込み認証を許可する場合、個々のユーザーは 2FA を有効にできますが、エンタープライズの 2FA を要求することはできません。
 
 {% endif %}
 
-For more information, see {% ifversion ghec %}"[About identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)" and {% endif %}"[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise)."
+詳細については、{% ifversion ghec %}「[エンタープライズの ID とアクセス管理について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)」および{% endif %}「[エンタープライズのセキュリティ設定にポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise)」を参照してください。
 
 {% endif %}
 
-### Configure your personal account
+### 個人アカウントの構成
 
-{% ifversion ghec or ghes %}
-{% note %}
+{% ifversion ghec or ghes %} {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to enable 2FA for your personal account.
+**注**: {% ifversion ghec %}エンタープライズの所有者{% elsif ghes %}サイト管理者{% endif %}が{% data variables.product.product_location %}{% ifversion ghec %} 上のエンタープライズ{% endif %}に対して構成した認証方法によっては、個人アカウントで 2FA を有効にすることができません。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data variables.product.product_name %} supports several options for 2FA, and while any of them is better than nothing, the most secure option is WebAuthn. WebAuthn requires either a hardware security key or a device that supports it through things like Windows Hello or Mac TouchID. It's possible, although difficult, to phish other forms of 2FA (for example, someone asking you to read them your 6 digit one-time password). However WebAuthn isn't phishable, because domain scoping is built into the protocol, which prevents credentials from a website impersonating a login page from being used on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} では、2FA のオプションがいくつかサポートされています。どれも何もしないよりも効果がありますが、最も安全なオプションは WebAuthn です。 WebAuthn では、ハードウェア セキュリティ キー、あるいは Windows Hello や Mac TouchID など、サポートするデバイスが必要です。 他の形式の 2FA であればフィッシングは困難とはいえ可能です (たとえば、6 桁のワンタイム パスワードを読み上げるように誰かに頼まれるなど)。 ただし、WebAuthn のフィッシングは不可能です。ドメイン スコープがプロトコルに組み込まれているため、ログイン ページを偽装する Web サイトの資格情報が {% data variables.product.product_name %} で使用されるのを妨げるためです。
 
-When you set up 2FA, you should always download the recovery codes and set up more than one factor. This ensures that access to your account doesn't depend on a single device. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)," "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)," and [GitHub Branded hardware security keys](https://thegithubshop.com/products/github-branded-yubikey) in the GitHub shop.
+2FA を設定するときは、必ず回復コードをダウンロードし、複数の要素を設定する必要があります。 こうすることで、アカウントへのアクセスが 1 つのデバイスに依存しなくなります。 詳細については、「[2 要素認証の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)」、「[2 要素認証復旧方法の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)」、および GitHub ショップの [GitHub ブランド ハードウェア セキュリティ キー](https://thegithubshop.com/products/github-branded-yubikey)を参照してください。
 
-### Configure your organization account
+### 組織アカウントの構成
 
-{% ifversion ghec or ghes %}
-{% note %}
+{% ifversion ghec or ghes %} {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to require 2FA for your organization.
+**注**: {% ifversion ghec %}エンタープライズの所有者{% elsif ghes %}サイト管理者{% endif %}が{% data variables.product.product_location %}{% ifversion ghec %} 上のエンタープライズ{% endif %}に対して構成した認証方法によっては、組織の 2FA を要求できません。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-If you're an organization owner, you can see which users don't have 2FA enabled, help them get set up, and then require 2FA for your organization. To guide you through that process, see:
+組織の所有者であれば、どのユーザーの 2FA が有効になっていないかを確認し、設定を支援してから、組織の 2FA を要求することができます。 そのプロセスの手順については、次を参照してください。
 
-1. "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-2. "[Preparing to require two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
-3. "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
+1. 「[組織内のユーザーが 2 要素認証を有効にしているかどうかの表示](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)」
+2. 「[組織で 2 要素認証を要求する準備](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)」
+3. 「[組織で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)」
 
 {% endif %}
 
-## Connect to {% data variables.product.product_name %} using SSH keys
+## SSH キーを使用した {% data variables.product.product_name %} への接続
 
-There are other ways to interact with {% data variables.product.product_name %} beyond signing into the website{% ifversion ghae %} via your IdP{% endif %}. Many people authorize the code they push to {% data variables.product.prodname_dotcom %} with an SSH private key. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% ifversion ghae %}IdP を介して {% endif %}Web サイトにサインインする以外に {% data variables.product.product_name %} とやり取りする他の方法があります。 多くのユーザーは、SSH 秘密キーを使用して {% data variables.product.prodname_dotcom %} にプッシュするコードを承認します。 詳細については、「[SSH について](/authentication/connecting-to-github-with-ssh/about-ssh)」を参照してください。
 
-Just like {% ifversion ghae %}the password for your IdP account{% else %}your account password{% endif %}, if an attacker were able to get your SSH private key, they could impersonate you and push malicious code to any repository you have write access for. If you store your SSH private key on a disk drive, it's a good idea to protect it with a passphrase. For more information, see "[Working with SSH key passphrases](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+{% ifversion ghae %}IdP アカウントのパスワード{% else %}アカウントのパスワード{% endif %}と同様に、攻撃者が SSH 秘密キーを取得できた場合は、ユーザーを偽装し、ユーザーが書き込みアクセス権を持つ任意のリポジトリに悪意のあるコードをプッシュする可能性があります。 SSH 秘密キーをディスク ドライブに保存する場合は、パスフレーズで保護することをお勧めします。 詳細については、「[SSH キーのパスフレーズを使う](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)」を参照してください。
 
-Another option is to generate SSH keys on a hardware security key. You could use the same key you're using for 2FA. Hardware security keys are very difficult to compromise remotely, because the private SSH key remains on the hardware, and is not directly accessible from software. For more information, see "[Generating a new SSH key for a hardware security key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+もう 1 つのオプションは、ハードウェア セキュリティ キーに SSH キーを生成することです。 2FA で使用しているのと同じキーを使用できます。 ハードウェア セキュリティ キーをリモートで侵害することは非常に困難です。SSH 秘密キーはハードウェア上に残っており、ソフトウェアから直接アクセスすることはできないためです。 詳細については、「[ハードウェア セキュリティ キーの新しい SSH キーの生成](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)」を参照してください。
 
-{% ifversion ghec or ghes or ghae %}
-Hardware-backed SSH keys are quite secure, but the hardware requirement might not work for some organizations. An alternative approach is to use SSH keys that are only valid for a short period of time, so even if the private key is compromised it can't be exploited for very long. This is the concept behind running your own SSH certificate authority. While this approach gives you a lot of control over how users authenticate, it also comes with the responsibility of maintaining an SSH certificate authority yourself. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% ifversion ghec or ghes or ghae %} ハードウェア対応の SSH キーはきわめて安全ですが、組織によってはハードウェア要件が合わない場合があります。 代わりの方法は、短期間だけ有効な SSH キーを使用することです。そのため、秘密キーが侵害された場合でも、長い間悪用されることはありません。 これが、独自の SSH 証明機関を実行する背後にある概念です。 この方法によって、ユーザーの認証方法を細かく制御できるようになりますが、SSH 証明機関を自身で管理する責任を伴います。 詳細については、「[SSH 証明機関について](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)」を参照してください。
 {% endif %}
 
-## Next steps
+## 次の手順
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- 「[エンドツーエンドのサプライ チェーンのセキュリティ保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- 「[サプライ チェーンのコードをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)」
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- 「[ビルド システムをセキュリティで保護するためのベスト プラクティス](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)」

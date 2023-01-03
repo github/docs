@@ -1,37 +1,42 @@
 ---
-title: Management Console
-intro: 'The Management Console API helps you manage your {% data variables.product.product_name %} installation.'
+title: Консоль управления
+intro: 'API консоли управления помогает управлять установкой {% data variables.product.product_name %}.'
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 5d9ba417c5b9eff26b88d9db46f5442ab7a4871c
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094412'
 ---
-
 {% tip %}
 
-You must explicitly set the port number when making API calls to the Management Console. If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
+При вызове API в консоли управления необходимо явно задать номер порта. Если протокол TLS включен в вашей организации, номер порта равен `8443`, в противном случае — `8080`.
 
-If you don't want to provide a port number, you'll need to configure your tool to automatically follow redirects.
+Если вы не хотите указывать номер порта, необходимо настроить средство для автоматического выполнения перенаправлений.
 
-You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
+При использовании [также может потребоваться добавить `-k`](http://curl.haxx.se/docs/manpage.html#-k) флаг`curl`, так как {% data variables.product.product_name %} использует самозаверяющий сертификат перед [добавлением собственного сертификата TLS](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
-### Authentication
+### Аутентификация
 
-You need to pass your [Management Console password](/enterprise/admin/articles/accessing-the-management-console/) as an authentication token to every Management Console API endpoint except [`/setup/api/start`](#create-a-github-enterprise-server-license).
+[Пароль консоли управления](/enterprise/admin/articles/accessing-the-management-console/) необходимо передать в качестве маркера проверки подлинности в каждую конечную точку API консоли управления, кроме [`/setup/api/start`](#create-a-github-enterprise-server-license).
 
-Use the `api_key` parameter to send this token with each request. For example:
+Используйте параметр `api_key` для отправки этого маркера с каждым запросом. Пример:
 
 ```shell
 $ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
 ```
 
-You can also use standard HTTP authentication to send this token. For example:
+Для отправки этого маркера можно также использовать стандартную проверку подлинности HTTP. Пример:
 
 ```shell
 $ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+{% данных reusables.user-settings.enterprise-admin-api-classic-pat-only %}

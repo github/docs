@@ -1,72 +1,73 @@
 ---
-title: Controlling access to larger runners
+title: Steuern des Zugriffs auf größere Runner
 shortTitle: 'Control access to {% data variables.actions.hosted_runner %}s'
-intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
+intro: 'Du kannst mithilfe von Richtlinien den Zugriff auf {% data variables.actions.hosted_runner %} beschränken, die einer Organisation oder einem Unternehmen hinzugefügt wurden.'
 product: '{% data reusables.gated-features.hosted-runners %}'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: actions-hosted-runners
 type: tutorial
+ms.openlocfilehash: d19e875ae8ee4556e635540f47625fa5a9874918
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189905'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Informationen zu Runnergruppen
 
-## About runner groups
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}Weitere Informationen findest du in der [Dokumentation zu {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-github-hosted-runners/controlling-access-to-larger-runners).{% endif %}
+### Standardgruppe für {% data variables.actions.hosted_runner %}
 
-### Default group for {% data variables.actions.hosted_runner %}s
-
-Organizations and enterprises with access to {% data variables.actions.hosted_runner %}s will automatically receive a default runner group called "Default Larger Runners" that includes 4 runners of varying sizes. The runners in this group are pre-configured and ready for immediate use. In order to use the runners in this group, you will need to add the label corresponding to the runner of your choice to your workflow file. See the table below for labels. For more information on how to use labels, see "[Running jobs on your runner](/actions/using-github-hosted-runners/using-larger-runners#running-jobs-on-your-runner)."
+Organisationen und Unternehmen mit Zugriff auf {% data variables.actions.hosted_runner %} erhalten automatisch eine Standardrunnergruppe namens „Default Larger Runners“, die aus vier unterschiedlich großen Runnern besteht. Die Runner in dieser Gruppe sind vorkonfiguriert und sofort einsatzbereit. Um die Runner in dieser Gruppe verwenden zu können, musst du der Workflowdatei die Bezeichnung hinzufügen, die dem Runner deiner Wahl entspricht. Die Bezeichnungen findest du in der folgenden Tabelle. Weitere Informationen zur Verwendung von Bezeichnungen findest du unter [Ausführen von Aufträgen auf Runnern](/actions/using-github-hosted-runners/using-larger-runners#running-jobs-on-your-runner).
 
 
-#### Default Runners
+#### Standardrunner
 
-|Description | Label | Image |
+|Beschreibung | Bezeichnung | Image |
 | ------- | ------- | ------ |
-| 4-cores Ubuntu Runner | `ubuntu-latest-4-cores` | Ubuntu - Latest |
-| 8-cores Ubuntu Runner | `ubuntu-latest-8-cores` | Ubuntu - Latest |
-| 16-cores Ubuntu Runner | `ubuntu-latest-16-cores` | Ubuntu - Latest |
-| 8-cores Windows Runner | `windows-latest-8-cores` | Windows Server - Latest |
+| Ubuntu-Runner mit vier Kernen | `ubuntu-latest-4-cores` | Ubuntu (neueste Version) |
+| Ubuntu-Runner mit acht Kernen | `ubuntu-latest-8-cores` | Ubuntu (neueste Version) |
+| Ubuntu-Runner mit 16 Kernen | `ubuntu-latest-16-cores` | Ubuntu (neueste Version) |
+| Windows-Runner mit acht Kernen | `windows-latest-8-cores` | Windows Server (neueste Version) |
 
-The default {% data variables.actions.hosted_runner %} group is created at the billing entity level. If your organization is part of an enterprise account, the group will be managed on the enterprise level. If your organization does not fall under an enterprise, the group is managed on the organization level. 
+Die Standard-{% data variables.actions.hosted_runner %}gruppe wird auf Ebene der Abrechnungsentität erstellt. Wenn deine Organisation Teil eines Unternehmenskontos ist, wird die Gruppe auf Unternehmensebene verwaltet. Wenn deine Organisation keinem Unternehmen angehört, wird die Gruppe auf Organisationsebene verwaltet. 
 
-You will not be billed for these runners until you use them in your workflows. Once these runners are used, billing works as it normally does. For more information on billing, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners#understanding-billing)."
+Diese Runner werden erst in Rechnung gestellt, wenn du sie in deinen Workflows verwendest. Sobald diese Runner verwendet werden, erfolgt die Abrechnung wie gewohnt. Weitere Informationen zur Abrechnung findest du unter [Verwenden von {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners#understanding-billing).
 
-The default access for a {% data variables.actions.hosted_runner %} group at the enterprise level is set to automatically share with all organizations in the enterprise, but not all repositories. Organization admins will need to share the default {% data variables.actions.hosted_runner %} group with each repository separately. For {% data variables.actions.hosted_runner %} groups at the organization level, the default access is set to automatically share the group with all repositories. For more information on how to change access policies, and where to view the default {% data variables.actions.hosted_runner %} group, see "[Changing the access policy of a runner group](#changing-the-access-policy-of-a-runner-group)."
+Der Standardzugriff für eine {% data variables.actions.hosted_runner %}gruppe auf Unternehmensebene ist so festgelegt, dass Inhalt automatisch für alle Organisationen im Unternehmen freigegeben wird, aber nicht für alle Repositorys. Organisationsadministrator*innen müssen die Standard-{% data variables.actions.hosted_runner %}gruppe für jedes Repository separat freigeben. Für {% data variables.actions.hosted_runner %}gruppen auf Organisationsebene ist der Standardzugriff so festgelegt, dass die Gruppe automatisch für alle Repositorys freigegeben wird. Weitere Informationen zum Ändern von Zugriffsrichtlinien und zum Anzeigen der Standard-{% data variables.actions.hosted_runner %}gruppe findest du unter [Ändern der Zugriffsrichtlinie einer Runnergruppe](#changing-the-access-policy-of-a-runner-group).
 
 {% ifversion ghec or ghes or ghae %}
 
-## Creating a runner group for an organization
+## Erstellen einer Runnergruppe für eine Organisation
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.creating-a-runner-group-for-an-organization %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Creating a runner group for an enterprise
+## Erstellen einer Runnergruppe für ein Unternehmen
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 
 {% endif %}
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
-## Changing the access policy of a runner group
+## Ändern der Zugriffsrichtlinie einer Runnergruppe
 
-{% data reusables.actions.hosted-runner-security-admonition %}
-{% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
+{% data reusables.actions.hosted-runner-security-admonition %} {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
-## Changing the name of a runner group
+## Ändern des Namens einer Runnergruppe
 
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## Moving a runner to a group
+## Verschieben eines Runners in eine Gruppe
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## Removing a runner group
+## Entfernen einer Runnergruppe
 
 {% data reusables.actions.removing-a-runner-group %}
 

@@ -1,6 +1,6 @@
 ---
-title: Getting permanent links to files
-intro: 'When viewing a file on {% data variables.location.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
+title: Получение постоянных ссылок на файлы
+intro: 'При просмотре файла на {% данных variables.location.product_location %}можно нажать клавишу "y", чтобы обновить URL-адрес до конкретной версии файла, который вы видите.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -15,43 +15,49 @@ versions:
 topics:
   - Repositories
 shortTitle: Permanent links to files
+ms.openlocfilehash: 21ba04eb41e5f32a2eca44616593827eeb7604d0
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099292'
 ---
 {% tip %}
 
-**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
+**Совет.** Нажмите кнопку "?" на любой странице в {% data variables.product.product_name %}, чтобы просмотреть все доступные сочетания клавиш.
 
 {% endtip %}
 
-## File views show the latest version on a branch
+## В представлениях файлов отображается последняя версия ветви
 
-When viewing a file on {% data variables.location.product_location %}, you usually see the version at the current head of a branch.  For example:
+При просмотре файла на {% данных variables.location.product_location %}обычно отображается версия в текущей головке ветви.  Пример:
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
+ссылается на репозиторий GitHub `codeql` и отображает текущую версию файла `README.md` в ветви `main`.
 
-The version of a file at the head of branch can change as new commits are made, so if you were to copy the normal URL, the file contents might not be the same when someone looks at it later.
+Версия файла в главе ветви может меняться по мере внесения новых фиксаций, поэтому если вы скопировали обычный URL-адрес, содержимое файла может быть другим при последующем просмотре.
 
-## Press <kbd>Y</kbd> to permalink to a file in a specific commit
+## Нажмите клавишу <kbd>Y</kbd>, чтобы получить постоянную ссылку на файл в определенной фиксации
 
-For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
+Для постоянной ссылки на определенную версию файла вместо использования имени ветви в URL-адресе (т. е. часть `main` в приведенном выше примере) укажите идентификатор фиксации. Это позволит создать постоянную ссылку на точную версию файла в этой фиксации.  Пример:
 
 * [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-replaces `main` with a specific commit id and the file content will not change.
+заменяет `main` конкретным идентификатором фиксации, и содержимое файла не изменится.
 
-Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
+Вручную искать SHA фиксации неудобно, поэтому можно ввести <kbd>y</kbd>, чтобы автоматически обновить URL-адрес до версии в постоянной ссылке.  Затем можно скопировать URL-адрес, и любой пользователь, которому вы его отправите, увидит то же самое, что и вы.
 
 {% tip %}
 
-**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
+**Совет.** Можно указать любой идентификатор, который можно разрешить в фиксацию в URL-адресе, включая имена ветвей, конкретные SHA фиксации или теги.
 
 {% endtip %}
 
-## Creating a permanent link to a code snippet
+## Создание постоянной ссылки на фрагмент кода
 
-You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
+Вы можете создать постоянную ссылку на определенную строку или диапазон строк кода в определенной версии файла или запроса на вытягивание. Дополнительные сведения см. в разделе [Создание постоянной ссылки на фрагмент кода](/articles/creating-a-permanent-link-to-a-code-snippet/).
 
-## Further reading
+## Дополнительные материалы
 
-- "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"
+- [Архивация репозитория GitHub](/articles/archiving-a-github-repository)

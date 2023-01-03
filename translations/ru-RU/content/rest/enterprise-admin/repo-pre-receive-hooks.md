@@ -1,24 +1,29 @@
 ---
-title: Repository Pre-receive Hooks
-intro: The Repository Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to a repository.
+title: Перехватчики предварительного получения репозитория
+intro: 'API перехватчиков предварительного получения репозитория позволяет просматривать и изменять принудительное применение перехватчиков предварительного получения, доступных для организации.'
 versions:
   ghes: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 883a515bd27f2e16977318086d735196e43d2abb
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098884'
 ---
+{% данных reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+### Атрибуты объектов
 
-### Object attributes
-
-| Name                | Type     | Description                                               |
+| Имя                | Тип     | Описание                                               |
 |---------------------|----------|-----------------------------------------------------------|
-| `name`              | `string` | The name of the hook.                                     |
-| `enforcement`       | `string` | The state of enforcement for the hook on this repository. |
-| `configuration_url` | `string` | URL for the endpoint where enforcement is set.            |
+| `name`              | `string` | Имя перехватчика.                                     |
+| `enforcement`       | `string` | Состояние принудительного применения перехватчика в этом репозитории. |
+| `configuration_url` | `string` | URL-адрес конечной точки, в которой задано принудительное применение.            |
 
-Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+Возможные значения для *принудительного применения*: `enabled`, `disabled` и `testing`. `disabled` указывает, что перехватчик предварительного получения не будет выполняться. `enabled` указывает, что он будет выполняться и отклонять все отправки, результатом которых является переход в ненулевое состояние. `testing` означает, что скрипт будет выполняться, но отправки отклоняться не будут.
 
-`configuration_url` may be a link to this repository, it's organization owner or global configuration. Authorization to access the endpoint at `configuration_url` is determined at the owner or site admin level.
+`configuration_url` может быть ссылкой на этот репозиторий, это владелец организации или глобальная конфигурация. Авторизация на доступ к конечной точке в `configuration_url` определяется на уровне владельца или администратора сайта.

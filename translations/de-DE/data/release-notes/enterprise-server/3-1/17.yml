@@ -1,0 +1,15 @@
+date: '17.02.2022'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - "SystemStackError (Stapel zu tief), wenn mehr als 2<sup>^16</sup> Schlüssel von Memcached abgerufen wurden, wurde behoben." 
+  known_issues:
+    - "Die npm-Registrierung von {% data variables.product.prodname_registry %} gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die bestehenden Leistungsprobleme behoben wurden."
+    - "In einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer konnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs länger ist als 255 Zeichen."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Wenn {% data variables.product.prodname_actions %} für {% data variables.product.prodname_ghe_server %} aktiviert ist, ist die Nachbereitung eines Replikatknotens mit „ghe-repl-teardown“ erfolgreich, kann jedoch den Fehler „ERROR:Running migrations“ zurückgeben."
+    - "Ressourcengrenzwerte, die nur beim Verarbeiten von Pre-Receive-Hooks gelten, können bei manchen Pre-Receive-Hooks Fehler auslösen."

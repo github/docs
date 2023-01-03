@@ -1,6 +1,6 @@
 ---
-title: About searching on GitHub
-intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
+title: Сведения о поиске в GitHub
+intro: 'Наш встроенный поиск работает с множеством репозиториев, пользователей и строк кода в {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/using-the-command-bar
   - /articles/github-search-basics
@@ -17,79 +17,82 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 58ecec218d8f8f0ee3d11afbf65debf7df72e811
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159104'
 ---
+{% ifversion github-code-search %} {% примечание %}
 
-{% ifversion github-code-search %}
-  {% note %}
+  **Примечание.** {% data reusables.search.classic-search-code-search-note %}
 
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
-
-  {% endnote %}
-{% endif %}
+  {% endnote %} {% endif %}
 
 {% data reusables.search.you-can-search-globally %}
 
-- To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "All {% data variables.product.prodname_dotcom %}" in the search drop-down menu.
-- To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
+- Чтобы выполнить глобальный поиск по всем {% data variables.product.product_name %}, введите нужные данные в поле поиска в верхней части любой страницы и в раскрывающемся меню поиска выберите "Все {% data variables.product.prodname_dotcom %}".
+- Чтобы выполнить поиск в определенном репозитории или организации, перейдите на страницу репозитория или организации, введите то, что ищете, в поле поиска в верхней части страницы и нажмите клавишу **ВВОД**.
 
 {% note %}
 
-**Notes:**
+**Примечания.**
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/search-github/searching-on-github/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
-- Currently our search doesn't support exact matching.
-- Whenever you are searching in code files, only the first two results in each file will be returned.
+- Сайты {% data variables.product.prodname_pages %} недоступны для поиска в {% data variables.product.product_name %}. Однако можно выполнить поиск исходного содержимого, если он существует в ветви репозитория по умолчанию, используя поиск кода. Дополнительные сведения см. в разделе [Поиск кода](/search-github/searching-on-github/searching-code). Дополнительные сведения о {% data variables.product.prodname_pages %} см. в разделе [Что такое GitHub Pages](/articles/what-is-github-pages/).
+- В настоящее время поиск не поддерживает точное сопоставление.
+- При поиске в файлах кода возвращаются только первые два результата в каждом файле.
 
 {% endnote %}
 
-After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results)."
+После выполнения поиска в {% data variables.product.product_name %} вы можете отсортировать результаты или уточнить их, щелкнув один из языков на боковой панели. Дополнительные сведения см. в разделе [Сортировка результатов поиска](/search-github/getting-started-with-searching-on-github/sorting-search-results).
 
-{% data variables.product.product_name %} search uses an ElasticSearch cluster to index projects every time a change is pushed to {% data variables.product.product_name %}. Issues and pull requests are indexed when they are created or modified.
+Поиск {% data variables.product.product_name %} использует кластер ElasticSearch для индексирования проектов каждый раз при отправке изменений в {% data variables.product.product_name %}. Проблемы и запросы на вытягивание индексируются при их создании или изменении.
 
-## Types of searches on {% data variables.product.prodname_dotcom %}
+## Типы поиска в {% data variables.product.prodname_dotcom %}
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+Вы можете искать следующие сведения во всех репозиториях, к которые вы можете получить доступ в {% data variables.location.product_location %}.
 
-- [Repositories](/search-github/searching-on-github/searching-for-repositories)
-- [Topics](/search-github/searching-on-github/searching-topics)
-- [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
-- [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
-- [Code](/search-github/searching-on-github/searching-code)
-- [Commits](/search-github/searching-on-github/searching-commits)
-- [Users](/search-github/searching-on-github/searching-users)
-- [Packages](/search-github/searching-on-github/searching-for-packages)
-- [Wikis](/search-github/searching-on-github/searching-wikis)
+- [Репозитории](/search-github/searching-on-github/searching-for-repositories)
+- [Разделы](/search-github/searching-on-github/searching-topics)
+- [Проблемы и запросы на вытягивание](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
+- [Обсуждения](/search-github/searching-on-github/searching-discussions){% endif %}
+- [Код](/search-github/searching-on-github/searching-code)
+- [Фиксации](/search-github/searching-on-github/searching-commits)
+- [Пользователи](/search-github/searching-on-github/searching-users)
+- [Пакеты](/search-github/searching-on-github/searching-for-packages)
+- [Вики](/search-github/searching-on-github/searching-wikis)
 
-## Searching using a visual interface
+## Поиск с помощью визуального интерфейса
 
-You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% ifversion command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+Вы можете выполнять поиск в {% data variables.product.product_name %} с помощью {% data variables.search.search_page_url %} или {% data variables.search.advanced_url %}. {% ifversion command-palette %}Кроме того, вы можете использовать интерактивный поиск в {% data variables.product.prodname_command_palette %}, чтобы найти ваше текущее расположение в пользовательском интерфейсе, конкретного пользователя, репозиторий или организацию, а также выполнить глобальный поиск по всем {% data variables.product.product_name %}, не отходя от клавиатуры. Дополнительные сведения см. в разделе [{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette).{% endif %}
 
-The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
+{% data variables.search.advanced_url %} предоставляет визуальный интерфейс для создания поисковых запросов. Вы можете фильтровать результаты поиска по различным факторам, например по количеству звезд или количеству вилок, которые есть в репозитории. По мере заполнения дополнительных полей поиска запрос будет автоматически формироваться в верхней строке поиска.
 
-![Advanced Search](/assets/images/help/search/advanced_search_demo.gif)
+![Расширенный поиск](/assets/images/help/search/advanced_search_demo.gif)
 
-## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
+## Поиск репозиториев в {% data variables.product.prodname_dotcom_the_website %} из частной корпоративной среды
 
 {% ifversion fpt or ghec %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}. For more information, see [the {% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) or [the {% data variables.product.prodname_ghe_managed %} documentation](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
+Если вы используете {% data variables.product.prodname_dotcom_the_website %} и {% data variables.product.prodname_ghe_server %} или {% data variables.product.prodname_ghe_managed %}, а владелец предприятия включил {% data variables.enterprise.prodname_unified_search %}, вы можете выполнять поиск в обеих средах одновременно из {% data variables.product.prodname_ghe_server %} или {% data variables.product.prodname_ghe_managed %}. Дополнительные сведения см. в [документации по {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) или [документации по {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
 
 {% else %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.product_name %}. For more information about how enterprise owners can enable {% data variables.enterprise.prodname_unified_search %}, see "[Enabling {% data variables.enterprise.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)."
+Если вы используете {% data variables.product.prodname_dotcom_the_website %} и {% data variables.product.product_name %}, а владелец предприятия включил {% data variables.enterprise.prodname_unified_search %}, вы можете выполнять поиск в обеих средах одновременно из {% data variables.product.product_name %}. Дополнительные сведения о том, как владельцы предприятия могут включить {% data variables.enterprise.prodname_unified_search %}, см. в разделе [Включение {% data variables.enterprise.prodname_unified_search %} для вашего предприятия](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise).
 
-Your enterprise owner on {% data variables.product.product_name %} can separately enable {% data variables.enterprise.prodname_unified_search %} for all public repositories on {% data variables.product.prodname_dotcom_the_website %} and for private repositories owned by the organization or enterprise on {% data variables.product.prodname_dotcom_the_website %} that is connected to {% data variables.product.product_name %} through {% data variables.product.prodname_github_connect %}.
+Владелец предприятия в {% data variables.product.product_name %} может отдельно включить {% data variables.enterprise.prodname_unified_search %} для всех общедоступных репозиториев в {% data variables.product.prodname_dotcom_the_website %} и частных репозиториев, принадлежащих организации или предприятию в {% data variables.product.prodname_dotcom_the_website %}, подключенных к {% data variables.product.product_name %} через {% data variables.product.prodname_github_connect %}.
 
-Before you can use {% data variables.enterprise.prodname_unified_search %} for private repositories, you must connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+Прежде чем использовать {% data variables.enterprise.prodname_unified_search %} для частных репозиториев, необходимо подключить личные учетные записи к {% data variables.product.prodname_dotcom_the_website %} и {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Включение поиска в репозиториях {% data variables.product.prodname_dotcom_the_website %} из частной корпоративной среды](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment).
 
-When you search from {% data variables.product.product_name %}, only private repositories that you have access to and that are owned by the connected organization or enterprise account will be included in search results. Neither you nor anyone else will be able to search private repositories owned by your personal account on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.product_name %}.
+При поиске из {% data variables.product.product_name %} в результаты поиска будут включены только частные репозитории, к которым у вас есть доступ, и принадлежащие подключенной организации или корпоративной учетной записи. Ни вы, ни кто-либо другой не сможете выполнять поиск в частных репозиториях, принадлежащих вашей личной учетной записи, на {% data variables.product.prodname_dotcom_the_website %} из {% data variables.product.product_name %}.
 
-To limit your search to one environment, you can use a filter option on the {% data variables.search.advanced_url %} or you can use the `environment:` search prefix. To only search for content on {% data variables.product.product_name %}, use the search syntax `environment:local`. To only search for content on {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
+Чтобы ограничить поиск конкретной средой, можно использовать параметр фильтра в {% data variables.search.advanced_url %} или префикс поиска `environment:`. Чтобы искать только содержимое в {% data variables.product.product_name %}, используйте синтаксис поиска `environment:local`. Чтобы искать только содержимое в {% data variables.product.prodname_dotcom_the_website %}, используйте `environment:github`.
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
-- "[Searching on GitHub](/articles/searching-on-github)"
+- [Основные сведения о синтаксисе поиска](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
+- [Поиск в GitHub](/articles/searching-on-github)

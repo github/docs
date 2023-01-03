@@ -1,10 +1,18 @@
-- [Minimum requirements](#minimum-requirements)
-- [Storage](#storage)
-- [CPU and memory](#cpu-and-memory)
+---
+ms.openlocfilehash: a692ea55fd8c3d849c3058d9bab155341b701ef3
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: "148097890"
+---
+- [최소 요구 사항](#minimum-requirements)
+- [스토리지](#storage)
+- [CPU 및 메모리](#cpu-and-memory)
 
-### Minimum requirements
+### 최소 요구 사항
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.location.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+{% 데이터 variables.location.product_location %}에 대한 사용자 라이선스 수에 따라 다른 하드웨어 구성을 사용하는 것이 좋습니다. 최소 요구 사항보다 더 많은 리소스를 프로비저닝하면 인스턴스의 성능과 스케일링이 향상됩니다.
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
@@ -14,25 +22,25 @@ We recommend different hardware configurations depending on the number of user l
 
 ### Storage
 
-We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
+IOPS(초당 입출력 작업 수)가 높고 {% data variables.product.prodname_ghe_server %}의 대기 시간이 짧은 고성능 SSD를 사용하는 것이 좋습니다. 워크로드는 I/O 집약적입니다. 운영 체제 미설치 하이퍼바이저를 사용하는 경우 디스크를 직접 연결하거나 SAN(스토리지 영역 네트워크)의 디스크를 사용하는 것이 좋습니다.
 
-Your instance requires a persistent data disk separate from the root disk. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview)."
+인스턴스에는 루트 디스크와 별도로 영구 데이터 디스크가 필요합니다. 자세한 내용은 [시스템 개요](/enterprise/admin/guides/installation/system-overview)를 참조하세요.
 
 {% ifversion ghes %}
 
-To configure {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)."
+{% data variables.product.prodname_actions %}을 구성하려면 외부 BLOB 스토리지를 제공해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_server %}에서 {% data variables.product.prodname_actions %} 시작](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)”을 참조하세요.
 
 {% endif %}
 
-The available space on the root filesystem will be 50% of the total disk size. You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity)."
+루트 파일 시스템의 사용 가능한 공간은 전체 디스크 크기의 50%입니다. 새 인스턴스를 빌드하거나 기존 인스턴스를 사용하여 인스턴스의 루트 디스크 크기를 조정할 수 있습니다. 자세한 내용은 “[시스템 개요](/enterprise/admin/guides/installation/system-overview#storage-architecture)” 및 “[스토리지 용량 증가](/enterprise/admin/guides/installation/increasing-storage-capacity)”를 참조하세요.
 
-### CPU and memory
+### CPU 및 메모리
 
-The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
+{% data variables.product.prodname_ghe_server %}에 필요한 CPU 및 메모리 리소스는 사용자, 자동화 및 통합에 대한 활동 수준에 따라 달라집니다.
 
 {% ifversion ghes %}
 
-If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+{% data variables.product.prodname_ghe_server %} 인스턴스의 사용자에 대해 {% data variables.product.prodname_actions %}를 사용하도록 설정하려는 경우 인스턴스에 대한 추가 CPU 및 메모리 리소스를 프로비저닝해야 할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_server %}에서 {% data variables.product.prodname_actions %} 시작](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”을 참조하세요.
 
 {% endif %}
 
@@ -40,10 +48,10 @@ If you plan to enable {% data variables.product.prodname_actions %} for the user
 
 {% warning %}
 
-**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[About webhooks](/github/extending-github/about-webhooks)."
+**경고:** 사용자가 외부 시스템에 {% data variables.product.prodname_ghe_server %}에 대한 활동을 알리도록 웹후크 이벤트를 구성하는 것이 좋습니다. 변경 또는 _폴링_ 에 대한 자동화된 검사는 인스턴스의 성능 및 스케일링 성능에 부정적인 영향을 줍니다. 자세한 내용은 [웹후크 정보](/github/extending-github/about-webhooks)참조하세요.
 
 {% endwarning %}
 
-For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+{% data variables.product.prodname_ghe_server %}의 용량 및 성능을 모니터링하는 방법에 대한 자세한 내용은 “[어플라이언스 모니터링](/admin/enterprise-management/monitoring-your-appliance)”을 참조하세요.
 
-You can increase your instance's CPU or memory resources. For more information, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+인스턴스의 CPU 또는 메모리 리소스를 늘릴 수 있습니다. 자세한 내용은 “[CPU 또는 메모리 리소스 증가](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”를 참조하세요.

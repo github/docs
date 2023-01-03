@@ -17,18 +17,18 @@ redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
-ms.openlocfilehash: bfd93814b11066d6da2d87a2e1f0a8bd5461e93f
-ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
+ms.openlocfilehash: c0291aab00df0139b0b54eda8ec34b6e20deb19f
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148167058'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192679'
 ---
 ## 关于使用 Azure AD 进行身份验证和用户预配
 
 Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允许您集中管理用户帐户和 web 应用程序访问。 有关详细信息，请参阅 Microsoft Docs 中的[什么是 Azure Active Directory？](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 
-要管理身份以及对 {% data variables.product.product_name %} 的访问，您可以使用 Azure AD 租户作为 SAML IdP 进行身份验证。 也可以配置 Azure AD 以自动预配帐户并获取 SCIM 成员资格，这样你可以创建 {% data variables.product.product_name %} 用户，并从你的 Azure AD 租户管理团队和组织成员资格。
+{% data reusables.saml.idp-saml-and-scim-explanation %}
 
 {% data reusables.scim.ghes-beta-note %}
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允�
 * 为 Azure AD 上的 IdP 组分配 {% data variables.product.product_name %} 应用程序，以便为 IdP 组的所有成员自动创建并授予对 {% data variables.product.product_name %} 上用户帐户的访问权限。 此外，IdP 组也可以在 {% data variables.product.product_name %} 上连接到团队及其父组织。
 * 从 IdP 组取消分配 {% data variables.product.product_name %} 应用程序来停用仅通过该 IdP 组访问的所有 IdP 用户的 {% data variables.product.product_name %} 用户帐户，并从父组织中删除这些用户。 IdP 组将与 {% data variables.product.product_name %} 上的任何团队断开连接。
 
-有关在{% data variables.location.product_location %}上管理企业的身份验证和访问控制的详细信息，请参阅“[管理企业的身份验证和访问控制](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。 有关将团队与 IdP 组同步的详细信息，请参阅“[将团队与标识提供者组同步](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
+有关在{% data variables.location.product_location %}上管理企业的身份验证和访问控制的详细信息，请参阅“[管理企业的身份验证和访问控制](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。
 
 ## 先决条件
 
@@ -52,9 +52,9 @@ Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允�
 
 ## 使用 Azure AD 配置身份验证和用户预配
 
-在 Azure AD 租户中，添加 {% data variables.product.product_name %} 的应用程序，然后配置预配。
-
 {% ifversion ghae %}
+
+在 Azure AD 租户中，添加 {% data variables.product.product_name %} 的应用程序，然后配置预配。
 
 1. 在 Azure AD 中，将 {% data variables.enterprise.ae_azure_ad_app_link %} 添加到租户并配置单一登录。 有关详细信息，请参阅 Microsoft Docs 中的[教程：Azure Active Directory 单一登录 (SSO) 与 {% data variables.product.product_name %} 的集成](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial)。
 
@@ -68,18 +68,15 @@ Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允�
 
 {% elsif scim-for-ghes %}
 
-1. 在 Azure AD 租户的左侧栏中，单击“预配”。
-
-1. 在“租户 URL”下，键入 {% data variables.location.product_location %}上 SCIM 的完整终结点 URL。 有关详细信息，请参阅 REST API 文档中的“[SCIM](/rest/enterprise-admin/scim#scim-endpoint-urls)”。
-
-1. 在“机密令牌”下，输入在“[使用 SCIM 为企业配置用户配置](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)”的步骤 4 中创建的{% data variables.product.pat_v1 %}。
-
-1. 要确保从 Azure AD 成功连接到 {% data variables.location.product_location %}，请单击“测试连接”。
-
-1. 确保连接成功后，单击页面顶部的“保存”。
+1. 为 {% data variables.location.product_location %} 配置 SAML SSO。 有关详细信息，请参阅“[为企业配置 SAML 单一登录](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)”。
+1. 使用 SCIM 为实例配置用户预配。 有关详细信息，请参阅“[使用 SCIM 为企业配置用户预配](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)”。
 
 {% endif %}
 
-1. 在 Azure AD 中为 {% data variables.product.product_name %} 分配企业所有者。 应遵循的过程取决于你是否配置了预配。 有关企业所有者的详细信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)”。
-   - 如果配置了预配，要向用户授予 {% data variables.product.product_name %} 中的企业所有权，请在 Azure AD 中为用户分配企业所有者角色。
-   - 如果未配置预配，要向用户授予 {% data variables.product.product_name %} 中的企业所有权，请在 IdP 上的用户帐户的 SAML 断言中包含 `administrator` 属性，其值为 `true`。 有关在 Azure AD 的 SAML 声明中包含 `administrator` 属性的详细信息，请参阅 Microsoft Docs 中的[如何：为企业应用程序自定义 SAML 令牌中颁发的声明](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。
+## 管理企业所有者 
+
+使某一人员成为企业所有者的步骤取决于你是仅使用 SAML 还是同时也使用 SCIM。 有关企业所有者的详细信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
+
+如果配置了预配，要向用户授予 {% data variables.product.product_name %} 中的企业所有权，请在 Azure AD 中为用户分配企业所有者角色。
+
+如果未配置预配，要向用户授予 {% data variables.product.product_name %} 中的企业所有权，请在 IdP 上的用户帐户的 SAML 断言中包含 `administrator` 属性，其值为 `true`。 有关在 Azure AD 的 SAML 声明中包含 `administrator` 属性的详细信息，请参阅 Microsoft Docs 中的[如何：为企业应用程序自定义 SAML 令牌中颁发的声明](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)。

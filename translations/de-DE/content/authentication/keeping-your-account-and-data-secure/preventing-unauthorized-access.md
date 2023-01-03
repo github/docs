@@ -1,6 +1,6 @@
 ---
-title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+title: Nicht autorisierten Zugriff verhindern
+intro: "Du könntest durch die Medien auf einen Sicherheitsincident aufmerksam gemacht werden, z.\_B. auf die Entdeckung des [Heartbleed-Bugs](http://heartbleed.com/), oder dein Computer könnte gestohlen werden, während du bei {% data variables.product.product_location %} angemeldet bist. In solchen Fällen kannst du durch das Ändern deines Kennworts den unerwünschten zukünftigen Zugriff auf dein Konto und deine Projekte verhindern."
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
@@ -13,18 +13,24 @@ topics:
   - Identity
   - Access management
 shortTitle: Unauthorized access
+ms.openlocfilehash: 2b7a29ad3df05ef758c82330f24fe7568e137130
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145086032'
 ---
-{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
+{% data variables.product.product_name %} schreibt ein Passwort vor, um vertrauliche Aktionen durchzuführen, beispielsweise das Hinzufügen neuer SSH-Schlüssel, das Autorisieren von Anwendungen oder die Bearbeitung von Teammitgliedern.
 
-After changing your password, you should perform these actions to make sure that your account is secure:
+Wenn du dein Passwort geändert hast, solltest du zum Schutz deines Kontos die folgenden Aktionen durchführen:
 
-- [Enable two-factor authentication](/articles/about-two-factor-authentication) on your account so that access requires more than just a password.
-- [Review your SSH keys](/articles/reviewing-your-ssh-keys), [deploy keys](/articles/reviewing-your-deploy-keys), and [authorized integrations](/articles/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
+- [Aktiviere die zweistufige Authentifizierung](/articles/about-two-factor-authentication) auf deinem Konto, sodass der Zugriff mehr als nur ein Kennwort erfordert.
+- [Überprüfe deine SSH-Schlüssel](/articles/reviewing-your-ssh-keys), [Bereitstellungsschlüssel](/articles/reviewing-your-deploy-keys) und [autorisierten Integrationen](/articles/reviewing-your-authorized-integrations), und widerrufe nicht autorisierten oder nicht vertrauten Zugriff in deinen SSH- und Anwendungseinstellungen.
 {% ifversion fpt or ghec %}
-- [Verify all your email addresses](/articles/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
+- [Überprüfe alle deine E-Mail-Adressen](/articles/verifying-your-email-address). Wenn ein Angreifer seine E-Mail-Adresse zu deinem Konto hinzugefügt hat, könnte er damit eine unerwünschte Zurücksetzung des Passworts erzwingen.
 {% endif %}
-- [Review your account's security log](/github/authenticating-to-github/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.
-- [Review the webhooks](/articles/creating-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
-- [Make sure that no new deploy keys](/guides/managing-deploy-keys/#deploy-keys) were created. This could enable outside servers access to your projects.
-- Review recent commits made to your repositories.
-- Review the list of collaborators for each repository.
+- [Überprüfe das Sicherheitsprotokoll deines Kontos](/github/authenticating-to-github/reviewing-your-security-log). So erhältst du einen Überblick über die verschiedenen Konfigurationen deiner Repositorys. Beispielsweise kannst du sicherstellen, dass keine privaten Repositorys in öffentliche Repositorys umgewandelt oder keine Repositorys übertragen wurden.
+- [Überprüfe die Webhooks](/articles/creating-webhooks) in deinen Repositorys. Über Webhooks könnte ein Angreifer Pushes zu deinem Repository abfangen.
+- [Stelle sicher, dass keine neuen Bereitstellungsschlüssel](/guides/managing-deploy-keys/#deploy-keys) erstellt wurden. Dadurch könnten externe Server auf deine Projekte zugreifen.
+- Überprüfe Commits, die zuletzt zu deinen Repositorys durchgeführt wurden.
+- Überprüfe die Liste der Mitarbeiter aller Repositorys.

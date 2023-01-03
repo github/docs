@@ -1,0 +1,6 @@
+# Reference: #8765.
+# Documentation for the single-repo enablement panel for security overview coverage view
+versions:
+  ghes: '> 3.8'
+  ghae: '> 3.8'
+  ghec: '*'

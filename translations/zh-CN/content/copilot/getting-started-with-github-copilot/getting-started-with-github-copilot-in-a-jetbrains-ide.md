@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: ae879b5834007a34ab0e3a7a45dcae4c1e31bc4f
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: f5b90fb18645b69f86e9e45e08ba47e534678ae4
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185057'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192781'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -23,6 +23,8 @@ ms.locfileid: '148185057'
 如果使用 JetBrains IDE，可以直接在编辑器中查看并合并来自 {% data variables.product.prodname_copilot %} 的建议。 本指南演示如何在适用于 macOS、Windows 或 Linux 的 JetBrains IDE 中使用 {% data variables.product.prodname_copilot %}。
 
 ## 先决条件
+
+{% data reusables.copilot.subscription-prerequisite %}
 
 {% data reusables.copilot.jetbrains-ides %}
 

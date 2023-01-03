@@ -1,6 +1,6 @@
 ---
-title: Refreshing user-to-server access tokens
-intro: 'To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens.'
+title: Aktualisieren von Benutzer-zu-Server-Token
+intro: 'Um eine regelmäßige Tokenrotation zu erzwingen und die Auswirkungen eines kompromittierten Token zu verringern, kannst du deine {% data variables.product.prodname_github_app %} so konfigurieren, dass ablaufende Benutzerzugriffstoken verwendet werden.'
 redirect_from:
   - /apps/building-github-apps/refreshing-user-to-server-access-tokens
   - /developers/apps/refreshing-user-to-server-access-tokens
@@ -12,33 +12,39 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Refresh user-to-server access
+ms.openlocfilehash: a288fcdd7eca423c9087a1a8ca4948e043de645b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064410'
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-## About expiring user access tokens
+## Informationen zu ablaufenden Benutzerzugriffstoken
 
-To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens. For more information on making user-to-server requests, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Um eine regelmäßige Tokenrotation zu erzwingen und die Auswirkungen eines kompromittierten Token zu verringern, kannst du deine {% data variables.product.prodname_github_app %} so konfigurieren, dass ablaufende Benutzerzugriffstoken verwendet werden. Weitere Informationen zum Erstellen von Benutzer-zu-Server-Anforderungen findest du unter [Identifizieren und Autorisieren von Benutzer*innen für GitHub-Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 
-Expiring user tokens expire after 8 hours. When you receive a new user-to-server access token, the response will also contain a refresh token, which can be exchanged for a new user token and refresh token. Refresh tokens are valid for 6 months. 
+Ablaufende Benutzertoken laufen nach 8 Stunden ab. Wenn du ein neues Benutzer-zu-Server-Zugriffstoken erhältst, enthält die Antwort auch ein Aktualisierungstoken, das gegen ein neues Benutzertoken und ein Aktualisierungstoken getauscht werden kann. Aktualisierungstoken sind 6 Monate gültig. 
 
-## Renewing a user token with a refresh token
+## Erneuern eines Benutzertokens mit einem Aktualisierungstoken
 
-To renew an expiring user-to-server access token, you can exchange the `refresh_token` for a new access token and `refresh_token`.
+Um ein ablaufendes Benutzer-zu-Server-Zugriffstoken zu erneuern, kannst du das `refresh_token` gegen ein neues Zugriffstoken und `refresh_token` tauschen.
 
   `POST https://github.com/login/oauth/access_token`
 
-This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
+Durch diese Rückrufanforderung wird dir ein neues Zugriffstoken und ein neues Aktualisierungstoken gesendet.  Diese Rückrufanforderung ähnelt der OAuth-Anforderung, die du zum Tauschen eines temporären `code` gegen ein Zugriffstoken verwenden kannst. Weitere Informationen findest du unter [Identifizieren und Autorisieren von Benutzer*innen für GitHub-Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github) und [Grundlagen der Authentifizierung](/rest/guides/basics-of-authentication#providing-a-callback).
 
-### Parameters
+### Parameter
 
-Name | Type | Description
+Name | type | BESCHREIBUNG
 -----|------|------------
-`refresh_token` | `string` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token.
-`grant_type` | `string` | **Required.** Value must be `refresh_token` (required by the OAuth specification).
-`client_id` | `string` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.
-`client_secret` | `string`   | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.
+`refresh_token` | `string` | **Erforderlich.** Das Token, das generiert wird, wenn der oder die Besitzer*in der {% data variables.product.prodname_github_app %} ablaufende Token aktiviert und ein neues Benutzerzugriffstoken ausgibt
+`grant_type` | `string` | **Erforderlich.** Wert muss `refresh_token` sein (von der OAuth-Spezifikation benötigt)
+`client_id` | `string` | **Erforderlich.** Die Client-ID für deine {% data variables.product.prodname_github_app %}
+`client_secret` | `string`   | **Erforderlich.** Der geheime Clientschlüssel für deine {% data variables.product.prodname_github_app %}
 
-### Response
+### Antwort
 
 ```json
 {
@@ -50,32 +56,30 @@ Name | Type | Description
   "token_type": "bearer"
 }
 ```
-## Configuring expiring user tokens for an existing GitHub App
+## Konfigurieren von ablaufenden Benutzertoken für eine vorhandene GitHub-App
 
-You can enable or disable expiring user-to-server authorization tokens from your {% data variables.product.prodname_github_app %} settings.
+Du kannst ablaufende Benutzer-zu-Server-Autorisierungstoken in den Einstellungen deiner {% data variables.product.prodname_github_app %} aktivieren oder deaktivieren.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-4. Click **Edit** next to your chosen {% data variables.product.prodname_github_app %}.
-  ![Settings to edit a GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **Optional Features**.
-   ![Optional features tab](/assets/images/github-apps/optional-features-option.png) 
-6. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %}
+4. Klicke neben deiner ausgewählten {% data variables.product.prodname_github_app %} auf **Bearbeiten**.
+  ![Einstellungen zum Bearbeiten einer GitHub-App](/assets/images/github-apps/edit-test-app.png)
+5. Klicke auf der linken Randleiste auf **Optionale Features**.
+   ![Registerkarte „Optionale Features“](/assets/images/github-apps/optional-features-option.png) 
+6. Klicke neben „Ablauf von Benutzer-zu-Server-Token“ auf **Anmelden** oder **Abmelden**. Es kann einige Sekunden dauern, bis die Einstellung angewendet wird.
 
-## Opting out of expiring tokens for new GitHub Apps
+## Abmelden von ablaufenden Token für neue GitHub-Apps
 
-When you create a new {% data variables.product.prodname_github_app %}, by default your app will use expiring user-to-server access tokens.
+Wenn du eine neue {% data variables.product.prodname_github_app %} erstellst, verwendet deine App standardmäßig ablaufende Benutzer-zu-Server-Zugriffstoken.
 
-If you want your app to use non-expiring user-to-server access tokens, you can deselect "Expire user authorization tokens" on the app settings page.
+Wenn deine App keine ablaufenden Benutzer-zu-Server-Zugriffstoken verwenden soll, kannst du das Kontrollkästchen „Benutzerautorisierungstoken ablaufen lassen“ in den Einstellungen der App deaktivieren.
 
-![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
+![Option zum Anmelden zu ablaufenden Benutzertoken beim Einrichten von GitHub-Apps](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+Vorhandene {% data variables.product.prodname_github_apps %}, die Benutzer-zu-Server-Autorisierungstoken verwenden, sind von diesem neuen Flow nur dann betroffen, wenn der oder die App-Besitzer*in das ablaufende Benutzertoken für die App aktiviert.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Wenn du ablaufende Benutzertoken für vorhandene {% data variables.product.prodname_github_apps %} aktivieren möchtest, musst du die Benutzer*innen durch den OAuth-Flow schicken, um neue Benutzertoken auszugeben, die nach 8 Stunden ablaufen. Des Weiteren musst du eine Anforderung mit dem Aktualisierungstoken vornehmen, um ein neues Zugriffstoken und ein neues Aktualisierungstoken abzurufen. Weitere Informationen findest du unter [Identifizieren und Autorisieren von Benutzer*innen für GitHub-Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 
-## Further reading
+## Weiterführende Themen
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+- [Informationen zur Authentifizierung in {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)
 

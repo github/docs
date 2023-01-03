@@ -1,6 +1,6 @@
 ---
-title: About the audit log for your enterprise
-intro: 'To support debugging and internal and external compliance, {% data variables.product.product_name %} provides logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events.'
+title: Сведения о журнале аудита для предприятия
+intro: 'Для поддержки отладки и обеспечения соответствия внутренним и внешним требованиям в {% data variables.product.product_name %} имеются журналы аудита{% ifversion ghes %} системы,{% endif %} пользователей, организаций и событий репозитория.'
 shortTitle: About audit logs
 redirect_from:
   - /enterprise/admin/articles/audit-logging
@@ -21,38 +21,38 @@ topics:
   - Enterprise
   - Logging
   - Security
+ms.openlocfilehash: be8600e2037793a145fd2484742ddd3eb52e91a4
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159040'
 ---
-
-## About audit logs
+## Сведения о журналах аудита
 
 {% data reusables.audit_log.retention-periods %}
 
 {% data reusables.audit_log.audit-log-search-list-info-about-action %}
 
-In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes or ghae %}viewing push logs and {% endif %}managing global webhooks. For more information, see "[Exploring user activity in your enterprise](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)."
+Помимо просмотра журнала аудита, можно отслеживать действия на предприятии другими способами, например, {% ifversion ghes or ghae %}просматривая журналы отправки и {% endif %}управляя глобальными веб-перехватчиками. Дополнительные сведения см. в разделе [Изучение действий пользователей на предприятии](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity).
 
-## Using your audit logs
+## Использование журналов аудита
 
-As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you can interact with the audit log data for your enterprise in several ways:
-- You can view the audit log for your enterprise. For more information, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
-- You can search the audit log for specific events{% ifversion ghec %} and export audit log data{% endif %}. For more information, see "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)"{% ifversion ghec %} and "[Exporting the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)"{% endif %}.{% ifversion token-audit-log %}
-- You can identify all events that were performed by a specific access token. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."{% endif %}{% ifversion audit-data-retention-tab %}
-- You can configure settings, such as the retention period for audit log events{% ifversion enable-git-events %} and whether Git events are included{% endif %}. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise)."{% endif %}
-{%- ifversion enterprise-audit-log-ip-addresses %}
-- You can display the IP address associated with events in the audit log. For more information, see "[Displaying IP addresses in the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)."
+Владелец предприятия{% ifversion ghes %} или администратор сайта{% endif %} может взаимодействовать с данными журнала аудита для предприятия несколькими способами:
+- Можно просматривать журнал аудита для предприятия. Дополнительные сведения см. в разделе [Доступ к журналу аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise).
+- Можно искать в журнале аудита определенные события{% ifversion ghec %} и экспортировать данные журнала аудита{% endif %}. Дополнительные сведения см. [в разделах Поиск в журнале аудита для вашего предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise){% ifversion ghec %} и [Экспорт журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise){% endif %}. {% ifversion token-audit-log %}
+- Вы можете определить все события, выполненные с помощью определенного маркера доступа. Дополнительные сведения см. в разделе [Определение событий журнала аудита, выполняемых маркером доступа](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token). {% endif %} {% ifversion audit-data-retention-tab %}
+- Вы можете настроить параметры, такие как период хранения для событий журнала аудита{% ifversion enable-git-events %} и включение событий Git{% endif %}. Дополнительные сведения см. в разделе [Настройка журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise).{% endif %} {%- ifversion enterprise-audit-log-ip-addresses %}
+- IP-адрес, связанный с событиями, можно отобразить в журнале аудита. Дополнительные сведения см. в разделе [Отображение IP-адресов в журнале аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise).
+{%- endif %} {%- ifversion audit-log-streaming %}
+- Можно выполнять потоковую передачу аудита и данных событий Git из {% data variables.product.prodname_dotcom %} во внешнюю систему управления данными. Дополнительные сведения см. в разделе [Потоковая передача журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
+{%- endif %} {%- ifversion ghes %}
+- Можно переадресовывать журналы аудита и системные журналы из предприятия в размещенную третьей стороной систему мониторинга. Дополнительные сведения см. в разделе [Пересылка журналов](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding).
 {%- endif %}
-{%- ifversion audit-log-streaming %}
-- You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
-{%- endif %}
-{%- ifversion ghes %}
-- You can forward audit and system logs, from your enterprise to an third-party hosted monitoring system. For more information, see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
-{%- endif %}
-- You can use the Audit log API to view actions performed in your enterprise. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+- API журнала аудита можно использовать для просмотра действий, выполняемых на предприятии. Дополнительные сведения см. в разделе [Использование API журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise).
 
-For a full list of audit log actions that may appear in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+Полный список действий журнала аудита, которые могут отображаться в журнале аудита предприятия, см. в разделе [Действия журнала аудита для предприятия](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
-## Further reading
-- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
-{%- ifversion ghes %}
-- "[About system logs](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)"
-{%- endif %}
+## Дополнительные материалы
+- [Проверка журнала аудита для организации](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization) {%- ifversion ghes %}
+- [Сведения о системных журналах](/admin/enterprise-management/monitoring-your-appliance/about-system-logs) {%- endif %}

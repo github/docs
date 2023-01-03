@@ -1,6 +1,6 @@
 ---
-title: Managing your theme settings
-intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
+title: Verwalten der Designeinstellungen
+intro: 'Du kannst verwalten, wie {% data variables.product.product_name %} aussieht, indem du eine Designpräferenz einstellst, die sich entweder an deinen Systemeinstellungen orientiert oder einen Tages- oder Nachtmodus verwendet.'
 versions:
   fpt: '*'
   ghae: '*'
@@ -13,51 +13,52 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
 shortTitle: Manage theme settings
+ms.openlocfilehash: 3f7d35978d3a80f7fb63cce1d054afd15b579f13
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108383'
 ---
+Um flexibel einzustellen, wie und wann du {% data variables.product.product_name %} verwendest, kannst du die Designeinstellungen konfigurieren, um die Darstellung von {% data variables.product.product_name %} zu verändern. Du kannst aus Designs auswählen, die hell oder dunkel sind, oder du kannst {% data variables.product.product_name %} so konfigurieren, dass den Systemeinstellungen entsprochen wird.
 
-For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
+Du kannst ein dunkles Design verwenden, um den Stromverbrauch auf bestimmten Geräten zu verringern oder die Augen in schlechten Lichtverhältnissen zu entlasten – oder einfach, weil es dir gefällt.
 
-You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
-
-If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% ifversion fpt or ghae or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
+Wenn du eine Sehbeeinträchtigung hast, kannst du von einem Design mit hohem Kontrast mit höherem Kontrast zwischen Vordergrund- und Hintergrundelementen profitieren.{% ifversion fpt or ghae or ghec %} Wenn du farbenblind bist, kannst du von unseren hellen und dunklen Designs für farbenblinde Personen profitieren.
 
 {% endif %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
 
-1. Under "Theme mode", select the drop-down menu, then click a theme preference.
+1. Wähle unter „Designmodus“ das Dropdownmenü aus, und klicke dann auf eine Designeinstellung.
 
-   ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. Click the theme you'd like to use.
-    - If you chose a single theme, click a theme.
+   ![Dropdownmenü „Designmodus“ zur Auswahl der Designeinstellung](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+1. Klicke auf das gewünschte Design.
+    - Wenn du ein Design ausgewählt hast, klicke auf dieses.
 
-      {%- ifversion ghes = 3.5 %}
-      {% note %}
+      {%- ifversion ghes = 3.5 %} {% note %}
 
-      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
+      **Hinweis**: Das helle Design mit hohem Kontrast war in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2 und 3.5.3 nicht verfügbar. Das Design ist ab Version 3.5.4 verfügbar. Kontaktiere deine*n Websiteadministrator*in, wenn du weitere Informationen zu Upgrades benötigst.
 
-      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[About versions of  {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
-      {% endnote %}
-      {%- endif %}
+      Weitere Informationen zum Ermitteln der derzeit verwendeten Version von {% data variables.product.product_name %} findest du unter [Informationen zu Versionen von {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server).
+      {% endnote %} {%- endif %}
 
-      ![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png)
-    - If you chose to follow your system settings, click a day theme and a night theme.
+      ![Optionsfelder zur Auswahl eines Designs](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png)
+    - Wenn du die Systemeinstellungen übernehmen möchtest, klicke auf ein Tagesdesign und ein Nachtdesign.
 
-      ![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png)
-    {% ifversion fpt or ghec %}
-    - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
+      ![Schaltflächen für die Auswahl eines Designs zum Synchronisieren mit der Systemeinstellung](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png) {% ifversion fpt or ghec %}
+    - Wenn du ein Design auswählen möchtest, das derzeit in der öffentlichen Betaversion enthalten ist, musst du es zuerst über die Featurevorschau aktivieren. Weitere Informationen findest du unter [Testen von Early-Access-Releases mit der Featurevorschau](/get-started/using-github/exploring-early-access-releases-with-feature-preview).{% endif %}
 
 {% ifversion command-palette %}
 
 {% note %}
 
-**Note:** You can also change your theme settings with the command palette. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".
+**Hinweis:** Du kannst die Designeinstellungen auch über die Befehlspalette ändern. Weitere Informationen findest du unter [{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette).
 
 {% endnote %}
 
 {% endif %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+- [Festlegen eines Designs für {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)

@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Community health file
-ms.openlocfilehash: 762af2fcbbc16e0bfc671df2409fede9ea6e2c67
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 85a672d0cc0991a5325df8a107737da47c7b81d3
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145117636'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193630'
 ---
 ## 기본 커뮤니티 상태 파일 정보
 
@@ -36,7 +36,7 @@ ms.locfileid: '145117636'
 
 다음 커뮤니티 상태 파일에 대한 조직{% ifversion fpt or ghes or ghec %} 또는 개인 계정{% endif %}에서 기본값을 만들 수 있습니다.
 
-커뮤니티 상태 파일 | 설명 --- | ---{% ifversion fpt or ghec %} *CODE_OF_CONDUCT.md* | CODE_OF_CONDUCT 파일은 커뮤니티에 참여하는 방법에 대한 표준을 정의합니다. 자세한 내용은 “[프로젝트에 사용 규정 추가](/articles/adding-a-code-of-conduct-to-your-project/)”를 참조하세요. {% endif %} *CONTRIBUTING.md* | CONTRIBUTEING 파일은 사용자가 프로젝트에 기여하는 방법을 전달합니다. 자세한 내용은 “[리포지토리 기여자에 대한 지침 설정](/articles/setting-guidelines-for-repository-contributors/)”을 참조하세요. {% ifversion fpt or ghec %} *FUNDING.yml* | FUNDING 파일은 리포지토리에 스폰서 단추를 표시하여 오픈 소스 프로젝트에 대한 자금 조달 옵션의 가시성을 높입니다. 자세한 내용은 “[리포지토리에 스폰서 단추 표시](/articles/displaying-a-sponsor-button-in-your-repository)”를 참조하세요. {% endif %} 문제 및 끌어오기 요청 템플릿{% ifversion fpt or ghes or ghec %} 및 *config.yml*{% endif %} | 문제 및 끌어오기 요청 템플릿은 리포지토리에서 문제 및 끌어오기 요청을 열 때 기여자가 포함할 정보를 사용자 지정하고 표준화합니다. 자세한 내용은 “[문제 및 끌어오기 요청 템플릿 정보](/articles/about-issue-and-pull-request-templates/)”를 참조하세요. {% ifversion fpt or ghes or ghec %} *SECURITY.md* | SECURITY 파일은 프로젝트에서 보안 취약성을 보고하는 방법에 대한 지침을 제공합니다. 자세한 내용은 “[리포지토리에 보안 정책 추가](/code-security/getting-started/adding-a-security-policy-to-your-repository)”를 참조하세요.{% endif %} *SUPPORT.md* | 지원 파일을 사용하면 프로젝트에 대한 도움말을 얻을 수 있는 방법을 알 수 있습니다. 자세한 내용은 “[프로젝트에 지원 리소스 추가](/articles/adding-support-resources-to-your-project/)”를 참조하세요.
+커뮤니티 상태 파일 | 설명 --- | ---{% ifversion fpt or ghec %} *CODE_OF_CONDUCT.md* | CODE_OF_CONDUCT 파일은 커뮤니티에 참여하는 방법에 대한 표준을 정의합니다. 자세한 내용은 “[프로젝트에 사용 규정 추가](/articles/adding-a-code-of-conduct-to-your-project/)”를 참조하세요. {% endif %} *CONTRIBUTING.md* | CONTRIBUTEING 파일은 사용자가 프로젝트에 기여하는 방법을 전달합니다. 자세한 내용은 "[리포지토리 기여자를 위한 지침 설정"을 참조하세요.](/articles/setting-guidelines-for-repository-contributors/) {% ifversion discussion-category-forms %} 토론 범주 양식 | 토론 범주 양식은 커뮤니티 구성원이 리포지토리에서 새 토론을 열 때 사용할 수 있는 템플릿을 사용자 지정합니다. 자세한 내용은 "[토론 범주 양식 만들기](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms)"를 참조하세요. {% endif %} {% ifversion fpt or ghec %} *FUNDING.yml* | FUNDING 파일은 리포지토리에 스폰서 단추를 표시하여 오픈 소스 프로젝트에 대한 자금 조달 옵션의 가시성을 높입니다. 자세한 내용은 “[리포지토리에 스폰서 단추 표시](/articles/displaying-a-sponsor-button-in-your-repository)”를 참조하세요. {% endif %} 문제 및 끌어오기 요청 템플릿{% ifversion fpt or ghes or ghec %} 및 *config.yml*{% endif %} | 문제 및 끌어오기 요청 템플릿은 리포지토리에서 문제 및 끌어오기 요청을 열 때 기여자가 포함할 정보를 사용자 지정하고 표준화합니다. 자세한 내용은 “[문제 및 끌어오기 요청 템플릿 정보](/articles/about-issue-and-pull-request-templates/)”를 참조하세요. {% ifversion fpt or ghes or ghec %} *SECURITY.md* | SECURITY 파일은 프로젝트에서 보안 취약성을 보고하는 방법에 대한 지침을 제공합니다. 자세한 내용은 “[리포지토리에 보안 정책 추가](/code-security/getting-started/adding-a-security-policy-to-your-repository)”를 참조하세요.{% endif %} *SUPPORT.md* | 지원 파일을 사용하면 프로젝트에 대한 도움말을 얻을 수 있는 방법을 알 수 있습니다. 자세한 내용은 “[프로젝트에 지원 리소스 추가](/articles/adding-support-resources-to-your-project/)”를 참조하세요.
 
 기본 라이선스 파일을 만들 수 없습니다. 프로젝트를 복제, 패키지 또는 다운로드할 때 파일이 포함되도록 라이선스 파일을 개별 리포지토리에 추가해야 합니다.
 

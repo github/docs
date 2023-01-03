@@ -1,6 +1,6 @@
 ---
-title: Deleting a repository
-intro: You can delete any repository or fork if you're either an organization owner or have admin permissions for the repository or fork. Deleting a forked repository does not delete the upstream repository.
+title: Repository löschen
+intro: 'Du kannst ein Repository oder einen Fork löschen, wenn du Organisationsinhaber*in bist oder über Administratorberechtigungen für das Repository oder den Fork verfügst. Durch das Löschen eines geforkten Repositorys wird das vorgelagerte Repository nicht gelöscht.'
 redirect_from:
   - /delete-a-repo
   - /deleting-a-repo
@@ -14,27 +14,32 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 53e6b69113a5483ea37c7ddd34dee7921959b62a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132304'
 ---
-{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
+{% data reusables.organizations.owners-and-admins-can %} ein Organisations-Repository löschen. Wenn **Mitgliedern das Löschen oder Übertragen von Repositorys für diese Organisation erlauben** deaktiviert wurde, können nur Organisationsbesitzer Organisationsrepositorys löschen. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% ifversion not ghae %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+{% ifversion not ghae %}Beim Löschen eines öffentlichen Repositorys werden keine Forks des Repositorys gelöscht.{% endif %}
 
 {% warning %}
 
-**Warnings**:
+**Warnungen**:
 
-- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
-- Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
+- Das Löschen eines Repositorys löscht Releaseanhänge und Teamberechtigungen **dauerhaft**. Diese Aktion kann **nicht** rückgängig gemacht werden.
+- Beim Löschen eines privaten{% ifversion ghes or ghec or ghae %} oder internen{% endif %} Repositorys werden alle Forks des Repositorys gelöscht.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Einige gelöschte Repositorys können innerhalb von 90 Tagen nach dem Löschen wiederhergestellt werden. {% ifversion ghes or ghae %}Deine Websiteadministrator*innen können ein gelöschtes Repository möglicherweise für dich wiederherstellen. Weitere Informationen findest du unter [Wiederherstellen eines gelöschten Repositorys](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository). {% else %}Weitere Informationen findest du unter [Wiederherstellen eines gelöschten Repositorys](/articles/restoring-a-deleted-repository).{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-2. Under Danger Zone, click **Delete this repository**.
-   ![Repository deletion button](/assets/images/help/repository/repo-delete.png)
-3. **Read the warnings**.
-4. To verify that you're deleting the correct repository, type the name of the repository you want to delete.
-   ![Deletion labeling](/assets/images/help/repository/repo-delete-confirmation.png)
-5. Click **I understand the consequences, delete this repository**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+2. Klicke unter „Gefahrenzone“ auf **Dieses Repository löschen**.
+   ![Schaltfläche zum Löschen des Repositorys](/assets/images/help/repository/repo-delete.png)
+3. **Lies die Warnungen**.
+4. Um sicherzustellen, dass du das richtige Repository löschst, gib den Namen des Repositorys ein, das du löschen möchtest.
+   ![Löschbezeichnung](/assets/images/help/repository/repo-delete-confirmation.png)
+5. Klicke auf **Ich verstehe die Folgen, dieses Repository löschen**.

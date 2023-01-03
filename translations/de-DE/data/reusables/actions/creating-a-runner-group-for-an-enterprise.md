@@ -1,28 +1,32 @@
+---
+ms.openlocfilehash: f49d42aa3fafbdbde2a650f84bc3b48a61e26182
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147764090"
+---
 {% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Füge immer vor diesem Verfahren eine Sicherheitswarnung ein. Dies ist eine der folgenden, je nachdem, ob der Kontext selbstgehostete Runner oder größere Runner sind.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-Enterprises can add their runners to groups for access management. Enterprises can create groups of runners that are accessible to specific organizations in the enterprise account{% ifversion restrict-groups-to-workflows %} or to specific workflows{% endif %}. Organization owners can then assign additional granular repository{% ifversion restrict-groups-to-workflows %} or workflow{% endif %} access policies to the enterprise runner groups. For information about how to create a runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
+Unternehmen können ihre Runner für die Zugriffsverwaltung zu Gruppen hinzufügen. Unternehmen können Gruppen mit Runnern erstellen, auf die bestimmte Organisationen innerhalb des Unternehmenskontos{% ifversion restrict-groups-to-workflows %} oder bestimmte Workflows{% endif %} zugreifen können. Organisationsbesitzer können anschließend den Runnergruppen im Unternehmen weitere präzise Zugriffsrichtlinien für Repositorys{% ifversion restrict-groups-to-workflows %} oder Workflows{% endif %} zuweisen. Weitere Informationen zum Erstellen einer Runnergruppe mit der REST-API findest du unter den Enterprise-Endpunkten in der [{% data variables.product.prodname_actions %}-REST-API](/rest/reference/actions#self-hosted-runner-groups).
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
+Runner werden nach der Erstellung automatisch der Standardgruppe zugewiesen und können immer nur Mitglied einer Gruppe sein. Während des Registrierungsprozesses kannst du den Runner einer bestimmten Gruppe zuweisen oder ihn später aus der Standardgruppe in eine benutzerdefinierte Gruppe verschieben.
 
-When creating a group, you must choose a policy that defines which organizations have access to the runner group.
+Beim Erstellen einer Gruppe musst du eine Richtlinie auswählen, die definiert, welche Organisationen Zugriff auf die Runnergruppe erhalten.
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
-1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
+1. Wenn du eine Richtlinie für den Organisationszugriff auswählen möchtest, wähle die Dropdownliste **Organisationszugriff** aus, und klicke auf eine Richtlinie. Du kannst eine Runnergruppe so konfigurieren, dass nur eine bestimmte Liste von Organisationen oder alle Organisationen im Unternehmen darauf zugreifen können.{% ifversion ghes %} Standardmäßig können nur private Repositorys auf Runner in einer Runnergruppe zugreifen. Diese Einstellung kannst du bei Bedarf überschreiben.{% endif %}
 
    {%- ifversion ghec or ghes %}
 
-   ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
-   {%- elsif ghae %}
+   ![Hinzufügen von Optionen für Runnergruppen](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png) {%- elsif ghae %}
 
-   ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
-   {%- endif %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}
-1. Click **Save group** to create the group and apply the policy.
+   ![Hinzufügen von Optionen für Runnergruppen](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png) {%- endif %} {% data reusables.actions.runner-group-assign-policy-workflow %}
+1. Klicke auf **Gruppe speichern**, um die Gruppe zu erstellen und die Richtlinie anzuwenden.
 

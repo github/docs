@@ -1,6 +1,6 @@
 ---
-title: Recommended alert thresholds
-intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
+title: Рекомендуемые пороговые значения оповещений
+intro: 'Вы можете настроить оповещение для уведомления о проблемах с системным ресурсом, прежде чем они повлияют на производительность устройства {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -17,36 +17,42 @@ topics:
   - Performance
   - Storage
 shortTitle: Recommended alert thresholds
+ms.openlocfilehash: 5e29a43b144618f09f33b9802454e6ff8d9d552f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148097798'
 ---
-## Monitoring storage
+## Мониторинг хранилища
 
-We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
+Рекомендуется отслеживать как корневые, так и пользовательские запоминающие устройства, а также настраивать оповещение со значениями, которые позволяют обеспечить достаточное время отклика при ограниченном доступном дисковом пространстве.
 
-| Severity | Threshold |
+| Статус | Пороговое значение |
 | -------- | --------- |
-| **Warning** | Disk use exceeds 70% of total available |
-| **Critical** | Disk use exceeds 85% of total available |
+| **Предупреждение** | Диск занят более 70 % от общего объема доступных данных |
+| **Критическая** | Диск занят более 85 % от общего объема доступных данных |
 
-You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
+Эти значения можно настроить в зависимости от общего объема выделенного хранилища, шаблонов исторического роста и ожидаемого времени отклика. Рекомендуется распределить ресурсы хранилища с запасом, чтобы обеспечить рост и предотвратить перерывы, необходимые для выделения дополнительного хранилища.
 
-## Monitoring CPU and load average usage
+## Мониторинг среднего использования ЦП и загрузки
 
-Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
+Хотя использование ЦП, как правило, изменяется в зависимости от ресурсоемких операций Git, рекомендуется настроить оповещение о превышении загрузки ЦП, так как длительные пиковые значения могут означать, что экземпляр не подготовлен. Рекомендуется отслеживать 15-минутную среднюю загрузку системы для значений, близких или превышающих количество ядер ЦП, выделенных виртуальной машине.
 
-| Severity | Threshold |
+| Статус | Пороговое значение |
 | -------- | --------- |
-| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
-| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
+| **Предупреждение** | Пятнадцать минутная загрузка превышает загрузку 1 ядерного ЦП |
+| **Критическая** | Пятнадцать минутная загрузка превышает загрузку 2 ядерного ЦП |
 
-We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
+Кроме того, рекомендуется отслеживать время "заимствования" виртуализации, чтобы убедиться, что другие виртуальные машины, работающие в той же системе узлов, не используют все ресурсы экземпляра.
 
-## Monitoring memory usage
+## Наблюдение за использованием памяти
 
-The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
+Объем физической памяти, выделенной для {% данных variables.location.product_location %}, может оказать большое влияние на общую производительность и скорость реагирования приложений. Система предназначена для интенсивного использования дискового кэша ядра для ускорения операций Git. Рекомендуется использовать обычный рабочий набор RSS в пределах 50 % от общего объема доступной ОЗУ при пиковой нагрузке.
 
-| Severity | Threshold |
+| Статус | Пороговое значение |
 | -------- | --------- |
-| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
-| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
+| **Предупреждение**  | Устойчивое использование RSS превышает 50 % от общего объема доступной памяти |
+| **Критическая** | Устойчивое использование RSS превышает 70 % от общего объема доступной памяти |
 
-If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.
+Если память заполнена, программа по завершению работы приложений в ядре OOM попытается освободить ресурсы памяти путем принудительного уничтожения процессов приложений с большим объемом ОЗУ, что может привести к нарушению работы службы. Рекомендуется выделять виртуальной машине больше памяти, чем требуется в обычном ходе операций.

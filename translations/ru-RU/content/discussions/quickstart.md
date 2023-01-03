@@ -1,80 +1,83 @@
 ---
-title: Quickstart for GitHub Discussions
-intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository or organization and start conversations with your community.'
+title: Краткое руководство по GitHub Discussions
+intro: 'Включите {% data variables.product.prodname_discussions %} в существующем репозитории или организации и начните беседы с сообществом.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: discussions
 shortTitle: Quickstart
+ms.openlocfilehash: 0b43d9ce559e31c93002cc8cccef51b8284672c1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410214'
 ---
+## Введение
 
+{% data variables.product.prodname_discussions %} — это форум для совместной работы участников сообщества над проектом с открытым кодом или внутренний проект. Обсуждения предназначены для бесед, которые должны быть прозрачными и доступными, но не должны отслеживаться на панели проекта и не связаны с кодом, в отличие от {% data variables.product.prodname_github_issues %}. Обсуждения позволяют вести гибкую, открытую беседу на публичном форуме.
 
-## Introduction
+Обсуждения дают возможность для расширенной совместной работы в ходе беседы путем подключения и предоставления централизованной области для подключения и поиска информации.
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
+## Включение {% data variables.product.prodname_discussions %} для репозитория
 
-Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
+Владельцы репозитория и пользователи с доступом на запись могут включить {% data variables.product.prodname_discussions %} для сообщества в общедоступных{% ifversion ghes > 3.5 %}, внутренних{% endif %} и частных репозиториях. Настройки видимости обсуждения наследуются от репозитория, в котором создается обсуждение.
 
-## Enabling {% data variables.product.prodname_discussions %} on your repository
-
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
-
-When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
+При первом включении {% data variables.product.prodname_discussions %} вам будет предложено настроить приветственное сообщение.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
-**Settings**.
-![Public settings button](/assets/images/help/discussions/public-repo-settings.png)
-1. Under "Features", click **Set up discussions**.
-  ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
-1. Under "Start a new discussion," edit the template to align with the resources and tone you want to set for your community.
-1. Click **Start discussion**.
-  !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
+1. Нажмите **Параметры** {% octicon "gear" aria-label="The gear icon" %} под именем репозитория.
+![Кнопка "Общедоступные параметры"](/assets/images/help/discussions/public-repo-settings.png)
+1. В разделе "Компоненты" щелкните **Настройка обсуждений**.
+  ![Настройка кнопки обсуждения в разделе "Компоненты" для включения или отключения GitHub Discussions для репозитория](/assets/images/help/discussions/setup-discussions-button.png)
+1. В разделе "Начать новое обсуждение" измените шаблон, чтобы выровнять ресурсы и тональность, которую вы хотите задать для вашего сообщества.
+1. Нажмите кнопку **Начать обсуждение**.
+  ![Кнопка "Начать обсуждение"](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
-## Enabling {% data variables.product.prodname_discussions %} on your organization
+## Включение {% data variables.product.prodname_discussions %} для организации
 
-Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.
+Владельцы организации могут включить {% data variables.product.prodname_discussions %} для своей организации.
 
 {% data reusables.discussions.about-organization-discussions %}
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
 
-## Welcoming contributions to your discussions
+## Поощрение вкладов в ваши обсуждения
 
-You can welcome your community and introduce a new way to communicate in a repository or organization by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
+Можно поприветствовать сообщество и предложить новый способ взаимодействия в репозитории или организации, создав приветственное сообщение и закрепив запись на странице {% data variables.product.prodname_discussions %}. Закрепление и блокировка обсуждений сообщает пользователям, что такая публикация выполняет роль объявления. Объявления можно использовать для предоставления пользователям дополнительных ресурсов и рекомендаций по открытию обсуждений в сообществе. Дополнительные сведения о закреплении обсуждения см. в разделе [Управление обсуждениями](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion).
 
 
-## Setting up community guidelines for contributors
+## Настройка правил сообщества для участников
 
-For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+Для обсуждений в репозитории можно задать правила участия, чтобы побудить участников совместной работы вести значимые и полезные беседы по репозиторию. Вы также можете обновить файл сведений о репозитории, чтобы поделиться своими ожиданиями относительно того, когда участники совместной работы должны открывать проблему или обсуждение. Дополнительные сведения о предоставлении рекомендаций для проекта см. в разделе {% ifversion fpt or ghec %}"[Добавление правил поведения в ваш проект](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Настройка вашего проекта для эффективного внесения вклада](/communities/setting-up-your-project-for-healthy-contributions)".
 
-For organization discussions, you share information about how to engage with your organization by creating an organization profile README. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+Для обсуждений в организации можно поделиться информацией о способах взаимодействия с организацией, создав файл README для профиля организации. Дополнительные сведения см. в разделе [Настройка профиля организации](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile).
 
-## Creating a new discussion
+## Создание нового обсуждения
 
-Any authenticated user who can view the repository can create a discussion in that repository. Similarly, since organization discussions are based on a source repository, any authenticated user who can view the source repository can create a discussion in that organization.
+Все пользователи, прошедшие проверку подлинности, которые могут просматривать репозиторий, могут создавать обсуждение в репозитории. Аналогичным образом так как обсуждения организации основаны на исходном репозитории, любой прошедший проверку подлинности пользователь, который может просматривать исходный репозиторий, может создать обсуждение в этой организации.
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Creating a new poll
+## Создание нового опроса
 
-Any authenticated user who can view a repository can create a poll. Similarly, since organization discussions are based on a source repository, any authenticated user who can view the source repository can create a poll in that organization.
+Все пользователи, прошедшие проверку подлинности, которые могут просматривать репозиторий, могут создавать опрос. Аналогичным образом поскольку обсуждения организации основаны на исходном репозитории, любой прошедший проверку подлинности пользователь, который может просматривать исходный репозиторий, может создать опрос в этой организации.
 
 {% data reusables.discussions.starting-a-poll %}
 
-## Organizing discussions
+## Организация обсуждений
 
-Repository owners and people with write access to the repository can create new categories to keep discussions organized. Similarly, since organization discussions are based on a source repository, repository owners and people with write access to the source repository can create new categories for organization discussions.
+Владельцы репозитория и пользователи с доступом для записи в репозиторий могут создавать новые категории для упорядочения обсуждений. Аналогичным образом поскольку обсуждения организации основаны на исходном репозитории, владельцы репозитория и пользователи с доступом для записи в исходный репозиторий могут создавать новые категории для обсуждений в организации.
 
-Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Участники совместной работы, которые принимают участие в создании новых обсуждений, могут группировать обсуждения в наиболее подходящие существующие категории. Категории обсуждений можно изменить после их создания. Дополнительные сведения см. в разделе [Управление категориями обсуждений](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-## Promoting healthy conversations
+## Поощрение этичных и эффективных бесед
 
-People with write permissions for the repository, or for the source repository for organization discussions, can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Пользователи с разрешениями на запись для репозитория или для исходного репозитория для обсуждений в организации могут помочь находить важные беседы, закрепляя обсуждения или удаляя те, которые больше не несут пользы или вредят сообществу, а также перенося обсуждения в более подходящие репозитории, принадлежащие организации. Дополнительные сведения см. в разделе [Управление обсуждениями](/discussions/managing-discussions-for-your-community/managing-discussions).
 
-People with triage permissions for the repository, or for the source repository for organization discussions, can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+Пользователи с разрешениями на рассмотрение для репозитория или для исходного репозитория для обсуждений в организации могут помочь модерировать обсуждения по проекту, помечая комментарии как ответы, блокируя обсуждения, которые уже не являются полезными или наносят ущерб сообществу, и преобразовывать вопросы в обсуждения, если идея все еще находится на ранних этапах разработки. Дополнительные сведения см. в разделе [Модерация обсуждений](/discussions/managing-discussions-for-your-community/moderating-discussions).
 
-## Next steps
+## Дальнейшие действия
 
-Once there is a clear path to scope work out and move an idea from concept to reality, you can create an issue and start tracking your progress. For more information on creating an issue from a discussion, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+После того как вы найдете способ расширить область работы и довести идею до практического воплощения, можно создать проблему и начать отслеживание прогресса. Дополнительные сведения о создании проблемы на основе обсуждения см. в разделе [Модерация обсуждений](/discussions/managing-discussions-for-your-community/moderating-discussions).

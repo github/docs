@@ -1,6 +1,6 @@
 ---
 title: Entender las conexiones entre repositorios
-intro: Puedes entender mejor las conexiones que existen entre los repositorios si ves la red y las bifurcaciones de este y los proyectos que dependen de él.
+intro: Usa el gráfico de red y la lista de bifurcaciones para comprender las redes de bifurcación.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060070'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191367'
 ---
 ## Ver la red de un repositorio
 
-El gráfico de red muestra el historial de la rama de la red del repositorio completa, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones únicas de la red.
+El gráfico de red muestra el historial de ramas de toda la red del repositorio, incluidas las bifurcaciones de rama. Este gráfico es una escala de tiempo de las confirmaciones más recientes y muestra hasta 100 de las ramas insertadas más recientemente. La primera fila hace referencia a la fecha y la primera columna hace referencia al propietario de la rama. Usa teclas de dirección u otros métodos abreviados de teclado para navegar más fácilmente por el gráfico. Se proporcionan en la ventana emergente "Métodos abreviados de teclado disponibles" del gráfico.
+
 
 ![Gráfico de red del repositorio](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ El gráfico de red muestra el historial de la rama de la red del repositorio com
 
 El Gráfico de miembros muestra todas las bifurcaciones de un repositorio.
 
-Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la persona que bifurcó el repositorio. Puedes hacer clic en el nombre de usuario para ser redirigido a la página de perfil del usuario {% data variables.product.product_name %} o hacer clic en el nombre de la bifurcación para ser redirigido a la bifurcación específica del repositorio.
+Las bifurcaciones se detallan alfabéticamente por la organización o el nombre de usuario de la persona que bifurcó el repositorio. Puedes hacer clic en la organización o el nombre de usuario para que se te redirija a la página de perfil del usuario {% data variables.product.product_name %} o hacer clic en el nombre de la bifurcación para que se te redirija a la bifurcación específica del repositorio.
 
 {% ifversion fpt or ghec %}
 

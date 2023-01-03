@@ -1,5 +1,5 @@
 ---
-title: Source imports
+title: Importações de código-fonte
 intro: ''
 versions:
   fpt: '*'
@@ -7,15 +7,18 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 339b7f9543e91d2d33566435289b2092ef8c02e8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147065767'
 ---
+## Sobre a API de Importações de código-fonte
 
-## About the Source imports API
+{% data variables.migrations.source_imports_intro %} Uma importação de código-fonte típica iniciaria a importação e, em seguida, (opcionalmente) atualizaria os autores e/ou atualizaria a preferência pelo uso do Git LFS se existissem arquivos grandes na importação. Você também pode criar um webhook que escuta no [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para descobrir o status da importação.
 
-{% data reusables.user-settings.imports-api-classic-pat-only %}
-
-{% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. You can also create a webhook that listens for the [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) to find out the status of the import.
-
-A more detailed example can be seen in this diagram:
+Um exemplo mais detalhado pode ser visto neste diagrama:
 
 ```
 +---------+                     +--------+                              +---------------------+

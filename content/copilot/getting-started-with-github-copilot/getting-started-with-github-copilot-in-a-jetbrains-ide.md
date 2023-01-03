@@ -19,6 +19,8 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
 ## Prerequisites
 
+{% data reusables.copilot.subscription-prerequisite %}
+
 {% data reusables.copilot.jetbrains-ides %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE

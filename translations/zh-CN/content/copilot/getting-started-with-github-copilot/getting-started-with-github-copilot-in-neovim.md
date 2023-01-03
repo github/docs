@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 6296ff5b89e86b4b51cbb04bd9ac4ba91863a1ac
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 2eab3d278453ad283337d8e8dd6e66f7d39364e8
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185065'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193031'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,7 @@ ms.locfileid: '148185065'
 
 ## 先决条件
 
-- 若要使用 {% data variables.product.prodname_copilot %}，必须拥有有效的 {% data variables.product.prodname_copilot %} 订阅。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_copilot %} 的计费](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)”。
+{% data reusables.copilot.subscription-prerequisite %}
 
 - 若要在 Neovim 中使用 {% data variables.product.prodname_copilot %}，必须安装 Neovim 和 Node.js 版本 17 或更低版本。 有关详细信息，请参阅 [Neovim 文档](https://neovim.io/doc/)和 [Node.js 网站](https://nodejs.org/en/)。
 

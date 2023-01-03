@@ -1,6 +1,6 @@
 ---
-title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+title: GitHub 계정에 GPG 키 추가
+intro: '{% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}에서 새(또는 기존) GPG 키를 사용하도록 계정을 구성하려면 계정에 대한 키도 필요합니다.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -19,54 +19,55 @@ topics:
   - Identity
   - Access management
 shortTitle: Add a GPG key
+ms.openlocfilehash: 60c4e440c26332b25f9172b95a2bfb059e03e495
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098806'
 ---
+## 계정에 GPG 키 추가 정보
 
-## About addition of GPG keys to your account
+{% data variables.product.product_name %}에서 계정과 연결된 커밋에 서명하려면 개인 계정에 퍼블릭 GPG 키를 추가할 수 있습니다. 키를 추가하기 전에 기존 키를 확인해야 합니다. 기존 키를 찾을 수 없는 경우 새 키를 생성하고 복사할 수 있습니다. 자세한 내용은 “[기존 GPG 키 확인](/articles/checking-for-existing-gpg-keys)” 및 “[새 GPG 키 생성](/articles/generating-a-new-gpg-key)”을 참조하세요.
 
-To sign commits associated with your account on {% data variables.product.product_name %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)" and "[Generating a new GPG key](/articles/generating-a-new-gpg-key)."
+{% data variables.product.product_name %}에서 계정에 여러 퍼블릭 키를 추가할 수 있습니다. 해당 프라이빗 키로 서명된 커밋은 확인됨으로 표시됩니다. 퍼블릭 키를 제거하면 해당 프라이빗 키로 서명된 모든 커밋이 더 이상 확인됨으로 표시되지 않습니다.
 
-You can add multiple public keys to your account on {% data variables.product.product_name %}. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+{% ifversion upload-expired-or-revoked-gpg-key %} 가능한 한 많은 커밋을 확인하려면 만료된 키와 해지된 키를 추가할 수 있습니다. 키가 다른 모든 확인 요구 사항을 충족하는 경우 해당 프라이빗 키 중 하나로 이전에 서명된 커밋이 확인된 것으로 표시되고 서명 키가 만료되거나 해지되었음을 나타냅니다.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
-
-![A verified commit whose key expired](/assets/images/help/settings/gpg-verified-with-expired-key.png)
-{% endif %}
+![키가 만료된 확인된 커밋](/assets/images/help/settings/gpg-verified-with-expired-key.png) {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, {% data variables.product.product_name %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.product_name %}. Until a matching GPG key is added to {% data variables.product.product_name %}, it cannot verify your signatures.
+서명을 확인할 때 {% data variables.product.product_name %}은 서명을 추출하고 키 ID를 구문 분석하려고 시도합니다. 그러면 키 ID가 {% data variables.product.product_name %}에 추가된 키와 일치합니다. 일치하는 GPG 키가 {% data variables.product.product_name %}에 추가될 때까지 서명을 확인할 수 없습니다.
 
-## Adding a GPG key
+## GPG 키 추가
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. **새 GPG 키** 클릭합니다.
+   ![GPG 키 단추](/assets/images/help/settings/gpg-add-gpg-key.png)
+4. “키” 필드에 [GPG 키를 생성](/articles/generating-a-new-gpg-key)할 때 복사한 GPG 키를 붙여넣습니다.
+   ![키 필드](/assets/images/help/settings/gpg-key-paste.png)
+5. **GPG 키 추가** 를 클릭합니다.
+   ![키 추가 단추](/assets/images/help/settings/gpg-add-key.png)
+6. 작업을 확인하려면 {% data variables.product.product_name %} 암호를 입력합니다.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-{% else %}
-## Updating an expired GPG key
+{% ifversion upload-expired-or-revoked-gpg-key %} {% else %}
+## 만료된 GPG 키 업데이트
 
-When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.
+서명을 확인할 때 {% data variables.product.product_name %}는 키가 해지되거나 만료되지 않았는지 확인합니다. 서명 키가 해지되거나 만료된 경우 {% data variables.product.product_name %}에서 서명을 확인할 수 없습니다.
 
-If your key is expired, you must [update its expiration](https://www.gnupg.org/gph/en/manual.html#AEN329), export the new key, delete the expired key in your account on {% data variables.product.product_name %}, and add the new key to your account as described above. Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.
+키가 만료된 경우 [만료를 업데이트](https://www.gnupg.org/gph/en/manual.html#AEN329)하고, 새 키를 내보내고, {% data variables.product.product_name %}에서 계정에서 만료된 키를 삭제하고, 위에서 설명한 대로 새 키를 계정에 추가해야 합니다. 키가 다른 모든 확인 요구 사항을 충족하기만 하면, 이전 커밋과 태그는 확인된 것으로 표시됩니다.
 
-If your key is revoked, use the primary key or another key that is not revoked to sign your commits.
+키가 해지된 경우 기본 키 또는 해지되지 않은 다른 키를 사용하여 커밋에 서명합니다.
 
-If your key is invalid and you don't use another valid key in your key set, but instead generate a new GPG key with a new set of credentials, then your commits made with the revoked or expired key will continue to show as unverified. Also, your new credentials will not be able to re-sign or verify your old commits and tags.
+키가 유효하지 않으며 키 집합의 다른 유효한 키를 사용하지 않고 새 자격 증명 집합을 사용하여 새 GPG 키를 생성하는 경우 철회되었거나 만료된 키로 만든 커밋은 계속 확인되지 않은 것으로 표시됩니다. 또한 새 자격 증명은 이전 커밋과 태그에 다시 서명하거나 확인할 수 없습니다.
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits and tags using GPG keys](/articles/signing-commits-and-tags-using-gpg)"
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
+- “[기존 GPG 키 확인](/articles/checking-for-existing-gpg-keys)”
+- “[새 GPG 키 생성](/articles/generating-a-new-gpg-key)”
+- “[서명 키에 대해 Git에 알리기](/articles/telling-git-about-your-signing-key)”
+- “[GPG 키와 메일 연결](/articles/associating-an-email-with-your-gpg-key)”
+- “[GPG 키를 사용하여 커밋 및 태그 서명](/articles/signing-commits-and-tags-using-gpg)”
+- “[커밋 서명 확인 정보](/articles/about-commit-signature-verification)”

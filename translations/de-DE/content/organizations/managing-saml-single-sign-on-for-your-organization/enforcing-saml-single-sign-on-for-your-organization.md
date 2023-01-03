@@ -1,6 +1,6 @@
 ---
-title: Enforcing SAML single sign-on for your organization
-intro: Organization owners and admins can enforce SAML SSO so that all organization members must authenticate via an identity provider (IdP).
+title: Erzwingen der einmaligen SAML-Anmeldung für deine Organisation
+intro: 'Besitzer*innen und Administrator*innen von Organisationen können SAML-SSO erzwingen, sodass sich alle Organisationsmitglieder über einen Identitätsanbieter (IdP) authentifizieren müssen.'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enforcing-saml-single-sign-on-for-your-organization
@@ -10,43 +10,46 @@ topics:
   - Organizations
   - Teams
 shortTitle: Enforce SAML single sign-on
+ms.openlocfilehash: 78c6ca3297705511e419a96742a8887d01d7b70d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145125625'
 ---
+## Informationen zur Erzwingung von SAML-SSO für deine Organisation
 
-## About enforcement of SAML SSO for your organization
+Wenn du SAML-SSO aktivierst, fordert {% data variables.product.prodname_dotcom %} Mitglieder, die die Ressourcen der Organisation auf {% data variables.product.prodname_dotcom_the_website %} verwenden, dazu auf, sich bei deinem Identitätsanbieter (IdP) zu authentifizieren. Dadurch wird das persönliche Konto des Mitglieds mit einer Identität beim IdP verknüpft. Mitglieder können weiterhin auf die Ressourcen der Organisation zugreifen, auch wenn sie die Authentifizierung bei deinem IdP noch nicht durchgeführt haben.
 
-When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
+![Ein Banner, das Benutzer*innen dazu auffordert, sich über SAML-SSO für den Zugriff auf die Organisation zu authentifizieren](/assets/images/help/saml/sso-has-been-enabled.png)
 
-![Banner with prompt to authenticate via SAML SSO to access organization](/assets/images/help/saml/sso-has-been-enabled.png)
-
-You can also enforce SAML SSO for your organization. {% data reusables.saml.when-you-enforce %} Enforcement removes any members and administrators who have not authenticated via your IdP from the organization. {% data variables.product.company_short %} sends an email notification to each removed user. 
+Du kannst SAML-SSO auch für deine Organisation erzwingen. {% data reusables.saml.when-you-enforce %} Durch das Erzwingen werden alle Mitglieder und Administrator*innen entfernt, die sich nicht über den IdP der Organisation authentifiziert haben. {% data variables.product.company_short %} sendet eine E-Mail-Benachrichtigung an alle entfernten Benutzer*innen. 
 
 {% data reusables.saml.ghec-only %}
 
-{% data reusables.saml.removed-users-can-rejoin %} If a user rejoins the organization within three months, the user's access privileges and settings will be restored. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+{% data reusables.saml.removed-users-can-rejoin %} Wenn ein*e Benutzer*in der Organisation innerhalb von drei Monaten wieder beitritt, werden die Berechtigungen und Einstellungen des Benutzers bzw. der Benutzerin wiederhergestellt. Weitere Informationen findest du unter [Reaktivieren eines ehemaligen Mitglieds deiner Organisation](/articles/reinstating-a-former-member-of-your-organization).
 
-Bots and service accounts that do not have external identities set up in your organization's IdP will also be removed when you enforce SAML SSO. For more information about bots and service accounts, see "[Managing bots and service accounts with SAML single sign-on](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)."
+Bots und Dienstkonten, für die beim IdP der Organisation keine externen Identitäten eingerichtet wurden, werden ebenfalls entfernt, wenn du SAML-SSO erzwingst. Weitere Informationen zu Bots und Dienstkonten findest du unter [Verwalten von Bots und Dienstkonten mit dem einmaligen Anmelden mit SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on).
 
-If your organization is owned by an enterprise account, requiring SAML for the enterprise account will override your organization-level SAML configuration and enforce SAML SSO for every organization in the enterprise. For more information, see "[Configuring SAML single sign-on for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+Wenn deine Organisation sich im Besitz eines Unternehmenskontos befindet, wird die SAML-Konfiguration auf Organisationsebene durch das Erzwingen von SAML für das Unternehmenskonto gelöscht, und SAML-SSO wird für jede Organisation im Unternehmen erzwungen. Weitere Informationen findest du unter [Konfigurieren des einmaligen Anmeldens mit SAML für Unternehmen](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise).
 
 {% tip %}
 
-**Tip:** {% data reusables.saml.testing-saml-sso %}
+**Tipp:** {% data reusables.saml.testing-saml-sso %}
 
 {% endtip %}
 
-## Enforcing SAML SSO for your organization
+## Erzwingen von SAML-SSO für deine Organisation
 
-1. Enable and test SAML SSO for your organization, then authenticate with your IdP at least once. For more information, see "[Enabling and testing SAML single sign-on for your organization](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)."
-1. Prepare to enforce SAML SSO for your organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "SAML single sign-on", select **Require SAML SSO authentication for all members of the _ORGANIZATION_ organization**.
-    !["Require SAML SSO authentication" checkbox](/assets/images/help/saml/require-saml-sso-authentication.png)
-1. If any organization members have not authenticated via your IdP, {% data variables.product.company_short %} displays the members. If you enforce SAML SSO, {% data variables.product.company_short %} will remove the members from the organization. Review the warning and click **Remove members and require SAML single sign-on**.
-    !["Confirm SAML SSO enforcement" dialog with list of members to remove from organization](/assets/images/help/saml/confirm-saml-sso-enforcement.png)
-1. Under "Single sign-on recovery codes", review your recovery codes. Store the recovery codes in a safe location like a password manager.
+1. Aktiviere und teste SAML-SSO für deine Organisation, und authentifiziere dich dann mindestens einmal über deinen IdP. Weitere Informationen findest du unter [Aktivieren und Testen des einmaligen Anmeldens mit SAML für deine Organisation](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization).
+1. Bereite die Erzwingung von SAML-SSO für deine Organisation vor. Weitere Informationen findest du unter [Vorbereiten der Erzwingung des einmaligen Anmeldens mit SAML in deiner Organisation](/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization).
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. Wähle unter „SAML-SSO“ die Option **Authentifizierung mit SAML-SSO für alle Mitglieder der _ORGANISATION_-Organisation erzwingen** aus.
+    ![Das Kontrollkästchen „Authentifizierung mit SAML-SSO erzwingen“](/assets/images/help/saml/require-saml-sso-authentication.png)
+1. Wenn sich Organisationsmitglieder nicht über deinen IdP authentifiziert haben, zeigt {% data variables.product.company_short %} diese Mitglieder an. Wenn du SAML-SSO erzwingst, entfernt {% data variables.product.company_short %} die Mitglieder aus der Organisation. Lies die Warnung, und klicke auf **Mitglieder entfernen und SAML-SSO erzwingen**.
+    ![Das Dialogfeld „Erzwingung von SAML-SSO bestätigen“ mit einer Liste der Mitglieder, die aus der Organisation entfernt werden sollen](/assets/images/help/saml/confirm-saml-sso-enforcement.png)
+1. Überprüfe unter „Wiederherstellungscodes für SSO“ die Wiederherstellungscodes. Speichere die Wiederherstellungscodes an einem sicheren Speicherort wie einem Kennwort-Manager.
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"
+- [Anzeigen und Verwalten des SAML-Zugriffs eines Mitglieds auf deine Organisation](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)

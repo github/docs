@@ -1,52 +1,54 @@
 ---
-title: Managing your GitHub Copilot subscription
-intro: 'Set up your {% data variables.product.prodname_copilot %} trial and manage your subscription.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+title: 管理 GitHub Copilot 订阅
+intro: 设置 {% data variables.product.prodname_copilot %} 试用版并管理订阅。
 versions:
   feature: copilot
 type: how_to
 topics:
-  - Copilot
+- Copilot
 shortTitle: Your GitHub Copilot subscription
+ms.openlocfilehash: 9cdd9e46dcbfe433f5d0b6ba25bda4c798dca06b
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884155"
 ---
-
-## Setting up a trial of {% data variables.product.prodname_copilot %} 
+## 设置 {% data variables.product.prodname_copilot %} 的试用版 
 
 {% data reusables.copilot.signup-procedure %}
 
-## Modifying your {% data variables.product.prodname_copilot %} subscription
+## 修改 {% data variables.product.prodname_copilot %} 订阅
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
-   - If you are on a monthly billing cycle, select **Change to yearly billing**.
-   - If you are on a yearly billing cycle, select **Change to monthly billing**.
-   ![Screenshot of GitHub Copilot section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. 在“{% data variables.product.prodname_copilot %}”部分中，选择“编辑”下拉列表。
+   - 如果是按月计费周期，请选择“更改为按年计费”。
+   - 如果是按年计费周期，请选择“更改为按月计费”。
+   ![计费页上 GitHub Copilot 部分的屏幕截图，其中突出显示了“编辑”下拉列表](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
    
 
-## Canceling your {% data variables.product.prodname_copilot %} subscription
+## 取消 {% data variables.product.prodname_copilot %} 订阅
 
-You can cancel your {% data variables.product.prodname_copilot %} subscription at any time. If you cancel during your 60 day trial, you won't be charged. If you do not cancel your {% data variables.product.prodname_copilot %} subscription before the end of the 60 day trial, you will be charged according to the billing cycle you selected when setting up the trial.
+可以随时取消 {% data variables.product.prodname_copilot %} 订阅。 如果在 60 天试用期间取消，则不会产生费用。 如果在 60 天试用版结束前未取消 {% data variables.product.prodname_copilot %} 订阅，将根据在设置试用版时选择的计费周期收费。
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
-   - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. 在“{% data variables.product.prodname_copilot %}”部分中，选择“编辑”下拉列表。
+   - 如果你有付费订阅，请单击“取消 {% data variables.product.prodname_copilot %}。
    
-   ![Screenshot of GitHub Copilot section on billing page with cancel GitHub Copilot option emphasized](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
+   ![计费页上 GitHub Copilot 部分的屏幕截图，其中突出显示了“取消 GitHub Copilot”选项](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
 
-   - If you are within your 60 day trial period, click **Cancel trial**.
-   ![Screenshot of GitHub Copilot section on billing page with cancel trial option emphasized](/assets/images/help/copilot/copilot-cancel-trial.png)
+   - 如果在 60 天的试用期内，请单击“取消试用”。
+   ![计费页上 GitHub Copilot 部分的屏幕截图，其中突出显示了“取消试用”选项](/assets/images/help/copilot/copilot-cancel-trial.png)
 
-2. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**
+2. 在“取消 {% data variables.product.prodname_copilot %}”模式下，单击“了解，取消 {% data variables.product.prodname_copilot %}”
 
-   ![Screenshot of GitHub Copilot cancel modal with I understand, cancel GitHub Copilot button emphasized](/assets/images/help/copilot/copilot-cancel-modal.png)
+   ![GitHub Copilot 取消模式的屏幕截图，其中突出显示了“了解，取消 GitHub Copilot”按钮](/assets/images/help/copilot/copilot-cancel-modal.png)
 
-   - If you are within your 60 day trial period, click **I understand, cancel {% data variables.product.prodname_copilot %} trial**.
+   - 如果在 60 天的试用期内，请单击“了解，取消 {% data variables.product.prodname_copilot %} 试用”。
 
-   ![Screenshot of GitHub Copilot cancel trial modal with I understand, cancel trial button emphasized](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
+   ![GitHub Copilot 取消试用模式的屏幕截图，其中突出显示了“了解，取消试用”按钮](/assets/images/help/copilot/copilot-trial-cancel-modal.png)
 
-## Further reading
+## 延伸阅读
 
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
-- [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
+- [关于 {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [{% data variables.product.prodname_copilot %} 入门](/copilot/getting-started-with-github-copilot)

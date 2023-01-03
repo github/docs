@@ -1,6 +1,6 @@
 ---
-title: About searching on GitHub
-intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
+title: GitHub 검색 정보
+intro: 'GitHub의 통합 검색은 {% data variables.product.product_name %}의 여러 리포지토리, 사용자, 코드 줄에서 검색할 수 있습니다.'
 redirect_from:
   - /articles/using-the-command-bar
   - /articles/github-search-basics
@@ -17,79 +17,82 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 58ecec218d8f8f0ee3d11afbf65debf7df72e811
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159103'
 ---
+{% ifversion github-code-search %} {% note %}
 
-{% ifversion github-code-search %}
-  {% note %}
+  **참고:** {% data reusables.search.classic-search-code-search-note %}
 
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
-
-  {% endnote %}
-{% endif %}
+  {% endnote %} {% endif %}
 
 {% data reusables.search.you-can-search-globally %}
 
-- To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "All {% data variables.product.prodname_dotcom %}" in the search drop-down menu.
-- To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
+- 모든 {% data variables.product.product_name %}에서 전역으로 검색하려면 원하는 항목을 페이지 맨 위에 있는 검색 필드에 입력하고 검색 드롭다운 메뉴에서 “모든 {% data variables.product.prodname_dotcom %}”를 선택합니다.
+- 특정 리포지토리 또는 조직 내에서 검색하려면 리포지토리 또는 조직 페이지로 이동하고 원하는 항목을 페이지 위쪽의 검색 필드에 입력한 다음 **Enter** 키를 누릅니다.
 
 {% note %}
 
-**Notes:**
+**참고:**
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/search-github/searching-on-github/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
-- Currently our search doesn't support exact matching.
-- Whenever you are searching in code files, only the first two results in each file will be returned.
+- {% data variables.product.prodname_pages %} 사이트는 {% data variables.product.product_name %}에서 검색할 수 없습니다. 그러나 코드 검색을 사용하여 리포지토리의 기본 분기에 있는 경우 원본 콘텐츠를 검색할 수 있습니다. 자세한 내용은 “[코드 검색](/search-github/searching-on-github/searching-code)”을 참조하세요. {% data variables.product.prodname_pages %}에 대한 자세한 내용은 “[GitHub Pages란?](/articles/what-is-github-pages/)”을 참조하세요.
+- 현재 검색은 정확한 일치를 지원하지 않습니다.
+- 코드 파일에서 검색할 때마다 각 파일의 처음 두 결과만 반환됩니다.
 
 {% endnote %}
 
-After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results)."
+{% data variables.product.product_name %}에서 검색을 실행한 후 결과를 정렬하거나 사이드바에서 언어 중 하나를 클릭하여 더 구체화할 수 있습니다. 자세한 내용은 “[검색 결과 정렬](/search-github/getting-started-with-searching-on-github/sorting-search-results)”을 참조하세요.
 
-{% data variables.product.product_name %} search uses an ElasticSearch cluster to index projects every time a change is pushed to {% data variables.product.product_name %}. Issues and pull requests are indexed when they are created or modified.
+{% data variables.product.product_name %} 검색은 변경 내용이 {% data variables.product.product_name %}에 푸시될 때마다 ElasticSearch 클러스터를 사용하여 프로젝트를 인덱싱합니다. 문제 및 끌어오기 요청은 만들거나 수정할 때 인덱싱됩니다.
 
-## Types of searches on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}에 대한 검색 유형
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+{% data variables.location.product_location %}에서 액세스할 수 있는 모든 리포지토리에서 다음 정보를 검색할 수 있습니다.
 
-- [Repositories](/search-github/searching-on-github/searching-for-repositories)
-- [Topics](/search-github/searching-on-github/searching-topics)
-- [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
-- [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
-- [Code](/search-github/searching-on-github/searching-code)
-- [Commits](/search-github/searching-on-github/searching-commits)
-- [Users](/search-github/searching-on-github/searching-users)
-- [Packages](/search-github/searching-on-github/searching-for-packages)
+- [리포지토리](/search-github/searching-on-github/searching-for-repositories)
+- [토픽](/search-github/searching-on-github/searching-topics)
+- [문제 및 끌어오기 요청](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
+- [토론](/search-github/searching-on-github/searching-discussions){% endif %}
+- [코드](/search-github/searching-on-github/searching-code)
+- [커밋](/search-github/searching-on-github/searching-commits)
+- [사용자](/search-github/searching-on-github/searching-users)
+- [패키지](/search-github/searching-on-github/searching-for-packages)
 - [Wikis](/search-github/searching-on-github/searching-wikis)
 
-## Searching using a visual interface
+## 시각적 인터페이스를 사용하여 검색
 
-You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% ifversion command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+{% data variables.search.search_page_url %} 또는 {% data variables.search.advanced_url %}를 사용하여 {% data variables.product.product_name %}를 검색할 수 있습니다. {% ifversion command-palette %}또는 {% data variables.product.prodname_command_palette %}에서 대화형 검색을 사용하여 키보드로 UI, 특정 사용자, 리포지토리 또는 조직에서 현재 위치 및 모든 {% data variables.product.product_name %}에서 전역적으로 검색할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”를 참조하세요.{% endif %}
 
-The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
+{% data variables.search.advanced_url %}는 검색 쿼리를 생성하기 위한 시각적 인터페이스를 제공합니다. 리포지토리에 있는 별 수 또는 포크 수와 같은 다양한 요소로 검색을 필터링할 수 있습니다. 고급 검색 필드를 입력하면 쿼리가 위쪽 검색 창에 자동으로 생성됩니다.
 
-![Advanced Search](/assets/images/help/search/advanced_search_demo.gif)
+![고급 검색](/assets/images/help/search/advanced_search_demo.gif)
 
-## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
+## 프라이빗 엔터프라이즈 환경의 {% data variables.product.prodname_dotcom_the_website %}에서 리포지토리 검색
 
 {% ifversion fpt or ghec %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}. For more information, see [the {% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) or [the {% data variables.product.prodname_ghe_managed %} documentation](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
+{% data variables.product.prodname_dotcom_the_website %} 및 {% data variables.product.prodname_ghe_server %} 또는 {% data variables.product.prodname_ghe_managed %}을(를) 모두 사용하고 엔터프라이즈 소유자가 {% data variables.enterprise.prodname_unified_search %}를 사용하도록 설정한 경우 {% data variables.product.prodname_ghe_server %} 또는 {% data variables.product.prodname_ghe_managed %}에서 두 환경을 동시에 검색할 수 있습니다. 자세한 내용은 [{% data variables.product.prodname_ghe_server %} 설명서](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) 또는 [{% data variables.product.prodname_ghe_managed %} 설명서](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)를 참조하세요.
 
 {% else %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.product_name %}. For more information about how enterprise owners can enable {% data variables.enterprise.prodname_unified_search %}, see "[Enabling {% data variables.enterprise.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)."
+{% data variables.product.prodname_dotcom_the_website %} 및 {% data variables.product.product_name %}을(를) 모두 사용하고 엔터프라이즈 소유자가 {% data variables.enterprise.prodname_unified_search %}를 사용하도록 설정한 경우 {% data variables.product.product_name %}에서 두 환경을 동시에 검색할 수 있습니다. 엔터프라이즈 소유자가 {% data variables.enterprise.prodname_unified_search %}을(를) 사용하도록 설정하는 방법에 대한 자세한 내용은 "[엔터프라이즈에 {% data variables.enterprise.prodname_unified_search %} 사용](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"을 참조하세요.
 
-Your enterprise owner on {% data variables.product.product_name %} can separately enable {% data variables.enterprise.prodname_unified_search %} for all public repositories on {% data variables.product.prodname_dotcom_the_website %} and for private repositories owned by the organization or enterprise on {% data variables.product.prodname_dotcom_the_website %} that is connected to {% data variables.product.product_name %} through {% data variables.product.prodname_github_connect %}.
+{% data variables.product.product_name %}의 엔터프라이즈 소유자는 {% data variables.product.prodname_dotcom_the_website %}의 모든 퍼블릭 리포지토리와 {% data variables.product.prodname_github_connect %}을(를) 통해 {% data variables.product.prodname_dotcom_the_website %}에 연결된 {% data variables.product.prodname_dotcom_the_website %}에서 조직 또는 엔터프라이즈가 소유한 프라이빗 리포지토리에 대해 {% data variables.product.product_name variables.enterprise.prodname_unified_search %}을(를) 개별적으로 사용하도록 설정할 수 있습니다.
 
-Before you can use {% data variables.enterprise.prodname_unified_search %} for private repositories, you must connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+프라이빗 리포지토리에 {% data variables.enterprise.prodname_unified_search %}를 사용하려면 먼저 {% data variables.product.prodname_dotcom_the_website %} 및 {% data variables.product.product_name %}에서 개인 계정을 연결해야 합니다. 자세한 내용은 “[프라이빗 엔터프라이즈 환경에서 {% data variables.product.prodname_dotcom_the_website %} 리포지토리 검색 사용](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)”을 참조하세요.
 
-When you search from {% data variables.product.product_name %}, only private repositories that you have access to and that are owned by the connected organization or enterprise account will be included in search results. Neither you nor anyone else will be able to search private repositories owned by your personal account on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.product_name %}.
+{% data variables.product.product_name %}에서 검색하는 경우 액세스 권한이 있고 연결된 조직 또는 엔터프라이즈 계정이 소유한 프라이빗 리포지토리만 검색 결과에 포함됩니다. 사용자와 다른 누구도 {% data variables.product.product_name %}에서 {% data variables.product.prodname_dotcom_the_website %}의 개인 계정이 소유한 프라이빗 리포지토리를 검색할 수 없습니다.
 
-To limit your search to one environment, you can use a filter option on the {% data variables.search.advanced_url %} or you can use the `environment:` search prefix. To only search for content on {% data variables.product.product_name %}, use the search syntax `environment:local`. To only search for content on {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
+검색을 한 환경으로 제한하려면 {% data variables.search.advanced_url %}에서 필터 옵션을 사용하거나 검색 접두사로 `environment:`를 사용할 수 있습니다. {% data variables.product.product_name %}에서만 콘텐츠를 검색하려면 `environment:local` 검색 구문을 사용합니다. {% data variables.product.prodname_dotcom_the_website %}에서만 콘텐츠를 검색하려면 `environment:github`를 사용합니다.
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
-- "[Searching on GitHub](/articles/searching-on-github)"
+- “[검색 구문 이해](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)”
+- “[GitHub에서 검색](/articles/searching-on-github)”

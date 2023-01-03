@@ -1,6 +1,6 @@
 ---
-title: Best practices for leaving your company
-intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
+title: Mejores prácticas para abandonar la empresa
+intro: 'Si usas tu cuenta en {% data variables.product.product_name %} para fines personales y laborales, hay algunas cosas que debes tener en cuenta al dejar la empresa u organización.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
@@ -13,31 +13,36 @@ versions:
 topics:
   - Accounts
 shortTitle: Leaving your company
+ms.openlocfilehash: c288584891981eab7ffe4204e2028b0e70cf1d08
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147687235'
 ---
+Antes de abandonar tu empresa, asegúrate de actualizar la siguiente información en tu cuenta personal:
 
-Before you leave your company, make sure you update the following information in your personal account:
+- Para anular la verificación de la dirección de correo electrónico de la empresa, debe [eliminarla en la configuración de correo electrónico](/articles/changing-your-primary-email-address). Puedes volver a agregarla sin verificar para conservar todas las confirmaciones asociadas vinculadas con tu cuenta.
+- [Cambie la dirección de correo electrónico principal](/articles/changing-your-primary-email-address) del correo electrónico de la empresa al personal.
+- [Compruebe la nueva dirección principal de correo electrónico](/articles/verifying-your-email-address).
+- [Cambie el nombre de usuario de GitHub](/articles/changing-your-github-username) para quitar las referencias a la empresa u organización, si es necesario.
+- Si has habilitado la autenticación en dos fases (2FA) para tu cuenta personal, asegúrate de que tú (no la empresa) controles el método de autenticación 2FA que has configurado. Para obtener más información, vea "[Configuración de autenticación en dos fases](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)".
 
-- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
-- [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
-- [Verify your new primary email address](/articles/verifying-your-email-address).
-- [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.
-- If you've enabled two-factor (2FA) authentication for your personal account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+## Abandonar las organizaciones
 
-## Leaving organizations
+Si ha trabajado con repositorios que pertenecen a una organización, querrá [quitarse como miembro de la organización](/articles/removing-yourself-from-an-organization). Tenga en cuenta que si es el propietario de la organización, primero debe [transferir la propiedad de la organización](/articles/transferring-organization-ownership) a otra persona.
 
-If you've been working with repositories that belong to an organization, you'll want to [remove yourself as a member of the organization](/articles/removing-yourself-from-an-organization). Note that if you are the organization owner, you should first [transfer ownership of the organization](/articles/transferring-organization-ownership) to another person.
+A menos que uses un {% data variables.product.prodname_managed_user %}, podrás acceder a tu cuenta personal, incluso después de salir de la organización. Para obtener más información sobre {% data variables.product.prodname_emus %}, consulta "[Acerca de {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
-Unless you're using a {% data variables.enterprise.prodname_managed_user %}, you'll still be able to access your personal account, even after leaving the organization. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+## Eliminar asociaciones profesionales con repositorios personales.
 
-## Removing professional associations with personal repositories
+Si has colaborado profesionalmente con otra persona en repositorios que pertenecen a su cuenta personal, querrás [quitarte como colaborador](/articles/removing-yourself-from-a-collaborator-s-repository) de esos repositorios.
 
-If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
-
-- [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
-- [Transfer repositories you own](/articles/how-to-transfer-a-repository) that others may need to continue working on after you leave.
-- [Delete forks that belong to you](/articles/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
-- Delete local copies of your forks that may exist on your computer:
+- [Deje de ver los repositorios](https://github.com/watching) relacionados con el trabajo. No desearás volver a ver esas notificaciones.
+- [Transfiera los repositorios de su propiedad](/articles/how-to-transfer-a-repository) en los que otros usuarios tengan que seguir trabajando después de irse.
+- [Elimine las bifurcaciones que le pertenecen](/articles/deleting-a-repository) y que estén relacionadas con el trabajo que realizaba. No te preocupes, si eliminas una bifurcación no eliminarás el repositorio ascendente.
+- Elimina copias locales de las bifurcaciones que pueden existir en tu computadora.
 
 ```shell
-$ rm -rf WORK_DIRECTORY
+$ rm -rf <em>work_directory</em>
 ```

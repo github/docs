@@ -1,6 +1,6 @@
 ---
-title: Enabling and testing SAML single sign-on for your organization
-intro: Organization owners and admins can enable SAML single sign-on to add an extra layer of security to their organization.
+title: Activation et test de l’authentification unique SAML pour votre organisation
+intro: Les propriétaires et administrateurs de l’organisation peuvent activer l’authentification unique SAML pour ajouter une couche supplémentaire de sécurité à leur organisation.
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -10,15 +10,20 @@ topics:
   - Organizations
   - Teams
 shortTitle: Enable & test SAML SSO
+ms.openlocfilehash: cbdf8c92ca61f9836876c34ae9dd3b9be0cd7ee4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184058'
 ---
+## À propos de l’authentification unique SAML
 
-## About SAML single sign-on
-
-You can enable SAML SSO in your organization without requiring all members to use it. Enabling but not enforcing SAML SSO in your organization can help smooth your organization's SAML SSO adoption. Once a majority of your organization's members use SAML SSO, you can enforce it within your organization.
+Vous pouvez activer l’authentification unique SAML dans votre organisation sans exiger de tous les membres qu’ils l’utilisent. Activer sans l’appliquer l’authentification unique SAML dans votre organisation peut faciliter l’adoption de l’authentification unique SAML au sein de votre organisation. Une fois qu’une majorité des membres de votre organisation utilisent l’authentification unique SAML, vous pouvez l’appliquer au sein de votre organisation.
 
 {% data reusables.saml.ghec-only %}
 
-If you enable but don't enforce SAML SSO, organization members who choose not to use SAML SSO can still be members of the organization. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
+Si vous activez sans l’appliquer l’authentification unique SAML, les membres de l’organisation qui choisissent de ne pas l’utiliser peuvent rester membres de l’organisation. Pour plus d’informations sur l’application de l’authentification unique SAML, consultez « [Application de l’authentification unique SAML pour votre organisation](/articles/enforcing-saml-single-sign-on-for-your-organization) ».
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -26,45 +31,43 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 
 {% data reusables.apps.reauthorize-apps-saml %}
 
-## Enabling and testing SAML single sign-on for your organization
+## Activation et test de l’authentification unique SAML pour votre organisation
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
+Avant d’appliquer l’authentification unique SAML dans votre organisation, assurez-vous que vous avez préparé celle-ci. Pour plus d’informations, consultez « [Préparation à l’application de l’authentification unique SAML dans votre organisation](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization) ».
 
-For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+Pour plus d’informations sur les fournisseurs d’identité (IDP) que {% data variables.product.company_short %} prend en charge pour l’authentification unique SAML, consultez « [Connexion de votre fournisseur d’identité à votre organisation](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization) ».
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-5. Under "SAML single sign-on", select **Enable SAML authentication**.
-![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+5. Sous « Authentification unique SAML », sélectionnez **Activer l’authentification SAML**.
+![Case à cocher pour activer l’authentification unique SAML](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
 
-  **Note:** After enabling SAML SSO, you can download your single sign-on recovery codes so that you can access your organization even if your IdP is unavailable. For more information, see "[Downloading your organization's SAML single sign-on recovery codes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)."
+  **Remarque :** après avoir activé l’authentification unique SAML, vous pouvez télécharger vos codes de récupération d’authentification unique afin de pouvoir accéder à votre organisation même si votre fournisseur d’identité est indisponible. Pour plus d’informations, consultez « [Téléchargement des codes de récupération d’authentification unique SAML de votre organisation](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) ».
 
   {% endnote %}
 
-6. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url.png)
-7. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
-8. Under "Public Certificate," paste a certificate to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
-9. Click {% octicon "pencil" aria-label="The edit icon" %} and then in the Signature Method and Digest Method drop-downs, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
-10. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+6. Dans le champ « URL d’authentification », tapez le point de terminaison HTTP de votre fournisseur d’identité pour les demandes d’authentification unique. Cette valeur est disponible dans votre configuration de fournisseur d’identité.
+![Champ de l’URL vers laquelle les membres seront transférés au moment de la connexion](/assets/images/help/saml/saml_sign_on_url.png)
+7. Dans le champ « Émetteur », tapez éventuellement le nom de votre émetteur SAML. Cela vérifie l’authenticité des messages envoyés.
+![Champ du nom de l’émetteur SAML](/assets/images/help/saml/saml_issuer.png)
+8. Sous « Certificat public », collez un certificat pour vérifier les réponses SAML.
+![Champ du certificat public de votre fournisseur d’identité](/assets/images/help/saml/saml_public_certificate.png)
+9. Cliquez sur {% octicon "pencil" aria-label="The edit icon" %}, puis, dans les listes déroulantes Méthode de signature et Méthode Digest, choisissez l’algorithme de hachage que votre émetteur SAML utilise pour vérifier l’intégrité des demandes.
+![Listes déroulantes pour les algorithmes de hachage des méthodes de signature et Digest utilisés par votre émetteur SAML](/assets/images/help/saml/saml_hashing_method.png)
+10. Avant d’activer l’authentification unique SAML pour votre organisation, cliquez sur **Tester la configuration SAML** pour vous assurer que les informations que vous avez entrées sont correctes. ![Bouton pour tester la configuration SAML avant de l’appliquer](/assets/images/help/saml/saml_test.png)
 
   {% tip %}
 
-  **Tip:** {% data reusables.saml.testing-saml-sso %}
+  **Conseil :** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
-11. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
-![Checkbox to require SAML SSO for your organization ](/assets/images/help/saml/saml_require_saml_sso.png)
-12. Click **Save**.
-![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
+11. Pour appliquer l’authentification unique SAML et supprimer tous les membres de l’organisation qui n’ont pas été authentifiés via votre fournisseur d’identité, sélectionnez **Exiger l’authentification SSO SAML pour tous les membres de l’organisation _nom de l’organisation_**. Pour plus d’informations sur l’application de l’authentification unique SAML, consultez « [Application de l’authentification unique SAML pour votre organisation](/articles/enforcing-saml-single-sign-on-for-your-organization) ».
+![Case à cocher pour exiger l’authentification unique SAML pour votre organisation ](/assets/images/help/saml/saml_require_saml_sso.png)
+12. Cliquez sur **Enregistrer**.
+![Bouton pour enregistrer les paramètres de SSO SAML](/assets/images/help/saml/saml_save.png)
 
-## Further reading
+## Pour aller plus loin
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
+- « [À propos de la gestion des identités et des accès avec l’authentification unique SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) »
+- « [Référence de configuration SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference) »

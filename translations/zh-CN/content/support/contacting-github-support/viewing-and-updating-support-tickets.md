@@ -8,12 +8,12 @@ versions:
   ghes: '*'
 topics:
   - Support
-ms.openlocfilehash: 35c7b28232c0d11170ea9585480b2cfb1785ebd0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147051978'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193263'
 ---
 ## 关于工单管理
 
@@ -27,7 +27,12 @@ ms.locfileid: '147051978'
 
 {% data reusables.support.view-open-tickets %}
 1. 在文本框下，可以阅读评论历史记录。 最近的回复位于顶部。
-![支持工单评论历史记录的屏幕截图，最近的回复位于顶部。](/assets/images/help/support/support-recent-response.png)
+
+   ![支持票证评论历史记录的屏幕截图，最近的回复位于顶部](/assets/images/help/support/support-recent-response.png)
+
+1. （可选）若要翻译票证评论，请单击 {% octicon "globe" aria-label="The globe icon" %}，然后从下拉菜单中选择首选语言。 可以将支持票证翻译为中文（简体）、法语、德语、日语、葡萄牙语（巴西）或西班牙语。
+
+   ![支持票证的屏幕截图，其中下拉菜单突出显示了翻译选项](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 

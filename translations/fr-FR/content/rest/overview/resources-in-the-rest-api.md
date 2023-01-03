@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190398'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192848'
 ---
 {% ifversion api-date-versioning %}
 ## Version de l'API
@@ -273,50 +273,7 @@ Vous pouvez ensuite développer ces modèles à l’aide de la gemme [uri_templa
 
 ## Pagination
 
-Les demandes qui retournent plusieurs éléments sont paginés à 30 éléments par défaut.  Vous pouvez spécifier d’autres pages avec le paramètre `page`. Pour certaines ressources, vous avez également la possibilité de définir une taille de page personnalisée (100 maximum) avec le paramètre `per_page`.
-Notez que, pour des raisons techniques, tous les points de terminaison ne respectent pas le paramètre `per_page` (cf. les [événements](/rest/reference/activity#events) par exemple).
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-Notez que la numérotation de page commence à 1 et que, si le paramètre `page` est omis, la première page est retournée.
-
-Certains points de terminaison utilisent la pagination basée sur le curseur. Un curseur est une chaîne qui pointe vers un emplacement dans le jeu de résultats.
-Avec la pagination basée sur le curseur, il n’existe aucun concept fixe de « pages » dans le jeu de résultats. Vous ne pouvez donc pas accéder à une page spécifique.
-Il est en revanche possible de parcourir les résultats à l’aide des paramètres `before` et `after`.
-
-Pour plus d’informations sur la pagination, consultez notre guide sur [Parcours avec la pagination][pagination-guide].
-
-### En-tête de lien
-
-{% note %}
-
-**Remarque :** Il est important de former des appels comportant des valeurs d’en-tête Link au lieu de construire vos propres URL.
-
-{% endnote %}
-
-[L’en-tête Link](https://datatracker.ietf.org/doc/html/rfc5988) inclut des informations de pagination. Par exemple :
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_L’exemple inclut un saut de ligne pour la lisibilité._
-
-Si le point de terminaison utilise la pagination basée sur le curseur, l’en-tête Link est le suivant :
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-Cet en-tête de réponse `Link` contient une ou plusieurs relations de lien [Hypermedia](/rest#hypermedia), dont certaines peuvent nécessiter l’expansion en tant que [modèles d’URI](https://datatracker.ietf.org/doc/html/rfc6570).
-
-Les valeurs possibles de `rel` sont les suivantes :
-
-Nom | Description
------------|-----------|
-`next` |Relation de lien de la page de résultats suivante.
-`last` |Relation de lien de la dernière page de résultats.
-`first` |Relation de lien de la première page de résultats.
-`prev` |Relation de lien de la page de résultats précédente.
+Lorsqu’une réponse de l’API REST inclut de nombreux résultats, {% data variables.product.company_short %} les pagine et en retourne une partie. Vous pouvez utiliser l’en-tête de lien de la réponse pour demander des pages de données supplémentaires. Si un point de terminaison prend en charge le paramètre de requête `per_page`, vous pouvez contrôler le nombre de résultats retournés sur une page. Pour plus d’informations sur la pagination, consultez « [Utilisation de la pagination dans l’API REST](/rest/guides/using-pagination-in-the-rest-api) ».
 
 ## Délais d'attente
 
@@ -672,5 +629,3 @@ Si aucun en-tête `Time-Zone` n’est spécifié lorsque vous effectuez un appel
 ### Application de la valeur par défaut UTC sans autres informations de fuseau horaire
 
 Si la procédure ci-dessus ne produit aucune information, c’est le fuseau horaire UTC qui est utilisé pour créer la validation Git.
-
-[pagination-guide]: /guides/traversing-with-pagination

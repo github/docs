@@ -1,6 +1,6 @@
 ---
-title: Pricing plans for GitHub Marketplace apps
-intro: 'Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing.'
+title: GitHub Marketplace 앱에 대한 요금제
+intro: '가격 책정 플랜을 사용하면 앱에 다양한 수준의 서비스 또는 리소스를 제공할 수 있습니다. {% data variables.product.prodname_marketplace %} 목록에서 최대 10개의 가격 책정 플랜을 제공할 수 있습니다.'
 redirect_from:
   - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
@@ -11,49 +11,55 @@ versions:
 topics:
   - Marketplace
 shortTitle: Pricing plans for apps
+ms.openlocfilehash: 498bb9085ece97aba562d2c97ba1488e9b521d05
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098590'
 ---
-{% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+{% data variables.product.prodname_marketplace %} 가격 책정 플랜은 무료, 정액제 또는 단위당 요금제일 수 있습니다. 요금은 미국 달러로 설정, 표시 및 처리됩니다. 유료 플랜은 확인된 게시자가 게시한 앱으로 제한됩니다. 확인된 게시자가 되는 방법에 대한 자세한 내용은 “[조직에 대한 게시자 확인 신청](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”을 참조하세요.
 
-Customers purchase your app using a payment method attached to their account on {% data variables.location.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. You don't have to write code to perform billing transactions, but you will have to handle events from the {% data variables.product.prodname_marketplace %} API. For more information, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+고객은 {% 데이터 variables.product.prodname_dotcom_the_website %}을(를) 떠나지 않고도 {% 데이터 variables.location.product_location %}에서 계정에 연결된 결제 방법을 사용하여 앱을 구매합니다. 청구 트랜잭션을 수행하기 위해 코드를 작성할 필요는 없지만 {% data variables.product.prodname_marketplace %} API의 이벤트를 처리해야 합니다. 자세한 내용은 “[앱에서 {% data variables.product.prodname_marketplace %} API 사용](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”을 참조하세요.
 
-If the app you're listing on {% data variables.product.prodname_marketplace %} has multiple plan options, you can set up corresponding pricing plans. For example, if your app has two plan options, an open source plan and a pro plan, you can set up a free pricing plan for your open source plan and a flat pricing plan for your pro plan. Each {% data variables.product.prodname_marketplace %} listing must have an annual and a monthly price for every plan that's listed.
+{% data variables.product.prodname_marketplace %}에 나열하는 앱에 여러 플랜 옵션이 있는 경우 해당 가격 책정 플랜을 설정할 수 있습니다. 예를 들어 앱에 오픈 소스 플랜과 프로 플랜이라는 두 가지 플랜 옵션이 있는 경우 오픈 소스 플랜에는 무료 가격 책정 플랜을, 프로 플랜에는 정액제 가격 책정 플랜을 설정할 수 있습니다. 각 {% data variables.product.prodname_marketplace %} 목록에는 나열된 모든 플랜의 연간 및 월별 가격이 있어야 합니다.
 
-For more information on how to create a pricing plan, see "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+요금제 생성 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_marketplace %} 목록의 가격 책정 플랜 설정](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”을 참조하세요.
 
 {% data reusables.marketplace.free-plan-note %}
 
-## Types of pricing plans
+## 가격 책정 플랜 유형
 
-### Free pricing plans
+### 무료 가격 책정 플랜
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-Free plans are completely free for users. If you set up a free pricing plan, you cannot charge users that choose the free pricing plan for the use of your app. You can create both free and paid plans for your listing.
+무료 플랜은 사용자에게 완전히 무료입니다. 무료 가격 책정 플랜을 설정한 경우에는 앱 사용에 무료 가격 책정 플랜을 선택하는 사용자에게 요금을 부과할 수 없습니다. 목록에 대해 무료 및 유료 플랜을 만들 수 있습니다.
 
-All apps need to handle events for new purchases and cancellations. Apps that only have free plans do not need to handle events for free trials, upgrades, and downgrades. For more information, see: "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+모든 앱은 새 구매 및 취소에 대한 이벤트를 처리해야 합니다. 무료 플랜만 있는 앱은 평가판, 업그레이드 및 다운그레이드에 대한 이벤트를 처리할 필요가 없습니다. 자세한 내용은 “[앱에서 {% data variables.product.prodname_marketplace %} API 사용](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”을 참조하세요.
 
-If you add a paid plan to an app that you've already listed in {% data variables.product.prodname_marketplace %} as a free service, you'll need to request verification for the app and go through financial onboarding.
+{% data variables.product.prodname_marketplace %}에 무료 서비스로 이미 나열된 앱에 유료 플랜을 추가하는 경우 앱에 대한 확인을 요청하고 재무 온보딩을 거쳐야 합니다.
 
-### Paid pricing plans
+### 유료 가격 책정 플랜
 
-There are two types of paid pricing plan:
+유료 가격 책정 플랜에는 다음 두 가지 유형이 있습니다.
 
-- Flat rate pricing plans charge a set fee on a monthly and yearly basis.
+- 정액제 가격 책정 플랜은 매월 및 매년 설정된 요금을 청구합니다.
 
-- Per-unit pricing plans charge a set fee on either a monthly or yearly basis for a unit that you specify. A "unit" can be anything you'd like (for example, a user, seat, or person).
+- 단위당 가격 책정 플랜은 사용자가 지정한 단위에 대해 매월 또는 매년 설정된 요금을 청구합니다. “단위”는 원하는 모든 항목이 될 수 있습니다(예: 사용자 또는 사람).
 
-You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
+평가판을 제공할 수도 있습니다. 이러한 평가판은 고객에게 OAuth 또는 GitHub 앱의 평가판을 14일 동안 무료로 제공합니다. Marketplace 가격 책정 플랜을 설정할 때 정액제 또는 단위별 가격 책정 플랜에 대한 평가판을 제공하는 옵션을 선택할 수 있습니다.
 
-## Free trials
+## 무료 평가판
 
-Customers can start a free trial for any paid plan on a Marketplace listing that includes free trials. However, customers cannot create more than one free trial per marketplace product.
+고객은 평가판이 포함된 Marketplace 목록에서 유료 플랜에 대해 평가판을 시작할 수 있습니다. 그러나 고객은 마켓플레이스 제품당 평가판을 하나 이상 만들 수 없습니다.
 
-Free trials have a fixed length of 14 days. Customers are notified 4 days before the end of their trial period (on day 11 of the free trial) that their plan will be upgraded. At the end of a free trial, customers will be auto-enrolled into the plan they are trialing if they do not cancel.
+평가판을 사용하도록 고정된 기간은 14일입니다. 고객은 평가 기간이 끝나기 4일 전에(평가판 사용 11일차) 플랜이 업그레이드된다는 알림을 받습니다. 평가판 사용이 종료될 때 취소하지 않을 경우 고객은 사용한 평가판 플랜에 자동으로 등록됩니다.
 
-For more information, see: "[Handling new purchases and free trials](/developers/github-marketplace/handling-new-purchases-and-free-trials/)."
+자세한 내용은 “[새 구매 및 평가판 처리](/developers/github-marketplace/handling-new-purchases-and-free-trials/)”를 참조하세요.
 
 {% note %}
 
-**Note:** GitHub expects you to delete any private customer data within 30 days of a cancelled trial, beginning at the receipt of the cancellation event.
+**참고:** GitHub는 취소 이벤트를 받은 시점부터 취소된 평가판의 30일 이내에 개인 고객 데이터를 삭제할 것으로 기대합니다.
 
 {% endnote %}

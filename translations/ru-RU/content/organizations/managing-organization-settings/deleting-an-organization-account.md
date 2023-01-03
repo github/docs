@@ -1,6 +1,6 @@
 ---
-title: Deleting an organization account
-intro: 'When you delete an organization, all repositories, forks of private repositories, wikis, issues, pull requests, and Project or Organization Pages are deleted as well. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+title: Удаление учетной записи организации
+intro: 'При удалении организации удаляются все репозитории, вилки частных репозиториев, вики-сайты, проблемы, запросы на вытягивание и страницы проекта и организации. {% ifversion fpt or ghec %}Выставление счетов будет завершено, и через 90 дней название организации станет доступно для использования в новой учетной записи пользователя или организации.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -13,32 +13,33 @@ topics:
   - Organizations
   - Teams
 shortTitle: Delete organization
+ms.openlocfilehash: 3d01844cca5247bf9f2704832632bbbe814150ed
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098527'
 ---
+{% ifversion fpt or ghec %} {% tip %}
 
-{% ifversion fpt or ghec %}
-{% tip %}
-
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Совет.** Если вы хотите отменить платную подписку, вы можете [понизить уровень организации до {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) вместо удаления организации и ее содержимого.
 
 {% endtip %}
 
 {% endif %}
 
-## 1. Back up your organization content
+## 1. Резервное копирование содержимого организации
 
-{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+{% ifversion not ghes %} После удаления организации {% data variables.product.company_short %} **не может восстановить ваше содержимое**. Таким образом, до{% else %}До{% endif %} удаления организации следует убедиться, что у вас есть копия всех репозиториев, вики-сайтов, проблем и панелей проектов из учетной записи.
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**Примечание:** При необходимости администратор сайта для {% данных variables.location.product_location %} может частично восстановить удаленную организацию. Дополнительные сведения см. в статье [Восстановление удаленной организации](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## 2. Delete the organization
+## 2. Удаление организации
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. Near the bottom of the organization's settings page, click **Delete this Organization**.
-   ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. В нижней части страницы параметров организации нажмите на кнопку **Удалить эту организацию**.
+   ![Кнопка «Удалить эту организацию»](/assets/images/help/settings/settings-organization-delete.png)

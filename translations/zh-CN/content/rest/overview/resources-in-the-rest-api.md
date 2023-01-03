@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
+ms.openlocfilehash: c7928ce90b887d6fa3bd5342fc1633b3e30983f1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190397'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192847'
 ---
 {% ifversion api-date-versioning %}
 ## API 版本
@@ -273,50 +273,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## 分页
 
-默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  可以使用 `page` 参数指定更多页面。 对于某些资源，还可以使用 `per_page` 参数设置自定义页面大小，每页最多 100 项。
-请注意，由于技术原因，并非所有终结点都遵守 `per_page` 参数，例如，请参阅[事件](/rest/reference/activity#events)。
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-请注意，页码从 1 开始，省略 `page` 参数将返回第一页。
-
-有些端点使用基于光标的分页。 光标是指向结果集中位置的字符串。
-使用基于光标的分页时，结果集中没有固定的“页”概念，因此无法导航到特定页面。
-相反，可以使用 `before` 或 `after` 参数遍历结果。
-
-有关分页的详细信息，请查看有关[使用分页遍历][pagination-guide]的指南。
-
-### 链接标头
-
-{% note %}
-
-注意：请务必使用链接标头值构成调用，而不是构建自己的 URL。
-
-{% endnote %}
-
-[链接标头](https://datatracker.ietf.org/doc/html/rfc5988)包括分页信息。 例如：
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-该示例包括换行符，以提高可读性。
-
-或者，如果端点使用基于光标的分页：
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-此 `Link` 响应头包含一个或多个[超媒体](/rest#hypermedia)链接关系，其中一些关系可能需要扩展为 [URI 模板](https://datatracker.ietf.org/doc/html/rfc6570)。
-
-可能的 `rel` 值为：
-
-名称 | 说明
------------|-----------|
-`next` |结果下一页的链接关系
-`last` |结果最后一页的链接关系。
-`first` |结果第一页的链接关系。
-`prev` |结果前一页的链接关系。
+当 REST API 的响应包含许多结果时，{% data variables.product.company_short %} 将对结果进行分页并返回部分结果。 可以使用响应中的链接标头来请求其他数据页。 如果终结点支持 `per_page` 查询参数，则可以控制在页面上返回的结果数。 有关分页的详细信息，请参阅“[在 REST API 中使用分页](/rest/guides/using-pagination-in-the-rest-api)”。
 
 ## 超时
 
@@ -672,5 +629,3 @@ $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_ur
 ### 在没有其他时区信息的情况下默认使用 UTC
 
 如果上述步骤未产生任何信息，我们将使用 UTC 作为时区来创建 git 提交。
-
-[pagination-guide]: /guides/traversing-with-pagination

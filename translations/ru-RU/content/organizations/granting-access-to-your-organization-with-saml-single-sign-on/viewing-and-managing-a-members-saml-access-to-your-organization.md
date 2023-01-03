@@ -1,6 +1,6 @@
 ---
-title: Viewing and managing a member's SAML access to your organization
-intro: 'You can view and revoke an organization member''s linked identity, active sessions, and authorized credentials.'
+title: Просмотр доступа SAML участника к вашей организации и управление им
+intro: 'Вы можете просматривать и отзывать связанные удостоверения участников организации, активные сеансы и авторизованные учетные данные.'
 permissions: Organization owners can view and manage a member's SAML access to an organization.
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
@@ -12,65 +12,50 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage SAML access
+ms.openlocfilehash: f67a832170448db6ae6147345d5479db2591ce11
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099148'
 ---
+## Сведения о доступе SAML к организации
 
-## About SAML access to your organization
+При включении единого входа SAML для организации каждый участник организации может связать свое внешнее удостоверение с поставщиком удостоверений (IdP) с существующей учетной записью на {% данных variables.location.product_location %}. Чтобы получить доступ к ресурсам организации в {% data variables.product.product_name %}, в браузере у участника должен быть активный сеанс SAML. Чтобы получить доступ к ресурсам организации с помощью API или Git, участник должен использовать ключ {% данных variables.product.pat_generic %} или ключ SSH, авторизованный участником для использования с вашей организацией.
 
-When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.location.product_location %}. To access your organization's resources on {% data variables.product.product_name %}, the member must have an active SAML session in their browser. To access your organization's resources using the API or Git, the member must use a {% data variables.product.pat_generic %} or SSH key that the member has authorized for use with your organization.
+Вы можете просматривать и отзывать связанные удостоверения каждого участника, активные сеансы и авторизованные учетные данные на одной странице.
 
-You can view and revoke each member's linked identity, active sessions, and authorized credentials on the same page.
-
-## Viewing and revoking a linked identity
+## Просмотр и отзыв связанного удостоверения
 
 {% data reusables.saml.about-linked-identities %} 
 
-When available, the entry will include SCIM data. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+Если эта запись доступна, она будет включать данные SCIM. Дополнительную информацию см. в разделе [Сведения о SCIM для организаций](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
 
 {% warning %}
 
-**Warning:** For organizations using SCIM:
-- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
-- An admin must revoke a linked identity through the identity provider.
-- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's documentation.
+**Предупреждение.** Для организаций, использующих SCIM:
+- Отзыв связанного удостоверения пользователя для {% data variables.product.product_name %} также приведет к удалению метаданных SAML и SCIM. В результате поставщик удостоверений не сможет синхронизировать или отозвать связанное удостоверение пользователя.
+- Администратор должен отозвать связанное удостоверение через поставщика удостоверений.
+- Чтобы отозвать связанное удостоверение и связать другую учетную запись с помощью поставщика удостоверений, администратор может удалить и повторно назначить пользователя приложению {% data variables.product.product_name %}. Дополнительные сведения см. в документации поставщика удостоверений.
 
 {% endwarning %}
 
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.saml.click-person-revoke-identity %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-sso-identity %}
-{% data reusables.saml.revoke-sso-identity %}
-{% data reusables.saml.confirm-revoke-identity %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.saml.click-person-revoke-identity %} {% data reusables.saml.saml-identity-linked %} {% data reusables.saml.view-sso-identity %} {% data reusables.saml.revoke-sso-identity %} {% data reusables.saml.confirm-revoke-identity %}
 
-## Viewing and revoking an active SAML session
+## Просмотр и отзыв активного сеанса SAML
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.saml.click-person-revoke-session %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-saml-sessions %}
-{% data reusables.saml.revoke-saml-session %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.saml.click-person-revoke-session %} {% data reusables.saml.saml-identity-linked %} {% data reusables.saml.view-saml-sessions %} {% data reusables.saml.revoke-saml-session %}
 
-## Viewing and revoking authorized credentials
+## Просмотр и отзыв авторизованных учетных данных
 
 {% data reusables.saml.about-authorized-credentials %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.saml.click-person-revoke-credentials %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-authorized-credentials %}
-{% data reusables.saml.revoke-authorized-credentials %}
-{% data reusables.saml.confirm-revoke-credentials %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.saml.click-person-revoke-credentials %} {% data reusables.saml.saml-identity-linked %} {% data reusables.saml.view-authorized-credentials %} {% data reusables.saml.revoke-authorized-credentials %} {% data reusables.saml.confirm-revoke-credentials %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
-- "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}
+- [Сведения об управлении удостоверениями и доступом с помощью единого входа SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on){% ifversion ghec %}
+- [Просмотр сведений о SAML-доступе пользователей к предприятию и управление ими](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise){% endif %}

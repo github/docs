@@ -1,6 +1,6 @@
 ---
-title: Customizing your repository's social media preview
-intro: You can customize the image displayed on social media platforms when someone links to your repository.
+title: 리포지토리의 소셜 미디어 미리 보기 사용자 지정
+intro: 다른 사용자가 리포지토리에 연결할 때 소셜 미디어 플랫폼에 표시되는 이미지를 사용자 지정할 수 있습니다.
 redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
   - /github/administering-a-repository/customizing-your-repositorys-social-media-preview
@@ -13,36 +13,41 @@ versions:
 topics:
   - Repositories
 shortTitle: Social media preview
+ms.openlocfilehash: a778b0fd95533a15806cc0034769fbf0feb3b217
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886744'
 ---
-Until you add an image, repository links expand to show basic information about the repository and the owner's avatar. Adding an image to your repository can help identify your project across various social platforms.
+이미지를 추가할 때까지 리포지토리 링크가 확장되어 리포지토리 및 소유자의 아바타에 대한 기본 정보를 표시합니다. 리포지토리에 이미지를 추가하면 다양한 소셜 플랫폼에서 프로젝트를 식별하는 데 도움이 될 수 있습니다.
 
-## Adding an image to customize the social media preview of your repository
+## 리포지토리의 소셜 미디어 미리 보기를 사용자 지정하는 이미지 추가
 
-{% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
-
-{% tip %}
-
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
-
-{% endtip %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under "Social preview," click **Edit**
-    - To add a new image, click **Upload an image...**.
-    - To remove an image, click **Remove image**
-
-    ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
-
-## About transparency
-
-We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case. 
-
-When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+{% ifversion not ghae %} 프라이빗 리포지토리에 이미지를 업로드할 수 있지만 퍼블릭 리포지토리에서만 이미지를 공유할 수 있습니다.{% endif %}
 
 {% tip %}
 
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
+**팁:** 이미지는 크기가 1MB 미만의 PNG, JPG 또는 GIF 파일이어야 합니다. 최상의 품질 렌더링을 위해 이미지를 640 x 320 픽셀로 유지하는 것이 좋습니다.
+
 {% endtip %}
 
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. “소셜 미리 보기”에서 **편집** 을 클릭합니다.
+    - 새 이미지를 추가하려면 **이미지 업로드...** 를 클릭합니다.
+    - 이미지를 제거하려면 **이미지 제거** 를 클릭합니다.
+
+    ![소셜 미리 보기 드롭다운](/assets/images/help/repository/social-preview.png)
+
+## 투명도 정보
+
+투명한 PNG 이미지를 지원합니다. 많은 통신 플랫폼에서 어두운 모드를 지원하므로 투명한 소셜 미리 보기를 사용하는 것이 도움이 될 수 있습니다. 아래 투명 이미지는 어두운 배경에서 허용됩니다. 그러나 항상 그렇지 않을 수도 있습니다. 
+
+투명한 이미지를 사용하는 경우 투명도를 지원하지 않는 다양한 색 배경 또는 플랫폼에서 어떻게 보이는지 유의하세요.
+
+{% tip %}
+
+**팁:** 확실하지 않은 경우 배경이 단색 이미지를 사용하는 것이 좋습니다.
+{% endtip %}
+
+![소셜 미리 보기 투명성](/assets/images/help/repository/social-preview-transparency.png)

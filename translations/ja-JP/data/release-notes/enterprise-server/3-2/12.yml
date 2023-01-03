@@ -1,0 +1,24 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティ バージョンに更新されました。 
+  bugs:
+    - 高可用性のノードをアップグレード パッケージとペアでアップグレードすると、Elasticsearch が不整合な状態になる場合があります。
+    - 一部のクラスター トポロジでは、コマンド ライン ユーティリティ `ghe-spokesctl` と `ghe-btop` の実行に失敗する場合があります。
+    - "`elasticsearch-upgrade` サービスが並行して複数回実行されるため、パッケージのアップグレード時に Elasticsearch インデックスが複製される可能性があります。" 
+    - "ユーザー アカウントを組織に変換したとき、ユーザー アカウントが {% data variables.product.prodname_ghe_server %} Enterprise アカウントの所有者だった場合、変換された組織が Enterprise 所有者一覧に誤って表示されます。" 
+    - Enterprise Administration REST API を使用して権限借用 OAuth トークンを作成すると、OAuth アプリケーション ID に一致する統合が既に存在する場合、正しく機能しませんでした。 
+  changes:
+    - 構成適用の実行を停止する構成エラーが、構成ログに加えてターミナルに出力するようになりました。 
+    - Memcached で許可される最大値より大きい値をキャッシュしようとすると、エラーが発生しますが、キーは報告されませんでした。
+    - "{% data variables.product.prodname_codeql %} スターター ワークフローで、{% data variables.product.prodname_actions %} の既定のトークン アクセス許可が使われていない場合でも、エラーが発生しなくなりました。" 
+    - "インスタンスで {% data variables.product.prodname_GH_advanced_security %} 機能が有効になっている場合、リポジトリ コントリビューションのバッチを処理すると、バックグラウンド ジョブのパフォーマンスが向上します。"
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} インスタンスをセットアップしたばかりでユーザーがいない場合、攻撃者が最初の管理者ユーザーを作成できました。"
+    - カスタムのファイアウォール規則は、アップグレード プロセス中に削除されます。
+    - "[Web インターフェイスからアップロードされた](https://github.com/blog/2105-upload-files-to-your-repositories) Git LFS 追跡ファイルが誤ってリポジトリに直接追加されます。"
+    - issue に同じリポジトリ内の BLOB への固定リンクが含まれ、その BLOB のファイル パスが 255 文字を超える場合、その issue をクローズできません。
+    - "{% data variables.product.prodname_github_connect %} で [Users can search GitHub.com]\\(ユーザーが GitHub.com を検索できる\\) が有効になっている場合、プライベートおよび内部リポジトリの issue は {% data variables.product.prodname_dotcom_the_website %} の検索結果に含まれません。"
+    - "{% data variables.product.prodname_registry %} npm レジストリが、メタデータ応答で時刻値を返さなくなります。これは、パフォーマンスの大幅な向上を可能にするために行われました。メタデータ応答の一部として時刻値を返すために必要なすべてのデータを保持し続け、既存のパフォーマンスの問題を解決したら、将来的にこの値を返すことを再開します。"
+    - pre-receive フックの処理に固有のリソース制限により、一部の pre-receive フックが失敗する場合があります。
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

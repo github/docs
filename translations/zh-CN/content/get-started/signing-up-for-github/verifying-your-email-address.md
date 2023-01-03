@@ -1,6 +1,6 @@
 ---
-title: Verifying your email address
-intro: 'Verifying your primary email address ensures strengthened security, allows {% data variables.product.prodname_dotcom %} staff to better assist you if you forget your password, and gives you access to more features on {% data variables.product.prodname_dotcom %}.'
+title: 验证电子邮件地址
+intro: '验证主电子邮件地址可确保增强的安全性，以便 {% data variables.product.prodname_dotcom %} 员工在您忘记密码时更好地协助您，并为您提供 {% data variables.product.prodname_dotcom %} 上更多功能的访问权限。'
 redirect_from:
   - /articles/troubleshooting-email-verification
   - /articles/setting-up-email-verification
@@ -13,59 +13,64 @@ versions:
 topics:
   - Accounts
 shortTitle: Verify your email address
+ms.openlocfilehash: 75c455907ab0cc89f1ba8b30d6fa1d37f2d9798f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145109496'
 ---
-## About email verification
+## 关于电子邮件通知
 
-You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
+您可在注册新帐户后或添加新电子邮件地址时验证您的电子邮件地址。 如果电子邮件地址无法送达或退回，它将无法进行验证。
 
-If you do not verify your email address, you will not be able to:
-  - Create or fork repositories
-  - Create issues or pull requests
-  - Comment on issues, pull requests, or commits
-  - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate {% data variables.product.pat_generic %}s
-  - Receive email notifications
-  - Star repositories
-  - Create or update project boards, including adding cards
-  - Create or update gists
-  - Create or use {% data variables.product.prodname_actions %}
-  - Sponsor developers with {% data variables.product.prodname_sponsors %}
+如果没有验证电子邮件地址，您将无法：
+  - 创建或复刻仓库
+  - 创建议题或拉取请求
+  - 对议题、拉取请求或提交发表评论
+  - 授权 {% data variables.product.prodname_oauth_app %} 应用程序
+  - 生成个人访问令牌
+  - 接收电子邮件通知
+  - 对仓库加星标
+  - 创建或更新项目板，包括添加卡片
+  - 创建或更新 gist
+  - 创建或使用 {% data variables.product.prodname_actions %}
+  - 通过 {% data variables.product.prodname_sponsors %} 赞助开发者
 
 {% warning %}
 
-**Warnings**:
+**警告**：
 
 - {% data reusables.user-settings.no-verification-disposable-emails %}
 - {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
-## Verifying your email address
+## 验证电子邮件地址
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-1. Under your email address, click **Resend verification email**.
-  ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
-  ![Banner confirming that your email was verified](/assets/images/help/settings/email-verification-confirmation-banner.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+1. 在电子邮件地址下，单击“重新发送验证电子邮件”。
+  ![重新发送验证电子邮件链接](/assets/images/help/settings/email-verify-button.png)
+4. {% data variables.product.prodname_dotcom %} 将向您发送一封含有链接的电子邮件。 单击该链接后，您将转到 {% data variables.product.prodname_dotcom %} 仪表板并看到确认横幅。
+  ![确认电子邮件已验证的横幅](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
-## Troubleshooting email verification
+## 电子邮件验证故障排除
 
-### Unable to send verification email
+### 无法发送验证电子邮件
 
 {% data reusables.user-settings.no-verification-disposable-emails %}
 
-### Error page after clicking verification link
+### 单击验证链接后的错误页面
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+验证链接将在 24 小时后过期。 如果您没有在 24 小时内验证电子邮件，则可以请求其他电子邮件验证链接。 有关详细信息，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
+如果您在 24 小时内单击了确认电子邮件中的链接并被定向到错误页面，则应确保您已登录到 {% data variables.product.product_location %} 上正确的帐户。
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
-2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
-4. Click on the verification link in the email we sent you.
+1. 您在 {% data variables.product.product_location %} 上的个人帐户的 {% data variables.product.signout_link %}。
+2. 退出并重新启动浏览器。
+3. 您在 {% data variables.product.product_location %} 上的个人帐户的 {% data variables.product.signin_link %}。
+4. 单击我们发送给您的电子邮件中的验证链接。
 
-## Further reading
+## 延伸阅读
 
-- "[Changing your primary email address](/articles/changing-your-primary-email-address)"
+- [更改主电子邮件地址](/articles/changing-your-primary-email-address)

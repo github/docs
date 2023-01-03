@@ -1,18 +1,18 @@
 ---
 title: Permitir que tu codespace acceda a una imagen de registro privada
-intro: 'Puedes utilizar secretos para permitir que los {% data variables.product.prodname_github_codespaces %} accedan a un registro de imagen privada'
+intro: Puedes utilizar secretos para permitir que los {% data variables.product.prodname_github_codespaces %} accedan a un registro de imagen privada
 versions:
   fpt: '*'
   ghec: '*'
 topics:
-  - Codespaces
+- Codespaces
 shortTitle: Private image registry
 ms.openlocfilehash: c11cfe0179856caf17f30ac32830ee1485defa3c
 ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159209'
+ms.locfileid: "148159209"
 ---
 ## Acerca de los registros de imagen y {% data variables.product.prodname_github_codespaces %}
 

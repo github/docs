@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Jekyll build errors for GitHub Pages sites
-intro: 'You can use Jekyll build error messages to troubleshoot problems with your {% data variables.product.prodname_pages %} site.'
+title: GitHub 페이지 사이트에 대한 Jekyll 빌드 오류 문제 해결
+intro: 'Jekyll 빌드 오류 메시지를 사용하여 {% data variables.product.prodname_pages %} 사이트의 문제를 해결할 수 있습니다.'
 redirect_from:
   - /articles/page-build-failed-missing-docs-folder
   - /articles/page-build-failed-invalid-submodule
@@ -34,160 +34,165 @@ versions:
 topics:
   - Pages
 shortTitle: Troubleshoot Jekyll errors
+ms.openlocfilehash: 224f626df144ad249a799767984118778202e7b4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883467'
 ---
+## 빌드 오류 문제 해결
 
-## Troubleshooting build errors
+Jekyll이 로컬로 또는 {% data variables.product.product_name %}에서 {% data variables.product.prodname_pages %} 사이트를 빌드하는 동안 오류가 발생하면 오류 메시지를 사용하여 문제를 해결할 수 있습니다. 오류 메시지 및 오류 메시지를 보는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_pages %} 사이트의 Jekyll 빌드 오류 정보](/articles/about-jekyll-build-errors-for-github-pages-sites)”를 참조하세요.
 
-If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+일반적인 오류 메시지를 받은 경우 일반적인 문제를 확인하세요.
+- 지원되지 않는 플러그 인을 사용하고 있습니다. 자세한 내용은 “[{% data variables.product.prodname_pages %} 및 Jekyll 정보](/articles/about-github-pages-and-jekyll#plugins)”를 참조하세요.{% ifversion fpt or ghec %}
+- 리포지토리가 리포지토리 크기 제한을 초과했습니다. 자세한 내용은 “[내 디스크 할당량이란?](/articles/what-is-my-disk-quota)”을 참조하세요.{% endif %}
+- *_config.yml* 파일에서 `source` 설정을 변경했습니다. {% ifversion pages-custom-workflow %}분기에서 사이트를 게시하는 경우 {% endif %}{% data variables.product.prodname_pages %}이(가) 빌드 프로세스 중에 이 설정을 재정의합니다.
+- 게시된 파일의 파일 이름에 지원되지 않는 콜론(`:`)이 있습니다.
 
-If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
-- Your repository has exceeded our repository size limits. For more information, see "[What is my disk quota?](/articles/what-is-my-disk-quota)"{% endif %}
-- You changed the `source` setting in your *_config.yml* file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
-- A filename in your published files contains a colon (`:`) which is not supported.
+특정 오류 메시지를 받은 경우 아래 오류 메시지에 대한 문제 해결 정보를 검토하세요.
 
-If you received a specific error message, review the troubleshooting information for the error message below.
+{% ifversion pages-custom-workflow %}오류를 수정한 후 사이트의 원본 분기로 변경 내용을 푸시하거나(분기에서 게시하는 경우) 사용자 지정 {% data variables.product.prodname_actions %} 워크플로를 트리거하여 다른 빌드를 트리거합니다({% data variables.product.prodname_actions %}을 사용하여 게시하는 경우).{% else %}오류를 수정한 후 사이트의 게시 원본에 변경 내용을 푸시하여 {% data variables.product.product_name %}에서 다른 빌드를 트리거합니다.{% endif %}
 
-{% ifversion pages-custom-workflow %}After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).{% else %}After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.{% endif %}
+## 구성 파일 오류
 
-## Config file error
+이 오류는 *_config.yml* 파일에 구문 오류가 포함되어 있으므로 사이트를 빌드하지 못했음을 의미합니다.
 
-This error means that your site failed to build because the *_config.yml* file contains syntax errors.
-
-To troubleshoot, make sure that your *_config.yml* file follows these rules:
+문제를 해결하려면 *_config.yml* 파일이 다음 규칙을 따르는지 확인합니다.
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-## Date is not a valid datetime
+## 날짜가 유효한 날짜/시간이 아님
 
-This error means that one of the pages on your site includes an invalid datetime.
+이 오류는 사이트의 페이지 중 하나에 잘못된 날짜/시간이 포함되어 있음을 의미합니다.
 
-To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see "[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)" in the Liquid documentation.
+문제를 해결하려면 오류 메시지의 파일과 파일의 레이아웃에서 날짜 관련 Liquid 필터에 대한 호출을 검색합니다. 날짜 관련 Liquid 필터에 전달된 모든 변수에 모든 경우에 값이 있고 `nil` 또는 `""`를 전달하지 않는지 확인합니다. 자세한 내용은 Liquid 설명서의 “[Liquid 필터](https://help.shopify.com/en/themes/liquid/filters)”를 참조하세요.
 
-## File does not exist in includes directory
+## 포함 디렉터리에 파일이 없음
 
-This error means that your code references a file that doesn't exist in your *_includes* directory.
+이 오류는 코드가 *_includes* 디렉터리에 없는 파일을 참조한다는 의미입니다.
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the *_includes* directory, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} 참조한 파일이 *_includes 디렉터리* 에 없는 경우 파일을 복사하거나 *_includes* 디렉터리로 이동합니다.
 
-## File is a symlink
+## 파일이 symlink임
 
-This error means that your code references a symlinked file that does not exist in the published files for your site.
+이 오류는 코드가 사이트의 게시된 파일에 존재하지 않는 가기 링크(symlink)된 파일을 참조함을 의미합니다.
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
+{% data reusables.pages.search-for-includes %} 참조한 파일이 symlink된 경우 파일을 복사하거나 *_includes* 디렉터리로 이동합니다.
 
-## File is not properly UTF-8 encoded
+## 파일이 UTF-8로 제대로 인코딩되지 않았습니다.
 
-This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
+이 오류는 컴퓨터가 이러한 기호를 예상하도록 지시하지 않고 `日本語`과 같은 라틴 문자가 아닌 문자를 사용했음을 의미합니다.
 
-To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
+문제를 해결하려면 *_config.yml* 파일에 다음 줄을 추가하여 UTF-8 인코딩을 강제 실행하세요.
 ```yaml
 encoding: UTF-8
 ```
 
-## Invalid highlighter language
+## 잘못된 강조 표시자 언어
 
-This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
+이 오류는 구성 파일에 [Rouge](https://github.com/jneen/rouge) 또는 [Pygments](http://pygments.org/) 이외의 구문 강조 표시자를 지정했음을 의미합니다.
 
-To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[About {% data variables.product.product_name %} and Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)."
+문제를 해결하려면 *_config.yml* 파일을 업데이트하여 [Rouge](https://github.com/jneen/rouge) 또는 [Pygments](http://pygments.org/)를 지정하세요. 자세한 내용은 “[{% data variables.product.product_name %} 및 Jekyll 정보](/articles/about-github-pages-and-jekyll#syntax-highlighting)”를 참조하세요.
 
-## Invalid post date
+## 잘못된 게시 날짜
 
-This error means that a post on your site contains an invalid date in the filename or YAML front matter.
+이 오류는 사이트의 게시물에 파일 이름 또는 YAML 전문에 잘못된 날짜가 포함되어 있음을 의미합니다.
 
-To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UTC and are actual calendar dates. To specify a time zone with an offset from UTC, use the format YYYY-MM-DD HH:MM:SS +/-TTTT, like `2014-04-18 11:30:00 +0800`.
+문제를 해결하려면 모든 날짜가 UTC의 YYYY-MM-DD HH:MM:SS 형식이고 실제 달력 날짜인지 확인합니다. UTC에서 오프셋이 있는 표준 시간대를 지정하려면 YYYY-MM-DD HH:MM:SS +/-TTTT 형식(예: `2014-04-18 11:30:00 +0800`)을 사용합니다.
 
-If you specify a date format in your *_config.yml* file, make sure the format is correct.
+*_config.yml* 파일에서 날짜 형식을 지정하는 경우 형식이 올바른지 확인합니다.
 
-## Invalid Sass or SCSS
+## 잘못된 Sass 또는 SCSS
 
-This error means your repository contains a Sass or SCSS file with invalid content.
+이 오류는 리포지토리에 잘못된 콘텐츠가 있는 Sass 또는 SCSS 파일이 포함되어 있음을 의미합니다.
 
-To troubleshoot, review the line number included in the error message for invalid Sass or SCSS. To help prevent future errors, install a Sass or SCSS linter for your favorite text editor.
+문제를 해결하려면 오류 메시지에 포함된 줄 번호에서 잘못된 Sass 또는 SCSS를 검토합니다. 향후 오류를 방지하려면 원하는 텍스트 편집기를 위해 Sass 또는 SCSS Linter를 설치합니다.
 
-## Invalid submodule
+## 잘못된 하위 모듈
 
-This error means that your repository includes a submodule that hasn't been properly initialized.
+이 오류는 리포지토리에 제대로 초기화되지 않은 하위 모듈이 포함되어 있음을 의미합니다.
 
 {% data reusables.pages.remove-submodule %}
 
-If do you want to use the submodule, make sure you use `https://` when referencing the submodule (not `http://`) and that the submodule is in a public repository.
+하위 모듈을 사용하려면 하위 모듈(`http://` 아님)을 참조할 때 `https://`를 사용하고 하위 모듈이 퍼블릭 리포지토리에 있는지 확인합니다.
 
-## Invalid YAML in data file
+## 데이터 파일의 잘못된 YAML
 
-This error means that one of more files in the *_data* folder contains invalid YAML.
+이 오류는 *_data* 폴더에 있는 하나 이상의 파일에 잘못된 YAML이 포함되어 있음을 의미합니다.
 
-To troubleshoot, make sure the YAML files in your *_data* folder follow these rules:
+문제를 해결하려면 *_data* 폴더의 YAML 파일이 다음 규칙을 따르는지 확인합니다.
 
 {% data reusables.pages.yaml-rules %}
 
 {% data reusables.pages.yaml-linter %}
 
-For more information about Jekyll data files, see "[Data Files](https://jekyllrb.com/docs/datafiles/)" in the Jekyll documentation.
+Jekyll 데이터 파일에 대한 자세한 내용은 Jekyll 설명서의 “[데이터 파일](https://jekyllrb.com/docs/datafiles/)”을 참조하세요.
 
-## Markdown errors
+## Markdown 오류
 
-This error means that your repository contains Markdown errors.
+이 오류는 리포지토리에 Markdown 오류가 포함되어 있음을 의미합니다.
 
-To troubleshoot, make sure you are using a supported Markdown processor. For more information, see "[Setting a Markdown processor for your {% data variables.product.prodname_pages %} site using Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)."
+문제를 해결하려면 지원되는 Markdown 프로세서를 사용하고 있는지 확인합니다. 자세한 내용은 “[Jekyll을 사용하여 {% data variables.product.prodname_pages %} 사이트에 대한 Markdown 프로세서 설정](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)”을 참조하세요.
 
-Then, make sure the file in the error message uses valid Markdown syntax. For more information, see "[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)" on Daring Fireball.
+그런 다음 오류 메시지의 파일이 유효한 Markdown 구문을 사용하는지 확인합니다. 자세한 내용은 Daring Fireball의 “[Markdown: 구문](https://daringfireball.net/projects/markdown/syntax)”을 참조하세요.
 
-## Missing docs folder
+## 문서 폴더 누락
 
-This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
+이 오류는 분기의 `docs` 폴더를 게시 원본으로 선택했지만 해당 분기의 리포지토리 루트에 `docs` 폴더가 없음을 의미합니다.
 
-To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. If the `docs` folder was accidentally deleted, you can either:
-- Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
-- Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[Creating new files](/articles/creating-new-files)."
-- Change your publishing source. For more information, see "[Configuring a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)."
+문제를 해결하려면 `docs` 폴더가 실수로 이동된 경우 게시 원본에서 선택한 분기의 리포지토리 루트로 `docs` 폴더를 다시 이동하세요. `docs` 폴더가 실수로 삭제된 경우 다음 중 하나를 수행할 수 있습니다.
+- Git을 사용하여 삭제를 되돌리거나 실행 취소합니다. 자세한 내용은 Git 설명서의 “[git-revert](https://git-scm.com/docs/git-revert.html)”를 참조하세요.
+- 게시 원본에 대해 선택한 분기의 리포지토리 루트에 새 `docs` 폴더를 만들고 사이트의 원본 파일을 폴더에 추가합니다. 자세한 내용은 “[새 파일 만들기](/articles/creating-new-files)”를 참조하세요.
+- 게시 원본을 변경합니다. 자세한 내용은 “[{% data variables.product.prodname_pages %}에 대한 게시 원본 구성](/articles/configuring-a-publishing-source-for-github-pages)”을 참조하세요.
 
-## Missing submodule
+## 누락된 하위 모듈
 
-This error means that your repository includes a submodule that doesn't exist or hasn't been properly initialized.
+이 오류는 리포지토리에 존재하지 않거나 제대로 초기화되지 않은 하위 모듈이 포함되어 있음을 의미합니다.
 
 {% data reusables.pages.remove-submodule %}
 
-If you do want to use a submodule, initialize the submodule. For more information, see "[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the _Pro Git_ book.
+하위 모듈을 사용하려면 이를 초기화하세요. 자세한 내용은 [Pro Git](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 책의 “_Git 도구 - 하위 모듈_”을 참조하세요.
 
-## Relative permalinks configured
+## 구성된 상대 고정 링크
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your *_config.yml* file.
+이 오류는 *_config.yml* 파일에 {% data variables.product.prodname_pages %}에서 지원하지 않는 상대 고정 링크가 있음을 의미합니다.
 
-Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
+고정 링크는 사이트의 특정 페이지를 참조하는 영구적인 URL입니다. 절대 고정 링크는 사이트의 루트로 시작하는 반면 상대 고정 링크는 참조 페이지가 포함된 폴더에서 시작합니다. {% data variables.product.prodname_pages %} 및 Jekyll은 더 이상 상대 고정 링크를 지원하지 않습니다. 고정 링크에 대한 자세한 내용은 Jekyll 문서의 “[고정 링크](https://jekyllrb.com/docs/permalinks/)”를 참조하세요.
 
-To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+문제를 해결하려면 *_config.yml* 파일에서 `relative_permalinks` 줄을 제거하고 사이트의 모든 상대 고정 링크를 절대 고정 링크로 다시 서식 지정하세요. 자세한 내용은 “[파일 편집](/repositories/working-with-files/managing-files/editing-files)”을 참조하세요.
 
-## Symlink does not exist within your site's repository
+## 사이트의 리포지토리에 Symlink가 존재하지 않음
 
-This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
+이 오류는 사이트에 게시된 파일에 존재하지 않는 바로 가기 링크(symlink)가 사이트에 포함되어 있음을 의미합니다. 바로 가기 링크에 대한 자세한 내용은 Wikipedia의 “[바로 가기 링크](https://en.wikipedia.org/wiki/Symbolic_link)”를 참조하세요.
 
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the published files for your site. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+문제를 해결하려면 오류 메시지의 파일이 사이트를 구축하는 데 사용되는지 확인합니다. 그렇지 않은 경우 또는 파일을 바로 가기 링크로 사용하지 않으려면 파일을 삭제하세요. 사이트를 구축하는 데 바로 가기 링크 파일이 필요한 경우 바로 가기 링크가 참조하는 파일이나 디렉터리가 사이트의 게시된 파일에 있는지 확인하세요. 외부 자산을 포함하려면 {% ifversion fpt or ghec %}`git submodule` 또는 {% endif %}[Bower](https://bower.io/)와 같은 타사 패키지 관리자를 사용하는 것이 좋습니다.{% ifversion fpt or ghec %} 자세한 내용은 “[{% data variables.product.prodname_pages %}를 사용하여 하위 모듈 사용](/articles/using-submodules-with-github-pages)”을 참조하세요.{% endif %}
 
-## Syntax error in 'for' loop
+## ‘for’ 루프의 구문 오류
 
-This error means that your code includes invalid syntax in a Liquid `for` loop declaration.
+이 오류는 코드에 Liquid `for` 루프 선언에 잘못된 구문이 포함되어 있음을 의미합니다.
 
-To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see "[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" in the Liquid documentation.
+문제를 해결하려면 오류 메시지의 파일에 있는 모든 `for` 루프에 올바른 구문이 있는지 확인하세요. `for` 루프의 적절한 구문에 대한 자세한 내용은 Liquid 문서의 “[반복 태그](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)”를 참조하세요.
 
-## Tag not properly closed
+## 태그가 제대로 닫혀 있지 않음
 
-This error message means that your code includes a logic tag that is not properly closed. For example, {% raw %}`{% capture example_variable %}` must be closed by `{% endcapture %}`{% endraw %}.
+이 오류 메시지는 코드에 제대로 닫혀 있지 않은 논리 태그가 포함되어 있음을 의미합니다. 예를 들어 {% raw %}`{% capture example_variable %}`은 `{% endcapture %}`{% endraw %}로 닫아야 합니다.
 
-To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see "[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)" in the Liquid documentation.
+문제를 해결하려면 오류 메시지의 파일에 있는 모든 논리 태그가 제대로 닫혀 있는지 확인하세요. 자세한 내용은 Liquid 설명서의 “[Liquid 태그](https://help.shopify.com/en/themes/liquid/tags)”를 참조하세요.
 
-## Tag not properly terminated
+## 태그가 제대로 종료되지 않음
 
-This error means that your code includes an output tag that is not properly terminated. For example, {% raw %}`{{ page.title }` instead of `{{ page.title }}`{% endraw %}.
+이 오류는 코드에 제대로 종료되지 않은 출력 태그가 포함되어 있음을 의미합니다. 예를 들어 `{{ page.title }}`{% endraw %} 대신 {% raw %}`{{ page.title }`인 경우입니다.
 
-To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see "[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)" in the Liquid documentation.
+문제를 해결하려면 오류 메시지의 파일에 있는 모든 출력 태그가 `}}`로 종료되었는지 확인하십시오. 자세한 내용은 Liquid 설명서의 “[Liquid 개체](https://help.shopify.com/en/themes/liquid/objects)”를 참조하세요.
 
-## Unknown tag error
+## 알 수 없는 태그 오류
 
-This error means that your code contains an unrecognized Liquid tag.
+이 오류는 코드에 인식할 수 없는 Liquid 태그가 포함되어 있음을 의미합니다.
 
-To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
+문제를 해결하려면 오류 메시지의 파일에 있는 모든 Liquid 태그가 Jekyll의 기본 변수와 일치하고 태그 이름에 오타가 없는지 확인합니다. 기본 변수 목록은 Jekyll 설명서의 “[변수](https://jekyllrb.com/docs/variables/)”를 참조하세요.
 
-Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#plugins)."
+지원되지 않는 플러그 인은 인식할 수 없는 태그의 일반적인 원본입니다. 사이트를 로컬에서 생성하고 고정 파일을 {% data variables.product.product_name %}에 푸시하여 사이트에서 지원되지 않는 플러그 인을 사용하는 경우 플러그 인이 Jekyll의 기본 변수에 없는 태그를 도입하고 있지 않은지 확인하세요. 지원되는 플러그 인 목록은 “[{% data variables.product.prodname_pages %} 및 Jekyll 정보](/articles/about-github-pages-and-jekyll#plugins)”를 참조하세요.

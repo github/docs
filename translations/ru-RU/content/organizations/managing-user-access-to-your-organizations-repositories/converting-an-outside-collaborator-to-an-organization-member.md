@@ -1,6 +1,6 @@
 ---
-title: Converting an outside collaborator to an organization member
-intro: 'If you would like to give an outside collaborator on your organization''s repositories broader permissions within your organization, you can {% ifversion fpt or ghec %}invite them to become a member of{% else %}make them a member of{% endif %} the organization.'
+title: Преобразование стороннего участника совместной работы в участника организатора
+intro: 'Чтобы предоставить стороннему участнику совместной работы в репозиториях вашей организации расширенные разрешения в пределах организации, можно {% ifversion fpt or ghec %}пригласить его стать участником {% else %}сделать его участником{% endif %} организации.'
 redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-outside-collaborator-to-an-organization-member
@@ -15,29 +15,21 @@ topics:
   - Organizations
   - Teams
 shortTitle: Convert collaborator to member
+ms.openlocfilehash: cbaea93cf94d40a67e6650c65dc680edbec104c7
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098975'
 ---
-{% ifversion fpt or ghec %}
-If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}
+{% ifversion fpt or ghec %} Если у вашей организации есть платная подписка для каждого пользователя, неиспользуемая лицензия должна быть доступна, прежде чем вы сможете пригласить нового участника присоединиться к организации или восстановить бывшего участника организации. Дополнительные сведения см. в разделе [Сведения о стоимости подписки для каждого пользователя](/articles/about-per-user-pricing). {% data reusables.organizations.org-invite-expiration %} {% endif %}
 
-{% ifversion not ghae %}
-If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users {% ifversion fpt or ghec %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
-{% endif %}
+{% ifversion not ghae %} Если ваша организации [ требуется, чтобы участники использовали двухфакторную проверку подлинности](/articles/requiring-two-factor-authentication-in-your-organization), пользователи {% ifversion fpt or ghec %}, которых вы приглашаете, должны [включить двухфакторную проверку подлинности](/articles/securing-your-account-with-two-factor-authentication-2fa), прежде чем они смогут принять приглашение.{% else %}должны [включить двухфакторную проверку подлинности](/articles/securing-your-account-with-two-factor-authentication-2fa), прежде чем вы сможете добавить их в организацию.{% endif %} {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.people_tab_outside_collaborators %}
-{% ifversion fpt or ghec %}
-5. To the right of the name of the outside collaborator you want to become a member, use the {% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
-{% else %}
-5. To the right of the name of the outside collaborator you want to become a member, click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png)
-{% endif %}
-{% data reusables.organizations.choose-to-restore-privileges %}
-{% data reusables.organizations.choose-user-role-send-invitation %}
-{% ifversion fpt or ghec %}
-{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %} {% ifversion fpt or ghec %}
+5. Справа от имени стороннего участника совместной работы, которого нужно сделать участником, используйте раскрывающееся меню {% octicon "gear" aria-label="The gear icon" %} и щелкните **Пригласить в организацию**.![Приглашение сторонних участников совместной работы в организацию](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png) {% else %}
+5. Справа от имени стороннего участника совместной работы, которого требуется сделать участником, выберите **Пригласить в организацию**.![Пригласить сторонних участников совместной работы в организацию](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png) {% endif %} {% data reusables.organizations.choose-to-restore-privileges %} {% data reusables.organizations.choose-user-role-send-invitation %} {% ifversion fpt or ghec %} {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %} {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- [Преобразование участника организации во внешнего участника совместной работы](/articles/converting-an-organization-member-to-an-outside-collaborator)

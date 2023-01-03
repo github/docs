@@ -1,6 +1,6 @@
 ---
-title: Creating a repository security advisory
-intro: You can create a draft security advisory to privately discuss and fix a security vulnerability in your open source project.
+title: Erstellen einer Sicherheitsempfehlung für ein Repository
+intro: 'Du kannst einen Entwurf eines Sicherheitshinweises erstellen, um privat über die Sicherheitslücke in Deinem Open-Source-Projekt zu diskutieren und sie zu beheben.'
 redirect_from:
   - /articles/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
@@ -15,31 +15,31 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186155'
 ---
-
-Anyone with admin permissions to a repository can create a security advisory.
+Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Sicherheitshinweis erstellen.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-## Creating a security advisory
+## Erstellen einer Sicherheitsempfehlung
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-1. Click **New draft security advisory** to open the draft advisory form. The fields marked with an asterisk are required.
-  ![Open draft advisory button](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-1. Type a title for your security advisory.
-{% data reusables.repositories.security-advisory-edit-details %}
-{% data reusables.repositories.security-advisory-edit-severity %}
-{% data reusables.repositories.security-advisory-edit-cwe-cve %}
-{% data reusables.repositories.security-advisory-edit-description %}
-1. Click **Create draft security advisory**.
-  ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
+1. Klicke auf **Neue Sicherheitsempfehlung entwerfen**, um das Entwurfsformular für Empfehlungen zu öffnen. Mit einem Sternchen gekennzeichnete Felder müssen ausgefüllt werden.
+  ![Schaltfläche „Entwurf für Empfehlung öffnen“](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
+1. Gib einen Titel für den Sicherheitshinweis ein.
+{% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
+1. Klicke auf **Entwurf für Sicherheitsempfehlung erstellen**.
+  ![Schaltfläche „Sicherheitsempfehlung erstellen“](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-## Next steps
+## Nächste Schritte
 
-- Comment on the draft security advisory to discuss the vulnerability with your team.
-- Add collaborators to the security advisory. For more information, see "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
-- Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
-- Add individuals who should receive credit for contributing to the security advisory. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
-- Publish the security advisory to notify your community of the security vulnerability. For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
+- Du kannst Den Entwurf des Sicherheitshinweises kommentieren, um die Schwachstelle mit Deinem Team zu diskutieren.
+- Füge Mitarbeiter zum Sicherheitshinweis hinzu. Weitere Informationen findest du unter [Hinzufügen eines Mitarbeiters zu einer Sicherheitsempfehlung für ein Repository](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory).
+- Privat mit anderen zusammenarbeiten, um die Schwachstelle in einem temporären privaten Fork zu beheben. Weitere Informationen findest du unter [Zusammenarbeit in einem temporären privaten Fork, um eine Sicherheitslücke im Repository zu beheben](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability).
+- Füge Personen hinzu, die eine Anerkennung für einen Beitrag zur Sicherheitsempfehlung erhalten sollen. Weitere Informationen findest du unter [Bearbeiten einer Sicherheitsempfehlung für ein Repository](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories).
+- Veröffentliche den Sicherheitshinweis, um Deine Community über die Sicherheitslücke zu informieren. Weitere Informationen findest du unter [Veröffentlichen einer Sicherheitsempfehlung für ein Repository](/code-security/repository-security-advisories/publishing-a-repository-security-advisory).

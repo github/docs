@@ -1,6 +1,6 @@
 ---
-title: Unpublishing a GitHub Pages site
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
+title: Veröffentlichung einer GitHub Pages-Website zurückziehen
+intro: 'Du kannst die Veröffentlichung deiner {% data variables.product.prodname_pages %}-Website aufheben, sodass sie nicht mehr verfügbar ist.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -18,35 +18,38 @@ versions:
 topics:
   - Pages
 shortTitle: Unpublish Pages site
+ms.openlocfilehash: bfb22638b51560cb0006cca49a55b9842d8b807d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109550'
 ---
-
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+Wenn du die Veröffentlichung deiner Website aufhebst, ist sie nicht mehr verfügbar. Alle vorhandenen Repositoryeinstellungen oder Inhalte sind davon nicht betroffen.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. Klicke unter **{% data variables.product.prodname_pages %}** neben der Meldung **Your site is live at** (Deine Website ist aktiv unter) auf {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. Wähle im Menü, das daraufhin angezeigt wird, **Unpublish Site** (Veröffentlichung der Website aufheben) aus.
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![Dropdownmenü zum Aufheben der Veröffentlichung der Website](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
-## Unpublishing a project site
+## Veröffentlichung einer Projektwebsite zurückziehen
 
 {% data reusables.repositories.navigate-to-repo %}
-2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
-3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
-  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% data reusables.pages.update_your_dns_settings %}
+2. Wenn ein `gh-pages`-Branch im Repository vorhanden ist, lösche den `gh-pages`-Branch. Weitere Informationen finden Sie unter [Erstellen und Löschen von Branches innerhalb Ihres Repositorys](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch).
+3. Wenn der `gh-pages`-Branch deine Veröffentlichungsquelle war, {% ifversion fpt or ghec %}fahre mit Schritt 6 fort{% else %}wird die Veröffentlichung deiner Website jetzt aufgehoben, und du kannst die restlichen Schritte überspringen{% endif %}.
+{% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+5. Wähle unter {% data variables.product.prodname_pages %} im Dropdownmenü **Quelle** die Option **Keine** aus. 
+  ![Dropdownmenü zur Auswahl einer Veröffentlichungsquelle](/assets/images/help/pages/publishing-source-drop-down.png) {% data reusables.pages.update_your_dns_settings %}
 
-## Unpublishing a user or organization site
+## Veröffentlichung einer Benutzer- oder Organisations-Website zurückziehen
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
+2. Lösche den Branch, den du als Veröffentlichungsquelle verwendest, oder lösche das gesamte Repository. Weitere Informationen findest du unter [Erstellen und Löschen von Branches innerhalb deines Repositorys](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch) und [Löschen eines Repositorys](/articles/deleting-a-repository).
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

@@ -1,7 +1,7 @@
 ---
-title: Configuring user provisioning with SCIM for your enterprise
-shortTitle: Configure user provisioning
-intro: 'You can configure System for Cross-domain Identity Management (SCIM) for {% ifversion scim-for-ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, which automatically provisions user accounts when you assign the application for {% ifversion scim-for-ghes %}your instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to a user on your identity provider (IdP).'
+title: 엔터프라이즈용 SCIM을 사용하여 사용자 프로비저닝 구성
+shortTitle: Configure SCIM user provisioning
+intro: '{% ifversion scim-for-ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}에 대해 SCIM(도메인 간 ID 관리)을 구성할 수 있습니다. {% ifversion scim-for-ghes %}인스턴스{% elsif ghae %}{% data variables.product.product_name %}{% endif %}에 대한 애플리케이션을 ID 공급자(IdP)의 사용자에게 할당할 때 사용자 계정을 자동으로 프로비전합니다.'
 permissions: '{% ifversion scim-for-ghes %}Site administrators{% elsif ghae %}Enterprise owners{% endif %} can configure user provisioning for {% ifversion scim-for-ghes %}a {% data variables.product.product_name %} instance{% elsif ghae %}an enterprise on {% data variables.product.product_name %}{% endif %}.'
 versions:
   ghae: '*'
@@ -17,51 +17,66 @@ redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise
+ms.openlocfilehash: ded93a01d14d1a5e26cdf35efed4f13afc832ca1
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192667'
 ---
-
 {% data reusables.scim.ghes-beta-note %}
 
-## About user provisioning for {% data variables.product.product_name %}
+## {% data variables.product.product_name %}에 대한 사용자 프로비저닝 정보
 
 {% ifversion ghae %}
 
-{% data reusables.saml.ae-uses-saml-sso %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
+{% data reusables.saml.ae-uses-saml-sso %} 자세한 내용은 “[엔터프라이즈에 대한 SAML Single Sign-On 구성](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”을 참조하세요.
 
 {% endif %}
 
-{% ifversion scim-for-ghes %}If you use SAML single sign-on (SSO) for {% data variables.location.product_location %}, you{% elsif ghae %}You{% endif %} can configure SCIM to automatically create or suspend user accounts and grant access{% ifversion scim-for-ghes %} to your instance{% elsif ghae %} for {% data variables.product.product_name %}{% endif %} when you assign or unassign the application on your IdP. For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
+{% ifversion scim-for-ghes %} {% data variables.location.product_location %}에 SAML SSO(Single Sign-On)를 사용하는 경우 {% elsif ghae %}사용자 계정을 자동으로 만들거나 일시 중단하고{ % ifversion scim-for-ghes %}에 대한 액세스 권한을 인스턴스에 부여하도록 SCIM을 구성할 수 있습니다{% data variables.product.product_name %}{% endif %}에 대한 액세스 권한을 IdP에 할당하거나 할당 취소할 때{% elsif ghae %} SCIM에 관한 자세한 내용은 IETF 웹 사이트에서 [SCIM(System for Cross-domain Identity Management): 프로토콜(RFC 7644)](https://tools.ietf.org/html/rfc7644)을 참조하세요.
 
-If you do not configure user provisioning with SCIM, your IdP will not communicate with {% data variables.product.product_name %} automatically when you assign or unassign the application to a user. Without SCIM, {% data variables.product.product_name %} creates a user account using SAML Just-in-Time (JIT) provisioning the first time someone navigates to {% data variables.product.product_name %} and signs in by authenticating through your IdP.
+SCIM을 사용하여 사용자 프로비저닝을 구성하지 않으면 사용자에게 애플리케이션을 할당하거나 할당 취소할 때 IdP가 {% data variables.product.product_name %}와 자동으로 통신하지 않습니다. SCIM을 사용하지 않으면 {% data variables.product.product_name %}는 누군가가 처음으로 {% data variables.product.product_name %}로 이동하고 IdP를 통해 인증하여 로그인할 때 SAML JIT(Just-In-Time) 프로비저닝을 사용하여 사용자 계정을 만듭니다.
 
-Configuring provisioning allows your IdP to communicate with {% data variables.location.product_location %} when you assign or unassign the application for {% data variables.product.product_name %} to a user on your IdP. When you assign the application, your IdP will prompt {% data variables.location.product_location %} to create an account and send an onboarding email to the user. When you unassign the application, your IdP will communicate with {% data variables.product.product_name %} to invalidate any SAML sessions and disable the member's account.
+프로비저닝을 구성하면 IdP의 사용자에게 {% data variables.product.product_name %}에 대한 애플리케이션을 할당하거나 할당 취소할 때 IdP가 {% data variables.location.product_location %}와 통신할 수 있습니다. 애플리케이션을 할당하면 IdP에서 {% data variables.location.product_location %}에게 계정을 만들고 사용자에게 온보딩 전자 메일을 보내라는 메시지를 표시합니다. 애플리케이션을 할당 취소하면 IdP는 {% data variables.product.product_name %}와 통신하여 SAML 세션을 무효화하고 멤버 계정을 사용하지 않도록 설정합니다.
 
-To configure provisioning for your enterprise, you must enable provisioning on {% data variables.product.product_name %}, then install and configure a provisioning application on your IdP.
+엔터프라이즈에 대한 프로비저닝을 구성하려면 {% data variables.product.product_name %}에서 프로비저닝을 사용하도록 설정한 다음, IdP에서 프로비저닝 애플리케이션을 설치하고 구성해야 합니다.
 
 {% ifversion scim-for-ghes %}
 
-The provisioning application on your IdP communicates with {% data variables.product.product_name %} using the SCIM API. For more information, see "[SCIM](/rest/enterprise-admin/scim)" in the REST API documentation.
+IdP의 프로비저닝 애플리케이션은 SCIM API를 사용하여 {% data variables.product.product_name %}와 통신합니다. 자세한 내용은 REST API 설명서의 "[SCIM](/rest/enterprise-admin/scim)"을 참조하세요.
 
 {% endif %}
 
-## About identities and claims
+## ID 및 클레임 정보
 
-After an IdP administrator grants a person access to {% data variables.location.product_location %}, the user can authenticate through the IdP to access {% data variables.product.product_name %} using SAML SSO.
+IdP 관리자가 사용자에게 {% data variables.location.product_location %}에 대한 액세스 권한을 부여한 후 사용자는 IDP를 통해 인증하여 SAML SSO를 사용하여 {% data variables.product.product_name %}에 액세스할 수 있습니다.
 
-During authentication, {% ifversion scim-for-ghes %}the instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %} attempts to associate the user with a SAML identity. By default, {% ifversion scim-for-ghes %}the instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %} compares the `NameID` claim from the IdP to the account's username. {% data variables.product.product_name %} normalizes the value of `NameID` for the comparison. For more information about username normalization, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization)."
+인증하는 동안 {% ifversion scim-for-ghes %}인스턴스{% elsif ghae %}{% data variables.product.product_name %}{% endif %}는 사용자를 SAML ID와 연결하려고 시도합니다. 기본적으로 {% ifversion scim-for-ghes %}인스턴스{% elsif ghae %}{% data variables.product.product_name %}{% endif %}는 IdP의 클레임을 계정의 사용자 이름과 비교합니다 `NameID` . {% data variables.product.product_name %}은(는) 비교의 값을 `NameID` 정규화합니다. 사용자 이름 정규화에 대한 자세한 내용은 "[외부 인증에 대한 사용자 이름 고려 사항"을 참조하세요](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization).
 
-If there is no matching username on the instance, the instance creates a new account for the user. If there is an account with a matching username on the instance, the user signs into the account.{% ifversion scim-for-ghes %} {% data variables.product.product_name %} compares the claim from the IdP against all accounts on the instance, regardless of whether the accounts use built-in authentication or are already associated with a SAML identity.{% endif %}
+인스턴스에 일치하는 사용자 이름을 가진 기존 계정이 없으면 사용자가 로그인하지 못합니다.{% ifversion scim-for-ghes %} 이 일치를 위해 {% data variables.product.product_name %}는 IdP `username` 의 SAML `NameId` 클레임을 인스턴스에서 SCIM이 프로비전한 각 사용자 계정에 대한 클레임과 비교합니다.{ % endif %}
 
 {% ifversion scim-for-ghes %}
 
-When using SAML SSO, a site administrator can configure custom user attributes for the instance. A custom username attribute will allow the instance to use a value from the IdP other than `NameID`. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. For more information about mapping user attributes, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+{% note %}
+
+**참고**: SAML 인증 중에 일부 환경에서는 고유 식별 클레임 이외의 값을 `NameID` 사용할 수 있습니다. 현재 SCIM 프로비저닝을 사용하는 경우 SAML 사용자 특성에 대한 사용자 지정 매핑은 지원되지 않습니다.
+
+{% endnote %}
 
 {% endif %}
 
-If {% data variables.product.product_name %} successfully identifies a user from the IdP, but account details such as email address, first name, or last name don't match, the instance updates the details with values from the IdP.
+{% data variables.product.product_name %}이(가) IdP에서 사용자를 성공적으로 식별했지만 이메일 주소, 이름 또는 성 등의 계정 세부 정보가 일치하지 않으면 인스턴스는 IdP의 값으로 세부 정보를 덮어씁니다. SCIM에서 프로비전된 기본 이메일 이외의 전자 메일 주소도 사용자 계정에서 삭제됩니다.
 
-## Supported identity providers
+## 지원되는 ID 공급자
 
-The following IdPs support user provisioning with SCIM for {% data variables.product.product_name %}.
+{% ifversion ghes %}
+
+프라이빗 베타 중에 계정 팀은 지원되는 IdP에서 {% data variables.product.product_name %}에 대한 SCIM 구성에 대한 설명서를 제공합니다.
+
+{% elsif ghae %}
+
+다음 IdP는 {% data variables.product.product_name %}에 대한 SCIM을 사용하여 사용자 프로비저닝을 지원합니다.
 
 {% data reusables.saml.okta-ae-sso-beta %}
 
@@ -71,67 +86,68 @@ The following IdPs support user provisioning with SCIM for {% data variables.pro
 
 {% data reusables.scim.ghes-scim-idp-table %}
 
-{% ifversion ghae %}
-For IdPs that support team mapping, you can assign or unassign the application for {% data variables.product.product_name %} to groups of users in your IdP. These groups are then available to organization owners and team maintainers in {% data variables.location.product_location %} to map to {% data variables.product.product_name %} teams. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+팀 매핑을 지원하는 IdP의 경우 IdP의 사용자 그룹에 {% data variables.product.product_name %}에 대한 애플리케이션을 할당하거나 할당 취소할 수 있습니다. 그러면 {% data variables.location.product_location %}의 조직 소유자 및 팀 유지 관리자가 이러한 그룹을 사용하여 {% data variables.product.product_name %} 팀에 매핑할 수 있습니다. 자세한 내용은 “[팀에 OKTA 그룹 매핑](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”을 참조하세요.
+
 {% endif %}
 
-## Prerequisites
+## 필수 조건
 
 {% ifversion ghae %}
 
-- You must configure SAML SSO when you initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+- {% data variables.product.product_name %}을(를) 초기화할 때 SAML SSO를 구성해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_managed %} 초기화](/admin/configuration/initializing-github-ae)”를 참조하세요.
 
 {% elsif scim-for-ghes %}
 
 - {% data reusables.saml.ghes-you-must-configure-saml-sso %}
 
-- You must allow built-in authentication for users who don't have an account on your IdP. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+- IdP에 계정이 없는 사용자에 대해 기본 제공 인증을 허용해야 합니다. 자세한 내용은 “[공급자 외부 사용자에게 기본 제공 인증 허용](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)”을 참조하세요.
 
-- Your IdP must support making SCIM calls to a Service Provider (SP).
+- IdP는 SP(서비스 공급자)에 대한 SCIM 호출을 지원해야 합니다.
 
 {% endif %}
 
-- You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.product_name %}.
+- {% data variables.product.product_name %}에 대한 사용자 프로비저닝을 위해 애플리케이션을 구성하려면 IdP에 대한 관리 액세스 권한이 있어야 합니다.
 
-## Enabling user provisioning for your enterprise
+## 엔터프라이즈에 대한 사용자 프로비저닝 사용
 
 {% ifversion scim-for-ghes %}
 
-To perform provisioning actions on your instance, you will create a dedicated machine user account and promote the account to an enterprise owner.
+인스턴스에서 프로비저닝 작업을 수행하려면 기본 제공 사용자 계정을 만들고 엔터프라이즈 소유자에게 계정을 승격합니다.
 
-After you enable SCIM on a {% data variables.product.product_name %} instance, all user accounts are suspended. If you grant the user access to your instance from your IdP and the user authenticates successfully, the user's account will be unsuspended.
+{% data variables.product.product_name %} 인스턴스에서 SCIM을 사용하도록 설정하면 모든 사용자 계정이 일시 중단됩니다. 기본 제공 사용자 계정은 프로비저닝 작업을 계속 수행합니다. IdP에서 인스턴스에 대한 사용자 액세스 권한을 부여한 후 IdP는 SCIM을 사용하여 인스턴스와 통신하여 사용자 계정을 일시 중단하지 않습니다.
 
 {% endif %}
 
 {%- ifversion ghae %}
-1. While signed into {% data variables.location.product_location %} as an enterprise owner, create a {% data variables.product.pat_v1 %} with **admin:enterprise** scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+1. 엔터프라이즈 소유자로 {% data variables.location.product_location %}에 로그인한 동안 **admin:enterprise** 범위를 사용하여 {% data variables.product.pat_v1 %}을(를) 만듭니다. 자세한 내용은 "[{% data variables.product.pat_generic %} 만들기](/github/authenticating-to-github/creating-a-personal-access-token)"를 참조하세요.
   {% note %}
 
-  **Notes**:
-    - To create the {% data variables.product.pat_generic %}, we recommend using the account for the first enterprise owner that you created during initialization. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
-    - You'll need this {% data variables.product.pat_generic %} to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
+  **참고**:
+    - {% data variables.product.pat_generic %}을(를) 만들려면 초기화 중에 만든 첫 번째 엔터프라이즈 소유자에 대한 계정을 사용하는 것이 좋습니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_managed %} 초기화](/admin/configuration/initializing-github-ae)”를 참조하세요.
+    - IdP에서 SCIM에 대한 애플리케이션을 구성하려면 이 {% data variables.product.pat_generic %}이 필요합니다. 이 지침의 뒷부분에서 토큰이 다시 필요할 때까지 토큰을 암호 관리자에 안전하게 저장합니다.
 
-  {% endnote %}
-  {% warning %}
+  {% endnote %} {% warning %}
 
-  **Warning**: If the user account for the enterprise owner who creates the {% data variables.product.pat_generic %} is deactivated or deprovisioned, your IdP will no longer provision and deprovision user accounts for your enterprise automatically. Another enterprise owner must create a new {% data variables.product.pat_generic %} and reconfigure provisioning on the IdP.
+  **경고**: {% data variables.product.pat_generic %}을(를) 만드는 엔터프라이즈 소유자의 사용자 계정이 비활성화되거나 프로비전 해제된 경우 IdP는 더 이상 엔터프라이즈에 대한 사용자 계정을 자동으로 프로비저닝 및 프로비저닝 해제하지 않습니다. 다른 엔터프라이즈 소유자는 새 {% data variables.product.pat_generic %}을(를) 만들고 IdP에서 프로비저닝을 다시 구성해야 합니다.
 
-  {% endwarning %}
-{%- elsif scim-for-ghes %}
-1. Create a dedicated machine user account to perform provisioning actions on your instance. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance)."
-1. Promote the dedicated user account to an enterprise owner. For more information, see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#adding-an-enterprise-administrator-to-your-enterprise-account)."
-1. Sign into your instance as the new enterprise owner.
-1. Create a {% data variables.product.pat_v1 %} with **admin:enterprise** scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+  {% endwarning %} {%- elsif scim-for-ghes %}
+1. 기본 제공 사용자 계정을 만들어 인스턴스에서 프로비저닝 작업을 수행합니다. 자세한 내용은 “[공급자 외부 사용자에게 기본 제공 인증 허용](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance)”을 참조하세요.
+1. 엔터프라이즈 소유자에게 전용 사용자 계정을 승격합니다. 자세한 내용은 “[엔터프라이즈를 관리할 사용자 초대](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#adding-an-enterprise-administrator-to-your-enterprise-account)”를 참조하세요.
+1. 인스턴스에 새 엔터프라이즈 소유자로 로그인합니다.
+1. **admin:enterprise** 범위를 사용하여 {% data variables.product.pat_v1 %}을(를) 만듭니다. {% data variables.product.pat_v1 %}의 만료 날짜를 지정하지 마세요. 자세한 내용은 "[{% data variables.product.pat_generic %} 만들기](/github/authenticating-to-github/creating-a-personal-access-token)"를 참조하세요.
 
-   {% note %}
+   {% warning %}
+   
+   **경고**: {% data variables.product.pat_v1 %}의 만료 날짜를 지정하지 않도록 합니다. 만료 날짜를 지정하면 만료 날짜가 지나면 SCIM이 더 이상 작동하지 않습니다.
+   
+   {% endwarning %} {% note %}
 
-   **Note**: You'll need this {% data variables.product.pat_generic %} to test the SCIM configuration, and to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
+   **참고**: SCIM 구성을 테스트하고 IdP에서 SCIM용 애플리케이션을 구성하려면 이 {% data variables.product.pat_generic %}이 필요합니다. 이 지침의 뒷부분에서 토큰이 다시 필요할 때까지 토큰을 암호 관리자에 안전하게 저장합니다.
 
-   {% endnote %}
-{% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable SCIM, run the commands provided to you by your account manager on {% data variables.contact.contact_enterprise_sales %}.
+   {% endnote %} {% data reusables.enterprise_installation.ssh-into-instance %}
+1. SCIM을 사용하도록 설정하려면 {% data variables.contact.contact_enterprise_sales %}에서 계정 관리자가 제공한 명령을 실행합니다.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
-1. To validate that SCIM is operational, run the following commands. Replace _PAT FROM STEP 3_ and _YOUR INSTANCE'S HOSTNAME_ with actual values.
+1. SCIM이 작동하고 있는지 확인하려면 다음 명령을 실행합니다. _PAT FROM STEP 3_ 및 _YOUR INSTANCE의 HOSTNAME_ 을 실제 값으로 대체합니다.
 
    ```shell
    $ GHES_PAT="PAT FROM STEP 3"
@@ -141,30 +157,25 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
        --header 'Authorization: Bearer $GHES_PAT'
    ```
    
-   The command should return an empty array.
-{%- endif %}
-{%- ifversion ghae %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "SCIM User Provisioning", select **Require SCIM user provisioning**.
-  ![Checkbox for "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
-1. Click **Save**.
-  ![Save button under "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-scim-save.png)
-{%- endif %}
-1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP.
+   명령은 빈 배열을 반환해야 합니다.
+{%- endif %} {%- ifversion ghae %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. “SCIM 사용자 프로비저닝”에서 **SCIM 사용자 프로비저닝 필요** 를 선택합니다.
+  ![엔터프라이즈 보안 설정에 있는 “SCIM 사용자 프로비저닝 필요” 확인란](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
+1. **저장** 을 클릭합니다.
+  ![엔터프라이즈 보안 설정](/assets/images/help/enterprises/settings-scim-save.png) {%- endif %} 내의 "SCIM 사용자 프로비저닝 필요" 아래의 저장 단추
+1. IdP의 {% data variables.product.product_name %}에 대한 애플리케이션에서 사용자 프로비저닝을 구성합니다. {% ifversion scim-for-ghes %} 지원되는 IdP에 대한 설명서를 요청하려면 {% data variables.contact.contact_enterprise_sales %}에서 계정 관리자에게 문의하세요. IdP가 지원되지 않는 경우 애플리케이션을 만들고 SCIM을 수동으로 구성해야 합니다. {% elsif ghae %}
 
-  {%- ifversion ghae %} The following IdPs provide documentation about configuring provisioning for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
-  {%- elsif scim-for-ghes %} {% data variables.product.company_short %} provides documentation for configuring provisioning for the following IdPs.{% endif %}
+  다음 IdP는 {% data variables.product.product_name %}에 대한 프로비저닝을 구성하는 방법에 관한 설명서를 제공합니다. IdP가 나열되지 않으면 IdP에 문의하여 {% data variables.product.product_name %}에 대한 지원을 요청하세요.
 
-  | IdP | More information |
+  | IdP | 추가 정보 |
   | :- | :- |
-  | Azure AD | {% ifversion ghae %}[Tutorial: Configure {% data variables.product.prodname_ghe_managed %} for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) in the Microsoft Docs. {% endif %}To configure Azure AD for {% data variables.product.product_name %}, see "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)." |
-| Okta | {% ifversion ghae %}(beta){% endif %} To configure Okta for {% data variables.product.product_name %}, see "[Configuring authentication and provisioning for your enterprise using Okta](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)." |
+  | Azure AD | [자습서: Microsoft Docs 자동 사용자 프로비저닝을 위해 {% data variables.product.prodname_ghe_managed %}을 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial)합니다. {% data variables.product.product_name %}에 대한 Azure AD 구성하려면 "[Azure AD 사용하여 엔터프라이즈에 대한 인증 및 프로비저닝 구성"을 참조하세요](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad). |
+  | Okta | (베타) {% data variables.product.product_name %}에 대해 Okta를 구성하려면 "[Okta를 사용하여 엔터프라이즈에 대한 인증 및 프로비저닝 구성"을 참조하세요](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta). |
 
-  The application on your IdP requires two values to provision or deprovision user accounts on {% data variables.location.product_location %}.
+  IdP의 애플리케이션에는 {% data variables.location.product_location %}에서 사용자 계정을 프로비전하거나 프로비전 해제하는 두 가지 값이 필요합니다.
 
-  | Value | Other names | Description | Example |
+  | 값 | 기타 이름 | 설명 | 예제 |
   | :- | :- | :- | :- |
-  | URL | Tenant URL | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <nobr><code>{% data variables.product.api_url_pre %}/scim/v2</nobr></code> |
-  | Shared secret | {% data variables.product.pat_generic_caps %}, secret token | Token for application on your IdP to perform provisioning tasks on behalf of an enterprise owner | {% data variables.product.pat_generic_caps %} you created in step {% ifversion ghae %}1{% elsif scim-for-ghes %}4{% endif %} |
+  | URL | 테넌트 URL | {% data variables.product.product_name %}에서 엔터프라이즈용 SCIM 프로비저닝 API에 대한 URL | <nobr><code>{% data variables.product.api_url_pre %}/scim/v2</nobr></code> |
+  | 공유 암호 | {% data variables.product.pat_generic_caps %}, 비밀 토큰 | 엔터프라이즈 소유자를 대신하여 프로비저닝 작업을 수행하기 위한 IdP의 애플리케이션 토큰 | 1단계에서 만든 {% 데이터 variables.product.pat_generic_caps %} |
+  {%- endif %}

@@ -1,6 +1,6 @@
 ---
-title: GitHub’s products
-intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
+title: GitHub의 제품
+intro: '{% data variables.product.prodname_dotcom %}의 제품 및 가격 책정 계획에 대한 개요입니다.'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -17,110 +17,115 @@ topics:
   - Mobile
   - Desktop
   - Security
+ms.openlocfilehash: e2965befe319637296361e270646cd331478ae44
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160041'
 ---
-## About {% data variables.product.prodname_dotcom %}'s products
+## {% data variables.product.prodname_dotcom %} 제품 정보
 
-{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to personal accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+{% data variables.product.prodname_dotcom %}는 코드를 저장하고 협업하기 위한 무료 및 유료 제품을 제공합니다. 일부 제품은 개인 계정에만 적용되고, 다른 플랜은 조직 및 엔터프라이즈 계정에만 적용됩니다. 계정에 대한 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 계정 유형](/get-started/learning-about-github/types-of-github-accounts)”을 참조하세요.
 
-You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+<{% data variables.product.pricing_url %}>에서 각 제품의 가격과 전체 기능 목록을 볼 수 있습니다. {% data reusables.products.product-roadmap %}
 
-When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+{% data variables.product.prodname_docs %}를 읽는 경우 제품을 반영하는 버전을 선택해야 합니다. 자세한 내용은 “[{% data variables.product.prodname_docs %} 버전 정보](/get-started/learning-about-github/about-versions-of-github-docs)”를 참조하세요.
 
-## {% data variables.product.prodname_free_user %} for personal accounts
+## 개인 계정용 {% data variables.product.prodname_free_user %}
 
-With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
+개인 계정용 {% data variables.product.prodname_free_team %}을 사용하면 전체 기능 집합이 있는 무제한 퍼블릭 리포지토리 및 제한된 기능 집합이 있는 무제한 프라이빗 리포지토리에서 무제한 협력자와 함께 작업할 수 있습니다.
 
-With {% data variables.product.prodname_free_user %}, your personal account includes:
+{% data variables.product.prodname_free_user %}를 사용하면 개인 계정에 다음이 포함됩니다.
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
-- Two-factor authentication enforcement
-- 2,000 {% data variables.product.prodname_actions %} minutes per month 
-- 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
-- 120 {% data variables.product.prodname_github_codespaces %} core hours per month
-- 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
+- 2단계 인증 적용
+- 매월 2,000 {% 데이터 variables.product.prodname_actions %} 분 
+- 500MB {% data variables.product.prodname_registry %} 스토리지 {% ifversion fpt or ghec%}
+- 매월 120 {% 데이터 variables.product.prodname_github_codespaces %} 코어 시간
+- 매월 15GB {% 데이터 variables.product.prodname_github_codespaces %} 스토리지 {% endif %}
 
 ## {% data variables.product.prodname_pro %}
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
-- {% data variables.contact.github_support %} via email
-- 3,000 {% data variables.product.prodname_actions %} minutes per month 
-- 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
-- 180 {% data variables.product.prodname_github_codespaces %} core hours per month
-- 20 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
-- Advanced tools and insights in private repositories:
-  - Required pull request reviewers
-  - Multiple pull request reviewers
-  - Protected branches
-  - Code owners
-  - Auto-linked references
+개인 계정용 {% data variables.product.prodname_free_user %}에서 사용할 수 있는 기능 외에, {% data variables.product.prodname_pro %}에는 다음도 포함됩니다.
+- 메일을 통한 {% data variables.contact.github_support %}
+- 매월 3,000 {% 데이터 variables.product.prodname_actions %} 분 
+- 2GB {% data variables.product.prodname_registry %} 스토리지 {% ifversion fpt or ghec%}
+- 매월 180 {% 데이터 variables.product.prodname_github_codespaces %} 코어 시간
+- 매월 20GB {% 데이터 variables.product.prodname_github_codespaces %} 스토리지 {% endif %}
+- 프라이빗 리포지토리의 고급 도구 및 인사이트:
+  - 끌어오기 요청 검토자 필요
+  - 여러 끌어오기 요청 검토자
+  - 보호된 분기
+  - 코드 소유자
+  - 자동 연결된 참조
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
+  - 리포지토리 인사이트 그래프: Pulse, 기여자, 트래픽, 커밋, 코드 빈도, 네트워크, 포크
 
-## {% data variables.product.prodname_free_team %} for organizations
+## 조직용 {% data variables.product.prodname_free_team %}
 
-With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
+조직용 {% data variables.product.prodname_free_team %}을 사용하면 전체 기능 집합이 있는 무제한 퍼블릭 리포지토리 또는 제한된 기능 집합이 있는 무제한 프라이빗 리포지토리에서 무제한 협력자와 함께 작업할 수 있습니다.
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
+개인 계정용 {% data variables.product.prodname_free_user %}에서 사용할 수 있는 기능 외에, 조직용 {% data variables.product.prodname_free_team %}에는 다음도 포함됩니다.
 - {% data variables.product.prodname_gcf %}
-- Team discussions
-- Team access controls for managing groups
-- 2,000 {% data variables.product.prodname_actions %} minutes per month 
-- 500 MB {% data variables.product.prodname_registry %} storage 
+- 팀 토론
+- 그룹 관리를 위한 팀 액세스 제어
+- 매월 2,000 {% 데이터 variables.product.prodname_actions %} 분 
+- 500MB {% data variables.product.prodname_registry %} 스토리지 
 
 ## {% data variables.product.prodname_team %}
 
-In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
-- {% data variables.contact.github_support %} via email
-- 3,000 {% data variables.product.prodname_actions %} minutes per month 
-- 2 GB {% data variables.product.prodname_registry %} storage 
-- Advanced tools and insights in private repositories:
-  - Required pull request reviewers
-  - Multiple pull request reviewers
-  - Draft pull requests
-  - Team pull request reviewers
-  - Protected branches
-  - Code owners
-  - Scheduled reminders
+조직용 {% data variables.product.prodname_free_team %}에서 사용할 수 있는 기능 외에도 {% data variables.product.prodname_team %}에는 다음이 포함됩니다.
+- 메일을 통한 {% data variables.contact.github_support %}
+- 매월 3,000 {% 데이터 variables.product.prodname_actions %} 분 
+- 2GB {% data variables.product.prodname_registry %} 스토리지 
+- 프라이빗 리포지토리의 고급 도구 및 인사이트:
+  - 끌어오기 요청 검토자 필요
+  - 여러 끌어오기 요청 검토자
+  - 초안 끌어오기 요청
+  - 팀 끌어오기 요청 검토자
+  - 보호된 분기
+  - 코드 소유자
+  - 예약된 미리 알림
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
-{%- ifversion fpt or ghec %}
-- The option to enable {% data variables.product.prodname_github_codespaces %}
-  - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+  - 리포지토리 인사이트 그래프: Pulse, 기여자, 트래픽, 커밋, 코드 빈도, 네트워크, 포크 {%- ifversion fpt or ghec %}
+- {% data variables.product.prodname_github_codespaces %}를 사용하도록 설정하는 옵션
+  - 조직 소유자는 지출 한도를 설정하고 조직 멤버에게 사용자 권한을 부여하여 조직에서 {% data variables.product.prodname_github_codespaces %}를 사용하도록 설정할 수 있습니다. 자세한 내용은 “[조직에 {% data variables.product.prodname_github_codespaces %} 사용](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)”을 참조하세요.
 {%- endif %}
 
-{% data variables.product.company_short %} bills for {% data variables.product.prodname_team %} on a per-user basis. For more information, see "[About per-user pricing]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}."{% else %}" in the Free, Pro, & Team documentation.{% endif %}
+{% data variables.product.company_short %}는 사용자 단위로 {% data variables.product.prodname_team %}에 대한 요금을 청구합니다. 자세한 내용은 “[사용자 단위 가격 정보]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}”를 참조하세요.{% else %}”를 참조하세요(Free, Pro, Team 설명서).{% endif %}
 
 {% data reusables.actions.actions-billing %}
 
 ## {% data variables.product.prodname_enterprise %}
 
-{% data variables.product.prodname_enterprise %} includes two deployment options: cloud-hosted and self-hosted. 
+{% data variables.product.prodname_enterprise %}에는 클라우드 호스팅 및 자체 호스팅이라는 두 가지 배포 옵션이 포함되어 있습니다. 
 
-In addition to the features available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_enterprise %} includes:
+{% data variables.product.prodname_team %}에서 사용할 수 있는 기능 외에도 {% data variables.product.prodname_enterprise %}에는 다음이 포함됩니다.
 - {% data variables.contact.enterprise_support %}
-- Additional security, compliance, and deployment controls
-- Authentication with SAML single sign-on
-- Access provisioning with SAML or SCIM
+- 추가 보안, 규정 준수, 배포 제어
+- SAML Single Sign-On을 사용한 인증
+- SAML 또는 SCIM을 사용한 액세스 프로비저닝
 - {% data variables.product.prodname_github_connect %}
-- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+- {% data variables.product.prodname_GH_advanced_security %} 구매 옵션. 자세한 내용은 “[{% data variables.product.prodname_GH_advanced_security %} 정보](/github/getting-started-with-github/about-github-advanced-security)”를 참조하세요.
 
-{% data variables.product.prodname_ghe_cloud %} also includes:
-- {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."
-- 50,000 {% data variables.product.prodname_actions %} minutes per month 
-- 50 GB {% data variables.product.prodname_registry %} storage 
-- Access control for {% data variables.product.prodname_pages %} sites. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
-- A service level agreement for 99.9% monthly uptime
-- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-- The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+{% data variables.product.prodname_ghe_cloud %}에는 다음도 포함됩니다.
+- {% data variables.contact.enterprise_support %}. 자세한 내용은 “<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 지원</a>” 및 “<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 부록</a>”을 참조하세요.
+- 매월 50,000 {% 데이터 variables.product.prodname_actions %} 분 
+- 50GB {% data variables.product.prodname_registry %} 스토리지 
+- {% data variables.product.prodname_pages %} 사이트에 대한 액세스 제어. 자세한 내용은 “[{% data variables.product.prodname_pages %} 사이트의 표시 유형 변경](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”을 참조하세요.
+- 99.9% 월간 작동 시간의 서비스 수준 약정
+- ID 공급자를 사용하여 멤버를 프로비저닝 및 관리하고 멤버의 기여를 엔터프라이즈로만 제한할 수 있도록 {% data variables.product.prodname_emus %}에 대해 엔터프라이즈를 구성하는 옵션입니다. 자세한 내용은 “[{% data variables.product.prodname_emus %} 정보](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”를 참조하세요.
+- 엔터프라이즈 계정을 사용하여 여러 {% data variables.product.prodname_dotcom_the_website %} 조직에 대한 정책 및 청구를 중앙에서 관리하는 옵션입니다. 자세한 내용은 “[엔터프라이즈 계정 정보](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)”를 참조하세요.
 
 {% data reusables.enterprise.about-github-for-enterprises %}
 
-You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)."
+평가판을 설정하여 {% data variables.product.prodname_ghe_cloud %}를 평가할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_ghe_cloud %} 평가판 설정](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)”을 참조하세요.
 
-For more information about hosting your own instance of {% data variables.product.prodname_ghe_server %}, including setting up a trial, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
+평가판 설정을 포함하여 {% data variables.product.prodname_ghe_server %}의 사용자 고유 인스턴스를 호스팅하는 방법에 대한 자세한 내용은 “[{% data variables.product.prodname_ghe_server %} 정보](/enterprise-server/admin/overview/about-github-enterprise-server)”를 참조하세요.
 
-## Further reading
+## 추가 참고 자료
 
-- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- {% data variables.product.prodname_ghe_cloud %} 설명서의 “[사용자당 가격 책정 정보]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)”{% ifversion not ghec %}”{% endif %}

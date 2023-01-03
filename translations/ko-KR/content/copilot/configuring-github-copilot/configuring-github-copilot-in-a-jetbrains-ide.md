@@ -7,16 +7,18 @@ topics:
 versions:
   feature: copilot
 shortTitle: JetBrains
-ms.openlocfilehash: 845f9306f519391f165dd00d3eefebed67bd409a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 9f0f35bf5aebbf1899bd3991b0bca9e62f1da6ed
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080288'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193574'
 ---
 ## JetBrains IDE의 {% data variables.product.prodname_copilot %} 정보
 
-Jetbrains IDE를 사용하는 경우 {% data variables.product.prodname_copilot %}은 개발자가 입력할 때 코드를 자동으로 완성할 수 있습니다. 설치 후 {% data variables.product.prodname_copilot %}을 활성화 또는 비활성화할 수 있으며, IDE 내에서 또는 {% data variables.product.prodname_dotcom_the_website %}에서 고급 설정을 구성할 수 있습니다.
+Jetbrains IDE를 사용하는 경우 {% data variables.product.prodname_copilot %}은 개발자가 입력할 때 코드를 자동으로 완성할 수 있습니다. 설치 후 {% data variables.product.prodname_copilot %}을 활성화 또는 비활성화할 수 있으며, IDE 내에서 또는 {% data variables.product.prodname_dotcom_the_website %}에서 고급 설정을 구성할 수 있습니다. 이 문서에서는 IntelliJ IDE에서 {% data variables.product.prodname_copilot %}를 구성하는 방법을 설명하지만 다른 Jetbrains IDE의 사용자 인터페이스는 다를 수 있습니다.
+
+{% data reusables.copilot.dotcom-settings %}
 
 ## 필수 조건
 
@@ -83,6 +85,21 @@ JetBrains IDE에서 {% data variables.product.prodname_copilot %}에 대한 고�
 1. 개인 기본 설정에 따라 설정을 편집합니다.
    - 코드 제안의 동작 및 모양을 조정하고 업데이트를 자동으로 확인할지 여부를 변경하려면 해당 확인란을 선택하거나 선택 취소합니다.
    - 자동 업데이트를 수신하도록 선택한 경우 안정적이고 덜 빈번한 업데이트를 받을지 또는 덜 안정적일 수 있는 야간 업데이트를 받을지 선택할 수 있습니다. **업데이트 채널** 드롭다운을 클릭하고 안정적인 업데이트의 경우 **안정적** 을 선택하고 야간 업데이트의 경우 **야간** 업데이트를 선택합니다.
-   - "사용할 수 없는 언어"에서 확인란을 사용하여 {% data variables.product.prodname_copilot %}을 사용하지 않도록 설정할 언어를 선택하거나 선택 취소합니다.
+   - "사용 안 함 언어"에서 확인란을 사용하여 {% data variables.product.prodname_copilot %}을(를) 사용하지 않도록 설정할 언어를 선택하거나 선택 취소합니다.
+
+## {% data variables.product.prodname_copilot %}에 대한 프록시 설정 구성
+
+Jetbrains IDE의 HTTP 프록시 서버를 통해 연결하도록 {% data variables.product.prodname_copilot %}을(를) 구성할 수 있습니다. {% data variables.product.prodname_copilot %}은(는) 기본 인증을 사용하거나 사용하지 않고 기본 HTTP 프록시 설정을 지원합니다. 
+
+1. JetBrains IDE에서 **파일** 메뉴를 클릭한 다음 **설정** 을 클릭합니다.
+1. **모양 & 동작** 에서 **시스템 설정을** 클릭한 다음 **HTTP 프록시** 를 클릭합니다.
+1. **수동 프록시 구성** 확인란을 선택한 다음 **HTTP** 확인란을 선택합니다.
+1. "호스트 이름" 필드에 프록시 서버의 호스트 이름을 입력하고 "포트 번호" 필드에 프록시 서버의 포트 번호를 입력합니다.
+
+    ![JetBrains의 HTTP 프록시 설정 스크린샷](/assets/images/help/copilot/proxy-configuration-jetbrains.png)
+
+1. 필요에 따라 왼쪽 사이드바에서 **도구를** 클릭한 다음 **서버 인증서를** 클릭합니다. 그런 다음 신뢰할 수 없는 인증서를 자동으로 수락할지 여부에 따라 "신뢰할 수 없는 인증서 자동 허용" 확인란을 선택하거나 선택 취소합니다.
+
+    ![JetBrains의 서버 인증서 설정 스크린샷](/assets/images/help/copilot/server-certificates-jetbrains.png)
 
 {% data reusables.copilot.dotcom-settings %}

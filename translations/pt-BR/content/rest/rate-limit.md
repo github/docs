@@ -1,6 +1,6 @@
 ---
 title: Limite de taxa
-intro: 'Com a API Limite de taxa, você pode verificar o status atual do limite de taxa de várias APIs REST.'
+intro: Use a API REST para verificar seu status de limite de taxa atual.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,29 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
-ms.openlocfilehash: 282b7e7bbb947256ccad4950b6a17d8874044d8f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a609d339af2201bba5ec12044a8eebe733013cea
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147081045'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193148'
 ---
-## Sobre a API de Limite de Taxa
+## Sobre limites de taxa
 
-A documentação de visão geral da API REST descreve as [regras de limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting). Você pode verificar seu status de limite de taxa atual a qualquer momento usando a API de limite de taxa descrita abaixo.
+Você pode verificar seu status de limite de taxa atual a qualquer momento. Para obter mais informações sobre regras de limite de taxa, confira "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)". 
 
-### Entender o seu status de limite de taxa
-
-A API de Pesquisa tem um [limite de taxa personalizado](/rest/reference/search#rate-limit), separado do limite de taxa que rege o restante da API REST. A API do GraphQL também tem um [limite de taxa personalizado](/graphql/overview/resource-limitations#rate-limit), separado e calculado de modo diferente dos limites de taxa na API REST.
-
-Por esses motivos, a resposta da API do limite de taxa categoriza o seu limite de taxa. Abaixo de `resources`, você verá quatro objetos:
+A API REST para pesquisar itens tem um limite de taxa personalizado separado do limite de taxa que rege os outros pontos de extremidade da API REST. Para obter mais informações, confira "[Pesquisar](/rest/search)". A API do GraphQL também tem um limite de taxa personalizado, separado e calculado de modo diferente dos limites de taxa na API REST. Para obter mais informações, confira "[Limitações de recursos](/graphql/overview/resource-limitations#rate-limit)". Por esses motivos, a resposta da API categoriza seu limite de taxa. Em `resources`, você verá objetos relacionados a diferentes categorias:
 
 * O objeto `core` fornece o status de limite de taxa para todos os recursos não relacionados à pesquisa na API REST.
 
-* O objeto `search` fornece o status de limite de taxa para a [API de Pesquisa](/rest/reference/search).
+* O objeto `search` fornece seu status de limite de taxa para a API REST para pesquisa.
 
-* O objeto `graphql` fornece o status de limite de taxa para a [API do GraphQL](/graphql).
+* O objeto `graphql` fornece o status de limite de taxa para a API do GraphQL.
 
-* O objeto `integration_manifest` fornece o status de limite de taxa para o ponto de extremidade de [conversão de código do Manifesto do Aplicativo do GitHub](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
+* O objeto `integration_manifest` fornece o status de limite de taxa para a operação do `POST /app-manifests/{code}/conversions`. Para obter mais informações, confira "[Como criar um Aplicativo do GitHub de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)".
 
 Para obter mais informações sobre os cabeçalhos e os valores na resposta do limite de taxa, confira "[Recursos da API REST](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)".

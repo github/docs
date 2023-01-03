@@ -1,17 +1,22 @@
-## Create an example workflow
+---
+ms.openlocfilehash: 53dbd22ad351ec7a1abc92107b366ecd8c71a3a9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147064538"
+---
+## Erstellen eines Beispielworkflows
 
-{% data variables.product.prodname_actions %} uses YAML syntax to define the workflow.  Each workflow is stored as a separate YAML file in your code repository, in a directory named `.github/workflows`.
+In {% data variables.product.prodname_actions %} werden Workflows mithilfe der YAML-Syntax definiert.  Die einzelnen Workflows werden in deinem Coderepository jeweils als separate YAML-Datei in einem Verzeichnis mit dem Namen `.github/workflows` gespeichert.
 
-You can create an example workflow in your repository that automatically triggers a series of commands whenever code is pushed. In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the [bats](https://www.npmjs.com/package/bats) testing framework, and runs a basic command to output the bats version: `bats -v`.
+Du kannst in deinem Repository einen Beispielworkflow erstellen, der immer dann automatisch eine Reihe von Befehlen auslöst, wenn Code per Push übertragen wird. In diesem Workflow checkt {% data variables.product.prodname_actions %} den per Push übertragenen Code aus, installiert das Testframework [bats](https://www.npmjs.com/package/bats) und führt einen einfachen Befehl aus, um die bats-Version auszugeben: `bats -v`.
 
-1. In your repository, create the `.github/workflows/` directory to store your workflow files.
-1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
+1. Erstelle in deinem Repository das Verzeichnis `.github/workflows/`, um die Workflowdateien zu speichern.
+1. Erstelle im Verzeichnis `.github/workflows/` eine neue Datei mit dem Namen `learn-github-actions.yml`, und füge den folgenden Code hinzu:
 
-   ```yaml{:copy}
+   ```yaml
    name: learn-github-actions
-   {%- ifversion actions-run-name %}
-   run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-   {%- endif %}
    on: [push]
    jobs:
      check-bats-version:
@@ -24,13 +29,13 @@ You can create an example workflow in your repository that automatically trigger
          - run: npm install -g bats
          - run: bats -v
    ```
-1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
+1. Führe für diese Änderungen einen Commit aus, und übertrage sie per Push in dein {% data variables.product.prodname_dotcom %}-Repository.
 
-Your new {% data variables.product.prodname_actions %} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. To see the details about a workflow's execution history, see "[Viewing the activity for a workflow run](#viewing-the-activity-for-a-workflow-run)."
+Die neue {% data variables.product.prodname_actions %}-Workflowdatei ist jetzt in deinem Repository installiert und wird immer dann automatisch ausgeführt, wenn eine Änderung per Push in dein Repository übertragen wird. Informationen zum Ausführungsverlauf eines Workflows findest du unter [Anzeigen der Aktivität einer Workflowausführung](#viewing-the-activity-for-a-workflow-run).
 
-## Understanding the workflow file
+## Grundlegendes zu Workflowdateien
 
-To help you understand how YAML syntax is used to create a workflow file, this section explains each line of the introduction's example:
+In diesem Abschnitt wird anhand der einzelnen Zeilen des Einführungsbeispiels erläutert, wie du mithilfe der YAML-Syntax eine Workflowdatei erstellst.
 
 <table>
 <tr>
@@ -41,23 +46,9 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  <em>Optional</em> - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository.
+  <em>Optional</em>: Name des Workflows, der auf der Registerkarte „Aktionen“ im {% data variables.product.prodname_dotcom %}-Repository angezeigt wird.
 </td>
 </tr>
-{%- ifversion actions-run-name %}
-<tr>
-<td>
-
-  ```yaml
-  run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-  ```
-</td>
-<td>
-
-  <em>Optional</em> - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
-</td>
-</tr>
-{%- endif %}
 <tr>
 <td>
 
@@ -66,7 +57,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+Gibt den Trigger für diesen Workflow an. In diesem Beispiel wird das Ereignis <code>push</code> verwendet. Daher wird immer dann eine Workflowausführung ausgelöst, wenn eine Änderung per Push in das Repository übertragen oder ein Pull Request gemergt wird.  Dies wird durch einen Push an jeden beliebigen Branch ausgelöst. Unter <a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflowsyntax für {% data variables.product.prodname_actions %}</a> findest du Syntaxbeispiele, die nur bei Pushes an bestimmte Branches, Pfade oder Tags ausgeführt werden.
 </td>
 </tr>
 <tr>
@@ -77,7 +68,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```
 </td>
 <td>
- Groups together all the jobs that run in the <code>learn-github-actions</code> workflow.
+Gruppiert alle Aufträge, die im Workflow <code>learn-github-actions</code> ausgeführt werden.
 </td>
 </tr>
 <tr>
@@ -88,7 +79,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```
 </td>
 <td>
-Defines a job named <code>check-bats-version</code>. The child keys will define properties of the job.
+Definiert einen Auftrag mit dem Namen <code>check-bats-version</code>. Die Eigenschaften des Auftrags werden durch die untergeordneten Schlüssel definiert.
 </td>
 </tr>
 <tr>
@@ -99,7 +90,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
+Konfiguriert den Auftrag, der für die neueste Version eines Ubuntu Linux-Runners ausgeführt werden soll. Dies bedeutet, dass der Auftrag auf einer neuen, von GitHub gehosteten VM ausgeführt wird. Syntaxbeispiele mit anderen Runnern findest du unter <a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflowsyntax für {% data variables.product.prodname_actions %}.</a>
 </td>
 </tr>
 <tr>
@@ -110,7 +101,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell script.
+Gruppiert alle Schritte, die im Auftrag <code>check-bats-version</code> ausgeführt werden. Alle Elemente in diesem Abschnitt stellen separate Aktionen oder Shellskripts dar.
 </td>
 </tr>
 <tr>
@@ -121,7 +112,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+Das <code>uses</code>-Schlüsselwort gibt an, dass mit diesem Schritt <code>v3</code> der Aktion <code>actions/checkout</code> ausgeführt wird. Mit dieser Aktion wird dein Repository in den Runner ausgecheckt. Dadurch kannst du Skripts oder andere Aktionen für deinen Code ausführen (z. B. Build- und Testtools). Verwende die Auscheckaktion bei jeder Ausführung deines Workflows für den Code des Repositorys.
 </td>
 </tr>
 <tr>
@@ -134,7 +125,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
+In diesem Schritt wird mit der Aktion <code>{% data reusables.actions.action-setup-node %}</code> die angegebene Node.js-Version installiert (in diesem Beispiel v14). Dadurch werden die Befehle <code>node</code> und <code>npm</code> dem <code>PATH</code>-Element hinzugefügt.
 </td>
 </tr>
 <tr>
@@ -145,7 +136,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
+Mit dem <code>run</code>-Schlüsselwort wird der Auftrag angewiesen, einen Befehl im Runner auszuführen. In diesem Fall installierst du das Softwaretestpaket <code>bats</code> mithilfe von <code>npm</code>.
 </td>
 </tr>
 <tr>
@@ -156,34 +147,34 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```
 </td>
 <td>
-  Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
+Zuletzt führst du den <code>bats</code>-Befehl mit einem Parameter aus, der die Softwareversion ausgibt.
 </td>
 </tr>
 </table>
 
-### Visualizing the workflow file
+### Visualisieren der Workflowdatei
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+Im folgenden Diagramm siehst du die zuvor erstellte Workflowdatei und die hierarchische Organisation der {% data variables.product.prodname_actions %}-Komponenten. In jedem Schritt wird eine einzelne Aktion oder ein einzelnes Shellskript ausgeführt. In den Schritten 1 und 2 werden Aktionen ausgeführt, in den Schritten 3 und 4 Shellskripts. Weitere vordefinierte Aktionen für deine Workflows findest du unter [Suchen und Anpassen von Aktionen](/actions/learn-github-actions/finding-and-customizing-actions).
 
-![Workflow overview](/assets/images/help/images/overview-actions-event.png)
+![Übersicht über Workflow](/assets/images/help/images/overview-actions-event.png)
 
-## Viewing the activity for a workflow run
+## Anzeigen der Aktivität für eine Workflowausführung
 
-When your workflow is triggered, a _workflow run_ is created that executes the workflow. After a workflow run has started, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
+Wenn dein Workflow ausgelöst wird, wird eine _Workflowausführung_ erstellt, die den Workflow ausführt. Nachdem eine Workflowausführung gestartet wurde, wird auf {% data variables.product.prodname_dotcom %} eine grafische Darstellung des Ausführungsfortschritts sowie der Aktivitäten der einzelnen Schritte dargestellt.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Actions**.
+1. Klicke unter dem Repositorynamen auf **Aktionen**.
 
-   ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
-1. In the left sidebar, click the workflow you want to see.
+   ![Navigieren zum Repository](/assets/images/help/images/learn-github-actions-repository.png)
+1. Klicke in der linken Seitenleiste auf den Workflow, den du sehen willst.
 
-   ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Under "Workflow runs", click the name of the run you want to see.
+   ![Screenshot der Workflowergebnisse](/assets/images/help/images/learn-github-actions-workflow.png)
+1. Klicke unter „Workflow runs" (Workflow-Ausführungen) auf den Namens des Ausführung, die du sehen willst.
 
-   ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-1. Under **Jobs** or in the visualization graph, click the job you want to see.
+   ![Screenshot der Workflowausführungen](/assets/images/help/images/learn-github-actions-run.png)
+1. Wähle unter **Aufträge** oder im Visualisierungsdiagramm den Auftrag aus, den du anzeigen möchtest.
 
-   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
-1. View the results of each step.
+   ![Auswählen des Auftrags](/assets/images/help/images/overview-actions-result-navigate.png)
+1. Zeige die Ergebnisse der einzelnen Schritte an.
 
-   ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+   ![Screenshot der Details zur Workflowausführung](/assets/images/help/images/overview-actions-result-updated-2.png)

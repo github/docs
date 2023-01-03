@@ -1,6 +1,6 @@
 ---
-title: Showing your private contributions and achievements on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from {% ifversion fpt or ghes or ghec %}private and internal{% else %}private{% endif %} repositories{% ifversion fpt or ghes or ghec %} in addition to the activity from public repositories{% endif %}.'
+title: Anzeigen privater Beiträge und Erfolge auf deinem Profil
+intro: 'Dein {% data variables.product.product_name %}-Profil zeigt ein Diagramm deiner Repositorybeiträge des letzten Jahres an. Du kannst die Aktivitäten in {% ifversion fpt or ghes or ghec %}privaten und internen{% else %}privaten{% endif %} Repositorys{% ifversion fpt or ghes or ghec %} ebenso wie die Aktivitäten in öffentlichen Repositorys anonymisieren{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
@@ -14,42 +14,40 @@ versions:
 topics:
   - Profiles
 shortTitle: Private contributions and achievements
+ms.openlocfilehash: b40e3835bf1548ff4ced75d1207de9a5b493dc90
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147079950'
 ---
-
-If you publicize your private contributions, people without access to the private repositories you work in won't be able to see the details of your private contributions. Instead, they'll see the number of private contributions you made on any given day. Your public contributions will include detailed information. For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)."
+Wenn du deine privaten Beiträge veröffentlichst, können Benutzer, die keinen Zugriff auf die Repositorys haben, an denen du mitarbeitest, die Informationen zu deinen privaten Beiträgen nicht sehen. Stattdessen sehen sie die Anzahl an privaten Beiträgen, die du pro Tag geleistet hast. Zu deinen öffentlichen Beiträgen werden detaillierte Informationen angezeigt. Weitere Informationen findest du unter [Anzeigen von Beiträgen auf deiner Profilseite](/articles/viewing-contributions-on-your-profile-page).
 
 {% note %}
 
-**Note:** {% ifversion fpt or ghes or ghec %}On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+**Hinweis:** {% ifversion fpt or ghes or ghec %}Auf {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %} sind öffentliche Beiträge in deinem Profil {% ifversion fpt or ghec %}für alle Personen sichtbar, die auf {% data variables.product.prodname_dotcom_the_website %} zugreifen können{% elsif ghes %}nur für andere Benutzer von {% data variables.product.product_location%} sichtbar{% endif %}.{% elsif ghae %}Auf {% data variables.product.prodname_ghe_managed %} können nur andere Mitglieder deines Unternehmens die Beiträge in deinem Profil sehen.{% endif %}
 
 {% endnote %}
 
-## Changing the visibility of your private contributions
+## Die Sichtbarkeit deiner privaten Beiträge ändern
 
 {% data reusables.profile.access_profile %}
-1. Publicize or hide your private contributions on your profile:
-    - To publicize your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and select **Private contributions**. Visitors will see your private contribution counts without further details.
-  ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-on.png)
-    - To hide your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and unselect **Private contributions.** Visitors will only see your public contributions.
-   ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-off.png)
+1. Veröffentliche deine privaten Beiträge in deinem Profil, oder blende sie aus:
+    - Um deine privaten Beiträge zu veröffentlichen, wähle über deinem Beteiligungsdiagramm im Dropdownmenü **Beitragseinstellungen** die Option **Private Beiträge** aus. Besucher sehen die Anzahl deiner privaten Beiträge ohne weitere Details.
+  ![Festlegen Im Dropdownmenü mit den Beitragseinstellungen, dass Besucher private Beiträge sehen können](/assets/images/help/profile/private-contributions-on.png)
+    - Um deine privaten Beiträge auszublenden, deaktiviere über deinem Beteiligungsdiagramm im Dropdownmenü **Beitragseinstellungen** die Option **Private Beiträge**. Besucher sehen nur deine öffentlichen Beiträge.
+   ![Festlegen Im Dropdownmenü mit den Beitragseinstellungen, dass Besucher private Beiträge sehen können](/assets/images/help/profile/private-contributions-off.png)
 
-## Changing the visibility of Achievements
+## Ändern der Sichtbarkeit für Erfolge
 
 {% data reusables.user-settings.access_settings %}
-1. Show or hide Achievements on your profile:
-    - To show Achievements on your profile, navigate to **Profile settings**, and select the checkbox next to **Show Achievements on my profile.**
-  ![Enable visitors to see Achievements from profile settings](/assets/images/help/profile/achievements-profile-settings-off.png)
-    - To hide Achievements from your profile, navigate to **Profile settings**, and unselect the checkbox next to **Show Achievements on my profile.**
-  ![Hide Achievements from visitors in profile settings](/assets/images/help/profile/achievements-profile-settings-on.png)
-{% ifversion hide-individual-achievements %}
-1. Optionally, to hide individual Achievements from your profile:
-    {% data reusables.profile.access_profile %}
-     1. Navigate to the Achievements section on the left sidebar of your profile and select the Achievements header. ![Achievements on profile sidebar](/assets/images/help/profile/achievements-on-profile.png)
-     2. Open the detail view of the achievement you'd like to hide by clicking on the achievement.
-     3. Once in the detail view, click the {% octicon "eye" aria-label="The eye icon" %} icon to hide the achievement. ![Achievement detail view](/assets/images/help/profile/achievements-detail-view.png) When hidden, badges will be marked by the {% octicon "eye-closed" aria-label="The eye closed icon" %} icon and are only visible to you. ![Hidden achievements](/assets/images/help/profile/achievements-hidden.png)
+1. Erfolge auf deinem Profil anzeigen oder ausblenden:
+    - Um Erfolge auf deinem Profil anzuzeigen, navigiere zu den **Profileinstellungen**, und aktiviere das Kontrollkästchen neben **Erfolge auf meinem Profil anzeigen** aus.
+  ![Anzeige von Erfolgen für Besucher*innen über Profileinstellungen aktivieren](/assets/images/achievements-profile-settings-off.png)
+    - Um Erfolge auf deinem Profil auszublenden, navigiere zu den **Profileinstellungen**, und deaktiviere das Kontrollkästchen neben **Erfolge auf meinem Profil anzeigen** aus.
+  ![Anzeige von Erfolgen für Besucher*innen über Profileinstellungen deaktivieren](/assets/images/achievements-profile-settings-on.png)
 
-{% endif %}
-## Further reading
+## Weitere Informationsquellen
 
-- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
+- [Anzeigen von Beiträgen auf deiner Profilseite](/articles/viewing-contributions-on-your-profile-page)
+- [Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)

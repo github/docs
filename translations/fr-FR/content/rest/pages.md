@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: L’API Pages GitHub vous permet d’interagir avec les sites Pages GitHub et les informations de build.
+intro: 'Utilisez l’API REST pour interagir avec des sites et des builds {% data variables.product.prodname_pages %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/pages
-ms.openlocfilehash: 6a4902cb0b0a5fd8bfa319cb0385df1d2de64346
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9ae93ad1bbf96c4219c834a32a3e66c96a732565
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147064209'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193330'
 ---
 

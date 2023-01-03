@@ -1,6 +1,6 @@
 ---
 title: OpenID Connect を使ったセキュリティ強化について
-shortTitle: About security hardening with OpenID Connect
+shortTitle: Security hardening with OpenID Connect
 intro: OpenID Connect を使用すると、ワークフローによって、有効期間の短いトークンをクラウド プロバイダーから直接交換できます。
 miniTocMaxHeadingLevel: 4
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 23c541fa3c99b706877fc29c52174c404d5fca3d
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 90a2f8c6cb2114f060bfbd0f422cb1ef6dbca604
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147710268'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192032'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -76,7 +76,7 @@ OIDC トークンを使うようにワークフローを更新することで、
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
-  "repo_visibility": private,
+  "repository_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -131,7 +131,7 @@ OIDC トークンには、標準の要求が他にもあります。
 | `job_workflow_ref`| これは、このジョブが使う再利用可能なワークフローの参照パスです。 詳細については、「[再利用可能なワークフローでの OpenID Connect の使用](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)」を参照してください。                  | 
 | `ref`| _(Reference)_ ワークフロー実行をトリガーした git ref。                   | 
 | `ref_type`| `ref` の種類。例: "branch"。                  | 
-| `repo_visibility` | ワークフローが実行されているリポジトリの可視性。 次の値を受け入れます: `internal`、`private`、または `public`。                   | 
+| `repository_visibility` | ワークフローが実行されているリポジトリの可視性。 次の値を受け入れます: `internal`、`private`、または `public`。                   | 
 | `repository`| ワークフローが実行されているリポジトリ。                   | 
 | `repository_id`| ワークフローが実行されているリポジトリの ID。  |
 | `repository_owner`| `repository` が格納されている組織の名前。                   | 
@@ -249,7 +249,7 @@ JWT に含まれる要求をカスタマイズすることで、OIDC 構成の�
 
 {% ifversion ghec %} - セキュリティのレイヤーを追加するために、`issuer` URL に Enterprise スラッグを追加できます。 これにより、issuer (`iss`) の要求に条件を設定し、Enterprise スラッグを含める必要がある一意の `issuer` URL からの JWT トークンのみを受け入れるように構成できます。{% endif %}
 - 特定のリポジトリ、再利用可能なワークフロー、またはその他のソースからの JWT トークンを必要とする subject (`sub`) 要求に条件を設定することで、OIDC 構成を標準化できます。
-- `repository_id` や `repo_visibility` などの追加の OIDC トークン要求を使用して、詳しい OIDC ポリシーを定義できます。 詳しくは、「[OIDC トークンについて](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)」を参照してください。
+- `repository_id` や `repository_visibility` などの追加の OIDC トークン要求を使用して、詳しい OIDC ポリシーを定義できます。 詳しくは、「[OIDC トークンについて](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)」を参照してください。
 
 これらの要求形式をカスタマイズするには、Organization とリポジトリの管理者が、次のセクションで説明する REST API エンドポイントを使用できます。
 
@@ -259,7 +259,7 @@ JWT に含まれる要求をカスタマイズすることで、OIDC 構成の�
 
 既定では、JWT は `https://token.actions.githubusercontent.com` で {% data variables.product.prodname_dotcom %} の OIDC プロバイダーによって発行されます。 このパスは、JWT の `iss` の値を使用してクラウド プロバイダーに提示されます。
 
-Enterprise 管理者は、`https://api.github.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer` で一意の URL からトークンを受信するように Enterprise を構成することで、OIDC 構成のセキュリティを強化できます。 Enterprise のスラッグ値を `<enterpriseSlug>` で置き換えます。 
+Enterprise 管理者は、`https://token.actions.githubusercontent.com/<enterpriseSlug>` で一意の URL からトークンを受信するように Enterprise を構成することで、OIDC 構成のセキュリティを強化できます。 Enterprise のスラッグ値を `<enterpriseSlug>` で置き換えます。 
 
 この構成は、Enterprise が一意の URL から OIDC トークンを受け取り、その URL からのトークンのみを受け入れるようにクラウド プロバイダーを構成できることを意味します。 これにより、OIDC を使用してクラウド リソースにアクセスできるのが Enterprise のリポジトリだけになります。
 
@@ -273,7 +273,7 @@ Enterprise でこの設定をアクティブにするには、Enterprise 管理�
   "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
   "aud": "http://octocat-inc.example/octocat-inc"
   "enterprise": "octocat-inc"
-  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "iss": "https://token.actions.githubusercontent.com/octocat-inc",
   "bf": 1755350653,
   "exp": 1755351553,
   "iat": 1755351253
@@ -282,21 +282,23 @@ Enterprise でこの設定をアクティブにするには、Enterprise 管理�
 
 {% endif %}
 
-### Organization の subject 要求のカスタマイズ
+### 組織またはリポジトリの subject 要求のカスタマイズ
 
-Organization 全体のセキュリティ、コンプライアンス、標準化を構成するため、必要なアクセス条件に合わせて標準要求をカスタマイズできます。 クラウド プロバイダーが subject 要求に関する条件をサポートしている場合は、`sub` の値が `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""` などの再利用可能なワークフローのパスと一致するかどうかをチェックする条件を作成できます。 正確な形式は、クラウド プロバイダーの OIDC 構成によって異なります。 {% data variables.product.prodname_dotcom %} に一致条件を構成するには、REST API を使用して、`sub` 要求に常に `job_workflow_ref` などの特定のカスタム要求を含める必要があることを求めることができます。 詳しくは、「[Organization の OIDC subject 要求用のカスタマイズ テンプレートを設定する](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)」をご覧ください。
-
-`sub` 要求全体で新しい形式で要求の結果をカスタマイズすると、「[subject 要求の例](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)」の説明にある、トークンの既定の事前定義 `sub` 形式が置き換えられます。
-
-次のテンプレート例は、subject 要求をカスタマイズするさまざまな方法を示しています。 {% data variables.product.prodname_dotcom %} でこれらの設定を構成するには、Organization 管理者が REST API を使用して、subject (`sub`) 要求に含める必要がある要求の一覧を指定します。 {% data reusables.actions.use-request-body-api %}
-
-subject 要求をカスタマイズするには、REST API を使用して構成をカスタマイズする前に、クラウド プロバイダーの OIDC 構成で一致条件を作成する必要があります。 構成が完了すると、新しいジョブが実行されるたびに、そのジョブの間に生成された OIDC トークンが新しいカスタマイズ テンプレートに従うようになります。 ジョブの実行前にクラウド プロバイダーの OIDC 構成に一致条件が存在しない場合、クラウド条件が同期されない可能性があるため、生成されたトークンがクラウド プロバイダーによって受け入れられない可能性があります。
+セキュリティ、コンプライアンス、標準化を向上させるため、必要なアクセス条件に合わせて標準要求をカスタマイズできます。 クラウド プロバイダーが subject 要求に関する条件をサポートしている場合は、`sub` の値が `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""` などの再利用可能なワークフローのパスと一致するかどうかをチェックする条件を作成できます。 正確な形式は、クラウド プロバイダーの OIDC 構成によって異なります。 {% data variables.product.prodname_dotcom %} に一致条件を構成するには、REST API を使用して、`sub` 要求に常に `job_workflow_ref` などの特定のカスタム要求を含める必要があることを求めることができます。 [OIDC REST API](/rest/actions/oidc) を使って、OIDC subject 要求のカスタマイズ テンプレートを適用できます。たとえば、OIDC トークン内の `sub` 要求に、`job_workflow_ref` などの特定のカスタム要求を常に含めるように要求できます。
 
 {% note %}
 
-**注**: Organization テンプレートを適用しても、OIDC を既に使用している既存のリポジトリには影響しません。 既存のリポジトリでは、テンプレートの適用後に作成された新しいリポジトリと同様に、リポジトリ所有者が、この構成を受け取るためにオプトインする必要があります。 詳しくは、「[リポジトリに OIDC subject 要求のカスタマイズのオプトイン フラグを設定する](/rest/actions/oidc#set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository)」を参照してください。
+**注**: 組織テンプレートを適用しても、OIDC を既に使用している既存のリポジトリのワークフローには影響しません。 既存のリポジトリでは、テンプレートの適用後に作成された新しいリポジトリと同様に、リポジトリ所有者が、この構成を受け取るためにオプトインする必要があります。または、リポジトリに固有の異なる構成を適用できます。 詳しくは、「[組織の OIDC subject 要求用のカスタマイズ テンプレートを設定する](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)」を参照してください。
 
 {% endnote %}
+
+`sub` 要求全体で新しい形式で要求の結果をカスタマイズすると、「[subject 要求の例](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)」の説明にある、トークンの既定の事前定義 `sub` 形式が置き換えられます。
+
+次のテンプレート例は、subject 要求をカスタマイズするさまざまな方法を示しています。 {% data variables.product.prodname_dotcom %} でこれらの設定を構成するには、管理者が REST API を使用して、subject (`sub`) 要求に含める必要がある要求の一覧を指定します。 
+
+{% data reusables.actions.use-request-body-api %}
+
+subject 要求をカスタマイズするには、REST API を使用して構成をカスタマイズする前に、クラウド プロバイダーの OIDC 構成で一致条件を作成する必要があります。 構成が完了すると、新しいジョブが実行されるたびに、そのジョブの間に生成された OIDC トークンが新しいカスタマイズ テンプレートに従うようになります。 ジョブの実行前にクラウド プロバイダーの OIDC 構成に一致条件が存在しない場合、クラウド条件が同期されない可能性があるため、生成されたトークンがクラウド プロバイダーによって受け入れられない可能性があります。
 
 #### 例: 可視性と所有者に基づいたリポジトリの許可
 
@@ -315,7 +317,9 @@ subject 要求をカスタマイズするには、REST API を使用して構成
 
 #### 例: 特定の所有者が設定されているすべてのリポジトリへのアクセスの許可
 
-このテンプレート例では、`sub` 要求に `repository_owner` の値のみを含む新しい形式を指定できます。 {% data reusables.actions.use-request-body-api %}
+このテンプレート例では、`sub` 要求に `repository_owner` の値のみを含む新しい形式を指定できます。 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -346,7 +350,9 @@ subject 要求をカスタマイズするには、REST API を使用して構成
 
 #### 例: 再利用可能なワークフローとその他の要求の要件化
 
-次のテンプレート例では、特定の再利用可能なワークフローの要件と追加の要求を組み合わせています。 {% data reusables.actions.use-request-body-api %}
+次のテンプレート例では、特定の再利用可能なワークフローの要件と追加の要求を組み合わせています。
+
+{% data reusables.actions.use-request-body-api %}
 
 この例では、`"context"` を使用して条件を定義する方法も示しています。 これは、[既定の `sub` の形式](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)のリポジトリに続く部分です。 たとえば、ジョブが環境を参照する場合、コンテキストには `environment:<environmentName>` が含まれています。
 
@@ -382,7 +388,9 @@ subject 要求をカスタマイズするには、REST API を使用して構成
 
 #### 例: システム生成 GUID の使用
 
-このテンプレート例では、エンティティの名前変更 (リポジトリの名前変更など) 間で変更されないシステム生成 GUID を使用する予測可能な OIDC 要求が有効になります。 {% data reusables.actions.use-request-body-api %}
+このテンプレート例では、エンティティの名前変更 (リポジトリの名前変更など) 間で変更されないシステム生成 GUID を使用する予測可能な OIDC 要求が有効になります。 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
   {
@@ -408,7 +416,9 @@ subject 要求をカスタマイズするには、REST API を使用して構成
 
 #### カスタマイズのリセット
 
-このテンプレート例では、subject 要求を既定の形式にリセットしています。 {% data reusables.actions.use-request-body-api %} このテンプレートは、Organization レベルのカスタマイズ ポリシーから実質的にオプトアウトします。
+このテンプレート例では、subject 要求を既定の形式にリセットしています。 このテンプレートは、組織レベルのカスタマイズ ポリシーから実質的にオプトアウトします。
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -423,11 +433,25 @@ subject 要求をカスタマイズするには、REST API を使用して構成
 
 #### 既定の subject 要求の使用
 
-Organization から subject 要求ポリシーを受け取ることができるリポジトリの場合、リポジトリ所有者は後でオプトアウトを選び、代わりに既定の `sub` 要求形式を使用できます。 これを構成するには、リポジトリ管理者が、次の要求本文で、「[リポジトリに OIDC subject 要求のカスタマイズのオプトアウト フラグを設定する](/rest/actions/oidc#set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository)」にある REST API エンドポイントを使用する必要があります。
+Organization から subject 要求ポリシーを受け取ることができるリポジトリの場合、リポジトリ所有者は後でオプトアウトを選び、代わりに既定の `sub` 要求形式を使用できます。 これは、そのリポジトリで組織のカスタマイズされたテンプレートが使用されないことを意味します。 
+
+既定の `sub` 要求形式を使うようにリポジトリを構成するには、リポジトリ管理者が「[組織の OIDC subject 要求用のカスタマイズ テンプレートを設定する](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)」の REST API エンドポイントを使い、次の要求本文を指定する必要があります。
 
 ```json
 {
    "use_default": true
+}
+```
+
+#### 例: 組織のテンプレートを使うようにリポジトリを構成する
+
+リポジトリ管理者は、自分の組織の管理者によって作成されたテンプレートを使うようにリポジトリを構成できます。
+
+組織のテンプレートを使うようにリポジトリを構成するには、リポジトリ管理者が「[組織の OIDC subject 要求用のカスタマイズ テンプレートを設定する](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)」の REST API エンドポイントを使い、次の要求本文を指定する必要があります。
+
+```json
+{
+   "use_default": false
 }
 ```
 

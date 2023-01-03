@@ -28,6 +28,7 @@ children:
   - /overview-of-github-copilot
   - /getting-started-with-github-copilot
   - /configuring-github-copilot
+  - /troubleshooting-github-copilot
 topics:
   - Copilot
 ---

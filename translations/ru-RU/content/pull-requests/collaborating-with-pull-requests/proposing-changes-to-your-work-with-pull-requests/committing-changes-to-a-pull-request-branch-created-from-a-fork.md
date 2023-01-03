@@ -1,6 +1,6 @@
 ---
-title: Committing changes to a pull request branch created from a fork
-intro: You can commit changes on a pull request branch that was created from a fork of your repository with permission from the pull request creator.
+title: 'Фиксация изменений в ветви запроса на вытягивание, созданной из вилки'
+intro: 'Вы можете зафиксировать изменения в ветви запроса на вытягивание, созданной из вилки репозитория с разрешения автора запроса на вытягивание.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
@@ -14,38 +14,42 @@ versions:
 topics:
   - Pull requests
 shortTitle: Commit to PR branch from fork
+ms.openlocfilehash: 2af0bc9969d662d4b4b41331345b6d229b5a7a49
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094644'
 ---
-You can only make commits on pull request branches that:
-- are opened in a repository that you have push access to and that were created from a fork of that repository
-- are on a user-owned fork
-- have permission granted from the pull request creator
-- don't have [branch restrictions](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
+Фиксации можно выполнять только в ветвях запросов на вытягивание, которые:
+- открываются в репозитории, к которому у вас есть доступ на отправку, и созданные из вилки этого репозитория;
+- находятся в вилке, принадлежащей пользователю;
+- имеют разрешение, предоставленное создателем запроса на вытягивание;
+- не имеют [ограничений ветвей](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches), которые помешают фиксации.
 
-Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
+Только пользователь, создавший запрос на вытягивание, может предоставить вам разрешение на отправку фиксаций в вилку, принадлежащую пользователю. Дополнительные сведения см. в разделе [Разрешение изменений в ветвь запроса на вытягивание, созданную из вилки](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
 {% note %}
 
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+**Примечание:** Вы также можете зафиксировать ветвь запроса на вытягивание из вилки репозитория с помощью {% данных variables.location.product_location %} путем создания собственной копии (или вилки) вилки репозитория и фиксации изменений в той же головной ветви, в которую были созданы исходные изменения запроса на вытягивание. Некоторые общие рекомендации см. в разделе [Создание запроса на вытягивание из вилки](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 
 {% endnote %}
 
-1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
-{% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
- {% tip %}
+1. В {% data variables.product.product_name %} перейдите на главную страницу вилки (или копии репозитория), где была создана ветвь запроса на вытягивание.
+{% data reusables.repositories.copy-clone-url %} {% data reusables.command_line.open_the_multi_os_terminal %} {% tip %}
 
- **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[Cloning a repository to {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
+ **Совет.** Если вы предпочитаете клонировать вилку с помощью {% data variables.product.prodname_desktop %}, см. раздел [Клонирование репозитория в {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop).
 
  {% endtip %}
-4. Change the current working directory to the location where you want to download the cloned directory.
+4. Измените текущий рабочий каталог на расположение, где должен находиться клонированный каталог.
   ```shell
   $ cd open-source-projects
   ```
-5. Type `git clone`, and then paste the URL you copied in Step 3.
+5. Введите `git clone` и вставьте URL-адрес, скопированный шаге 3.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
   ```
-6. Press **Enter**. Your local clone will be created.
+6. Нажмите клавишу **ВВОД**. Будет создан локальный клон.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
   > Cloning into `FORK-OF-THE-REPOSITORY`...
@@ -56,27 +60,26 @@ Only the user who created the pull request can give you permission to push commi
   ```
  {% tip %}
 
- **Tip:** The error message "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" means that your current working directory already contains a repository with the same name. To resolve the error, you must clone the fork in a different directory.
+ **Совет.** Сообщение об ошибке «Неустранимая ошибка: путь назначения "ИМЯ_РЕПОЗИТОРИЯ" уже существует и не является пустым каталогом» означает, что текущий рабочий каталог уже содержит репозиторий с таким же именем. Чтобы устранить эту ошибку, необходимо клонировать вилку в другой каталог.
 
  {% endtip %}
-7. Navigate into your new cloned repository.
+7. Перейдите к новому клонированному репозиторию.
   ```shell
   $ cd FORK-OF-THE-REPOSITORY
   ```
-7. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
-![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png)
- In this example, the compare branch is `test-branch`:
+7. Переключитесь на ветку сравнения запроса на вытягивание, в которой были внесены исходные изменения. При переходе к исходному запросу на вытягивание вы увидите ветвь сравнения в верхней части запроса на вытягивание.
+![Пример-ветви-сравнения](/assets/images/help/pull_requests/compare-branch-example.png) В этом примере ветвью сравнения является `test-branch`:
   ```shell
   $ git checkout TEST-BRANCH
   ```
 
  {% tip %}
 
- **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
+ **Совет.** Дополнительные сведения о ветвях запросов на вытягивание, включая примеры, см. в статье [Создание запроса на вытягивание](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository).
 
  {% endtip %}
-8. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
-9. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
+8. На этом этапе с этой ветвью можно сделать все, что необходимо. Можно отправить новые фиксации в нее, выполнить какие-нибудь локальные тесты или объединить другие ветви в эту ветвь. Внесите изменения, которые вам необходимы.
+9. После фиксации изменений в головной ветви запроса на вытягивание можно отправить изменения непосредственно в исходный запрос на вытягивание. В этом примере головной ветвью является `test-branch`.
   ```shell
   $ git push origin <em>test-branch</em>
   > Counting objects: 32, done.
@@ -88,8 +91,8 @@ Only the user who created the pull request can give you permission to push commi
   > 12da2e9..250e946  TEST-BRANCH -> TEST-BRANCH
   ```
 
-Your new commits will be reflected on the original pull request on {% data variables.location.product_location %}.
+Новые фиксации будут отражены в исходном запросе на вытягивание {% данных variables.location.product_location %}.
 
-## Further Reading
+## Дополнительные материалы
 
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- [Сведения о вилках](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)

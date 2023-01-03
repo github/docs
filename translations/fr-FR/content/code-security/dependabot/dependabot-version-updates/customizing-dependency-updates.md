@@ -1,6 +1,6 @@
 ---
-title: Customizing dependency updates
-intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
+title: Personnalisation des mises à jour des dépendances
+intro: 'Vous pouvez personnaliser la façon dont {% data variables.product.prodname_dependabot %} gère vos dépendances.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
@@ -20,36 +20,40 @@ topics:
   - Pull requests
   - Vulnerabilities
 shortTitle: Customize updates
+ms.openlocfilehash: 99a3869313598733493d21f8b15d46db98b1a53c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107740'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## À propos de la personnalisation des mises à jour des dépendances
 
-## About customizing dependency updates
+Une fois que vous avez activé les mises à jour de version, vous pouvez personnaliser la façon dont {% data variables.product.prodname_dependabot %} gère vos dépendances en ajoutant des options au fichier *dependabot.yml*. Par exemple, vous pouvez :
 
-After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the *dependabot.yml* file. For example, you could:
+- Spécifier quel jour de la semaine ouvrir des demandes de tirage (pull request) pour les mises à jour de version : `schedule.day`
+- Définir des réviseurs, des destinataires et des étiquettes pour chaque gestionnaire de package : `reviewers`, `assignees` et `labels`
+- Définir une stratégie de versioning pour les modifications apportées à chaque fichier manifeste : `versioning-strategy`
+- Changer le nombre maximal par défaut (5) de demandes de tirage ouvertes pour les mises à jour de version : `open-pull-requests-limit`
+- Ouvrir des demandes de tirage pour les mises à jour de version afin de cibler une branche spécifique, au lieu de la branche par défaut : `target-branch`
 
-- Specify which day of the week to open pull requests for version updates: `schedule.day`
-- Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`
-- Define a versioning strategy for changes to each manifest file: `versioning-strategy`
-- Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
-- Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
+Pour plus d’informations sur les options de configuration, consultez « [Options de configuration pour le fichier dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) ».
 
-For more information about the configuration options, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+Quand vous mettez à jour le fichier *dependabot.yml* dans votre dépôt, {% data variables.product.prodname_dependabot %} exécute une vérification immédiate avec la nouvelle configuration. En quelques minutes apparaît une liste mise à jour des dépendances sous l’onglet **{% data variables.product.prodname_dependabot %}**  ; cette opération peut prendre plus de temps si le dépôt a de nombreuses dépendances. Vous pouvez également voir de nouvelles demandes de tirage pour les mises à jour de version. Pour plus d’informations, consultez « [Liste des dépendances configurées pour les mises à jour de version](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates) ».
 
-When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)."
+## Impact des modifications de configuration sur les mises à jour de sécurité
 
-## Impact of configuration changes on security updates
+Si vous personnalisez le fichier *dependabot.yml*, vous remarquerez peut-être des modifications apportées aux demandes de tirage déclenchées pour les mises à jour de sécurité. Ces demandes de tirage sont toujours déclenchées par un avis de sécurité pour une dépendance, plutôt que par la planification {% data variables.product.prodname_dependabot %}. Toutefois, elles héritent des paramètres de configuration pertinents du fichier *dependabot.yml*, sauf si vous spécifiez une autre branche cible pour les mises à jour de version.
 
-If you customize the *dependabot.yml* file, you may notice some changes to the pull requests raised for security updates. These pull requests are always triggered by a security advisory for a dependency, rather than by the {% data variables.product.prodname_dependabot %} schedule. However, they inherit relevant configuration settings from the *dependabot.yml* file unless you specify a different target branch for version updates.
+Pour obtenir un exemple, consultez « [Définition d’étiquettes personnalisées](#setting-custom-labels) » ci-dessous.
 
-For an example, see "[Setting custom labels](#setting-custom-labels)" below.
+## Modification de la planification
 
-## Modifying scheduling
+Quand vous définissez une planification de mise à jour `daily`, par défaut, {% data variables.product.prodname_dependabot %} recherche les nouvelles versions à 05:00 UTC. Vous pouvez utiliser `schedule.time` afin de spécifier une autre heure de la journée pour rechercher les mises à jour (format : `hh:mm`).
 
-When you set a `daily` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. You can use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
-
-The example *dependabot.yml* file below expands the npm configuration to specify when {% data variables.product.prodname_dependabot %} should check for version updates to dependencies.
+L’exemple de fichier *dependabot.yml* ci-dessous étoffe la configuration npm pour spécifier quand {% data variables.product.prodname_dependabot %} doit rechercher les mises à jour de version des dépendances.
 
 ```yaml
 # dependabot.yml file with
@@ -66,13 +70,13 @@ updates:
       time: "02:00"
 ```
 
-## Setting reviewers and assignees
+## Définition des réviseurs et des destinataires
 
-By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
+Par défaut, {% data variables.product.prodname_dependabot %} déclenche des demandes de tirage sans réviseurs ni destinataires.
 
-You can use `reviewers` and `assignees`  to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
+Vous pouvez utiliser `reviewers` et `assignees` afin de spécifier des réviseurs et des destinataires pour toutes les demandes de tirage déclenchées pour un gestionnaire de package. Quand vous spécifiez une équipe, vous devez utiliser le nom complet de l’équipe, comme si vous la mentionniez (@mentioning) (organisation comprise).
 
-The example *dependabot.yml* file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have two reviewers and one assignee.
+L’exemple de fichier *dependabot.yml* ci-dessous change la configuration npm afin que toutes les demandes de tirage ouvertes avec des mises à jour de version et de sécurité pour npm aient deux réviseurs et un destinataire.
 
 ```yaml
 # dependabot.yml file with
@@ -94,17 +98,17 @@ updates:
       - "user-name"
 ```
 
-## Setting custom labels
+## Définition d’étiquettes personnalisées
 
 {% data reusables.dependabot.default-labels %}
 
-You can use `labels` to override the default labels and specify alternative labels for all pull requests raised for a package manager. You can't create new labels in the *dependabot.yml* file, so the alternative labels must already exist in the repository.
+Vous pouvez utiliser `labels` afin de remplacer les étiquettes par défaut et de spécifier d’autres étiquettes pour toutes les demandes de tirage déclenchées pour un gestionnaire de package. Vous ne pouvez pas créer d’étiquettes dans le fichier *dependabot.yml*. Les autres étiquettes doivent donc déjà exister dans le dépôt.
 
-The example *dependabot.yml* file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have custom labels. It also changes the Docker configuration to check for version updates against a custom branch and to raise pull requests with custom labels against that custom branch. The changes to Docker will not affect security update pull requests because security updates are always made against the default branch.
+L’exemple de fichier *dependabot.yml* ci-dessous change la configuration npm afin que toutes les demandes de tirage ouvertes avec des mises à jour de version et de sécurité pour npm aient des étiquettes personnalisées. Il change également la configuration Docker pour rechercher les mises à jour de version par rapport à une branche personnalisée et pour déclencher des demandes de tirage avec des étiquettes personnalisées par rapport à cette branche personnalisée. Les modifications apportées à Docker n’affectent pas les demandes de tirage des mises à jour de sécurité, car ceux-ci sont toujours effectués par rapport à la branche par défaut.
 
 {% note %}
 
-**Note:** The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
+**Remarque :** La nouvelle `target-branch` doit contenir un fichier Dockerfile à mettre à jour, sinon cette modification aura pour effet de désactiver les mises à jour de version pour Docker.
 
 {% endnote %}
 
@@ -139,6 +143,6 @@ updates:
       - "triage-board"
 ```
 
-## More examples
+## Autres exemples
 
-For more examples, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+Pour plus d’exemples, consultez « [Options de configuration pour le fichier dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) ».

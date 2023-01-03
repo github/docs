@@ -1,6 +1,6 @@
 ---
-title: Unpublishing a GitHub Pages site
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
+title: Anular la publicación de un sitio de Páginas de GitHub
+intro: 'Puedes publicar tu sitio de {% data variables.product.prodname_pages %} para que éste deje de estar disponible.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -18,35 +18,38 @@ versions:
 topics:
   - Pages
 shortTitle: Unpublish Pages site
+ms.openlocfilehash: bfb22638b51560cb0006cca49a55b9842d8b807d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110031'
 ---
-
 {% ifversion pages-custom-workflow %}
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+Al anular la publicación del sitio, este dejará de estar disponible. La configuración o el contenido del repositorio existentes no se verán afectados.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
-1. In the menu that appears, select **Unpublish site**.
+1. En **{% data variables.product.prodname_pages %}** , junto al mensaje **Su sitio está activo**, haz clic en {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. En el menú que aparece, selecciona **Anular la publicación del sitio**.
 
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![Menú desplegable para anular la publicación del sitio](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
-## Unpublishing a project site
+## Anular la publicación de un sitio de proyecto
 
 {% data reusables.repositories.navigate-to-repo %}
-2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
-3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
-  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% data reusables.pages.update_your_dns_settings %}
+2. Si existe una rama `gh-pages` en el repositorio, elimine la rama `gh-pages`. Para más información, vea "[Creación y eliminación de ramas dentro del repositorio](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)".
+3. Si la rama `gh-pages` era el origen de publicación, {% ifversion fpt or ghec %}avance al paso 6{% else %}se anulará la publicación del sitio y puede avanzar a los pasos restantes{% endif %}.
+{% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+5. En "{% data variables.product.prodname_pages %}", use el menú desplegable **Origen** y seleccione **Ninguno.** 
+  ![Menú desplegable para seleccionar un origen de publicación](/assets/images/help/pages/publishing-source-drop-down.png) {% data reusables.pages.update_your_dns_settings %}
 
-## Unpublishing a user or organization site
+## Anular la publicación de un sitio de usuario o de organización
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
+2. Borra la rama que estás utilizando como fuente de publicación, o borra todo el repositorio. Para más información, vea "[Creación y eliminación de ramas dentro del repositorio](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" y "[Eliminación de un repositorio](/articles/deleting-a-repository)".
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

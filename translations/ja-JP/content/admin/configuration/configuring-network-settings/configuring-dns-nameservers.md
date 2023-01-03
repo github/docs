@@ -1,6 +1,6 @@
 ---
-title: Configuring DNS nameservers
-intro: '{% data variables.product.prodname_ghe_server %} uses the dynamic host configuration protocol (DHCP) for DNS settings when DHCP leases provide nameservers. If nameservers are not provided by a dynamic host configuration protocol (DHCP) lease, or if you need to use specific DNS settings, you can specify the nameservers manually.'
+title: DNSネームサーバの設定
+intro: '{% data variables.product.prodname_ghe_server %} は、動的ホスト構成プロトコル (DHCP) のリースがネームサーバーを提供するときに、DNS 設定に対して DHCP を使用します。 ネームサーバがDHCPのリースで提供されない場合、あるいは特定のDNS設定を使う必要がある場合は、手動でネームサーバを指定できます。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
@@ -15,28 +15,34 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure DNS servers
+ms.openlocfilehash: b01dc25b9002bf1feb672bbce597c8046b93f12f
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147419714'
 ---
-The nameservers you specify must resolve {% data variables.location.product_location %}'s hostname.
+指定するネームサーバは、{% data variables.product.product_location %} のホスト名を解決する必要があります。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-## Configuring nameservers using the virtual machine console
+## 仮想マシンのコンソールを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-2. Configure nameservers for your instance.
+2. インスタンスに対してネームサーバーを設定します。
 {% data reusables.enterprise_installation.vm-console-done %}
 
-## Configuring nameservers using the administrative shell
+## 管理シェルを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)."
+2. ネームサーバーを編集するには、ビジュアル モードで `ghe-setup-network` コマンドを使います。 詳細については、「[コマンド ライン ユーティリティ](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)」を参照してください。
 
   ```shell
   ghe-setup-network -v
   ```
 
-5. To add your new nameserver entries to {% data variables.location.product_location %}, run the following:
+5. 新しいネームサーバー エントリを {% data variables.product.product_location %} に追加するには、次を実行します。
 
   ```shell
   sudo service resolvconf restart

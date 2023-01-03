@@ -1,0 +1,20 @@
+date: '06.05.2021'
+release_candidate: true
+deprecated: true
+intro: "Wenn {% data variables.product.product_location %} einen Release Candidate-Build ausführt, kannst du kein Upgrade mit einem Hotpatch durchführen. Es wird empfohlen, Release Candidates nur in Testumgebungen auszuführen."
+sections:
+  security_fixes:
+    - '**MITTEL** Unter gewissen Umständen verfügen Benutzer*innen, die aus einem Team oder einer Organisation entfernt wurden, weiterhin über Schreibzugriff auf Branches, auf denen sie vorhandene Pull Requests geöffnet hatten.'
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert.
+  bugs:
+    - 'Ein geplanter Bereinigungsauftrag kann dazu führen, dass die Leistung auf einer Instanz mit einer sehr großen `check_annotations`-Tabelle nachlässt.'
+  changes:
+    - "Überprüfungsanmerkungen, die älter als 4 Monate sind, werden archiviert."
+    - 'Das Feld `firstPatchedVersion` ist jetzt in `SecurityVulnerability`-Objekten in der GraphQL-API verfügbar.'
+  known_issues:
+    - "Die npm-Registrierung von GitHub Packages gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben sind."
+    - Auf einem neu eingerichteten GitHub Enterprise-Server ohne Benutzer*innen könnten Angreifer*innen den ersten Administratorbenutzer erstellen.
+    - Benutzerdefinierte Firewallregeln werden während eines Upgrades nicht aufrechterhalten.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webschnittstelle hochgeladen wurden,](https://github.com/blog/2105-upload-files-to-your-repositories) werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten, wobei der Dateipfad länger ist als 255 Zeichen."
+    - "Wenn „Benutzer können GitHub.com durchsuchen“ bei GitHub Connect aktiviert ist, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."

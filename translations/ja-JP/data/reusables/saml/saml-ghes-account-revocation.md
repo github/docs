@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: d08df6f87611aec73985fd0ecd279b67079e2a1f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 727611615f31b6b6064340ba97757509a1834db2
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147067379"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193596"
 ---
 {% ifversion ghes %}
 
-IdP からユーザーを削除する場合は、ユーザーを手動で一時停止する必要もあります。 そうしないと、アカウントの所有者はアクセス トークンまたは SSH キーを使って引き続き認証を行うことができます。 詳細については、[ユーザーの一時停止と一時停止解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)に関するページを参照してください。
+JIT プロビジョニングでは、IdP からユーザーを削除する場合、{% data variables.location.product_location %} でユーザーのアカウントを手動で中断する必要があります。 そうしないと、アカウントの所有者はアクセス トークンまたは SSH キーを使って引き続き認証を行うことができます。 詳細については、[ユーザーの一時停止と一時停止解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)に関するページを参照してください。
 
 {% endif %}

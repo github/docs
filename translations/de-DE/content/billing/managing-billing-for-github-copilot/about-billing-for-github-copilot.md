@@ -1,21 +1,26 @@
 ---
-title: About billing for GitHub Copilot
-intro: 'If you want to use {% data variables.product.prodname_copilot %}, you need a subscription for your {% data variables.product.prodname_dotcom %} account.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+title: Informationen zur Abrechnung für GitHub Copilot
+intro: 'Wenn du {% data variables.product.prodname_copilot %} verwenden möchtest, benötigst du ein Abonnement für dein {% data variables.product.prodname_dotcom %}-Konto.'
 versions:
   feature: copilot
 topics:
   - Copilot
 shortTitle: Billing for GitHub Copilot
+ms.openlocfilehash: 38bdf5dcef235faef0c04fa207e3dca8a4420105
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573788'
 ---
-## About billing for {% data variables.product.prodname_copilot %}
+## Informationen zur Abrechnung für {% data variables.product.prodname_copilot %}
 
-If you want to use {% data variables.product.prodname_copilot %}, you will need a subscription for your {% data variables.product.prodname_dotcom %} personal account. For more information about {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot)."
+Wenn du {% data variables.product.prodname_copilot %} verwenden möchtest, benötigst du ein Abonnement für dein persönliches {% data variables.product.prodname_dotcom %}-Konto. Weitere Informationen zu {% data variables.product.prodname_copilot %} findest du unter [Informationen zu {% data variables.product.prodname_copilot %}](/en/copilot/overview-of-github-copilot/about-github-copilot).
 
-Before starting a paid subscription, you can set up a one-time 60-day trial to evaluate {% data variables.product.prodname_copilot %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the 60 days, the trial will automatically convert to a paid subscription. You can cancel your {% data variables.product.prodname_copilot %} trial at any time during the 60 days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot %} until the 60-day trial period ends. For more information, see "[Managing your GitHub Copilot subscription](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription)."
+Bevor du ein kostenpflichtiges Abonnement startest, kannst du eine einmalige 60-tägige Testversion einrichten, um {% data variables.product.prodname_copilot %} auszuprobieren. Zum Ausprobieren einer Testversion musst du einen monatlichen oder jährlichen Abrechnungszeitraum auswählen und eine Zahlungsmethode angeben. Wenn du die Testversion vor Ende der 60 Tage nicht kündigst, wird die Testversion automatisch in ein kostenpflichtiges Abonnement konvertiert. Du kannst deine {% data variables.product.prodname_copilot %}-Testversion während der 60 Tage jederzeit kündigen, ohne dass sie berechnet wird. Wenn du die Testversion vor Ablauf der Frist kündigst, hast du bis zum Ende des 60-tägigen Testzeitraums weiterhin Zugriff auf {% data variables.product.prodname_copilot %}. Weitere Informationen findest du unter [Verwalten deines GitHub Copilot-Abonnements](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription).
 
-## {% data variables.product.prodname_copilot %} pricing
+## {% data variables.product.prodname_copilot %}-Tarife
 
-The {% data variables.product.prodname_copilot %} subscription is available on a monthly or yearly cycle. If you choose a monthly billing cycle, you will be billed $10 per calendar month. If you choose a yearly billing cycle, you will be billed $100 per year. You can modify your billing cycle at any time, and the modification will be reflected from the start of your next billing cycle.
+Das {% data variables.product.prodname_copilot %}-Abonnement ist für einen monatlichen oder jährlichen Abrechnungszeitraum erhältlich. Wenn du einen monatlichen Abrechnungszeitraum auswählst, werden dir 10 USD pro Kalendermonat berechnet. Wenn du einen jährlichen Abrechnungszeitraum auswählst, werden dir 100 USD pro Jahr berechnet. Du kannst deinen Abrechnungszeitraum jederzeit ändern, und die Änderung wird ab Beginn des nächsten Abrechnungszeitraums angezeigt.
 
-A free subscription for {% data variables.product.prodname_copilot %} is available to verified students, teachers, and maintainers of popular open-source repositories on {% data variables.product.company_short %}. If you meet the criteria as an open source maintainer, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. As a student, if you currently receive the {% data variables.product.prodname_student_pack %}, you will also be offered a free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page. For more information about the {% data variables.product.prodname_student_pack %}, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
+Für überprüfte Studenten und Maintainer von beliebten Open-Source-Repositorys ist auf {% data variables.product.company_short %} ein kostenloses Abonnement für {% data variables.product.prodname_copilot %} verfügbar. Sofern du die Kriterien als Open Source-Maintainer erfüllst, wirst du automatisch benachrichtigt, wenn du die {% data variables.product.prodname_copilot %}-Abonnementseite besuchst. Falls du Student bist und derzeit das {% data variables.product.prodname_student_pack %} erhältst, wird dir beim Besuch der {% data variables.product.prodname_copilot %}-Abonnementseite ebenfalls ein kostenloses Abonnement angeboten. Weitere Informationen zum {% data variables.product.prodname_student_pack %} findest du unter [Beantragen von {% data variables.product.prodname_global_campus %} als Studierende*r](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student).

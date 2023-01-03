@@ -1,6 +1,6 @@
 ---
-title: Why are my contributions not showing up on my profile?
-intro: Learn common reasons that contributions may be missing from your contributions graph.
+title: 내 기여가 내 프로필에 표시되지 않는 이유는 무엇인가요?
+intro: 기여 그래프에서 기여가 누락될 수 있는 일반적인 이유를 알아봅니다.
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -14,49 +14,54 @@ versions:
 topics:
   - Profiles
 shortTitle: Missing contributions
+ms.openlocfilehash: dbdf99a77c423774c03f69d21542f8174e813bc6
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127661'
 ---
+## 기여 그래프 정보
 
-## About your contribution graph
+프로필 기여 그래프는 {% endif %} {% data variables.location.product_location %}에서 {% else %}가 소유한 {% ifversion ghae %}리포지토리에 기여한 기록입니다. 기여는 현지 표준 시간대가 아닌 UTC(협정 세계시)에 따라 타임스탬프가 지정됩니다. 기여는 특정 기준을 충족하는 경우에만 계산됩니다. 경우에 따라 기여를 표시하려면 그래프를 다시 작성해야 할 수 있습니다.
 
-Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
+SAML SSO(Single Sign-On)를 사용하는 조직의 구성원인 경우 활성 SSO 세션이 없으면 프로필에서 조직의 기여 활동을 볼 수 없습니다. 조직 외부에서 프로필을 보는 사람에게는 조직을 위한 기여 활동 중 익명화된 기여 활동이 표시됩니다.
 
-If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
+## 계산되는 기여
 
-## Contributions that are counted
+### 이슈, 끌어오기 요청 및 토론
 
-### Issues, pull requests and discussions
+포크가 아닌 독립 실행형 리포지토리에서 열린 경우 문제, 끌어오기 요청 및 토론이 기여 그래프에 표시됩니다.
 
-Issues, pull requests, and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+### 커밋
+커밋은 다음 조건을 **모두** 충족하는 경우 기여 그래프에 표시됩니다.
+- 커밋에 사용되는 이메일 주소는 {% data variables.location.product_location %}의 계정과 연결됩니다.
+- 커밋은 포크가 아닌 독립 실행형 리포지토리에서 수행되었습니다.
+- 커밋이 다음 위치에서 수행되었습니다.
+  - 리포지토리의 기본 분기
+  - `gh-pages` 분기(프로젝트 사이트가 있는 리포지토리의 경우)
 
-### Commits
-Commits will appear on your contributions graph if they meet **all** of the following conditions:
-- The email address used for the commits is associated with your account on {% data variables.location.product_location %}.
-- The commits were made in a standalone repository, not a fork.
-- The commits were made:
-  - In the repository's default branch
-  - In the `gh-pages` branch (for repositories with project sites)
+프로젝트 사이트에 대한 자세한 내용은 “[{% data variables.product.prodname_pages %} 정보](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”를 참조하세요.
 
-For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+다음 중 **하나 이상** 이 참이어야 합니다.
+- 리포지토리의 협력자이거나 리포지토리를 소유한 조직의 구성원입니다.
+- 리포지토리를 포크했습니다.
+- 리포지토리에서 끌어오기 요청 또는 이슈를 시작했습니다.
+- 리포지토리에 별을 지정했습니다.
 
-In addition, **at least one** of the following must be true:
-- You are a collaborator on the repository or are a member of the organization that owns the repository.
-- You have forked the repository.
-- You have opened a pull request or issue in the repository.
-- You have starred the repository.
-
-## Common reasons that contributions are not counted
+## 기여가 계산되지 않는 일반적인 이유
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-### Commit was made less than 24 hours ago
+### 커밋된지 24시간이 지나지 않음
 
-After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
+기여로 계산하기 위한 요구 사항을 충족하는 커밋을 수행한 후 기여 그래프에 해당 기여가 표시되는 것을 확인하려면 최대 24시간까지 기다려야 할 수 있습니다.
 
-### Your local Git commit email isn't connected to your account
+### 로컬 Git 커밋 메일이 계정에 연결되지 않음
 
-Commits must be made with an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+{% data variables.location.product_location %}{% ifversion fpt or ghec %}의 계정에 연결된 이메일 주소 또는 기여 그래프에 표시하려면 {% data variables.product.prodname_dotcom %}에서 제공한 `noreply` 이메일 주소로 커밋해야 합니다.{ % ifversion fpt or ghec %} 전자 메일 주소에 대한 `noreply` 자세한 내용은 "[커밋 전자 메일 주소 설정"을 참조하세요](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses). {% endif %}
 
-You can check the email address used for a commit by adding `.patch` to the end of a commit URL, e.g. <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
+커밋 URL의 끝에 `.patch`를 추가하여 커밋에 사용되는 메일 주소를 확인할 수 있습니다(예: <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>).
 
 ```
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
@@ -65,41 +70,39 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-The email address in the `From:` field is the address that was set in the [local git config settings](/articles/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
+`From:` 필드의 메일 주소는 [로컬 git 구성 설정](/articles/set-up-git)에서 설정한 주소입니다. 이 예제에서 커밋에 사용되는 메일 주소는 `octocat@nowhere.com`입니다.
 
-If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
+커밋에 사용된 이메일 주소가 {% data variables.location.product_location %}의 계정에 연결되지 않은 경우 {% ifversion ghae %}Git에서 커밋을 작성하는 데 사용되는 전자 메일 주소를 변경합니다. 자세한 내용은 "[커밋 전자 메일 주소 설정"을 참조하세요](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git). {% else %}{% data variables.location.product_location %}의 계정에 [이메일 주소를 추가](/articles/adding-an-email-address-to-your-github-account) 해야 합니다. 새 주소를 추가하면 기여 그래프가 자동으로 다시 작성됩니다.{% endif %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+{% ifversion fpt or ghec %} {% note %}
 
-**Note**: If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot add additional email addresses to the account, even if multiple email addresses are registered with your identity provider (IdP). Therefore, only commits that are authored by the primary email address registered with your IdP can be associated with your {% data variables.enterprise.prodname_managed_user %}.
+**참고**: {% data variables.enterprise.prodname_managed_user %}을(를) 사용하는 경우 IdP(ID 공급자)에 여러 개의 전자 메일 주소가 등록된 경우에도 계정에 추가 전자 메일 주소를 추가할 수 없습니다. 따라서 IdP에 등록된 기본 전자 메일 주소로 작성된 커밋만 {% data variables.enterprise.prodname_managed_user %}에 연결할 수 있습니다.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts and linked to commits. If you've authored any commits using a generic email address, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
+와 같은 `jane@computer.local`일반 전자 메일 주소는 {% data variables.product.prodname_dotcom %} 계정에 추가하고 커밋에 연결할 수 없습니다. 일반 전자 메일 주소를 사용하여 커밋을 작성한 경우 커밋은 {% data variables.product.prodname_dotcom %} 프로필에 연결되지 않으며 기여 그래프에 표시되지 않습니다.
 
-### Commit was not made in the default or `gh-pages` branch
+### 기본 또는 `gh-pages` 분기에서 커밋되지 않았음
 
-Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+기본 분기 또는 `gh-pages` 분기에서 커밋된 경우에만 커밋이 계산됩니다(프로젝트 사이트가 있는 리포지토리의 경우). 자세한 내용은 “[{% data variables.product.prodname_pages %} 정보](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”를 참조하세요.
 
-If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
-- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
-- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
+커밋이 기본 분기가 아닌 분기 또는 `gh-pages` 분기가 아닌 분기에 있는데 해당 커밋이 기여에 계산되도록 하려면 다음 중 하나를 수행해야 합니다.
+- [끌어오기 요청을 시작](/articles/creating-a-pull-request)하여 변경 내용을 기본 분기 또는 `gh-pages` 분기에 병합합니다.
+- 리포지토리의 [기본 분기를 변경](/github/administering-a-repository/changing-the-default-branch)합니다.
 
 {% warning %}
 
-**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
+**경고**: 리포지토리의 기본 분기를 변경하면 모든 리포지토리 협력자에 대해서도 기본 분기가 변경됩니다. 새 분기가 향후 모든 끌어오기 요청 및 커밋이 수행될 기준이 되도록 하려는 경우에만 이 작업을 수행하세요.
 
 {% endwarning %}
 
-### Commit was made in a fork
+### 포크에서 커밋되었습니다.
 
-Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
-- [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
+포크에서 수행된 커밋은 기여에 포함되지 않습니다. 이러한 커밋을 계산에 포함하려면 다음 중 하나를 수행해야 합니다.
+- [끌어오기 요청을 열어](/articles/creating-a-pull-request) 변경 내용을 부모 리포지토리에 병합합니다.
+- 포크를 분리하고 {% data variables.location.product_location %}에서 독립 실행형 리포지토리로 전환하려면 {% data variables.contact.contact_support %}에 문의하세요. 포크에 자체 포크가 있는 경우 {% data variables.contact.contact_support %}에게 포크가 리포지토리와 함께 새 네트워크로 이동해야 하는지 아니면 현재 네트워크에 남아 있어야 하는지 알려주세요. 자세한 내용은 “[포크 정보](/articles/about-forks/)”를 참조하세요.
 
-## Further reading
+## 추가 참고 자료
 
-- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
+- “[프로필에서 프라이빗 기여 공개 또는 숨기기](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”
+- “[프로필 페이지에서 기여 보기](/articles/viewing-contributions-on-your-profile-page)”

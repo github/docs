@@ -1,6 +1,6 @@
 ---
-title: Changing your primary email address
-intro: You can change the email address associated with your personal account at any time.
+title: Изменение основного адреса электронной почты
+intro: 'Вы можете в любое время изменить адрес электронной почты, связанный с вашей личной учетной записью.'
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address
@@ -14,20 +14,25 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Primary email address
+ms.openlocfilehash: 5624a44c888b20350497fd2a4ec5a0d07186cdfe
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165284'
 ---
 {% note %}
 
-**Note:** You cannot change your primary email address to an email that is already set to be your backup email address.
+**Примечание.** Изменить основной адрес электронной почты на адрес электронной почты, который уже задан в качестве резервного, невозможно.
 
 {% endnote %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. If you'd like to add a new email address to set as your primary email address, under "Add email address", type a new email address and click **Add**.
-   ![Add another email address button](/assets/images/help/settings/add_another_email_address.png)
-4. Under "Primary email address", use the drop-down menu to click the email address you'd like to set as your primary email address, and click **Save**.
-   ![Set as primary button](/assets/images/help/settings/set_as_primary_email.png)
-5. To remove the old email address from your account, next to the old email, click {% octicon "trash" aria-label="The trash symbol" %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. Чтобы добавить новый адрес электронной почты, который будет использоваться в качестве основного, в разделе "Добавление адреса электронной почты" введите новый адрес электронной почты и нажмите кнопку **Добавить**.
+   ![Кнопка добавления другого адреса электронной почты](/assets/images/help/settings/add_another_email_address.png)
+4. В разделе "Основной адрес электронной почты" в раскрывающемся меню выберите адрес электронной почты, который вы хотите задать в качестве основного, а затем нажмите кнопку **Сохранить**.
+   ![Кнопка установки адреса в качестве основного](/assets/images/help/settings/set_as_primary_email.png)
+5. Чтобы удалить старый адрес электронной почты из учетной записи, рядом со старым адресом электронной почты щелкните {% octicon "trash" aria-label="The trash symbol" %}.
 {% ifversion fpt or ghec %}
-6. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.product_name %}'s features. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+6. Проверьте новый основной адрес электронной почты. Без проверенного адреса электронной почты вы не сможете использовать все функции {% data variables.product.product_name %}. Дополнительные сведения см. в статье "[Проверка адреса электронной почты](/articles/verifying-your-email-address)".
 {% endif %}

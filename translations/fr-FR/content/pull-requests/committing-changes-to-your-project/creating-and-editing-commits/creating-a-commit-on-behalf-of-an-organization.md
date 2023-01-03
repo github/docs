@@ -1,6 +1,6 @@
 ---
-title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+title: Création d’une validation pour le compte d’une organisation
+intro: 'Vous pouvez créer des commits pour le compte d’une organisation en ajoutant un code de fin au message du commit. Les commits attribués à une organisation incluent un badge `on-behalf-of` sur {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -9,27 +9,33 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: On behalf of an organization
+ms.openlocfilehash: 31b8a6b8d1824fa960fb32fa5fd7b4c28625037c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145132548'
 ---
 {% note %}
 
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
+**Remarque :** la possibilité de créer une validation pour le compte d’une organisation est actuellement en version bêta publique et sujette à modification.
 
 {% endnote %}
 
-To create commits on behalf of an organization:
+Pour créer des validations au nom d’une organisation :
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  - `org` is the organization's login
-  - `name@organization.com` is in the organization's domain
+- Vous devez être membre de l’organisation indiquée dans le code de fin
+- Vous devez signer la validation
+- Votre e-mail de validation et l’e-mail de l’organisation doivent se trouver dans un domaine vérifié par l’organisation
+- Votre message de validation doit se terminer par le code de fin de la validation `on-behalf-of: @org <name@organization.com>`
+  - `org` correspond à la connexion de l’organisation
+  - `name@organization.com` correspond au domaine de l’organisation
 
-Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
+Les organisations peuvent utiliser l’e-mail `name@organization.com` comme point de contact public pour les efforts open source.
 
-## Creating commits with an `on-behalf-of` badge on the command line
+## Création de validations avec un badge `on-behalf-of` sur la ligne de commande
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. Entrez votre message de validation ainsi qu’une description courte et explicite de vos modifications. Après votre description de validation, plutôt qu’un guillemet fermant, ajoutez deux lignes vides.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -37,38 +43,38 @@ Organizations can use the `name@organization.com` email as a public point of con
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **Conseil :** si vous utilisez un éditeur de texte sur la ligne de commande pour entrer votre message de validation, vérifiez qu’il existe bien deux nouvelles lignes entre la fin de votre description de validation et le code de fin de la validation `on-behalf-of:`.
 
   {% endtip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+2. Sur la ligne suivante du message de validation, entrez `on-behalf-of: @org <name@organization.com>`, puis un guillemet fermant.
 
   ```shell
   $ git commit -m "Refactor usability tests.
   >
   >
-  on-behalf-of: @ORG NAME@ORGANIZATION.COM"
+  on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+La nouvelle validation, le message et le badge s’affichent sur {% data variables.product.product_location %} lors de l’envoi (push) suivant. Pour plus d’informations, consultez « [Envoi de modifications à un référentiel distant](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) ».
 
-## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## Création de validations avec un badge `on-behalf-of` sur {% data variables.product.product_name %}
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+Après avoir apporté des modifications à un fichier à l’aide de l’éditeur web sur {% data variables.product.product_name %}, vous pouvez créer une validation pour le compte de votre organisation en ajoutant un code de fin `on-behalf-of:` au message de la validation.
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+1. Une fois vos modifications apportées, en bas de la page, entrez un message de validation court et explicite décrivant ces modifications.
+  ![Message de validation pour votre modification](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+2. Dans la zone de texte située sous votre message de validation, ajoutez `on-behalf-of: @org <name@organization.com>`.
 
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![Exemple de code de fin de message de validation dans la deuxième zone de texte de message de validation](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
+4. Cliquez sur **Valider les modifications** ou **Proposer des modifications**.
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %}.
+La nouvelle validation, le message et le badge s’affichent sur {% data variables.product.product_location %}.
 
-## Further reading
+## Pour aller plus loin
 
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- « [Affichage des contributions sur votre profil](/articles/viewing-contributions-on-your-profile) »
+- « [Pourquoi mes contributions ne s’affichent-elles pas sur mon profil ?](/articles/why-are-my-contributions-not-showing-up-on-my-profile) »
+- « [Affichage des contributeurs d’un projet](/articles/viewing-a-projects-contributors) »
+- « [Modification d’un message de validation](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message) »

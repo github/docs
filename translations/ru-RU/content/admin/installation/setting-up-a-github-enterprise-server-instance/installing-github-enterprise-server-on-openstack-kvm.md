@@ -1,6 +1,6 @@
 ---
-title: Installing GitHub Enterprise Server on OpenStack KVM
-intro: 'To install {% data variables.product.prodname_ghe_server %} on OpenStack KVM, you must have OpenStack access and download the {% data variables.product.prodname_ghe_server %} QCOW2 image.'
+title: Установка сервера GitHub Enterprise на OpenStack KVM
+intro: 'Чтобы установить {% data variables.product.prodname_ghe_server %} на OpenStack KVM, необходимо получить доступ к OpenStack и загрузить образ QCOW2 {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
@@ -14,44 +14,46 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on OpenStack
+ms.openlocfilehash: 7b0f84fa34a0d4177b8a6f316d2b8c7d724c987a
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098383'
 ---
-## Prerequisites
+## Предварительные требования
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have access to an installation of OpenStack Horizon, the web-based user interface to OpenStack services. For more information, see the [Horizon documentation](https://docs.openstack.org/horizon/latest/).
+- У вас должен быть доступ к установке OpenStack Horizon, пользовательского веб-интерфейса к службам OpenStack. Дополнительные сведения см. в статье [Документация по Horizon](https://docs.openstack.org/horizon/latest/).
 
-## Hardware considerations
+## Рекомендации по оборудованию
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-## Downloading the {% data variables.product.prodname_ghe_server %} image
+## Скачивание образа {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.download-license %}
-{% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **OpenStack KVM (QCOW2)**.
-5. Click **Download for OpenStack KVM (QCOW2)**.
+{% data reusables.enterprise_installation.download-license %} {% data reusables.enterprise_installation.download-appliance %}
+4. В локальной среде "{% data variables.product.prodname_dotcom %}" выберите раскрывающееся меню "Выберите свой гипервизор" и нажмите кнопку **OpenStack KVM (QCOW2)** .
+5. Нажмите **Скачать OpenStack KVM (QCOW2)** .
 
-## Creating the {% data variables.product.prodname_ghe_server %} instance
+## Создание экземпляра {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. In OpenStack Horizon, upload the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the "Upload an image" section of the OpenStack guide "[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)."
-{% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the OpenStack guide "[Create and manage volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)."
-3. Create a security group, and add a new security group rule for each port in the table below. For instructions, see the OpenStack guide "[Configure access and security for instances](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)."
+1. В OpenStack Horizon отправьте скаченный вами образ {% data variables.product.prodname_ghe_server %}. Инструкции см. в разделе "Отправка образа" руководства OpenStack "[Отправка образов и управление ими](https://docs.openstack.org/horizon/latest/user/manage-images.html)".
+{% data reusables.enterprise_installation.create-attached-storage-volume %} Инструкции см. в руководстве OpenStack "[Создание томов и управление ими](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)".
+3. Создайте группу безопасности и добавьте новое правило группы безопасности для каждого порта в таблице ниже. Инструкции см. в руководстве OpenStack "[Настройка доступа и безопасности для экземпляров](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)".
 
   {% data reusables.enterprise_installation.necessary_ports %}
-4. Optionally, associate a floating IP to the instance. Depending on your OpenStack setup, you may need to allocate a floating IP to the project and associate it to the instance. Contact your system administrator to determine if this is the case for you. For more information, see "[Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" in the OpenStack documentation.
-5. Launch {% data variables.location.product_location %} using the image, data volume, and security group created in the previous steps. For instructions, see the OpenStack guide "[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)."
+4. При необходимости свяжите плавающий IP-адрес с экземпляром. В зависимости от настройки OpenStack может потребоваться выделить плавающий IP-адрес для проекта и связать его с экземпляром. Чтобы определить, подходит ли это для вас, обратитесь к системному администратору. Дополнительные сведения см. в разделе "[Выделение плавающего IP-адреса экземпляру](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" в документации OpenStack.
+5. Запустите {% данных variables.location.product_location %} с помощью образа, тома данных и группы безопасности, созданной на предыдущих шагах. Инструкции см. в руководстве OpenStack "[Запуск экземпляров и управление ими](https://docs.openstack.org/horizon/latest/user/launch-instances.html)".
 
-## Configuring the {% data variables.product.prodname_ghe_server %} instance
+## Настройка экземпляра {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
-{% data reusables.enterprise_installation.visit-your-instance %}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %} {% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Дополнительные сведения см. в статье [Настройка устройства {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance).
+{% data reusables.enterprise_installation.instance-will-restart-automatically %} {% data reusables.enterprise_installation.visit-your-instance %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- [Обзор системы](/enterprise/admin/guides/installation/system-overview){% ifversion ghes %}
+- [Сведения об обновлении до новых выпусков](/admin/overview/about-upgrades-to-new-releases){% endif %}

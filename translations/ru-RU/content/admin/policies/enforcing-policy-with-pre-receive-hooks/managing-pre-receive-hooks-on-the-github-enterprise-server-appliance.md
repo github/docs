@@ -1,6 +1,6 @@
 ---
-title: Managing pre-receive hooks on the GitHub Enterprise Server appliance
-intro: 'Configure how people will use pre-receive hooks within their {% data variables.product.prodname_ghe_server %} appliance.'
+title: Управление перехватчиками предварительного получения на устройстве сервера GitHub Enterprise
+intro: 'Определите, как пользователи будут использовать перехватчики предварительного получения на своем устройстве {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
@@ -14,63 +14,61 @@ topics:
   - Policies
   - Pre-receive hooks
 shortTitle: Manage pre-receive hooks
+ms.openlocfilehash: 0e57f86b9a15d5001d6ab0d9f20578690ab5361f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112504'
 ---
-## Creating pre-receive hooks
+## Создание перехватчиков предварительного получения
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-4. Click **Add pre-receive hook**.
-![Add pre-receive hook](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
-5. In the **Hook name** field, enter the name of the hook that you want to create.
-![Name pre-receive hook](/assets/images/enterprise/site-admin-settings/hook-name.png)
-6. From the **Environment** drop-down menu, select the environment on which you want the hook to run.
-![Hook environment](/assets/images/enterprise/site-admin-settings/environment.png)
-7. Under **Script**, from the **Select hook repository** drop-down menu, select the repository that contains your pre-receive hook script. From the **Select file** drop-down menu, select the filename of the pre-receive hook script.
-![Hook script](/assets/images/enterprise/site-admin-settings/hook-script.png)
-8. Select **Use the exit-status to accept or reject pushes** to enforce your script. Unselecting this option allows you to test the script while the exit-status value is ignored. In this mode, the output of the script will be visible to the user in the command-line but not on the web interface.
-![Use exit-status](/assets/images/enterprise/site-admin-settings/use-exit-status.png)
-9. Select **Enable this pre-receive hook on all repositories by default** if you want the pre-receive hook to run on all repositories.
-![Enable hook all repositories](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
-10. Select **Administrators can enable and disable this hook** to allow organization members with admin or owner permissions to select whether they wish to enable or disable this pre-receive hook.
-![Admins enable or disable hook](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+4. Нажмите кнопку **Добавить перехватчик предварительного получения**.
+![Перехватчик предварительного получения](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
+5. В поле **Имя перехватчика** введите имя создаваемого перехватчика.
+![Имя перехватчика предварительного получения](/assets/images/enterprise/site-admin-settings/hook-name.png)
+6. В раскрывающемся меню **Среда** выберите среду, в которой нужно запустить обработчик.
+![Среда перехватчика](/assets/images/enterprise/site-admin-settings/environment.png)
+7. В разделе **Сценарий** раскрывающегося меню **Выбор репозитория перехватчика** выберите репозиторий, который содержит сценарий перехватчика предварительного получения. В раскрывающемся меню **Выбор файла** выберите имя файла сценария для перехватчика предварительного получения.
+![Сценарий для перехватчика](/assets/images/enterprise/site-admin-settings/hook-script.png)
+8. Выберите **Использовать состояние выхода, чтобы принимать или отклонять push-уведомления** для принудительного применения сценария. Отмена выбора этого параметра позволяет протестировать сценарий, пока значение состояния выхода игнорируется. В этом режиме выходные данные сценария будут отображаться для пользователя в командной строке, но не в веб-интерфейсе.
+![Использование состояния выхода](/assets/images/enterprise/site-admin-settings/use-exit-status.png)
+9. Выберите **Включить этот перехватчик предварительного получения для всех репозиториев по умолчанию**, если требуется, чтобы обработчик предварительного получения выполнялся во всех репозиториях.
+![Включение перехватчика для всех репозиториев](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
+10. Выберите **Администраторы могут включать и отключать этот перехватчик**, чтобы разрешить членам организации с разрешениями администратора или владельца выбрать, следует ли включать или отключать этот перехватчик предварительного получения.
+![Администраторы включают или отключают перехватчик](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
 
-## Editing pre-receive hooks
+## Редактирование перехватчиков предварительного получения
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-1. Next to the pre-receive hook that you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
-![Edit pre-receive](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+1. Рядом с перехватчиком предварительного получения, который необходимо изменить, нажмите {% octicon "pencil" aria-label="Значок редактирования" %}.
+![Изменение предварительного получения](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
-## Deleting pre-receive hooks
+## Удаление перехватчиков предварительного получения
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-2. Next to the pre-receive hook that you want to delete, click {% octicon "x" aria-label="X symbol" %}.
-![Edit pre-receive](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+2. Рядом с перехватчиком предварительного получения, который требуется удалить, нажмите {% octicon "x" aria-label="X symbol" %}.
+![Изменение предварительного получения](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
-## Configure pre-receive hooks for an organization
+## Настройка перехватчиков предварительного получения для организации
 
-An organization administrator can only configure hook permissions for an organization if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. To configure pre-receive hooks for a repository, you must be an organization administrator or owner.
+Администратор организации может настроить разрешения перехватчика для организации только в том случае, если администратор сайта выбрал параметр **Администратор может включать или отключать этот параметр перехватчика** при создании перехватчика предварительного получения. Чтобы настроить перехватчики предварительного получения для репозитория, необходимо быть администратором или владельцем организации.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. In the left sidebar, click **Hooks**.
-![Hooks sidebar](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
-5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook, or allow it to be configured by the repository administrators.
-![Hook permissions](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. На левой боковой панели нажмите **Перехватчики**.
+![Боковая панель «Перехватчики»](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
+5. Рядом с перехватчиком предварительного получения, который требуется настроить, щелкните раскрывающееся меню **Разрешения перехватчика**. Выберите, следует ли включить или отключить перехватчик предварительного получения либо разрешите его настройку администраторами репозитория.
+![Разрешения перехватчика](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
-## Configure pre-receive hooks for a repository
+## Настройка перехватчиков предварительного получения для репозитория
 
-A repository owner can only configure a hook if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. In an organization, the organization owner must also have selected the **Configurable** hook permission. To configure pre-receive hooks for a repository, you must be a repository owner.
+Владелец репозитория может настроить перехватчик только в том случае, если администратор сайта выбрал параметр **Администратор может включать или отключать этот параметр при создании перехватчика** при создании перехватчика предварительного получения. Владелец организации также должен выбрать разрешение перехватчика **Настраиваемый**. Чтобы настроить перехватчики предварительного получения для репозитория, необходимо быть владельцем репозитория.
 
 {% data reusables.profile.enterprise_access_profile %}
-2. Click **Repositories** and select which repository you want to configure pre-receive hooks for.
-![Repositories](/assets/images/enterprise/repos/repositories.png)
-{% data reusables.repositories.sidebar-settings %}
-4. In the left sidebar, click **Hooks & Services**.
-![Hooks and services](/assets/images/enterprise/repos/hooks-services.png)
-5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook.
-![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)
+2. Щелкните **Репозитории** и выберите репозиторий, для которого требуется настроить перехватчики предварительного получения.
+![Репозитории](/assets/images/enterprise/repos/repositories.png) {% data reusables.repositories.sidebar-settings %}
+4. На левой боковой панели нажмите **Перехватчики и службы**.
+![Перехватчики и службы](/assets/images/enterprise/repos/hooks-services.png)
+5. Рядом с перехватчиком предварительного получения, который требуется настроить, щелкните раскрывающееся меню **Разрешения перехватчика**. Выберите, следует ли включить или отключить перехватчик предварительного получения.
+![Разрешения перехватчика репозитория](/assets/images/enterprise/repos/repo-hook-permissions.png)

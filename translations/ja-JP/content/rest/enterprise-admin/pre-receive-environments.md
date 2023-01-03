@@ -1,36 +1,39 @@
 ---
-title: Pre-receive Environments
-intro: 'The Pre-receive Environments API allows you to create, list, update and delete environments for pre-receive hooks.'
+title: Pre-receive 環境
+intro: pre-receive 環境 API を使用すると、pre-receive フックの環境を作成、一覧表示、更新、および削除できます。
 versions:
   ghes: '*'
   ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 9db8635691ae2f8fcb8649b648948763168081ac
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147883263'
 ---
+*[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。* 通常のユーザーは、アクセスしようとすると `404` 応答を受け取ります。
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+### オブジェクトの属性
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+#### pre-receive 環境
 
-### Object attributes
-
-#### Pre-receive Environment
-
-| Name                  | Type      | Description                                                                |
+| 名前                  | 型      | 説明                                                                |
 |-----------------------|-----------|----------------------------------------------------------------------------|
-| `name`                | `string`  | The name of the environment as displayed in the UI.                        |
-| `image_url`           | `string`  | URL to the tarball that will be downloaded and extracted.                  |
-| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
-| `download`            | `object`  | This environment's download status.                                        |
-| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                 |
+| `name`                | `string`  | UI に表示される環境の名前。                        |
+| `image_url`           | `string`  | ダウンロードおよび抽出される tarball への URL。                  |
+| `default_environment` | `boolean` | これが {% data variables.product.product_name %} に同梱されるデフォルト環境かどうか。 |
+| `download`            | `object`  | この環境のダウンロードステータス。                                        |
+| `hooks_count`         | `integer` | この環境を使用する pre-receive フックの数。                 |
 
-#### Pre-receive Environment Download
+#### pre-receive 環境のダウンロード
 
-| Name            | Type     | Description                                             |
+| 名前            | Type     | 説明                                             |
 |-----------------|----------|---------------------------------------------------------|
-| `state`         | `string` | The state of the most recent download.                  |
-| `downloaded_at` | `string` | The time when the most recent download started.         |
-| `message`       | `string` | On failure, this will have any error messages produced. |
+| `state`         | `string` | 最新のダウンロードの状態。                  |
+| `downloaded_at` | `string` | 最新のダウンロードの開始時刻。         |
+| `message`       | `string` | 失敗時に、エラーメッセージが生成されます。 |
 
-Possible values for `state` are `not_started`, `in_progress`, `success`, `failed`.
+`state` で有効な値は、`not_started`、`in_progress`、`success`、`failed` です。

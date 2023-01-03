@@ -9,12 +9,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
-ms.openlocfilehash: e0962e410f2227a23ff98c8a3e7995ea8ec8a914
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: eecb77b541cc735fcf788fbc5da6960cabad899d
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158795'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191916'
 ---
 ## 概述
 

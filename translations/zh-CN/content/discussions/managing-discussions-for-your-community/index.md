@@ -9,11 +9,13 @@ children:
   - /managing-categories-for-discussions
   - /moderating-discussions
   - /viewing-insights-for-your-discussions
-ms.openlocfilehash: 156460ecfbb27820f11ccad388ceaff069f835b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+  - /creating-discussion-category-forms
+  - /syntax-for-discussion-category-forms
+ms.openlocfilehash: e4fb4eef99d40259e09c68056918bf8a56c1bddc
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410297'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193253'
 ---
 

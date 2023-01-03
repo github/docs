@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: The GitHub Pages API allows you to interact with GitHub Pages sites and build information.
+intro: 'Use the REST API to interact with {% data variables.product.prodname_pages %} sites and builds.'
 versions:
   fpt: '*'
   ghes: '*'

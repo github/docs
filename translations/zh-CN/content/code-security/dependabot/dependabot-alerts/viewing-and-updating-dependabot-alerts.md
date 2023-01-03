@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating Dependabot alerts
-intro: 'If {% data variables.product.product_name %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
+title: 查看和更新 Dependabot 警报
+intro: '如果 {% data variables.product.product_name %} 发现项目中存在不安全的依赖项，你可以在存储库的 Dependabot 警报选项卡中查看详细信息。 然后，你可以更新项目以解决或忽略警报。'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -21,222 +21,195 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: 8bf53452bd6518f5525d67994f3e6711ef33de0d
+ms.sourcegitcommit: 7e2b5213fd15d91222725ecab5ee28cef378d3ad
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185549'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+存储库的 {% data variables.product.prodname_dependabot_alerts %} 选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}。 你可以{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}按包、生态系统或清单筛选警报。 你还可以 {% endif %} 对警报列表进行排序，单击特定警报以获取更多详细信息。 {% ifversion dependabot-bulk-alerts %}你还可以逐个或通过一次选择多个警报来消除或重新打开警报。{% else %}你还可以消除或重新打开警报。 {% endif %}有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。 
 
-Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} filter alerts by package, ecosystem, or manifest. You can {% endif %} sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." 
-
-{% ifversion fpt or ghec or ghes %}
-You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+{% ifversion fpt or ghec or ghes %} 你可以为任何使用 {% data variables.product.prodname_dependabot_alerts %} 和依赖项关系图的存储库启用自动安全更新程序。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”。
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
-## About updates for vulnerable dependencies in your repository
+## 关于仓库中有漏洞的依赖项的更新
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+在我们检测到你的代码库正在使用具有已知安全风险的依赖项时，{% data variables.product.product_name %} 会生成 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 
-Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
+每个 {% data variables.product.prodname_dependabot %} 警报都有一个唯一的数字标识符，{% data variables.product.prodname_dependabot_alerts %} 选项卡列出了每个检测到的漏洞的警报。 旧版 {% data variables.product.prodname_dependabot_alerts %} 按依赖项对漏洞进行分组，并为每个依赖项生成一个警报。 如果导航到旧版 {% data variables.product.prodname_dependabot %} 警报，则会将您重定向到为该包筛选的 {% data variables.product.prodname_dependabot_alerts %} 选项卡。 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)" below.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} 可以使用用户界面上提供的各种筛选器和排序选项对 {% data variables.product.prodname_dependabot_alerts %} 进行筛选和排序。 有关详细信息，请参阅下面的“[确定 {% data variables.product.prodname_dependabot_alerts %} 优先级](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)”。
 
-## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
+## 确定 {% data variables.product.prodname_dependabot_alerts %} 优先级
 
-{% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
+{% data variables.product.company_short %} 可帮助确定修复 {% data variables.product.prodname_dependabot_alerts %} 的优先级。 {% ifversion dependabot-most-important-sort-option %}默认情况下，{% data variables.product.prodname_dependabot_alerts %} 按重要性进行排序。 “最重要”排序顺序有助于确定需首先处理的 {% data variables.product.prodname_dependabot_alerts %}。 警报根据其潜在影响、可操作性和相关性进行排序。 优先级计算正在逐步完善，包括 CVSS 分数、依赖范围以及是否为警报找到易受攻击的函数调用等因素。
 
-![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
-{% endif %}
+![“排序”下拉列表的屏幕截图，显示了“最重要”排序](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png) {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
 
-In addition to the filters available via the search bar, you can sort and filter {% data variables.product.prodname_dependabot_alerts %} using the dropdown menus at the top of the alert list. The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to "[PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7)" as the search string appears in the advisory description.
+除了通过搜索栏提供的筛选器之外，还可以使用警报列表顶部的下拉菜单对 {% data variables.product.prodname_dependabot_alerts %} 进行排序和筛选。 搜索栏还允许对警报和相关安全公告进行全文搜索。 可以搜索安全公告名称或说明的一部分，以返回存储库中与该安全公告相关的警报。 例如，搜索 `yaml.load() API could execute arbitrary code` 会返回链接到“[PyYAML 未安全地反序列化 YAML 字符串，导致任意代码执行](https://github.com/advisories/GHSA-rprw-h62v-c2w7)”的 {% data variables.product.prodname_dependabot_alerts %}，因为该搜索字符串出现在公告说明中。
 
 {% endif %}
 
-{% ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
-You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+{% ifversion dependabot-bulk-alerts %}![{% data variables.product.prodname_dependabot_alerts %} 选项卡中筛选器和排序菜单的屏幕截图](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %} 可以在列表顶部的下拉菜单中选择筛选器，然后单击要应用的筛选器。
+   ![{% data variables.product.prodname_dependabot_alerts %} 选项卡中筛选器和排序菜单的屏幕截图](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
-## Supported ecosystems and manifests for dependency scope
+## 依赖项范围的受支持生态系统和清单
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
 
-Alerts for packages listed as development dependencies are marked with the `Development` label on the {% data variables.product.prodname_dependabot_alerts %} page and are also available for filtering via the `scope` filter.
+作为开发依赖项列出的包的警报在 {% data variables.product.prodname_dependabot_alerts %} 页上用 `Development` 标签标记，还可以通过 `scope` 筛选器进行筛选。
 
-![Screenshot showing the "Development" label in the list of alerts](/assets/images/help/repository/dependabot-alerts-development-label.png)
+![显示警报列表中的“开发”标签的屏幕截图](/assets/images/help/repository/dependabot-alerts-development-label.png)
 
-The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
+开发范围包警报的警报详细信息页显示包含 `Development` 标签的“标记”部分。
 
-![Screenshot showing the "Tags" section in the alert details page](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+![显示警报详细信息页中的“标记”部分的屏幕截图](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
-## About the detection of calls to vulnerable functions
+## 关于检测对易受攻击函数的调用
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
 
-When {% data variables.product.prodname_dependabot %} tells you that your repository uses a vulnerable dependency, you need to determine what the vulnerable functions are and check whether you are using them. Once you have this information, then you can determine how urgently you need to upgrade to a secure version of the dependency. 
+当 {% data variables.product.prodname_dependabot %} 告知存储库使用易受攻击的依赖项时，需要确定易受攻击的函数，并检查是否正在使用它们。 获取此信息后，可以确定升级到依赖项的安全版本的紧迫程度。 
 
-For supported languages, {% data variables.product.prodname_dependabot %} automatically detects whether you use a vulnerable function and adds the label "Vulnerable call" to affected alerts. You can use this information in the {% data variables.product.prodname_dependabot_alerts %} view to triage and prioritize remediation work more effectively.
+对于支持的语言，{% data variables.product.prodname_dependabot %} 会自动检测你是否使用易受攻击的函数，并将标签“易受攻击的调用”添加到受影响的警报。 可以在 {% data variables.product.prodname_dependabot_alerts %} 视图中使用此信息来更有效地对修正工作进行会审和确定优先级。
 
 {% note %}
 
-**Note:** During the beta release, this feature is available only for new Python advisories created *after* April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
+注意：在 beta 版本中，此功能仅适用于在 2022 年 4 月 14 日之后创建的新 Python 公告，以及一部分历史 Python 公告。 {% data variables.product.prodname_dotcom %} 正在努力在滚动添加的其他历史 Python 公告中回填数据。 易受攻击的调用仅在 {% data variables.product.prodname_dependabot_alerts %} 页上突出显示。
 
 {% endnote %}
 
-![Screenshot showing an alert with the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+![屏幕截图显示带有“易受攻击的调用”标签的警报](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
-You can filter the view to show only alerts where {% data variables.product.prodname_dependabot %} detected at least one call to a vulnerable function using the `has:vulnerable-calls` filter in the search field.
+可以在搜索字段中使用 `has:vulnerable-calls` 筛选器进行筛选，以仅显示 {% data variables.product.prodname_dependabot %} 检测到至少一次对易受攻击的函数的调用的警报。
 
-For alerts where vulnerable calls are detected, the alert details page shows additional information:
+对于检测到易受攻击的调用的警报，警报详细信息页显示其他信息：
 
-- One or more code blocks showing where the function is used.
-- An annotation listing the function itself, with a link to the line where the function is called.
+- 显示函数使用位置的一个或多个代码块。
+- 列出函数本身的注释，其中包含指向调用函数的行的链接。
 
-![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
+![屏幕截图显示带有“易受攻击的调用”标签的警报的警报详细信息页](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
-For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-alerts)" below.
+有关详细信息，请参阅下面的“[查看和修复警报](#reviewing-and-fixing-alerts)”。
 
 {% endif %}
 
-## Viewing {% data variables.product.prodname_dependabot_alerts %}
+## 查看 {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)."
-{%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
-1. Click the alert that you would like to view.{% ifversion dependabot-bulk-alerts %}
-   ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}
-   ![Alert selected in list of alerts](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. （可选）若要筛选警报，请在下拉菜单中选择筛选器，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。 有关对警报进行筛选和排序的详细信息，请参阅“[确定 {% data variables.product.prodname_dependabot_alerts %} 优先级](#prioritizing-across--data-variablesproductprodname_dependabot_alerts-)”。
+{%- ifversion dependabot-bulk-alerts %}![{% data variables.product.prodname_dependabot_alerts %} 选项卡中筛选器和排序菜单的屏幕截图](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}![{% data variables.product.prodname_dependabot_alerts %} 选项卡中筛选器和排序菜单的屏幕截图](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+1. 单击要查看的警报。{% ifversion dependabot-bulk-alerts %}![在警报列表中选择的警报](/assets/images/help/graphs/click-alert-in-alerts-list-checkbox.png){% else %}![在警报列表中选择的警报](/assets/images/enterprise/3.5/dependabot/click-alert-in-alerts-list-ungrouped.png){% endif %}
 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Click the alert you'd like to view.
-  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list.png)
-{% endif %}
+{% else %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 单击您想要查看的警报。
+  ![在警报列表中选择的警报](/assets/images/help/graphs/click-alert-in-alerts-list.png) {% endif %}
 
-## Reviewing and fixing alerts
+## 查看和修复警报
 
-It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+请务必确保所有依赖项都没有任何安全弱点。 当 {% data variables.product.prodname_dependabot %} 在依赖项中发现漏洞{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}时，应评估项目的暴露级别并确定保护应用程序的修正步骤。
 
-If a patched version of the dependency is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert. 
+如果依赖项的修补版本可用，则可以生成 {% data variables.product.prodname_dependabot %} 拉取请求，以直接从 {% data variables.product.prodname_dependabot %} 警报更新此依赖项。 如果启用了 {% data variables.product.prodname_dependabot_security_updates %}，拉取请求可能会链接到 Dependabot 警报。 
 
-In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security advisory.
+如果修补版本不可用，或者无法更新到安全版本，{% data variables.product.prodname_dependabot %} 会共享其他信息，以帮助确定后续步骤。 单击查看 {% data variables.product.prodname_dependabot %} 警报时，可以看到依赖项的安全公告的完整详细信息，包括受影响的函数。 然后，可以检查代码是否调用受影响的函数。 此信息可以帮助你进一步评估风险级别，并确定解决方法，或者是否能够接受安全咨询所代表的风险。
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
-For supported languages, {% data variables.product.prodname_dependabot %} detects calls to vulnerable functions for you. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
+对于支持的语言，{% data variables.product.prodname_dependabot %} 可检测对易受攻击函数的调用。 查看标记为“易受攻击的调用”的警报时，详细信息包括函数的名称和调用它的代码的链接。 通常，无需进一步探索即可基于此信息做出决策。
 
 {% endif %}
 
-### Fixing vulnerable dependencies
+### 修复易受攻击的依赖项
 
-1. View the details for an alert. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
+1. 查看警报的详细信息。 有关详细信息，请参阅“[查看 {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)”（上文）。
 {% ifversion fpt or ghec or ghes %}
-1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request.
-  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
+1. 如果启用了 {% data variables.product.prodname_dependabot_security_updates %}，则可能会有一个指向可修复依赖项的拉取请求的链接。 或者，可以单击警报详细信息页顶部的“创建 {% data variables.product.prodname_dependabot %} 安全更新”以创建拉取请求。
+  ![“创建 {% data variables.product.prodname_dependabot %} 安全更新程序”按钮](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. （可选）如果不使用 {% data variables.product.prodname_dependabot_security_updates %}，可以使用页面上的信息来确定要升级到哪个版本的依赖项，并创建拉取请求以将依赖项更新到安全版本。
 {% elsif ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
+1. 可以使用页面上的信息来确定要升级到哪个版本的依赖项，并创建对清单的拉取请求或将文件锁定到安全版本。
 {% endif %}
-1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. 
+1. 当您准备好更新依赖项并解决漏洞时，合并拉取请求。 
 
-{% ifversion fpt or ghec or ghes %}
-   Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+{% ifversion fpt or ghec or ghes %} {% data variables.product.prodname_dependabot %} 提出的每个拉取请求都包含可用于控制 {% data variables.product.prodname_dependabot %} 的命令的信息。 有关详细信息，请参阅“[管理依赖项更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 {% endif %}
 
-## Dismissing {% data variables.product.prodname_dependabot_alerts %}
+## 消除 {% data variables.product.prodname_dependabot_alerts %}
 
 {% tip %}
 
-**Tip:** You can only dismiss open alerts.
+提示：你只能消除打开的警报。
 {% endtip %}
 
-If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
+如果你安排大量工作来升级依赖项，或者决定不需要修复警报，则可以消除警报。 消除已评估的警报可以更轻松地在新警报出现时对其进行会审。
 
-1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
-1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
-{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
-   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
-1. Click **Dismiss alert**.
-{% else %}
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
-{% ifversion dependabot-bulk-alerts %}
+1. 查看警报的详细信息。 有关详细信息，请参阅上面的“[查看易受攻击的依赖项](#viewing-dependabot-alerts)”。
+1. 选择“消除”下拉菜单，并单击消除警报的原因。{% ifversion reopen-dependabot-alerts %}之后可以重新打开未修复且已消除的警报。{% endif %}{% ifversion dependabot-alerts-dismissal-comment %}1. （可选）添加消除注释。 消除操作注释将添加到警报时间线，可在审核和报告期间用作理由。 可使用 GraphQL API 检索或设置注释。 注释包含在 `dismissComment` 字段中。 有关详细信息，请参阅 GraphQL API 文档中的“[{% data variables.product.prodname_dependabot_alerts %}](/graphql/reference/objects#repositoryvulnerabilityalert)”。
+![显示如何通过“消除”下拉列表消除警报的屏幕截图，该下拉列表中包含用于添加消除注释的选项](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+1. 单击“消除警报”。
+{% else %}![选择通过“消除”下拉菜单消除警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %} {% ifversion dependabot-bulk-alerts %}
 
-### Dismissing multiple alerts at once
+### 一次忽略多个警报
 
-1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
-2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. You can also type filters into the search bar.
-3. To the left of each alert title, select the alerts that you want to dismiss.
-   ![Screenshot of open alerts with checkboxes emphasized](/assets/images/help/graphs/select-multiple-alerts.png)
-4. Optionally, at the top of the list of alerts, select all alerts on the page.
-   ![Screenshot of all open alerts selected](/assets/images/help/graphs/select-all-alerts.png)
-5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
-   ![Screenshot of open alerts page with "Dismiss alerts" drop-down emphasized](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+1. 查看打开的 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[查看 {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)”。
+2. （可选）通过选择下拉菜单筛选警报列表，然后单击要应用的筛选器。 您还可以在搜索栏中键入过滤条件。
+3. 在每个警报标题的左侧，选择要消除的警报。
+   ![突出显示复选框的打开警报的屏幕截图](/assets/images/help/graphs/select-multiple-alerts.png)
+4. （可选）在警报列表顶部，选择页面上的所有警报。
+   ![已选择的所有打开警报的屏幕截图](/assets/images/help/graphs/select-all-alerts.png)
+5. 选择“消除警报”下拉列表，然后单击消除警报的原因。
+   ![突出显示“消除警报”下拉列表的“打开警报”页的屏幕截图](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
 
 {% ifversion reopen-dependabot-alerts %}
 
-## Viewing and updating closed alerts
+## 查看和更新已关闭的警报
 
-You can view all open alerts, and you can reopen alerts that have been previously dismissed. Closed alerts that have already been fixed cannot be reopened.
+可以查看所有打开的警报，并且可以重新打开之前消除的警报。 已修复的已关闭警报无法重新打开。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. To just view closed alerts, click **Closed**.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-dependabot-alerts %}
+1. 若要仅查看已关闭的警报，请单击“已关闭”。
 
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
-   {%- else %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png)
-   {%- endif %}
-1. Click the alert that you would like to view or update.
+   {%- ifversion dependabot-bulk-alerts %} ![显示“已关闭”选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png) {%- else %} ![显示“已关闭”选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed.png) {%- endif %}
+1. 单击要查看或更新的警报。
 
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
-   {%- else %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
-2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
+   {%- ifversion dependabot-bulk-alerts %} ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png) {%- else %} ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
+2. （可选）如果警报已关闭，并且想要重新打开警报，请单击“重新打开”。 已修复的警报无法重新打开。
 
-   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
-   ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+   {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %} ![显示“重新打开”按钮的屏幕截图](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
 
-### Reopening multiple alerts at once
+### 一次重新打开多个警报
 
-1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen.
-   ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
-3. Optionally, at the top of the list of alerts, select all closed alerts on the page.
-   ![Screenshot of closed alerts with all alerts selected](/assets/images/help/graphs/select-all-closed-alerts.png)
-4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
-   ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
+1. 查看已关闭的 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅“[查看和更新已关闭的警报](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)”（上文）。
+2. 在每个警报标题的左侧，选择要重新打开的警报。
+   ![突出显示复选框的已关闭警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+3. （可选）在警报列表顶部，选择页面上的所有已关闭的警报。
+   ![已关闭警报的屏幕截图，其中选择了所有警报](/assets/images/help/graphs/select-all-closed-alerts.png)
+4. 单击“重新打开”以重新打开警报。 已修复的警报无法重新打开。
+   ![突出显示了“重新打开”按钮的已关闭警报的屏幕截图](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}
 
  
-## Reviewing the audit logs for {% data variables.product.prodname_dependabot_alerts %}
+## 查看 {% data variables.product.prodname_dependabot_alerts %} 的审核日志
 
-When a member of your organization {% ifversion not fpt %}or enterprise {% endif %}performs an action related to {% data variables.product.prodname_dependabot_alerts %}, you can review the actions in the audit log. For more information about accessing the log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log){% ifversion not fpt %}" and "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."{% else %}."{% endif %}
-{% ifversion dependabot-alerts-audit-log %}
+当组织{% ifversion not fpt %}或企业{% endif %}成员执行与 {% data variables.product.prodname_dependabot_alerts %} 相关的操作时，你可以在审核日志中查看这些操作。 有关访问日志的详细信息，请参阅“[查看组织审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log){% ifversion not fpt %}”和“[访问企业审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)”。{% else %}."{% endif %} {% ifversion dependabot-alerts-audit-log %}
 
-![Screenshot of the audit log showing Dependabot alerts](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
+![显示 Dependabot 警报的审核日志的屏幕截图](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
 
-Events in your audit log for {% data variables.product.prodname_dependabot_alerts %} include details such as who performed the action, what the action was, and when the action was performed. {% ifversion dependabot-alerts-audit-log %}The event also includes a link to the alert itself. When a member of your organization dismisses an alert, the event displays the dismissal reason and comment.{% endif %} For information on the {% data variables.product.prodname_dependabot_alerts %} actions, see the `repository_vulnerability_alert` category in "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions){% ifversion not fpt %}" and "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)."{% else %}."{% endif %}
+{% data variables.product.prodname_dependabot_alerts %} 审核日志中的事件包括详细信息，例如执行操作的人员、操作内容以及操作执行时间。 {% ifversion dependabot-alerts-audit-log %}该事件还包括指向警报本身的链接。 当组织成员消除警报时，事件会显示消除原因和注释。{% endif %}有关 {% data variables.product.prodname_dependabot_alerts %} 操作的信息，请参阅“[查看组织审核日志](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions){% ifversion not fpt %}”和“[审核企业日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)”中的 `repository_vulnerability_alert` 类别。{% else %}”。{% endif %}

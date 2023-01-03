@@ -1,6 +1,6 @@
 ---
-title: About migrations
-intro: 'A migration is the process of transferring data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance. Migrations can be used to transfer your data when changing platforms or upgrading hardware on your instance.'
+title: 关于迁移
+intro: '迁移是将数据从源位置（{% data variables.product.prodname_dotcom_the_website %} 组织或 {% data variables.product.prodname_ghe_server %} 实例）转移到目标 {% data variables.product.prodname_ghe_server %} 实例的过程。  在更换平台或或升级实例上的硬件时，可以使用迁移转移数据。'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -11,41 +11,47 @@ type: overview
 topics:
   - Enterprise
   - Migration
+ms.openlocfilehash: accb9c62655f8825077a00e05a93182b36cd6e8d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147541181'
 ---
-## Types of migrations
+## 迁移的类型
 
-There are three types of migrations you can perform:
+您可以执行三种类型的迁移：
 
-- A migration from a {% data variables.product.prodname_ghe_server %} instance to another {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by any user or organization on the instance. Before performing a migration, you must have site administrator access to both instances.
-- A migration from a {% data variables.product.prodname_dotcom_the_website %} organization to a {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by the organization. Before performing a migration, you must have [administrative access](/enterprise/user/articles/permission-levels-for-an-organization/) to the {% data variables.product.prodname_dotcom_the_website %} organization as well as site administrator access to the target instance.
-- *Trial runs* are migrations that import data to a [staging instance](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). These can be useful to see what *would* happen if a migration were applied to {% data variables.location.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
+- 从 {% data variables.product.prodname_ghe_server %} 实例迁移到另一个 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移实例上由任何用户或组织拥有的任意数量的仓库。 在执行迁移之前，您必须具有两个实例的站点管理员访问权限。
+- 从 {% data variables.product.prodname_dotcom_the_website %} 组织迁移到 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移由组织拥有的任意数量的仓库。 在执行迁移前，必须拥有 {% data variables.product.prodname_dotcom_the_website %} 组织的[管理访问权限](/enterprise/user/articles/permission-levels-for-an-organization/)和目标实例的站点管理员访问权限。
+- “试运行”是将数据导入[暂存实例](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)的迁移。 这些试运行非常有用，可用于查看在向 {% data variables.product.product_location %} 应用迁移后将要发生的变化。 强烈建议你先在暂存实例上执行试运行，然后再将数据导入生产实例。
 
-## Migrated data
+## 迁移的数据
 
-In a migration, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository *and* the organization, as well as any users, teams, issues, and pull requests associated with the repository.
+在迁移中，一切都围绕仓库进行。 与仓库关联的大多数数据都可以迁移。 例如，组织内的存储库将迁移存储库和组织，以及与该存储库关联的任何用户、团队、议题和拉取请求。
 
-The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
+下表中的项可随仓库一起迁移。 迁移数据列表中未显示的任何项都无法迁移，包括 {% data variables.large_files.product_name_short %} 资产。
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-|  Data associated with a migrated repository | Notes  |
+|  与迁移的仓库关联的数据 | 备注  |
 |---------------------------------------------|--------|
-| Users | **@mentions** of users are rewritten to match the target.
-| Organizations | An organization's name and details are migrated.
-| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects. Internal repositories are migrated as private repositories. Archive status is unset.
-| Wikis | All wiki data is migrated.
-| Teams | **@mentions** of teams are rewritten to match the target.
-| Milestones | Timestamps are preserved.
-| Project boards | Project boards associated with the repository and with the organization that owns the repository are migrated.
-| Issues | Issue references and timestamps are preserved.
-| Issue comments | Cross-references to comments are rewritten for the target instance.
-| Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.
-| Pull request reviews | Pull request reviews and associated data are migrated.
-| Pull request review comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
-| Commit comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
-| Releases | All releases data is migrated.
-| Actions taken on pull requests or issues | All modifications to pull requests or issues, such as assigning users, renaming titles, and modifying labels are preserved, along with timestamps for each action.
-|  File attachments | [File attachments on issues and pull requests](/articles/file-attachments-on-issues-and-pull-requests) are migrated. You can choose to disable this as part of the migration.
-| Webhooks | Only active webhooks are migrated.
-| Repository deploy keys | Repository deploy keys are migrated.
-| Protected branches | Protected branch settings and associated data are migrated.
+| 用户 | 将重写用户的 @mentions，使其与目标匹配。
+| 组织 | 将迁移组织的名称和详细信息。
+| 存储库 | Git 树、blob、提交和行的链接将重写以匹配目标。 迁移程序将遵循三个仓库重定向的最大值。 内部存储库作为专用存储库迁移。 存档状态未设置。
+| Wiki | 将迁移所有 wiki 数据。
+| Teams | 将重写团队的 @mentions，使其与目标匹配。
+| 里程碑 | 将保留时间戳。
+| 项目板 | 将迁移与仓库和拥有仓库的组织关联的项目板。
+| 问题 | 将保留问题引用和时间戳。
+| 问题评论 | 将针对目标实例重写评论的交叉引用。
+| 拉取请求 | 将重写拉取请求的交叉引用以匹配目标。 将保留时间戳。
+| 拉取请求审查 | 将迁移拉取请求审查和关联的数据。
+| 拉取请求审查评论 | 将针对目标实例重写评论的交叉引用。 将保留时间戳。
+| 提交注释 | 将针对目标实例重写评论的交叉引用。 将保留时间戳。
+| 版本 | 将迁移所有版本数据。
+| 在拉取请求或问题上进行的操作 | 将保留对拉取请求或问题的所有修改（例如，分配用户、重命名标题和修改标签）以及每个操作的时间戳。
+|  文件附件 | [议题和拉取请求中的文件附件](/articles/file-attachments-on-issues-and-pull-requests)将得到迁移。 在迁移过程中，您可以选择将此禁用。
+| Webhook | 仅迁移有效的 web 挂钩。
+| 仓库部署密钥 | 将迁移仓库部署密钥。
+| 受保护的分支 | 将迁移受保护分支设置和关联的数据。

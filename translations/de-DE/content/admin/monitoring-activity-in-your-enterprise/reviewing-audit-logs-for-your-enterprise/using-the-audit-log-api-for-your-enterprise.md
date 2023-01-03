@@ -1,6 +1,6 @@
 ---
-title: Using the audit log API for your enterprise
-intro: 'You can programmatically retrieve enterprise events with the REST or GraphQL API.'
+title: Verwenden der Überwachungsprotokoll-API für dein Unternehmen
+intro: Du kannst Unternehmensereignisse programmgesteuert über die REST- oder GraphQL-API abrufen.
 shortTitle: Audit log API
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
@@ -14,28 +14,32 @@ topics:
   - Enterprise
   - Logging
   - API
+ms.openlocfilehash: b3c0f2756873494effd0a7fa3e65d4c87e24c01a
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184253'
 ---
+## Verwenden der Überwachungsprotokoll-API
 
-## Using the audit log API
+Du kannst mit dem Überwachungsprotokoll mithilfe der GraphQL-API oder der REST-API interagieren. {% ifversion read-audit-scope %} Du kannst den `read:audit_log`-Bereich verwenden, um über die APIs auf das Überwachungsprotokoll zuzugreifen.{% endif %}
 
-You can interact with the audit log using the GraphQL API or the REST API.{% ifversion read-audit-scope %} You can use the `read:audit_log` scope to access the audit log via the APIs.{% endif %}
+Zeitstempel und Datumsfelder in der API-Antwort werden in [UTC-Epochenmillisekunden](http://en.wikipedia.org/wiki/Unix_time) gemessen.
 
-Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
+## Abfragen der GraphQL-API des Überwachungsprotokolls
 
-## Querying the audit log GraphQL API
+Zur Sicherstellung, dass dein geistiges Eigentum sicher ist und du die Compliance für dein Unternehmen aufrechterhältst, kannst du die GraphQL-API des Überwachungsprotokolls verwenden, um Kopien deiner Überwachungsprotokolldaten aufzubewahren und zu überwachen: {% data reusables.audit_log.audit-log-api-info %}
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audit-log-api-info %}
+Beachte, dass du Git-Ereignisse nicht mithilfe der {% ifversion not ghec %}Überwachungsprotokoll-API abrufen kannst.{% else %}GraphQL-API. Verwende zum Abrufen von Git-Ereignissen stattdessen die REST-API. Weitere Informationen findest du unter den `git`-Kategorieaktionen in [Überwachungsprotokollaktionen für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions) und außerdem in den Artikel [Unternehmensverwaltung](/rest/reference/enterprise-admin#audit-log) und [Organisationen](/rest/reference/orgs#get-the-audit-log-for-an-organization) in der REST-API-Dokumentation.{% endif %}
 
-Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. To retrieve Git events, use the REST API instead. For more information, see `git` category actions in "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)", and also the "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization) audit log endpoints in the REST API documentation."{% endif %}
+Die GraphQL-Antwort kann Daten für bis zu 90 bis 120 Tage beinhalten.
 
-The GraphQL response can include data for up to 90 to 120 days.
+### Beispiel 1: Mitglieder, die in einem Unternehmen Organisationen hinzugefügt oder daraus entfernt wurden
 
-### Example 1: Members added to or removed from organizations in an enterprise
+Die folgende Abfrage ruft die Überwachungsprotokolle für das Unternehmen `avocado-corp` ab und gibt die ersten 10 Organisationen im Unternehmen zurück, in denen die einzigen ausgeführten Aktionen darin bestanden, ein Mitglied einer Organisation hinzuzufügen oder daraus zu entfernen. Die ersten 20 Überwachungsprotokolleinträge für jede Organisation werden zurückgegeben. 
 
-The query below fetches the audit logs for the `avocado-corp` enterprise and returns the first 10 organizations in the enterprise, where the only actions performed were adding or removing a member from an organization. The first 20 audit log entries for each organization are returned. 
-
-This query uses the [auditlog](/graphql/reference/objects) field from the Organization object, and the [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) and [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry) objects. The  {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an organization owner for each organization within the enterprise.
+Diese Abfrage verwendet das Feld [auditlog](/graphql/reference/objects) (Überwachungsprotokoll) aus dem Objekt „Organization“ sowie die Objekte [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) und [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry). Das {% data variables.product.prodname_dotcom %}-Konto, von dem das Überwachungsprotokoll für das Unternehmen abgefragt wird, muss ein Organisationsbesitzer für jede Organisation innerhalb des Unternehmens sein.
 
 ```shell
 {
@@ -69,14 +73,14 @@ This query uses the [auditlog](/graphql/reference/objects) field from the Organi
 }
 ```
 
-The GraphQL API will return at most 100 nodes per query. To retrieve additional results, you'll need to implement pagination. For more information, see "[Resource limitations](/graphql/overview/resource-limitations#node-limit)" in the GraphQL API documentation and [Pagination](https://graphql.org/learn/pagination/) in the official GraphQL documentation.
-### Example 2: Events in an organization, for a specific date and actor
+Die GraphQL-API gibt maximal 100 Knoten pro Abfrage zurück. Zum Abrufen zusätzlicher Ergebnisse musst du die Paginierung implementieren. Weitere Informationen findest du in der GraphQL-API-Dokumentation unter [Ressourcenbeschränkungen](/graphql/overview/resource-limitations#node-limit) und in der offiziellen GraphQL-Dokumentation unter [Paginierung](https://graphql.org/learn/pagination/).
+### Beispiel 2: Ereignisse in einer Organisation, für ein bestimmtes Datum und einen bestimmten Akteur
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your query string with a space.
+Du kannst mehrere Suchbegriffe wie z. B. `created` und `actor` angeben, indem du sie in deiner Abfragezeichenfolge durch ein Leerzeichen trennst.
 
-The query below fetches all the audit logs for the `avocado-corp` enterprise that relate to the `octo-org` organization, where the actions were performed by the `octocat` user on or after the 1 Jan, 2022. The first 20 audit log entries are returned, with the newest log entry appearing first. 
+Die folgende Abfrage ruft alle Überwachungsprotokolle für das Unternehmen `avocado-corp` ab, die sich auf die Organisation `octo-org` beziehen und bei denen die Aktionen vom Benutzer `octocat` am oder nach dem 1. Januar 2022 ausgeführt wurden. Die ersten 20 Überwachungsprotokolleinträge werden zurückgegeben, wobei der neueste Protokolleintrag zuerst angezeigt wird. 
 
-This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) interface. The {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an owner of the `octo-org` organization.
+Diese Abfrage verwendet die Schnittstelle [AuditEntry](/graphql/reference/interfaces#auditentry). Das Konto {% data variables.product.prodname_dotcom %}, von dem das Überwachungsprotokoll für das Unternehmen abgefragt wird, muss ein Besitzer der Organisation `octo-org` sein.
 
 ```shell
 {
@@ -104,24 +108,23 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 }
 ```
 
-For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
+Weitere Abfragebeispiele findest du im [Repository für Plattformbeispiele](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
-## Querying the audit log REST API
+## Abfragen der REST-API des Überwachungsprotokolls
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
+Zur Sicherstellung, dass dein geistiges Eigentum sicher ist und du die Compliance für dein Unternehmen aufrechterhältst, kannst du die REST-API des Überwachungsprotokolls verwenden, um Kopien deiner Überwachungsprotokolldaten aufzubewahren und zu überwachen: {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.retention-periods %}
 
-For more information about the audit log REST API, see "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+Weitere Informationen zur REST-API des Überwachungsprotokolls findest du unter [Unternehmensverwaltung](/rest/reference/enterprise-admin#audit-log) und [Organisationen](/rest/reference/orgs#get-the-audit-log-for-an-organization).
 
-### Example 1: All events in an enterprise, for a specific date, with pagination
+### Beispiel 1: Alle Ereignisse in einem Unternehmen, für ein bestimmtes Datum, mit Paginierung
 
-You can use page-based pagination or cursor based pagination. For more information, see "[Traversing with Pagination](/rest/guides/traversing-with-pagination)."
+Du kannst die seitenbasierte oder cursorbasierte Paginierung verwenden. Weitere Informationen findest du unter [Durchlaufen mit Paginierung](/rest/guides/traversing-with-pagination).
 
-#### Example with page-based pagination
+#### Beispiel mit seitenbasierter Paginierung
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
+Die folgende Abfrage sucht nach Überwachungsprotokollereignissen, die am 1. Januar 2022 im Unternehmen `avocado-corp` erstellt wurden, und gibt die erste Seite mit maximal 100 Elementen pro Seite mithilfe der [REST-API-Paginierung](/rest/overview/resources-in-the-rest-api#pagination) zurück:
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -129,9 +132,9 @@ curl -H "Authorization: Bearer TOKEN" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-#### Example with cursor-based pagination
+#### Beispiel mit cursorbasierter Paginierung
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination). The `--include` flag causes the headers to be returned along with the response.
+Die folgende Abfrage sucht nach Überwachungsprotokollereignissen, die am 1. Januar 2022 im Unternehmen `avocado-corp` erstellt wurden, und gibt die erste Seite mit maximal 100 Elementen pro Seite mithilfe der [REST-API-Paginierung](/rest/overview/resources-in-the-rest-api#pagination) zurück. Das Flag `--include` bewirkt, dass die Header zusammen mit der Antwort zurückgegeben werden.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \
@@ -139,7 +142,7 @@ curl --include -H "Authorization: Bearer TOKEN" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&per_page=100"
 ```
 
-If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
+Wenn mehr als 100 Ergebnisse vorhanden sind, enthält der `link`-Header URLs zum Abrufen der nächsten, ersten und vorherigen Ergebnisseiten.
 
 ```
 link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
@@ -147,7 +150,7 @@ link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_pag
 <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
-Copy the corresponding pagination link into your next request. For example:
+Kopiere den entsprechenden Paginierungslink in deine nächste Anforderung. Beispiel:
 
 ```shell
 curl -I -H "Authorization: Bearer TOKEN" \
@@ -155,11 +158,11 @@ curl -I -H "Authorization: Bearer TOKEN" \
 "https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
 
-### Example 2: Events for pull requests in an enterprise, for a specific date and actor
+### Beispiel 2: Ereignisse bei Pullanforderungen in einem Unternehmen, für ein bestimmtes Datum und einen bestimmten Akteur
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
+Du kannst mehrere Suchbegriffe wie z. B. `created` und `actor` angeben, indem du sie in deiner formatierten URL mit dem Symbol `+` oder dem ASCII-Zeichencode `%20` trennst.
 
-The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
+Die folgende Abfrage sucht nach Überwachungsprotokollereignissen für Pullanforderungen, bei denen das Ereignis am oder nach dem 1. Januar 2022 im `avocado-corp` Unternehmen eingetreten ist und die Aktion vom Benutzer `octocat` ausgeführt wurde:
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \

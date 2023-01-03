@@ -9,12 +9,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
-ms.openlocfilehash: e0962e410f2227a23ff98c8a3e7995ea8ec8a914
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: eecb77b541cc735fcf788fbc5da6960cabad899d
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158797'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191918'
 ---
 ## Übersicht
 
@@ -42,7 +42,7 @@ Wenn du einen Codespace aus einem Prebuild erstellst, lädt {% data variables.pr
 
 ## Informationen zum Pushen von Änderungen an Branches mit Prebuildunterstützung
 
-Jeder Push in einen Branch mit einer Prebuildkonfiguration führt standardmäßig zur Ausführung eines von {% data variables.product.prodname_dotcom %} verwalteten {% data variables.product.prodname_actions %}-Workflows, um den Prebuild zu aktualisieren. Für den Prebuildworkflow gilt, dass parallel zur Ausführung eines Workflows für eine bestimmte Prebuildkonfiguration keine weitere Ausführung stattfinden kann, sofern keine Änderungen vorgenommen wurden, die sich auf die Entwicklungscontainerkonfiguration für das zugehörige Repository auswirken. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). Wenn bereits eine Ausführung läuft, findet die zuletzt in die Warteschlange gesetzte Workflowausführung nach Abschluss der aktuellen Ausführung statt. 
+Jeder Push in einen Branch mit einer Prebuildkonfiguration führt standardmäßig zur Ausführung eines von {% data variables.product.prodname_dotcom %} verwalteten {% data variables.product.prodname_actions %}-Workflows, um den Prebuild zu aktualisieren. Für den Prebuildworkflow gilt, dass parallel zur Ausführung eines Workflows für eine bestimmte Prebuildkonfiguration keine weitere Ausführung stattfinden kann, sofern keine Änderungen vorgenommen wurden, die sich auf die Entwicklungscontainerkonfiguration für das zugehörige Repository auswirken. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). Wenn bereits eine Ausführung durchgeführt wird, wird die zuletzt in die Warteschlange eingereihte Workflowausführung nach Abschluss der aktuellen Ausführung gestartet. 
 
 Wenn du den Prebuild so festlegst, dass er bei jedem Push aktualisiert wird, bedeutet das, dass bei sehr häufigen Pushes in dein Repositorys der Prebuild mindestens so oft aktualisiert wird, wie es dauert, den Prebuildworkflow auszuführen. Das heißt, wenn deine Workflowausführung in der Regel eine Stunde dauert, werden Prebuilds für dein Repository ungefähr stündlich erstellt, falls die Ausführung erfolgreich ist, oder häufiger, wenn Pushes erfolgt sind, die die Konfiguration des Entwicklungscontainers im Branch geändert haben.
 

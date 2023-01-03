@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 65ef5b7ddead68864d8890f47e1ec5e8163a368b
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 69fce359695e2b23342e04a73397ac717d580b7b
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147881945"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193158"
 ---
-- O {% data variables.product.prodname_copilot %} é gratuito para uso para alunos verificados e mantenedores de código aberto. 
-- Se você não for um aluno ou mantenedor de código aberto, poderá experimentar o {% data variables.product.prodname_copilot %} gratuitamente com uma avaliação única de 60 dias. Após a avaliação gratuita, você precisará de uma assinatura paga para uso contínuo. Você deve fornecer informações de cobrança para iniciar uma avaliação gratuita. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)".
+- {% data variables.product.prodname_copilot %} é gratuito para alunos, professores e mantenedores de código aberto verificados. 
+- Se você não for um aluno, professor ou mantenedor de código aberto, precisará de uma avaliação ou assinatura ativa. Para ver mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)".
