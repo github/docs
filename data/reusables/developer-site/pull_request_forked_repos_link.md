@@ -2,7 +2,7 @@
 
 Workflows don't run in forked repositories by default. You must enable GitHub Actions in the **Actions** tab of the forked repository.
 
-{% data reusables.actions.forked-secrets %} The `GITHUB_TOKEN` has read-only permissions in forked repositories. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% data reusables.actions.forked-secrets %} The `GITHUB_TOKEN` has read-only permissions in pull requests from forked repositories. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 #### Pull request events for forked repositories
 
