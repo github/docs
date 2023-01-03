@@ -1,6 +1,6 @@
 ---
-title: Getting started with the Checks API
-intro: 'The Check Runs API enables you to build GitHub Apps that run powerful checks against code changes in a repository. You can create apps that perform continuous integration, code linting, or code scanning services and provide detailed feedback on commits.'
+title: Using the REST API to interact with checks
+intro: 'You can use the REST API to build {% data variables.product.prodname_github_apps %} that run powerful checks against code changes in a repository. You can create apps that perform continuous integration, code linting, or code scanning services and provide detailed feedback on commits.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,14 +8,16 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Get started - Checks API
+shortTitle: Get started - Checks
+redirect_from:
+  - /rest/guides/getting-started-with-the-checks-api
 ---
 
 ## Overview
 
-Rather than binary pass/fail build statuses, GitHub Apps can report rich statuses, annotate lines of code with detailed information, and re-run tests. The Checks API functionality is available exclusively to your GitHub Apps.
+Rather than binary pass/fail build statuses, {% data variables.product.prodname_github_apps %} can report rich statuses, annotate lines of code with detailed information, and re-run tests. REST API to manage checks is available exclusively to your GitHub Apps.
 
-For an example of how to use the Checks API with a {% data variables.product.prodname_github_app %}, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
+For an example of how to use the REST API with a {% data variables.product.prodname_github_app %}, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
 
 ## About check suites
 
@@ -31,7 +33,7 @@ If you don't want to use the default automatic flow, you can control when you cr
 
 {% data reusables.apps.checks-availability %}
 
-To use the check suites API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_suite](/webhooks/event-payloads/#check_suite) webhook.
+To use the endpoints to manage check suites, the {% data variables.product.prodname_github_app %} must have the `checks:write` permission and can also subscribe to the [check_suite](/webhooks/event-payloads/#check_suite) webhook.
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
@@ -51,7 +53,7 @@ A check can also be manually re-run in the GitHub UI. See "[About status checks]
 
 {% data reusables.apps.checks-availability %}
 
-To use the Check Runs API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_run](/webhooks/event-payloads#check_run) webhook.
+To use the endpoints to manage check runs, the {% data variables.product.prodname_github_app %} must have the `checks:write` permission and can also subscribe to the [check_run](/webhooks/event-payloads#check_run) webhook.
 
 ## Check runs and requested actions
 
@@ -73,7 +75,7 @@ To create a button that can request additional actions from your app, use the [`
 
 When a user clicks the button, {% data variables.product.prodname_dotcom %} sends the [`check_run.requested_action` webhook](/webhooks/event-payloads/#check_run) to your app. When your app receives a `check_run.requested_action` webhook event, it can look for the `requested_action.identifier` key in the webhook payload to determine which button was clicked and perform the requested task.
 
-For a detailed example of how to set up requested actions with the Checks API, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)."
+For a detailed example of how to set up requested actions with the REST API, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)."
 
 {% ifversion fpt or ghec %}
 ## Retention of checks data
