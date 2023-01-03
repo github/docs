@@ -2,7 +2,7 @@
 title: Deployment environments
 allowTitleToDifferFromFilename: true
 shortTitle: Environments
-intro: 'The Deployment environments API allows you to create, configure, and delete deployment environments.'
+intro: 'Use the REST API to create, configure, and delete deployment environments.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Deployment environments API
+## About deployment environments
 
 For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
 
