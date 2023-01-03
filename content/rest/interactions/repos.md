@@ -1,7 +1,8 @@
 ---
 title: Repository interactions
 shortTitle: Repository
-intro: 'The Repository interactions API allows people with owner or admin access to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository.'
+intro: 'Use the REST API to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository.'
+permissions: People with owner or admin access to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,9 +12,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the Repository interactions API
+## About repository interactions
 
-The Repository interactions API allows people with owner or admin access to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository. {% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
+People with owner or admin access can use the REST API to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository. {% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
 
 * {% data reusables.interactions.existing-user-limit-definition %} in the repository.
 * {% data reusables.interactions.contributor-user-limit-definition %} in the repository.
