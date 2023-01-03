@@ -1,6 +1,6 @@
 ---
 title: About global security advisories
-intro: 'Global security database live in the {% data variables.product.prodname_advisory_database %}, which contains CVEs and {% data variables.product.company_short %}-originated security advisories affecting the open source world. You can contribute to improving global advisories.'
+intro: 'Global security advisories live in the {% data variables.product.prodname_advisory_database %}, a collection of CVEs and {% data variables.product.company_short %}-originated advisories affecting the open source world. You can contribute to improving global security advisories.'
 versions:
   fpt: '*'
   ghec: '*'
