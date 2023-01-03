@@ -137,9 +137,9 @@ For more information, see "[Object filters](#object-filters)."
 
 #### Example matching an array of strings
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJSON()` to check if an array of strings contains an `item`.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+For example, `contains(fromJSON('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
