@@ -117,13 +117,12 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
   {% ifversion oidc-for-emu %}
-
+  
   To get started, read the guide for your chosen authentication method.
-
+    
     - "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
     - "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
-
-  {% endif %}
+  {%- endif %}
 
 4. Once you have configured SSO, you can configure SCIM provisioning. SCIM is how your identity provider will create {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom_the_website %}. For more information on configuring SCIM provisioning, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
 
