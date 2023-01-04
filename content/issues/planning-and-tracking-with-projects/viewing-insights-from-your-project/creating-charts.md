@@ -1,14 +1,17 @@
 ---
-title: 'Creating charts'
-intro: 'Learn how to create new charts to save your configurations.'
+title: Creating charts
+intro: Learn how to create new charts to save your configurations.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
+permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects
 ---
+
+{% data reusables.projects.insights-release-note %}
 
 {% data reusables.projects.access-insights %}
 3. In the menu on the left, click **New chart**.

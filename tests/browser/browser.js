@@ -91,7 +91,7 @@ describe('browser search', () => {
     newPage.on('request', (interceptedRequest) => {
       if (
         interceptedRequest.method() === 'GET' &&
-        /api\/search\/legacy\?/i.test(interceptedRequest.url())
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
       ) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('dotcom')
@@ -119,7 +119,7 @@ describe('browser search', () => {
     newPage.on('request', (interceptedRequest) => {
       if (
         interceptedRequest.method() === 'GET' &&
-        /api\/search\/legacy\?/i.test(interceptedRequest.url())
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
       ) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('ghae')

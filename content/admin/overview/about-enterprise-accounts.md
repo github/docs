@@ -35,7 +35,7 @@ The enterprise account on {% ifversion ghes %}{% data variables.location.product
 Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
 {% ifversion ghec %} 
-Enterprise owners can invite existing organizations to join your enterprise account, or create new organizations in the enterprise settings. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+In the enterprise settings, enterprise owners can invite existing organizations to join your enterprise account, transfer organizations between enterprise accounts, or create new organizations. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 {% endif %}
 
 Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."

@@ -5,30 +5,37 @@ Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret
 Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret
 Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
 Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
-Asana | Asana {% data variables.product.pat_generic %} | asana_personal_access_token
-Atlassian | Bitbucket Server {% data variables.product.pat_generic %} | bitbucket_server_personal_access_token
+Asana | Asana {% data variables.product.pat_generic_title_case %} | asana_personal_access_token
+Atlassian | Bitbucket Server {% data variables.product.pat_generic_title_case %} | bitbucket_server_personal_access_token
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure Batch Key Identifiable | azure_batch_key_identifiable{% endif %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
-Azure | Azure DevOps {% data variables.product.pat_generic %} | azure_devops_personal_access_token
+Azure | Azure DevOps {% data variables.product.pat_generic_title_case %} | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
+Azure | Azure ML Studio (classic) Web Service Key | azure_ml_web_service_classic_identifiable_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure Search Admin Key | azure_search_admin_key
+Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Chief Tools | Chief Tools Token | chief_tools_token{% endif %}
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 DevCycle | DevCycle Client API Key | devcycle_client_api_key
 DevCycle | DevCycle Server API Key | devcycle_server_api_key
 DevCycle | DevCycle Mobile API Key | devcycle_mobile_api_key{% endif %}
-DigitalOcean | DigitalOcean {% data variables.product.pat_generic %} | digitalocean_personal_access_token
+DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %} | digitalocean_personal_access_token
 DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
 DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
 DigitalOcean | DigitalOcean System Token | digitalocean_system_token
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Discord | Discord API Token V2 | discord_api_token_v2{% endif %}
 Discord | Discord Bot Token | discord_bot_token
 Doppler | Doppler Personal Token | doppler_personal_token
 Doppler | Doppler Service Token | doppler_service_token
@@ -38,9 +45,11 @@ Doppler | Doppler Audit Token | doppler_audit_token
 Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
 Duffel | Duffel Live Access Token | duffel_live_access_token
 EasyPost | EasyPost Production API Key | easypost_production_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Figma | Figma {% data variables.product.pat_generic_title_case %} | figma_pat{% endif %}
 Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
 Fullstory | FullStory API Key | fullstory_api_key
-GitHub | GitHub {% data variables.product.pat_generic %} | github_personal_access_token
+GitHub | GitHub {% data variables.product.pat_generic_title_case %} | github_personal_access_token
 GitHub | GitHub OAuth Access Token | github_oauth_access_token
 GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
@@ -49,12 +58,23 @@ Google | Google Cloud Storage Service Account Access Key ID with Google Cloud St
 Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret
 Grafana | Grafana API Key | grafana_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Grafana | Grafana Cloud API Key | grafana_cloud_api_key
+Grafana | Grafana Cloud API Token | grafana_cloud_api_token
+Grafana | Grafana Project API Key | grafana_project_api_key
+Grafana | Grafana Project Service Account Token | grafana_project_service_account_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+HashiCorp | HashiCorp Vault Batch Token (v1.10.0+) | hashicorp_vault_batch_token
+HashiCorp | HashiCorp Vault Root Service Token (v1.10.0+) | hashicorp_vault_root_service_token
+HashiCorp | HashiCorp Vault Service Token (v1.10.0+) | hashicorp_vault_service_token{% endif %}
 Hubspot | Hubspot API Key | hubspot_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Hubspot | Hubspot API Personal Access Key | hubspot_api_personal_access_key{% endif %}
 Intercom | Intercom Access Token | intercom_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 JFrog | JFrog Platform Access Token | jfrog_platform_access_token
 JFrog | JFrog Platform API Key | jfrog_platform_api_key{% endif %}
-Ionic | Ionic {% data variables.product.pat_generic %} | ionic_personal_access_token
+Ionic | Ionic {% data variables.product.pat_generic_title_case %} | ionic_personal_access_token
 Ionic | Ionic Refresh Token | ionic_refresh_token
 Linear | Linear API Key | linear_api_key
 Linear | Linear OAuth Access Token | linear_oauth_access_token
@@ -91,8 +111,10 @@ Shopify | Shopify App Shared Secret | shopify_app_shared_secret
 Shopify | Shopify Access Token | shopify_access_token
 Slack | Slack API Token | slack_api_token
 Stripe | Stripe Live API Secret Key | stripe_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Telnyx | Telnyx API V2 Key | telnyx_api_v2_key{% endif %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
-Typeform | Typeform {% data variables.product.pat_generic %} | typeform_personal_access_token
+Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
 WorkOS | WorkOS Production API Key | workos_production_api_key

@@ -32,9 +32,7 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Optionally, build custom tooling to automatically scale your self-hosted runners
-{% endif %}
 
 You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes or ghae %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
 
@@ -122,13 +120,9 @@ Optionally, organization owners can further restrict the access policy of the ru
 
 For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 
-{% ifversion ghec or ghae or ghes > 3.2 %}
-
 ## 5. Automatically scale your self-hosted runners
 
 Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
-
-{% endif %}
 
 ## Next steps
 

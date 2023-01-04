@@ -1,9 +1,9 @@
 ---
 title: Enforcing policies for personal access tokens in your enterprise
-intro: Enterprise owners can control whether to allow {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}, and can require approval for {% data variables.product.pat_v2 %}s.
+intro: 'Enterprise owners can control whether to allow {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}, and can require approval for {% data variables.product.pat_v2 %}s.'
 versions:
   feature: pat-v2-enterprise
-shortTitle: "{% data variables.product.pat_generic_caps %} policies"
+shortTitle: '{% data variables.product.pat_generic_caps %} policies'
 ---
 
 {% note %}

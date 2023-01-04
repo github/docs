@@ -73,7 +73,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Reopen issues they closed themselves | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
 | Have an issue assigned to them | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
 | Send pull requests from forks of the team's assigned repositories | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
-| Submit reviews on pull requests | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
+| [Submit reviews on pull requests](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
+| [Approve or request changes to a pull request with required reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) | | | **✔️** | **✔️** | **✔️** |
+| [Apply suggested changes](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) to pull requests | | | **✔️** | **✔️** | **✔️** |
 | View published releases | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |{% ifversion fpt or ghec %}
 | View [GitHub Actions workflow runs](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |{% endif %}
 | Edit wikis in public repositories | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
@@ -95,8 +97,6 @@ Some of the features listed below are limited to organizations using {% data var
 | [Act as a designated code owner for a repository](/articles/about-code-owners) | | | **✔️** | **✔️** | **✔️** |
 | [Mark a draft pull request as ready for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request) | | | **✔️** | **✔️** | **✔️** |
 | [Convert a pull request to a draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request) | | | **✔️** | **✔️** | **✔️** |
-| Submit reviews that affect a pull request's mergeability | | | **✔️** | **✔️** | **✔️** |
-| [Apply suggested changes](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) to pull requests | | | **✔️** | **✔️** | **✔️** |
 | Create [status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) | | | **✔️** | **✔️** | **✔️** |{% ifversion fpt or ghec %}
 | Create, edit, run, re-run, and cancel [GitHub Actions workflows](/actions/automating-your-workflow-with-github-actions/) | | | **✔️** | **✔️** | **✔️** |{% endif %}
 | Create and edit releases | | | **✔️** | **✔️** | **✔️** |
@@ -163,9 +163,9 @@ In this section, you can find the access required for security features, such as
 | [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |{% endif %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **✔️** | **✔️** | **✔️** | **✔️** | **✔️** |
 | [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **✔️** | **✔️** | **✔️** |
-| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
-| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% endif %}{% ifversion ghes or ghae or ghec %}
-| [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **✔️** |{% endif %}
+| [View and dismiss {% data variables.secret-scanning.alerts %} in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
+| [Resolve, revoke, or re-open {% data variables.secret-scanning.alerts %}](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **✔️** |{% endif %}{% ifversion ghes or ghae or ghec %}
+| [Designate additional people or teams to receive {% data variables.secret-scanning.alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **✔️** |{% endif %}
 
 [1] Repository writers and maintainers can only see alert information for their own commits.
 

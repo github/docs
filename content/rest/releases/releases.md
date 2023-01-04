@@ -1,6 +1,6 @@
 ---
 title: Releases
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets. '
+intro: 'Use the REST API to create, modify, and delete releases and release assets.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
+**Note:** These endpoints replace the endpoints to manage downloads. You can retrieve the download count and browser download URL from these endpoints.
 
 {% endnote %}

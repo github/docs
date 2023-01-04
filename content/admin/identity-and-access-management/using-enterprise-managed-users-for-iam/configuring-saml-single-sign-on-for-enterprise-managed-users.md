@@ -19,13 +19,16 @@ topics:
 
 ## About SAML single sign-on for {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, your enterprise uses SAML SSO to authenticate all members. Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
+With {% data variables.product.prodname_emus %}, your enterprise uses your corporate identity provider to authenticate all members. Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
 
 {% data variables.product.prodname_emus %} supports the following IdPs:
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
+
+
+{% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% note %}
 

@@ -33,7 +33,7 @@ Optionally, enterprise owners can enable limited integration between {% data var
 
 ## Restricted network access
 
-Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."
+Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."
 
 ## Commercial and government environments
 

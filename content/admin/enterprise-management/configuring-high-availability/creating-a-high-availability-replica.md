@@ -39,7 +39,7 @@ shortTitle: Create HA replica
 
 This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/admin/guides/installation/network-ports/#administrative-ports)."
 
-{% data reusables.enterprise_clustering.network-latency %}{% ifversion ghes > 3.2 %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."{% endif %}
+{% data reusables.enterprise_clustering.network-latency %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
 
 1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
   ```shell

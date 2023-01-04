@@ -1,6 +1,7 @@
 ---
 title: About Dependabot security updates
 intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
+product: '{% data reusables.gated-features.dependabot-security-updates %}'
 shortTitle: Dependabot security updates
 redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
@@ -49,6 +50,8 @@ You can enable a related feature, {% data variables.product.prodname_dependabot_
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
 {% data reusables.dependabot.dependabot-updates-and-actions %}
+
+{% data reusables.dependabot.dependabot-actions-support %}
 
 ## About pull requests for security updates
 

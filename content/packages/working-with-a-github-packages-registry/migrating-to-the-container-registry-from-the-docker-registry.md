@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  feature: 'docker-ghcr-enterprise-migration'
+  feature: docker-ghcr-enterprise-migration
 shortTitle: Migration to Container registry
 topics:
   - Containers

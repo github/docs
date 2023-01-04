@@ -13,6 +13,6 @@ children:
   - /apply-to-github-global-campus-as-a-student
   - /why-wasnt-my-application-to-global-campus-for-students-approved
   - /about-github-community-exchange
-shortTitle: 'About Global Campus for students'
+shortTitle: About Global Campus for students
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Reviewing and revoking personal access tokens in your organization
-intro: Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.
+intro: 'Organization owners can review the {% data variables.product.pat_v2 %}s that can access their organization. They can also revoke access of specific {% data variables.product.pat_v2 %}s.'
 versions:
   feature: pat-v2
 shortTitle: Review token access
@@ -32,6 +32,6 @@ Alternatively, you can revoke multiple tokens at once:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
-1. Optionally, use the **Owner** dropdown to filter the tokens by the member who created the token.
+{% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to revoke.
 1. Select the **tokens selected...** dropdown menu and click **Revoke...**.

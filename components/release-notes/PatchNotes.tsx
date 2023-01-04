@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import cx from 'classnames'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { Link } from 'components/Link'
+import { LinkIconHeading } from 'components/article/LinkIconHeading'
 
 import styles from './PatchNotes.module.scss'
 
@@ -25,6 +26,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
     <>
       {Object.entries(patch.sections).map(([key, sectionItems], i, arr) => {
         const isLast = i === arr.length - 1
+        const sectionSlug = `${patch.version}-${key.replaceAll('_', '-')}`
         return (
           <div
             key={key}
@@ -35,17 +37,20 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             )}
           >
             <ul className={cx(withReleaseNoteLabel)}>
-              <h3>{SectionToLabelMap[key] || 'INVALID SECTION'}</h3>
+              <h3 id={sectionSlug}>
+                <LinkIconHeading slug={sectionSlug} />
+                {SectionToLabelMap[key] || 'INVALID SECTION'}
+              </h3>
               {sectionItems.map((item) => {
                 if (typeof item === 'string') {
                   return <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
                 }
 
-                const slug = item.heading ? slugger.slug(item.heading) : ''
+                const headingSlug = item.heading ? slug(item.heading) : ''
                 return (
-                  <Fragment key={slug}>
-                    <h4 id={slug} className={cx(styles.sectionHeading, 'text-bold f4')}>
-                      <Link href={`#${slug}`}>{item.heading}</Link>
+                  <Fragment key={headingSlug}>
+                    <h4 id={headingSlug} className={cx(styles.sectionHeading, 'text-bold f4')}>
+                      <Link href={`#${headingSlug}`}>{item.heading}</Link>
                     </h4>
                     {item.notes.map((note) => {
                       return (

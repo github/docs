@@ -1,6 +1,6 @@
 ---
 title: Repository Webhook Configuration
-intro: ''
+intro: 'Use the REST API to manage the configuration for repository webhooks.'
 versions:
   fpt: '*'
   ghes: '*'

@@ -1,9 +1,9 @@
 ---
 title: 'Creating a {% data variables.projects.project_v2 %}'
-intro: 'Learn how to create an organization or user project.'
+intro: Learn how to create an organization or user project.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/creating-a-project
 type: tutorial

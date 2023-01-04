@@ -1,9 +1,9 @@
 ---
 title: 'Filtering {% data variables.projects.projects_v2 %}'
-intro: "Use filters to choose which items appear in your project's views."
+intro: Use filters to choose which items appear in your project's views.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/filtering-projects
 type: tutorial
@@ -19,6 +19,8 @@ To filter a project, click {% octicon "filter" aria-label="The Filter icon" %} a
 Using multiple filters will act as a logical AND filter. For example, `label:bug status:"In progress"` will return items with the `bug` label with the "In progress" status. {% data variables.product.prodname_projects_v2 %} does not currently support logical OR filters across multiple fields.
 
 The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[Using insights with projects](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
+
+When you filter a view and then add an item, the filtered metadata will be applied to added item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
 ## Filtering items
 

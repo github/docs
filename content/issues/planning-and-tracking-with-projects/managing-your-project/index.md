@@ -1,8 +1,8 @@
 ---
 title: 'Managing your {% data variables.projects.project_v2 %}'
-intro: 'Learn how to manage your projects and control visibility and access.'
+intro: Learn how to manage your projects and control visibility and access.
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 topics:
   - Issues
   - Projects
@@ -14,3 +14,4 @@ children:
   - /adding-your-project-to-a-team
 allowTitleToDifferFromFilename: true
 ---
+

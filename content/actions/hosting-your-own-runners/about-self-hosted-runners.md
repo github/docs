@@ -69,12 +69,9 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
-{% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 ## Autoscaling your self-hosted runners
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
-
-{% endif %}
 
 ## Usage limits
 
@@ -146,6 +143,9 @@ The self-hosted runner connects to {% data variables.product.product_name %} to 
 Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
 {% elsif ghes or ghae %}
 Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
+{% ifversion ghes > 3.4%}
+For caching to work, the runner must be able to communicate with the blob storage and directly download content from it.
+{%- endif %}
 {%- endif %}
 
 {% ifversion ghes %}
@@ -248,7 +248,6 @@ codeload.github.com
 **Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
 
 {% endnote %}
-
 
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
 title: Creating a personal access token
-intro: You can create a {% data variables.product.pat_generic %} to use in place of a password with the command line or with the API.
+intro: 'You can create a {% data variables.product.pat_generic %} to use in place of a password with the command line or with the API.'
 redirect_from:
   - /articles/creating-an-oauth-token-for-command-line-use
   - /articles/creating-an-access-token-for-command-line-use
@@ -17,7 +17,7 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Create a {% data variables.product.pat_generic %}
+shortTitle: 'Create a {% data variables.product.pat_generic %}'
 ---
 
 {% warning %}
@@ -112,9 +112,9 @@ If you selected an organization as the resource owner and the organization requi
 {% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
 {% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
 5. Give your token a descriptive name.
-   ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+   ![Token description field](/assets/images/help/settings/token_description.png)
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.
-   ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
+   ![Token expiration field](/assets/images/help/settings/token_expiration.png)
 7. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
    {% ifversion fpt or ghes or ghec %}
    ![Selecting token scopes](/assets/images/help/settings/token_scopes.gif)
@@ -143,5 +143,5 @@ Instead of manually entering your {% data variables.product.pat_generic %} for e
 
 ## Further reading
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-- "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
+- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+- "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"

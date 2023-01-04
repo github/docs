@@ -1,10 +1,10 @@
 ---
 title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
-shortTitle: 'Automating with the API'
-intro: 'You can use the GraphQL API to automate your projects.'
+shortTitle: Automating with the API
+intro: You can use the GraphQL API to automate your projects.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
 type: tutorial
@@ -511,7 +511,7 @@ The response will contain the node ID of the newly created draft issue.
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
+    "addProjectV2DraftIssue": {
       "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
@@ -660,7 +660,7 @@ The following example will update the value of an iteration field for an item.
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

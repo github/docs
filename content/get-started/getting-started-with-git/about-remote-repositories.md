@@ -34,12 +34,12 @@ You can use the `git remote add` command to match a remote URL with a name.
 For example, you'd type the following in the command line:
 
 ```shell
-git remote add origin &lt;REMOTE_URL> 
+git remote add origin &lt;REMOTE_URL>
 ```
 
 This associates the name `origin` with the `REMOTE_URL`.
 
-You can use the command `git remote set-url` to [change a remote's URL](/github/getting-started-with-github/managing-remote-repositories).
+You can use the command `git remote set-url` to [change a remote's URL](/get-started/getting-started-with-git/managing-remote-repositories).
 
 ## Choosing a URL for your remote repository
 
@@ -47,7 +47,7 @@ There are several ways to clone repositories available on {% data variables.loca
 
 When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details.
 
-For information on setting or changing your remote URL, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+For information on setting or changing your remote URL, see "[Managing remote repositories](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 ## Cloning with HTTPS URLs
 

@@ -1,15 +1,15 @@
 ---
 title: 'Adding your {% data variables.projects.project_v2 %} to a team'
 shortTitle: 'Adding a {% data variables.projects.project_v2 %} to a team'
-intro: 'You can add projects to teams to manage permissions and improve project discoverability.'
+intro: You can add projects to teams to manage permissions and improve project discoverability.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2-add-to-team"
+  feature: projects-v2-add-to-team
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-permissions: "Organization owners or people with the team maintainer role and admin permissions on a project can add a project to a team."
+permissions: Organization owners or people with the team maintainer role and admin permissions on a project can add a project to a team.
 ---
 
 ## About adding projects to teams

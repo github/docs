@@ -1,5 +1,5 @@
 ---
-title: Closing a {% data variables.product.prodname_project_v1 %}
+title: 'Closing a {% data variables.product.prodname_project_v1 %}'
 intro: 'If you''ve completed all the tasks in a {% data variables.projects.projects_v1_board %} or no longer need to use a {% data variables.projects.projects_v1_board %}, you can close the {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
@@ -7,7 +7,7 @@ redirect_from:
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true

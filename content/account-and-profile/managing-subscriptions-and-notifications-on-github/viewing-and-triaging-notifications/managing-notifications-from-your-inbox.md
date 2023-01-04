@@ -161,7 +161,7 @@ For example, to see notifications from the octo-org organization, use `org:octo-
 
 ## {% data variables.product.prodname_dependabot %} custom filters
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes %}
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
 - `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
@@ -170,7 +170,7 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 For more information about {% data variables.product.prodname_dependabot %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
-{% ifversion ghes < 3.3 or ghae %}
+{% ifversion ghae %}
 
 If you use {% data variables.product.prodname_dependabot %} to tell you about insecure dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert` 

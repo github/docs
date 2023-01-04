@@ -1,10 +1,10 @@
 ---
-title: 'Converting draft issues to issues'
-shortTitle: 'Converting draft issues'
-intro: 'Learn how to convert draft issues into issues.'
+title: Converting draft issues to issues
+shortTitle: Converting draft issues
+intro: Learn how to convert draft issues into issues.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects

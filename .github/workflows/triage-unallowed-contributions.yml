@@ -18,10 +18,8 @@ on:
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
-      - 'lib/search/indexes/**'
       - 'package*.json'
       - 'script/**'
-      - 'translations/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
@@ -50,8 +48,6 @@ jobs:
 
           # Returns list of changed files matching each filter
           filters: |
-            translation:
-              - 'translations/**'
             openapi:
               - 'lib/rest/static/**'
             notAllowed:
@@ -66,10 +62,8 @@ jobs:
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
-              - 'lib/search/indexes/**'
               - 'package*.json'
               - 'scripts/**'
-              - 'translations/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
@@ -91,10 +85,8 @@ jobs:
               'lib/redirects/**',
               'lib/rest/**',
               'lib/webhooks/**',
-              'lib/search/indexes/**',
               'package*.json',
               'scripts/**',
-              'translations/**',
               'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 

@@ -120,8 +120,8 @@ You can use `go get` to install dependencies:
       - name: Install dependencies
         run: |
           go get .
-          go get example.lab/octo-examplemodule
-          go get example.lab/octo-examplemodule@v1.3.4
+          go get example.com/octo-examplemodule
+          go get example.com/octo-examplemodule@v1.3.4
 ```
 
 {% ifversion actions-caching %}

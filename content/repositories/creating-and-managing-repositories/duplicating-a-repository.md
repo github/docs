@@ -61,7 +61,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
   ```
 5. Mirror-push to the new repository.
   ```shell
-  $ git push --mirror https://{% data variables.command_line.codeblock %}EXAMPLE-USER/NEW-REPOSITORY.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/NEW-REPOSITORY.git
   ```
 6. Push the repository's {% data variables.large_files.product_name_long %} objects to your mirror.
   ```shell

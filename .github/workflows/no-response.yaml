@@ -12,8 +12,7 @@ on:
     types: [created]
 
   schedule:
-    # Schedule for five minutes after the hour every hour
-    - cron: '5 * * * *'
+    - cron: '20 * * * *' # Run each hour at 20 minutes past
 
 permissions:
   issues: write

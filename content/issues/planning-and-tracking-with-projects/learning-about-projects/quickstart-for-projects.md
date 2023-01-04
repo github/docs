@@ -4,7 +4,7 @@ intro: 'Experience the speed, flexibility, and customization of {% data variable
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/quickstart
 type: quick_start

@@ -1,6 +1,6 @@
 ---
 title: Managing requests for personal access tokens in your organization
-intro: Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.
+intro: 'Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.'
 versions:
   feature: pat-v2
 shortTitle: Manage token requests
@@ -35,6 +35,6 @@ Alternatively, you can approve or deny multiple tokens at once:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
-1. Optionally, use the **Owner** and **Repository** dropdown menus to filter the requests by the member making the request.
+{% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to approve or reject.
 1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.

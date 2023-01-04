@@ -326,12 +326,34 @@ When adding a new article, make sure the filename is a [kebab-cased](https://en.
 
 ## Whitespace control
 
-When using Liquid conditionals in lists or tables, you can use [whitespace control](https://shopify.github.io/liquid/basics/whitespace/) characters to prevent the addition of newlines that would break the list or table rendering.
+When using Liquid conditionals in lists or tables, you can use [whitespace control](https://shopify.github.io/liquid/basics/whitespace/) characters to prevent the addition of newlines and other whitespace that would break the list or table rendering.
 
-Just add a hyphen on either the left, right, or both sides to indicate that there should be no newline on that side. For example, this statement removes a newline on the left side:
+You can add a hyphen (`-`) on either the left, right, or both sides to indicate that there should be no newline or other whitespace on that side.
 
 ```
 {%- ifversion fpt %}
+```
+
+For example, to version a table row, instead of adding liquid versioning for the row starting at the end of the previous row, like this:
+
+```
+Column A | Column B | Column C
+---------|----------|---------
+This row is for all versions | B1 | C1{% ifversion ghes %}
+This row is for GHES only | B2 | C2{% endif %}
+This row is for all versions | B3 | C3
+```
+
+You can include the liquid versioning on its own line and use whitespace control to strip the newline to the left of the liquid tag. This makes reading the source much easier, without breaking the rendering of the table:
+
+```
+Column A | Column B | Column C
+---------|----------|---------
+This row is for all versions | B1 | C1
+{%- ifversion ghes %}
+This row is for GHES only | B2 | C2
+{%- endif %}
+This row is for all versions | B3 | C3
 ```
 
 ## Links

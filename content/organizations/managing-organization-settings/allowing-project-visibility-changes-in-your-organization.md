@@ -1,14 +1,14 @@
 ---
-title: 'Allowing project visibility changes in your organization'
+title: Allowing project visibility changes in your organization
 intro: 'Organization owners can allow members with admin permissions to adjust the visibility of {% data variables.projects.projects_v2_and_v1 %} in their organization.'
 versions:
-  feature: "classic-project-visibility-permissions-or-projects-v2"
+  feature: classic-project-visibility-permissions-or-projects-v2
 topics:
   - Organizations
   - Projects
-shortTitle: 'Project visibility permissions'
+shortTitle: Project visibility permissions
 allowTitleToDifferFromFilename: true
-permissions: Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.
+permissions: 'Organization owners can allow {% data variables.projects.project_v2_and_v1 %} visibility changes for an organization.'
 ---
 
 ## About visibility changes for projects

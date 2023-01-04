@@ -86,7 +86,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% ifversion ghes < 3.4 %}
 1. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
 {%- endif %}
-{% ifversion fpt or ghec or ghae > 3.3 or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.

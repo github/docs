@@ -109,7 +109,7 @@ An overview of some of the most common actions that are recorded as events in th
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 {% ifversion fpt or ghec %}
 
@@ -185,6 +185,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
 | `remove_topic` | Triggered when a repository owner removes a topic from a repository.
 | `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).
+| `staff_unlock` | Triggered when an enterprise owner or {% data variables.contact.github_support %} (with permission from a repository administrator) temporarily unlocked the repository. The visibility of the repository isn't changed.
 | `transfer` | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
 | `transfer_start` | Triggered when a repository transfer is about to occur.
 | `unarchived` | Triggered when a repository owner unarchives a repository.

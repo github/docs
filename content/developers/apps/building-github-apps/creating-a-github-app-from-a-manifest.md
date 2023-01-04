@@ -62,6 +62,7 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `hook_attributes` | `object` | The configuration of the GitHub App's webhook.
 `redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.
+`setup_url` | `string` | A full URL to redirect users to after they install your GitHub App if additional setup is required.
 `description` | `string` | A description of the GitHub App.
 `public` | `boolean` | Set to `true` when your GitHub App is available to the public or `false` when it is only accessible to the owner of the app.
 `default_events` | `array` | The list of [events](/webhooks/event-payloads) the GitHub App subscribes to.

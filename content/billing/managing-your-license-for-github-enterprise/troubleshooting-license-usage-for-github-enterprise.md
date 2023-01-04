@@ -22,7 +22,14 @@ For privacy reasons, enterprise owners cannot directly access the details of use
 
 ## About the calculation of consumed licenses
 
-{% data variables.product.company_short %} bills for each person who uses deployments of {% data variables.product.prodname_ghe_server %}, is a member of one of your organizations on {% data variables.product.prodname_ghe_cloud %}, or is a {% data variables.product.prodname_vs_subscriber %}. For more information about the people in your enterprise who consume a license, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+If a user meets one or more of the following conditions, {% data variables.product.company_short %} bills for the user.
+
+- The user utilizes deployments of {% data variables.product.prodname_ghe_server %}.
+- The user is a member of one of your organizations on {% data variables.product.prodname_ghe_cloud %}.
+- The user has write access to one of your organization's private repositories.
+- The user is a {% data variables.visual_studio.prodname_vs_subscriber %}.
+
+Invitations for these roles will consume a license until the invitation is accepted or expires. For more information about the people in your enterprise who consume a license, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
 
 For each user to consume a single seat regardless of how many deployments they use, you must synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
@@ -62,11 +69,11 @@ The license usage report for your enterprise is a CSV file that contains the fol
 | enterprise_server_primary_emails | The primary email addresses associated with each of the user's GHES accounts |
 | enterprise_server_user_ids | For each of the user's GHES accounts, the account's user ID
 | total_user_accounts | The total number of accounts the person has across both GHEC and GHES
-| visual_studio_subscription_user | Whether or not the user is a {% data variables.product.prodname_vs_subscriber %} |
+| visual_studio_subscription_user | Whether or not the user is a {% data variables.visual_studio.prodname_vs_subscriber %} |
 | visual_studio_subscription_email | The email address associated with the user's VSS |
 | visual_studio_license_status | Whether the Visual Studio license has been matched to a {% data variables.product.company_short %} user |
 
-{% data variables.product.prodname_vs_subscriber %}s who are not yet members of at least one organization in your enterprise will be included in the report with a pending invitation status, and will be missing values for the "Name" or "Profile link" field.
+{% data variables.visual_studio.prodname_vs_subscriber %}s who are not yet members of at least one organization in your enterprise will be included in the report with a pending invitation status, and will be missing values for the "Name" or "Profile link" field.
 
 ### {% data variables.product.prodname_ghe_server %} exported license usage (JSON file)
 

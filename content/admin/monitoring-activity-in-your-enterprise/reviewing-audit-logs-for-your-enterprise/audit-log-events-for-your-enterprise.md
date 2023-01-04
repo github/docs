@@ -28,7 +28,7 @@ topics:
 The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
 
 - If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
-- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %}. For a list of these events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %} and actions they take within their user account. For a list of these user account events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
 {% endif %}
 
 {%- ifversion fpt or ghec %}
@@ -105,10 +105,12 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
 | `business.create`                              | An enterprise was created.
 {%- ifversion ghec %}
+| `business.disable_oidc` | OIDC single sign-on was disabled for an enterprise. For more information, see "[Configuring OIDC for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
 | `business.disable_saml` | SAML single sign-on was disabled for an enterprise.
 {%- endif %}
 | `business.disable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was disabled.
 {%- ifversion ghec %}
+| `business.enable_oidc` | OIDC single sign-on was enabled for an enterprise. For more information, see "[Configuring OIDC for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
 | `business.enable_saml` | SAML single sign-on was enabled for an enterprise.
 {%- endif %}
 | `business.enable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was enabled.
@@ -265,7 +267,6 @@ Action                        | Description
 | `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
 {%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 ## `dependabot_alerts` category actions
 
 | Action | Description
@@ -285,9 +286,8 @@ Action                        | Description
 | Action | Description
 |--------|-------------
 | `dependabot_repository_access.repositories_updated` | The repositories that {% data variables.product.prodname_dependabot %} can access were updated.
-{%- endif %}
 
-{%- ifversion fpt or ghec or ghes > 3.2 %}
+{%- ifversion fpt or ghec or ghes %}
 ## `dependabot_security_updates` category actions
 
 | Action | Description
@@ -791,6 +791,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 {%- ifversion ghes or audit-log-sso-response-events %}
 | `org.sso_response` | A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is only available via audit log streaming and the REST API.
+{%- endif %}
+{%- ifversion ghec %}
+| `org.transfer` | An organization was transferred between enterprise accounts. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)."
 {%- endif %}
 {%- ifversion not ghae %}
 | `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."
@@ -1335,13 +1338,26 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `ssh_certificate_requirement.disable` | The requirement for members to use SSH certificates to access an organization resources was disabled. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
 {%- endif %}
 
+{% ifversion sso-redirect %}
+## `sso_redirect` category actions
+
+{% data reusables.enterprise-managed.sso-redirect-release-phase %}
+
+| Action | Description |
+|--------|------------ |
+`sso_redirect.enable` | Automatic redirects for users to single sign-on (SSO) was enabled. |
+`sso_redirect.disable` | Automatic redirects for users to single sign-on (SSO) was disabled. |
+
+For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
+{% endif %}
+
 ## `staff` category actions
 
 | Action | Description
 |--------|-------------
 | `staff.disable_repo`          | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator disabled access to a repository and all of its forks.
 | `staff.enable_repo`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator re-enabled access to a repository and all of its forks.
-{%- ifversion ghes > 3.2 or ghae %}
+{%- ifversion ghes or ghae %}
 | `staff.exit_fake_login`       | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} ended an impersonation session on {% data variables.product.product_name %}.
 | `staff.fake_login`            | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} signed into {% data variables.product.product_name %} as another user.
 {%- endif %}

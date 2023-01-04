@@ -1,6 +1,6 @@
 ---
 title: Quickstart for writing on GitHub
-intro: Learn advanced formatting features by creating a {% ifversion ghae %}gist to describe yourself{% else %}README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.
+intro: 'Learn advanced formatting features by creating a {% ifversion ghae %}gist to describe yourself{% else %}README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.'
 versions:
   fpt: '*'
   ghes: '*'

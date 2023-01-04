@@ -72,9 +72,12 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 - Enterprise owners who are a member or owner of at least one organization in the enterprise
 - Organization members, including owners
 - Outside collaborators on private or internal repositories owned by your organization, excluding forks
+- Dormant users
+
+If your enterprise does not use {% data variables.product.prodname_emus %}, you will also be billed for each of the following accounts:
+
 - Anyone with a pending invitation to become an organization owner or member
 - Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
-- Dormant users
 
 {% note %}
 

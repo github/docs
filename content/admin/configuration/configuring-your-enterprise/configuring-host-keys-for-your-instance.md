@@ -2,7 +2,7 @@
 title: Configuring host keys for your instance
 shortTitle: Configure host keys
 intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the algorithms that your instance uses to generate and advertise host keys for incoming SSH connections.'
-permissions: "Site administrators can configure the host keys for a {% data variables.product.product_name %} instance."
+permissions: 'Site administrators can configure the host keys for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '>= 3.6'
 type: how_to

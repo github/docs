@@ -2,7 +2,6 @@
 title: Restricting access to machine types
 shortTitle: Restrict machine types
 intro: You can set constraints on the types of machines users can choose when they create codespaces in your organization.
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -14,7 +13,7 @@ topics:
 
 ## Overview
 
-Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." 
+Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)." 
 
 If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much your are billed. The compute cost for a codespace is proportional to the number of processor cores in the machine type you choose. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine. For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
@@ -88,4 +87,4 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 ## Further reading
 
-- "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)"
+- "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"

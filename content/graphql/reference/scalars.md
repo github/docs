@@ -4,10 +4,10 @@ redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

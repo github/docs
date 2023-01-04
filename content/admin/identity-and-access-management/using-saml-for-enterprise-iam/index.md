@@ -22,7 +22,7 @@ children:
   - /about-saml-for-enterprise-iam
   - /saml-configuration-reference
   - /configuring-saml-single-sign-on-for-your-enterprise
-  - /configuring-user-provisioning-for-your-enterprise
+  - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad

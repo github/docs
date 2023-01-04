@@ -1,9 +1,9 @@
 ---
 title: Git LFS
-intro: 'You can enable or disable {% data variables.large_files.product_name_long %} (LFS) for a repository.'
+intro: 'Use the REST API to enable or disable {% data variables.large_files.product_name_long %} (LFS) for a repository.'
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -12,17 +12,17 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the {% data variables.large_files.product_name_short %} API
+## About {% data variables.large_files.product_name_short %}
 
-You can use {% data variables.large_files.product_name_short %} to store large files in a Git repository. The {% data variables.large_files.product_name_short %} API allows you to enable or disable the feature for an individual repository. For more information about  {% data variables.large_files.product_name_short %}, see "[About {% data variables.large_files.product_name_short %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
+You can use {% data variables.large_files.product_name_short %} to store large files in a Git repository. The REST API allows you to enable or disable the feature for an individual repository. For more information about  {% data variables.large_files.product_name_short %}, see "[About {% data variables.large_files.product_name_short %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 
-People with admin access to a repository can use the {% data variables.large_files.product_name_short %} API.
+People with admin access to a repository can use these endpoints.
 
 {% ifversion fpt or ghec %}
 
 Usage of {% data variables.large_files.product_name_short %} is subject to billing. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
 
-If you want to use the {% data variables.large_files.product_name_short %} API for a repository that belongs to an organization, your role must provide you with access to the organization's{% ifversion ghec %} or enterprise's{% endif %} billing.{% ifversion fpt %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)."{% endif %}
+If you want to use these endpoints for a repository that belongs to an organization, your role must provide you with access to the organization's{% ifversion ghec %} or enterprise's{% endif %} billing.{% ifversion fpt %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)."{% endif %}
 
 {% ifversion ghec %}
 

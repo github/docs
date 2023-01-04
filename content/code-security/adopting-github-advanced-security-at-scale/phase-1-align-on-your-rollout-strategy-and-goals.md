@@ -1,6 +1,6 @@
 ---
 title: 'Phase 1: Align on your rollout strategy and goals'
-intro: "Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise."
+intro: 'Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -62,7 +62,7 @@ If your company is interested in custom {% data variables.product.prodname_codeq
 
 #### 5. {% data variables.product.prodname_codeql %} scans the whole codebase, not just the changes made in a pull request
 
-When code scanning is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed all against all interactions in the codebase.
+When code scanning is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed against all interactions in the codebase.
 
 {% note %}
 

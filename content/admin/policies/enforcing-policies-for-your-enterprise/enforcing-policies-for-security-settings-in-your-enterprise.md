@@ -25,7 +25,7 @@ shortTitle: Policies for security settings
 
 ## About policies for security settings in your enterprise
 
-You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. For more information, see "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
+You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. 
 
 {% ifversion ghec or ghes %}
 
@@ -59,93 +59,6 @@ Before you require use of two-factor authentication, we recommend notifying orga
 
 {% endif %}
 
-{% ifversion ghec or ghae %}
-
-## Managing allowed IP addresses for organizations in your enterprise
-
-{% ifversion ghae %}
-
-You can restrict network traffic to your enterprise on {% data variables.product.product_name %}. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
-
-{% elsif ghec %}
-
-Enterprise owners can restrict access to private assets owned by organizations in an enterprise by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
-
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
-
-### Adding an allowed IP address
-
-{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
-
-{% data reusables.identity-and-permissions.ipv6-allow-lists %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
-
-### Allowing access by {% data variables.product.prodname_github_apps %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
-
-### Enabling allowed IP addresses
-
-{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-3. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
-
-### Editing an allowed IP address
-
-{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
-{% data reusables.identity-and-permissions.check-ip-address %}
-
-{% ifversion ip-allow-list-address-check %}
-### Checking if an IP address is permitted
-
-{% data reusables.identity-and-permissions.about-checking-ip-address %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
-{% endif %}
-
-### Deleting an allowed IP address
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
-
-### Using {% data variables.product.prodname_actions %} with an IP allow list
-
-{% data reusables.actions.ip-allow-list-self-hosted-runners %}
-
-{% endif %}
-
-{% endif %}
-
 ## Managing SSH certificate authorities for your enterprise
 
 You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
@@ -171,9 +84,10 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-{% ifversion ghec %}
-
+{% ifversion sso-redirect %}
 ## Managing SSO for unauthenticated users
+
+{% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
@@ -193,9 +107,14 @@ To prevent confusion from your developers, you can change this behavior so that 
 1. Under "Single sign-on settings", select or deselect **Automatically redirect users to sign in**.
 
    ![Checkbox to automatically redirect users to sign in](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
+{% endif %}
 
 ## Further reading
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
-{% endif %}
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
+{%- ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+{%- endif %}
+{%- ifversion ghec or ghae %}
+- "[Restricting network traffic with an IP allow list with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
+{%- endif %}

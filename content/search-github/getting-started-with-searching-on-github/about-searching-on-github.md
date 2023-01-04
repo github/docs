@@ -18,6 +18,15 @@ versions:
 topics:
   - GitHub search
 ---
+
+{% ifversion github-code-search %}
+  {% note %}
+
+  **Note:** {% data reusables.search.classic-search-code-search-note %}
+
+  {% endnote %}
+{% endif %}
+
 {% data reusables.search.you-can-search-globally %}
 
 - To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "All {% data variables.product.prodname_dotcom %}" in the search drop-down menu.

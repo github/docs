@@ -47,7 +47,6 @@ export async function getBodyParams(schema, topLevel = false) {
 
   for (const [paramKey, param] of Object.entries(properties)) {
     const paramDecorated = {}
-
     // OpenAPI 3.0 only had a single value for `type`. OpenAPI 3.1
     // will either be a single value or an array of values.
     // This makes type an array regardless of how many values the array
@@ -120,6 +119,26 @@ export async function getBodyParams(schema, topLevel = false) {
       // is in the first child parameter.
       const oneOfDescriptions = descriptions.length ? descriptions[0].description : ''
       if (!param.description) param.description = oneOfDescriptions
+
+      // This is a workaround for an operation that incorrectly defines allOf for a
+      // body parameter. As a workaround, we will use the first object in the list of
+      // the allOf array. Otherwise, fallback to the first item in the array.
+      // This isn't ideal, and in the case of an actual allOf occurrence, we should
+      // handle it differently by merging all of the properties. There is currently
+      // only one occurrence for the operation id repos/update-information-about-pages-site
+      // See Ecosystem API issue number #3332 for future plans to fix this in the OpenAPI
+    } else if (param && param.anyOf && Object.keys(param).length === 1) {
+      const firstObject = Object.values(param.anyOf).find((item) => item.type === 'object')
+      if (firstObject) {
+        paramType.push('object')
+        param.description = firstObject.description
+        param.isRequired = firstObject.required
+        childParamsGroups.push(...(await getBodyParams(firstObject, false)))
+      } else {
+        paramType.push(param.anyOf[0].type)
+        param.description = param.anyOf[0].description
+        param.isRequired = param.anyOf[0].required
+      }
     }
 
     // Supports backwards compatibility for OpenAPI 3.0

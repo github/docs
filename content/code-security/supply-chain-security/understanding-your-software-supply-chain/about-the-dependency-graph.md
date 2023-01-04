@@ -79,11 +79,7 @@ The recommended formats explicitly define which versions are used for all direct
 {%- ifversion github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
-{%- elsif ghes = 3.2 %}
-| Go modules | Go | `go.mod` | `go.mod` |
-{%- endif %}
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |

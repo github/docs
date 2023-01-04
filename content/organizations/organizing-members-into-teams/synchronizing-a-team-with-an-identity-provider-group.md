@@ -7,6 +7,7 @@ permissions: 'Organization owners and team maintainers can synchronize a {% data
 versions:
   ghae: '*'
   ghec: '*'
+  feature: scim-for-ghes
 topics:
   - Organizations
   - Teams
@@ -71,6 +72,11 @@ You must authenticate using SAML SSO. For more information, see "[Authenticating
 Before you can connect a {% data variables.product.product_name %} team with an IdP group, you must first configure user provisioning for {% data variables.location.product_location %} using a supported System for Cross-domain Identity Management (SCIM). For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. For more information, see [Configure automatic user provisioning to GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) in the Microsoft Docs.
+
+{% elsif scim-for-ghes %}
+You must configure user provisioning with SCIM for {% data variables.location.product_location %}. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
+
+{% data reusables.scim.ghes-beta-note %}
 {% endif %}
 
 ## Connecting an IdP group to a team

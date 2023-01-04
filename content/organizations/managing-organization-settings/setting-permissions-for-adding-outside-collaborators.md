@@ -31,9 +31,7 @@ By default, anyone with admin access to a repository can invite outside collabor
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
-5. Under "Repository invitations", select **Allow members to invite outside collaborators to repositories for this organization**.
-   ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
+{% data reusables.organizations.member-privileges %}
 5. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**.
-  ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
+  ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
 6. Click **Save**.

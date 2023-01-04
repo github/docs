@@ -34,15 +34,19 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - Two-factor authentication enforcement
-- 2,000 {% data variables.product.prodname_actions %} minutes
-- 500MB {% data variables.product.prodname_registry %} storage
+- 2,000 {% data variables.product.prodname_actions %} minutes per month
+- 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
+- 120 {% data variables.product.prodname_github_codespaces %} core hours per month
+- 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 
 ## {% data variables.product.prodname_pro %}
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 - {% data variables.contact.github_support %} via email
-- 3,000 {% data variables.product.prodname_actions %} minutes
-- 2GB {% data variables.product.prodname_registry %} storage
+- 3,000 {% data variables.product.prodname_actions %} minutes per month
+- 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
+- 180 {% data variables.product.prodname_github_codespaces %} core hours per month
+- 20 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 - Advanced tools and insights in private repositories:
   - Required pull request reviewers
   - Multiple pull request reviewers
@@ -61,15 +65,15 @@ In addition to the features available with {% data variables.product.prodname_fr
 - {% data variables.product.prodname_gcf %}
 - Team discussions
 - Team access controls for managing groups
-- 2,000 {% data variables.product.prodname_actions %} minutes
-- 500MB {% data variables.product.prodname_registry %} storage
+- 2,000 {% data variables.product.prodname_actions %} minutes per month
+- 500 MB {% data variables.product.prodname_registry %} storage
 
 ## {% data variables.product.prodname_team %}
 
 In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
 - {% data variables.contact.github_support %} via email
-- 3,000 {% data variables.product.prodname_actions %} minutes
-- 2GB {% data variables.product.prodname_registry %} storage
+- 3,000 {% data variables.product.prodname_actions %} minutes per month
+- 2 GB {% data variables.product.prodname_registry %} storage
 - Advanced tools and insights in private repositories:
   - Required pull request reviewers
   - Multiple pull request reviewers
@@ -92,9 +96,10 @@ In addition to the features available with {% data variables.product.prodname_fr
 
 ## {% data variables.product.prodname_enterprise %}
 
-{% data variables.product.prodname_enterprise %} includes two deployment options: cloud-hosted and self-hosted. 
+{% data variables.product.prodname_enterprise %} includes two deployment options: {% data variables.product.prodname_ghe_cloud %}, which is cloud-hosted and part of {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %}, which is self-hosted. For more information, see "[About {% data variables.product.prodname_dotcom %} for enterprises]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/overview/about-github-for-enterprises){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 In addition to the features available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_enterprise %} includes:
+
 - {% data variables.contact.enterprise_support %}
 - Additional security, compliance, and deployment controls
 - Authentication with SAML single sign-on
@@ -102,21 +107,15 @@ In addition to the features available with {% data variables.product.prodname_te
 - {% data variables.product.prodname_github_connect %}
 - The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
-{% data variables.product.prodname_ghe_cloud %} also includes:
-- {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."
-- 50,000 {% data variables.product.prodname_actions %} minutes
-- 50GB {% data variables.product.prodname_registry %} storage
-- Access control for {% data variables.product.prodname_pages %} sites. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% data variables.product.prodname_ghe_cloud %} specifically includes:
+- 50,000 {% data variables.product.prodname_actions %} minutes per month
+- 50 GB {% data variables.product.prodname_registry %} storage
 - A service level agreement for 99.9% monthly uptime
-- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 - The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+- The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
-{% data reusables.enterprise.about-github-for-enterprises %}
-
-You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)."
-
-For more information about hosting your own instance of {% data variables.product.prodname_ghe_server %}, including setting up a trial, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
+You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" and "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
 
 ## Further reading
 
-- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

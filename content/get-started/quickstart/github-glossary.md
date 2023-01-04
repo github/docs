@@ -11,9 +11,9 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-{% for term in site.data.glossaries.external %}
-  ### {% data glossaries.external[forloop.index0].term %}
-  {% data glossaries.external[forloop.index0].description %}
+{% for glossary in glossaries %}
+  ### {{ glossary.term }}
+  {{ glossary.description }}
   ---
 {% endfor %}
 

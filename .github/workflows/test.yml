@@ -11,7 +11,6 @@ on:
 
 permissions:
   contents: read
-  # Needed for the 'trilom/file-changes-action' action
   pull-requests: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs
@@ -66,7 +65,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           # Not all test suites need the LFS files. So instead, we opt to
           # NOT clone them initially and instead, include them manually
@@ -77,52 +76,101 @@ jobs:
           # ->> Do we really need this? actions/checkout doesn't use it for the nested example:
           # https://github.com/actions/checkout#checkout-multiple-repos-nested
 
+      - name: Setup node
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        with:
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
         id: check-early-access
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-        with:
-          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          result-encoding: string
-          script: |
-            // If being run from a PR, this becomes 'my-cool-branch'.
-            // If run on main, with the `workflow_dispatch` action for
-            // example, the value becomes 'main'.
-            const { BRANCH_NAME } = process.env
-            try {
-              const response = await github.rest.repos.getBranch({
-                owner: 'github',
-                repo: 'docs-early-access',
-                branch: BRANCH_NAME,
-              })
-              console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
-              return BRANCH_NAME
-            } catch (err) {
-              if (err.status === 404) {
-                console.log(`There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`)
-                return 'main'
-              }
-              throw err
-            }
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: node .github/actions-scripts/what-docs-early-access-branch.js
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
           path: docs-early-access
-          ref: ${{ steps.check-early-access.outputs.result }}
+          ref: ${{ steps.check-early-access.outputs.branch }}
 
       - name: Merge docs-early-access repo's folders
         if: ${{ github.repository == 'github/docs-internal' }}
         run: |
-          mv docs-early-access/assets assets/images/early-access
-          mv docs-early-access/content content/early-access
-          mv docs-early-access/data data/early-access
-          rm -r docs-early-access
+          .github/actions-scripts/merge-early-access.sh
+          rm -fr docs-early-access
+
+      - name: Clone Simplified Chinese
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.zh-cn
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/zh-cn
+
+      - name: Clone Japanese
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ja-jp
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ja-jp
+
+      - name: Clone Spanish
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.es-es
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/es-es
+
+      - name: Clone Portuguese
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.pt-br
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/pt-br
+
+      - name: Clone German
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.de-de
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/de-de
+
+      - name: Clone French
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.fr-fr
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/fr-fr
+
+      - name: Clone Russian
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ru-ru
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ru-ru
+
+      - name: Clone Korean
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ko-kr
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: translations/ko-kr
 
       # This is necessary when LFS files where cloned but does nothing
       # if actions/checkout was run with `lfs:false`.
@@ -162,17 +210,8 @@ jobs:
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
-      - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Cache nextjs build
-        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}

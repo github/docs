@@ -8,7 +8,7 @@ export function checkCachingHeaders(res, defaultSurrogateKey = false, minMaxAge 
   // that it's a reasonably large number of seconds.
   expect(maxAgeSeconds).toBeGreaterThanOrEqual(minMaxAge)
   // Because it doesn't have have a unique URL
-  expect(res.headers['surrogate-key']).toBe(
+  expect(res.headers['surrogate-key'].split(/\s/g)[0]).toBe(
     defaultSurrogateKey ? SURROGATE_ENUMS.DEFAULT : SURROGATE_ENUMS.MANUAL
   )
 }

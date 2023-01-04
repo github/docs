@@ -1,6 +1,6 @@
 ---
 title: Exporting membership information for your enterprise
-intro: 'You can export information about all of your enterprise members.'
+intro: You can export information about all of your enterprise members.
 versions:
   feature: enterprise-member-csv
 topics:
@@ -8,12 +8,6 @@ topics:
 shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
 ---
-
-{% note %}
-
-**Note:** Exporting membership information for an enterpirise is currently in beta and subject to change.
-
-{% endnote %}
 
 To perform an audit of people with access to your enterprise's resources, you can download a CSV report of membership information for your enterprise.
 

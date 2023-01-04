@@ -16,7 +16,7 @@ topics:
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -55,7 +55,9 @@ A reusable workflow can be used by another workflow if {% ifversion ghes or ghec
 
 * Both workflows are in the same repository.
 * The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
+* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}{% ifversion private-actions %}
+* The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec or ghae %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[Sharing actions and workflows with your organization](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[Sharing actions and workflows from your private repository](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
+{% endif %}
 
 ## Using runners
 
@@ -77,10 +79,14 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 
 {% ifversion nested-reusable-workflow %}
 * You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
+* You can call a maximum of 20 reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
+
+  For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 {% else %}
 * Reusable workflows can't call other reusable workflows.
+* You can call a maximum of 20 reusable workflows from a single workflow file.
 {% endif %}
-* Reusable workflows stored within a private repository can only be used by workflows within the same repository.
+{% ifversion private-actions %}{% else %}* Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
 * Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."{% ifversion actions-reusable-workflow-matrix %}{% else %}
 * The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
 
@@ -180,36 +186,6 @@ jobs:
 ```
 {% endraw %}
 
-{% ifversion actions-reusable-workflow-matrix %}
-## Using a matrix strategy with a reusable workflow
-
-Jobs using the matrix strategy can call a reusable workflow.
-
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
-
-### Example matrix strategy with a reusable workflow
-
-This workflow file references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. The workflow will run three jobs, one for each value in the variable. The workflow file also calls a reusable workflow by using the `uses` keyword.
-
-{% raw %}
-```yaml{:copy}
-name: Reusable workflow with matrix strategy
-
-on:
-  push:
-
-jobs:
-  ReuseableMatrixJobForDeployment:
-    strategy:
-      matrix:
-        target: [dev, stage, prod]
-    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
-    with:
-      target: ${{ matrix.target }}
-```
-{% endraw %}
-
-{% endif %}
 ## Calling a reusable workflow
 
 You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
@@ -228,6 +204,29 @@ You can call multiple workflows, referencing each in a separate job.
 
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
+{% ifversion actions-reusable-workflow-matrix %}
+### Using a matrix strategy with a reusable workflow
+
+Jobs using the matrix strategy can call a reusable workflow.
+
+A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+
+This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
+
+{% raw %}
+```yaml{:copy}
+jobs:
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
+    with:
+      target: ${{ matrix.target }}
+```
+{% endraw %}
+{% endif %}
+
 ### Supported keywords for jobs that call a reusable workflow
 
 When you call a reusable workflow, you can only use the following keywords in the job containing the call:
@@ -238,7 +237,12 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
- {% ifversion actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
+{%- ifversion actions-inherit-secrets-reusable-workflows %}
+* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
+{%- endif %}
+{%- ifversion actions-reusable-workflow-matrix %}
+* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
+{%- endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)

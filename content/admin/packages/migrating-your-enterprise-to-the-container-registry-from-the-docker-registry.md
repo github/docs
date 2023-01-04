@@ -2,9 +2,9 @@
 title: Migrating your enterprise to the Container registry from the Docker registry
 intro: 'You can migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
-permissions: "Enterprise owners can migrate Docker images to the {% data variables.product.prodname_container_registry %}."
+permissions: 'Enterprise owners can migrate Docker images to the {% data variables.product.prodname_container_registry %}.'
 versions:
-  feature: 'docker-ghcr-enterprise-migration'
+  feature: docker-ghcr-enterprise-migration
 shortTitle: Migrate to Container registry
 topics:
   - Containers

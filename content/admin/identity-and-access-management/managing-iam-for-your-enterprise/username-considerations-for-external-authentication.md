@@ -85,6 +85,8 @@ When you configure SAML authentication, {% data variables.product.product_name %
 
 1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
 
+1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator. 
+
 1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username problems](#resolving-username-problems)."{% endif %}
 
 ### Examples of username normalization
@@ -97,6 +99,7 @@ When you configure SAML authentication, {% data variables.product.product_name %
 | The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it contains two consecutive dashes. |
 | The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
 | `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
+| `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
 | `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
 
 {% ifversion not ghec %}

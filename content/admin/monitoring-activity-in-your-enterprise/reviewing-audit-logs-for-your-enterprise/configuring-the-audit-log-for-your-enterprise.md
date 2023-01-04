@@ -1,8 +1,8 @@
 ---
 title: Configuring the audit log for your enterprise
-intro: "You can configure settings for your enterprise's audit log."
+intro: You can configure settings for your enterprise's audit log.
 shortTitle: Configure audit logs
-permissions: 'Enterprise owners can configure the audit log.'
+permissions: Enterprise owners can configure the audit log.
 versions:
   feature: audit-data-retention-tab
 type: how_to

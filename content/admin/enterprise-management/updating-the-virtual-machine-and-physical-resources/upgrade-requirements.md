@@ -17,7 +17,6 @@ topics:
 {% note %}
 
 **Notes:**
-{% ifversion ghes < 3.3 %}- Features such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_mobile %} and {% data variables.product.prodname_GH_advanced_security %} are available on {% data variables.product.prodname_ghe_server %} 3.0 or higher. We highly recommend upgrading to 3.0 or later releases to take advantage of critical security updates, bug fixes and feature enhancements.{% endif %}
 - Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, contact {% data variables.contact.contact_ent_support %} for assistance.
 - If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[Upgrading a cluster](/enterprise/admin/guides/clustering/upgrading-a-cluster/)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
 - The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).

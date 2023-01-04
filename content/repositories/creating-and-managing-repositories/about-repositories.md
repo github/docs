@@ -42,6 +42,8 @@ You can use repositories to manage your work and collaborate with others.
 
 {% data reusables.repositories.repo-size-limit %}
 
+To learn how to use repositories most effectively, see "[Best practices for repositories](/repositories/creating-and-managing-repositories/best-practices-for-repositories)."
+
 ## About repository visibility
 
 You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
@@ -77,6 +79,14 @@ People with admin permissions for a repository can change an existing repository
 ## About internal repositories
 
 {% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** You can only create internal repositories if you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account. An enterprise account is a separate type of account that allows a central point of management for multiple organizations. For more information, see "[Types of {% data variables.product.prodname_dotcom %} account](/get-started/learning-about-github/types-of-github-accounts)."
+
+{% endnote %}
+{% endif %}
 
 All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
@@ -130,7 +140,6 @@ The compare view and pull requests pages display a list of commits between the `
 
 ## Further reading
 
-- "[Creating a new repository](/articles/creating-a-new-repository)"
 - "[About forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"
 - "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"

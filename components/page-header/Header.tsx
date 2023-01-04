@@ -10,25 +10,27 @@ import { useHasAccount } from 'components/hooks/useHasAccount'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
+import { ApiVersionPicker } from 'components/sidebar/ApiVersionPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Search } from 'components/Search'
 import { BasicSearch } from 'components/BasicSearch'
 import { VersionPicker } from 'components/page-header/VersionPicker'
 import { Breadcrumbs } from './Breadcrumbs'
+
 import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
+  const { currentProduct, allVersions } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
+  const isRestPage = currentProduct && currentProduct.id === 'rest'
   const [isMenuOpen, setIsMenuOpen] = useState(
     router.pathname !== '/' && router.query.query && true
   )
   const [scroll, setScroll] = useState(false)
-
   const { hasAccount } = useHasAccount()
-
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
@@ -89,8 +91,8 @@ export const Header = () => {
             <Breadcrumbs />
           </div>
           <div className="d-flex flex-items-center">
-            <VersionPicker />
-            <LanguagePicker />
+            <VersionPicker variant="header" />
+            <LanguagePicker variant="header" />
 
             {signupCTAVisible && (
               <a
@@ -157,6 +159,11 @@ export const Header = () => {
 
               <div className="border-top my-2" />
               <LanguagePicker variant="inline" />
+
+              {isRestPage && allVersions[currentVersion].apiVersions.length > 0 && (
+                <ApiVersionPicker variant="inline" />
+              )}
+
               {signupCTAVisible && (
                 <a
                   href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"

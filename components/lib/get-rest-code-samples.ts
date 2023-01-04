@@ -2,7 +2,10 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from '../rest/types'
+import { useVersion } from 'components/hooks/useVersion'
+import { useMainContext } from 'components/context/MainContext'
 
+type CodeExamples = Record<string, any>
 /*
   Generates a curl example
 
@@ -14,14 +17,19 @@ import type { CodeSample, Operation } from '../rest/types'
   -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
 */
 export function getShellExample(operation: Operation, codeSample: CodeSample) {
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
   // This allows us to display custom media types like application/sarif+json
   const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
     ? codeSample.response.contentType
     : 'application/vnd.github+json'
 
-  const requestPath = codeSample?.request?.parameters
+  let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
     : operation.requestPath
+
+  const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
+  requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
 
   let requestBodyParams = ''
   if (codeSample?.request?.bodyParameters) {
@@ -34,11 +42,17 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     // the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
     // For example, this operation:
     // https://docs.github.com/en/enterprise/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode
-    if (codeSample.request.contentType === 'application/x-www-form-urlencoded') {
+
+    const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
+      'application/x-www-form-urlencoded': '--data-urlencode',
+      'multipart/form-data': '--form',
+    }
+    const contentType = codeSample.request.contentType
+    if (codeSample.request.contentType in CURL_CONTENT_TYPE_MAPPING) {
       requestBodyParams = ''
       const paramNames = Object.keys(codeSample.request.bodyParameters)
       paramNames.forEach((elem) => {
-        requestBodyParams = `${requestBodyParams} --data-urlencode ${elem}=${codeSample.request.bodyParameters[elem]}`
+        requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${codeSample.request.bodyParameters[elem]}"`
       })
     }
   }
@@ -48,9 +62,15 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     authHeader = '-u "api_key:your-password"'
   }
 
+  const apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}`,
+    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
@@ -73,9 +93,12 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     : 'application/vnd.github+json'
   const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
 
-  const requestPath = codeSample?.request?.parameters
+  let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
     : operation.requestPath
+
+  const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
+  requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
 
   let requestBodyParams = ''
   if (codeSample?.request?.bodyParameters) {
@@ -130,19 +153,23 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
 
   let queryParameters = ''
 
-  // Add query parameters to the request path for POST and PUT operations in
+  // Add query parameters to the request path for POST, PUT, DELETE, GET, operations in
   // URL template format e.g. 'POST /repos/{owner}/{repo}/releases/{release_id}/assets{?name,label}'
-  if (operation.verb === 'post' || operation.verb === 'put') {
-    const queryParms = operation.parameters
+  if (
+    operation.verb === 'post' ||
+    operation.verb === 'put' ||
+    operation.verb === 'delete' ||
+    operation.verb === 'get'
+  ) {
+    const queryParams = operation.parameters
       .filter((param) => {
         return param.in === 'query'
       })
       .map((param) => {
         return param.name
       })
-
-    if (queryParms.length > 0) {
-      queryParameters = `{?${queryParms.join(',')}}`
+    if (queryParams.length > 0) {
+      queryParameters = `{?${queryParams.join(',')}}`
     }
   }
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
@@ -151,4 +178,55 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
   return `${comment}${require}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath
   }${queryParameters}', ${stringify(parameters, null, 2)})`
+}
+
+// Every code example parameter object can be slightly different depending on the operation. For e.g. for Packages it's something like this:
+// [
+//  {
+//    "id": 197,
+//    "name": "hello_docker",
+//    "package_type": "container",
+//  },
+//  {
+//    "id": 198,
+//    "name": "goodbye_docker",
+//    "package_type": "container",
+//  }
+// ]
+// But for Actions cache it's something like this:
+// {
+//  "total_count": 1,
+//  "actions_caches": [
+//      {
+//          "id": 505,
+//          "ref": "refs/heads/main",
+//          "key": "Linux-node-958aff96db2d75d67787d1e634ae70b659de937b",
+//      }
+//  ]
+// }
+// We need to find the matching key so this is using JSON.stringify to handle the "recursion" to search for the matching key.
+function findMatchingQueryKey(exampleObj: CodeExamples | CodeExamples[], matchKey: string) {
+  let match: string | null = null
+  JSON.stringify(exampleObj, (_, nestedValue) => {
+    if (nestedValue && Object.prototype.hasOwnProperty.call(nestedValue, matchKey)) {
+      match = nestedValue[matchKey]
+    }
+
+    return nestedValue
+  })
+
+  return match
+}
+
+function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample) {
+  const requiredQueryParams = new URLSearchParams()
+  for (const param of operation.parameters) {
+    if (param.in === 'query' && param.required === true) {
+      const codeExamples = codeSample.response?.example
+      const match = findMatchingQueryKey(codeExamples, param.name)
+      requiredQueryParams.append(param.name, match || param.name.toUpperCase())
+    }
+  }
+
+  return requiredQueryParams.toString()
 }

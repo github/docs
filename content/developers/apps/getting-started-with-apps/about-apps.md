@@ -84,9 +84,9 @@ Keep these ideas in mind when using {% data variables.product.pat_generic %}s:
 * You can perform one-off cURL requests.
 * You can run personal scripts.
 * Don't set up a script for your whole team or company to use.
-* Don't set up a shared personal account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+* Don't set up a shared personal account to act as a bot user.
 * Grant your token the minimal privileges it needs.
-* Set an expiration for your {% data variables.product.pat_generic %}s, to help keep your information secure.{% endif %}
+* Set an expiration for your {% data variables.product.pat_generic %}s, to help keep your information secure.
 
 ## Determining which integration to build
 

@@ -1,15 +1,15 @@
 ---
-title: About automation for {% data variables.product.prodname_projects_v1 %}
-intro: You can configure automatic workflows to keep the status of {% data variables.projects.projects_v1_board %} cards in sync with the associated issues and pull requests.
+title: 'About automation for {% data variables.product.prodname_projects_v1 %}'
+intro: 'You can configure automatic workflows to keep the status of {% data variables.projects.projects_v1_board %} cards in sync with the associated issues and pull requests.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-automation-for-project-boards
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Automation for {% data variables.product.prodname_projects_v1 %}
+shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

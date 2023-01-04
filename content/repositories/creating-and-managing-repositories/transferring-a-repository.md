@@ -33,6 +33,9 @@ Prerequisites for repository transfers:
 - The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 or ghae %}
 - Internal repositories can't be transferred.{% endif %}
 - Private forks can't be transferred.
+{%- ifversion ghec %}
+- You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
+{%- endif %}
 
 {% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
@@ -50,6 +53,12 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
   ```shell
   $ git remote set-url origin NEW_URL
   ```
+
+  {% warning %}
+
+  **Warning**: If you create a new repository under your account in the future, do not reuse the original name of the transferred repository. If you do, redirects to the transferred repository will no longer work.
+
+  {% endwarning %}
 
 - When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
 - Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}

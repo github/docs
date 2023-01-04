@@ -63,6 +63,10 @@ Email ports must be accessible directly or via relay for inbound email support f
 
 If you enable automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, {% data variables.product.prodname_actions %} will always search for an action on {% data variables.location.product_location %} first, via these ports, before checking {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)."
 
+## {% data variables.product.prodname_github_connect %} ports
+
+If you enable {% data variables.product.prodname_github_connect %}, the connection between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %} uses HTTPS over ports 443 or 80, and TLS is required. For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
+
 ## Further reading
 
 - "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)"

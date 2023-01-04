@@ -3,6 +3,7 @@ export type CurrentVersion = {
   planTitle: string
   versionTitle: string
   currentRelease: string
+  releases: string[]
 }
 
 export type GHESMessage = {

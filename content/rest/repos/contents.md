@@ -2,7 +2,7 @@
 title: Repository contents
 allowTitleToDifferFromFilename: true
 shortTitle: Contents
-intro: 'These API endpoints let you create, modify, and delete Base64 encoded content in a repository.'
+intro: 'Use the REST API to create, modify, and delete Base64 encoded content in a repository.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Repository contents API
+## About repository contents
 
 To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
 
@@ -21,8 +21,8 @@ To request the raw format or rendered HTML (when supported), use custom media ty
 
 [READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.html
+    application/vnd.github.raw
+    application/vnd.github.html
 
 Use the `.raw` media type to retrieve the contents of the file.
 
@@ -30,7 +30,7 @@ For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTM
 
 [All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
-    application/vnd.github.VERSION.object
+    application/vnd.github.object
 
 Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
 for a directory, the response will be an object with an `entries` attribute containing the array of objects.

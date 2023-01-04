@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.17.0-alpine@sha256:2c405ed42fc0fd6aacbe5730042640450e5ec030bada7617beac88f742b6997b as base
+FROM node:16.18.0-alpine@sha256:f16544bc93cf1a36d213c8e2efecf682e9f4df28429a629a37aaf38ecfc25cf4 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -100,6 +100,10 @@ CMD ["node", "server.js"]
 # PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
 FROM preview as production
+
+# Override what was set for previews
+# Make this match the default of `Object.keys(languages)` in lib/languages.js
+ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations

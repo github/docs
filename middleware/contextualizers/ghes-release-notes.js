@@ -1,12 +1,13 @@
 import { formatReleases, renderPatchNotes } from '../../lib/release-notes-utils.js'
 import { all } from '../../lib/enterprise-server-releases.js'
+import { getReleaseNotes } from './get-release-notes.js'
 
 export default async function ghesReleaseNotesContext(req, res, next) {
   if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   if (requestedPlan !== 'enterprise-server') return next()
 
-  const ghesReleaseNotes = req.context.site.data['release-notes']['enterprise-server']
+  const ghesReleaseNotes = getReleaseNotes('enterprise-server', req.language)
 
   // If the requested GHES release isn't found in data/release-notes/enterprise-server/*,
   // and it IS a valid GHES release, try being helpful and redirecting to the old location.

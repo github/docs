@@ -1,9 +1,9 @@
 ---
 title: 'Viewing insights from your {% data variables.projects.project_v2 %}'
-shortTitle: 'Viewing insights'
-intro: 'You can use insights to visualize your projects by creating and sharing charts built from your project''s data.'
+shortTitle: Viewing insights
+intro: You can use insights to visualize your projects by creating and sharing charts built from your project's data.
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 topics:
   - Issues
   - Projects
@@ -14,3 +14,4 @@ children:
   - /configuring-charts
 allowTitleToDifferFromFilename: true
 ---
+

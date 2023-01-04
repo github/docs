@@ -22,8 +22,6 @@ shortTitle: Review dependency changes
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% data reusables.dependency-review.beta %}
-
 ## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}
@@ -36,10 +34,10 @@ Dependency review allows you to "shift left". You can use the provided predictiv
 
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 
-You can use the {% data variables.product.prodname_dependency_review_action %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
+You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 
 {% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.product.prodname_dependency_review_action %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
+You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[Configuring dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 
 {% endif %}
 
 {% endif %}

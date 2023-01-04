@@ -49,21 +49,12 @@ redirect_from:
 Use the {% data variables.product.prodname_codeql_cli %} to analyze:
 
 - Dynamic languages, for example, JavaScript and Python.
-- Compiled languages, for example, C/C++, C# and Java.
+- Compiled languages, for example, C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java.
 - Codebases written in a mixture of languages.
 
 For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 {% data reusables.code-scanning.licensing-note %}
 
-{% ifversion ghes = 3.2 %}
-<!-- Content for GHES 3.2 only. CodeQL CLI 2.6.2, which introduces full feature parity between CodeQL CLI and CodeQL runner, is officially recommended for GHES 3.0+ -->
-
-Since version 2.6.3, the {% data variables.product.prodname_codeql_cli %} has had full feature parity with the {% data variables.product.prodname_codeql_runner %}.
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-{% endif %}
 
 <!--Content for GHES 3.1 only. Both CodeQL CLI and CodeQL runner are available -->
-

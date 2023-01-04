@@ -19,7 +19,7 @@ export const ProductArticlesList = () => {
   return (
     <div className="d-flex gutter flex-wrap" data-testid="product-articles-list">
       {currentProductTree.childPages.map((treeNode, i) => {
-        if (treeNode.page.documentType === 'article') {
+        if (treeNode.documentType === 'article') {
           return null
         }
 
@@ -36,7 +36,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h3 className="mb-3 f4">
         <Link className="color-unset text-underline" href={treeNode.href}>
-          {treeNode.renderedFullTitle}
+          {treeNode.title}
         </Link>
       </h3>
 
@@ -58,8 +58,8 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
               }}
             >
               <Link className="d-block width-full" href={childNode.href}>
-                {childNode.renderedFullTitle}
-                {childNode.page.documentType === 'mapTopic' ? (
+                {childNode.title}
+                {childNode.documentType === 'mapTopic' ? (
                   <small className="color-fg-muted d-inline-block">
                     &nbsp;&bull; {childNode.childPages.length} articles
                   </small>

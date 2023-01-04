@@ -113,7 +113,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   // This looks a little funky, but it's so we only send one context's data to the client
   if (currentLayoutName === 'product-landing') {
-    props.productLandingContext = getProductLandingContextFromRequest(req)
+    props.productLandingContext = await getProductLandingContextFromRequest(req)
   } else if (currentLayoutName === 'product-guides') {
     props.productGuidesContext = getProductGuidesContextFromRequest(req)
   } else if (relativePath?.endsWith('index.md')) {

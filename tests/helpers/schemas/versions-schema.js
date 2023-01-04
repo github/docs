@@ -92,5 +92,15 @@ export default {
       description: 'final name used to map GraphQL and webhook schema names to the current version',
       type: 'string',
     },
+    apiVersions: {
+      required: true,
+      description: 'calendar date version for REST API versions',
+      type: 'array',
+    },
+    latestApiVersion: {
+      required: true,
+      description: 'latest calendar date version for REST API versions',
+      type: 'string',
+    },
   },
 }

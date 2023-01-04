@@ -3,7 +3,7 @@ title: Impersonating a user
 intro: 'You can impersonate users and perform actions on their behalf, for troubleshooting, unblocking, and other legitimate reasons.'
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '*'
 type: how_to
 topics:

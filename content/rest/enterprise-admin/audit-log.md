@@ -1,8 +1,8 @@
 ---
 title: Audit log
-intro: ''
+intro: 'Use the REST API to retrieve audit logs for an enterprise.'
 versions:
-  ghes: '>=3.3'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 topics:

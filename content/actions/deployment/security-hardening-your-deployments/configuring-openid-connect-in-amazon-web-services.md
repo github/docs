@@ -49,7 +49,7 @@ Edit the trust policy to add the `sub` field to the validation conditions. For e
 }
 ```
 
-In the following example, `ForAllValues` is used to match on multiple condition keys, and `StringLike` is used to match any ref in the specified repository. Note that `ForAllValues` is [overly permissive](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) and should not be used on its own in an `Allow` effect. For this example, the inclusion of `StringLike` means that an empty set in `ForAllValues` will still not pass the condition:
+In the following example, `StringLike` is used with a wildcard operator (`*`) to allow any branch, pull request merge branch, or environment from the `octo-org/octo-repo` organization and repository to assume a role in AWS.
 
 ```json{:copy}
 {
@@ -65,8 +65,7 @@ In the following example, `ForAllValues` is used to match on multiple condition 
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }
