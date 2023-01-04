@@ -15,18 +15,12 @@ c:lang
 "Require": "'((c))":,
 "items": "is==yargs(AGS)).);": /
 "callback'": "((r))
-"{{ ${{''(((c)(r))[12753750].00]BITORE_34173)']}};":,
-  }
-{
-"requires'?": 'jest':,
+'-'' '"'{'{'$'' '{{['('('(c')'.'(r')')'/[12753750'.[00]'(BITORE'_34173'.1337')'' ')]}}'' '}}}'"'' 
+'-'' '"require'' ':'' 'test'' :'"''
 "list": "dependencies":,
-"dependescies": "=":,
+'"dependescies": "=":,
 "=": ": "'_'?'_":,
-"'_'?'_": "dependencies(list)":,
-
-'**'":,
-  workflow_dispatch:
-
+"'_'?'_": "dependencies(list)" :workflow_dispatch :
 jobs:
   deploy:
     '-'' 'Name'' ':'#:Build::'-and'-'#Deployee'' ':#To'' ':'Git'Hub/doc/container'@javascript.yml/sets-up.registrar2.a.p.i :
