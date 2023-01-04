@@ -1,9 +1,4 @@
-#ERROR!																									
-	Description	Amount	Category	Account	Notes																				
-On Fri, Aug 12, 2022 at 1:00 PM ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:																									
-1.74E+12																									
-100																									
-NON-NEGOTIABLE																									
+																									NON-NEGOTIABLE																									
 Alabama, Florida, Georgia, Louisiana, Mississippi, North																									
 Notice, see the																									
 Alaska, Arizona, California, Colorado, Hawaii, Idaho, Kansas,																									
