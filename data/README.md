@@ -1,5 +1,15 @@
-##'
-# :Starts :start-on :BEGON'
+BEGIN :ZACHRYTYLERWOOD/VSCODE/CIARA's/Savannah/Cisco/bitore.sig/BITORE :
+#Start :On-starts :On-on :starts :
+starts :-on :
+-on :
+BEGIN
+GLOW4
+User/bin/Bash/ ::
+starts :'Run'' 
+'Run'' ':'' 
+'Run :-on:: :
+::-on :Runs-on :'Run''
+'Run'' ':'' 'GLOW4'' ':'
 BEGIN'
 #GLOW4'
 #GLOW7'
