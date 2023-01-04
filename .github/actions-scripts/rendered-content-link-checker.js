@@ -165,6 +165,8 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  patient {boolean} - Wait longer and retry more times for rate-limited external URLS
  *  bail {boolean} - Throw an error on the first page (not permalink) that has >0 flaws
  *  externalServerErrorsAsWarning {boolean} - Treat >=500 errors or temporary request errors as warning
+ *  filter {Array<string>} - strings to match the pages' relativePath
+ *  versions {Array<string>} - only certain pages' versions (e.g. )
  *
  */
 async function main(core, octokit, uploadArtifact, opts = {}) {
@@ -174,6 +176,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
     random,
     language = 'en',
     filter,
+    version,
     max,
     verbose,
     checkExternalLinks = false,
@@ -203,8 +206,15 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   }
 
   const filters = filter || []
-  if (!Array.isArray(filters)) {
-    core.warning(`filters, ${filters} is not an array`)
+  if (filters && !Array.isArray(filters)) {
+    throw new Error(`filters, ${filters} is not an array`)
+  }
+
+  let versions = version || []
+  if (versions && typeof versions === 'string') {
+    versions = [versions]
+  } else if (!Array.isArray(versions)) {
+    throw new Error(`versions, '${version}' is not an array`)
   }
 
   if (random) {
@@ -227,7 +237,9 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
-    pages.map((page) => processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB))
+    pages.map((page) =>
+      processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB, versions)
+    )
   )
   const t1 = new Date().getTime()
   debugTimeEnd(core, 'processPages')
@@ -554,13 +566,16 @@ function getPages(pageList, languages, filters, files, max) {
     .slice(0, max ? Math.min(max, pageList.length) : pageList.length)
 }
 
-async function processPage(core, page, pageMap, redirects, opts, db) {
+async function processPage(core, page, pageMap, redirects, opts, db, versions) {
   const { verbose, verboseUrl, bail } = opts
-
   const allFlawsEach = await Promise.all(
-    page.permalinks.map((permalink) => {
-      return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
-    })
+    page.permalinks
+      .filter((permalink) => {
+        return !versions.length || versions.includes(permalink.pageVersion)
+      })
+      .map((permalink) => {
+        return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
+      })
   )
 
   const allFlaws = allFlawsEach.flat()
@@ -776,9 +791,17 @@ async function checkHrefLink(
     }
   } else if (href.startsWith('#')) {
     if (checkAnchors) {
-      const countDOMItems = $(href).length
-      if (countDOMItems !== 1) {
-        return { WARNING: `Anchor is an empty string` }
+      // You don't need a DOM ID (or <a name="top">) for `<a href="#top">`
+      // to work in all modern browsers.
+      if (href !== '#top') {
+        // If the link is `#foo` it could either match `<element id="foo">`
+        // or it could match `<a name="foo">`.
+        const countDOMItems = $(href).length + $(`a[name="${href.slice(1)}"]`).length
+        if (countDOMItems === 0) {
+          return { WARNING: `Anchor on the same page can't be found by ID` }
+        } else if (countDOMItems > 1) {
+          return { WARNING: `Matches multiple points in the page` }
+        }
       }
     }
   } else if (href.startsWith('/')) {
