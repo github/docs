@@ -23,7 +23,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 ## Viewing large files in pull requests
 
-{% data variables.product.product_name %} does not render {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
+{% data variables.product.product_name %} does not render some {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown:
 
 ![Sample PR for large files](/assets/images/help/large_files/large_files_pr.png)
 
