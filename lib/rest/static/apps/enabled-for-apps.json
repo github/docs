@@ -4549,6 +4549,26 @@
         "requestPath": "/users/{username}/subscriptions"
       }
     ],
+    "announcement-banners": [
+      {
+        "slug": "get-announcement-banner-for-organization",
+        "subcategory": "organizations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/announcement"
+      },
+      {
+        "slug": "set-announcement-banner-for-organization",
+        "subcategory": "organizations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/announcement"
+      },
+      {
+        "slug": "remove-announcement-banner-from-organization",
+        "subcategory": "organizations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/announcement"
+      }
+    ],
     "apps": [
       {
         "slug": "get-the-authenticated-app",

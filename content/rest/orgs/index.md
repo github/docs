@@ -1,6 +1,6 @@
 ---
 title: Organizations
-intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
+intro: 'Use the REST API to control and manage all your {% data variables.product.product_name %} organizations.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs

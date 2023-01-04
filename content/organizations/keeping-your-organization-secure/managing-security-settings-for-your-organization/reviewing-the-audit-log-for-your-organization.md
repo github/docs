@@ -676,6 +676,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `create_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."{% endif %}
 | `destroy` | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
 | `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}
+| `download_zip` | A source code archive of a repository was downloaded as a ZIP file.
 | `enable` | Triggered when a repository is re-enabled.{% ifversion fpt or ghes or ghec %}
 | `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% endif %}
 | `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
