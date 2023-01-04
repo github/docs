@@ -11,6 +11,7 @@ import { JSONFile } from 'lowdb/node'
 
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
+import features from '../../middleware/contextualizers/features.js'
 import getRedirect from '../../lib/get-redirect.js'
 import warmServer from '../../lib/warm-server.js'
 import liquid from '../../lib/render-content/liquid.js'
@@ -1117,15 +1118,18 @@ async function renderInnerHTML(page, permalink) {
     pagePath,
     cookies: {},
   }
+  // This will create and set `req.context = {...}`
   await contextualize(req, res, next)
   await shortVersions(req, res, next)
-  const context = Object.assign({}, req.context, { page })
-  context.relativePath = page.relativePath
+  req.context.page = page
+  await features(req, res, next)
+
+  req.context.relativePath = page.relativePath
 
   // These lines do what the ubiquitous `renderContent` function does,
   // but at an absolute minimum to get a string of HTML.
-  const markdown = await liquid.parseAndRender(page.markdown, context)
-  const processor = createMinimalProcessor(context)
+  const markdown = await liquid.parseAndRender(page.markdown, req.context)
+  const processor = createMinimalProcessor(req.context)
   const vFile = await processor.process(markdown)
   return vFile.toString()
 }
