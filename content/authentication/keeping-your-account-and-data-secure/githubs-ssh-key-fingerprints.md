@@ -22,7 +22,7 @@ These are {% data variables.product.prodname_dotcom %}'s public key fingerprints
 - `SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM` (ECDSA)
 - `SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU` (Ed25519)
 
-You can add the following ssh key entries to your `~.ssh/known_hosts` file to avoid manually verifying {% data variables.product.prodname_dotcom %} hosts:
+You can add the following ssh key entries to your `~/.ssh/known_hosts` file to avoid manually verifying {% data variables.product.prodname_dotcom %} hosts:
 
 ```text
 github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
