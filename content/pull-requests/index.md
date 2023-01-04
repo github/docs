@@ -1,4 +1,51 @@
----
+minutemen #1
+Merged
+
+zakwarlord7
+merged changes into
+zakwarlord7:main
+from
+zakwarlord7:StarGazers'
+Reviewers
+None yet
+Assignees
+None yet—assign yourself
+Labels
+documentation
+Milestone
+r
+
+zakwarlord7
+commented 
+5 months ago
+Why:
+Closes [issue link]
+
+What's being changed (if available, include any code snippets, screenshots, or gifs):
+Check off the following:
+ I have reviewed my changes in staging (look for the "Automatically generated comment" and click the links in the "Preview" column to view your latest changes).
+ For content changes, I have completed the self-review checklist.
+Writer impact (This section is for GitHub staff members only):
+ This pull request impacts the contribution experience
+ I have added the 'writer impact' label
+ I have added a description and/or a video demo of the changes below (e.g. a "before and after video")
+ 
+
+zakwarlord7
+Create npc
+76bd66e
+5 months ago
+ 
+
+zakwarlord7
+merged commit a84ba6a into main 
+5 months ago
+
+zakwarlord7
+deleted the StarGazers' branch 
+5 months ago
+Pull request successfully merged.
+Leave a comment
 title: Pull requests
 intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
 introLinks:
