@@ -39,6 +39,7 @@ children:
   - /guides
   - /actions
   - /activity
+  - /announcement-banners
   - /apps
   - /billing
   - /branches

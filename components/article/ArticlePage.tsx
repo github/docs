@@ -12,6 +12,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
+import { PermissionsStatement } from 'components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
@@ -89,12 +90,7 @@ export const ArticlePage = () => {
                 </Lead>
               )}
 
-              {permissions && (
-                <div className="permissions-statement pl-3 my-4">
-                  <div className="text-bold pr-2">{t('permissions_statement')}</div>
-                  <div dangerouslySetInnerHTML={{ __html: permissions }} />
-                </div>
-              )}
+              {permissions && <PermissionsStatement permissions={permissions} />}
 
               {includesPlatformSpecificContent && <PlatformPicker />}
               {includesToolSpecificContent && <ToolPicker />}
