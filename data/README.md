@@ -1,6 +1,4 @@
 payments center
-
-
 bitcoin
 arrow_drop_down_black_24dp
 Activity
