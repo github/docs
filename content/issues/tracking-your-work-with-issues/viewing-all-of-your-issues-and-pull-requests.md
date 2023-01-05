@@ -23,6 +23,7 @@ Your issues and pull request dashboards are available at the top of any page. On
   ![The global pull requests and issues dashboards](/assets/images/help/overview/issues_and_pr_dashboard.png)
 2. Optionally, choose a filter or [use the search bar to filter for more specific results](/articles/using-search-to-filter-issues-and-pull-requests).
   ![List of pull requests with the "Created" filter selected](/assets/images/help/overview/pr_dashboard_created.png)
+3. If you would like to bookmark a link, or share the link with others so that they can see their own pull requests, you can use `https://github.com/pulls`
 
 ## Further reading
 
