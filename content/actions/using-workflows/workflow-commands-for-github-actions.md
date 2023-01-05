@@ -733,7 +733,7 @@ steps:
 {% ifversion actions-save-state-set-output-envs %}
 ## Setting an output parameter
 
-Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
+Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. Multi-line output values can be set with the same technique used in the [Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings) section to define multi-line environment variables.
 
 {% bash %}
 
