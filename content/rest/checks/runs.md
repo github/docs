@@ -1,6 +1,6 @@
 ---
 title: Check Runs
-intro: ''
+intro: 'Use the REST API to manage check runs.'
 versions:
   fpt: '*'
   ghes: '*'
