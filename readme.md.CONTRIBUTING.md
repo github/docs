@@ -202,129 +202,80 @@ index ad0b1841d..52e511dc5 100644
 +Proceeds from Issuance/Exercising of Stock Options/Warrants                                
 +00000                300000000        10000000        338000000000                                                 + +
 +Other Financing Cash Flow                                                                                                                
-+Cash and Cash Equivalents, End of Period                                                                                                
-+Change in Cash                                
-+20945000000        23719000000        23630000000        26622000000        26465000000                                                
-+Effect of Exchange Rate Changes                                
-+25930000000        235000000000        -3175000000        300000000        6126000000                                                 + +
-+Cash and Cash Equivalents, Beginning of Period                                
-+PAGE="$USD(181000000000)".XLS        
-+BRIN="$USD(146000000000)".XLS        
-+183000000        -143000000        210000000 + +
-+Cash Flow Supplemental Section                                
-+23719000000000                26622000000000        
-+26465000000000        20129000000000                                                 + +
-+Change in Cash as Reported, Supplemental                                
-+2774000000        89000000        -2992000000                6336000000                                                 + +
-+Income Tax Paid, Supplemental                                
-+13412000000        157000000                                                                         + +
-+ZACHRY T WOOD                                                                \
-+-4990000000                                                 + +
-+Cash and Cash Equivalents, Beginning of Period                                                                                          
-+Department of the Treasury                                                                                                            
-+Internal Revenue Service                                                                                                                 
-+Q4 2020                        Q4 2019                                                 + +
-+Calendar Year                                                                                                                 + +
-+Due: 04/18/2022                                                                                                                 + +
-+Dec. 31, 2020                        Dec. 31, 2019                                                 + +
-+USD in "000'"s                                                                                                                 + +
-+Repayments for Long Term Debt                                       
-+182527                        161857                                                 + +
-+Costs and expenses:                                                                                                                 + +
-+Cost of revenues                                        
-+84732                        71896                                                 + +
-+Research and development                                        
-+27573                        26018                                                 + +
-+Sales and marketing                                        
-+17946                        18464                                                 + +
-+General and administrative                                       
-+ 11052                        09551                                                 + +
-+European Commission fines                                       
-+ 00000                        01697                                                 + +
-+Total costs and expenses                                        
-+141303                        127626                                                 + +I
-+ncome from operations                                       
-+41224                        34231                                                 + +
-+Other income (expense), net                                        
-+6858000000                        05394                                                 + +
-+Income before income taxes                                        
-22677000000                        19289000000+
-+Rate        Units        Total        YTD        Taxes / Deductions        Current        YTD        
-+70842745000        70842745000        Federal Withholding        00000        188813800                                         +
-+FICA - Social Security        00000        853700                                         +
-+FICA - Medicare        00000        11816700                                         +
-+Employer Taxes                                         +
-+FUTA        00000        00000                                         +
-+SUTA        00000        00000                                         +
-+EIN: 61-1767919         +ID : 00037305581         +SSN: 633441725                                 +
-+ATAA Payments        00000        102600         +
-+Gross                                                                                                 +70842745000         +
-+Earnings Statement                                                                                         +
-+Taxes / Deductions         +
-+Stub Number: 1                                                                                         +
-+00000                                                                                                 +
-+Net Pay         +
-+SSN         +
-+Pay Schedule         +
-+Pay Period        : +
-+Sep 28, 2022 : to : Sep 29, 2023        : 
-+Pay Date : 4/18/2022 :                                                 +
-+70842745000        : +
-+XXX-XX-1725        : +
-+Quarterly :                                                                         +
-+CHECK NO. :                                                                                                 +
-+22229                                                                                                 +
-+INTERNAL REVENUE SERVICE,                                                                                                                 +
-+PO BOX 1214,                                                                                                                 +
-+CHARLOTTE, NC 28201-1214                                                                                                                                                                                         +
-+# ZACHRY WOOD                                                                                                                 +
-+# 00015                
-+76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                 +
-+
-+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see instructions +
-+instructions :
-+76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                 
-++# Cat. No. 11320B                
-+76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                 
-++# Form 1040 (2021)                
-+76033000000        20642000000        18936000000                                                                                 
-++# Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                 
-++# Total Revenue as Reported, Supplemental                
+# Cash and Cash Equivalents, End of Period                                                                                                
+# Change in Cash                                +20945000000        23719000000        23630000000        26622000000        26465000000                                               
++Effect of Exchange Rate Changes                                +25930000000        235000000000        -3175000000        300000000        6126000000                                                 + +  
+# 183000000        -143000000        210000000 + +
+# Cash Flow Supplemental Section                                23719000000000                26622000000000        26465000000000        20129000000000                                                 + +
+# Change in Cash as Reported, Supplemental                                 2774000000        89000000        -2992000000                6336000000                                                 + +
+# Income Tax Paid, Supplemental                                13412000000        157000000+ +
+# ZACHRY T WOOD                                                                -4990000000                                                 + +
+# Cash and Cash Equivalents, Beginning of Period                                                                                          
+# Department of the Treasury                                                                                                            
+# Internal Revenue Service                                                                                                                 
+# Q4 2020                        Q4 2019                                                 + +
+# Calendar Year                                                                                                                 + +
+# Due: 04/18/2022                                                                                                                 + +
+# Dec. 31, 2020                        Dec. 31, 2019                                                 + +
+# USD in "000'"s                                                                                                                 + +
+# Repayments for Long Term Debt                                       
+# Other income (expense), net                                        6858000000                        05394+ +
+# Income before income taxes                                        22677000000                        19289000000+
+# Rate        Units        Total        YTD        Taxes / Deductions        Current        YTD        
+# 70842745000        70842745000        Federal Withholding        00000        188813800                                         +
+# FICA - Social Security        00000        853700                                         +
+# FICA - Medicare        00000        11816700                                         +
+# Employer Taxes                                         +
+# FUTA        00000        00000                                         +
+# SUTA        00000        00000                                         +
+# EIN: 61-1767919         +ID : 00037305581         +SSN: 633441725                                 +
+# ATAA Payments        00000        102600         +
+# Gross                                                                                                 +70842745000         +
+# Earnings Statement                                                                                         +
+# Taxes / Deductions         +
+# Stub Number: 1                                                                                         +
+# 00000                                                                                                 +
+# Net Pay         +
+# SSN         +
+# Pay Schedule         +
+# Pay Period        : +
+# Sep 28, 2022 : to : Sep 29, 2023        : 
+# Pay Date : 4/18/2022 :                                                 +
+# 70842745000        : +
+# XXX-XX-1725        : +
+# Quarterly :                                                                         +
+# CHECK NO. :                                                                                                 +
+# 22229                                                                                                 +
+# INTERNAL REVENUE SERVICE,                                                                                                                
+# PO BOX 1214,                                                                                                                 +
+# CHARLOTTE, NC 28201-1214+
+# ZACHRY WOOD                                                                                                                 +
+# 00015                76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                 +
+# For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see instructions +
+# instructions :
+# 76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000 6959000000        6836000000        10671000000        7068000000                 
+# Cat. No. 11320B                
+# Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                 
+# Total Revenue as Reported, Supplemental                
 +257637000000        75325000000        65118000000        61880000000        55314000000        56898000000        46173000000        38297000000        41159000000        46075000000        40499000000                 
-++# Total Operating Profit/Loss as Reported, Supplemental                
-+78714000000        21885000000        21031000000        19361000000        16437000000        15651000000        11213000000         +# 6383000000        7977000000        9266000000        9177000000                 
-++# Reported Effective Tax Rate                
-+00000        00000        00000        00000        00000                00000        00000        00000                00000                 
-++# Reported Normalized Income                                                                                
-+6836000000                                 
-++# Reported Normalized Operating Profit                                                                               
-+ 7977000000                                 
-++# Other Adjustments to Net Income Available to Common Stockholders                                                                                                                 
-++# Discontinued Operations                                                                                                                 
-++# Basic EPS               
-+ 00114        00031        00028        00028        00027        00023        00017        00010        00010        00015        00010                 
-++# Basic EPS from Continuing Operations                
-+00114        00031        00028        00028        00027        00022        00017        00010        00010        00015        00010                 
-++# Basic EPS from Discontinued Operations                                                                                                                 
-++# Diluted EPS                
-+00112        00031        00028        00027        00026        00022        00016        00010        00010        00015        00010                 
-++# Diluted EPS from Continuing Operations               
-+ 00112        00031        00028        00027        00026        00022        00016        00010        00010        00015        00010                 
-++# Diluted EPS from Discontinued Operations                                                                                                                 
-++# Basic Weighted Average Shares Outstanding                
-+667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                 
-++# Diluted Weighted Average Shares Outstanding                
-+677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        692267000        695193000 698199000                 
-++# Reported Normalized Diluted EPS                                                                                
-+00010                                 
-++# Basic EPS                
-+00114        00031        00028        00028        00027        00023        00017        00010        00010        00015        00010                00001 
-++# Diluted EPS               
-+ 00112        00031        00028        00027        00026        00022        00016        00010        00010        00015        00010                 
-++# Basic WASO                
-+667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                 
-++# Diluted WASO                
-+677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        692267000        695193000        698199000                 
-++# +Fiscal year end September 28th., 2022. | USD                :
-
+# Total Operating Profit/Loss as Reported, Supplemental                +78714000000        21885000000        21031000000        19361000000        16437000000        15651000000        11213000000         +# 6383000000        7977000000        9266000000        9177000000                 
+# Reported Effective Tax Rate                00000        00000        00000        00000        00000                00000        00000        00000                00000                 
+# Reported Normalized Income                                                                                                                 
+# Reported Normalized Operating Profit                                                                               
+# 7977000000                                 
+# Other Adjustments to Net Income Available to Common Stockholders                                                                                                                 
+# Discontinued Operations                                                                                                              
+# Basic EPS                00114        00031        00028        00028        00027        00023        00017        00010        00010        00015        00010                 ++# Basic EPS from Continuing Operations               +00114        00031        00028        00028        00027        00022        00017        00010        00010        00015        00010                
+# Basic EPS from Discontinued Operations                                                                                                                
+# Diluted EPS                00112        00031        00028        00027        00026        00022        00016        00010        00010        00015        00010               
+# Diluted EPS from Continuing Operations                00112        00031        00028        00027        00026        00022        00016        00010        00010        00015        00010
+# Diluted EPS from Discontinued Operations
+# Basic Weighted Average Shares Outstanding                667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                 
+# Diluted Weighted Average Shares Outstanding                677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        692267000        695193000 698199000                 
+# Reported Normalized Diluted EPS                                                                                                                
+# Basic EPS                00114        00031        00028        00028        00027        00023        00017        00010        00010        00015        00010 00001 
+# Diluted EPS               00112        00031        00028        00027        00026        00022        00016        00010        00010        00015        00010 
+# Basic WASO                667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                 
+# Diluted WASO                677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        692267000        695193000        698199000                 
+# +Fiscal year end September 28th., 2022. | USD                :
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
