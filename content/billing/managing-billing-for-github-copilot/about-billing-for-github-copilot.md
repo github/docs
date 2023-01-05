@@ -16,8 +16,9 @@ For more information about managing {% data variables.product.prodname_copilot %
 
 Before starting a paid subscription for a personal account, you can set up a one-time 60-day trial to evaluate {% data variables.product.prodname_copilot %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the 60 days, the trial will automatically convert to a paid subscription. You can cancel your {% data variables.product.prodname_copilot %} trial at any time during the 60 days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot %} until the 60-day trial period ends. For more information, see "[Managing your {% data variables.product.prodname_copilot_for_individuals %} subscription](/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription)."
 
-## Pricing for {% data variables.product.prodname_copilot_for_individuals %}
+{% data reusables.copilot.tp-users-trial-eligibility %}
 
+## Pricing for {% data variables.product.prodname_copilot_for_individuals %}
 
 The {% data variables.product.prodname_copilot %} subscription is available on a monthly or yearly cycle. If you choose a monthly billing cycle, you will be billed $10 per calendar month. If you choose a yearly billing cycle, you will be billed $100 per year. You can modify your billing cycle at any time, and the modification will be reflected from the start of your next billing cycle.
 
