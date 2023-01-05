@@ -19,7 +19,7 @@ shortTitle: Sponsor a contributor
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-## About sponsorships
+## About sponsorships ...
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -55,7 +55,7 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 ## Tax information
 
-As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:-
 
 - Transaction date
 - Amount paid
@@ -75,7 +75,7 @@ Before you can sponsor an account, you must have a verified email address. For m
    - To sponsor an organization, to the right of the organization's name, click **Sponsor**.
      ![Sponsor button](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization.
-  ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+  ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png).
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}
