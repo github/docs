@@ -1,39 +1,21 @@
 # GitHub Docs <!-- omit in toc --> 
- 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
-
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
-
 Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
-
 ## Contributing
-
 See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project. 
-
-We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
-
-On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
-
+We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code
+On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes
 <img src="./assets/images/contribution_cta.png" width="400">
-
 For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
-
 If you're looking for a way to contribute, you can scan through our [existing issues](https://github.com/github/docs/issues) for something to work on. When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
-
 ### Join us in discussions
-
 We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
-
 ### And that's it!
-
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
-
 That's how you can easily become a member of the GitHub Documentation community. :sparkles:
-
 ## READMEs
-
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
-
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
 - [content/rest/README.md](content/rest/README.md)
@@ -47,15 +29,10 @@ In addition to the README you're reading right now, this repo includes other REA
 - [script/README.md](script/README.md)
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
-
 ## License
-
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
-
 All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
-
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
-
 ## Thanks :purple_heart:Ahaava :<3 :diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
 index ad0b1841d..52e511dc5 100644
 --- a/.github/workflows/ci.yml
@@ -64,17 +41,17 @@ index ad0b1841d..52e511dc5 100644
            GLOG_logtostderr=1 GLOG_vmodule=rdb_load=1,rdb_save=2,snapshot=2 ctest -V -L DFLY
            ./dragonfly_test  --mem_defrag_threshold=0.05 # trying to catch issue with defrag
            # GLOG_logtostderr=1 GLOG_vmodule=transaction=1,engine_shard_set=1 CTEST_OUTPUT_ON_FAILURE=1 ninja server/test
-+Federal 941 Deposit Report + +ADP +Report Range 5/4/2022 - 6/4/2022                                        00519                                                                         
-+88-1303491        State ID: 00037305581        SSN: 633-44-1725        00000                                                                                         
++Federal 941 Deposit Report + +ADP +Report Range 5/4/2022 - 6/4/2022                                        00519
++88-1303491        State ID: 00037305581        SSN: 633-44-1725        00000
 +Employee Number: 3 
 +Description        Amount                                                        
 +5/4/2022 - 6/4/2022                                                 
-+Payment Amount (Total)        9246754678763                                                        Display All                                              
-+1. Social Security (Employee + Employer)                        26662                                                                                       
-+2. Medicare (Employee + Employer)                        861193422444                                        Hourly                                              
-+3. Federal Income Tax Return Over-payment 1040-ES Refundded Refund Refunding                        8385561229657                                        00000                                                 
++Payment Amount (Total)        9246754678763                                                        Display All
++1. Social Security (Employee + Employer)                        26662
++2. Medicare (Employee + Employer)                        861193422444                                        Hourly
++3. Federal Income Tax Return Over-payment 1040-ES Refundded Refund Refunding                        8385561229657n 00000
 +Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.  
-++Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.                                                                                                                 
+++Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax.
 +Employer Customized Report + +# +ADP + +Report Range5/4/2022 - 6/4/2022        88-1656496        state ID: 633441725        Ssn :XXXXX1725        State:         All        Local ID: 00037305581               
 +226770000000000                                         
 +EIN:                                                                                                                 
@@ -85,25 +62,25 @@ index ad0b1841d..52e511dc5 100644
 +transaction description                                                                                                              +
 +Wages, Tips and Other Compensation                22662983361014                                               
 + Tips                                                 
-+Taxable SS Wages                215014                                                5105000                                              
++Taxable SS Wages                215014                                                5105000
 +Taxable SS Tips                00000                                                                                                 
 +Taxable Medicare Wages                22662983361014                
 +Salary               
 + Vacation hourly              
 +  OT                                                
-+Advanced EIC Payment                00000                3361014                                                                           
++Advanced EIC Payment                00000                3361014
 +Federal Income Tax Withheld                8385561229657                
 +Bonus                00000                00000                                                
-+Employee SS Tax Withheld                13331                00000                Other Wages 1                Other Wages 2                                                 
++Employee SS Tax Withheld                13331                00000                Other Wages 1                Other Wages 2
 +Employee Medicare Tax Withheld                532580113436                
 +Total                00000                00000                                                
 +State Income Tax Withheld                00000                
 +22662983361014                                                                             
-+Local Income Tax Withheld + +Customized Employer Tax Report                00000                Deduction Summary                                                                              
-+Description                Amount                Health Insurance                                                                                 
-+Employer SS Tax + +Employer Medicare Tax                13331                00000                                                                                
-+ +Federal Unemployment Tax                328613309009                Tax Summary                                                                               
-+ + +State Unemployment Tax                00442                
++Local Income Tax Withheld + +Customized Employer Tax Report                00000                Deduction Summary
++Description                Amount                Health Insurance
++Employer SS Tax + +Employer Medicare Tax                13331                00000
++Federal Unemployment Tax                328613309009                Tax Summary
++State Unemployment Tax                00442                
 +Federal Tax        00007                        Total Tax                                                 
 ++Customized Deduction Report                00840                $8,385,561,229,657@3,330.90                
 +Local Tax                                                                 
@@ -123,21 +100,19 @@ index ad0b1841d..52e511dc5 100644
 +This Definitive Proxy Statement and any other relevant materials that will be filed with the SEC will be available free of charge at the SEC’s website at www.sec.gov
 + In addition, the Definitive Proxy Statement (when available) and other relevant documents will also be available, without + +charge, by directing a request by mail to Attn: Investor Relations, 
 +Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California, 94043 or by contacting investor-relations@abc.xyz. The Definitive Proxy Statement and other relevant documents will also be available on the Company’s 
-+Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.                                                                                                                 +                                                                                                                 
++Investor Relations website at https://abc.xyz/investor/other/annual-meeting/.+
 +The Company and its directors and certain of its executive officers may be consideredno participants in the solicitation of proxies with respect to the proposals under the Definitive Proxy Statement under the rules of the SEC. 
 +Additional information regarding the participants in the proxy  solicitations and a description of their direct and indirect interests, by security holdings or otherwise, also will be included in the Definitive Proxy Statement
-+ and other relevant materials to be filed with the SEC when they become available.                                .        9246754678763                                                                         
++ and other relevant materials to be filed with the SEC when they become available.                                .        9246754678763
 +3/6/2022 at 6:37 PM                                                                                                             
-+Q4 2021                   Q3 2021                Q2 2021                Q1 2021               Q4 2020                                                 +                                                                                                                 
++Q4 2021                   Q3 2021                Q2 2021                Q1 2021               Q4 202+
 +GOOGL_income-statement_Quarterly_As_Originally_Reported                                 
 +24934000000        25539000000        37497000000        31211000000        30818000000
-+
-+                                                 +                                 +
-+24934000000        25539000000        21890000000        19289000000        22677000000                                                 + +
++24934000000        25539000000        21890000000        19289000000        22677000000                                                 + 
 +Cash Flow from Operating Activities, Indirect                                
-+24934000000        25539000000        21890000000        19289000000        22677000000                                                 + +
++24934000000        25539000000        21890000000        19289000000        22677000000                                                 + 
 +Net Cash Flow from Continuing Operating Activities, Indirect                               
-+ 20642000000        18936000000        18525000000        17930000000        15227000000                                                 + +
++ 20642000000        18936000000        18525000000        17930000000        15227000000                                                
 +Cash Generated from Operating Activities                               
 + 6517000000        3797000000        4236000000        2592000000        5748000000                                                 + 
 +Income/Loss before Non-Cash Adjustment                                
@@ -153,18 +128,17 @@ index ad0b1841d..52e511dc5 100644
 +Amortization, Non-Cash Adjustment                                1
 +616000000        -1287000000        379000000        1100000000        1670000000                                                 + +
 +Stock-Based Compensation, Non-Cash Adjustment                                -
-+2478000000        -2158000000        -2883000000        -4751000000        -3262000000                                                 + +
++2478000000        -2158000000        -2883000000        -4751000000        -3262000000                                                 
 +Taxes, Non-Cash Adjustment                               
-+ -2478000000        -2158000000        -2883000000        -4751000000        -3262000000                                                 + 
++ -2478000000        -2158000000        -2883000000        -4751000000        -3262000000                                                
 ++Investment Income/Loss, Non-Cash Adjustment                                
-+-14000000        64000000        -8000000        -255000000        392000000               
-+                                
++-14000000        64000000        -8000000        -255000000        392000000                                             
 + Gain/Loss on Financial + +Instruments, Non-Cash Adjustment                                
 +-2225000000        2806000000        -871000000        -1233000000        1702000000                                                 + +
 +Other Non-Cash Items                                -
 +5819000000        -2409000000        -3661000000        2794000000        -5445000000                                                 + +
 +Changes in Operating Capital       
-+ -5819000000        -2409000000        -3661000000        2794000000        -5445000000                                                 + +
++ -5819000000        -2409000000        -3661000000        2794000000        -5445000000                                                 +
 +Change in Trade and Other Receivables                                
 +-399000000        -1255000000        -199000000        7000000        -738000000                                                 + +
 +Change in Trade/Accounts Receivable                               
@@ -196,19 +170,19 @@ index ad0b1841d..52e511dc5 100644
 +Purchase/Sale of Business, Net                                
 +-4348000000        -3360000000        -3293000000        2195000000        -1375000000                                                 + +
 +Purchase/Acquisition of Business                                
-+-40860000000        -35153000000        -24949000000        -37072000000        -36955000000                                                 + +
-+Purchase/Sale of Investments, Net                                                                                                                 + 
++-40860000000        -35153000000        -24949000000        -37072000000        -36955000000                                             
++Purchase/Sale of Investments, Net                                                                                                        
 ++Purchase of Investments                                
 +36512000000        31793000000        21656000000        39267000000        35580000000                                                 + 
 ++100000000        388000000        23000000        30000000        -57000000                                                 + +
 +Sale of Investments                                                                                                                 + +
-+Other Investing Cash Flow                                        -15254000000                                                                         + +
++Other Investing Cash Flow                                        -15254000000                                                           
 +Purchase/Sale of Other Non-Current Assets, Net                               
-+ -16511000000        -15254000000        -15991000000        -13606000000        -9270000000                                                 + +
++ -16511000000        -15254000000        -15991000000        -13606000000        -9270000000                                             
 +Sales of Other Non-Current Assets                                
-+-16511000000        -12610000000        -15991000000        -13606000000        -9270000000                                                 + +
++-16511000000        -12610000000        -15991000000        -13606000000        -9270000000                                              
 +Cash Flow from Financing Activities                                ]
-+-13473000000        -12610000000        -12796000000        -11395000000        -7904000000                                                 + +
++-13473000000        -12610000000        -12796000000        -11395000000        -7904000000                                              
 +Cash Flow from Continuing Financing Activities                                
 +13473000000                -12796000000        -11395000000        -7904000000                                                 + +
 +Issuance of/Payments for Common 343 sec cvxvxvcclpddf wears
@@ -222,15 +196,15 @@ index ad0b1841d..52e511dc5 100644
 +6250000000        -6392000000        6699000000        900000000        00000                                                 + +
 +Issuance of/Repayments for Long Term Debt, Net                                
 +6365000000        -2602000000        -7741000000        -937000000        -57000000                                                 + +
-+Proceeds from Issuance of Long Term Debt                                                                                                                 + +
++Proceeds from Issuance of Long Term Debt                                                                                                
 +Repayments for Long Term Debt                                
 +2923000000                -2453000000        -2184000000        -1647000000                                                 + +
 +Proceeds from Issuance/Exercising of Stock Options/Warrants                                
 +00000                300000000        10000000        338000000000                                                 + +
-+Other Financing Cash Flow                                                                                                                 + +
-+Cash and Cash Equivalents, End of Period                                                                                                                 + +
++Other Financing Cash Flow                                                                                                                
++Cash and Cash Equivalents, End of Period                                                                                                
 +Change in Cash                                
-+20945000000        23719000000        23630000000        26622000000        26465000000                                                 + +
++20945000000        23719000000        23630000000        26622000000        26465000000                                                
 +Effect of Exchange Rate Changes                                
 +25930000000        235000000000        -3175000000        300000000        6126000000                                                 + +
 +Cash and Cash Equivalents, Beginning of Period                                
@@ -246,9 +220,9 @@ index ad0b1841d..52e511dc5 100644
 +13412000000        157000000                                                                         + +
 +ZACHRY T WOOD                                                                \
 +-4990000000                                                 + +
-+Cash and Cash Equivalents, Beginning of Period                                                                                                                 + +
-+Department of the Treasury                                                                                                                 + +
-+Internal Revenue Service                                                                                                                 + + +
++Cash and Cash Equivalents, Beginning of Period                                                                                          
++Department of the Treasury                                                                                                            
++Internal Revenue Service                                                                                                                 
 +Q4 2020                        Q4 2019                                                 + +
 +Calendar Year                                                                                                                 + +
 +Due: 04/18/2022                                                                                                                 + +
@@ -273,24 +247,8 @@ index ad0b1841d..52e511dc5 100644
 +41224                        34231                                                 + +
 +Other income (expense), net                                        
 +6858000000                        05394                                                 + +
-+Income before income taxes                                        22677000000                        19289000000                                                 + +
-+Provision for income taxes                                           22677000000                        19289000000                                                 + + +
-+Net income                                                                   22677000000                        19289000000                                                 + +
-+
-+*include interest paid, capital obligation, and underweighting                                                                                                                 + + + +
-+
-+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)    
-+
-+
-+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)                                                                                                                 +
-+
-+*include interest paid, capital obligation, and underweighting                                                                                                                 +                                                                                                                 +
-+
-+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)                                                                                                                 +
-+
-+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)                                                                                                        '*''*'
-+
-+20210418                                                                                                 +
++Income before income taxes                                        
+22677000000                        19289000000+
 +Rate        Units        Total        YTD        Taxes / Deductions        Current        YTD        
 +70842745000        70842745000        Federal Withholding        00000        188813800                                         +
 +FICA - Social Security        00000        853700                                         +
