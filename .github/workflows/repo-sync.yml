@@ -1,11 +1,7 @@
 # The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-#
 # This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
-#
 # For more details, see https://github.com/repo-sync/repo-sync#how-it-works
-
-name: Repo Sync
-
+'#'Name :'#'A'-Sync' :repositories/dispatch-on :workslow_call :-on ::dispatch :windows-latest :spring_boot-pop_kernal'@C:\\Users\desktop :running..., :-on :background :'A'Synchrounously :''
 # **What it does**:
 #  - close-invalid-repo-sync: Close repo sync pull requests not created by Octomerger or a Hubber.
 #  - repo-sync: Syncs docs and docs-internal.
@@ -14,16 +10,13 @@ name: Repo Sync
 #  - repo-sync: To keep the open-source repository up-to-date, while still having an internal
 #    repository for sensitive work.
 # **Who does it impact**: Open-source.
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '20,50 * * * *' # Run every hour at 20 and 50 minutes after
-
 permissions:
   contents: write
   pull-requests: write
-
 jobs:
   close-invalid-repo-sync:
     name: Close invalid Repo Sync PRs
