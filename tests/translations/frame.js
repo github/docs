@@ -1,6 +1,6 @@
 import { languageKeys } from '../../lib/languages.js'
 import { blockIndex } from '../../middleware/block-robots.js'
-import { getDOM } from '../helpers/e2etest.js'
+import { getDOMCached as getDOM } from '../helpers/e2etest.js'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 

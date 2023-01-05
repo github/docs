@@ -1,6 +1,6 @@
 ---
 title: Audit log
-intro: ''
+intro: 'Use the REST API to retrieve audit logs for an enterprise.'
 versions:
   ghes: '*'
   ghec: '*'

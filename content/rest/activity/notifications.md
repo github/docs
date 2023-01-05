@@ -1,6 +1,6 @@
 ---
 title: Notifications
-intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
+intro: 'Use the REST API to manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,15 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Notifications API
+## About {% data variables.product.product_name %} notifications
 
 {% data reusables.user-settings.notifications-api-classic-pat-only %}
 
-The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+You can use the REST API to manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
-All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
+All calls to these endpoints require the `notifications` or `repo` scopes. You will need the `repo` scope to access issues and commits from their respective endpoints.
 
-Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+Notifications are returned as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
 
 Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
 
@@ -39,7 +39,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 
 ### About notification reasons
 
-When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
+These GET endpoints return a `reason` key. These `reason`s correspond to events that trigger a notification.
 
 These are the potential `reason`s for receiving a notification:
 

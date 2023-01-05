@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import slash from 'slash'
 import walk from 'walk-sync'
-import { zip, groupBy } from 'lodash-es'
+import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
 import revalidator from 'revalidator'
 import { fromMarkdown } from 'mdast-util-from-markdown'
@@ -15,7 +15,6 @@ import releaseNotesSchema from '../helpers/schemas/release-notes-schema.js'
 import learningTracksSchema from '../helpers/schemas/learning-tracks-schema.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
-import { execSync } from 'child_process'
 import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
@@ -291,70 +290,6 @@ if (!process.env.TEST_TRANSLATION) {
     ghaeReleaseNotesToLint,
     learningTracksToLint
   )
-} else {
-  // Remove this `else` when removing translations directory B504EDD0
-  // get all translated markdown or yaml files by comparing files changed to main branch
-  const changedFilesRelPaths = execSync(
-    'git -c diff.renameLimit=10000 diff --name-only origin/main',
-    { maxBuffer: 1024 * 1024 * 100 }
-  )
-    .toString()
-    .split('\n')
-    .filter((p) => p.startsWith('translations') && (p.endsWith('.md') || p.endsWith('.yml')))
-
-  // If there are no changed files, there's nothing to lint: signal a successful termination.
-  if (changedFilesRelPaths.length === 0) process.exit(0)
-
-  console.log(`Found ${changedFilesRelPaths.length} translated files.`)
-
-  const {
-    mdRelPaths = [],
-    ymlRelPaths = [],
-    ghesReleaseNotesRelPaths = [],
-    ghaeReleaseNotesRelPaths = [],
-    learningTracksRelPaths = [],
-  } = groupBy(changedFilesRelPaths, (path) => {
-    // separate the changed files to different groups
-    if (path.endsWith('README.md')) {
-      return 'throwAway'
-    } else if (path.endsWith('.md')) {
-      return 'mdRelPaths'
-    } else if (path.match(/\/data\/(variables|glossaries)\//i)) {
-      return 'ymlRelPaths'
-    } else if (path.match(/\/data\/release-notes\/enterprise-server/i)) {
-      return 'ghesReleaseNotesRelPaths'
-    } else if (path.match(/\/data\/release-notes\/github-ae/i)) {
-      return 'ghaeReleaseNotesRelPaths'
-    } else if (path.match(/\data\/learning-tracks/)) {
-      return 'learningTracksRelPaths'
-    } else {
-      // we aren't linting the rest
-      return 'throwAway'
-    }
-  })
-
-  const [
-    mdTuples,
-    ymlTuples,
-    ghesReleaseNotesTuples,
-    ghaeReleaseNotesTuples,
-    learningTracksTuples,
-  ] = [
-    mdRelPaths,
-    ymlRelPaths,
-    ghesReleaseNotesRelPaths,
-    ghaeReleaseNotesRelPaths,
-    learningTracksRelPaths,
-  ].map((relPaths) => {
-    const absPaths = relPaths.map((p) => path.join(rootDir, p))
-    return zip(relPaths, absPaths)
-  })
-
-  mdToLint = mdTuples
-  ymlToLint = ymlTuples
-  ghesReleaseNotesToLint = ghesReleaseNotesTuples
-  ghaeReleaseNotesToLint = ghaeReleaseNotesTuples
-  learningTracksToLint = learningTracksTuples
 }
 
 function formatLinkError(message, links) {

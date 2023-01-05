@@ -1,6 +1,7 @@
 ---
 title: About Dependabot version updates
 intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+product: '{% data reusables.gated-features.dependabot-version-updates %}'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot

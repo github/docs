@@ -43,9 +43,8 @@ Every time a codespace is created or restarted, it's assigned a new {% data vari
 The token's scope will vary depending on the access you have to the repository where the codespace was created:
 
 - **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you attempt to push to a private repo where you only have read access, {% data variables.product.prodname_github_codespaces %} will prompt you to create a personal fork of the repository. The token will then be updated to have read/write access to the new personal fork. 
+- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository, and the token is updated to have read and write access to the fork. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
 - **If you've authorized your codespace to access other repositories**: The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions)."
-
 
 ### Codespace connections
 
@@ -61,7 +60,7 @@ Organization owners can restrict the ability to make forward ports available pub
 
 **Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**Publicly forwarded portshin you witr organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
 
 **Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
 

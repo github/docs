@@ -65,7 +65,11 @@ Authenticating as a {% data variables.product.prodname_github_app %} lets you do
 
 To authenticate as a {% data variables.product.prodname_github_app %}, [generate a private key](#generating-a-private-key) in PEM format and download it to your local machine. You'll use this key to sign a [JSON Web Token (JWT)](https://jwt.io/introduction) and encode it using the `RS256` algorithm. {% data variables.product.product_name %} checks that the request is authenticated by verifying the token with the app's stored public key.
 
-Here's a quick Ruby script you can use to generate a JWT. Note you'll have to run `gem install jwt` before using it.
+### Generating a Json Web Token (JWT)
+
+#### Using Ruby
+
+Here's a Ruby script you can use to generate a JWT. Note you'll have to run `gem install jwt` before using it. `YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace. Make sure to enclose the values in double quotes.
 
 <a name="jwt-payload"></a>
 ```ruby
@@ -90,7 +94,41 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace. Make sure to enclose the values in double quotes.
+
+
+#### Using Python
+
+Here is a similar script for generating a JWT in Python. Note you will have to use `pip install jwt` in order to use this script. This script will prompt you for the location of your PEM file, or you can pass it as an inline argument when you execute the script. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the value in single quotes.
+
+```python{:copy}
+import jwt
+import time 
+import sys
+
+# Get PEM file path
+if len(sys.argv) > 1:
+    pem = sys.argv[1]
+else:
+    pem = input("Enter path of private PEM file: ")    
+
+# Open PEM
+with open(pem, 'r') as pem_file:
+    signing_key = pem_file.read()
+    
+payload = {
+    # Issued at time
+    'iat': int(time.time()),
+    # JWT expiration time (10 minutes maximum)
+    'exp': int(time.time()) + 600, 
+    # {% data variables.product.prodname_github_app %}'s identifier
+    'iss': 'YOUR_APP_ID' 
+}
+    
+# Create JWT
+encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
+     
+print(f"JWT:  ", encoded_jwt())
+```
 
 Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/building-github-apps/creating-a-github-app/), or at any time from the app settings page in the GitHub.com UI.
 
@@ -102,7 +140,9 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 `YOUR_JWT` is the value you must replace.
 
-The example above uses the maximum expiration time of 10 minutes, after which the API will start returning a `401` error:
+
+
+The examples above uses the maximum expiration time of 10 minutes, after which the API will start returning a `401` error:
 
 ```json
 {
