@@ -90,7 +90,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
    * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
    * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
    * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
+   * `categories` - **Optional.** Defines the categories of the workflow. These have to match to the supported categories in the [starter workflows](https://github.com/actions/starter-workflows) repository: CI, Deployments, Automation, Code Scanning or Pages.
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
 To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
