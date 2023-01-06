@@ -67,6 +67,7 @@ export default async function handleError(error, req, res, next) {
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
+      // Note that if this fails, it will swallow that error.
       return nextApp.render404(req, res)
     }
 
