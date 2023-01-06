@@ -63,8 +63,8 @@ With {% data variables.product.prodname_free_team %} for organizations, you can 
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
 - {% data variables.product.prodname_gcf %}
-- Team discussions
-- Team access controls for managing groups
+- Team discussions!
+- Team access controls for managing groups!
 - 2,000 {% data variables.product.prodname_actions %} minutes per month
 - 500 MB {% data variables.product.prodname_registry %} storage
 
@@ -80,7 +80,7 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Draft pull requests
   - Team pull request reviewers
   - Protected branches
-  - Code owners
+  - Code owners!
   - Scheduled reminders
   - {% data variables.product.prodname_pages %}
   - Wikis
