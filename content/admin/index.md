@@ -80,9 +80,9 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
   guideCards:
-    - '{% ifversion ghes > 2.22 %} /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server {% elsif ghes < 3.0 %} /admin/enterprise-management/upgrading-github-enterprise-server {% endif %}'
-    - '{% ifversion ghes > 2.22 %} /admin/packages/getting-started-with-github-packages-for-your-enterprise {% elsif ghes < 3.0 %} /admin/user-management/customizing-user-messages-for-your-enterprise {% endif %}'
-    - '{% ifversion ghes > 2.22 %} /admin/configuration/configuring-advanced-security-features {% elsif ghes < 3.0 %} /admin/installation/setting-up-a-staging-instance {% endif %}'
+    - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
+    - '{% ifversion ghes %}/admin/configuration/configuring-advanced-security-features{% endif %}'
     - '{% ifversion ghae %}/admin/configuration/initializing-github-ae{% endif %}'
     - '{% ifversion ghae %}/admin/user-management/customizing-user-messages-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/github-actions/getting-started-with-github-actions-for-github-ae{% endif %}'
@@ -126,4 +126,3 @@ children:
   - /release-notes
   - /all-releases
 ---
-
