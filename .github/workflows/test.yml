@@ -51,7 +51,7 @@ jobs:
       - name: Install a local Elasticsearch for testing
         # For the sake of saving time, only run this step if the test-group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.test-group == 'content' }}
+        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
         uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
         with:
           # Make sure this matches production and `sync-search-pr.yml`
@@ -222,7 +222,7 @@ jobs:
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the test-group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.test-group == 'content' }}
+        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
         run: npm run index-test-fixtures
 
       - name: Run tests
