@@ -60561,7 +60561,7 @@
         },
         {
           "name": "CANCELLED",
-          "description": "<p>The check suite or run has been cancelled.</p>"
+          "description": "<p>The check suite or run has been canceled.</p>"
         },
         {
           "name": "FAILURE",

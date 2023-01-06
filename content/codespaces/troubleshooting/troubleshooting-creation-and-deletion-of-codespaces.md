@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting creation and deletion of codespaces
-intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
+intro: "This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues."
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: "*"
+  ghec: "*"
 type: reference
 topics:
   - Codespaces
@@ -13,6 +13,7 @@ shortTitle: Creation and deletion
 ## Creating codespaces
 
 ### No access to create a codespace
+
 {% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the options for creating a codespace are not displayed, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces)."
 
 Provided you have remaining monthly included usage of {% data variables.product.prodname_github_codespaces %} on your personal account, or you have set up a payment method and a spending limit, you will be able to create codespaces for public repositories. However, you can only create a codespace for a private repository if you can push changes to the repository, or you can fork the repository.
@@ -31,7 +32,7 @@ If you still cannot create a codespace for a repository where {% data variables.
 
 ### Codespace creation fails
 
-If the creation of a codespace fails, it's likely to be due to a temporary infrastructure issue in the cloud - for example, a problem provisioning a virtual machine for the codespace. A less common reason for failure is if it takes longer than an hour to build the container. In this case, the build is cancelled and codespace creation will fail.
+If the creation of a codespace fails, it's likely to be due to a temporary infrastructure issue in the cloud - for example, a problem provisioning a virtual machine for the codespace. A less common reason for failure is if it takes longer than an hour to build the container. In this case, the build is canceled and codespace creation will fail.
 
 {% note %}
 
@@ -50,23 +51,26 @@ If you create a codespace and the creation fails:
    {% note %}
 
    **Note**: To view the logs during a build:
-   * In the browser, click **View logs.** 
+
+   - In the browser, click **View logs.**
 
    ![Screenshot of the Codespaces web UI with the View logs link emphasized](/assets/images/help/codespaces/web-ui-view-logs.png)
 
-   * In the VS Code desktop application, click **Building codespace** in the "Setting up remote connection" that's displayed. 
+   - In the VS Code desktop application, click **Building codespace** in the "Setting up remote connection" that's displayed.
 
    ![Screenshot of VS Code with the Building codespace link emphasized](/assets/images/help/codespaces/vs-code-building-codespace.png)
 
-    {% endnote %}
-2. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+   {% endnote %}
+
+1. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 ## Deleting codespaces
 
 A codespace can only be deleted by:
-* The person who created the codespace.
-* An organization owner for an organization-owned codespace.
-* Automatic deletion at the end of a retention period. 
+
+- The person who created the codespace.
+- An organization owner for an organization-owned codespace.
+- Automatic deletion at the end of a retention period.
 
 For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)" and "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
@@ -91,6 +95,7 @@ Some more destructive options:
 ```
 This codespace is currently running in recovery mode due to a container error.
 ```
+
 Review the creation logs and update the dev container configuration as needed. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
 You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."

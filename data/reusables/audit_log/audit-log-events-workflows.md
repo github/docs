@@ -1,7 +1,7 @@
 | Action | Description
 |--------|------------
 | `workflows.approve_workflow_job` | A workflow job was approved. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."
-| `workflows.cancel_workflow_run` | A workflow run was cancelled. For more information, see "[Canceling a workflow](/actions/managing-workflow-runs/canceling-a-workflow)."
+| `workflows.cancel_workflow_run` | A workflow run was canceled. For more information, see "[Canceling a workflow](/actions/managing-workflow-runs/canceling-a-workflow)."
 | `workflows.delete_workflow_run` | A workflow run was deleted. For more information, see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
 | `workflows.disable_workflow` | A workflow was disabled.
 | `workflows.enable_workflow` | A workflow was enabled, after previously being disabled by `disable_workflow`.

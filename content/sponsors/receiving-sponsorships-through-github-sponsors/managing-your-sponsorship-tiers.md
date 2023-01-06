@@ -1,13 +1,13 @@
 ---
 title: Managing your sponsorship tiers
-intro: 'You can add a new sponsorship tier, or edit or retire an existing tier.'
+intro: "You can add a new sponsorship tier, or edit or retire an existing tier."
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: "*"
+  ghec: "*"
 type: how_to
 topics:
   - Open Source
@@ -25,10 +25,12 @@ shortTitle: Manage payment tiers
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
+
 1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
+
    - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
    - To create tiers without using with any of the draft suggestions, click **Skip this step**.
-     
+
      ![Screenshot of "Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
 
 1. Optionally, in the text boxes under "Custom amounts", type a recommended or minimum sponsorship amount. The minimum amount applies to both recurring and one-time sponsorships.
@@ -50,11 +52,11 @@ shortTitle: Manage payment tiers
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
-  {% note %}
+{% note %}
 
-  **Note:** To see ideas of tier descriptions, scroll down.
+**Note:** To see ideas of tier descriptions, scroll down.
 
-  {% endnote %}
+{% endnote %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
@@ -67,11 +69,11 @@ shortTitle: Manage payment tiers
 
 To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
 
-When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled. 
+When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is canceled.
 
 Only personal accounts, not organizations, can be invited to private repositories associated with a sponsorship tier.
 
-You can also manually add or remove collaborators to the repository, and {% data variables.product.company_short %} will not override these in the sync. 
+You can also manually add or remove collaborators to the repository, and {% data variables.product.company_short %} will not override these in the sync.
 
 ### About transfers for repositories that are added to sponsorship tiers
 
@@ -86,6 +88,7 @@ If you transfer a repository that has been added to a sponsorship tier, sponsors
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
+
 1. Select **Grant sponsors access to a private repository**.
 
    ![Screenshot of checkbox to grant sponsors access to a private repository](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)

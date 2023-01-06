@@ -1,17 +1,18 @@
 ---
 title: Pricing plans for GitHub Marketplace apps
-intro: 'Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing.'
+intro: "Pricing plans allow you to provide your app with different levels of service or resources. You can offer up to 10 pricing plans in your {% data variables.product.prodname_marketplace %} listing."
 redirect_from:
   - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: "*"
+  ghec: "*"
 topics:
   - Marketplace
 shortTitle: Pricing plans for apps
 ---
+
 {% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
 Customers purchase your app using a payment method attached to their account on {% data variables.location.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. You don't have to write code to perform billing transactions, but you will have to handle events from the {% data variables.product.prodname_marketplace %} API. For more information, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
@@ -54,6 +55,6 @@ For more information, see: "[Handling new purchases and free trials](/developers
 
 {% note %}
 
-**Note:** GitHub expects you to delete any private customer data within 30 days of a cancelled trial, beginning at the receipt of the cancellation event.
+**Note:** GitHub expects you to delete any private customer data within 30 days of a canceled trial, beginning at the receipt of the cancellation event.
 
 {% endnote %}

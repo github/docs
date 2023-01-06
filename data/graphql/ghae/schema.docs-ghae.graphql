@@ -139,7 +139,11 @@ input AddAssigneesToAssignableInput {
   """
   The id of the assignable object to add assignees to.
   """
-  assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
+  assignableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Issue", "PullRequest"]
+      abstractType: "Assignable"
+    )
 
   """
   The id of users to add as assignees.
@@ -184,7 +188,11 @@ input AddCommentInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "IssueOrPullRequest")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["Issue", "PullRequest"]
+      abstractType: "IssueOrPullRequest"
+    )
 }
 
 """
@@ -364,7 +372,11 @@ input AddLabelsToLabelableInput {
   """
   The id of the labelable object to add labels to.
   """
-  labelableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Labelable")
+  labelableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "Issue", "PullRequest"]
+      abstractType: "Labelable"
+    )
 }
 
 """
@@ -394,7 +406,11 @@ input AddProjectCardInput {
   """
   The content of the card. Must be a member of the ProjectCardItem union
   """
-  contentId: ID @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "ProjectCardItem")
+  contentId: ID
+    @possibleTypes(
+      concreteTypes: ["Issue", "PullRequest"]
+      abstractType: "ProjectCardItem"
+    )
 
   """
   The note on the card.
@@ -725,7 +741,11 @@ input AddStarInput {
   """
   The Starrable ID to star.
   """
-  starrableId: ID! @possibleTypes(concreteTypes: ["Gist", "Repository", "Topic"], abstractType: "Starrable")
+  starrableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Gist", "Repository", "Topic"]
+      abstractType: "Starrable"
+    )
 }
 
 """
@@ -755,7 +775,11 @@ input AddUpvoteInput {
   """
   The Node ID of the discussion or comment to upvote.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["Discussion", "DiscussionComment"], abstractType: "Votable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "DiscussionComment"]
+      abstractType: "Votable"
+    )
 }
 
 """
@@ -856,7 +880,7 @@ type App implements Node {
     """
     Ordering options for IP allow list entries returned.
     """
-    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+    orderBy: IpAllowListEntryOrder = { field: ALLOW_LIST_VALUE, direction: ASC }
   ): IpAllowListEntryConnection!
 
   """
@@ -1024,7 +1048,9 @@ type AssignedEvent implements Node {
   Identifies the user who was assigned.
   """
   user: User
-    @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+    @deprecated(
+      reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC."
+    )
 }
 
 """
@@ -2420,7 +2446,7 @@ enum CheckConclusionState {
   ACTION_REQUIRED
 
   """
-  The check suite or run has been cancelled.
+  The check suite or run has been canceled.
   """
   CANCELLED
 
@@ -2781,7 +2807,7 @@ enum CheckRunState {
   ACTION_REQUIRED
 
   """
-  The check run has been cancelled.
+  The check run has been canceled.
   """
   CANCELLED
 
@@ -3239,7 +3265,11 @@ input ClearLabelsFromLabelableInput {
   """
   The id of the labelable object to clear the labels from.
   """
-  labelableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Labelable")
+  labelableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "Issue", "PullRequest"]
+      abstractType: "Labelable"
+    )
 }
 
 """
@@ -3294,7 +3324,11 @@ input CloneProjectInput {
   """
   The owner ID to create the project under.
   """
-  targetOwnerId: ID! @possibleTypes(concreteTypes: ["Organization", "Repository", "User"], abstractType: "ProjectOwner")
+  targetOwnerId: ID!
+    @possibleTypes(
+      concreteTypes: ["Organization", "Repository", "User"]
+      abstractType: "ProjectOwner"
+    )
 }
 
 """
@@ -3345,7 +3379,11 @@ input CloneTemplateRepositoryInput {
   """
   The ID of the owner for the new repository.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "RepositoryOwner")
+  ownerId: ID!
+    @possibleTypes(
+      concreteTypes: ["Organization", "User"]
+      abstractType: "RepositoryOwner"
+    )
 
   """
   The Node ID of the template repository.
@@ -3800,7 +3838,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     """
     Ordering options for pull requests.
     """
-    orderBy: PullRequestOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: PullRequestOrder = { field: CREATED_AT, direction: ASC }
   ): PullRequestConnection
 
   """
@@ -3988,7 +4026,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     """
     Ordering options for deployments returned from the connection.
     """
-    orderBy: DeploymentOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: DeploymentOrder = { field: CREATED_AT, direction: ASC }
   ): DeploymentConnection
 
   """
@@ -4606,7 +4644,7 @@ type CommitContributionsByRepository {
     """
     Ordering options for commit contributions returned from the connection.
     """
-    orderBy: CommitContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: CommitContributionOrder = { field: OCCURRED_AT, direction: DESC }
   ): CreatedCommitContributionConnection!
 
   """
@@ -5158,7 +5196,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedIssueContributionConnection!
 
   """
@@ -5254,7 +5292,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestContributionConnection!
 
   """
@@ -5305,7 +5343,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestReviewContributionConnection!
 
   """
@@ -5350,7 +5388,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedRepositoryContributionConnection!
 
   """
@@ -5635,17 +5673,26 @@ input CreateAttributionInvitationInput {
   """
   The Node ID of the owner scoping the reattributable data.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  ownerId: ID!
+    @possibleTypes(
+      concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"]
+    )
 
   """
   The Node ID of the account owning the data to reattribute.
   """
-  sourceId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  sourceId: ID!
+    @possibleTypes(
+      concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"]
+    )
 
   """
   The Node ID of the account which may claim the data.
   """
-  targetId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  targetId: ID!
+    @possibleTypes(
+      concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"]
+    )
 }
 
 """
@@ -6291,7 +6338,11 @@ input CreateIpAllowListEntryInput {
   """
   The ID of the owner for which to create the new IP allow list entry.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID!
+    @possibleTypes(
+      concreteTypes: ["App", "Enterprise", "Organization"]
+      abstractType: "IpAllowListOwner"
+    )
 }
 
 """
@@ -6541,7 +6592,11 @@ input CreateProjectInput {
   """
   The owner ID to create the project under.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "Repository", "User"], abstractType: "ProjectOwner")
+  ownerId: ID!
+    @possibleTypes(
+      concreteTypes: ["Organization", "Repository", "User"]
+      abstractType: "ProjectOwner"
+    )
 
   """
   A list of repository IDs to create as linked repositories for the project
@@ -6709,7 +6764,11 @@ input CreateRepositoryInput {
   """
   The ID of the owner for the new repository.
   """
-  ownerId: ID @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "RepositoryOwner")
+  ownerId: ID
+    @possibleTypes(
+      concreteTypes: ["Organization", "User"]
+      abstractType: "RepositoryOwner"
+    )
 
   """
   When an organization is specified as the owner, this ID identifies the team
@@ -6988,7 +7047,9 @@ type CreatedIssueContributionEdge {
 """
 Represents either a issue the viewer can access or a restricted contribution.
 """
-union CreatedIssueOrRestrictedContribution = CreatedIssueContribution | RestrictedContribution
+union CreatedIssueOrRestrictedContribution =
+    CreatedIssueContribution
+  | RestrictedContribution
 
 """
 Represents the contribution a user made on GitHub by opening a pull request.
@@ -7070,7 +7131,9 @@ type CreatedPullRequestContributionEdge {
 """
 Represents either a pull request the viewer can access or a restricted contribution.
 """
-union CreatedPullRequestOrRestrictedContribution = CreatedPullRequestContribution | RestrictedContribution
+union CreatedPullRequestOrRestrictedContribution =
+    CreatedPullRequestContribution
+  | RestrictedContribution
 
 """
 Represents the contribution a user made by leaving a review on a pull request.
@@ -7239,7 +7302,9 @@ type CreatedRepositoryContributionEdge {
 """
 Represents either a repository the viewer can access or a restricted contribution.
 """
-union CreatedRepositoryOrRestrictedContribution = CreatedRepositoryContribution | RestrictedContribution
+union CreatedRepositoryOrRestrictedContribution =
+    CreatedRepositoryContribution
+  | RestrictedContribution
 
 """
 Represents a mention made by one issue or pull request to another.
@@ -7344,7 +7409,8 @@ input DeleteBranchProtectionRuleInput {
   """
   The global relay id of the branch protection rule to be deleted.
   """
-  branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
+  branchProtectionRuleId: ID!
+    @possibleTypes(concreteTypes: ["BranchProtectionRule"])
 
   """
   A unique identifier for the client performing the mutation.
@@ -8972,7 +9038,7 @@ type Discussion implements Comment & Deletable & Labelable & Lockable & Node & R
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 
   """
@@ -9672,7 +9738,8 @@ input DismissRepositoryVulnerabilityAlertInput {
   """
   The Dependabot alert ID to dismiss.
   """
-  repositoryVulnerabilityAlertId: ID! @possibleTypes(concreteTypes: ["RepositoryVulnerabilityAlert"])
+  repositoryVulnerabilityAlertId: ID!
+    @possibleTypes(concreteTypes: ["RepositoryVulnerabilityAlert"])
 }
 
 """
@@ -9888,7 +9955,7 @@ type Enterprise implements Node {
     """
     Ordering options for members returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
 
     """
     Only return members within the organizations with these logins
@@ -9938,7 +10005,7 @@ type Enterprise implements Node {
     """
     Ordering options for organizations returned from the connection.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The search string to look for.
@@ -10630,7 +10697,7 @@ type EnterpriseOutsideCollaboratorEdge {
     """
     Ordering options for repositories.
     """
-    orderBy: RepositoryOrder = {field: NAME, direction: ASC}
+    orderBy: RepositoryOrder = { field: NAME, direction: ASC }
   ): EnterpriseRepositoryInfoConnection!
 }
 
@@ -10670,7 +10737,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for administrators returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
 
     """
     Only return members within the organizations with these logins
@@ -10750,7 +10817,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10795,7 +10862,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The permission to find organizations for.
@@ -10835,7 +10902,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for IP allow list entries returned.
     """
-    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+    orderBy: IpAllowListEntryOrder = { field: ALLOW_LIST_VALUE, direction: ASC }
   ): IpAllowListEntryConnection!
 
   """
@@ -10886,7 +10953,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10941,7 +11008,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting to find organizations for.
@@ -10981,7 +11048,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11021,7 +11088,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11061,7 +11128,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11106,7 +11173,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11146,7 +11213,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11186,7 +11253,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11231,7 +11298,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for outside collaborators returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
 
     """
     Only return outside collaborators within the organizations with these logins
@@ -11276,7 +11343,10 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for pending enterprise administrator invitations returned from the connection.
     """
-    orderBy: EnterpriseAdministratorInvitationOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: EnterpriseAdministratorInvitationOrder = {
+      field: CREATED_AT
+      direction: DESC
+    }
 
     """
     The search string to look for.
@@ -11316,7 +11386,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for pending repository collaborator invitations returned from the connection.
     """
-    orderBy: RepositoryInvitationOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: RepositoryInvitationOrder = { field: CREATED_AT, direction: DESC }
 
     """
     The search string to look for.
@@ -11391,7 +11461,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11432,7 +11502,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11472,7 +11542,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11512,7 +11582,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -11685,7 +11755,7 @@ type EnterpriseServerInstallation implements Node {
     """
     Ordering options for Enterprise Server user accounts returned from the connection.
     """
-    orderBy: EnterpriseServerUserAccountOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseServerUserAccountOrder = { field: LOGIN, direction: ASC }
   ): EnterpriseServerUserAccountConnection!
 
   """
@@ -11715,7 +11785,10 @@ type EnterpriseServerInstallation implements Node {
     """
     Ordering options for Enterprise Server user accounts uploads returned from the connection.
     """
-    orderBy: EnterpriseServerUserAccountsUploadOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: EnterpriseServerUserAccountsUploadOrder = {
+      field: CREATED_AT
+      direction: DESC
+    }
   ): EnterpriseServerUserAccountsUploadConnection!
 }
 
@@ -11755,7 +11828,10 @@ type EnterpriseServerUserAccount implements Node {
     """
     Ordering options for Enterprise Server user account emails returned from the connection.
     """
-    orderBy: EnterpriseServerUserAccountEmailOrder = {field: EMAIL, direction: ASC}
+    orderBy: EnterpriseServerUserAccountEmailOrder = {
+      field: EMAIL
+      direction: ASC
+    }
   ): EnterpriseServerUserAccountEmailConnection!
 
   """
@@ -12144,7 +12220,7 @@ type EnterpriseUserAccount implements Actor & Node {
     """
     Ordering options for organizations returned from the connection.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The search string to look for.
@@ -14166,7 +14242,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 
   """
@@ -14363,7 +14439,9 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     """
     since: DateTime
   ): IssueTimelineConnection!
-    @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC.")
+    @deprecated(
+      reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of events, comments, commits, etc. associated with the issue.
@@ -14821,7 +14899,7 @@ type IssueContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedIssueContributionConnection!
 
   """
@@ -15599,7 +15677,7 @@ interface Labelable {
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 }
 
@@ -15918,7 +15996,11 @@ input LockLockableInput {
   """
   ID of the item to be locked.
   """
-  lockableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Lockable")
+  lockableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "Issue", "PullRequest"]
+      abstractType: "Lockable"
+    )
 }
 
 """
@@ -16290,7 +16372,7 @@ interface MemberStatusable {
     """
     Ordering options for user statuses returned from the connection.
     """
-    orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: UserStatusOrder = { field: UPDATED_AT, direction: DESC }
   ): UserStatusConnection!
 }
 
@@ -17358,7 +17440,13 @@ input MinimizeCommentInput {
   """
   subjectId: ID!
     @possibleTypes(
-      concreteTypes: ["CommitComment", "DiscussionComment", "GistComment", "IssueComment", "PullRequestReviewComment"]
+      concreteTypes: [
+        "CommitComment"
+        "DiscussionComment"
+        "GistComment"
+        "IssueComment"
+        "PullRequestReviewComment"
+      ]
       abstractType: "Minimizable"
     )
 }
@@ -22422,7 +22510,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for the returned audit log entries.
     """
-    orderBy: AuditLogOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: AuditLogOrder = { field: CREATED_AT, direction: DESC }
 
     """
     The query string to filter audit entries
@@ -22492,7 +22580,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for enterprise owners returned from the connection.
     """
-    orderBy: OrgEnterpriseOwnerOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrgEnterpriseOwnerOrder = { field: LOGIN, direction: ASC }
 
     """
     The organization role to filter by.
@@ -22538,7 +22626,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for IP allow list entries returned.
     """
-    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+    orderBy: IpAllowListEntryOrder = { field: ALLOW_LIST_VALUE, direction: ASC }
   ): IpAllowListEntryConnection!
 
   """
@@ -22589,7 +22677,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for mannequins returned from the connection.
     """
-    orderBy: MannequinOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: MannequinOrder = { field: CREATED_AT, direction: ASC }
   ): MannequinConnection!
 
   """
@@ -22619,7 +22707,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for user statuses returned from the connection.
     """
-    orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: UserStatusOrder = { field: UPDATED_AT, direction: DESC }
   ): UserStatusConnection!
 
   """
@@ -22964,7 +23052,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter discussions to only those in a specific repository.
@@ -22999,7 +23087,7 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     Ordering options for repository migrations returned.
     """
-    orderBy: RepositoryMigrationOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: RepositoryMigrationOrder = { field: CREATED_AT, direction: ASC }
 
     """
     Filter repository migrations by repository name.
@@ -25768,7 +25856,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 
   """
@@ -26143,7 +26231,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     since: DateTime
   ): PullRequestTimelineConnection!
-    @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC.")
+    @deprecated(
+      reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of events, comments, commits, etc. associated with the pull request.
@@ -26574,7 +26664,7 @@ type PullRequestContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestContributionConnection!
 
   """
@@ -27263,7 +27353,7 @@ type PullRequestReviewContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestReviewContributionConnection!
 
   """
@@ -29774,7 +29864,11 @@ input RemoveAssigneesFromAssignableInput {
   """
   The id of the assignable object to remove assignees from.
   """
-  assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
+  assignableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Issue", "PullRequest"]
+      abstractType: "Assignable"
+    )
 
   """
   The id of users to remove as assignees.
@@ -29869,7 +29963,11 @@ input RemoveLabelsFromLabelableInput {
   """
   The id of the Labelable to remove labels from.
   """
-  labelableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Labelable")
+  labelableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "Issue", "PullRequest"]
+      abstractType: "Labelable"
+    )
 }
 
 """
@@ -29990,7 +30088,11 @@ input RemoveStarInput {
   """
   The Starrable ID to unstar.
   """
-  starrableId: ID! @possibleTypes(concreteTypes: ["Gist", "Repository", "Topic"], abstractType: "Starrable")
+  starrableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Gist", "Repository", "Topic"]
+      abstractType: "Starrable"
+    )
 }
 
 """
@@ -30020,7 +30122,11 @@ input RemoveUpvoteInput {
   """
   The Node ID of the discussion or comment to remove upvote.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["Discussion", "DiscussionComment"], abstractType: "Votable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "DiscussionComment"]
+      abstractType: "Votable"
+    )
 }
 
 """
@@ -32762,7 +32868,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     """
     Ordering options for deployments returned from the connection.
     """
-    orderBy: DeploymentOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: DeploymentOrder = { field: CREATED_AT, direction: ASC }
   ): DeploymentConnection!
 
   """
@@ -32857,7 +32963,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: UPDATED_AT, direction: DESC }
   ): DiscussionConnection!
 
   """
@@ -33162,7 +33268,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
 
     """
     If provided, searches labels by name and description.
@@ -34180,7 +34286,7 @@ interface RepositoryDiscussionAuthor {
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter discussions to only those in a specific repository.
@@ -36104,7 +36210,14 @@ enum SavedReplyOrderField {
 """
 The results of a search.
 """
-union SearchResultItem = App | Discussion | Issue | Organization | PullRequest | Repository | User
+union SearchResultItem =
+    App
+  | Discussion
+  | Issue
+  | Organization
+  | PullRequest
+  | Repository
+  | User
 
 """
 A list of results that matched against a search query. Regardless of the number
@@ -37745,7 +37858,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     """
     Ordering options for user statuses returned from the connection.
     """
-    orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: UserStatusOrder = { field: UPDATED_AT, direction: DESC }
   ): UserStatusConnection!
 
   """
@@ -37886,22 +37999,26 @@ type Team implements MemberStatusable & Node & Subscribable {
   """
   What algorithm is used for review assignment for this team
   """
-  reviewRequestDelegationAlgorithm: TeamReviewAssignmentAlgorithm @preview(toggledBy: "stone-crop-preview")
+  reviewRequestDelegationAlgorithm: TeamReviewAssignmentAlgorithm
+    @preview(toggledBy: "stone-crop-preview")
 
   """
   True if review assignment is enabled for this team
   """
-  reviewRequestDelegationEnabled: Boolean! @preview(toggledBy: "stone-crop-preview")
+  reviewRequestDelegationEnabled: Boolean!
+    @preview(toggledBy: "stone-crop-preview")
 
   """
   How many team members are required for review assignment for this team
   """
-  reviewRequestDelegationMemberCount: Int @preview(toggledBy: "stone-crop-preview")
+  reviewRequestDelegationMemberCount: Int
+    @preview(toggledBy: "stone-crop-preview")
 
   """
   When assigning team members via delegation, whether the entire team should be notified as well.
   """
-  reviewRequestDelegationNotifyTeam: Boolean! @preview(toggledBy: "stone-crop-preview")
+  reviewRequestDelegationNotifyTeam: Boolean!
+    @preview(toggledBy: "stone-crop-preview")
 
   """
   The slug corresponding to the team.
@@ -39941,7 +40058,9 @@ type UnassignedEvent implements Node {
   Identifies the subject (user) who was unassigned.
   """
   user: User
-    @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+    @deprecated(
+      reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC."
+    )
 }
 
 """
@@ -40138,7 +40257,11 @@ input UnlockLockableInput {
   """
   ID of the item to be unlocked.
   """
-  lockableId: ID! @possibleTypes(concreteTypes: ["Discussion", "Issue", "PullRequest"], abstractType: "Lockable")
+  lockableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Discussion", "Issue", "PullRequest"]
+      abstractType: "Lockable"
+    )
 }
 
 """
@@ -40254,7 +40377,11 @@ input UnmarkIssueAsDuplicateInput {
   """
   ID of the issue or pull request currently considered canonical/authoritative/original.
   """
-  canonicalId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "IssueOrPullRequest")
+  canonicalId: ID!
+    @possibleTypes(
+      concreteTypes: ["Issue", "PullRequest"]
+      abstractType: "IssueOrPullRequest"
+    )
 
   """
   A unique identifier for the client performing the mutation.
@@ -40264,7 +40391,11 @@ input UnmarkIssueAsDuplicateInput {
   """
   ID of the issue or pull request currently marked as a duplicate.
   """
-  duplicateId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "IssueOrPullRequest")
+  duplicateId: ID!
+    @possibleTypes(
+      concreteTypes: ["Issue", "PullRequest"]
+      abstractType: "IssueOrPullRequest"
+    )
 }
 
 """
@@ -40327,7 +40458,13 @@ input UnminimizeCommentInput {
   """
   subjectId: ID!
     @possibleTypes(
-      concreteTypes: ["CommitComment", "DiscussionComment", "GistComment", "IssueComment", "PullRequestReviewComment"]
+      concreteTypes: [
+        "CommitComment"
+        "DiscussionComment"
+        "GistComment"
+        "IssueComment"
+        "PullRequestReviewComment"
+      ]
       abstractType: "Minimizable"
     )
 }
@@ -40491,7 +40628,8 @@ input UpdateBranchProtectionRuleInput {
   """
   The global relay id of the branch protection rule to be updated.
   """
-  branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
+  branchProtectionRuleId: ID!
+    @possibleTypes(concreteTypes: ["BranchProtectionRule"])
 
   """
   A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.
@@ -41548,7 +41686,11 @@ input UpdateIpAllowListEnabledSettingInput {
   """
   The ID of the owner on which to set the IP allow list enabled setting.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID!
+    @possibleTypes(
+      concreteTypes: ["App", "Enterprise", "Organization"]
+      abstractType: "IpAllowListOwner"
+    )
 
   """
   The value for the IP allow list enabled setting.
@@ -41628,7 +41770,11 @@ input UpdateIpAllowListForInstalledAppsEnabledSettingInput {
   """
   The ID of the owner.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID!
+    @possibleTypes(
+      concreteTypes: ["App", "Enterprise", "Organization"]
+      abstractType: "IpAllowListOwner"
+    )
 
   """
   The value for the IP allow list configuration for installed GitHub Apps setting.
@@ -42139,7 +42285,8 @@ input UpdatePullRequestReviewCommentInput {
   """
   The Node ID of the comment to modify.
   """
-  pullRequestReviewCommentId: ID! @possibleTypes(concreteTypes: ["PullRequestReviewComment"])
+  pullRequestReviewCommentId: ID!
+    @possibleTypes(concreteTypes: ["PullRequestReviewComment"])
 }
 
 """
@@ -42392,7 +42539,15 @@ input UpdateSubscriptionInput {
   """
   subscribableId: ID!
     @possibleTypes(
-      concreteTypes: ["Commit", "Discussion", "Issue", "PullRequest", "Repository", "Team", "TeamDiscussion"]
+      concreteTypes: [
+        "Commit"
+        "Discussion"
+        "Issue"
+        "PullRequest"
+        "Repository"
+        "Team"
+        "TeamDiscussion"
+      ]
       abstractType: "Subscribable"
     )
 }
@@ -42506,7 +42661,8 @@ type UpdateTeamDiscussionPayload {
 """
 Autogenerated input type of UpdateTeamReviewAssignment
 """
-input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") {
+input UpdateTeamReviewAssignmentInput
+  @preview(toggledBy: "stone-crop-preview") {
   """
   The algorithm to use for review assignment
   """
@@ -43469,7 +43625,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter discussions to only those in a specific repository.
@@ -43509,7 +43665,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     """
     The field to order saved replies by.
     """
-    orderBy: SavedReplyOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: SavedReplyOrder = { field: UPDATED_AT, direction: DESC }
   ): SavedReplyConnection
 
   """
@@ -44087,7 +44243,7 @@ type Workflow implements Node {
     """
     Ordering options for the connection
     """
-    orderBy: WorkflowRunOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: WorkflowRunOrder = { field: CREATED_AT, direction: DESC }
   ): WorkflowRunConnection!
 
   """
