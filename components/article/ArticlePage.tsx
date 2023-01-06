@@ -18,6 +18,7 @@ import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'components/RestRedirect'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
@@ -62,6 +63,8 @@ export const ArticlePage = () => {
   } = useArticleContext()
   const { t } = useTranslation('pages')
   const currentPath = router.asPath.split('?')[0]
+
+  const isLearningPath = !!currentLearningTrack?.trackName
 
   return (
     <DefaultLayout>
@@ -114,6 +117,7 @@ export const ArticlePage = () => {
                   </Link>
                 </div>
               )}
+              {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
               {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
@@ -131,7 +135,7 @@ export const ArticlePage = () => {
           </div>
         </ArticleGridLayout>
 
-        {currentLearningTrack?.trackName ? (
+        {isLearningPath ? (
           <div className="mt-4">
             <LearningTrackNav track={currentLearningTrack} />
           </div>
