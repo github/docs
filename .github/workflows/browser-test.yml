@@ -50,6 +50,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          lfs: true
+
+      - name: Checkout LFS objects
+        run: git lfs checkout
 
       - name: Setup Node
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516

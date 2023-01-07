@@ -49,6 +49,10 @@ jobs:
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
 
       - if: ${{ env.ENABLE_EARLY_ACCESS }}
         name: Clone docs-early-access

@@ -101,7 +101,7 @@ This file should be automatically updated, but you can also run `script/update-e
 
 ### 🚢 🛳️ 🚢 Shipping the release branch
 
-- [ ] Sync the search indices for the new release:
+- [ ] The megabranch creator should push the search index LFS objects for the public `github/docs` repo. The LFS objects were already pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects to the public repo:
   1. First navigate to the [sync search indices workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). 
   2. Then, to run the workflow with parameters, click on `Run workflow` button. 
   3. A modal will pop up where you will set the following inputs:

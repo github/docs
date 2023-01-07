@@ -58,27 +58,6 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches`](/rest/reference/actions#create-a-workflow-dispatch-event) (write)
 - [`PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable`](/rest/reference/actions#enable-a-workflow) (write)
 {% ifversion fpt or ghec or ghae %}- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/reference/actions#get-workflow-usage) (read){% endif %}
-{% ifversion fpt or ghec or ghes > 3.8 %}
-- [`GET /repos/{owner}/{repo}/actions/variables`](/rest/reference/actions#list-repository-variables) (read)
-- [`GET /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#get-a-repository-variable) (read)
-- [`POST /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#create-a-repository-variable) (write)
-- [`PATCH /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#update-a-repository-variable) (write)
-- [`DELETE /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#delete-a-repository-variable) (write)
-- [`GET /repositories/{repository_id}/environments/{environment_name}/variables`](/rest/reference/actions#list-environment-variables) (read)
-- [`GET /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#get-an-environment-variable) (read)
-- [`POST /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#create-an-environment-variable) (write)
-- [`PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#update-an-environment-variable) (write)
-- [`DELETE /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#delete-an-environment-variable) (write)
-- [`GET /orgs/{org}/actions/variables`](/rest/reference/actions#list-organization-variables) (read)
-- [`GET /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#get-an-organization-variable) (read)
-- [`POST /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#create-an-organization-variable) (write)
-- [`PATCH /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#update-an-organization-variable) (write)
-- [`DELETE /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#delete-an-organization-variable) (write)
-- [`GET /orgs/{org}/actions/variables/{variable_name}/repositories`](/rest/reference/actions#list-selected-repositories-for-an-organization-variable) (read)
-- [`PUT /orgs/{org}/actions/variables/{variable_name}/repositories`](/rest/reference/actions#set-selected-repositories-for-an-organization-variable) (write)
-- [`PUT /orgs/{org}/actions/variables/{variable_name}/repositories/{repository_id}`](/rest/reference/actions#add-selected-repository-to-an-organization-variable) (write)
-- [`DELETE /orgs/{org}/actions/variables/{variable_name}/repositories/{repository_id}`](/rest/reference/actions#remove-selected-repository-from-an-organization-variable) (write)
-{% endif %}
 
 ## Administration
 

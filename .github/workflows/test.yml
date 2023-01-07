@@ -66,6 +66,15 @@ jobs:
       # Even if if doesn't do anything
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          # Not all test suites need the LFS files. So instead, we opt to
+          # NOT clone them initially and instead, include them manually
+          # only for the test groups that we know need the files.
+          lfs: ${{ matrix.test-group == 'content' }}
+          # Enables cloning the Early Access repo later with the relevant PAT
+          # persist-credentials: 'false'
+          # ->> Do we really need this? actions/checkout doesn't use it for the nested example:
+          # https://github.com/actions/checkout#checkout-multiple-repos-nested
 
       - name: Setup node
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
@@ -162,6 +171,11 @@ jobs:
           repository: github/docs-internal.ko-kr
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
           path: translations/ko-kr
+
+      # This is necessary when LFS files where cloned but does nothing
+      # if actions/checkout was run with `lfs:false`.
+      - name: Checkout LFS objects
+        run: git lfs checkout
 
       - name: Gather files changed
         env:

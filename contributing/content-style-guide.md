@@ -612,12 +612,6 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 
-## Videos
-
-You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
-
-Videos on the GitHub Docs website must be well-produced and accessible, and conform to our content model for videos. For more information, see "[Using videos in GitHub Docs content](./videos.md)."
-
 ## Voice and tone
 
 Use clear, simple language that’s approachable and accessible for a wide range of readers. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”

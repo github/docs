@@ -296,60 +296,6 @@
         "requestPath": "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}"
       },
       {
-        "slug": "list-organization-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/variables"
-      },
-      {
-        "slug": "create-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/variables"
-      },
-      {
-        "slug": "get-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/variables/{name}"
-      },
-      {
-        "slug": "update-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/variables/{name}"
-      },
-      {
-        "slug": "delete-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/variables/{name}"
-      },
-      {
-        "slug": "list-selected-repositories-for-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
-      },
-      {
-        "slug": "set-selected-repositories-for-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
-      },
-      {
-        "slug": "add-selected-repository-to-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
-      },
-      {
-        "slug": "remove-selected-repository-from-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
-      },
-      {
         "slug": "list-artifacts-for-a-repository",
         "subcategory": "artifacts",
         "verb": "get",
@@ -662,36 +608,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/secrets/{secret_name}"
       },
       {
-        "slug": "list-repository-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables"
-      },
-      {
-        "slug": "create-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables"
-      },
-      {
-        "slug": "get-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
-      },
-      {
-        "slug": "update-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
-      },
-      {
-        "slug": "delete-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
-      },
-      {
         "slug": "list-repository-workflows",
         "subcategory": "workflows",
         "verb": "get",
@@ -756,36 +672,6 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
-      },
-      {
-        "slug": "list-environment-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
-      },
-      {
-        "slug": "create-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
-      },
-      {
-        "slug": "get-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
-      },
-      {
-        "slug": "update-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
-      },
-      {
-        "slug": "delete-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
       }
     ],
     "activity": [
@@ -4205,60 +4091,6 @@
         "requestPath": "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}"
       },
       {
-        "slug": "list-organization-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/variables"
-      },
-      {
-        "slug": "create-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/variables"
-      },
-      {
-        "slug": "get-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/variables/{name}"
-      },
-      {
-        "slug": "update-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/variables/{name}"
-      },
-      {
-        "slug": "delete-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/variables/{name}"
-      },
-      {
-        "slug": "list-selected-repositories-for-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
-      },
-      {
-        "slug": "set-selected-repositories-for-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
-      },
-      {
-        "slug": "add-selected-repository-to-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
-      },
-      {
-        "slug": "remove-selected-repository-from-an-organization-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
-      },
-      {
         "slug": "list-artifacts-for-a-repository",
         "subcategory": "artifacts",
         "verb": "get",
@@ -4571,36 +4403,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/secrets/{secret_name}"
       },
       {
-        "slug": "list-repository-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables"
-      },
-      {
-        "slug": "create-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables"
-      },
-      {
-        "slug": "get-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
-      },
-      {
-        "slug": "update-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
-      },
-      {
-        "slug": "delete-a-repository-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
-      },
-      {
         "slug": "list-repository-workflows",
         "subcategory": "workflows",
         "verb": "get",
@@ -4665,36 +4467,6 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
-      },
-      {
-        "slug": "list-environment-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
-      },
-      {
-        "slug": "create-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
-      },
-      {
-        "slug": "get-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
-      },
-      {
-        "slug": "update-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
-      },
-      {
-        "slug": "delete-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
       }
     ],
     "activity": [
